@@ -261,7 +261,9 @@ class erLhcoreClassLHCMobile {
     }
 
     public static function chatTransferred($params) {
-            self::chatStarted(array('chat' => $params['chat'], 'msg' => $params['msg'], 'user_id' => $params['transfer']->transfer_to_user_id));
+        if (isset($params['chat']) && $params['chat'] instanceof erLhcoreClassModelChat) {
+            self::chatStarted(array('chat' => $params['chat'], 'msg' => (isset($params['msg']) ? $params['msg'] : ''), 'user_id' => $params['transfer']->transfer_to_user_id));
+        }
     }
 
     public static function chatStarted($params) {

@@ -64,5 +64,6 @@ $ViewList['view'] = array(
 $FunctionList['configuration'] = array('explain' => 'Allow operator to configure views');
 $FunctionList['use'] = array('explain' => 'Allow operator to use views');
 $FunctionList['use_chat'] = array('explain' => 'Allow operator to use views for chats');
+$FunctionList['use_mail'] = array('explain' => 'Allow operator to use views for mails');
 
 ?>

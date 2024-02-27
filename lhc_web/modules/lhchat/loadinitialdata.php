@@ -21,7 +21,7 @@ $departmentList = array();
 $dwFilters = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_filters', '{}', false, false, true),true);
 $filterDep = [];
 
-foreach (['actived','departmentd','unreadd','pendingd','operatord','closedd','mcd','botd','subjectd','department_online'] as $list) {
+foreach (['actived','departmentd','unreadd','pendingd','operatord','closedd','mcd','botd','subjectd','pendingmd','activemd','alarmmd','mmd','department_online'] as $list) {
     if (isset($dwFilters[$list]) && !empty($dwFilters[$list])) {
         $filterDep = array_unique(array_merge($filterDep,explode("/",$dwFilters[$list])));
     }
@@ -177,6 +177,30 @@ if (is_array($Params['user_parameters_unordered']['chatgopen']) && !empty($Param
     }
 }
 
+$chatmDel = array();
+$chatmOpen = array();
+
+if (is_array($Params['user_parameters_unordered']['chatmopen']) && !empty($Params['user_parameters_unordered']['chatmopen'])) {
+
+    $originalIds = $Params['user_parameters_unordered']['chatmopen'];
+
+    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['chatmopen']);
+    $chats = erLhcoreClassModelMailconvConversation::getList(array('filterin' => array('id' => $Params['user_parameters_unordered']['chatmopen'])));
+
+    // Delete any old chat if it exists
+    $deleteKeys = array_diff($originalIds, array_keys($chats));
+    foreach ($deleteKeys as $chat_id) {
+        $chatmDel[] = (int)$chat_id;
+    }
+
+    foreach ($chats as $chat) {
+        $chatmOpen[] = array(
+            'id' => $chat->id,
+            'subject' => erLhcoreClassDesign::shrt($chat->subject_front,10,'...',30,ENT_QUOTES)
+        );
+    }
+}
+
 $columns = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('popup_content','position','conditions','enabled','variable'), 'sort' => 'position ASC, id ASC','filter' => array('enabled' => 1)));
 
 $columnsAdd = array();
@@ -227,6 +251,8 @@ $response = array(
     'track_activity' => $trackActivity,
     'cgdel' => $chatgDel,
     'cgopen' => $chatgOpen,
+    'cmdel' => $chatmDel,
+    'cmopen' => $chatmOpen,
     'cdel' => $chatDel,
     'copen' => $chatOpen,
     'timeout_activity' => $activityTimeout,

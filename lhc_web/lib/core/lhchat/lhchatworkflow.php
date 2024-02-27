@@ -612,6 +612,98 @@ class erLhcoreClassChatWorkflow {
         return $purgedChatsNumber;
     }
 
+    public static function autoAssignMail(& $chat, $department, $params = array())
+    {
+        if (is_object($department) && $department->active_mail_balancing == 1 && ($department->max_ac_dep_mails == 0 || $department->active_mails_counter < $department->max_ac_dep_mails) && ($chat->user_id == 0 || ($department->max_timeout_seconds_mail > 0 && $chat->tslasign < time()-$department->max_timeout_seconds_mail)) ){
+
+            $isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
+
+            $db = ezcDbInstance::get();
+
+            try {
+
+                $db->beginTransaction();
+
+                // Lock chat record for update untill we finish this procedure
+                erLhcoreClassChat::lockDepartment($department->id, $db);
+
+                if ($chat->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING && ($chat->user_id == 0 || ($department->max_timeout_seconds_mail > 0 && $chat->tslasign < time()-$department->max_timeout_seconds_mail))) {
+
+                    $condition = '(active_mails + pending_mails)';
+
+                    if ($department->max_active_mails > 0) {
+                        $appendSQL = " AND ((max_mails = 0 AND {$condition} < :max_active_chats) OR (max_mails > 0 AND {$condition} < max_mails))";
+                    } else {
+                        $appendSQL = " AND ((max_mails > 0 AND {$condition} < max_mails) OR (max_mails = 0))";
+                    }
+
+                    if (!isset($params['include_ignored_users']) || $params['include_ignored_users'] == false) {
+                        $appendSQL .= " AND exclude_autoasign_mails = 0";
+                    }
+
+                    // Allow limit by provided user_ids
+                    // Usefull for extension which has custom auto assign workflow
+                    if (isset($params['user_ids'])) {
+                        if (empty($params['user_ids'])) {
+                            return array('status' => erLhcoreClassChatEventDispatcher::STOP_WORKFLOW, 'user_id' => 0);
+                        }
+
+                        $appendSQL .= ' AND `lh_userdep`.`user_id` IN (' . implode(', ',$params['user_ids']) . ')';
+                    }
+
+                    $sql = "SELECT user_id FROM lh_userdep WHERE last_accepted_mail < :last_accepted_mail AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND user_id != :user_id {$appendSQL} ORDER BY last_accepted_mail ASC LIMIT 1";
+
+                    $db = ezcDbInstance::get();
+                    $stmt = $db->prepare($sql);
+                    $stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
+                    $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+                    $stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
+                    $stmt->bindValue(':last_accepted_mail',(time() - $department->delay_before_assign_mail),PDO::PARAM_INT);
+
+                    //
+                    if ($department->max_active_mails > 0) {
+                        $stmt->bindValue(':max_active_chats',$department->max_active_mails,PDO::PARAM_INT);
+                    }
+
+                    $stmt->execute();
+
+                    $user_id = $stmt->fetchColumn();
+
+                    if ($user_id > 0) {
+
+                        $previousMessage = '';
+
+                        // Update previously assigned operator statistic
+                        if ($chat->user_id > 0) {
+                            erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+                            $userOld = erLhcoreClassModelUser::fetch($chat->user_id);
+                            $previousMessage = '[' . $chat->user_id . '] ' . $userOld->name_support . ' '.  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','did not accepted mail in time.') . ' ';
+                        }
+
+                        $chat->tslasign = time();
+                        $chat->user_id = $user_id;
+                        $chat->updateThis(array('update' => array('tslasign','user_id')));
+
+                        erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, time(), '_mail');
+
+                        // Update fresh user statistic
+                        erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+                        $userData = erLhcoreClassModelUser::fetch($chat->user_id);
+                        erLhcoreClassMailconvWorkflow::logInteraction($previousMessage . $userData->name_support . ' [' . $userData->id.'] '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','was assigned as a mail owner from auto assignment workflow'), $userData->name_support, $chat->id);
+                    }
+                }
+
+                $db->commit();
+
+            } catch (Exception $e) {
+                $db->rollback();
+                throw $e;
+            }
+        }
+    }
+
     public static function autoAssign(& $chat, $department, $params = array()) {
 
         if (is_object($department) && $department->active_balancing == 1 && ($department->max_ac_dep_chats == 0 || $department->active_chats_counter < $department->max_ac_dep_chats) && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds)) ){

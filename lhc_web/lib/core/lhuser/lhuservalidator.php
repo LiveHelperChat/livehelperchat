@@ -492,6 +492,9 @@ class erLhcoreClassUserValidator {
             'exclude_autoasign' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
+            'exclude_autoasign_mails' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
             'remove_closed_chats' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
@@ -510,10 +513,17 @@ class erLhcoreClassUserValidator {
             'no_scroll_bottom' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
+            'auto_accept_mail' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'chat_text_rows' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 2, 'max_range' => 50)
+
 			),
             'maximumChats' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'int'
+			),
+            'maximumMails' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int'
 			),
             'remove_close_timeout' => new ezcInputFormDefinitionElement(
@@ -555,6 +565,12 @@ class erLhcoreClassUserValidator {
             $result['auto_preload'] = 0;
 		}
 
+		if ( $form->hasValidData( 'auto_accept_mail' ) && $form->auto_accept_mail == true ) {
+            $result['auto_accept_mail'] = 1;
+		} else {
+            $result['auto_accept_mail'] = 0;
+		}
+
 		if ( $form->hasValidData( 'autoAccept' ) && $form->autoAccept == true ) {
             $result['auto_accept'] = 1;
 		} else {
@@ -585,10 +601,22 @@ class erLhcoreClassUserValidator {
             $result['exclude_autoasign'] = 0;
 		}
 
+		if ( $form->hasValidData( 'exclude_autoasign_mails' ) && $form->exclude_autoasign_mails == true ) {
+            $result['exclude_autoasign_mails'] = 1;
+		} else {
+            $result['exclude_autoasign_mails'] = 0;
+		}
+
 		if ( $form->hasValidData( 'maximumChats' )) {
             $result['max_chats'] = $form->maximumChats;
 		} else {
             $result['max_chats'] = 0;
+		}
+
+		if ( $form->hasValidData( 'maximumMails' )) {
+            $result['max_mails'] = $form->maximumMails;
+		} else {
+            $result['max_mails'] = 0;
 		}
         
 		if ( $form->hasValidData( 'remove_close_timeout' )) {
@@ -670,7 +698,9 @@ class erLhcoreClassUserValidator {
 
         $userData->auto_accept = $params['auto_accept'];
         $userData->max_active_chats = $params['max_chats'];
+        $userData->max_active_mails = $params['max_mails'];
         $userData->exclude_autoasign = $params['exclude_autoasign'];
+        $userData->exclude_autoasign_mails = $params['exclude_autoasign_mails'];
         $userData->pswd_updated = time();
 
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.new_user', array('userData' => & $userData, 'errors' => & $Errors));

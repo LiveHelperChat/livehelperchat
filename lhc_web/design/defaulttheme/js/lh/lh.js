@@ -49,6 +49,33 @@ __webpack_public_path__ = window.WWW_DIR_LHC_WEBPACK;
                 }});
 			},
 
+
+            previewMail : function(chat_id,event) {
+                var keyword = '',navigatorList = '';
+                prevChatId = 0, nextChatId = 0;
+
+                if (event) {
+                    keyword = typeof event.getAttribute('data-keyword') !== 'undefined' ? event.getAttribute('data-keyword') : '';
+
+                    if (event.classList.contains('preview-list')){
+                        $('.preview-list').removeClass('bg-current');
+                        $(event).addClass('bg-current');
+                    }
+
+                    navigatorList = this.attachNavigator(chat_id, event);
+
+                }
+
+				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'mailconv/previewmail/' + chat_id + '?keyword=' + (keyword || '') + navigatorList,
+                    'showcallback' : function() {
+                        document.addEventListener("keyup", showPreviewClickListener);
+                    },
+                    'hidecallback' : function(){
+                        document.removeEventListener("keyup", showPreviewClickListener);
+                        ee.emitEvent('unloadMailChat', ['mc'+chat_id,'preview']);
+                }});
+			},
+
             attachNavigator : function(chat_id, event) {
                 var navigatorLink = '';
 
@@ -73,6 +100,7 @@ __webpack_public_path__ = window.WWW_DIR_LHC_WEBPACK;
 
                 return navigatorLink;
             },
+
 
           	previewChatArchive : function(archive_id, chat_id, event) {
                 var keyword = '',navigatorList = '';

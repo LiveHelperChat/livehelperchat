@@ -1566,6 +1566,7 @@
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerHour['byday'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),'\''.$hour.'\'';$key++; endforeach;?>],
             datasets: [{
+                yAxisID: 'y-axis-1',
                 type: 'line',
                 backgroundColor: '#36c',
                 borderColor: '#36c',
@@ -1574,6 +1575,7 @@
                 data: [<?php $key = 0; foreach ($numberOfChatsPerHour['byday'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),'\'' . round($chatsNumber,2) . '\'';$key++; endforeach;?>]
             }<?php if (isset($numberOfChatsPerHour['bydaymax'])) : ?>,
             {
+                yAxisID: 'y-axis-2',
                 type: 'bar',
                 backgroundColor: '#89e089',
                 data: [<?php $key = 0; $timesEvent = array(); foreach ($numberOfChatsPerHour['bydaymax'] as $hour => $chatsData) : $timesEvent[] = date('Y-m-d',$chatsData['time']);echo ($key > 0 ? ',' : ''),'\'' . $chatsData['total_records'] . '\'';$key++; endforeach;?>],
@@ -1588,6 +1590,7 @@
             data: barChartData,
             options: {
                 responsive: true,
+                stacked: false,
                 legend: {
                     display : false,
                     position: 'top',
@@ -1618,11 +1621,20 @@
                             autoSkip: false
                         }
                     }],
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+                    yAxes: [
+                        {
+                            id: 'y-axis-1',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        },
+                        {
+                            id: 'y-axis-2',
+                            ticks: {
+                                beginAtZero: true
+                            }
                         }
-                    }]
+                    ]
                 },
                 title: {
                     display: false

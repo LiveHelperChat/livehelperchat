@@ -99,17 +99,22 @@ if ($UserData->force_logout == 1) {
             <div class="row">
                 <?php if ($canChangeOnlineStatus == true) : ?>
                 <div class="col-6">
+                    <?php /*
                     <a href="#" class="dropdown-item ps-2" ng-click="lhc.changeOnline($event)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>"><i id="online-offline-user" class="material-icons ng-cloak" >{{lhc.hideOnline == true ? 'flash_off' : 'flash_on'}}</i>{{lhc.hideOnline == true ? <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Offline'),ENT_QUOTES))?> : <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Online'),ENT_QUOTES))?>}}</a>
+                    */ ?>
+                    <change-online-status show_text="true" css_class="dropdown-item ps-2"></change-online-status>
                 </div>
                 <?php endif;?>
                 <?php if ($canChangeAlwaysOnline == true) : ?>
                 <div class="col-6">
-                    <a href="#" class="dropdown-item ps-2" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my persistent status to online');?>" ng-click="lhc.changeAlwaysOnline($event)"><i class="material-icons ng-cloak"  >{{lhc.hideOnline == true ? 'flash_off' : (lhc.alwaysOnline == true ? 'toggle_on' : 'toggle_off')}}</i>{{lhc.alwaysOnline == true ? <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Always online'),ENT_QUOTES))?> : <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Based on activity'),ENT_QUOTES))?>}}</a>
+                    <change-always-online></change-always-online>
+                    <?php /*<a href="#" class="dropdown-item ps-2" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my persistent status to online');?>" ng-click="lhc.changeAlwaysOnline($event)"><i class="material-icons ng-cloak"  >{{lhc.hideOnline == true ? 'flash_off' : (lhc.alwaysOnline == true ? 'toggle_on' : 'toggle_off')}}</i>{{lhc.alwaysOnline == true ? <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Always online'),ENT_QUOTES))?> : <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Based on activity'),ENT_QUOTES))?>}}</a> */?>
                 </div>
                 <?php endif; ?>
                 <?php if ($canChangeVisibilityMode == true) : ?>
                     <div class="col-12">
-                        <a href="#" class="dropdown-item ps-2" ng-click="lhc.changeVisibility($event)"><i id="vi-in-user" class="material-icons ng-cloak" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" >{{lhc.hideInvisible == true ? 'visibility_off' : 'visibility'}}</i>{{lhc.hideInvisible == true ? <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Invisible'),ENT_QUOTES))?> : <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Visible'),ENT_QUOTES))?>}}</a>
+                        <?php /*<a href="#" class="dropdown-item ps-2" ng-click="lhc.changeVisibility($event)"><i id="vi-in-user" class="material-icons ng-cloak" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible');?>" >{{lhc.hideInvisible == true ? 'visibility_off' : 'visibility'}}</i>{{lhc.hideInvisible == true ? <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Invisible'),ENT_QUOTES))?> : <?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Visible'),ENT_QUOTES))?>}}</a>*/ ?>
+                        <change-visibility-mode></change-visibility-mode>
                     </div>
                 <?php endif;?>
             </div>

@@ -23,6 +23,12 @@ $ViewList['icondetailed'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['relatedactions'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+);
+
 $ViewList['chathistory'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
@@ -226,7 +232,7 @@ $ViewList['transferchat'] = array(
 
 $ViewList['accepttransfer'] = array(
     'params' => array('transfer_id'),
-    'uparams' => array('postaction','mode'),
+    'uparams' => array('postaction','mode','scope'),
     'functions' => array( 'use' )
 );
 
@@ -244,37 +250,40 @@ $ViewList['delete'] = array(
 $ViewList['syncadmininterface'] = array(
     'params' => array(),
     'uparams' => array(
+        'mmd',
+        'mmdgroups',
+        'limitmm',
         'bcs',
         'oopu',
         'oopugroups',
         'subjectd',
         'limits',
-        'subjectd',
         'sdgroups',
         'subjectdprod',
         'subjectu',
         'sugroups',
-        'hsub','lda','bdgroups','botdprod','w','clcs','limitgc','limitb','botd','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups','adgroups','pugroups','augroups','onop', 'acs', 'mcd', 'limitmc', 'mcdprod','activeu','pendingu','topen','departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd','activedprod','unreaddprod','pendingdprod','closeddprod','psort'),
+        'limitam','pmd','pendingmu','pendingmd','pmug','amd','activemu','limitalm','activemd','almd','almug','limitpm','amug','alarmmd','alarmmu','hsub','lda','bdgroups','botdprod','w','clcs','limitgc','limitb','botd','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups','adgroups','pugroups','augroups','onop', 'acs', 'mcd', 'limitmc', 'mcdprod','activeu','pendingu','topen','departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd','activedprod','unreaddprod','pendingdprod','closeddprod','psort'),
     'ajax' => true,
     'functions' => array( 'use' ),
     'multiple_arguments' => array (
+        'mmd',
+        'mmdgroups',
         'oopu',
         'oopugroups',
-        'subjectd',
         'subjectd',
         'sdgroups',
         'subjectdprod',
         'subjectu',
         'sugroups',
-        'hsub','bdgroups','botdprod','botd','w','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups', 'adgroups', 'pugroups','augroups','mcd','operatord','mcdprod', 'activeu', 'pendingu', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd','activedprod','unreaddprod','pendingdprod','closeddprod')
+        'pmd','pendingmu','pendingmd','pmug','amd','activemu','activemd','almd','almug','amug','alarmmd','alarmmu','hsub','bdgroups','botdprod','botd','w','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups', 'adgroups', 'pugroups','augroups','mcd','operatord','mcdprod', 'activeu', 'pendingu', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd','activedprod','unreaddprod','pendingdprod','closeddprod')
 );
 
 $ViewList['loadinitialdata'] = array(
     'params' => array(),
-    'uparams' => array('chatopen','chatgopen'),
+    'uparams' => array('chatopen','chatgopen','chatmopen'),
     'ajax' => true,
     'functions' => array( 'use' ),
-    'multiple_arguments' => array('chatopen','chatgopen')
+    'multiple_arguments' => array('chatopen','chatgopen','chatmopen')
 );
 
 $ViewList['list'] = array(
@@ -720,7 +729,7 @@ $ViewList['sendchat'] = array(
 
 $ViewList['transferchatrefilter'] = array(
     'params' => array('chat_id'),
-    'uparams' => array('mode'),
+    'uparams' => array('mode','obj'),
     'functions' => array( 'use' )
 );
 
@@ -736,7 +745,7 @@ $FunctionList['singlechatwindow'] = array('explain' =>'Allow operator to use sin
 $FunctionList['allowchattabs'] = array('explain' =>'Allow operator to user chat rooms functionality');
 $FunctionList['deletechat'] = array('explain' =>'Allow operator to delete his own chats');
 $FunctionList['deleteglobalchat'] = array('explain' =>'Allow to delete all chats');
-$FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user');
+$FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user/department');
 $FunctionList['allowcloseremote'] = array('explain' =>'Allow operator to close another operator chat');
 $FunctionList['allowblockusers'] = array('explain' =>'Allow operator to block visitors');
 $FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat config');

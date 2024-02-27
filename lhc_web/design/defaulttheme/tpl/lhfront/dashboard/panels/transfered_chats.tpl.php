@@ -1,3 +1,6 @@
+<lhc-widget <?php if (isset($customCardNoId)) : ?>no_panel_id="true"<?php endif;?> data_panel_id="transfered_chats" icon_class="chat-pending" no_link="true" list_identifier="transfer_chats" type="transfer_chats" hide_filter_options="true" optionsPanel='<?php echo json_encode(array('panelid' => 'transfer_chats'))?>' www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>" expand_identifier="trchats_widget_exp" panel_list_identifier="transfer_chats-panel-list"></lhc-widget>
+
+<?php /*
 <div class="card card-dashboard card-transfered" data-panel-id="transfered_chats" ng-init="lhc.getToggleWidget('trchats_widget_exp')">
 	<div class="card-header">
         <i class="material-icons chat-pending">chat</i> <span class="d-none d-lg-inline"><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/transfered_chats.tpl.php'));?></span> ({{transfer_dep_chats.list.length}})</a>
@@ -34,7 +37,7 @@
                         		</thead>
                         		<tr ng-repeat="chat in transfer_chats.list">
                         			<td>
-                        			   <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" class="material-icons" ng-click="lhc.startChatNewWindowTransfer(chat.id,chat.nick,chat.transfer_id)">open_in_new</a><span ng-if="chat.country_code != ''"><img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{chat.country_code}}.png" alt="{{chat.country_name}}" title="{{chat.country_name}}" /></span> <a ng-click="lhc.previewChat(chat.id)" class="material-icons">info_outline</a><a ng-click="lhc.startChatTransfer(chat.id,chat.nick,chat.transfer_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Accept chat');?>">{{chat.nick}}</a>
+                        			   <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" class="material-icons" ng-click="lhc.startChatNewWindowTransfer(chat.id,chat.nick,chat.transfer_id,chat.transfer_scope)">open_in_new</a><span ng-if="chat.country_code != ''"><img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{chat.country_code}}.png" alt="{{chat.country_name}}" title="{{chat.country_name}}" /></span> <a ng-click="chat.transfer_scope == 1 ? lhc.previewMail(chat.id) : lhc.previewChat(chat.id)" class="material-icons">info_outline</a><a ng-click="lhc.startChatTransfer(chat.id,chat.nick,chat.transfer_id,chat.transfer_scope)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Accept chat');?>">{{chat.nick}}</a>
                         			</td>	
                         			<td nowrap="nowrap">
                         			   <div class="abbr-list">{{chat.time_front}}</div>
@@ -56,7 +59,9 @@
                         		</thead>
                         		<tr ng-repeat="chat in transfer_dep_chats.list">
                         			<td>
-                        			   <span ng-if="chat.country_code != ''"><img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{chat.country_code}}.png" alt="{{chat.country_name}}" title="{{chat.country_name}}" /></span><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" class="material-icons" ng-click="lhc.startChatNewWindowTransfer(chat.id,chat.nick,chat.transfer_id)">open_in_new</a><a ng-click="lhc.previewChat(chat.id)" class="material-icons">chat</a> <a ng-click="lhc.startChatTransfer(chat.id,chat.nick,chat.transfer_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Accept chat');?>">{{chat.nick}}</a>
+                        			   <span ng-if="chat.country_code != ''"><img ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{chat.country_code}}.png" alt="{{chat.country_name}}" title="{{chat.country_name}}" /></span><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window');?>" class="material-icons" ng-click="lhc.startChatNewWindowTransfer(chat.id,chat.nick,chat.transfer_id,chat.transfer_scope)">open_in_new</a>
+                                        <a ng-click="chat.transfer_scope == 1 ? lhc.previewMail(chat.id) : lhc.previewChat(chat.id)" class="material-icons">{{chat.transfer_scope == 1 ? 'mail_outline' : 'chat'}}</a>
+                                        <a ng-click="lhc.startChatTransfer(chat.id,chat.nick,chat.transfer_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Accept chat');?>">{{chat.nick}}</a>
                         			</td>	
                         			<td nowrap="nowrap">
                         			   <div class="abbr-list">{{chat.time_front}}</div>
@@ -75,5 +80,6 @@
     	</div>
 	</div>
 </div>
+*/ ?>
 
 

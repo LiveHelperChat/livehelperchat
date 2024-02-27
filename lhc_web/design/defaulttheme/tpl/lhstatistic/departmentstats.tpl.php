@@ -38,7 +38,6 @@ $modalBodyClass = 'p-1'
                             </ul>
                         </div>
                     </div>
-
                     <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Load statistic');?></h6>
                     <div class="row">
                         <div class="col-6">

@@ -26,22 +26,19 @@
         </h2>
         <div id="collapseOne-pending" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','You can make this canned message available only for certain period of times.');?></p>
-
                 <ul>
                     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours, 24 hours format, 0 - 23, minutes format 0 - 59');?></li>
                     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Your time zone');?> - <b><?php print date_default_timezone_get()?></b> <b>[<?php echo (new DateTime('now', new DateTimeZone(date_default_timezone_get())))->format('Y-m-d H:i:s') ?>]</b></li>
                 </ul>
-
                 <div class="row">
                     <div class="col-6">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Period type');?></label>
-                        <select class="form-control form-control-sm" name="AbstractInput_pnd_repetitiveness" ng-init="cannedRepeatPeriod='<?php echo isset($object->bot_configuration_array['pnd_repetitiveness']) ? $object->bot_configuration_array['pnd_repetitiveness'] : erLhcoreClassModelCannedMsg::REP_NO?>'" ng-model="cannedRepeatPeriod">
-                            <option value="<?php echo erLhcoreClassModelCannedMsg::REP_NO?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Not active');?></option>
-                            <option value="<?php echo erLhcoreClassModelCannedMsg::REP_DAILY?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Week day');?></option>
-                            <option value="<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','One time period');?></option>
-                            <option value="<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD_REP?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Annually');?></option>
+                        <select id="canned-repeat-period" class="form-control form-control-sm" name="AbstractInput_pnd_repetitiveness" >
+                            <option value="<?php echo erLhcoreClassModelCannedMsg::REP_NO?>" <?php if (isset($object->bot_configuration_array['pnd_repetitiveness']) && $object->bot_configuration_array['pnd_repetitiveness'] == erLhcoreClassModelCannedMsg::REP_NO) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Not active');?></option>
+                            <option value="<?php echo erLhcoreClassModelCannedMsg::REP_DAILY?>" <?php if (isset($object->bot_configuration_array['pnd_repetitiveness']) && $object->bot_configuration_array['pnd_repetitiveness'] == erLhcoreClassModelCannedMsg::REP_DAILY) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Week day');?></option>
+                            <option value="<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD?>" <?php if (isset($object->bot_configuration_array['pnd_repetitiveness']) && $object->bot_configuration_array['pnd_repetitiveness'] == erLhcoreClassModelCannedMsg::REP_PERIOD) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','One time period');?></option>
+                            <option value="<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD_REP?>" <?php if (isset($object->bot_configuration_array['pnd_repetitiveness']) && $object->bot_configuration_array['pnd_repetitiveness'] == erLhcoreClassModelCannedMsg::REP_PERIOD_REP) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Annually');?></option>
                         </select>
                     </div>
                     <div class="col-6">
@@ -59,10 +56,8 @@
                     </div>
                 </div>
 
-                <div class="pt-2 date-range-<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD?> date-range-<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD_REP?>" ng-show="cannedRepeatPeriod == '<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD?>' || cannedRepeatPeriod == '<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD_REP?>'">
-
-                    <p class="text-muted" ng-show="cannedRepeatPeriod == '<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD_REP?>'"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Even if you enter a year. This canned message will be active annually at the same time each year.');?></small></p>
-
+                <div class="pt-2 show-by-period show-by-period-<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD?> show-by-period-<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD_REP?> hide date-range-<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD?> date-range-<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD_REP?>">
+                    <p class="text-muted show-by-period hide show-by-period-<?php echo erLhcoreClassModelCannedMsg::REP_PERIOD_REP?>"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Even if you enter a year. This canned message will be active annually at the same time each year.');?></small></p>
                     <div class="row">
                         <div class="col-3">
                             <div class="form-group">
@@ -80,12 +75,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="pt-2 date-range-<?php echo erLhcoreClassModelCannedMsg::REP_DAILY?>" ng-show="cannedRepeatPeriod == '<?php echo erLhcoreClassModelCannedMsg::REP_DAILY?>'">
+
+                <div class="pt-2 show-by-period show-by-period-<?php echo erLhcoreClassModelCannedMsg::REP_DAILY?> hide date-range-<?php echo erLhcoreClassModelCannedMsg::REP_DAILY?>">
                     <?php foreach (erLhcoreClassDepartament::getWeekDays() as $dayShort => $dayLong) : ?>
                         <div class="row">
                             <div class="col-12">
-                                <label><input type="checkbox" ng-init="OnlineHoursDayActive<?php echo $dayShort ?>=<?php if (isset($object->bot_configuration_array['pnd_'.$dayShort]) && $object->bot_configuration_array['pnd_'.$dayShort] == 1) : ?>true<?php else : ?>false<?php endif?>" ng-model="OnlineHoursDayActive<?php echo $dayShort ?>" name="AbstractInput_pnd_<?php echo $dayShort ?>" value="1" <?php if (isset($object->bot_configuration_array['pnd_' . $dayShort]) && $object->bot_configuration_array['pnd_' . $dayShort] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo $dayLong; ?></label>
-                                <div class="row" ng-show="OnlineHoursDayActive<?php echo $dayShort ?>">
+                                <label><input type="checkbox" class="show-by-date" name="AbstractInput_pnd_<?php echo $dayShort ?>" value="1" <?php if (isset($object->bot_configuration_array['pnd_' . $dayShort]) && $object->bot_configuration_array['pnd_' . $dayShort] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo $dayLong; ?></label>
+                                <div class="row hide show-by-date-AbstractInput_pnd_<?php echo $dayShort ?>" >
                                     <div class="col-3">
                                         <div class="form-group" ng-non-bindable>
                                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Time from');?></label>

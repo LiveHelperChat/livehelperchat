@@ -206,8 +206,13 @@ if ($is_ajax == true) {
             ),
         ));
 
-        $attributes = array('online_attr_system_array','notes_intro','last_check_time_ago','visitor_tz_time','last_visit_seconds_ago','lastactivity_ago','time_on_site_front','can_view_chat','operator_user_send','operator_user_string','first_visit_front','last_visit_front','online_status','nick');
-        $attributes_remove =  array('chat','department','operator_user','notes','online_attr_system','chat_variables_array','additional_data_array','online_attr','dep_id','first_visit','message_seen_ts');
+        $attributes = [];
+        $attributes_remove = [];
+
+        if (!(isset($_GET['export']) && $_GET['export'] == 'csv')) {
+            $attributes = array('online_attr_system_array','notes_intro','last_check_time_ago','visitor_tz_time','last_visit_seconds_ago','lastactivity_ago','time_on_site_front','can_view_chat','operator_user_send','operator_user_string','first_visit_front','last_visit_front','online_status','nick');
+            $attributes_remove =  array('chat','department','operator_user','notes','online_attr_system','chat_variables_array','additional_data_array','online_attr','dep_id','first_visit','message_seen_ts');
+        }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.onlineusers_attr',array('attr' => & $attributes,'attr_remove' => & $attributes_remove));
 
@@ -220,13 +225,14 @@ if ($is_ajax == true) {
         $tpl->set('timeout_error',$timeoutError);
         $tpl->set('timeout_error_message',$timeoutErrorMessage);
         echo $tpl->fetch();
+    } elseif (isset($_GET['export']) && $_GET['export'] == 'csv' ) {
+        erLhcoreClassChatExport::exportOnlineVisitors($items);
     } else {
         header('content-type: application/json; charset=utf-8');
         echo json_encode(['list' => array_values($items), 'tt' => erLhcoreClassModule::getDifference($startTimeRequest, microtime())]);
     }
 
     erLhcoreClassModule::logSlowRequest($startTimeRequest, microtime(), $currentUser->getUserID(), ['action' => 'onlineusers']);
-
 	exit;
 }
 
@@ -239,6 +245,11 @@ $Result['path'] = array(array('title' => erTranslationClassLhTranslation::getIns
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.onlineusers_path',array('result' => & $Result));
 
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js').'"></script>';
+/*$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js').'"></script>';*/
+//$Result['require_angular'] = true;
+
+$Result['additional_footer_js'] = '<script type="module" src="'.erLhcoreClassDesign::designJSStatic('js/svelte/public/build/onlinevisitors.js').'"></script>';
+
+
 
 ?>

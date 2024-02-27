@@ -25,6 +25,7 @@
                                     <span ng-if="view.id == vctrl.currentView.id" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Live updating');?>, {{view.updated_ago || '0 s.'}}" class="float-end text-muted material-icons">update</span>
                                     <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','This view is passive and is not updated live');?>" class="text-warning material-icons float-end ms-2" ng-if="view.id != vctrl.currentView.id && view.passive">timer</span>
                                     <?php include(erLhcoreClassDesign::designtpl('lhviews/custom_type_multiinclude.tpl.php')); ?>
+                                    <span class="material-icons" ng-if="view.scope == 'mail'">mail</span>
                                     <span class="material-icons" ng-if="view.scope == 'chat'">chat</span>
                                     {{view.name}}
                                     <span class="badge pb-1 fw-normal bg-secondary" ng-if="view.total_records > 0">({{view.total_records}})</span>

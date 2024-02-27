@@ -155,8 +155,33 @@ class erLhcoreClassChatStatsResque {
         $dep->inop_chats_cnt = isset($maxChatsHard['inactive_chats']) ? $maxChatsHard['inactive_chats'] : 0;
         $dep->acop_chats_cnt = isset($maxChatsHard['active_chats']) ? $maxChatsHard['active_chats'] : 0;
 
+        $statsMails = erLhcoreClassModelMailconvConversation::getCount(array(
+            'group' => '`status`',
+            'filter' => array(
+                'dep_id' => $dep->id
+            ),
+            'filterin' => array(
+                'status' => array(
+                    erLhcoreClassModelMailconvConversation::STATUS_PENDING,
+                    erLhcoreClassModelMailconvConversation::STATUS_ACTIVE
+                )
+            )
+        ),
+            'count', false, 'count(`id`) as `total`, `status`', false, true
+        );
+
+        $dep->active_mails_counter = $dep->pending_mails_counter = 0;
+
+        foreach ($statsMails as $statsMail) {
+            if ($statsMail['status'] == erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) {
+                $dep->active_mails_counter += (int)$statsMail['total'];
+            } elseif ($statsMail['status'] == erLhcoreClassModelMailconvConversation::STATUS_PENDING) {
+                $dep->pending_mails_counter += (int)$statsMail['total'];
+            }
+        }
+
         if ($update === true) {
-            $dep->updateThis(array('update' => array('inop_chats_cnt','acop_chats_cnt','active_chats_counter','pending_chats_counter','bot_chats_counter','inactive_chats_cnt','max_load','max_load_h')));
+            $dep->updateThis(array('update' => array('pending_mails_counter','active_mails_counter','inop_chats_cnt','acop_chats_cnt','active_chats_counter','pending_chats_counter','bot_chats_counter','inactive_chats_cnt','max_load','max_load_h')));
         }
     }
 

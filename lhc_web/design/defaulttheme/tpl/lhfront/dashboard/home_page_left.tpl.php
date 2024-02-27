@@ -1,4 +1,4 @@
-<div translate="no" ng-class="{hide: rmtoggle}" class="col-2 chats-column d-flex border-right pe-0 ps-0"">
+<div translate="no" id="menu-rmtoggle" class="col-2 chats-column d-flex border-right pe-0 ps-0"">
 <?php /*col chats-column*/ ?>
     <div class="w-100 d-flex flex-column flex-grow-1">
         <div class="clearfix bg-light">
@@ -33,22 +33,22 @@
                     <?php if ($basicChatEnabled == true) : ?>
                         <li role="presentation" class="nav-item">
                             <a class="nav-link" title="<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/titles/my_chats.tpl.php'));?>" href="#sub-tabs-my-assigned" aria-controls="sub-tabs-my-assigned" role="tab" data-bs-toggle="tab" aria-selected="true">
-                                <i class="material-icons chat-active">account_box</i><span class="text-muted fs11 fw-bold">({{my_chats.list.length}}{{my_chats.list.length == 10 ? '+' : ''}})</span>
+                                <i class="material-icons chat-active">account_box</i><span class="text-muted fs11 fw-bold"></span>
                             </a>
                         </li>
                         <li role="presentation" class="nav-item">
                             <a class="nav-link" href="#sub-tabs-pending" title="<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/titles/pending_chats.tpl.php'));?>" aria-controls="sub-tabs-pending" role="tab" data-bs-toggle="tab" aria-selected="true">
-                                <i class="material-icons chat-pending">chat</i><span class="text-muted fs11 fw-bold">({{pending_chats.list.length}}{{pending_chats.list.length == 10 ? '+' : ''}})</span>
+                                <i class="material-icons chat-pending">chat</i><span class="text-muted fs11 fw-bold"></span>
                             </a>
                         </li>
                         <li role="presentation" class="nav-item">
                             <a class="nav-link" href="#sub-tabs-active" title="<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/active_chats.tpl.php'));?>" aria-controls="sub-tabs-active" role="tab" data-bs-toggle="tab" aria-selected="true">
-                                <i class="material-icons chat-active">chat</i><span class="text-muted fs11 fw-bold">({{active_chats.list.length}}{{active_chats.list.length == 10 ? '+' : ''}})</span>
+                                <i class="material-icons chat-active">chat</i><span class="text-muted fs11 fw-bold"></span>
                             </a>
                         </li>
                         <li role="presentation" class="nav-item">
                             <a class="nav-link" href="#sub-tabs-bot" title="<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/bot_chats.tpl.php'));?>" aria-controls="sub-tabs-bot" role="tab" data-bs-toggle="tab" aria-selected="true">
-                                <i class="material-icons chat-active">android</i><span class="text-muted fs11 fw-bold">({{bot_chats.list.length}}{{bot_chats.list.length == lhc.limitb ? '+' : ''}})</span>
+                                <i class="material-icons chat-active">android</i><span class="text-muted fs11 fw-bold"></span>
                             </a>
                         </li>
                     <?php endif;?>
@@ -60,39 +60,42 @@
                     <div id="tabs-dashboard"></div>
 
                     <?php if ($currentUser->hasAccessTo('lhgroupchat','use')) : ?>
-                        <div class="border-top border-bottom bg-light card-header">
-                            <div class="text-muted"><i class="material-icons">list</i><span class="fs13 fw-bold" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Group chats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Grp.')?></span>
-                                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('group_chat_widget_exp')" class="fs24 float-end material-icons exp-cntr">{{lhc.toggleWidgetData['group_chat_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
-                            </div>
-                        </div>
 
-                        <div ng-if="lhc.toggleWidgetData['group_chat_widget_exp'] !== true">
-                            <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/group_chats.tpl.php'));?>
-                        </div>
+                        <?php
+                        $rightPanelMode = true;
+                        $customCardClass = "border-top border-bottom bg-light";
+                        $customCardNoDuration = true;
+                        $customCardTitleClass = "fs14";
+                        $customCardNoFilter = true;
+                        $customCardNoId = true;
+                        ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/group_chat.tpl.php'));?>
+                        <?php unset($rightPanelMode);unset($customCardClass);unset($customCardNoDuration);unset($customCardNoFilter);unset($customCardNoId); ?>
+
                     <?php endif;?>
 
                 </div>
 
                 <?php if ($basicChatEnabled == true && $left_list_option == 0) : ?>
                     <div role="tabpanel" class="tab-pane" id="sub-tabs-my-assigned">
-                        <?php $rightPanelMode = true; $hideCardHeader = true; ?>
+                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/my_chats_panel.tpl.php'));?>
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="sub-tabs-pending">
-                        <?php $rightPanelMode = true; $hideCardHeader = true; ?>
+                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/pending_panel.tpl.php'));?>
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="sub-tabs-active">
-                        <?php $rightPanelMode = true; $hideCardHeader = true; ?>
+                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/active_panel.tpl.php'));?>
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="sub-tabs-bot">
-                        <?php $rightPanelMode = true; $hideCardHeader = true; ?>
+                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bot_chats.tpl.php'));?>
-                        <?php unset($rightPanelMode); unset($hideCardHeader); ?>
+                        <?php unset($rightPanelMode); unset($hideCardHeader);unset($customCardNoCollapse);unset($customCardNoId); ?>
                     </div>
                 <?php endif; ?>
             </div>

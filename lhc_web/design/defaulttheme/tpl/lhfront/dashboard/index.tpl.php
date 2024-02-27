@@ -83,18 +83,20 @@ $columnSize = 12 / $columnsTotal;
                             <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/transfered_chats.tpl.php'));?>
                     <?php endif;?>
                     
-                <?php elseif ($wiget == 'closed_chats') : ?>
-                
-                    <?php if ($online_chat_enabled_pre == true && $closedTabEnabled == true) : ?>                
-                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/closed_chats.tpl.php'));?>
-                    <?php endif;?>
-                    
-                <?php elseif ($wiget == 'my_chats') : ?>  
+                <?php elseif ($wiget == 'my_chats') : ?>
                   
                     <?php if ($mchatsTabEnabled == true) : $idPanelElementSet = true;?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/my_chats.tpl.php'));?>
                     <?php endif;?>
-                    
+
+                <?php elseif ($wiget == 'my_mails') : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/my_mails.tpl.php'));?>
+                <?php elseif ($wiget == 'pmails' && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_pmailsw')) : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/pmails.tpl.php'));?>
+                <?php elseif ($wiget == 'amails') : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/amails.tpl.php'));?>
+                <?php elseif ($wiget == 'malarms') : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/malarms.tpl.php'));?>
                 <?php else : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/extension_panel_multiinclude.tpl.php'));?>
                 <?php endif;?>

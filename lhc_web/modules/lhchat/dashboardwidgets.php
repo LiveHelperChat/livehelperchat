@@ -48,12 +48,22 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1)
     $supportedWidgets['unread_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Unread chats');
 }
 
-if (erLhcoreClassModelChatConfig::fetchCache('list_closed')->current_value == 1) {
-    $supportedWidgets['closed_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Closed chats');
-}
-
 $supportedWidgets['my_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','My active and pending chats');
 $supportedWidgets['bot_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Bot chats');
+
+
+if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_admin')) {
+    $supportedWidgets['my_mails'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','My active and new mails');
+    $supportedWidgets['amails'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Active mails');
+
+    if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_pmailsw')) {
+        $supportedWidgets['pmails'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','New mails');
+    }
+
+    if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_alarms')) {
+        $supportedWidgets['malarms'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Mail queue alarm');
+    }
+}
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.dashboardwidgets',array('supported_widgets' => & $supportedWidgets));
 

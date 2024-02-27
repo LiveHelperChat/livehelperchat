@@ -74,6 +74,9 @@ $modalSize = 'xl';
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Max chats');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Active chats');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Inactive chats');?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Max mails');?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Active mails');?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Pending mails');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Department');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Department group');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Assignment type');?></th>
@@ -100,6 +103,11 @@ $modalSize = 'xl';
                                 <td><?php echo $operator['max_chats'];$totalStats['max_chats'] += $operator['max_chats']?></td>
                                 <td><?php echo $operator['active_chats'];$totalStats['active_chats'] += $operator['active_chats']?></td>
                                 <td><?php echo $operator['inactive_chats'];$totalStats['inactive_chats'] += $operator['inactive_chats']?></td>
+
+                                <td><?php echo $operator['max_mails'];?></td>
+                                <td><?php echo $operator['active_mails'];?></td>
+                                <td><?php echo $operator['pending_mails'];?></td>
+
                                 <td nowrap="nowrap">
                                     <?php if ($operator['dep_id'] == 0) : ?>
                                         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','All');?> [0]

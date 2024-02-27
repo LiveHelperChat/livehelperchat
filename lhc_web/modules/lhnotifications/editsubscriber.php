@@ -1,7 +1,5 @@
 <?php
 
-include 'lib/vendor/autoload.php';
-
 $tpl = erLhcoreClassTemplate::getInstance('lhnotifications/edit.tpl.php');
 
 $subscriber =  erLhcoreClassModelNotificationSubscriber::fetch((int)$Params['user_parameters']['id']);

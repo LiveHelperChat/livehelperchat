@@ -108,6 +108,8 @@ function lh(){
     // Notifications array
     this.notificationsArray = [];
 
+    this.notificationsArrayMail = [];
+
     this.speechHandler = false;
     
     // Block synchronization till message add finished
@@ -773,6 +775,19 @@ function lh(){
         var location = this.smartTabFocus(tabs, chat_id);
     };
 
+    this.removeDialogTabMail = function(chat_id, tabs, hidetabs, internal)
+    {
+        !internal && this.channel && this.channel.postMessage({'action':'close_mail','args':{'mail_id' : chat_id}});
+
+        ee.emitEvent('unloadMailChat', [chat_id]);
+        
+        var location = this.smartTabFocus(tabs, chat_id);
+
+        setTimeout(function() {
+            window.location.hash = location;
+        },500);
+    };
+
     this.addGroupTab = function(tabs, name, chat_id, background) {
         // If tab already exits return
         if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
@@ -807,8 +822,47 @@ function lh(){
         });
     };
 
-    this.startGroupChat = function (chat_id,tabs,name, background) {
+    this.addMailTab = function(tabs, name, chat_id, background) {
+        // If tab already exits return
+        if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
+            tabs.find('> ul > li > a.active').removeClass("active");
+            tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");
+            tabs.find('> div.tab-content > div.active').removeClass('active');
+            tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');
+            ee.emitEvent('mailChatTabClicked', [chat_id.replace('mc','')]);
+            return ;
+        }
+
+        var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item"><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-bs-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i class="whatshot blink-ani d-none text-warning material-icons">whatshot</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">mail_outline</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTabMail(\''+chat_id+'\',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
+
+        tabs.find('> ul').append(contentLi);
+        var hash = window.location.hash.replace('#/','#');
+
+        var inst = this;
+
+        if (background !== true) {
+            tabs.find('> ul > li > a.active').removeClass("active");
+            tabs.find('> ul > #chat-tab-li-'+chat_id+' > a').addClass("active");
+            tabs.find('> div.tab-content > div.active').removeClass('active');
+            tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>');
+        } else {
+            tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane" id="chat-id-'+chat_id+'"></div>');
+        }
+
+        ee.emitEvent('mailChatTabLoaded', [chat_id]);
+
+        $('#chat-tab-link-'+chat_id).click(function() {
+            ee.emitEvent('mailChatTabClicked', [chat_id.replace('mc','')]);
+        });
+    };
+
+    this.startGroupChat = function (chat_id, tabs, name, background) {
         this.addGroupTab(tabs, name, 'gc'+chat_id, background);
+    }
+
+    this.startMailChat = function (chat_id, tabs, name, background) {
+        this.hideNotification(chat_id,'mail');
+        this.addMailTab(tabs, name, 'mc'+chat_id, background);
     }
 
     this.hideShowAction = function(options) {
@@ -848,6 +902,7 @@ function lh(){
         });
     }
     
+
     this.startChat = function (chat_id,tabs,name,focusTab,position) {
     	    	
     	this.removeBackgroundChat(chat_id);
@@ -1147,12 +1202,33 @@ function lh(){
         return false;
     };
 
-	this.closeActiveChatDialog = function(chat_id, tabs, hidetab)
+	this.closeActiveChatDialog = function(chat_id, tabs, hidetab, ignoreRelated)
 	{
 	    var that = this;
+        var attribute = '{}';
+
+        $('#CSChatMessage-'+chat_id).length != 0 && (attribute = $('#CSChatMessage-'+chat_id).attr('related-actions'));
+
+        if ($('#CSChatMessage-'+chat_id).length != 0 && $('#CSChatMessage-'+chat_id).attr('close-related') !== "false" && !ignoreRelated) {
+            var clsAction = $('#chat-close-action-'+chat_id);
+            clsAction.find('.close-text').text(clsAction.attr('data-loading')).parent().find('.material-icons').text('sync').addClass('lhc-spin');
+            lhc.revealModal({
+                'url': WWW_DIR_JAVASCRIPT+'chat/relatedactions/'+chat_id,
+                'loadmethod' : 'post',
+                'datapost' : attribute,
+                'backdrop': true,
+                'hidecallback' : function() {
+                    clsAction.find('.close-text').text(clsAction.find('.close-text').attr('data-original')).parent().find('.material-icons').text('close').removeClass('lhc-spin');
+                },
+                'on_empty': function() {
+                    that.closeActiveChatDialog(chat_id, tabs, hidetab, true); // If no related actions close it instantly
+                }
+            });
+            return;
+        }
 
         ee.emitEvent('angularSyncDisabled', [true]);
-	    $.postJSON(this.wwwDir + this.closechatadmin + chat_id, function (data) {
+	    $.postJSON(this.wwwDir + this.closechatadmin + chat_id, attribute, function (data) {
             ee.emitEvent('angularSyncDisabled', [false]);
 	        if (data.error == false) {
                 ee.emitEvent('angularLoadChatList');
@@ -1160,6 +1236,9 @@ function lh(){
 	            alert(data.result);
                 ee.emitEvent('angularStartChatbyId',[chat_id]);
             }
+
+            $('#myModal').modal('hide');
+
         }).fail(function(jqXHR, textStatus, errorThrown) {
             ee.emitEvent('angularSyncDisabled', [false]);
             alert('There was an error processing your request: ' + '[' + jqXHR.status + '] [' + jqXHR.statusText + '] [' + jqXHR.responseText + '] ' + errorThrown);
@@ -1373,6 +1452,31 @@ function lh(){
         });
 	};
 
+	this.startChatNewWindow = function(chat_id,name)
+	{
+	    var popupWindow = window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
+
+	    if (popupWindow !== null) {
+            popupWindow.focus();
+            var inst = this;
+            setTimeout(function(){
+                inst.syncadmininterfacestatic();
+            },1000);
+
+            ee.emitEvent('chatStartOpenWindow', [chat_id]);
+        }
+	};
+
+    this.startMailNewWindow = function(chat_id,name)
+    {
+        window.open(this.wwwDir + 'mailconv/single/'+chat_id,'mailwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=900,height=650").focus();
+        var inst = this;
+        setTimeout(function(){
+            inst.syncadmininterfacestatic();
+        },1000);
+    };
+
+
     this.startChatNewWindowArchive = function(archive_id, chat_id,name)
     {
         var popupWindow = window.open(this.wwwDir + 'chatarchive/viewarchivedchat/' + archive_id + '/' + chat_id + '/(mode)/popup','chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
@@ -1395,17 +1499,21 @@ function lh(){
 
 	this.startChatTransfer = function(chat_id,tabs,name,transfer_id, background) {
 		var inst = this;
-	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
+	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data) {
 
-            if ($('#chat-tab-link-' + chat_id).length == 0) {
-                if (background) {
-                    inst.removeSynchroChat(chat_id);
-                    inst.startChatBackground(chat_id,tabs,name)
-                } else {
-                    inst.startChat(chat_id,tabs,name);
-                }
+	        if (data.scope == 1) {
+                inst.startMailChat(chat_id,tabs,name);
             } else {
-                inst.updateVoteStatus(chat_id);
+                if ($('#chat-tab-link-' + chat_id).length == 0) {
+                    if (background) {
+                        inst.removeSynchroChat(chat_id);
+                        inst.startChatBackground(chat_id,tabs,name)
+                    } else {
+                        inst.startChat(chat_id,tabs,name);
+                    }
+                } else {
+                    inst.updateVoteStatus(chat_id);
+                }
             }
 
 	    	if (LHCCallbacks.operatorAcceptedTransfer) {
@@ -1417,37 +1525,51 @@ function lh(){
 	    });
 	};
 
-	this.startChatNewWindowTransfer = function(chat_id,name,transfer_id)
+	this.startChatNewWindowTransfer = function(chat_id, name, transfer_id, transfer_scope)
 	{
 		$.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
 			if (LHCCallbacks.operatorAcceptedTransfer) {
 	       		LHCCallbacks.operatorAcceptedTransfer(chat_id);
 	    	};
 		});
-		return this.startChatNewWindow(chat_id,name);
+
+		if (transfer_scope == 1) {
+            return this.startMailNewWindow(chat_id,name);
+        } else {
+            return this.startChatNewWindow(chat_id,name);
+        }
 	};
 
-	this.startChatNewWindowTransferByTransfer = function(chat_id, nt, background)
+	this.startChatNewWindowTransferByTransfer = function(chat_id, nt, transferScope, background)
 	{
 		var inst = this;
 		$.ajax({
 	        type: "GET",
-	        url: this.wwwDir + this.accepttransfer + chat_id+'/(mode)/chat',
+	        url: this.wwwDir + this.accepttransfer + chat_id+'/(mode)/chat/(scope)/' + transferScope,
 	        cache: false,
 	        dataType: 'json'
 	    }).done(function(data){
 
 	    	if ($('#tabs').length > 0) {
-	    	    if (typeof background !== 'undefined' && background === true) {
-                    inst.addOpenTrace('transfer_open_background');
-                    inst.startChatBackground(data.chat_id, $('#tabs'), nt);
-                } else {
+    			if (transferScope == 1) {
+                    inst.startMailChat(data.chat_id, $('#tabs'), nt);
                     window.focus();
-                    inst.addOpenTrace('transfer_open');
-                    inst.startChat(data.chat_id, $('#tabs'), nt);
-                }
+                } else {
+                    if (typeof background !== 'undefined' && background === true) {
+                        inst.addOpenTrace('transfer_open_background');
+                        inst.startChatBackground(data.chat_id, $('#tabs'), nt);
+                    } else {
+                        window.focus();
+                        inst.addOpenTrace('transfer_open');
+                        inst.startChat(data.chat_id, $('#tabs'), nt);
+                    }
+    			}
     		} else {
-    			inst.startChatNewWindow(data.chat_id,'');
+                if (transferScope == 1) {
+                    inst.startMailNewWindow(data.chat_id,'ChatMail');
+                } else {
+    			    inst.startChatNewWindow(data.chat_id,'');
+                }
     		}
 
 	    	if (LHCCallbacks.operatorAcceptedTransfer) {
@@ -1509,50 +1631,62 @@ function lh(){
         },1000);
     };
 
-	this.hideTransferModal = function(chat_id)
+	this.hideTransferModal = function(chat_id, obj)
 	{
 		var inst = this;
         setTimeout(function(){
             $('#myModal').modal('hide');
             if ($('#tabs').length > 0) {
-                inst.hideOnTransferHappen(chat_id);
+                if (obj === 'mail') {
+                    inst.removeDialogTabMail('mc'+chat_id,$('#tabs'),true)
+                } else {
+                    inst.hideOnTransferHappen(chat_id);
+                }
+            } else {
+                if (obj === 'mail') {
+                    ee.emitEvent('mailChatModified', [chat_id]);
+                }
             }
         },1000);
 	};
 
-	this.transferChat = function(chat_id)
+	this.transferChat = function(chat_id, obj)
 	{
         var inst = this;
 
 		var user_id = $('[name=TransferTo'+chat_id+']:checked').val();
 
-		$.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'user'}, function(data){
+		$.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'user', 'obj': obj}, function(data){
 			if (data.error == 'false') {
 				$('#transfer-block-'+data.chat_id).html(data.result);
-                inst.hideTransferModal(chat_id);
+                inst.hideTransferModal(chat_id, obj);
 			};
 		});
 	};
 
-	this.changeOwner = function(chat_id) {
+	this.changeOwner = function(chat_id, obj) {
         var inst = this;
         var user_id = $('#id_new_user_id').val();
-        $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id, {'type':'change_owner'}, function(data){
+        $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id, {'type' : 'change_owner','obj' : obj}, function(data){
             if (data.error == 'false') {
                 $('#transfer-block-'+data.chat_id).html(data.result);
-                inst.hideTransferModal(chat_id);
+                inst.hideTransferModal(chat_id, obj);
             };
         });
     };
 
-	this.changeDep = function(chat_id) {
+	this.changeDep = function(chat_id, obj) {
         var inst = this;
         var user_id = $('#id_new_dep_id').val();
-        $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id, {'type':'change_dep'}, function(data){
+        $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id, {'type':'change_dep','obj' : obj}, function(data){
             if (data.error == 'false') {
                 $('#transfer-block-'+data.chat_id).html(data.result);
                 $('#myModal').modal('hide');
-                inst.updateVoteStatus(chat_id);
+                if (obj === 'mail') {
+                    ee.emitEvent('mailChatModified', [chat_id]);
+                } else {
+                    inst.updateVoteStatus(chat_id);
+                }
             };
         });
     };
@@ -1583,6 +1717,48 @@ function lh(){
         lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/singleaction/'+chat_id + '/redirecttourl'});
 	};
 
+    this.setAreaAttrByCheckbox = function(chat_id, action) {
+
+        var array = [];
+        var checkboxes = document.querySelectorAll('input[name='+action+'-'+chat_id+']:checked');
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            array.push(checkboxes[i].value);
+        }
+
+        var attribute = $('#CSChatMessage-'+chat_id).attr('related-actions');
+
+        var attributeSet = {};
+
+        if (attribute) {
+            attributeSet = JSON.parse(attribute);
+        }
+
+        attributeSet[action] = array;
+
+        $('#CSChatMessage-'+chat_id).attr('related-actions', JSON.stringify(attributeSet));
+    }
+
+    this.explandCollapse = function (type, object_id, provider) {
+        var expandIcon = document.getElementById('expand-action-' + type + '-' + object_id);
+        expandIcon.innerText = expandIcon.innerText == 'expand_less' ? 'expand_more' : 'expand_less';
+        document.getElementById('lhc-list-' + type + '-' + object_id).style.display = expandIcon.innerText == 'expand_less' ? 'block' : 'none';
+
+        // Load if data not loaded yet
+        if (expandIcon.getAttribute('data-loaded') == 'false') {
+            expandIcon.setAttribute('data-loaded','true');
+            $.postJSON(this.wwwDir + provider, function(data) {
+                var elm = document.getElementById('lhc-list-' + type + '-' + object_id);
+
+                if (!elm) {
+                    return;
+                }
+
+                elm.innerHTML = data.data;
+            });
+        }
+    };
+    
 	this.redirectToURLOnline = function(online_user_id,trans) {
 		var url = prompt(trans, "");
 		if (url != null) {
@@ -1591,14 +1767,14 @@ function lh(){
 		}
 	};
 
-	this.transferChatDep = function(chat_id)
+	this.transferChatDep = function(chat_id, obj)
 	{
 		var inst = this;
 	    var user_id = $('[name=DepartamentID'+chat_id+']:checked').val();
-	    $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'dep'}, function(data){
+	    $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'dep', 'obj' : obj}, function(data){
 	        if (data.error == 'false') {
 	        	$('#transfer-block-'+data.chat_id).html(data.result);
-                inst.hideTransferModal(chat_id);
+                inst.hideTransferModal(chat_id, obj);
 	        };
 	    });
 	};
@@ -2182,7 +2358,7 @@ function lh(){
 
         ee.emitEvent('angularActionHappened',[{'type': identifier, 'chat_id': chat_id, 'msg' : message, 'nick': nick}]);
 
-		if (confLH.new_chat_sound_enabled == 1 && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'active_chats' || identifier == 'bot_chats' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
+		if (confLH.new_chat_sound_enabled == 1 && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'active_chats' || identifier == 'bot_chats' || identifier == 'pmails' || identifier == 'amails' || identifier == 'transferred_mail' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
 	    	this.soundPlayedTimes = 0;
 	        this.playNewChatAudio(identifier == 'active_chats' ? 'alert' : 'new_chat');
 	    };
@@ -2198,8 +2374,7 @@ function lh(){
 
 	    var inst = this;
 
-	    if ( (identifier == 'subject_chats' || identifier == 'active_chats' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'bot_chats' || identifier == 'pending_transfered') && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && window.Notification && window.Notification.permission == 'granted') {
-
+	    if ( (identifier == 'subject_chats' || identifier == 'active_chats' || identifier == 'pmails' || identifier == 'amails' || identifier == 'transferred_mail' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'bot_chats' || identifier == 'pending_transfered') && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && window.Notification && window.Notification.permission == 'granted') {
 			var notification = new Notification(nick, { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: message, requireInteraction : true });
 
 			notification.onclick = function () {
@@ -2212,26 +2387,51 @@ function lh(){
     	    		} else {
     	    			inst.startChatNewWindow(chat_id,'ChatRequest');
     	    		}
-    	    	} else {
-    	    		inst.startChatNewWindowTransferByTransfer(chat_id, nt);
+    	    	} else if (identifier == 'pmails' || identifier == 'amails') {
+                    if ($('#tabs').length > 0) {
+                        window.focus();
+                        inst.startMailChat(chat_id, $('#tabs'), nt);
+                    } else {
+                        inst.startMailNewWindow(chat_id,'ChatMail');
+                    }
+                } else if (identifier == 'transferred_mail') {
+                    inst.startChatNewWindowTransferByTransfer(chat_id, nt, 1);
+                 } else {
+    	    		inst.startChatNewWindowTransferByTransfer(chat_id, nt, 0);
     	    	};
     	        notification.close();
     	    };
 
     	    if (identifier != 'pending_transfered') {
-    	    	if (this.notificationsArray[chat_id] !== 'undefined') {
-    	    		 notification.close();
-    	    	}
+    	        if (identifier == 'pmails' || identifier == 'amails' || identifier == 'transferred_mail')
+                {
+                    if (this.notificationsArrayMail[chat_id] !== 'undefined') {
+                        notification.close();
+                    }
 
-    	    	this.notificationsArray[chat_id] = notification;
+                    this.notificationsArrayMail[chat_id] = notification;
+
+                } else {
+                    if (this.notificationsArray[chat_id] !== 'undefined') {
+                        notification.close();
+                    }
+
+                    this.notificationsArray[chat_id] = notification;
+                }
 			};
 	    };
 
 	    if (identifier == 'transfer_chat' && confLH.accept_chats) {
-            inst.startChatNewWindowTransferByTransfer(chat_id, nt, true);
+            inst.startChatNewWindowTransferByTransfer(chat_id, nt, 0, true);
         } else if (identifier == 'transfer_chat' && confLH.show_alert_transfer == 1) {
             if (confirm(confLH.transLation.transfered + "\n\n" + message)) {
-                inst.startChatNewWindowTransferByTransfer(chat_id, nt);
+                inst.startChatNewWindowTransferByTransfer(chat_id, nt, 0);
+			}
+        }
+
+        if (identifier == 'transferred_mail' && confLH.show_alert_transfer == 1) {
+            if (confirm(confLH.transLation.transfered + "\n\n" + message)) {
+                inst.startChatNewWindowTransferByTransfer(chat_id, nt, 1);
 			}
         }
 
@@ -2245,8 +2445,17 @@ function lh(){
     	    		} else {
     	    			inst.startChatNewWindow(chat_id,'ChatRequest');
     	    		}
+                } else if (identifier == 'pmails' || identifier == 'amails') {
+                    if ($('#tabs').length > 0) {
+                        window.focus();
+                        inst.startMailChat(chat_id, $('#tabs'), nt);
+                    } else {
+                        inst.startMailNewWindow(chat_id,'ChatMail');
+                    }
+    	    	} else if (identifier == 'transferred_mail') {
+                    inst.startChatNewWindowTransferByTransfer(chat_id, nt, 1);
     	    	} else {
-    	    		inst.startChatNewWindowTransferByTransfer(chat_id, nt);
+    	    		inst.startChatNewWindowTransferByTransfer(chat_id, nt, 0);
     	    	};
     		};
 	    };
@@ -2727,14 +2936,21 @@ function lh(){
     	} catch(e) {}
 	};
 
-	this.hideNotification = function(chat_id)
+	this.hideNotification = function(chat_id, type)
 	{
-		chat_id = parseInt(chat_id);
-		if (typeof this.notificationsArray[chat_id] !== 'undefined' && this.backgroundChats.indexOf(chat_id) == -1) {
-			this.notificationsArray[chat_id].close();
-			delete this.notificationsArray[chat_id];
-		};
+        chat_id = parseInt(chat_id);
 
+	    if (typeof type === 'undefined' || type != 'mail') {
+            if (typeof this.notificationsArray[chat_id] !== 'undefined' && this.backgroundChats.indexOf(chat_id) == -1) {
+                this.notificationsArray[chat_id].close();
+                delete this.notificationsArray[chat_id];
+            };
+        } else {
+            if (typeof this.notificationsArrayMail[chat_id] !== 'undefined') {
+                this.notificationsArrayMail[chat_id].close();
+                delete this.notificationsArrayMail[chat_id];
+            };
+        }
 		clearTimeout(this.soundIsPlaying);
 	}
 

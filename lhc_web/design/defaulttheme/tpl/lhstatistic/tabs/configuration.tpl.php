@@ -43,8 +43,19 @@
     <div class="col-4"><label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Usefull if you prefill usernames always')?>"><input type="checkbox" name="chat_chart_type[]" value="nickgroupingdatenick" <?php if (in_array('nickgroupingdatenick',$configuration['chat_statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats number grouped by date and group field')?></label></div>
 </div>
 
-<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Department statistic generation'); ?></h5>
+<h5>Default checked charts for &quot;Mail statistic&quot;</h5>
+<div class="row">
+    <div class="col-4"><label><input type="checkbox" name="chat_chart_type[]" value="mmsgperinterval" <?php if (in_array('mmsgperinterval',$configuration['chat_statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages per interval')?></label></div>
+    <div class="col-4"><label><input type="checkbox" name="chat_chart_type[]" value="mmsgperuser" <?php if (in_array('mmsgperuser',$configuration['chat_statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages per user')?></label></div>
+    <div class="col-4"><label><input type="checkbox" name="chat_chart_type[]" value="mmsgperdep" <?php if (in_array('mmsgperdep',$configuration['chat_statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages per department')?></label></div>
+    <div class="col-4"><label><input type="checkbox" name="chat_chart_type[]" value="mmintperdep" <?php if (in_array('mmintperdep',$configuration['chat_statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average duration of interactions by department')?></label></div>
+    <div class="col-4"><label><input type="checkbox" name="chat_chart_type[]" value="mmintperuser" <?php if (in_array('mmintperuser',$configuration['chat_statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average duration of interactions per user')?></label></div>
+    <div class="col-4"><label><input type="checkbox" name="chat_chart_type[]" value="mavgwaittime" <?php if (in_array('mavgwaittime',$configuration['chat_statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average wait time')?></label></div>
+    <div class="col-4"><label><input type="checkbox" name="chat_chart_type[]" value="mattrgroup" <?php if (in_array('mattrgroup',$configuration['chat_statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Messages grouped by date and group field')?></label></div>
+    <div class="col-4"><label><input type="checkbox" name="chat_chart_type[]" value="msgperhour" <?php if (in_array('msgperhour',$configuration['chat_statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Messages number per hour')?></label></div>
+</div>
 
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Department statistic generation'); ?></h5>
 <div class="row">
     <div class="col-3">
         <div class="form-group">

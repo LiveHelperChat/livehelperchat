@@ -338,20 +338,20 @@ class erLhcoreClassUserDep
         }
     }
 
-    public static function updateLastAcceptedByUser($user_id, $lastAccepted)
+    public static function updateLastAcceptedByUser($user_id, $lastAccepted, $scope = '')
     {
         $ids = self::getUserDepIds($user_id);
 
         if (!empty($ids)) {
             $db = ezcDbInstance::get();
             try {
-                $stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE id IN (' . implode(',', $ids) . ');');
+                $stmt = $db->prepare("UPDATE lh_userdep SET last_accepted{$scope} = :last_accepted WHERE id IN (" . implode(',', $ids) . ');');
                 $stmt->bindValue(':last_accepted', $lastAccepted, PDO::PARAM_INT);
                 $stmt->execute();
             } catch (Exception $e) {
                 try {
                     usleep(500);
-                    $stmt = $db->prepare('UPDATE lh_userdep SET last_accepted = :last_accepted WHERE id IN (' . implode(',', $ids) . ');');
+                    $stmt = $db->prepare("UPDATE lh_userdep SET last_accepted{$scope} = :last_accepted WHERE id IN (" . implode(',', $ids) . ');');
                     $stmt->bindValue(':last_accepted', $lastAccepted, PDO::PARAM_INT);
                     $stmt->execute();
                 } catch (Exception $e) {

@@ -7,12 +7,6 @@
  * */
 echo "Starting chat/notifications\n";
 
-if (!file_exists('lib/vendor/autoload.php')) {
-    die("'lib/vendor/autoload.php' file not found. Please run 'composer install' command.");
-}
-
-include 'lib/vendor/autoload.php';
-
 erLhcoreClassNotifications::informAboutUnreadMessages();
 
 /*

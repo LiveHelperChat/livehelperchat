@@ -743,7 +743,7 @@ class PHPMailer
      *
      * @var string
      */
-    protected $uniqueid = '';
+    public $uniqueid = '';
 
     /**
      * The PHPMailer Version number.
@@ -1076,7 +1076,7 @@ class PHPMailer
     protected function addOrEnqueueAnAddress($kind, $address, $name)
     {
         $address = trim($address);
-        $name = trim(preg_replace('/[\r\n]+/', '', $name)); //Strip breaks and trim
+        $name = trim(preg_replace('/[\r\n]+/', '', (string)$name)); //Strip breaks and trim
         $pos = strrpos($address, '@');
         if (false === $pos) {
             //At-sign is missing.
@@ -2717,7 +2717,7 @@ class PHPMailer
      *
      * @return string
      */
-    protected function generateId()
+    public function generateId()
     {
         $len = 32; //32 bytes = 256 bits
         $bytes = '';
@@ -4026,7 +4026,7 @@ class PHPMailer
      *
      * @return string
      */
-    protected function serverHostname()
+    public function serverHostname()
     {
         $result = '';
         if (!empty($this->Hostname)) {

@@ -1,5 +1,19 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/cannedmsg.tpl.php'));?>
 
+<?php if (isset($messsages_error)) : $errors = [$messsages_error];?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+<?php endif; ?>
+
+<?php if (isset($messsages_copied) || isset($messsages_skipped)) : ?>
+    <div role="alert" class="alert alert-success alert-dismissible fade show" ng-non-bindable>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <ul class="my-0 pl-3">
+            <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Copied');?> - <?php echo $messsages_copied?></li>
+            <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Skipped');?> - <?php echo $messsages_skipped?></li>
+        </ul>
+    </div>
+<?php endif; ?>
+
 <ul class="nav nav-tabs mb-3" role="tablist">
     <li role="presentation" class="nav-item"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>" class="nav-link<?php if ($tab == '' || $tab == 'cannedmsg') : ?> active<?php endif;?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Canned messages');?></a></li>
     <li role="presentation" class="nav-item"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>/(tab)/statistic" class="nav-link<?php if ($tab == 'statistic') : ?> active<?php endif;?>" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Statistic');?></a></li>
@@ -79,12 +93,15 @@
 
         <div class="btn-group" role="group" aria-label="...">
             <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?>
-                <a class="btn btn-sm btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chat/newcannedmsg')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','New canned message');?></a>
-                <button type="submit" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" name="DeleteSelected" class="btn btn-sm btn-danger"><span class="material-icons">delete</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete selected');?></button>
-                <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
-                    <button type="button" onclick="return lhc.revealModal({'title' : 'Delete all', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/4?<?php echo $appendPrintExportURL?>'})" class="btn btn-danger btn-sm"><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete all items')?> (<?php echo $pages->items_total?>)</button>
-                <?php endif; ?>
+
+            <a class="btn btn-sm btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chat/newcannedmsg')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','New canned message');?></a>
+            <button type="submit" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" name="DeleteSelected" class="btn btn-sm btn-danger"><span class="material-icons">delete</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete selected');?></button>
+            <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
+                <button type="button" onclick="return lhc.revealModal({'title' : 'Delete all', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/4?<?php echo $appendPrintExportURL?>'})" class="btn btn-danger btn-sm"><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete all items')?> (<?php echo $pages->items_total?>)</button>
             <?php endif; ?>
+
+            <?php endif; ?>
+            <button name="CopyAsEmailTemplates" type="submit" class="btn btn-sm btn-secondary"><span class="material-icons">content_copy</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Copy selected as e-mail templates');?></button>
         </div>
 
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

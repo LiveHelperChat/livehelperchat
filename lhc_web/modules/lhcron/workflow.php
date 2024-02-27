@@ -35,15 +35,43 @@ if ($assignWorkflowTimeout > 0) {
             throw $e;
         }
     }
+
+    foreach (erLhcoreClassModelMailconvConversation::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'customfilter' => ['(`dep_id` IN (SELECT `id` FROM `lh_departament` WHERE `active_mail_balancing` = 1))'], 'filterlt' => array('pnd_time' => (time() - $assignWorkflowTimeout)),'filter' => array('status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING))) as $chat) {
+        try {
+            $db->beginTransaction();
+            $chat = erLhcoreClassModelMailconvConversation::fetchAndLock($chat->id);
+            if (is_object($chat) && $chat->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING) {
+                erLhcoreClassChatWorkflow::autoAssignMail($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => true));
+            }
+            $db->commit();
+        } catch (Exception $e) {
+            $db->rollback();
+            throw $e;
+        }
+    }
 }
 
 foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat) {
     try {
         $db->beginTransaction();
-            $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
-            if (is_object($chat) && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
-                erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => false));
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
+        $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
+        if (is_object($chat) && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+            erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => false));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
+        }
+        $db->commit();
+    } catch (Exception $e) {
+        $db->rollback();
+        throw $e;
+    }
+}
+
+foreach (erLhcoreClassModelMailconvConversation::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'customfilter' => ['(`dep_id` IN (SELECT `id` FROM `lh_departament` WHERE `active_mail_balancing` = 1))'], 'filter' => array('status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING))) as $chat) {
+    try {
+        $db->beginTransaction();
+            $chat = erLhcoreClassModelMailconvConversation::fetchAndLock($chat->id);
+            if (is_object($chat) && $chat->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING) {
+                erLhcoreClassChatWorkflow::autoAssignMail($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => false));
             }
         $db->commit();
     } catch (Exception $e) {

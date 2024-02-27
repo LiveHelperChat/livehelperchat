@@ -12,6 +12,10 @@ try {
 
 }
 
+if (isset($_GET['react'])){
+    exit;
+}
+
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;
 ?>

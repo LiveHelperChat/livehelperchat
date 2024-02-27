@@ -21,7 +21,7 @@
     <tr>
         <td nowrap="">
             <a href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo $departament->id?></a>
-            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','statisticdep')) : ?><a href="#" ng-click="lhc.openModal('statistic/departmentstats/<?php echo $departament->id?>')"><?php endif; ?>
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','statisticdep')) : ?><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'statistic/departmentstats/<?php echo $departament->id?>'})"><?php endif; ?>
             <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Load statistic');?>" class="material-icons text-info">donut_large</i>
             <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','statisticdep')) : ?></a><?php endif; ?>
 

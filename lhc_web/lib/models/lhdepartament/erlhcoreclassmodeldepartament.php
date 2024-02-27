@@ -55,6 +55,7 @@ class erLhcoreClassModelDepartament {
             'nc_cb_execute' => $this->nc_cb_execute,
             'active_balancing' => $this->active_balancing,
             'max_active_chats' => $this->max_active_chats,
+            'max_active_mails' => $this->max_active_mails,
             'max_timeout_seconds' => $this->max_timeout_seconds,
             'exclude_inactive_chats' => $this->exclude_inactive_chats,
             'max_ac_dep_chats' => $this->max_ac_dep_chats,
@@ -76,7 +77,11 @@ class erLhcoreClassModelDepartament {
             'archive' => $this->archive,
             'inop_chats_cnt' => $this->inop_chats_cnt,
             'acop_chats_cnt' => $this->acop_chats_cnt,
-            'alias' => $this->alias
+            'alias' => $this->alias,
+            'active_mail_balancing' => $this->active_mail_balancing,
+            'max_ac_dep_mails' => $this->max_ac_dep_mails,
+            'max_timeout_seconds_mail' => $this->max_timeout_seconds_mail,
+            'delay_before_assign_mail' => $this->delay_before_assign_mail
         );
     }
 
@@ -289,6 +294,11 @@ class erLhcoreClassModelDepartament {
     public $nc_cb_execute = 0;
     public $active_balancing = 0;
     public $max_active_chats = 0;
+    public $max_active_mails = 0;
+    public $active_mail_balancing = 0;
+    public $max_ac_dep_mails = 0;
+    public $max_timeout_seconds_mail = 0;
+    public $delay_before_assign_mail = 0;
 
     public $max_timeout_seconds = 0;
     public $attr_int_1 = 0;

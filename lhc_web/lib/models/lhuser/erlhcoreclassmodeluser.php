@@ -37,12 +37,14 @@ class erLhcoreClassModelUser {
             'departments_ids' => $this->departments_ids,
             'chat_nickname' => $this->chat_nickname,
             'max_active_chats' => $this->max_active_chats,
+            'max_active_mails' => $this->max_active_mails,
             'auto_accept' => $this->auto_accept,
             'attr_int_1' => $this->attr_int_1,
             'attr_int_2' => $this->attr_int_2,
             'attr_int_3' => $this->attr_int_3,
             'operation_admin' => $this->operation_admin,
             'exclude_autoasign' => $this->exclude_autoasign,
+            'exclude_autoasign_mails' => $this->exclude_autoasign_mails,
             'pswd_updated' => $this->pswd_updated,
             'always_on' => $this->always_on,
             'avatar' => $this->avatar,
@@ -247,8 +249,10 @@ class erLhcoreClassModelUser {
     public $operation_admin = '';
     public $inactive_mode = 0;
     public $max_active_chats = 0;
+    public $max_active_mails = 0;
     public $auto_accept = 0;
     public $exclude_autoasign = 0;
+    public $exclude_autoasign_mails = 0;
     public $pswd_updated = 0;
     public $always_on = 0;
     public $avatar = '';

@@ -33,15 +33,23 @@ if ($Params['user_parameters_unordered']['mode'] == '' || $Params['user_paramete
         $filter['filter']['disabled'] = 0;
     }
 
-    $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
+    if ($Params['user_parameters_unordered']['obj'] == 'mail') {
+        $chat = erLhcoreClassModelMailconvConversation::fetch($Params['user_parameters']['chat_id']);
+    } else {
+        $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
+    }
 
     $tpl = erLhcoreClassTemplate::getInstance('lhchat/transfer/transferchatrefilter.tpl.php');
     $tpl->set('departments_filter', array(
         'filter' => $filter,
         'explicit' => $explicit,
         'dep_id' => $chat->dep_id,
-        'chat_id' => $chat->id
+        'chat_id' => $chat->id,
     ));
+
+    if ($Params['user_parameters_unordered']['obj'] == 'mail') {
+        $tpl->set('transferMode', 'mail');
+    }
 
     echo $tpl->fetch();
 } elseif ($Params['user_parameters_unordered']['mode'] == 'user') {
@@ -57,7 +65,11 @@ if ($Params['user_parameters_unordered']['mode'] == '' || $Params['user_paramete
 
     $form = new ezcInputForm(INPUT_POST, $definition);
 
-    $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
+    if ($Params['user_parameters_unordered']['obj'] == 'mail') {
+        $chat = erLhcoreClassModelMailconvConversation::fetch($Params['user_parameters']['chat_id']);
+    } else {
+        $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
+    }
 
     $tpl = erLhcoreClassTemplate::getInstance('lhchat/transfer/transferchatrefilteruser.tpl.php');
     $userFilter = array();

@@ -70,6 +70,7 @@
 		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'google' ) : ?>active<?php endif;?>" href="#google" aria-controls="google" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Google');?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'yandex' ) : ?>active<?php endif;?>" href="#yandex" aria-controls="yandex" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Yandex');?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'aws' ) : ?>active<?php endif;?>" href="#aws" aria-controls="aws" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','AWS');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'deepl' ) : ?>active<?php endif;?>" href="#deepl" aria-controls="deepl" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','DeepL');?></a></li>
 	</ul>
 
 	<div class="tab-content">
@@ -157,6 +158,18 @@
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','API key, key is never shown for security purposes');?></label>
 				    <input ng-non-bindable class="form-control" type="text" name="yandex_api_key" value="" />
+				</div>
+											
+				<div class="btn-group" role="group" aria-label="...">
+				    <input type="submit" class="btn btn-secondary" name="StoreLanguageSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+				</div>
+		</div>
+		<div role="tabpanel" class="tab-pane pt-2 <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'deepl' ) : ?>active<?php endif;?>" id="deepl">
+		        <label><input type="radio" name="translation_handler" value="deepl" <?php ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'deepl') ) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Use DeepL service'); ?></label>
+
+				<div class="form-group">
+				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','API key, key is never shown for security purposes');?></label>
+				    <input ng-non-bindable class="form-control" type="text" name="deepl_api_key" value="" />
 				</div>
 											
 				<div class="btn-group" role="group" aria-label="...">

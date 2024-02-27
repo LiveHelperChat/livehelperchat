@@ -130,7 +130,7 @@ $tpl->set('user_groups_filter',$userGroupFilter);
 $tpl->set('groups_read_only',$groups_can_edit === true ? true : $groups_can_edit['read']);
 
 $Result['content'] = $tpl->fetch();
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.account.validator.js').'"></script>';
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/lhc.account.validator.js').'"></script>';
 
 $Result['path'] = array(
 	array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','System configuration')),

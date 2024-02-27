@@ -814,6 +814,27 @@ class erLhcoreClassGenericBotActionCommand {
             $payloadProcessed = erLhcoreClassGenericBotWorkflow::translateMessage($payloadProcessed, array('chat' => $chat, 'args' => $params));
 
             $remove = isset($action['content']['remove_subject']) && $action['content']['remove_subject'] == true;
+
+            // Mail module support
+            if ($chat instanceof erLhcoreClassModelMailconvMessage) {
+                if ($remove == true && is_numeric($payloadProcessed)) {
+                    $subjectChat = erLhcoreClassModelMailconvMessageSubject::findOne(array('filter' => array('subject_id' => (int)$payloadProcessed, 'message_id' => $chat->id)));
+                    if ($subjectChat instanceof erLhcoreClassModelMailconvMessageSubject) {
+                        $subjectChat->removeThis();
+                    }
+                } else if (is_numeric($payloadProcessed) && ($subject = erLhAbstractModelSubject::fetch((int)$payloadProcessed)) instanceof erLhAbstractModelSubject) {
+                    $subjectChat = erLhcoreClassModelMailconvMessageSubject::findOne(array('filter' => array('subject_id' => (int)$payloadProcessed, 'message_id' => $chat->id)));
+                    if (!($subjectChat instanceof erLhcoreClassModelMailconvMessageSubject)) {
+                        $subjectChat = new erLhcoreClassModelMailconvMessageSubject();
+                        $subjectChat->subject_id = $subject->id;
+                        $subjectChat->message_id = $chat->id;
+                        $subjectChat->conversation_id = $chat->conversation_id;
+                        $subjectChat->saveThis();
+                    }
+                }
+                return;
+            }
+
             if ($remove == true && is_numeric($payloadProcessed)) {
                 $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array('subject_id' => (int)$payloadProcessed, 'chat_id' => $chat->id)));
                 if ($subjectChat instanceof erLhAbstractModelSubjectChat) {

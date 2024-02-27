@@ -497,7 +497,8 @@ class erLhAbstractModelAutoResponder {
 
 	public function dependFooterJs()
     {
-        return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular.lhc.autoresponder.js').'"></script>';
+
+        return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/lhc.cannedmsg.js').'"></script>' . '<script type="module" src="'.erLhcoreClassDesign::designJSStatic('js/svelte/public/build/languages.js').'"></script>';
     }
 
     public function setTranslationData($data)
@@ -909,6 +910,8 @@ class erLhAbstractModelAutoResponder {
 
 	public $hide_add = false;
 	public $hide_delete = false;
+
+    public $disable_angular = true;
 
     public $has_filter = true;
     public $filter_name = 'autoresponder';

@@ -19,10 +19,10 @@
                     
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/append_table_class.tpl.php'));?>
                     
-                    <table class="table list-links<?php echo $appendTableClass?>" width="100%">
+                    <table class="table list-links<?php echo $appendTableClass?>" width="100%" ng-non-bindable>
                         <thead>
                             <tr>
-                            	<th width="1%"><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>
+                            	<th width="1%"><input class="mb-0" type="checkbox" id="check-all-items" /></th>
                                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Information');?></th>
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/additional_chat_column.tpl.php'));?>
                                 <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Operator');?></th>
@@ -34,7 +34,7 @@
                         </thead>
                         <?php foreach ($items as $chat) : ?>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/start_row.tpl.php')); ?>
-                        	<td><?php if ($chat->can_edit_chat == true) : ?><input ng-checked="check_all_items" class="mb-0" type="checkbox" name="ChatID[]" value="<?php echo $chat->id?>" /><?php endif;?></td>
+                        	<td><?php if ($chat->can_edit_chat == true) : ?><input class="mb-0" type="checkbox" name="ChatID[]" value="<?php echo $chat->id?>" /><?php endif;?></td>
                             <td>
 
                               <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/icons_additional.tpl.php')); ?>
@@ -52,9 +52,9 @@
                               <?php if ( !empty($chat->country_code) ) : ?><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $chat->country_code?>.png" alt="<?php echo htmlspecialchars($chat->country_name)?>" title="<?php echo htmlspecialchars($chat->country_name)?>" />&nbsp;<?php endif; ?>
                               <a class="material-icons" id="preview-item-<?php echo $chat->id?>" data-list-navigate="true" onclick="lhc.previewChat(<?php echo $chat->id?>,this)">info_outline</a>
                               
-                              <a ng-non-bindable href="#!#Fchat-id-<?php echo $chat->id?>" class="action-image material-icons" data-title="<?php echo htmlspecialchars($chat->nick,ENT_QUOTES);?>" onclick="lhinst.startChatNewWindow('<?php echo $chat->id;?>',$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Open in a new window');?>">open_in_new</a>
+                              <a href="#!#Fchat-id-<?php echo $chat->id?>" class="action-image material-icons" data-title="<?php echo htmlspecialchars($chat->nick,ENT_QUOTES);?>" onclick="lhinst.startChatNewWindow('<?php echo $chat->id;?>',$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Open in a new window');?>">open_in_new</a>
 
-                                <a href="#!#Fchat-id-<?php echo $chat->id?>" class="me-2" ng-click="lhc.startChatByID(<?php echo $chat->id?>)"><?php echo $chat->id?></a>
+                              <a href="#!#Fchat-id-<?php echo $chat->id?>" class="me-2" onclick="ee.emitEvent('svelteOpenChat',[<?php echo $chat->id?>]);"><?php echo $chat->id?></a>
 
                     	      <?php if ($chat->can_edit_chat && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && ($can_delete_global == true || ($can_delete_general == true && $chat->user_id == $current_user_id)))) : ?>
                     	           <a class="csfr-required csfr-post material-icons" data-trans="delete_confirm" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Reject chat');?>" href="<?php echo erLhcoreClassDesign::baseurl('chat/delete')?>/<?php echo $chat->id?>">delete</a>
@@ -74,7 +74,7 @@
 
                                 <?php if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST) : ?><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Offline request')?>" class="material-icons">mail</i><?php endif?>
 
-                                <a href="#!#Fchat-id-<?php echo $chat->id?>" ng-click="lhc.startChatByID(<?php echo $chat->id?>)"><span ng-non-bindable><?php echo htmlspecialchars($chat->nick);?></span>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <span ng-non-bindable><?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></span></a>
+                                <a href="#!#Fchat-id-<?php echo $chat->id?>" onclick="ee.emitEvent('svelteOpenChat',[<?php echo $chat->id?>]);"><span><?php echo htmlspecialchars($chat->nick);?></span>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <span><?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></span></a>
 
                     	      <?php if ($chat->has_unread_messages == 1) : ?>
                     	      <?php
@@ -87,15 +87,15 @@
 
                                 <?php if (is_array($chat->subjects)) : ?>
                                     <?php foreach ($chat->subjects as $subject) : ?>
-                                        <span class="badge bg-info mx-1" ng-non-bindable><?php echo htmlspecialchars($subject)?></span>
+                                        <span class="badge bg-info mx-1"><?php echo htmlspecialchars($subject)?></span>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </td>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/additional_chat_column_row.tpl.php'));?>
-                            <td ng-non-bindable nowrap>
+                            <td nowrap>
                                 <?php echo htmlspecialchars($chat->user);?>
                             </td>
-                            <td ng-non-bindable nowrap>
+                            <td nowrap>
                                 <?php echo htmlspecialchars($chat->department);?>
                             </td>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/column_value_after_department_multiinclude.tpl.php'));?>
@@ -113,10 +113,11 @@
                         <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
                     <?php endif;?>
 
-                    <div class="btn-group" role="group" aria-label="...">
+                    <div class="btn-group btn-group-sm" role="group" aria-label="...">
                         <input type="submit" name="doClose" class="btn btn-warning" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Close selected');?>" />
                         <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','deleteglobalchat') || erLhcoreClassUser::instance()->hasAccessTo('lhchat','deletechat')) : ?>
-                        <input type="submit" name="doDelete" class="btn btn-danger" onclick="return confirm(confLH.transLation.delete_confirm)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?>" />
+
+                        <button type="submit" name="doDelete" disabled id="delete-selected-btn" class="btn btn-danger" onclick="return confirm(confLH.transLation.delete_confirm)" value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?> (<span id="delete-selected">0</span>)</button>
 
                         <?php if ($pages->items_total > 0) : ?>
                             <button type="button" onclick="return lhc.revealModal({'title' : 'Delete all', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/3'})" class="btn btn-danger btn-sm"><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete all items')?> (<?php echo $pages->items_total?>)</button>
@@ -138,7 +139,25 @@
 <script>
 $( document ).ready(function() {
 	lhinst.attachTabNavigator();
-	$('#tabs a:first').tab('show')
+	$('#tabs a:first').tab('show');
+    $('#check-all-items').change(function(){
+        if ($(this).is(':checked')){
+            $('input[name="ChatID[]"]').attr('checked','checked');
+        } else {
+            $('input[name="ChatID[]"]').removeAttr('checked');
+        }
+        updateDeleteArchiveUI();
+    });
+    function updateDeleteArchiveUI(){
+        let lengthChecked = $('input[name="ChatID[]"]:checked').length;
+        if (lengthChecked == 0){
+            $('#delete-selected-btn').prop('disabled',true);
+        } else {
+            $('#delete-selected-btn').prop('disabled',false);
+        }
+        $('#delete-selected').text(lengthChecked);
+    };
+    $('input[name="ChatID[]"]').change(updateDeleteArchiveUI);
 });
 </script>
 

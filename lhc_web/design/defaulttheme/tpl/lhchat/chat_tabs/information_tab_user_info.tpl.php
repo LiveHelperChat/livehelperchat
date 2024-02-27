@@ -26,6 +26,8 @@
         <?php if ($buttonData['item'] == 'chat') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/above_department_extension_multiinclude.tpl.php'));?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/chat.tpl.php'));?>
+        <?php elseif ($buttonData['item'] == 'mail') : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/mail.tpl.php'));?>
         <?php elseif ($buttonData['item'] == 'product') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/product.tpl.php'));?>
         <?php elseif ($buttonData['item'] == 'uagent') : ?>

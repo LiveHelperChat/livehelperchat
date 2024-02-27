@@ -66,6 +66,9 @@ $.fn.makeDropdown = function(paramsDropdown) {
             } else {
                 _thisItem.find('.btn-department-dropdown').text(_thisItem.find('.btn-department-dropdown').attr('data-text'));
             }
+            if (paramsDropdown && paramsDropdown.on_select) {
+                paramsDropdown.on_select(selectedItems.find('input[type=hidden]'));
+            }
         });
 
         _thisItem.on("change","li input:radio",function() {

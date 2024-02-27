@@ -13,11 +13,11 @@
 
 <script>
     <?php if (!empty($object->languages_ignore)) : ?>
-        var autoResponderLanguagesIgnore = <?php echo json_encode($object->languages_ignore); ?>;
+        var autoResponderIgnore<?php echo ($object->id > 0 ? $object->id : 0)?> = <?php echo json_encode([['languages' => $object->languages_ignore]]); ?>;
     <?php endif; ?>
 
     <?php if ($object->languages != '') : ?>
-        var autoResponderLanguages = <?php echo json_encode(json_decode($object->languages,true),JSON_HEX_APOS)?>;
+    var autoResponder<?php echo ($object->id > 0 ? $object->id : 0)?> = <?php echo json_encode(json_decode($object->languages,true),JSON_HEX_APOS)?>;
     <?php endif; ?>
 
     var languageDialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>;
@@ -117,8 +117,9 @@
             <li role="presentation" class="nav-item"><a class="nav-link" href="#closeaction" aria-controls="closeaction" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Close messaging');?></a></li>
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#survey" aria-controls="survey" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Survey');?></a></li>
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#multilanguage-chat" aria-controls="multilanguage-chat" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Multi-language chat');?></a></li>
-            <li ng-repeat="lang in cmsg.languages" class="nav-item" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-bs-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
-            <li class="nav-item"><a class="nav-link" href="#addlanguage" ng-click="cmsg.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Add translation');?></a></li>
+
+            <lhc-multilanguage-tab identifier="autoResponder" <?php if ($object->languages != '') : ?>init_langauges="<?php echo ($object->id > 0 ? $object->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab>
+
         </ul>
     
     	<!-- Tab panes -->
@@ -145,7 +146,11 @@
     		  <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/multilanguage-chat.tpl.php'));?>
     		</div>
 
-            <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/languages.tpl.php'));?>
+            <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/svelte_languages.tpl.php'));?>
+
+            <lhc-multilanguage-tab-content enable_department="true" identifier="autoResponder" <?php if ($object->languages != '') : ?>init_langauges="<?php echo ($object->id > 0 ? $object->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
+
+            <?php //include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/languages.tpl.php'));?>
 
 		</div>
 </div>

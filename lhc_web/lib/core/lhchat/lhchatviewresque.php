@@ -62,6 +62,23 @@ class erLhcoreClassViewResque {
             } else {
                 $search->updateThis(['update' => ['updated_at']]);
             }
+        } elseif ($search->scope == 'mail') {
+            $filterSearch = $search->params_array['filter'];
+
+            if ($search->days > 0) {
+                $filterSearch['filtergte']['udate'] = time() - $search->days * 24 * 3600;
+            }
+
+            $totalRecords = erLhcoreClassModelMailconvConversation::getCount($filterSearch);
+
+            $search->updated_at = time();
+
+            if ($search->total_records != $totalRecords) {
+                $search->total_records = $totalRecords;
+                $search->updateThis(['update' => ['updated_at','total_records']]);
+            } else {
+                $search->updateThis(['update' => ['updated_at']]);
+            }
         } else {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('views.update_vew', array(
                 'search' => $search

@@ -68,6 +68,16 @@ class erLhAbstractModelSavedSearch {
                     $scope = 'chat';
                 }
 
+                if (isset($this->params_array['filter']['filterin']['lhc_mailconv_conversation.dep_id'])) {
+                    unset($this->params_array['filter']['filterin']['lhc_mailconv_conversation.dep_id']);
+                    $scope = 'mail';
+                }
+
+                if (isset($this->params_array['filter']['filterin']['lhc_mailconv_conversation.user_id'])) {
+                    unset($this->params_array['filter']['filterin']['lhc_mailconv_conversation.user_id']);
+                    $scope = 'mail';
+                }
+
                 if ($scope != '') {
                     $params = [
                         'input' => (object)$this->params_array['input_form']
@@ -76,6 +86,10 @@ class erLhAbstractModelSavedSearch {
 
                 if ($scope == 'chat') {
                     erLhcoreClassChatStatistic::formatUserFilter($params);
+                }
+
+                if ($scope == 'mail') {
+                    erLhcoreClassChatStatistic::formatUserFilter($params, 'lhc_mailconv_conversation');
                 }
 
                 if ($scope != '') {

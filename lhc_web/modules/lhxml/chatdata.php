@@ -41,7 +41,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 
         // Check does chat transfer record exists if operator opened chat directly
         if ($chat->transfer_uid > 0) {
-            erLhcoreClassTransfer::handleTransferredChatOpen($chat, $currentUser->getUserID());
+            erLhcoreClassTransfer::handleTransferredChatOpen($chat, $currentUser->getUserID(), erLhcoreClassModelTransfer::SCOPE_CHAT, $operatorAccepted);
         }
 
         $chat->support_informed = 1;

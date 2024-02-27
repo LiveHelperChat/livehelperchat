@@ -16,8 +16,14 @@ if ($Params['user_parameters']['ns'] == 'group_chat') {
     include 'modules/lhrestapi/trans/chat_tabs.php';
 } else if ($Params['user_parameters']['ns'] == 'chat_canned') {
     include 'modules/lhrestapi/trans/chat_canned.php';
+} else if ($Params['user_parameters']['ns'] == 'lhcbo') {
+    include 'modules/lhrestapi/trans/lhcbo.php';
 } else if ($Params['user_parameters']['ns'] == 'voice_call') {
     include 'modules/lhrestapi/trans/voice_call.php';
+}
+
+if ($Params['user_parameters']['ns'] == 'mail_chat') {
+    include 'modules/lhmailconv/trans/mail_chat.php';
 }
 
 exit;

@@ -30,4 +30,19 @@
     <td nowrap="">
         <?php echo htmlspecialchars($agentStatistic_avg['avgMaximumResponseTime_front']);?>, <span class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','As participant')?>"><?php echo htmlspecialchars($agentStatistic_avg['avgMaximumResponseTimePar_front']);?></span>
     </td>
+    <td>
+        <?php echo htmlspecialchars($agentStatistic_avg['mail_statistic_total'])?>
+    </td>
+    <td>
+        <?php echo htmlspecialchars($agentStatistic_avg['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED])?>
+    </td>
+    <td>
+        <?php echo htmlspecialchars($agentStatistic_avg['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED])?>
+    </td>
+    <td>
+        <?php echo htmlspecialchars($agentStatistic_avg['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL])?>
+    </td>
+    <td>
+        <?php echo htmlspecialchars($agentStatistic_avg['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL])?>
+    </td>
 </tr>

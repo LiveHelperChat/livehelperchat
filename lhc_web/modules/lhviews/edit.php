@@ -15,6 +15,8 @@ $append = erLhcoreClassSearchHandler::getURLAppendFromInput($search->params_arra
 
 if ($search->scope == 'chat') {
     erLhcoreClassModule::redirect('chat/list', '/(view)/'.$search->id.$append);
+} else if ($search->scope == 'mail') {
+    erLhcoreClassModule::redirect('mailconv/conversations', '/(view)/'.$search->id.$append);
 } else {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('views.editview', array(
         'search' => $search

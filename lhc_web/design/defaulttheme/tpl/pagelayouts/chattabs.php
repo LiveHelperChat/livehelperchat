@@ -5,7 +5,7 @@
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
 </head>
 <body id="admin-body" class="dashboard-height h-100 <?php isset($Result['body_class']) ? print $Result['body_class'] : ''?>" ng-controller="LiveHelperChatCtrl as lhc">
-
+<lhc-app></lhc-app>
 <div id="wrapper">
     <div class="container-fluid<?php if (isset($Result['container_class'])) : ?> <?php echo $Result['container_class']?><?php endif; ?>" id="page-content-wrapper">
         <div class="row">

@@ -1,0 +1,1 @@
+<tr data-chat-id="<?php echo $item->id?>" class="chat-row-tr" id="chat-row-tr-<?php echo $item->id?>">

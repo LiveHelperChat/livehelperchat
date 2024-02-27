@@ -24,6 +24,70 @@ try {
     {
         $userData = $currentUser->getUserData(true);
 
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','closerelated')) {
+            $relatedItems = json_decode(file_get_contents('php://input'),true);
+
+            // Close related e-mail conversations if required
+            if (is_array($relatedItems) && isset($relatedItems['closemailconfirm']) && !empty($relatedItems['closemailconfirm'])) {
+                $db = ezcDbInstance::get();
+                $db->beginTransaction();
+                foreach ($relatedItems['closemailconfirm'] as $relatedConversationId) {
+                    $conv = erLhcoreClassModelMailconvConversation::fetchAndLock($relatedConversationId);
+
+                    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToWrite($conv))
+                    {
+                        if ($conv->status !== erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
+
+                            $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options_general');
+                            $data = (array)$mcOptions->data;
+
+                            // Add subject if required
+                            if (isset($data['subject_id']) && $data['subject_id'] > 0) {
+
+                                // Find first message always and add subject to it.
+                                $message = erLhcoreClassModelMailconvMessage::findOne([
+                                    'sort' => '`id` ASC',
+                                    'filter' => [
+                                        'conversation_id' => $conv->id
+                                    ]
+                                ]);
+
+                                if (is_object($message)) {
+                                    $subjectChat = erLhcoreClassModelMailconvMessageSubject::findOne(array('filter' => array(
+                                        'message_id' => $message->id,
+                                        'subject_id' => (int)$data['subject_id']
+                                    )));
+
+                                    if (!($subjectChat instanceof erLhcoreClassModelMailconvMessageSubject)) {
+                                        $subjectChat = new erLhcoreClassModelMailconvMessageSubject();
+                                    }
+
+                                    $subjectChat->message_id = $message->id;
+                                    $subjectChat->conversation_id = $message->conversation_id;
+                                    $subjectChat->subject_id = (int)$data['subject_id'];
+                                    $subjectChat->saveThis();
+                                }
+                            }
+
+                            $msg = new erLhcoreClassModelMailconvMessageInternal();
+                            $msg->chat_id = $conv->id;
+                            $msg->user_id = -1;
+                            $msg->name_support = $userData->name_support;
+                            $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has closed a conversation from chat!') . ' [' .  $chat->id . ']';
+                            $msg->saveThis();
+                        }
+
+                        erLhcoreClassMailconvWorkflow::closeConversation([
+                            'conv' => & $conv,
+                            'user_id' => $currentUser->getUserID(),
+                            'force_user_change' => true
+                        ]);
+                    }
+                }
+                $db->commit();
+            }
+        }
+
         $chat->support_informed = 1;
         $chat->has_unread_messages = 0;
         $chat->unread_messages_informed = 0;

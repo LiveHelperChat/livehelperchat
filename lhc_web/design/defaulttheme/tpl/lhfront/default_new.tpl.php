@@ -10,9 +10,7 @@
 
     <div ng-controller="OnlineCtrl as online" ng-init='online.forbiddenVisitors=<?php ($currentUser->hasAccessTo('lhchat', 'use_onlineusers') != true || (!in_array('online_users',$frontTabsOrder) && !in_array('online_visitors',$widgetsUser))) ? print 'true' : print 'false'?>;groupByField = <?php echo json_encode($ogroupBy) ?>;online.maxRows="<?php echo (int)$omaxRows ?>";online.time_on_site = <?php echo json_encode($oTimeOnSite, JSON_HEX_APOS)?>;online.country=<?php echo json_encode($oCountry,JSON_HEX_APOS)?>;online.updateTimeout="<?php echo (int)$oupdTimeout ?>";online.userTimeout = "<?php echo (int)$ouserTimeout ?>";online.department_dpgroups = <?php echo json_encode($onlineDepartmentGroups, JSON_HEX_APOS)?>;online.department=<?php echo json_encode($onlineDepartment, JSON_HEX_APOS)?>;online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false' ?>;online.online_connected=<?php echo $onlineVisitorOnly == 1 ? 'true' : 'false' ?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false' ?>'>
         <div class="row">
-            <?php //include(erLhcoreClassDesign::designtpl('lhfront/dashboard/home_page_left.tpl.php'));?>
             <div class="col">
-
                 <div role="tabpanel" id="tabs" ng-cloak class="<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' pt-0' : ''?>">
                     <ul translate="no" class="nav nav-pills<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' d-none' : ''?>" role="tablist">
                         <?php foreach ($frontTabsOrder as $frontTab) : ?>
@@ -31,10 +29,6 @@
                             <?php elseif (trim($frontTab) == 'unread_chats') : ?>
                                 <?php if ($unreadTabEnabled == true && $online_chat_enabled_pre == true) : ?>
                                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list_tab.tpl.php')); ?>
-                                <?php endif; ?>
-                            <?php elseif (trim($frontTab) == 'closed_chats') : ?>
-                                <?php if ($closedTabEnabled == true && $online_chat_enabled_pre == true) : ?>
-                                    <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list_tab.tpl.php')); ?>
                                 <?php endif; ?>
                             <?php elseif (trim($frontTab) == 'dashboard') : ?>
                                 <?php if ($online_chat_enabled_pre == true) : ?>
@@ -92,15 +86,6 @@
                                     </div>
                                 <?php endif; ?>
 
-                            <?php elseif (trim($frontTab) == 'closed_chats' && $online_chat_enabled_pre == true) : ?>
-
-                                <?php if ($closedTabEnabled == true) : ?>
-                                    <div role="tabpanel" class="tab-pane form-group<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' mt-3' : ''?>" id="closedchats">
-                                        <div id="closed-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php')); ?></div>
-                                        <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list') ?>/(chat_status_ids)/2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'All closed chats'); ?></a>
-                                    </div>
-                                <?php endif; ?>
-
                             <?php elseif (trim($frontTab) == 'dashboard' && $online_chat_enabled_pre == true) : ?>
 
                                 <div role="tabpanel" class="tab-pane form-group<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' mt-3' : ''?>" id="dashboard">
@@ -126,6 +111,10 @@
 
     <?php if (isset($load_chat_id) && is_numeric($load_chat_id)) : ?>
         <input type="hidden" id="load_chat_id" value="<?php echo htmlspecialchars($load_chat_id)?>" />
+    <?php endif; ?>
+
+    <?php if (isset($load_mail_id) && is_numeric($load_mail_id)) : ?>
+        <input type="hidden" id="load_mail_id" value="<?php echo htmlspecialchars($load_mail_id)?>" />
     <?php endif; ?>
 
     <script>

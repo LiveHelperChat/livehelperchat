@@ -11,5 +11,5 @@ $tpl->set('chat_id',$Params['user_parameters']['chat_id']);
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'chattabs';
-
+//$Result['require_angular'] = true;
 ?>

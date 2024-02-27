@@ -29,7 +29,9 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
         $originalSettings['old'] = array(
             'auto_accept' => $UserData->auto_accept,
             'max_chats' => $UserData->max_active_chats,
+            'max_mails' => $UserData->max_active_mails,
             'exclude_autoasign' => $UserData->exclude_autoasign,
+            'exclude_autoasign_mails' => $UserData->exclude_autoasign_mails,
             'show_all_pending' => erLhcoreClassModelUserSetting::getSetting('show_all_pending',  1, $UserData->id),
             'auto_join_private' =>  erLhcoreClassModelUserSetting::getSetting('auto_join_private',  1, $UserData->id),
             'no_scroll_bottom' =>  erLhcoreClassModelUserSetting::getSetting('no_scroll_bottom',  0, $UserData->id),
@@ -55,8 +57,10 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
 	erLhcoreClassModelUserSetting::setSetting('chat_text_rows', $pendingSettings['chat_text_rows']);
 
     $UserData->exclude_autoasign = $pendingSettings['exclude_autoasign'];
+    $UserData->exclude_autoasign_mails = $pendingSettings['exclude_autoasign_mails'];
     $UserData->auto_accept = $pendingSettings['auto_accept'];
     $UserData->max_active_chats = $pendingSettings['max_chats'];
+    $UserData->max_active_mails = $pendingSettings['max_mails'];
     $UserData->saveThis();
 
     if (isset($_POST['auto_preload']) && $_POST['auto_preload'] == 1) {
@@ -95,12 +99,20 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
         erLhcoreClassModelUserSetting::setSetting('no_scroll_bottom', 0);
     }
 
+    if (isset($_POST['auto_accept_mail']) && $_POST['auto_accept_mail'] == 1) {
+        erLhcoreClassModelUserSetting::setSetting('auto_accept_mail', 1);
+    } else {
+        erLhcoreClassModelUserSetting::setSetting('auto_accept_mail', 0);
+    }
+
     // Update max active chats directly
     $db = ezcDbInstance::get();
-    $stmt = $db->prepare('UPDATE lh_userdep SET max_chats = :max_chats, exclude_autoasign = :exclude_autoasign WHERE user_id = :user_id');
+    $stmt = $db->prepare('UPDATE lh_userdep SET max_mails = :max_mails, max_chats = :max_chats, exclude_autoasign = :exclude_autoasign, exclude_autoasign_mails = :exclude_autoasign_mails WHERE user_id = :user_id');
     $stmt->bindValue(':max_chats', $UserData->max_active_chats, PDO::PARAM_INT);
+    $stmt->bindValue(':max_mails', $UserData->max_active_mails, PDO::PARAM_INT);
     $stmt->bindValue(':user_id', $UserData->id, PDO::PARAM_INT);
     $stmt->bindValue(':exclude_autoasign', $UserData->exclude_autoasign, PDO::PARAM_INT);
+    $stmt->bindValue(':exclude_autoasign_mails', $UserData->exclude_autoasign_mails, PDO::PARAM_INT);
     $stmt->execute();
 
 	$tpl->set('account_updated','done');
@@ -445,7 +457,10 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalautoresponder'
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account', array('userData' => & $UserData, 'tpl' => & $tpl, 'params' => $Params));
 
 $Result['content'] = $tpl->fetch();
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.cannedmsg.js;js/angular.lhc.autoresponder.js').'"></script>';
+
+$Result['additional_footer_js'] =
+    '<script src="'.erLhcoreClassDesign::designJS('js/lhc.account.validator.js').'"></script>'.
+    '<script type="module" src="'.erLhcoreClassDesign::designJSStatic('js/svelte/public/build/languages.js').'"></script>';
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account_result', array('result' => & $Result));
 

@@ -15,6 +15,15 @@ class erLhcoreClassDesign
         self::$disabledTheme[] = $themeDisable;
     }
 
+    public static function designJSStatic($path) {
+
+        $configInstance = erConfigClassLhConfig::getInstance();
+
+        $version = (int)$configInstance->getSetting('site', 'static_version', false);
+
+        return self::design($path) . '?' . filemtime(self::design($path,true)) . '_' . $version;
+    }
+
     public static function design($path, $siteDir = false)
     {
         $configInstance = erConfigClassLhConfig::getInstance();
@@ -260,8 +269,10 @@ class erLhcoreClassDesign
         $fileNameStaticName = md5($files . implode('_',$extensions) . '_' . implode('_',$instance->ThemeSite));
         $filenameStaticPath = $instance->SiteDir . '/design/defaulttheme/css/css_static/' . $fileNameStaticName . '.css';
 
+        $version = (int)$configInstance->getSetting('site', 'static_version', false);
+        
         if (self::$buildMode == false && $debugOutput == false && file_exists($filenameStaticPath)) {
-            return $instance->wwwDir() . '/design/defaulttheme/css/css_static/' . $fileNameStaticName . '.css?' . filemtime($filenameStaticPath);
+            return $instance->wwwDir() . '/design/defaulttheme/css/css_static/' . $fileNameStaticName . '.css?' . filemtime($filenameStaticPath) . '_' . $version;
         }
         
         $filesToCompress = '';

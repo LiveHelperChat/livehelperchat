@@ -1,25 +1,5 @@
 {
   "tables": {
-    "lh_abstract_msg_protection": [
-      {
-        "field": "id",
-        "type": "int(11) unsigned",
-        "null": "NO",
-        "key": "PRI",
-        "default": null,
-        "extra": "auto_increment"
-      }
-    ],
-    "lh_bot_condition": [
-      {
-        "field": "id",
-        "type": "int(11) unsigned",
-        "null": "NO",
-        "key": "PRI",
-        "default": null,
-        "extra": "auto_increment"
-      }
-    ],
     "lh_brand": [
       {
         "field": "id",
@@ -53,7 +33,7 @@
         "field": "frt",
         "type": "int(11) unsigned",
         "null": "NO",
-        "key": "",
+        "key": "MUL",
         "default": "0",
         "extra": ""
       },
@@ -61,13 +41,241 @@
         "field": "aart",
         "type": "int(11) unsigned",
         "null": "NO",
-        "key": "",
+        "key": "MUL",
         "default": "0",
         "extra": ""
       },
       {
         "field": "mart",
         "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      }
+    ],
+    "lh_bot_condition": [
+      {
+        "field": "id",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
+    "lhc_mailconv_msg_open": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
+    "lh_abstract_msg_protection": [
+      {
+        "field": "id",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
+    "lhc_mailconv_mailing_list_recipient": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
+    "lhc_mailconv_recipient": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      },
+      {
+        "field": "attr_str_1",
+        "type": "varchar(200)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "mailbox",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "attr_str_2",
+        "type": "varchar(200)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "attr_str_3",
+        "type": "varchar(200)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "attr_str_4",
+        "type": "varchar(200)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "attr_str_5",
+        "type": "varchar(200)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "attr_str_6",
+        "type": "varchar(200)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      }
+    ],
+    "lhc_mailconv_mailing_list": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      },
+      {
+        "field": "name",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      }
+    ],
+    "lhc_mailconv_mailing_campaign_recipient": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      },
+      {
+        "field": "message_id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "conversation_id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "opened_at",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "mailbox",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "attr_str_4",
+        "type": "varchar(100)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "attr_str_5",
+        "type": "varchar(100)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "attr_str_6",
+        "type": "varchar(100)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      }
+    ],
+    "lhc_mailconv_mailing_campaign": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      },
+      {
+        "field": "owner_logic",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "owner_user_id",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "",
         "default": "0",
@@ -124,6 +332,16 @@
         "default": null,
         "extra": "",
         "collation": "utf8mb4_unicode_ci"
+      }
+    ],
+    "lhc_mailconv_personal_mailbox_group": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
       }
     ],
     "lh_chat_action": [
@@ -4286,30 +4504,6 @@
         "extra": ""
       },
       {
-        "field": "frt",
-        "type": "int(11) unsigned",
-        "null": "NO",
-        "key": "MUL",
-        "default": "0",
-        "extra": ""
-      },
-      {
-        "field": "aart",
-        "type": "int(11) unsigned",
-        "null": "NO",
-        "key": "MUL",
-        "default": "0",
-        "extra": ""
-      },
-      {
-        "field": "mart",
-        "type": "int(11) unsigned",
-        "null": "NO",
-        "key": "MUL",
-        "default": "0",
-        "extra": ""
-      },
-      {
         "field": "theme_id",
         "type": "int(11) unsigned",
         "null": "NO",
@@ -4872,6 +5066,30 @@
         "key": "",
         "default": null,
         "extra": ""
+      },
+      {
+        "field": "frt",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "aart",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "mart",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_chat_accept": [
@@ -4928,7 +5146,7 @@
       },
       {
         "field": "range_from",
-        "type": "int(11)",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "",
         "default": null,
@@ -4936,7 +5154,7 @@
       },
       {
         "field": "range_to",
-        "type": "int(11)",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "",
         "default": null,
@@ -4960,7 +5178,7 @@
       },
       {
         "field": "last_id",
-        "type": "int(11)",
+        "type": "bigint(20)",
         "null": "NO",
         "key": "",
         "default": null,
@@ -4968,11 +5186,21 @@
       },
       {
         "field": "first_id",
-        "type": "int(11)",
+        "type": "bigint(20)",
         "null": "NO",
         "key": "",
         "default": null,
         "extra": ""
+      }
+    ],
+    "lh_mail_archive_range": [
+      {
+        "field": "id",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
       }
     ],
     "lh_chat_blocked_user": [
@@ -6388,6 +6616,14 @@
         "extra": ""
       },
       {
+        "field": "max_ac_dep_mails",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
         "field": "pending_group_max",
         "type": "int(11)",
         "null": "NO",
@@ -6405,6 +6641,14 @@
       },
       {
         "field": "delay_before_assign",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "delay_before_assign_mail",
         "type": "int(11)",
         "null": "NO",
         "key": "",
@@ -6476,7 +6720,23 @@
         "extra": ""
       },
       {
+        "field": "max_active_mails",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "max_timeout_seconds",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "max_timeout_seconds_mail",
         "type": "int(11)",
         "null": "NO",
         "key": "",
@@ -6637,6 +6897,14 @@
       },
       {
         "field": "active_balancing",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "active_mail_balancing",
         "type": "tinyint(1)",
         "null": "NO",
         "key": "",
@@ -7475,6 +7743,26 @@
         "extra": "auto_increment"
       }
     ],
+    "lhc_mailconv_response_template_subject": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
+    "lhc_mailconv_response_template_dep": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
     "lh_generic_bot_chat_workflow": [
       {
         "field": "id",
@@ -8088,6 +8376,14 @@
         "extra": ""
       },
       {
+        "field": "transfer_scope",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "ctime",
         "type": "int(11)",
         "null": "NO",
@@ -8200,6 +8496,14 @@
         "extra": ""
       },
       {
+        "field": "exclude_autoasign_mails",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "exc_indv_autoasign",
         "type": "tinyint(1)",
         "null": "NO",
@@ -8256,6 +8560,30 @@
         "extra": ""
       },
       {
+        "field": "last_accepted_mail",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "active_mails",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "pending_mails",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "active_chats",
         "type": "int(11)",
         "null": "NO",
@@ -8281,6 +8609,14 @@
       },
       {
         "field": "max_chats",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "max_mails",
         "type": "int(11)",
         "null": "NO",
         "key": "",
@@ -8546,11 +8882,27 @@
         "extra": ""
       },
       {
+        "field": "exclude_autoasign_mails",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "max_active_chats",
         "type": "int(11)",
         "null": "NO",
         "key": "MUL",
         "default": null,
+        "extra": ""
+      },
+      {
+        "field": "max_active_mails",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
         "extra": ""
       },
       {
@@ -8733,6 +9085,500 @@
         "default": null,
         "extra": "",
         "collation": "utf8mb4_unicode_ci"
+      }
+    ],
+    "lhc_mailconv_oauth_ms": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
+    "lhc_mailconv_conversation": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      },
+      {
+        "field": "conv_duration",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "body",
+        "type": "longtext",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "opened_at",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "priority_asc",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "follow_up_id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "mail_variables",
+        "type": "longtext",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "has_attachment",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "pending_sync",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "undelivered",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "lang",
+        "type": "varchar(5)",
+        "null": "NO",
+        "key": "",
+        "default": "",
+        "extra": ""
+      },
+      {
+        "field": "phone",
+        "type": "varchar(16)",
+        "null": "NO",
+        "key": "",
+        "default": "",
+        "extra": ""
+      }
+    ],
+    "lhc_mailconv_file": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
+    "lhc_mailconv_remarks": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
+    "lhc_mailconv_msg": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      },
+      {
+        "field": "conversation_id_old",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "conv_duration",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "is_external",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "conv_user_id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "priority",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "opened_at",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "message_hash",
+        "type": "varchar(40)",
+        "null": "NO",
+        "key": "",
+        "default": "",
+        "extra": ""
+      },
+      {
+        "field": "has_attachment",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "undelivered",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "rfc822_body",
+        "type": "longtext",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "delivery_status",
+        "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "lang",
+        "type": "varchar(5)",
+        "null": "NO",
+        "key": "",
+        "default": "",
+        "extra": ""
+      }
+    ],
+    "lhc_mailconv_msg_subject": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
+    "lhc_mailconv_mailbox": [
+      {
+        "field": "id",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      },
+      {
+        "field": "import_since",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "dep_id",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "auth_method",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "import_priority",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "reopen_reset",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "reopen_timeout",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "4",
+        "extra": ""
+      },
+      {
+        "field": "last_process_time",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "delete_mode",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "no_pswd_smtp",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "create_a_copy",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "user_id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "assign_parent_user",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "failed",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "uuid_status",
+        "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "mail_smtp",
+        "type": "varchar(250)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "name_smtp",
+        "type": "varchar(250)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "username_smtp",
+        "type": "varchar(250)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "password_smtp",
+        "type": "varchar(250)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "workflow_options",
+        "type": "longtext",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      }
+    ],
+    "lhc_mailconv_response_template": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      },
+      {
+        "field": "template_plain",
+        "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "unique_id",
+        "type": "varchar(20)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci",
+        "post_query": "UPDATE `lhc_mailconv_response_template` SET `unique_id` = `id`;"
+      },
+      {
+        "field": "disabled",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      }
+    ],
+    "lhc_mailconv_msg_internal": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
+    "lhc_mailconv_match_rule": [
+      {
+        "field": "id",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      },
+      {
+        "field": "options",
+        "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "mailbox_id",
+        "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "name",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
       }
     ]
   },
@@ -10653,6 +11499,14 @@
       },
       "old" : ["position_title"]
     },
+    "lhc_mailconv_response_template" : {
+      "new" : {
+        "unique_id" : "ALTER TABLE `lhc_mailconv_response_template` ADD INDEX `unique_id` (`unique_id`);",
+        "disabled" : "ALTER TABLE `lhc_mailconv_response_template` ADD INDEX `disabled` (`disabled`);",
+        "dep_id" : "ALTER TABLE `lhc_mailconv_response_template` ADD INDEX `dep_id` (`dep_id`);"
+      },
+      "old" : []
+    },
     "lh_msg" : {
       "new" : {
         "user_id" : "ALTER TABLE `lh_msg` ADD INDEX `user_id` (`user_id`);"
@@ -10721,6 +11575,74 @@
       },
       "old" : []
     },
+    "lhc_mailconv_conversation" : {
+      "new" : {
+        "from_address" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `from_address` (`from_address`);",
+        "mailbox_id" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `mailbox_id` (`mailbox_id`);",
+        "dep_id" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `dep_id` (`dep_id`);",
+        "status_priority" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `status_priority` (`status`, `priority`);",
+        "status_priority_asc" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `status_priority_asc` (`status`, `priority_asc`);",
+        "has_attachment" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `has_attachment` (`has_attachment`);",
+        "udate" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `udate` (`udate`);",
+        "user_id_status" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `user_id_status` (`user_id`, `status`);",
+        "status_dep_id" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `status_dep_id` (`status`, `dep_id`);",
+        "undelivered" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `undelivered` (`undelivered`);",
+        "lang" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `lang` (`lang`);",
+        "phone" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `phone` (`phone`);",
+        "mailbox_id_status_udate" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `mailbox_id_status_udate` (`mailbox_id`,`status`,`udate`);"
+      },
+      "old" : [
+        "status",
+        "user_id"
+      ]
+    },
+    "lhc_mailconv_msg" : {
+      "new" : {
+        "has_attachment" : "ALTER TABLE `lhc_mailconv_msg` ADD INDEX `has_attachment` (`has_attachment`);",
+        "udate" : "ALTER TABLE `lhc_mailconv_msg` ADD INDEX `udate` (`udate`);",
+        "dep_id" : "ALTER TABLE `lhc_mailconv_msg` ADD INDEX `dep_id` (`dep_id`);",
+        "mailbox_id" : "ALTER TABLE `lhc_mailconv_msg` ADD INDEX `mailbox_id` (`mailbox_id`);",
+        "conversation_id" : "ALTER TABLE `lhc_mailconv_msg` ADD INDEX `conversation_id` (`conversation_id`);",
+        "conversation_id_old" : "ALTER TABLE `lhc_mailconv_msg` ADD INDEX `conversation_id_old` (`conversation_id_old`);",
+        "lang" : "ALTER TABLE `lhc_mailconv_msg` ADD INDEX `lang` (`lang`);",
+        "message_hash" : "ALTER TABLE `lhc_mailconv_msg` ADD INDEX `message_hash` (`message_hash`);"
+      },
+      "old" : []
+    },
+    "lhc_mailconv_mailing_campaign_recipient" : {
+      "new" : {
+        "message_id" : "ALTER TABLE `lhc_mailconv_mailing_campaign_recipient` ADD INDEX `message_id` (`message_id`);"
+      },
+      "old" : []
+    },
+    "lhc_mailconv_file" : {
+      "new" : {
+        "message_id" : "ALTER TABLE `lhc_mailconv_file` ADD INDEX `message_id` (`message_id`);",
+        "conversation_id" : "ALTER TABLE `lhc_mailconv_file` ADD INDEX `conversation_id` (`conversation_id`);"
+      },
+      "old" : []
+    },
+    "lhc_mailconv_match_rule" : {
+      "new": {
+        "active_priority": "ALTER TABLE `lhc_mailconv_match_rule` ADD INDEX `active_priority` (`active`, `priority`);"
+      },
+      "old": [
+      ]
+    },
+    "lhc_mailconv_recipient" : {
+      "new": {
+        "email": "ALTER TABLE `lhc_mailconv_recipient` ADD INDEX `email` (`email`);"
+      },
+      "old": [
+      ]
+    },
+    "lhc_mailconv_mailing_campaign_recipient" : {
+      "new": {
+        "campaign_id_email": "ALTER TABLE `lhc_mailconv_mailing_campaign_recipient` ADD INDEX `campaign_id_email` (`campaign_id`, `email`);"
+      },
+      "old": [
+      ]
+    },
     "lh_abstract_widget_theme" : {
       "new" : {
         "alias" : "ALTER TABLE `lh_abstract_widget_theme` ADD INDEX `alias` (`alias`);"
@@ -10764,7 +11686,8 @@
     "lh_canned_msg": "CREATE TABLE `lh_canned_msg` (\n  `id` int(11) NOT NULL AUTO_INCREMENT, `msg` longtext NOT NULL,`html_snippet` longtext NOT NULL, `position` int(11) NOT NULL,\n  `department_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `delay` int(11) NOT NULL,\n  `auto_send` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `department_id` (`department_id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_chat": "CREATE TABLE `lh_chat` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `nick` varchar(50) NOT NULL,\n  `status` int(11) NOT NULL DEFAULT '0',\n  `status_sub` int(11) NOT NULL DEFAULT '0',\n  `time` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `referrer` text NOT NULL,\n  `session_referrer` text NOT NULL,\n  `chat_variables` text NOT NULL,\n  `remarks` text NOT NULL,\n  `ip` varchar(100) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `user_status` int(11) NOT NULL DEFAULT '0',\n  `support_informed` int(11) NOT NULL DEFAULT '0',\n  `unread_messages_informed` int(11) NOT NULL DEFAULT '0',\n  `reinform_timeout` int(11) NOT NULL DEFAULT '0',\n  `email` varchar(100) NOT NULL,\n  `country_code` varchar(100) NOT NULL,\n  `country_name` varchar(100) NOT NULL,\n  `user_typing` int(11) NOT NULL,\n  `user_typing_txt` varchar(50) NOT NULL,\n  `operator_typing` int(11) NOT NULL,\n  `operator_typing_id` int(11) NOT NULL,\n  `phone` varchar(100) NOT NULL,\n  `has_unread_messages` int(11) NOT NULL,\n  `last_user_msg_time` int(11) NOT NULL,\n  `fbst` tinyint(1) NOT NULL,\n  `online_user_id` int(11) NOT NULL,\n  `last_msg_id` int(11) NOT NULL,\n  `additional_data` text NOT NULL,\n  `timeout_message` varchar(250) NOT NULL,\n  `lat` varchar(10) NOT NULL,\n  `lon` varchar(10) NOT NULL,\n  `city` varchar(100) NOT NULL,\n  `operation` varchar(200) NOT NULL,\n  `operation_admin` varchar(200) NOT NULL,\n  `mail_send` int(11) NOT NULL,\n  `screenshot_id` int(11) NOT NULL,\n  `wait_time` int(11) NOT NULL,\n  `wait_timeout` int(11) NOT NULL,\n  `wait_timeout_send` int(11) NOT NULL,\n  `chat_duration` int(11) NOT NULL,\n  `tslasign` int(11) NOT NULL,\n  `priority` int(11) NOT NULL,\n  `chat_initiator` int(11) NOT NULL,\n  `transfer_timeout_ts` int(11) NOT NULL,\n  `transfer_timeout_ac` int(11) NOT NULL,\n  `transfer_if_na` int(11) NOT NULL,\n  `na_cb_executed` int(11) NOT NULL,\n  `nc_cb_executed` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `status_user_id` (`status`,`user_id`),\n  KEY `user_id` (`user_id`),\n  KEY `online_user_id` (`online_user_id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `has_unread_messages_dep_id_id` (`has_unread_messages`,`dep_id`,`id`),\n  KEY `status_dep_id_id` (`status`,`dep_id`,`id`),\n  KEY `status_dep_id_priority_id` (`status`,`dep_id`,`priority`,`id`),\n  KEY `status_priority_id` (`status`,`priority`,`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_chat_accept": "CREATE TABLE `lh_chat_accept` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `hash` varchar(50) NOT NULL,\n  `ctime` int(11) NOT NULL,\n  `wused` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `hash` (`hash`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-    "lh_chat_archive_range": "CREATE TABLE `lh_chat_archive_range` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `range_from` int(11) NOT NULL,\n  `range_to` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lh_chat_archive_range": "CREATE TABLE `lh_chat_archive_range` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `range_from` bigint(20) unsigned NOT NULL,\n  `range_to` bigint(20) unsigned NOT NULL,\n  `older_than` int(11) NOT NULL,\n  `last_id` bigint(20) NOT NULL,\n  `first_id` bigint(20) NOT NULL,\n  `year_month` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lh_mail_archive_range": "CREATE TABLE `lh_mail_archive_range` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) NOT NULL, `range_from` bigint(20) unsigned NOT NULL,\n  `range_to` bigint(20) unsigned NOT NULL,\n  `older_than` int(11) NOT NULL,\n  `last_id` bigint(20) NOT NULL,\n  `first_id` bigint(20) NOT NULL,\n  `year_month` int(11) NOT NULL, `type` tinyint(1) unsigned NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_chat_blocked_user": "CREATE TABLE `lh_chat_blocked_user` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `ip` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `user_id` bigint(20) unsigned NOT NULL,\n  `datets` bigint(20) unsigned NOT NULL,\n  `chat_id` bigint(20) unsigned NOT NULL,\n  `dep_id` bigint(20) unsigned NOT NULL,\n  `nick` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `btype` tinyint(1) NOT NULL DEFAULT 0,\n  `expires` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `online_user_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `ip` (`ip`),\n  KEY `nick` (`nick`),\n  KEY `online_user_id` (`online_user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_chat_config": "CREATE TABLE `lh_chat_config` (\n  `identifier` varchar(50) NOT NULL,\n  `value` text NOT NULL,\n  `type` tinyint(1) NOT NULL DEFAULT '0',\n  `explain` varchar(250) NOT NULL,\n  `hidden` int(11) NOT NULL DEFAULT '0',\n  PRIMARY KEY (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_chat_file": "CREATE TABLE `lh_chat_file` (\n  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(255) NOT NULL,\n  `upload_name` varchar(255) NOT NULL,\n  `size` int(11) NOT NULL,\n  `type` varchar(255) NOT NULL,\n  `file_path` varchar(255) NOT NULL,\n  `extension` varchar(255) NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `date` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id` (`chat_id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
@@ -10842,6 +11765,16 @@
     "lh_generic_bot_rest_api": "CREATE TABLE `lh_generic_bot_rest_api` (`id` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(50) NOT NULL, `description` varchar(250), `configuration` text NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_group_chat": "CREATE TABLE `lh_group_chat` (\n  `id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) NOT NULL,\n  `status` int(11) NOT NULL, `chat_id` bigint(20) NOT NULL, `time` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `last_msg_op_id` bigint(20) NOT NULL,\n  `last_msg` varchar(200) NOT NULL,\n  `last_user_msg_time` int(11) NOT NULL,  `last_msg_id` bigint(20) NOT NULL,  `type` tinyint(1) NOT NULL DEFAULT 0,  `tm` int(11) NOT NULL,  PRIMARY KEY (`id`),\n  KEY `user_id` (`user_id`), KEY `chat_id` (`chat_id`),\n  KEY `type` (`type`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_group_msg": "CREATE TABLE `lh_group_msg` (\n `id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `msg` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `time` int(11) NOT NULL,\n  `chat_id` int(11) NOT NULL DEFAULT 0,\n  `user_id` int(11) NOT NULL DEFAULT 0,\n  `name_support` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `meta_msg` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_id` (`chat_id`,`id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lhc_mailconv_conversation": "CREATE TABLE `lhc_mailconv_conversation` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `dep_id` int(11) unsigned NOT NULL,\n  `user_id` int(11) unsigned NOT NULL,\n  `status` int(11) unsigned NOT NULL,\n  `subject` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `ctime` int(11) unsigned NOT NULL,\n  `priority` int(11) NOT NULL DEFAULT 0,\n  `priority_asc` int(11) NOT NULL DEFAULT 0,\n  `from_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `from_address` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `lang` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `phone` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `last_message_id` bigint(20) unsigned NOT NULL,\n  `message_id` bigint(20) unsigned NOT NULL,\n  `udate` bigint(20) unsigned NOT NULL,\n  `date` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `mailbox_id` bigint(20) unsigned NOT NULL,\n  `opened_at` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `total_messages` int(11) unsigned NOT NULL,\n  `match_rule_id` int(11) unsigned NOT NULL,\n  `cls_time` int(11) unsigned NOT NULL,\n  `pnd_time` int(11) unsigned NOT NULL,\n  `wait_time` int(11) unsigned NOT NULL,\n  `accept_time` int(11) unsigned NOT NULL,\n  `response_time` int(11) NOT NULL,\n  `interaction_time` int(11) NOT NULL,\n  `lr_time` int(11) unsigned NOT NULL,\n  `tslasign` int(11) unsigned NOT NULL,\n  `start_type` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `transfer_uid` int(11) unsigned NOT NULL,\n  `remarks` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `conv_duration` int(11) NOT NULL DEFAULT 0,\n  `mail_variables` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `has_attachment` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `pending_sync` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `follow_up_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `undelivered` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `lang` (`lang`),\n  KEY `from_address` (`from_address`),\n  KEY `mailbox_id` (`mailbox_id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `mailbox_id_status_udate` (`mailbox_id`,`status`,`udate`),\n  KEY `status_priority` (`status`,`priority`),\n  KEY `status_priority_asc` (`status`,`priority_asc`),\n  KEY `has_attachment` (`has_attachment`),\n  KEY `udate` (`udate`),\n  KEY `user_id_status` (`user_id`,`status`),\n  KEY `status_dep_id` (`status`,`dep_id`),\n  KEY `undelivered` (`undelivered`),\n  KEY `phone` (`phone`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lhc_mailconv_file": "CREATE TABLE `lhc_mailconv_file` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `message_id` bigint(20) unsigned NOT NULL,\n  `size` int(11) unsigned NOT NULL,\n  `name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `description` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `extension` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `type` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attachment_id` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  `file_path` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `file_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `content_id` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `disposition` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `conversation_id` bigint(20) unsigned NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `message_id` (`message_id`),\n  KEY `conversation_id` (`conversation_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lhc_mailconv_mailbox": "CREATE TABLE `lhc_mailconv_mailbox` (\n  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n  `mail` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `username` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `password` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `host` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `active` tinyint(1) unsigned NOT NULL DEFAULT 1,\n  `port` int(11) unsigned NOT NULL,\n  `workflow_options` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `imap` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `last_sync_log` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sync_started` bigint(20) unsigned NOT NULL,\n  `last_sync_time` bigint(20) unsigned NOT NULL,\n  `user_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `mailbox_sync` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sync_status` int(11) unsigned NOT NULL,\n  `sync_interval` int(11) unsigned NOT NULL,\n  `signature` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `signature_under` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `import_since` int(11) unsigned NOT NULL DEFAULT 0,\n  `dep_id` int(11) unsigned NOT NULL DEFAULT 0,\n  `delete_mode` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `reopen_timeout` int(11) unsigned NOT NULL DEFAULT 4,\n  `failed` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `uuid_status` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `create_a_copy` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `import_priority` int(11) unsigned NOT NULL DEFAULT 0,\n  `assign_parent_user` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `mail_smtp` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  `name_smtp` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  `username_smtp` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  `password_smtp` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  `no_pswd_smtp` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `auth_method` tinyint(1) unsigned NOT NULL DEFAULT '0',\n  `reopen_reset` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `last_process_time` bigint(20) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lhc_mailconv_match_rule": "CREATE TABLE `lhc_mailconv_match_rule` (\n  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n  `dep_id` int(11) unsigned NOT NULL,\n  `conditions` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `active` tinyint(1) unsigned NOT NULL DEFAULT 1,\n  `mailbox_id` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `from_name` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `from_mail` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `subject_contains` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `priority` int(11) NOT NULL,\n  `priority_rule` int(11) NOT NULL,\n  `options` text COLLATE utf8mb4_unicode_ci NOT NULL,`name` varchar(50) NOT NULL, PRIMARY KEY (`id`),  \n  KEY `active_priority` (`active`,`priority`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lhc_mailconv_msg_open": "CREATE TABLE `lhc_mailconv_msg_open` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `opened_at` bigint(20) unsigned NOT NULL,\n  `hash` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `hash` (`hash`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lhc_mailconv_msg": "CREATE TABLE `lhc_mailconv_msg` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `priority` int(11) NOT NULL DEFAULT 0, `is_external` tinyint(1) unsigned NOT NULL DEFAULT 0, `message_hash` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL, `status` int(11) unsigned NOT NULL,`opened_at` bigint(20) unsigned NOT NULL DEFAULT 0, `conversation_id_old` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `conversation_id` bigint(20) unsigned NOT NULL,`lang` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL, \n  `message_id` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `in_reply_to` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `subject` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `alt_body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `references` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `ctime` int(11) unsigned NOT NULL,\n  `udate` int(11) unsigned NOT NULL,\n  `date` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `flagged` int(11) unsigned NOT NULL,\n  `recent` int(11) unsigned NOT NULL,\n  `msgno` bigint(20) unsigned NOT NULL,\n  `uid` bigint(20) unsigned NOT NULL,\n  `size` int(11) unsigned NOT NULL,\n  `from_host` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `from_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `from_address` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sender_host` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sender_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sender_address` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `to_data` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `reply_to_data` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `mailbox_id` bigint(20) unsigned NOT NULL,\n  `response_time` bigint(20) unsigned NOT NULL,\n  `cls_time` bigint(20) unsigned NOT NULL,\n  `wait_time` bigint(20) unsigned NOT NULL,\n  `accept_time` bigint(20) unsigned NOT NULL,\n  `interaction_time` bigint(20) NOT NULL, `conv_user_id` bigint(20) unsigned NOT NULL DEFAULT 0, `user_id` bigint(20) unsigned NOT NULL,\n  `lr_time` bigint(20) unsigned NOT NULL,\n  `response_type` int(11) unsigned NOT NULL,\n  `bcc_data` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `cc_data` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `dep_id` int(11) unsigned NOT NULL,\n  `mb_folder` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `conv_duration` int(11) NOT NULL DEFAULT 0,\n  `has_attachment` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `undelivered` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `rfc822_body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `delivery_status` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `message_id` (`message_id`),\n  KEY `response_type` (`response_type`),\n  KEY `user_id` (`user_id`),\n  KEY `conversation_id_old` (`conversation_id_old`), KEY `conversation_id` (`conversation_id`),\n  KEY `mailbox_id` (`mailbox_id`),\n  KEY `dep_id` (`dep_id`), KEY `message_hash` (`message_hash`), KEY `lang` (`lang`),\n  KEY `has_attachment` (`has_attachment`),\n  KEY `udate` (`udate`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lhc_mailconv_msg_internal": "CREATE TABLE `lhc_mailconv_msg_internal` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `msg` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `time` bigint(20) unsigned NOT NULL,\n  `chat_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `user_id` bigint(20) NOT NULL DEFAULT 0,\n  `name_support` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `meta_msg` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_id` (`chat_id`,`id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lhc_mailconv_msg_subject": "CREATE TABLE `lhc_mailconv_msg_subject` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `subject_id` int(11) unsigned NOT NULL,\n  `message_id` bigint(20) unsigned NOT NULL,\n  `conversation_id` bigint(20) unsigned NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `message_id` (`message_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci\n",
+    "lhc_mailconv_response_template": "CREATE TABLE `lhc_mailconv_response_template` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `template` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `dep_id` int(11) NOT NULL DEFAULT 0,\n  `template_plain` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `unique_id` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `disabled` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `unique_id` (`unique_id`),\n  KEY `disabled` (`disabled`),\n  KEY `dep_id` (`dep_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lhc_mailconv_personal_mailbox_group": "CREATE TABLE `lhc_mailconv_personal_mailbox_group` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL, `mails` longtext COLLATE utf8mb4_unicode_ci NOT NULL, `active` tinyint(1) unsigned NOT NULL, PRIMARY KEY (`id`), KEY `active` (`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_group_chat_member": "CREATE TABLE `lh_group_chat_member` (\n `id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `user_id` bigint(20) NOT NULL, `type` tinyint(1) NOT NULL DEFAULT '0',\n  `group_id` bigint(20) NOT NULL, `last_msg_id` bigint(20) NOT NULL DEFAULT '0', `last_activity` int(11) NOT NULL,\n  `jtime` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `group_id` (`group_id`), KEY `user_id` (`user_id`), KEY `type` (`type`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_generic_bot_command": "CREATE TABLE `lh_generic_bot_command` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `command` varchar(50) NOT NULL, `info_msg` varchar(100) NOT NULL, `sub_command` varchar(100) NOT NULL,`shortcut_1` varchar(10) NOT NULL,`shortcut_2` varchar(10) NOT NULL,\n  `bot_id` int(11) NOT NULL,\n  `trigger_id` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `command` (`command`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_webhook": "CREATE TABLE `lh_webhook` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `event` varchar(50) NOT NULL,`bot_id_alt` int(11) NOT NULL DEFAULT '0', `trigger_id_alt` int(11) NOT NULL DEFAULT '0',  `bot_id` int(11) NOT NULL,  `trigger_id` int(11) NOT NULL,  `disabled` tinyint(1) NOT NULL, `configuration` longtext NOT NULL, `type` tinyint(1) NOT NULL DEFAULT 0,  PRIMARY KEY (`id`),  KEY `event_disabled` (`event`,`disabled`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
@@ -10854,13 +11787,22 @@
     "lh_canned_msg_dep" : "CREATE TABLE `lh_canned_msg_dep` (`id` bigint(20) NOT NULL AUTO_INCREMENT,`canned_id` int(11) NOT NULL,`dep_id` int(11) NOT NULL,PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`),KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_auto_responder_dep" : "CREATE TABLE `lh_abstract_auto_responder_dep` (`id` bigint(20) NOT NULL AUTO_INCREMENT, `autoresponder_id` int(11) NOT NULL, `dep_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `autoresponder_id` (`autoresponder_id`),KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_canned_msg_subject" : "CREATE TABLE `lh_canned_msg_subject` (\n    `id` int(11) NOT NULL AUTO_INCREMENT,\n    `canned_id` int(11) NOT NULL,\n    `subject_id` int(11) NOT NULL,\n    PRIMARY KEY (`id`),\n    KEY `canned_id` (`canned_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lh_canned_msg_use" : "CREATE TABLE `lh_canned_msg_use` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `canned_id` int(11) unsigned NOT NULL, `chat_id` bigint(20) unsigned NOT NULL, `ctime` bigint(20) unsigned NOT NULL, `user_id` bigint(20) unsigned NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`), KEY `ctime` (`ctime`),   KEY `canned_id` (`canned_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lhc_mailconv_response_template_dep" : "CREATE TABLE `lhc_mailconv_response_template_dep` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `template_id` bigint(20) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `template_id` (`template_id`),\n  KEY `dep_id` (`dep_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lhc_mailconv_remarks" : "CREATE TABLE `lhc_mailconv_remarks` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `email` varchar(250) NOT NULL, `remarks` longtext NOT NULL, PRIMARY KEY (`id`), KEY `email` (`email`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lhc_mailconv_response_template_subject" : "CREATE TABLE `lhc_mailconv_response_template_subject` (\n    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n    `template_id` bigint(20) unsigned NOT NULL,\n    `subject_id` bigint(20) unsigned NOT NULL,\n    PRIMARY KEY (`id`),\n    KEY `template_id` (`template_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_canned_msg_replace" : "CREATE TABLE `lh_canned_msg_replace` (    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,    `identifier` varchar(50) NOT NULL,    `default` text NOT NULL, `conditions` longtext NOT NULL,    PRIMARY KEY (`id`),    KEY `identifier` (`identifier`)    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lh_canned_msg_use" : "CREATE TABLE `lh_canned_msg_use` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `canned_id` int(11) unsigned NOT NULL, `chat_id` bigint(20) unsigned NOT NULL, `ctime` bigint(20) unsigned NOT NULL, `user_id` bigint(20) unsigned NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`), KEY `ctime` (`ctime`),   KEY `canned_id` (`canned_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_saved_search" : "CREATE TABLE `lh_abstract_saved_search` (\n                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,`description` text COLLATE utf8mb4_unicode_ci NOT NULL, `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `params` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `user_id` bigint(20) unsigned NOT NULL, `passive` tinyint(1) unsigned NOT NULL DEFAULT 0, `position` int(11) unsigned NOT NULL, `scope` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `days` int(11) unsigned NOT NULL,\n                  `updated_at` bigint(20) unsigned NOT NULL,\n                  `requested_at` bigint(20) unsigned NOT NULL,\n                  `total_records` bigint(20) unsigned NOT NULL,\n                  PRIMARY KEY (`id`),\n                  KEY `user_id` (`user_id`),\n                  KEY `scope` (`scope`),\n                  KEY `updated_at` (`updated_at`),\n                  KEY `requested_at` (`requested_at`)\n                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_saved_report" : "CREATE TABLE `lh_abstract_saved_report` (\n    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n    `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n    `description` text COLLATE utf8mb4_unicode_ci NOT NULL,\n    `params` longtext COLLATE utf8mb4_unicode_ci NOT NULL, `send_log` longtext COLLATE utf8mb4_unicode_ci NOT NULL, `recurring_options` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n    `user_id` bigint(20) unsigned NOT NULL,\n    `position` int(11) unsigned NOT NULL,\n    `days` int(11) unsigned NOT NULL,\n    `date_type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,\n    `days_end` int(11) unsigned NOT NULL,\n    `updated_at` bigint(20) unsigned NOT NULL,\n    PRIMARY KEY (`id`),\n    KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_chat_action" : "CREATE TABLE `lh_chat_action` (\n                `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n                  `chat_id` bigint(20) NOT NULL,\n                  `action` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `created_at` bigint(20) unsigned NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lhc_mailconv_mailing_list_recipient" : "CREATE TABLE `lhc_mailconv_mailing_list_recipient` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `mailing_list_id` bigint(20) unsigned NOT NULL,\n  `mailing_recipient_id` bigint(20) unsigned NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `mailing_list_id` (`mailing_list_id`),\n  KEY `mailing_recipient_id` (`mailing_recipient_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lhc_mailconv_recipient" : "CREATE TABLE `lhc_mailconv_recipient` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `disabled` tinyint(1) NOT NULL DEFAULT 0, `mailbox` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_1` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_2` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_3` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL, `attr_str_4` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL, `attr_str_5` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL, `attr_str_6` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `email` (`email`),\n  KEY `disabled` (`disabled`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lhc_mailconv_mailing_list" : "CREATE TABLE `lhc_mailconv_mailing_list` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `user_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lhc_mailconv_mailing_campaign_recipient" : "CREATE TABLE `lhc_mailconv_mailing_campaign_recipient` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `campaign_id` bigint(20) unsigned NOT NULL,\n  `recipient_id` bigint(20) unsigned NOT NULL,\n  `type` tinyint(1) NOT NULL DEFAULT 0,\n  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `mailbox` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `status` tinyint(1) NOT NULL DEFAULT 0,\n  `opened_at` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `send_at` bigint(20) unsigned NOT NULL,\n  `message_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `conversation_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_1` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_2` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_3` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_4` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_5` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_6` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `log` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `message_id` (`message_id`),\n  KEY `campaign_id_status` (`campaign_id`,`status`),\n  KEY `campaign_id_email` (`campaign_id`, `email`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lhc_mailconv_mailing_campaign" : "CREATE TABLE `lhc_mailconv_mailing_campaign` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `user_id` bigint(20) unsigned NOT NULL,\n  `status` tinyint(1) NOT NULL DEFAULT 0,\n  `starts_at` bigint(20) unsigned NOT NULL,\n  `enabled` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `mailbox_id` bigint(20) unsigned NOT NULL,\n  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `body_alt` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `subject` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `as_active` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `reply_email` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `reply_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,`owner_logic` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `owner_user_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `status_enabled_starts_at` (`status`,`enabled`,`starts_at`),\n  KEY `enabled` (`enabled`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_abstract_proactive_chat_invitation_dep" : "CREATE TABLE `lh_abstract_proactive_chat_invitation_dep` (`id` bigint(20) NOT NULL AUTO_INCREMENT,`invitation_id` int(11) NOT NULL,`dep_id` int(11) NOT NULL,PRIMARY KEY (`id`), KEY `invitation_id` (`invitation_id`),KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_generic_bot_rest_api_cache" : "CREATE TABLE `lh_generic_bot_rest_api_cache` (\n  `hash` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  `rest_api_id` bigint(20) unsigned NOT NULL,\n  `response` text NOT NULL,\n  `ctime` bigint(20) NOT NULL,\n  UNIQUE KEY `rest_api_id_hash` (`rest_api_id`,`hash`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lhc_mailconv_oauth_ms" : "CREATE TABLE `lhc_mailconv_oauth_ms` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `mailbox_id` bigint(20) unsigned NOT NULL,\n  `oauth_uid` varchar(50) NOT NULL,\n  `name` varchar(200) NOT NULL,\n  `email` varchar(200) NOT NULL,\n  `surname` varchar(200) NOT NULL,\n  `display_name` varchar(200) NOT NULL,\n  `txtSessionKey` varchar(255) NOT NULL,\n  `txtCodeVerifier` varchar(255) NOT NULL,\n  `dtExpires` bigint(20) unsigned NOT NULL,\n  `txtRefreshToken` text NOT NULL,\n  `txtToken` text NOT NULL,\n  `txtIDToken` text NOT NULL,\n  `completed` tinyint(1) unsigned NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `oauth_uid` (`oauth_uid`),\n  KEY `user_id_completed` (`mailbox_id`,`completed`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4\n;",
     "lh_userdep_alias" : "CREATE TABLE `lh_userdep_alias` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,`dep_id` bigint(20) unsigned NOT NULL,`dep_group_id` bigint(20) unsigned NOT NULL, `user_id` bigint(20) unsigned NOT NULL,`nick` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,`filepath` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,`filename` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,`avatar` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL, PRIMARY KEY (`id`), KEY `dep_id_user_id` (`dep_id`,`user_id`), KEY `dep_group_id_user_id` (`dep_group_id`,`user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_msg_protection" : "CREATE TABLE `lh_abstract_msg_protection` (`id` int(11) unsigned NOT NULL AUTO_INCREMENT,`pattern` text COLLATE utf8mb4_unicode_ci NOT NULL,`enabled` int(11) NOT NULL DEFAULT 1,`remove` int(11) NOT NULL DEFAULT 0,`v_warning` text COLLATE utf8mb4_unicode_ci NOT NULL, PRIMARY KEY (`id`), KEY `enabled` (`enabled`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_chat_participant" : "CREATE TABLE `lh_chat_participant` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `chat_id` bigint(20) NOT NULL,\n  `user_id` bigint(20) NOT NULL,\n  `duration` int(11) unsigned NOT NULL,\n  `time` bigint(20) unsigned NOT NULL,\n  `dep_id` bigint(20) unsigned NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id` (`chat_id`),\n  KEY `time` (`time`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",

@@ -4,19 +4,22 @@
 
 <div role="tabpanel">
 	<ul class="nav nav-tabs" role="tablist">
+        <?php if ((erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowtransfer') && !(isset($transferMode) && $transferMode == 'mail')) || (isset($transferMode) && $transferMode == 'mail' && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','allowtransfer'))) : ?>
 		<li role="presentation" class="nav-item"><a class="active nav-link" href="#transferusermodal" aria-controls="transferusermodal" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to a user');?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link" href="#transferdepmodal" aria-controls="transferdepmodal" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer to a department');?></a></li>
+        <?php endif; ?>
 
-        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','changeowner')) : ?>
+        <?php if ((erLhcoreClassUser::instance()->hasAccessTo('lhchat','changeowner') && !(isset($transferMode) && $transferMode == 'mail')) || (isset($transferMode) && $transferMode == 'mail' && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','changeowner')) ) : ?>
             <li role="presentation" class="nav-item"><a class="nav-link" href="#changeowner" aria-controls="changeowner" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?></a></li>
         <?php endif; ?>
 
-        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','changedepartment')) : ?>
+        <?php if ((erLhcoreClassUser::instance()->hasAccessTo('lhchat','changedepartment') && !(isset($transferMode) && $transferMode == 'mail')) || (isset($transferMode) && $transferMode == 'mail' && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','changedepartment'))) : ?>
             <li role="presentation" class="nav-item"><a class="nav-link" href="#changedepartment" aria-controls="changedepartment" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change department');?></a></li>
         <?php endif; ?>
-
 	</ul>
 	<div class="tab-content">
+
+        <?php if ((erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowtransfer') && !(isset($transferMode) && $transferMode == 'mail')) || (isset($transferMode) && $transferMode == 'mail' && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','allowtransfer'))) : ?>
 		<div role="tabpanel" class="tab-pane active" id="transferusermodal">
 		
     		<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Logged in users');?></h4>
@@ -35,9 +38,10 @@
 
             </div>
 
-    		<input type="button" onclick="lhinst.transferChat('<?php echo $chat->id;?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
+    		<input type="button" onclick="lhinst.transferChat('<?php echo $chat->id;?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
     		
 		</div>
+
 		<div role="tabpanel" class="tab-pane" id="transferdepmodal">
 
     		<div class="row">
@@ -47,7 +51,7 @@
 
                     </div>
 
-            		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
+            		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
         		</div>
         		<div class="col-6">
         		    <div class="checkbox">
@@ -63,22 +67,24 @@
         		    </div>
         		</div>
             </div>
-
-            <script type="text/javascript">
+		</div>
+        <?php endif; ?>
+        
+        <script type="text/javascript">
             function updateTransferDepartments() {
-            	$('#transfer-chat-list-refilter').html('...');
-                $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>/(mode)/dep',{
+                $('#transfer-chat-list-refilter').html('...');
+                $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>/(mode)/dep<?php isset($transferMode) ? print '/(obj)/'.$transferMode : ''?>',{
                     'dep_transfer_only_explicit':$('#dep_transfer_only_explicit').is(':checked'),
                     'dep_transfer_exclude_hidden':$('#dep_transfer_exclude_hidden').is(':checked'),
                     'dep_transfer_exclude_disabled':$('#dep_transfer_exclude_disabled').is(':checked')
-                    }, function(data) {
-                        $('#transfer-chat-list-refilter').html(data);
+                }, function(data) {
+                    $('#transfer-chat-list-refilter').html(data);
                 });
             }
 
             function updateTransferUser() {
                 $('#transfer-chat-listuserrefilter').html('...');
-                $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>/(mode)/user',{
+                $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>/(mode)/user<?php isset($transferMode) ? print '/(obj)/'.$transferMode : ''?>',{
                     'logged_and_online':$('#logged_and_online').is(':checked'),
                     'logged_and_same_dep':$('#logged_and_same').is(':checked')
                 }, function(data) {
@@ -98,10 +104,9 @@
                     $('#id_new_user_id').html(resultHTML);
                 });
             }
-            </script>
-		</div>
-        
-        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','changeowner')) : ?>
+        </script>
+
+        <?php if ((erLhcoreClassUser::instance()->hasAccessTo('lhchat','changeowner') && !(isset($transferMode) && $transferMode == 'mail')) || (isset($transferMode) && $transferMode == 'mail' && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','changeowner'))) : ?>
         <div role="tabpanel" class="tab-pane pt-2" id="changeowner">
             <input class="form-control mb-2 form-control-sm" onkeyup="searchUserTransfer()" id="search-changeowner" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search for a user.  First 50 users are shown.')?>" />
             <div class="form-group" id="search-changeowner-result">
@@ -115,15 +120,15 @@
                     'list_function_params'  => array('sort' => '`name` ASC', 'limit' => 50, 'filter' => array('disabled' => 0))
                 )); ?>
             </div>
-            <input type="button" onclick="lhinst.changeOwner('<?php echo $chat->id?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?>">
+            <input type="button" onclick="lhinst.changeOwner('<?php echo $chat->id?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?>">
         </div>
         <?php endif; ?>
 
-        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','changedepartment')) : ?>
+        <?php if ((erLhcoreClassUser::instance()->hasAccessTo('lhchat','changedepartment') && !(isset($transferMode) && $transferMode == 'mail')) || (isset($transferMode) && $transferMode == 'mail' && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','changedepartment'))) : ?>
         <div role="tabpanel" class="tab-pane" id="changedepartment">
             <?php include(erLhcoreClassDesign::designtpl('lhchat/transfer/department.tpl.php'));?>
             <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','You will still remain an owner of the chat.');?></small></p>
-            <input type="button" onclick="lhinst.changeDep('<?php echo $chat->id?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change department');?>">
+            <input type="button" onclick="lhinst.changeDep('<?php echo $chat->id?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change department');?>">
         </div>
         <?php endif; ?>
 

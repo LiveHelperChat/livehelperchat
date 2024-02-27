@@ -17,7 +17,9 @@ class erLhcoreClassChatWebhookHttp {
             foreach ($webhooks as $webhook) {
 
                 // processTrigger always requires a chat so fake it.
-                if (!isset($params['chat']) || !($params['chat'] instanceof erLhcoreClassModelChat)) {
+                if (isset($params['mail']) && $params['mail'] instanceof erLhcoreClassModelMailconvMessage) {
+                    $params['chat'] = $params['mail'];
+                } else if (!isset($params['chat']) || !($params['chat'] instanceof erLhcoreClassModelChat)) {
                     $params['chat'] = new erLhcoreClassModelChat();
                     $params['chat']->id = -1;
                 }
@@ -133,21 +135,35 @@ class erLhcoreClassChatWebhookHttp {
                     $conditionItemValid = false;
 
                     if ($conditionsCurrent['type'] == '1') { // Visitor message contains
-                        $paramsMessage = array('limit' => 1, 'sort' => 'id DESC', 'filternotin' => array('user_id' => array(-1)), 'filter' => array('chat_id' => $chat->id));
-                        if ($previousMessageId > 0) {
-                            $paramsMessage['filterlt']['id'] = $previousMessageId;
-                        }
-                        $messageLast = erLhcoreClassModelmsg::findOne($paramsMessage);
-                        if ($messageLast instanceof erLhcoreClassModelmsg) {
-                            $previousMessageId = $messageLast->id;
-                            if ($messageLast->user_id == 0) {
-                                $conditionItemValid = erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
-                                    'pattern' => $conditionsCurrent['message_contains'],
-                                    'msg' => $messageLast->msg,
-                                    'words_typo' => 0,
-                                ))['found'];
+
+                        if ($chat instanceof erLhcoreClassModelChat){
+                            $paramsMessage = array('limit' => 1, 'sort' => 'id DESC', 'filternotin' => array('user_id' => array(-1)), 'filter' => array('chat_id' => $chat->id));
+                            if ($previousMessageId > 0) {
+                                $paramsMessage['filterlt']['id'] = $previousMessageId;
                             }
+                            $messageLast = erLhcoreClassModelmsg::findOne($paramsMessage);
+                            if ($messageLast instanceof erLhcoreClassModelmsg) {
+                                $previousMessageId = $messageLast->id;
+                                if ($messageLast->user_id == 0) {
+                                    $conditionItemValid = erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                                        'pattern' => $conditionsCurrent['message_contains'],
+                                        'msg' => $messageLast->msg,
+                                        'words_typo' => 0,
+                                    ))['found'];
+                                }
+                            }
+                        } elseif ($chat instanceof erLhcoreClassModelMailconvMessage) {
+                            $conditionItemValid = erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                                'pattern' => $conditionsCurrent['message_contains'],
+                                'msg' => $chat->body,
+                                'words_typo' => 0,
+                            ))['found'] || erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                                    'pattern' => $conditionsCurrent['message_contains'],
+                                    'msg' => $chat->alt_body,
+                                    'words_typo' => 0,
+                            ))['found'];
                         }
+
                     } elseif ($conditionsCurrent['type'] == '3') { // No response from operator for n seconds
                         $conditionAttr = $conditionsCurrent['attr'];
                         if (strpos($conditionAttr,'{args.') !== false) {
@@ -181,6 +197,7 @@ class erLhcoreClassChatWebhookHttp {
                         // Remove internal variables
                         $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$conditionAttr);
                         $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr);
+
 
                         if (!in_array($conditionsCurrent['condition'],['like','notlike','contains'])) {
                             // Remove spaces

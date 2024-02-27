@@ -851,10 +851,15 @@ class erLhcoreClassBBCode
                             $append = '';
                             if (isset($mainData[1])) {
                                 $subpartParts = explode('=',$mainData[1]);
-                                if ($subpartParts[0] == 'link') {
+                                if ($subpartParts[0] == 'link' || $subpartParts[0] == 'linkdirect') {
                                     if (!isset($subpartParts[1])) {
                                         $prepend = '<a class="link" rel="noreferrer" target="_blank" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}/(inline)/true\">";
                                         $append = '</a>';
+
+                                        if ($subpartParts[0] == 'linkdirect') {
+                                            return"<a href=\"" . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>";
+                                        }
+
                                     } else {
                                         $url = self::esc_url($subpartParts[1]);
                                         if ($url != ''){
@@ -867,7 +872,12 @@ class erLhcoreClassBBCode
                                 $prepend = '<div class="position-relative">';
                                 $append = '<a class="hidden-download" target="_blank" rel="noreferrer" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'/(inline)/true"></a></div>';
                             }
-                            return $prepend . '<img onclick="lhinst.zoomImage(this)" id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
+                            
+                            if (isset($displayType) && $displayType == 'rawimg') {
+                                return '<img onclick="lhinst.zoomImage(this)" id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
+                            } else {
+                                return $prepend . '<img onclick="lhinst.zoomImage(this)" id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
+                            }
                         }
 
                         $audio = '';
