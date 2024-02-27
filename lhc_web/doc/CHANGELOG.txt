@@ -1,3 +1,9 @@
+4.30v
+
+Brand new mail module and svelte based dashboard.
+
+execute doc/update_db/update_301.sql for update
+
 4.29v
 
 1. New chat attribute `First response time (agent)` attribute `frt`.
