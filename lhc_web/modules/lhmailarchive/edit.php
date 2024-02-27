@@ -81,11 +81,13 @@ if (isset($_POST['Save_archive']) || isset($_POST['Save_and_continue_archive']))
 
 	if (count($Errors) == 0)
 	{
+        $archive->saveThis();
+
 		if (isset($_POST['Save_and_continue_archive'])){
 			erLhcoreClassModule::redirect('mailarchive/process','/'.$archive->id);
 			exit;
 		}
-
+        
 		$tpl->set('updated',true);
 
 	}  else {

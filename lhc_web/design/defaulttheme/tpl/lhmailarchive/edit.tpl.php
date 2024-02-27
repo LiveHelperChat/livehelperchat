@@ -12,7 +12,7 @@
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','Name');?></label>
-        <input class="form-control form-control-sm" type="text" name="name" value="<?php echo htmlspecialchars($archive->name);?>" />
+        <input class="form-control form-control-sm" type="text" maxlength="50" name="name" value="<?php echo htmlspecialchars($archive->name);?>" />
     </div>
 
     <div class="form-group">
