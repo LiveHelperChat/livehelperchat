@@ -1,6 +1,6 @@
 let scope = "lhcbo";
 
-const responseTrack = await fetch(WWW_DIR_JAVASCRIPT  + "restapi/lang/"+ scope, {
+const responseTrack = await fetch(WWW_DIR_JAVASCRIPT  + "restapi/lang/"+ scope + '/v1', {
     method: "GET",
     headers: {
         Accept: "application/json",
