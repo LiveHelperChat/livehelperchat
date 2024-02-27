@@ -846,7 +846,10 @@ class erLhcoreClassMailconvParser {
                         }
 
                         // Set folder from where message was taken;
-                        $message->conv_user_id = $conversation->user_id;
+                        if ($conversation instanceof erLhcoreClassModelMailconvConversation) {
+                            $message->conv_user_id = $conversation->user_id;
+                        }
+
                         $message->mb_folder = $mailboxFolder['path'];
                         $message->updateThis(['update' => ['mb_folder','conv_user_id']]);
 
