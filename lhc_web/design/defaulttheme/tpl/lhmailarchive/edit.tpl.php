@@ -21,7 +21,7 @@
             <option value="0" <?php if ($archive->type == \LiveHelperChat\Models\mailConv\Archive\Range::ARCHIVE_TYPE_DEFAULT) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Backup');?></option>
             <option value="1" <?php if ($archive->type == \LiveHelperChat\Models\mailConv\Archive\Range::ARCHIVE_TYPE_BACKUP) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Archive');?></option>
         </select>
-        <div class="text-muted fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','You can change type untill there is no chats in it.');?> <?php if ($archive->id > 0 && $archive->mails_in_archive > 0) : ?>[<?php echo $archive->mails_in_archive;?>]<?php endif;?></div>
+        <div class="text-muted fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','You can change type untill there is no mails in it.');?> <?php if ($archive->id > 0 && $archive->mails_in_archive > 0) : ?>[<?php echo $archive->mails_in_archive;?>]<?php endif;?></div>
     </div>
 
     <div class="row" id="date-range-depend">
@@ -48,7 +48,7 @@
         <input type="submit" class="btn btn-secondary" name="Save_and_continue_archive" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save and continue');?>"/>
         <input type="submit" class="btn btn-secondary" name="Cancel_archive" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
     </div>
-    
+
     <script>
         $('#archive-type').change(function(){
             if ($(this).val() == '1') {
