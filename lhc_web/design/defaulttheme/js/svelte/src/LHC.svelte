@@ -90,7 +90,8 @@
         lhcListRequestInProgress: false,
         lhcSettingUpdateProgress: [],
         lhcSettingAllSelected: false,
-        channel: null
+        channel: null,
+        abortController : new AbortController()
     };
 
     lhinst.channel = lhcLogic.channel = new BroadcastChannel('lhc_dashboard');
@@ -1341,7 +1342,8 @@
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
-                }
+                },
+                signal: lhcLogic.abortController.signal
             });
 
             if (!responseTrack.ok) {
@@ -1613,15 +1615,17 @@
 
         } catch (error) {
 
-            $lhcList.lhcConnectivityProblem = true;
-            $lhcList.lhcConnectivityProblemExplain = error;
+            if (!(error instanceof DOMException)) {
+                $lhcList.lhcConnectivityProblem = true;
+                $lhcList.lhcConnectivityProblemExplain = error;
+                console.error("There has been a problem with your fetch operation:", error);
+            }
+
             lhcLogic.lhcListRequestInProgress = false;
 
             lhcLogic.timeoutControl = setTimeout(function(){
                 loadChatList();
             },confLH.back_office_sinterval);
-
-            console.error("There has been a problem with your fetch operation:", error);
         }
 
 
@@ -1675,6 +1679,10 @@
 
     function syncDisabled(disabled) {
         lhcLogic.blockSync = disabled;
+        if (lhcLogic.blockSync == true) {
+            lhcLogic.abortController.abort();
+            lhcLogic.abortController = new AbortController();
+        }
     }
 
 

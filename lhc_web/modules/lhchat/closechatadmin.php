@@ -1,5 +1,7 @@
 <?php
 
+session_write_close();
+
 header('content-type: application/json; charset=utf-8');
 
 // Set new chat owner
