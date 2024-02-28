@@ -27,8 +27,12 @@ class Archive
 
             if ($archive instanceof ArchiveModels\Range) {
                 $archive->setTables();
-                $chat = ArchiveModels\Conversation::fetch($chatId, true, true);
-                return array('archive' => $archive, 'mail' => $chat);
+                try {
+                    $chat = ArchiveModels\Conversation::fetch($chatId, true, true);
+                    return array('archive' => $archive, 'mail' => $chat);
+                } catch (\Exception $e) {
+                    return null;
+                }
             }
         }
 

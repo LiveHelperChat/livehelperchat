@@ -8,10 +8,10 @@ if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'
 try {
     $item = erLhcoreClassModelMailconvConversation::fetch( $Params['user_parameters']['id']);
 
-    if (!($item instanceof \erLhcoreClassModelMailconvMessage)) {
+    if (!($item instanceof \erLhcoreClassModelMailconvConversation)) {
         $mailData = \LiveHelperChat\mailConv\Archive\Archive::fetchMailById($Params['user_parameters']['id']);
         if (isset($mailData['mail'])) {
-            $item = \LiveHelperChat\Models\mailConv\Archive\Conversation::fetchAndLock($Params['user_parameters']['id']);
+            $item = $mailData['mail'];
         }
     }
 
