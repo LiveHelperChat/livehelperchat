@@ -241,8 +241,6 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
 
             $archive->process(erLhcoreClassModelMailconvConversation::getList($filterParams['filter']));
 
-            sleep(2);
-
             erLhcoreClassRestAPIHandler::setHeaders();
             echo json_encode(['left_to_delete' => erLhcoreClassModelMailconvConversation::getCount($filterParams['filter'])]);
             exit;
