@@ -134,13 +134,15 @@ var revealM = {
 
                 modalContent.draggabilly({
                     handle: ".modal-header",
-                    containment: '#admin-body'
+                    containment: '#admin-body',
+                    axis: 'x'
                 }).css({
-                    top: parseInt(prevPos[0]),
+                    top: 20,
                     left: parseInt(prevPos[1])
                 }).on( 'dragEnd', function( event, pointer ) {
                     revealM.rememberPositions(modalContent.position().top, modalContent.position().left);
                 });
+                $('#admin-body')[0].style.overflow = "scroll";
             }
         },
 
