@@ -128,7 +128,7 @@ class erLhcoreClassModelUserDep
         }
     }
 
-    public static function getOnlineOperators($currentUser, $canListOnlineUsersAll = false, $params = array(), $limit = 10, $onlineTimeout = 120)
+    public static function getOnlineOperators($currentUser, $canListOnlineUsersAll = false, $params = array(), $limit = 10, $onlineTimeout = 120, $paramsExecution = array())
     {
         $userData = $currentUser->getUserData(true);
         $filter = array();
@@ -148,7 +148,11 @@ class erLhcoreClassModelUserDep
             $filter['customfilter'][] = '(dep_id IN (' . implode(',', $userDepartaments) . ') OR user_id = ' . $currentUser->getUserID() . ')';
         };
 
-        $filter['customfilter'][] = '(last_activity > ' . (int)(time() - $onlineTimeout) . ' OR always_on = 1)';
+        if (isset($paramsExecution['dashboard']) && $paramsExecution['dashboard'] === true){
+            $filter['customfilter'][] = '(last_activity > ' . (int)(time() - $onlineTimeout) . ')';
+        } else {
+            $filter['customfilter'][] = '(last_activity > ' . (int)(time() - $onlineTimeout) . ' OR always_on = 1)';
+        }
 
         $filter['limit'] = $limit;
 

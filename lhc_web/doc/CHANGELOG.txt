@@ -1,3 +1,11 @@
+4.31v
+
+1. Optimisation online visitors widget.
+2. Svelte fixes for Nan being presented in departments load widget.
+3. Various small fixes.
+
+execute doc/update_db/update_302.sql for update
+
 4.30v
 
 Brand new mail module and svelte based dashboard.

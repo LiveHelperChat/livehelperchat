@@ -2090,7 +2090,8 @@ try {
                   PRIMARY KEY (`id`),
                   KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
                   KEY `dep_id` (`dep_id`),
-                  KEY `user_id_type` (`user_id`,`type`)
+                  KEY `user_id_type` (`user_id`,`type`),
+                  KEY `online_op_widget` (`last_activity`,`user_id`,`dep_id`,`always_on`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                     // Insert record to departament instantly

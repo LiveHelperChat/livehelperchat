@@ -11379,7 +11379,10 @@
       "old" : ["active_url"]
     },
     "lh_userdep" : {
-      "new" : {"user_id_type" : "ALTER TABLE `lh_userdep` ADD INDEX `user_id_type` (`user_id`, `type`);"},
+      "new" : {
+        "user_id_type" : "ALTER TABLE `lh_userdep` ADD INDEX `user_id_type` (`user_id`, `type`);",
+        "online_op_widget" : "ALTER TABLE `lh_userdep` ADD INDEX `online_op_widget` (`last_activity`,`user_id`,`dep_id`,`always_on`);"
+      },
       "old" : ["user_id"]
     },
     "lh_chat_online_user_footprint" : {
