@@ -98,10 +98,13 @@ try {
             'user' => $userData,
             'chat' => $chat,
         ));
+        echo json_encode(array('error' => false, 'result' => 'ok' ));
+    } else {
+        echo json_encode(array('error' => true, 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','You do not have permission to close this chat!')));
     }
 
     $db->commit();
-    echo json_encode(array('error' => false, 'result' => 'ok' ));
+
 } catch (Exception $e) {
     $db->rollback();
 
