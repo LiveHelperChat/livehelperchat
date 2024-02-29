@@ -10,20 +10,25 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 {
     $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/relatedtickets.tpl.php');
 
-    $filter = [
-        'limit' => false,
-        'filter' => ['from_address' => $chat->email],
-        'filterin' => ['status' =>
-            [
-                erLhcoreClassModelMailconvConversation::STATUS_PENDING,
-                erLhcoreClassModelMailconvConversation::STATUS_ACTIVE,
-            ]
-        ],
-    ];
+    if ( trim($chat->email) != '') {
+        $filter = [
+            'limit' => false,
+            'filter' => ['from_address' => trim($chat->email)],
+            'filterin' => ['status' =>
+                [
+                    erLhcoreClassModelMailconvConversation::STATUS_PENDING,
+                    erLhcoreClassModelMailconvConversation::STATUS_ACTIVE,
+                ]
+            ],
+        ];
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.related_actions', array('chat' => $chat, 'filter' => & $filter));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.related_actions', array('chat' => $chat, 'filter' => & $filter));
 
-    $tpl->set('mails', erLhcoreClassModelMailconvConversation::getList($filter));
+        $tpl->set('mails', erLhcoreClassModelMailconvConversation::getList($filter));
+    } else {
+        $tpl->set('mails', []);
+    }
+
     $tpl->set('chat', $chat);
 
     $data = $tpl->fetch();
