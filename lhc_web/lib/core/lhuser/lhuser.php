@@ -348,9 +348,13 @@ class erLhcoreClassUser{
              $db = ezcDbInstance::get();
              $db->beginTransaction();
 
-             erLhcoreClassUserDep::updateLastActivityByUser($this->userid, time(), $lda);
+             if ($lda > 0) {
+                 $_SESSION['lhc_online_session_lda'] = $lda;
+             }
 
              if ((!isset($_SESSION['lhc_online_session'])) || (isset($_SESSION['lhc_online_session']) && (time() - $_SESSION['lhc_online_session'] > 20))) {
+
+                 erLhcoreClassUserDep::updateLastActivityByUser($this->userid, time(), isset($_SESSION['lhc_online_session_lda']) ? (int)$_SESSION['lhc_online_session_lda'] : 0);
 
                  $userData = $this->getUserData(true);
 
@@ -378,6 +382,7 @@ class erLhcoreClassUser{
                  }
 
                  $_SESSION['lhc_online_session'] = time();
+                 $_SESSION['lhc_online_session_lda'] = 0;
              }
 
              $db->commit();
