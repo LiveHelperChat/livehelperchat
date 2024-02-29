@@ -33,8 +33,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
     }
 
 } else {
-    $tpl = erLhcoreClassTemplate::getInstance('lhchat/relatedactions.tpl.php');
-    $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');
+    exit;
 }
 
 echo $tpl->fetch();
