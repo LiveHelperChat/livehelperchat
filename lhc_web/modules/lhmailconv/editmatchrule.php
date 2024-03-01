@@ -42,6 +42,7 @@ $tpl->setArray(array(
     'item' => $item,
 ));
 
+$Result['require_angular'] = true;
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.webhooks.js').'"></script>';
 $Result['content'] = $tpl->fetch();
 
