@@ -144,7 +144,17 @@ if (isset($_POST['Login']))
             }
         }
 
-        if ($valid == false || !$currentUser->authenticate($_POST['Username'], $_POST['Password'], isset($_POST['rememberMe']) && $_POST['rememberMe'] == 1 ? true : false))
+        $Error = '';
+        $isThirdPartyLogin = false;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.third_party_login', array(
+            'username' => $_POST['Username'],
+            'password' => $_POST['Password'],
+            'error' => & $Error,
+            'is_third_party_login' => & $isThirdPartyLogin,
+            'tpl' => & $tpl));
+
+        if ($isThirdPartyLogin === false && (!empty($Error) || $valid == false || !$currentUser->authenticate($_POST['Username'], $_POST['Password'], isset($_POST['rememberMe']) && $_POST['rememberMe'] == 1 ? true : false)))
         {
             if ($valid == false) {
                 if (isset($validIP) && $validIP === false) {
@@ -154,13 +164,13 @@ if (isset($_POST['Login']))
                 }
             } else {
 
-                if (erLhcoreClassModelUser::getCount(array('filter' => array('disabled' => 1,'username' => $_POST['Username']))) > 0) {
+                if (empty($Error) && erLhcoreClassModelUser::getCount(array('filter' => array('disabled' => 1,'username' => $_POST['Username']))) > 0) {
                     $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Your account is disabled!');
-                } else {
+                } else if (empty($Error)) {
                     $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');
                 }
 
-                if (($userAttempt = erLhcoreClassModelUser::findOne(array('filter' => array('username' => $_POST['Username'])))) instanceof erLhcoreClassModelUser) {
+                if ($isThirdPartyLogin === false && ($userAttempt = erLhcoreClassModelUser::findOne(array('filter' => array('username' => $_POST['Username'])))) instanceof erLhcoreClassModelUser) {
                     erLhcoreClassModelUserLogin::logUserAction(array(
                         'type' => erLhcoreClassModelUserLogin::TYPE_LOGIN_ATTEMPT,
                         'user_id' => $userAttempt->id,
@@ -178,9 +188,9 @@ if (isset($_POST['Login']))
             }
 
         } else {
-            
+
             $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_after_success_authenticate', array('current_user' => & $currentUser, 'tpl' => & $tpl));
-            
+
             if ($response === false)
             {
                 $pendResetPassword = erLhcoreClassModelUserLogin::getCount(array('filter' => array(
