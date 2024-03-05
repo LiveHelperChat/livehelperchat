@@ -209,13 +209,15 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
         session_write_close();
         $filterParams['filter']['limit'] = 20;
         $filterParams['filter']['offset'] = 0;
+        $counterProcessed = 0;
 
-        foreach (erLhcoreClassModelMailconvConversation::getList($filterParams['filter']) as $item){
+        foreach (erLhcoreClassModelMailconvConversation::getList($filterParams['filter']) as $item) {
             $item->removeThis();
+            $counterProcessed++;
         }
 
         erLhcoreClassRestAPIHandler::setHeaders();
-        echo json_encode(['left_to_delete' => erLhcoreClassModelMailconvConversation::getCount($filterParams['filter'])]);
+        echo json_encode(['left_to_delete' => $counterProcessed]);
         exit;
     }
 
@@ -239,10 +241,11 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
             $filterParams['filter']['limit'] = 20;
             $filterParams['filter']['offset'] = 0;
 
-            $archive->process(erLhcoreClassModelMailconvConversation::getList($filterParams['filter']));
+            $items = erLhcoreClassModelMailconvConversation::getList($filterParams['filter']);
+            $archive->process($items);
 
             erLhcoreClassRestAPIHandler::setHeaders();
-            echo json_encode(['left_to_delete' => erLhcoreClassModelMailconvConversation::getCount($filterParams['filter'])]);
+            echo json_encode(['left_to_delete' => count($items)]);
             exit;
         } else {
             erLhcoreClassRestAPIHandler::setHeaders();
@@ -260,31 +263,31 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
 $db = ezcDbInstance::get();
 
 try {
-    $db->query("SET SESSION wait_timeout=2");
+    $db->query("SET SESSION wait_timeout=10");
 } catch (Exception $e){
     //
 }
 
 try {
-    $db->query("SET SESSION interactive_timeout=5");} catch (Exception $e){
+    $db->query("SET SESSION interactive_timeout=10");} catch (Exception $e){
 } catch (Exception $e) {
     //
 }
 
 try {
-    $db->query("SET SESSION innodb_lock_wait_timeout=5");
+    $db->query("SET SESSION innodb_lock_wait_timeout=20");
 } catch (Exception $e) {
     //
 }
 
 try {
-    $db->query("SET SESSION max_execution_time=5000;");
+    $db->query("SET SESSION max_execution_time=20000;");
 } catch (Exception $e) {
     //
 }
 
 try {
-    $db->query("SET SESSION max_statement_time=5;");
+    $db->query("SET SESSION max_statement_time=20;");
 } catch (Exception $e) {
     // Ignore we try to limit how long query can run
 }
