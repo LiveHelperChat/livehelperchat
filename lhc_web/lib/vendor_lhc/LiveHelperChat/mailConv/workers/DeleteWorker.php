@@ -10,13 +10,33 @@ class DeleteWorker
 
         $db->beginTransaction();
         try {
-            $stmt = $db->prepare('SELECT `conversation_id` FROM `lhc_mailconv_delete_item` WHERE `status` = 0 LIMIT :limit FOR UPDATE ');
+            $stmt = $db->prepare('SELECT `conversation_id`,`filter_id` FROM `lhc_mailconv_delete_item` WHERE `status` = 0 LIMIT :limit FOR UPDATE ');
             $stmt->bindValue(':limit',20,\PDO::PARAM_INT);
             $stmt->execute();
-            $chatsId = $stmt->fetchAll(\PDO::FETCH_COLUMN);
+            $chatsId = [];
+            $chatsIdFilter = [];
+            foreach ($stmt->fetchAll(\PDO::FETCH_ASSOC) as $itemArchive) {
+                $chatsId[] = $itemArchive['conversation_id'];
+                $chatsIdFilter[$itemArchive['conversation_id']] = $itemArchive['filter_id'];
+            }
+            
         } catch (\Exception $e) {
             // Someone is already processing. So we just ignore and retry later
             return;
+        }
+
+        $filters = \LiveHelperChat\Models\mailConv\Delete\DeleteFilter::getList(['filterin' => ['id' => array_unique($chatsIdFilter)]]);
+
+        $archiveIds = [];
+        foreach ($filters as $filter) {
+            if ($filter->archive_id > 0) {
+                $archiveIds[] = $filter->archive_id;
+            }
+        }
+
+        $archives = [];
+        if (!empty($archiveIds)) {
+            $archives = \LiveHelperChat\Models\mailConv\Archive\Range::getList(['filterin' => ['id' => array_unique($archiveIds)]]);
         }
 
         if (!empty($chatsId)) {
@@ -30,7 +50,11 @@ class DeleteWorker
             if (!empty($chats)) {
                 try {
                     foreach ($chats as $chat) {
-                        $chat->removeThis();
+                        if (isset($filters[$chatsIdFilter[$chat->id]]) && isset($archives[$filters[$chatsIdFilter[$chat->id]]->archive_id])) {
+                            $archives[$filters[$chatsIdFilter[$chat->id]]->archive_id]->process([$chat]);
+                        } else {
+                            $chat->removeThis();
+                        }
                     }
                 } catch (\Exception $e) {
                     // Try to log error to DB

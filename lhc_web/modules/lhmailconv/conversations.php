@@ -252,14 +252,26 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
 
         if (is_object($archive) && $archive->type == \LiveHelperChat\Models\mailConv\Archive\Range::ARCHIVE_TYPE_BACKUP) {
 
-            $filterParams['filter']['limit'] = 20;
-            $filterParams['filter']['offset'] = 0;
+            if (isset($_POST['schedule'])) {
+                erLhcoreClassRestAPIHandler::setHeaders();
+                $deleteFilter = new \LiveHelperChat\Models\mailConv\Delete\DeleteFilter();
+                $deleteFilter->user_id = $currentUser->getUserID();
+                $deleteFilter->filter = json_encode($filterParams['filter']);
+                $deleteFilter->filter_input = json_encode($filterParams['input_form']);
+                $deleteFilter->archive_id = $archive->id;
+                $deleteFilter->saveThis();
+                echo json_encode(['result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Scheduled delete flow with archive - ID') . ' - ' . $deleteFilter->id]);
+            } else {
+                $filterParams['filter']['limit'] = 20;
+                $filterParams['filter']['offset'] = 0;
 
-            $items = erLhcoreClassModelMailconvConversation::getList($filterParams['filter']);
-            $archive->process($items);
+                $items = erLhcoreClassModelMailconvConversation::getList($filterParams['filter']);
+                $archive->process($items);
 
-            erLhcoreClassRestAPIHandler::setHeaders();
-            echo json_encode(['left_to_delete' => count($items)]);
+                erLhcoreClassRestAPIHandler::setHeaders();
+                echo json_encode(['left_to_delete' => count($items)]);
+            }
+
             exit;
         } else {
             erLhcoreClassRestAPIHandler::setHeaders();

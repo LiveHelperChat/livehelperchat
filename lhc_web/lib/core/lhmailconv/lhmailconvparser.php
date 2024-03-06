@@ -1488,7 +1488,7 @@ class erLhcoreClassMailconvParser {
         $mailbox = erLhcoreClassModelMailconvMailbox::fetch($message->mailbox_id);
 
         // Check that we have trash mailbox configured
-        if ($mailbox->trash_mailbox == null) {
+        if ($mailbox->trash_mailbox == null || $mailbox->active == 0) {
             return;
         }
 
