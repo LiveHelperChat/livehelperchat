@@ -19,7 +19,8 @@ if (!flock($fp, LOCK_EX | LOCK_NB)) {
 
 foreach (\LiveHelperChat\Models\mailConv\Delete\DeleteFilter::getList([
     'filterin' => ['status' => [
-        \LiveHelperChat\Models\mailConv\Delete\DeleteFilter::STATUS_PENDING
+        \LiveHelperChat\Models\mailConv\Delete\DeleteFilter::STATUS_PENDING,
+        \LiveHelperChat\Models\mailConv\Delete\DeleteFilter::STATUS_IN_PROGRESS,
     ]]
 ]) as $filterData) {
 
@@ -27,7 +28,7 @@ foreach (\LiveHelperChat\Models\mailConv\Delete\DeleteFilter::getList([
     $db = ezcDbInstance::get();
     $db->beginTransaction();
         $filterData->syncAndLock();
-        if ($filterData->status == \LiveHelperChat\Models\mailConv\Delete\DeleteFilter::STATUS_PENDING) {
+        if ($filterData->status == \LiveHelperChat\Models\mailConv\Delete\DeleteFilter::STATUS_PENDING || ($filterData->started_at < (time() - 1800) && $filterData->status == \LiveHelperChat\Models\mailConv\Delete\DeleteFilter::STATUS_IN_PROGRESS)) {
             $filterData->status = \LiveHelperChat\Models\mailConv\Delete\DeleteFilter::STATUS_IN_PROGRESS;
             $filterData->started_at = time();
         } else {
