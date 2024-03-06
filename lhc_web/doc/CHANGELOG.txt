@@ -1,3 +1,9 @@
+4.32v
+
+1. Background delete workflow if you have a lot of mails to delete.
+
+execute doc/update_db/update_303.sql for update
+
 4.31v
 
 1. Optimisation online visitors widget.

@@ -2389,6 +2389,31 @@ try {
                   KEY `role_id` (`role_id`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                    $db->query("CREATE TABLE `lhc_mailconv_delete_item` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `conversation_id` bigint(20) unsigned NOT NULL,
+  `filter_id` bigint(20) unsigned NOT NULL,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `filter_id_status` (`filter_id`,`status`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+                    $db->query("CREATE TABLE `lhc_mailconv_delete_filter` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `updated_at` bigint(20) unsigned NOT NULL,
+  `created_at` bigint(20) unsigned NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `archive_id` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `last_id` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `started_at` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `finished_at` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `filter` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `filter_input` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
                     $db->query("CREATE TABLE `lhc_mailconv_mailing_campaign` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,

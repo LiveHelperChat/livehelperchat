@@ -36,6 +36,10 @@
                     <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mail archive')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailarchive/archive')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mail archive');?></a></li>
                 <?php endif; ?>
 
+                <?php if ($currentUser->hasAccessTo('lhmailconv','delete_conversation') && $currentUser->hasAccessTo('lhmailarchive','archive')) : ?>
+                    <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Scheduled archive and deletion')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailarchive/scheduledpurge')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Scheduled archive and deletion');?></a></li>
+                <?php endif; ?>
+
             </ul>
         </div>
         <div class="col-6">
