@@ -57,7 +57,11 @@ class DeleteFilter
             case 'started_at_front':
             case 'finished_at_front':
                 $var = str_replace('_front','',$propertyName);
-                $this->properties[$propertyName] = date('Ymd') == date('Ymd',$this->{$var}) ? date(\erLhcoreClassModule::$dateHourFormat,$this->{$var}) : date(\erLhcoreClassModule::$dateDateHourFormat,$this->{$var});
+                if ($this->{$var} > 0) {
+                    $this->properties[$propertyName] = date('Ymd') == date('Ymd',$this->{$var}) ? date(\erLhcoreClassModule::$dateHourFormat,$this->{$var}) : date(\erLhcoreClassModule::$dateDateHourFormat,$this->{$var});
+                } else {
+                    $this->properties[$propertyName] = '-';
+                }
                 return $this->properties[$propertyName];
 
             case 'records_count':

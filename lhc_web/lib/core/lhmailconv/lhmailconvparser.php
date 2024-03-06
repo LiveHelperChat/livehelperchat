@@ -1494,29 +1494,42 @@ class erLhcoreClassMailconvParser {
 
         if ($mailbox->delete_mode == erLhcoreClassModelMailconvMailbox::DELETE_ALL) {
 
-            if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+            try {
+                if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
 
-                $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
-                $mailboxFolderOAuth = $mailboxHandler->getFolderByPath($message->mb_folder);
+                    $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
+                    $mailboxFolderOAuth = $mailboxHandler->getFolderByPath($message->mb_folder);
 
-                $messagesCollection = $mailboxFolderOAuth->search()->whereUid($message->uid)->get();
+                    $messagesCollection = $mailboxFolderOAuth->search()->whereUid($message->uid)->get();
 
-                if ($messagesCollection->total() == 1) {
-                    $email = $messagesCollection->shift();
-                    $email->delete(true, $mailbox->trash_mailbox);
+                    if ($messagesCollection->total() == 1) {
+                        $email = $messagesCollection->shift();
+                        $email->delete(true, $mailbox->trash_mailbox);
+                    }
+
+                } else {
+                    $mailboxHandler = new PhpImap\Mailbox(
+                        $message->mb_folder, // We use message mailbox folder.
+                        $mailbox->username, // Username for the before configured mailbox
+                        $mailbox->password, // Password for the before configured username
+                        false
+                    );
+
+                    $mailboxHandler->moveMail($message->uid, $mailbox->trash_mailbox);
+                    $mailboxHandler->expungeDeletedMails();
+
                 }
-
-            } else {
-                $mailboxHandler = new PhpImap\Mailbox(
-                    $message->mb_folder, // We use message mailbox folder.
-                    $mailbox->username, // Username for the before configured mailbox
-                    $mailbox->password, // Password for the before configured username
-                    false
+            } catch (Exception $e) {
+                \erLhcoreClassLog::write( $e->getTraceAsString() . "\n" . $e->getMessage(),
+                    \ezcLog::SUCCESS_AUDIT,
+                    array(
+                        'source' => 'lhc',
+                        'category' => 'web_exception',
+                        'line' => 0,
+                        'file' => 0,
+                        'object_id' => 0
+                    )
                 );
-
-                $mailboxHandler->moveMail($message->uid, $mailbox->trash_mailbox);
-                $mailboxHandler->expungeDeletedMails();
-
             }
         }
     }
