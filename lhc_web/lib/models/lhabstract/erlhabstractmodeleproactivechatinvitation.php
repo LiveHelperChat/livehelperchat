@@ -556,8 +556,6 @@ class erLhAbstractModelProactiveChatInvitation {
         // Verify dynamic conditions
         foreach ($messagesToUserRaw as $messageToUser) {
 
-            echo $messageToUser->id,"\n";
-
             $optionsInvitation = $messageToUser->design_data_array;
             $operatorsOnlineId = [];
 
