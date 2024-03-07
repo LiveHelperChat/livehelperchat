@@ -75,7 +75,7 @@ class DeleteFilter
             case 'filter_input_url':
                 $filter = json_decode($this->filter_input,true);
                 $filterParams = \erLhcoreClassSearchHandler::getParams(array('customfilterfile' => 'lib/core/lhmailconv/filter/conversations.php', 'format_filter' => true, 'uparams' => $filter));
-                $this->properties[$propertyName] = \erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
+                $this->properties[$propertyName] = \erLhcoreClassDesign::baseurl('mailconv/conversations') . \erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
                 return $this->properties[$propertyName];
             default:
                 break;
