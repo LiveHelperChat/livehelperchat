@@ -1485,6 +1485,8 @@ class erLhcoreClassMailconvParser {
 
     public static function purgeMessage($message)
     {
+        static $cacheConnection = [];
+
         $mailbox = erLhcoreClassModelMailconvMailbox::fetch($message->mailbox_id);
 
         // Check that we have trash mailbox configured
@@ -1508,16 +1510,20 @@ class erLhcoreClassMailconvParser {
                     }
 
                 } else {
-                    $mailboxHandler = new PhpImap\Mailbox(
-                        $message->mb_folder, // We use message mailbox folder.
-                        $mailbox->username, // Username for the before configured mailbox
-                        $mailbox->password, // Password for the before configured username
-                        false
-                    );
+
+                    if (isset($cacheConnection[$message->mailbox_id])) {
+                        $mailboxHandler = $cacheConnection[$message->mailbox_id];
+                    } else {
+                        $cacheConnection[$message->mailbox_id] = $mailboxHandler = new PhpImap\Mailbox(
+                            $message->mb_folder, // We use message mailbox folder.
+                            $mailbox->username, // Username for the before configured mailbox
+                            $mailbox->password, // Password for the before configured username
+                            false
+                        );
+                    }
 
                     $mailboxHandler->moveMail($message->uid, $mailbox->trash_mailbox);
                     $mailboxHandler->expungeDeletedMails();
-
                 }
             } catch (Exception $e) {
                 \erLhcoreClassLog::write( $e->getTraceAsString() . "\n" . $e->getMessage(),
