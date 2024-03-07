@@ -364,6 +364,10 @@ class erLhcoreClassAbstract
                     $object->{$field['backend_call']}();
                 }
 
+            } elseif ($field['type'] == 'datepicker') {
+
+                $object->{$key} = strtotime($form->{'AbstractInput_' . $key});
+
             } elseif ($field['type'] == 'textarea' || $field['type'] == 'number') {
 
                 if (isset($field['multilanguage']) && $field['multilanguage'] == true) {

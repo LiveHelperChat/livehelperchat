@@ -223,6 +223,22 @@ class erLhcoreClassChatEvent
             ),
         );
 
+        foreach (erLhcoreClassDepartament::getWeekDays() as $dayShort => $dayLong) {
+            $definition[$dayShort] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            );
+
+            $key = $dayShort.'StartTime';
+            $definition[$key] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            );
+
+            $key = $dayShort.'EndTime';
+            $definition[$key] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            );
+        }
+        
         $form = new ezcInputForm( INPUT_POST, $definition );
         $Errors = array();
         
@@ -253,6 +269,53 @@ class erLhcoreClassChatEvent
         } else {
             $params['obj']->dep_ids_front = $params['obj']->dep_ids = $form->DepartmentID;
             $params['obj']->dep_id = -1; // -1 means, individual per department
+        }
+
+        if ($params['obj']->repetitiveness == erLhAbstractModelProactiveChatInvitation::REP_DAILY) {
+            $activeDays = [];
+            foreach (erLhcoreClassDepartament::getWeekDays() as $dayShort => $dayLong) {
+                if ($form->hasValidData( $dayShort ) && $form->{$dayShort} == true) {
+
+                    if ($form->hasValidData( $dayShort . 'StartTime' ) && $form->{$dayShort . 'StartTime'} != '') {
+                        $activeDays[$dayShort]['start'] = (int)str_replace(':','',$form->{$dayShort . 'StartTime'});
+                    }
+
+                    if ($form->hasValidData( $dayShort . 'EndTime' ) && $form->{$dayShort . 'EndTime'} != '') {
+                        $activeDays[$dayShort]['end'] = (int)str_replace(':','',$form->{$dayShort . 'EndTime'});
+                    }
+
+                    if (
+                        !isset($activeDays[$dayShort]['start']) ||
+                        !isset($activeDays[$dayShort]['end']) ||
+                        !is_numeric($activeDays[$dayShort]['start']) ||
+                        !is_numeric($activeDays[$dayShort]['end']) ||
+                        $activeDays[$dayShort]['end'] <= $activeDays[$dayShort]['start']
+                    ) {
+                        $params['errors'][] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter from and to time. To has to be greater than from.');
+                    }
+                }
+            }
+            $params['obj']->days_activity = json_encode($activeDays, JSON_FORCE_OBJECT);
+            $params['obj']->days_activity_array = $activeDays;
+        }
+
+        if (
+            $params['obj']->repetitiveness == erLhAbstractModelProactiveChatInvitation::REP_PERIOD ||
+            $params['obj']->repetitiveness == erLhAbstractModelProactiveChatInvitation::REP_PERIOD_REP
+        ) {
+            if ((!is_numeric($params['obj']->active_to) || $params['obj']->active_to == 0) &&
+                $params['obj']->repetitiveness == erLhAbstractModelProactiveChatInvitation::REP_PERIOD_REP &&
+                $params['obj']->repetitiveness == erLhAbstractModelProactiveChatInvitation::REP_PERIOD) {
+                $params['errors'][] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter activity to period');
+            }
+
+            if (!is_numeric($params['obj']->active_from)) {
+                $params['errors'][] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter activity from period');
+            }
+
+            if (empty($Errors) && is_numeric($params['obj']->active_to) && $params['obj']->active_to > 0 && $params['obj']->active_from > $params['obj']->active_to) {
+                $params['errors'][] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Activity to period has to be bigger than activity from');
+            }
         }
 
     }

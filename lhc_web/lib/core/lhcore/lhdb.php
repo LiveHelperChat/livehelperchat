@@ -16,6 +16,14 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
         		         $slaveParams = $dbSlaves[rand(0,count($dbSlaves)-1)];
                          $db = ezcDbFactory::create( "mysql://{$slaveParams['user']}:{$slaveParams['password']}@{$slaveParams['host']}:{$slaveParams['port']}/{$slaveParams['database']}" );
                          $db->query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'");
+                         $tz = $cfg->getSetting( 'db', 'tz', false );
+                         if ($tz != '') {
+                             try {
+                                 $db->query("SET time_zone = '" . $tz . "';");
+                             } catch (Exception $e) {
+
+                             }
+                         }
                      } catch (Exception $e){
                          error_log($e);
                          throw new Exception($e->getMessage());
@@ -27,6 +35,13 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                      try {
                         $db = ezcDbFactory::create( "mysql://{$cfg->getSetting( 'db', 'user' )}:{$cfg->getSetting( 'db', 'password' )}@{$cfg->getSetting( 'db', 'host' )}:{$cfg->getSetting( 'db', 'port' )}/{$cfg->getSetting( 'db', 'database' )}" );
                         $db->query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'");
+                        $tz = $cfg->getSetting( 'db', 'tz', false );
+                        if ($tz != '') {
+                            try {
+                                $db->query("SET time_zone = '" . $tz . "';");
+                            } catch (Exception $e) {
+                             }
+                        }
                         self::$connectionMaster = $db;
                         return $db;
                     } catch (Exception $e) {
@@ -53,6 +68,13 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                     if (isset(self::$connectionMaster)) return self::$connectionMaster; // If we do not user slaves and slave request already got connection
                     $db = ezcDbFactory::create( "mysql://{$cfg->getSetting( 'db', 'user' )}:{$cfg->getSetting( 'db', 'password' )}@{$cfg->getSetting( 'db', 'host' )}:{$cfg->getSetting( 'db', 'port' )}/{$cfg->getSetting( 'db', 'database' )}" );
                     $db->query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'");
+                    $tz = $cfg->getSetting( 'db', 'tz', false );
+                    if ($tz != '') {
+                        try {
+                            $db->query("SET time_zone = '" . $tz . "';");
+                        } catch (Exception $e) {
+                        }
+                    }
                     self::$connectionMaster = $db;
                     return $db;
                 } catch (Exception $e) {
@@ -64,8 +86,6 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                     error_log($e);
                     throw new Exception($e->getMessage());
                 }
-
-
              }
 
              case 'sqlite':

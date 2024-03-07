@@ -1725,7 +1725,12 @@ try {
                   `parent_id` int(11) NOT NULL DEFAULT '0',
         	   	  `requires_username` int(11) NOT NULL,
         	   	  `requires_phone` int(11) NOT NULL,        	   	  
-        	   	  `design_data` longtext NOT NULL,        	   	  
+        	   	  `design_data` longtext NOT NULL,
+                  `active_from` bigint(20) unsigned NOT NULL DEFAULT 0,
+                  `active_to` bigint(20) unsigned NOT NULL DEFAULT 0,
+                  `repetitiveness` tinyint(1) unsigned NOT NULL DEFAULT 0,
+                  `days_activity` text COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `url_present` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `time_on_site_pageviews_siteaccess_position` (`time_on_site`,`pageviews`,`siteaccess`,`identifier`,`position`),
         	      KEY `identifier` (`identifier`),
@@ -2390,28 +2395,29 @@ try {
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lhc_mailconv_delete_item` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `conversation_id` bigint(20) unsigned NOT NULL,
-  `filter_id` bigint(20) unsigned NOT NULL,
-  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`),
-  KEY `filter_id_status` (`filter_id`,`status`),
-  KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                                            `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                                            `conversation_id` bigint(20) unsigned NOT NULL,
+                                            `filter_id` bigint(20) unsigned NOT NULL,
+                                            `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
+                                            PRIMARY KEY (`id`),
+                                            KEY `filter_id_status` (`filter_id`,`status`),
+                                            KEY `status` (`status`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lhc_mailconv_delete_filter` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `updated_at` bigint(20) unsigned NOT NULL,
-  `created_at` bigint(20) unsigned NOT NULL,
-  `user_id` bigint(20) unsigned NOT NULL,
-  `archive_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
-  `last_id` bigint(20) unsigned NOT NULL DEFAULT 0,
-  `started_at` bigint(20) unsigned NOT NULL DEFAULT 0,
-  `finished_at` bigint(20) unsigned NOT NULL DEFAULT 0,
-  `filter` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `filter_input` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
+                                              `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                                              `updated_at` bigint(20) unsigned NOT NULL,
+                                              `created_at` bigint(20) unsigned NOT NULL,
+                                              `user_id` bigint(20) unsigned NOT NULL,
+                                              `archive_id` int(11) unsigned NOT NULL DEFAULT 0,
+                                              `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
+                                              `last_id` bigint(20) unsigned NOT NULL DEFAULT 0,
+                                              `started_at` bigint(20) unsigned NOT NULL DEFAULT 0,
+                                              `finished_at` bigint(20) unsigned NOT NULL DEFAULT 0,
+                                              `filter` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+                                              `filter_input` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+                                              PRIMARY KEY (`id`),
+                                              KEY `status` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lhc_mailconv_mailing_campaign` (

@@ -72,6 +72,11 @@
 </div>
 
 <div class="form-group">
+<label><?php echo $fields['url_present']['trans'];?></label>
+<?php echo erLhcoreClassAbstract::renderInput('url_present', $fields['url_present'], $object)?>
+</div>
+
+<div class="form-group">
     <label><?php echo $fields['hide_after_ntimes']['trans'];?></label>
     <?php echo erLhcoreClassAbstract::renderInput('hide_after_ntimes', $fields['hide_after_ntimes'], $object)?>
 </div>

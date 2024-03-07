@@ -3092,6 +3092,48 @@
         "extra": "auto_increment"
       },
       {
+        "field": "active_from",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "active_to",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "repetitiveness",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "days_activity",
+        "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "url_present",
+        "type": "varchar(100)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "siteaccess",
         "type": "varchar(10)",
         "null": "NO",
@@ -11832,7 +11874,7 @@
     "lh_brand" : "CREATE TABLE `lh_brand` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL, PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_brand_member" : "CREATE TABLE `lh_brand_member` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `dep_id` bigint(20) unsigned NOT NULL, `brand_id` bigint(20) unsigned NOT NULL, `role` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n                                   PRIMARY KEY (`id`),\n                                   KEY `dep_id` (`dep_id`),\n                                   KEY `brand_id_role` (`brand_id`,`role`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_bot_condition" : "CREATE TABLE `lh_bot_condition` (\n                                    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n                                    `configuration` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                                    `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                                    `identifier` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                                    PRIMARY KEY (`id`),\n                                    KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lhc_mailconv_delete_item" : "CREATE TABLE `lhc_mailconv_delete_item` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `conversation_id` bigint(20) unsigned NOT NULL,\n  `filter_id` bigint(20) unsigned NOT NULL,\n  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `filter_id_status` (`filter_id`,`status`),\n  KEY `status` (`status`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lhc_mailconv_delete_filter" : "CREATE TABLE `lhc_mailconv_delete_filter` (\n  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n  `updated_at` bigint(20) unsigned NOT NULL,\n  `created_at` bigint(20) unsigned NOT NULL,\n  `user_id` bigint(20) unsigned NOT NULL,\n  `archive_id` int(11) unsigned NOT NULL DEFAULT 0,\n  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `last_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `started_at` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `finished_at` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `filter` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `filter_input` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
+    "lhc_mailconv_delete_item" : "CREATE TABLE `lhc_mailconv_delete_item` (\n                                            `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n                                            `conversation_id` bigint(20) unsigned NOT NULL,\n                                            `filter_id` bigint(20) unsigned NOT NULL,\n                                            `status` tinyint(1) unsigned NOT NULL DEFAULT 0,\n                                            PRIMARY KEY (`id`),\n                                            KEY `filter_id_status` (`filter_id`,`status`),\n                                            KEY `status` (`status`)\n) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lhc_mailconv_delete_filter" : "CREATE TABLE `lhc_mailconv_delete_filter` (\n                                              `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n                                              `updated_at` bigint(20) unsigned NOT NULL,\n                                              `created_at` bigint(20) unsigned NOT NULL,\n                                              `user_id` bigint(20) unsigned NOT NULL,\n                                              `archive_id` int(11) unsigned NOT NULL DEFAULT 0,\n                                              `status` tinyint(1) unsigned NOT NULL DEFAULT 0,\n                                              `last_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n                                              `started_at` bigint(20) unsigned NOT NULL DEFAULT 0,\n                                              `finished_at` bigint(20) unsigned NOT NULL DEFAULT 0,\n                                              `filter` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                                              `filter_input` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                                              PRIMARY KEY (`id`),\n                                              KEY `status` (`status`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
   }
 }

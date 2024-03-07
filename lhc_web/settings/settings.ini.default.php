@@ -120,6 +120,7 @@ return array (
                     'database' => '',
                     'port' => 3306,
                     'use_slaves' => false,
+                    'tz' => '',
                     'db_slaves' =>
                         array (
                             0 =>
