@@ -34,6 +34,7 @@ if (trim($form->msg) != '')
 	        $customArgs = array();
             $whisper = isset($_POST['whisper']) && erLhcoreClassUser::instance()->hasAccessTo('lhchat','whispermode');
             $asChatOwner = isset($_POST['mode_write']) && $_POST['mode_write'] == 'op' && $Chat->user_id > 0 && $Chat->user_id != $messageUserId && erLhcoreClassUser::instance()->hasAccessTo('lhchat','impersonate');
+            $messagesProcessed = [];
 
 	        if (!$whisper && strpos($msgText, '!') === 0) {
 
@@ -47,6 +48,8 @@ if (trim($form->msg) != '')
                     $botMessages = erLhcoreClassModelmsg::getList(array('filterin' => ['user_id' => [($Chat->user_id > 0 ? $Chat->user_id : -2), -2]],'filter' => array( 'chat_id' => $Chat->id), 'filtergt' => array('id' => $lastMessageId)));
 
                     foreach ($botMessages as $botMessage) {
+                        $messagesProcessed[] = $botMessage->id;
+                        $Chat->last_message = $botMessage;
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
                             'chat' => & $Chat,
                             'msg' => $botMessage,
@@ -62,6 +65,7 @@ if (trim($form->msg) != '')
 	                    $ignoreMessage = true;
                         if (isset($statusCommand['last_message'])) {
                             $msg = $statusCommand['last_message'];
+                            $Chat->last_message = $msg;
                             if (is_object($msg)) {
                                 $Chat->last_msg_id = $msg->id;
                                 $Chat->updateThis(['update' => ['last_msg_id']]);
@@ -299,8 +303,10 @@ if (trim($form->msg) != '')
             if (isset($msg)) {
                 $Chat->last_message = $msg;
             }
-            
-	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg,'chat' => & $Chat, 'ou' => (isset($onlineuser) ? $onlineuser : null)));
+
+            if (isset($msg) && !in_array($msg->id, $messagesProcessed)) {
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg,'chat' => & $Chat, 'ou' => (isset($onlineuser) ? $onlineuser : null)));
+            }
 
 	    } else {
 	        throw new Exception('You cannot read/write to this chat!');
