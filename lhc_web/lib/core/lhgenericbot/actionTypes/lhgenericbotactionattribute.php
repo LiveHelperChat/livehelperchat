@@ -51,7 +51,13 @@ class erLhcoreClassGenericBotActionAttribute {
                 }
             }
 
-            $msgText = (isset($action['content']['intro_message']) ? trim($action['content']['intro_message']) : '');
+            $msgData = explode('|||',(isset($action['content']['intro_message']) ? trim($action['content']['intro_message']) : ''));
+
+            $msgText = $msgData[0];
+
+            if (count($msgData) > 0) {
+                $msgText = trim($msgData[mt_rand(0,count($msgData)-1)]);
+            }
 
             if ($msgText != '') {
                 $msgText = erLhcoreClassGenericBotWorkflow::translateMessage($msgText, array('chat' => $chat, 'args' => $params));

@@ -872,11 +872,19 @@ class erLhcoreClassBBCode
                                 $prepend = '<div class="position-relative">';
                                 $append = '<a class="hidden-download" target="_blank" rel="noreferrer" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'/(inline)/true"></a></div>';
                             }
-                            
+
+                            $imageSizeAttr = '';
+                            if (in_array($fileExtension,['jpg','jpeg','png'])) {
+                                list($width, $height) = getimagesize($file->file_path_server);
+                                if ($width > 0 && $height > 0 && $width < 10000 && $height < 10000) {
+                                    $imageSizeAttr = ' width="'.(int)$width.'" height="'.(int)$height.'" ';
+                                }
+                            }
+
                             if (isset($displayType) && $displayType == 'rawimg') {
-                                return '<img onclick="lhinst.zoomImage(this)" id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
+                                return '<img onclick="lhinst.zoomImage(this)" '.$imageSizeAttr.' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
                             } else {
-                                return $prepend . '<img onclick="lhinst.zoomImage(this)" id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
+                                return $prepend . '<img onclick="lhinst.zoomImage(this)" '.$imageSizeAttr.' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
                             }
                         }
 
