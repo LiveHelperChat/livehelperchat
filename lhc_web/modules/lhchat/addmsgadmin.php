@@ -49,7 +49,6 @@ if (trim($form->msg) != '')
 
                     foreach ($botMessages as $botMessage) {
                         $messagesProcessed[] = $botMessage->id;
-                        $Chat->last_message = $botMessage;
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
                             'chat' => & $Chat,
                             'msg' => $botMessage,
@@ -65,7 +64,6 @@ if (trim($form->msg) != '')
 	                    $ignoreMessage = true;
                         if (isset($statusCommand['last_message'])) {
                             $msg = $statusCommand['last_message'];
-                            $Chat->last_message = $msg;
                             if (is_object($msg)) {
                                 $Chat->last_msg_id = $msg->id;
                                 $Chat->updateThis(['update' => ['last_msg_id']]);
