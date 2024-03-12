@@ -39,7 +39,10 @@ $appendPrintExportURL = '';
                         ?>
                     </div>
                     <?php if (\LiveHelperChat\Models\mailConv\Archive\Range::getCount(array('filter' => array('type' => 1))) > 0) : ?>
-                        <button type="submit" name="XLS" id="start-button-delete" class="btn btn-primary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Start deletion and archiving')?></button>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" name="XLSSchedule" id="start-schedule-delete" class="btn btn-primary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Start deletion and archiving in background')?></button>
+                        <button type="submit" name="XLS" id="start-button-delete" class="btn btn-secondary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Start deletion and archiving')?></button>
+                    </div>
                     <?php else : ?>
                         <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Please create a backup archive first!')?></p>
                     <?php endif; ?>
@@ -76,6 +79,14 @@ $appendPrintExportURL = '';
                 doDelete($(this).attr('action') + '&archive_id=' + document.getElementById('id_archive_id').value);
                 return false;
             });
+
+            $('#start-schedule-delete').on('click',function() {
+                $.postJSON($('#start-deletion-action').attr('action')+ '&archive_id=' + document.getElementById('id_archive_id').value, {'schedule': true}, function(data) {
+                    $('#delete-progress').show();
+                    $('#left-to-delete').html(data.result);
+                });
+            });
+
         })();
     </script>
 

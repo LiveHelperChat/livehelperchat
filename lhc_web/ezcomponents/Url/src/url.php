@@ -262,7 +262,7 @@ class ezcUrl
         $this->properties['port'] = isset( $urlArray['port'] ) ? $urlArray['port'] : null;
         $this->properties['scheme'] = isset( $urlArray['scheme'] ) ? $urlArray['scheme'] : null;
         $this->properties['fragment'] = isset( $urlArray['fragment'] ) ? $urlArray['fragment'] : null;
-        $this->properties['path'] = isset( $urlArray['path'] ) ? explode( '/', trim( $urlArray['path'], '/' ) ) : array();
+        $this->properties['path'] = isset( $urlArray['path'] ) ? explode( '/', trim( $urlArray['path'] . (isset($urlArray['fragment']) ? '#' . $urlArray['fragment'] : ''), '/' ) ) : array();
 
         $this->properties['basedir'] = array();
         $this->properties['script'] = array();

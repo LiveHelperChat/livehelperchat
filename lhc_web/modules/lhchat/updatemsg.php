@@ -38,6 +38,17 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
                     ($msg->user_id > 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviousop'))
                 )
             ) {
+
+                if ($msg->user_id == $currentUser->getUserID()) {
+                    if (!erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviousall')) {
+                        $lastMessageDirectly = erLhcoreClassChat::getGetLastChatMessageEdit($Chat->id, $currentUser->getUserID());
+                        if (!isset($lastMessageDirectly['id']) || $lastMessageDirectly['id'] != $msg->user_id ) {
+                            echo json_encode(array('error' => 't', 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You can edit only your last message!')));
+                            exit;
+                        }
+                    }
+                }
+
                 $originalMessage = $msg->msg;
 		        $msg->msg = trim($form->msg);
 

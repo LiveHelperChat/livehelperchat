@@ -25,7 +25,10 @@ $appendPrintExportURL = '';
                 <div id="delete-progress" style="display: none"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Left to delete')?> - <span id="left-to-delete"><?php echo $update_records?></span></div>
 
                 <?php if (!(isset($updated) && $updated == true)) : ?>
-                    <button type="submit" name="XLS" id="start-button-delete" class="btn btn-primary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Start deletion')?></button>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" name="XLSSchedule" id="start-schedule-delete" class="btn btn-primary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Start deletion in background')?></button>
+                    <button type="submit" name="XLS" id="start-button-delete" class="btn btn-secondary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Start deletion')?></button>
+                </div>
                 <?php endif; ?>
 
             </div>
@@ -60,6 +63,14 @@ $appendPrintExportURL = '';
                 doDelete($(this).attr('action'));
                 return false;
             });
+
+            $('#start-schedule-delete').on('click',function() {
+                $.postJSON($('#start-deletion-action').attr('action'), {'schedule': true}, function(data) {
+                    $('#delete-progress').show();
+                    $('#left-to-delete').html(data.result);
+                });
+            });
+
         })();
     </script>
 

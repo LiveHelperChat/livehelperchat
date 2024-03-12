@@ -71,7 +71,6 @@
             <div class="btn-group" role="group" aria-label="...">
                 <input type="submit" class="btn btn-secondary" name="Save_mailbox" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
             </div>
-
         </div>
 
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_options') : ?>active<?php endif;?>" id="options">
@@ -80,16 +79,28 @@
                     <div class="form-group">
                         <label><input type="checkbox" name="active" value="on" <?php $item->active == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Active');?></label>
                     </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-group">
-                        <label><input type="checkbox" name="delete_mode" value="on" <?php $item->delete_mode == erLhcoreClassModelMailconvMailbox::DELETE_ALL ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','On message deletion delete it also on IMAP server');?></label>
-                    </div>
-                </div>
-                <div class="col-6">
                     <div class="form-group">
                         <label><input type="checkbox" name="create_a_copy" value="on" <?php $item->create_a_copy == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Create a copy in a send folder.');?></label>
                     </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" name="delete_on_archive" value="on" <?php $item->delete_on_archive == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Delete on archive. Messages on archive event will follow delete options.');?></label>
+                        <div class="text-muted"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','If not checked, we will not touch archived messages on IMAP server.');?></small></div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><input type="checkbox" name="delete_mode" value="on" <?php $item->delete_mode == erLhcoreClassModelMailconvMailbox::DELETE_ALL ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','On message deletion delete it also on IMAP server. Choose delete policy from below');?></label>
+                    </div>
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Delete options');?></label>
+                        <select name="delete_policy" class="form-control form-control-sm">
+                            <option <?php $item->delete_policy == 0 ? print ' selected="selected" ' : ''?> value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Move to Trash folder on IMAP server. Default.');?></option>
+                            <option <?php $item->delete_policy == 1 ? print ' selected="selected" ' : ''?> value="1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Permanently delete mail from IMAP server.');?></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-6">
+
                 </div>
                 <div class="col-6">
                     <div class="form-group">

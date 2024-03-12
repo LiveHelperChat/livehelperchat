@@ -1,3 +1,18 @@
+4.32v
+
+1. Background delete workflow if you have a lot of mails to delete.
+2. Active schedule for department was not working after migration to Svelte.
+3. Mail delete scheduler. Usefull in case you want to delete hundreds of thousands of emails.
+4. Widget images now has a size defined which avoids flickering while images are loading in the widget or in Live Helper Chat back office.
+5. Telegram extension now supports commands from operator who is using telegram as a support client.
+6. There is new permission to allow operator edit only last his message or all his messages per chat. By default he will be able to edit only last his message.
+7. Proactive invitation now has URL filter and activity period.
+8. Search in some pages were broken if # was used as search argument.
+9. Now you can set Time Zone for the database. Usefull in case you want to set everywhere same time zone to avoid any issues.
+10. Mailbox has more options for delete policy. Move mail or purge completely. Also delete can be activated for archive process.
+
+execute doc/update_db/update_303.sql for update
+
 4.31v
 
 1. Optimisation online visitors widget.

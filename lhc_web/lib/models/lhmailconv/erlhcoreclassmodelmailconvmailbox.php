@@ -52,6 +52,8 @@ class erLhcoreClassModelMailconvMailbox
             'auth_method' => $this->auth_method,
             'reopen_reset' => $this->reopen_reset,
             'last_process_time' => $this->last_process_time,
+            'delete_on_archive' => $this->delete_on_archive,
+            'delete_policy' => $this->delete_policy,
         );
     }
 
@@ -220,6 +222,9 @@ class erLhcoreClassModelMailconvMailbox
     public $reopen_reset = 0;
     public $last_process_time = 0;
     public $mrules_id_update = null;
+
+    public $delete_on_archive = 0;
+    public $delete_policy = 0; // 0 - move to trash, 1 - delete on imap server
 
     public $delete_mode = self::DELETE_ALL;
 

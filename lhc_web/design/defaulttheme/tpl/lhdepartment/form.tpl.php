@@ -111,7 +111,7 @@
 						?>
 						<div class="row">
 						   <div class="col-12">
-							   <label><input type="checkbox" class="day-control-block" value="1" <?php if ($departament->$startHourName != -1) : ?>checked="checked"<?php endif;?> /> <?php echo $dayLong; ?></label>
+							   <label><input type="checkbox" class="day-control-block" name="<?php echo $dayShort ?>" value="1" <?php if ($departament->$startHourName != -1) : ?>checked="checked"<?php endif;?> /> <?php echo $dayLong; ?></label>
 
 							   <div class="row hide <?php echo $dayShort?>-block">
     							   
@@ -170,7 +170,7 @@
 								</div>
 							</div>
 							<div class="col-4">
-								<button type="button" class="btn btn-secondary btn-block mt-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add');?></button>
+								<button type="button" class="btn btn-secondary btn-block mt-2" id="add-period-button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add');?></button>
 							</div>
 						</div>
 						<div class="row">

@@ -52,7 +52,13 @@ class erLhAbstractModelProactiveChatInvitation {
 			'campaign_id' => $this->campaign_id,
 			'design_data' => $this->design_data,
 			'inject_only_html' => $this->inject_only_html,
-			'parent_id' => $this->parent_id
+			'parent_id' => $this->parent_id,
+			'url_present' => $this->url_present,
+
+            'active_from' => $this->active_from,
+            'active_to' => $this->active_to,
+            'repetitiveness' => $this->repetitiveness,
+            'days_activity' => $this->days_activity,
 		);
 			
 		return $stateArray;
@@ -147,6 +153,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	   	       return $this->autoresponder;
 	   	    break;
 
+       case 'days_activity_array':
        case 'design_data_array':
            $attr = str_replace('_array','',$var);
            if (!empty($this->{$attr})) {
@@ -502,6 +509,16 @@ class erLhAbstractModelProactiveChatInvitation {
             $appendDevice = 'AND show_on_mobile IN ' . $devicesFilter[$item->device_type];
         }
 
+        $dayShort = array(
+            1 => 'mod',
+            2 => 'tud',
+            3 => 'wed',
+            4 => 'thd',
+            5 => 'frd',
+            6 => 'sad',
+            7 => 'sud'
+        );
+
 		$q->where( $q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
@@ -510,6 +527,12 @@ class erLhAbstractModelProactiveChatInvitation {
 		        AND `dynamic_invitation` = 0
 		        AND `disabled` = 0
 		        AND `parent_id` = 0
+		        AND '."(
+                    repetitiveness = 0 OR 
+                    (repetitiveness = 1 AND days_activity != '' AND JSON_EXTRACT(days_activity,'$.".$dayShort[date('N')].".start') <= " . date('Hi') . " AND JSON_EXTRACT(days_activity,'$.".$dayShort[date('N')].".end') >= " . date('Hi') . " ) OR
+                    (repetitiveness = 2 AND active_from <= " . time() . " AND (active_to = 0 OR active_to >= " . time() . ")) OR
+                    (repetitiveness = 3 AND FROM_UNIXTIME(active_from,'%m%d%H%i') <= " . date('mdHi') . " AND FROM_UNIXTIME(active_to,'%m%d%H%i') >= " . date('mdHi') . ")
+                )". '
 		        AND `inject_only_html` = 0
 		        ' . $appendInvitationsId . '
 				AND (`lh_abstract_proactive_chat_invitation`.`id` IN (SELECT `invitation_id` FROM `lh_abstract_proactive_chat_invitation_dep` WHERE `dep_id` = ' . (int)$item->dep_id . ') OR `dep_id` = ' . (int)$item->dep_id . ' OR `dep_id` = 0)
@@ -532,6 +555,7 @@ class erLhAbstractModelProactiveChatInvitation {
 
         // Verify dynamic conditions
         foreach ($messagesToUserRaw as $messageToUser) {
+
             $optionsInvitation = $messageToUser->design_data_array;
             $operatorsOnlineId = [];
 
@@ -697,6 +721,25 @@ class erLhAbstractModelProactiveChatInvitation {
                          $conditionsValid = false;
                          break;
                      }
+                }
+            }
+
+            if ($messageToUser->url_present != '') {
+                $urlOptions = explode(',',$messageToUser->url_present);
+                $currentPage = ltrim($item->current_page,'/');
+                $validURL = false;
+
+                foreach ($urlOptions as $urlOption) {
+                     if (substr($urlOption,-1) == '*') {
+                        if (strpos($currentPage,rtrim($urlOption,'*')) === 0) {
+                            $validURL = true;
+                        }
+                    } elseif ($currentPage == $urlOption) {
+                         $validURL = true;
+                    }
+                }
+                if ($validURL === false) {
+                    $conditionsValid = false;
                 }
             }
 
@@ -1064,6 +1107,11 @@ class erLhAbstractModelProactiveChatInvitation {
         }
     }
 
+    CONST REP_NO = 0;
+    CONST REP_DAILY = 1;
+    CONST REP_PERIOD = 2;
+    CONST REP_PERIOD_REP = 3;
+
    	public $id = null;
 	public $siteaccess = '';
 	public $time_on_site = 0;
@@ -1103,6 +1151,12 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $design_data = '';
 	public $inject_only_html = 0;
 	public $parent_id = 0;
+
+    public $active_from = 0;
+    public $active_to = 0;
+    public $repetitiveness = self::REP_NO;
+    public $days_activity = '';
+    public $url_present = '';
 
 	public $next_reschedule = 0;
 	public $hide_add = false;
