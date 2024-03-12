@@ -2622,6 +2622,8 @@ try {
   `no_pswd_smtp` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `auth_method` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `reopen_reset` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `delete_on_archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `delete_policy` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `last_process_time` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `active` (`active`)

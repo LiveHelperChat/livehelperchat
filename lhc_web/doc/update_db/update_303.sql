@@ -29,3 +29,6 @@ CREATE TABLE `lhc_mailconv_delete_filter` (
                                               PRIMARY KEY (`id`),
                                               KEY `status` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE `lhc_mailconv_mailbox` ADD `delete_on_archive` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';
+ALTER TABLE `lhc_mailconv_mailbox` ADD `delete_policy` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';

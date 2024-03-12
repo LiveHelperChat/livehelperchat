@@ -247,10 +247,16 @@ class erLhcoreClassMailconvValidator {
             'reopen_reset' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'delete_on_archive' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'sync_interval' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
             'auth_method' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
+            ),
+            'delete_policy' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
             ),
             'import_since' => new ezcInputFormDefinitionElement(
@@ -305,6 +311,12 @@ class erLhcoreClassMailconvValidator {
             $item->auth_method = 0;
         }
 
+        if ( $form->hasValidData( 'delete_policy' )) {
+            $item->delete_policy = $form->delete_policy;
+        } else {
+            $item->delete_policy = 0;
+        }
+
         if ( $form->hasValidData( 'signature_under' ) && $form->signature_under == true) {
             $item->signature_under = 1;
         } else {
@@ -339,6 +351,12 @@ class erLhcoreClassMailconvValidator {
             $item->create_a_copy = 1;
         } else {
             $item->create_a_copy = 0;
+        }
+
+        if ($form->hasValidData( 'delete_on_archive' ) && $form->delete_on_archive == true) {
+            $item->delete_on_archive = 1;
+        } else {
+            $item->delete_on_archive = 0;
         }
 
         if ($form->hasValidData( 'no_pswd_smtp' ) && $form->no_pswd_smtp == true) {
