@@ -120,7 +120,7 @@ $( document ).ready(function() {
                 '<input type="hidden" name="customPeriodStartHourMin[]" value="'+escapeHtml(item.start_hour_min)+'">' +
                 '<input type="hidden" name="customPeriodEndHour[]" value="'+escapeHtml(item.end_hour)+'">' +
                 '<input type="hidden" name="customPeriodEndHourMin[]" value="'+escapeHtml(item.end_hour_min)+'">' +
-                '<input type="hidden" name="customPeriodId[]" value="'+escapeHtml(index)+'"></td></tr>';
+                '<input type="hidden" name="customPeriodId[]" value=""></td></tr>';
         });
     }
 
