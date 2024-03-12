@@ -93,6 +93,8 @@ class Range
                 $msgArchive = new Message();
                 $msgArchive->setState(get_object_vars($msg));
                 $msgArchive->saveThis();
+
+                \erLhcoreClassMailconvParser::purgeMessage($msg, true);
             }
 
             $lastChatID = $item->id;

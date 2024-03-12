@@ -1483,7 +1483,7 @@ class erLhcoreClassMailconvParser {
         return preg_replace('/<img src="http(s?):\/\/([A-Za-z0-9\.\-]{6,})\/mailconv\/tpx\/([A-Za-z0-9]{20,})" \/>/is','',$body);
     }
 
-    public static function purgeMessage($message)
+    public static function purgeMessage($message, $isArchive = false)
     {
         static $cacheConnection = [];
 
@@ -1495,6 +1495,11 @@ class erLhcoreClassMailconvParser {
         }
 
         if ($mailbox->delete_mode == erLhcoreClassModelMailconvMailbox::DELETE_ALL) {
+
+            // Not configured to delete on archive action
+            if ($isArchive === true && $mailbox->delete_on_archive != 1) {
+                return;
+            }
 
             try {
                 if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
@@ -1511,10 +1516,10 @@ class erLhcoreClassMailconvParser {
 
                 } else {
 
-                    if (isset($cacheConnection[$message->mailbox_id])) {
-                        $mailboxHandler = $cacheConnection[$message->mailbox_id];
+                    if (isset($cacheConnection[$message->mailbox_id . '_' . $message->mb_folder])) {
+                        $mailboxHandler = $cacheConnection[$message->mailbox_id . '_' . $message->mb_folder];
                     } else {
-                        $cacheConnection[$message->mailbox_id] = $mailboxHandler = new PhpImap\Mailbox(
+                        $cacheConnection[$message->mailbox_id . '_' . $message->mb_folder] = $mailboxHandler = new PhpImap\Mailbox(
                             $message->mb_folder, // We use message mailbox folder.
                             $mailbox->username, // Username for the before configured mailbox
                             $mailbox->password, // Password for the before configured username
@@ -1522,7 +1527,12 @@ class erLhcoreClassMailconvParser {
                         );
                     }
 
-                    $mailboxHandler->moveMail($message->uid, $mailbox->trash_mailbox);
+                    if ($mailbox->delete_policy == 0) { // Move mail policy
+                        $mailboxHandler->moveMail($message->uid, $mailbox->trash_mailbox);
+                    } else {                            // Delete mail policy
+                        $mailboxHandler->deleteMail($message->uid);
+                    }
+
                     $mailboxHandler->expungeDeletedMails();
                 }
             } catch (Exception $e) {
