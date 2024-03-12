@@ -22,6 +22,17 @@ try {
                 ($lastMessage['user_id'] == 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviouvis')) ||
                 ($lastMessage['user_id'] > 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviousop'))
             ) {
+
+                if ($lastMessage['user_id'] == $currentUser->getUserID()) {
+                   if (!erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviousall')) {
+                       $lastMessageDirectly = erLhcoreClassChat::getGetLastChatMessageEdit($chat->id, $currentUser->getUserID());
+                       if (!isset($lastMessageDirectly['id']) || $lastMessageDirectly['id'] != $lastMessage['id']) {
+                           echo json_encode(array('error' => 't','result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You can edit only your last message!')));
+                           exit;
+                       }
+                   }
+                }
+
                 $array = array();
                 $array['id'] = $lastMessage['id'];
                 $array['msg'] = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $lastMessage['msg']);
@@ -31,14 +42,14 @@ try {
 
                 echo json_encode($array);
             } else {
-                echo json_encode(array('error' => 't','result' => 'You can edit your own message!'));
+                echo json_encode(array('error' => 't','result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You can edit your own message!')));
             }
 		} else {
-			echo json_encode(array('error' => 't','result' => 'No last message was found!'));
+			echo json_encode(array('error' => 't','result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','No last message was found!')));
 		}
 	}
 } catch (Exception $e) {
-	echo json_encode(array('error' => 't', 'result' => 'Message could not be found!'));
+	echo json_encode(array('error' => 't', 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Message could not be found!')));
 }
 exit;
 

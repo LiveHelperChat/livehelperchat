@@ -795,9 +795,10 @@ $FunctionList['export_chats'] = array('explain' => 'Allow operator to export fil
 $FunctionList['htmlbbcodeenabled'] = array('explain' => 'Allow operator to use [html] bbcode.');
 $FunctionList['metamsgenabled'] = array('explain' => 'Allow operator to use meta_msg in message add interface.');
 $FunctionList['seeip'] = array('explain' => 'Allow operator to see full IP');
-$FunctionList['editprevious'] = array('explain' => 'Allow operator to edit his previous messages');
+$FunctionList['editprevious'] = array('explain' => 'Allow operator to edit his previous message.');
 $FunctionList['editpreviousop'] = array('explain' => 'Allow operator to edit other operators previous messages');
 $FunctionList['editpreviouvis'] = array('explain' => 'Allow operator to edit visitors previous messages');
+$FunctionList['editpreviousall'] = array('explain' => 'Allow operator to edit all his previous messages.');
 $FunctionList['impersonate'] = array('explain' => 'Allow operator to impersonate another operator on joining chat window');
 $FunctionList['whispermode'] = array('explain' => 'Allow operator to use whisper mode');
 $FunctionList['allowtransfertoanydep'] = array('explain' => 'Allow operator to transfer chat to any department.');
