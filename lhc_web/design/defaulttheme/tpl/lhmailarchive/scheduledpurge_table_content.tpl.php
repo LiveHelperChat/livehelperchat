@@ -32,7 +32,7 @@
             <a title="<?php echo htmlspecialchars($item->filter)?>" class="btn btn-secondary btn-xs" href="<?php echo $item->filter_input_url?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','List mails');?></a>
         </td>
         <td>
-            <?php echo $item->records_count?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','found');?>, <?php echo $item->records_count_progress?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','of them in progress');?>
+            <?php echo $item->records_count?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','found');?>, <?php echo $item->records_count_progress?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','of them in progress');?>, <?php echo $item->processed_records?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','processed');?>
         </td>
         <td>
             <?php echo $item->last_id?>

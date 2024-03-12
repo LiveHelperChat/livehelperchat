@@ -9,7 +9,7 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-foreach (['updated_at','created_at','user_id','status','last_id','started_at','finished_at','archive_id'] as $posAttr) {
+foreach (['updated_at','created_at','user_id','status','last_id','started_at','finished_at','archive_id','processed_records'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

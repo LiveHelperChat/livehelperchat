@@ -24,6 +24,7 @@ CREATE TABLE `lhc_mailconv_delete_filter` (
                                               `last_id` bigint(20) unsigned NOT NULL DEFAULT 0,
                                               `started_at` bigint(20) unsigned NOT NULL DEFAULT 0,
                                               `finished_at` bigint(20) unsigned NOT NULL DEFAULT 0,
+                                              `processed_records` bigint(20) unsigned NOT NULL DEFAULT 0,
                                               `filter` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
                                               `filter_input` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
                                               PRIMARY KEY (`id`),

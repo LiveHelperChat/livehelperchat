@@ -29,6 +29,7 @@ class DeleteFilter
             'last_id' => $this->last_id,
             'started_at' => $this->started_at,
             'finished_at' => $this->finished_at,
+            'processed_records' => $this->processed_records,
         );
 
         return $stateArray;
@@ -98,6 +99,7 @@ class DeleteFilter
     public $archive_id = 0;
     public $finished_at = 0;
     public $started_at = 0;
+    public $processed_records = 0;
     public $status = self::STATUS_PENDING;
 }
 
