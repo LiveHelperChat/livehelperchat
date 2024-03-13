@@ -54,6 +54,7 @@ class erLhcoreClassChatWebhookResque {
         // Webhook delay support
         if (isset($params['msg']) && isset($params['msg']->meta_msg)) {
             $paramsMetaMessage = json_decode($params['msg']->meta_msg, true);
+            $params['msg']->meta_msg_array = $paramsMetaMessage;
             if (isset($paramsMetaMessage['content']['attr_options']['wh_delay']) &&
                 is_numeric($paramsMetaMessage['content']['attr_options']['wh_delay']) &&
                 (int)$paramsMetaMessage['content']['attr_options']['wh_delay'] > 0 &&
@@ -77,6 +78,10 @@ class erLhcoreClassChatWebhookResque {
                 $params['chat'] = erLhcoreClassModelChat::fetch($params['chat']->id);
             }
 
+            if (isset($params['chat']) && $params['chat'] instanceof erLhcoreClassModelChat && isset($params['msg'])) {
+                $params['chat']->last_message = $params['msg'];
+            }
+            
             if (erLhcoreClassChatWebhookHttp::isValidConditions($webhook, $params['chat']) === true) {
                 erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $params));
             } elseif ($webhook->trigger_id_alt > 0) {
