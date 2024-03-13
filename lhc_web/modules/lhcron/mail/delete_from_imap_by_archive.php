@@ -38,7 +38,7 @@ for ($i = 0; $i < 100000; $i++) {
     }
 
     foreach ($messages as $message) {
-        erLhcoreClassMailconvParser::purgeMessage($message);
+        erLhcoreClassMailconvParser::purgeMessage($message, true);
     }
 }
 
