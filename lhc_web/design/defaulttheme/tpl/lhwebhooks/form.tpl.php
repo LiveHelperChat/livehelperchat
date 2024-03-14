@@ -1,6 +1,7 @@
 <ul class="nav nav-tabs mb-3" role="tablist">
     <li role="presentation" class="nav-item"><a href="#hooks-settings" class="nav-link active" aria-controls="hooks-settings" role="tab" data-bs-toggle="tab" aria-selected="false"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Hooks events')?></a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#chooks-settings" aria-controls="chooks-settings" role="tab" data-bs-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Continuous events')?></a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#chooks-settings" aria-controls="chooks-settings" role="tab" data-bs-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Continuous chat events')?></a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#wchooks-settings" aria-controls="wchooks-settings" role="tab" data-bs-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Continuous mail events')?></a></li>
 </ul>
 
 <textarea name="configuration" class="hide" ng-model="webhooksctl.conditions_json"></textarea>
@@ -17,10 +18,14 @@
     </div>
     <div role="tabpanel" class="tab-pane form-group" id="chooks-settings">
         <div class="form-group">
-            <label><input type="radio" value="1" name="type" <?php if ($item->type == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is continuous event');?></label>
-
+            <label><input type="radio" value="1" name="type" <?php if ($item->type == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is continuous chat event');?></label>
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Make sure you define some conditions. Only pending, active and bot chats are checked against these conditions.');?></p>
-
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane form-group" id="wchooks-settings">
+        <div class="form-group">
+            <label><input type="radio" value="2" name="type" <?php if ($item->type == 2) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is continuous mail event');?></label>
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Make sure you define some conditions. Only new, active mails are checked against these conditions.');?></p>
         </div>
     </div>
 </div>

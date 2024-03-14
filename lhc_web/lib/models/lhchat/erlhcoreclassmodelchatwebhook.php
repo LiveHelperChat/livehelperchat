@@ -24,6 +24,7 @@ class erLhcoreClassModelChatWebhook {
             'disabled'      => $this->disabled,
             'type'          => $this->type,
             'configuration' => $this->configuration,
+            'status'        => $this->status,
         );
     }
 
@@ -47,6 +48,14 @@ class erLhcoreClassModelChatWebhook {
                 $this->conditions_array = $conditions_array;
                 return $this->conditions_array;
 
+            case 'status_array':
+                $conditions_array = json_decode($this->status,true);
+                if ($conditions_array === null) {
+                    $conditions_array = [];
+                }
+                $this->status_array = $conditions_array;
+                return $this->status_array;
+
             default:
                 break;
         }
@@ -61,6 +70,7 @@ class erLhcoreClassModelChatWebhook {
     public $disabled = 0;
     public $type = 0;
     public $configuration = '';
+    public $status = '';
 }
 
 ?>

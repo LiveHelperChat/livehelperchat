@@ -116,6 +116,7 @@ class erLhcoreClassModelMailconvConversation
         $messages = $this->is_archive === false ? erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\Message::getList(['filter' => ['conversation_id' => $this->id]]);
 
         foreach ($messages as $message) {
+            $message->ignore_imap = $this->ignore_imap;
             $message->removeThis();
         }
 
@@ -320,6 +321,7 @@ class erLhcoreClassModelMailconvConversation
     public $opened_at = 0;
     public $phone = '';
     public $is_archive = false;
+    public $ignore_imap = false;
 }
 
 ?>

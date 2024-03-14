@@ -131,7 +131,9 @@ class erLhcoreClassModelMailconvMessage
             $messageSubject->removeThis();
         }
 
-        erLhcoreClassMailconvParser::purgeMessage($this);
+        if ($this->ignore_imap === false) {
+            erLhcoreClassMailconvParser::purgeMessage($this);
+        }
     }
 
     public function __get($var)
@@ -425,6 +427,7 @@ class erLhcoreClassModelMailconvMessage
     public $message_hash  = '';
     public $opened_at  = 0;
     public $is_archive = false;
+    public $ignore_imap = false;
 }
 
 ?>
