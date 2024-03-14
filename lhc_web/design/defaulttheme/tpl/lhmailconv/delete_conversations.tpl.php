@@ -65,7 +65,7 @@ $appendPrintExportURL = '';
 
             $('#start-deletion-action').on('submit',function() {
                 $('#delete-progress').show();
-                $('#start-button-delete').hide();
+                $('#start-button-delete,#start-schedule-delete').hide();
                 doDelete($(this).attr('action'));
                 return false;
             });
@@ -73,6 +73,7 @@ $appendPrintExportURL = '';
             $('#start-schedule-delete').on('click',function() {
                 $.postJSON($('#start-deletion-action').attr('action'), {'schedule': true, 'delete_policy': $('#id_delete_policy').is(':checked')}, function(data) {
                     $('#delete-progress').show();
+                    $('#start-button-delete,#start-schedule-delete').hide();
                     $('#left-to-delete').html(data.result);
                 });
             });
