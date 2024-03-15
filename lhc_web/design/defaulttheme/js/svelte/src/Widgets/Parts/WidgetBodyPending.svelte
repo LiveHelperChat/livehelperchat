@@ -7,6 +7,10 @@
     export let lhcList = null;
     export let www_dir_flags = null;
     export let no_additional_column = false;
+    export let hide_third_column = false;
+    export let hide_ac_op_icon = false;
+    export let hide_ac_stats = false;
+    export let hide_op_avatar = false;
     export let custom_visitor_title = null;
     export let custom_visitor_icon = null;
     export let show_visitor_title = false;
@@ -172,7 +176,7 @@
         {#if type == 'online_op'}
         <th width="15%">
             <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList,sort_identifier,'ac_dsc','ac_asc',true)}>
-                <i title={$t("widget_title.active_chats")} class="material-icons chat-active">chat</i>
+                {#if !hide_ac_op_icon}<i title={$t("widget_title.active_chats")} class="material-icons chat-active">chat</i>{/if}
                 <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'ac_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'ac_asc'} title={$t("widget.sort_by_chat_number")} class="material-icons">{$lhcList.toggleWidgetData[sort_identifier] == 'ac_dsc' || $lhcList.toggleWidgetData[sort_identifier] != 'ac_asc' ? 'trending_up' : 'trending_down'}</i>
             </a>
         </th>
@@ -195,6 +199,7 @@
         <th width="20%"><i title={$t('widget.operator')} class="material-icons">face</i>{#if show_username_title}{$t('widget.operator')}{/if}</th>
         {/if}
 
+        {#if !hide_third_column}
         <th width={column_3_width}>
 
             {#if type == 'depgroups_stats'}
@@ -223,6 +228,7 @@
             {/if}
 
         </th>
+        {/if}
 
     </tr>
     </thead>
@@ -374,7 +380,8 @@
 
                     {#if type == 'online_op'}
 
-                        {#if chat.avatar}
+
+                        {#if chat.avatar && !hide_op_avatar}
                             <img class="rounded-circle" src={chat.avatar} alt="" width="20" />
                         {/if}
 
@@ -389,9 +396,9 @@
                         {/if}
 
                         {#if permissions.indexOf('lhstatistic_userstats') !== -1}
-                            <a class:text-muted={chat.ro} href="#" title={$t("widget.see_op_stats")} on:click={(e) => lhcServices.openModal('statistic/userstats/'+chat.user_id)}>{chat.hide_online == 1 ? chat.offline_since : ''} {chat.name_official}</a>
+                            <a class:text-muted={chat.ro} href="#" title={$t("widget.see_op_stats")} on:click={(e) => lhcServices.openModal('statistic/userstats/'+chat.user_id)}>{chat.hide_online == 1 ? (chat.offline_since ? chat.offline_since : '') : ''} {chat.name_official}</a>
                         {:else}
-                            {chat.hide_online == 1 ? chat.offline_since : ''} {chat.name_official}
+                            {chat.hide_online == 1 ? (chat.offline_since ? chat.offline_since : '') : ''} {chat.name_official}
                         {/if}
 
                     {:else if type == 'group_chats'}
@@ -568,7 +575,7 @@
 
                 {#if type == 'online_op'}
                     <td title='{$t("widget.max")} - {chat.max_chats && chat.max_chats > 0 ? chat.max_chats : "n/a"} {$t("widget.chats")}' class="align-middle"  class:text-danger={chat.max_chats && chat.max_chats > 0 && chat.max_chats - chat.active_chats <= 0} class:text-success={chat.max_chats && chat.max_chats > 0 && chat.max_chats - chat.active_chats >= 1}>
-                        {chat.active_chats} <abbr title={$t("widget_title.active_chats")}>a.c</abbr>, {chat.max_chats && chat.max_chats > 0 ? (chat.max_chats - chat.active_chats) : ' n/a'} <abbr title={$t("widget.free_slots")}>f.s</abbr>
+                        {chat.active_chats}{#if !hide_ac_stats} <abbr title={$t("widget_title.active_chats")}>a.c</abbr>, {chat.max_chats && chat.max_chats > 0 ? (chat.max_chats - chat.active_chats) : ' n/a'} <abbr title={$t("widget.free_slots")}>f.s</abbr>{/if}
                     </td>
                 {/if}
 
@@ -584,6 +591,7 @@
                     </td>
                 {/if}
 
+                {#if !hide_third_column}
                 <td class:align-middle={type == "online_op"}>
                     {#if type == 'online_op'}
                         <div class="abbr-list" title="{chat.departments_names.join(', ')}">{chat.departments_names.join(", ")}</div>
@@ -601,6 +609,9 @@
                         </div>
                     {/if}
                 </td>
+                {/if}
+
+
             </tr>
         {/each}
 
