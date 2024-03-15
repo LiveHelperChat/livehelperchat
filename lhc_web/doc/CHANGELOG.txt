@@ -3,6 +3,7 @@
 1. Delete and Delete and archive options has option to ignore imap delete independently.
 2. Bugfix for "impossible to edit previous message".
 3. Preparation for continuous mails webhook
+3. [code] ``` long code ``` or ` inline code ` support
 
 execute doc/update_db/update_304.sql for update
 
