@@ -1,6 +1,6 @@
 <?php
 
-echo json_encode(array(
+$transItems = array(
     "homepage.invisible" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Invisible'),
     "homepage.visible"  => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Visible'),
     "homepage.change_visibility" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my visibility to visible/invisible'),
@@ -54,6 +54,7 @@ echo json_encode(array(
     "widget.last_activity_ago" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface', 'Last activity ago'),
     "widget.dep_group" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface', 'Department group'),
     "widget.department" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department'),
+    "widget.subject" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Subject'),
     "widget.visitor" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor'),
     "widget.send_receive" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Receive or send indicator and time since it happened'),
     "widget.sort_by_last_msg_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by last message time'),
@@ -166,4 +167,10 @@ echo json_encode(array(
     "user_account.see_all_variations" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','See all variations'),
     "user_account.messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages')
 
+);
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.trans_lhcbo', array(
+    'trans' => & $transItems,
 ));
+
+echo json_encode($transItems);

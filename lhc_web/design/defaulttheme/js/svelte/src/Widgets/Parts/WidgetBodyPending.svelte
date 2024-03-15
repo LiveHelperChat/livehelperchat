@@ -7,15 +7,29 @@
     export let lhcList = null;
     export let www_dir_flags = null;
     export let no_additional_column = false;
+    export let custom_visitor_title = null;
+    export let custom_visitor_icon = null;
+    export let show_visitor_title = false;
+    export let no_chat_preview = false;
+    export let show_username_always = false;
+    export let show_always_subject = false;
+    export let show_department_title = false;
+    export let show_subject_title = false;
+    export let show_username_title = false;
+    export let no_expand = false;
     export let panel_id = null;
     export let permissions = [];
+    export let custom_icons = [];
+    export let custom_sort_icons = [];
     export let column_2_width = "20%";
     export let column_1_width = "40%";
     export let column_3_width = "20%";
     export let additional_sort = "";
 
-    let check_row_class = type !== "transfer_chats" && type !== "group_chats" && type !== "online_op" && type !== "depgroups_stats";
-    let check_online = type !== "my_mails" && type !== "active_mails" && type !== "pending_mails" && type !== "alarm_mails";
+    export let override_item_open = null;
+
+    let check_row_class = !override_item_open && type !== "transfer_chats" && type !== "group_chats" && type !== "online_op" && type !== "depgroups_stats";
+    let check_online = !override_item_open && type !== "my_mails" && type !== "active_mails" && type !== "pending_mails" && type !== "alarm_mails";
 
     function openItem(chat) {
         if (type === "group_chats") {
@@ -27,9 +41,26 @@
         }
     }
 
+    function openRemoteItem(chat) {
+        ee.emitEvent(override_item_open,[chat]);
+    }
+
+    function getClassListList(chat, list, type) {
+        let classList = [];
+
+        Object.entries(list).forEach(([key, value]) => {
+            if ((type === false && !chat[value]) || (type === true && chat[value])) {
+                classList.push(key);
+            }
+        });
+
+        return classList.join(' ');
+
+    }
+
 </script>
 
-<table class="table table-sm mb-0 table-small table-fixed" class:list-chat-table={check_row_class}>
+<table class="table table-sm mb-0 table-small table-fixed" class:list-chat-table={check_row_class || override_item_open}>
 
     {#if type != 'depgroups_stats' || (!$lhcList.departmentd_hide_dgroup && $lhcList[type].list.length > 0)}
     <thead>
@@ -54,7 +85,7 @@
             {:else if type == 'group_chats'}
                 <i title={$t("group_chat.group_name")} class="material-icons">group</i>
             {:else}
-                <i title={$t("widget.visitor")} class="material-icons">face</i>
+                <i title={$t("widget." + (custom_visitor_title ? custom_visitor_title : "visitor"))} class="material-icons">{custom_visitor_icon ? custom_visitor_icon : 'face'}</i>{#if show_visitor_title}{$t("widget." + (custom_visitor_title ? custom_visitor_title : "visitor"))}{/if}
             {/if}
 
             {#if type == 'transfer_chats'}
@@ -64,6 +95,15 @@
             {#if type == 'pending_chats'}
                 <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList,sort_identifier,'id_dsc','id_asc',true)}><i title={$t("widget.sort")} class="material-icons">{$lhcList.toggleWidgetData[sort_identifier] === 'id_dsc' ? 'trending_up' : 'trending_down'}</i></a>
             {/if}
+
+            {#each custom_sort_icons as iconSortData}
+                | <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList, iconSortData.sort_identifier, iconSortData.sort_options[0], iconSortData.sort_options[1], true)} >
+                    <i title={iconSortData.title} class={'material-icons ' + ($lhcList.toggleWidgetData[iconSortData.sort_identifier] != iconSortData.sort_options[1] && $lhcList.toggleWidgetData[iconSortData.sort_identifier] != iconSortData.sort_options[0] ? 'text-muted' : '')}>
+                        {$lhcList.toggleWidgetData[iconSortData.sort_identifier] == iconSortData.sort_options[1] ? iconSortData['sort_icon_' + iconSortData.sort_options[1]] : iconSortData['sort_icon_' + iconSortData.sort_options[0]]}
+                    </i>
+                </a>
+                {#if $lhcList.toggleWidgetData[iconSortData.sort_identifier] == iconSortData.sort_options[0] || $lhcList.toggleWidgetData[iconSortData.sort_identifier] == iconSortData.sort_options[1]}<a class="text-muted" on:click={(e) => lhcServices.toggleWidgetSort(lhcList, iconSortData.sort_identifier, '', '',true)} title="Remove sort"><span class="material-icons">close</span></a>{/if}
+            {/each}
 
         </th>
 
@@ -82,9 +122,9 @@
             {/each}
         {/if}
 
-        {#if type == 'subject_chats' || type == 'alarm_mails'}
+        {#if type == 'subject_chats' || type == 'alarm_mails' || show_always_subject}
             <th width="25%">
-                <span class="material-icons">label</span>
+                <span title={$t("widget.subject")} class="material-icons">label</span>{#if show_subject_title}{$t("widget.subject")}{/if}
             </th>
         {/if}
 
@@ -151,8 +191,8 @@
         <th width="12%"><i title={$t("widget_title.bot_chats")} class="material-icons chat-active">android</i></th>
         {/if}
 
-        {#if type == 'active_mails' || type == 'alarm_mails'}
-        <th width="20%"><i title={$t('widget.operator')} class="material-icons">face</i></th>
+        {#if type == 'active_mails' || type == 'alarm_mails' || show_username_always}
+        <th width="20%"><i title={$t('widget.operator')} class="material-icons">face</i>{#if show_username_title}{$t('widget.operator')}{/if}</th>
         {/if}
 
         <th width={column_3_width}>
@@ -168,9 +208,10 @@
                     <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'dep_asc' && $lhcList.toggleWidgetData[sort_identifier] != 'dep_dsc'} title={$t("widget.sort_by_dep")} class="material-icons">{$lhcList.toggleWidgetData[sort_identifier] == 'dep_dsc' || $lhcList.toggleWidgetData[sort_identifier] != 'dep_asc' ? 'trending_up' : 'trending_down'}</i>
                 </a>
             {:else if type != 'transfer_chats' && type != 'depgroups_stats'}
-                <i title={$t("widget.department")} class="material-icons">home</i>
+                <i title={$t("widget.department")} class="material-icons">home</i>{#if show_department_title}{$t("widget.department")}{/if}
             {/if}
 
+            {#if no_expand === false}
             <div class="float-end expand-actions">
                 <a on:click={lhcServices.changeWidgetHeight(lhcList,panel_id,true)} class="text-muted disable-select">
                     <i title={$t("widget.more_rows")}  class="material-icons">expand</i>
@@ -179,6 +220,8 @@
                     <i title={$t("widget.less_rows")} class="material-icons">compress</i>
                 </a>
             </div>
+            {/if}
+
         </th>
 
     </tr>
@@ -310,8 +353,24 @@
     {:else}
         <tbody>
         {#each $lhcList[type].list as chat (chat.id)}
-            <tr on:click={(e) => check_row_class && openItem(chat)} class:user-away-row={check_online && check_row_class && chat.user_status_front == 2} class:user-online-row={check_online && check_row_class && !chat.user_status_front}>
+            <tr on:click={(e) => (check_row_class && openItem(chat)) || (override_item_open && openRemoteItem(chat))} class:user-away-row={check_online && check_row_class && chat.user_status_front == 2} class:user-online-row={check_online && check_row_class && !chat.user_status_front}>
                 <td>
+
+                    <div class="abbr-list">
+
+                    {#each custom_icons as iconData}
+                        {#if iconData.icon_attr_type == 'bool' || iconData.icon_attr_type == 'cmp'}
+                            {#if (
+                                (chat[iconData['icon_attr']] && iconData['icon_attr_true'] && iconData.icon_attr_type == 'bool') ||
+                                (iconData.icon_attr_type == 'bool' && !chat[iconData['icon_attr']] && iconData['icon_attr_false']) ||
+                                (iconData.icon_attr_type == 'cmp' && chat[iconData['icon_attr']] == iconData['icon_attr_val'])
+                            )}
+                                <span title={iconData['title'] ? iconData['title'] : null} class={iconData.class + " " + (iconData.class_false ? getClassListList(chat, iconData.class_false, false) : '') + " " + (iconData.class_true ? getClassListList(chat, iconData.class_true, true) : '')} on:click={(e) => iconData['click'] ? ee.emitEvent(iconData['click'],[chat]) : null} >{((chat[iconData['icon_attr']] && iconData.icon_attr_type == 'bool')|| (chat[iconData['icon_attr']] == iconData['icon_attr_val'] && iconData.icon_attr_type == 'cmp')) ? iconData['icon_attr_true'] : iconData['icon_attr_false']}</span>
+                            {/if}
+                        {:else if iconData.icon_attr_type == 'string'}
+                            {iconData['icon_attr_prepend'] ? iconData['icon_attr_prepend'] : ''}{chat[iconData.icon_attr]}{iconData['icon_attr_append'] ? iconData['icon_attr_append'] : ''}
+                        {/if}
+                    {/each}
 
                     {#if type == 'online_op'}
 
@@ -337,17 +396,14 @@
 
                     {:else if type == 'group_chats'}
 
-                        <div class="abbr-list">
                             <a class="d-block action-image" on:click={(e) => lhcServices.startGroupChat(chat.id,chat.name)}>
                                 {#if chat.is_member == true && (!chat.ls_id || chat.ls_id < chat.last_msg_id)}
                                     <i class="material-icons text-warning" title={$t("group_chat.unread_messages")}>whatshot</i>
                                 {/if}
                                 <i class="material-icons">{chat.type == 1 ? 'security' : 'public'}</i>{#if chat.user_id == $lhcList.current_user_id}<i class="material-icons">account_balance</i>{/if}[{chat.tm}] {chat.name}
                             </a>
-                        </div>
 
                     {:else}
-                        <div class="abbr-list" >
 
                             {#if type == 'subject_chats'}
                                 <span class="material-icons chat-pending me-0" class:chat-active={chat.status == 1 || chat.status == 5}>{chat.status == 5 ? 'android' : 'chat'}</span>
@@ -379,8 +435,8 @@
 
                                 <span title={chat.from_address}>{chat.from_name} | {chat.subject_front}</span>
 
-                            {:else}
-                                <a title="[{chat.id}] {chat.time_created_front}" on:click={(e) => lhcServices.previewChat(chat.id,e)} class="material-icons me-0">info_outline</a>
+                            {:else if !no_chat_preview}
+                               <a title="[{chat.id}] {chat.time_created_front}" on:click={(e) => lhcServices.previewChat(chat.id,e)} class="material-icons me-0">info_outline</a>
                             {/if}
 
                             {#if chat.status_sub == 7}<i class="material-icons me-0" title={$t("widget.offline_request")}>mail</i>{/if}
@@ -418,11 +474,12 @@
                              {/if}
 
                             {#if type != 'my_mails' && type != 'active_mails' && type != 'pending_mails' && type != 'alarm_mails'}
-                                {chat.nick}<small>{(type == 'pending_chats' || type == 'subject_chats') && chat.plain_user_name !== undefined ? ' | ' + chat.plain_user_name : ''}</small>
+                                {chat.nick ? chat.nick : ''}<small>{(type == 'pending_chats' || type == 'subject_chats') && chat.plain_user_name !== undefined ? ' | ' + chat.plain_user_name : ''}</small>
                             {/if}
 
-                        </div>
                     {/if}
+
+                    </div>
                 </td>
 
                 {#if no_additional_column === false && check_row_class && $lhcList.additionalColumns}
@@ -439,7 +496,7 @@
                     {/each}
                 {/if}
 
-                {#if type == 'subject_chats' || type == 'alarm_mails'}
+                {#if type == 'subject_chats' || type == 'alarm_mails' || show_always_subject}
                     <td>
                         {#if chat.subject_list}
                             {#each chat.subject_list as subjectitem}
@@ -521,9 +578,9 @@
                     </td>
                 {/if}
 
-                {#if type == 'active_mails' || type == 'alarm_mails'}
+                {#if type == 'active_mails' || type == 'alarm_mails' || show_username_always}
                     <td>
-                        {chat.plain_user_name}
+                        {chat.plain_user_name ? chat.plain_user_name : ''}
                     </td>
                 {/if}
 

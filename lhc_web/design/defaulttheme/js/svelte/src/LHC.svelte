@@ -694,7 +694,7 @@
             lhinst.forgetChat(chatOpen,'gachat_id');
         });
 
-        ee.emitEvent('eventLoadInitialData', [data]);
+        ee.emitEvent('eventLoadInitialData', [data, $lhcList, lhcServices]);
 
         window['$_LHC_API']['initial_data'] = data;
 
@@ -1258,7 +1258,7 @@
 
         lhcLogic.lastd_activity = 0;
 
-        ee.emitEvent('eventGetSyncFilterSvelte', [lhcList]);
+        ee.emitEvent('eventGetSyncFilterSvelte', [$lhcList]);
 
         filter += $lhcList.custom_extension_filter;
 
@@ -1372,7 +1372,7 @@
                 $lhcList.lhcConnectivityProblem = false;
             }
 
-            ee.emitEvent('eventLoadChatListSvelte', [data, lhcList]);
+            ee.emitEvent('eventLoadChatListSvelte', [data, $lhcList, lhcLogic]);
 
             if (typeof data.items_processed == 'undefined') {
 
