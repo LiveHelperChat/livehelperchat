@@ -2144,11 +2144,11 @@ html {
     right: 0;
     left: 0;
     top: -20px;
-    border-color: var(--lhc-new-msg-border);
+    border-color: var(--lhc-new-msg-border) !important;
 }
 
 .new-msg-holder > span.new-msg{
-    background-color: var(--lhc-new-msg-border);
+    background-color: var(--lhc-new-msg-border) !important;
 }
 
 #sidebar-wrapper a:hover,
