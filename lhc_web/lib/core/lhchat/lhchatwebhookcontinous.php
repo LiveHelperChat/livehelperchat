@@ -251,7 +251,7 @@ class erLhcoreClassChatWebhookContinuous {
         }
     }
 
-    public function processEventMail() {
+    public static function processEventMail() {
         try {
             $continuousHooks = erLhcoreClassModelChatWebhook::getList(array('filter' => array('type' => 2, 'disabled' => 0)));
         } catch (Exception $e) {
