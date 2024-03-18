@@ -1276,6 +1276,12 @@ class erLhcoreClassChatWebhookIncoming {
                         $chat->chat_variables = json_encode($chatVariables);
                     }
 
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming_chat_before_save', array(
+                        'webhook' => & $incomingWebhook,
+                        'data' => & $payloadAll,
+                        'chat' => & $chat
+                    ));
+
                     $chat->saveThis();
 
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming_chat_started', array(
