@@ -8,6 +8,7 @@
     export let www_dir_flags = null;
     export let no_additional_column = false;
     export let hide_third_column = false;
+    export let hide_2_column = false;
     export let hide_ac_op_icon = false;
     export let hide_ac_stats = false;
     export let hide_op_avatar = false;
@@ -132,6 +133,7 @@
             </th>
         {/if}
 
+        {#if !hide_2_column}
         <th width={column_2_width}>
 
             {#if type === 'depgroups_stats'}
@@ -172,6 +174,7 @@
             {/if}
 
         </th>
+        {/if}
 
         {#if type == 'online_op'}
         <th width="15%">
@@ -364,6 +367,10 @@
 
                     <div class="abbr-list">
 
+                    {#if chat.country_code}
+                        <span><img src={www_dir_flags + "/" + chat.country_code + ".png"} alt={chat.country_name} title={chat.country_name} /></span>
+                    {/if}
+
                     {#each custom_icons as iconData}
                         {#if iconData.icon_attr_type == 'bool' || iconData.icon_attr_type == 'cmp'}
                             {#if (
@@ -418,10 +425,6 @@
 
                             {#if type == 'pending_chats' && permissions.indexOf('lhchat_deletechat') !== -1}
                                 <a title={$t("widget.delete_chat")} class="material-icons float-end" on:click={(e) => {lhcServices.deleteChat(chat.id);e.stopPropagation()}}>delete</a>
-                            {/if}
-
-                            {#if chat.country_code}
-                                <span><img src={www_dir_flags + "/" + chat.country_code + ".png"} alt={chat.country_name} title={chat.country_name} /></span>
                             {/if}
 
                             {#if chat.can_edit_chat && type == 'pending_chats' && permissions.indexOf('lhchat_redirectcontact') !== -1}
@@ -513,6 +516,7 @@
                     </td>
                 {/if}
 
+                {#if !hide_2_column}
                 <td class:align-middle={type == "online_op"}>
 
                     {#if type == 'group_chats'}
@@ -572,6 +576,7 @@
                         </div>
                     {/if}
                 </td>
+                {/if}
 
                 {#if type == 'online_op'}
                     <td title='{$t("widget.max")} - {chat.max_chats && chat.max_chats > 0 ? chat.max_chats : "n/a"} {$t("widget.chats")}' class="align-middle"  class:text-danger={chat.max_chats && chat.max_chats > 0 && chat.max_chats - chat.active_chats <= 0} class:text-success={chat.max_chats && chat.max_chats > 0 && chat.max_chats - chat.active_chats >= 1}>
