@@ -49,7 +49,6 @@
         attrf_key_5 : "",
         attrf_val_5 : "",
         query : "",
-        onlineusersPreviousID : [],
         wasInitiated : false,
         online_connected : online_connected === 'true',
         predicate : 'last_visit',
@@ -351,9 +350,9 @@
 
                 $lhcList.onlineusers.list.forEach((value) => {
                     var hasValue = true;
-                    if (lhcLogic.onlineusersPreviousID.indexOf(value.id) === -1) {
+                    if ($lhcList.onlineusersPreviousID.indexOf(value.id) === -1) {
                         hasValue = false;
-                        lhcLogic.onlineusersPreviousID.push(value.id);
+                        $lhcList.onlineusersPreviousID.push(value.id);
                     }
 
                     if (lhcLogic.wasInitiated === true && hasValue === false) {
@@ -409,9 +408,9 @@
                 }
 
                 lhcLogic.wasInitiated = true;
-                if (lhcLogic.onlineusersPreviousID.length > 100) {
+                if ($lhcList.onlineusersPreviousID.length > 100) {
                     lhcLogic.wasInitiated = false;
-                    lhcLogic.onlineusersPreviousID = [];
+                    $lhcList.onlineusersPreviousID = [];
                 }
             }
 

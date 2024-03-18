@@ -118,7 +118,9 @@ export const lhcList = writable({
 
     pendingmu : [],
     activemu : [],
-    alarmmu : []
+    alarmmu : [],
+
+    onlineusersPreviousID : []
 });
 
 export const lhcTranslations = writable({});
