@@ -381,7 +381,11 @@
                                 <span title={iconData['title'] ? iconData['title'] : null} class={iconData.class + " " + (iconData.class_false ? getClassListList(chat, iconData.class_false, false) : '') + " " + (iconData.class_true ? getClassListList(chat, iconData.class_true, true) : '')} on:click={(e) => iconData['click'] ? ee.emitEvent(iconData['click'],[chat]) : null} >{((chat[iconData['icon_attr']] && iconData.icon_attr_type == 'bool')|| (chat[iconData['icon_attr']] == iconData['icon_attr_val'] && iconData.icon_attr_type == 'cmp')) ? iconData['icon_attr_true'] : iconData['icon_attr_false']}</span>
                             {/if}
                         {:else if iconData.icon_attr_type == 'string'}
-                            {iconData['icon_attr_prepend'] ? iconData['icon_attr_prepend'] : ''}{chat[iconData.icon_attr]}{iconData['icon_attr_append'] ? iconData['icon_attr_append'] : ''}
+                            {#if iconData['class']}
+                                   <span title={iconData['title'] ? iconData['title'] : null} class={iconData.class}>{iconData['icon_attr_prepend'] ? iconData['icon_attr_prepend'] : ''}{chat[iconData.icon_attr]}{iconData['icon_attr_append'] ? iconData['icon_attr_append'] : ''}</span>
+                                {:else}
+                                   {iconData['icon_attr_prepend'] ? iconData['icon_attr_prepend'] : ''}{chat[iconData.icon_attr]}{iconData['icon_attr_append'] ? iconData['icon_attr_append'] : ''}
+                            {/if}
                         {/if}
                     {/each}
 
