@@ -589,7 +589,7 @@ if ($tab == 'active') {
     }
 
     if (isset($_GET['xmlagentstatistic'])) {
-        erLhcoreClassChatStatistic::exportAgentStatistic(30,$filterParams['filter']);
+        erLhcoreClassChatStatistic::exportAgentStatistic(30,$filterParams['filter'], $filterParams['input']);
         exit;
     }
 
@@ -598,7 +598,7 @@ if ($tab == 'active') {
     }
 
     if (isset($_GET['doSearch'])) {
-        $agentStatistic = erLhcoreClassChatStatistic::getAgentStatistic(30, $filterParams['filter']);
+        $agentStatistic = erLhcoreClassChatStatistic::getAgentStatistic(30, $filterParams['filter'], $filterParams['input']);
     } else {
         $agentStatistic = array();
     }

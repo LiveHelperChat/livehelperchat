@@ -160,6 +160,16 @@ $fieldsSearch['user_ids'] = array (
     )
 );
 
+$fieldsSearch['has_online_hours'] = array (
+    'type' => 'boolean',
+    'trans' => 'groupby',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
 
 $fieldSortAttr = array (
 'field'      => false,

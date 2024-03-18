@@ -1753,8 +1753,8 @@ class erLhcoreClassChatStatistic {
     	return $rating;
     }
 
-    public static function exportAgentStatistic($days = 30, $filter = array()) {
-        $data = self::getAgentStatistic($days,$filter);
+    public static function exportAgentStatistic($days = 30, $filter = array(), $filterParams = array()) {
+        $data = self::getAgentStatistic($days,$filter,$filterParams);
         include 'lib/core/lhform/PHPExcel.php';
         $cacheMethod = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
         $cacheSettings = array( 'memoryCacheSize ' => '64MB');
@@ -1998,7 +1998,7 @@ class erLhcoreClassChatStatistic {
         return $stats;
     }
 
-    public static function getAgentStatistic ($days = 30, $filtergte = array()) {
+    public static function getAgentStatistic ($days = 30, $filtergte = array(), $filterParams = array()) {
         $filter = array();
     
         if (isset($filtergte['filtergte']['time'])) {
@@ -2144,7 +2144,7 @@ class erLhcoreClassChatStatistic {
             return array();
         }
 
-        $filterExtension = array('user_filter' => $userIdFilter, 'department_user_id' => $userIdGroupDep, 'user_list' => $userList, 'days' => $days, 'filter' => $filter, 'filter_original' => $filtergte);
+        $filterExtension = array('filter_params' => $filterParams, 'user_filter' => $userIdFilter, 'department_user_id' => $userIdGroupDep, 'user_list' => $userList, 'days' => $days, 'filter' => $filter, 'filter_original' => $filtergte);
 
         $list = array();
 
@@ -2179,6 +2179,10 @@ class erLhcoreClassChatStatistic {
 
                 $totalHoursOnline = self::totalHoursOfOnlineDialogsByUser(30,$filterOnlineHours);
                 $totalHoursOnlineCount = self::formatHours($totalHoursOnline);
+
+                if (isset($filterParams->has_online_hours) && $filterParams->has_online_hours == 1 && $totalHoursOnline == 0) {
+                    continue;
+                }
 
                 $totalHours = self::totalHoursOfChatsDialogsByUser(30,$filter);
                 $totalHoursParticipant = self::totalHoursOfDialogsByUserParticipant(30,$filter);

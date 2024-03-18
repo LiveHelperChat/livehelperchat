@@ -78,7 +78,8 @@ $ViewList['statistic'] = array(
         62 => 'reportverified',
         63 => 'r',
         64 => 'is_external',
-        65 => 'has_attachment'
+        65 => 'has_attachment',
+        66 => 'has_online_hours'
     ),
     'functions' => array( 'viewstatistic' ),
     'multiple_arguments' => array('bot_ids','subject_ids','department_ids','group_ids','user_ids','department_group_ids','invitation_ids','chart_type','country_ids')

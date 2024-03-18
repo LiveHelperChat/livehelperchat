@@ -165,6 +165,12 @@
         </div>
     </div>
 
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><input type="checkbox" <?php if ($input->has_online_hours == 1) : ?>checked="checked"<?php endif;?> name="has_online_hours" value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Only operators who were online during selected period')?></label>
+        </div>
+    </div>
+
     <input type="hidden" name="doSearch" value="on" />
 
     <div class="col-12">
