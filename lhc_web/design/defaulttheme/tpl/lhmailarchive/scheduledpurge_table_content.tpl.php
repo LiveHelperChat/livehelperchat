@@ -4,6 +4,7 @@
         <td><?php echo $item->user_id?></td>
         <td><?php echo $item->archive_id?></td>
         <td>
+            <span class="material-icons <?php if ($item->delete_policy == 0) : ?>text-danger<?php else : ?>text-muted<?php endif;?>" title="<?php if ($item->delete_policy == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Mail messages will follow mailbox delete policy');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Mail messages will not be deleted on IMAP');?><?php endif;?>">folder_delete</span>
             <?php if ($item->status == \LiveHelperChat\Models\mailConv\Delete\DeleteFilter::STATUS_PENDING) : ?>
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Pending');?>
             <?php elseif ($item->status == \LiveHelperChat\Models\mailConv\Delete\DeleteFilter::STATUS_IN_PROGRESS) : ?>
@@ -36,6 +37,9 @@
         </td>
         <td>
             <?php echo $item->last_id?>
+        </td>
+        <td>
+            <a class="csfr-required csfr-post material-icons" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('mailarchive/scheduledpurgedelete')?>/<?php echo $item->id?>/<?php echo htmlspecialchars(base64_encode(get_class($item)))?>">delete</a>
         </td>
     </tr>
 <?php endforeach; ?>

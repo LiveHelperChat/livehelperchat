@@ -855,12 +855,13 @@ div.message-row.message-admin div.msg-body{
 .blockquote {
 	font-size:12px;
 	background: #f7f7f7;
-	border-radius: 15px;
+	border-radius:5px;
 	font-style: italic;
 	margin:4px;
 	color:#000;
-	box-shadow: 1px 1px 5px -1px rgba(0,0,0,0.75);
+    border:1px solid #c3c3c3;
 	padding:10px 10px 10px 20px;
+    scrollbar-width: thin;
 }
 
 .blockquote:before {
@@ -868,6 +869,32 @@ div.message-row.message-admin div.msg-body{
 	font-size: 30px;
 	margin-left: -15px;
 	color: grey;
+}
+
+code {
+    background: #f7f7f7;
+    padding:3px;
+    border-radius: 5px;
+    color:#000;
+    border:1px solid #c3c3c3
+}
+
+.blockquote-code > code{
+    padding: 0px;
+    margin: 0px;
+    color:#000;
+    border:0;
+    background:none;
+}
+
+.blockquote-code{
+    padding: 5px;
+    padding-top:0;
+}
+
+.blockquote-code:before{
+    content:'';
+    margin-left:0;
 }
 
 .btn-block-department label{

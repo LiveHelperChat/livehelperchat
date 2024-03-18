@@ -208,28 +208,31 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
     if (ezcInputForm::hasPostData()) {
         session_write_close();
 
-        if (isset($_POST['schedule'])) {
-            erLhcoreClassRestAPIHandler::setHeaders();
+        erLhcoreClassRestAPIHandler::setHeaders();
 
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            echo json_encode(['left_to_delete' => 0, 'error' => 'Token']);
+            exit;
+        }
+
+        if (isset($_POST['schedule'])) {
             $deleteFilter = new \LiveHelperChat\Models\mailConv\Delete\DeleteFilter();
             $deleteFilter->user_id = $currentUser->getUserID();
             $deleteFilter->filter = json_encode($filterParams['filter']);
             $deleteFilter->filter_input = json_encode($filterParams['input_form']);
+            $deleteFilter->delete_policy = (isset($_POST['delete_policy']) && $_POST['delete_policy'] === 'true') ? 0 : 1;
             $deleteFilter->saveThis();
-
             echo json_encode(['result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Scheduled delete flow with ID') . ' - ' . $deleteFilter->id]);
 
         } else {
             $filterParams['filter']['limit'] = 20;
             $filterParams['filter']['offset'] = 0;
             $counterProcessed = 0;
-
             foreach (erLhcoreClassModelMailconvConversation::getList($filterParams['filter']) as $item) {
+                $item->ignore_imap = (isset($_POST['delete_policy']) && $_POST['delete_policy'] === 'true') ? false : true;
                 $item->removeThis();
                 $counterProcessed++;
             }
-
-            erLhcoreClassRestAPIHandler::setHeaders();
             echo json_encode(['left_to_delete' => $counterProcessed]);
         }
         exit;
@@ -250,15 +253,21 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
 
         $archive = \LiveHelperChat\Models\mailConv\Archive\Range::fetch($_GET['archive_id']);
 
-        if (is_object($archive) && $archive->type == \LiveHelperChat\Models\mailConv\Archive\Range::ARCHIVE_TYPE_BACKUP) {
+        erLhcoreClassRestAPIHandler::setHeaders();
+        
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            echo json_encode(['left_to_delete' => 0, 'error' => 'Token']);
+            exit;
+        }
 
+        if (is_object($archive) && $archive->type == \LiveHelperChat\Models\mailConv\Archive\Range::ARCHIVE_TYPE_BACKUP) {
             if (isset($_POST['schedule'])) {
-                erLhcoreClassRestAPIHandler::setHeaders();
                 $deleteFilter = new \LiveHelperChat\Models\mailConv\Delete\DeleteFilter();
                 $deleteFilter->user_id = $currentUser->getUserID();
                 $deleteFilter->filter = json_encode($filterParams['filter']);
                 $deleteFilter->filter_input = json_encode($filterParams['input_form']);
                 $deleteFilter->archive_id = $archive->id;
+                $deleteFilter->delete_policy = (isset($_POST['delete_policy']) && $_POST['delete_policy'] === 'true') ? 0 : 1;
                 $deleteFilter->saveThis();
                 echo json_encode(['result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Scheduled delete flow with archive - ID') . ' - ' . $deleteFilter->id]);
             } else {
@@ -266,15 +275,12 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
                 $filterParams['filter']['offset'] = 0;
 
                 $items = erLhcoreClassModelMailconvConversation::getList($filterParams['filter']);
-                $archive->process($items);
-
-                erLhcoreClassRestAPIHandler::setHeaders();
+                $archive->process($items, ['ignore_imap' => !(isset($_POST['delete_policy']) && $_POST['delete_policy'] === 'true')]);
                 echo json_encode(['left_to_delete' => count($items)]);
             }
 
             exit;
         } else {
-            erLhcoreClassRestAPIHandler::setHeaders();
             echo json_encode(['left_to_delete' => 0]);
             exit;
         }

@@ -6,4 +6,5 @@
  *
  * */
 erLhcoreClassChatWebhookContinuous::processEvent();
+erLhcoreClassChatWebhookContinuous::processEventMail();
 

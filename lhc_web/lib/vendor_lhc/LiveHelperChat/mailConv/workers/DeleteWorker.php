@@ -51,8 +51,9 @@ class DeleteWorker
                 try {
                     foreach ($chats as $chat) {
                         if (isset($filters[$chatsIdFilter[$chat->id]]) && isset($archives[$filters[$chatsIdFilter[$chat->id]]->archive_id])) {
-                            $archives[$filters[$chatsIdFilter[$chat->id]]->archive_id]->process([$chat]);
+                            $archives[$filters[$chatsIdFilter[$chat->id]]->archive_id]->process([$chat], ['ignore_imap' => $filters[$chatsIdFilter[$chat->id]]->delete_policy === 1]);
                         } else {
+                            $chat->ignore_imap = $filters[$chatsIdFilter[$chat->id]]->delete_policy === 1;
                             $chat->removeThis();
                         }
                     }

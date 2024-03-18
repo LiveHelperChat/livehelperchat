@@ -10,6 +10,16 @@
 
     export let type = "pending_chats";
     export let no_collapse = false;
+    export let no_expand = false;
+    export let show_username_title = false;
+    export let hide_third_column = false;
+    export let hide_op_avatar = false;
+    export let hide_ac_stats = false;
+    export let hide_ac_op_icon = false;
+    export let custom_visitor_title = null;
+    export let mh_widget = null;
+    export let custom_visitor_icon = null;
+    export let show_visitor_title = false;
     export let list_identifier = "pending";
     export let no_panel_id = false;
     export let custom_settings_url_icon = null;
@@ -19,9 +29,15 @@
     export let status_key = "chat_status_ids";
     export let hide_header = false
     export let hide_filter_options = false
+    export let show_department_title = false
+    export let show_subject_title = false
     export let default_expand = false;
+    export let show_username_always = false;
+    export let show_always_subject = false;
     export let right_panel_mode = false;
     export let no_additional_column = false;
+    export let override_item_open = null;
+    export let no_chat_preview = false;
     export let default_sort = 'id_asc';
     export let www_dir_flags = null;
     export let base_url = "chat/list";
@@ -82,7 +98,10 @@
                 <a class="material-icons" target="_blank" href={WWW_DIR_JAVASCRIPT + 'statistic/departmentstatusxls'} title={$t("widget.download_xls")}>file_download</a>
             {/if}
 
+            {#if !no_expand}
             <a title={$t("widget.collapse_expand")} on:click={(e) => lhcServices.toggleWidget(lhcList,expand_identifier)} class="fs24 float-end material-icons exp-cntr">{$lhcList.toggleWidgetData[expand_identifier] == false ? 'expand_less' : 'expand_more'}</a>
+            {/if}
+
             {#if !no_duration && $lhcList[type].tt}
             <span title={$t("widget.taken_time")} class="d-none d-xl-inline badge me-1 float-end bg-light text-muted p-1 fs11 fw-light border">
                 {$lhcList[type].tt} s.
@@ -109,8 +128,8 @@
                     {#if type == 'onlineusers'}
                         <LHCOnlineVisitors {...$$props}></LHCOnlineVisitors>
                     {:else}
-                        <div class="panel-list" id={no_panel_id === false ? panel_list_identifier : null} style:max-height={$lhcList[_optionsPanel['panelid'] + '_m_h'] ?? '330px'}>
-                        <WidgetBodyPending no_additional_column={no_additional_column} additional_sort={additional_sort} column_1_width={column_1_width} column_3_width={column_3_width} column_2_width={column_2_width} permissions={_permissions} www_dir_flags={www_dir_flags} panel_id={_optionsPanel['panelid']} lhcList={lhcList} type={type} sort_identifier={sort_identifier} />
+                        <div class="panel-list" id={no_panel_id === false ? panel_list_identifier : null} style:max-height={mh_widget ? mh_widget : ($lhcList[_optionsPanel['panelid'] + '_m_h'] ?? '330px')}>
+                        <WidgetBodyPending hide_ac_stats={hide_ac_stats} hide_ac_op_icon={hide_ac_op_icon} hide_op_avatar={hide_op_avatar} hide_third_column={hide_third_column} custom_visitor_icon={custom_visitor_icon} show_visitor_title={show_visitor_title} custom_visitor_title={custom_visitor_title} show_username_title={show_username_title} show_subject_title={show_subject_title} show_department_title={show_department_title} no_expand={no_expand} show_always_subject={show_always_subject} show_username_always={show_username_always} override_item_open={override_item_open} no_chat_preview={no_chat_preview} no_additional_column={no_additional_column} additional_sort={additional_sort} column_1_width={column_1_width} column_3_width={column_3_width} column_2_width={column_2_width} permissions={_permissions} www_dir_flags={www_dir_flags} custom_sort_icons={_optionsPanel['custom_sort_icons'] ? _optionsPanel['custom_sort_icons'] : []} custom_icons={_optionsPanel['custom_icons'] ? _optionsPanel['custom_icons'] : []} panel_id={_optionsPanel['panelid']} lhcList={lhcList} type={type} sort_identifier={sort_identifier} />
                         </div>
                     {/if}
                 {/if}

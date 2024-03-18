@@ -51,7 +51,7 @@ class Range
         return \erLhcoreClassChat::getCount(['filter' => ['id' => $itemId]], "lhc_mailconv_conversation_archive_{$this->id}") > 0;
     }
 
-    public function process($mailsToArchive = [])
+    public function process($mailsToArchive = [], $executionParams = [])
     {
         if ($this->type == self::ARCHIVE_TYPE_DEFAULT) {
             if ($this->range_to > 0 && $this->range_from > 0 && $this->older_than == 0) {
@@ -94,7 +94,9 @@ class Range
                 $msgArchive->setState(get_object_vars($msg));
                 $msgArchive->saveThis();
 
-                \erLhcoreClassMailconvParser::purgeMessage($msg, true);
+                if (!(isset($executionParams['ignore_imap']) && $executionParams['ignore_imap'] === true)) {
+                    \erLhcoreClassMailconvParser::purgeMessage($msg, true);
+                }
             }
 
             $lastChatID = $item->id;

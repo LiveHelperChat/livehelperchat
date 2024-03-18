@@ -25,6 +25,12 @@ $appendPrintExportURL = '';
                 <div id="delete-progress" style="display: none"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Left to delete and archive')?> - <span id="left-to-delete"><?php echo $update_records?></span></div>
 
                 <?php if (!(isset($updated) && $updated == true)) : ?>
+
+                    <div class="form-group">
+                        <label><input type="checkbox" id="id_delete_policy" name="delete_policy" checked="checked" value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete policy is active.')?></label>
+                        <div class="text-muted"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','If checked we will process message per mailbox settings. If not checked we will ignore mailbox setting and do not touch mail messages on imap.')?></small></div>
+                    </div>
+
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose an archive')?></label>
                         <?php echo erLhcoreClassRenderHelper::renderCombobox(array(
@@ -64,7 +70,7 @@ $appendPrintExportURL = '';
             var total_records = <?php echo (int)$update_records;?>;
 
             function doDelete(url){
-                $.postJSON(url, {'start': true}, function(data) {
+                $.postJSON(url, {'start': true, 'delete_policy': $('#id_delete_policy').is(':checked') }, function(data) {
                     total_records = total_records - data.left_to_delete;
                     $('#left-to-delete').html(total_records);
                     if (data.left_to_delete > 0 && $('body').hasClass('modal-open')) {
@@ -75,14 +81,15 @@ $appendPrintExportURL = '';
 
             $('#start-deletion-action').on('submit',function() {
                 $('#delete-progress').show();
-                $('#start-button-delete').hide();
+                $('#start-button-delete,#start-schedule-delete').hide();
                 doDelete($(this).attr('action') + '&archive_id=' + document.getElementById('id_archive_id').value);
                 return false;
             });
 
             $('#start-schedule-delete').on('click',function() {
-                $.postJSON($('#start-deletion-action').attr('action')+ '&archive_id=' + document.getElementById('id_archive_id').value, {'schedule': true}, function(data) {
+                $.postJSON($('#start-deletion-action').attr('action')+ '&archive_id=' + document.getElementById('id_archive_id').value, {'schedule': true, 'delete_policy': $('#id_delete_policy').is(':checked')}, function(data) {
                     $('#delete-progress').show();
+                    $('#start-button-delete,#start-schedule-delete').hide();
                     $('#left-to-delete').html(data.result);
                 });
             });

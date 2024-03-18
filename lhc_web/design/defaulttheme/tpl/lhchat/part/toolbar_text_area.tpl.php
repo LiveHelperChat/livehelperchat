@@ -34,8 +34,13 @@
                 <?php endif; ?>
 
                 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','htmlbbcodeenabled')) : ?>
-                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="html" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','HTML Code')?>"><i class="material-icons me-0">code</i></button>
+                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="html" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','HTML Code')?>">HTML</button>
                 <?php endif; ?>
+
+                <?php if (!isset($bbcodeOptions['disabled_options']) || !in_array('[code]',$bbcodeOptions['disabled_options'])) : ?>
+                    <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="code" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','[code] or ``` or ` for inline')?>"><i class="material-icons me-0">code</i></button>
+                <?php endif; ?>
+
 
                 <?php if (!isset($bbcodeOptions['disabled_options']) || !in_array('[fs12]',$bbcodeOptions['disabled_options'])) : ?>
                 <div class="dropdown dropup">

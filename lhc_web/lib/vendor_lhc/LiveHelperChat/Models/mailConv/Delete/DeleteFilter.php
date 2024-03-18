@@ -30,6 +30,7 @@ class DeleteFilter
             'started_at' => $this->started_at,
             'finished_at' => $this->finished_at,
             'processed_records' => $this->processed_records,
+            'delete_policy' => $this->delete_policy,
         );
 
         return $stateArray;
@@ -43,6 +44,16 @@ class DeleteFilter
     public function beforeUpdate()
     {
         $this->updated_at = time();
+    }
+
+    public function beforeRemove()
+    {
+        foreach (['lhc_mailconv_delete_item'] as $table) {
+            $q = \ezcDbInstance::get()->createDeleteQuery();
+            $q->deleteFrom($table)->where( $q->expr->eq( 'filter_id', $this->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+        }
     }
 
     public function __get( $propertyName )
@@ -100,6 +111,7 @@ class DeleteFilter
     public $finished_at = 0;
     public $started_at = 0;
     public $processed_records = 0;
+    public $delete_policy = 0;
     public $status = self::STATUS_PENDING;
 }
 

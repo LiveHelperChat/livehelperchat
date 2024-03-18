@@ -656,9 +656,6 @@ class erLhcoreClassBBCode
             }
         }
 
-       $filteredBBCode['search'][] = '/`(.*?)`/ms';
-       $filteredBBCode['replace'][] = '<code>\1</code>';
-
     	$text = preg_replace($filteredBBCode['search'], $filteredBBCode['replace'], $text);
 
     	// Prepare quote's
@@ -677,6 +674,7 @@ class erLhcoreClassBBCode
     	}
 
     	$text = preg_replace_callback('/<pre>(.*?)<\/pre>/ms', "removeBr", $text);
+    	$text = preg_replace_callback('/<code>(.*?)<\/code>/ms', "removeBr", $text);
     	$text = preg_replace('/<p><pre>(.*?)<\/pre><\/p>/ms', "<pre>\\1</pre>", $text);
 
     	$text = preg_replace_callback('/<ul>(.*?)<\/ul>/ms', "removeBr", $text);
@@ -726,6 +724,10 @@ class erLhcoreClassBBCode
             return '[url='.$matches[1].']' . $matches[2] . '[/url]';
 				
         return '<a class="link" target="_blank" rel="noreferrer" href="'.$url.'">' . $matches[2] . '</a>';
+   }
+   
+   public static function _make_code($matches){
+        return '<pre class="blockquote blockquote-code"><code>'.trim($matches[1]).'</code></pre>';
    }
       
    /**
@@ -1177,6 +1179,13 @@ class erLhcoreClassBBCode
             $ret = preg_replace_callback('/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms', "erLhcoreClassBBCode::_make_url_embed", $ret);
         } else {
             $makeLinksClickable = false;
+        }
+
+        if (self::isBBCodeTagSupported('[code]',$paramsMessage)) {
+            $ret = str_replace("```\n", '```', $ret);
+            $ret = preg_replace_callback('/\[code\](.*?)\[\/code\]/ms', "erLhcoreClassBBCode::_make_code", $ret);
+            $ret = preg_replace_callback('/```(.*?)```/ms', "erLhcoreClassBBCode::_make_code", $ret);
+            $ret = preg_replace('/`(.*?)`/ms', '<code>\1</code>', $ret);
         }
 
         if (isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) {

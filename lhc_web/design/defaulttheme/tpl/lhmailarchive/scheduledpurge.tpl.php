@@ -21,6 +21,7 @@
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Filter');?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Pending records to process');?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Last ID');?></th>
+                <th>&nbsp;</th>
             </tr>
             </thead>
             <?php include(erLhcoreClassDesign::designtpl('lhmailarchive/scheduledpurge_table_content.tpl.php'));?>
@@ -29,7 +30,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhmailarchive/scheduledpurge_tab_content_multiinclude.tpl.php'));?>
 </div>
 
-
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 
 <?php if (isset($pages)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
