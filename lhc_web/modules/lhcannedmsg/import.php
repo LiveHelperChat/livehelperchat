@@ -11,7 +11,13 @@ if (isset($_POST['remove_old']) && $_POST['remove_old'] == true) {
 
 if (isset($_POST['UploadFileAction'])) {
 
-    if (erLhcoreClassSearchHandler::isFile('files',array('csv'))) {
+    $errors = [];
+
+    if (!erLhcoreClassSearchHandler::isFile('files',array('csv')) || !mb_check_encoding(file_get_contents($_FILES['files']["tmp_name"]), 'UTF-8')) {
+        $errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('canned/import','File is not UTF-8 encoded!');
+    }
+
+    if (empty($errors)) {
 
         $dir = 'var/tmpfiles/';
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath', array('dir' => & $dir));

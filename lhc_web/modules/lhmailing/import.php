@@ -29,7 +29,11 @@ if (isset($_POST['UploadFileAction'])) {
         $errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('canned/import','Missing CSRF Token!!');
     }
 
-    if (empty($errors) && erLhcoreClassSearchHandler::isFile('files',array('csv'))) {
+    if (!erLhcoreClassSearchHandler::isFile('files',array('csv')) || !mb_check_encoding(file_get_contents($_FILES['files']["tmp_name"]), 'UTF-8')) {
+        $errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('canned/import','File is not UTF-8 encoded!');
+    }
+
+    if (empty($errors)) {
 
         $dir = 'var/tmpfiles/';
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath', array('dir' => & $dir));
