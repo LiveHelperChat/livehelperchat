@@ -1182,6 +1182,7 @@ class erLhcoreClassBBCode
         }
 
         if (self::isBBCodeTagSupported('[code]',$paramsMessage)) {
+            $ret = str_replace("```\n", '```', $ret);
             $ret = preg_replace_callback('/\[code\](.*?)\[\/code\]/ms', "erLhcoreClassBBCode::_make_code", $ret);
             $ret = preg_replace_callback('/```(.*?)```/ms', "erLhcoreClassBBCode::_make_code", $ret);
             $ret = preg_replace('/`(.*?)`/ms', '<code>\1</code>', $ret);
