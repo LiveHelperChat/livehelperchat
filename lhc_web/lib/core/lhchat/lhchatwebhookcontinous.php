@@ -251,25 +251,6 @@ class erLhcoreClassChatWebhookContinuous {
         }
     }
 
-    public static function processEventMail() {
-        try {
-            $continuousHooks = erLhcoreClassModelChatWebhook::getList(array('filter' => array('type' => 2, 'disabled' => 0)));
-        } catch (Exception $e) {
-            return;
-        }
-
-        // Continue here
-        /*$statusValid = array(
-            erLhcoreClassModelChat::STATUS_PENDING_CHAT,
-            erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
-            erLhcoreClassModelChat::STATUS_BOT_CHAT,
-        );
-
-        $chats = erLhcoreClassModelChat::getList(array(
-            'limit' => 1000,
-            'filterin' => array('status' => $statusValid)));*/
-    }
-    
     public static function dispatchEvents($chat, $params)
     {
         $lastMessageIdNew = $lastMessageId = $params['msg_last_id'];

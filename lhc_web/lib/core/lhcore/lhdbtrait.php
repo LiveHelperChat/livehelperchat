@@ -417,9 +417,25 @@ trait erLhcoreClassDBTrait
             }
         }
 
+        if (isset($params['filterltfields']) && count($params['filterltfields']) > 0) {
+            foreach ($params['filterltfields'] as $combination) {
+                foreach ($combination as $field => $fieldValue){
+                    $conditions[] = $q->expr->lt($field, $q->bindValue($fieldValue));
+                }
+            }
+        }
+
         if (isset($params['filtergt']) && count($params['filtergt']) > 0) {
             foreach ($params['filtergt'] as $field => $fieldValue) {
                 $conditions[] = $q->expr->gt($field, $q->bindValue($fieldValue));
+            }
+        }
+
+        if (isset($params['filtergtfields']) && count($params['filtergtfields']) > 0) {
+            foreach ($params['filtergtfields'] as $field => $combination) {
+                foreach ($combination as $field => $fieldValue) {
+                    $conditions[] = $q->expr->gt($field, $q->bindValue($fieldValue));
+                }
             }
         }
 
@@ -442,6 +458,14 @@ trait erLhcoreClassDBTrait
                         $conditions[] = $q->expr->not($q->expr->in($field, $fieldValue));
                     }
                 } else {
+                    $conditions[] = $q->expr->neq($field, $q->bindValue($fieldValue));
+                }
+            }
+        }
+
+        if (isset($params['filternotfields']) && count($params['filternotfields']) > 0) {
+            foreach ($params['filternotfields'] as $combination) {
+                foreach ($combination as $field => $fieldValue) {
                     $conditions[] = $q->expr->neq($field, $q->bindValue($fieldValue));
                 }
             }

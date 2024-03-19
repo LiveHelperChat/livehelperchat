@@ -1445,7 +1445,7 @@ class erLhcoreClassAdminChatValidatorHelper {
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
             ),
             'type' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'max_range' => 1)
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'max_range' => 2)
             ),
             'disabled' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'

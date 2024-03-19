@@ -27,7 +27,9 @@ $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false );
                     <?php if ($item->type == 0) : ?>
                         <?php echo htmlspecialchars($item->event)?>
                     <?php elseif ($item->type == 1) : ?>
-                        <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Continuous event');?></b>
+                        <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Continuous chat event');?></b>
+                    <?php elseif ($item->type == 2) : ?>
+                        <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Continuous mail event');?></b>
                     <?php endif; ?>
                 </td>
                 <td><?php echo htmlspecialchars($item->bot)?></td>
