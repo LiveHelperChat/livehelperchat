@@ -741,7 +741,7 @@
             }
         }).catch((error) => {
             // Your error is here!
-            alert('We could not change your status! ' + error);
+            // alert('We could not change your status! ' + error);
         });
 
         const data = await responseTrack.json();
