@@ -14,7 +14,7 @@ export async function updateSettings(params) {
         }
     }).catch((error) => {
         // Your error is here!
-        alert('We could not change your status! ' + error);
+        alert('We could not change your settings! ' + error);
     });
 
     const data = await responseTrack.json();
