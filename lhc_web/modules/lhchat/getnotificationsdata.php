@@ -10,7 +10,7 @@ $notification_message_type = erTranslationClassLhTranslation::getInstance()->get
 $itemsGrouped = [];
 $returnArray = array();
 
-$validChatGroups = ['bot_chats', 'pending_chat', 'unread_chat', 'transfer_chat', 'transfer_chat_dep','active_chats'];
+$validChatGroups = ['bot_chats', 'pending_chat', 'unread_chat', 'transfer_chat', 'transfer_chat_dep','active_chats','active_chat','subject_chats'];
 $validMailGroups = ['pmails','amails'];
 
 foreach ($Params['user_parameters_unordered']['id'] as $itemNotification) {
