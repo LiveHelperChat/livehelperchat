@@ -187,13 +187,9 @@ class Continous
 
                 $filterPrepared['limit'] = 5000;
                 $filterPrepared['ignore_fields'] = ['body','alt_body','rfc822_body'];
-                //$filterPrepared['filter']['status'] = [\erLhcoreClassModelMailconvMessage::STATUS_PENDING, \erLhcoreClassModelMailconvMessage::STATUS_ACTIVE];
+                $filterPrepared['filter']['status'] = [\erLhcoreClassModelMailconvMessage::STATUS_PENDING, \erLhcoreClassModelMailconvMessage::STATUS_ACTIVE];
 
                 $chats = \erLhcoreClassModelMailconvMessage::getList($filterPrepared);
-
-                print_r($filterPrepared);
-                echo count($chats);
-                exit;
 
                 foreach ($chats as $chat) {
 
@@ -212,7 +208,7 @@ class Continous
                                 $conditionItemValid = false;
 
                                 if ($conditionsCurrent['type'] == '1') { // Visitor message contains
-                                    // For that vistior should use event based events or contains just options
+                                    // For that visitor should use event based events or contains just options
                                     /*$paramsMessage = array('limit' => 1, 'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id), 'filternotin' => array('user_id' => array(-1)));
                                     if ($previousMessageId > 0) {
                                         $paramsMessage['filterlt']['id'] = $previousMessageId;
@@ -235,7 +231,7 @@ class Continous
                                         preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $conditionAttr,$matchesValues);
                                         if (!empty($matchesValues[0])) {
                                             foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                                                $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
+                                                $valueAttribute = \erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
                                                 $conditionAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $conditionAttr);
                                             }
                                         }
@@ -248,7 +244,7 @@ class Continous
                                         preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $valueAttr,$matchesValues);
                                         if (!empty($matchesValues[0])) {
                                             foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                                                $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
+                                                $valueAttribute = \erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
                                                 $valueAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $valueAttr);
                                             }
                                         }
@@ -300,13 +296,13 @@ class Continous
                                         $conditionItemValid = true;
                                     } else if ($conditionsCurrent['condition'] == 'gt' && ($conditionAttr > $valueAttr)) {
                                         $conditionItemValid = true;
-                                    } else if ($conditionsCurrent['condition'] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                                    } else if ($conditionsCurrent['condition'] == 'like' && \erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
                                             'pattern' => $valueAttr,
                                             'msg' => $conditionAttr,
                                             'words_typo' => 0,
                                         ))['found'] == true) {
                                         $conditionItemValid = true;
-                                    } else if ($conditionsCurrent['condition'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                                    } else if ($conditionsCurrent['condition'] == 'notlike' && \erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
                                             'pattern' => $valueAttr,
                                             'msg' => $conditionAttr,
                                             'words_typo' => 0,
@@ -327,11 +323,18 @@ class Continous
                             }
                         }
 
+
                         // Group is valid we can execute bot and trigger against specific chat
                         if ($isValid === true) {
                             $chatsApplied[$continuousHook->id][] = $chat->id;
 
-                            echo "Valid - ",$chat->id,"\n";
+                            $db = \ezcDbInstance::get();
+
+                            $stmt = $db->prepare("INSERT IGNORE INTO lh_mail_continous_event (`webhook_id`,`message_id`) VALUES (:webhook_id, :message_id)");
+                            $stmt->bindValue(':webhook_id',$continuousHook->id,\PDO::PARAM_INT);
+                            $stmt->bindValue(':message_id',$chat->id,\PDO::PARAM_INT);
+                            $stmt->execute();
+                            $wasSuccess = $stmt->rowCount();
 
                             /*$trigger = erLhcoreClassModelGenericBotTrigger::fetch($continuousHook->trigger_id);
                             if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
