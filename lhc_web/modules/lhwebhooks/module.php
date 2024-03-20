@@ -35,6 +35,7 @@ $ViewList['incoming'] = array(
 
 $ViewList['edit'] = array(
     'params' => array('id'),
+    'uparams' => array('action','csfr'),
     'functions' => array( 'configuration' )
 );
 

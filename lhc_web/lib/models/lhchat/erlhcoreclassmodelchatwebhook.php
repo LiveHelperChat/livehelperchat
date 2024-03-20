@@ -28,6 +28,16 @@ class erLhcoreClassModelChatWebhook {
         );
     }
 
+    public function beforeRemove()
+    {
+        foreach (['lh_mail_continuous_event'] as $table) {
+            $q = ezcDbInstance::get()->createDeleteQuery();
+            $q->deleteFrom($table)->where( $q->expr->eq( 'webhook_id', $this->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+        }
+    }
+
     public function __get($var) {
 
         switch ($var) {

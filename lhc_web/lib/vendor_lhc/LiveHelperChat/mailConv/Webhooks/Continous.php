@@ -47,7 +47,7 @@ class Continous
 
             foreach ($mainGroups as $conditionItems) {
                 $groupedConditions = [];
-                foreach ($conditionItems as $indexCondition => $conditionItem){
+                foreach ($conditionItems as $indexCondition => $conditionItem) {
                     $subItems[] = $indexCondition;
                     $allItems[] = $indexCondition;
 
@@ -77,12 +77,12 @@ class Continous
                             $SQLLeftConditions = false;
                             $validLeftConditions = true;
                             $conditionAttr = $conditionsCurrent['attr'];
-                            if (strpos($conditionAttr,'{args.') !== false) {
+                            if (strpos($conditionAttr, '{args.') !== false) {
                                 $validLeftConditions = false;
                                 $matchesValues = array();
-                                preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $conditionAttr,$matchesValues);
+                                preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $conditionAttr, $matchesValues);
                                 if (!empty($matchesValues[0]) && count($matchesValues[0]) == 1) {
-                                    $attributeCompare = str_replace('chat.','',$matchesValues[1][0]);
+                                    $attributeCompare = str_replace('chat.', '', $matchesValues[1][0]);
                                     if (in_array($attributeCompare, $validSQLAttributes)) {
                                         $SQLLeftConditions = $validLeftConditions = true;
                                         $conditionAttr = $attributeCompare;
@@ -97,12 +97,12 @@ class Continous
 
                             $SQLRightConditions = false;
                             $valueAttr = $conditionsCurrent['value'];
-                            if (strpos($valueAttr,'{args.') !== false) {
+                            if (strpos($valueAttr, '{args.') !== false) {
                                 $validLeftConditions = false;
                                 $matchesValues = array();
-                                preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $valueAttr,$matchesValues);
+                                preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $valueAttr, $matchesValues);
                                 if (!empty($matchesValues[0]) && count($matchesValues[0]) == 1) {
-                                    $attributeCompareRight = str_replace('chat.','',$matchesValues[1][0]);
+                                    $attributeCompareRight = str_replace('chat.', '', $matchesValues[1][0]);
                                     if (in_array($attributeCompareRight, $validSQLAttributes)) {
                                         $validLeftConditions = true;
                                         $SQLRightConditions = true;
@@ -126,7 +126,7 @@ class Continous
                             }
 
                             if ($SQLRightConditions === false) {
-                                $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr);
+                                $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $valueAttr);
                             }
 
                             // Remove spaces
@@ -176,187 +176,207 @@ class Continous
                                 $filterPrepared['filtergtfields'][][$conditionAttr] = $valueAttr;
                             } else if ($conditionsCurrent['condition'] == 'like') {
                                 $filterPrepared['filterlikefields'][][$conditionAttr] = $valueAttr;
-                            } else if ($conditionsCurrent['condition'] == 'notlike' ) {
+                            } else if ($conditionsCurrent['condition'] == 'notlike') {
                                 $filterPrepared['filternotlikefields'][][$conditionAttr] = $valueAttr;
                             } else if ($conditionsCurrent['condition'] == 'contains') {
-                                $filterPrepared['filterinfield'][][$conditionAttr] = explode(',',$valueAttr);
+                                $filterPrepared['filterinfield'][][$conditionAttr] = explode(',', $valueAttr);
                             }
                         }
                     }
                 }
 
                 $filterPrepared['limit'] = 5000;
-                $filterPrepared['ignore_fields'] = ['body','alt_body','rfc822_body'];
+                $filterPrepared['ignore_fields'] = ['body', 'alt_body', 'rfc822_body'];
                 $filterPrepared['filter']['status'] = [\erLhcoreClassModelMailconvMessage::STATUS_PENDING, \erLhcoreClassModelMailconvMessage::STATUS_ACTIVE];
 
                 $chats = \erLhcoreClassModelMailconvMessage::getList($filterPrepared);
 
                 foreach ($chats as $chat) {
 
-                        // This hook was already applied for specific chat. No point to check again
-                        if (isset($chatsApplied[$continuousHook->id]) && in_array($chat->id, $chatsApplied[$continuousHook->id])) {
-                            continue;
-                        }
+                    // This hook was already applied for specific chat. No point to check again
+                    if (isset($chatsApplied[$continuousHook->id]) && in_array($chat->id, $chatsApplied[$continuousHook->id])) {
+                        continue;
+                    }
 
-                        // We do final check here
-                        $isValid = true;
-                        foreach ($groupedConditions as $groupedConditionItems) {
-                            $isValidSubItem = false;
-                            foreach ($groupedConditionItems as $groupedConditionItem) {
-                                $conditionsCurrent = $conditionItems[$groupedConditionItem];
+                    // We do final check here
+                    $isValid = true;
+                    foreach ($groupedConditions as $groupedConditionItems) {
+                        $isValidSubItem = false;
+                        foreach ($groupedConditionItems as $groupedConditionItem) {
+                            $conditionsCurrent = $conditionItems[$groupedConditionItem];
 
-                                $conditionItemValid = false;
+                            $conditionItemValid = false;
 
-                                if ($conditionsCurrent['type'] == '1') { // Visitor message contains
-                                    // For that visitor should use event based events or contains just options
-                                    /*$paramsMessage = array('limit' => 1, 'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id), 'filternotin' => array('user_id' => array(-1)));
-                                    if ($previousMessageId > 0) {
-                                        $paramsMessage['filterlt']['id'] = $previousMessageId;
-                                    }
-                                    $messageLast = erLhcoreClassModelmsg::findOne($paramsMessage);
-                                    if ($messageLast instanceof erLhcoreClassModelmsg) {
-                                        $previousMessageId = $messageLast->id;
-                                        if ($messageLast->user_id == 0) {
-                                            $conditionItemValid = erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
-                                                'pattern' => $conditionsCurrent['message_contains'],
-                                                'msg' => $messageLast->msg,
-                                                'words_typo' => 0,
-                                            ))['found'];
-                                        }
-                                    }*/
-                                } elseif ($conditionsCurrent['type'] == '3') { // No response from operator for n seconds
-                                    $conditionAttr = $conditionsCurrent['attr'];
-                                    if (strpos($conditionAttr,'{args.') !== false) {
-                                        $matchesValues = array();
-                                        preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $conditionAttr,$matchesValues);
-                                        if (!empty($matchesValues[0])) {
-                                            foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                                                $valueAttribute = \erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
-                                                $conditionAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $conditionAttr);
-                                            }
-                                        }
-                                    }
-
-                                    $valueAttr = $conditionsCurrent['value'];
-
-                                    if (strpos($valueAttr,'{args.') !== false) {
-                                        $matchesValues = array();
-                                        preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $valueAttr,$matchesValues);
-                                        if (!empty($matchesValues[0])) {
-                                            foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                                                $valueAttribute = \erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
-                                                $valueAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $valueAttr);
-                                            }
-                                        }
-                                    }
-
-                                    $replaceArray = array(
-                                        '{time}' => time()
-                                    );
-
-                                    // Remove internal variables
-                                    $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$conditionAttr);
-                                    $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr);
-
-                                    // Remove spaces
-                                    $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
-                                    $valueAttr = preg_replace('/\s+/', '', $valueAttr);
-
-                                    // Allow only mathematical operators
-                                    $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
-                                    $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
-
-                                    if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
-                                        // Evaluate if there is mathematical rules
-                                        try {
-                                            eval('$conditionAttr = ' . $conditionAttrMath . ";");
-                                        } catch (ParseError $e) {
-                                            // Do nothing
-                                        }
-                                    }
-
-                                    if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
-                                        // Evaluate if there is mathematical rules
-                                        try {
-                                            eval('$valueAttr = ' . $valueAttrMath . ";");
-                                        } catch (ParseError $e) {
-                                            // Do nothing
-                                        }
-                                    }
-
-                                    if ($conditionsCurrent['condition'] == 'eq' && ($conditionAttr == $valueAttr)) {
-                                        $conditionItemValid = true;
-                                    } else if ($conditionsCurrent['condition'] == 'lt' && ($conditionAttr < $valueAttr)) {
-                                        $conditionItemValid = true;
-                                    } else if ($conditionsCurrent['condition'] == 'lte' && ($conditionAttr <= $valueAttr)) {
-                                        $conditionItemValid = true;
-                                    } else if ($conditionsCurrent['condition'] == 'neq' && ($conditionAttr != $valueAttr)) {
-                                        $conditionItemValid = true;
-                                    } else if ($conditionsCurrent['condition'] == 'gte' && ($conditionAttr >= $valueAttr)) {
-                                        $conditionItemValid = true;
-                                    } else if ($conditionsCurrent['condition'] == 'gt' && ($conditionAttr > $valueAttr)) {
-                                        $conditionItemValid = true;
-                                    } else if ($conditionsCurrent['condition'] == 'like' && \erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
-                                            'pattern' => $valueAttr,
-                                            'msg' => $conditionAttr,
+                            if ($conditionsCurrent['type'] == '1') { // Visitor message contains
+                                // For that visitor should use event based events or contains just options
+                                /*$paramsMessage = array('limit' => 1, 'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id), 'filternotin' => array('user_id' => array(-1)));
+                                if ($previousMessageId > 0) {
+                                    $paramsMessage['filterlt']['id'] = $previousMessageId;
+                                }
+                                $messageLast = erLhcoreClassModelmsg::findOne($paramsMessage);
+                                if ($messageLast instanceof erLhcoreClassModelmsg) {
+                                    $previousMessageId = $messageLast->id;
+                                    if ($messageLast->user_id == 0) {
+                                        $conditionItemValid = erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                                            'pattern' => $conditionsCurrent['message_contains'],
+                                            'msg' => $messageLast->msg,
                                             'words_typo' => 0,
-                                        ))['found'] == true) {
-                                        $conditionItemValid = true;
-                                    } else if ($conditionsCurrent['condition'] == 'notlike' && \erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
-                                            'pattern' => $valueAttr,
-                                            'msg' => $conditionAttr,
-                                            'words_typo' => 0,
-                                        ))['found'] == false) {
-                                        $conditionItemValid = true;
-                                    } else if ($conditionsCurrent['condition'] == 'contains' && strrpos($conditionAttr, $valueAttr) !== false) {
-                                        $conditionItemValid = true;
+                                        ))['found'];
+                                    }
+                                }*/
+                            } elseif ($conditionsCurrent['type'] == '3') { // No response from operator for n seconds
+                                $conditionAttr = $conditionsCurrent['attr'];
+                                if (strpos($conditionAttr, '{args.') !== false) {
+                                    $matchesValues = array();
+                                    preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $conditionAttr, $matchesValues);
+                                    if (!empty($matchesValues[0])) {
+                                        foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                                            $valueAttribute = \erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
+                                            $conditionAttr = str_replace($elementValue, $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $conditionAttr);
+                                        }
                                     }
                                 }
 
-                                if ($conditionItemValid == true){
-                                    $isValidSubItem = true;
+                                $valueAttr = $conditionsCurrent['value'];
+
+                                if (strpos($valueAttr, '{args.') !== false) {
+                                    $matchesValues = array();
+                                    preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $valueAttr, $matchesValues);
+                                    if (!empty($matchesValues[0])) {
+                                        foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                                            $valueAttribute = \erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
+                                            $valueAttr = str_replace($elementValue, $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $valueAttr);
+                                        }
+                                    }
+                                }
+
+                                $replaceArray = array(
+                                    '{time}' => time()
+                                );
+
+                                // Remove internal variables
+                                $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $conditionAttr);
+                                $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $valueAttr);
+
+                                // Remove spaces
+                                $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
+                                $valueAttr = preg_replace('/\s+/', '', $valueAttr);
+
+                                // Allow only mathematical operators
+                                $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
+                                $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
+
+                                if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
+                                    // Evaluate if there is mathematical rules
+                                    try {
+                                        eval('$conditionAttr = ' . $conditionAttrMath . ";");
+                                    } catch (ParseError $e) {
+                                        // Do nothing
+                                    }
+                                }
+
+                                if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
+                                    // Evaluate if there is mathematical rules
+                                    try {
+                                        eval('$valueAttr = ' . $valueAttrMath . ";");
+                                    } catch (ParseError $e) {
+                                        // Do nothing
+                                    }
+                                }
+
+                                if ($conditionsCurrent['condition'] == 'eq' && ($conditionAttr == $valueAttr)) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'lt' && ($conditionAttr < $valueAttr)) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'lte' && ($conditionAttr <= $valueAttr)) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'neq' && ($conditionAttr != $valueAttr)) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'gte' && ($conditionAttr >= $valueAttr)) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'gt' && ($conditionAttr > $valueAttr)) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'like' && \erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                                        'pattern' => $valueAttr,
+                                        'msg' => $conditionAttr,
+                                        'words_typo' => 0,
+                                    ))['found'] == true) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'notlike' && \erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                                        'pattern' => $valueAttr,
+                                        'msg' => $conditionAttr,
+                                        'words_typo' => 0,
+                                    ))['found'] == false) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'contains' && strrpos($conditionAttr, $valueAttr) !== false) {
+                                    $conditionItemValid = true;
                                 }
                             }
-                            if ($isValidSubItem == false) {
-                                $isValid = false;
-                                break; // No point to check anything else
+
+                            if ($conditionItemValid == true) {
+                                $isValidSubItem = true;
                             }
                         }
-
-
-                        // Group is valid we can execute bot and trigger against specific chat
-                        if ($isValid === true) {
-                            $chatsApplied[$continuousHook->id][] = $chat->id;
-
-                            $db = \ezcDbInstance::get();
-
-                            $stmt = $db->prepare("INSERT IGNORE INTO lh_mail_continous_event (`webhook_id`,`message_id`) VALUES (:webhook_id, :message_id)");
-                            $stmt->bindValue(':webhook_id',$continuousHook->id,\PDO::PARAM_INT);
-                            $stmt->bindValue(':message_id',$chat->id,\PDO::PARAM_INT);
-                            $stmt->execute();
-                            $wasSuccess = $stmt->rowCount();
-
-                            /*$trigger = erLhcoreClassModelGenericBotTrigger::fetch($continuousHook->trigger_id);
-                            if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                                $db->beginTransaction();
-                                $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
-                                if ($chat instanceof erLhcoreClassModelChat && in_array($chat->status,$statusValid)) {
-                                    $paramsExecution = ['msg_last_id' => $chat->last_msg_id];
-
-                                    // processTrigger always requires a chat so fake it.
-                                    erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('chat' => $chat)));
-
-                                    self::dispatchEvents($chat, $paramsExecution);
-                                }
-                                $db->commit();
-                            }*/
+                        if ($isValidSubItem == false) {
+                            $isValid = false;
+                            break; // No point to check anything else
                         }
                     }
+
+
+                    // Group is valid we can execute bot and trigger against specific chat
+                    if ($isValid === true) {
+                        $chatsApplied[$continuousHook->id][] = $chat->id;
+
+                        $db = \ezcDbInstance::get();
+
+                        $stmt = $db->prepare("INSERT IGNORE INTO lh_mail_continuous_event (`webhook_id`,`message_id`,`created_at`) VALUES (:webhook_id, :message_id, :created_at)");
+                        $stmt->bindValue(':webhook_id', $continuousHook->id, \PDO::PARAM_INT);
+                        $stmt->bindValue(':message_id', $chat->id, \PDO::PARAM_INT);
+                        $stmt->bindValue(':created_at', time(), \PDO::PARAM_INT);
+                        $stmt->execute();
+                        $wasSuccess = $stmt->rowCount();
+
+                        if ($wasSuccess === 1) {
+                            $trigger = \erLhcoreClassModelGenericBotTrigger::fetch($continuousHook->trigger_id);
+                            if ($trigger instanceof \erLhcoreClassModelGenericBotTrigger) {
+                                $db->beginTransaction();
+
+                                // processTrigger always requires a chat so fake it.
+                                \erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('conversation' => $chat->conversation, 'mail' => $chat,'chat' => $chat)));
+
+                                $db->commit();
+                            }
+                        }
+                    }
+                }
             }
 
             if (isset($chatsApplied[$continuousHook->id])) {
                 unset($chatsApplied[$continuousHook->id]);
             }
         }
+
+        // Delete month old records
+        $db = \ezcDbInstance::get();
+        $db->query("DELETE FROM `lh_mail_continuous_event` WHERE `created_at` < " . (time() - 31 * 24 * 3600));
+    }
+
+    public static function getProcessedMailEvents($webhook)
+    {
+        $db = \ezcDbInstance::get();
+        $stmt = $db->prepare("SELECT COUNT(`webhook_id`) FROM `lh_mail_continuous_event` WHERE `webhook_id` = :webhook_id");
+        $stmt->bindValue(':webhook_id', $webhook->id, \PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
+
+    public static function getLast10Events($webhook)
+    {
+        $db = \ezcDbInstance::get();
+        $stmt = $db->prepare("SELECT * FROM `lh_mail_continuous_event` WHERE `webhook_id` = :webhook_id ORDER BY `created_at` DESC");
+        $stmt->bindValue(':webhook_id', $webhook->id, \PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
