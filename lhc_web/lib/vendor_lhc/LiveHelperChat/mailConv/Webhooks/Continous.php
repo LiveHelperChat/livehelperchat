@@ -185,8 +185,7 @@ class Continous
                     }
                 }
 
-                $filterPrepared['limit'] = 5000;
-                $filterPrepared['ignore_fields'] = ['body', 'alt_body', 'rfc822_body'];
+                $filterPrepared['limit'] = 500;
                 $filterPrepared['filter']['status'] = [\erLhcoreClassModelMailconvMessage::STATUS_PENDING, \erLhcoreClassModelMailconvMessage::STATUS_ACTIVE];
 
                 $chats = \erLhcoreClassModelMailconvMessage::getList($filterPrepared);
