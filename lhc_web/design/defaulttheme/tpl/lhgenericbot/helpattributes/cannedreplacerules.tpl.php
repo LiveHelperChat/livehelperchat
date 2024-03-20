@@ -33,10 +33,16 @@
             <input type="text" value="{args.chat.id}" id="test-pattern-replace-pattern" class="form-control form-control-sm">
         </div>
         <div class="col-12">
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" id="test-pattern-action" class="btn btn-sm btn-secondary"><span class="material-icons">regular_expression</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Test your pattern');?></button>
-                <button type="button" id="extract-pattern-action" class="btn btn-sm btn-secondary"><span class="material-icons">zoom_in</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Explore all possible chat attributes');?></button>
+            <div class="btn-group mb-2" role="group" aria-label="Basic example">
+                <button type="button" id="test-pattern-action" class="btn btn-sm btn-secondary"><span class="material-icons">regular_expression</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Test your pattern (chat)');?></button>
+                <button type="button" id="extract-pattern-action" class="btn btn-sm btn-secondary"><span class="material-icons">zoom_in</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Explore all possible chat attributes (chat)');?></button>
             </div>
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" id="test-pattern-action-mail" class="btn btn-sm btn-secondary"><span class="material-icons">regular_expression</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Test your pattern (mail)');?></button>
+                <button type="button" id="extract-pattern-action-mail" class="btn btn-sm btn-secondary"><span class="material-icons">zoom_in</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Explore all possible chat attributes (mail)');?></button>
+            </div>
+
         </div>
         <div class="col-12 pt-2">
             <div class="alert alert-info mx300 fs12" id="pattern-replace-response"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Your response will appear here!');?></div>
@@ -51,6 +57,16 @@
         });
         $('#extract-pattern-action').click(function(){
             $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-pattern-chat-id').val(), {'extract_action':true }, function(data){
+                $('#pattern-replace-response').html(data);
+            });
+        });
+        $('#test-pattern-action-mail').click(function(){
+            $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-pattern-chat-id').val(), {'mail': true,'test_pattern' : $('#test-pattern-replace-pattern').val() }, function(data){
+                $('#pattern-replace-response').html(data);
+            });
+        });
+        $('#extract-pattern-action-mail').click(function(){
+            $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-pattern-chat-id').val(), {'mail': true, 'extract_action':true }, function(data){
                 $('#pattern-replace-response').html(data);
             });
         });
