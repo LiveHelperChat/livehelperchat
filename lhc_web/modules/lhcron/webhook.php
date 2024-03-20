@@ -5,6 +5,6 @@
  * Run every 20 seconds
  *
  * */
-//erLhcoreClassChatWebhookContinuous::processEvent();
+erLhcoreClassChatWebhookContinuous::processEvent();
 \LiveHelperChat\mailConv\Webhooks\Continous::processEventMail();
 

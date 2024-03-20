@@ -401,12 +401,38 @@ trait erLhcoreClassDBTrait
             }
         }
 
+        if (isset($params['filterfields']) && count($params['filterfields']) > 0) {
+            foreach ($params['filterfields'] as $combination) {
+                foreach ($combination as $field => $fieldValue) {
+                    if (is_array($fieldValue)) {
+                        if (!empty($fieldValue)) {
+                            $conditions[] = $q->expr->in($field, $fieldValue);
+                        }
+                    } else {
+                        $conditions[] = $q->expr->eq($field, $q->bindValue($fieldValue));
+                    }
+                }
+            }
+        }
+
         if (isset($params['filterin']) && count($params['filterin']) > 0) {
             foreach ($params['filterin'] as $field => $fieldValue) {
                 if (empty($fieldValue)) {
                     break;
                 } else {
                     $conditions[] = $q->expr->in($field, $fieldValue);
+                }
+            }
+        }
+
+        if (isset($params['filterinfields']) && count($params['filterinfields']) > 0) {
+            foreach ($params['filterinfields'] as $combination) {
+                foreach ($combination as $field => $fieldValue) {
+                    if (empty($fieldValue)) {
+                        break;
+                    } else {
+                        $conditions[] = $q->expr->in($field, $fieldValue);
+                    }
                 }
             }
         }
@@ -432,7 +458,7 @@ trait erLhcoreClassDBTrait
         }
 
         if (isset($params['filtergtfields']) && count($params['filtergtfields']) > 0) {
-            foreach ($params['filtergtfields'] as $field => $combination) {
+            foreach ($params['filtergtfields'] as $combination) {
                 foreach ($combination as $field => $fieldValue) {
                     $conditions[] = $q->expr->gt($field, $q->bindValue($fieldValue));
                 }
@@ -441,13 +467,29 @@ trait erLhcoreClassDBTrait
 
         if (isset($params['filtergte']) && count($params['filtergte']) > 0) {
             foreach ($params['filtergte'] as $field => $fieldValue) {
-                $conditions[] = $q->expr->gte($field, $fieldValue);
+                $conditions[] = $q->expr->gte($field, $q->bindValue($fieldValue));
+            }
+        }
+
+        if (isset($params['filtergtefields']) && count($params['filtergtefields']) > 0) {
+            foreach ($params['filtergtefields'] as $combination) {
+                foreach ($combination as $field => $fieldValue) {
+                    $conditions[] = $q->expr->gte($field, $q->bindValue($fieldValue));
+                }
             }
         }
 
         if (isset($params['filterlte']) && count($params['filterlte']) > 0) {
             foreach ($params['filterlte'] as $field => $fieldValue) {
-                $conditions[] = $q->expr->lte($field, $fieldValue);
+                $conditions[] = $q->expr->lte($field, $q->bindValue($fieldValue));
+            }
+        }
+
+        if (isset($params['filterltefields']) && count($params['filterltefields']) > 0) {
+            foreach ($params['filterltefields'] as $combination) {
+                foreach ($combination as $field => $fieldValue) {
+                    $conditions[] = $q->expr->lte($field, $q->bindValue($fieldValue));
+                }
             }
         }
 
@@ -480,6 +522,22 @@ trait erLhcoreClassDBTrait
         if (isset($params['filterlike']) && count($params['filterlike']) > 0) {
             foreach ($params['filterlike'] as $field => $fieldValue) {
                 $conditions[] = $q->expr->like($field, $q->bindValue('%' . $fieldValue . '%'));
+            }
+        }
+
+        if (isset($params['filterlikefields']) && count($params['filterlikefields']) > 0) {
+            foreach ($params['filterlikefields'] as $combination) {
+                foreach ($combination as $field => $fieldValue) {
+                    $conditions[] = $q->expr->like($field, $q->bindValue('%' . $fieldValue . '%'));
+                }
+            }
+        }
+        
+        if (isset($params['filternotlikefields']) && count($params['filternotlikefields']) > 0) {
+            foreach ($params['filternotlikefields'] as $combination) {
+                foreach ($combination as $field => $fieldValue) {
+                    $conditions[] = $q->expr->not($q->expr->like($field, $q->bindValue('%' . $fieldValue . '%')));
+                }
             }
         }
 

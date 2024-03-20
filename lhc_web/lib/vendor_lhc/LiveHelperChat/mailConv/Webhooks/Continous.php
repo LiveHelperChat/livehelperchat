@@ -179,7 +179,7 @@ class Continous
                             } else if ($conditionsCurrent['condition'] == 'notlike') {
                                 $filterPrepared['filternotlikefields'][][$conditionAttr] = $valueAttr;
                             } else if ($conditionsCurrent['condition'] == 'contains') {
-                                $filterPrepared['filterinfield'][][$conditionAttr] = explode(',', $valueAttr);
+                                $filterPrepared['filterinfields'][][$conditionAttr] = explode(',', $valueAttr);
                             }
                         }
                     }
@@ -209,21 +209,6 @@ class Continous
 
                             if ($conditionsCurrent['type'] == '1') { // Visitor message contains
                                 // For that visitor should use event based events or contains just options
-                                /*$paramsMessage = array('limit' => 1, 'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id), 'filternotin' => array('user_id' => array(-1)));
-                                if ($previousMessageId > 0) {
-                                    $paramsMessage['filterlt']['id'] = $previousMessageId;
-                                }
-                                $messageLast = erLhcoreClassModelmsg::findOne($paramsMessage);
-                                if ($messageLast instanceof erLhcoreClassModelmsg) {
-                                    $previousMessageId = $messageLast->id;
-                                    if ($messageLast->user_id == 0) {
-                                        $conditionItemValid = erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
-                                            'pattern' => $conditionsCurrent['message_contains'],
-                                            'msg' => $messageLast->msg,
-                                            'words_typo' => 0,
-                                        ))['found'];
-                                    }
-                                }*/
                             } elseif ($conditionsCurrent['type'] == '3') { // No response from operator for n seconds
                                 $conditionAttr = $conditionsCurrent['attr'];
                                 if (strpos($conditionAttr, '{args.') !== false) {
