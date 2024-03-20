@@ -34,6 +34,18 @@ if (isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
     }
 }
 
+if ($Params['user_parameters_unordered']['action'] == 'reset_webhook') {
+    if (!isset($Params['user_parameters_unordered']['csfr']) || !$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+        erLhcoreClassModule::redirect('webhooks/configuration');
+        exit;
+    }
+
+    $item->beforeRemove();
+    erLhcoreClassModule::redirect('webhooks/edit','/' . $item->id);
+    exit;
+}
+
+
 $tpl->set('item', $item);
 
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.webhooks.js').'"></script>';

@@ -1,3 +1,13 @@
+4.34v
+
+1. Notification for assigned pending chat was missing.
+2. Continuous webhooks for mails finished.
+3. Check for CSV file encoding during import.
+4. Option to filter for agents statistic who were online.
+5. Country flag icon always will be the first icon in the widget.
+
+execute doc/update_db/update_305.sql for update
+
 4.33v
 
 1. Delete and Delete and archive options has option to ignore imap delete independently.

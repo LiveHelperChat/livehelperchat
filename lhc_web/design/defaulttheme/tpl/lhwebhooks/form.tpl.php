@@ -26,6 +26,28 @@
         <div class="form-group">
             <label><input type="radio" value="2" name="type" <?php if ($item->type == 2) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is continuous mail event');?></label>
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Make sure you define some conditions. Only new, active mails are checked against these conditions.');?></p>
+
+            <p><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Execute if conditions are NOT valid');?></b> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','are not executed in this event type.');?></p>
+
+            <?php if ($item->type == 2 && $item->id > 0) : ?>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('webhooks/edit')?>/<?php echo $item->id?>/(action)/reset_webhook" class="btn btn-danger btn-sm csfr-required"><span class="material-icons">restart_alt</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Reset events. We will process matching messages again.');?></a>
+            <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
+            <ul>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Processed events');?> - <?php echo \LiveHelperChat\mailConv\Webhooks\Continous::getProcessedMailEvents($item); ?></li>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Last 10 messages processed');?>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Older events than 31 day are deleted automatically');?>
+                        <?php foreach (\LiveHelperChat\mailConv\Webhooks\Continous::getLast10Events($item) as $event) : ?>
+                        <span class="badge bg-info">
+                            <?php $msg = erLhcoreClassModelMailconvMessage::fetch($event['message_id']); if ($msg instanceof erLhcoreClassModelMailconvMessage) : ?>
+                            <a target="_blank" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Message ID followed by conversation ID')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/single')?>/<?php echo $msg->conversation_id?>">
+                               <?php echo $event['message_id']?>, <?php echo $msg->conversation_id?>
+                            </a>
+                            <?php endif;?>
+                        </span>
+                        <?php endforeach; ?>
+                </li>
+            </ul>
+            <?php endif; ?>
         </div>
     </div>
 </div>

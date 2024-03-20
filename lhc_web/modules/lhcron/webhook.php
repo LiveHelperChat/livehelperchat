@@ -6,5 +6,5 @@
  *
  * */
 erLhcoreClassChatWebhookContinuous::processEvent();
-erLhcoreClassChatWebhookContinuous::processEventMail();
+\LiveHelperChat\mailConv\Webhooks\Continous::processEventMail();
 
