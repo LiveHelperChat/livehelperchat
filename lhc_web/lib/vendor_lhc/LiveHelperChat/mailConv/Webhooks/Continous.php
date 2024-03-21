@@ -185,7 +185,7 @@ class Continous
                     }
                 }
 
-                $filterPrepared['limit'] = 500;
+                $filterPrepared['limit'] = 100;
                 $filterPrepared['filter']['status'] = [\erLhcoreClassModelMailconvMessage::STATUS_PENDING, \erLhcoreClassModelMailconvMessage::STATUS_ACTIVE];
 
                 $chats = \erLhcoreClassModelMailconvMessage::getList($filterPrepared);
