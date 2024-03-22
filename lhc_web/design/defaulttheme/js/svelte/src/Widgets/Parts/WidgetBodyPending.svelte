@@ -398,7 +398,7 @@
                         {/if}
 
                         {#if chat.user_id != $lhcList.current_user_id && permissions.indexOf('lhgroupchat_use') !== -1}
-                            <a href="#" on:click={(e) => lhcServices.startChatOperator(chat.user_id)} title={$t("widget.start_chat")}><i class="material-icons">chat</i></a>
+                            <a href="#" on:click={(e) => lhcServices.startChatOperator(chat.user_id)} title={$t("widget.start_chat")}><i class="material-icons me-0">chat</i></a>
                         {/if}
 
                         {#if permissions.indexOf('lhuser_setopstatus') !== -1}
