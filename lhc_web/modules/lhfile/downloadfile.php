@@ -1,7 +1,5 @@
 <?php
 
-session_write_close();
-
 try {
 
     if (isset($_GET['modal']) && $_GET['modal'] == 'external') {
@@ -16,6 +14,58 @@ try {
 	$hash = $Params['user_parameters']['hash'];
 
 	if ( $hash == $file->security_hash ) {
+
+        $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
+
+        // Chat based file permissions checks
+        if ($file->chat_id > 0) {
+
+            $chat = erLhcoreClassModelChat::fetch($file->chat_id);
+            if (!($chat instanceof erLhcoreClassModelChat)) {
+                $data = erLhcoreClassChatArcive::fetchChatById($file->chat_id);
+                if (isset($data['chat']) && is_object($data['chat'])){
+                    $chat = $data['chat'];
+                }
+            }
+
+            $validRequest = false;
+
+            if (!isset($fileData['chat_file_policy_v']) || $fileData['chat_file_policy_v'] == 0) {
+                $validRequest = true;
+            }
+
+            // Will match visitors
+            if ( $validRequest === false && isset($fileData['chat_file_policy_v']) && $fileData['chat_file_policy_v'] == 1 &&
+                is_object($chat) &&
+                (
+                    in_array($chat->status,[erLhcoreClassModelChat::STATUS_PENDING_CHAT,erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) ||
+                    ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->cls_time > (time() - 600)) // For 10 minutes we allow to download a file
+                )) {
+                $validRequest = true;
+            }
+
+            // Perhaps it was operator request
+            if ($validRequest === false && (!isset($fileData['chat_file_policy_o']) || $fileData['chat_file_policy_o'] == 0) && erLhcoreClassUser::instance()->isLogged() && erLhcoreClassUser::instance()->hasAccessTo('lhfile','use_operator')) {
+                $validRequest = true;
+            }
+
+            if (isset($fileData['chat_file_policy_o']) && $fileData['chat_file_policy_o'] == 1 && is_object($chat) && $validRequest === false && erLhcoreClassUser::instance()->isLogged() && erLhcoreClassChat::hasAccessToRead($chat)) {
+                $validRequest = true;
+            }
+
+            if ($validRequest === false) {
+                if (in_array($file->extension,['jpg','jpeg','png'])) {
+                    header('Content-type: image/png; charset=binary');
+                    echo file_get_contents('design/defaulttheme/images/general/denied.png');
+                    exit;
+                } else {
+                    exit('No permission to access a file!');
+                }
+            }
+
+        } // Non chat based files, those are always public
+
+        session_write_close();
 
         if (!(isset($_GET['modal']) && $_GET['modal'] === 'true')) {
             header('Content-type: '.$file->type);

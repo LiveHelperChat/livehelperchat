@@ -28,8 +28,8 @@
                     </div>
                 </div>
             </div>
-            <label><input type="checkbox" id="file_visitor" name="visitor" <?php if ($input->visitor === 0) : ?>checked="checked"<?php endif; ?> value="0">Only visitor files</label>
-            <label><input type="checkbox" id="file_persistent" name="persistent" <?php if ($input->persistent == 1) : ?>checked="checked"<?php endif; ?> value="1">Only persistent</label>
+            <label><input type="checkbox" id="file_visitor" name="visitor" <?php if ($input->visitor === 0) : ?>checked="checked"<?php endif; ?> value="0"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Only visitor files')?></label>
+            <label><input type="checkbox" id="file_persistent" name="persistent" <?php if ($input->persistent == 1) : ?>checked="checked"<?php endif; ?> value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Only persistent')?></label>
         </div>
 
         <?php if (isset($fileSearchOptions['ajax']) && $fileSearchOptions['ajax'] === true) : ?>

@@ -17,7 +17,24 @@
 </thead>
 <?php foreach ($items as $file) : ?>
     <tr>
-        <td><?php echo htmlspecialchars($file->user)?></td>
+        <td>
+            <?php if ($file->user_id > 0) : ?>
+
+            <?php if ($file->chat_id > 0) : ?>
+                    <span class="material-icons">chat</span>
+            <?php else : ?>
+                <span class="material-icons">support_agent</span>
+            <?php endif; ?>
+
+            <?php echo htmlspecialchars($file->user)?>
+
+            <?php endif; ?>
+
+
+            <?php if ($file->chat_id == 0 && $file->user_id == 0) : ?>
+                <span class="material-icons">public</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Public');?>
+            <?php endif; ?>
+        </td>
         <td>
         <?php if ($file->chat !== false) : ?>
             <?php echo $file->chat->id;?>. <?php echo htmlspecialchars($file->chat->nick);?> (<?php echo date(erLhcoreClassModule::$dateDateHourFormat,$file->chat->time);?>) (<?php echo htmlspecialchars($file->chat->department);?>)
