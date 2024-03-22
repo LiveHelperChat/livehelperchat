@@ -378,7 +378,7 @@
                                 (iconData.icon_attr_type == 'bool' && !chat[iconData['icon_attr']] && iconData['icon_attr_false']) ||
                                 (iconData.icon_attr_type == 'cmp' && chat[iconData['icon_attr']] == iconData['icon_attr_val'])
                             )}
-                                <span title={iconData['title'] ? iconData['title'] : null} class={iconData.class + " " + (iconData.class_false ? getClassListList(chat, iconData.class_false, false) : '') + " " + (iconData.class_true ? getClassListList(chat, iconData.class_true, true) : '')} on:click={(e) => iconData['click'] ? ee.emitEvent(iconData['click'],[chat]) : null} >{((chat[iconData['icon_attr']] && iconData.icon_attr_type == 'bool')|| (chat[iconData['icon_attr']] == iconData['icon_attr_val'] && iconData.icon_attr_type == 'cmp')) ? iconData['icon_attr_true'] : iconData['icon_attr_false']}</span>
+                                <span title={iconData['title'] ? iconData['title'] : null} class={iconData.class + " me-0 " + (iconData.class_false ? getClassListList(chat, iconData.class_false, false) : '') + " " + (iconData.class_true ? getClassListList(chat, iconData.class_true, true) : '')} on:click={(e) => iconData['click'] ? ee.emitEvent(iconData['click'],[chat]) : null} >{((chat[iconData['icon_attr']] && iconData.icon_attr_type == 'bool')|| (chat[iconData['icon_attr']] == iconData['icon_attr_val'] && iconData.icon_attr_type == 'cmp')) ? iconData['icon_attr_true'] : iconData['icon_attr_false']}</span>
                             {/if}
                         {:else if iconData.icon_attr_type == 'string'}
                             {#if iconData['class']}
@@ -401,9 +401,9 @@
                         {/if}
 
                         {#if permissions.indexOf('lhuser_setopstatus') !== -1}
-                            <i class="material-icons action-image" on:click={(e) => lhcServices.openModal('user/setopstatus/'+chat.user_id)} title={$t("widget.change_op_status")} >{chat.hide_online == 1 ? 'flash_off' : 'flash_on'}</i>
+                            <i class="material-icons me-0 action-image" on:click={(e) => lhcServices.openModal('user/setopstatus/'+chat.user_id)} title={$t("widget.change_op_status")} >{chat.hide_online == 1 ? 'flash_off' : 'flash_on'}</i>
                         {:else}
-                            <i class="material-icons">{chat.hide_online == 1 ? 'flash_off' : 'flash_on'}</i>
+                            <i class="material-icons me-0 ">{chat.hide_online == 1 ? 'flash_off' : 'flash_on'}</i>
                         {/if}
 
                         {#if permissions.indexOf('lhstatistic_userstats') !== -1}
