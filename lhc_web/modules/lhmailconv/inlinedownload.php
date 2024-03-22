@@ -17,6 +17,34 @@ try {
         header('Content-Disposition: attachment; filename="'.$file->name.'"');
     }
 
+    $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
+
+    $validRequest = true;
+
+    if (isset($fileData['mail_file_policy']) && $fileData['mail_file_policy'] === 1) {
+        if ($file->is_archive === false) {
+            $mail = erLhcoreClassModelMailconvMessage::fetch($file->message_id);
+        } else {
+            $mail = \LiveHelperChat\Models\mailConv\Archive\Message::fetch($file->message_id);
+        }
+
+        $conv = $mail->conversation;
+
+        if (!($conv instanceof erLhcoreClassModelMailconvConversation) || !erLhcoreClassChat::hasAccessToRead($conv)) {
+            $validRequest = false;
+        }
+    }
+
+    if ($validRequest === false) {
+        if (in_array($file->extension,['jpg','jpeg','png'])) {
+            header('Content-type: image/png; charset=binary');
+            echo file_get_contents('design/defaulttheme/images/general/denied.png');
+            exit;
+        } else {
+            exit('No permission to access a file!');
+        }
+    }
+
     header('Content-type: '.$file->type);
 
     if (file_exists($file->file_path_server)) {

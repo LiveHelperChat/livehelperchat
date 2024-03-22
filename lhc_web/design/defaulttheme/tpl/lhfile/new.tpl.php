@@ -29,6 +29,7 @@ setTimeout(function(){
 
     <div class="form-group">
         <label><input type="checkbox" name="persistent" value="on" <?php if (isset($persistent) && $persistent == true) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Persistent');?></label>
+        <span class="d-block text-muted fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Files maintenance jobs will not be run on this file.');?></span>
     </div>
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

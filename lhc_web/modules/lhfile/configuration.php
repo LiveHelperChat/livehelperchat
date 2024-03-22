@@ -65,8 +65,16 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'soundMessagesOp' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'chat_file_policy_v' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
+        ),
+        'chat_file_policy_o' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
+        ),
+        'mail_file_policy' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
+        ),
     );
-
 
     $Errors = array();
 
@@ -96,6 +104,14 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['mdays_older_visitor'] = $form->mdays_older_visitor;
     } else {
         $data['mdays_older_visitor'] = null;
+    }
+
+    foreach (['chat_file_policy_v','chat_file_policy_o','mail_file_policy'] as $policy) {
+        if ($form->hasValidData($policy)) {
+            $data[$policy] = $form->{$policy};
+        } else {
+            $data[$policy] = 0;
+        }
     }
 
     if ($form->hasValidData('ActiveFileUploadUser') && $form->ActiveFileUploadUser == true) {
