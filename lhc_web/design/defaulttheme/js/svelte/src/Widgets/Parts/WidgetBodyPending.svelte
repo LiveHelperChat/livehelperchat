@@ -77,6 +77,7 @@
                 <i title={$t("widget.operator")} class="material-icons">account_box</i>
                 <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'onl_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'onl_asc'} title={$t("widget.sort_by_online_status")} class="material-icons">{$lhcList.toggleWidgetData[sort_identifier] == 'onl_dsc' || $lhcList.toggleWidgetData[sort_identifier] != 'onl_asc' ? 'trending_up' : 'trending_down'}</i>
             </a>
+                {#if type == 'online_op'}<span class="text-success" title={$t("widget.online")}>{$lhcList[type].op_on}</span>{/if}
             {:else if type == 'depgroups_stats'}
                 <i title={$t("widget.dep_group")} class="material-icons">&#xE84F;</i>
             {:else if type == 'active_chats'}
