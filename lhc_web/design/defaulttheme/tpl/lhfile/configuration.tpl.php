@@ -62,7 +62,7 @@
                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Chat related file can be downloaded by visitors'); ?></h6>
                 <label class="d-block"><input type="radio" name="chat_file_policy_v" <?php if (!isset($file_data['chat_file_policy_v']) || $file_data['chat_file_policy_v'] == 0) : ?>checked="checked"<?php endif;?> value="0"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Always (default)'); ?></label>
                 <label class="d-block"><input type="radio" name="chat_file_policy_v" <?php if (isset($file_data['chat_file_policy_v']) && $file_data['chat_file_policy_v'] == 1) : ?>checked="checked"<?php endif;?> value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','If chat is in pending/active/bot status'); ?></label>
-                <span class="text-muted d-block fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','For 10 minutes after chat being closed he will be able to download a files'); ?></span>
+                <span class="text-muted d-block fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','For 10 minutes after chat being closed visitor will be able to download a files'); ?></span>
             </div>
             <div class="col-6 mt-2">
                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Chat related file can be downloaded by operator'); ?></h6>

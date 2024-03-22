@@ -32,12 +32,20 @@ try {
 
         $conv = $mail->conversation;
 
-        if (!($conv instanceof erLhcoreClassModelMailconvConversation) || !erLhcoreClassChat::hasAccessToRead($conv)){
+        if (!($conv instanceof erLhcoreClassModelMailconvConversation) || !erLhcoreClassChat::hasAccessToRead($conv)) {
             $validRequest = false;
         }
     }
 
-
+    if ($validRequest === false) {
+        if (in_array($file->extension,['jpg','jpeg','png'])) {
+            header('Content-type: image/png; charset=binary');
+            echo file_get_contents('design/defaulttheme/images/general/denied.png');
+            exit;
+        } else {
+            exit('No permission to access a file!');
+        }
+    }
 
     if (file_exists($file->file_path_server)) {
         echo file_get_contents($file->file_path_server);
