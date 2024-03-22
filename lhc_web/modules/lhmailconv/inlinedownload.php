@@ -17,8 +17,6 @@ try {
         header('Content-Disposition: attachment; filename="'.$file->name.'"');
     }
 
-    header('Content-type: '.$file->type);
-
     $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
 
     $validRequest = true;
@@ -46,6 +44,8 @@ try {
             exit('No permission to access a file!');
         }
     }
+
+    header('Content-type: '.$file->type);
 
     if (file_exists($file->file_path_server)) {
         echo file_get_contents($file->file_path_server);
