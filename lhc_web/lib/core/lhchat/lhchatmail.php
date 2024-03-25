@@ -339,7 +339,7 @@ class erLhcoreClassChatMail {
             isset($chat->department->bot_configuration_array['mailbox_id']) &&
             $chat->department->bot_configuration_array['mailbox_id'] > 0 &&
             ($mailbox = erLhcoreClassModelMailconvMailbox::fetch($chat->department->bot_configuration_array['mailbox_id'])) &&
-            $mailbox->active = 1
+            $mailbox->active == 1
         ) {
             erLhcoreClassMailconvValidator::setSendParameters($mailbox, $mail);
         } else {
