@@ -335,7 +335,16 @@ class erLhcoreClassChatMail {
     		$mail->AddAddress( $receiver );
     	}
 
-    	self::setupSMTP($mail);
+        if (is_object($chat->department) &&
+            isset($chat->department->bot_configuration_array['mailbox_id']) &&
+            $chat->department->bot_configuration_array['mailbox_id'] > 0 &&
+            ($mailbox = erLhcoreClassModelMailconvMailbox::fetch($chat->department->bot_configuration_array['mailbox_id'])) &&
+            $mailbox->active = 1
+        ) {
+            erLhcoreClassMailconvValidator::setSendParameters($mailbox, $mail);
+        } else {
+            self::setupSMTP($mail);
+        }
 
     	if ($sendMail->bcc_recipients != '') {
     		$recipientsBCC = explode(',',$sendMail->bcc_recipients);

@@ -87,6 +87,26 @@
 		
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="onlinehours">
+
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Offline mailbox');?></label>
+                    <?php
+                    echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                        'input_name'     => 'mailbox_id',
+                        'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb', 'Choose a related mailbox'),
+                        'selected_id'    => [isset($departament->bot_configuration_array['mailbox_id']) ? $departament->bot_configuration_array['mailbox_id'] : 0],
+                        'data_prop'      => 'data-limit="1"',
+                        'ajax'           => 'mailboxall',
+                        'css_class'      => 'form-control',
+                        'type'           => 'radio',
+                        'display_name'   => 'name',
+                        'no_selector'    => true,
+                        'list_function_params' => array('limit' => 10),
+                        'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList',
+                    )); ?>
+                    <div class="text-muted fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','We will use this mailbox to send an e-mail.');?></div>
+                </div>
+
 			    <label><input id="online-hours-active" type="checkbox" name="OnlineHoursActive" value="1" <?php if ($departament->online_hours_active == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours/work days logic is active');?></label>
 
 		    	<div id="online-hours-active-block">
@@ -497,5 +517,6 @@
 		});
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+        $('.btn-block-department').makeDropdown();
 	});
 </script>

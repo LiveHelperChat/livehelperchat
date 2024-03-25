@@ -148,7 +148,7 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
             $return[] = array('id' => $item->id, 'name' => $item->name_official);
         }
     }
-} else if ($Params['user_parameters']['scope'] == 'mailbox') {
+} else if ($Params['user_parameters']['scope'] == 'mailbox' || $Params['user_parameters']['scope'] == 'mailboxall') {
 
     $db = ezcDbInstance::get();
 
@@ -158,7 +158,9 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
         $filter['customfilter'] = array('(`name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `mail` LIKE ('. $db->quote('%'.$search.'%')  .'))');
     }
 
-    $filter['filter']['active'] = 1;
+    if ($Params['user_parameters']['scope'] == 'mailbox') {
+        $filter['filter']['active'] = 1;
+    }
 
     $items = erLhcoreClassModelMailconvMailbox::getList($filter);
 

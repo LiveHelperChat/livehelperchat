@@ -149,6 +149,9 @@ class erLhcoreClassDepartament{
 	   			'inform_delay' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
 	   			),
+                'mailbox_id' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
+	   			),
                 'transfer_min_priority' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 	   			),
@@ -683,6 +686,13 @@ class erLhcoreClassDepartament{
            $botConfiguration['bot_id'] = $form->bot_id;
        } else {
            $botConfiguration['bot_id'] = 0;
+       }
+
+       if ( $form->hasValidData( 'mailbox_id' ) )
+       {
+           $botConfiguration['mailbox_id'] = $form->mailbox_id;
+       } else {
+           $botConfiguration['mailbox_id'] = 0;
        }
 
        if ( $form->hasValidData( 'transfer_min_priority' ) ) {
