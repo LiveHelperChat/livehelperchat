@@ -34,23 +34,28 @@
         <td><?php echo htmlspecialchars($item->inopchats_cnt)?></td>
         <td><?php echo htmlspecialchars($item->max_load)?></td>
         <td>
-            <?php echo count(erLhcoreClassModelUserDep::getList([
+            <?php
+            $filter['ignore_fields'] = array('chat_max_priority','chat_min_priority','assign_priority', 'max_mails','last_accepted_mail','exc_indv_autoasign','exclude_autoasign_mails','active_mails','pending_mails','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
+            echo count(erLhcoreClassModelUserDep::getList([
                     'filter' => ['dep_group_id' => $item->id],
-                    'group' => 'user_id',
+                    'ignore_fields' => $filter['ignore_fields'],
+                    'group' => 'user_id, id',
                     'customfilter' => ['(`hide_online` = 0 AND (`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ' OR `always_on` = 1))']
             ])); ?>
         </td>
         <td>
             <?php echo count(erLhcoreClassModelUserDep::getList([
                     'filter' => ['dep_group_id' => $item->id, 'hide_online' => 1],
-                    'group' => 'user_id',
+                    'ignore_fields' => $filter['ignore_fields'],
+                    'group' => 'user_id, id',
                     'customfilter' => ['(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ')']
             ])); ?>
         </td>
         <td>
             <?php $assignedOperator = count(erLhcoreClassModelUserDep::getList([
                     'filter' => ['dep_group_id' => $item->id],
-                    'group' => 'user_id',
+                    'ignore_fields' => $filter['ignore_fields'],
+                    'group' => 'user_id, id',
                     'customfilter' => ['(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ')']
             ]));echo $assignedOperator; ?>
         </td>
