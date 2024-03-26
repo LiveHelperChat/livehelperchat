@@ -83,6 +83,10 @@ if ( isset($_POST['SendMessage']) ) {
         unset($onlineAttrSystem['qinv']);
     }
 
+    if (isset($onlineAttrSystem['session_inv'])) {
+        unset($onlineAttrSystem['session_inv']);
+    }
+
     if ($form->hasValidData( 'InvitationExpire' )) {
         $onlineAttrSystem['lhcinv_exp'] = time() + $form->InvitationExpire;
     } elseif (isset($onlineAttrSystem['lhcinv_exp'])) {

@@ -138,25 +138,21 @@
 </div>
 
 <div class="row">
-
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erLhcoreClassAbstract::renderInput('show_everytime', $fields['show_everytime'], $object)?> <?php echo $fields['show_everytime']['trans'];?></label>
         </div>
     </div>
-
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erLhcoreClassAbstract::renderInput('show_after_chat', $fields['show_after_chat'], $object)?> <?php echo $fields['show_after_chat']['trans'];?></label>
         </div>
     </div>
-
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erLhcoreClassAbstract::renderInput('lock_department', $fields['lock_department'], $object)?> <?php echo $fields['lock_department']['trans'];?></label>
         </div>
     </div>
-
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erLhcoreClassAbstract::renderInput('show_random_operator', $fields['show_random_operator'], $object)?> <?php echo $fields['show_random_operator']['trans'];?></label>
@@ -165,6 +161,21 @@
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erLhcoreClassAbstract::renderInput('assign_to_randomop', $fields['assign_to_randomop'], $object)?> <?php echo $fields['assign_to_randomop']['trans'];?></label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('page_based_inv', $fields['page_based_inv'], $object)?> <?php echo $fields['page_based_inv']['trans'];?></label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('show_next_inv', $fields['show_next_inv'], $object)?> <?php echo $fields['show_next_inv']['trans'];?></label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('do_not_show_session', $fields['do_not_show_session'], $object)?> <?php echo $fields['do_not_show_session']['trans'];?></label>
         </div>
     </div>
 </div>

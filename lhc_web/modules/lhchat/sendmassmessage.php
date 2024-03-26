@@ -103,6 +103,10 @@ if (isset($_POST['receivesNotification'])) {
         $attributesRemove[] = 'qinv';
     }
 
+    if (isset($onlineAttrSystem['session_inv'])) {
+        $attributesRemove[] = 'session_inv';
+    }
+
     if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
         $Errors[] = 'Invalid CSRF token!';
     }

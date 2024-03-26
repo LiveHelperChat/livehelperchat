@@ -310,6 +310,9 @@ if (empty($Errors)) {
                             if (isset($onlineAttrSystem['qinv'])) {
                                 unset($onlineAttrSystem['qinv']); // Next time show normal invitation
                             }
+                            if (isset($onlineAttrSystem['session_inv'])) {
+                                unset($onlineAttrSystem['session_inv']); // Next time show normal invitation
+                            }
                             $userInstance->online_attr_system = json_encode($onlineAttrSystem);
                             $resetMessage = true;
                         }

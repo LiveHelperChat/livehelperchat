@@ -519,6 +519,12 @@ class erLhAbstractModelProactiveChatInvitation {
             7 => 'sud'
         );
 
+        $onlineAttrSystem = $item->online_attr_system_array;
+
+        if (isset($onlineAttrSystem['session_inv']) && !empty($onlineAttrSystem['session_inv'])) {
+            $appendInvitationsId .= ' AND id NOT IN (' . implode(',', $onlineAttrSystem['session_inv']) . ') ';
+        }
+
 		$q->where( $q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
@@ -550,8 +556,6 @@ class erLhAbstractModelProactiveChatInvitation {
         }
 
         $messagesToUser = [];
-
-        $onlineAttrSystem = $item->online_attr_system_array;
 
         // Verify dynamic conditions
         foreach ($messagesToUserRaw as $messageToUser) {

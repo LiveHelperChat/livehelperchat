@@ -740,6 +740,7 @@ class erLhcoreClassModelChatOnlineUser
                         $item->operator_user_id = 0;
                     }
 
+
                     // Visit duration less than 30m. Same as google analytics
                     // See: https://support.google.com/analytics/answer/2731565?hl=en
                     if ((time() - $item->last_visit) <= 30 * 60) {
@@ -769,6 +770,13 @@ class erLhcoreClassModelChatOnlineUser
                         if (isset($onlineAttrSystem['qinv'])) {
                             unset($onlineAttrSystem['qinv']);
                             $item->online_attr_system = json_encode($onlineAttrSystem);
+                            $item->online_attr_system_array = $onlineAttrSystem;
+                        }
+
+                        if (isset($onlineAttrSystem['session_inv'])) {
+                            unset($onlineAttrSystem['session_inv']);
+                            $item->online_attr_system = json_encode($onlineAttrSystem);
+                            $item->online_attr_system_array = $onlineAttrSystem;
                         }
                         
                         $returningVisitor = true;
@@ -962,6 +970,58 @@ class erLhcoreClassModelChatOnlineUser
                 if ($item->device_type == 0) {
                     $detect = new Mobile_Detect;
                     $item->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 3 : 2) : 1);
+                }
+
+                // URL Changed and our invitation is no longer relevant
+                if ($item->invitation !== false &&
+                    isset($item->invitation->design_data_array['page_based_inv']) &&
+                    $item->invitation->design_data_array['page_based_inv'] == true &&
+                    $item->invitation->url_present != ''
+                ) {
+                    $urlOptions = explode(',',$item->invitation->url_present);
+                    $currentPage = ltrim($item->current_page,'/');
+                    $validURL = false;
+                    foreach ($urlOptions as $urlOption) {
+                        if (substr($urlOption,-1) == '*') {
+                            if (strpos($currentPage,rtrim($urlOption,'*')) === 0) {
+                                $validURL = true;
+                            }
+                        } elseif ($currentPage == $urlOption) {
+                            $validURL = true;
+                        }
+                    }
+
+                    if ($validURL === false) {
+                        if (
+                            $item->has_message_from_operator == true ||
+                            ($item->message_seen == 1 && isset($item->invitation->design_data_array['show_next_inv']) && $item->invitation->design_data_array['show_next_inv'] == true)
+                        ) {
+
+                            $onlineAttrSystem = $item->online_attr_system_array;
+
+                            if ($item->message_seen == 1 && isset($item->invitation->design_data_array['do_not_show_session']) && $item->invitation->design_data_array['do_not_show_session'] == true) {
+                                if (!isset($onlineAttrSystem['session_inv'])) {
+                                    $onlineAttrSystem['session_inv'] = [];
+                                }
+                                if (!in_array($item->invitation_id,$onlineAttrSystem['session_inv'])) {
+                                    $onlineAttrSystem['session_inv'][] = $item->invitation_id;
+                                    $item->online_attr_system = json_encode($onlineAttrSystem);
+                                    $item->online_attr_system_array = $onlineAttrSystem;
+                                }
+                            }
+
+                            $item->operator_message = '';
+                            $item->message_seen = 0;
+                            $item->message_seen_ts = 0;
+                            $item->invitation_id = 0;
+
+                            if (isset($onlineAttrSystem['qinv'])) {
+                                unset($onlineAttrSystem['qinv']);
+                                $item->online_attr_system = json_encode($onlineAttrSystem);
+                                $item->online_attr_system_array = $onlineAttrSystem;
+                            }
+                        }
+                    }
                 }
             }
 
