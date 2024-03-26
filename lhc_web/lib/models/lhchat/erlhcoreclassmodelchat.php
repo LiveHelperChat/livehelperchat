@@ -594,6 +594,10 @@ class erLhcoreClassModelChat {
            $this->iwh = $this->iwh_id > 0 ? erLhcoreClassModelChatIncomingWebhook::fetch($this->iwh_id) : null;
            return $this->iwh;
 
+       case 'referrer_params':
+           $this->referrer_params = parse_url($this->referrer);
+           return $this->referrer_params;
+
        	default:
        		break;
        }

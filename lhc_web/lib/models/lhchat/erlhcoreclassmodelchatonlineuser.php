@@ -361,6 +361,10 @@ class erLhcoreClassModelChatOnlineUser
                 return $this->{$var};
                 break;
 
+            case 'current_page_params':
+                $this->current_page_params = parse_url($this->current_page);
+                return $this->current_page_params;
+
             case 'online_status':
                 $this->online_status = 2; // Offline
 

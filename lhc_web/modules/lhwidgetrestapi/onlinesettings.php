@@ -797,6 +797,9 @@ if ($theme !== false) {
                         $chat->dep_id = $onlineUser->dep_id;
                     }
 
+                    $chat->online_user_id = $onlineUser->id;
+                    $chat->online_user = $onlineUser;
+
                     $tpl->set('chat',$chat);
                 }
             }
