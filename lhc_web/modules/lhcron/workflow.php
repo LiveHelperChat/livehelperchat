@@ -94,11 +94,14 @@ foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'li
 
         $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
 
-        erLhcoreClassChat::setTimeZoneByChat($chat);
+        if ($chat instanceof erLhcoreClassModelChat) {
 
-        if ($chat->auto_responder !== false) {
-            $chat->auto_responder->chat = $chat;
-            $chat->auto_responder->process();
+            erLhcoreClassChat::setTimeZoneByChat($chat);
+
+            if ($chat->auto_responder !== false) {
+                $chat->auto_responder->chat = $chat;
+                $chat->auto_responder->process();
+            }
         }
 
         $db->commit();
