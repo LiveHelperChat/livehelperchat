@@ -710,11 +710,10 @@ class erLhcoreClassModelChatOnlineUser
 
     public static function getReferer(){
         if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
-            return $_SERVER['HTTP_REFERER'];
+            return str_replace(['https://','http://'],'//',$_SERVER['HTTP_REFERER']);
         } elseif (isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] != '') {
-            return $_SERVER['HTTP_ORIGIN'];
+            return  str_replace(['https://','http://'],'//',$_SERVER['HTTP_ORIGIN']);
         }
-
         return '';
     }
 
