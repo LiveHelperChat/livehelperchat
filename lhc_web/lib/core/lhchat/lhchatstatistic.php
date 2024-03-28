@@ -4225,10 +4225,9 @@ class erLhcoreClassChatStatistic {
             );
 
             $filter['sort'] = 'time DESC';
-            $filter['group'] = 'FROM_UNIXTIME(time,' . $groupAttributes[$params['groupby']]['db'] . '), incoming_id';
-            $filter['leftjoin']['lh_chat_incoming'] = array('`lh_chat_incoming`.`chat_id`','`lh_chat`.`id`');
+            $filter['group'] = 'FROM_UNIXTIME(time,' . $groupAttributes[$params['groupby']]['db'] . '), iwh_id';
 
-            $numberOfChats = erLhcoreClassModelChat::getCount(array_merge_recursive($filter,array()),'',false,'incoming_id, FROM_UNIXTIME(time,'.$groupAttributes[$params['groupby']]['db'].') as day, time, count(`lh_chat`.`id`) as total_records',false, true);
+            $numberOfChats = erLhcoreClassModelChat::getCount(array_merge_recursive($filter,array()),'',false,'iwh_id as incoming_id, FROM_UNIXTIME(time,'.$groupAttributes[$params['groupby']]['db'].') as day, time, count(`lh_chat`.`id`) as total_records',false, true);
 
             $webHooksDifference = [];
             $reformatResponse = [];
