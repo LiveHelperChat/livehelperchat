@@ -1896,7 +1896,10 @@ try {
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `internal` tinyint(1) NOT NULL DEFAULT 0,
-  `internal_type` varchar(20) NOT NULL DEFAULT '',
+  `internal_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pinned` tinyint(1) NOT NULL DEFAULT 0,
+  `widgets` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `internal` (`internal`),
   KEY `internal_type` (`internal_type`)

@@ -1,3 +1,7 @@
+4.35v
+
+execute doc/update_db/update_306.sql for update
+
 4.34v
 
 1. Notification for assigned pending chat was missing.

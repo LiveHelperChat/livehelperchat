@@ -18,7 +18,10 @@ class erLhAbstractModelSubject {
             'id' => $this->id,
             'name' => $this->name,
             'internal' => $this->internal,
-            'internal_type' => $this->internal_type
+            'internal_type' => $this->internal_type,
+            'widgets' => $this->widgets,
+            'pinned' => $this->pinned,
+            'color' => $this->color
         );
 
         return $stateArray;
@@ -142,9 +145,32 @@ class erLhAbstractModelSubject {
         return $filter;
 
     }
+    public function dependJs()
+    {
+        return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/colorpicker.js').'"></script>';
+    }
+    public function dependCss()
+    {
+        return '<link rel="stylesheet" type="text/css" href="'.erLhcoreClassDesign::design('css/colorpicker.css').'" />';
+    }
+
+    public function validateInput($params)
+    {
+        if (isset($_POST['widgets']) && !empty($_POST['widgets'])) {
+            $this->widgets = 0;
+            foreach ($_POST['widgets'] as $widget) {
+                $this->widgets |= (int)$widget;
+            }
+        } else {
+            $this->widgets = 0;
+        }
+    }
 
     public $id = null;
     public $name = '';
     public $internal_type = '';
     public $internal = 0;
+    public $widgets = 0;
+    public $pinned = 0;
+    public $color = '';
 }
