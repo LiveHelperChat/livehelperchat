@@ -2461,3 +2461,13 @@ html {
 #full-online-visitors .panel-list{
     max-height: inherit!important;
 }
+
+.subject-custom .color {
+     display: inline-block;
+     width: 14px;
+     height: 14px;
+     margin-top: -1px;
+     margin-right: 2px;
+     vertical-align: middle;
+     border-radius: 7px;
+ }
