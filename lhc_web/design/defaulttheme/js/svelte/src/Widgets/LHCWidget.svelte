@@ -125,7 +125,7 @@
                 <WidgetOptionsPanel optionsPanel={_optionsPanel} lhcList={lhcList} />
                 {/if}
 
-                {#if $lhcList[type].list.length > 0 || type === 'onlineusers'}
+                {#if $lhcList[type].list.length > 0 || type === 'onlineusers' || type === 'depgroups_stats'}
                     {#if type == 'onlineusers'}
                         <LHCOnlineVisitors {...$$props}></LHCOnlineVisitors>
                     {:else}
@@ -135,7 +135,7 @@
                     {/if}
                 {/if}
 
-                {#if $lhcList[type].list.length === 0 && type !== 'onlineusers'}
+                {#if $lhcList[type].list.length === 0 && type !== 'onlineusers' && type !== 'depgroups_stats'}
                     <div class="m-1 alert alert-light"><i class="material-icons">search</i>All items will appear here.</div>
                 {/if}
 
