@@ -7,7 +7,7 @@
         </h6>
 
         <?php $subjectsChat = erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $chat->id)));
-        foreach ($subjectsChat as $subject) : ?><button class="btn btn-xs btn-outline-info"><?php echo htmlspecialchars($subject)?></button>&nbsp;<?php endforeach; ?>
+        foreach ($subjectsChat as $subject) : ?><span class="badge bg-info fs12" <?php if (is_object($subject->subject) && $subject->subject->color != '') : ?>style="background-color:#<?php echo htmlspecialchars($subject->subject->color)?>!important;" <?php endif;?> ><?php echo htmlspecialchars($subject)?></span>&nbsp;<?php endforeach; ?>
 
         <?php foreach($chat->aicons as $aicon) : ?>
             <span class="material-icons" title="<?php print isset($aicon['t']) ? htmlspecialchars($aicon['t']) : htmlspecialchars($aicon['i'])?>" <?php if (isset($aicon['c']) && $aicon['c'] != '') : ?>style="color:<?php echo htmlspecialchars($aicon['c'])?>"<?php endif; ?> ><?php echo htmlspecialchars(is_array($aicon) && isset($aicon['i']) ? $aicon['i'] : $aicon)?></span>

@@ -26,8 +26,8 @@
         <div class="col-6"><label><input type="checkbox" <?php if ($object->widgets & 2) : ?>checked="checked"<?php endif; ?> name="widgets[]" value="2"> Active chat</label></div>
         <div class="col-6"><label><input type="checkbox" <?php if ($object->widgets & 4) : ?>checked="checked"<?php endif; ?> name="widgets[]" value="4"> Bot chats</label></div>
         <div class="col-6"><label><input type="checkbox" <?php if ($object->widgets & 8) : ?>checked="checked"<?php endif; ?> name="widgets[]" value="8"> My active pending chats</label></div>
-        <div class="col-6"><label><input type="checkbox" <?php if ($object->widgets & 16) : ?>checked="checked"<?php endif; ?> name="widgets[]" value="16"> Active mails</label></div>
-        <div class="col-6"><label><input type="checkbox" <?php if ($object->widgets & 32) : ?>checked="checked"<?php endif; ?> name="widgets[]" value="32"> New mails</label></div>
+        <?php /*<div class="col-6"><label><input type="checkbox" <?php if ($object->widgets & 16) : ?>checked="checked"<?php endif; ?> name="widgets[]" value="16"> Active mails</label></div>
+        <div class="col-6"><label><input type="checkbox" <?php if ($object->widgets & 32) : ?>checked="checked"<?php endif; ?> name="widgets[]" value="32"> New mails</label></div>*/ ?>
     </div>
 </div>
 <hr>

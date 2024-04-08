@@ -145,7 +145,10 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
         }
         foreach ($subjectsSelected as $subjectSelected) {
             if (isset( $subjectsMeta[$subjectSelected->subject_id])) {
-                $subjectByChat[$subjectSelected->chat_id][] = $subjectsMeta[$subjectSelected->subject_id]->name;
+                $subjectByChat[$subjectSelected->chat_id][] = [
+                    'n' => $subjectsMeta[$subjectSelected->subject_id]->name,
+                    'c' => $subjectsMeta[$subjectSelected->subject_id]->color
+                ];
             }
         }
     }
@@ -331,8 +334,11 @@ if ($activeTabEnabled == true) {
         }
     }
 
-
 	$chats = erLhcoreClassChat::getActiveChats($limitList,0,$filter);
+
+    if (!empty($chats)) {
+        $subjectByChat = erLhcoreClassChat::getChatSubjects($chats,2);
+    }
 
     $chatsListAll = $chatsListAll+$chats;
 
@@ -357,6 +363,13 @@ if ($activeTabEnabled == true) {
 	}
 
 	erLhcoreClassChat::prefillGetAttributes($chats,array('user_status_front','hum','time_created_front','department_name','plain_user_name','product_name','n_official','pnd_rsp','n_off_full','aicons','last_msg_time_front'),array('iwh','last_op_msg_time','has_unread_messages','product_id','product','department','time','pnd_time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
+
+    foreach ($chats as $index => $chat) {
+        if (isset($subjectByChat[$chat->id])) {
+            $chats[$index]->subject_list = $subjectByChat[$chat->id];
+        }
+    }
+
 	$ReturnMessages['active_chats'] = array(
         'last_id_identifier' => 'active_chats',
         'list' => array_values($chats),
@@ -453,13 +466,23 @@ if ($myChatsEnabled == true) {
     
     $myChats = erLhcoreClassChat::getMyChats($limitList,0,$filter);
 
+    if (!empty($myChats)) {
+        $subjectByChat = erLhcoreClassChat::getChatSubjects($myChats,8);
+    }
+
     $chatsListAll = $chatsListAll+$myChats;
 
     /**
      * Get last pending chat
      * */
     erLhcoreClassChat::prefillGetAttributes($myChats,array('user_status_front','hum','time_created_front','product_name','department_name','pnd_rsp','last_msg_time_front','wait_time_pending','wait_time_seconds','plain_user_name','aicons'), array('iwh','last_op_msg_time','has_unread_messages','product_id','product','department','time','pnd_time','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
-    
+
+    foreach ($myChats as $index => $chat) {
+        if (isset($subjectByChat[$chat->id])) {
+            $myChats[$index]->subject_list = $subjectByChat[$chat->id];
+        }
+    }
+
     $ReturnMessages['my_chats'] = array(
         'list' => array_values($myChats),
         'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime())
@@ -561,9 +584,20 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
      * */
     $chats = erLhcoreClassChat::getBotChats($limitList,0,$filter);
 
+    if (!empty($chats)) {
+        $subjectByChat = erLhcoreClassChat::getChatSubjects($chats,4);
+    }
+
     $chatsListAll = $chatsListAll+$chats;
 
     erLhcoreClassChat::prefillGetAttributes($chats,array('pnd_rsp','last_msg_time_front','user_status_front','time_created_front','department_name','plain_user_name','product_name','msg_v','aicons','aalert'),array('iwh','product_id','product','department','pnd_time','time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
+
+    foreach ($chats as $index => $chat) {
+        if (isset($subjectByChat[$chat->id])) {
+            $chats[$index]->subject_list = $subjectByChat[$chat->id];
+        }
+    }
+
     $ReturnMessages['bot_chats'] = array('last_id_identifier' => 'bot_chats', 'list' => array_values($chats),'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
     $chatsList[] = & $ReturnMessages['bot_chats']['list'];
 
@@ -634,13 +668,24 @@ if ($pendingTabEnabled == true) {
 	 * */
 	$pendingChats = erLhcoreClassChat::getPendingChats($limitList, 0, $additionalFilter, $filterAdditionalMainAttr, ['check_list_permissions' => true]);
 
+    if (!empty($pendingChats)) {
+        $subjectByChat = erLhcoreClassChat::getChatSubjects($pendingChats,1);
+    }
+
     $chatsListAll = $chatsListAll+$pendingChats;
 
 	/**
 	 * Get last pending chat
 	 * */
 	erLhcoreClassChat::prefillGetAttributes($pendingChats,array('user_status_front','status_sub_sub','can_edit_chat','time_created_front','product_name','department_name','wait_time_pending','wait_time_seconds','plain_user_name','aicons'), array('iwh','product_id','product','department','pnd_time','time','status','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
-	$ReturnMessages['pending_chats'] = array('list' => array_values($pendingChats), 'last_id_identifier' => 'pending_chat','tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
+
+    foreach ($pendingChats as $index => $chat) {
+        if (isset($subjectByChat[$chat->id])) {
+            $pendingChats[$index]->subject_list = $subjectByChat[$chat->id];
+        }
+    }
+
+    $ReturnMessages['pending_chats'] = array('list' => array_values($pendingChats), 'last_id_identifier' => 'pending_chat','tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
 
 	$chatsList[] = & $ReturnMessages['pending_chats']['list'];
 
