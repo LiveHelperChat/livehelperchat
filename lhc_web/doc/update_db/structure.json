@@ -7989,6 +7989,15 @@
         "extra": "auto_increment"
       },
       {
+        "field": "name",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "type",
         "type": "tinyint(1)",
         "null": "NO",
