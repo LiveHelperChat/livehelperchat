@@ -254,13 +254,12 @@ class erLhcoreClassModule{
             $conn = new PDO("mysql:host=".$cfg->getSetting( 'db', 'host' ).";dbname=".$cfg->getSetting( 'db', 'database' ), $cfg->getSetting( 'db', 'user' ), $cfg->getSetting( 'db', 'password' ));
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stmt = $conn->prepare("INSERT INTO `lh_audits` (`category`, `source`, `line`, `file`, `object_id`, `message`, `severity`, `time`) VALUES (:category, 'lhc',:line,:file, :object_id, :message,:severity,:time)");
+            $stmt = $conn->prepare("INSERT INTO `lh_audits` (`category`, `source`, `line`, `file`, `object_id`, `message`, `severity`, `time`) VALUES (:category, 'lhc',:line,:file, :object_id, :message,:severity,now())");
             $stmt->bindValue(':category', $category);
             $stmt->bindValue(':object_id', $object_id);
             $stmt->bindValue(':line',__LINE__);
             $stmt->bindValue(':file',__FILE__);
             $stmt->bindValue(':severity',ezcLog::SUCCESS_AUDIT);
-            $stmt->bindValue(':time',date('Y-m-d H:i:s'));
             $stmt->bindValue(':message',json_encode([
                 'message' => $e->getMessage(),
                 'file' => $e->getFile(),
