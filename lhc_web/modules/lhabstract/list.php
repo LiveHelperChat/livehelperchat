@@ -40,6 +40,10 @@ if (isset($filterParams['input_form'])) {
 
 $filterParamsCount = array_merge($filterParams['filter'],$filterObject);
 
+if (isset($_GET['doExport']) && method_exists($objectData,'doExport')) {
+    $objectData->doExport($filterParamsCount);
+}
+
 $rowsNumber = null;
 
 $db = ezcDbInstance::get();
