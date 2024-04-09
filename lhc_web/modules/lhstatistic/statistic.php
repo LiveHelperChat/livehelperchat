@@ -79,6 +79,37 @@ try {
     // Ignore
 }
 
+// Limit to 20 seconds any report
+try {
+    $db->query("SET SESSION wait_timeout=10");
+} catch (Exception $e){
+    //
+}
+
+try {
+    $db->query("SET SESSION interactive_timeout=10");} catch (Exception $e){
+} catch (Exception $e) {
+    //
+}
+
+try {
+    $db->query("SET SESSION innodb_lock_wait_timeout=20");
+} catch (Exception $e) {
+    //
+}
+
+try {
+    $db->query("SET SESSION max_execution_time=20000;");
+} catch (Exception $e) {
+    //
+}
+
+try {
+    $db->query("SET SESSION max_statement_time=20;");
+} catch (Exception $e) {
+    // Ignore we try to limit how long query can run
+}
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
 $validTabs = array('visitors','active','total','last24','chatsstatistic','agentstatistic','performance','departments','configuration','mail');

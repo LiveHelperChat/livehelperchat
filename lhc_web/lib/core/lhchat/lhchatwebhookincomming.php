@@ -1933,7 +1933,7 @@ class erLhcoreClassChatWebhookIncoming {
         }
     }
 
-    public function parseFilesBase64($params, $chat) {
+    public static function parseFilesBase64($params, $chat) {
 
         $fileParts = explode('.',$params['file_name']);
         $extension = array_pop($fileParts);
