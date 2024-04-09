@@ -1,5 +1,10 @@
 4.35v
 
+1. Audit log was recoding errors in incorrect time zone.
+2. Subjects now can be pinned and be shown on Pending/Bot/Active/My Chats widgets chats
+3. Incoming webhook fixes for base64decode files
+4. Department stats were missing if department group was not used.
+
 execute doc/update_db/update_306.sql for update
 
 4.34v
