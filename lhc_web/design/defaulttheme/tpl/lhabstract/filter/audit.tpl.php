@@ -125,6 +125,7 @@
             <option value="incoming_webhook_parse">Incoming webhook parse failures</option>
             <option value="incoming_webhook">Incoming webhook request</option>
             <option value="extract_department">Invalid department argument</option>
+            <option value="text_msg">Text message, logged from bot</option>
             <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/audit/category_list_multiinclude.tpl.php'));?>
         </datalist>
     </div>
@@ -149,8 +150,10 @@
     </div>
 
     <div class="col-md-12">
-        <div class="form-group">
-            <input type="submit" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" name="doSearch">&nbsp;<input type="button" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Debug chat attributes');?>" name="debugChat">
+        <div class="btn-group">
+            <button type="submit" class="btn btn-sm btn-primary" name="doSearch"><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?></button>
+            <button type="button" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="btn btn-outline-secondary btn-sm" name="debugChat"><span class="material-icons">code</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Debug chat attributes');?></button>
+            <button type="submit" class="btn btn-outline-secondary btn-sm" name="doExport"><span class="material-icons">file_download</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export');?></button>
         </div>
     </div>
 </div>

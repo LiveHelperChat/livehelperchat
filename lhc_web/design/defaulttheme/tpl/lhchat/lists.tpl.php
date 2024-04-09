@@ -84,10 +84,9 @@
                     	      $seconds = ($diff - ($hours * 3600) - ($minits * 60));
                     	      ?> | <b><?php echo $hours?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','h.');?> <?php echo $minits ?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','m.');?> <?php echo $seconds?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','s.');?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','ago');?>.</b>
                     	      <?php endif;?>
-
                                 <?php if (is_array($chat->subjects)) : ?>
                                     <?php foreach ($chat->subjects as $subject) : ?>
-                                        <span class="badge bg-info mx-1"><?php echo htmlspecialchars($subject)?></span>
+                                        <span class="badge bg-info mx-1" <?php if ($subject->color != '') : ?>style="background-color:#<?php echo htmlspecialchars($subject->color)?>!important;" <?php endif;?>><?php echo htmlspecialchars($subject)?></span>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </td>

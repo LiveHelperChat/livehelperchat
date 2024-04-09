@@ -218,7 +218,7 @@ class erLhcoreClassAbstract
                 foreach ($items as $item) {
                     $selected = in_array($item->id, $object->$name) ? 'checked="checked"' : '';
                     $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
-                    $return .= '<div ng-non-bindable class="col-' . $attr['col_size'] . '"><label><input class="mr-1" type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">' . htmlspecialchars($nameAttr) . '</label></div>';
+                    $return .= '<div ng-non-bindable class="col-' . $attr['col_size'] . '"><label><input class="me-1" type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">' . htmlspecialchars($nameAttr) . '</label></div>';
 
                     /*$nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
                     $return .= '<option value="'.$item->id.'" '.$selected.'>'.((string)$nameAttr).'</option>';*/

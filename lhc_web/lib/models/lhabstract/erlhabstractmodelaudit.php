@@ -39,6 +39,35 @@ class erLhAbstractModelAudit
         return include ('lib/core/lhabstract/fields/erlhabstractmodelaudit.php');
     }
 
+    public function doExport($filter)
+    {
+        $filename = "audit-".date('Y-m-d').".csv";
+        $fp = fopen('php://output', 'w');
+
+        header('Content-type: application/csv');
+        header('Content-Disposition: attachment; filename='.$filename);
+
+        fputcsv($fp, ['id','category','file','line','message','severity','source','time','object_id']);
+
+        $filter['limit'] = 5000;
+
+        foreach (self::getList($filter) as $data) {
+            fputcsv($fp,[
+                $data->id,
+                $data->category,
+                $data->file,
+                $data->line,
+                trim(str_replace(['"'],['^'],$data->message)),
+                $data->severity,
+                $data->source,
+                $data->time,
+                $data->object_id
+            ]);
+        }
+
+        exit;
+    }
+
     public function getModuleTranslations()
     {
         /**

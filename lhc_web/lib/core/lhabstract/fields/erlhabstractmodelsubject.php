@@ -26,6 +26,21 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )),
+    'color' => array(
+        'type' => 'colorpicker',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Color'),
+        'required' => true,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'pinned' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/chatsubject','Pinned'),
+        'required' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
     'internal_type' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/chatsubject','Internal type'),

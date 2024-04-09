@@ -372,6 +372,7 @@
                         <span><img src={www_dir_flags + "/" + chat.country_code + ".png"} alt={chat.country_name} title={chat.country_name} /></span>
                     {/if}
 
+
                     {#each custom_icons as iconData}
                         {#if iconData.icon_attr_type == 'bool' || iconData.icon_attr_type == 'cmp'}
                             {#if (
@@ -492,6 +493,12 @@
                                 {chat.nick ? chat.nick : ''}<small>{(type == 'pending_chats' || type == 'subject_chats') && chat.plain_user_name !== undefined ? ' | ' + chat.plain_user_name : ''}</small>
                             {/if}
 
+                            {#if chat.subject_list && (type == 'pending_chats' || type == 'bot_chats' || type == 'active_chats' || type == 'my_chats')}
+                                {#each chat.subject_list as subjectitem}
+                                    <span class="badge bg-info fs12 me-1" style:background-color|important={subjectitem.c ? '#'+subjectitem.c : null}>{subjectitem.n}</span>
+                                {/each}
+                            {/if}
+
                     {/if}
 
                     </div>
@@ -515,7 +522,7 @@
                     <td>
                         {#if chat.subject_list}
                             {#each chat.subject_list as subjectitem}
-                                <span class="badge bg-info fs12 me-1" >{subjectitem}</span>
+                                <span class="badge bg-info fs12 me-1" style:background-color|important={subjectitem.c ? '#'+subjectitem.c : null}>{subjectitem.n}</span>
                             {/each}
                         {/if}
                     </td>

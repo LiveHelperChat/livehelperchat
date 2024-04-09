@@ -1940,8 +1940,32 @@
         "extra": ""
       },
       {
+        "field": "color",
+        "type": "varchar(100)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
         "field": "internal",
         "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "pinned",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "widgets",
+        "type": "int(11)",
         "null": "NO",
         "key": "",
         "default": "0",
@@ -7965,6 +7989,15 @@
         "extra": "auto_increment"
       },
       {
+        "field": "name",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "type",
         "type": "tinyint(1)",
         "null": "NO",
@@ -11841,7 +11874,7 @@
     "lh_abstract_proactive_chat_invitation_event": "CREATE TABLE `lh_abstract_proactive_chat_invitation_event` ( `id` int(11) NOT NULL AUTO_INCREMENT, `invitation_id` int(11) NOT NULL, `event_id` int(11) NOT NULL, `min_number` int(11) NOT NULL, `during_seconds` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `invitation_id` (`invitation_id`), KEY `event_id` (`event_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_chat_start_settings": "CREATE TABLE `lh_chat_start_settings` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `data` longtext NOT NULL, `department_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `department_id` (`department_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_chat_event_track": "CREATE TABLE `lh_chat_event_track` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `data` longtext NOT NULL, `department_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `department_id` (`department_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-    "lh_abstract_subject": "CREATE TABLE `lh_abstract_subject` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `internal` tinyint(1) NOT NULL DEFAULT 0, `internal_type` varchar(20) NOT NULL DEFAULT '', PRIMARY KEY (`id`), KEY `internal` (`internal`), KEY `internal_type` (`internal_type`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lh_abstract_subject": "CREATE TABLE `lh_abstract_subject` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,`internal` tinyint(1) NOT NULL DEFAULT 0,`internal_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,`color` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,`pinned` tinyint(1) NOT NULL DEFAULT 0,`widgets` int(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`),\n  KEY `internal` (`internal`),\n  KEY `internal_type` (`internal_type`),\n  KEY `widgets` (`widgets`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_chat_variable": "CREATE TABLE `lh_abstract_chat_variable` ( `id` int(11) NOT NULL AUTO_INCREMENT, `var_name` varchar(255) NOT NULL, `var_identifier` varchar(255) NOT NULL, `old_js_id` varchar(50) NOT NULL, `inv` tinyint(1) NOT NULL, `change_message` varchar(250) NOT NULL, `type` tinyint(1) NOT NULL, `persistent` tinyint(1) NOT NULL,`js_variable` varchar(255) NOT NULL, `dep_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_chat_column": "CREATE TABLE `lh_abstract_chat_column` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `column_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `variable` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `position` int(11) NOT NULL,\n  `enabled` tinyint(1) NOT NULL,\n  `conditions` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `column_icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `column_identifier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `chat_enabled` tinyint(1) NOT NULL,\n  `online_enabled` tinyint(1) NOT NULL,\n  `icon_mode` tinyint(1) NOT NULL DEFAULT 0,\n  `has_popup` tinyint(1) NOT NULL DEFAULT 0,\n  `popup_content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sort_column` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sort_enabled` tinyint(1) NOT NULL DEFAULT 0,\n  `chat_list_enabled` tinyint(1) NOT NULL DEFAULT 0,\n  `mail_list_enabled` tinyint(1) NOT NULL DEFAULT 0,\n  `mail_enabled` tinyint(1) NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `enabled` (`enabled`),\n  KEY `online_enabled` (`online_enabled`),\n  KEY `chat_enabled` (`chat_enabled`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_chat_priority": "CREATE TABLE `lh_abstract_chat_priority` (`id` int(11) NOT NULL AUTO_INCREMENT,`value` text COLLATE utf8mb4_unicode_ci NOT NULL,`role_destination` varchar(50) NOT NULL,`present_role_is` varchar(50) NOT NULL, `dep_id` int(11) NOT NULL, `dest_dep_id` int(11) NOT NULL DEFAULT 0, `sort_priority` int(11) NOT NULL DEFAULT 0,`priority` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
@@ -11884,7 +11917,7 @@
     "lhc_mailconv_personal_mailbox_group": "CREATE TABLE `lhc_mailconv_personal_mailbox_group` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL, `mails` longtext COLLATE utf8mb4_unicode_ci NOT NULL, `active` tinyint(1) unsigned NOT NULL, PRIMARY KEY (`id`), KEY `active` (`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_group_chat_member": "CREATE TABLE `lh_group_chat_member` (\n `id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `user_id` bigint(20) NOT NULL, `type` tinyint(1) NOT NULL DEFAULT '0',\n  `group_id` bigint(20) NOT NULL, `last_msg_id` bigint(20) NOT NULL DEFAULT '0', `last_activity` int(11) NOT NULL,\n  `jtime` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `group_id` (`group_id`), KEY `user_id` (`user_id`), KEY `type` (`type`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_generic_bot_command": "CREATE TABLE `lh_generic_bot_command` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `command` varchar(50) NOT NULL, `info_msg` varchar(100) NOT NULL, `sub_command` varchar(100) NOT NULL,`shortcut_1` varchar(10) NOT NULL,`shortcut_2` varchar(10) NOT NULL,\n  `bot_id` int(11) NOT NULL,\n  `trigger_id` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `command` (`command`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lh_webhook": "CREATE TABLE `lh_webhook` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `event` varchar(50) NOT NULL,`bot_id_alt` int(11) NOT NULL DEFAULT '0', `trigger_id_alt` int(11) NOT NULL DEFAULT '0',  `bot_id` int(11) NOT NULL,  `trigger_id` int(11) NOT NULL,  `disabled` tinyint(1) NOT NULL, `status` longtext NOT NULL, `configuration` longtext NOT NULL, `type` tinyint(1) NOT NULL DEFAULT 0,  PRIMARY KEY (`id`),  KEY `event_disabled` (`event`,`disabled`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lh_webhook": "CREATE TABLE `lh_webhook` (  `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL,  `event` varchar(50) NOT NULL,`bot_id_alt` int(11) NOT NULL DEFAULT '0', `trigger_id_alt` int(11) NOT NULL DEFAULT '0',  `bot_id` int(11) NOT NULL,  `trigger_id` int(11) NOT NULL,  `disabled` tinyint(1) NOT NULL, `status` longtext NOT NULL, `configuration` longtext NOT NULL, `type` tinyint(1) NOT NULL DEFAULT 0,  PRIMARY KEY (`id`),  KEY `event_disabled` (`event`,`disabled`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_users_login": "CREATE TABLE `lh_users_login` (`id` bigint(20) NOT NULL AUTO_INCREMENT,`user_id` bigint(20) NOT NULL,`type` int(11) NOT NULL,`ctime` bigint(20) NOT NULL,`status` int(11) NOT NULL,`ip` varchar(100) NOT NULL,`msg` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,PRIMARY KEY (`id`),KEY `user_id_type` (`user_id`,`type`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_chat_alert_icon": "CREATE TABLE `lh_abstract_chat_alert_icon` (`id` bigint(20) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `identifier` varchar(50) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_stats": "CREATE TABLE `lh_abstract_stats` (\n  `id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `type` int(11) NOT NULL,\n  `lupdate` bigint(20) NOT NULL,\n  `object_id` bigint(20) NOT NULL,\n  `stats` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `type_object_id` (`type`,`object_id`)\n) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",

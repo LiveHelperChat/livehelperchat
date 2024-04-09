@@ -1429,6 +1429,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'event' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'configuration' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -1457,6 +1460,10 @@ class erLhcoreClassAdminChatValidatorHelper {
 
         if ($form->hasValidData( 'event' )) {
             $webhook->event = $form->event;
+        }
+
+        if ($form->hasValidData( 'name' )) {
+            $webhook->name = $form->name;
         }
 
         if ( $form->hasValidData( 'configuration' )) {

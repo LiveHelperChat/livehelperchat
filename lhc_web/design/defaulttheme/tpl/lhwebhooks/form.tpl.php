@@ -1,3 +1,8 @@
+<div class="form-group" ng-non-bindable>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Name');?></label>
+    <input maxlength="50" type="text" class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Name for personal reasons');?>" name="name" value="<?php echo htmlspecialchars($item->name);?>" />
+</div>
+
 <ul class="nav nav-tabs mb-3" role="tablist">
     <li role="presentation" class="nav-item"><a href="#hooks-settings" class="nav-link active" aria-controls="hooks-settings" role="tab" data-bs-toggle="tab" aria-selected="false"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Hooks events')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#chooks-settings" aria-controls="chooks-settings" role="tab" data-bs-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Continuous chat events')?></a></li>

@@ -2346,6 +2346,29 @@ class erLhcoreClassChat {
         }
    }
 
+   public static function getChatSubjects($chats, $type)
+   {
+       $subjectsSelected = erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => array_keys($chats))));
+       $subjectByChat = [];
+       $subject_ids = [];
+       foreach ($subjectsSelected as $subjectSelected) {
+           $subject_ids[] = $subjectSelected->subject_id;
+       }
+       if (!empty($subject_ids)) {
+           $subjectsMeta = erLhAbstractModelSubject::getList(array('customfilter' => ['`widgets` & ' . (int)$type],'filterin' => array('id' => array_unique($subject_ids))));
+       }
+       foreach ($subjectsSelected as $subjectSelected) {
+           if (isset( $subjectsMeta[$subjectSelected->subject_id])) {
+               $subjectByChat[$subjectSelected->chat_id][] = [
+                   'n' => $subjectsMeta[$subjectSelected->subject_id]->name,
+                   'c' => $subjectsMeta[$subjectSelected->subject_id]->color
+               ];
+           }
+       }
+
+       return $subjectByChat;
+   }
+
    public static function extractDepartment($departments, $logInvalidRequest = true) {
 
        $hasInvalidDepartment = false;
