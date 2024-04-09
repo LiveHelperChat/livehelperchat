@@ -135,7 +135,7 @@ class erLhcoreClassSearchHandler
                                 }
                             }
                         }
-                    } elseif ($field['filter_type'] == 'filtergte' || $field['filter_type'] == 'filtergt') {
+                    } elseif ($field['filter_type'] == 'filtergte' || $field['filter_type'] == 'filtergt' || $field['filter_type'] == 'filtergtenbind') {
 
                         $filterType = $field['filter_type'];
 
@@ -253,7 +253,7 @@ class erLhcoreClassSearchHandler
                             $filter[$filterType][$field['filter_table_field']] = $inputParams->$key;
                         }
 
-                    } elseif ($field['filter_type'] == 'filterlte' || $field['filter_type'] == 'filterlt') {
+                    } elseif ($field['filter_type'] == 'filterlte' || $field['filter_type'] == 'filterlt' || $field['filter_type'] == 'filterltenbind') {
 
                         $filterType = $field['filter_type'];
 

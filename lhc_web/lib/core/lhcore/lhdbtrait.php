@@ -471,6 +471,12 @@ trait erLhcoreClassDBTrait
             }
         }
 
+        if (isset($params['filtergtenbind']) && count($params['filtergtenbind']) > 0) {
+            foreach ($params['filtergtenbind'] as $field => $fieldValue) {
+                $conditions[] = $q->expr->gte($field, $fieldValue);
+            }
+        }
+
         if (isset($params['filtergtefields']) && count($params['filtergtefields']) > 0) {
             foreach ($params['filtergtefields'] as $combination) {
                 foreach ($combination as $field => $fieldValue) {
@@ -482,6 +488,12 @@ trait erLhcoreClassDBTrait
         if (isset($params['filterlte']) && count($params['filterlte']) > 0) {
             foreach ($params['filterlte'] as $field => $fieldValue) {
                 $conditions[] = $q->expr->lte($field, $q->bindValue($fieldValue));
+            }
+        }
+
+        if (isset($params['filterltenbind']) && count($params['filterltenbind']) > 0) {
+            foreach ($params['filterltenbind'] as $field => $fieldValue) {
+                $conditions[] = $q->expr->lte($field, $fieldValue);
             }
         }
 
