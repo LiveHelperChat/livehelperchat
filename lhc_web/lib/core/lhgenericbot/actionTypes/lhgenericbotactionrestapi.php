@@ -511,7 +511,13 @@ class erLhcoreClassGenericBotActionRestapi
                 $file_name = $mediaFile->upload_name;
 
                 if ($mediaFile->remote_file !== true) {
-                    $file_body = 'data:'.$mediaFile->type.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
+
+                    if ((isset($methodSettings['body_raw_file']) && strpos($methodSettings['body_raw_file'],'{{file_body}}') !== false) || (isset($methodSettings['body_raw_file']) && strpos($methodSettings['body_raw_file'],'{{body_raw}}') !== false)) {
+                        $file_body = 'data:'.$mediaFile->type.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
+                    } else {
+                        $file_body = '';
+                    }
+
                     $file_size = $mediaFile->size;
                     $file_url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
                 } else {
