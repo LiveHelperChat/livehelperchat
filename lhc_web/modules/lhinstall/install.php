@@ -1095,6 +1095,7 @@ try {
 				  `from_email_ac` tinyint(4) NOT NULL,
 				  `user_mail_as_sender` tinyint(4) NOT NULL,
                   `use_chat_locale` tinyint(1) NOT NULL DEFAULT '0',
+                  `only_recipient` tinyint(1) NOT NULL DEFAULT '0',
 				  `content` text NOT NULL,
                   `translations` longtext NOT NULL,
 				  `subject` varchar(250) NOT NULL,
@@ -1510,6 +1511,7 @@ try {
 
                     $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
                 ('tracked_users_cleanup',	'160',	0,	'How many days keep records of online users.',	0),
+                ('enable_status_cache',	'0',	0,	'Enable status check cache using Redis. PHPResque extension is required.',	0),
         	   	('list_online_operators', '1', '0', 'List online operators.', '0'),
         	   	('voting_days_limit',	'7',	0,	'How many days voting widget should not be expanded after last show',	0),
                 ('track_online_visitors',	'1',	0,	'Enable online site visitors tracking',	0),

@@ -52,6 +52,7 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.setting
 $outputResponse = array(
     'isOnline' => !(isset($_GET['off']) && $_GET['off'] === 'true') && erLhcoreClassChat::isOnline($departmentUpdated, false, array(
         'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
+        'disable_cache' => ((int)erLhcoreClassModelChatConfig::fetch('enable_status_cache')->current_value === 0),
         'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
     )),
     'hideOffline' => false,

@@ -92,7 +92,7 @@ try {
     		}   		
     	}    	
     	
-	    if ( erLhcoreClassChat::isOnline($chat->dep_id,false,array('online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])) ) {
+	    if ( erLhcoreClassChat::isOnline($chat->dep_id,false,array('disable_cache' => ((int)erLhcoreClassModelChatConfig::fetch('enable_status_cache')->current_value === 0), 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'])) ) {
 	         $tpl->set('is_online',true);
 	    } else {
 	         $tpl->set('is_online',false);

@@ -53,10 +53,20 @@
     <label><?php echo erLhcoreClassAbstract::renderInput('reply_to_ac', $fields['reply_to_ac'], $object)?> <?php echo $fields['reply_to_ac']['trans'];?></label>
 </div>
 
-<div class="form-group">
-    <label><?php echo $fields['recipient']['trans'];?></label>
-    <?php echo erLhcoreClassAbstract::renderInput('recipient', $fields['recipient'], $object)?>
+
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['recipient']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('recipient', $fields['recipient'], $object)?>
+        </div>
+    </div>
+    <div class="col-6 mt-4">
+        <label><?php echo erLhcoreClassAbstract::renderInput('only_recipient', $fields['only_recipient'], $object)?> <?php echo $fields['only_recipient']['trans'];?></label>
+    </div>
 </div>
+
+
 
 <div class="form-group">
     <label><?php echo $fields['bcc_recipients']['trans'];?></label>

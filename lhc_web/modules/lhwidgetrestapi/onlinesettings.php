@@ -635,7 +635,7 @@ if (is_numeric($departament_id) && $departament_id > 0) {
     if (count($departments) > 1) {
         $departments = erLhcoreClassDepartament::sortByStatus($departments);
         foreach ($departments as $departament) {
-            $isOnline = erLhcoreClassChat::isOnline($departament->id, false, array('ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']));
+            $isOnline = erLhcoreClassChat::isOnline($departament->id, false, array('disable_cache' => ((int)erLhcoreClassModelChatConfig::fetch('enable_status_cache')->current_value === 0), 'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']));
             if (($departament->visible_if_online == 1 && $isOnline === true) || $departament->visible_if_online == 0) {
                 $departmentItem = array(
                     'online' => $isOnline,
