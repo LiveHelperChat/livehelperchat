@@ -990,7 +990,23 @@ class erLhcoreClassChat {
     {
        $isOnlineUser = isset($params['online_timeout']) ? $params['online_timeout'] : (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
        $ignoreUserStatus = (isset($params['ignore_user_status']) && $params['ignore_user_status'] == 1) ? true : false;
-       
+
+       // Redis Cache support
+       $enableCache = false;
+
+       if (!(isset($params['disable_cache']) && $params['disable_cache'] === true) && class_exists('erLhcoreClassRedis')) {
+          $cacheKey = 'is_online_' . $exclipic . '_' . (new class { use erLhcoreClassDBTrait; })::multi_implode('_',$dep_id) . '_' . md5((new class { use erLhcoreClassDBTrait; })::multi_implode('_',$params));
+          $contentCache = erLhcoreClassRedis::instance()->get($cacheKey);
+          if ($contentCache !== false) {
+              $parts = explode('_', $contentCache);
+              if (isset($parts[1]) && isset($parts[1]) == 1) {
+                  self::$botOnlyOnline = true;
+              }
+              return (int)$parts[0] > 0;
+          }
+          $enableCache = true;
+       }
+
        $db = ezcDbInstance::get();
 	   $rowsNumber = 0;
        $userFilter = (isset($params['user_id']) && is_numeric($params['user_id'])) ? ' AND `lh_userdep`.`user_id` = '.(int)$params['user_id'] : '';
@@ -1131,7 +1147,11 @@ class erLhcoreClassChat {
                }
            }
        }
-       
+
+       if ($enableCache === true) {
+           erLhcoreClassRedis::instance()->setex($cacheKey, 60, $rowsNumber . '_' . (self::$botOnlyOnline === true ? 1 : 0));
+       }
+
        return $rowsNumber >= 1;
     }
 

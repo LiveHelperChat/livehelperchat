@@ -31,6 +31,7 @@ class erLhAbstractModelEmailTemplate {
 			'bcc_recipients'=> $this->bcc_recipients,
 			'translations'=> $this->translations,
 			'use_chat_locale'=> $this->use_chat_locale,
+			'only_recipient'=> $this->only_recipient,
 		);
 
 		return $stateArray;
@@ -176,6 +177,7 @@ class erLhAbstractModelEmailTemplate {
 	public $bcc_recipients = '';
 	public $translations = '';
 	public $use_chat_locale = 0;
+	public $only_recipient = 0;
 
 	public $hide_add = true;
 	public $hide_delete = true;

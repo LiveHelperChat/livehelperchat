@@ -321,7 +321,10 @@ class erLhcoreClassChatMail {
     	}
     	
     	$emailRecipient = array();
-    	if ($chat->department !== false && $chat->department->email != '') { // Perhaps department has assigned email
+
+        if ($sendMail->recipient != '' && $sendMail->only_recipient == 1) {
+            $emailRecipient = explode(',',$sendMail->recipient);
+        } elseif ($chat->department !== false && $chat->department->email != '') { // Perhaps department has assigned email
     		$emailRecipient = explode(',',$chat->department->email);
     	} elseif ($sendMail->recipient != '') { // Perhaps template has default recipient
     		$emailRecipient = explode(',',$sendMail->recipient);

@@ -1,0 +1,2 @@
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('enable_status_cache','0','0','Enable status check cache using Redis. PHPResque extension is required.','0');
+ALTER TABLE `lh_abstract_email_template` ADD `only_recipient` tinyint(1) NOT NULL DEFAULT '0', COMMENT='';
