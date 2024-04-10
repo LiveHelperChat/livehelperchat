@@ -40,7 +40,7 @@
 
                                 <a ng-non-bindable class="action-image material-icons" data-title="<?php echo htmlspecialchars($chat->nick,ENT_QUOTES);?>" onclick="lhinst.startChatNewWindow('<?php echo $chat->id;?>',$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Open in a new window');?>">open_in_new</a>
 
-                                <a href="#" onclick="ee.emitEvent('angularStartChatbyId',[<?php echo $chat->id?>])"><?php echo $chat->id?></a>
+                                <a href="#" <?php if ($chat->nc != '') : ?>style="color: <?php echo htmlspecialchars($chat->nc)?>"<?php endif;?> onclick="ee.emitEvent('angularStartChatbyId',[<?php echo $chat->id?>])"><?php echo $chat->id?></a>
 
                                 <?php if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST) : ?><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Offline request')?>" class="material-icons">mail</i><?php endif?>
 
@@ -54,9 +54,17 @@
                                     $seconds = ($diff - ($hours * 3600) - ($minits * 60));
                                     ?> | <b><?php echo $hours?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','h.');?> <?php echo $minits ?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','m.');?> <?php echo $seconds?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','s.');?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','ago');?>.</b>
                                 <?php endif;?>
+
                             </td>
-                            <td ng-non-bindable>
+                            <td ng-non-bindable <?php if ($chat->nc != '') : ?>style="color: <?php echo htmlspecialchars($chat->nc)?>"<?php endif;?> <?php if ($chat->nb == 1) : ?>class="fw-bold"<?php endif;?>>
                                 <?php echo htmlspecialchars($chat->nick);?>
+
+                                <?php if (is_array($chat->subjects) && !empty($chat->subjects)) : ?>
+                                        <?php foreach ($chat->subjects as $subject) : ?>
+                                            <span class="badge bg-info mx-1" ng-non-bindable <?php if ($subject->color != '') : ?>style="background-color:#<?php echo htmlspecialchars($subject->color)?>!important;" <?php endif;?>><?php echo htmlspecialchars($subject)?></span>
+                                        <?php endforeach; ?>
+                                <?php endif; ?>
+                                
                             </td>
                             <td ng-non-bindable nowrap="nowrap">
                                 <?php echo htmlspecialchars($chat->user);?>

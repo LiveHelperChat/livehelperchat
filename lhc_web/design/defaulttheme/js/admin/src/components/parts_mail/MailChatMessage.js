@@ -100,7 +100,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         <div className="col-5 text-end text-muted">
             <small className="pe-1">
                 {message.subjects && message.subjects.map((label, index) => (
-                        <span className="badge bg-info me-1">{label.name}</span>
+                        <span className="badge me-1" style={{'background-color': label.color ? '#'+label.color : '#0dcaf0'}}>{label.name}</span>
                     ))}
                 {mode !== 'preview' && moptions.can_write && <React.Fragment><i title={t('msg.ar_label')} onClick={() => addLabel(message)} className="material-icons action-image text-muted">label</i> |</React.Fragment>}
             </small>

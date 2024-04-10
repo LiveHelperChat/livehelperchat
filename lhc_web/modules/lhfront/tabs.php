@@ -56,6 +56,12 @@ if (!empty($id)) {
         $aicons = $chat->aicons;
         if (!empty($aicons)) {
             $item['aicons'] = $aicons;
+            if ($chat->nb == 1) {
+                $item['nb'] = 1;
+            }
+            if ($chat->nc != '') {
+                $item['nc'] = $chat->nc;
+            }
         }
 
         $response[] = $item;

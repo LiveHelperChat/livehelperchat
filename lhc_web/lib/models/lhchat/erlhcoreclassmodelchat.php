@@ -503,6 +503,12 @@ class erLhcoreClassModelChat {
                    if (isset($params['t']) && $params['t'] != '') {
                        $iconParams['t'] = $params['t'];
                    }
+                   if (isset($params['b']) && $params['b'] === 1) {
+                       $this->nb = 1;
+                   }
+                   if (isset($params['nc']) && $params['nc'] != '') {
+                       $this->nc = $params['nc'];
+                   }
                    $this->aicons[$icon] = $iconParams;
                }
            }

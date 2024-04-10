@@ -490,7 +490,7 @@
                              {/if}
 
                             {#if type != 'my_mails' && type != 'active_mails' && type != 'pending_mails' && type != 'alarm_mails'}
-                                {chat.nick ? chat.nick : ''}<small>{(type == 'pending_chats' || type == 'subject_chats') && chat.plain_user_name !== undefined ? ' | ' + chat.plain_user_name : ''}</small>
+                                <span class:fw-bold={chat.nb} style:color={chat.nc ? chat.nc : null}  >{chat.nick ? chat.nick : ''}</span><small>{(type == 'pending_chats' || type == 'subject_chats') && chat.plain_user_name !== undefined ? ' | ' + chat.plain_user_name : ''}</small>
                             {/if}
 
                             {#if chat.subject_list && (type == 'pending_chats' || type == 'bot_chats' || type == 'active_chats' || type == 'my_chats')}
