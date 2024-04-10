@@ -1,3 +1,12 @@
+4.36v
+
+1. Colored subject support for mail modules
+2. Views were missing subjects and some lists colors
+3. Online status check now has option to cache it's status for one minute.
+4. Fixed bold style in some places which were using old bootstrap bold text class.
+
+execute doc/update_db/update_307.sql for update
+
 4.35v
 
 1. Audit log was recoding errors in incorrect time zone.
