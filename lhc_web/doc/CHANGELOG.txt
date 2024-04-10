@@ -5,6 +5,7 @@
 3. Online status check now has option to cache it's status for one minute.
 4. Fixed bold style in some places which were using old bootstrap bold text class.
 5. Add icon bot response type now has possibility to change nick bold style and color.
+6. Offline e-mail template now can strictly send all e-mails to one recipient and ignore department e-mail.
 
 execute doc/update_db/update_307.sql for update
 
