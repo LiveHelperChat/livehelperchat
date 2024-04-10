@@ -2869,6 +2869,14 @@
         "extra": ""
       },
       {
+        "field": "only_recipient",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "from_email",
         "type": "varchar(150)",
         "null": "NO",
@@ -10350,6 +10358,13 @@
         "value": "1",
         "type": "0",
         "explain": "Show need help tooltip?",
+        "hidden": "0"
+      },
+      {
+        "identifier": "enable_status_cache",
+        "value": "0",
+        "type": "0",
+        "explain": "Enable status check cache using Redis. PHPResque extension is required.",
         "hidden": "0"
       },
       {

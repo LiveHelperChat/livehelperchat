@@ -299,7 +299,7 @@ class erLhcoreClassFormRenderer {
 
         $returnAppend = $return = "";
         if (isset($params['as_admin']) && $params['as_admin'] == true) {
-            $return = "<div class='form-group'><label class='font-weight-bold'>" . htmlspecialchars($params['name_literal']) . "</label>";
+            $return = "<div class='form-group'><label class='fw-bold'>" . htmlspecialchars($params['name_literal']) . "</label>";
             $returnAppend = "</div>";
         }
 

@@ -40,6 +40,23 @@ if ($search->scope == 'chat') {
     $iconsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_identifier','enabled'), 'sort' => false, 'filter' => array('icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1)));
     erLhcoreClassChat::prefillGetAttributes($items, array(), array(), array('additional_columns' => $iconsAdditional, 'do_not_clean' => true));
     $tpl->set('icons_additional',$iconsAdditional);
+
+    $subjectsChats = erLhAbstractModelSubjectChat::getList(array('filterin' => array('chat_id' => array_keys($items))));
+    erLhcoreClassChat::prefillObjects($subjectsChats, array(
+        array(
+            'subject_id',
+            'subject',
+            'erLhAbstractModelSubject::getList'
+        ),
+    ));
+    foreach ($subjectsChats as $chatSubject) {
+        if (!is_array($items[$chatSubject->chat_id]->subjects)) {
+            $items[$chatSubject->chat_id]->subjects = [];
+        }
+        $items[$chatSubject->chat_id]->subjects[] = $chatSubject->subject;
+    }
+
+
     $tpl->set('items', $items);
     $tpl->set('list_mode', $Params['user_parameters_unordered']['mode'] == 'list');
 
@@ -75,6 +92,22 @@ if ($search->scope == 'chat') {
     $tpl->set('pages', $pages);
     $filter = array_merge_recursive($filterSearch, array('limit' => $pages->items_per_page, 'offset' => $pages->low));
     $items = erLhcoreClassModelMailconvConversation::getList($filter);
+
+    $subjectsChats = erLhcoreClassModelMailconvMessageSubject::getList(array('filterin' => array('conversation_id' => array_keys($items))));
+    erLhcoreClassChat::prefillObjects($subjectsChats, array(
+        array(
+            'subject_id',
+            'subject',
+            'erLhAbstractModelSubject::getList'
+        ),
+    ));
+    foreach ($subjectsChats as $chatSubject) {
+        if (!is_array($items[$chatSubject->conversation_id]->subjects)) {
+            $items[$chatSubject->conversation_id]->subjects = [];
+        }
+        $items[$chatSubject->conversation_id]->subjects[] = $chatSubject->subject;
+    }
+
     $tpl->set('items', $items);
     $tpl->set('list_mode', $Params['user_parameters_unordered']['mode'] == 'list');
 

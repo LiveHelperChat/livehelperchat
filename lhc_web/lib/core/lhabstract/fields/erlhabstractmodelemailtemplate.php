@@ -33,6 +33,14 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
+    'only_recipient' => array (
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','It is the only e-mail which should receive e-mail messages for this template.'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     'from_name' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','From name'),

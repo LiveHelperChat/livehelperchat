@@ -74,6 +74,11 @@ $def->properties['user_mail_as_sender']->columnName   = 'user_mail_as_sender';
 $def->properties['user_mail_as_sender']->propertyName = 'user_mail_as_sender';
 $def->properties['user_mail_as_sender']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['only_recipient'] = new ezcPersistentObjectProperty();
+$def->properties['only_recipient']->columnName   = 'only_recipient';
+$def->properties['only_recipient']->propertyName = 'only_recipient';
+$def->properties['only_recipient']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['recipient'] = new ezcPersistentObjectProperty();
 $def->properties['recipient']->columnName   = 'recipient';
 $def->properties['recipient']->propertyName = 'recipient';

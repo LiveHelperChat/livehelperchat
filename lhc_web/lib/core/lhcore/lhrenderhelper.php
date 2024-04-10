@@ -233,7 +233,7 @@ class erLhcoreClassRenderHelper {
         $selector = isset($params['no_selector']) && $params['no_selector'] == true ? '' : 'selector-';
 
         if (isset($params['show_optional']) && $params['show_optional'] == true) {
-            $template .= '<li data-stoppropagation="true" class="search-option-item font-weight-bold"><label><input class="me-1" '. (((is_numeric($params['selected_id']) && 0 == $params['selected_id']) || (is_array($params['selected_id']) && in_array(0,$params['selected_id']))) ? 'checked="checked"' : '') .$ngModel.' type="'.$type.'" name="'.$selector.$params['input_name'] .'" value="0">Any</label></li>';
+            $template .= '<li data-stoppropagation="true" class="search-option-item fw-bold"><label><input class="me-1" '. (((is_numeric($params['selected_id']) && 0 == $params['selected_id']) || (is_array($params['selected_id']) && in_array(0,$params['selected_id']))) ? 'checked="checked"' : '') .$ngModel.' type="'.$type.'" name="'.$selector.$params['input_name'] .'" value="0">Any</label></li>';
         }
 
 

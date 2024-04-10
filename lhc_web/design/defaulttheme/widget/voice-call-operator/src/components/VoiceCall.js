@@ -455,8 +455,8 @@ const VoiceCall = props => {
         <React.Fragment>
             <div className="d-flex flex-md-row flex-column flex-grow-1 pt-0">
                 <div className="col bg-light m-0 align-middle text-center d-flex p-0" title={"UID "+state.uid} id="local-player">
-                    {props.isVisitor == true && state.call.vi_status == STATUS_VI_REQUESTED && <div className="align-self-center mx-auto text-muted font-weight-bold">{t('voice_call.wait_join_long')}</div>}
-                    {state.localTracks.videoTrack == null && state.inCall == true && <div className="align-self-center mx-auto text-muted font-weight-bold"><span className="material-icons">graphic_eq</span>{t('voice_call.me_audio')}</div>}
+                    {props.isVisitor == true && state.call.vi_status == STATUS_VI_REQUESTED && <div className="align-self-center mx-auto text-muted fw-bold">{t('voice_call.wait_join_long')}</div>}
+                    {state.localTracks.videoTrack == null && state.inCall == true && <div className="align-self-center mx-auto text-muted fw-bold"><span className="material-icons">graphic_eq</span>{t('voice_call.me_audio')}</div>}
                 </div>
                 {state.inCall == true && Object.keys(state.remoteUsers).map((val, k) => {
                     return (<MediaStream user={state.remoteUsers[val].user} key={"media_" + (state.remoteUsers[val].user.uid) + '_' + state.remoteUsers[val].media.join('_')} audio={state.remoteUsers[val].audio} video={state.remoteUsers[val].video} media={state.remoteUsers[val].media} />)

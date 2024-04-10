@@ -43,6 +43,14 @@ class erLhcoreClassGenericBotActionAlert_icon {
                     $paramsIcon['t'] = $action['content']['attr_options']['aicon_title'];
                 }
 
+                if (isset($action['content']['attr_options']['bold_nick']) && $action['content']['attr_options']['bold_nick'] === true) {
+                    $paramsIcon['b'] = 1;
+                }
+
+                if (isset($action['content']['attr_options']['nick_color']) && $action['content']['attr_options']['nick_color'] != '') {
+                    $paramsIcon['nc'] = $action['content']['attr_options']['nick_color'];
+                }
+
                 $chatVariables['aicons'][$alertIcon] = $paramsIcon;
                 $needUpdate = true;
             }

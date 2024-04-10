@@ -54,7 +54,7 @@
                               
                               <a href="#!#Fchat-id-<?php echo $chat->id?>" class="action-image material-icons" data-title="<?php echo htmlspecialchars($chat->nick,ENT_QUOTES);?>" onclick="lhinst.startChatNewWindow('<?php echo $chat->id;?>',$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Open in a new window');?>">open_in_new</a>
 
-                              <a href="#!#Fchat-id-<?php echo $chat->id?>" class="me-2" onclick="ee.emitEvent('svelteOpenChat',[<?php echo $chat->id?>]);"><?php echo $chat->id?></a>
+                              <a href="#!#Fchat-id-<?php echo $chat->id?>" class="me-2" <?php if ($chat->nc != '') : ?>style="color: <?php echo htmlspecialchars($chat->nc)?>"<?php endif;?> onclick="ee.emitEvent('svelteOpenChat',[<?php echo $chat->id?>]);"><?php echo $chat->id?></a>
 
                     	      <?php if ($chat->can_edit_chat && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && ($can_delete_global == true || ($can_delete_general == true && $chat->user_id == $current_user_id)))) : ?>
                     	           <a class="csfr-required csfr-post material-icons" data-trans="delete_confirm" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Reject chat');?>" href="<?php echo erLhcoreClassDesign::baseurl('chat/delete')?>/<?php echo $chat->id?>">delete</a>
@@ -74,7 +74,7 @@
 
                                 <?php if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST) : ?><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Offline request')?>" class="material-icons">mail</i><?php endif?>
 
-                                <a href="#!#Fchat-id-<?php echo $chat->id?>" onclick="ee.emitEvent('svelteOpenChat',[<?php echo $chat->id?>]);"><span><?php echo htmlspecialchars($chat->nick);?></span>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <span><?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></span></a>
+                                <a href="#!#Fchat-id-<?php echo $chat->id?>" <?php if ($chat->nc != '') : ?>style="color: <?php echo htmlspecialchars($chat->nc)?>"<?php endif;?> onclick="ee.emitEvent('svelteOpenChat',[<?php echo $chat->id?>]);"><span <?php if ($chat->nb == 1) : ?>class="fw-bold"<?php endif;?> ><?php echo htmlspecialchars($chat->nick);?></span>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <span><?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></span></a>
 
                     	      <?php if ($chat->has_unread_messages == 1) : ?>
                     	      <?php

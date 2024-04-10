@@ -53,6 +53,13 @@
                           <a class="csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/deleteconversation')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
             <?php endif; ?>
                 <a class="user-select-none" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/view')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?>&nbsp;<small><?php echo $item->total_messages?></small></a>
+
+                <?php if (is_array($item->subjects)) : ?>
+                    <?php foreach ($item->subjects as $subject) : ?>
+                        <span class="badge bg-info mx-1" ng-non-bindable <?php if ($subject->color != '') : ?>style="background-color:#<?php echo htmlspecialchars($subject->color)?>!important;" <?php endif;?> ><?php echo htmlspecialchars($subject)?></span>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
             </td>
             <td><?php echo htmlspecialchars($item->from_name)?> &lt;<?php echo $item->from_address?>&gt;</td>
             <td nowrap="nowrap"><?php echo htmlspecialchars($item->user)?></td>
