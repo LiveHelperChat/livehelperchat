@@ -338,11 +338,11 @@ const CannedMessages = props => {
                 <ul className="list-unstyled fs13 border mt-0 mx300" id={'canned-list-'+props.chatId}>
                     <li className="border-bottom pt-1 pb-1"><a onClick={(e) => setCollapsed(true)}><span className="material-icons">expand_less</span>{t('chat_canned.canned')}</a></li>
                     {data.map((item, index) => (
-                        <li><a className="font-weight-bold" key={index} onClick={() => expandCategory(item, index)}><span className="material-icons">{item.expanded ? 'expand_less' : 'expand_more'}</span>{item.title} [{item.messages.length}{item.messages.length >= 50 ? '+' : ''}]</a>
+                        <li><a className="fw-bold" key={index} onClick={() => expandCategory(item, index)}><span className="material-icons">{item.expanded ? 'expand_less' : 'expand_more'}</span>{item.title} [{item.messages.length}{item.messages.length >= 50 ? '+' : ''}]</a>
                             {item.expanded &&
                             <ul className="list-unstyled ms-4">
                                 {item.messages.map(message => (
-                                    <li key={message.id} className={message.current ? 'font-italic font-weight-bold' : ''} id={'canned-msg-'+props.chatId+'-'+message.id}>
+                                    <li key={message.id} className={message.current ? 'fst-italic fw-bold' : ''} id={'canned-msg-'+props.chatId+'-'+message.id}>
                                         <a className="hover-canned d-block" onMouseLeave={(e) => mouseLeave(message)} onMouseEnter={(e) => mouseOver(message)} title={message.msg} onClick={(e) => fillMessage(message)}><span title={t('chat_canned.send_instantly')} onClick={(e) => fillAndSend(message,e)} className="material-icons fs12">send</span> {message.message_title}</a>
                                     </li>
                                 ))}

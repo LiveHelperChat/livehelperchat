@@ -67,9 +67,9 @@
             <input class="form-control form-control-sm" name="starts_at" type="datetime-local" value="<?php echo date('Y-m-d\TH:i', $item->starts_at > 0 ? $item->starts_at : time())?>">
         </div>
         <?php if ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_PENDING) : ?>
-            <div class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Pending, campaign has not started yet.');?></div>
+            <div class="fw-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Pending, campaign has not started yet.');?></div>
         <?php elseif ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_IN_PROGRESS) : ?>
-            <div class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','In progress');?></div>
+            <div class="fw-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','In progress');?></div>
         <?php elseif ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED) : ?>
             <label><input type="checkbox" name="activate_again" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Set campaign status to pending. E.g You can activate it again if you have added more recipients.');?></label>
         <?php endif; ?>

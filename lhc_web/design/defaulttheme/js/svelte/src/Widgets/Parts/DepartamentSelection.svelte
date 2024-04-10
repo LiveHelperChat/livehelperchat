@@ -46,7 +46,7 @@
                             </li>
                             <li class="dropdown-result">
                                 <ul class="list-unstyled dropdown-lhc">
-                                    <li data-stoppropagation="true" class="search-option-item font-weight-bold">
+                                    <li data-stoppropagation="true" class="search-option-item fw-bold">
                                     <label><input class="me-1" checked="checked" type="radio" value="0">Any</label></li>
                                     {#each Object.entries(departaments) as [id, name]}
                                         {#if keyword == "" || name.includes(keyword)}

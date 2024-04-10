@@ -644,7 +644,7 @@ const DashboardChatTabs = props => {
                         </div>
 
                         {(chat.msg || (chat.tp == 'true' && chat.tx)) && <div className="fs13 text-muted pt-1">
-                            <span title={chat.tp == 'true' && chat.tx ? chat.tx : chat.msg} className={"d-none d-lg-inline-block text-truncate mw-100 "+(chat.mn > 0 ? 'fw-bold' : '')+(chat.tp == 'true' && chat.tx ? ' font-italic': '')}>
+                            <span title={chat.tp == 'true' && chat.tx ? chat.tx : chat.msg} className={"d-none d-lg-inline-block text-truncate mw-100 "+(chat.mn > 0 ? 'fw-bold' : '')+(chat.tp == 'true' && chat.tx ? ' fst-italic': '')}>
                                 {chat.tp == 'true' && chat.tx ? chat.tx : chat.msg}
                             </span>
                         </div>}

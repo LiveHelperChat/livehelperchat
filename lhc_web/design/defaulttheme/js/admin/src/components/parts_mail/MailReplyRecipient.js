@@ -51,7 +51,7 @@ const MailReplyRecipient = props => {
     
     return <div className="row">
 
-        {!props.readOnly && <div className="col-12 text-secondary font-weight-bold fs13 pb-1">{t('r.recipients')} <i className="material-icons settings text-muted" onClick={(e) => setReciepints("add_recipient","reply")} style={{fontSize: "20px"}}>add</i> Cc <i className="material-icons settings text-muted" onClick={(e) => setReciepints("add_recipient","cc")} style={{fontSize: "20px"}}>add</i> Bcc <i onClick={(e) => setReciepints("add_recipient","bcc")} className="material-icons settings text-muted" style={{fontSize: "20px"}}>add</i></div>}
+        {!props.readOnly && <div className="col-12 text-secondary fw-bold fs13 pb-1">{t('r.recipients')} <i className="material-icons settings text-muted" onClick={(e) => setReciepints("add_recipient","reply")} style={{fontSize: "20px"}}>add</i> Cc <i className="material-icons settings text-muted" onClick={(e) => setReciepints("add_recipient","cc")} style={{fontSize: "20px"}}>add</i> Bcc <i onClick={(e) => setReciepints("add_recipient","bcc")} className="material-icons settings text-muted" style={{fontSize: "20px"}}>add</i></div>}
 
         <div className="col-6">
             {recipients.reply && recipients.reply.map((mail, index) => (

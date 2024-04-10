@@ -86,7 +86,7 @@ class NodeTriggerActionQuickReply extends Component {
             <div className="row border-top border-dark">
                 <div className="col-5">
                     <div className="form-group">
-                        <label className="font-weight-bold">Name</label>
+                        <label className="fw-bold">Name</label>
                         <input type="text" onChange={this.onNameChange} defaultValue={this.props.reply.getIn(['content','name'])} className="form-control form-control-sm" />
                     </div>
                     <div className="row">
