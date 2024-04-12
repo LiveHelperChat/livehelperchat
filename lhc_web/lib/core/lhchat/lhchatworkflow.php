@@ -243,6 +243,7 @@ class erLhcoreClassChatWorkflow {
                 }
 
                 if (in_array($chat->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $chat->auto_responder !== false) {
+                    $chat->auto_responder->chat = $chat;
                     $chat->auto_responder->processClose();
                 }
 
@@ -288,6 +289,7 @@ class erLhcoreClassChatWorkflow {
                 }
 
                 if (in_array($chat->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $chat->auto_responder !== false) {
+                    $chat->auto_responder->chat = $chat;
                     $chat->auto_responder->processClose();
                 }
 
@@ -378,6 +380,7 @@ class erLhcoreClassChatWorkflow {
                 }
 
                 if (in_array($chat->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $chat->auto_responder !== false) {
+                    $chat->auto_responder->chat = $chat;
                     $chat->auto_responder->processClose();
                 }
 
@@ -425,6 +428,7 @@ class erLhcoreClassChatWorkflow {
                 }
 
                 if (in_array($chat->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $chat->auto_responder !== false) {
+                    $chat->auto_responder->chat = $chat;
                     $chat->auto_responder->processClose();
                 }
 
@@ -477,6 +481,7 @@ class erLhcoreClassChatWorkflow {
                 }
 
                 if (in_array($chat->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $chat->auto_responder !== false) {
+                    $chat->auto_responder->chat = $chat;
                     $chat->auto_responder->processClose();
                 }
 
@@ -560,6 +565,7 @@ class erLhcoreClassChatWorkflow {
                 }
 
                 if (in_array($chat->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $chat->auto_responder !== false) {
+                    $chat->auto_responder->chat = $chat;
                     $chat->auto_responder->processClose();
                 }
 
