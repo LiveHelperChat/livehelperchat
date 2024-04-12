@@ -10,6 +10,7 @@ div.message-row {
     src: url('../fonts/MaterialSymbolsRounded2.woff2') format("woff2");
 }
 
+div.auto-responder-msg > div.msg-body::before,
 .material-icons{
     font-family: 'Material Symbols Rounded';
     font-weight: normal;

@@ -174,6 +174,10 @@ class erLhcoreClassGenericBotActionText {
             $msg->msg = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$msg->msg);
         }
 
+        if (isset($params['auto_responder']) && $params['auto_responder'] === true) {
+            $metaMessage['content']['auto_responder'] = true;
+        }
+
         $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->msg, array('chat' => $chat, 'args' => $params));
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : (isset($params['meta_msg']) && !empty($params['meta_msg']) ? json_encode($params['meta_msg']) : '');
 

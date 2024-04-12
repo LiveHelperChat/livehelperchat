@@ -469,6 +469,9 @@ if (empty($Errors)) {
                         $msg = new erLhcoreClassModelmsg();
                         $msg->msg = trim($messageText);
                         $msg->meta_msg = $responder->getMeta($chat, 'pending');
+                        if ($msg->meta_msg == '') {
+                            $msg->meta_msg = '{"content":{"auto_responder":true}}';
+                        }
                         $msg->chat_id = $chat->id;
                         $msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
                         $msg->user_id = -2;

@@ -27,6 +27,10 @@ class erLhcoreClassGenericBotActionList {
         if (isset($action['content']['list_options']['hide_text_area']) && $action['content']['list_options']['hide_text_area'] == true) {
             $metaMessage['content']['attr_options']['hide_text_area'] = true;
         }
+        
+        if (isset($params['auto_responder']) && $params['auto_responder'] === true) {
+            $metaMessage['content']['auto_responder'] = true;
+        }
 
         $msg->msg = '';
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';

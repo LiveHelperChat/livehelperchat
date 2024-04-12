@@ -577,6 +577,20 @@ div.whisper-msg span.op-tit{
     color: #bcbcbc!important;
 }
 
+div.auto-responder-msg div.msg-body{
+    color: var(--lhc-msg-body-op-text-other);
+    background-color: var(--lhc-msg-body-op-bg-other);
+}
+
+div.auto-responder-msg > div.msg-body::before{
+    content: 'hdr_auto';
+    z-index:999;
+    position: absolute;
+    right:-7px;
+    top:-3px;
+    color:var(--lhc-msg-body-op-text-other);
+}
+
 div.message-admin div.msg-body a.link{
 	color:var(--lhc-msg-body-op-text);
 	text-decoration:underline;

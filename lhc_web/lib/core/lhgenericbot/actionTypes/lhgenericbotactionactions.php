@@ -33,7 +33,14 @@ class erLhcoreClassGenericBotActionActions {
                 $msg->time += 1;
             }
 
+            $metaMessage = [];
+
+            if (isset($params['auto_responder']) && $params['auto_responder'] === true) {
+                $metaMessage['content']['auto_responder'] = true;
+            }
+
             $msg->msg = $item;
+            $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
 
             if (isset($params['replace_array'])) {
                 $msg->msg = str_replace(array_keys($params['replace_array']), array_values($params['replace_array']), $msg->msg);

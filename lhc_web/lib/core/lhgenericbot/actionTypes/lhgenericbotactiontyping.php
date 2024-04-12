@@ -41,6 +41,10 @@ class erLhcoreClassGenericBotActionTyping {
 
             $metaMessage['content']['typing'] = $action['content'];
 
+            if (isset($params['auto_responder']) && $params['auto_responder'] === true) {
+                $metaMessage['content']['auto_responder'] = true;
+            }
+
             $msg->msg = "";
             $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
             

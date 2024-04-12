@@ -46,6 +46,7 @@ class erLhAbstractModelAutoResponderChat
                 $msg->chat_id = $this->chat->id;
                 $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
+                $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
                 $msg->time = time();
 
                 \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => $this->chat));
@@ -77,6 +78,7 @@ class erLhAbstractModelAutoResponderChat
                 $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
                 $msg->time = time();
+                $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
                 $msg->saveThis();
 
                 \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => $this->chat));
@@ -147,6 +149,7 @@ class erLhAbstractModelAutoResponderChat
                                     $msg->name_support = $name_support;
                                     $msg->user_id = - 2;
                                     $msg->time = time();
+                                    $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
 
                                     \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
                                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true, 'msg' => & $msg, 'chat' => & $this->chat));
@@ -263,6 +266,7 @@ class erLhAbstractModelAutoResponderChat
                                     $msg->name_support = $name_support;
                                     $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
                                     $msg->time = time();
+                                    $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
 
                                     \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
                                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true,'msg' => & $msg, 'chat' => & $this->chat));
@@ -301,6 +305,7 @@ class erLhAbstractModelAutoResponderChat
                                     $msg->name_support = $name_support;
                                     $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
                                     $msg->time = time();
+                                    $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
 
                                     \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
                                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true,'msg' => & $msg, 'chat' => & $this->chat));
@@ -345,7 +350,8 @@ class erLhAbstractModelAutoResponderChat
                                 $msg->name_support = $name_support;
                                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
                                 $msg->time = time();
-
+                                $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
+                                
                                 \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
                                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true,'msg' => & $msg, 'chat' => & $this->chat));
 

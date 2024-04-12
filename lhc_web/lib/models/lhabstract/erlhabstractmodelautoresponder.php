@@ -459,6 +459,8 @@ class erLhAbstractModelAutoResponder {
                         $args['args']['override_user_id'] = $options['override_user_id'];
                     }
 
+                    $args['args']['auto_responder'] = true;
+
                     $last_msg_id = $chat->last_msg_id;
 
                     $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $args);

@@ -55,6 +55,10 @@ class erLhcoreClassGenericBotActionButtons {
         if ($msgText != '') {
             $msgText = erLhcoreClassGenericBotWorkflow::translateMessage($msgText, array('chat' => $chat, 'args' => $params));
         }
+        
+        if (isset($params['auto_responder']) && $params['auto_responder'] === true) {
+            $metaMessage['content']['auto_responder'] = true;
+        }
 
         $msg->msg = $msgText;
 

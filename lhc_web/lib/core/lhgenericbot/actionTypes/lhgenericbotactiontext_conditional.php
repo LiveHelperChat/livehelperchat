@@ -63,6 +63,10 @@ class erLhcoreClassGenericBotActionText_conditional {
             'full_op' => $action['content']['full_op'],
             'readmore_op' => $action['content']['readmore_op'],
         ];
+        
+        if (isset($params['auto_responder']) && $params['auto_responder'] === true) {
+            $metaMessage['content']['auto_responder'] = true;
+        }
 
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : (isset($params['meta_msg']) && !empty($params['meta_msg']) ? json_encode($params['meta_msg']) : '');
         $msg->chat_id = $chat->id;
