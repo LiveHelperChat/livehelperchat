@@ -242,6 +242,10 @@ class erLhcoreClassChatWorkflow {
                     $chat->cls_us = $chat->user_status_front + 1;
                 }
 
+                if (in_array($chat->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $chat->auto_responder !== false) {
+                    $chat->auto_responder->processClose();
+                }
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
@@ -281,6 +285,10 @@ class erLhcoreClassChatWorkflow {
 
                 if ($chat->cls_us == 0) {
                     $chat->cls_us = $chat->user_status_front + 1;
+                }
+
+                if (in_array($chat->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $chat->auto_responder !== false) {
+                    $chat->auto_responder->processClose();
                 }
 
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
@@ -369,6 +377,10 @@ class erLhcoreClassChatWorkflow {
                     $chat->cls_us = $chat->user_status_front + 1;
                 }
 
+                if (in_array($chat->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $chat->auto_responder !== false) {
+                    $chat->auto_responder->processClose();
+                }
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
@@ -410,6 +422,10 @@ class erLhcoreClassChatWorkflow {
 
                 if ($chat->cls_us == 0) {
                     $chat->cls_us = $chat->user_status_front + 1;
+                }
+
+                if (in_array($chat->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $chat->auto_responder !== false) {
+                    $chat->auto_responder->processClose();
                 }
 
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
@@ -458,6 +474,10 @@ class erLhcoreClassChatWorkflow {
 
                 if ($chat->cls_us == 0) {
                     $chat->cls_us = $chat->user_status_front + 1;
+                }
+
+                if (in_array($chat->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $chat->auto_responder !== false) {
+                    $chat->auto_responder->processClose();
                 }
 
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
@@ -537,6 +557,10 @@ class erLhcoreClassChatWorkflow {
 
                 if ($chat->cls_us == 0) {
                     $chat->cls_us = $chat->user_status_front + 1;
+                }
+
+                if (in_array($chat->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $chat->auto_responder !== false) {
+                    $chat->auto_responder->processClose();
                 }
 
                 $statusOriginal = $chat->status;

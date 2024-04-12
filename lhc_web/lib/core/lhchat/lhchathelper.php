@@ -149,7 +149,7 @@ class erLhcoreClassChatHelper
                     $params['chat']->cls_us = $params['chat']->user_status_front + 1;
                 }
 
-                if ($params['chat']->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT && $params['chat']->user_id > 0 && $params['chat']->auto_responder !== false) {
+                if (in_array($params['chat']->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $params['chat']->auto_responder !== false) {
                     $params['chat']->auto_responder->processClose();
                 }
 
