@@ -11,6 +11,12 @@ foreach ($messages as $msg ) :
     if (isset($msg->meta_msg) && $msg->meta_msg != '') {
         $metaMessageData = json_decode($msg->meta_msg, true);
         $messageId = isset($triggerMessageId) ? $triggerMessageId : $msg->id;
+
+        // Ignore whisper messages if required
+        if (isset($remove_whisper) && $remove_whisper === true && isset($metaMessageData['content']['whisper'])) {
+            continue;
+        }
+        
     } else if (isset($metaMessageData)) {
         unset($metaMessageData);
     }

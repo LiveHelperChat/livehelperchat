@@ -1381,14 +1381,23 @@ class erLhcoreClassGenericBotActionRestapi
 
             if (strpos($item,'{{msg_all}}') !== false && !in_array('{{msg_all}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all}}';
-
                 $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
                 // Fetch chat messages
                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
                 $tpl->set('chat', $userData['chat']);
                 $tpl->set('messages', $messages);
-
                 $userData['dynamic_variables']['{{msg_all}}'] = $tpl->fetch();
+            }
+
+            if (strpos($item,'{{msg_all_conversation}}') !== false && !in_array('{{msg_all_conversation}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{msg_all_conversation}}';
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'filternot' => array('user_id' => -1), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                // Fetch chat messages
+                $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                $tpl->set('chat', $userData['chat']);
+                $tpl->set('messages', $messages);
+                $tpl->set('remove_whisper', true);
+                $userData['dynamic_variables']['{{msg_all_conversation}}'] = $tpl->fetch();
             }
 
             if (
