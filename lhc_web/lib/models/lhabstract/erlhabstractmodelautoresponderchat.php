@@ -46,7 +46,7 @@ class erLhAbstractModelAutoResponderChat
                 $msg->chat_id = $this->chat->id;
                 $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
-                $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
+                $msg->meta_msg = json_encode(['content' => ['auto_responder' => true,'auto_responder_cl_msg' => true]]);
                 $msg->time = time();
 
                 \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => $this->chat));
