@@ -150,6 +150,7 @@ class erLhcoreClassChatHelper
                 }
 
                 if (in_array($params['chat']->status,[erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) && $params['chat']->auto_responder !== false) {
+                    $params['chat']->auto_responder->chat = $params['chat'];
                     $params['chat']->auto_responder->processClose();
                 }
 
