@@ -253,11 +253,19 @@ class erLhcoreClassChatWebhookContinuous {
 
     public static function dispatchEvents($chat, $params)
     {
+        static $processedMessages = [];
+        
         $lastMessageIdNew = $lastMessageId = $params['msg_last_id'];
 
         $botMessages = erLhcoreClassModelmsg::getList(array('filter' => array('user_id' => -2, 'chat_id' => $chat->id), 'filtergt' => array('id' => $params['msg_last_id'])));
         foreach ($botMessages as $botMessage) {
 
+            if (isset($processedMessages[$chat->id]) && in_array($botMessage->id,$processedMessages[$chat->id])) {
+                continue;
+            }
+
+            $processedMessages[$chat->id][] = $botMessage->id;
+            
             $lastMessageIdNew = $botMessage->id;
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
