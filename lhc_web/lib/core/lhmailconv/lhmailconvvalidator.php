@@ -930,8 +930,19 @@ class erLhcoreClassMailconvValidator {
 
             // Create a copy in send folder
             $imapStream = imap_open($path, $mailbox->username, $mailbox->password);
-            $result = imap_append($imapStream, $path, $mail->getSentMIMEMessage());
-            imap_close($imapStream);
+
+            // Retry
+            if ($imapStream === false) {
+                sleep(1);
+                $imapStream = imap_open($path, $mailbox->username, $mailbox->password);
+            }
+
+            if ($imapStream !== false) {
+                $result = imap_append($imapStream, $path, $mail->getSentMIMEMessage());
+                imap_close($imapStream);
+            } else {
+                $result = false;
+            }
 
             if ($result !== true) {
                 return ['success' => false, 'reason' => implode("\n",imap_errors())];
