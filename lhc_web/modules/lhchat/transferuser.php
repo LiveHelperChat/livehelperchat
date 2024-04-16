@@ -1,6 +1,6 @@
 <?php
 
-if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['user_parameters']['item_id']))
+if (is_numeric($Params['user_parameters']['chat_id']) && is_numeric($Params['user_parameters']['item_id']))
 {
     $db = ezcDbInstance::get();
     $db->beginTransaction();

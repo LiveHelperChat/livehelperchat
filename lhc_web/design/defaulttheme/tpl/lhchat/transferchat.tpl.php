@@ -38,7 +38,7 @@
 
             </div>
 
-    		<input type="button" onclick="lhinst.transferChat('<?php echo $chat->id;?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
+    		<input type="button" onclick="lhinst.transferChat('<?php echo $chat->id;?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="transfer-action-button btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
     		
 		</div>
 
@@ -51,7 +51,7 @@
 
                     </div>
 
-            		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
+            		<input type="button" onclick="lhinst.transferChatDep('<?php echo $chat->id;?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="transfer-action-button btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Transfer');?>" />
         		</div>
         		<div class="col-6">
         		    <div class="checkbox">
@@ -120,7 +120,7 @@
                     'list_function_params'  => array('sort' => '`name` ASC', 'limit' => 50, 'filter' => array('disabled' => 0))
                 )); ?>
             </div>
-            <input type="button" onclick="lhinst.changeOwner('<?php echo $chat->id?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?>">
+            <input type="button" onclick="lhinst.changeOwner('<?php echo $chat->id?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="transfer-action-button btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?>">
         </div>
         <?php endif; ?>
 
@@ -128,7 +128,7 @@
         <div role="tabpanel" class="tab-pane" id="changedepartment">
             <?php include(erLhcoreClassDesign::designtpl('lhchat/transfer/department.tpl.php'));?>
             <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','You will still remain an owner of the chat.');?></small></p>
-            <input type="button" onclick="lhinst.changeDep('<?php echo $chat->id?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change department');?>">
+            <input type="button" onclick="lhinst.changeDep('<?php echo $chat->id?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="transfer-action-button btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change department');?>">
         </div>
         <?php endif; ?>
 

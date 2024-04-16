@@ -1650,34 +1650,71 @@ function lh(){
         },1000);
 	};
 
+    this.transferChatDep = function(chat_id, obj)
+    {
+        $('.transfer-action-button').attr('disabled','disabled');
+        var inst = this;
+        var user_id = $('[name=DepartamentID'+chat_id+']:checked').val();
+        $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'dep', 'obj' : obj}, function(data){
+            if (data.error == 'false') {
+                $('#transfer-block-'+data.chat_id).html(data.result);
+                inst.hideTransferModal(chat_id, obj);
+            } else {
+                $('#transfer-block-'+chat_id).text(JSON.stringify(data));
+            };
+            $('.transfer-action-button').removeAttr('disabled');
+        }).fail(function(respose) {
+            var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text('You have weak internet connection or the server has problems. Try to refresh the page or send the message again.' + (typeof respose.status !== 'undefined' ? ' Error code ['+respose.status+']' : '') + (typeof respose.responseText !== 'undefined' ? respose.responseText : '')).html() + '</div>';
+            $('#transfer-block-'+chat_id).html(escaped);
+            $('.transfer-action-button').removeAttr('disabled');
+        });
+    };
+
 	this.transferChat = function(chat_id, obj)
 	{
         var inst = this;
 
 		var user_id = $('[name=TransferTo'+chat_id+']:checked').val();
 
-		$.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'user', 'obj': obj}, function(data){
+        $('.transfer-action-button').attr('disabled','disabled');
+        $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'user', 'obj': obj}, function(data){
 			if (data.error == 'false') {
 				$('#transfer-block-'+data.chat_id).html(data.result);
                 inst.hideTransferModal(chat_id, obj);
-			};
-		});
+			} else {
+                $('#transfer-block-'+chat_id).text(JSON.stringify(data));
+            };
+            $('.transfer-action-button').removeAttr('disabled');
+		}).fail(function(respose) {
+            var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text('You have weak internet connection or the server has problems. Try to refresh the page or send the message again.' + (typeof respose.status !== 'undefined' ? ' Error code ['+respose.status+']' : '') + (typeof respose.responseText !== 'undefined' ? respose.responseText : '')).html() + '</div>';
+            $('#transfer-block-'+chat_id).html(escaped);
+            $('.transfer-action-button').removeAttr('disabled');
+        });
 	};
 
 	this.changeOwner = function(chat_id, obj) {
         var inst = this;
         var user_id = $('#id_new_user_id').val();
+        $('.transfer-action-button').attr('disabled','disabled');
         $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id, {'type' : 'change_owner','obj' : obj}, function(data){
             if (data.error == 'false') {
                 $('#transfer-block-'+data.chat_id).html(data.result);
                 inst.hideTransferModal(chat_id, obj);
+            } else {
+                $('#transfer-block-'+chat_id).text(JSON.stringify(data));
             };
+            $('.transfer-action-button').removeAttr('disabled');
+        }).fail(function(respose) {
+            var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text('You have weak internet connection or the server has problems. Try to refresh the page or send the message again.' + (typeof respose.status !== 'undefined' ? ' Error code ['+respose.status+']' : '') + (typeof respose.responseText !== 'undefined' ? respose.responseText : '')).html() + '</div>';
+            $('#transfer-block-'+chat_id).html(escaped);
+            $('.transfer-action-button').removeAttr('disabled');
         });
     };
 
 	this.changeDep = function(chat_id, obj) {
         var inst = this;
         var user_id = $('#id_new_dep_id').val();
+        $('.transfer-action-button').attr('disabled','disabled');
         $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id, {'type':'change_dep','obj' : obj}, function(data){
             if (data.error == 'false') {
                 $('#transfer-block-'+data.chat_id).html(data.result);
@@ -1687,8 +1724,16 @@ function lh(){
                 } else {
                     inst.updateVoteStatus(chat_id);
                 }
+            } else {
+                $('#transfer-block-'+chat_id).text(JSON.stringify(data));
             };
+            $('.transfer-action-button').removeAttr('disabled');
+        }).fail(function(respose) {
+            var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text('You have weak internet connection or the server has problems. Try to refresh the page or send the message again.' + (typeof respose.status !== 'undefined' ? ' Error code ['+respose.status+']' : '') + (typeof respose.responseText !== 'undefined' ? respose.responseText : '')).html() + '</div>';
+            $('#transfer-block-'+chat_id).html(escaped);
+            $('.transfer-action-button').removeAttr('disabled');
         });
+
     };
 
 	this.chooseSurvey = function(chat_id)
@@ -1765,18 +1810,6 @@ function lh(){
 			lhinst.addRemoteOnlineCommand(online_user_id,'lhc_chat_redirect:'+url.replace(new RegExp(':','g'),'__SPLIT__'));
 			lhinst.addExecutionCommand(online_user_id,'lhc_cobrowse_multi_command__lhc_chat_redirect:'+url.replace(new RegExp(':','g'),'__SPLIT__'));
 		}
-	};
-
-	this.transferChatDep = function(chat_id, obj)
-	{
-		var inst = this;
-	    var user_id = $('[name=DepartamentID'+chat_id+']:checked').val();
-	    $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id ,{'type':'dep', 'obj' : obj}, function(data){
-	        if (data.error == 'false') {
-	        	$('#transfer-block-'+data.chat_id).html(data.result);
-                inst.hideTransferModal(chat_id, obj);
-	        };
-	    });
 	};
 
 	this.chatTabsOpen = function ()
