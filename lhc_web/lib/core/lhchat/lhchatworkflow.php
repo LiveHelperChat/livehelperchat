@@ -17,7 +17,8 @@ class erLhcoreClassChatWorkflow {
             $msg->name_support = $name_support;
             $msg->user_id = -2;
             $msg->time = time();
-
+            $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
+            
             \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat));
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true,'msg' => & $msg, 'chat' => & $chat));
 
