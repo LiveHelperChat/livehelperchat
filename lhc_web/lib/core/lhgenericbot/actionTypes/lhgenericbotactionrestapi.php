@@ -784,26 +784,28 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
-        foreach ($paramsCustomer['chat']->additional_data_array as $keyItem => $addItem) {
-            if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
-                if (isset($addItem['identifier'])) {
-                    if (is_string($addItem['value']) || is_numeric($addItem['value'])) {
-                        $replaceVariables['{{lhc.add.' . $addItem['identifier'] . '}}'] = $addItem['value'];
-                        $replaceVariablesJSON['{{lhc.add.' . $addItem['identifier'] . '}}'] = json_encode($addItem['value']);
-                    }
-                } else if (isset($addItem['key'])) {
-                    if (is_string($addItem['value']) || is_numeric($addItem['value'])) {
-                        $replaceVariables['{{lhc.add.' . $addItem['key'] . '}}'] = $addItem['value'];
-                        $replaceVariablesJSON['{{lhc.add.' . $addItem['key'] . '}}'] = json_encode($addItem['value']);
+        if (isset($paramsCustomer['chat']) && $paramsCustomer['chat'] instanceof erLhcoreClassModelChat) {
+            foreach ($paramsCustomer['chat']->additional_data_array as $keyItem => $addItem) {
+                if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
+                    if (isset($addItem['identifier'])) {
+                        if (is_string($addItem['value']) || is_numeric($addItem['value'])) {
+                            $replaceVariables['{{lhc.add.' . $addItem['identifier'] . '}}'] = $addItem['value'];
+                            $replaceVariablesJSON['{{lhc.add.' . $addItem['identifier'] . '}}'] = json_encode($addItem['value']);
+                        }
+                    } else if (isset($addItem['key'])) {
+                        if (is_string($addItem['value']) || is_numeric($addItem['value'])) {
+                            $replaceVariables['{{lhc.add.' . $addItem['key'] . '}}'] = $addItem['value'];
+                            $replaceVariablesJSON['{{lhc.add.' . $addItem['key'] . '}}'] = json_encode($addItem['value']);
+                        }
                     }
                 }
             }
-        }
 
-        foreach ($paramsCustomer['chat']->chat_variables_array as $keyItem => $addItem) {
-            if (is_string($addItem) || is_numeric($addItem)) {
-                $replaceVariables['{{lhc.var.' . $keyItem . '}}'] = $addItem;
-                $replaceVariablesJSON['{{lhc.var.' . $keyItem . '}}'] = json_encode($addItem);
+            foreach ($paramsCustomer['chat']->chat_variables_array as $keyItem => $addItem) {
+                if (is_string($addItem) || is_numeric($addItem)) {
+                    $replaceVariables['{{lhc.var.' . $keyItem . '}}'] = $addItem;
+                    $replaceVariablesJSON['{{lhc.var.' . $keyItem . '}}'] = json_encode($addItem);
+                }
             }
         }
 
