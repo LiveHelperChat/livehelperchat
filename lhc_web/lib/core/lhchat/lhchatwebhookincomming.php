@@ -975,6 +975,7 @@ class erLhcoreClassChatWebhookIncoming {
                                 $msgResponder->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support');
                                 $msgResponder->user_id = -2;
                                 $msgResponder->time = time() + 1;
+                                $msgResponder->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
                                 erLhcoreClassChat::getSession()->save($msgResponder);
 
                                 $chat->last_msg_id = $msgResponder->id;
@@ -991,6 +992,7 @@ class erLhcoreClassChatWebhookIncoming {
                             $msgResponder->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support');
                             $msgResponder->user_id = -2;
                             $msgResponder->time = time() + 1;
+                            $msgResponder->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
                             erLhcoreClassChat::getSession()->save($msgResponder);
 
                             $chat->last_msg_id = $msgResponder->id;
