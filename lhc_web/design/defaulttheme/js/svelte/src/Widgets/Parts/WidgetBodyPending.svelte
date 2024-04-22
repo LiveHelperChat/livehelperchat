@@ -611,8 +611,8 @@
                 {/if}
 
                 {#if type == 'online_op'}
-                    <td title={$t("widget.op_chats_statistic")} class="align-middle"  class:text-danger={chat.max_chats && chat.max_chats > 0 && chat.max_chats - chat.active_chats <= 0} class:text-success={chat.max_chats && chat.max_chats > 0 && chat.max_chats - chat.active_chats >= 1}>
-                        {chat.active_chats + chat.pending_chats - chat.inactive_chats} {#if !hide_ac_stats} <abbr title={$t("widget.live_chats")+"\n("+chat.active_chats + " + " + chat.pending_chats + " - " + chat.inactive_chats + ")"}>l.c</abbr>, {chat.max_chats && chat.max_chats > 0 ? (chat.max_chats - ((chat.active_chats +  chat.pending_chats) - chat.inactive_chats)) : ' n/a'} <abbr title={$t("widget.free_slots") + "\n" + chat.max_chats + " - ((" + chat.active_chats + " + " + chat.pending_chats + ") - "+chat.inactive_chats+")"}>f.s</abbr>{/if}
+                    <td title={$t("widget.op_chats_statistic")} class="align-middle"  class:text-danger={chat.max_chats && chat.max_chats > 0 && chat.free_slots <= 0} class:text-success={chat.max_chats && chat.max_chats > 0 && chat.free_slots >= 1}>
+                        {chat.live_chats} {#if !hide_ac_stats} <abbr title={$t("widget.live_chats")+"\n("+chat.active_chats + " + " + chat.pending_chats + " - " + chat.inactive_chats + ")"}>l.c</abbr>, {chat.max_chats && chat.max_chats > 0 ? chat.free_slots : ' n/a'} <abbr title={$t("widget.free_slots") + "\n" + chat.max_chats + " - ((" + chat.active_chats + " + " + chat.pending_chats + ") - "+chat.inactive_chats+")"}>f.s</abbr>{/if}
                     </td>
                 {/if}
 

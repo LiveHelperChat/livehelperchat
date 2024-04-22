@@ -51,22 +51,26 @@ class erLhcoreClassModelUserDep
             case 'user':
                 $this->user = erLhcoreClassModelUser::fetch($this->user_id);
                 return $this->user;
-                break;
+
+            case 'live_chats':
+                $this->live_chats = $this->active_chats + $this->pending_chats - $this->inactive_chats;
+                return $this->live_chats;
+
+            case 'free_slots':
+                $this->free_slots = $this->max_chats - $this->live_chats;
+                return $this->free_slots;
 
             case 'lastactivity_ago':
                 $this->lastactivity_ago = erLhcoreClassChat::getAgoFormat($this->last_activity);
                 return $this->lastactivity_ago;
-                break;
 
             case 'last_accepted_ago':
                 $this->last_accepted_ago = erLhcoreClassChat::getAgoFormat($this->last_accepted);
                 return $this->last_accepted_ago;
-                break;
 
             case 'offline_since':
                 $this->offline_since = erLhcoreClassChat::getAgoFormat($this->hide_online_ts);
                 return $this->offline_since;
-                break;
 
             case 'avatar':
                 if ($this->user->has_photo) {
@@ -76,19 +80,15 @@ class erLhcoreClassModelUserDep
                 } else {
                     $this->avatar = null;
                 }
-
                 return $this->avatar;
-                break;
 
             case 'name_support':
                 $this->name_support = $this->user->name_support;
                 return $this->name_support;
-                break;
 
             case 'name_official':
                 $this->name_official = $this->user->name_official;
                 return $this->name_official;
-                break;
 
             case 'departments_names':
                 $this->departments_names = array();
@@ -126,7 +126,6 @@ class erLhcoreClassModelUserDep
                     }
                 }
                 return $this->departments_names;
-                break;
 
             default:
                 break;
