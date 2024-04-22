@@ -743,14 +743,16 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
     if (!empty($depIds)) {
         $filter['customfilter'][] = '(dep_id = 0 OR dep_id IN ('.implode(",", $depIds).'))';
     }
-   
+
     $validSort = array(
-        'onl_dsc' => 'hide_online DESC, active_chats DESC',
-        'onl_asc' => 'hide_online ASC, active_chats DESC',
-        'ac_dsc' => 'active_chats DESC, hide_online ASC',
-        'ac_asc' => 'active_chats ASC, hide_online ASC',
-        'rac_asc' => '((active_chats + pending_chats) - inactive_chats) ASC, hide_online ASC',
-        'rac_dsc' => '((active_chats + pending_chats) - inactive_chats) DESC, hide_online ASC',
+        'onn_dsc' => 'name DESC',
+        'onn_asc' => 'name ASC',
+        'onl_dsc' => 'hide_online DESC, active_chats DESC, name ASC',
+        'onl_asc' => 'hide_online ASC, active_chats DESC, name ASC',
+        'ac_dsc' => 'active_chats DESC, name ASC',
+        'ac_asc' => 'active_chats ASC, name ASC',
+        'rac_asc' => '((active_chats + pending_chats) - inactive_chats) ASC, name ASC',
+        'rac_dsc' => '((active_chats + pending_chats) - inactive_chats) DESC, name ASC',
     );
 
     if (key_exists($Params['user_parameters_unordered']['onop'], $validSort)) {
@@ -772,7 +774,7 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
 
 	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser,$canListOnlineUsersAll,$filter,is_numeric($Params['user_parameters_unordered']['limito']) ? (int)$Params['user_parameters_unordered']['limito'] : 10,$onlineTimeout, ['dashboard' => true]);
 	
-	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('lastactivity_ago','max_chats','offline_since','ro','dep_id','user_id','id','name_official','pending_chats','inactive_chats','active_chats','departments_names','hide_online','avatar'),array(),array('filter_function' => true, 'remove_all' => true));
+	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('last_accepted_ago','lastactivity_ago','max_chats','offline_since','ro','dep_id','user_id','id','name_official','pending_chats','inactive_chats','active_chats','departments_names','hide_online','avatar'),array(),array('filter_function' => true, 'remove_all' => true));
 
 	$currentOp = isset($onlineOperators[$userData->id]) ? $onlineOperators[$userData->id] : null;
 

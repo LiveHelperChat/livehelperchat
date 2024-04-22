@@ -58,6 +58,11 @@ class erLhcoreClassModelUserDep
                 return $this->lastactivity_ago;
                 break;
 
+            case 'last_accepted_ago':
+                $this->last_accepted_ago = erLhcoreClassChat::getAgoFormat($this->last_accepted);
+                return $this->last_accepted_ago;
+                break;
+
             case 'offline_since':
                 $this->offline_since = erLhcoreClassChat::getAgoFormat($this->hide_online_ts);
                 return $this->offline_since;
@@ -154,6 +159,8 @@ class erLhcoreClassModelUserDep
             $filter['customfilter'][] = '(last_activity > ' . (int)(time() - $onlineTimeout) . ' OR always_on = 1)';
         }
 
+        $filter['innerjoin'] = array('`lh_users`' => array('`lh_userdep`.`user_id`', '`lh_users`.`id`'));
+
         $filter['limit'] = $limit;
 
         if (!isset($params['sort'])) {
@@ -167,16 +174,16 @@ class erLhcoreClassModelUserDep
         $filter['ignore_fields'] = array('chat_max_priority','chat_min_priority','assign_priority', 'max_mails','last_accepted_mail','exc_indv_autoasign','exclude_autoasign_mails','active_mails','pending_mails','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
 
         $filter['select_columns'] = '
-        max(`id`) as `id`, 
+         max(`lh_userdep`.`id`) as `id`, 
         max(`ro`) as `ro`,
         max(`max_chats`) as `max_chats`,
         max(`max_mails`) as `max_mails`,
         max(`dep_id`) as `dep_id`,
         max(`hide_online_ts`) as `hide_online_ts`,
-        max(`hide_online`) as `hide_online`,
+        max(`lh_userdep`.`hide_online`) as `hide_online`,
         max(`last_activity`) as `last_activity`, 
         max(`lastd_activity`) as `lastd_activity`, 
-        max(`always_on`) as `always_on`, 
+        max(`lh_userdep`.`always_on`) as `always_on`, 
         max(`last_accepted`) as `last_accepted`,
         max(`last_accepted_mail`) as `last_accepted_mail`,
         max(`active_chats`) as `active_chats`,

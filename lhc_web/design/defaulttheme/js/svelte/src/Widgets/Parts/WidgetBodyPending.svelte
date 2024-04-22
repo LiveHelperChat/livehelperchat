@@ -73,10 +73,17 @@
         <th width={column_1_width}>
 
             {#if type == 'online_op'}
-            <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList,sort_identifier,'onl_dsc','onl_asc',true)}>
-                <i title={$t("widget.operator")} class="material-icons">account_box</i>
-                <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'onl_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'onl_asc'} title={$t("widget.sort_by_online_status")} class="material-icons">{$lhcList.toggleWidgetData[sort_identifier] == 'onl_dsc' || $lhcList.toggleWidgetData[sort_identifier] != 'onl_asc' ? 'trending_up' : 'trending_down'}</i>
+
+            <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList,sort_identifier,'onn_dsc','onn_asc',true)} title={$t("widget.sort_by_online_name")}>
+                <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'onn_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'onn_asc'} class="material-icons chat-active">account_box</i>
+                <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'onn_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'onn_asc'} class="material-icons">{$lhcList.toggleWidgetData[sort_identifier] == 'onn_dsc' || $lhcList.toggleWidgetData[sort_identifier] != 'onn_asc' ? 'trending_up' : 'trending_down'}</i>
             </a>
+
+            <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList,sort_identifier,'onl_dsc','onl_asc',true)} title={$t("widget.sort_by_online_status")}>
+                <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'onl_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'onl_asc'} class="material-icons chat-active">flash_on</i>
+                <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'onl_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'onl_asc'} class="material-icons">{$lhcList.toggleWidgetData[sort_identifier] == 'onl_dsc' || $lhcList.toggleWidgetData[sort_identifier] != 'onl_asc' ? 'trending_up' : 'trending_down'}</i>
+            </a>
+
                 {#if type == 'online_op'}<span class="text-success" title={$t("widget.online")}>{$lhcList[type].op_on}</span>{/if}
             {:else if type == 'depgroups_stats'}
                 <i title={$t("widget.dep_group")} class="material-icons">&#xE84F;</i>
@@ -142,7 +149,7 @@
             {/if}
 
             {#if type === 'online_op'}
-                <i title={$t("widget.last_activity_ago")}  class="material-icons">access_time</i>
+                <i title={$t("widget.last_assignment_ago")}  class="material-icons">assignment_ind</i>
             {/if}
 
             {#if type === 'pending_chats' || type === 'my_mails' || type === 'alarm_mails' || type === 'active_mails' || type === 'pending_mails'}
@@ -179,8 +186,12 @@
 
         {#if type == 'online_op'}
         <th width="15%">
+            <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList,sort_identifier,'rac_dsc','rac_asc',true)}>
+                {#if !hide_ac_op_icon}<i title={$t("widget.live_chats")} class="material-icons chat-active" class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'rac_asc' && $lhcList.toggleWidgetData[sort_identifier] != 'rac_dsc'}>sms</i>{/if}
+                <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'rac_asc' && $lhcList.toggleWidgetData[sort_identifier] != 'rac_dsc'} title={$t("widget.sort_by_chat_number_real")} class="material-icons">{$lhcList.toggleWidgetData[sort_identifier] == 'rac_dsc' || $lhcList.toggleWidgetData[sort_identifier] != 'rac_asc' ? 'trending_up' : 'trending_down'}</i>
+            </a>
             <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList,sort_identifier,'ac_dsc','ac_asc',true)}>
-                {#if !hide_ac_op_icon}<i title={$t("widget_title.active_chats")} class="material-icons chat-active">chat</i>{/if}
+                {#if !hide_ac_op_icon}<i title={$t("widget_title.active_chats")} class="material-icons chat-active" class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'ac_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'ac_asc'}>chat</i>{/if}
                 <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'ac_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'ac_asc'} title={$t("widget.sort_by_chat_number")} class="material-icons">{$lhcList.toggleWidgetData[sort_identifier] == 'ac_dsc' || $lhcList.toggleWidgetData[sort_identifier] != 'ac_asc' ? 'trending_up' : 'trending_down'}</i>
             </a>
         </th>
@@ -409,10 +420,11 @@
                         {/if}
 
                         {#if permissions.indexOf('lhstatistic_userstats') !== -1}
-                            <a class:text-muted={chat.ro} href="#" title={$t("widget.see_op_stats")} on:click={(e) => lhcServices.openModal('statistic/userstats/'+chat.user_id)}>{chat.hide_online == 1 ? (chat.offline_since ? chat.offline_since : '') : ''} {chat.name_official}</a>
+                            <a class:text-muted={chat.ro} href="#" title={$t("widget.last_activity_ago") + " " + chat.lastactivity_ago + " " + $t("widget.see_op_stats")} on:click={(e) => lhcServices.openModal('statistic/userstats/'+chat.user_id)}>{#if chat.hide_online && chat.offline_since}<span title={$t("widget.went_offline_ago",{'ago': chat.offline_since})}>{chat.offline_since}</span>{/if} {chat.name_official}</a>
                         {:else}
-                            {chat.hide_online == 1 ? (chat.offline_since ? chat.offline_since : '') : ''} {chat.name_official}
+                            {#if chat.hide_online && chat.offline_since}<span title={$t("widget.went_offline_ago",{'ago': chat.offline_since})}>{chat.offline_since}</span>{/if} <span title={$t("widget.last_activity_ago") + " " + chat.lastactivity_ago}>{chat.name_official}</span>
                         {/if}
+
 
                     {:else if type == 'group_chats'}
 
@@ -568,7 +580,7 @@
                     {/if}
 
                     {#if type == 'online_op'}
-                        <div class="abbr-list" title="{chat.lastactivity_ago}">{chat.lastactivity_ago}</div>
+                        <div class="abbr-list" title={$t("widget.last_assignment_ago")}>{chat.last_accepted_ago || "-"}</div>
                     {/if}
 
                     {#if type == 'active_chats' || type == 'subject_chats' || type == 'bot_chats'}
@@ -592,7 +604,7 @@
 
                 {#if type == 'online_op'}
                     <td title='{$t("widget.max")} - {chat.max_chats && chat.max_chats > 0 ? chat.max_chats : "n/a"} {$t("widget.chats")}' class="align-middle"  class:text-danger={chat.max_chats && chat.max_chats > 0 && chat.max_chats - chat.active_chats <= 0} class:text-success={chat.max_chats && chat.max_chats > 0 && chat.max_chats - chat.active_chats >= 1}>
-                        {chat.active_chats}{#if !hide_ac_stats} <abbr title={$t("widget_title.active_chats")}>a.c</abbr>, {chat.max_chats && chat.max_chats > 0 ? (chat.max_chats - chat.active_chats) : ' n/a'} <abbr title={$t("widget.free_slots")}>f.s</abbr>{/if}
+                        {chat.active_chats + chat.pending_chats - chat.inactive_chats} {#if !hide_ac_stats} <abbr title={$t("widget.live_chats")+"\n("+chat.active_chats + " + " + chat.pending_chats + " - " + chat.inactive_chats + ")"}>l.c</abbr>, {chat.max_chats && chat.max_chats > 0 ? (chat.max_chats - ((chat.active_chats +  chat.pending_chats) - chat.inactive_chats)) : ' n/a'} <abbr title={$t("widget.free_slots") + "\n" + chat.max_chats + " - ((" + chat.active_chats + " + " + chat.pending_chats + ") - "+chat.inactive_chats+")"}>f.s</abbr>{/if}
                     </td>
                 {/if}
 
