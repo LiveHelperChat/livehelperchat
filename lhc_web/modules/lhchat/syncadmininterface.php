@@ -747,8 +747,8 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
     $validSort = array(
         'onn_dsc' => 'name DESC',
         'onn_asc' => 'name ASC',
-        'onl_dsc' => 'hide_online DESC, active_chats DESC, name ASC',
-        'onl_asc' => 'hide_online ASC, active_chats DESC, name ASC',
+        'onl_dsc' => 'hide_online DESC, name ASC',
+        'onl_asc' => 'hide_online ASC, name ASC',
         'ac_dsc' => 'active_chats DESC, name ASC',
         'ac_asc' => 'active_chats ASC, name ASC',
         'rac_asc' => '((active_chats + pending_chats) - inactive_chats) ASC, name ASC',

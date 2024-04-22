@@ -428,9 +428,9 @@
                         {/if}
 
                         {#if permissions.indexOf('lhstatistic_userstats') !== -1}
-                            <a class:text-muted={chat.ro} href="#" title={$t("widget.last_activity_ago") + " " + chat.lastactivity_ago + " " + $t("widget.see_op_stats")} on:click={(e) => lhcServices.openModal('statistic/userstats/'+chat.user_id)}>{#if chat.hide_online && chat.offline_since}<span title={$t("widget.went_offline_ago",{'ago': chat.offline_since})}>{chat.offline_since}</span>{/if} {chat.name_official}</a>
+                            <a class:text-muted={chat.ro} href="#" title={$t("widget.last_activity_ago") + " " + chat.lastactivity_ago + " " + $t("widget.see_op_stats")} on:click={(e) => lhcServices.openModal('statistic/userstats/'+chat.user_id)}>{chat.name_official}{#if chat.hide_online && chat.offline_since}<span title={$t("widget.went_offline_ago",{'ago': chat.offline_since})}>, {chat.offline_since}</span>{/if}</a>
                         {:else}
-                            {#if chat.hide_online && chat.offline_since}<span title={$t("widget.went_offline_ago",{'ago': chat.offline_since})}>{chat.offline_since}</span>{/if} <span title={$t("widget.last_activity_ago") + " " + chat.lastactivity_ago}>{chat.name_official}</span>
+                            <span title={$t("widget.last_activity_ago") + " " + chat.lastactivity_ago}>{chat.name_official}</span>{#if chat.hide_online && chat.offline_since}, <span title={$t("widget.went_offline_ago",{'ago': chat.offline_since})}>{chat.offline_since}</span>{/if}
                         {/if}
 
 
