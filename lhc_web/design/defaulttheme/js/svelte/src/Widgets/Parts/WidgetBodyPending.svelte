@@ -11,6 +11,7 @@
     export let hide_2_column = false;
     export let hide_ac_op_icon = false;
     export let hide_ac_stats = false;
+    export let hide_ac_sort = false;
     export let hide_op_avatar = false;
     export let custom_visitor_title = null;
     export let custom_visitor_icon = null;
@@ -195,10 +196,12 @@
                 {#if !hide_ac_op_icon}<i title={$t("widget.live_chats")} class="material-icons chat-active" class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'rac_asc' && $lhcList.toggleWidgetData[sort_identifier] != 'rac_dsc'}>sms</i>{/if}
                 <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'rac_asc' && $lhcList.toggleWidgetData[sort_identifier] != 'rac_dsc'} title={$t("widget.sort_by_chat_number_real")} class="material-icons">{$lhcList.toggleWidgetData[sort_identifier] == 'rac_dsc' || $lhcList.toggleWidgetData[sort_identifier] != 'rac_asc' ? 'trending_up' : 'trending_down'}</i>
             </a>
+            {#if !hide_ac_sort}
             <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList,sort_identifier,'ac_dsc','ac_asc',true)}>
                 {#if !hide_ac_op_icon}<i title={$t("widget_title.active_chats")} class="material-icons chat-active" class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'ac_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'ac_asc'}>chat</i>{/if}
                 <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'ac_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'ac_asc'} title={$t("widget.sort_by_chat_number")} class="material-icons">{$lhcList.toggleWidgetData[sort_identifier] == 'ac_dsc' || $lhcList.toggleWidgetData[sort_identifier] != 'ac_asc' ? 'trending_up' : 'trending_down'}</i>
             </a>
+            {/if}
         </th>
         {/if}
 

@@ -16,6 +16,7 @@
     export let hide_2_column = false;
     export let hide_op_avatar = false;
     export let hide_ac_stats = false;
+    export let hide_ac_sort = false;
     export let hide_ac_op_icon = false;
     export let custom_visitor_title = null;
     export let mh_widget = null;
@@ -130,7 +131,7 @@
                         <LHCOnlineVisitors {...$$props}></LHCOnlineVisitors>
                     {:else}
                         <div class="panel-list" id={no_panel_id === false ? panel_list_identifier : null} style:max-height={mh_widget ? mh_widget : ($lhcList[_optionsPanel['panelid'] + '_m_h'] ?? '330px')}>
-                        <WidgetBodyPending hide_2_column={hide_2_column} hide_ac_stats={hide_ac_stats} hide_ac_op_icon={hide_ac_op_icon} hide_op_avatar={hide_op_avatar} hide_third_column={hide_third_column} custom_visitor_icon={custom_visitor_icon} show_visitor_title={show_visitor_title} custom_visitor_title={custom_visitor_title} show_username_title={show_username_title} show_subject_title={show_subject_title} show_department_title={show_department_title} no_expand={no_expand} show_always_subject={show_always_subject} show_username_always={show_username_always} override_item_open={override_item_open} no_chat_preview={no_chat_preview} no_additional_column={no_additional_column} additional_sort={additional_sort} column_1_width={column_1_width} column_3_width={column_3_width} column_2_width={column_2_width} permissions={_permissions} www_dir_flags={www_dir_flags} custom_sort_icons={_optionsPanel['custom_sort_icons'] ? _optionsPanel['custom_sort_icons'] : []} custom_icons={_optionsPanel['custom_icons'] ? _optionsPanel['custom_icons'] : []} panel_id={_optionsPanel['panelid']} lhcList={lhcList} type={type} sort_identifier={sort_identifier} />
+                        <WidgetBodyPending hide_2_column={hide_2_column} hide_ac_sort={hide_ac_sort} hide_ac_stats={hide_ac_stats} hide_ac_op_icon={hide_ac_op_icon} hide_op_avatar={hide_op_avatar} hide_third_column={hide_third_column} custom_visitor_icon={custom_visitor_icon} show_visitor_title={show_visitor_title} custom_visitor_title={custom_visitor_title} show_username_title={show_username_title} show_subject_title={show_subject_title} show_department_title={show_department_title} no_expand={no_expand} show_always_subject={show_always_subject} show_username_always={show_username_always} override_item_open={override_item_open} no_chat_preview={no_chat_preview} no_additional_column={no_additional_column} additional_sort={additional_sort} column_1_width={column_1_width} column_3_width={column_3_width} column_2_width={column_2_width} permissions={_permissions} www_dir_flags={www_dir_flags} custom_sort_icons={_optionsPanel['custom_sort_icons'] ? _optionsPanel['custom_sort_icons'] : []} custom_icons={_optionsPanel['custom_icons'] ? _optionsPanel['custom_icons'] : []} panel_id={_optionsPanel['panelid']} lhcList={lhcList} type={type} sort_identifier={sort_identifier} />
                         </div>
                     {/if}
                 {/if}
