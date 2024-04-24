@@ -163,7 +163,7 @@ class erLhcoreClassModelUserDep
         $filter['limit'] = $limit;
 
         if (!isset($params['sort'])) {
-            $filter['sort'] = 'active_chats DESC, hide_online ASC';
+            $filter['sort'] = 'active_chats DESC, name ASC';
         }
 
         $filter['group'] = 'user_id';
