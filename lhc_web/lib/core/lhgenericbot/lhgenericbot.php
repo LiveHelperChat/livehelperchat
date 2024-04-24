@@ -478,6 +478,9 @@ class erLhcoreClassGenericBot {
             'command' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'string'
             ),
+            'name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'string'
+            ),
             'sub_command' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -490,6 +493,9 @@ class erLhcoreClassGenericBot {
             'shortcut_2' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'enabled_display' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL,'boolean'
+            ),
             'bot_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL,'int', array('min_range' => 1)
             ),
@@ -498,6 +504,19 @@ class erLhcoreClassGenericBot {
             ),
             'dep_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+            ),
+            // Custom arguments fields
+            'custom_field_name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+            ),
+            'custom_field_placeholder' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+            ),
+            'custom_field_type' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+            ),
+            'custom_field_rows' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1),FILTER_REQUIRE_ARRAY
             )
         );
         
@@ -516,10 +535,22 @@ class erLhcoreClassGenericBot {
             $botCommand->sub_command = '';
         }
 
+        if ( $form->hasValidData( 'enabled_display' ) && $form->enabled_display === true) {
+            $botCommand->enabled_display = 1;
+        } else {
+            $botCommand->enabled_display = 0;
+        }
+
         if ( $form->hasValidData( 'info_msg' )) {
             $botCommand->info_msg = $form->info_msg;
         } else {
             $botCommand->info_msg = '';
+        }
+
+        if ( $form->hasValidData( 'name' )) {
+            $botCommand->name = $form->name;
+        } else {
+            $botCommand->name = '';
         }
 
         if ( $form->hasValidData( 'shortcut_1' ) ) {
@@ -550,6 +581,21 @@ class erLhcoreClassGenericBot {
             $botCommand->dep_id = $form->dep_id;
         } else {
             $botCommand->dep_id = 0;
+        }
+
+        if ( $form->hasValidData( 'custom_field_name' )) {
+            $fields = [];
+            foreach ($form->custom_field_name as $index => $fieldName) {
+                $fields[] = [
+                    'name' => $fieldName,
+                    'placeholder' => isset($form->custom_field_placeholder[$index]) ? $form->custom_field_placeholder[$index] : null,
+                    'rows' => isset($form->custom_field_rows[$index]) ? $form->custom_field_rows[$index] : null,
+                    'type' => isset($form->custom_field_type[$index]) ? $form->custom_field_type[$index] : null
+                ];
+            }
+            $botCommand->fields = json_encode($fields);
+        } else {
+            $botCommand->fields = '';
         }
 
         return $Errors;

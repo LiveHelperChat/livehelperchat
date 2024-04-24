@@ -16,7 +16,8 @@
         <?php foreach ($items as $item) : ?>
             <tr>
                 <td>
-                    <a href="<?php echo erLhcoreClassDesign::baseurl('genericbot/editcommand')?>/<?php echo $item->id?>">!<?php echo htmlspecialchars($item->command)?></a>
+                    <?php if ($item->enabled_display == 1) : ?><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Visible in the chat dropdown menu');?>" class="material-icons">visibility</span><?php endif;?>
+                    <a href="<?php echo erLhcoreClassDesign::baseurl('genericbot/editcommand')?>/<?php echo $item->id?>">!<?php echo htmlspecialchars($item->command)?></a><?php if ($item->name != '') : ?> <span class="text-muted fs14">(<?php echo htmlspecialchars($item->name);?>)</span><?php endif;?>
                 </td>
                 <td><?php echo htmlspecialchars($item->bot)?></td>
                 <td><?php echo htmlspecialchars($item->trigger)?></td>

@@ -8555,6 +8555,32 @@
         "extra": "auto_increment"
       },
       {
+        "field": "enabled_display",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "name",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "fields",
+        "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "shortcut_1",
         "type": "varchar(10)",
         "null": "NO",
