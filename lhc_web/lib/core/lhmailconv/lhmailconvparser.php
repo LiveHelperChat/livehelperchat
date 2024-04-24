@@ -185,16 +185,20 @@ class erLhcoreClassMailconvParser {
                     );
                 }
 
-                $uuidStatusArray = $mailbox->uuid_status_array;
+                $uuidStatusArrayOriginal = $uuidStatusArray = $mailbox->uuid_status_array;
 
                 // We can survive this
                 try {
+
+                    $statsImport[] = 'START getting mailbox info - ' . date('Y-m-d H:i:s');
 
                     if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
                         $statusMailbox = json_decode(json_encode($mailboxFolderOAuth->getStatus()),false);
                     } else {
                         $statusMailbox = $mailboxHandler->statusMailbox();
                     }
+
+                    $statsImport[] = 'END getting mailbox info - ' . date('Y-m-d H:i:s');
 
                     if (isset($uuidStatusArray[$mailboxFolder['path']]) && isset($statusMailbox->uidnext) && $statusMailbox->uidnext == $uuidStatusArray[$mailboxFolder['path']]) {
                          if (isset($workflowOptions['workflow_reimport_frequency']) && $workflowOptions['workflow_reimport_frequency'] > 0 && $last_process_time < (time() - ($workflowOptions['workflow_reimport_frequency'] * 60))) {
@@ -233,6 +237,8 @@ class erLhcoreClassMailconvParser {
 
                    // $mailsInfo = $mailboxFolderOAuth->search()->whereUid(2198477)->get();
 
+                    $statsImport[] = 'Search finished at '.date('Y-m-d H:i:s') . ' [' . count($mailsInfo) .']';
+
                     if (empty($mailsInfo)) {
                         continue;
                     }
@@ -241,17 +247,18 @@ class erLhcoreClassMailconvParser {
                     // We disable server encoding because exchange servers does not support UTF-8 encoding in search.
                     $mailsIds = $mailboxHandler->searchMailbox($since, true);
 
+                    $statsImport[] = 'Search finished at '.date('Y-m-d H:i:s') . ' [' . count($mailsIds) .']';
+
                     if (empty($mailsIds)) {
                         continue;
                     }
 
+                    $statsImport[] = 'START Fetching mail info at '.date('Y-m-d H:i:s');
+
                     $mailsInfo = $mailboxHandler->getMailsInfo($mailsIds);
+
+                    $statsImport[] = 'END Fetching mail info at '.date('Y-m-d H:i:s');
                 }
-
-                $statsImport[] = 'Search finished at '.date('Y-m-d H:i:s');
-
-
-                $statsImport[] = 'Fetching mail info finished '.date('Y-m-d H:i:s');
 
                 $db->reconnect();
 
@@ -1040,10 +1047,18 @@ class erLhcoreClassMailconvParser {
 
         $db->reconnect();
 
-        $mailbox->last_sync_time = time();
+        // If mailbox import failed, schedule it to try again
+        if ($mailbox->failed == 1 && isset($uuidStatusArrayOriginal)) {
+            $mailbox->uuid_status_array = $uuidStatusArrayOriginal;
+            $mailbox->uuid_status = json_encode($uuidStatusArrayOriginal);
+            $mailbox->last_sync_time = time() - $mailbox->sync_interval + 15; // Give 15 seconds before next sync
+        } else {
+            $mailbox->last_sync_time = time();
+        }
+
         $log = $mailbox->last_sync_log_array;
         array_unshift ($log, $statsImport);
-        $log = array_slice($log,0,5);
+        $log = array_slice($log,0,8);
         $mailbox->last_sync_log_array = $log;
         $mailbox->last_sync_log = json_encode($mailbox->last_sync_log_array);
         $mailbox->sync_status = erLhcoreClassModelMailconvMailbox::SYNC_PENDING;

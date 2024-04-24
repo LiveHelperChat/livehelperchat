@@ -807,6 +807,7 @@ class erLhcoreClassMailconvValidator {
 
                 // Create a copy if required
                 if ($mailbox->create_a_copy == true) {
+                    self::setWebPHPIMAPTimeouts();
                     $response['copy'] = self::makeSendCopy($mailReply, $mailbox);
                 }
 
@@ -834,6 +835,13 @@ class erLhcoreClassMailconvValidator {
         } else {
             $response['send'] = false;
         }
+    }
+
+    public static function setWebPHPIMAPTimeouts()
+    {
+        imap_timeout(IMAP_OPENTIMEOUT, 15);
+        imap_timeout(IMAP_WRITETIMEOUT, 15);
+        imap_timeout(IMAP_READTIMEOUT, 15);
     }
 
     public static function sendEmail($item, & $response, $user_id = 0) {

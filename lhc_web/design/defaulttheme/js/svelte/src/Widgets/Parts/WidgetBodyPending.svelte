@@ -421,6 +421,10 @@
                             <a href="#" on:click={(e) => lhcServices.startChatOperator(chat.user_id)} title={$t("widget.start_chat")}><i class="material-icons me-0">chat</i></a>
                         {/if}
 
+                        {#if chat.offline_since_s}
+                            <i class="material-icons me-0" style:color={chat.offline_since_s.c ? chat.offline_since_s.c  : null} title={$t("widget.went_offline_ago",{'ago': chat.offline_since})}>{"clock_loader_"+chat.offline_since_s.i}</i>
+                        {/if}
+
                         {#if permissions.indexOf('lhuser_setopstatus') !== -1}
                             <i class="material-icons me-0 action-image" on:click={(e) => lhcServices.openModal('user/setopstatus/'+chat.user_id)} title={$t("widget.change_op_status")} >{chat.hide_online == 1 ? 'flash_off' : 'flash_on'}</i>
                         {:else}

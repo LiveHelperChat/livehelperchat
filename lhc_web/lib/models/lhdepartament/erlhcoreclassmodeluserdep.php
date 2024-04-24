@@ -68,6 +68,26 @@ class erLhcoreClassModelUserDep
                 $this->last_accepted_ago = erLhcoreClassChat::getAgoFormat($this->last_accepted);
                 return $this->last_accepted_ago;
 
+            case 'offline_since_s':
+                $this->offline_since_s = null;
+                if ($this->hide_online == 1 && $this->hide_online_ts > 0) {
+                    $diff = time() - $this->hide_online_ts;
+                    if ($diff <= 60) {
+                        $this->offline_since_s = ['i' => '10', 'c' => '#90EF90'];
+                    } elseif ($diff > 60 && $diff <= 120) {
+                        $this->offline_since_s = ['i' => '20', 'c' => '#B0F5AB'];
+                    } elseif ($diff > 120 && $diff <= 360) {
+                        $this->offline_since_s = ['i' => '40', 'c' => '#CDFFCC'];
+                    } elseif ($diff > 360 && $diff <= 600) {
+                        $this->offline_since_s = ['i' => '60', 'c' => '#FFCCCB'];
+                    } elseif ($diff > 600 && $diff <= 900) {
+                        $this->offline_since_s = ['i' => '80', 'c' => '#FC94A1'];
+                    } elseif ($diff > 900 && $diff < 3600) {
+                        $this->offline_since_s = ['i' => '90', 'c' => '#FC6C85'];
+                    }
+                }
+                return $this->offline_since_s;
+
             case 'offline_since':
                 $this->offline_since = erLhcoreClassChat::getAgoFormat($this->hide_online_ts);
                 return $this->offline_since;
@@ -163,7 +183,7 @@ class erLhcoreClassModelUserDep
         $filter['limit'] = $limit;
 
         if (!isset($params['sort'])) {
-            $filter['sort'] = 'active_chats DESC, hide_online ASC';
+            $filter['sort'] = 'active_chats DESC, name ASC';
         }
 
         $filter['group'] = 'user_id';
