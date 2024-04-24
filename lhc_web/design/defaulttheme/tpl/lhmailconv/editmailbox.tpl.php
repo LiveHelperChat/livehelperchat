@@ -250,11 +250,24 @@
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Finished');?>, <?php echo erLhcoreClassChat::formatSeconds($item->last_sync_time - $item->sync_started)?></p>
             <?php endif; ?>
 
-            <ul>
-                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last sync finished');?> - <?php echo $item->last_sync_time_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
-                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last sync started');?> - <?php echo $item->sync_started_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
-                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last processed');?> - <?php echo $item->last_process_time_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
-            </ul>
+            <div class="row">
+                <div class="col-6">
+                    <ul>
+                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last sync finished');?> - <?php echo $item->last_sync_time_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
+                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last sync started');?> - <?php echo $item->sync_started_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
+                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last processed');?> - <?php echo $item->last_process_time_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <ul>
+                        <li>IMAP_OPENTIMEOUT - <?php echo imap_timeout(IMAP_OPENTIMEOUT);?></li>
+                        <li>IMAP_WRITETIMEOUT - <?php echo imap_timeout(IMAP_WRITETIMEOUT);?></li>
+                        <li>IMAP_READTIMEOUT - <?php echo imap_timeout(IMAP_READTIMEOUT);?></li>
+                        <li>IMAP_CLOSETIMEOUT - <?php echo imap_timeout(IMAP_CLOSETIMEOUT);?></li>
+                    </ul>
+                </div>
+            </div>
+
 
             <p>
                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','UUID Next status')?></h6>
