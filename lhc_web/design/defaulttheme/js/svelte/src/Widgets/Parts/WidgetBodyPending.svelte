@@ -422,7 +422,7 @@
                         {/if}
 
                         {#if chat.offline_since_s}
-                            <i class="material-icons me-0" style:color={chat.offline_since_s.c ? chat.offline_since_s.c  : null} title={$t("widget.went_offline_ago",{'ago': chat.offline_since})}>clock_loader_{chat.offline_since_s.i}</i>
+                            <i class="material-icons me-0" style:color={chat.offline_since_s.c ? chat.offline_since_s.c  : null} title={$t("widget.went_offline_ago",{'ago': chat.offline_since})}>{"clock_loader_"+chat.offline_since_s.i}</i>
                         {/if}
 
                         {#if permissions.indexOf('lhuser_setopstatus') !== -1}
