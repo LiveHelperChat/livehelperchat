@@ -739,37 +739,38 @@ class erLhcoreClassTranslate
                 $options['ja'] = 'Japanese';
                 
             } elseif ($translationData['translation_handler'] == 'deepl') {
-                $options['BG'] = 'Bulgarian';
-                $options['CS'] = 'Czech';
-                $options['DA'] = 'Danish';
-                $options['DE'] = 'German';
-                $options['EL'] = 'Greek';
-                $options['EN-GB'] = 'English (British)';
-                $options['EN-US'] = 'English (American)';
-                $options['ES'] = 'Spanish';
-                $options['ET'] = 'Estonian';
-                $options['FI'] = 'Finnish';
-                $options['FR'] = 'French';
-                $options['HU'] = 'Hungarian';
-                $options['ID'] = 'Indonesian';
-                $options['IT'] = 'Italian';
-                $options['JA'] = 'Japanese';
-                $options['KO'] = 'Korean';
-                $options['LT'] = 'Lithuanian';
-                $options['LV'] = 'Latvian';
-                $options['NB'] = 'Norwegian (Bokmål)';
-                $options['NL'] = 'Dutch';
-                $options['PL'] = 'Polish';
-                $options['PT-BR'] = 'Portuguese (Brazilian)';
-                $options['PT-PT'] = 'Portuguese (all other)';
-                $options['RO'] = 'Romanian';
-                $options['RU'] = 'Russian';
-                $options['SK'] = 'Slovak';
-                $options['SL'] = 'Slovenian';
-                $options['SV'] = 'Swedish';
-                $options['TR'] = 'Turkish';
-                $options['UK'] = 'Ukrainian';
-                $options['ZH'] = 'Chinese (simplified)';                            }
+                $options['bg'] = 'Bulgarian';
+                $options['cs'] = 'Czech';
+                $options['da'] = 'Danish';
+                $options['de'] = 'German';
+                $options['el'] = 'Greek';
+                $options['en'] = 'English (British)';
+                $options['en-us'] = 'English (American)';
+                $options['es'] = 'Spanish';
+                $options['et'] = 'Estonian';
+                $options['fi'] = 'Finnish';
+                $options['fr'] = 'French';
+                $options['hu'] = 'Hungarian';
+                $options['id'] = 'Indonesian';
+                $options['it'] = 'Italian';
+                $options['ja'] = 'Japanese';
+                $options['ko'] = 'Korean';
+                $options['lt'] = 'Lithuanian';
+                $options['lv'] = 'Latvian';
+                $options['nb'] = 'Norwegian (Bokmål)';
+                $options['nl'] = 'Dutch';
+                $options['pl'] = 'Polish';
+                $options['pt-br'] = 'Portuguese (Brazilian)';
+                $options['pt'] = 'Portuguese (all other)';
+                $options['ro'] = 'Romanian';
+                $options['ru'] = 'Russian';
+                $options['sk'] = 'Slovak';
+                $options['sl'] = 'Slovenian';
+                $options['sv'] = 'Swedish';
+                $options['tr'] = 'Turkish';
+                $options['uk'] = 'Ukrainian';
+                $options['zh'] = 'Chinese (simplified)';
+            }
         }
         
         if ($returnOptions == true) {
