@@ -123,6 +123,20 @@
 
 <script>
     window.botCommandFields = <?php echo json_encode($item->fields_array)?>;
+    $(document).ready(function() {
+        $('select[name="bot_id"]').change(function(){
+            $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val(), { }, function(data) {
+                $('#trigger-list-id').html(data);
+            }).fail(function() {
+
+            });
+        });
+        $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="bot_id"]').val() + '/<?php echo $item->trigger_id?>',  { }, function(data) {
+            $('#trigger-list-id').html(data);
+        }).fail(function() {
+
+        });
+    });
 </script>
 
 
