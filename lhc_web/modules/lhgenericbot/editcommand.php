@@ -35,7 +35,7 @@ if (isset($_POST['Update_bot']) || isset($_POST['Save_bot'])  )
 }
 
 $tpl->set('item', $command);
-
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/lhc.botcommand.js').'"></script>';
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','System configuration')),

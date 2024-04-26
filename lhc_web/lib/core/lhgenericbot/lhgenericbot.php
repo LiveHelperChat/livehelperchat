@@ -515,6 +515,9 @@ class erLhcoreClassGenericBot {
             'custom_field_type' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
             ),
+            'custom_field_required' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+            ),
             'custom_field_rows' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1),FILTER_REQUIRE_ARRAY
             )
@@ -590,7 +593,8 @@ class erLhcoreClassGenericBot {
                     'name' => $fieldName,
                     'placeholder' => isset($form->custom_field_placeholder[$index]) ? $form->custom_field_placeholder[$index] : null,
                     'rows' => isset($form->custom_field_rows[$index]) ? $form->custom_field_rows[$index] : null,
-                    'type' => isset($form->custom_field_type[$index]) ? $form->custom_field_type[$index] : null
+                    'type' => isset($form->custom_field_type[$index]) ? $form->custom_field_type[$index] : null,
+                    'required' => isset($form->custom_field_required[$index]) ? $form->custom_field_required[$index] : null
                 ];
             }
             $botCommand->fields = json_encode($fields);
