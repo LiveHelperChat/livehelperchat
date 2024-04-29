@@ -647,7 +647,11 @@ if ($pendingTabEnabled == true) {
 
 	$filterAdditionalMainAttr = array();
 	if ($Params['user_parameters_unordered']['psort'] == 'id_asc') {
-	    $filterAdditionalMainAttr['sort'] = 'priority DESC, id ASC';
+        $filterAdditionalMainAttr['sort'] = 'priority DESC, id ASC';
+    } else if ($Params['user_parameters_unordered']['psort'] == 'wtime_dsc') {
+        $filterAdditionalMainAttr['sort'] = 'pnd_time DESC';
+    } else if ($Params['user_parameters_unordered']['psort'] == 'wtime_asc') {
+        $filterAdditionalMainAttr['sort'] = 'pnd_time ASC';
 	} else if (!empty($Params['user_parameters_unordered']['psort'])) {
         $matchesSort = [];
         preg_match_all('/^cc_([0-9]+)_(asc|dsc)$/',$Params['user_parameters_unordered']['psort'],$matchesSort);
