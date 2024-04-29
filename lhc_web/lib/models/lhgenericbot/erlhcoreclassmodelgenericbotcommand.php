@@ -23,7 +23,10 @@ class erLhcoreClassModelGenericBotCommand {
             'shortcut_1' => $this->shortcut_1,
             'shortcut_2' => $this->shortcut_2,
             'sub_command' => $this->sub_command,
-            'info_msg' => $this->info_msg
+            'info_msg' => $this->info_msg,
+            'name' => $this->name,
+            'fields' => $this->fields,
+            'enabled_display' => $this->enabled_display,
         );
 
         return $stateArray;
@@ -48,6 +51,16 @@ class erLhcoreClassModelGenericBotCommand {
                 }
                 return $this->dep;
 
+            case 'fields_array':
+                $this->fields_array = [];
+                if ($this->fields != '') {
+                    $this->fields_array = json_decode($this->fields, true);
+                }
+                if (!is_array($this->fields_array)) {
+                    $this->fields_array = [];
+                }
+                return $this->fields_array;
+
             default:
                 break;
         }
@@ -67,4 +80,7 @@ class erLhcoreClassModelGenericBotCommand {
     public $shortcut_2 = '';
     public $sub_command = '';
     public $info_msg = '';
+    public $name = '';
+    public $fields = '';
+    public $enabled_display = 0;
 }

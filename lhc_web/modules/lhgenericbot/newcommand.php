@@ -29,6 +29,7 @@ if (isset($_POST['Save_bot']) || isset($_POST['Update_bot']))
 }
 
 $tpl->set('item',$command);
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/lhc.botcommand.js').'"></script>';
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(

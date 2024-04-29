@@ -1,3 +1,9 @@
+4.37v
+
+1. Options to execute bot commands from chat UI directly without typing them.
+
+execute doc/update_db/update_308.sql for update
+
 4.36v
 
 1. Colored subject support for mail modules

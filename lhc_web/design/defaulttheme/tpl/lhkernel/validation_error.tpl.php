@@ -1,5 +1,5 @@
 <?php if (isset($errors)) : ?>
-<div data-alert class="alert alert-danger alert-dismissible fade show" ng-non-bindable>
+<div data-alert class="alert alert-danger alert-dismissible fade show p-2 ps-4" ng-non-bindable>
 <?php if (!isset($hideErrorButton)) : ?>
 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
    
