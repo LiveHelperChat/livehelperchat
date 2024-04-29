@@ -7,7 +7,7 @@ div.message-row {
     font-style: normal;
     font-weight: 100 700;
     font-display: block;
-    src: url('../fonts/MaterialSymbolsRounded2.woff2') format("woff2");
+    src: url('../fonts/MaterialSymbolsRounded3.woff2') format("woff2");
 }
 
 div.auto-responder-msg > div.msg-body::before,
