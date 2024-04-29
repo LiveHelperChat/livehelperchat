@@ -1,6 +1,10 @@
 4.37v
 
 1. Options to execute bot commands from chat UI directly without typing them.
+2. Online operators widget has a lot of new functions and indicators.
+3. Messages in back office has indicator were they sent by auto responder.
+4. Material symbols icons were updated.
+5. More gracefull errors handling in transfer workflow.
 
 execute doc/update_db/update_308.sql for update
 
