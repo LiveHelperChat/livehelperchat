@@ -1,3 +1,10 @@
+4.38v
+
+1. Bot commands can can be sorted by position
+2. Preparation for a new flow for mail messages import.
+
+execute doc/update_db/update_309.sql for update
+
 4.37v
 
 1. Options to execute bot commands from chat UI directly without typing them.

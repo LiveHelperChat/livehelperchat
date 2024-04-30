@@ -18,10 +18,22 @@
     </div>
 </div>
 
-<div class="form-group" ng-non-bindable>
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Info message');?></label>
-    <input type="text" maxlength="100" class="form-control form-control-sm" name="info_msg" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Subject added!');?>" value="<?php echo htmlspecialchars($item->info_msg);?>" />
-    <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Info message is usefull if you want to show operator that command was executed without storing any real message within chat.');?></i></small></p>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group" ng-non-bindable>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Info message');?></label>
+            <input type="text" maxlength="100" class="form-control form-control-sm" name="info_msg" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Subject added!');?>" value="<?php echo htmlspecialchars($item->info_msg);?>" />
+            <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Info message is usefull if you want to show operator that command was executed without storing any real message within chat.');?></i></small></p>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?>
+                <a class="live-help-tooltip" data-placement="top" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','The smaller the position value the higher the command will appear in the list')?>" data-bs-toggle="tooltip" ><i class="material-icons">&#xE887;</i></a>
+            </label>
+            <input type="number" class="form-control form-control-sm" name="position" value="<?php echo htmlspecialchars($item->position)?>" />
+        </div>
+    </div>
 </div>
 
 <div class="form-group" ng-non-bindable>
@@ -87,8 +99,6 @@
 
 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom arguments fields, visible in modal window if enabled for display');?></h6>
 
-
-
 <div class="fields-custom mb-2">
     <div class="row" id="add-field-row">
         <div class="col-3">
@@ -113,10 +123,10 @@
             </select>
         </div>
         <div class="col-1">
-            <button name="custom_field_add" type="button" class="btn btn-sm btn-success w-100"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add')?></button>
+            <button name="custom_field_add" id="field-action-button" data-add="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add')?>" data-update="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Update')?>" type="button" class="btn btn-sm btn-success w-100"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add')?></button>
         </div>
     </div>
-    <div id="field-rows-container" required-field="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Required');?>" type-field="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Type');?>" rows-field="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Rows');?>" placeholder-field="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Placeholder');?>" name-field="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?>" remove-action="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Remove');?>">
+    <div id="field-rows-container" edit-action="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Edit');?>" required-field="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Required');?>" type-field="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Type');?>" rows-field="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Rows');?>" placeholder-field="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Placeholder');?>" name-field="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?>" remove-action="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Remove');?>">
 
     </div>
 </div>

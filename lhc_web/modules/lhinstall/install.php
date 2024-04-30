@@ -2142,6 +2142,15 @@ try {
   KEY `created_at` (`created_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                    $db->query("CREATE TABLE `lhc_mailconv_sent_copy` (
+                                          `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                                          `mailbox_id` bigint(20) unsigned NOT NULL,
+                                          `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
+                                          `body` longblob NOT NULL,
+                                          PRIMARY KEY (`id`),
+                                          KEY `status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
                     $db->query("CREATE TABLE `lh_generic_bot_command` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `command` varchar(50) NOT NULL,
@@ -2155,6 +2164,7 @@ try {
   `fields` text NOT NULL, 
   `shortcut_1` varchar(10) NOT NULL,
   `shortcut_2` varchar(10) NOT NULL,
+  `position` int(11) unsigned NOT NULL DEFAULT '1000',
   PRIMARY KEY (`id`),
   KEY `dep_id` (`dep_id`),
   KEY `command` (`command`)

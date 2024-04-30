@@ -111,7 +111,9 @@ lhc-multilanguage-tab-content>.active {
 	right:0;
 	z-index:9999;
 }
-
+.ps-1-8{
+    padding-left:0.45rem!important;
+}
 @media (max-width: 768px) {
     .chat-main-left-column.col-xl-8 .toolbar-chat,
     .chat-main-left-column.col-xl-8 .form-send-textarea,
