@@ -224,10 +224,7 @@ class erLhcoreClassChatHelper
         if ($changeStatus == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
 
             // If chat is transferred to pending state we don't want to process any old events
-            $eventPending = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
-            if ($eventPending instanceof erLhcoreClassModelGenericBotChatEvent) {
-                $eventPending->removeThis();
-            }
+            erLhcoreClassGenericBotWorkflow::removePreviousEvents($chat->id);
 
             if ($chat->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
                 if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
