@@ -929,6 +929,14 @@ class erLhcoreClassMailconvValidator {
             return ['success' => false, 'reason' => 'No send folder defined!'];
         }
 
+        $copyRecord = new \LiveHelperChat\Models\mailConv\SentCopy();
+        $copyRecord->body = $mail->getSentMIMEMessage();
+        $copyRecord->mailbox_id = $mailbox->id;
+        $copyRecord->saveThis();
+        return ['success' => true, 'message_id' => $mail->getLastMessageID()];
+        // Save a copy for later process
+
+
         if ($mailbox->auth_method == \erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
             $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
             $mailboxFolderOAuth = $mailboxHandler->getFolderByPath($path);
