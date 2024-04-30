@@ -929,11 +929,12 @@ class erLhcoreClassMailconvValidator {
             return ['success' => false, 'reason' => 'No send folder defined!'];
         }
 
-        $copyRecord = new \LiveHelperChat\Models\mailConv\SentCopy();
+        // In progress
+        /*$copyRecord = new \LiveHelperChat\Models\mailConv\SentCopy();
         $copyRecord->body = $mail->getSentMIMEMessage();
         $copyRecord->mailbox_id = $mailbox->id;
         $copyRecord->saveThis();
-        return ['success' => true, 'message_id' => $mail->getLastMessageID()];
+        return ['success' => true, 'message_id' => $mail->getLastMessageID()];*/
         // Save a copy for later process
 
 

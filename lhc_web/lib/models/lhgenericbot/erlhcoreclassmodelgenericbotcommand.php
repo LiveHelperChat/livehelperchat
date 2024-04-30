@@ -12,6 +12,9 @@ class erLhcoreClassModelGenericBotCommand {
 
     public static $dbSortOrder = 'DESC';
 
+    public static $dbDefaultSort = 'position ASC, name ASC, id DESC';
+
+
     public function getState()
     {
         $stateArray = array(
@@ -27,6 +30,7 @@ class erLhcoreClassModelGenericBotCommand {
             'name' => $this->name,
             'fields' => $this->fields,
             'enabled_display' => $this->enabled_display,
+            'position' => $this->position,
         );
 
         return $stateArray;
@@ -83,4 +87,5 @@ class erLhcoreClassModelGenericBotCommand {
     public $name = '';
     public $fields = '';
     public $enabled_display = 0;
+    public $position = 0;
 }

@@ -496,6 +496,9 @@ class erLhcoreClassGenericBot {
             'enabled_display' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL,'boolean'
             ),
+            'position' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL,'int', array('min_range' => 0)
+            ),
             'bot_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL,'int', array('min_range' => 1)
             ),
@@ -542,6 +545,12 @@ class erLhcoreClassGenericBot {
             $botCommand->enabled_display = 1;
         } else {
             $botCommand->enabled_display = 0;
+        }
+
+        if ($form->hasValidData( 'position' )) {
+            $botCommand->position = $form->position;
+        } else {
+            $botCommand->position = 0;
         }
 
         if ( $form->hasValidData( 'info_msg' )) {

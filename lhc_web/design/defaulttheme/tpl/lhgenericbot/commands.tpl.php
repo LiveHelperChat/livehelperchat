@@ -9,6 +9,7 @@
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Bot');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Trigger');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Shortcut');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Position');?></th>
             <th width="1%">&nbsp;</th>
             <th width="1%">&nbsp;</th>
         </tr>
@@ -26,6 +27,7 @@
                         <?php echo htmlspecialchars($item->shortcut_1 . '+' . $item->shortcut_2)?>
                     <?php endif; ?>
                 </td>
+                <td><?php echo $item->position?></td>
                 <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/editcommand')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td>
                 <td><a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/deletecommand')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a></td>
             </tr>

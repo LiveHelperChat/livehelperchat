@@ -16,7 +16,7 @@ foreach (['command','sub_command','shortcut_1','shortcut_2','info_msg','name','f
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-foreach (['bot_id','trigger_id','dep_id','enabled_display'] as $posAttr) {
+foreach (['bot_id','trigger_id','dep_id','enabled_display','position'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;
