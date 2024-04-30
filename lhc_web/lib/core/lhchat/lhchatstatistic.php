@@ -1391,6 +1391,7 @@ class erLhcoreClassChatStatistic {
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.numberofchatsdialogsbyuserparticipant',array('group_field' => $groupField, 'days' => $days, 'filter' => $filter));
 
         if ($statusWorkflow === false) {
+
         	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
 
             $useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
@@ -1403,6 +1404,16 @@ class erLhcoreClassChatStatistic {
             if (isset($filter['filter']['dep_id'])){
                 $filter['filter']['`lh_chat_participant`.`dep_id`'] = $filter['filter']['dep_id'];
                 unset($filter['filter']['dep_id']);
+            }
+
+            if (isset($filter['filterin']['dep_id'])) {
+                $filter['filterinfields'][] = ['`lh_chat_participant`.`dep_id`' => $filter['filterin']['dep_id']];
+                unset($filter['filterin']['dep_id']);
+            }
+
+            if (isset($filter['filterin']['lh_chat.dep_id'])) {
+                $filter['filterinfields'][] = ['`lh_chat_participant`.`dep_id`' => $filter['filterin']['lh_chat.dep_id']];
+                unset($filter['filterin']['lh_chat.dep_id']);
             }
 
             if ($useTimeFilter != true) {
@@ -1587,31 +1598,47 @@ class erLhcoreClassChatStatistic {
     	$db = ezcDbInstance::get();
     	
     	$returnFilter = array();
-    	foreach ($params as $type => $params){
-    		foreach ($params as $field => $value) {
-    			if ($type == 'filter') {
-    				$returnFilter[] = $field.' = '.$db->quote($value);
-    			} elseif ($type == 'filterlte') {
-    				$returnFilter[] = $field.' <= '.$db->quote($value);
-    			} elseif ($type == 'filterlt') {
-    				$returnFilter[] = $field.' < '.$db->quote($value);
-    			} elseif ($type == 'filtergte') {
-    				$returnFilter[] = $field.' >= '.$db->quote($value);    			
-    			} elseif ($type == 'filtergt') {
-    				$returnFilter[] = $field.' > '.$db->quote($value);
-                } elseif ($type == 'filterlike') {
-                    $returnFilter[] = $field.' LIKE (' . $db->quote('%'.$value.'%') . ')';
-    			} elseif ($type == 'filterin') {
-                    $valuesEscaped = [];
-                    foreach ($value as $valueItem) {
-                        $valuesEscaped[] = $db->quote($valueItem);
+    	foreach ($params as $type => $params) {
+            if ($type == 'filterinfields') {
+                foreach ($params as $combination) {
+                    foreach ($combination as $field => $fieldValue) {
+                        if (empty($fieldValue)) {
+                            break;
+                        } else {
+                            $valuesEscaped = [];
+                            foreach ($fieldValue as $valueItem) {
+                                $valuesEscaped[] = $db->quote($valueItem);
+                            }
+                            $returnFilter[] = $field.' IN ( '. implode(',', $valuesEscaped) . ')';
+                        }
                     }
-    				$returnFilter[] = $field.' IN ( '. implode(',', $valuesEscaped) . ')';
-    			} elseif ($type == 'customfilter') {
-    				$returnFilter[] = $value;
-    			}
-    		}    		
-    	}
+                }
+            } else {
+                foreach ($params as $field => $value) {
+                    if ($type == 'filter') {
+                        $returnFilter[] = $field.' = '.$db->quote($value);
+                    } elseif ($type == 'filterlte') {
+                        $returnFilter[] = $field.' <= '.$db->quote($value);
+                    } elseif ($type == 'filterlt') {
+                        $returnFilter[] = $field.' < '.$db->quote($value);
+                    } elseif ($type == 'filtergte') {
+                        $returnFilter[] = $field.' >= '.$db->quote($value);
+                    } elseif ($type == 'filtergt') {
+                        $returnFilter[] = $field.' > '.$db->quote($value);
+                    } elseif ($type == 'filterlike') {
+                        $returnFilter[] = $field.' LIKE (' . $db->quote('%'.$value.'%') . ')';
+                    } elseif ($type == 'filterin') {
+                        $valuesEscaped = [];
+                        foreach ($value as $valueItem) {
+                            $valuesEscaped[] = $db->quote($valueItem);
+                        }
+                        $returnFilter[] = $field.' IN ( '. implode(',', $valuesEscaped) . ')';
+                    } elseif ($type == 'customfilter') {
+                        $returnFilter[] = $value;
+                    }
+                }
+            }
+        }
 
     	return implode(' AND ', $returnFilter);
     }
