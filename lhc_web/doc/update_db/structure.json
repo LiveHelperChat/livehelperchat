@@ -22,7 +22,7 @@
     ],
     "lhc_mailconv_sent_copy": [
       {
-        "field": "message_id",
+        "field": "id",
         "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "PRI",
