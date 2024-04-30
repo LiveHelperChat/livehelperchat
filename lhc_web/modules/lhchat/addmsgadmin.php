@@ -255,11 +255,7 @@ if (trim($form->msg) != '')
                         $Chat->saveThis();
 
                         // If chat is transferred to pending state we don't want to process any old events
-                        $eventPending = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $Chat->id)));
-
-                        if ($eventPending instanceof erLhcoreClassModelGenericBotChatEvent) {
-                            $eventPending->removeThis();
-                        }
+                        erLhcoreClassGenericBotWorkflow::removePreviousEvents($Chat->id);
 
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $Chat, 'user' => $currentUser));
 

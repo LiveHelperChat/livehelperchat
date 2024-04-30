@@ -27,11 +27,7 @@ if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status
     }
 
     // If chat is transferred to pending state we don't want to process any old events
-    $eventPending = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
-
-    if ($eventPending instanceof erLhcoreClassModelGenericBotChatEvent) {
-        $eventPending->removeThis();
-    }
+    erLhcoreClassGenericBotWorkflow::removePreviousEvents($chat->id);
 
     // Because we want that mobile app would receive notification
     // By default these listeners are not set if visitors sends a message and chat is not active

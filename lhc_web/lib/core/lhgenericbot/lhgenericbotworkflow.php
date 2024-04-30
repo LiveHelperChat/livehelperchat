@@ -172,6 +172,13 @@ class erLhcoreClassGenericBotWorkflow {
     public static $triggerName = [];
     public static $triggerNameDebug = [];
 
+    public static function removePreviousEvents($chat_id)
+    {
+        foreach (erLhcoreClassModelGenericBotChatEvent::getList(array('filter' => array('chat_id' => $chat_id))) as $chatEvent) {
+            $chatEvent->removeThis();
+        }
+    }
+
     public static function userMessageAdded(& $chat, $msg) {
 
         // Execute rest workflow if chat is in full bot mode
@@ -180,11 +187,7 @@ class erLhcoreClassGenericBotWorkflow {
             $response = self::sendAlwaysDefault($chat, $chat->gbot_id, $msg);
 
             if ($response === true) {
-
-                $chatEvent = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
-                if ($chatEvent instanceof erLhcoreClassModelGenericBotChatEvent) {
-                    $chatEvent->removeThis();
-                }
+                self::removePreviousEvents($chat->id);
                 return;
             }
         }

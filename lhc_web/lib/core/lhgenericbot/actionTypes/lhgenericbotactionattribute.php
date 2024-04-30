@@ -23,14 +23,15 @@ class erLhcoreClassGenericBotActionAttribute {
                 $filter['filternot']['id'] = erLhcoreClassGenericBotWorkflow::$currentEvent->id;
             }
 
-            $event = erLhcoreClassModelGenericBotChatEvent::findOne($filter);
-
             $softEvent = false;
-            $hasEvent = $event instanceof erLhcoreClassModelGenericBotChatEvent;
+            $hasEvent = false;
 
-            if ($hasEvent === true && isset($event->content_array['soft_event']) && $event->content_array['soft_event'] === true) {
-                $softEvent = true;
-                $event->removeThis();
+            foreach (erLhcoreClassModelGenericBotChatEvent::getList($filter) as $eventFilter) {
+                $hasEvent = true;
+                if (isset($eventFilter->content_array['soft_event']) && $eventFilter->content_array['soft_event'] === true) {
+                    $softEvent = true;
+                    $eventFilter->removeThis();
+                }
             }
 
             if ($hasEvent && $softEvent === false) {
