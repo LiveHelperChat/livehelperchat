@@ -74,7 +74,7 @@ if (isset($_POST['mail'])){
             }
 
             $subAttributes = [
-                'online_user' => ['online_attr_system_array','online_attr_array','current_page_params'],
+                'online_user' => ['online_attr_system_array','online_attr_array','current_page_params','previous_chat','chat'],
                 'department' => ['bot_configuration_array'],
                 'iwh' => ['conditions_array'],
                 'incoming_chat' => ['incoming']
