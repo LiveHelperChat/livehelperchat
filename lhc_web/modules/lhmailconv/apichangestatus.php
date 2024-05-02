@@ -50,16 +50,14 @@ try {
 
         echo json_encode([
             'conv' => $conv
-        ]);
+        ],\JSON_INVALID_UTF8_IGNORE);
 
     } else {
         throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No permission to write conversation.'));
     }
 
 } catch (Exception $e) {
-
     http_response_code(400);
-
     echo json_encode(array(
         'error' => $e->getMessage()
     ));

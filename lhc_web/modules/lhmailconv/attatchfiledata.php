@@ -9,7 +9,7 @@ echo json_encode([
     'id' => $file->id,
     'new' => false,
     'url' => '//' . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$file->security_hash}"
-]);
+],\JSON_INVALID_UTF8_IGNORE);
 
 exit;
 

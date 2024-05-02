@@ -44,7 +44,7 @@ try {
             erLhcoreClassMailconvWorkflow::logInteraction($userData->name_support . ' [' . $userData->id.'] '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has closed a conversation by clicking a close button.'), $userData->name_support, $conv->id);
         }
 
-        echo json_encode(['conv' => $conv, 'messages' =>  array_values($messages)]);
+        echo json_encode(['conv' => $conv, 'messages' =>  array_values($messages)],\JSON_INVALID_UTF8_IGNORE);
 
     } else {
         throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No permission to write conversation.'));

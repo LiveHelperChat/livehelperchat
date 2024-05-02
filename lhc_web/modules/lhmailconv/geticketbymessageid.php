@@ -44,7 +44,7 @@ if ($message instanceof erLhcoreClassModelMailconvMessage && $message->conversat
 
     $template = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Working') . '. ' . $subStatus;
 
-    echo json_encode(array('found' => false, 'scheduled' => $scheduled, 'progress' => $template));
+    echo json_encode(array('found' => false, 'scheduled' => $scheduled, 'progress' => $template),\JSON_INVALID_UTF8_IGNORE);
 }
 
 exit;

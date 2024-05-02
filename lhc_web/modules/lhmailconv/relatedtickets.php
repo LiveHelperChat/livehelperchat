@@ -35,7 +35,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 
     echo json_encode([
         'data' => $data,
-    ]);
+    ],\JSON_INVALID_UTF8_IGNORE);
 
 } else {
     echo json_encode([

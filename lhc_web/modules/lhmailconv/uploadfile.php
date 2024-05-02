@@ -24,7 +24,7 @@ try {
         'id' => $upload_handler->uploadedFile->id,
         'new' => true,
         'url' => erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$upload_handler->uploadedFile->id}/{$upload_handler->uploadedFile->security_hash}"
-    ]);
+    ],\JSON_INVALID_UTF8_IGNORE);
 
 } catch (Exception $e) {
     echo json_encode(['error' => $e->getMessage()]);
