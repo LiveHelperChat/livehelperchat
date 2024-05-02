@@ -44,10 +44,10 @@ try {
 
         $response['conv_status'] = $conv->status;
 
-        echo json_encode($response);
+        echo json_encode($response,\JSON_INVALID_UTF8_IGNORE);
     } else {
         http_response_code(400);
-        echo json_encode($response);
+        echo json_encode($response,\JSON_INVALID_UTF8_IGNORE);
     }
 
 } catch (Exception $e) {

@@ -17,7 +17,6 @@ try {
     ));
 
 } catch (Exception $e) {
-    erLhcoreClassLog::write(print_r($e,true));
     http_response_code(400);
     echo json_encode(array(
         'error' => $e->getMessage()

@@ -160,7 +160,7 @@ try {
             'reply' => $replyRecipientsMapped,
             'cc' => $message->cc_data_array,
             'bcc' => $message->bcc_data_array]
-        ]);
+        ],\JSON_INVALID_UTF8_IGNORE);
         exit;
 
     } else {

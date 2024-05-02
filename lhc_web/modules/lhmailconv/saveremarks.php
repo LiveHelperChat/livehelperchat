@@ -36,17 +36,17 @@ if ( is_object($Chat) && erLhcoreClassChat::hasAccessToRead($Chat) )
             exit;
         } else {
             $errorTpl->set('errors', $errors);
-            echo json_encode(array('error' => 'true', 'result' => $errorTpl->fetch()));
+            echo json_encode(array('error' => 'true', 'result' => $errorTpl->fetch()),\JSON_INVALID_UTF8_IGNORE);
             exit;
         }
     } else {
         $errorTpl->set('errors', array(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Form data not valid')));
-        echo json_encode(array('error' => 'true', 'result' => $errorTpl->fetch()));
+        echo json_encode(array('error' => 'true', 'result' => $errorTpl->fetch()),\JSON_INVALID_UTF8_IGNORE);
         exit;
     }
 } else {
     $errorTpl->set('errors', array(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Has no access to this chat')));
-    echo json_encode(array('error' => 'true', 'result' => $errorTpl->fetch()));
+    echo json_encode(array('error' => 'true', 'result' => $errorTpl->fetch()),\JSON_INVALID_UTF8_IGNORE);
     exit;
 }
 ?>

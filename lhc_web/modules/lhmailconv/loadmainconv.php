@@ -218,7 +218,7 @@ try {
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.editor_options',array('options' => & $editorOptions));
 
-        echo json_encode($editorOptions);
+        echo json_encode($editorOptions,\JSON_INVALID_UTF8_IGNORE);
 
         $db->commit();
     } else {
@@ -229,7 +229,7 @@ try {
     http_response_code(400);
     echo json_encode(array(
         'error' => $e->getMessage()
-    ));
+    ),\JSON_INVALID_UTF8_IGNORE);
 }
 
 

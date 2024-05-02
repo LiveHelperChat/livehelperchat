@@ -69,7 +69,7 @@ try {
 
         $db->commit();
 
-        echo json_encode($returnAttributes);
+        echo json_encode($returnAttributes,\JSON_INVALID_UTF8_IGNORE);
 
     } else {
         throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No permission to read conversation.'));
