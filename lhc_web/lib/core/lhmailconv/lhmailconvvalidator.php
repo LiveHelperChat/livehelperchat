@@ -844,7 +844,7 @@ class erLhcoreClassMailconvValidator {
         imap_timeout(IMAP_READTIMEOUT, 15);
     }
 
-    public static function sendEmail($item, & $response, $user_id = 0) {
+    public static function sendEmail($item, & $response, $user_id = 0, $params = []) {
         try {
             $mailReply = new PHPMailer(true);
             $mailReply->CharSet = "UTF-8";
@@ -888,7 +888,7 @@ class erLhcoreClassMailconvValidator {
             $response['send'] = $mailReply->Send();
 
             if ($item->mailbox->create_a_copy == true) {
-                $response['copy'] = self::makeSendCopy($mailReply, $item->mailbox);
+                $response['copy'] = self::makeSendCopy($mailReply, $item->mailbox, $params);
             }
 
         } catch (Exception $e) {
