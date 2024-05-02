@@ -931,11 +931,14 @@ class erLhcoreClassMailconvValidator {
 
         // Delegate copy part to copy worker to speed up UI
         if (isset($params['background']) && $params['background'] === true && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+            
             $copyRecord = new \LiveHelperChat\Models\mailConv\SentCopy();
             $copyRecord->body = $mail->getSentMIMEMessage();
             $copyRecord->mailbox_id = $mailbox->id;
             $copyRecord->saveThis();
+
             erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array());
+
             return ['success' => true, 'message_id' => $mail->getLastMessageID()];
         }
 

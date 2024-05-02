@@ -30,8 +30,8 @@ class SentCopyWorker
         $messages = \LiveHelperChat\Models\mailConv\SentCopy::getList(['filterin' => ['id' => $ids]]);
 
         foreach ($messages as $message) {
-            if (self::sentCopy($message)){
-                $stmt = $db->prepare('DELETE FROM lhc_mailconv_sent_copy WHERE id IN (' . implode(',', $message->id) . ')');
+            if (self::sentCopy($message)) {
+                $stmt = $db->prepare('DELETE FROM lhc_mailconv_sent_copy WHERE id IN (' . $message->id . ')');
                 $stmt->execute();
             }
         }

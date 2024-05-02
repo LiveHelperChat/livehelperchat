@@ -19,4 +19,8 @@ foreach ($mailbox as $mail) {
     }
 }
 
+if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
+    \erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array());
+}
+
 ?>
