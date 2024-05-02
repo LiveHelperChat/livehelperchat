@@ -808,7 +808,7 @@ class erLhcoreClassMailconvValidator {
                 // Create a copy if required
                 if ($mailbox->create_a_copy == true) {
                     self::setWebPHPIMAPTimeouts();
-                    $response['copy'] = self::makeSendCopy($mailReply, $mailbox);
+                    $response['copy'] = self::makeSendCopy($mailReply, $mailbox, ['background' => true]);
                 }
 
                 // Now we can set appropriate attributes for the message itself.

@@ -11,10 +11,10 @@ class SentCopyWorker
         $db->beginTransaction();
         try {
             $stmt = $db->prepare('SELECT id FROM lhc_mailconv_sent_copy WHERE status = 0 LIMIT :limit FOR UPDATE ');
-            $stmt->bindValue(':limit',10,PDO::PARAM_INT);
+            $stmt->bindValue(':limit',10,\PDO::PARAM_INT);
             $stmt->execute();
-            $ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
-        } catch (Exception $e) {
+            $ids = $stmt->fetchAll(\PDO::FETCH_COLUMN);
+        } catch (\Exception $e) {
             // Someone is already processing. So we just ignore and retry later
             return;
         }
@@ -30,16 +30,14 @@ class SentCopyWorker
         $messages = \LiveHelperChat\Models\mailConv\SentCopy::getList(['filterin' => ['id' => $ids]]);
 
         foreach ($messages as $message) {
-
             if (self::sentCopy($message)){
                 $stmt = $db->prepare('DELETE FROM lhc_mailconv_sent_copy WHERE id IN (' . implode(',', $message->id) . ')');
                 $stmt->execute();
             }
-
         }
 
-        if ((count($ids) >= 10) && erLhcoreClassRedis::instance()->llen('resque:queue:lhc_imap_copy') <= 4) {
-            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array());
+        if ((count($ids) >= 10) && \erLhcoreClassRedis::instance()->llen('resque:queue:lhc_imap_copy') <= 4) {
+            \erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array());
         }
     }
 
