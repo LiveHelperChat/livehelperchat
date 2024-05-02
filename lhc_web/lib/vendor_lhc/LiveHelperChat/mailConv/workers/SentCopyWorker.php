@@ -8,19 +8,43 @@ class SentCopyWorker
         $db = \ezcDbInstance::get();
         $db->reconnect(); // Because it timeouts automatically, this calls to reconnect to database, this is implemented in 2.52v
 
-        $messageId = $this->args['copy_id'];
         $db->beginTransaction();
-
-        $message = \LiveHelperChat\Models\mailConv\SentCopy::fetchAndLock($messageId);
-        $message->status = 1;
-        $message->updateThis(['update' => ['status']]);
-
-        $db->commit();
-
-        if (!($message instanceof \LiveHelperChat\Models\mailConv\SentCopy)) {
-            return null;
+        try {
+            $stmt = $db->prepare('SELECT id FROM lhc_mailconv_sent_copy WHERE status = 0 LIMIT :limit FOR UPDATE ');
+            $stmt->bindValue(':limit',10,PDO::PARAM_INT);
+            $stmt->execute();
+            $ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        } catch (Exception $e) {
+            // Someone is already processing. So we just ignore and retry later
+            return;
         }
 
+        if (empty($ids)) {
+            return;
+        }
+
+        $stmt = $db->prepare('UPDATE lhc_mailconv_sent_copy SET status = 1 WHERE id IN (' . implode(',', $ids) . ')');
+        $stmt->execute();
+        $db->commit();
+
+        $messages = \LiveHelperChat\Models\mailConv\SentCopy::getList(['filterin' => ['id' => $ids]]);
+
+        foreach ($messages as $message) {
+
+            if (self::sentCopy($message)){
+                $stmt = $db->prepare('DELETE FROM lhc_mailconv_sent_copy WHERE id IN (' . implode(',', $message->id) . ')');
+                $stmt->execute();
+            }
+
+        }
+
+        if ((count($ids) >= 10) && erLhcoreClassRedis::instance()->llen('resque:queue:lhc_imap_copy') <= 4) {
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array());
+        }
+    }
+
+    public static function sentCopy($message)
+    {
         $mailbox = \erLhcoreClassModelMailconvMailbox::fetch($message->mailbox_id);
 
         $path = null;
@@ -36,9 +60,6 @@ class SentCopyWorker
             return null;
         }
 
-        echo "asdasd";
-        exit;
-
         // Append to IMAP server
         if ($mailbox->auth_method == \erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
             $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
@@ -48,28 +69,36 @@ class SentCopyWorker
             \imap_errors();
 
             // Create a copy in send folder
-            $imapStream = imap_open($path, $mailbox->username, $mailbox->password);
+            $imapStream = \imap_open($path, $mailbox->username, $mailbox->password);
 
             // Retry
             if ($imapStream === false) {
                 sleep(1);
-                $imapStream = imap_open($path, $mailbox->username, $mailbox->password);
+                $imapStream = \imap_open($path, $mailbox->username, $mailbox->password);
             }
 
             if ($imapStream !== false) {
-                $result = imap_append($imapStream, $path, $message->body);
-                imap_close($imapStream);
+                $result = \imap_append($imapStream, $path, $message->body);
+                \imap_close($imapStream);
             } else {
                 $result = false;
             }
 
             if ($result !== true) {
-                // @todo log error - return ['success' => false, 'reason' => implode("\n",imap_errors())];
+                \erLhcoreClassLog::write(implode("\n",\imap_errors()),
+                    \ezcLog::SUCCESS_AUDIT,
+                    array(
+                        'source' => 'lhc',
+                        'category' => 'resque_fatal',
+                        'line' => 0,
+                        'file' => 0,
+                        'object_id' => $message->id
+                    )
+                );
+                return false;
             }
         }
 
+        return true;
     }
-
-    public static $lastCallDebug = array();
-    public static $apiTimeout = 10;
 }
