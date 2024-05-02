@@ -808,7 +808,7 @@ class erLhcoreClassMailconvValidator {
                 // Create a copy if required
                 if ($mailbox->create_a_copy == true) {
                     self::setWebPHPIMAPTimeouts();
-                    $response['copy'] = self::makeSendCopy($mailReply, $mailbox);
+                    $response['copy'] = self::makeSendCopy($mailReply, $mailbox, ['background' => true]);
                 }
 
                 // Now we can set appropriate attributes for the message itself.
@@ -914,7 +914,7 @@ class erLhcoreClassMailconvValidator {
     }
 
     // Save a copy in send folder
-    public static function makeSendCopy($mail, $mailbox) {
+    public static function makeSendCopy($mail, $mailbox, $params = []) {
 
         $path = null;
 
@@ -929,14 +929,18 @@ class erLhcoreClassMailconvValidator {
             return ['success' => false, 'reason' => 'No send folder defined!'];
         }
 
-        // In progress
-        /*$copyRecord = new \LiveHelperChat\Models\mailConv\SentCopy();
-        $copyRecord->body = $mail->getSentMIMEMessage();
-        $copyRecord->mailbox_id = $mailbox->id;
-        $copyRecord->saveThis();
-        return ['success' => true, 'message_id' => $mail->getLastMessageID()];*/
-        // Save a copy for later process
+        // Delegate copy part to copy worker to speed up UI
+        if (isset($params['background']) && $params['background'] === true && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+            
+            $copyRecord = new \LiveHelperChat\Models\mailConv\SentCopy();
+            $copyRecord->body = $mail->getSentMIMEMessage();
+            $copyRecord->mailbox_id = $mailbox->id;
+            $copyRecord->saveThis();
 
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array());
+
+            return ['success' => true, 'message_id' => $mail->getLastMessageID()];
+        }
 
         if ($mailbox->auth_method == \erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
             $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
