@@ -85,6 +85,26 @@ class erLhcoreClassModelChatOnlineUser
         erLhcoreClassChat::getSession()->delete($this);
     }
 
+    public function afterSave($params = array())
+    {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.online_user.after_save',array(
+            'online_user' => & $this
+        ));
+    }
+
+    public function afterUpdate($params = array())
+    {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.online_user.after_update',array(
+            'online_user' => & $this
+        ));
+    }
+
+    public function afterRemove() {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.online_user.after_remove',array(
+            'online_user' => & $this
+        ));
+    }
+
     public function __get($var)
     {
         switch ($var) {
