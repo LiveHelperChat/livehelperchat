@@ -175,7 +175,7 @@ class erLhcoreClassModelUserDep
         if (isset($paramsExecution['dashboard']) && $paramsExecution['dashboard'] === true){
             $filter['customfilter'][] = '(last_activity > ' . (int)(time() - $onlineTimeout) . ')';
         } else {
-            $filter['customfilter'][] = '(last_activity > ' . (int)(time() - $onlineTimeout) . ' OR always_on = 1)';
+            $filter['customfilter'][] = '(last_activity > ' . (int)(time() - $onlineTimeout) . ' OR `lh_userdep`.`always_on` = 1)';
         }
 
         $filter['innerjoin'] = array('`lh_users`' => array('`lh_userdep`.`user_id`', '`lh_users`.`id`'));

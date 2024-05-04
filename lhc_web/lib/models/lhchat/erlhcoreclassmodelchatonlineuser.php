@@ -1103,9 +1103,8 @@ class erLhcoreClassModelChatOnlineUser
 
     }
 
-    public function saveThis()
+    public function beforeSave()
     {
-
         if ($this->first_visit == 0) {
             $this->first_visit = time();
         }
@@ -1113,8 +1112,6 @@ class erLhcoreClassModelChatOnlineUser
         if ($this->last_visit == 0) {
             $this->last_visit = time();
         }
-
-        erLhcoreClassChat::getSession()->saveOrUpdate($this);
     }
 
     public $id = null;
