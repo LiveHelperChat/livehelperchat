@@ -65,7 +65,7 @@ class erLhcoreClassModelChatOnlineUser
         );
     }
 
-    public function removeThis()
+    public function beforeRemove()
     {
         $q = ezcDbInstance::get()->createDeleteQuery();
 
@@ -73,16 +73,13 @@ class erLhcoreClassModelChatOnlineUser
         $q->deleteFrom('lh_chat_online_user_footprint')->where($q->expr->eq('chat_id', 0), $q->expr->eq('online_user_id', $this->id));
         $stmt = $q->prepare();
         $stmt->execute();
-        
-        
+
         $q = ezcDbInstance::get()->createDeleteQuery();
-        
+
         // Delete realted events
         $q->deleteFrom('lh_abstract_proactive_chat_event')->where( $q->expr->eq('vid_id', $this->id));
         $stmt = $q->prepare();
         $stmt->execute();
-
-        erLhcoreClassChat::getSession()->delete($this);
     }
 
     public function afterSave($params = array())
@@ -333,7 +330,7 @@ class erLhcoreClassModelChatOnlineUser
 
                 if ($this->last_visit > 0) {
 
-                    $periods = array("s.", "m.", "h.", "d.", "w.", "m.", "y.", "dec.");
+                    $periods = array("s.", "m.", "h.", "d.", "w.", "mo.", "y.", "dec.");
                     $lengths = array("60", "60", "24", "7", "4.35", "12", "10");
 
                     $difference = time() - $this->last_visit;
