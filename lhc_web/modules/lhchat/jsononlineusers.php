@@ -41,7 +41,13 @@ if ($departmentGroups !== false) {
     }
 }
 
-$items = erLhcoreClassModelChatOnlineUser::getList($filter);
+$statusDispatch = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.online_users_get_list', array('filter' => $filter));
+
+if ($statusDispatch === false) {
+    $items = erLhcoreClassModelChatOnlineUser::getList($filter);
+} else {
+    $items = $statusDispatch['list'];
+}
 
 $returnItems = array();
 
