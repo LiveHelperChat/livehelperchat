@@ -36,7 +36,7 @@
     <?php endif;?>
 
     <div class="d-flex align-items-center justify-content-center">
-        <button type="submit" name="ProcessCommand" <?php if (isset($commandExecution)) : ?>disabled="disabled"<?php endif;?> class="btn btn-primary btn-sm modal-submit-disable"><i class="material-icons">done</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Accept')?></button>
+        <button type="submit" id="chat-command-button" name="ProcessCommand" <?php if (isset($commandExecution)) : ?>disabled="disabled"<?php endif;?> class="btn btn-primary btn-sm modal-submit-disable"><i class="material-icons">done</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Accept')?></button>
     </div>
 
     <input type="hidden" id="chat-command-id" value="<?php echo $chat->id?>" />
@@ -47,8 +47,10 @@
     function checkIsWhisper(){
         if ($('#CSChatMessage-<?php echo $chat->id?>').attr("whisper") == 1) {
             $('#whisper-command-warning').show();
+            $('#chat-command-button').prop("disabled","disabled");
         } else {
             $('#whisper-command-warning').hide();
+            $('#chat-command-button').removeAttr("disabled");
         }setTimeout(function(){
             if ($('#myModal.show').length > 0){
                 checkIsWhisper();
