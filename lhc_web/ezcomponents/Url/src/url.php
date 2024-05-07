@@ -435,7 +435,8 @@ class ezcUrl
                 $j = 1;
                 while ( ( $i + $j ) < $pathCount && $this->path[$i + $j][0] != $urlCfg->unorderedDelimiters[0] )
                 {
-                    $result[$param][$encounters[$param]][] = trim( trim( $this->path[$i + $j], $urlCfg->unorderedDelimiters[0] ), $urlCfg->unorderedDelimiters[1] );
+                    // Commented out because if we remove bracket ElasticSearch expression breaks. Why do we need it?
+                    $result[$param][$encounters[$param]][] = $this->path[$i + $j]; //trim( trim( $this->path[$i + $j], $urlCfg->unorderedDelimiters[0] ), $urlCfg->unorderedDelimiters[1] );
                     $j++;
                 }
             }
