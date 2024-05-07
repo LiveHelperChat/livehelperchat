@@ -7,6 +7,12 @@
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
     <?php endif; ?>
 
+    <div data-alert class="alert alert-danger alert-dismissible fade show p-2 ps-4" id="whisper-command-warning" style="display: none">
+        <ul class="ps-1 m-0">
+            <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','You are in whisper mode! To execute commands properly switch to write mode.')?></li>
+        </ul>
+    </div>
+
     <?php if (isset($errors)) : $hideErrorButton = true;?>
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
     <?php endif; ?>
@@ -33,6 +39,23 @@
         <button type="submit" name="ProcessCommand" <?php if (isset($commandExecution)) : ?>disabled="disabled"<?php endif;?> class="btn btn-primary btn-sm modal-submit-disable"><i class="material-icons">done</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Accept')?></button>
     </div>
 
+    <input type="hidden" id="chat-command-id" value="<?php echo $chat->id?>" />
+
 </form>
+
+<script>
+    function checkIsWhisper(){
+        if ($('#CSChatMessage-<?php echo $chat->id?>').attr("whisper") == 1) {
+            $('#whisper-command-warning').show();
+        } else {
+            $('#whisper-command-warning').hide();
+        }setTimeout(function(){
+            if ($('#myModal.show').length > 0){
+                checkIsWhisper();
+            }
+        },1500);
+    }
+    checkIsWhisper();
+</script>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
