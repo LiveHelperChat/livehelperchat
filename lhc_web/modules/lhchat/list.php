@@ -18,7 +18,7 @@ if ( isset($_POST['doDelete']) ) {
 	$Errors = array();
 
 	if ( $form->hasValidData( 'ChatID' ) && !empty($form->ChatID) ) {
-		$chats = erLhcoreClassChat::getList(array('filterin' => array('id' => $form->ChatID)));
+		$chats = erLhcoreClassModelChat::getList(array('limit' => false, 'filterin' => array('id' => $form->ChatID)));
 		foreach ($chats as $chatToDelete) {
 			if (erLhcoreClassChat::hasAccessToWrite($chatToDelete) && ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chatToDelete->user_id == $currentUser->getUserID())))
 			{
@@ -44,7 +44,7 @@ if ( isset($_POST['doClose']) ) {
 	$Errors = array();
 
 	if ( $form->hasValidData( 'ChatID' ) && !empty($form->ChatID) ) {
-		$chats = erLhcoreClassChat::getList(array('filterin' => array('id' => $form->ChatID)));
+		$chats = erLhcoreClassModelChat::getList(array('limit' => false, 'filterin' => array('id' => $form->ChatID)));
         $userData = $currentUser->getUserData(true);
 
 		foreach ($chats as $chatToClose) {
