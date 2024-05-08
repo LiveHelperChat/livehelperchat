@@ -106,6 +106,27 @@ if ($userDepartments !== true){
 	}
 }
 
+$onlineAttributeFilter = [
+    'oattrf_key_1' => '',
+    'oattrf_val_1' => '',
+    'oattrf_key_2' => '',
+    'oattrf_val_2' => '',
+    'oattrf_key_3' => '',
+    'oattrf_val_3' => '',
+    'oattrf_key_4' => '',
+    'oattrf_val_4' => '',
+    'oattrf_key_5' => '',
+    'oattrf_val_5' => ''
+];
+
+foreach (erLhcoreClassModelUserSetting::getList([
+    'filter' => ['user_id' => $currentUser->getUserID()],
+    'filterin' => ['identifier' => array_keys($onlineAttributeFilter)]]) as $userSettingFilter) {
+    $onlineAttributeFilter[$userSettingFilter->identifier] = (string)$userSettingFilter->value;
+}
+
+$tpl->set('onlineAttributeFilter',$onlineAttributeFilter);
+
 if ($is_ajax == true) {
     $columnsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_name','column_name','column_identifier','enabled'), 'sort' => false, 'filter' => array('enabled' => 1)));
 

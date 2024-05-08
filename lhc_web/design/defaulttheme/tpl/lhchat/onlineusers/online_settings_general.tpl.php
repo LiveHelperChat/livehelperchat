@@ -30,22 +30,25 @@ $omapDepartment = (int)erLhcoreClassModelUserSetting::getSetting('omap_depid',0)
 $omapMarkerTimeout = (int)erLhcoreClassModelUserSetting::getSetting('omap_mtimeout',30);
 $onlineVisitorOnly = (int)erLhcoreClassModelUserSetting::getSetting('online_connected',0);
 
-$onlineAttributeFilter = [
-    'attrf_key_1' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_1',''),
-    'attrf_val_1' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_1',''),
+if (!isset($onlineAttributeFilter)) {
+    $onlineAttributeFilter = [
+        'attrf_key_1' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_1',''),
+        'attrf_val_1' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_1',''),
 
-    'attrf_key_2' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_2',''),
-    'attrf_val_2' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_2',''),
+        'attrf_key_2' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_2',''),
+        'attrf_val_2' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_2',''),
 
-    'attrf_key_3' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_3',''),
-    'attrf_val_3' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_3',''),
+        'attrf_key_3' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_3',''),
+        'attrf_val_3' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_3',''),
 
-    'attrf_key_4' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_4',''),
-    'attrf_val_4' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_4',''),
+        'attrf_key_4' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_4',''),
+        'attrf_val_4' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_4',''),
 
-    'attrf_key_5' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_5',''),
-    'attrf_val_5' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_5','')
-];
+        'attrf_key_5' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_5',''),
+        'attrf_val_5' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_5','')
+    ];
+}
+
 
 ?>
 
