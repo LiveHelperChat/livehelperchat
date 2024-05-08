@@ -125,7 +125,13 @@ foreach (erLhcoreClassModelUserSetting::getList([
     $onlineAttributeFilter[$userSettingFilter->identifier] = (string)$userSettingFilter->value;
 }
 
-$tpl->set('onlineAttributeFilter',$onlineAttributeFilter);
+$onlineAttributeFilterParams = [];
+
+foreach ($onlineAttributeFilter as $key => $val) {
+    $onlineAttributeFilterParams[ltrim($key,'o')] = $val;
+}
+
+$tpl->set('onlineAttributeFilter',$onlineAttributeFilterParams);
 
 if ($is_ajax == true) {
     $columnsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_name','column_name','column_identifier','enabled'), 'sort' => false, 'filter' => array('enabled' => 1)));
