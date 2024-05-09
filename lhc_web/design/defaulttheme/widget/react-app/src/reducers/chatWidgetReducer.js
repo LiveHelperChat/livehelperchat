@@ -172,7 +172,9 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case IS_ONLINE : {
-            return state.set('isOnline',action.data);
+            return state.set('isOnline',action.data)
+                 .setIn(['onlineData','fetched'], false)
+                 .setIn(['offlineData','fetched'], false);
         }
 
         case OFFLINE_FIELDS_UPDATED : {

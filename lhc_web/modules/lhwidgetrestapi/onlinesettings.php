@@ -1005,11 +1005,10 @@ foreach ([
             'pre_chat_html',
             'operator_profile'
          ] as $attrOverride) {
-    if (isset($requestPayload['chat_ui'][$attrOverride])) {
+    if (isset($requestPayload['chat_ui'][$attrOverride]) && !isset($chat_ui[$attrOverride])) {
         $chat_ui[$attrOverride] = $requestPayload['chat_ui'][$attrOverride];
     }
 }
-
 
 
 if (isset($requestPayload['chat_ui']['intro_message']) || isset($requestPayload['chat_ui']['intro_message_html'])) {
