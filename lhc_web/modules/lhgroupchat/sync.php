@@ -54,6 +54,10 @@ if (is_array($payload) && count($payload) > 0)
 
             $Chat = erLhcoreClassModelGroupChat::fetch($chat_id);
 
+            if (!is_object($Chat)) {
+                continue;
+            }
+
             $Chat->updateIgnoreColumns = array('last_msg_id');
 
                 $hasAccessToReadArray[$chat_id] = true;
