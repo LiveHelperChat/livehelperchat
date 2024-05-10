@@ -260,13 +260,12 @@ class erLhcoreClassModule{
             $stmt->bindValue(':line',__LINE__);
             $stmt->bindValue(':file',__FILE__);
             $stmt->bindValue(':severity',ezcLog::SUCCESS_AUDIT);
-            $stmt->bindValue(':message',json_encode([
-                'message' => $e->getMessage(),
+            $stmt->bindValue(':message',$e->getMessage() . json_encode([
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
                 'server' => $_SERVER,
                 'trace' => $e->getTrace()
-            ],JSON_PRETTY_PRINT));
+            ],JSON_PRETTY_PRINT & JSON_INVALID_UTF8_IGNORE));
             $stmt->execute();
         } catch(PDOException $e) {
 
