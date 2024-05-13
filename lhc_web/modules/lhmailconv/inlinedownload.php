@@ -59,26 +59,43 @@ try {
 
         $mailbox = $mail->mailbox;
 
-        $mailboxHandler = new PhpImap\Mailbox(
-            $mailbox->imap, // IMAP server incl. flags and optional mailbox folder
-            $mailbox->username, // Username for the before configured mailbox
-            $mailbox->password, // Password for the before configured username
-            false
-        );
+        if ($mailbox->auth_method != erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+            $mailboxHandler = new PhpImap\Mailbox(
+                $mailbox->imap, // IMAP server incl. flags and optional mailbox folder
+                $mailbox->username, // Username for the before configured mailbox
+                $mailbox->password, // Password for the before configured username
+                false
+            );
 
-        $mail = $mailboxHandler->getMail($mail->uid, false);
+            $mail = $mailboxHandler->getMail($mail->uid, false);
+        } else {
+            $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
+            $mailboxFolderOAuth = $mailboxHandler->getFolderByPath($mail->mb_folder);
+
+            $messagesCollection = $mailboxFolderOAuth->search()->whereUid($mail->uid)->get();
+
+            if ($messagesCollection->total() == 1) {
+                $mail = $messagesCollection->shift();
+            }
+        }
 
         if ($mail->hasAttachments() == true) {
             foreach ($mail->getAttachments() as $attachment) {
                 if ((int)$attachment->sizeInBytes == 0) {
                     continue;
                 }
+
                 if (
                     $file->name == $attachment->name &&
                     $file->content_id == (string)$attachment->contentId &&
                     $file->size = (int)$attachment->sizeInBytes
                 ) {
-                    $fileBody = $attachment->getContents();
+
+                    if ($mailbox->auth_method != erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                        $fileBody = $attachment->getContents();
+                    } else {
+                        $fileBody = $attachment->getContent();
+                    }
 
                     // Try to save file again
                     $cfg = erConfigClassLhConfig::getInstance();
@@ -86,19 +103,55 @@ try {
                     $defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
                     $defaultUser = $cfg->getSetting( 'site', 'default_user', false );
 
-                    $dir = $file->file_path;
-                    erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
+                    if (empty($file->file_path)) {
+                        $dir = 'var/tmpfiles/';
+                        $fileName = md5($file->id . '_' . $file->name . '_' . $file->attachment_id);
 
-                    file_put_contents($dir . $file->file_name, $fileBody);
+                        $cfg = erConfigClassLhConfig::getInstance();
 
-                    chmod($dir . $file->file_name, 0644);
+                        $defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
+                        $defaultUser = $cfg->getSetting( 'site', 'default_user', false );
 
-                    if ($defaultUser != '') {
-                        chown($dir, $defaultUser);
-                    }
+                        erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
 
-                    if ($defaultGroup != '') {
-                        chgrp($dir, $defaultGroup);
+                        $localFile = $dir . $fileName;
+                        file_put_contents($localFile, $fileBody);
+
+                        $dir = 'var/storagemail/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $file->id . '/';
+
+                        erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
+
+                        rename($localFile, $dir . $fileName);
+                        chmod($dir . $fileName, 0644);
+
+                        if ($defaultUser != '') {;
+                            chown($dir, $defaultUser);
+                        }
+
+                        if ($defaultGroup != '') {
+                            chgrp($dir, $defaultGroup);
+                        }
+
+                        $file->file_name = $fileName;
+                        $file->file_path = $dir;
+                        $file->file_path_server = $file->file_path . $file->file_name;
+                        $file->updateThis(['update' => ['file_name','file_path']]);
+
+                    } else {
+                        $dir = $file->file_path;
+                        erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
+
+                        file_put_contents($dir . $file->file_name, $fileBody);
+
+                        chmod($dir . $file->file_name, 0644);
+
+                        if ($defaultUser != '') {
+                            chown($dir, $defaultUser);
+                        }
+
+                        if ($defaultGroup != '') {
+                            chgrp($dir, $defaultGroup);
+                        }
                     }
 
                     // Log error for investigation
