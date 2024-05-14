@@ -8,7 +8,7 @@
     <ul class="pagination paginator-lhc">
 
     <?php if ($pages->current_page != 1) : ?>
-        <li class="arrow page-item"><a class="page-link previous" href="<?php echo $pages->serverURL,$pages->prev_page,$pages->querystring?>">&laquo;</a></li>
+        <li class="arrow page-item"><a class="page-link previous" href="<?php echo $pages->serverURL,$pages->prev_page,'?',$pages->querystring?>">&laquo;</a></li>
     <?php endif;?>
 
     <?php if ($pages->num_pages > 10) :
@@ -21,7 +21,7 @@
     	if ($i == $pages->current_page) : ?>
     	   <li class="active no-b page-item"><a class="page-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="#"><?php echo $i?></a></li>
     	<?php else : ?>
-           <li class="page-item"><a class="page-link no-b" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="<?php echo $pages->serverURL,$pageURL,$pages->querystring?>"><?php echo $i?></a></li>
+           <li class="page-item"><a class="page-link no-b" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="<?php echo $pages->serverURL,$pageURL,'?',$pages->querystring?>"><?php echo $i?></a></li>
         <?php endif;
         ?> <li class="page-item"><a class="page-link" href="#">...</a></li> <?php
         endif;
@@ -38,7 +38,7 @@
 
 			    <?php else : ?>
 
-			    <li class="page-item"><a class="page-link <?php echo $noBolderClass?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="<?php echo $pages->serverURL,$pageURL,$pages->querystring?>"><?php echo $i?></a></li>
+			    <li class="page-item"><a class="page-link <?php echo $noBolderClass?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="<?php echo $pages->serverURL,$pageURL,'?',$pages->querystring?>"><?php echo $i?></a></li>
 
     <?php endif;endif;endfor;
     if ($pages->lastArrayNumber < $pages->num_pages) :
@@ -51,7 +51,7 @@
 
     <?php  else : ?>
 
-            <li class="page-item"><a class="page-link no-b" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="<?php echo $pages->serverURL,$pageURL,$pages->querystring?>"><?php echo $i?></a></li>
+            <li class="page-item"><a class="page-link no-b" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','Go to page')?> <?php echo $i?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('core/paginator','of')?> <?php echo $pages->num_pages?>" href="<?php echo $pages->serverURL,$pageURL,'?',$pages->querystring?>"><?php echo $i?></a></li>
 
    <?php endif; endif;
 
@@ -61,12 +61,12 @@
 		if ($i == $pages->current_page) :?>
             <li class="active page-item<?php echo $noBolderClass?>"><a class="page-link" href="#"><?php echo $i?></a></li>
 		<?php else : ?>
-		    <li class="page-item"><a class="paginate page-link" href="<?php echo $pages->serverURL,$pageURL,$pages->querystring;?>"><?php echo $i?></a></li>
+		    <li class="page-item"><a class="paginate page-link" href="<?php echo $pages->serverURL,$pageURL,'?',$pages->querystring;?>"><?php echo $i?></a></li>
     <?php endif; endfor; endif;
 
     if ($pages->current_page != $pages->num_pages): ?>
 
-    <li class="arrow page-item"><a class="next page-link" href="<?php echo $pages->serverURL,'/(page)/',$pages->next_page,$pages->querystring?>">&raquo;</a></li>
+    <li class="arrow page-item"><a class="next page-link" href="<?php echo $pages->serverURL,'/(page)/',$pages->next_page,'?',$pages->querystring?>">&raquo;</a></li>
 
     <?php endif;?>
 

@@ -9,7 +9,7 @@ $appendPrintExportURL = '';
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel_append_print_multiinclude.tpl.php'));?>
 
-    <form action="<?php echo htmlspecialchars($action_url)?>/(export)/2?<?php echo $appendPrintExportURL?>" method="post" ng-non-bindable target="_blank" onsubmit="return lhinst.submitModalForm($(this))">
+    <form action="<?php echo htmlspecialchars($action_url)?>/(export)/2?<?php echo htmlspecialchars(isset($query_url) ? $query_url : '')?><?php echo !empty($appendPrintExportURL) ? '&amp;' . $appendPrintExportURL : ''?>" method="post" ng-non-bindable target="_blank" onsubmit="return lhinst.submitModalForm($(this))">
 
         <?php if (isset($errors)) : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>

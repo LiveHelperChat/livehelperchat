@@ -505,14 +505,24 @@ class erLhcoreClassSearchHandler
         );
     }
 
-    public static function getURLAppendFromInput($inputParams, $skipSort = false, $skipArgs = array())
+    public static function getURLAppendFromInput($inputParams, $skipSort = false, $skipArgs = array(), $queryArgs = array())
     {
         $URLappend = '';
+        $URLQueryAppend = '';
         $sortByAppend = '';
         
         foreach ($inputParams as $key => $value) {
             if (is_numeric($value) || $value != '') {
-                $value = is_array($value) ? implode('/', $value) : urlencode($value);
+                if (in_array($key,$queryArgs)) {
+                    $value = urlencode($value);
+                    if ($URLQueryAppend != '') {
+                        $URLQueryAppend .= '&';
+                    }
+                    $URLQueryAppend .= $key.'='.$value;
+                    continue;
+                } else {
+                    $value = is_array($value) ? implode('/', $value) : urlencode($value);
+                }
                 if ($key != 'sortby') {
                     if (!in_array($key,$skipArgs)) {
                         $URLappend .= "/({$key})/" . $value;
@@ -522,7 +532,11 @@ class erLhcoreClassSearchHandler
                 }
             }
         }
-        
+
+        if (!empty($queryArgs)) {
+            return ['query' => $URLQueryAppend, 'append' => $URLappend . ($skipSort == false ? $sortByAppend : '')];
+        }
+
         if ($skipSort == false) {
             return $URLappend . $sortByAppend;
         } else {
