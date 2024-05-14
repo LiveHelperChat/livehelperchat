@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class erLhcoreClassTranslateDeepL {
     private static $translator;
@@ -31,8 +31,14 @@ class erLhcoreClassTranslateDeepL {
         }
     }
 
+    public static $validMapping = [
+        'en-us' => 'en-US',
+        'en' => 'en-US',
+        'en-gb' => 'en-GB',
+    ];
 
-    public static function translate($apiKey, $text, $fromLanguage, $toLanguage){
+
+    public static function translate($apiKey, $text, $fromLanguage, $toLanguage) {
         if (empty($text)){
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Missing text to translate'));
         }
@@ -42,11 +48,16 @@ class erLhcoreClassTranslateDeepL {
             $toLanguage = $splitLanguage[0];
             $formal = $splitLanguage[1] ?? 'prefer_more';
             $formality = $formal === 'less' ? 'prefer_less' : 'prefer_more';
+            $fromLanguage = explode('-',$fromLanguage)[0];
+
+            if (isset(self::$validMapping[$toLanguage])) {
+                $toLanguage = self::$validMapping[$toLanguage];
+            }
 
             return self::getTranslator($apiKey)->translateText($text, $fromLanguage, $toLanguage, [
                 'formality' => $formality,
             ])->text;
-        } catch (DeepLException $e) {
+        } catch (Exception $e) {
             throw new RuntimeException("Failed translate from {$fromLanguage} to {$toLanguage}", 0, $e);
         }
     }

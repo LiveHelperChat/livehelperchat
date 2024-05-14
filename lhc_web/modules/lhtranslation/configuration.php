@@ -167,7 +167,7 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
 }
 
 $tpl->set('translation_data',$data);
-
+$Result['require_angular'] = true;
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Translation configuration')))
 
