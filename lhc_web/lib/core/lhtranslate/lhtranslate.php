@@ -361,16 +361,7 @@ class erLhcoreClassTranslate
                     ));
                 }
             } elseif ($translationData['translation_handler'] == 'deepl') {
-                $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_deepl_token', array(
-                    'translation_config' => & $translationConfig,
-                    'translation_data' => & $translationData
-                ));
-                if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-                    // Do nothing
-                } else {
-                    self::getDeepLAccessToken($translationConfig, $translationData);
-                }
-                
+
                 // Only last 10 messages are translated
                 $msgs = erLhcoreClassModelmsg::getList(array(
                     'filter' => array(
@@ -388,9 +379,9 @@ class erLhcoreClassTranslate
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
                         
                         if ($msg->user_id == 0) {
-                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_access_token'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
+                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
                         } else { // Operator message
-                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_access_token'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
+                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
                         }
                         
                         // If translation was successfull store it
@@ -960,7 +951,7 @@ class erLhcoreClassTranslate
                     }
                 }
 
-                $translatedItem =  erLhcoreClassTranslateDeepL::translate($translationData['yandex_api_key'], $text, $translateFrom, $translateTo);
+                $translatedItem =  erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $text, $translateFrom, $translateTo);
             }
 
             if ($useCache) {
