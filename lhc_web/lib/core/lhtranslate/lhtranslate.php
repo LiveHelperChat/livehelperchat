@@ -947,7 +947,7 @@ class erLhcoreClassTranslate
                     $translateFrom = self::detectLanguage($text);
                 } else {
                     if (!key_exists($translateFrom, $supportedLanguages)) {
-                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Operator language is not supported by Google translation service'). ' [' . $translateFrom . ']' );
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Operator language is not supported by DeepL translation service'). ' [' . $translateFrom . ']' );
                     }
                 }
 
