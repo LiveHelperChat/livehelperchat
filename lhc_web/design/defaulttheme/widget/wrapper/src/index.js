@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 224;
+            lhc.version = 225;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -1061,6 +1061,9 @@
                 // we have found document body so we can continue
                 if (document.body) {
                     lhc.ready = true;
+                } else {
+                    // Document body does not exists
+                    return;
                 }
 
                 lhc.init = init;

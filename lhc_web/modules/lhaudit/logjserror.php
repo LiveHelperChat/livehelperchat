@@ -24,6 +24,11 @@ if (isset($_POST['data'])) {
 
         $messageLog = $referrer . erLhcoreClassIPDetect::getIP() . "\n" . trim((isset($dataLog['message']) ? $dataLog['message'] : '') . "\n" . json_decode($dataLog['stack'],true));
 
+        // Ignore old browsers reporting errors
+        if (strpos($messageLog,'SyntaxError: Cannot declare a let variable twice') !== false || strpos($messageLog,'Uncaught SyntaxError: Unexpected token function') !== false) {
+            exit;
+        }
+
         erLhcoreClassLog::write($messageLog,
             ezcLog::SUCCESS_AUDIT,
             array(

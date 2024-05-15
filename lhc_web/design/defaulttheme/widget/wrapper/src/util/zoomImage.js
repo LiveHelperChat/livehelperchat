@@ -39,16 +39,25 @@ class _zoomImage {
             window.removeEventListener('resize',resizeListener);
         }
 
+        function fullCleanup() {
+            that.cleanup();
+            window.removeEventListener('click',clickListener);
+            window.removeEventListener('resize',resizeListener);
+        }
+
         function clickListener(event) {
             if (event.target == modal) {
-                that.cleanup();
-                window.removeEventListener('click',clickListener);
-                window.removeEventListener('resize',resizeListener);
+                that.fullCleanup();
             }
         }
 
         function resizeListener(event) {
-                document.getElementById('lhc-zoom-image').style.maxHeight = (window.innerHeight - 140) + "px";
+                var elm = document.getElementById('lhc-zoom-image');
+                if (elm) {
+                    document.getElementById('lhc-zoom-image').style.maxHeight = (window.innerHeight - 140) + "px";
+                } else {
+                    that.fullCleanup();
+                }
         }
 
         window.addEventListener('click',clickListener);
