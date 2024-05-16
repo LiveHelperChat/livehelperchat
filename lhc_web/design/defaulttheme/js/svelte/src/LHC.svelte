@@ -1408,6 +1408,7 @@
                                             lhinst.startChatBackground(chat.id, tabs, truncate((chat.nick || 'Visitor'), 10));
                                             // We auto open only auto assigned chats
                                             lhcLogic.channel.postMessage({'action':'startbackground_chat','args':{'nick': truncate((chat.nick || 'Visitor'), 10), 'chat_id' : parseInt(chat.id)}});
+                                            ee.emitEvent('eventLoadChatListSvelteAutoOpen', [chat, lhcLogic]);
                                         }
 
                                         if (lhinst.disableremember == false) {
