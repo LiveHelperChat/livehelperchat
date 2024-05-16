@@ -602,7 +602,7 @@
 
                     {#if type == 'active_chats' || type == 'subject_chats' || type == 'bot_chats'}
                         <div class="abbr-list" title="Chat started at - {chat.time_created_front}">
-                            <span class="material-icons text-success" title={$t("widget.send_receive")} class:text-danger={chat.pnd_rsp}>{chat.pnd_rsp === true ? 'call_received' : 'call_made'}</span>{chat.last_msg_time_front ? chat.last_msg_time_front : '&#x2709;'}
+                            <span class="material-icons text-success" title={$t("widget.send_receive")} class:text-danger={chat.pnd_rsp}>{chat.pnd_rsp === true ? 'call_received' : 'call_made'}</span>{#if chat.last_msg_time_front}{chat.last_msg_time_front}{:else}&#x2709;{/if}
                         </div>
                     {/if}
 
@@ -613,7 +613,7 @@
 
                     {#if type == 'my_chats'}
                         <div class="abbr-list" title={chat.status == 1 ? $t("widget.active")  : $t("widget.pending")}>
-                            {#if chat.status != 1}<i title={$t("widget.pending")} class="material-icons chat-unread">&#xE80E;</i>{/if}<span class="material-icons text-success" title={$t("widget.send_receive")} class:text-danger={chat.pnd_rsp}>{chat.pnd_rsp === true ? 'call_received' : 'call_made'}</span>{chat.status == 0 ? '&#x23F3; '+chat.wait_time_pending : chat.last_msg_time_front}
+                            {#if chat.status != 1}<i title={$t("widget.pending")} class="material-icons chat-unread">&#xE80E;</i>{/if}<span class="material-icons text-success" title={$t("widget.send_receive")} class:text-danger={chat.pnd_rsp}>{chat.pnd_rsp === true ? 'call_received' : 'call_made'}</span>{#if !chat.status}&#x23F3; {chat.wait_time_pending}{:else}{chat.last_msg_time_front}{/if}
                         </div>
                     {/if}
                 </td>
