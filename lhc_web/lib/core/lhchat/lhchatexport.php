@@ -444,8 +444,25 @@ class erLhcoreClassChatExport {
             fputcsv($df, $chatArray[0]);
         }
 
-        foreach ($chats as $item) {
-                $item = erLhcoreClassModelChat::fetch($item->id, false);
+        foreach ($chats as $itemPrimary) {
+
+                $isArchive = false;
+                // Standard search is used
+                if (is_object($itemPrimary)) {
+                    $item = erLhcoreClassModelChat::fetch($itemPrimary->id, false);
+                } else { // ElasticSearch is used
+                    $item = erLhcoreClassModelChat::fetch($itemPrimary, false);
+                    if (!($item instanceof erLhcoreClassModelChat)) {
+                        $isArchive = true;
+                        $itemProperties = erLhcoreClassChatArcive::fetchChatById($itemPrimary, false, false);
+                        if (isset($itemProperties['chat']) && $itemProperties['chat'] instanceof erLhcoreClassModelChatArchive) {
+                            $item = $itemProperties['chat'];
+                        } else {
+                            continue; // Chat not found in archive also
+                        }
+                    }
+                }
+
                 $id = (string)$item->{'id'};
                 $nick = (string)$item->{'nick'};
                 $email = (string)$item->{'email'};
@@ -531,8 +548,14 @@ class erLhcoreClassChatExport {
 
                 $chat_actions = '';
 
-                foreach (erLhcoreClassModelChatAction::getList(['sort' => 'id ASC', 'limit' => false, 'filter' => ['chat_id' => $item->id]]) as $chatActionItem) {
-                    $chat_actions .= $chatActionItem->body."\n";
+                if ($isArchive === true) {
+                    foreach (erLhcoreClassModelChatArchiveAction::getList(['sort' => 'id ASC', 'limit' => false, 'filter' => ['chat_id' => $item->id]]) as $chatActionItem) {
+                        $chat_actions .= $chatActionItem->body."\n";
+                    }
+                } else {
+                    foreach (erLhcoreClassModelChatAction::getList(['sort' => 'id ASC', 'limit' => false, 'filter' => ['chat_id' => $item->id]]) as $chatActionItem) {
+                        $chat_actions .= $chatActionItem->body."\n";
+                    }
                 }
 
                 $itemData = array($id, $nick, $email, $phone, $wait, $waitAbandoned, $country, $countryCode, $city, $ip, $user, $operatorName, $user_id_op, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, $visitorRemarks, $subjects, $is_unread, $is_unread_visitor, $is_abandoned, $bot, trim($chat_actions), $device, $visitorID, $duration, $chat_initiator, $browser, $browserBrand, $osFamily, $referrer, $session_referrer, $chat_start_time, $chat_end_time);
@@ -540,7 +563,12 @@ class erLhcoreClassChatExport {
                 // Print chat content to last column
                 if (isset($params['type']) && in_array(2,$params['type'])) {
 
-                    $messages = erLhcoreClassModelmsg::getList(array('limit' => 10000,'sort' => 'id ASC','filter' => array('chat_id' => $item->id)));                       
+                    if ($isArchive === true) {
+                        $messages = erLhcoreClassModelChatArchiveMsg::getList(array('limit' => 10000,'sort' => 'id ASC','filter' => array('chat_id' => $item->id)));
+                    } else {
+                        $messages = erLhcoreClassModelmsg::getList(array('limit' => 10000,'sort' => 'id ASC','filter' => array('chat_id' => $item->id)));
+                    }
+
                     $messagesContent = '';
 
                     foreach ($messages as $msg ) {

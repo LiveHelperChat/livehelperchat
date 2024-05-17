@@ -9,7 +9,7 @@ class erLhcoreClassChatArcive
      * @return array|null
      * @throws ezcDbHandlerNotFoundException
      */
-    public static function fetchChatById($chatId) {
+    public static function fetchChatById($chatId, $useCache = true, $trowException = true) {
         $chatsId[$chatId] = array();
         self::setArchiveAttribute($chatsId);
 
@@ -18,7 +18,7 @@ class erLhcoreClassChatArcive
 
             if ($archive instanceof erLhcoreClassModelChatArchiveRange) {
                 $archive->setTables();
-                $chat = erLhcoreClassModelChatArchive::fetch($chatId,true,true);
+                $chat = erLhcoreClassModelChatArchive::fetch($chatId, $useCache, $trowException);
                 return array('archive' => $archive, 'chat' => $chat);
             }
         }
