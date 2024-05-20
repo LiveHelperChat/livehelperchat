@@ -321,6 +321,7 @@ class erLhcoreClassModelMailconvConversation
     public $opened_at = 0;
     public $phone = '';
     public $is_archive = false;
+    public $archive = null;
     public $ignore_imap = false;
 }
 

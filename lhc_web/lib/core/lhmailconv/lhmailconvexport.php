@@ -159,16 +159,50 @@ class erLhcoreClassMailconvExport {
             'priority'
         );
 
-        $chunks = ceil( (isset($params['is_archive']) ? \LiveHelperChat\Models\mailConv\Archive\Conversation::getCount($filter) : erLhcoreClassModelMailconvConversation::getCount($filter))/300);
+        if (isset($params['conversation_id'])) {
+            $chunks = ceil( count($params['conversation_id'])/300);
+        } else {
+            $chunks = ceil( (isset($params['is_archive']) ? \LiveHelperChat\Models\mailConv\Archive\Conversation::getCount($filter) : erLhcoreClassModelMailconvConversation::getCount($filter))/300);
+        }
+
         for($i = 0; $i < $chunks; $i ++) {
             $filterChunk = $filter;
             $filterChunk['offset'] = $i * 300;
             $filterChunk['limit'] = 300;
 
-            $items = isset($params['is_archive']) ? \LiveHelperChat\Models\mailConv\Archive\Conversation::getList($filterChunk) : erLhcoreClassModelMailconvConversation::getList($filterChunk);
+            if (isset($params['conversation_id'])) {
+                $itemsIds = array_splice($params['conversation_id'],0,300);
+
+                if (empty($itemsIds)) {
+                    continue;
+                }
+
+                $items = erLhcoreClassModelMailconvConversation::getList(array('filterin' => ['id' => $itemsIds]));
+
+                $liveIds = array_keys($items);
+
+                $missingIds = array_diff($itemsIds, $liveIds); // Those conversations are in archives most likely. Unless completely missing.
+
+                foreach ($missingIds as $itemId) {
+                   $mailData = \LiveHelperChat\mailConv\Archive\Archive::fetchMailById($itemId);
+                    if (isset($mailData['mail'])) {
+                        $items[] = $mailData['mail'];
+                    }
+                }
+
+            } else {
+                $items = isset($params['is_archive']) ? \LiveHelperChat\Models\mailConv\Archive\Conversation::getList($filterChunk) : erLhcoreClassModelMailconvConversation::getList($filterChunk);
+            }
 
             foreach ($items as $item) {
                 $itemCSV = [];
+                $is_live_archive = false;
+
+                // In export mails can be in separate archives if export is not directly from archive
+                if (isset($params['conversation_id']) && $item instanceof \LiveHelperChat\Models\mailConv\Archive\Conversation) {
+                    $item->archive->setTables();
+                    $is_live_archive = true;
+                }
 
                 $date = date(erLhcoreClassModule::$dateFormat,$item->ctime);
                 $minutes = date('H:i:s',$item->ctime);
@@ -196,8 +230,10 @@ class erLhcoreClassMailconvExport {
 
                 $undeliverReport = $undeliverStatus = $undeliverCode = '';
                 if ($item->undelivered == 1) {
-                    $lastUndeliveredMessage = isset($params['is_archive']) ? \LiveHelperChat\Models\mailConv\Archive\Message::fetch($item->last_message_id) : erLhcoreClassModelMailconvMessage::fetch($item->last_message_id);
-                    if ($lastUndeliveredMessage instanceof erLhcoreClassModelMailconvMessage) {
+
+                    $lastUndeliveredMessage = $is_live_archive === true || isset($params['is_archive']) ? \LiveHelperChat\Models\mailConv\Archive\Message::fetch($item->last_message_id) : erLhcoreClassModelMailconvMessage::fetch($item->last_message_id);
+
+                    if ($lastUndeliveredMessage instanceof erLhcoreClassModelMailconvMessage || $lastUndeliveredMessage instanceof \LiveHelperChat\Models\mailConv\Archive\Message) {
                         $undeliverReport = $lastUndeliveredMessage->delivery_status;
                         if (isset($lastUndeliveredMessage->delivery_status_keyed['Diagnostic_Code'])){
                             $undeliverCode = $lastUndeliveredMessage->delivery_status_keyed['Diagnostic_Code'];
@@ -213,12 +249,12 @@ class erLhcoreClassMailconvExport {
                 $itemCSV[] = $undeliverReport;
 
                 if (in_array(2, $params['type'])) {
-                    $itemCSV[] = implode(', ',isset($params['is_archive']) ? \LiveHelperChat\Models\mailConv\Archive\MessageSubject::getList(['filter' => ['conversation_id' => $item->id]]) : erLhcoreClassModelMailconvMessageSubject::getList(['filter' => ['conversation_id' => $item->id]]));
+                    $itemCSV[] = implode(', ',$is_live_archive === true || isset($params['is_archive']) ? \LiveHelperChat\Models\mailConv\Archive\MessageSubject::getList(['filter' => ['conversation_id' => $item->id]]) : erLhcoreClassModelMailconvMessageSubject::getList(['filter' => ['conversation_id' => $item->id]]));
                 }
 
                 if (in_array(1, $params['type'])) {
 
-                    if (isset($params['is_archive'])){
+                    if ($is_live_archive === true || isset($params['is_archive'])){
                         $itemCSV[] = \LiveHelperChat\Models\mailConv\Archive\Message::getCount(['filter' => ['conversation_id' => $item->id]]);
                         $itemCSV[] = \LiveHelperChat\Models\mailConv\Archive\Message::getCount(['filter' => ['response_type' => [
                             erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED,
@@ -246,7 +282,7 @@ class erLhcoreClassMailconvExport {
                 // Messages content
                 if (in_array(3, $params['type'])) {
 
-                    $messages = isset($params['is_archive']) ? \LiveHelperChat\Models\mailConv\Archive\Message::getList(['filter' => ['conversation_id' => $item->id]]) : erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $item->id]]);
+                    $messages = $is_live_archive === true || isset($params['is_archive']) ? \LiveHelperChat\Models\mailConv\Archive\Message::getList(['filter' => ['conversation_id' => $item->id]]) : erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $item->id]]);
 
                     $messagesBodyHTML = $messagesBody = [];
 

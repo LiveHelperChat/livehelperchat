@@ -29,6 +29,7 @@ class Archive
                 $archive->setTables();
                 try {
                     $chat = ArchiveModels\Conversation::fetch($chatId, true, true);
+                    $chat->archive = $archive;
                     return array('archive' => $archive, 'mail' => $chat);
                 } catch (\Exception $e) {
                     return null;
