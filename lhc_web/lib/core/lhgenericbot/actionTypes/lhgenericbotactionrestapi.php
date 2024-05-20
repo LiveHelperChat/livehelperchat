@@ -255,6 +255,13 @@ class erLhcoreClassGenericBotActionRestapi
         }
     }
 
+    public static function trimOnce($string)
+    {
+        if ($string[0] == '"') $string = substr($string,1);
+        if ($string[strlen($string)-1] == '"') $string = substr($string,0,strlen($string)-1);
+        return $string;
+    }
+
     public static function isValidMessage($string, $language = 'en') {
 
         if (trim($string) == '') {
@@ -893,7 +900,7 @@ class erLhcoreClassGenericBotActionRestapi
             if ($file_api === true) {
                 $rawReplaceArray = array();
                 foreach ($replaceVariablesJSON as $keyVariable => $keyValue) {
-                    $rawReplaceArray['raw_'.$keyVariable] = str_replace('\\\/','\/',trim($keyValue,"\""));
+                    $rawReplaceArray['raw_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce($keyValue));
                 }
 
                 $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray),  $methodSettings['body_raw_file']);
@@ -922,7 +929,7 @@ class erLhcoreClassGenericBotActionRestapi
 
             $rawReplaceArray = array();
             foreach ($replaceVariablesJSON as $keyVariable => $keyValue) {
-                $rawReplaceArray['raw_'.$keyVariable] = str_replace('\\\/','\/',trim($keyValue,"\""));
+                $rawReplaceArray['raw_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce($keyValue));
             }
 
             $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray), $file_api === true ? $methodSettings['body_raw_file'] : $methodSettings['body_raw']);
