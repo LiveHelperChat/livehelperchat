@@ -257,6 +257,11 @@ class erLhcoreClassGenericBotActionRestapi
 
     public static function trimOnce($string)
     {
+        // Do not modify if it's not a string
+        if (!is_string($string)) {
+            return $string;
+        }
+
         if ($string[0] == '"') $string = substr($string,1);
         if ($string[strlen($string)-1] == '"') $string = substr($string,0,strlen($string)-1);
         return $string;
