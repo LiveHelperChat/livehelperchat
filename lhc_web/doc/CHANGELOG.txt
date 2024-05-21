@@ -1,3 +1,23 @@
+4.39v
+
+1. https://github.com/LiveHelperChat/electron/releases Electron app was updated to 124 chrome version.
+2. If Rest API was used as "raw_{some_var}" and variable had a quote at the end, it was incorrectly encoded resulting in broken JSON.
+3. Added support for large numbers of chats/e-mails export from ElasticSearch extension.
+4. Fixed some of the icons in dashboard widgets after migration to svelte.
+5. Edge case fixes for the widget and ignoring some of the errors because of to old browsers version.
+6. Fixes for DeppL language translation services.
+7. Keyword in ElasticSearch always will be a GET parameter to avoid hitting apache path length limit.
+8. Handle missing file after e-mail import so it's correctly downloaded viewing e-mail from back office.
+9. Logging will handle incorrect UTF characters.
+10. Fix for https://github.com/LiveHelperChat/livehelperchat/issues/2003
+11. Deleting chats from list had a limit. It should not have and delete all selected chats.
+12. Online visitors attribute filter sometimes was lost.
+13. Online operators tab was migrated to Svelte also.
+14. Mobile app was not working because of incorrect expression in SQL while two tables are used under JOIN condition.
+15. Ignore invalid JSON characters in e-mail module.
+
+There is no database update this time.
+
 4.38v
 
 1. Bot commands can can be sorted by position
