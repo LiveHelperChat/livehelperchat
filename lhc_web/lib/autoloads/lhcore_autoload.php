@@ -180,6 +180,7 @@ return array_merge(array (
 		'erLhcoreClassModelChatArchiveMsg' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchivemsg.php',
 		'erLhcoreClassModelChatArchiveAction' 	=> 'lib/models/lhchat/erlhcoreclassmodelchatarchiveaction.php',
 		'erLhcoreClassModelChatArchiveParticipant' 	=> 'lib/models/lhchat/erlhcoreclassmodelchatarchiveparticipant.php',
+		'erLhAbstractModelChatArchiveSubject' 	=> 'lib/models/lhchat/erlhcoreclassmodelchatarchivesubject.php',
 		'erLhcoreClassChatArcive' 		        => 'lib/core/lhchat/lhchatarchive.php',
 
 		// Files upload

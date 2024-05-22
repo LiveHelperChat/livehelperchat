@@ -155,7 +155,7 @@
     });
 
     ee.addListener('angularStartChatOperatorPublic',function (user_id) {
-        // startChatOperatorPublic(user_id);
+        lhcServices.startChatOperator(user_id);
     });
 
     ee.addListener('svelteallDepartmentsChanged',function (list,force) {

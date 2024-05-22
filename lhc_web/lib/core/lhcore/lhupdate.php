@@ -51,7 +51,9 @@ class erLhcoreClassUpdate
     		    $definition['tables'][erLhcoreClassModelChatArchiveRange::$archiveTable] = $definition['tables']['lh_chat'];
     		    $definition['tables'][erLhcoreClassModelChatArchiveRange::$archiveMsgTable] = $definition['tables']['lh_msg'];
     		    $definition['tables'][erLhcoreClassModelChatArchiveRange::$archiveChatParticipantTable] = $definition['tables']['lh_chat_participant'];
+    		    $definition['tables'][erLhcoreClassModelChatArchiveRange::$archiveChatSubjectTable] = $definition['tables']['lh_abstract_subject_chat'];
     		    $definition['tables_create'][erLhcoreClassModelChatArchiveRange::$archiveChatParticipantTable] = str_replace('`lh_chat_participant`',"`".erLhcoreClassModelChatArchiveRange::$archiveChatParticipantTable."`",$definition['tables_create']['lh_chat_participant']);
+    		    $definition['tables_create'][erLhcoreClassModelChatArchiveRange::$archiveChatSubjectTable] = str_replace('`lh_abstract_subject_chat`',"`".erLhcoreClassModelChatArchiveRange::$archiveChatSubjectTable."`",$definition['tables_create']['lh_abstract_subject_chat']);
     		}
 		}
 
