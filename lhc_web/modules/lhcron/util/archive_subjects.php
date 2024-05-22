@@ -19,7 +19,7 @@ foreach (erLhcoreClassModelChatArchiveRange::getList() as $archiveRange) {
     // Insert subjects to archive tables
     $stmt = $db->prepare( "INSERT IGNORE INTO `" . erLhAbstractModelChatArchiveSubject::$dbTable . "` (id, subject_id, chat_id) SELECT id,subject_id,chat_id FROM lh_abstract_subject_chat WHERE chat_id >= :min_id AND chat_id <= :max_id");
     $stmt->bindValue(':min_id',$data['min_id'],PDO::PARAM_INT);
-    $stmt->bindValue(':max_id',$data['min_id'],PDO::PARAM_INT);
+    $stmt->bindValue(':max_id',$data['max_id'],PDO::PARAM_INT);
     $stmt->execute();
     echo "Moved - " , $stmt->rowCount(),"\n";
 
@@ -28,7 +28,7 @@ foreach (erLhcoreClassModelChatArchiveRange::getList() as $archiveRange) {
         // Remove moved subjects
         $stmt = $db->prepare( "DELETE FROM lh_abstract_subject_chat WHERE chat_id >= :min_id AND chat_id <= :max_id");
         $stmt->bindValue(':min_id',$data['min_id'],PDO::PARAM_INT);
-        $stmt->bindValue(':max_id',$data['min_id'],PDO::PARAM_INT);
+        $stmt->bindValue(':max_id',$data['max_id'],PDO::PARAM_INT);
         $stmt->execute();
         echo "Removed - " , $stmt->rowCount(),"\n";
     }
