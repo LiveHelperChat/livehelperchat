@@ -8586,7 +8586,7 @@
         "type": "int(11) unsigned",
         "null": "NO",
         "key": "MUL",
-        "default": "0",
+        "default": "1000",
         "extra": ""
       },
       {
