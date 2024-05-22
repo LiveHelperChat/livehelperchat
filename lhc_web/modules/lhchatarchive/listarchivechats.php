@@ -23,7 +23,13 @@ if (isset($filterParams['filter']['filter']['`lh_chat`.`id`'])) {
 // Set correct archive tables
 $archive->setTables();
 
-$filterParams['filter']['sort'] = '`id` DESC';
+$filterParams['filter']['sort'] = '`lh_chat_archive_' . $Params['user_parameters']['id'] . '` . `id` DESC';
+
+if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['input_form']->subject_id)) {
+    erLhcoreClassChat::validateFilterIn($filterParams['input_form']->subject_id);
+    $filterParams['filter']['innerjoin']['lh_abstract_subject_chat_'.$Params['user_parameters']['id'].''] = array('`lh_abstract_subject_chat_'.$Params['user_parameters']['id'].'`.`chat_id`','`lh_chat_archive_' . $Params['user_parameters']['id'] . '` . `id`');
+    $filterParams['filter']['filterin']['`lh_abstract_subject_chat_'.$Params['user_parameters']['id'].'`.`subject_id`'] = $filterParams['input_form']->subject_id;
+}
 
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('chatarchive/listarchivechats').'/'.$archive->id.$append;

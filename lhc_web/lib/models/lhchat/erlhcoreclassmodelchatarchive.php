@@ -1,4 +1,5 @@
 <?php
+
 #[\AllowDynamicProperties]
 class erLhcoreClassModelChatArchive extends erLhcoreClassModelChat
 {
@@ -20,14 +21,20 @@ class erLhcoreClassModelChatArchive extends erLhcoreClassModelChat
     {
         parent::afterRemove();
 
-        $q = ezcDbInstance::get()->createDeleteQuery();
-
-        // Messages
-        $q->deleteFrom(erLhcoreClassModelChatArchiveRange::$archiveMsgTable)->where($q->expr->eq('chat_id', $this->id));
-        $stmt = $q->prepare();
-        $stmt->execute();
+        foreach ([
+                     erLhcoreClassModelChatArchiveRange::$archiveMsgTable,
+                     erLhcoreClassModelChatArchiveRange::$archiveSupportTable,
+                     erLhcoreClassModelChatArchiveRange::$archiveSupportMsgTable,
+                     erLhcoreClassModelChatArchiveRange::$archiveSupportMemberTable,
+                     erLhcoreClassModelChatArchiveRange::$archiveChatActionsTable,
+                     erLhcoreClassModelChatArchiveRange::$archiveChatParticipantTable,
+                     erLhcoreClassModelChatArchiveRange::$archiveChatSubjectTable] as $table) {
+            $q = ezcDbInstance::get()->createDeleteQuery();
+            $q->deleteFrom($table)->where($q->expr->eq('chat_id', $this->id));
+            $stmt = $q->prepare();
+            $stmt->execute();
+        }
     }
-
 }
 
 ?>
