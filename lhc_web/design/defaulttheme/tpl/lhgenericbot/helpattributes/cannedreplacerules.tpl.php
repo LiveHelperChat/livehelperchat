@@ -25,7 +25,7 @@
 
     <div class="row">
         <div class="col-6">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Chat ID or Conversation ID to explore');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Chat ID or Message ID to explore');?></label>
             <input id="test-pattern-chat-id" type="number" input="replace_pattern" class="form-control form-control-sm">
         </div>
         <div class="col-6 pb-2">
