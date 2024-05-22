@@ -68,7 +68,8 @@ if (isset($_POST['Save_archive']) || isset($_POST['Save_and_continue_archive']))
 
 	if (count($Errors) == 0)
 	{
-		if (isset($_POST['Save_and_continue_archive'])){
+        $archive->saveThis();
+		if (isset($_POST['Save_and_continue_archive'])) {
 			erLhcoreClassModule::redirect('chatarchive/process','/'.$archive->id);
 			exit;
 		}

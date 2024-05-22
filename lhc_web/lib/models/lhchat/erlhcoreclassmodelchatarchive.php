@@ -23,9 +23,6 @@ class erLhcoreClassModelChatArchive extends erLhcoreClassModelChat
 
         foreach ([
                      erLhcoreClassModelChatArchiveRange::$archiveMsgTable,
-                     erLhcoreClassModelChatArchiveRange::$archiveSupportTable,
-                     erLhcoreClassModelChatArchiveRange::$archiveSupportMsgTable,
-                     erLhcoreClassModelChatArchiveRange::$archiveSupportMemberTable,
                      erLhcoreClassModelChatArchiveRange::$archiveChatActionsTable,
                      erLhcoreClassModelChatArchiveRange::$archiveChatParticipantTable,
                      erLhcoreClassModelChatArchiveRange::$archiveChatSubjectTable] as $table) {
@@ -33,6 +30,13 @@ class erLhcoreClassModelChatArchive extends erLhcoreClassModelChat
             $q->deleteFrom($table)->where($q->expr->eq('chat_id', $this->id));
             $stmt = $q->prepare();
             $stmt->execute();
+        }
+
+        // Delete group chat
+        $groupChat = erLhcoreClassModelGroupChatArchive::findOne(array('filter' => array('chat_id' => $this->id)));
+
+        if ($groupChat instanceof erLhcoreClassModelGroupChatArchive) {
+            $groupChat->removeThis();
         }
     }
 }

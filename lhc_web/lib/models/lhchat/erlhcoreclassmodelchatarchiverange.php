@@ -230,25 +230,35 @@ class erLhcoreClassModelChatArchiveRange
                     $db = ezcDbInstance::get();
                     $stmt = $db->prepare("SELECT time FROM lh_chat_archive_" . $this->id . ' WHERE id = ' . $this->first_id);
                     $stmt->execute();
-                    return date(erLhcoreClassModule::$dateDateHourFormat, (int)$stmt->fetchColumn()); 
-                } elseif ($this->range_from != 0) {
+                    $time = (int)$stmt->fetchColumn();
+                    if ($time > 0) {
+                        return date(erLhcoreClassModule::$dateDateHourFormat, $time);
+                    }
+                }
+
+                if ($this->range_from != 0) {
                     return date(erLhcoreClassModule::$dateDateHourFormat , $this->range_from);
                 }
+
                 return '';
-                break;
 
             case 'range_to_front':
                 if ($this->last_id > 0) {
                     $db = ezcDbInstance::get();
                     $stmt = $db->prepare("SELECT time FROM lh_chat_archive_" . $this->id . ' WHERE id = ' . $this->last_id);
                     $stmt->execute();
-                    return date(erLhcoreClassModule::$dateDateHourFormat, (int)$stmt->fetchColumn());
-                } else if ($this->range_to != 0) {
-                    return date(erLhcoreClassModule::$dateFormat, $this->range_to);
+                    $time = (int)$stmt->fetchColumn();
+                    if ($time > 0) {
+                        return date(erLhcoreClassModule::$dateDateHourFormat, $time);
+                    }
                 }
+
+                if ($this->range_to != 0) {
+                    return date(erLhcoreClassModule::$dateDateHourFormat, $this->range_to);
+                }
+
                 return '';
-                break;
-                
+
             case 'range_to_edit':
                 if ($this->range_to != 0) {
                     return date(erLhcoreClassModule::$dateFormat, $this->range_to);

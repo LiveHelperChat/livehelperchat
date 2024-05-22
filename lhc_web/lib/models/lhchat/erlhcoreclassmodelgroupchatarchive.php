@@ -20,14 +20,14 @@ class erLhcoreClassModelGroupChatArchive extends erLhcoreClassModelGroupChat
     {
         parent::afterRemove();
 
-        $q = ezcDbInstance::get()->createDeleteQuery();
-
         // Messages
+        $q = ezcDbInstance::get()->createDeleteQuery();
         $q->deleteFrom(erLhcoreClassModelChatArchiveRange::$archiveSupportMsgTable)->where($q->expr->eq('chat_id', $this->id));
         $stmt = $q->prepare();
         $stmt->execute();
 
         // Members records
+        $q = ezcDbInstance::get()->createDeleteQuery();
         $q->deleteFrom(erLhcoreClassModelChatArchiveRange::$archiveSupportMemberTable)->where($q->expr->eq('group_id', $this->id));
         $stmt = $q->prepare();
         $stmt->execute();
