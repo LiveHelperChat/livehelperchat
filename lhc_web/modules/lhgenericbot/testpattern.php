@@ -7,7 +7,6 @@ if (isset($_POST['mail'])){
 
     $conversation = $chat->conversation;
 
-
     if ($conversation instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conversation)) {
 
         if (isset($_POST['extract_action'])) {
@@ -49,6 +48,16 @@ if (isset($_POST['mail'])){
             }
 
             $response = implode("\n",$patterns);
+
+        } elseif (isset($_POST['text_pattern'])) {
+
+            if ($_POST['test_pattern'][0] === "{") {
+                $attribute = erLhcoreClassGenericBotWorkflow::translateMessage($_POST['test_pattern'], array('as_json' => true, 'chat' => $chat, 'args' => ['chat' => $chat]));
+            } else {
+                $attribute = $_POST['test_pattern'];
+            }
+
+            $response = var_export(erLhcoreClassChatValidator::conditionsMatches([['field' => $attribute, 'comparator' => $_POST['comparator'], 'value' => $_POST['text_pattern']]],[]), true);
 
         } else {
             $response = erLhcoreClassGenericBotWorkflow::translateMessage($_POST['test_pattern'], array('as_json' => true, 'chat' => $chat, 'args' => ['chat' => $chat]));
@@ -113,6 +122,16 @@ if (isset($_POST['mail'])){
             }
 
             $response = implode("\n",$patterns);
+
+        } elseif (isset($_POST['text_pattern'])) {
+
+            if ($_POST['test_pattern'][0] === "{") {
+                $attribute = erLhcoreClassGenericBotWorkflow::translateMessage($_POST['test_pattern'], array('as_json' => true, 'chat' => $chat, 'args' => ['chat' => $chat]));
+            } else {
+                $attribute = $_POST['test_pattern'];
+            }
+
+            $response = var_export(erLhcoreClassChatValidator::conditionsMatches([['field' => $attribute, 'comparator' => $_POST['comparator'], 'value' => $_POST['text_pattern']]],[]), true);
 
         } else {
             $response = erLhcoreClassGenericBotWorkflow::translateMessage($_POST['test_pattern'], array('as_json' => true, 'chat' => $chat, 'args' => ['chat' => $chat]));
