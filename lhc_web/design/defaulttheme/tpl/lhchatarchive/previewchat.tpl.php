@@ -17,7 +17,7 @@
 
             <?php if ($chat->online_user_id > 0) : ?><i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor ID')?> - <?php echo $chat->online_user_id?></small><?php endif; ?>
 
-            <?php foreach (erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $chat->id))) as $subject) : ?>
+            <?php foreach (erLhAbstractModelChatArchiveSubject::getList(array('filter' => array('chat_id' => $chat->id))) as $subject) : ?>
                 <span class="badge bg-info fs12 me-1" ><?php echo htmlspecialchars($subject->subject)?></span>
             <?php endforeach; ?>
         </div>
