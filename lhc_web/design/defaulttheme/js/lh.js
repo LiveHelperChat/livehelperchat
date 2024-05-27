@@ -61,6 +61,7 @@ function lh(){
 
     this.channel = null;
 
+    this.ignoreAdminSync = false;
     this.disableremember = false;
     this.operatorTyping = false;
     this.forceBottomScroll = false;
@@ -915,9 +916,11 @@ function lh(){
         	var rememberAppend = this.disableremember == false ? '/(remember)/true' : '';
         	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend, name, chat_id, focusTabAction, position);
         	var inst = this;
-        	 setTimeout(function(){
-     	    	inst.syncadmininterfacestatic();
-     	    },1000);
+            if (this.ignoreAdminSync === false) {
+                setTimeout(function() {
+                    inst.syncadmininterfacestatic();
+                },1000);
+            }
         } else {
         	tabs.find('> ul > li > a.active').removeClass("active");
     		tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");

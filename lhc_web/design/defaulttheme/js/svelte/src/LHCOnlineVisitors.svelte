@@ -871,7 +871,7 @@
                 {/if}
                 {#if !lhcLogic.hide_action_buttons}
                 <td>
-                    <div style="width:90px" ng-if="ou.vid">
+                    <div style="width:90px" >
                         <div class="btn-group" role="group" aria-label="...">
                             <button on:click={(e) => lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+ou.id})} class="btn btn-secondary btn-sm material-icons mat-100 me-0" title={$t('widget.send_message')}>chat</button>
                             <button on:click={deleteUser(ou, $t('widget.are_you_sure'))} class="btn btn-danger btn-sm material-icons mat-100 me-0" title={$t('widget_options.delete')+", ID - "+ou.id}>delete</button>
