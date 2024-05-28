@@ -1861,9 +1861,18 @@ class erLhcoreClassChat {
                     } elseif (strpos($column->variable,'chat_variable.') !== false) {
                         $additionalDataArray = $object->chat_variables_array;
                         if (is_array($additionalDataArray)) {
-                            $variableName = str_replace('chat_variable.','', $column->variable);
-                            if (isset($object->chat_variables_array[$variableName]) && $object->chat_variables_array[$variableName] != '') {
-                                $object->{'cc_'.$column->id} = $object->chat_variables_array[$variableName];
+                            $variableNames = str_replace('chat_variable.','', $column->variable);
+                            foreach (explode('||',$variableNames) as $variableName) {
+                                if (isset($object->chat_variables_array[$variableName]) && $object->chat_variables_array[$variableName] != '') {
+                                    $object->{'cc_' . $column->id} = $object->chat_variables_array[$variableName];
+                                    break;
+                                } elseif (strpos($variableName,'.') !== false) {
+                                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($object->chat_variables_array, $variableName, '.');
+                                    if ($valueAttribute['found'] == true && !is_array($valueAttribute['value']) && !is_object($valueAttribute['value'])) {
+                                        $object->{'cc_' . $column->id} = $valueAttribute['value'];
+                                        break;
+                                    }
+                                }
                             }
                         }
                     } elseif (strpos($column->variable,'lhc.') !== false) {
