@@ -83,7 +83,7 @@
         <div class={custom_card_class + " card-header"}>
 
             {#if custom_settings_url}
-                <i class="material-icons me-0 action-image" on:click={(e) => lhcServices.openModal(WWW_DIR_JAVASCRIPT + custom_settings_url)}>{custom_settings_url_icon || 'settings_applications'}</i>
+                <i class="material-icons me-0 action-image" on:click={(e) => lhcServices.openModal(custom_settings_url)}>{custom_settings_url_icon || 'settings_applications'}</i>
             {/if}
 
             {#if !no_link}
