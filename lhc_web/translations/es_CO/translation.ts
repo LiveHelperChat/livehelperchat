@@ -3331,7 +3331,7 @@
     </message>
     <message>
       <source>Debug chat attributes</source>
-      <translation type="unfinished"/>
+      <translation>Depurar atributos de chat</translation>
     </message>
     <message>
       <source>Exclude personal responses</source>
@@ -3367,11 +3367,11 @@
     </message>
     <message>
       <source>Assign selected department to canned messages</source>
-      <translation type="unfinished"/>
+      <translation>Asignar departamento seleccionado a mensajes predefinidos</translation>
     </message>
     <message>
       <source>Remove selected department from canned messages</source>
-      <translation type="unfinished"/>
+      <translation>Eliminar el departamento seleccionado de los mensajes almacenados</translation>
     </message>
     <message>
       <source>Save</source>
@@ -3407,27 +3407,27 @@
     </message>
     <message>
       <source>Usage frequency in the last 31 days</source>
-      <translation type="unfinished"/>
+      <translation>Frecuencia de uso en los últimos 31 días</translation>
     </message>
     <message>
       <source>Any times</source>
-      <translation type="unfinished"/>
+      <translation>cualquier momento</translation>
     </message>
     <message>
       <source>Zero times</source>
-      <translation type="unfinished"/>
+      <translation>Ninguna vez</translation>
     </message>
     <message>
       <source>Once</source>
-      <translation type="unfinished"/>
+      <translation>una vez</translation>
     </message>
     <message>
       <source>One or more</source>
-      <translation type="unfinished"/>
+      <translation>Una o mas</translation>
     </message>
     <message>
       <source>Sort by</source>
-      <translation type="unfinished"/>
+      <translation>Ordenar por</translation>
     </message>
     <message>
       <source>CSV</source>
@@ -3659,7 +3659,7 @@
     </message>
     <message>
       <source>First response time (agent)</source>
-      <translation type="unfinished"/>
+      <translation>Tiempo de la primera respuesta (agente)</translation>
     </message>
     <message>
       <source>Max response time (agent)</source>

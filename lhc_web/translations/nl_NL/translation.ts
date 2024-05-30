@@ -39,7 +39,7 @@
     </message>
     <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
-      <translation type="unfinished"/>
+      <translation>Hoe lang moeten we wachten voordat we de operator informeren over onbeantwoorde chats.</translation>
     </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
@@ -47,7 +47,7 @@
     </message>
     <message>
       <source>Domains where script can be embedded. E.g example.com, google.com</source>
-      <translation type="unfinished"/>
+      <translation>Domeinen waar het script kan worden ingesloten. Bijvoorbeeld example.com, google.com</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
@@ -67,7 +67,7 @@
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation type="unfinished"/>
+      <translation>Moeten muisbewegingen worden bijgehouden als activiteitsmaatregel, als deze optie niet is aangevinkt worden alleen basisgebeurtenissen bijgehouden</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -95,7 +95,7 @@
     </message>
     <message>
       <source>How many days keep records of users footprint.</source>
-      <translation type="unfinished"/>
+      <translation>Hoeveel dagen worden de gegevens van de gebruikers bijgehouden?</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
@@ -6107,7 +6107,7 @@
     </message>
     <message>
       <source>We will send you a trascript of your chat with agent, so you can browse it later.</source>
-      <translation type="unfinished"/>
+      <translation>We sturen je een transcriptie van je chat met de supportmedewerker, zodat je deze later kunt inzien.</translation>
     </message>
     <message>
       <source>Change language</source>

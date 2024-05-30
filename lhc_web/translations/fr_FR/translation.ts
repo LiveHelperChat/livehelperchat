@@ -494,7 +494,7 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Oui</translation>
     </message>
     <message>
       <source>Send message to</source>
@@ -10243,7 +10243,7 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Oui</translation>
     </message>
     <message>
       <source>No</source>

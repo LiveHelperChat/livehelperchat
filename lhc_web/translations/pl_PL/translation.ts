@@ -39,7 +39,7 @@
     </message>
     <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
-      <translation type="unfinished"/>
+      <translation>Jak długo mamy czekać zanim poinformujemy operatora o czacie bez odpowiedzi</translation>
     </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
@@ -303,7 +303,7 @@
     </message>
     <message>
       <source>Disable chat download</source>
-      <translation type="unfinished"/>
+      <translation>Wyłącz ściąganie rozmowy</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
@@ -319,7 +319,7 @@
     </message>
     <message>
       <source>Disable live auto assign</source>
-      <translation type="unfinished"/>
+      <translation>Wyłącz auto-przypisywanie na żywo</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
@@ -474,23 +474,23 @@
     </message>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
+      <translation>Szukaj</translation>
     </message>
     <message>
       <source>Block IP</source>
-      <translation type="unfinished"/>
+      <translation>Blokuj adres IP</translation>
     </message>
     <message>
       <source>Block e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Blokuj e-mail</translation>
     </message>
     <message>
       <source>Block country</source>
-      <translation type="unfinished"/>
+      <translation>Blokuj kraj</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>Zamknij</translation>
     </message>
     <message>
       <source>Yes</source>
@@ -498,15 +498,15 @@
     </message>
     <message>
       <source>Send message to</source>
-      <translation type="unfinished"/>
+      <translation>Wyślij wiadomość do</translation>
     </message>
     <message>
       <source>visitors</source>
-      <translation type="unfinished"/>
+      <translation>odwiedzający</translation>
     </message>
     <message>
       <source>Send the message and start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Wyślij wiadomość i rozpocznij czat</translation>
     </message>
     <message>
       <source>Send</source>
@@ -514,7 +514,7 @@
     </message>
     <message>
       <source>Check all</source>
-      <translation type="unfinished"/>
+      <translation>Sprawdź wszystko</translation>
     </message>
     <message>
       <source>Save and continue</source>
@@ -546,11 +546,11 @@
     </message>
     <message>
       <source>Submit</source>
-      <translation type="unfinished"/>
+      <translation>Wyślij</translation>
     </message>
     <message>
       <source>Send feedback</source>
-      <translation type="unfinished"/>
+      <translation>Wyślij opinię</translation>
     </message>
     <message>
       <source>Test</source>
@@ -562,7 +562,7 @@
     </message>
     <message>
       <source>Share</source>
-      <translation type="unfinished"/>
+      <translation>Udostępnij</translation>
     </message>
     <message>
       <source>Send test message</source>
@@ -603,7 +603,7 @@
     </message>
     <message>
       <source>Welcome message</source>
-      <translation type="unfinished"/>
+      <translation>Wiadomość powitalna</translation>
     </message>
     <message>
       <source>Offline message</source>
