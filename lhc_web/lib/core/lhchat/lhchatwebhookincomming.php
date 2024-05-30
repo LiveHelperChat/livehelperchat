@@ -788,7 +788,8 @@ class erLhcoreClassChatWebhookIncoming {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming_chat_continue', array(
                         'webhook' => & $incomingWebhook,
                         'data' => & $payloadAll,
-                        'chat' => & $chat
+                        'chat' => & $chat,
+                        'echat' => $eChat
                     ));
 
                     if ($typeMessage == 'img' || $typeMessage == 'img_2' || $typeMessage == 'img_3' || $typeMessage == 'img_4' || $typeMessage == 'img_5' || $typeMessage == 'img_6' || $typeMessage == 'attachments') {
@@ -1463,6 +1464,13 @@ class erLhcoreClassChatWebhookIncoming {
                             $chat->transfer_timeout_ac = $department->transfer_timeout;
                         }
                     }
+
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming_chat_before_update_new', array(
+                        'webhook' => & $incomingWebhook,
+                        'data' => & $payloadAll,
+                        'chat' => & $chat,
+                        'echat' => $eChat
+                    ));
 
                     $chat->updateThis(['update' => [
                         'last_msg_id',
