@@ -20,7 +20,7 @@ export class msgSnippetWidget{
             height: "200px",
             position: "fixed",
             display: "none",
-        }), null, "iframe");
+        }), {"translate":"no"}, "iframe");
 
         this.loadStatus = {main : false, theme: false, status: false};
     }
@@ -45,7 +45,7 @@ export class msgSnippetWidget{
         // Content invisible untill media loads
         this.cont.elmDomDoc.body.style.display = "none";
 
-        this.cont.elmDom.className += this.attributes.isMobile === true ? ' lhc-mobile' : ' lhc-desktop';
+        this.cont.elmDom.className += this.attributes.isMobile === true ? ' notranslate lhc-mobile' : ' notranslate lhc-desktop';
 
         this.cont.attachUserEventListener("click",  (e) => {
             this.attributes.eventEmitter.emitEvent('msgSnippetClicked', [{'event': e, 'sender' : 'closeButton'}]);

@@ -18,7 +18,7 @@ export class needhelpWidget{
             height: "135px",
             position: "fixed",
             display: "none",
-        }),  {"role":"presentation"}, "iframe");
+        }),  {"role":"presentation","translate":"no"}, "iframe");
 
         this.loadStatus = {main : false, theme: false, status: false};
     }
@@ -61,7 +61,7 @@ export class needhelpWidget{
         // Content invisible untill media loads
         this.cont.elmDomDoc.body.style.display = "none";
         
-        this.cont.elmDom.className += this.attributes.isMobile === true ? ' lhc-mobile' : ' lhc-desktop';
+        this.cont.elmDom.className += this.attributes.isMobile === true ? ' notranslate lhc-mobile' : ' notranslate lhc-desktop';
 
         this.cont.attachUserEventListener("click", function (e) {
             attributes.eventEmitter.emitEvent('nhClicked', [{'event': e, 'sender' : 'closeButton'}]);

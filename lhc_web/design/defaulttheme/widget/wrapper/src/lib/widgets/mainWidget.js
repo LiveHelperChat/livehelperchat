@@ -24,7 +24,7 @@ export class mainWidget{
             maxwidth: "95px",
             minheight: "95px",
             minwidth: "95px"
-        }),  {"role":"presentation"}, "iframe");
+        }),  {"role":"presentation","translate":"no"}, "iframe");
 
         this.isLoaded = false;
 
@@ -114,7 +114,7 @@ export class mainWidget{
             return null;
         }
 
-        this.cont.elmDom.className = this.attributes.isMobile === true ? 'lhc-mobile lhc-mode-'+this.attributes.mode : 'lhc-desktop lhc-mode-'+this.attributes.mode;
+        this.cont.elmDom.className = this.attributes.isMobile === true ? 'notranslate lhc-mobile lhc-mode-'+this.attributes.mode : 'notranslate lhc-desktop lhc-mode-'+this.attributes.mode;
 
         if (this.attributes.cont_ss) {
             this.originalCSS = this.cont.elmDom.style.cssText;
