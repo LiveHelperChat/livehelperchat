@@ -6,8 +6,11 @@ $Module = array( "name" => "Captcha module",
 $ViewList = array();
 
 $ViewList['captchastring'] = array(
-    'script' => 'captchastring.php',
     'params' => array('captcha_name','timets')
+);
+
+$ViewList['test'] = array(
+    'params' => array()
 );
 
 $FunctionList = array();

@@ -262,7 +262,7 @@ class erLhcoreClassTemplate {
 
 			foreach ($Matches[1] as $key => $TranslateContent)
 			{
-				$contentFile = str_replace($Matches[0][$key],'\''.erTranslationClassLhTranslation::getInstance()->getTranslation($TranslateContent,$Matches[3][$key]).'\'',$contentFile);
+				$contentFile = str_replace($Matches[0][$key],'\''.str_replace("'","\'",erTranslationClassLhTranslation::getInstance()->getTranslation($TranslateContent,$Matches[3][$key])).'\'',$contentFile);
 			}
 
 			// Compile url addresses
