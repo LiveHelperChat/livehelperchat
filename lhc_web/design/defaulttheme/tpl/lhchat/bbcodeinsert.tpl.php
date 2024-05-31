@@ -41,7 +41,7 @@ $icons = array(
 
             <ul class="nav nav-pills nav-pills-bbcode"  role="tablist">
                 <?php foreach ($icons as $index => $iconGroup) : ?>
-                    <li class="nav-item" role="presentation" ><a class="nav-link px-2 py-1 small <?php if ($index == 0) : ?>active<?php endif;?>" href="#bbcode-smiley-<?php echo $index?><?php if (isset($bbcodeParams['tab_prefix'])) : ?><?php echo $bbcodeParams['tab_prefix']?><?php endif; ?>" aria-controls="bbcode-smiley-<?php echo $index?><?php if (isset($bbcodeParams['tab_prefix'])) : ?><?php echo $bbcodeParams['tab_prefix']?><?php endif; ?>" role="tab" data-bs-toggle="tab"><?php echo htmlspecialchars($iconGroup['title'])?></a></li>
+                    <li class="nav-item" role="presentation" ><a class="nav-link px-2 py-1 small <?php if ($index == 0) : ?>active<?php endif;?>" href="#bbcode-smiley-<?php echo $index?><?php if (isset($bbcodeParams['tab_prefix'])) : ?><?php echo $bbcodeParams['tab_prefix']?><?php endif; ?>" aria-controls="bbcode-smiley-<?php echo $index?><?php if (isset($bbcodeParams['tab_prefix'])) : ?><?php echo $bbcodeParams['tab_prefix']?><?php endif; ?>" role="tab" data-bs-toggle="tab"><?php echo $iconGroup['title']?></a></li>
                 <?php endforeach; ?>
             </ul>
             <div class="tab-content nav-pills-bbcode-content bbtab-content<?php if (isset($bbcodeParams['tab_prefix'])) : ?><?php echo $bbcodeParams['tab_prefix']?><?php endif; ?>">

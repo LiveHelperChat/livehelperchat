@@ -47,7 +47,7 @@ echo "Updating ar_EG translations"
 cat translations/trans/translation_webts_ar_EG.ts > translations/ar_EG/translation.ts
 
 echo "Updating tr_TR translations"
-cat translations/trans/translation_webts_tr_TR.ts > translations/tr_TR/translation.ts
+cat translations/trans/translation_webts_tr.ts > translations/tr_TR/translation.ts
 
 echo "Updating hr_HR translations"
 cat translations/trans/translation_webts_hr.ts > translations/hr_HR/translation.ts
@@ -101,7 +101,7 @@ echo "Updating sk_SK translations"
 cat translations/trans/translation_webts_sk_SK.ts > translations/sk_SK/translation.ts
 
 echo "Updating hu_HU translations"
-cat translations/trans/translation_webts_hu.ts > translations/hu_HU/translation.ts
+cat translations/trans/translation_webts_hu_HU.ts > translations/hu_HU/translation.ts
 
 echo "Updating zh_CN.GB2312 translations"
 cat translations/trans/translation_webts_zh_CN.GB2312.ts > translations/zh_CN/translation.ts
@@ -111,9 +111,6 @@ cat translations/trans/translation_webts_zh_HK.ts > translations/zh_HK/translati
 
 echo "Updating zh_TW.Big5 translations"
 cat translations/trans/translation_webts_zh_TW.Big5.ts > translations/zh_TW/translation.ts
-
-echo "Updating hu_HU translations"
-cat translations/trans/translation_webts_hu.ts > translations/hu_HU/translation.ts
 
 echo "Updating es_CO translations"
 cat translations/trans/translation_webts_es_CO.ts > translations/es_CO/translation.ts

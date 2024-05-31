@@ -38,6 +38,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Hoe lang moeten we wachten voordat we de operator informeren over onbeantwoorde chats.</translation>
     </message>
@@ -298,6 +302,10 @@
       <translation>Na hoeveel dagen moet het bericht versleuteld worden.</translation>
     </message>
     <message>
+      <source>Enable status check cache using Redis. PHPResque extension is required.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not track visitors IP.</source>
       <translation>Volg het IP-adres van bezoekers niet.</translation>
     </message>
@@ -541,6 +549,38 @@
       <translation>Verwijder afdeling</translation>
     </message>
     <message>
+      <source>Save &amp; Assign recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail was opened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New manual recipient</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update recipients from mailing list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Export</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send test notification</source>
       <translation type="unfinished"/>
     </message>
@@ -602,6 +642,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Need help close background color</source>
+      <translation>Hulp nodig, sluiten, achtergrondkleur</translation>
+    </message>
+    <message>
+      <source>Need help close hover background color</source>
+      <translation>Hulp nodig, sluiten, hover achtergrondkleur</translation>
+    </message>
+    <message>
       <source>Welcome message</source>
       <translation>Welkomstbericht</translation>
     </message>
@@ -636,10 +684,6 @@
     <message>
       <source>Multi-language chat</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add translation</source>
-      <translation>Vertaling toevoegen</translation>
     </message>
     <message>
       <source>Invitation is active if any of these are true.</source>
@@ -728,6 +772,10 @@
     <message>
       <source>Preview</source>
       <translation>Voorbeeld</translation>
+    </message>
+    <message>
+      <source>Message will be sent only if chat is in active or bot status.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Conditions</source>
@@ -890,11 +938,23 @@
       <translation>Standaard</translation>
     </message>
     <message>
+      <source>Add translation</source>
+      <translation>Vertaling toevoegen</translation>
+    </message>
+    <message>
       <source>Requires - `Can be passed as argument` option to be checked.</source>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bright message style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Other Operator messages style</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If other operator writes a message in the chat this is how their message will look a like.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -904,6 +964,10 @@
     <message>
       <source>General</source>
       <translation>Algemeen</translation>
+    </message>
+    <message>
+      <source>Dark message style</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Themes which will be edited all at once.</source>
@@ -1216,6 +1280,10 @@
     <message>
       <source>Disabled</source>
       <translation>Uitgeschakeld</translation>
+    </message>
+    <message>
+      <source>Color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Survey title</source>
@@ -1602,12 +1670,12 @@
       <translation>Hulp nodig, randkleur</translation>
     </message>
     <message>
-      <source>Need help close background color</source>
-      <translation>Hulp nodig, sluiten, achtergrondkleur</translation>
+      <source>Need help close text color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Need help close hover background color</source>
-      <translation>Hulp nodig, sluiten, hover achtergrondkleur</translation>
+      <source>Need help close hover text color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help operator image</source>
@@ -2257,7 +2325,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Visible in the widget mail lists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visible standard chat list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible standard mail list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2389,6 +2465,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>URL to match. Multiple URL can be defined by comma. Wildcard is supported at the end of URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delay invitation widget show for N seconds if trigger is matched for first time.</source>
       <translation type="unfinished"/>
     </message>
@@ -2426,6 +2506,18 @@
     </message>
     <message>
       <source>Assign to shown operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation is visible only if URL matches</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not show invitation after it was closed in the same session.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show next matching invitation if URL changes and present invitation was closed</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3334,6 +3426,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Export</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude personal responses</source>
       <translation type="unfinished"/>
     </message>
@@ -3746,12 +3842,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Print</source>
-      <translation>Print</translation>
+      <source>150 items per page</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Export</source>
+      <source>200 items per page</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation>Print</translation>
     </message>
     <message>
       <source>chats</source>
@@ -3894,7 +3994,227 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Only visitor files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only persistent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete and archive all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete policy is active.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If checked we will process message per mailbox settings. If not checked we will ignore mailbox setting and do not touch mail messages on imap.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start deletion in background</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Left to delete and archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose an archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start deletion and archiving in background</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start deletion and archiving</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please create a backup archive first!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>records will be deleted and archived.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include messages content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversation ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mailbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attachment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Does not matter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Undelivered</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Is followup</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not opened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Opened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>My active/new mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose mailbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject contains</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Template HTML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Template Plain text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mailbox status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Non-Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only failed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In progress</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Details send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit recipient</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign from selected list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Un-assign from selected list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose mailing list to import from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New recipient</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mailing list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose mailing list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3994,10 +4314,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Day of the month</source>
       <translation type="unfinished"/>
     </message>
@@ -4066,11 +4382,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Only operators who were online during selected period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Agent</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mails</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4158,6 +4482,30 @@
       <translation>Datum reeks van tot</translation>
     </message>
     <message>
+      <source>Message user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message user group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversation user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversation user group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message types to include</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Average</source>
       <translation type="unfinished"/>
     </message>
@@ -4203,6 +4551,10 @@
     </message>
     <message>
       <source>Average of maximum response time (agent)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total mails</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4318,10 +4670,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Till now</source>
       <translation type="unfinished"/>
     </message>
@@ -4332,6 +4680,34 @@
   </context>
   <context>
     <name>chat/cannedmsg</name>
+    <message>
+      <source>You can make this canned message available only for certain period of times.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Week day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>One time period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Annually</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active to</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Department</source>
       <translation>Afdeling</translation>
@@ -4365,39 +4741,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>You can make this canned message available only for certain period of times.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Week day</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>One time period</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Annually</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Variable Time Zone</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>If you do not choose time zone in the back office replacement will be happening based on operator time zone. Variable used on widget interface - we will use visitor time zone.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active to</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4489,6 +4837,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Copied</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skipped</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Title/Message</source>
       <translation>Titel/bericht</translation>
     </message>
@@ -4534,6 +4890,10 @@
     </message>
     <message>
       <source>Delete selected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy selected as e-mail templates</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4630,6 +4990,10 @@
     </message>
     <message>
       <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>The smaller the position value the higher the command will appear in the list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4751,23 +5115,719 @@
       <source>Choose a parent invitation</source>
       <translation type="unfinished"/>
     </message>
-  </context>
-  <context>
-    <name>department/edit</name>
     <message>
-      <source>Choose department group</source>
+      <source>Choose a related mailbox</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Any</source>
-      <translation>Elke</translation>
+      <source>Edit</source>
+      <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Login settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mailbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Signature</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matching Rules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Utilities</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Get mailbox to sync</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Create a copy in a send folder.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete on archive. Messages on archive event will follow delete options.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If not checked, we will not touch archived messages on IMAP server.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On message deletion delete it also on IMAP server. Choose delete policy from below</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Move to Trash folder on IMAP server. Default.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permanently delete mail from IMAP server.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign follow-up e-mail to the previous thread owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for new messages interval in seconds.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use only In-Reply value as reference to the thread. Otherwise Reference attribute also would be used.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import messages n hours old from present time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>48 hours is default.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User present time to import messages from instead of last import time.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import since this unix timestamp.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set to now</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On a new mail arrival, default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Every half hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Every hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Every two hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Every three hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Every 6 hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Every 12 hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Every 24 hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Timeout in days after last response before we create a new issue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Un-assing operator on closed ticket re-open</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import priority. If mail is send to two mailbox and we handle both, only mail with higher mailbox priority will be processed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close conversations older than n days. Only conversations of the active mailboxes will be closed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>What status conversations we should close?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for a new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In progress</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Finished</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last sync finished</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last sync started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last processed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>UUID Next status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync log</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matching rules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Put signature directly under reply</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported replaceable variable.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Real operator Name and Surname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator chat Nick name if filled, otherwise real  Name and Surname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import progress</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New mailbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Main settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authentication method</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Normal password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>OAuth2</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Finish OAuth authentication</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Token expires at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please save first initial account settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send e-mail settings SMTP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not enter SMTP username and password if it is the same as IMAP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can set custom from mail and name. If not set we will use the main settings. Reply-to always will be set to main settings mail.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No password required to send an e-mail.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Port</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Receive e-mail IMAP settings.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IMAP Server address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This mailbox was already added!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose mailbox and user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal Mailbox Rules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail was sent.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sent e-mail copy was created in a sent folder.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Campaigns list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Campaign recipient</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ticket</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copied</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to copy</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send test e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Failed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Manual</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Based on recipient list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail was not opened yet!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail was opened first time at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send log</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Main</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total recipients pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total recipients send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total recipients failed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total recipients in progress</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of recipients who opened an e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This recipient is a member of these mailing lists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>were assigned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>already existed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>were skipped</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>were removed from recipient list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Members</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of members</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mailing recipient</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attribute string 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attribute string 2</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attribute string 3</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attribute string 4</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attribute string 5</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attribute string 6</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient was created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ticket owner workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Campaign creator will be an owner of the ticket</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ticket will follow standard mailbox rules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Selected user will be assigned as ticket owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dedicated ticket user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Activate campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only once the campaign is activated we will start sending e-mails. Progress you can see in statistic tab.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>As active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created ticket will be created as active one</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start sending at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending, campaign has not started yet.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set campaign status to pending. E.g You can activate it again if you have added more recipients.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>you can set a mailbox to send from per recipient</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use in campaign body - {args.recipient.name}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>String attribute 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use in campaign body - {args.recipient.attr_str_1}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>String attribute 2</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use in campaign body - {args.recipient.attr_str_2}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>String attribute 3</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use in campaign body - {args.recipient.attr_str_3}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>String attribute 4</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use in campaign body - {args.recipient.attr_str_4}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>String attribute 5</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use in campaign body - {args.recipient.attr_str_5}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>String attribute 6</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use in campaign body - {args.recipient.attr_str_6}</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This list was updated. Please</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>refresh</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>department/edit</name>
     <message>
       <source>Work hours, 24 hours format, 0 - 23, minutes format 0 - 59</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Your time zone</source>
+      <source>These hours will be using</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Days activity will be using time set my database server.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone used for the visitor will be</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Server default timezone.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you have set your time zone in account. Make sure you set it in default settings file also.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All time zones and times should match before making any adjustments to activity period.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4775,7 +5835,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Even if you enter a year. This canned message will be active annually at the same time each year.</source>
+      <source>Even if you enter a year. This proactive invitation will be active annually at the same time each year.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4787,11 +5847,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>These hours will be using</source>
+      <source>Choose department group</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>time zone</source>
+      <source>Any</source>
+      <translation>Elke</translation>
+    </message>
+    <message>
+      <source>Your time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Even if you enter a year. This canned message will be active annually at the same time each year.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4896,6 +5964,14 @@
     </message>
     <message>
       <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline mailbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will use this mailbox to send an e-mail.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5271,6 +6347,54 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Custom arguments fields, visible in modal window if enabled for display</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name of the field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Placeholder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text area</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of rows in case Text area field tye is chosen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Field is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Field is optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rows</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose a bot</source>
       <translation type="unfinished"/>
     </message>
@@ -5516,6 +6640,10 @@
   <context>
     <name>chat/subject</name>
     <message>
+      <source>Will appear as very first items to select for the subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If you do not choose any department, subject will be visible for all departments</source>
       <translation type="unfinished"/>
     </message>
@@ -5537,6 +6665,14 @@
     </message>
     <message>
       <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pinned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Standard</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5930,6 +7066,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>We could not download a file!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Media attribute could not be found or there was an error:</source>
       <translation type="unfinished"/>
     </message>
@@ -5978,7 +7118,35 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You can edit only your last message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can edit your own message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No last message was found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unresponded mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transferred mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6730,6 +7898,10 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>Gebruiker heeft geen bericht van de operator gezien, of het bericht staat nog open</translation>
+    </message>
+    <message>
       <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
       <translation type="unfinished"/>
     </message>
@@ -7146,30 +8318,6 @@
       <translation>Maximale records</translation>
     </message>
     <message>
-      <source>Visitor local time</source>
-      <translation>Bezoeker zijn lokale tijd</translation>
-    </message>
-    <message>
-      <source>By user status on site</source>
-      <translation>Op gebruikerstatus op de website</translation>
-    </message>
-    <message>
-      <source>Action</source>
-      <translation>Actie</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>Gebruiker heeft geen bericht van de operator gezien, of het bericht staat nog open</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>De gebruiker heeft het bericht van de operator gezien.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>Gebruiker heeft geen berichten van de operator</translation>
-    </message>
-    <message>
       <source>Chat</source>
       <translation>Chat</translation>
     </message>
@@ -7316,6 +8464,30 @@
     <message>
       <source>Online users</source>
       <translation>Online gebruikers</translation>
+    </message>
+    <message>
+      <source>Visitor local time</source>
+      <translation>Bezoeker zijn lokale tijd</translation>
+    </message>
+    <message>
+      <source>By user status on site</source>
+      <translation>Op gebruikerstatus op de website</translation>
+    </message>
+    <message>
+      <source>Action</source>
+      <translation>Actie</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>De gebruiker heeft het bericht van de operator gezien.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>Gebruiker heeft geen berichten van de operator</translation>
+    </message>
+    <message>
+      <source>Returning visitor, visits in total</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7476,6 +8648,14 @@
     </message>
     <message>
       <source>Shortcut</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Position</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible in the chat dropdown menu</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7669,6 +8849,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Closing...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Close chat</source>
       <translation>Sluit chat</translation>
     </message>
@@ -7690,6 +8874,10 @@
     </message>
     <message>
       <source>Edit chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot commands</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7866,6 +9054,18 @@
     </message>
     <message>
       <source>First response time (agent)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collapse/Expand</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Related mail tickets</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fetching related mails...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8061,6 +9261,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>[code] or ``` or ` for inline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Created</source>
       <translation>Gemaakt</translation>
     </message>
@@ -8085,6 +9289,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Continue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close selected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>Voer s.v.p. een link in</translation>
     </message>
@@ -8097,8 +9309,36 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You are in whisper mode! To execute commands properly switch to write mode.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Accept</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Redirect user to another url</source>
       <translation>Stuur bezoeker door naar een andere link</translation>
+    </message>
+    <message>
+      <source>You do not have permission to close conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check e-email for close on ticket close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No related mail tickets were found!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Information</source>
@@ -8122,6 +9362,10 @@
     </message>
     <message>
       <source>Auto responder got error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>did not accepted mail in time.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8182,6 +9426,10 @@
     </message>
     <message>
       <source>Original message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Field is required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8278,11 +9526,35 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Remove old templates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First row in CSV is skipped. Columns order</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove old records</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File is not UTF-8 encoded!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Expected columns does not match!</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Invalid file format</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose at-least one mailing list!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Missing CSRF Token!!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -8813,6 +10085,10 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Exclude me from auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Canned messages</source>
       <translation type="unfinished"/>
     </message>
@@ -8834,6 +10110,10 @@
     </message>
     <message>
       <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Processed!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8865,7 +10145,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Enabled for display</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If translation is not found use translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Standard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject filter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time filter</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9049,15 +10349,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Exclude me from auto assign workflow</source>
+      <source>Exclude me from chats auto assign workflow</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Auto preload previous visitor chat messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Auto uppercase sentences</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9069,7 +10365,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Auto uppercase sentences</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Maximum active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically accept assigned mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude me from mails auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum active mails</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9221,6 +10533,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Exclude from mails auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>In order to change operator permissions you have to edit</source>
       <translation type="unfinished"/>
     </message>
@@ -9280,9 +10596,17 @@
       <source>Load previous message on scroll</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/dashboardwidgets</name>
+    <message>
+      <source>Closed chats</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Updated!</source>
       <translation type="unfinished"/>
@@ -9352,6 +10676,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Change filtered e-mails owner to selected operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search was saved</source>
       <translation type="unfinished"/>
     </message>
@@ -9392,10 +10720,6 @@
       <translation>Ongelezen chats</translation>
     </message>
     <message>
-      <source>Closed chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>My active and pending chats</source>
       <translation type="unfinished"/>
     </message>
@@ -9403,9 +10727,61 @@
       <source>Bot chats</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>My active and new mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail queue alarm</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/syncadmininterface</name>
+    <message>
+      <source>Last activity</source>
+      <translation>Laatste activiteit</translation>
+    </message>
+    <message>
+      <source>All active chats will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot chats will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enable bot chats list in your account!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by close time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats assigned to you will appear here. List includes pending and active chats.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will see short list of your site visitors here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All pending chats will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject filtered chats will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>New window</source>
       <translation type="unfinished"/>
@@ -9439,20 +10815,12 @@
       <translation>Niets gevonden</translation>
     </message>
     <message>
-      <source>Add chat</source>
-      <translation>Voeg chat toe</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>Begin chat</translation>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation>Laatste activiteit</translation>
-    </message>
-    <message>
       <source>Accept chat</source>
       <translation>Accepteer chat</translation>
+    </message>
+    <message>
+      <source>Add chat</source>
+      <translation>Voeg chat toe</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -9463,7 +10831,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>All active chats will appear here.</source>
+      <source>Active mail conversations will appear here.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9517,6 +10885,22 @@
     <message>
       <source>Receive or send indicator and time since it happened</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Create time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operator</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Afdeling</translation>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation>Wachttijd</translation>
     </message>
     <message>
       <source>Offline request</source>
@@ -9595,16 +10979,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Department</source>
-      <translation>Afdeling</translation>
-    </message>
-    <message>
       <source>Pending chat</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>Operator</translation>
     </message>
     <message>
       <source>Sort by online status</source>
@@ -9621,6 +10997,10 @@
     <message>
       <source>Sort by active chats number</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Begin chat</translation>
     </message>
     <message>
       <source>Change operator status</source>
@@ -9655,10 +11035,6 @@
       <translation>Sorteer</translation>
     </message>
     <message>
-      <source>Wait time</source>
-      <translation>Wachttijd</translation>
-    </message>
-    <message>
       <source>Redirect user to contact form.</source>
       <translation>Stuur gebruiker door naar contactformulier.</translation>
     </message>
@@ -9677,18 +11053,6 @@
     <message>
       <source>Time ago</source>
       <translation>Tijd geleden</translation>
-    </message>
-    <message>
-      <source>Bot chats will appear here.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enable bot chats list in your account!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sort by close time</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department group</source>
@@ -9711,11 +11075,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chats assigned to you will appear here. List includes pending and active chats.</source>
+      <source>Mail alarms will appear here.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>You will see short list of your site visitors here.</source>
+      <source>Mails assigned to you will appear here. List includes new and active mails.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9723,11 +11087,7 @@
       <translation>Verwijder chat</translation>
     </message>
     <message>
-      <source>All pending chats will appear here.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Subject filtered chats will appear here.</source>
+      <source>All new mails will appear here.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9748,6 +11108,78 @@
     </message>
     <message>
       <source>Transferred chats to you or your department will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last assignment ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Went offline {{ago}} ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by operator name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live chats - (active chats + pending chats - inactive chats)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by chat priority and chat start time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by chat wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by live chats numbers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download XLS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>inactive chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>inactive online operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>active online operators chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hard limit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Soft limit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hard limit - (active online operators chats - inactive online operators chats) (soft limit - active chats)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Free slots (max chats - ((active chats + pending chats) - inactive chats))</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -9854,6 +11286,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>DeepL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use Bing service</source>
       <translation>Gebruik Bing service</translation>
     </message>
@@ -9902,6 +11338,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Use DeepL service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>Instellingen opgeslagen</translation>
     </message>
@@ -9922,6 +11362,10 @@
       <translation>Kon niet vertalen</translation>
     </message>
     <message>
+      <source>Missing DeepL API key</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Could not detect language</source>
       <translation>Kan de taal niet herkennen</translation>
     </message>
@@ -9939,6 +11383,10 @@
     </message>
     <message>
       <source>Visitor language is not supported by Google translation service!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator language is not supported by DeepL translation service</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10410,12 +11858,32 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Max mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>All</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>front/default</name>
+    <message>
+      <source>Closed chats</source>
+      <translation>Gesloten chats</translation>
+    </message>
+    <message>
+      <source>All closed chats</source>
+      <translation>Alle gesloten chats</translation>
+    </message>
     <message>
       <source>Pending confirm</source>
       <translation>Bevestig wachtend</translation>
@@ -10433,10 +11901,6 @@
       <translation>Ongelezen berichten</translation>
     </message>
     <message>
-      <source>Closed chats</source>
-      <translation>Gesloten chats</translation>
-    </message>
-    <message>
       <source>All pending chats</source>
       <translation>Alle wachtende chats</translation>
     </message>
@@ -10447,10 +11911,6 @@
     <message>
       <source>All unread chats</source>
       <translation>Alle ongelezen chats</translation>
-    </message>
-    <message>
-      <source>All closed chats</source>
-      <translation>Alle gesloten chats</translation>
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
@@ -10525,14 +11985,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat ID to open</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Open a chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Hide/Show chat tabs</source>
       <translation type="unfinished"/>
     </message>
@@ -10559,6 +12011,14 @@
     <message>
       <source>SMTP</source>
       <translation>SMTP</translation>
+    </message>
+    <message>
+      <source>Chat ID to open</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open a chat</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -11229,6 +12689,19 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Supported: group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats, bot_chats, my_chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
+      <translation>Ondersteund:
+dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Request notificatie toestemming</translation>
     </message>
@@ -11245,13 +12718,12 @@
       <translation>Nieuwe chat notificatie-instellingen</translation>
     </message>
     <message>
-      <source>Supported: group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, closed_chats, bot_chats, my_chats</source>
+      <source>Supported: group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, bot_chats, my_chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</source>
-      <translation>Ondersteund:
-dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,closed_chats,online_operators</translation>
+      <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,online_operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Default settings</source>
@@ -11630,6 +13102,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>XMPP instellingen</translation>
     </message>
     <message>
+      <source>Mail conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Speech</source>
       <translation>Spraak</translation>
     </message>
@@ -11707,10 +13183,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12005,6 +13477,22 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Grp.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Main information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Chat</translation>
+    </message>
+    <message>
+      <source>Chats list</source>
+      <translation>Chat overzicht</translation>
+    </message>
+    <message>
       <source>Newest first (default)</source>
       <translation type="unfinished"/>
     </message>
@@ -12021,12 +13509,12 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Empty...</source>
-      <translation>Leeg</translation>
-    </message>
-    <message>
       <source>Nothing found...</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty...</source>
+      <translation>Leeg</translation>
     </message>
     <message>
       <source>collapse/expand</source>
@@ -12065,11 +13553,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Home</translation>
     </message>
     <message>
-      <source>Group chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Grp.</source>
+      <source>Active mails</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12105,15 +13589,15 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Group chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Number of elements in list</source>
       <translation>Aantal elementen in de lijst</translation>
     </message>
     <message>
-      <source>Online</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Main information</source>
+      <source>Alarm mails</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12181,12 +13665,20 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>New mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Bot chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments stats</source>
       <translation>Statistieken van afdeling</translation>
+    </message>
+    <message>
+      <source>My active and new mails</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online operators</source>
@@ -12205,11 +13697,59 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Verplaatste chats</translation>
     </message>
     <message>
+      <source>Inline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>As file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inline or as file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No attachment (inline)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No attachment (as file)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No attachment (inline or as file)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Higher priority, newest first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Higher priority, oldest first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active, New sorted by higher priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Newest replies first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Oldest replies first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Clean cache</source>
       <translation>Cache verversen</translation>
     </message>
     <message>
       <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12269,8 +13809,12 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat</source>
-      <translation>Chat</translation>
+      <source>Chats and Mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dashboard</source>
@@ -12313,8 +13857,16 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Chat tabs</translation>
     </message>
     <message>
-      <source>Chats list</source>
-      <translation>Chat overzicht</translation>
+      <source>Chats List</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mails List</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New e-mail</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>My views</source>
@@ -12360,6 +13912,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <source>Visible</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Time ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search for department</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/syncadmin</name>
@@ -12385,6 +13949,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Rejected or failed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ago at</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -12654,6 +14222,38 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Chat statistieken</translation>
     </message>
     <message>
+      <source>Number of messages per interval</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages per user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages per department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average duration of interactions by department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average duration of interactions per user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages grouped by date and group field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages number per hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department statistic generation</source>
       <translation type="unfinished"/>
     </message>
@@ -12759,6 +14359,62 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>If you have thousands of chats generating this report can significantly increase server load!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Responded to messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No response required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unresponded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average interaction time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average number of messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average response time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average duration of interactions by department. Max 10 minutes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average duration of interactions per user.  Max 10 minutes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average wait time. Max 10 minutes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Horizontal view</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vertical view</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of messages grouped by attribute</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12879,6 +14535,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Last 24 hours statistics</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13471,6 +15131,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <source>Configuration</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Mail archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scheduled purge</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chatarchive/archivechats</name>
@@ -13481,6 +15149,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>See archived chats</source>
       <translation>Bekijk gearchiveerde chats</translation>
+    </message>
+    <message>
+      <source>See archived mails</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -13513,12 +15185,28 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Nieuw archief</translation>
     </message>
     <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are ready to backup your e-mails.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a valid from date range!</source>
       <translation>Voer s.v.p. een geldige vanaf-datum reeks in!</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
       <translation>Voer s.v.p. een geldige tot-datum reeks in!</translation>
+    </message>
+    <message>
+      <source>Please enter an archive name!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -13548,8 +15236,124 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Bewerk</translation>
     </message>
     <message>
+      <source>Backup</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can change type untill there is no mails in it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can change type until there is no mails in it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scheduled archive and deletion</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Archive ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created At</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated At</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Started At</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Finished At</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Filter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending records to process</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail messages will follow mailbox delete policy</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail messages will not be deleted on IMAP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In progress</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Finished</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Finished collecting</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>of them in progress</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>processed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Archived chats</source>
       <translation>Gearchiveerde chats</translation>
+    </message>
+    <message>
+      <source>Archived mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scheduled delete flow with ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scheduled delete flow with archive - ID</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -13561,6 +15365,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Information</source>
       <translation>Informatie</translation>
+    </message>
+    <message>
+      <source>Archived mails</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -13638,6 +15446,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Error accoured during archive process</source>
       <translation>Een fout deed zich voor tijdens het archiveren</translation>
+    </message>
+    <message>
+      <source>Potential mails to archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First archived mail ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last archived mail ID</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -14059,6 +15879,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Disabled because there is assigned operators to it!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Themes edit</source>
       <translation type="unfinished"/>
     </message>
@@ -14126,6 +15950,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <source>Group chats</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Mail archive configuration</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>cobrowse/browse</name>
@@ -14175,6 +16003,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Active</source>
       <translation>Actief</translation>
+    </message>
+    <message>
+      <source>Active chats auto-assignment</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
@@ -14254,6 +16086,34 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Maximum chat priority for it being processed with prioritized assignment workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active mails auto-assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum number of active mails user can have at a time, 0 - unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum number of department active mails, 0 - unlimited</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If this limit is reached, new mails will not be assigned to any operator.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically assign mail to another operator if operator did not accepted mail in seconds, 0 - disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum delay between mail assignment to operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay in seconds before next mail can be assigned to operator.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14538,6 +16398,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Datum</translation>
     </message>
     <message>
+      <source>Public</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit</source>
       <translation type="unfinished"/>
     </message>
@@ -14566,6 +16430,46 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Max post size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files download permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related file can be downloaded by visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Always (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If chat is in pending/active/bot status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For 10 minutes after chat being closed visitor will be able to download a files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related file can be downloaded by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has permission to related chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail related file can be downloaded by operator if he</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has permission to use mail module (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has permission to use mail module and access mail.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14637,6 +16541,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Persistent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files maintenance jobs will not be run on this file.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -15176,6 +17084,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat ID to explore</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pattern</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test your pattern</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Page where chat started</source>
       <translation type="unfinished"/>
     </message>
@@ -15204,19 +17124,35 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat ID to explore</source>
+      <source>Chat ID or Message ID to explore</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Pattern</source>
+      <source>Attribute to extract</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Test your pattern</source>
+      <source>Extract chat attribute</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Explore all possible chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test chat text pattern</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Extract mail attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explore all possible mail attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test mail text pattern</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -15397,6 +17333,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Date from and to are always inclusive.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail message does not exists or you do not have permission to access it!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -16801,6 +18741,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Login restrictions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to login only from these IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Password format requirements</source>
       <translation type="unfinished"/>
     </message>
@@ -16822,6 +18770,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Special characters required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To these users id&apos;s login IP restrictions does not apply</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17823,6 +19775,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You can not login because of IP restrictions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Google re-captcha validation failed</source>
       <translation type="unfinished"/>
     </message>
@@ -18081,7 +20037,15 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>webhooks/module</name>
     <message>
+      <source>Continuous event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Webhooks list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18101,7 +20065,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Continuous event</source>
+      <source>Continuous chat event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continuous mail event</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18110,10 +20078,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Incoming webhooks list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18160,23 +20124,7 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Hooks events</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Continuous events</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This is hook event</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Event</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>required if it is hook event</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18184,11 +20132,27 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Make sure you define some conditions. Only pending, active and bot chats are checked against these conditions.</source>
+      <source>Icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attribute which holds file size. File size check will apply if defined. Optional.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attribute which holds file size. File size check will apply if defined. Optional. </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do these actions if rule matches</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attributes conditions</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18216,23 +20180,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Empty</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not empty</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Text like</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Text not like</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Contains</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18252,11 +20204,51 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Execute if conditions are valid</source>
+      <source>Name</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>required</source>
+      <source>Name for personal reasons</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hooks events</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continuous chat events</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Continuous mail events</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is hook event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>required if it is hook event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is continuous chat event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make sure you define some conditions. Only pending, active and bot chats are checked against these conditions.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is continuous mail event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make sure you define some conditions. Only new, active mails are checked against these conditions.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18264,7 +20256,47 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Name</source>
+      <source>are not executed in this event type.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reset events. We will process matching messages again.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Processed events</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 10 messages processed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Older events than 31 day are deleted automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message ID followed by conversation ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Empty</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not empty</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Contains</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute if conditions are valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>required</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18280,7 +20312,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Icon</source>
+      <source>Icon or image path. E.g.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>images prefix is not needed.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18452,7 +20488,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Attribute which holds file size. File size check will apply if defined. Optional.</source>
+      <source>Attribute which holds file size. File size check will apply if defined. Optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attribute which holds mime type. Optional.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18501,10 +20541,6 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Download image instead of using external URL</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Attribute which holds file size. File size check will apply if defined. Optional. </source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18685,6 +20721,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Set language based on visitor language. By default we set language by embed code.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>It is the only e-mail which should receive e-mail messages for this template.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18884,7 +20924,15 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>abstract/chatsubject</name>
     <message>
+      <source>Choose in what widgets this subject will be visible directly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Internal</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pinned</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18962,6 +21010,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>has accepted a transferred chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has closed a conversation from chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You do not have permission to close this chat!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -19281,6 +21337,26 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Average of maximum response time (participation)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unresponded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No reply required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We have send this message as reply or forward</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Responded by e-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -20089,6 +22165,1386 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Disable for operator messages</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/relateditems</name>
+    <message>
+      <source>Only mails without an attachments are selected by default.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconvconv</name>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message was seen by customer first time at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Undelivered e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Follow up e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close selected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete and archive selected</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconvsb</name>
+    <message>
+      <source>Choose a subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set a subject</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconvfile</name>
+    <message>
+      <source>Insert as content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attach</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Insert as link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search for template</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail conversations options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>MCE Plugins</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>MCE Toolbar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable becoming owner automatically on conversation open event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator will become an owner if he clicks reply button.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skip directly included images while replying to e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Image will be replaced with Image skipped text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skipped image replacement text. You can use emoji also e.g</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail general options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable language detection</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use mail module to send e-mail from chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL of API endpoint</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Language detection provider</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose provider</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send report of failing mailbox to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will report to provided e-mail. You can enter multiple e-mails by separating by comma.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject to add if mail ticket is closed from chat. Enter a subject ID</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconv</name>
+    <message>
+      <source>Change mailbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search for a mailbox. First 50 mailbox are shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mailbox was updated!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail actions history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose mail to merge</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose destination mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Merge selected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mails were merged!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>was assigned as a mail owner from auto assignment workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lang</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Started by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Opened At</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Undelivered</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Undelivered error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Undelivered Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Undelivered report</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subjects</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor messages number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No response required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Responded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator messages send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional variables</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages Plain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages HTML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a subject!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a mailbox!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter an e-mail!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This recipient already exists in this campaign!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Connection could not be established. Please check your logins.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous mail owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigning previous mail owner is disabled for the mailbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversation user id was set by previous conversation user.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unresponded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No reply required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Responded by e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not assigned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We have send this message as reply or forward</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter an smtp port!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Content is required!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter at-least one recipient!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To: Please enter a valid recipient e-mail!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To: Invalid e-mail recipient!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bcc: Please enter a valid recipient e-mail!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bcc: Invalid e-mail recipient!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cc: Please enter a valid recipient e-mail!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cc: Invalid e-mail recipient!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter recipient e-mail!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter e-mail body!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has merge merged</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>into</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has un-merged</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No permission to write conversation.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has closed a conversation by clicking a close button.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No permission to read conversation.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message with specified ID could not be found anymore in provided IMAP folder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a mailbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has closed a conversation from a list.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mailbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matching rules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal Mailbox Rules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response templates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>wrote</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Forwarded message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has accepted a mail by clicking reply button.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has accepted a mail by opening it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a merge destination!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose what mails you want to merge!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal Mailbox Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Templates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Follow up of</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator who has opened this ticket</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copied</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete ticket</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Interactions history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Print</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transfer ticket</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Responded at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last time responded at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Interaction time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last interaction time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ticket owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last mail received at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Accepted at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last time accepted at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remarks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your new message being fetched. If you just send a message you can close this conversation in any case.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Accepted by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Accept wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exc. pending time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversation duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Merge</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Opened at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>There is still un-responded messages, are you sure you want to close this conversation?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reply</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Forward</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download (eml)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>reply-to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>mailed-by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is our response message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Responeded by e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add/Remove label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sending...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to remove</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are not the owner of this conversation. This means someone else was working with this ticket. Make sure you want to send a reply to this e-mail.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View as Plain/HTML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send as Closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send as New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send as Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message was seen by customer first time at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is a merged message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Un-merge</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are replying to your mailbox. Make sure that it is your intent!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>External e-mail!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is our mailbox e-mail!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending response</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Seems there is some connectivity problem with a server!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Incorrect file type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File to big</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Uploading</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose file from uploaded files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Drop your files here or choose a new file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy of</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit campaign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mailing list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mailing recipient</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Campaigns</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mailconv/mailconvmb</name>
+    <message>
+      <source>Choose what mailbox you want to sync</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose where deleted e-mails should be moved</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a send folder</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconvmr</name>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matching rules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversation priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>TO</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From name matches</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject contains</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name for personal reasons</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set department to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority conversation should get</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skip message, messages will not be imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose all mailbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail is send to one of these mailbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Every possible combination should start from a new line.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g fish,car &amp;&amp; price{2}$ - fish or car word plus price can have two typos.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority of matching rule. Rules with lower number will be checked first.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select mail</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconvrt</name>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New response template</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Body</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Template HTML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported replaceable variable.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>and</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>more</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Template Plain text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send an e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send a new e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ticket</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Working</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reply to e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reply to name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send as closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send as Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Replaceable variables?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Checking for ticket.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scheduling fetching.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Waiting for previous job to finish.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Fetching in progress.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconvprint</name>
+    <message>
+      <source>From</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconvdashboard</name>
+    <message>
+      <source>Notifications about mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To receive browser notifications you have to enable them in your account Notifications settings.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail arrived during past X time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not inform</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>When an email takes X mail queue time. Mail is in the pending state longer than X time.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>When an email has been accepted by an agent and for X time and has no response.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconvpreview</name>
+    <message>
+      <source>Created</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait response time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wait time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconvrp</name>
+    <message>
+      <source>Subjects</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTML Template</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Plain text Template</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response templates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/msauth</name>
+    <message>
+      <source>MS Auth Options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tenant ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Client ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Client Secret</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login URL to set in APP settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set this URL as Authentication Redirect URLs under Web platform.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mailconv/module</name>
+    <message>
+      <source>Mailbox list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mailbox</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Personal mailbox groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matching rules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response templates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Editor options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>General options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>OAuth options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail archive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scheduled archive and deletion</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mailing list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipients</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Campaigns</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send an e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>2fa/admin</name>
+    <message>
+      <source>Wildcard format</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>CIDR format</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start-End IP format</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your IP</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhelasticsearch/module</name>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Options</source>
       <translation type="unfinished"/>
     </message>
   </context>
