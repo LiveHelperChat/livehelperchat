@@ -811,7 +811,9 @@ if ($theme !== false) {
         $tpl->set('no_br',true);
         $tpl->set('triggerMessageId',$theme->bot_configuration_array['trigger_id']);
 
+        erTranslationClassLhTranslation::$htmlEscape = true;
         $chat_ui['cmmsg_widget'] = str_replace('{msg_id}',$theme->bot_configuration_array['trigger_id'],$tpl->fetch());
+        erTranslationClassLhTranslation::$htmlEscape = false;
 
     } elseif (isset($theme->bot_configuration_array['auto_bot_intro']) && $theme->bot_configuration_array['auto_bot_intro'] == true) {
 
@@ -842,7 +844,9 @@ if ($theme !== false) {
                 $tpl->set('no_wrap_intro',true);
                 $tpl->set('no_br',true);
                 $tpl->set('triggerMessageId',$triggerDefault->id);
+                erTranslationClassLhTranslation::$htmlEscape = true;
                 $chat_ui['cmmsg_widget'] = $tpl->fetch();
+                erTranslationClassLhTranslation::$htmlEscape = false;
             }
         }
     }
@@ -879,7 +883,9 @@ if ($theme !== false) {
                 $tpl->set('async_call',true);
                 $tpl->set('theme',$theme);
                 $tpl->set('react',true);
+                erTranslationClassLhTranslation::$htmlEscape = true;
                 $chat_ui['cmmsg_widget'] = $tpl->fetch() . $chat_ui['cmmsg_widget'];
+                erTranslationClassLhTranslation::$htmlEscape = false;
             }
         }
     }
@@ -958,7 +964,9 @@ if ($theme !== false) {
             (isset($theme->bot_configuration_array['intro_message']) && $theme->bot_configuration_array['intro_message'] != '') ||
             (isset($theme->bot_configuration_array['intro_message_html']) && $theme->bot_configuration_array['intro_message_html'] != '')
         ) {
+            erTranslationClassLhTranslation::$htmlEscape = true;
             $chat_ui['cmmsg_widget'] = renderMessage($theme->bot_configuration_array, $theme);
+            erTranslationClassLhTranslation::$htmlEscape = false;
         }
     }
 
@@ -989,7 +997,9 @@ if ($Params['user_parameters_unordered']['online'] == '1' && isset($startDataFie
         $chat_ui['operator_profile'] = '';
     }
 
+    erTranslationClassLhTranslation::$htmlEscape = true;
     $chat_ui['operator_profile'] .= $tpl->fetch();
+    erTranslationClassLhTranslation::$htmlEscape = false;
 }
 
 if (!empty($preChatHTML)) {
@@ -1012,7 +1022,9 @@ foreach ([
 
 
 if (isset($requestPayload['chat_ui']['intro_message']) || isset($requestPayload['chat_ui']['intro_message_html'])) {
+    erTranslationClassLhTranslation::$htmlEscape = true;
     $chat_ui['cmmsg_widget'] = renderMessage($requestPayload['chat_ui'], $theme);
+    erTranslationClassLhTranslation::$htmlEscape = false;
 }
 
 
