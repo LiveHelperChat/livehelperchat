@@ -7,7 +7,7 @@
     <div class="col-6">
         <div class="form-group" ng-non-bindable>
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Identifier');?></label>
-            <input type="text" class="form-control form-control-sm" name="identifier" onkeyup="$('#api-incoming-url').val($('#api-incoming-url').attr('data-base')+$(this).val())" value="<?php echo htmlspecialchars($item->identifier);?>" />
+            <input type="text" class="form-control form-control-sm" name="identifier" id="id_identifier" onkeyup="$('#api-incoming-url').val($('#api-incoming-url').attr('data-base')+$('#LocaleID').val()+$('#api-incoming-url').attr('data-url')+$(this).val())" value="<?php echo htmlspecialchars($item->identifier);?>" />
         </div>
     </div>
     <div class="col-6">
@@ -18,9 +18,16 @@
     </div>
 </div>
 
-<div class="form-group">
+<div class="mb-2">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','URL to put in third party Rest API service. Append ?output=json for JSON format output.');?></label>
-    <input type="text" ng-non-bindable class="form-control form-control-sm" id="api-incoming-url" data-base="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('webhooks/incoming')?>/" value="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('webhooks/incoming')?>/<?php echo htmlspecialchars($item->identifier);?>">
+    <div class="input-group">
+        <select onchange="$('#api-incoming-url').val($('#api-incoming-url').attr('data-base')+$('#LocaleID').val()+$('#api-incoming-url').attr('data-url')+$('#id_identifier').val())" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?>" id="LocaleID" class="form-select form-select-sm w-25">
+            <?php foreach (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'available_site_access' ) as $locale ) : ?>
+                <option value="/<?php echo $locale?>"><?php echo $locale?></option>
+            <?php endforeach; ?>
+        </select>
+        <input type="text" ng-non-bindable class="form-control form-control-sm w-75" id="api-incoming-url" data-base="<?php echo erLhcoreClassSystem::getHost()?>" data-url="<?php echo erLhcoreClassDesign::baseurldirect('webhooks/incoming')?>/" value="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('webhooks/incoming')?>/<?php echo htmlspecialchars($item->identifier);?>">
+    </div>
 </div>
 
 <div class="row">
