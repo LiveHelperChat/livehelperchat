@@ -106,12 +106,17 @@ const CannedMessages = props => {
     const renderPreview = (message) => {
         clearTimeout(timeoutCannedMessage);
 
-        if (message === null) {
-            document.getElementById('chat-render-preview-'+props.chatId).innerHTML = '';
+        let element = document.getElementById('chat-render-preview-'+props.chatId);
+
+        if (!element) {
             return;
         }
 
-        let element = document.getElementById('chat-render-preview-'+props.chatId);
+        if (message === null) {
+            element.innerHTML = '';
+            return;
+        }
+
         element.innerHTML = message.msg;
 
         const formData = new FormData();
@@ -120,7 +125,7 @@ const CannedMessages = props => {
 
         timeoutCannedMessage = setTimeout(() => {
             axios.post(WWW_DIR_JAVASCRIPT + 'chat/previewmessage/', formData).then((result) => {
-                element.innerHTML = result.data;
+                element && (element.innerHTML = result.data);
             });
         }, 100);
     }

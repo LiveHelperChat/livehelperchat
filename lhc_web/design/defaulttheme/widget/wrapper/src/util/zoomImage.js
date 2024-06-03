@@ -33,21 +33,20 @@ class _zoomImage {
 
         var that = this;
 
-        btn.onclick = () => {
-            this.cleanup();
+        function removeListeners(){
             window.removeEventListener('click',clickListener);
             window.removeEventListener('resize',resizeListener);
         }
 
-        function fullCleanup() {
-            that.cleanup();
-            window.removeEventListener('click',clickListener);
-            window.removeEventListener('resize',resizeListener);
+        btn.onclick = () => {
+            this.cleanup();
+            removeListeners();
         }
 
         function clickListener(event) {
             if (event.target == modal) {
-                that.fullCleanup();
+                that.cleanup();
+                removeListeners();
             }
         }
 
@@ -56,7 +55,8 @@ class _zoomImage {
                 if (elm) {
                     document.getElementById('lhc-zoom-image').style.maxHeight = (window.innerHeight - 140) + "px";
                 } else {
-                    that.fullCleanup();
+                    removeListeners();
+                    that.cleanup();
                 }
         }
 
