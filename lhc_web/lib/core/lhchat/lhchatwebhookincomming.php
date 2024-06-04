@@ -886,6 +886,8 @@ class erLhcoreClassChatWebhookIncoming {
                         $chat->last_msg_id = $msg->id;
                     }
 
+
+                    $errorMessages = [];
                     if (!empty(self::$staticErrors)) {
                         foreach (self::$staticErrors as $staticError) {
                             $msgError = new erLhcoreClassModelmsg();
@@ -896,6 +898,7 @@ class erLhcoreClassChatWebhookIncoming {
                             $msgError->time = time() + 1;
                             erLhcoreClassChat::getSession()->save($msgError);
                             $chat->last_msg_id = $msgError->id;
+                            $errorMessages[] = $msgError;
                         }
                     }
 
@@ -1152,6 +1155,18 @@ class erLhcoreClassChatWebhookIncoming {
 
                 } else {
                     self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id : $chat->last_msg_id), 'init' => $renotify));
+                }
+
+                // If we are not in bot status error messages are not sent.
+                if (!empty($errorMessages) && !($chat->gbot_id > 0 && (!isset($chat->chat_variables_array['gbot_disabled']) || $chat->chat_variables_array['gbot_disabled'] == 0))) {
+                    foreach ($errorMessages as $errorMessage) {
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
+                            'chat' => & $chat,
+                            'msg' => $errorMessage,
+                            'source'=> 'webhook',
+                            'no_auto_events' => true    // Some triggers updates last message and webhooks them self sends this event, we want to avoid that
+                        ));
+                    }
                 }
 
                 // Standard event on unread chat messages
@@ -1422,6 +1437,7 @@ class erLhcoreClassChatWebhookIncoming {
                         $chat->last_user_msg_time = $msg->time;
                     }
 
+                    $errorMessages = [];
                     if (!empty(self::$staticErrors)) {
                         foreach (self::$staticErrors as $staticError) {
                             $msgError = new erLhcoreClassModelmsg();
@@ -1432,6 +1448,7 @@ class erLhcoreClassChatWebhookIncoming {
                             $msgError->time = time() + 1;
                             erLhcoreClassChat::getSession()->save($msgError);
                             $chat->last_msg_id = $msgError->id;
+                            $errorMessages[] = $msgError;
                         }
                     }
 
@@ -1550,6 +1567,18 @@ class erLhcoreClassChatWebhookIncoming {
 
                 } else {
                     self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id : $chat->last_msg_id), 'init' => true));
+                }
+
+                // If we are not in bot status error messages are not sent.
+                if (!empty($errorMessages) && !($chat->gbot_id > 0 && (!isset($chat->chat_variables_array['gbot_disabled']) || $chat->chat_variables_array['gbot_disabled'] == 0))) {
+                    foreach ($errorMessages as $errorMessage) {
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
+                            'chat' => & $chat,
+                            'msg' => $errorMessage,
+                            'source'=> 'webhook',
+                            'no_auto_events' => true    // Some triggers updates last message and webhooks them self sends this event, we want to avoid that
+                        ));
+                    }
                 }
 
                 // Process auto responder
