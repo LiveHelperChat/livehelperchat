@@ -150,6 +150,14 @@
         loadChatList();
     });
 
+    ee.addListener('svelteTestNotification',function (chat_id) {
+        lhcServices.getNotificationsData(chat_id).then(function (data) {
+            data.forEach(function (item) {
+                lhinst.playSoundNewAction(item.last_id_identifier,parseInt(item.last_id),(item.nick ? item.nick : 'Live Help'),(item.msg ? item.msg : confLH.transLation.new_chat), item.nt);
+            });
+        });
+    });
+
     ee.addListener('svelteResetTimeoutActivity',function () {
         resetTimeoutActivity();
     });

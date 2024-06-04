@@ -9,12 +9,18 @@
 	     
 	     <form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>#notifications" method="post" enctype="multipart/form-data">
 	         <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
-	     
-    	     <div class="form-group">
-    	       <input type="button" class="btn btn-primary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Request notification permission')?>" onclick="lhinst.requestNotificationPermission()" />
+
+             <div class="row">
+                 <div class="col-12">
+                     <div class="input-group">
+                         <input type="button" class="btn btn-sm btn-primary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Request notification permission')?>" onclick="lhinst.requestNotificationPermission()" />
+                         <input type="number" id="test_chat_id" class="form-control form-control-sm" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','You can test notification by entering chat ID')?>"/>
+                         <input type="button" class="btn btn-sm btn-primary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Test notification')?>" onclick="ee.emitEvent('svelteTestNotification',[document.getElementById('test_chat_id').value])" />
+                         <span class="input-group-text fs12"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','If you do not see a notification after a click it means your settings are not correct, or you do not allow notifications.')?></span>
+                     </div>
+                 </div>
              </div>
-             
-             
+
              <div class="row">
                 <div class="col-6">
             	     <div class="form-group">
