@@ -41,7 +41,7 @@ export class UIConsturctor {
     };
 
     getElementById(a) {
-        return this.elmDom ? this.elmDomDoc.getElementById(a) : null
+        return this.elmDom && this.elmDomDoc ? this.elmDomDoc.getElementById(a) : null
     };
 
     hide() {

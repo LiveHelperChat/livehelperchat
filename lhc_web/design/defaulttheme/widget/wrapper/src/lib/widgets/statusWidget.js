@@ -46,7 +46,8 @@ export class statusWidget{
 
     checkLoadStatus() {
         if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true && this.loadStatus['widget'] == true && this.loadStatus['shidden'] == false) {
-            this.cont.getElementById('lhc_status_container').style.display = "";
+            var elm = this.cont.getElementById('lhc_status_container');
+            elm && (elm.style.display = "");
             this.attributes.sload.next(true);
         }
     }
