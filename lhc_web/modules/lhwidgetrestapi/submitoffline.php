@@ -103,7 +103,17 @@ if (empty($Errors)) {
         'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
 
     if (!isset($attributePresend['status']) || $attributePresend['status'] !== erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-        erLhcoreClassChatMail::sendMailRequest($inputData, $chat, array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
+        try {
+            erLhcoreClassChatMail::sendMailRequest($inputData, $chat, array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
+        } catch (Exception $e) {
+            $optionsJson = JSON_FORCE_OBJECT;
+            $outputResponse = array(
+                'success' => false,
+                'errors' => [erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There was a problem sending your request. Please try again later!')]
+            );
+            erLhcoreClassRestAPIHandler::outputResponse($outputResponse, 'json', isset($optionsJson) ? $optionsJson : 0);
+            exit;
+        }
     }
 
     if (isset($chatPrefill) && ($chatPrefill instanceof erLhcoreClassModelChat)) {

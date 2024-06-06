@@ -7,6 +7,7 @@ import { initOfflineForm, submitOfflineForm, minimizeWidget } from "../actions/c
 import { helperFunctions } from "../lib/helperFunctions";
 import ChatDepartment from './ChatDepartment';
 import ChatAbort from './ChatAbort';
+import ChatErrorList from './ChatErrorList';
 
 @connect((store) => {
     return {
@@ -213,6 +214,9 @@ class OfflineChat extends Component {
 
                     {this.props.chatwidget.get('leave_message') &&
                     <div className="container-fluid" >
+
+                        <ChatErrorList errors={this.props.chatwidget.get('validationErrors')} />
+
                         <form onSubmit={this.handleSubmit} className="offline-form">
                             <div className="row pt-2">
                                 {mappedFields}
@@ -227,8 +231,8 @@ class OfflineChat extends Component {
                             </div>}
                         </form>
                     </div>}
-                      
-                      
+
+
                   </div>
             )
         } else if (this.props.chatwidget.get('processStatus') == 2) {

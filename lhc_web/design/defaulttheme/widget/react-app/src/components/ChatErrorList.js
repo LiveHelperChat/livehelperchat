@@ -17,7 +17,7 @@ class ChatErrorList extends Component {
 
         if (mappedFields.size > 0) {
             return (
-                <div data-alert="" className="mt-2 alert alert-danger alert-dismissible fade show">
+                <div data-alert="" className="mt-2 ps-4 py-1 alert alert-danger alert-dismissible fade show">
                     <ul className="ps-1 m-0">
                         {mappedFields}
                     </ul>
