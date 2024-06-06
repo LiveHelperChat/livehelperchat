@@ -25,6 +25,15 @@ $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
 $inputData->vid = isset($requestPayload['vid']) && $requestPayload['vid'] != '' ? (string)$requestPayload['vid'] : '';
 
+if (isset($requestPayload['fields']['DepartamentID']) && !empty($requestPayload['fields']['DepartamentID'])) {
+    $Params['user_parameters_unordered']['department'] = [$requestPayload['fields']['DepartamentID']];
+}
+
+// Choose very first department even if it's `Visible only if online`
+if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) > 1) {
+    $Params['user_parameters_unordered']['department'] = [$Params['user_parameters_unordered']['department'][0]];
+}
+
 $_POST['URLRefer'] = isset($requestPayload['fields']['URLRefer']) ? $requestPayload['fields']['URLRefer'] : '';
 
 if (is_array($_POST['URLRefer'])) {
