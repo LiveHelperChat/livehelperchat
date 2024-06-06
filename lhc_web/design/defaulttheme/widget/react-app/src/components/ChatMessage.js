@@ -279,6 +279,10 @@ class ChatMessage extends PureComponent {
 
         var operatorChanged = false;
 
+        if (!this.props.msg['msg'] || typeof this.props.msg['msg'] !== 'string') {
+            return <React.Fragment></React.Fragment>;
+        }
+
         var messages = parse(this.props.msg['msg'], {
 
             replace: domNode => {
