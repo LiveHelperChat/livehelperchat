@@ -4,6 +4,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -7333,6 +7337,10 @@
       <source>Stop playing recorded audio</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>There was a problem sending your request. Please try again later!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>system/htmlcode</name>
@@ -13556,6 +13564,18 @@
     </message>
     <message>
       <source>System</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can test notification by entering chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test notification</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you do not see a notification after a click it means your settings are not correct, or you do not allow notifications.</source>
       <translation type="unfinished"/>
     </message>
     <message>
