@@ -69,6 +69,18 @@ class NodeTriggerActionIframe extends Component {
                             <textarea className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['body_html'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','body_html'])}></textarea>
                         </div>
                     </div>
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>Form ID</label>
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['body_form'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','body_form'])}></input>
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>Iframe URL</label>
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['iframe_url'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','iframe_url'])}></input>
+                        </div>
+                    </div>
                     <div className="col-12">
                         <div className="form-group">
                             <label>Iframe style</label>

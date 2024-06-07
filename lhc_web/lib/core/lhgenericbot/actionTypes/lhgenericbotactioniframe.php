@@ -21,6 +21,14 @@ class erLhcoreClassGenericBotActionIframe{
                 $metaMessage['content']['iframe']['payload_js'] = json_decode($action['content']['payload_js'],true);
             }
 
+            if (isset($action['content']['body_form']) && $action['content']['body_form'] != '') {
+                $metaMessage['content']['iframe']['body_form'] = (int)$action['content']['body_form'];
+            }
+
+            if (isset($action['content']['iframe_url']) && $action['content']['iframe_url'] != '') {
+                $metaMessage['content']['iframe']['iframe_url'] = $action['content']['iframe_url'];
+            }
+
             if (isset($action['content']['payload_js_source']) && $action['content']['payload_js_source'] != '') {
                 $metaMessage['content']['iframe']['payload_js_source'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_js_source'], array('chat' => $chat, 'args' => $params));
             }
