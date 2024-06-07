@@ -308,8 +308,12 @@ class erLhcoreClassModelCannedMsg
                     $q->expr->eq('department_id', $q->bindValue($department_id)),
                     $q->expr->eq('user_id', $q->bindValue(0))
                 ),
-                $q->expr->eq('user_id', $q->bindValue($user_id)),
-                'id IN (SELECT canned_id FROM lh_canned_msg_dep WHERE dep_id = ' . (int)$department_id . ')'
+                $q->expr->lAnd( // Personal global canned message
+                    $q->expr->eq('department_id', $q->bindValue(0)),
+                    $q->expr->eq('user_id', $q->bindValue($user_id))
+                ),
+                // Assigned canned messages to department and (individual or not assigned to any user)
+                '(id IN (SELECT canned_id FROM lh_canned_msg_dep WHERE dep_id = ' . (int)$department_id . ') AND (user_id = 0 OR ' . $q->expr->eq('user_id', $q->bindValue($user_id)) . '))'
             );
 	
 	        if (isset($paramsFilter['q']) && $paramsFilter['q'] != '') {
