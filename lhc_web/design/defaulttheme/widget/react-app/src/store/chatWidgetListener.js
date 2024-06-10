@@ -1,4 +1,4 @@
-import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages, addMessage, updateTriggerClicked, updateMessage, hideInvitation } from "../actions/chatActions"
+import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages, addMessage, updateTriggerClicked, updateMessage, updateMessageData, hideInvitation } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 import i18n from "../i18n";
 
@@ -251,6 +251,24 @@ export default function (dispatch, getState) {
         } else if (action == 'lhc_load_ext') {
             const parts = e.data.replace('lhc_load_ext:','').split('::');
             executeExtension(parts[0],JSON.parse(parts[1]));
+        } else if (action == 'lhc_update_msg') {
+            const parts = e.data.replace('lhc_update_msg:','').split('::');
+            const state = getState();
+            updateMessageData({
+                'id' : state.chatwidget.getIn(['chatData','id']),
+                'hash' : state.chatwidget.getIn(['chatData','hash']),
+                'msg_id' : parts[0]
+            }, {'action' : parts[1]}).then(() => {
+                dispatch(updateMessage({
+                    'msg_id' : parts[0],
+                    'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
+                    'mode' :  state.chatwidget.get('mode'),
+                    'theme' : state.chatwidget.get('theme'),
+                    'id' : state.chatwidget.getIn(['chatData','id']),
+                    'hash' : state.chatwidget.getIn(['chatData','hash']),
+                    'no_scroll' : true
+                }));
+            });
         } else if (action == 'lhc_trigger_click') {
             const parts = e.data.replace('lhc_trigger_click:','').split('::');
             dispatch(updateTriggerClicked(
