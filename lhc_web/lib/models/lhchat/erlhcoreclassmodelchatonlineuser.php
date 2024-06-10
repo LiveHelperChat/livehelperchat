@@ -974,6 +974,7 @@ class erLhcoreClassModelChatOnlineUser
             if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
                 $item->user_agent = isset($_POST['ua']) ? $_POST['ua'] : (isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '');
                 $location = isset($_POST['l']) ? $_POST['l'] : (isset($_GET['l']) ? rawurldecode($_GET['l']) : ($item->current_page == '' ? self::getReferer() : null));
+                $locationPrevious = $item->current_page;
                 if ($location !== null) {
                     $item->current_page = $location;
                 }
@@ -996,14 +997,19 @@ class erLhcoreClassModelChatOnlineUser
                     $urlOptions = explode(',',$item->invitation->url_present);
                     $currentPage = ltrim($item->current_page,'/');
                     $validURL = false;
-                    foreach ($urlOptions as $urlOption) {
-                        if (substr($urlOption,-1) == '*') {
-                            if (strpos($currentPage,rtrim($urlOption,'*')) === 0) {
+
+                    if ($item->invitation->url_present != '*') {
+                        foreach ($urlOptions as $urlOption) {
+                            if (substr($urlOption,-1) == '*') {
+                                if (strpos($currentPage,rtrim($urlOption,'*')) === 0) {
+                                    $validURL = true;
+                                }
+                            } elseif ($currentPage == $urlOption) {
                                 $validURL = true;
                             }
-                        } elseif ($currentPage == $urlOption) {
-                            $validURL = true;
                         }
+                    } elseif ($locationPrevious === $item->current_page) {
+                        $validURL = true;
                     }
 
                     if ($validURL === false) {
@@ -1011,7 +1017,6 @@ class erLhcoreClassModelChatOnlineUser
                             $item->has_message_from_operator == true ||
                             ($item->message_seen == 1 && isset($item->invitation->design_data_array['show_next_inv']) && $item->invitation->design_data_array['show_next_inv'] == true)
                         ) {
-
                             $onlineAttrSystem = $item->online_attr_system_array;
 
                             if ($item->message_seen == 1 && isset($item->invitation->design_data_array['do_not_show_session']) && $item->invitation->design_data_array['do_not_show_session'] == true) {
