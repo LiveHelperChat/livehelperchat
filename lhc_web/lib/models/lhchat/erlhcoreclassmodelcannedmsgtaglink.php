@@ -46,8 +46,8 @@ class erLhcoreClassModelCannedMsgTagLink
         $filterTagLinks['customfilter'][] = '( 
                                     (department_id = 0 AND user_id = 0) OR 
                                     (department_id = ' . (int)$paramsExecution['chat']->dep_id . ' AND user_id = 0) OR
-                                    (user_id = ' . (int)$paramsExecution['user']->id . ') OR
-                                    (`lh_canned_msg`.`id` IN (SELECT canned_id FROM lh_canned_msg_dep WHERE dep_id = ' . (int)$paramsExecution['chat']->dep_id . ') )
+                                    (user_id = ' . (int)$paramsExecution['user']->id . ' AND department_id = 0) OR
+                                    (`lh_canned_msg`.`id` IN (SELECT canned_id FROM lh_canned_msg_dep WHERE dep_id = ' . (int)$paramsExecution['chat']->dep_id . ') AND (user_id = 0 OR ' . (int)$paramsExecution['user']->id . '))
         )';
 
         $tagLinks = self::getList($filterTagLinks);
@@ -67,14 +67,15 @@ class erLhcoreClassModelCannedMsgTagLink
         $tags = erLhcoreClassModelCannedMsgTag::getList(array('filterin' => array('id' => $tagsId)));
 
         $cannedMessagesAll = erLhcoreClassModelCannedMsg::getCannedMessages($paramsExecution['chat']->dep_id, $paramsExecution['user']->id, array('id' => $cannedMessagesIds));
+        $shrinkedList = false;
 
-        if (count($cannedMessagesAll) > 100) {
+        if (count($cannedMessagesAll) > 150) {
             // Preserve keys
             $cannedMessageShirked = [];
 
             $counter = 0;
             foreach ($cannedMessagesAll as $cannedMessage) {
-                if ($counter >= 100) {
+                if ($counter >= 150) {
                     break;
                 }
                 $cannedMessageShirked[$cannedMessage->id] = $cannedMessage;
@@ -82,6 +83,7 @@ class erLhcoreClassModelCannedMsgTagLink
             }
 
             $cannedMessagesAll = $cannedMessageShirked;
+            $shrinkedList = true;
         }
 
         $chat = $paramsExecution['chat'];
@@ -179,7 +181,8 @@ class erLhcoreClassModelCannedMsgTagLink
             $tag->cnt = count($cannedMessages);
             $returnArray[$tags[$tagId]->tag] = array(
                 'tag' => $tags[$tagId],
-                'messages' => $cannedMessages
+                'messages' => $cannedMessages,
+                'shrinked' => $shrinkedList
             );
         }
 

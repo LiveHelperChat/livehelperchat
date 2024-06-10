@@ -1,7 +1,7 @@
 <div class="canned-suggester">
     <ul class="list-unstyled canned-list" id="canned-hash-<?php echo $chat->id?>">
         <?php foreach (erLhcoreClassModelCannedMsgTagLink::formatSuggester($keyword,array('chat' => $chat, 'user' => erLhcoreClassUser::instance()->getUserData())) as $item) : ?>
-            <li><a href="#">[<?php echo htmlspecialchars($item['tag']->cnt)?>] <?php if ($item['tag']->tag != '') : ?><?php echo htmlspecialchars($item['tag']->tag)?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/buttons','No-Tag');?><?php endif;?> &raquo;</a>
+            <li><a href="#">[<?php echo htmlspecialchars($item['tag']->cnt)?><?php if (isset($item['shrinked']) && $item['shrinked'] == true) : ?>~<?php endif;?>] <?php if ($item['tag']->tag != '') : ?><?php echo htmlspecialchars($item['tag']->tag)?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/buttons','No-Tag');?><?php endif;?> &raquo;</a>
                 <ul class="list-unstyled list-sub-items row list-inline me-0 ms-0">
                     <?php
                     $itemsPerPart = 20;
