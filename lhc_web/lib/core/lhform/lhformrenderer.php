@@ -19,13 +19,15 @@ class erLhcoreClassFormRenderer {
     public static function renderForm($form, $asAdmin = false) {
     	$contentForm = $form->content;
 
-
-        $inputFields = array();
-        preg_match_all('/\[\[json_content_errors\{(.*?)\]\]/i', $contentForm, $inputFields);
-        foreach ($inputFields[1] as $index => $inputDefinition) {
-            $inputDefinition = json_decode('{'.$inputDefinition, true);
-            self::extractErrors($inputDefinition);
-            $contentForm = str_replace($inputFields[0][$index], '', $contentForm);
+        // Ignore previous errors if it's a form submit
+        if (!ezcInputForm::hasPostData()) {
+            $inputFields = array();
+            preg_match_all('/\[\[json_content_errors\{(.*?)\]\]/i', $contentForm, $inputFields);
+            foreach ($inputFields[1] as $index => $inputDefinition) {
+                $inputDefinition = json_decode('{'.$inputDefinition, true);
+                self::extractErrors($inputDefinition);
+                $contentForm = str_replace($inputFields[0][$index], '', $contentForm);
+            }
         }
 
         // Fields definition in JSON format
