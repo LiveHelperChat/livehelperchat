@@ -4,6 +4,7 @@ class erLhcoreClassFormRenderer {
 		
 	
 	private static $errors = array();
+	private static $errorsInternal = array();
 	private static $collectedInfo = array();
 	private static $isCollected = false;
 	private static $collectedObject = false;
@@ -17,6 +18,15 @@ class erLhcoreClassFormRenderer {
 	
     public static function renderForm($form, $asAdmin = false) {
     	$contentForm = $form->content;
+
+
+        $inputFields = array();
+        preg_match_all('/\[\[json_content_errors\{(.*?)\]\]/i', $contentForm, $inputFields);
+        foreach ($inputFields[1] as $index => $inputDefinition) {
+            $inputDefinition = json_decode('{'.$inputDefinition, true);
+            self::extractErrors($inputDefinition);
+            $contentForm = str_replace($inputFields[0][$index], '', $contentForm);
+        }
 
         // Fields definition in JSON format
         $inputFields = array();
@@ -42,14 +52,31 @@ class erLhcoreClassFormRenderer {
     		$contentForm .= "<input type=\"hidden\" name=\"identifier\" value=\"".htmlspecialchars($_SERVER['HTTP_REFERER'])."\" />";
     	}
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.on_form_render',array('form' => & $form, 'errors' => & self::$errors));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.on_form_render',array('form' => & $form, 'errors_internal' => self::$errorsInternal, 'errors' => & self::$errors));
 
-    	if ( empty(self::$errors) && ezcInputForm::hasPostData()) {
+    	if ( empty(self::$errors) && empty(self::$errorsInternal) && ezcInputForm::hasPostData()) {
     		self::$isCollected = true;
             self::collectCustomFields();
     	}
 
     	return $contentForm;    	
+    }
+
+    public static function extractErrors($errorsDefinition)
+    {
+        foreach ($errorsDefinition as $errorLocation => $errorValue) {
+            $path = explode('.', $errorLocation);
+            if ($path[0] == 'chat_variable') {
+                if (
+                    (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) && isset($_POST['hash']) && ($chat = erLhcoreClassModelChat::fetch($_POST['chat_id'])) instanceof erLhcoreClassModelChat && $chat->hash == $_POST['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) ||
+                    (isset($_GET['chat_id']) && is_numeric($_GET['chat_id']) && isset($_GET['hash']) && ($chat = erLhcoreClassModelChat::fetch($_GET['chat_id'])) instanceof erLhcoreClassModelChat && $chat->hash == $_GET['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT)
+                ) {
+                    if (isset($chat->chat_variables_array[$path[1]]) && $chat->chat_variables_array[$path[1]] === true) {
+                        self::$errors[] = $errorValue;
+                    }
+                }
+            }
+        }
     }
 
     public static function collectCustomFields() {
@@ -233,15 +260,25 @@ class erLhcoreClassFormRenderer {
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
     	
     	$value = '';
+        $isInvalid = false;
+        $errorInline = '';
     	if (ezcInputForm::hasPostData()) {
     		
     		$validationFields = array();    		    		
     		$validationFields[$params['name']] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     		
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
-
     		if (!$form->hasValidData($params['name']) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '') || (isset($params['validation_rule']) && $params['validation_rule'] != '' && !preg_match($params['validation_rule'],$form->{$params['name']}))) {
-    			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+                $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+
+                if (isset($params['error_style']) && $params['error_style'] == 'field') {
+                    $errorInline = "<div class=\"invalid-feedback\">{$errorString}</div>";
+                    self::$errorsInternal[] = $errorString;
+                } else {
+                    self::$errors[] = $errorString;
+                }
+
+                $isInvalid = true;
                 if ($form->hasValidData($params['name'])) {
                     $value = $form->{$params['name']};
                 }
@@ -259,7 +296,7 @@ class erLhcoreClassFormRenderer {
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control form-control-sm\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";
+    	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />" . $errorInline;
     }
 
     public static function renderInputTypeHidden($params) {
@@ -310,15 +347,24 @@ class erLhcoreClassFormRenderer {
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
     	
     	$value = '';
+        $isInvalid = false;
+        $errorInline = '';
+
     	if (ezcInputForm::hasPostData()) {
     		
     		$validationFields = array();    		    		
     		$validationFields[$params['name']] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
     		
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
-
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {    		
-    			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
+                $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+                if (isset($params['error_style']) && $params['error_style'] == 'field') {
+                    $errorInline = "<div class=\"invalid-feedback\">{$errorString}</div>";
+                    self::$errorsInternal[] = $errorString;
+                } else {
+                    self::$errors[] = $errorString;
+                }
+                $isInvalid = true;
     		} elseif ($form->hasValidData( $params['name'] )) {
     			$value = $form->{$params['name']};
     			self::$collectedInfo[$params['name']] = array('main' => (isset($params['main']) && $params['main'] == 'true'),'definition' => $params,'value' => $form->{$params['name']});
@@ -338,24 +384,33 @@ class erLhcoreClassFormRenderer {
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control form-control-sm\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";
+    	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />" . $errorInline;
     }
 
     public static function renderInputTypeNumber($params) {    	
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
     	
     	$value = '';
+        $isInvalid = false;
+        $errorInline = '';
+
     	if (ezcInputForm::hasPostData()) {
     		
     		$validationFields = array();    		    		
     		$validationFields[$params['name']] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int' );
     		
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
-    		$Errors = array();
-    		
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {    		
-    			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
-    		} elseif ($form->hasValidData( $params['name'] )) {    		
+
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
+                $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+                $isInvalid = true;
+                if (isset($params['error_style']) && $params['error_style'] == 'field') {
+                    $errorInline = "<div class=\"invalid-feedback\">{$errorString}</div>";
+                    self::$errorsInternal[] = $errorString;
+                } else {
+                    self::$errors[] = $errorString;
+                }
+    		} elseif ($form->hasValidData( $params['name'] )) {
     			$value = $form->{$params['name']};
     			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
     		}
@@ -367,15 +422,21 @@ class erLhcoreClassFormRenderer {
     			$value = (isset($params['value']) ? $params['value'] : '');
     		}
     	}
-    	    	
+
+
+
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control form-control-sm\" type=\"number\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";
+    	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"number\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />" . $errorInline;
     }
 
     public static function renderInputTypeDate($params) {    	
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
     	
     	$value = '';
+    	$valueFrontEnd = '';
+        $errorInline = '';
+        $isInvalid = false;
+
     	if (ezcInputForm::hasPostData()) {
     		
     		$validationFields = array();    		    		
@@ -384,25 +445,34 @@ class erLhcoreClassFormRenderer {
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
     		$Errors = array();
     		
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {    		
-    			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
-    		} elseif ($form->hasValidData( $params['name']) && $form->{$params['name']} != '') {   
-    			 		
-    			$separator = strpos($form->{$params['name']}, '-') !== false ? '-' : '/';
-    			$parts = explode($separator, $form->{$params['name']});
-
-    			$pos = explode(',', $params['pos']);
-    			
-    			if (count($parts) == 3 && checkdate($parts[$pos[1]], $parts[$pos[2]], $parts[$pos[0]])){    			
-	    			$value = $form->{$params['name']};
-	    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
+                $isInvalid = true;
+                $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+                if (isset($params['error_style']) && $params['error_style'] == 'field') {
+                    $errorInline = "<div class=\"invalid-feedback\">{$errorString}</div>";
+                    self::$errorsInternal[] = $errorString;
+                } else {
+                    self::$errors[] = $errorString;
+                }
+    		} elseif ($form->hasValidData( $params['name']) && $form->{$params['name']} != '') {
+    			if (strtotime($form->{$params['name']}) !== false) {
+                    $d = new DateTime($form->{$params['name']});
+                    $value = $d->getTimestamp();
+                    $valueFrontEnd = $form->{$params['name']};
+	    			self::$collectedInfo[$params['name']] = array('definition' => $params, 'value' => $value);
     			} else {
-    				$value = htmlspecialchars($form->{$params['name']});
-    				self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','invalid date format');
+                    $isInvalid = true;
+                    $valueFrontEnd = $value = htmlspecialchars($form->{$params['name']});
+                    $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','invalid date format');
+                    if (isset($params['error_style']) && $params['error_style'] == 'field') {
+                        $errorInline = "<div class=\"invalid-feedback\">{$errorString}</div>";
+                        self::$errorsInternal[] = $errorString;
+                    } else {
+                        self::$errors[] = $errorString;
+                    }
+
     			}
-    			
     		}
-    		
     	} else {
     		if (isset(self::$collectedInfo[$params['name']]['value'])) {
     			$value = self::$collectedInfo[$params['name']]['value'];
@@ -412,9 +482,9 @@ class erLhcoreClassFormRenderer {
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control form-control-sm\" type=\"text\" name=\"{$params['name']}\" id=\"id_{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" /><script>$(function() {\$('#id_{$params['name']}').fdatepicker({format: '{$params['format']}'});});</script>";
+    	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"date\" name=\"{$params['name']}\" id=\"id_{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($valueFrontEnd)."\" />" . $errorInline;
     }
-    
+
     public static function renderInputTypeTranslate($params)
     {        
         if (isset($params['context']) && isset($params['text'])) {           
