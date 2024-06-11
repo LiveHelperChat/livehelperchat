@@ -105,24 +105,53 @@ class InlineIframe extends Component {
         return documentFrame;
     }
 
+    prependURL() {
+
+        var js_args = [];
+
+        var paramsReturn = '?';
+        var jsVars = this.props.chatwidget.get('jsVars');
+
+        Object.keys(jsVars).forEach(key => {
+            js_args.push('jsvar[' + key + ']=' + encodeURIComponent(jsVars[key]));
+        })
+
+        if (js_args.length > 0) {
+            paramsReturn = paramsReturn + '&' + js_args.join('&');
+        }
+
+        if (this.props.chatwidget.hasIn(['chatData','id'])) {
+            paramsReturn = paramsReturn + '&chat_id=' + this.props.chatwidget.getIn(['chatData','id']) + '&hash=' + this.props.chatwidget.getIn(['chatData','hash']) + '&msg_id=' + this.props['data-id'];
+        }
+
+        return paramsReturn;
+    }
+
     componentDidMount() {
         const iframe = document.createElement("iframe");
 
+        if (this.props['data-form']) {
+            iframe.src = this.props['data-form'] + this.prependURL();
+        }
+
         iframe.onload = () => {
-            let documentFrame = this.prepareIframe(iframe);
 
-            var closeActions = documentFrame.body.getElementsByClassName('lhc-iframe-close');
+            if (!this.props['data-form']) {
+                let documentFrame = this.prepareIframe(iframe);
 
-            for (let i = 0; i < closeActions.length; i++) {
-                closeActions[i].addEventListener('click',() => {
-                    updateMessageData({
-                        'id' : this.props.chatwidget.getIn(['chatData','id']),
-                        'hash' : this.props.chatwidget.getIn(['chatData','hash']),
-                        'msg_id' : this.props['data-id']
-                    }, {'action' : 'iframe_close'}).then(() => {
-                        this.props.updateMessage(this.props['data-id']);
+                var closeActions = documentFrame.body.getElementsByClassName('lhc-iframe-close');
+
+                for (let i = 0; i < closeActions.length; i++) {
+                    closeActions[i].addEventListener('click',() => {
+                        updateMessageData({
+                            'id' : this.props.chatwidget.getIn(['chatData','id']),
+                            'hash' : this.props.chatwidget.getIn(['chatData','hash']),
+                            'msg_id' : this.props['data-id']
+                        }, {'action' : 'iframe_close'}).then(() => {
+                            this.props.updateMessage(this.props['data-id']);
+                        });
                     });
-                });
+                }
             }
 
             let elmScroll = document.getElementById('messages-scroll');
@@ -130,7 +159,7 @@ class InlineIframe extends Component {
                 elmScroll.scrollTop = elmScroll.scrollHeight + 1000;
             }
 
-            if (this.props['data-js-body']) {
+            if (!this.props['data-form'] && this.props['data-js-body']) {
                 let js = documentFrame.createElement("script");
                 js.textContent = this.props['data-js-body'];
                 documentFrame.head.appendChild(js);

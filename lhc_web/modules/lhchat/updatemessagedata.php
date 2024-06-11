@@ -23,7 +23,7 @@ try {
         if ($msg instanceof erLhcoreClassModelmsg && $msg->chat_id == $chat->id) {
 
             if (isset($requestPayload['action'])) {
-                if ($requestPayload['action'] == 'iframe_close') {
+                if ($requestPayload['action'] == 'iframe_close' || $requestPayload['action'] == 'iframe_inline_close') {
                     $metaMsg = $msg->meta_msg_array;
                     $metaMsg['content']['seen_content'] = true;
                     $metaMsg['content']['iframe'] = null;
