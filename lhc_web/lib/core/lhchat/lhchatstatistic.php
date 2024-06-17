@@ -3940,8 +3940,9 @@ class erLhcoreClassChatStatistic {
         $multiplier = ($params['groupby'] == 2) ? 7 : 1;
         $limitDays = 12;
 
-        if ($params['groupby'] != 0)
-        {
+        if ($params['groupby'] == 3) {
+            $limitDays = 24;
+        } else if ($params['groupby'] != 0 ) {
             $startTimestamp = time()-($daysGroupLimit*$multiplier*24*3600);
 
             $limitDays = $daysGroupLimit;
@@ -3967,9 +3968,10 @@ class erLhcoreClassChatStatistic {
         }
 
         $groupAttributes = array(
-            0 => array('db' => '\'%Y%m\'', 'php' => 'Ym','front' => 'Y.m'), // Month
-            1 => array('db' => '\'%Y%m%d\'', 'php' => 'Ymd','front' => 'Y.m.d'), // Day
-            2 => array('db' => '\'%Y%v\'', 'php' => 'YW','front' => 'Y.m.d') // Week
+            0 => array('db' => '\'%Y%m\'', 'php' => 'Ym', 'front' => 'Y.m'), // Month
+            1 => array('db' => '\'%Y%m%d\'', 'php' => 'Ymd', 'front' => 'Y.m.d'), // Day
+            2 => array('db' => '\'%Y%v\'', 'php' => 'YW', 'front' => 'Y.m.d'), // Week
+            3 => array('db' => '\'%k\'', 'php' => 'YW', 'front' => 'Hour') // Hour
         );
 
         for ($i = 0; $i < $limitDays;$i++) {
@@ -3997,13 +3999,14 @@ class erLhcoreClassChatStatistic {
             // Day
             } elseif ($params['groupby'] == 1) {
                 $startReturning = $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+$i,date('y',$startTimestamp));
-
             // Month
             } else if ($params['groupby'] == 0) {
                 $startReturning = $dateUnix = mktime(0,0,0,$monthStart - $i,1, $yearStart);
+            } else if ($params['groupby'] == 3) {
+                $startReturning = $dateUnix = $i;
             }
 
-            if ((($params['groupby'] == 0 || $params['groupby'] == 2) && (!isset($filter['filtergte']['time']) || $filter['filtergte']['time'] <= $dateUnix || date('Ym',$filter['filtergte']['time']) == date('Ym',$dateUnix))) || $params['groupby'] == 1 )
+            if ((($params['groupby'] == 0 || $params['groupby'] == 2) && (!isset($filter['filtergte']['time']) || $filter['filtergte']['time'] <= $dateUnix || date('Ym',$filter['filtergte']['time']) == date('Ym',$dateUnix))) || $params['groupby'] == 1 || $params['groupby'] == 3)
             {
                 // New visitors
                 if (is_array($params['charttypes']) && in_array('visitors_new', $params['charttypes'])) {
@@ -4018,7 +4021,13 @@ class erLhcoreClassChatStatistic {
                         unset($filterNew['filtergte']['time']);
                     }
 
-                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('FROM_UNIXTIME(first_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix))));
+                    if ($params['groupby'] == 3) {
+                        $dateEqual = $dateUnix;
+                    } else {
+                        $dateEqual = date($groupAttributes[$params['groupby']]['php'],$dateUnix);
+                    }
+
+                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('FROM_UNIXTIME(first_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. $dateEqual)));
 
                     $statistic['visitors_new'][$dateUnix] = erLhcoreClassModelChatOnlineUser::getCount($filterFormated);
                 }
@@ -4028,7 +4037,7 @@ class erLhcoreClassChatStatistic {
                     $filterNew = $filter;
 
                     if (isset($filterNew['filtergte']['time'])) {
-                        $filterNew['filterlte']['first_visit'] = $filterNew['filtergte']['time'];
+                        $filterNew['filtergte']['first_visit'] = $filterNew['filtergte']['time'];
                         unset($filterNew['filtergte']['time']);
                     }
 
@@ -4037,8 +4046,13 @@ class erLhcoreClassChatStatistic {
                         unset($filterNew['filterlte']['time']);
                     }
 
-                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('(FROM_UNIXTIME(first_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix).' OR FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix).')')));
+                    if ($params['groupby'] == 3) {
+                        $dateEqual = $dateUnix;
+                    } else {
+                        $dateEqual = date($groupAttributes[$params['groupby']]['php'],$dateUnix);
+                    }
 
+                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('(FROM_UNIXTIME(first_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. $dateEqual .' OR FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. $dateEqual .')')));
                     $statistic['visitors_all'][$dateUnix] = erLhcoreClassModelChatOnlineUser::getCount($filterFormated);
                 }
 
@@ -4057,7 +4071,13 @@ class erLhcoreClassChatStatistic {
 
                     $filterNew['filterlte']['first_visit'] = $startReturning;
 
-                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix))));
+                    if ($params['groupby'] == 3) {
+                        $dateEqual = $dateUnix;
+                    } else {
+                        $dateEqual = date($groupAttributes[$params['groupby']]['php'],$dateUnix);
+                    }
+
+                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. $dateEqual)));
 
                     $statistic['visitors_returning'][$dateUnix] = erLhcoreClassModelChatOnlineUser::getCount($filterFormated);
                 }
@@ -4075,7 +4095,13 @@ class erLhcoreClassChatStatistic {
                         unset($filterNew['filtergte']['time']);
                     }
 
-                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix))));
+                    if ($params['groupby'] == 3) {
+                        $dateEqual = $dateUnix;
+                    } else {
+                        $dateEqual = date($groupAttributes[$params['groupby']]['php'],$dateUnix);
+                    }
+
+                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. $dateEqual)));
                     $filterFormated['sort'] = 'total_records DESC';
                     $filterFormated['group'] = 'user_country_name';
                     $filterFormated['limit'] = 5;
@@ -4106,7 +4132,13 @@ class erLhcoreClassChatStatistic {
                         unset($filterNew['filtergte']['time']);
                     }
 
-                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('city != \'\' AND FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix))));
+                    if ($params['groupby'] == 3) {
+                        $dateEqual = $dateUnix;
+                    } else {
+                        $dateEqual = date($groupAttributes[$params['groupby']]['php'],$dateUnix);
+                    }
+
+                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('city != \'\' AND FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. $dateEqual)));
                     $filterFormated['sort'] = 'total_records DESC';
                     $filterFormated['group'] = 'city';
                     $filterFormated['limit'] = 5;

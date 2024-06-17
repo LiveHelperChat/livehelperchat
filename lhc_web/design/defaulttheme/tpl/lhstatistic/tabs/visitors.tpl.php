@@ -131,6 +131,7 @@
                     <option value="0" <?php $input->groupby == 0 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Month');?></option>
                     <option value="1" <?php $input->groupby == 1 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Day');?></option>
                     <option value="2" <?php $input->groupby == 2 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Week');?></option>
+                    <option value="3" <?php $input->groupby == 3 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour');?></option>
                 </select>
             </div>
         </div>
@@ -196,11 +197,20 @@
                     var meta = chart.getDatasetMeta(i);
                     if (!meta.hidden) {
                         meta.data.forEach(function(element, index) {
+
+                            var maxValue = 0;
+
+                            if (chart.options.perc) {
+                                meta.data.forEach(function(element, index) {
+                                    maxValue += dataset.data[index];
+                                })
+                            }
+
                             // Draw the text in black, with the specified font
                             var dataString = dataset.data[index].toString();
                             if (dataString !== '0')
                             {
-                                ctx.fillStyle = 'rgb(0, 0, 0)';
+                                ctx.fillStyle = chart.data.datasets.length > 1 ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)';
                                 var fontSize = 11;
                                 var fontStyle = 'normal';
                                 var fontFamily = 'Arial';
@@ -210,10 +220,36 @@
                                 // Make sure alignment settings are correct
                                 ctx.textAlign = 'center';
                                 ctx.textBaseline = 'middle';
-                                var padding = 5;
+
+                                var padding = 0;
+
+                                if (chart.data.datasets.length > 1) {
+                                    // Specify the shadow colour.
+                                    ctx.shadowColor = "black";
+                                    ctx.shadowOffsetX = 1;
+                                    ctx.shadowOffsetY = 1;
+                                    ctx.shadowBlur = 1;
+                                    if (typeof element.height == 'function') {
+                                        padding = -element.height()/2-5;
+                                    }
+                                }
+
                                 var position = element.tooltipPosition();
-                                ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+
+                                if (chart.options.perc) {
+                                    ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                                    ctx.fillText((parseInt(dataString)*100 / maxValue).toFixed(0)+"%", position.x, position.y - (fontSize / 2) - padding - 15);
+                                } else {
+                                    ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                                }
+
+                                ctx.shadowColor = "";
+                                ctx.shadowOffsetX = 0;
+                                ctx.shadowOffsetY = 0;
+                                ctx.shadowBlur = 0;
                             }
+
+
                         });
                     }
                 });
@@ -227,7 +263,7 @@
         function drawChartVisitorsCountry() {
             <?php if (!empty($visitors_statistic['visitors_country']) && in_array('visitors_country',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
             var barChartData = {
-                labels: [<?php $key = 0; foreach ($visitors_statistic['visitors_country']['labels'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\'' . date($visitors_statistic['visitors_country']['group_date'],$monthUnix) . '\'';$key++; endforeach;?>],
+                labels: [<?php $key = 0; foreach ($visitors_statistic['visitors_country']['labels'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\'' . ($monthUnix > 24 ? date($visitors_statistic['visitors_country']['group_date'],$monthUnix) : $monthUnix) . '\'';$key++; endforeach;?>],
                 datasets: [
                     <?php foreach ($visitors_statistic['visitors_country']['data'] as $data) : ?>
                     {
@@ -262,6 +298,7 @@
                         text.push('');
                         return text.join('');
                     },
+                    perc: true,
                     responsive: true,
                     tooltips: {
                         mode: 'index',
@@ -313,7 +350,7 @@
         function drawChartVisitorsCity() {
             <?php if (!empty($visitors_statistic['visitors_city']) && in_array('visitors_city',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
             var barChartData = {
-                labels: [<?php $key = 0; foreach ($visitors_statistic['visitors_city']['labels'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($visitors_statistic['visitors_city']['group_date'],$monthUnix).'\'';$key++; endforeach;?>],
+                labels: [<?php $key = 0; foreach ($visitors_statistic['visitors_city']['labels'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\'' . ($monthUnix > 24 ? date($visitors_statistic['visitors_city']['group_date'],$monthUnix) : $monthUnix) . '\'';$key++; endforeach;?>],
                 datasets: [
                     <?php foreach ($visitors_statistic['visitors_city']['data'] as $data) : ?>
                     {
@@ -362,6 +399,7 @@
                         text.push('');
                         return text.join('');
                     },
+                    perc: true,
                     legend: {
                         display: false,
                     },
@@ -399,7 +437,7 @@
         function drawChartVisitorsNew() {
             <?php if (!empty($visitors_statistic['visitors_new']) && in_array('visitors_new',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
             var barChartData = {
-                labels: [<?php $key = 0; foreach ($visitors_statistic['visitors_new'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($visitors_statistic['group_date'],$monthUnix).'\'';$key++; endforeach;?>],
+                labels: [<?php $key = 0; foreach ($visitors_statistic['visitors_new'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\'' . ($monthUnix > 24 ? date($visitors_statistic['group_date'],$monthUnix) : $monthUnix) . '\'';$key++; endforeach;?>],
                 datasets: [
                     {
                         label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','New visitors');?>',
@@ -426,6 +464,7 @@
                             top: 20
                         }
                     },
+                    perc: true,
                     scales: {
                         xAxes: [{
                             stacked: true,
@@ -454,7 +493,7 @@
         function drawChartVisitorsAll() {
             <?php if (!empty($visitors_statistic['visitors_all']) && in_array('visitors_all',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
             var barChartData = {
-                labels: [<?php $key = 0; foreach ($visitors_statistic['visitors_all'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($visitors_statistic['group_date'],$monthUnix).'\'';$key++; endforeach;?>],
+                labels: [<?php $key = 0; foreach ($visitors_statistic['visitors_all'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\'' . ($monthUnix > 24 ? date($visitors_statistic['group_date'],$monthUnix) : $monthUnix) . '\'';$key++; endforeach;?>],
                 datasets: [
                     {
                         label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Total visitors');?>',
@@ -481,6 +520,7 @@
                             top: 20
                         }
                     },
+                    perc: true,
                     scales: {
                         xAxes: [{
                             stacked: true,
@@ -536,6 +576,7 @@
                             top: 20
                         }
                     },
+                    perc: true,
                     scales: {
                         xAxes: [{
                             stacked: true,
@@ -565,7 +606,7 @@
         function drawChartVisitorsReturning() {
             <?php if (!empty($visitors_statistic['visitors_returning']) && in_array('visitors_returning',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
             var barChartData = {
-                labels: [<?php $key = 0; foreach ($visitors_statistic['visitors_returning'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($visitors_statistic['group_date'], $monthUnix).'\'';$key++; endforeach;?>],
+                labels: [<?php $key = 0; foreach ($visitors_statistic['visitors_returning'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\'' . ($monthUnix > 24 ? date($visitors_statistic['group_date'], $monthUnix) : $monthUnix) . '\'';$key++; endforeach;?>],
                 datasets: [
                     {
                         label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Returning visitors');?>',
@@ -592,6 +633,7 @@
                             top: 20
                         }
                     },
+                    perc: true,
                     scales: {
                         xAxes: [{
                             stacked: true,
