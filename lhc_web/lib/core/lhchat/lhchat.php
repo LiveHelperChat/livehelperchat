@@ -2416,7 +2416,7 @@ class erLhcoreClassChat {
                   $hasInvalidDepartment = true;
               }
            } else {
-               $dep = erLhcoreClassModelDepartament::findOne(['filter' => ['alias' => $department]]);
+               $dep = erLhcoreClassModelDepartament::findOne(['sort' => '`sort_priority` ASC, `id` ASC','filter' => ['alias' => $department]]);
                if ($dep instanceof erLhcoreClassModelDepartament) {
                    $output['system'][] = (int)$dep->id;
                    $output['argument'][] = $dep->alias == '' ? $dep->id : $dep->alias;
