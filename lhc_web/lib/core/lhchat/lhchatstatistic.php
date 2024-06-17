@@ -4037,12 +4037,12 @@ class erLhcoreClassChatStatistic {
                     $filterNew = $filter;
 
                     if (isset($filterNew['filtergte']['time'])) {
-                        $filterNew['filtergte']['first_visit'] = $filterNew['filtergte']['time'];
+                        $filterNew['filtergte']['last_visit'] = $filterNew['filtergte']['time'];
                         unset($filterNew['filtergte']['time']);
                     }
 
                     if (isset($filterNew['filterlte']['time'])) {
-                        $filterNew['filterlte']['first_visit'] = $filterNew['filterlte']['time'];
+                        $filterNew['filterlte']['last_visit'] = $filterNew['filterlte']['time'];
                         unset($filterNew['filterlte']['time']);
                     }
 
@@ -4052,7 +4052,7 @@ class erLhcoreClassChatStatistic {
                         $dateEqual = date($groupAttributes[$params['groupby']]['php'],$dateUnix);
                     }
 
-                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('(FROM_UNIXTIME(first_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. $dateEqual .' OR FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. $dateEqual .')')));
+                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. $dateEqual )));
                     $statistic['visitors_all'][$dateUnix] = erLhcoreClassModelChatOnlineUser::getCount($filterFormated);
                 }
 
@@ -4069,11 +4069,10 @@ class erLhcoreClassChatStatistic {
                         unset($filterNew['filtergte']['time']);
                     }
 
-                    $filterNew['filterlte']['first_visit'] = $startReturning;
-
                     if ($params['groupby'] == 3) {
                         $dateEqual = $dateUnix;
                     } else {
+                        $filterNew['filterlte']['first_visit'] = $startReturning;
                         $dateEqual = date($groupAttributes[$params['groupby']]['php'],$dateUnix);
                     }
 
