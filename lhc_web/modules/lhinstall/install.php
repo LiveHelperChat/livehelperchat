@@ -1686,6 +1686,7 @@ try {
                   PRIMARY KEY (`id`),
                   KEY `vid` (`vid`),
 				  KEY `dep_id` (`dep_id`),
+				  KEY `first_visit` (`first_visit`),
 				  KEY `last_visit_dep_id` (`last_visit`,`dep_id`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 

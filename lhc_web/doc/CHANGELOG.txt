@@ -1,3 +1,16 @@
+4.40v
+
+1. Visitors statistic charts are now generated much faster using database implementation.
+2. Iframe bot response type now supports forms.
+3. If same department alias is used for multiple departments, online status check will use department sort priority.
+4. Canned messages hashtag list will indicate we hit limit and not all results are rendered.
+5. Page based invitations now can be combined with general ones. https://doc.livehelperchat.com/docs/proactive#how-to-setup-url-based-invitations
+6. Offline form submit will use very first passed department to match online chat logic.
+7. Operators will be to test notifications from their account.
+8. Various other fixes.
+
+execute doc/update_db/update_310.sql for update
+
 4.39v
 
 1. https://github.com/LiveHelperChat/electron/releases Electron app was updated to 124 chrome version.
