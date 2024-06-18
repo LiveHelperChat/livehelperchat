@@ -20,14 +20,15 @@ class erLhcoreClassFormRenderer {
     	$contentForm = $form->content;
 
         // Ignore previous errors if it's a form submit
-        if (!ezcInputForm::hasPostData()) {
-            $inputFields = array();
-            preg_match_all('/\[\[json_content_errors\{(.*?)\]\]/i', $contentForm, $inputFields);
-            foreach ($inputFields[1] as $index => $inputDefinition) {
-                $inputDefinition = json_decode('{'.$inputDefinition, true);
+
+        $inputFields = array();
+        preg_match_all('/\[\[json_content_errors\{(.*?)\]\]/i', $contentForm, $inputFields);
+        foreach ($inputFields[1] as $index => $inputDefinition) {
+            $inputDefinition = json_decode('{'.$inputDefinition, true);
+            if (!ezcInputForm::hasPostData()) {
                 self::extractErrors($inputDefinition);
-                $contentForm = str_replace($inputFields[0][$index], '', $contentForm);
             }
+            $contentForm = str_replace($inputFields[0][$index], '', $contentForm);
         }
 
         // Fields definition in JSON format
@@ -293,12 +294,28 @@ class erLhcoreClassFormRenderer {
     		if (isset(self::$collectedInfo[$params['name']]['value'])) {
     			$value = self::$collectedInfo[$params['name']]['value'];
     		} else {
-    			$value = (isset($params['value']) ? $params['value'] : '');
+    			$value = self::extractValue($params);
     		}
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
     	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />" . $errorInline;
+    }
+
+    public static function extractValue($params)
+    {
+        if (isset($params['chat_attr']) && (isset($_GET['chat_id']) && is_numeric($_GET['chat_id']) && isset($_GET['hash']) && ($chat = erLhcoreClassModelChat::fetch($_GET['chat_id'])) instanceof erLhcoreClassModelChat && $chat->hash == $_GET['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT)) {
+            $path = explode('.', $params['chat_attr']);
+            if ($path[0] == 'chat' && $chat->{$path[1]} != '') {
+                return $chat->{$path[1]};
+            } elseif ($path[0] == 'chat_variable') {
+                $chatVariablesArray = $chat->chat_variables_array;
+                if (isset($chatVariablesArray[$path[1]]) && $chatVariablesArray[$path[1]] != '')
+                return $chatVariablesArray[$path[1]];
+            }
+        }
+
+        return (isset($params['value']) ? $params['value'] : '');
     }
 
     public static function renderInputTypeHidden($params) {
@@ -381,7 +398,7 @@ class erLhcoreClassFormRenderer {
     		if (isset(self::$collectedInfo[$params['name']]['value'])) {
     			$value = self::$collectedInfo[$params['name']]['value'];
     		} else {
-    			$value = (isset($params['value']) ? $params['value'] : '');
+    			$value = self::extractValue($params);
     		}
     	}
     	    	
@@ -421,11 +438,9 @@ class erLhcoreClassFormRenderer {
     		if (isset(self::$collectedInfo[$params['name']]['value'])) {
     			$value = self::$collectedInfo[$params['name']]['value'];
     		} else {
-    			$value = (isset($params['value']) ? $params['value'] : '');
+    			$value = self::extractValue($params);;
     		}
     	}
-
-
 
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
     	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"number\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />" . $errorInline;
@@ -477,10 +492,14 @@ class erLhcoreClassFormRenderer {
     		}
     	} else {
     		if (isset(self::$collectedInfo[$params['name']]['value'])) {
-    			$value = self::$collectedInfo[$params['name']]['value'];
+                $value = self::$collectedInfo[$params['name']]['value'];
     		} else {
-    			$value = (isset($params['value']) ? $params['value'] : '');
+                $value = self::extractValue($params);
     		}
+
+            if (is_numeric($value)) {
+                $valueFrontEnd = date('Y-m-d',$value);
+            }
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
