@@ -74,7 +74,7 @@ try {
     $dt = new DateTime();
     $offset = $dt->format("P");
     $db = ezcDbInstance::get();
-    //$db->query("SET LOCAL time_zone='" . $offset ."'");
+    $db->query("SET LOCAL time_zone='" . $offset ."'");
 } catch (Exception $e) {
     // Ignore
 }
