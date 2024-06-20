@@ -8,12 +8,11 @@ $modalBodyClass = 'p-1'
 
     <form action="<?php echo $action_url?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
-
         <?php if (isset($updated)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Updated');?>
              <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
         <?php endif; ?>
-
         <div class="modal-body">
+            <?php if ($attribute == 'ignore_user_status') { $configExplanatory = erTranslationClassLhTranslation::getInstance()->getTranslation('lhsystem/singlesetting','This is a global setting and is set for the all departments.');} ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
         </div>
         <input type="hidden" name="export_action" value="doExport">

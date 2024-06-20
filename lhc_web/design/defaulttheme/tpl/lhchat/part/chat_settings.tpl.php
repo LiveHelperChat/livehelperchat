@@ -7,6 +7,10 @@
 <label><input type="checkbox" name="<?php echo $attribute?>ValueParam" value="1" <?php if ($systemconfig->value == 1) : ?>checked="checked"<?php endif;?> /> <?php print erTranslationClassLhTranslation::getInstance()->getTranslation('listchatconfig',$systemconfig->explain); ?></label>
 <?php endif; ?>
 
+<?php if (isset($configExplanatory)) : ?>
+<small class="text-muted d-block"><?php echo $configExplanatory?></small>
+<?php unset($configExplanatory);endif; ?>
+
 <?php if ( $systemconfig->type == erLhcoreClassModelChatConfig::SITE_ACCESS_PARAM_ON ) : ?>
 
     <?php foreach (erConfigClassLhConfig::getInstance()->getSetting('site','available_site_access') as $siteaccess) : 

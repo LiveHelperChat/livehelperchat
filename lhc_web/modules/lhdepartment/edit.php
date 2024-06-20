@@ -33,6 +33,44 @@ if ($Params['user_parameters_unordered']['action'] == 'operators') {
     exit;
 }
 
+if ($Params['user_parameters_unordered']['action'] == 'onlinehours') {
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhdepartment/onlinehours.tpl.php');
+
+    $config = erLhcoreClassModelChatConfig::fetch('ignore_user_status');
+
+    if (ezcInputForm::hasPostData()) {
+
+        if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+            erLhcoreClassModule::redirect();
+            exit;
+        }
+
+        if ($currentUser->hasAccessTo('lhchat','administrateconfig')) {
+            $newValue =  isset($_POST[$config->identifier.'ValueParam']) ? (int)$_POST[$config->identifier.'ValueParam'] : 0;
+
+            if ($newValue != $config->value){
+                $config->value = $newValue;
+                $config->saveThis();
+
+                // Cleanup cache to recompile templates etc.
+                $CacheManager = erConfigClassLhCacheConfig::getInstance();
+                $CacheManager->expireCache();
+            }
+        }
+
+        $Departament->ignore_op_status = isset($_POST['ignore_user_status_dep']) && $_POST['ignore_user_status_dep'] == 1 ? 1 : 0;
+        $Departament->updateThis(['update' => ['ignore_op_status']]);
+
+        $tpl->set('updated', true);
+    }
+
+    $tpl->set('department', $Departament);
+    $tpl->set('attribute', 'ignore_user_status');
+    $tpl->set('boolValue', true);
+    echo $tpl->fetch();
+    exit;
+}
+
 if ( isset($_POST['Cancel_departament']) ) {
     erLhcoreClassModule::redirect('department/departments');
     exit;

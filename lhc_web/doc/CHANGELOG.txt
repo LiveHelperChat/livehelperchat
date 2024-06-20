@@ -1,3 +1,9 @@
+4.41v
+
+1. Departments now have individual `Ignore operator status` settings.
+
+execute doc/update_db/update_311.sql for update
+
 4.40v
 
 1. Visitors statistic charts are now generated much faster using database implementation.

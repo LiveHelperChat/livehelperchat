@@ -1823,6 +1823,7 @@ try {
 				  `alias` varchar(50) NOT NULL,
 				  `product_configuration` longtext NOT NULL,
 				  `bot_configuration` text NOT NULL,
+                  `ignore_op_status` tinyint(1) unsigned NOT NULL DEFAULT 0,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier_2` (`identifier`(191)),
 				  KEY `archive` (`archive`),
@@ -1841,7 +1842,8 @@ try {
 				  KEY `active_thd` (`online_hours_active`,`thd_start_hour`,`thd_end_hour`),
 				  KEY `active_frd` (`online_hours_active`,`frd_start_hour`,`frd_end_hour`),
 				  KEY `active_sad` (`online_hours_active`,`sad_start_hour`,`sad_end_hour`),
-				  KEY `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`)
+				  KEY `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`),
+                  KEY `ignore_op_status` (`ignore_op_status`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_departament_group_user` (
