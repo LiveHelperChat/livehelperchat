@@ -2416,8 +2416,21 @@ class erLhcoreClassChat {
                   $hasInvalidDepartment = true;
               }
            } else {
-               $dep = erLhcoreClassModelDepartament::findOne(['sort' => '`sort_priority` ASC, `id` ASC','filter' => ['alias' => $department]]);
-               if ($dep instanceof erLhcoreClassModelDepartament) {
+               $deps = erLhcoreClassModelDepartament::getList(['sort' => '`sort_priority` ASC, `id` ASC','filterlor' => ['alias' => [$department, erLhcoreClassSystem::instance()->SiteAccess . '-' . $department]]]);
+
+               foreach ($deps as $depPotential) {
+                   // We found department with exact alias and language code, so use it.
+                   if ($depPotential->alias === erLhcoreClassSystem::instance()->SiteAccess . '-' . $department) {
+                       $dep = $depPotential;
+                       break;
+                   }
+               }
+
+               if (!isset($dep) && !empty($deps)) {
+                   $dep = array_shift($deps);
+               }
+
+               if (isset($dep) && $dep instanceof erLhcoreClassModelDepartament) {
                    $output['system'][] = (int)$dep->id;
                    $output['argument'][] = $dep->alias == '' ? $dep->id : $dep->alias;
                } else {
