@@ -28,13 +28,10 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         <?php endif;?>
 
         <?php if ($Result['theme']->buble_operator_background != '') : ?>
-        /*#messagesBlock div.reactions-holder,*/
         #messagesBlock div.message-admin div.msg-body:not(.msg-body-media):not(.msg-body-widget):not(.msg-body-emoji){background-color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_background)?>!important;}
         <?php endif;?>
 
         <?php if ($Result['theme']->buble_operator_text_color != '') : ?>
-        /*#messagesBlock .reaction-item,
-        #messagesBlock .reaction-item:hover,*/
         #messagesBlock div.message-admin div.msg-body,
         #messagesBlock div.message-admin div.msg-body a.link{color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_text_color)?>!important;}
         <?php endif;?>
