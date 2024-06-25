@@ -40,10 +40,10 @@ export class storageHandler {
 
         try {
             // Create cookie
-            document.cookie = 'cookietest=1';
+            document.cookie = 'cookietest=1; SameSite=Lax';
             this.cookieEnabled = document.cookie.indexOf('cookietest=') !== -1;
             // Delete cookie
-            document.cookie = 'cookietest=1; expires=Thu, 01-Jan-1970 00:00:01 GMT';
+            document.cookie = 'cookietest=1; expires=Thu, 01-Jan-1970 00:00:01 GMT; SameSite=Lax';
         } catch (e) {
 
         }
