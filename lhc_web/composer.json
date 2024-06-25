@@ -1,60 +1,80 @@
 {
-    "authors": [
-        {
-            "email": "remdex@gmail.com",
-            "name": "Remigijus Kiminas",
-            "homepage": "https://livehelperchat.com"
-        }
-    ],
-    "config": {
-        "sort-packages": true,
-        "vendor-dir": "lib/vendor",
-        "allow-plugins": {
-          "php-http/discovery": true
-        }
-    },
-    "description": "Live Helper Chat - live support for your website. Featuring web and desktop clients. Compatible Windows, Linux, Mac. Desktop client powered by QT. Supports mobile phones based on XMPP service providers (GTalk, Xabber, Mono etc.)",
-    "homepage": "https://livehelperchat.com",
-    "keywords": [
-        "php",
-        "live support",
-        "livehelperchat",
-        "qt",
-        "xmpp"
-    ],
-    "license": [
-        "GPL-3.0-or-later",
-        "LGPL-3.0-or-later"
-    ],
-    "repositories": [
-      {
-        "type":"package",
-        "package": {
-          "name": "php-imap/php-imap",
-          "version":"master",
-          "source": {
-            "url": "https://github.com/remdex/php-imap.git",
-            "type": "git",
-            "reference":"master"
-          },
-          "autoload": {
-            "psr-4": {
-              "PhpImap\\": "src/PhpImap"
-            }
+  "authors": [
+    {
+      "email": "remdex@gmail.com",
+      "name": "Remigijus Kiminas",
+      "homepage": "https://livehelperchat.com"
+    }
+  ],
+  "config": {
+    "sort-packages": true,
+    "vendor-dir": "lib/vendor",
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
+  },
+  "description": "Live Helper Chat - live support for your website. Featuring web and desktop clients. Compatible Windows, Linux, Mac. Desktop client powered by QT. Supports mobile phones based on XMPP service providers (GTalk, Xabber, Mono etc.)",
+  "homepage": "https://livehelperchat.com",
+  "keywords": [
+    "php",
+    "live support",
+    "livehelperchat",
+    "qt",
+    "xmpp"
+  ],
+  "license": [
+    "GPL-3.0-or-later",
+    "LGPL-3.0-or-later"
+  ],
+  "repositories": [
+    {
+      "type":"package",
+      "package": {
+        "name": "php-imap/php-imap",
+        "version":"master",
+        "source": {
+          "url": "https://github.com/remdex/php-imap.git",
+          "type": "git",
+          "reference":"master"
+        },
+        "autoload": {
+          "psr-4": {
+            "PhpImap\\": "src/PhpImap"
           }
         }
       }
-    ],
-    "minimum-stability": "stable",
-    "name": "livehelperchat/livehelperchat",
-    "require": {
-        "php": ">=7.3",
-        "ext-json": "*",
-        "minishlink/web-push": "^7.0",
-        "php-imap/php-imap": "dev-master#500dc8a9a83ebf91cbd06ac50021f9940c15fed8",
-        "webklex/php-imap": "^5.1.0",
-        "deeplcom/deepl-php": "^1.3",
-        "aws/aws-sdk-php": "3.x"
     },
-    "type": "project"
+    {
+      "type":"package",
+      "package": {
+        "name": "tgallice/fb-messenger-sdk",
+        "version":"master",
+        "source": {
+          "url": "https://github.com/LiveHelperChat/fb-messenger-sdk.git",
+          "type": "git",
+          "reference":"master"
+        },
+        "autoload": {
+          "psr-4": {
+            "Tgallice\\FBMessenger\\": "src"
+          }
+        }
+      }
+    }
+  ],
+  "minimum-stability": "stable",
+  "name": "livehelperchat/livehelperchat",
+  "require": {
+    "php": ">=8.2",
+    "ext-json": "*",
+    "minishlink/web-push": "^7.0",
+    "php-imap/php-imap": "dev-master#500dc8a9a83ebf91cbd06ac50021f9940c15fed8",
+    "webklex/php-imap": "^5.1.0",
+    "deeplcom/deepl-php": "^1.3",
+    "aws/aws-sdk-php": "3.x",
+    "tgallice/fb-messenger-sdk": "dev-master#520c2c6b6a926b16fd12e538ecfbbbf13cf813b8",
+    "facebook/graph-sdk": "*",
+    "symfony/event-dispatcher": "^7.1"
+  },
+  "type": "project"
 }
