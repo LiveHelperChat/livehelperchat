@@ -28,13 +28,13 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         <?php endif;?>
 
         <?php if ($Result['theme']->buble_operator_background != '') : ?>
-        #messagesBlock div.reactions-holder,
+        /*#messagesBlock div.reactions-holder,*/
         #messagesBlock div.message-admin div.msg-body:not(.msg-body-media):not(.msg-body-widget):not(.msg-body-emoji){background-color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_background)?>!important;}
         <?php endif;?>
 
         <?php if ($Result['theme']->buble_operator_text_color != '') : ?>
-        #messagesBlock .reaction-item,
-        #messagesBlock .reaction-item:hover,
+        /*#messagesBlock .reaction-item,
+        #messagesBlock .reaction-item:hover,*/
         #messagesBlock div.message-admin div.msg-body,
         #messagesBlock div.message-admin div.msg-body a.link{color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_text_color)?>!important;}
         <?php endif;?>
@@ -212,6 +212,36 @@ div.response div.meta-message{
     color: #<?php echo $theme->bot_configuration_array['new_msg_text_color']?>!important;
 }
 <?php endif; ?>
+
+<?php if (isset($theme->bot_configuration_array['buble_reaction_background_vi']) && $theme->bot_configuration_array['buble_reaction_background_vi'] != '') : ?>
+div.message-row.response .reactions-selected-info span{
+   background-color: #<?php echo $theme->bot_configuration_array['buble_reaction_background_vi']?>!important;
+}
+<?php endif; ?>
+
+<?php if (isset($theme->bot_configuration_array['buble_reaction_background_op']) && $theme->bot_configuration_array['buble_reaction_background_op'] != '') : ?>
+div.message-admin .reactions-toolbar,
+div.message-admin .reactions-selected-info span{
+   background-color: #<?php echo $theme->bot_configuration_array['buble_reaction_background_op']?>!important;
+}
+<?php endif; ?>
+
+<?php if (isset($theme->bot_configuration_array['buble_reaction_color_vi']) && $theme->bot_configuration_array['buble_reaction_color_vi'] != '') : ?>
+#messagesBlock div.message-row.response .reaction-item,
+#messagesBlock div.message-row.response .reaction-item:hover{
+color: #<?php echo $theme->bot_configuration_array['buble_reaction_color_vi']?>!important;
+}
+<?php endif;?>
+
+<?php if (isset($theme->bot_configuration_array['buble_reaction_color_op']) && $theme->bot_configuration_array['buble_reaction_color_op'] != '') : ?>
+#messagesBlock div.message-admin .reaction-item-admin,
+#messagesBlock div.message-admin .reaction-item-admin:hover,
+#messagesBlock div.message-admin .reaction-item,
+#messagesBlock div.message-admin .reaction-item:hover{
+color: #<?php echo $theme->bot_configuration_array['buble_reaction_color_op']?>!important;
+}
+<?php endif;?>
+
 
 <?php echo $theme->custom_widget_css?>
 

@@ -948,6 +948,36 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
+                                <label><?php echo $fields['buble_reaction_background_vi']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('buble_reaction_background_vi', $fields['buble_reaction_background_vi'], $object)?>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><?php echo $fields['buble_reaction_color_vi']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('buble_reaction_color_vi', $fields['buble_reaction_color_vi'], $object)?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><?php echo $fields['buble_reaction_background_op']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('buble_reaction_background_op', $fields['buble_reaction_background_op'], $object)?>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><?php echo $fields['buble_reaction_color_op']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('buble_reaction_color_op', $fields['buble_reaction_color_op'], $object)?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
                                 <label><?php echo $fields['custom_tb_reactions']['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput('custom_tb_reactions', $fields['custom_tb_reactions'], $object)?>
                                 <div>

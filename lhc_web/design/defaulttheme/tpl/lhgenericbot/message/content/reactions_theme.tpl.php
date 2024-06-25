@@ -44,7 +44,7 @@
         foreach ($partsReactionModal as $reaction) {
             $partsReaction = explode("|",$reaction);
 
-            $classNameBasic = $className = preg_match('/^[a-zA-Z0-9_]+$/', $partsReaction[0]) ? ' pt-0 me-0 material-icons' : '';
+            $classNameBasic = $className = preg_match('/^[a-zA-Z0-9_]+$/', $partsReaction[0]) ? ' reaction-item-admin pt-0 me-0 material-icons' : '';
 
             if (!(isset($partsReaction[2]) && isset($partsReaction[1]))) {
                 $partsReaction[2] = strtoupper(preg_replace("/^[0]+/","",bin2hex(mb_convert_encoding($partsReaction[0], 'UTF-32', 'UTF-8'))));
