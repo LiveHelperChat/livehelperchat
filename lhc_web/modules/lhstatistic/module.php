@@ -79,7 +79,8 @@ $ViewList['statistic'] = array(
         63 => 'r',
         64 => 'is_external',
         65 => 'has_attachment',
-        66 => 'has_online_hours'
+        66 => 'has_online_hours',
+        67 => 'exclude_deactivated'
     ),
     'functions' => array( 'viewstatistic' ),
     'multiple_arguments' => array('bot_ids','subject_ids','department_ids','group_ids','user_ids','department_group_ids','invitation_ids','chart_type','country_ids')

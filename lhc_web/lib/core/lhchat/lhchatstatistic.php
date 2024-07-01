@@ -2165,6 +2165,10 @@ class erLhcoreClassChatStatistic {
             $userIdFilter = array_values($filterUsers['filterin']['id']);
         }
 
+        if (isset($filterParams->exclude_deactivated) && $filterParams->exclude_deactivated == 1) {
+            $filterUsers['filter']['disabled'] = 0;
+        }
+
         $userList = erLhcoreClassModelUser::getUserList($filterUsers);
         
         if (empty($userList)) {
