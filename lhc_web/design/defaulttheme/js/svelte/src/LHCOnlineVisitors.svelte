@@ -1,6 +1,3 @@
-<svelte:options customElement={{
-		tag: 'lhc-online-visitors',
-		shadow: 'none'}}/>
 <script>
     import { lhcList } from './stores.js';
     import { t } from "./i18n/i18n.js";
