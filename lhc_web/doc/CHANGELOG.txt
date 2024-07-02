@@ -1,3 +1,14 @@
+4.42v
+
+1. Composer dependencies bumped to 8.2 PHP version. In order to run on older PHP version reinstall composer dependencies.
+2. Additional chat variables can extract JWT token custom field and store it as a chat variable etc.
+3. Widget themes now has option to set reaction bubble and icons colors separately.
+4. MacOS was not rendering online visitors list.
+5. If two departments has same alias. Alias with language prefix fre-my-alias will have higher priority than my-alias. That way you fan forward other language chats to specific departments.
+
+execute doc/update_db/update_312.sql for update
+
+
 4.41v
 
 1. Departments now have individual `Ignore operator status` settings.
