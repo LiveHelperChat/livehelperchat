@@ -74,6 +74,14 @@ return array(
         'params_call' => array(),
         'source' => 'erLhAbstractModelChatVariable::getDataTypes',
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
-    )
+    ),
+    'content_field' => array(
+        'type' => 'text',
+        'placeholder' => 'contact.first_name',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Content field to extract. You can access JWT token content field.'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    ),
 );
 

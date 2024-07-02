@@ -25,6 +25,7 @@ class erLhAbstractModelChatVariable
             'inv' => $this->inv,
             'change_message' => $this->change_message,
             'old_js_id' => $this->old_js_id,
+            'content_field' => $this->content_field,
         );
 
         return $stateArray;
@@ -77,6 +78,12 @@ class erLhAbstractModelChatVariable
         $item = new stdClass();
         $item->id = 5;
         $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Website cookie');
+
+        $items[] = $item;
+
+        $item = new stdClass();
+        $item->id = 6;
+        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','JWT Token content field');
 
         $items[] = $item;
 
@@ -137,6 +144,7 @@ class erLhAbstractModelChatVariable
     public $inv = 0;
     public $change_message = '';
     public $old_js_id = '';
+    public $content_field = '';
     public $hide_delete = false;
 }
 

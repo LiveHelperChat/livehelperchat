@@ -12,7 +12,7 @@
 			<?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?>
 		<?php elseif ($attr['type'] == 'checkbox') : ?>
 		    <div class="form-group">
-			<label><?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?> <?php echo $attr['trans'];?><?php echo $attr['required'] == true ? ' *' : ''?></label>
+			<label><?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?><?php echo ' ',$attr['trans'];?><?php echo $attr['required'] == true ? ' *' : ''?></label>
 			</div>
 		<?php else : ?>
 		    <div class="form-group">
