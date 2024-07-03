@@ -65,7 +65,7 @@ class _helperFunctions {
             "-moz-opacity                : " + (params.opacity ? params.opacity : "1") + " !important; ",
             "-khtml-opacity              : " + (params.opacity ? params.opacity : "1") + " !important; ",
             "top                         : " + (params.top ? params.top : "auto") + "; ",
-            "color-scheme                : auto; ",
+            "color-scheme                : light; ",
             "right                       : " + (params.right ? params.right : "auto") + "; ",
             "bottom                      : " + (params.bottom ? params.bottom : "auto") + "; ",
             "left                        : " + (params.left ? params.left : "auto") + "; ",
