@@ -1258,6 +1258,7 @@ try {
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
         	   `name` varchar(100) NOT NULL,        	   
         	   `content` longtext NOT NULL,
+        	   `configuration` longtext NOT NULL,
         	   `recipient` varchar(250) NOT NULL,
         	   `active` int(11) NOT NULL,
         	   `name_attr` varchar(250) NOT NULL,

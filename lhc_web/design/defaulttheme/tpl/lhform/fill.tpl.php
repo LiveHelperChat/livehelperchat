@@ -2,17 +2,20 @@
 <h1><?php echo htmlspecialchars($form->name)?></h1>
 <?php endif; ?>
 
-<?php if (erLhcoreClassFormRenderer::isCollected()) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','Information collected');$hideSuccessButton = true; ?>
-	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
+<?php if (erLhcoreClassFormRenderer::isCollected()) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','Information collected'); $hideSuccessButton = true; ?>
+
+    <?php if (!isset($form->configuration_array['hide_content_on_success']) || $form->configuration_array['hide_content_on_success'] == false) : ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
+    <?php endif; ?>
 
     <?php if (isset($replace_array)) : ?>
-	    <?php echo str_replace(array_keys($replace_array), array_values($replace_array), $form->post_content);?>
+        <?php echo str_replace(array_keys($replace_array), array_values($replace_array), $form->post_content);?>
     <?php else : ?>
         <?php echo $form->post_content?>
     <?php endif; ?>
 
-    <?php if (strpos($form->post_content,'name="ReturnButton"') === false) : ?>
-	<a class="btn btn-secondary btn-sm" name="ReturnButton" href="<?php if (isset($action_url)) : ?><?php echo $action_url?><?php else : ?><?php echo erLhcoreClassDesign::baseurl('form/fill')?><?php endif;?>/<?php echo $form->id?>?new"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','Return');?></a>
+    <?php if ((!isset($form->configuration_array['hide_content_on_success']) || $form->configuration_array['hide_content_on_success'] == false) && strpos($form->post_content,'name="ReturnButton"') === false) : ?>
+        <a class="btn btn-secondary btn-sm" name="ReturnButton" href="<?php if (isset($action_url)) : ?><?php echo $action_url?><?php else : ?><?php echo erLhcoreClassDesign::baseurl('form/fill')?><?php endif;?>/<?php echo $form->id?>?new"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','Return');?></a>
     <?php endif; ?>
 
 <?php else : ?>

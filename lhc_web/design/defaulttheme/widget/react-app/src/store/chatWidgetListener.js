@@ -254,20 +254,30 @@ export default function (dispatch, getState) {
         } else if (action == 'lhc_update_msg') {
             const parts = e.data.replace('lhc_update_msg:','').split('::');
             const state = getState();
+
+            // In all those actions message content is always removed, so we can update UI faster
+            if (parts[1] == 'iframe_close' || parts[1] == 'iframe_inline_close') {
+                let elm = document.getElementById('msg-'+parts[0]); elm && elm.parentNode.removeChild(elm);
+                dispatch({type: "REMOVE_CHAT_MESSAGE", data: {'msg_id' : parts[0]}});
+            }
+
             updateMessageData({
                 'id' : state.chatwidget.getIn(['chatData','id']),
                 'hash' : state.chatwidget.getIn(['chatData','hash']),
                 'msg_id' : parts[0]
             }, {'action' : parts[1]}).then(() => {
-                dispatch(updateMessage({
-                    'msg_id' : parts[0],
-                    'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
-                    'mode' :  state.chatwidget.get('mode'),
-                    'theme' : state.chatwidget.get('theme'),
-                    'id' : state.chatwidget.getIn(['chatData','id']),
-                    'hash' : state.chatwidget.getIn(['chatData','hash']),
-                    'no_scroll' : true
-                }));
+                // Update only if it's non standard action
+                if (parts[1] != 'iframe_close' && parts[1] != 'iframe_inline_close') {
+                    dispatch(updateMessage({
+                        'msg_id' : parts[0],
+                        'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
+                        'mode' :  state.chatwidget.get('mode'),
+                        'theme' : state.chatwidget.get('theme'),
+                        'id' : state.chatwidget.getIn(['chatData','id']),
+                        'hash' : state.chatwidget.getIn(['chatData','hash']),
+                        'no_scroll' : true
+                    }));
+                }
             });
         } else if (action == 'lhc_trigger_click') {
             const parts = e.data.replace('lhc_trigger_click:','').split('::');

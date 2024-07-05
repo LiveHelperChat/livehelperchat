@@ -1,3 +1,10 @@
+4.43v
+
+1. Embedded forms in chat now can completely hide form content on success submission.
+2. If embeded form is submitted it's content will be hidden instantly to improve UI
+
+execute doc/update_db/update_313.sql for update
+
 4.42v
 
 1. Composer dependencies bumped to 8.2 PHP version. In order to run on older PHP version reinstall composer dependencies.

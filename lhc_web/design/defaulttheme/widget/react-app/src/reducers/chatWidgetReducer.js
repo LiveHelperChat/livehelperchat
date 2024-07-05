@@ -305,6 +305,25 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
         }
 
+        case 'REMOVE_CHAT_MESSAGE' : {
+            let index = state.getIn(['chatLiveData','messages']).findIndex(msg => {
+                if (msg.msg.includes("id=\"msg-"+action.data.msg_id+"\"")) {
+                    return true;
+                }
+            });
+
+            if (index !== -1) {
+                var nodeParse = document.createElement('div');
+                nodeParse.innerHTML = state.getIn(["chatLiveData", "messages", index, "msg"]);
+                var messageExtractor = nodeParse.querySelector("#msg-"+action.data.id);
+                if (messageExtractor) {
+                    nodeParse.innerHTML = nodeParse.innerHTML.replace(messageExtractor.outerHTML,"");
+                    state = state.setIn(["chatLiveData", "messages", index, "msg"], nodeParse.innerHTML);
+                }
+            }
+            return state;
+        }
+
         case 'FETCH_MESSAGE_SUBMITTED' : {
 
             let index = state.getIn(['chatLiveData','messages']).findIndex(msg => {
