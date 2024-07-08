@@ -9,7 +9,7 @@
     <?php endif; ?>
 
     <div class="row pb-4">
-    <?php foreach (['[b]','[i]','[u]','[listol]','[list]','[paypal]','[level]','[li]','[fs12]','[quote]','[mark]','[s]','[link_trigger]','[fs12]','[color]','[file]','[url]','[img]','[youtube]','[fupload]','[baseurl]','[survey]','[button_action]','[loc]','[code]'] as $bbcode) : ?>
+    <?php foreach (['[b]','[i]','[u]','[listol]','[list]','[paypal]','[level]','[li]','[fs12]','[quote]','[mark]','[s]','[link_trigger]','[fs12]','[color]','[file]','[url]','[img]','[youtube]','[fupload]','[baseurl]','[survey]','[button_action]','[loc]','[code]','[plain]'] as $bbcode) : ?>
         <div class="col-6">
             <h5 class="pt-2"><?php echo htmlspecialchars($bbcode)?></h5>
             <label><input type="checkbox" <?php if (in_array($bbcode,$bbcode_options['div'])) : ?>checked="checked"<?php endif; ?> value="<?php echo htmlspecialchars($bbcode)?>" name="enabled_visitor[]" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/bbcodeconfiguration', 'Disable for visitor messages')?></label><br>
