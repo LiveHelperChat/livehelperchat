@@ -801,6 +801,11 @@ class erLhcoreClassBBCode
        return $key;
    }
 
+   public static function _date_format($matches)
+   {
+       return date($matches[1], (int)$matches[2]);
+   }
+
    public static function _make_button_action($matches) {
         return "<button type=\"button\" class=\"btn btn-xs text-white fs13 btn-secondary\" onclick=\"lhinst.buttonAction($(this),'" . htmlspecialchars(strip_tags($matches[1])) . "')\">" . htmlspecialchars($matches[2]) . "</button>";
    }
@@ -1169,6 +1174,10 @@ class erLhcoreClassBBCode
 
        if (self::isBBCodeTagSupported('[plain]',$paramsMessage)) {
            $ret = preg_replace_callback('#\[plain\](.*?)\[/plain\]#is', 'erLhcoreClassBBCode::_make_plain_text', $ret);
+       }
+
+       if (self::isBBCodeTagSupported('[dateformat]',$paramsMessage)) {
+           $ret = preg_replace_callback('#\[dateformat=([A-Za-z0-9\/.\-\s]{2,60})\](.*?)\[/dateformat\]#is', 'erLhcoreClassBBCode::_date_format', $ret);
        }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_make_clickable',array('msg' => & $ret, 'makeLinksClickable' => & $makeLinksClickable));
