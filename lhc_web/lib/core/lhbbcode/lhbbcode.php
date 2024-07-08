@@ -792,6 +792,15 @@ class erLhcoreClassBBCode
         }
    }
 
+   private static $plainHash = [];
+
+   public static function _make_plain_text($matches)
+   {
+       $key = 'plain_'.md5($matches[0]);
+       self::$plainHash[$key] = $matches[1];
+       return $key;
+   }
+
    public static function _make_button_action($matches) {
         return "<button type=\"button\" class=\"btn btn-xs text-white fs13 btn-secondary\" onclick=\"lhinst.buttonAction($(this),'" . htmlspecialchars(strip_tags($matches[1])) . "')\">" . htmlspecialchars($matches[2]) . "</button>";
    }
@@ -1158,6 +1167,10 @@ class erLhcoreClassBBCode
            $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret);
         }
 
+       if (self::isBBCodeTagSupported('[plain]',$paramsMessage)) {
+           $ret = preg_replace_callback('#\[plain\](.*?)\[/plain\]#is', 'erLhcoreClassBBCode::_make_plain_text', $ret);
+       }
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_make_clickable',array('msg' => & $ret, 'makeLinksClickable' => & $makeLinksClickable));
 
         /*
@@ -1281,6 +1294,11 @@ class erLhcoreClassBBCode
 
         if (isset($paramsMessage['msg_id']) && $paramsMessage['msg_id'] > 0) {
             $ret = str_replace('{msg_id}',$paramsMessage['msg_id'], $ret);
+        }
+
+        if (!empty(self::$plainHash)) {
+            $ret = str_replace(array_keys(self::$plainHash), self::$plainHash, $ret);
+            self::$plainHash = [];
         }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.after_make_clickable',array('msg' => & $ret));

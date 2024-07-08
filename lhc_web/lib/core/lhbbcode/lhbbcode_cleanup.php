@@ -611,7 +611,9 @@ class erLhcoreClassBBCodePlain
         $text = str_replace($in, $out, $text);
 
         // BBCode to find...
-        $in = array( 	 '/\[b\](.*?)\[\/b\]/ms',
+        $in = array(
+            '/\[plain\](.*?)\[\/plain\]/ms',
+            '/\[b\](.*?)\[\/b\]/ms',
             '/\[i\](.*?)\[\/i\]/ms',
             '/\[u\](.*?)\[\/u\]/ms',
             '/\[mark\](.*?)\[\/mark\]/ms',
@@ -626,7 +628,9 @@ class erLhcoreClassBBCodePlain
         );
 
         // And replace them by...
-        $out = array(	 '\1',
+        $out = array(
+            '\1',
+            '\1',
             '\1',
             '\1',
             '\1',
