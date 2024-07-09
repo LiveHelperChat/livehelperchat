@@ -1003,7 +1003,7 @@ class erLhcoreClassBBCodePlain
             $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret);
         }
 
-        $ret = preg_replace_callback('#\[dateformat=([A-Za-z0-9:\/.\-\s]{2,60})\](.*?)\[/dateformat\]#is', 'erLhcoreClassBBCode::_date_format', $ret);
+        $ret = preg_replace_callback('#\[dateformat=([A-Za-z0-9:,\/.\-\s]{2,60})\](.*?)\[/dateformat\]#is', 'erLhcoreClassBBCode::_date_format', $ret);
 
         // Make base URL
         $ret = preg_replace_callback('#\[baseurl\](.*?)\[/baseurl\]#is', 'erLhcoreClassBBCode::_make_base_link', $ret);

@@ -2397,6 +2397,8 @@ class erLhcoreClassGenericBotWorkflow {
             $message = str_replace('{base_url}',erLhcoreClassSystem::getHost(),$message);
         }
 
+        $message = str_replace('{current_time_ts}',time(),$message);
+
         $matches = array();
         preg_match_all('~\{((?:[^\{\}]++|(?R))*)\}~',$message,$matches);
 
