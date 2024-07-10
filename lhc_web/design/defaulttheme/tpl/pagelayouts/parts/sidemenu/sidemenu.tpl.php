@@ -7,7 +7,7 @@
                     <a href="#" onclick="ee.emitEvent('svelteToggleList',['rmtoggle']);" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide/Show chats toolbar')?>"><span class="material-icons me-0">menu</span></a>
                 </li>
 				<li class="nav-item">
-                    <a class="nav-link" href="<?php echo erLhcoreClassDesign::baseurl('/')?>" onclick="$('#tabs a[href=\'#dashboard\']').length > 0 ? $('#tabs a[href=\'#dashboard\']').tab('show') : '';return !($('#tabs a[href=\'#dashboard\']').length > 0);"><i class="material-icons md-18">home</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Dashboard')?></a>
+                    <a class="nav-link" href="<?php echo erLhcoreClassDesign::baseurl('/')?>" onclick="$('#tabs a[href=\'#dashboard\']').tab('show');return !($('#tabs a[href=\'#dashboard\']').length > 0);"><i class="material-icons md-18">home</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Dashboard')?></a>
                 </li>
                 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/chat/chat.tpl.php'));?>
                 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/settings/settings.tpl.php'));?>
