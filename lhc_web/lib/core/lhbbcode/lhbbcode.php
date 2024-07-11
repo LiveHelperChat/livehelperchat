@@ -1177,7 +1177,7 @@ class erLhcoreClassBBCode
        }
 
        if (self::isBBCodeTagSupported('[dateformat]',$paramsMessage)) {
-           $ret = preg_replace_callback('#\[dateformat=([A-Za-z0-9:,\/.\-\s]{2,60})\](.*?)\[/dateformat\]#is', 'erLhcoreClassBBCode::_date_format', $ret);
+           $ret = preg_replace_callback('#\[dateformat=([A-Za-z0-9:,\/.\-\s]{1,60})\](.*?)\[/dateformat\]#is', 'erLhcoreClassBBCode::_date_format', $ret);
        }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_make_clickable',array('msg' => & $ret, 'makeLinksClickable' => & $makeLinksClickable));
