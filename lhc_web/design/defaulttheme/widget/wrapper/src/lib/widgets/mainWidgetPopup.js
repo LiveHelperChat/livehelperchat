@@ -178,7 +178,8 @@ export class mainWidgetPopup {
             // Now if visitor has blocked popup change chat status link and just allow browser handle the rest.
             if (!newWin || newWin.closed || typeof newWin.closed=='undefined') {
                 try {
-                    this.attributes.viewHandler.cont.getElementById("status-icon").href = this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns;
+                    this.attributes.viewHandler.cont.shadowRoot.getElementById("status-icon").href = this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns;
+                    this.attributes.viewHandler.cont.shadowRoot.getElementById("status-icon").click();
                 } catch (e) {
                     alert('You have disabled popups!');
                 }

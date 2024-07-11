@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 229;
+            lhc.version = 230;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -138,9 +138,11 @@
                     LHC_API: LHC_API,
                     viewHandler: null,
                     msgSnippet: null,
+                    drag_enabled: LHC_API.args.drag_enabled || false,
                     react_attr: LHC_API.args.react_attr || null,
                     hide_parent: LHC_API.args.hide_parent || false,
                     hide_iframe: LHC_API.args.hide_iframe || false,
+                    animate_nh: LHC_API.args.animate_nh || false,
                     hide_status: LHC_API.args.hide_status || null,
                     mainWidget: new mainWidget(prefixLowercase),
                     popupWidget: new mainWidgetPopup(),
@@ -149,6 +151,7 @@
                     onlineStatus: new BehaviorSubject(true),
                     wloaded: new BehaviorSubject(false),
                     sload: new BehaviorSubject(false),
+                    status_position: new BehaviorSubject(null),
                     shidden: new BehaviorSubject(LHC_API.args.hide_status || false),
                     msgsnippet_status: new BehaviorSubject(false),
                     unread_counter: new BehaviorSubject(0),
@@ -239,7 +242,7 @@
                     var containerChatObj = new containerChat(attributesWidget.prefixLowercase, LHC_API.args.pnode || null);
 
                     attributesWidget.viewHandler = new statusWidget(attributesWidget.prefixLowercase);
-                    containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont.constructUI(), !0);
+                    containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont, !0);
 
                     if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
                         containerChatObj.cont.elmDom.appendChild(attributesWidget.mainWidget.cont.constructUI(), !0);
@@ -433,6 +436,14 @@
 
                         if (data.chat_ui.clinst) {
                             attributesWidget.clinst = true;
+                        }
+
+                        if (data.chat_ui.drag_enabled) {
+                            attributesWidget.drag_enabled = true;
+                        }
+
+                        if (data.chat_ui.animate_nh) {
+                            attributesWidget.animate_nh = true;
                         }
 
                         if (data.chat_ui.viewport) {

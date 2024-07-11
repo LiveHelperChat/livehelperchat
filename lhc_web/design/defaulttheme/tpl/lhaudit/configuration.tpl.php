@@ -115,6 +115,24 @@ try {
 <?php print_r(htmlspecialchars(json_encode($_SERVER, JSON_PRETTY_PRINT)))?>
 </pre>
 
+<h4>Extensions check</h4>
+<ul>
+    <li>Is the php_curl extension installed - <?php echo extension_loaded ('curl' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the mbstring extension installed - <?php echo extension_loaded ('mbstring' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the php-pdo extension installed - <?php echo extension_loaded ('pdo_mysql' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the gd extension installed - <?php echo extension_loaded ('gd' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the json extension detected - <?php echo function_exists('json_encode') ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the bcmath extension detected - <?php echo extension_loaded('bcmath') ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-warning">No, GEO detection will be disabled</span>'; ?></li>
+    <li>Is the php-xml extension detected - <?php echo function_exists('simplexml_load_string') ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-warning">No</span>'; ?></li>
+    <li>Is the fileinfo extension detected - <?php echo extension_loaded ('fileinfo' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the ldap extension detected - <?php echo function_exists ('ldap_search' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the imap extension detected - <?php echo extension_loaded ('imap' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the phpiredis extension detected - <?php echo extension_loaded ('phpiredis' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the soap extension detected - <?php echo extension_loaded ('soap' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the zlib extension detected - <?php echo extension_loaded ('zlib' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the zip extension detected - <?php echo extension_loaded ('zip' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+</ul>
+
 <h4>phpinfo</h4>
     <?php
 
