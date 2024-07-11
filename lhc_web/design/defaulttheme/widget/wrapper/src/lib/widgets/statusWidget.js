@@ -21,10 +21,6 @@ class LHCStatusWidget extends HTMLElement {
         }
     }
 
-    /*static get observedAttributes() {
-        return ['just-moved'];
-    }*/
-
     show(){
         this.style.setProperty("display","block","important");
     }
@@ -60,10 +56,6 @@ class LHCStatusWidget extends HTMLElement {
     restyle(attr, style) {
         this.style[attr] = style;
     };
-
-    attributeChangedCallback(name, oldValue, newValue) {
-        //console.log(name);
-    }
 
     setContent(content) {
         let contentShadow = document.createElement('div');
@@ -404,7 +396,7 @@ export class statusWidget{
                 attributes.status_position.next(placementRestored);
             }
         }
-        
+
         this.cont.massRestyle(placement);
 
         this.cont.setContent('<div id="lhc_status_container" class="notranslate ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: nones;pointer-events: none;""><i title="New messages" id="unread-msg-number">!</i><a aria-label="Show or hide widget" href="#" tabindex="0" target="_blank" id="status-icon" class="offline-status"></a></div>');

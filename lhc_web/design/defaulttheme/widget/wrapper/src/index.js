@@ -242,7 +242,7 @@
                     var containerChatObj = new containerChat(attributesWidget.prefixLowercase, LHC_API.args.pnode || null);
 
                     attributesWidget.viewHandler = new statusWidget(attributesWidget.prefixLowercase);
-                    containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont/*.constructUI()*/, !0);
+                    containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont, !0);
 
                     if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
                         containerChatObj.cont.elmDom.appendChild(attributesWidget.mainWidget.cont.constructUI(), !0);
@@ -1101,7 +1101,6 @@
         }).call(this, global['$_' + scopeScript], global[scopeScript + '_API']);
 
     } catch (e) {
-        console.log(e);
         if (lhcError) lhcError.log(e.message, "index.js", e.lineNumber || e.line, e.stack); else throw Error("lhc : " + e.message);
     }
 
