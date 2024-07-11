@@ -321,14 +321,20 @@ export class statusWidget{
         this.statusDelayProcessed = false;
 
         this.cont = document.createElement('lhc-status-widget');
-        this.cont.setAttribute("id",(prefix || 'lhc')+'_status_widget_v2');
-        this.cont.setAttribute("vertical-placement","bottom");
-        this.cont.setAttribute("horizontal-placement","left");
-        this.cont.setAttribute("horizontal-space","0");
-        this.cont.setAttribute("vertical-space","0");
-        this.cont.setAttribute("vertical-unit","px");
-        this.cont.setAttribute("vertical-y",0);
-        this.cont.setAttribute("drag-enabled",true);
+
+        Object.entries({
+            "id" : (prefix || 'lhc')+'_status_widget_v2',
+            "vertical-placement" : "bottom",
+            "horizontal-placement" : "right",
+            "horizontal-space" : "0",
+            "vertical-space" : "0",
+            "vertical-unit" : "px",
+            "vertical-y" : 0,
+            "drag-enabled" : false,
+            "role" : "presentation",
+            "translate" : "no"
+        }).forEach(([k, v]) => this.cont.setAttribute(k, v));
+
         this.cont.style = "display: none";
 
         this.loadStatus = {main : false, theme: false, font: true, widget : false, shidden: false};
