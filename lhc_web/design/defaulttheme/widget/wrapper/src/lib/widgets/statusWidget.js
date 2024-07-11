@@ -129,12 +129,14 @@ class LHCStatusWidget extends HTMLElement {
                 initY = matrix.m42;
                 initX = matrix.m41;
                 object.style.transform = "translate3d(" + initX + "px, " + (initY + Math.abs(rect.top - verticalSpace)) + "px, 0px)";
+                object.dispatchEventStatus('move_finish', {"x" : 0, "y": (initY - ((rect.bottom + verticalSpace) - (window.innerHeight || document.documentElement.clientHeight))), "bottom": object.style.bottom, "top": object.style.top, "left": object.style.left, "right": object.style.right});
             } else if (rect.bottom + verticalSpace > (window.innerHeight || document.documentElement.clientHeight)) {
                 const style = window.getComputedStyle(object)
                 const matrix = new DOMMatrixReadOnly(style.transform)
                 initY = matrix.m42;
                 initX = matrix.m41;
                 object.style.transform = "translate3d(" + initX + "px, " + (initY - ((rect.bottom + verticalSpace) - (window.innerHeight || document.documentElement.clientHeight))) + "px, 0px)";
+                object.dispatchEventStatus('move_finish', {"x" : 0, "y": (initY - ((rect.bottom + verticalSpace) - (window.innerHeight || document.documentElement.clientHeight))), "bottom": object.style.bottom, "top": object.style.top, "left": object.style.left, "right": object.style.right});
             }
         }
 
@@ -389,6 +391,20 @@ export class statusWidget{
 
         this.cont.setAttribute("drag-enabled",attributes.drag_enabled);
 
+        if (attributes.drag_enabled === true) {
+            let positionPrevious = attributes.storageHandler.getSessionStorage(this.attributes['prefixStorage']+'_pos');
+
+            if (positionPrevious !== null) {
+                let placementRestored = JSON.parse(positionPrevious);
+                placement["bottom"] = placementRestored["bottom"];
+                placement["top"] = placementRestored["top"];
+                placement["left"] = placementRestored["left"];
+                placement["right"] = placementRestored["right"];
+                placement["transform"] = "translateY("+placementRestored["y"]+"px)";
+                attributes.status_position.next(placementRestored);
+            }
+        }
+        
         this.cont.massRestyle(placement);
 
         this.cont.setContent('<div id="lhc_status_container" class="notranslate ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: nones;pointer-events: none;""><i title="New messages" id="unread-msg-number">!</i><a aria-label="Show or hide widget" href="#" tabindex="0" target="_blank" id="status-icon" class="offline-status"></a></div>');
@@ -439,6 +455,9 @@ export class statusWidget{
                         attributes.eventEmitter.emitEvent('clickAction');
                     }
                 }
+            } else if (event == "move_finish") {
+                attributes.storageHandler.setSessionStorage(attributes['prefixStorage']+'_pos',JSON.stringify(data));
+                attributes.status_position.next(data);
             }
         }
 
