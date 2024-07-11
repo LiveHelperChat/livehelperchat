@@ -138,6 +138,7 @@
                     LHC_API: LHC_API,
                     viewHandler: null,
                     msgSnippet: null,
+                    drag_enabled: LHC_API.args.drag_enabled || false,
                     react_attr: LHC_API.args.react_attr || null,
                     hide_parent: LHC_API.args.hide_parent || false,
                     hide_iframe: LHC_API.args.hide_iframe || false,
@@ -239,7 +240,7 @@
                     var containerChatObj = new containerChat(attributesWidget.prefixLowercase, LHC_API.args.pnode || null);
 
                     attributesWidget.viewHandler = new statusWidget(attributesWidget.prefixLowercase);
-                    containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont.constructUI(), !0);
+                    containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont/*.constructUI()*/, !0);
 
                     if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
                         containerChatObj.cont.elmDom.appendChild(attributesWidget.mainWidget.cont.constructUI(), !0);
@@ -1090,6 +1091,7 @@
         }).call(this, global['$_' + scopeScript], global[scopeScript + '_API']);
 
     } catch (e) {
+        console.log(e);
         if (lhcError) lhcError.log(e.message, "index.js", e.lineNumber || e.line, e.stack); else throw Error("lhc : " + e.message);
     }
 

@@ -18,6 +18,8 @@
     </div>
 </div>
 
+
+
 <div class="mb-2">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','URL to put in third party Rest API service. Append ?output=json for JSON format output.');?></label>
     <div class="input-group">
@@ -79,6 +81,10 @@
 <div class="form-group">
     <label><input type="checkbox" ng-model="show_wh_integration"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Show integration information.');?></label>
 </div>
+
+<ul>
+    <li>Is the fileinfo extension detected - <?php if (extension_loaded ('fileinfo' )) : ?><span class="badge bg-success"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Yes')?></span> <?php else : ?> <span class="badge bg-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','No, uploaded files types might not be detected correctly!')?></span><?php endif; ?>
+</ul>
 
 <div ng-show="show_wh_integration">
 

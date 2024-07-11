@@ -1,6 +1,322 @@
 import {settings} from '../settings.js';
-import {UIConstructorIframe} from '../UIConstructorIframe';
 import {helperFunctions} from '../helperFunctions';
+
+class LHCStatusWidget extends HTMLElement {
+    constructor() {
+        super();
+
+        // Create a shadow root
+        this.attachShadow({mode: 'open'});
+        this._ee = null;
+    }
+
+    set ee(ee) {
+        this._ee = ee;
+    }
+
+    dispatchEventStatus(event,data, e)
+    {
+        if (this._ee) {
+            this._ee(event, data, e);
+        }
+    }
+
+    /*static get observedAttributes() {
+        return ['just-moved'];
+    }*/
+
+    show(){
+        this.style.setProperty("display","block","important");
+    }
+
+    hide(){
+        this.style.setProperty("display","none","important");
+    }
+
+    connectedCallback() {
+
+        // Create a button element and add it to the shadow DOM
+        let style = document.createElement('style');
+        style.textContent = `html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}:root{cursor : pointer; height: 100% !important;min-height: 100% !important;max-height: 100% !important;width: 100% !important;min-width: 100% !important;max-width: 100% !important;}body{display: flex;flex-direction: column;background:transparent;font:13px Helvetica,Arial,sans-serif;position:relative}.clear{clear:both}.clearfix:after{content:\'\';display:block;height:0;clear:both;visibility:hidden}`;
+        this.style = "-webkit-tap-highlight-color: transparent;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;" +
+            "    user-select: none;outline: none;  box-shadow: none;user-select:none;cursor:pointer;box-shadow: none; overflow: visible; color-scheme: light;" +
+            "    min-height: 95px; min-width: 95px; max-height: 95px; max-width: 95px; width: 95px; height: 95px; z-index: 2147483640;" +
+            "    border-radius: unset; outline: none !important; visibility: visible !important; resize: none !important; background: none transparent !important;" +
+            "    opacity: 1 !important; position: fixed !important; border: 0px !important; padding: 0px !important; margin: 0px !important;" +
+            "    float: none !important;display: none !important;transition-property: transform !important;transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1) !important;" +
+            "    transform: translate3d(0px," + this.getAttribute("vertical-y") + "px,0px) !important;transition-duration: 800ms !important;"+
+            (this.getAttribute("vertical-placement") == "top" ? "bottom:auto;" : "top:auto;") +
+            (this.getAttribute("horizontal-placement") == "right" ? "left:auto;" : "right:auto;") +
+            this.getAttribute("horizontal-placement")+":"+this.getAttribute("horizontal-space")+"px;"+
+            this.getAttribute("vertical-placement")+":"+this.getAttribute("vertical-space")+this.getAttribute("vertical-unit");
+
+        this.shadowRoot.appendChild(style);
+    }
+
+    massRestyle(a) {
+        for (var b in a) a.hasOwnProperty(b) && this.restyle(b, a[b])
+    }
+
+    restyle(attr, style) {
+        this.style[attr] = style;
+    };
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        //console.log(name);
+    }
+
+    setContent(content) {
+        let contentShadow = document.createElement('div');
+        contentShadow.innerHTML = content;
+        this.shadowRoot.appendChild(contentShadow.firstChild);
+    }
+
+    attachEvents() {
+        var object = this,
+            initX, initY, firstX, firstY, objectMoved = false, lastTouch, moveAction = false, dragEnabled = this.getAttribute("drag-enabled") === "true";
+
+        try {
+            if (this.getAttribute('vertical-unit') === 'px') {
+                window.addEventListener('resize', resize, false);
+                screen.orientation.addEventListener("change", resize);
+            }
+        } catch (e) {
+            console.log(e);
+        }
+
+        dragEnabled === true && this.getAttribute('vertical-unit') === 'px' && this.addEventListener('mousedown', function (e) {
+            e.preventDefault();
+            this.style.transitionDuration = "0ms";
+
+            firstX = e.pageX;
+            firstY = e.pageY;
+
+            const style = window.getComputedStyle(this)
+            const matrix = new DOMMatrixReadOnly(style.transform)
+            initY = matrix.m42;
+            initX = matrix.m41;
+
+            document.addEventListener('mousemove', dragIt, false);
+            document.addEventListener('mouseup', mouseUp, false);
+        }, false);
+
+        dragEnabled === true && this.getAttribute('vertical-unit') === 'px' && this.addEventListener('touchstart', function (e) {
+
+            // If we uncomment click event will be ignored on our component
+            // It has to stay commented out
+            // e.preventDefault();
+            this.style.transitionDuration = "0ms";
+
+            var touch = e.touches;
+            firstX = touch[0].pageX;
+            firstY = touch[0].pageY;
+
+            const style = window.getComputedStyle(this)
+            const matrix = new DOMMatrixReadOnly(style.transform)
+            initY = matrix.m42;
+            initX = matrix.m41;
+
+            this.addEventListener('touchmove', swipeIt, false);
+            window.addEventListener('touchend', touchEnd, false);
+        }, false);
+
+        function resize() {
+            const rect = object.getBoundingClientRect();
+            let verticalSpace = parseInt(object.getAttribute('vertical-space'));
+            if (rect.top - verticalSpace < 0) {
+                const style = window.getComputedStyle(object)
+                const matrix = new DOMMatrixReadOnly(style.transform)
+                initY = matrix.m42;
+                initX = matrix.m41;
+                object.style.transform = "translate3d(" + initX + "px, " + (initY + Math.abs(rect.top - verticalSpace)) + "px, 0px)";
+            } else if (rect.bottom + verticalSpace > (window.innerHeight || document.documentElement.clientHeight)) {
+                const style = window.getComputedStyle(object)
+                const matrix = new DOMMatrixReadOnly(style.transform)
+                initY = matrix.m42;
+                initX = matrix.m41;
+                object.style.transform = "translate3d(" + initX + "px, " + (initY - ((rect.bottom + verticalSpace) - (window.innerHeight || document.documentElement.clientHeight))) + "px, 0px)";
+            }
+        }
+
+        function mouseUp(e) {
+
+            if (objectMoved === true) {
+                moveAction = true;
+            }
+
+            document.removeEventListener('mousemove', dragIt, false);
+            document.removeEventListener('mouseup', mouseUp, false);
+
+            if (objectMoved === true) {
+                verifyPosition(e, false);
+            }
+
+            objectMoved = false;
+        }
+
+        function dragIt(e) {
+            objectMoved = true;
+            let XPos =  (initX + e.pageX - firstX), YPos = (initY + e.pageY - firstY) ;
+            object.style.transform = "translate3d(" + XPos + "px, " + YPos + "px, 0px)";
+            object.dispatchEventStatus('move', {"x" : XPos, "y": YPos, "bottom": object.style.bottom, "top": object.style.top, "left": object.style.left, "right": object.style.right});
+        }
+
+        function touchEnd(e) {
+
+            this.removeEventListener('touchmove', swipeIt, false);
+            window.removeEventListener('touchend', touchEnd, false);
+
+            if (objectMoved === true) {
+                verifyPosition(e, true);
+            }
+
+            objectMoved = false;
+        }
+
+        function verifyPosition(e, isMobile) {
+
+            const rect = object.getBoundingClientRect();
+
+            let resetVertical = false, switchVerticalTop = false, switchVerticalBottom = false;
+
+            if (rect.top - parseInt(object.getAttribute('vertical-space')) < 0) {
+                if (object.style.top === "auto") {
+                    object.style.top = object.getAttribute('vertical-space')+object.getAttribute("vertical-unit");
+                    object.style.bottom = "auto";
+                    switchVerticalTop = true;
+                }
+                resetVertical = true;
+            } else if (rect.bottom + parseInt(object.getAttribute('vertical-space')) > (window.innerHeight || document.documentElement.clientHeight)) {
+                if (object.style.bottom === "auto") {
+                    object.style.top = "auto";
+                    object.style.bottom = object.getAttribute('vertical-space')+object.getAttribute("vertical-unit");
+                    switchVerticalBottom = true;
+                }
+                resetVertical = true;
+            }
+
+            let posYHistory = initY + (isMobile === false ? e.pageY : lastTouch.pageY) - firstY;
+
+            const style = window.getComputedStyle(object);
+            const matrix = new DOMMatrixReadOnly(style.transform);
+            initX = matrix.m41;
+
+            if (switchVerticalTop === true) {
+                posYHistory = rect.top - parseInt(object.getAttribute('vertical-space'));
+            } else if (switchVerticalBottom === true) {
+                posYHistory = ((window.innerHeight || document.documentElement.clientHeight) - rect.top - rect.height - parseInt(object.getAttribute('vertical-space'))) * -1;
+            }
+
+            let posY = resetVertical === true ? 0 : (initY + (isMobile === false ? e.pageY : lastTouch.pageY) - firstY);
+
+            if (resetVertical === false) {
+                if (rect.top + (rect.height / 2) > (window.innerHeight || document.documentElement.clientHeight) / 2) { // Bottom
+                    // Need to switch to bottom position
+                    if (object.style.bottom === "auto") {
+                        object.style.top = "auto";
+                        object.style.bottom = object.getAttribute('vertical-space')+object.getAttribute("vertical-unit");
+                        posYHistory = posY = ((window.innerHeight || document.documentElement.clientHeight) - rect.top - rect.height - parseInt(object.getAttribute('vertical-space'))) * -1;
+                    }
+                } else { // Top
+                    if (object.style.top === "auto") {
+                        object.style.top = object.getAttribute('vertical-space')+object.getAttribute("vertical-unit");
+                        object.style.bottom = "auto";
+                        posYHistory = posY = rect.top - parseInt(object.getAttribute('vertical-space'));
+                    }
+                }
+            }
+
+            let is_right_side = object.style.left == "auto";
+            let need_reposition;
+
+            if (rect.left + (rect.width / 2) > (window.innerWidth || document.documentElement.clientWidth) / 2) {
+                if (is_right_side === false) {
+                    object.style.right = object.getAttribute('horizontal-space')+"px";
+                    object.style.left = "auto";
+                }
+                need_reposition = !is_right_side;
+            } else {
+                if (is_right_side === true) {
+                    object.style.left = object.getAttribute('horizontal-space')+"px";
+                    object.style.right = "auto";
+                }
+                need_reposition = is_right_side;
+            }
+
+            if (need_reposition) {
+                if (is_right_side) {
+                    initX = rect.left - parseInt(object.getAttribute('horizontal-space'));
+                } else {
+                    initX = ((document.documentElement.clientWidth - rect.left - rect.width - parseInt(object.getAttribute('horizontal-space'))) * -1);
+                }
+            }
+
+            object.style.transform = "translate3d(" + initX + "px, " + posYHistory + "px, 0px)";
+
+            object.dispatchEventStatus('move', {"x" : initX, "y": posYHistory, "bottom": object.style.bottom, "top": object.style.top, "left": object.style.left, "right": object.style.right});
+
+            // Does not work properly on apple Safari :(
+            /*window.requestAnimationFrame(function () {*/
+            /*object.style.transitionDuration = "800ms";
+            object.style.transform = "translate3d(0px, " + posY + "px, 0px)";*/
+            /*});*/
+
+            setTimeout(function(){
+                object.style.transitionDuration = "800ms";
+                object.style.transform = "translate3d(0px, " + posY + "px, 0px)";
+                object.dispatchEventStatus('move_finish', {"x" : 0, "y": posY, "bottom": object.style.bottom, "top": object.style.top, "left": object.style.left, "right": object.style.right});
+            },20)
+        }
+
+        function swipeIt(e) {
+            // This one has to be present otherwise while dragging
+            // Page will refresh
+            e.preventDefault();
+            objectMoved = true;
+            var contact = e.touches;
+            let XPos = (initX + contact[0].pageX - firstX), YPos = (initY + contact[0].pageY - firstY);
+            this.style.transform = "translate3d(" + XPos + "px, " + YPos + "px, 0px)";
+            lastTouch = contact[0];
+            object.dispatchEventStatus('move', {"x" : XPos, "y": YPos, "bottom": object.style.bottom, "top": object.style.top, "left": object.style.left, "right": object.style.right});
+        }
+
+        this.addEventListener('click', function (e) {
+            // On desktop we should not trigger if widget location was changed as it was
+            // Drag and drop action performed by visitor
+            if (moveAction === true) {
+                moveAction = false;
+                this.dispatchEventStatus('click',{'status': false}, e);
+            } else {
+                this.dispatchEventStatus('click',{'status': true}, e);
+            }
+        });
+
+        // this.getAttribute('vertical-unit') === 'px' && resize();
+    }
+
+    insertCssRemoteFile(attr) {
+
+        var elm = null;
+
+        if (attr.id && attr.href && (elm = this.shadowRoot.getElementById(attr.id)) !== null) {
+            elm.href = attr.href
+            return;
+        }
+
+        var d = this.shadowRoot,
+            e = document.createElement('link');
+
+        e.rel = "stylesheet";
+        e.crossOrigin = "*";
+
+        for (var b in attr) e[b] = attr[b];
+        d.appendChild(e);
+    }
+
+}
+
+// Define the custom element
+customElements.define('lhc-status-widget', LHCStatusWidget);
 
 export class statusWidget{
     constructor(prefix) {
@@ -10,17 +326,16 @@ export class statusWidget{
         this.showDelay = null;
         this.statusDelayProcessed = false;
 
-        this.cont = new UIConstructorIframe((prefix || 'lhc')+'_status_widget_v2', helperFunctions.getAbstractStyle({
-            zindex: "2147483640",
-            width: "95px",
-            height: "95px",
-            position: "fixed",
-            display: "none",
-            maxheight: "95px",
-            maxwidth: "95px",
-            minheight: "95px",
-            minwidth: "95px"
-        }), {"role":"presentation","translate":"no"}, "iframe");
+        this.cont = document.createElement('lhc-status-widget');
+        this.cont.setAttribute("id",(prefix || 'lhc')+'_status_widget_v2');
+        this.cont.setAttribute("vertical-placement","bottom");
+        this.cont.setAttribute("horizontal-placement","left");
+        this.cont.setAttribute("horizontal-space","0");
+        this.cont.setAttribute("vertical-space","0");
+        this.cont.setAttribute("vertical-unit","px");
+        this.cont.setAttribute("vertical-y",0);
+        this.cont.setAttribute("drag-enabled",true);
+        this.cont.style = "display: none";
 
         this.loadStatus = {main : false, theme: false, font: true, widget : false, shidden: false};
         this.lload = false;
@@ -28,7 +343,8 @@ export class statusWidget{
     }
 
     toggleOfflineIcon(onlineStatus) {
-        var icon = this.cont.getElementById("status-icon");
+
+        var icon = this.cont.shadowRoot.getElementById("status-icon");
 
         if (onlineStatus) {
             if (!this.attributes.leaveMessage) {
@@ -46,7 +362,7 @@ export class statusWidget{
 
     checkLoadStatus() {
         if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true && this.loadStatus['widget'] == true && this.loadStatus['shidden'] == false) {
-            var elm = this.cont.getElementById('lhc_status_container');
+            var elm = this.cont.shadowRoot.getElementById('lhc_status_container');
             elm && (elm.style.display = "");
             this.attributes.sload.next(true);
         }
@@ -56,25 +372,30 @@ export class statusWidget{
 
         this.attributes = attributes;
 
-        var placement = {bottom: (10+this.attributes.widgetDimesions.value.sbottom) + "px", right: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+        var placement = {top: "auto", left:"auto", bottom: (10+this.attributes.widgetDimesions.value.sbottom) + "px", right: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+
+        this.cont.setAttribute("vertical-space",(10+this.attributes.widgetDimesions.value.sbottom));
+        this.cont.setAttribute("horizontal-space",(10+this.attributes.widgetDimesions.value.sright));
 
         if (attributes.position_placement == 'bottom_left' || attributes.position_placement == 'full_height_left') {
-            placement = { bottom: (10+this.attributes.widgetDimesions.value.sbottom) + "px", left: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+            placement = { right: "auto", top: "auto",bottom: (10+this.attributes.widgetDimesions.value.sbottom) + "px", left: (10+this.attributes.widgetDimesions.value.sright) + "px"};
         } else if (attributes.position_placement == 'middle_right') {
-            placement = {bottom: "calc(50% - 45px)",right: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+            placement = {left:"auto",top:"auto",bottom: "calc(50% - 45px)",right: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+            this.cont.setAttribute('vertical-unit','%');
         } else if (attributes.position_placement == 'middle_left') {
-            placement = {bottom: "calc(50% - 45px)",left: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+            placement = {right: "auto", top:"auto",bottom: "calc(50% - 45px)",left: (10+this.attributes.widgetDimesions.value.sright) + "px"};
+            this.cont.setAttribute('vertical-unit','%');
         }
+
+        this.cont.setAttribute("drag-enabled",attributes.drag_enabled);
 
         this.cont.massRestyle(placement);
 
-        this.cont.tmpl = '<div id="lhc_status_container" class="notranslate ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none"><i title="New messages" id="unread-msg-number">!</i><a aria-label="Show or hide widget" href="#" tabindex="0" target="_blank" id="status-icon" class="offline-status"></a></div>';
+        this.cont.setContent('<div id="lhc_status_container" class="notranslate ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: nones;pointer-events: none;""><i title="New messages" id="unread-msg-number">!</i><a aria-label="Show or hide widget" href="#" tabindex="0" target="_blank" id="status-icon" class="offline-status"></a></div>');
 
-        if (this.cont.constructUIIframe('') === null) {
-            return null;
-        }
+        this.cont.className = this.attributes.isMobile === true ? 'notranslate lhc-mobile' : 'notranslate lhc-desktop';
 
-        this.cont.elmDom.className = this.attributes.isMobile === true ? 'notranslate lhc-mobile' : 'notranslate lhc-desktop';
+        this.cont.attachEvents();
 
         var _inst = this;
 
@@ -102,31 +423,47 @@ export class statusWidget{
             }
         });
 
-        this.cont.attachUserEventListener("click", function (e) {
+        this.cont.ee = function(event, data, e) {
+            if (event == "click" && data.status == true) {
+                attributes.onlineStatus.value === false && attributes.eventEmitter.emitEvent('offlineClickAction');
 
-            attributes.onlineStatus.value === false && attributes.eventEmitter.emitEvent('offlineClickAction');
-
-            if (attributes.onlineStatus.value === false && attributes.offline_redirect !== null){
-                document.location = attributes.offline_redirect;
-                e.preventDefault();
-            } else {
-                if (_inst.controlMode == true) {
-                    attributes.eventEmitter.emitEvent('closeWidget', [{'sender' : 'closeButton', 'mode' : 'control'}]);
+                if (attributes.onlineStatus.value === false && attributes.offline_redirect !== null){
+                    document.location = attributes.offline_redirect;
                     e.preventDefault();
                 } else {
-                    attributes.eventEmitter.emitEvent('showWidget', [{'event':e}]);
-                    attributes.eventEmitter.emitEvent('clickAction');
+                    if (_inst.controlMode == true) {
+                        attributes.eventEmitter.emitEvent('closeWidget', [{'sender' : 'closeButton', 'mode' : 'control'}]);
+                        e.preventDefault();
+                    } else {
+                        attributes.eventEmitter.emitEvent('showWidget', [{'event':e}]);
+                        attributes.eventEmitter.emitEvent('clickAction');
+                    }
                 }
             }
-
-        }, "lhc_status_container", "minifiedclick");
+        }
 
         if (this.attributes.staticJS['fontCSS']) {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
         }
 
         if (this.attributes.staticJS['font_status']) {
-            this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
+
+            let d = document.getElementsByTagName("head")[0],
+                k = document.createDocumentFragment(),
+                e = helperFunctions.initElement(document, "style", {type: "text/css"}),
+                f = document.createTextNode(`@font-face {
+            font-family: 'MaterialIconsLHC';
+            font-style: normal;
+            font-weight: 400;
+            src: url('`+this.attributes.staticJS['font_status'].replace('.woff2','.eot')+`');
+            src: url('`+this.attributes.staticJS['font_status']+`') format('woff2'), url('`+this.attributes.staticJS['font_status'].replace('.woff2','.woff')+`') format('woff'), url('`+this.attributes.staticJS['font_status'].replace('.woff2','.ttf')+`') format('truetype');
+            font-display: swap
+            }`);
+            k.appendChild(e);
+            d.appendChild(k);
+            e.styleSheet ? e.styleSheet.cssText = f.nodeValue : e.appendChild(f)
+
+            helperFunctions.insertCssRemoteFile({onload: () => {this.loadStatus['font'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
         }
 
         if (this.attributes.theme) {
@@ -199,7 +536,7 @@ export class statusWidget{
                 if (this.attributes['hide_status'] !== true || (chatParams['id'] && chatParams['hash']) || this.attributes.widgetStatus.value == true) {
                     if (this.attributes.widgetStatus.value == true){
                         this.controlMode = true;
-                        var icon = this.cont.getElementById("status-icon");
+                        var icon = this.cont.shadowRoot.getElementById("status-icon");
                         helperFunctions.addClass(icon, "close-status");
                     }
                     return ;
@@ -215,10 +552,10 @@ export class statusWidget{
 
     showUnreadIndicator(number){
         var iconText = number || '!';
-        var icon = this.cont.getElementById("lhc_status_container");
+        var icon = this.cont.shadowRoot.getElementById("lhc_status_container");
         helperFunctions.addClass(icon, "has-uread-message");
 
-        var iconValue = this.cont.getElementById("unread-msg-number");
+        var iconValue = this.cont.shadowRoot.getElementById("unread-msg-number");
         if (iconValue) {
             iconValue.innerText = iconText;
         }
@@ -228,7 +565,7 @@ export class statusWidget{
     }
 
     removeUnreadIndicator() {
-        var icon = this.cont.getElementById("lhc_status_container");
+        var icon = this.cont.shadowRoot.getElementById("lhc_status_container");
         helperFunctions.removeClass(icon, "has-uread-message");
         if (this.attributes.storageHandler) {
             this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_unr');
@@ -246,7 +583,7 @@ export class statusWidget{
 
             if (this.attributes.clinst === true && this.attributes.isMobile == false) {
                 if (this.attributes.widgetStatus.value != true) {
-                    var icon = this.cont.getElementById("status-icon");
+                    var icon = this.cont.shadowRoot.getElementById("status-icon");
                     helperFunctions.removeClass(icon, "close-status");
 
                     this.controlMode = false;
