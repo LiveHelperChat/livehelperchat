@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 230;
+            lhc.version = 231;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -241,7 +241,7 @@
 
                     var containerChatObj = new containerChat(attributesWidget.prefixLowercase, LHC_API.args.pnode || null);
 
-                    attributesWidget.viewHandler = new statusWidget(attributesWidget.prefixLowercase);
+                    attributesWidget.viewHandler = new statusWidget(attributesWidget.prefixLowercase, lhc.version);
                     containerChatObj.cont.elmDom.appendChild(attributesWidget.viewHandler.cont, !0);
 
                     if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {

@@ -309,18 +309,22 @@ class LHCStatusWidget extends HTMLElement {
 
 }
 
-// Define the custom element
-customElements.define('lhc-status-widget', LHCStatusWidget);
-
 export class statusWidget{
-    constructor(prefix) {
+    constructor(prefix, version) {
 
         this.attributes = {};
         this.controlMode = false;
         this.showDelay = null;
         this.statusDelayProcessed = false;
 
-        this.cont = document.createElement('lhc-status-widget');
+        // Define the custom element
+        let componentId = (prefix || 'lhc') + '-' + version + '-status-widget';
+
+        if (!customElements.get(componentId)) {
+            customElements.define(componentId, LHCStatusWidget);
+        }
+
+        this.cont = document.createElement(componentId);
 
         Object.entries({
             "id" : (prefix || 'lhc')+'_status_widget_v2',
