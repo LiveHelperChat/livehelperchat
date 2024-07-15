@@ -405,7 +405,7 @@ export class statusWidget{
 
         this.cont.massRestyle(placement);
 
-        this.cont.setContent('<div id="lhc_status_container" class="notranslate ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none;pointer-events: none;""><i title="New messages" id="unread-msg-number">!</i><a aria-label="Show or hide widget" href="#" tabindex="0" target="_blank" id="status-icon" class="offline-status"></a></div>');
+        this.cont.setContent('<div id="lhc_status_container" class="notranslate ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none;pointer-events: none;""><i style="display: none" title="New messages" id="unread-msg-number">!</i><a aria-label="Show or hide widget" href="#" tabindex="0" target="_blank" id="status-icon" class="offline-status"></a></div>');
 
         this.cont.className = this.attributes.isMobile === true ? 'notranslate lhc-mobile' : 'notranslate lhc-desktop';
 
