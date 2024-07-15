@@ -96,6 +96,8 @@ if ($userData->inactive_mode == 1) {
         $userDataTemp->always_on = $userData->always_on;
 
         erLhcoreClassUserDep::setHideOnlineStatus($userDataTemp);
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_inactivemode_changed', array('user' => & $userData, 'reason' => 'page_reload'));
     }
     
     erLhcoreClassUser::getSession()->update($userData);
