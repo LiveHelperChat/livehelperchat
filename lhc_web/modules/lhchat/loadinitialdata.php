@@ -118,7 +118,7 @@ if ($activityTimeout == -1) {
 $trackActivity = (int)erLhcoreClassModelChatConfig::fetchCache('activity_track_all')->current_value;
 
 if ($trackActivity == 0) {
-    $trackActivity = erLhcoreClassModelUserSetting::getSetting('trackactivity',0);
+    $trackActivity = (int)erLhcoreClassModelUserSetting::getSetting('trackactivity',0);
 }
 
 $chatDel = array();
