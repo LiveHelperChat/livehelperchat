@@ -919,10 +919,14 @@
                             e = d.documentElement,
                             g = d.getElementsByTagName('body')[0],
                             y = global.innerHeight || e.clientHeight || g.clientHeight;
-                        if (parseInt(data.height) > attributesWidget.widgetDimesions.value['height'] && y > parseInt(data.height)) {
+
+                        if (parseInt(data.height) > attributesWidget.widgetDimesions.value['height'] /*&& y - 60 - (attributesWidget.clinst === true ? 70 : 0) > parseInt(data.height)*/) {
                             attributesWidget.widgetDimesions.nextProperty('height_override', parseInt(data.height));
+                            attributesWidget.mainWidget.resizeTrigger();
                         } else if (attributesWidget.widgetDimesions.value['height_override'] && attributesWidget.widgetDimesions.value['height_override'] > y) {
                             attributesWidget.widgetDimesions.nextProperty('height_override', null);
+                        } else {
+                            attributesWidget.mainWidget.resizeTrigger();
                         }
                     }
                 });
