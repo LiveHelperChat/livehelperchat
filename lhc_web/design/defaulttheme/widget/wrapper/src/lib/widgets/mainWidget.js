@@ -154,7 +154,7 @@ export class mainWidget{
                     html = this.cont.elmDomDoc.documentElement;
 
                 var height = Math.max( body.scrollHeight, body.offsetHeight,
-                    html.clientHeight, html.scrollHeight, html.offsetHeight );
+                    html.clientHeight, html.scrollHeight, html.offsetHeight, attributes.widgetDimesions.value['height'] );
 
 
                 if (window.innerHeight < height + 60 + (this.attributes.clinst === true ? 70 : 0)) {
