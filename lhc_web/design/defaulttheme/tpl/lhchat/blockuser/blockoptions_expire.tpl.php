@@ -1,4 +1,5 @@
 <select class="form-control form-control-sm" name="expires" id="block-expires">
+    <option value="1">1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','day (cool off)')?></option>
     <option value="3">3 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','days (cool off)')?></option>
     <option value="15">15 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','days')?></option>
     <option value="30">30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','days')?></option>

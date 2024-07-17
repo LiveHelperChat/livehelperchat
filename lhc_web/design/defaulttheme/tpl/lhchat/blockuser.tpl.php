@@ -34,6 +34,10 @@
                             <span class="badge bg-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','E-mail');?></span>
                         <?php endif; ?>
 
+                        <?php if (in_array($blockItem->btype, [erLhcoreClassModelChatBlockedUser::BLOCK_EMAIL_CONV])) : ?>
+                            <span class="badge bg-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Sender e-mail');?></span>
+                        <?php endif; ?>
+
                         <?php if (in_array($blockItem->btype, [erLhcoreClassModelChatBlockedUser::BLOCK_ONLINE_USER])) : ?>
                             <span class="badge bg-secondary" title="<?php echo $blockItem->online_user_id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Online user');?></span>
                         <?php endif; ?>

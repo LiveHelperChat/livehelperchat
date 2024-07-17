@@ -133,7 +133,19 @@
                 <span class="badge bg-secondary" title="<?php echo $item->online_user_id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Online user');?></span>
             <?php endif; ?>
 
-            <?php if ($item->chat_id > 0) : ?><a class="material-icons" title="<?php echo htmlspecialchars($item->chat_id)?>" onclick="lhc.previewChat(<?php echo $item->chat_id?>)">info_outline</a><?php endif; ?><?php
+            <?php if (in_array($item->btype, [erLhcoreClassModelChatBlockedUser::BLOCK_EMAIL_CONV])) : ?>
+                <span class="badge bg-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Sender E-mail');?></span>
+            <?php endif; ?>
+
+            <?php if ($item->chat_id > 0) : ?>
+                <?php if ($item->btype == erLhcoreClassModelChatBlockedUser::BLOCK_EMAIL_CONV) : ?>
+                    <a class="material-icons" title="<?php echo htmlspecialchars($item->chat_id)?>" onclick="lhc.previewMail(<?php echo $item->chat_id?>)">info_outline</a>
+                <?php else : ?>
+                    <a class="material-icons" title="<?php echo htmlspecialchars($item->chat_id)?>" onclick="lhc.previewChat(<?php echo $item->chat_id?>)">info_outline</a>
+                <?php endif; ?>
+            <?php endif; ?>
+
+            <?php
             if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','seeip')) {
                 echo htmlspecialchars($item->ip);
             } else {

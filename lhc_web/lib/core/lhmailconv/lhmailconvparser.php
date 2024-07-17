@@ -558,6 +558,12 @@ class erLhcoreClassMailconvParser {
                             continue;
                         }
 
+                        // Check is mail blocked only if matched rule is not a blocked one rule is not a blocking one
+                        if ((!(isset($matchingRuleSelected->options_array['block_rule']) && $matchingRuleSelected->options_array['block_rule'] == true)) && erLhcoreClassModelChatBlockedUser::isBlocked(array('email_conv' => $message->from_address))) {
+                            $statsImport[] = 'Skipping e-mail because of block for e-mail - ' . $message->from_address . ' - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                            continue;
+                        }
+
                         $rfc822RawBody = '';
                         if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
                             foreach ($mailInfoRaw->getStructure()->find_parts() as $part) {
@@ -980,6 +986,11 @@ class erLhcoreClassMailconvParser {
                     continue;
                 }
 
+                if (!(isset($matchingRuleSelected->options_array['block_rule']) && $matchingRuleSelected->options_array['block_rule'] == true) && erLhcoreClassModelChatBlockedUser::isBlocked(array('email_conv' => $message->from_address))) {
+                    $statsImport[] = 'Skipping e-mail because of block for e-mail - ' . $message->from_address;
+                    continue;
+                }
+
                 $conversations = new erLhcoreClassModelMailconvConversation();
                 $conversations->dep_id = $matchingRuleSelected->dep_id;
                 $conversations->subject = erLhcoreClassMailconvEncoding::toUTF8((string)$message->subject);
@@ -1222,6 +1233,11 @@ class erLhcoreClassMailconvParser {
                 $matched = false;
             }
 
+            // If it is block rule but e-mail is not blocked. Skip the rule.
+            if (isset($matchingRule->options_array['block_rule']) && $matchingRule->options_array['block_rule'] == true && !erLhcoreClassModelChatBlockedUser::isBlocked(array('email_conv' => $message->from_address))) {
+                $matched = false;
+            }
+
             if (!empty($matchingRule->from_name)) {
                 $fromNameRules = explode("\n",$matchingRule->from_name);
                 $ruleFound = false;
@@ -1278,6 +1294,9 @@ class erLhcoreClassMailconvParser {
                     $matched = false;
                 }
             }
+
+            var_dump($matched);
+            echo "finished\n";
 
             if ($matched == true) {
                 return $matchingRule;

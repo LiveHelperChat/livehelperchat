@@ -71,6 +71,9 @@ class erLhcoreClassMailconvValidator {
             'skip_message' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'block_rule' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'mailbox_ids' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1), FILTER_REQUIRE_ARRAY
             ),
@@ -171,6 +174,12 @@ class erLhcoreClassMailconvValidator {
             $options['skip_message'] = 1;
         } else {
             $options['skip_message'] = 0;
+        }
+        
+        if ($form->hasValidData( 'block_rule' ) && $form->block_rule == true) {
+            $options['block_rule'] = 1;
+        } else {
+            $options['block_rule'] = 0;
         }
 
         $item->options_array = $options;

@@ -87,6 +87,11 @@ $ViewList['merge'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['blocksender'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['apiunmerge'] = array(
     'params' => array('id'),
     'functions' => array( 'use_admin' )

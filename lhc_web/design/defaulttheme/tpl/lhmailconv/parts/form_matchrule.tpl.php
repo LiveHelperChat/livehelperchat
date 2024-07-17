@@ -41,6 +41,11 @@
             <label><input type="checkbox" name="skip_message" value="on" <?php isset($item->options_array['skip_message']) && $item->options_array['skip_message'] == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Skip message, messages will not be imported');?></label>
         </div>
     </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><input type="checkbox" name="block_rule" value="on" <?php isset($item->options_array['block_rule']) && $item->options_array['block_rule'] == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Matching rule applies to blocked e-mails');?></label>
+        </div>
+    </div>
 </div>
 
 <hr>

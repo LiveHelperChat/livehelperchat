@@ -138,7 +138,7 @@
         startChatByID(chat_id);
     });
 
-    //ee.emitEvent("svelteAction",[{'msg':"test message"}]);
+    //ee.emitEvent("svelteAction",[{'type':'info_history','msg':"History record"}]);
     ee.addListener('svelteAction',function (data) {
         addAction(data);
     });

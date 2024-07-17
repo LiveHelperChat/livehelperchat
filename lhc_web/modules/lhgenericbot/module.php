@@ -24,7 +24,7 @@ $ViewList['testpattern'] = array(
 );
 
 $ViewList['commands'] = array(
-    'params' => array('id'),
+    'params' => array(),
     'uparams' => array(),
     'functions' => array( 'use' )
 );
