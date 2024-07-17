@@ -23,6 +23,7 @@ class LHCStatusWidget extends HTMLElement {
 
     show(){
         this.style.setProperty("display","block","important");
+        this.resize();
     }
 
     hide(){
@@ -61,6 +62,32 @@ class LHCStatusWidget extends HTMLElement {
         let contentShadow = document.createElement('div');
         contentShadow.innerHTML = content;
         this.shadowRoot.appendChild(contentShadow.firstChild);
+    }
+
+    resize() {
+        var initX, initY;
+        const rect = this.getBoundingClientRect();
+
+        if (rect.height == 0) {
+            return;
+        }
+
+        let verticalSpace = parseInt(this.getAttribute('vertical-space'));
+        if (rect.top - verticalSpace < 0) {
+            const style = window.getComputedStyle(this)
+            const matrix = new DOMMatrixReadOnly(style.transform)
+            initY = matrix.m42;
+            initX = matrix.m41;
+            this.style.transform = "translate3d(" + initX + "px, " + (initY + Math.abs(rect.top - verticalSpace)) + "px, 0px)";
+            this.dispatchEventStatus('move_finish', {"x" : 0, "y": (initY - ((rect.bottom + verticalSpace) - (window.innerHeight || document.documentElement.clientHeight))), "bottom": this.style.bottom, "top": this.style.top, "left": this.style.left, "right": this.style.right});
+        } else if (rect.bottom + verticalSpace > (window.innerHeight || document.documentElement.clientHeight)) {
+            const style = window.getComputedStyle(this)
+            const matrix = new DOMMatrixReadOnly(style.transform)
+            initY = matrix.m42;
+            initX = matrix.m41;
+            this.style.transform = "translate3d(" + initX + "px, " + (initY - ((rect.bottom + verticalSpace) - (window.innerHeight || document.documentElement.clientHeight))) + "px, 0px)";
+            this.dispatchEventStatus('move_finish', {"x" : 0, "y": (initY - ((rect.bottom + verticalSpace) - (window.innerHeight || document.documentElement.clientHeight))), "bottom": this.style.bottom, "top": this.style.top, "left": this.style.left, "right": this.style.right});
+        }
     }
 
     attachEvents() {
@@ -113,23 +140,7 @@ class LHCStatusWidget extends HTMLElement {
         }, false);
 
         function resize() {
-            const rect = object.getBoundingClientRect();
-            let verticalSpace = parseInt(object.getAttribute('vertical-space'));
-            if (rect.top - verticalSpace < 0) {
-                const style = window.getComputedStyle(object)
-                const matrix = new DOMMatrixReadOnly(style.transform)
-                initY = matrix.m42;
-                initX = matrix.m41;
-                object.style.transform = "translate3d(" + initX + "px, " + (initY + Math.abs(rect.top - verticalSpace)) + "px, 0px)";
-                object.dispatchEventStatus('move_finish', {"x" : 0, "y": (initY - ((rect.bottom + verticalSpace) - (window.innerHeight || document.documentElement.clientHeight))), "bottom": object.style.bottom, "top": object.style.top, "left": object.style.left, "right": object.style.right});
-            } else if (rect.bottom + verticalSpace > (window.innerHeight || document.documentElement.clientHeight)) {
-                const style = window.getComputedStyle(object)
-                const matrix = new DOMMatrixReadOnly(style.transform)
-                initY = matrix.m42;
-                initX = matrix.m41;
-                object.style.transform = "translate3d(" + initX + "px, " + (initY - ((rect.bottom + verticalSpace) - (window.innerHeight || document.documentElement.clientHeight))) + "px, 0px)";
-                object.dispatchEventStatus('move_finish', {"x" : 0, "y": (initY - ((rect.bottom + verticalSpace) - (window.innerHeight || document.documentElement.clientHeight))), "bottom": object.style.bottom, "top": object.style.top, "left": object.style.left, "right": object.style.right});
-            }
+            object.resize();
         }
 
         function mouseUp(e) {
@@ -606,7 +617,6 @@ export class statusWidget{
                 if (this.attributes.widgetStatus.value != true) {
                     var icon = this.cont.shadowRoot.getElementById("status-icon");
                     helperFunctions.removeClass(icon, "close-status");
-
                     this.controlMode = false;
                 }
             }
