@@ -1295,9 +1295,6 @@ class erLhcoreClassMailconvParser {
                 }
             }
 
-            var_dump($matched);
-            echo "finished\n";
-
             if ($matched == true) {
                 return $matchingRule;
             }
