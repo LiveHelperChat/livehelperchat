@@ -138,6 +138,11 @@
         startChatByID(chat_id);
     });
 
+    //ee.emitEvent("svelteAction",[{'msg':"test message"}]);
+    ee.addListener('svelteAction',function (data) {
+        addAction(data);
+    });
+
     ee.addListener('svelteDebug',function () {
         console.log($lhcList);
         console.log(lhcLogic);
