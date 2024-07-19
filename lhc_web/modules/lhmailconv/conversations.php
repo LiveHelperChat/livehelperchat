@@ -158,6 +158,7 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
 
     $tpl = erLhcoreClassTemplate::getInstance('lhviews/save_chat_view.tpl.php');
     $tpl->set('action_url', erLhcoreClassDesign::baseurl('mailconv/conversations') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+    $tpl->set('input', $filterParams['input_form']);
     if (ezcInputForm::hasPostData()) {
         $Errors = erLhcoreClassAdminChatValidatorHelper::validateSavedSearch($savedSearch, array('filter' => $filterParams['filter'], 'input_form' => $filterParams['input_form']));
         if (empty($Errors)) {

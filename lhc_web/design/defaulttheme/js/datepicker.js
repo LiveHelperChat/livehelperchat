@@ -45,8 +45,7 @@
         this.leftArrow = options.leftArrow || '<i class="' + this.faCSSprefix + ' ' + this.faCSSprefix + '-chevron-left fi-arrow-left"/>';
         this.rightArrow = options.rightArrow || '<i class="' + this.faCSSprefix + ' ' + this.faCSSprefix + '-chevron-right fi-arrow-right"/>';
         this.closeIcon = options.closeIcon || '<i class="' + this.faCSSprefix + ' ' + this.faCSSprefix + '-remove ' + this.faCSSprefix + '-times fi-x"></i>';
-
-
+        this.rangeType = $('input[name="'+this.element.attr('name')+'_type"]').val() || null;
 
         this.minView = 0;
         if ('minView' in options) {
@@ -191,6 +190,11 @@
 
         if (this.isInline) {
             this.show();
+        } else if (this.element.attr('name') == 'timefrom') {
+            let elm = document.getElementsByName("timefrom_type");
+            if (elm.length == 1) {
+                this._setDateRangeType(elm[0].value);
+            }
         }
 
         this._attachEvents();
@@ -215,6 +219,7 @@
                             focus: (this.autoShow) ? $.proxy(this.show, this) : function() {},
                             keyup: $.proxy(this.update, this),
                             keydown: $.proxy(this.keydown, this),
+                            resetType: $.proxy(this.resetDateRange, this),
                             click: (this.element.attr('readonly')) ? $.proxy(this.show, this) : function() {}
                         }]
                     ];
@@ -519,7 +524,6 @@
                 .text(dayMonth + ' ' + dates[this.language].months[month] + ' ' + year);
             this.picker.find('.datepicker-minutes thead th:eq(1)')
                 .text(dayMonth + ' ' + dates[this.language].months[month] + ' ' + year);
-
 
             this.picker.find('tfoot th.today')
                 .text(dates[this.language].today)
@@ -840,6 +844,7 @@
                                 this.showMode(0);
                                 this._setDate(date);
                                 this._setDateDependant(date);
+                                this._setDateRangeType('today');
                                 break;
                             case 'range-yesterday':
                                 var date = new Date(), dateYesterday = new Date();
@@ -849,6 +854,7 @@
                                 this.showMode(0);
                                 this._setDate(date);
                                 this._setDateDependant(date, dateYesterday);
+                                this._setDateRangeType('range-yesterday');
                                 break;
                             case 'range-last2days':
                                 var date = new Date(), dateYesterday = new Date();
@@ -858,6 +864,7 @@
                                 this.showMode(0);
                                 this._setDate(date);
                                 this._setDateDependant(date, dateYesterday);
+                                this._setDateRangeType('range-last2days');
                                 break;
                            case 'range-last7days':
                                 var date = new Date(), dateYesterday = new Date();
@@ -867,6 +874,7 @@
                                 this.showMode(0);
                                 this._setDate(date);
                                 this._setDateDependant(date, dateYesterday);
+                                this._setDateRangeType('range-last7days');
                                 break;
                           case 'range-last15days':
                                 var date = new Date(), dateYesterday = new Date();
@@ -876,6 +884,7 @@
                                 this.showMode(0);
                                 this._setDate(date);
                                 this._setDateDependant(date, dateYesterday);
+                                this._setDateRangeType('range-last15days');
                                 break;
                            case 'range-last30days':
                                 var date = new Date(), dateYesterday = new Date();
@@ -885,6 +894,7 @@
                                 this.showMode(0);
                                 this._setDate(date);
                                 this._setDateDependant(date, dateYesterday);
+                                this._setDateRangeType('range-last30days');
                                 break;
                             case 'range-thisweek':
                                 var date = new Date(), dateYesterday = new Date();
@@ -893,6 +903,7 @@
                                 this.showMode(0);
                                 this._setDate(date);
                                 this._setDateDependant(date);
+                                this._setDateRangeType('range-thisweek');
                                 break;
                             case 'range-previousweek':
                                 var date = new Date(), dateYesterday = new Date();
@@ -902,6 +913,7 @@
                                 this.showMode(0);
                                 this._setDate(date);
                                 this._setDateDependant(date, dateYesterday);
+                                this._setDateRangeType('range-previousweek');
                                 break;
                            case 'range-thismonth':
                                 var date = new Date(), dateYesterday = new Date();
@@ -910,6 +922,7 @@
                                 this.showMode(0);
                                 this._setDate(date);
                                 this._setDateDependant(date);
+                                this._setDateRangeType('range-thismonth');
                                 break;
                            case 'range-previousmonth':
                                 var date = new Date(), dateYesterday = new Date();
@@ -919,8 +932,8 @@
                                 this.showMode(0);
                                 this._setDate(date);
                                 this._setDateDependant(date, dateYesterday);
+                                this._setDateRangeType('range-previousmonth');
                                 break;
-
                         }
                         break;
                     case 'span':
@@ -1011,9 +1024,6 @@
                         }
                         break;
                     case 'td':
-
-
-
                         if (target.is('.day') && !target.is('.disabled')) {
                             var day = parseInt(target.text(), 10) || 1;
                             var year = this.viewDate.getUTCFullYear(),
@@ -1038,6 +1048,7 @@
                             }
                             this._setDate(UTCDate(year, month, day, hours, minutes, seconds, 0));
                             this._setDateDependant(this.date,null,true);
+                            this._setDateRangeType(null);
                         }
 
                         var oldViewMode = this.viewMode;
@@ -1052,6 +1063,35 @@
             }
         },
 
+        resetDateRange : function() {
+            this.rangeType != null && this._setDateRangeType(null);
+        },
+
+        _setDateRangeType : function(type) {
+            let elm = document.getElementsByName("timefrom_type");
+            this.picker.find('tfoot > tr.range-button > th').removeClass('selected-range');
+            if (this.element.attr('name') == 'timefrom') {
+                if (elm.length == 1 && type) {
+                    elm[0].value = type;
+                    this.rangeType = type;
+                    $('.date-range-explain').addClass('hide');
+                    $('.date-range-type-'+type).removeClass('hide');
+                    this.picker.find('tfoot > tr.range-button > th.'+type).addClass('selected-range');
+                    return;
+                }
+            } else {
+                $('#id_timefrom').trigger('resetType');
+            }
+
+            if (elm.length == 1) {
+                elm[0].value = '';
+            }
+
+            this.rangeType = null;
+
+            $('.date-range-explain').addClass('hide');
+        },
+
         _setDateDependant : function(data, dateTill, dayMode) {
 
             if (this.element.attr('name') == 'timefrom') {
@@ -1059,6 +1099,7 @@
                 if (elm.length == 1) {
                     elm[0].value = 0;
                 }
+
                 elm = document.getElementsByName("timefrom_minutes");
                 if (elm.length == 1) {
                     elm[0].value = 0;
@@ -1307,6 +1348,10 @@
                 if (element) {
                     element.change();
                 }
+            }
+            // If date changes or number, dash, backspace, delete operation was executed
+            if (dateChanged || [8,96,97,98,99,100,101,102,103,104,105,109,46].indexOf(e.keyCode) !== -1) {
+                this._setDateRangeType(null);
             }
         },
 
