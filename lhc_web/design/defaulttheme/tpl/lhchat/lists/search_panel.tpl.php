@@ -100,7 +100,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?>&nbsp;
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/date_picker_range.tpl.php')); ?>
                         </label>
                         <div class="row">
