@@ -99,27 +99,67 @@ $(function() {
 	</thead>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_chats.tpl.php'));?></td>
-		<td><?php echo $last24hstatistic['totalchats']?></td>
+		<td>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input)?>">
+                <?php echo $last24hstatistic['totalchats']?>
+            </a>
+        </td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_pending_chats.tpl.php'));?></td>
-		<td><?php echo $last24hstatistic['totalpendingchats']?></td>
+		<td>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input)?>/(chat_status_ids)/<?php echo erLhcoreClassModelChat::STATUS_PENDING_CHAT?>">
+                <?php echo $last24hstatistic['totalpendingchats']?>
+            </a>
+        </td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_active_chats.tpl.php'));?></td>
-		<td><?php echo $last24hstatistic['total_active_chats']?></td>
+		<td>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input)?>/(chat_status_ids)/<?php echo erLhcoreClassModelChat::STATUS_ACTIVE_CHAT?>">
+                <?php echo $last24hstatistic['total_active_chats']?>
+            </a>
+        </td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_closed_chats.tpl.php'));?></td>
-		<td><?php echo $last24hstatistic['total_closed_chats']?></td>
+		<td>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input)?>/(chat_status_ids)/<?php echo erLhcoreClassModelChat::STATUS_CLOSED_CHAT?>">
+                <?php echo $last24hstatistic['total_closed_chats']?>
+            </a>
+        </td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats.tpl.php'));?></td>
-		<td><?php echo $last24hstatistic['total_unanswered_chat']?></td>
+		<td>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input)?>/(una)/1">
+                <?php echo $last24hstatistic['total_unanswered_chat']?>
+            </a>
+        </td>
 	</tr>
+    <tr>
+		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/abandoned_chats.tpl.php'));?></td>
+		<td>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input)?>/(abandoned_chat)/1">
+                <?php echo $last24hstatistic['abandoned_chats']?>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/dropped_chats.tpl.php'));?></td>
+        <td>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input)?>/(dropped_chat)/1">
+                <?php echo $last24hstatistic['dropped_chats']?>
+            </a>
+        </td>
+    </tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chatbox_chats.tpl.php'));?></td>
-		<td><?php echo $last24hstatistic['chatbox_chats']?></td>
+		<td>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input)?>/(chat_status_ids)/<?php echo erLhcoreClassModelChat::STATUS_CHATBOX_CHAT?>">
+                <?php echo $last24hstatistic['chatbox_chats']?>
+            </a>
+        </td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_including_v_s_o_m.tpl.php'));?></td>
