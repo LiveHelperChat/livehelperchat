@@ -98,6 +98,8 @@ class erLhAbstractModelSavedSearch {
                     }
                 }
 
+
+
                 return $this->params_array;
 
             case 'user':
@@ -111,6 +113,59 @@ class erLhAbstractModelSavedSearch {
             default:
                 ;
                 break;
+        }
+    }
+
+    public function getDateRangeFilter(& $filter)
+    {
+
+        if (!isset($this->params_array['input_form']['timefrom_type']) ||
+            $this->params_array['input_form']['timefrom_type'] == '') {
+            return;
+        }
+
+        $dateRangeAttributes = [
+            'chat' => 'time',
+            'mail' => 'udate',
+            'eschat' => 'time',
+            'esmail' => 'time',
+        ];
+
+        if ($this->params_array['input_form']['timefrom_type'] == 'today') {
+            $filter['filtergte'][$dateRangeAttributes[$this->scope]] = strtotime('today');
+        } elseif ($this->params_array['input_form']['timefrom_type'] == 'range-yesterday') {
+            $filter['filtergte'][$dateRangeAttributes[$this->scope]] = strtotime('yesterday');
+            $filter['filterlte'][$dateRangeAttributes[$this->scope]] = strtotime('yesterday') + (3600*24) - 1;
+        } elseif ($this->params_array['input_form']['timefrom_type'] == 'range-last2days') {
+            $filter['filtergte'][$dateRangeAttributes[$this->scope]] = strtotime('today') - (24 * 2 * 3600);
+            $filter['filterlte'][$dateRangeAttributes[$this->scope]] = strtotime('today') - 1;
+        } elseif ($this->params_array['input_form']['timefrom_type'] == 'range-last7days') {
+            $filter['filtergte'][$dateRangeAttributes[$this->scope]] = strtotime('today') - (24 * 7 * 3600);
+            $filter['filterlte'][$dateRangeAttributes[$this->scope]] = strtotime('today') - 1;
+        } elseif ($this->params_array['input_form']['timefrom_type'] == 'range-last15days') {
+            $filter['filtergte'][$dateRangeAttributes[$this->scope]] = strtotime('today') - (24 * 15 * 3600);
+            $filter['filterlte'][$dateRangeAttributes[$this->scope]] = strtotime('today') - 1;
+        } elseif ($this->params_array['input_form']['timefrom_type'] == 'range-last30days') {
+            $filter['filtergte'][$dateRangeAttributes[$this->scope]] = strtotime('today') - (24 * 30 * 3600);
+            $filter['filterlte'][$dateRangeAttributes[$this->scope]] = strtotime('today') - 1;
+        } elseif ($this->params_array['input_form']['timefrom_type'] == 'range-thisweek') {
+            $filter['filtergte'][$dateRangeAttributes[$this->scope]] = strtotime('monday this week');
+        } elseif ($this->params_array['input_form']['timefrom_type'] == 'range-thismonth') {
+            $filter['filtergte'][$dateRangeAttributes[$this->scope]] = mktime(0,0,0,date('m'),1,date('Y'));
+        } elseif ($this->params_array['input_form']['timefrom_type'] == 'range-previousweek') {
+            $filter['filtergte'][$dateRangeAttributes[$this->scope]] = strtotime('previous week monday');
+            $filter['filterlte'][$dateRangeAttributes[$this->scope]] = $filter['filtergte']['time'] + (7 * 24 * 3600) - 1;
+        } elseif ($this->params_array['input_form']['timefrom_type'] == 'range-previousmonth') {
+            $filter['filtergte'][$dateRangeAttributes[$this->scope]] = mktime(0,0,0,date('m') - 1,1, date('Y'));
+            $filter['filterlte'][$dateRangeAttributes[$this->scope]] = mktime(0,0,-1, date('m'),1, date('Y'));
+        }
+
+        if (isset($filter['filtergte'][$dateRangeAttributes[$this->scope]])) {
+            $this->params_array['input_form']['timefrom'] = date('Y-m-d', $filter['filtergte'][$dateRangeAttributes[$this->scope]]);
+        }
+
+        if (isset($filter['filterlte'][$dateRangeAttributes[$this->scope]])) {
+            $this->params_array['input_form']['timeto'] = date('Y-m-d', $filter['filterlte'][$dateRangeAttributes[$this->scope]]);
         }
     }
 

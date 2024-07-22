@@ -1,0 +1,11 @@
+<span class="hide text-muted fs11 date-range-explain date-range-type-range-previousmonth"> [<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','previous month');?>]</span>
+<span class="hide text-muted fs11 date-range-explain date-range-type-range-last7days"> [<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','last 7 days');?>]</span>
+<span class="hide text-muted fs11 date-range-explain date-range-type-range-last2days"> [<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','last 2 days');?>]</span>
+<span class="hide text-muted fs11 date-range-explain date-range-type-range-last15days"> [<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','last 15 days');?>]</span>
+<span class="hide text-muted fs11 date-range-explain date-range-type-range-last30days"> [<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','last 30 days');?>]</span>
+<span class="hide text-muted fs11 date-range-explain date-range-type-range-yesterday"> [<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','yesterday');?>]</span>
+<span class="hide text-muted fs11 date-range-explain date-range-type-range-thisweek"> [<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','this week');?>]</span>
+<span class="hide text-muted fs11 date-range-explain date-range-type-range-thismonth"> [<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','this month');?>]</span>
+<span class="hide text-muted fs11 date-range-explain date-range-type-today"> [<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','today');?>]</span>
+<span class="hide text-muted fs11 date-range-explain date-range-type-range-previousweek"> [<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','previous week');?>]</span>
+<input type="hidden" name="timefrom_type" value="<?php if (isset($input->timefrom_type)) : ?><?php echo htmlspecialchars($input->timefrom_type)?><?php endif;?>" />

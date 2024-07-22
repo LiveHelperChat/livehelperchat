@@ -210,7 +210,7 @@ class erLhcoreClassDesign
                 "erLhcoreClassDesign" => "designtpl - $path"
             ));
 
-        return;
+        return 'design/defaulttheme/tpl/lhkernel/missing_template.tpl.php';
     }
 
     public static function imagePath($path, $useCDN = false, $id = 0)

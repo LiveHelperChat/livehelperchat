@@ -20,10 +20,12 @@ if ($search->scope == 'chat') {
     $tpl->set('search',$search);
 
     $filterSearch = $search->params_array['filter'];
-    
+
     if ($search->days > 0) {
-        $filterSearch['filtergte']['time'] = time() - $search->days * 24 * 3600;
+        $filterSearch['filtergtefields'][]['time'] = time() - $search->days * 24 * 3600;
     }
+
+    $search->getDateRangeFilter($filterSearch);
 
     $pages = new lhPaginator();
 
@@ -41,24 +43,26 @@ if ($search->scope == 'chat') {
     erLhcoreClassChat::prefillGetAttributes($items, array(), array(), array('additional_columns' => $iconsAdditional, 'do_not_clean' => true));
     $tpl->set('icons_additional',$iconsAdditional);
 
-    $subjectsChats = erLhAbstractModelSubjectChat::getList(array('filterin' => array('chat_id' => array_keys($items))));
-    erLhcoreClassChat::prefillObjects($subjectsChats, array(
-        array(
-            'subject_id',
-            'subject',
-            'erLhAbstractModelSubject::getList'
-        ),
-    ));
-    foreach ($subjectsChats as $chatSubject) {
-        if (!is_array($items[$chatSubject->chat_id]->subjects)) {
-            $items[$chatSubject->chat_id]->subjects = [];
+    if (!empty($items)) {
+        $subjectsChats = erLhAbstractModelSubjectChat::getList(array('filterin' => array('chat_id' => array_keys($items))));
+        erLhcoreClassChat::prefillObjects($subjectsChats, array(
+            array(
+                'subject_id',
+                'subject',
+                'erLhAbstractModelSubject::getList'
+            ),
+        ));
+        foreach ($subjectsChats as $chatSubject) {
+            if (!is_array($items[$chatSubject->chat_id]->subjects)) {
+                $items[$chatSubject->chat_id]->subjects = [];
+            }
+            $items[$chatSubject->chat_id]->subjects[] = $chatSubject->subject;
         }
-        $items[$chatSubject->chat_id]->subjects[] = $chatSubject->subject;
     }
-
 
     $tpl->set('items', $items);
     $tpl->set('list_mode', $Params['user_parameters_unordered']['mode'] == 'list');
+    $tpl->set('filter_search', $filterSearch);
 
     // Update view data, so background worker do nothing
     $search->total_records = (int)$totalRecords;
@@ -77,8 +81,10 @@ if ($search->scope == 'chat') {
     $filterSearch = $search->params_array['filter'];
 
     if ($search->days > 0) {
-        $filterSearch['filtergte']['udate'] = time() - $search->days * 24 * 3600;
+        $filterSearch['filtergtefields'][]['udate'] = time() - $search->days * 24 * 3600;
     }
+
+    $search->getDateRangeFilter($filterSearch);
 
     $pages = new lhPaginator();
     
@@ -93,23 +99,26 @@ if ($search->scope == 'chat') {
     $filter = array_merge_recursive($filterSearch, array('limit' => $pages->items_per_page, 'offset' => $pages->low));
     $items = erLhcoreClassModelMailconvConversation::getList($filter);
 
-    $subjectsChats = erLhcoreClassModelMailconvMessageSubject::getList(array('filterin' => array('conversation_id' => array_keys($items))));
-    erLhcoreClassChat::prefillObjects($subjectsChats, array(
-        array(
-            'subject_id',
-            'subject',
-            'erLhAbstractModelSubject::getList'
-        ),
-    ));
-    foreach ($subjectsChats as $chatSubject) {
-        if (!is_array($items[$chatSubject->conversation_id]->subjects)) {
-            $items[$chatSubject->conversation_id]->subjects = [];
+    if (!empty($items)) {
+        $subjectsChats = erLhcoreClassModelMailconvMessageSubject::getList(array('filterin' => array('conversation_id' => array_keys($items))));
+        erLhcoreClassChat::prefillObjects($subjectsChats, array(
+            array(
+                'subject_id',
+                'subject',
+                'erLhAbstractModelSubject::getList'
+            ),
+        ));
+        foreach ($subjectsChats as $chatSubject) {
+            if (!is_array($items[$chatSubject->conversation_id]->subjects)) {
+                $items[$chatSubject->conversation_id]->subjects = [];
+            }
+            $items[$chatSubject->conversation_id]->subjects[] = $chatSubject->subject;
         }
-        $items[$chatSubject->conversation_id]->subjects[] = $chatSubject->subject;
     }
 
     $tpl->set('items', $items);
     $tpl->set('list_mode', $Params['user_parameters_unordered']['mode'] == 'list');
+    $tpl->set('filter_search', $filterSearch);
 
     // Update view data, so background worker do nothing
     $search->total_records = (int)$totalRecords;

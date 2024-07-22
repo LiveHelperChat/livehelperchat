@@ -22,16 +22,39 @@ $appendPrintExportURL = '';
         <?php else : ?>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="form-group">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Name')?></label>
                             <input required maxlength="100" class="form-control form-control-sm" type="text" ng-non-bindable name="name" value="<?php echo htmlspecialchars($item->name)?>" />
                         </div>
                     </div>
+
                     <div class="col-6">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Include records from the past')?></label>
-                        <input type="number" required min="30" class="form-control form-control-sm" placeholder="days" name="days" value="<?php echo htmlspecialchars($item->days)?>" />
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range filter')?></label>
+                            <select name="timefrom_type" class="form-control form-control-sm">
+                                <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','My defined date range')?></option>
+                                <option value="today" <?php if ($input->timefrom_type == 'today') : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Today')?></option>
+                                <option value="range-yesterday" <?php if ($input->timefrom_type == 'range-yesterday') : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Yesterday')?></option>
+                                <option value="range-last2days" <?php if ($input->timefrom_type == 'range-last2days') : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Last 2 days')?></option>
+                                <option value="range-last7days" <?php if ($input->timefrom_type == 'range-last7days') : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Last 7 days')?></option>
+                                <option value="range-last15days" <?php if ($input->timefrom_type == 'range-last15days') : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Last 15 days')?></option>
+                                <option value="range-last30days" <?php if ($input->timefrom_type == 'range-last30days') : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Last 30 days')?></option>
+                                <option value="range-thisweek" <?php if ($input->timefrom_type == 'range-thisweek') : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','This week')?></option>
+                                <option value="range-thismonth" <?php if ($input->timefrom_type == 'range-thismonth') : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','This month')?></option>
+                                <option value="range-previousweek" <?php if ($input->timefrom_type == 'range-previousweek') : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous week')?></option>
+                                <option value="range-previousmonth" <?php if ($input->timefrom_type == 'range-previousmonth') : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous month')?></option>
+                            </select>
+                        </div>
                     </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Include records from the past')?></label>
+                            <input type="number" required min="30" class="form-control form-control-sm" placeholder="days" name="days" value="<?php echo htmlspecialchars($item->days)?>" />
+                        </div>
+                    </div>
+
                     <div class="col-12">
                         <div class="form-group">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','The higher number the higher in the views list it will appear')?></label>

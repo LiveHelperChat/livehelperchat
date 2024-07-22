@@ -240,6 +240,14 @@ class erLhcoreClassSearchHandler
                                     $seconds = 0;
                                 }
 
+                                if (isset($_GET[$key.'_type']) && is_string($_GET[$key.'_type'])) {
+                                    $inputFrom->{$key.'_type'} = $_GET[$key.'_type'];
+                                } elseif (isset($uparams[$key.'_type']) && is_string($uparams[$key.'_type'])) {
+                                    $inputFrom->{$key.'_type'} = $uparams[$key.'_type'];
+                                } else {
+                                    $inputFrom->{$key.'_type'} = null;
+                                }
+
                                 $valueFilter = $dateFormated + $hours + $minutes + $seconds;
 
                                 if (isset($field['datetype_sub']) && $field['datetype_sub'] == 'mysql_ts') {
