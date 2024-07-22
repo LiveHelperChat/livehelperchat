@@ -20,6 +20,7 @@
                 if (!data.error) {
                     setTimeout(function (){
                         $('#myModal').modal('hide');
+                        ee.emitEvent('mailChatModified',[<?php echo $mail->id?>]);
                     },2000);
                 }
             });

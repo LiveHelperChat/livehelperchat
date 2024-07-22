@@ -40,7 +40,8 @@ echo json_encode(array(
         "sure_close" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Are you sure?'),
         "subject" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Subject'),
         "previous_messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Previous messages'),
-        "block" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Block sender')
+        "block" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Block sender'),
+        "is_blocked" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Sender is blocked!')
     ],
     "status" => [
         "pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','New'),

@@ -98,6 +98,26 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
         );
     }
 
+    if (erLhcoreClassModelChatBlockedUser::isBlocked(array('online_user_id' => $chat->online_user_id, 'country_code' => $chat->country_code, 'ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $chat->nick, 'email' => $chat->email))) {
+        $items[] = array (
+            'selector' => '#block-status-' . $chat->id,
+            'attr' => array(
+                'text' => 'Visitor is blocked!'
+            )
+        );
+        $items[] = array (
+            'selector' => '#block-status-wrap-' . $chat->id,
+            'action' =>'add_class',
+            'class' => 'text-danger fw-bold'
+        );
+        $items[] = array (
+            'selector' => '#block-status-wrap-' . $chat->id,
+            'action' =>'remove_class',
+            'class' => 'text-muted'
+        );
+    }
+
+
     $shortcutCommands = erLhcoreClassModelGenericBotCommand::getList(['customfilter' => ['(dep_id = 0 OR dep_id = ' . (int)$chat->dep_id . ')'], 'filternot' => ['shortcut_1' => '','shortcut_2' => '']]);
     foreach ($shortcutCommands as $command) {
         $items[] = array (

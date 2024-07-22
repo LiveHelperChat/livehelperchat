@@ -60,6 +60,7 @@
             if (!data.error) {
                 setTimeout(function (){
                     $('#myModal').modal('hide');
+                    lhinst.loadMainData(<?php echo $chat->id?>);
                 },2000);
             }
         });

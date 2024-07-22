@@ -203,6 +203,10 @@ function lh(){
                 if (typeof dataElement.action !== 'undefined') {
                     if (dataElement.action == 'hide') {
                         el.hide();
+                    } else if (dataElement.action == 'remove_class') {
+                        el.removeClass(dataElement.class);
+                    } else if (dataElement.action == 'add_class') {
+                        el.addClass(dataElement.class);
                     } else if (dataElement.action == 'keyup') {
 
                         el.bind('keyup', dataElement.event_data.a + '+' + dataElement.event_data.b, function() {

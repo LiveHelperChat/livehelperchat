@@ -525,7 +525,7 @@ const MailChat = props => {
                                     <tr>
                                         <td>{t('mail.sender')}</td>
                                         <td>
-                                            {state.conv.lang && state.moptions.lang_dir && <img src={state.moptions.lang_dir + '/' + state.conv.lang + '.png'}/>} {state.conv.from_name} &lt;{state.conv.from_address}&gt; <span className="action-image" onClick={() => showModal({url: "mailconv/blocksender/" + props.chatId})}><span className="material-icons">block</span>{t('mail.block')}</span>
+                                            {state.conv.lang && state.moptions.lang_dir && <img src={state.moptions.lang_dir + '/' + state.conv.lang + '.png'}/>} {state.conv.from_name} &lt;{state.conv.from_address}&gt; <span className={"action-image" + (state.moptions.is_blocked ? " text-danger fw-bold" : "")} onClick={() => showModal({url: "mailconv/blocksender/" + props.chatId})}><span className="material-icons">block</span>{state.moptions.is_blocked ? t('mail.is_blocked') : t('mail.block')}</span>
                                         </td>
                                     </tr>
                                     {(state.conv.phone || state.conv.phone_front) && <tr>
