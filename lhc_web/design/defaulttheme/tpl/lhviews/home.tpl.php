@@ -27,8 +27,7 @@
                                     <?php include(erLhcoreClassDesign::designtpl('lhviews/custom_type_multiinclude.tpl.php')); ?>
                                     <span class="material-icons" ng-if="view.scope == 'mail'">mail</span>
                                     <span class="material-icons" ng-if="view.scope == 'chat'">chat</span>
-                                    {{view.name}}
-                                    <span class="badge pb-1 fw-normal bg-secondary" ng-if="view.total_records > 0">({{view.total_records}})</span>
+                                    {{view.name}}&nbsp;<span class="badge pb-1 fw-normal bg-secondary" ng-if="view.total_records > 0">({{view.total_records}})</span>
                                 </a>
                             </div>
                         </td>
