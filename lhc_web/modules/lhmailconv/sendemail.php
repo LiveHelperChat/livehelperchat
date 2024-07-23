@@ -18,10 +18,13 @@ if (is_numeric($Params['user_parameters_unordered']['chat_id'])) {
         exit;
     }
 
-    $mailbox = erLhcoreClassModelMailconvMailbox::findOne(['filter' => ['mail' => $chat->department->email]]);
+    $mailbox = erLhcoreClassModelMailconvMailbox::findOne(['filter' => ['active' => 1, 'mail' => $chat->department->email]]);
 
-    $item->mailbox_id = $mailbox->id;
-    $item->mailbox_front = $mailbox->mail;
+    if (is_object($mailbox)) {
+        $item->mailbox_id = $mailbox->id;
+        $item->mailbox_front = $mailbox->mail;
+    }
+
     $item->from_address = $chat->email;
     $item->from_name = $chat->nick;
 
