@@ -36,7 +36,7 @@
 <?php echo erLhcoreClassAbstract::renderInput('siteaccess', $fields['siteaccess'], $object)?>
 </div>
 
-<div class="form-group"><label><?php echo $fields['position']['trans'];?> <a class="live-help-tooltip" data-placement="top" title="Auto responders with lowest values will be applied first" data-bs-toggle="tooltip"><i class="material-icons">help</i></a></label>
+<div class="form-group"><label><?php echo $fields['position']['trans'];?> <a class="live-help-tooltip" data-placement="top" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Auto responders with lowest values will be applied first');?>" data-bs-toggle="tooltip"><i class="material-icons">help</i></a></label>
 <?php echo erLhcoreClassAbstract::renderInput('position', $fields['position'], $object)?>
 </div>
 
