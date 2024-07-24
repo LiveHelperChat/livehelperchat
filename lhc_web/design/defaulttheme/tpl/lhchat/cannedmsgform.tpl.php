@@ -202,6 +202,8 @@
                 'name_literal' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message')
             ]
         ])?>;
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     </script>
 
     <lhc-multilanguage-tab-content identifier="languageCanned" <?php if ($canned_message->languages != '') : ?>init_langauges="<?php echo ($canned_message->id > 0 ? $canned_message->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>

@@ -36,8 +36,7 @@
 <?php echo erLhcoreClassAbstract::renderInput('siteaccess', $fields['siteaccess'], $object)?>
 </div>
 
-<div class="form-group">
-<label><?php echo $fields['position']['trans'];?></label>
+<div class="form-group"><label><?php echo $fields['position']['trans'];?> <a class="live-help-tooltip" data-placement="top" title="Auto responders with lowest values will be applied first" data-bs-toggle="tooltip"><i class="material-icons">help</i></a></label>
 <?php echo erLhcoreClassAbstract::renderInput('position', $fields['position'], $object)?>
 </div>
 
@@ -196,6 +195,9 @@ $.each(responderItems, function( index, value ) {
 });
 
 function renderPreview(inst) {
+    if (inst.length == 0) {
+        return;
+    }
     var identifier = inst.attr('name').replace(/AbstractInput_|_trigger_id/g,"");
     $.get(WWW_DIR_JAVASCRIPT + 'theme/renderpreview/' + inst.val(), { }, function(data) {
         $('#'+identifier+'-trigger-preview-window').html(data);
@@ -203,4 +205,6 @@ function renderPreview(inst) {
         $('#'+identifier+'-trigger-preview-window').html('');
     });
 }
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 </script>
