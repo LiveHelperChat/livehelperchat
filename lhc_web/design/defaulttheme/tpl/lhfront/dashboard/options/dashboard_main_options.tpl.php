@@ -30,9 +30,12 @@ if ($dashboardOrder === null) {
 }
 
 $widgetsUser = array();
-foreach ($dashboardOrder as $widgetsColumn) {
-    foreach ($widgetsColumn as $widget) {
-        $widgetsUser[] = $widget;
+
+if (is_array($dashboardOrder)) {
+    foreach ($dashboardOrder as $widgetsColumn) {
+        foreach ($widgetsColumn as $widget) {
+            $widgetsUser[] = $widget;
+        }
     }
 }
 
