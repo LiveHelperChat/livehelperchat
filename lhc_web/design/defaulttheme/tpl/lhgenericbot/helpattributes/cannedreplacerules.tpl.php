@@ -1,5 +1,5 @@
 <?php if ($context == 'cannedreplacerules') : ?>
-    <ul>
+    <ul class="mx300">
         <li><strong>{args.chat.referrer}</strong> `contains`. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Page where chat started');?></li>
         <li><strong>{args.chat.session_referrer}</strong> `contains`. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Referer from where visitor come to site.');?></li>
         <li><strong>{args.chat.chat_variables_array.&lt;variables&gt;}</strong> = <b>New</b></li>
@@ -16,6 +16,11 @@
             <li><strong>{phone}</strong> = <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Phone');?></li>
             <li><strong>{operator}</strong> = <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Operator nick');?></li>
         <?php endif; ?>
+        <?php foreach (erLhcoreClassModelCannedMsgReplace::getList(array(
+            'sort' => 'repetitiveness DESC', // Default translation will be the last one if more than one same identifier is found
+            'limit' => false)) as $repacelabeVariable): ?>
+            <li><strong>{<?php echo htmlspecialchars($repacelabeVariable->identifier)?>}</strong> = <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'canned message replaceable variables');?></li>
+        <?php endforeach; ?>
         <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/cannedreplacerules_multiinclude.tpl.php'));?>
     </ul>
 

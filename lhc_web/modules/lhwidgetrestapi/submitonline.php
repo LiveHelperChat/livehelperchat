@@ -467,7 +467,7 @@ if (empty($Errors)) {
 
                     if ($messageText != '') {
                         $msg = new erLhcoreClassModelmsg();
-                        $msg->msg = trim($messageText);
+                        $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage(trim($messageText), array('chat' => $chat, 'args' => ['chat' => $chat]));
                         $msg->meta_msg = $responder->getMeta($chat, 'pending');
                         if ($msg->meta_msg == '') {
                             $msg->meta_msg = '{"content":{"auto_responder":true}}';

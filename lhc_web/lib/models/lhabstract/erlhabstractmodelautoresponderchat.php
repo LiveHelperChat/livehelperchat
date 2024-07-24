@@ -42,7 +42,7 @@ class erLhAbstractModelAutoResponderChat
             if ($this->auto_responder->close_message != '') {
 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = trim($this->auto_responder->close_message);
+                $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage(trim($this->auto_responder->close_message), array('chat' => $this->chat, 'args' => ['chat' => $this->chat]));
                 $msg->chat_id = $this->chat->id;
                 $msg->name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;

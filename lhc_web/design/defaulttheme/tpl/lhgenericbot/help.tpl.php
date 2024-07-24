@@ -10,7 +10,7 @@
             <?php if (preg_match('/^[a-z0-9-]+/i', $context) &&($pathDynamic = erLhcoreClassDesign::designtpldynamic('lhgenericbot/helpattributes/' . $context . '.tpl.php')) && $pathDynamic !== null ) : ?>
                 <?php include $pathDynamic;?>
             <?php endif; ?>
-
+            
             <?php if ($context == 'text') : ?>
                 <ul>
                     <li>{<translation>__default message__t[show from hour, show till hour]} inclusive is first hour. Few examples

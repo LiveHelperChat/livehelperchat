@@ -6,7 +6,7 @@
 </div>
 
 <div class="form-group">
-    <label><?php echo $fields['multilanguage_message']['trans'];?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','If you leave empty - message we will be send only if translated message is found.')?></label>
+    <label><?php echo $fields['multilanguage_message']['trans'];?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','If you leave empty - message we will be send only if translated message is found.')?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="material-icons text-muted">help</a></label>
     <?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_multilanguage_message]'); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
     <?php echo erLhcoreClassAbstract::renderInput('multilanguage_message', $fields['multilanguage_message'], $object)?>

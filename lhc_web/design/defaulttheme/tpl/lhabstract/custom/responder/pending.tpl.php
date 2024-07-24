@@ -138,7 +138,7 @@
     </div>
     <div class="col-9">
         <div class="form-group">		
-        <label><?php echo $fields['timeout_message']['trans'];?> [1]</label>
+        <label><?php echo $fields['timeout_message']['trans'];?> [1] <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="material-icons text-muted">help</a></label>
         <?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_timeout_message]'); ?>
         <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
         <?php echo erLhcoreClassAbstract::renderInput('timeout_message', $fields['timeout_message'], $object)?>
@@ -179,7 +179,7 @@
     </div>
     <div class="col-9">
         <div class="form-group">		
-        <label><?php echo $fields['timeout_message_' . $i]['trans'];?> [<?php echo $i?>]</label>
+        <label><?php echo $fields['timeout_message_' . $i]['trans'];?> [<?php echo $i?>] <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="material-icons text-muted">help</a></label>
         <?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_timeout_message_'.$i.']'); ?>
         <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
         <?php echo erLhcoreClassAbstract::renderInput('timeout_message_' . $i, $fields['timeout_message_' . $i], $object)?>

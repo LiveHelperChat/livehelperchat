@@ -76,7 +76,7 @@
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="main-wait-content">
             <div class="form-group">
-                <label><?php echo $fields['wait_message']['trans'];?></label>
+                <label><?php echo $fields['wait_message']['trans'];?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="material-icons text-muted">help</a></label>
                 <?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_wait_message]'); ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
                 <?php echo erLhcoreClassAbstract::renderInput('wait_message', $fields['wait_message'], $object)?>
@@ -85,7 +85,7 @@
         </div>
         <div role="tabpanel" class="tab-pane" id="main-offline-content">
             <div class="form-group">
-                <label><?php echo $fields['offline_message']['trans'];?></label>
+                <label><?php echo $fields['offline_message']['trans'];?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="material-icons text-muted">help</a></label>
                 <?php $bbcodeOptions = array('selector' => 'textarea[name=AbstractInput_offline_message]'); ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
                 <?php echo erLhcoreClassAbstract::renderInput('offline_message', $fields['offline_message'], $object)?>
