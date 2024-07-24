@@ -52,6 +52,8 @@ class erLhcoreClassViewResque {
                 $filterSearch['filtergte']['time'] = time() - $search->days * 24 * 3600;
             }
 
+            $search->getDateRangeFilter($filterSearch);
+
             $totalRecords = erLhcoreClassModelChat::getCount($filterSearch);
 
             $search->updated_at = time();
@@ -68,6 +70,8 @@ class erLhcoreClassViewResque {
             if ($search->days > 0) {
                 $filterSearch['filtergte']['udate'] = time() - $search->days * 24 * 3600;
             }
+
+            $search->getDateRangeFilter($filterSearch);
 
             $totalRecords = erLhcoreClassModelMailconvConversation::getCount($filterSearch);
 
