@@ -645,7 +645,9 @@ class erLhcoreClassChatWorkflow {
 
     public static function autoAssignMail(& $chat, $department, $params = array())
     {
-        if (is_object($department) && $department->active_mail_balancing == 1 && ($department->max_ac_dep_mails == 0 || $department->active_mails_counter < $department->max_ac_dep_mails) && ($chat->user_id == 0 || ($department->max_timeout_seconds_mail > 0 && $chat->tslasign < time()-$department->max_timeout_seconds_mail)) ){
+        $timestamp = time();
+
+        if (is_object($department) && $department->active_mail_balancing == 1 && ($department->max_ac_dep_mails == 0 || $department->active_mails_counter < $department->max_ac_dep_mails) && ($chat->user_id == 0 || ($department->max_timeout_seconds_mail > 0 && $chat->tslasign < $timestamp-$department->max_timeout_seconds_mail)) ){
 
             $isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
 
@@ -658,7 +660,7 @@ class erLhcoreClassChatWorkflow {
                 // Lock chat record for update untill we finish this procedure
                 erLhcoreClassChat::lockDepartment($department->id, $db);
 
-                if ($chat->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING && ($chat->user_id == 0 || ($department->max_timeout_seconds_mail > 0 && $chat->tslasign < time()-$department->max_timeout_seconds_mail))) {
+                if ($chat->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING && ($chat->user_id == 0 || ($department->max_timeout_seconds_mail > 0 && $chat->tslasign < $timestamp-$department->max_timeout_seconds_mail))) {
 
                     $condition = '(active_mails + pending_mails)';
 
@@ -687,9 +689,9 @@ class erLhcoreClassChatWorkflow {
                     $db = ezcDbInstance::get();
                     $stmt = $db->prepare($sql);
                     $stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
-                    $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+                    $stmt->bindValue(':last_activity',($timestamp-$isOnlineUser),PDO::PARAM_INT);
                     $stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
-                    $stmt->bindValue(':last_accepted_mail',(time() - $department->delay_before_assign_mail),PDO::PARAM_INT);
+                    $stmt->bindValue(':last_accepted_mail',($timestamp - $department->delay_before_assign_mail),PDO::PARAM_INT);
 
                     //
                     if ($department->max_active_mails > 0) {
@@ -712,11 +714,11 @@ class erLhcoreClassChatWorkflow {
                             $previousMessage = '[' . $chat->user_id . '] ' . $userOld->name_support . ' '.  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','did not accepted mail in time.') . ' ';
                         }
 
-                        $chat->tslasign = time();
+                        $chat->tslasign = $timestamp;
                         $chat->user_id = $user_id;
                         $chat->updateThis(array('update' => array('tslasign','user_id')));
 
-                        erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, time(), '_mail');
+                        erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, $timestamp, '_mail');
 
                         // Update fresh user statistic
                         erLhcoreClassChat::updateActiveChats($chat->user_id);
@@ -737,7 +739,9 @@ class erLhcoreClassChatWorkflow {
 
     public static function autoAssign(& $chat, $department, $params = array()) {
 
-        if (is_object($department) && $department->active_balancing == 1 && ($department->max_ac_dep_chats == 0 || $department->active_chats_counter < $department->max_ac_dep_chats) && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds)) ){
+        $timestamp = time();
+
+        if (is_object($department) && $department->active_balancing == 1 && ($department->max_ac_dep_chats == 0 || $department->active_chats_counter < $department->max_ac_dep_chats) && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < $timestamp-$department->max_timeout_seconds)) ){
 
             $isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
 
@@ -750,7 +754,7 @@ class erLhcoreClassChatWorkflow {
                 if (
                     isset($botConfiguration['auto_delay_var']) && $botConfiguration['auto_delay_var'] != '' &&
                     isset($botConfiguration['auto_delay_timeout']) && $botConfiguration['auto_delay_timeout'] > 0 &&
-                    (time() - $chat->time) < $botConfiguration['auto_delay_timeout']
+                    ($timestamp - $chat->time) < $botConfiguration['auto_delay_timeout']
                 )
                 {
                     $valueToCompare = null;
@@ -808,7 +812,7 @@ class erLhcoreClassChatWorkflow {
                 // Lock chat record for update untill we finish this procedure
                 erLhcoreClassChat::lockDepartment($department->id, $db);
 
-                if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < time()-$department->max_timeout_seconds))) {
+                if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < $timestamp-$department->max_timeout_seconds))) {
 
                     $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.autoassign', array(
                         'department' => & $department,
@@ -887,9 +891,9 @@ class erLhcoreClassChatWorkflow {
                             $db = ezcDbInstance::get();
                             $stmt = $db->prepare("SELECT `lh_userdep`.`user_id` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id {$appendSQLPriority} ORDER BY {$sortPriority} LIMIT 1");
                             $stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
-                            $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+                            $stmt->bindValue(':last_activity',($timestamp - $isOnlineUser),PDO::PARAM_INT);
                             $stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
-                            $stmt->bindValue(':last_accepted',(time() - $department->delay_before_assign),PDO::PARAM_INT);
+                            $stmt->bindValue(':last_accepted',($timestamp - $department->delay_before_assign),PDO::PARAM_INT);
 
                             if ($department->max_active_chats > 0) {
                                 $stmt->bindValue(':max_active_chats',$department->max_active_chats,PDO::PARAM_INT);
@@ -916,9 +920,9 @@ class erLhcoreClassChatWorkflow {
                             $db = ezcDbInstance::get();
                             $stmt = $db->prepare($sqlLanguages);
                             $stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
-                            $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+                            $stmt->bindValue(':last_activity',($timestamp-$isOnlineUser),PDO::PARAM_INT);
                             $stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
-                            $stmt->bindValue(':last_accepted',(time() - $department->delay_before_assign),PDO::PARAM_INT);
+                            $stmt->bindValue(':last_accepted',($timestamp - $department->delay_before_assign),PDO::PARAM_INT);
                             $stmt->bindValue(':chatlanguage',$chat->chat_locale,PDO::PARAM_STR);
 
                             if ($department->max_active_chats > 0) {
@@ -938,9 +942,9 @@ class erLhcoreClassChatWorkflow {
                             $db = ezcDbInstance::get();
                             $stmt = $db->prepare($sql);
                             $stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
-                            $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
+                            $stmt->bindValue(':last_activity',($timestamp-$isOnlineUser),PDO::PARAM_INT);
                             $stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
-                            $stmt->bindValue(':last_accepted',(time() - $department->delay_before_assign),PDO::PARAM_INT);
+                            $stmt->bindValue(':last_accepted',($timestamp - $department->delay_before_assign),PDO::PARAM_INT);
 
                             if ($department->max_active_chats > 0) {
                                 $stmt->bindValue(':max_active_chats',$department->max_active_chats,PDO::PARAM_INT);
@@ -957,15 +961,13 @@ class erLhcoreClassChatWorkflow {
                     }
 
                     if ($user_id > 0) {
-
-
-
+                        
                         $previousMessage = '';
 
                         $msg = new erLhcoreClassModelmsg();
                         $msg->chat_id = $chat->id;
                         $msg->user_id = -1;
-                        $msg->time = time();
+                        $msg->time = $timestamp;
 
                         // Update previously assigned operator statistic
                         if ($chat->user_id > 0) {
@@ -988,12 +990,12 @@ class erLhcoreClassChatWorkflow {
                         erLhcoreClassChat::getSession()->save($msg);
 
                         // Set owner to a new user
-                        $chat->tslasign = time();
+                        $chat->tslasign = $timestamp;
                         $chat->user_id = $user_id;
                         $chat->last_msg_id = $msg->id;
                         $chat->updateThis(array('update' => array('last_msg_id','tslasign','user_id')));
 
-                        erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, time());
+                        erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, $timestamp);
 
                         // Update fresh user statistic
                         erLhcoreClassChat::updateActiveChats($chat->user_id);
