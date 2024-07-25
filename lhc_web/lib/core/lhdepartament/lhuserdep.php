@@ -338,7 +338,7 @@ class erLhcoreClassUserDep
         }
     }
 
-    public static function updateLastAcceptedByUser($user_id, $lastAccepted, $scope = '')
+    public static function updateLastAcceptedByUser($user_id, $lastAccepted, $scope = '', $try = 1)
     {
         $ids = self::getUserDepIds($user_id);
 
@@ -349,16 +349,29 @@ class erLhcoreClassUserDep
                 $stmt->bindValue(':last_accepted', $lastAccepted, PDO::PARAM_INT);
                 $stmt->execute();
             } catch (Exception $e) {
-                try {
+                if ($try <= 5) {
                     usleep(500);
-                    $stmt = $db->prepare("UPDATE lh_userdep SET last_accepted{$scope} = :last_accepted WHERE id IN (" . implode(',', $ids) . ');');
-                    $stmt->bindValue(':last_accepted', $lastAccepted, PDO::PARAM_INT);
-                    $stmt->execute();
-                } catch (Exception $e) {
-                    // Just give up
+                    self::updateLastAcceptedByUser($user_id, $lastAccepted, $scope, $try + 1);
+                } else {
+                    erLhcoreClassLog::write(
+                        json_encode([
+                            'message' => $e->getMessage(),
+                            'file' => $e->getFile(),
+                            'line' => $e->getLine(),
+                            'trace' => $e->getTrace(),
+                            'raw' => (string)$e,
+                        ],JSON_PRETTY_PRINT),
+                        ezcLog::SUCCESS_AUDIT,
+                        array(
+                            'source' => 'lhc',
+                            'category' => 'cronjob_exception',
+                            'line' => __LINE__,
+                            'file' => __FILE__,
+                            'object_id' => 0
+                        )
+                    );
                 }
             }
-
         }
     }
 
