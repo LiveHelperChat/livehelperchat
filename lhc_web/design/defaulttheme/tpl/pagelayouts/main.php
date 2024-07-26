@@ -11,7 +11,7 @@
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
 
-<div id="wrapper" ng-cloak>
+<div id="wrapper">
 
     <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/sidemenu.tpl.php'));?>
 
