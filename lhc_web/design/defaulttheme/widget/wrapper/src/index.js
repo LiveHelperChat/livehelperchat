@@ -833,6 +833,7 @@
                     } else {
                         attributesWidget.eventEmitter.emitEvent('cancelInvitation', []);
                     }
+                    attributesWidget.mainWidget.resizeTrigger();
                 });
 
                 attributesWidget.eventEmitter.addListener('msgSnippet', (data) => {

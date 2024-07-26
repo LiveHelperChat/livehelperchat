@@ -13,6 +13,7 @@ export class mainWidget{
         this.units = 'px';
         this.originalCSS = '';
         this.bottom_override = false;
+        this.is_invitation = false;
 
         this.cont = new UIConstructorIframe((prefix || 'lhc')+'_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
@@ -150,6 +151,10 @@ export class mainWidget{
         {
             this.screenAttributesUpdate = () => {
 
+                if (this.is_invitation === true) {
+                    return;
+                }
+
                 var body = this.cont.elmDomDoc.body,
                     html = this.cont.elmDomDoc.documentElement;
 
@@ -284,12 +289,14 @@ export class mainWidget{
     }
 
     hideInvitation() {
+        this.is_invitation = false;
         if (this.attributes.cont_ss) {
             this.cont.elmDom.style.cssText += this.attributes.cont_ss;
         }
     }
 
     showInvitation() {
+        this.is_invitation = true;
         if (this.attributes.cont_ss) {
             this.cont.elmDom.style.cssText = this.originalCSS;
         }
