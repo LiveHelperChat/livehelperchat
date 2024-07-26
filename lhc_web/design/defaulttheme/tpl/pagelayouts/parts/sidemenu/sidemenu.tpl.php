@@ -1,5 +1,5 @@
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
-<div id="sidebar-wrapper" ng-cloak translate="no">
+<div id="sidebar-wrapper" translate="no">
 	<div class="navbar-light sidebar" role="navigation">
 		<div class="sidebar-nav navbar-collapse">
 			<ul class="nav position-relative" id="side-menu">
