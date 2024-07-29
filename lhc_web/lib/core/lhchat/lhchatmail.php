@@ -44,7 +44,7 @@ class erLhcoreClassChatMail {
 
             if (isset($data['bindip']) && trim($data['bindip']) != '') {
                 $IPs = explode(",",$data['bindip']);
-                $SMTPOptions['socket']['bindto'] = trim($IPs[array_rand($IPs)]);
+                $SMTPOptions['socket']['bindto'] = trim($IPs[array_rand($IPs)]) . ':0';
             }
 
             // To work with various SMTP servers
