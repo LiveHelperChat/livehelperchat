@@ -60,7 +60,11 @@
 				<div class="form-group">
 					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Port');?>*</label> <input type="text" class="form-control" name="port" value="<?php (isset($smtp_data['port']) && $smtp_data['port'] != '') ? print htmlspecialchars($smtp_data['port']) : print '25' ?>" />
 				</div>
-            
+
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Bind IP, multiple IP can be separated by comma. Random IP will be chosen.');?></label> <input type="text" class="form-control" name="bindip" value="<?php (isset($smtp_data['bindip']) && $smtp_data['bindip'] != '') ? print htmlspecialchars($smtp_data['bindip']) : print '' ?>" />
+                </div>
+
                 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
             
                 <div class="btn-group" role="group" aria-label="...">

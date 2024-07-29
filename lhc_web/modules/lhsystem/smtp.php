@@ -15,7 +15,7 @@ if ( isset($_POST['StoreMailSettings']) || isset($_POST['StoreMailSettingsTest']
         ),
         'default_from_name' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        )       
+        )
     );
     
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -45,7 +45,7 @@ if ( isset($_POST['StoreMailSettings']) || isset($_POST['StoreMailSettingsTest']
     } else {
         $data['default_from_name'] = '';
     }
-        
+
     $smtpData->value = serialize($data);
     $smtpData->saveThis();
 
@@ -78,6 +78,9 @@ if ( isset($_POST['StoreSMTPSettings']) || isset($_POST['StoreSMTPSettingsTest']
 			'use_smtp' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
+            'bindip' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
 	);
 
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -119,6 +122,12 @@ if ( isset($_POST['StoreSMTPSettings']) || isset($_POST['StoreSMTPSettingsTest']
 	} else {
 		$data['password'] = '';
 	}
+
+    if ( $form->hasValidData( 'bindip' ) ) {
+        $data['bindip'] = $form->bindip;
+    } else {
+        $data['bindip'] = '';
+    }
 
 	$smtpData->value = serialize($data);
 	$smtpData->saveThis();
