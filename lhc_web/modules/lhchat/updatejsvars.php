@@ -44,18 +44,24 @@ try {
             (!in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM)))
         ) {
 
+            $db = ezcDbInstance::get();
+            $db->beginTransaction();
+            $chat->syncAndLock();
+
             // Event for extensions to listen
             if ($Params['user_parameters_unordered']['userinit'] === 'true') {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.update_chat_vars', array(
                     'chat' => & $chat,
                     'data' => $jsonData
                 ));
+                $db->commit();
                 echo json_encode(array('userinit' => 'true'));
                 exit;
             }
 
             // Update chat variables
             erLhcoreClassChatValidator::validateJSVarsChat ($chat, $jsonData);
+            $db->commit();
 
             // Force operators to check for new messages
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat', array(
