@@ -155,7 +155,7 @@ foreach ($items as $item) {
             }
         }
 
-        $messageNotification = implode($alertText,"\n");
+        $messageNotification = implode("\n",$alertText);
 
         $forceShow = true;
     } elseif ($itemsTypes[$item->id] == 'pending_chat') {
