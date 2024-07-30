@@ -13,20 +13,22 @@ $returnArray = array();
 $validChatGroups = ['bot_chats', 'pending_chat', 'unread_chat', 'transfer_chat', 'transfer_chat_dep','active_chats','active_chat','subject_chats'];
 $validMailGroups = ['pmails','amails'];
 
-foreach ($Params['user_parameters_unordered']['id'] as $itemNotification) {
+if (isset($Params['user_parameters_unordered']['id']) && is_array($Params['user_parameters_unordered']['id'])) {
+    foreach ($Params['user_parameters_unordered']['id'] as $itemNotification) {
 
-    $partsAlerts = explode('__',$itemNotification);
-    $item = array_shift($partsAlerts);
+        $partsAlerts = explode('__',$itemNotification);
+        $item = array_shift($partsAlerts);
 
-    if (is_numeric($item)) {
-        $itemsGrouped[$type][] = (int)$item;
-        if (in_array($type,$validChatGroups)) {
-            $itemsTypes[$item] = $type;
-            if ($type != 'transfer_chat' && $type != 'transfer_chat_dep')
-                $itemsID[] = (int)$item;
+        if (is_numeric($item)) {
+            $itemsGrouped[$type][] = (int)$item;
+            if (in_array($type,$validChatGroups)) {
+                $itemsTypes[$item] = $type;
+                if ($type != 'transfer_chat' && $type != 'transfer_chat_dep')
+                    $itemsID[] = (int)$item;
+            }
+        } else {
+            $type = $item;
         }
-    } else {
-        $type = $item;
     }
 }
 
