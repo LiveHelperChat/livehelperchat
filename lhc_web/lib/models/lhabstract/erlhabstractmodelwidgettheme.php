@@ -440,8 +440,11 @@ class erLhAbstractModelWidgetTheme {
 
 	public function translate() {
 
-        $chatLocaleFallback = erConfigClassLhConfig::getInstance()->getDirLanguage('content_language');
+        $config = erConfigClassLhConfig::getInstance();
+        $chatLocaleFallback = $config->getDirLanguage('content_language');
+        $defaultSiteAccess = $config->getSetting( 'site', 'default_site_access',false);
         $chatLocale = erLhcoreClassChatValidator::getVisitorLocale();
+        $siteAccess = erLhcoreClassSystem::instance()->SiteAccess;
 
         $attributesDirect = array(
             'pending_join_queue',
@@ -502,10 +505,9 @@ class erLhAbstractModelWidgetTheme {
         $attributes = $this->bot_configuration_array;
 
         foreach ($translatableAttributes as $attr) {
+            $translated = false;
+
             if (isset($attributes[$attr . '_lang'])) {
-
-                $translated = false;
-
                 if ($chatLocale !== null) {
                     foreach ($attributes[$attr . '_lang'] as $attrTrans) {
                         if (in_array($chatLocale, $attrTrans['languages']) && $attrTrans['content'] != '') {
@@ -528,6 +530,14 @@ class erLhAbstractModelWidgetTheme {
 
                 if ($translated === true && in_array($attr,$attributesDirect)) {
                     $this->$attr = $attributes[$attr];
+                }
+            }
+
+            if ($translated === false && !empty($defaultSiteAccess) && $siteAccess !== $defaultSiteAccess) {
+                if (in_array($attr,$attributesDirect)) {
+                    $this->$attr = '';
+                } elseif (isset($attributes[$attr])) {
+                    unset($attributes[$attr]);
                 }
             }
         }
