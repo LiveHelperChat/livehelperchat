@@ -77,6 +77,12 @@ if (!$form->hasValidData('expires')) {
     }
 }
 
+$ignorable_ip = erLhcoreClassModelChatConfig::fetch('unban_ip_range')->current_value;
+
+if ($ignorable_ip != '' && erLhcoreClassIPDetect::isIgnored($chat->ip, explode(',',$ignorable_ip))) {
+    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','This IP can not be blocked!');
+}
+
 $params['chat'] = $chat;
 
 $params['user'] = $currentUser->getUserData(true);

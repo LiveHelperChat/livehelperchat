@@ -39,7 +39,17 @@ if (isset($_POST['AddBlock']))
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
 
-	if ( $form->hasValidData( 'IPToBlock' ) && $form->IPToBlock != '' ) {
+    $ignorable_ip = erLhcoreClassModelChatConfig::fetch('unban_ip_range')->current_value;
+
+    if (!($form->hasValidData( 'IPToBlock' ) && $form->IPToBlock != '')) {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Please enter an IP to block');
+    }
+
+    if ($form->hasValidData( 'IPToBlock' ) && $form->IPToBlock != '' && $ignorable_ip != '' && erLhcoreClassIPDetect::isIgnored($form->IPToBlock,explode(',',$ignorable_ip))) {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','This IP can not be blocked!');
+    }
+
+	if (empty($Errors)) {
 		$ipBlock = new erLhcoreClassModelChatBlockedUser();
 		$ipBlock->ip = $form->IPToBlock;
 		$ipBlock->user_id = erLhcoreClassUser::instance()->getUserID();
@@ -47,7 +57,7 @@ if (isset($_POST['AddBlock']))
 		$ipBlock->saveThis();
 		$tpl->set('block_saved',true);
 	} else {
-		$tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Please enter an IP to block')));
+		$tpl->set('errors',$Errors);
 	}
 }
 

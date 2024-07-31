@@ -1,3 +1,18 @@
+4.44v
+
+1. You can enter IP or IP range in back office which is not allowed to be blocked.
+2. Widget theme translations will override only default language and use default translation for other languages.
+3. 8.* PHP fixes.
+4. Transaction will be used for online vars update to avoid inconsistency.
+5. If your VPS has multiple IP you can configure which one should be used fot SMTP sending. DigitalOcean scenario with Reserved IP.
+6. Submenu will be hidden for main left menu while rendering back office page.
+7. Widget resize improvements.
+8. Auto assignment consistency improvements.
+9. Views will use dynamic date range and not fixed.
+10. Various other fixes/improvements.
+
+execute doc/update_db/update_314.sql for update
+
 4.43v
 
 1. Embedded forms in chat now can completely hide form content on success submission.

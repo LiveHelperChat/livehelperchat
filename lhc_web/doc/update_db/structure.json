@@ -10362,6 +10362,13 @@
         "hidden": "0"
       },
       {
+        "identifier": "unban_ip_range",
+        "value": "",
+        "type": "0",
+        "explain": "Which ip should not be allowed to be blocked",
+        "hidden": "0"
+      },
+      {
         "identifier": "update_ip",
         "value": "127.0.0.1",
         "type": "0",

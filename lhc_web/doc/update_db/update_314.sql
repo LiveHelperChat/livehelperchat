@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('unban_ip_range','','0','Which ip should not be allowed to be blocked','0');

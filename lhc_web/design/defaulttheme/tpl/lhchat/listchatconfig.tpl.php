@@ -59,7 +59,10 @@
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>	
     		    
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/banned_ip_range.tpl.php'));?>
-    		    		
+
+                <?php $attribute = 'unban_ip_range'; ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
     		    <?php $attribute = 'track_online_visitors';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>		
     		    		
