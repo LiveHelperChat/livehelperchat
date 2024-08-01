@@ -8,7 +8,8 @@ $fieldsSearch['email'] = array (
     'required' => false,
     'valid_if_filled' => false,
     'filter_type' => 'filter',
-    'filter_table_field' => 'from_address',
+    'filter_sub_type' => 'email',
+    'filter_table_field' => 'from_address_clean',
     'validation_definition' => new ezcInputFormDefinitionElement (
         ezcInputFormDefinitionElement::OPTIONAL, 'string'
     )

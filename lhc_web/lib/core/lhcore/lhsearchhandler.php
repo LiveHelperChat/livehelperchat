@@ -111,7 +111,14 @@ class erLhcoreClassSearchHandler
                                 }
 
                             } else {
-                                $filter[$field['filter_type']][$field['filter_table_field']] = $inputParams->$key;
+                                if (isset($field['filter_sub_type']) && $field['filter_sub_type'] == 'email') {
+                                    $atPos = strrpos($inputParams->$key, "@");
+                                    $name =  str_replace('.','',substr($inputParams->$key, 0, $atPos));
+                                    $domain = substr($inputParams->$key, $atPos);
+                                    $filter[$field['filter_type']][$field['filter_table_field']] = $name . $domain;
+                                } else {
+                                    $filter[$field['filter_type']][$field['filter_table_field']] = $inputParams->$key;
+                                }
                             }
                         }
                     } elseif ($field['filter_type'] == 'filterin_remote') {
