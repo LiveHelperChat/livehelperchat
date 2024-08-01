@@ -95,7 +95,7 @@ if ($Params['user_parameters_unordered']['print'] == 1) {
 	$items = erLhcoreClassModelChat::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0)));
 	$tpl->set('items',$items);
 	$Result['content'] = $tpl->fetch();
-	$Result['pagelayout'] = 'popup';
+	$Result['pagelayout'] = 'print';
 	return;
 }
 

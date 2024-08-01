@@ -8,6 +8,9 @@ $messagesStats = array(
     'counter_messages' => 0,
 );
 
+$messageDateFormatDay = erLhcoreClassModule::$dateDateHourFormat;
+$messageDateFormatDayTime = erLhcoreClassModule::$dateHourFormat;
+
 foreach ($messages as $msg) :
     $msg = $msg->getState();
     $messagesStats['counter_messages']++;
@@ -22,8 +25,10 @@ foreach ($messages as $msg) :
     $lastOperatorId = $msg['user_id'];
     $lastOperatorNick = $msg['name_support'];
 
+    if ($msg['meta_msg'] == '') {
+        $msg['meta_msg'] = '{}';
+    }
 
     ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row.tpl.php'));?>
 <?php endforeach; ?>
-
