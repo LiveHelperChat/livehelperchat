@@ -57,6 +57,17 @@ class erLhcoreClassUpdate
     		}
 		}
 
+        $archives = \LiveHelperChat\Models\mailConv\Archive\Range::getList(array('ignore_fields' => array('year_month','range_from','range_to','older_than','last_id','first_id'),'offset' => 0, 'limit' => 1000000,'sort' => 'id ASC'));
+
+		if (isset($definition['tables']['lhc_mailconv_conversation']))
+		{
+    		// Update archives tables also
+    		foreach ($archives as $archive) {
+    		    $archive->setTables();
+    		    $definition['tables'][\LiveHelperChat\Models\mailConv\Archive\Range::$archiveConversationTable] = $definition['tables']['lhc_mailconv_conversation'];
+    		}
+		}
+
 		if (isset($definition['tables_collation'])){
             foreach ($definition['tables_collation'] as $table => $dataTableCollation) {
                 $tablesStatus[$table] = array('error' => false, 'status' => '', 'queries' => array());
