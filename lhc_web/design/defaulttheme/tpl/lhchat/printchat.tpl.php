@@ -3,6 +3,6 @@
 <?php $messages = erLhcoreClassModelmsg::getList(array('limit' => 1000,'sort' => 'id ASC','filter' => array('chat_id' => $chat->id))); ?>
 
     <div class="msgBlock msgBlock-admin" style="height: auto;">
-<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_obj_list_admin.tpl.php'));?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_obj_list.tpl.php'));?>
     </div>
 </div>
