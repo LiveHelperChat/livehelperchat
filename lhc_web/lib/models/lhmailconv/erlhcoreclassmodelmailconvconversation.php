@@ -80,7 +80,7 @@ class erLhcoreClassModelMailconvConversation
             $atPos = strrpos($this->from_address, "@");
             $name =  str_replace('.','',substr($this->from_address, 0, $atPos));
             $domain = substr($this->from_address, $atPos);
-            $this->from_address_clean = $name . $domain;
+            $this->from_address_clean = strtolower($name . $domain);
         }
         
         // For reverse index

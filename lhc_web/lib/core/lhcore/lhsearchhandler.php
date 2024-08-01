@@ -115,7 +115,7 @@ class erLhcoreClassSearchHandler
                                     $atPos = strrpos($inputParams->$key, "@");
                                     $name =  str_replace('.','',substr($inputParams->$key, 0, $atPos));
                                     $domain = substr($inputParams->$key, $atPos);
-                                    $filter[$field['filter_type']][$field['filter_table_field']] = $name . $domain;
+                                    $filter[$field['filter_type']][$field['filter_table_field']] = strtolower($name . $domain);
                                 } else {
                                     $filter[$field['filter_type']][$field['filter_table_field']] = $inputParams->$key;
                                 }
