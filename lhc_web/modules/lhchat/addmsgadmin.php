@@ -158,9 +158,12 @@ if (trim($form->msg) != '')
     	                }
                     }
 
-                    $Chat->last_op_msg_time = time();
+                    if (!$whisper) {
+                        $Chat->last_op_msg_time = time();
+                        $updateFields[] = 'last_op_msg_time';
+                    }
+
                     $Chat->last_msg_id = $msg->id;
-                    $updateFields[] = 'last_op_msg_time';
                     $updateFields[] = 'last_msg_id';
 
                     if (!$whisper && $Chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
