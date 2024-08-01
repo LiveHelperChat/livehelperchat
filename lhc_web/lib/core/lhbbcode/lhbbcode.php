@@ -859,6 +859,7 @@ class erLhcoreClassBBCode
 
    				if (is_object($file)) {
                     // Check that user has permission to see the chat. Let say if user purposely types file bbcode
+                    $disableZoom = false;
                     if ($hash == $file->security_hash) {
                         $fileExtension = strtolower($file->extension);
                         if (in_array($fileExtension,['jfif','jpg','jpeg','png','gif','webp'])){
@@ -871,6 +872,7 @@ class erLhcoreClassBBCode
                                     if (!isset($subpartParts[1])) {
                                         $prepend = '<a class="link" rel="noreferrer" target="_blank" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}/(inline)/true\">";
                                         $append = '</a>';
+                                        $disableZoom = true;
 
                                         if ($subpartParts[0] == 'linkdirect') {
                                             return"<a href=\"" . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>";
@@ -881,6 +883,7 @@ class erLhcoreClassBBCode
                                         if ($url != ''){
                                             $prepend = '<a class="link" rel="noreferrer" target="_blank" href="' . self::esc_url($subpartParts[1]) . '">';
                                             $append = '</a>';
+                                            $disableZoom = true;
                                         }
                                     }
                                 }
@@ -900,7 +903,7 @@ class erLhcoreClassBBCode
                             if (isset($displayType) && $displayType == 'rawimg') {
                                 return '<img onclick="lhinst.zoomImage(this)" '.$imageSizeAttr.' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
                             } else {
-                                return $prepend . '<img onclick="lhinst.zoomImage(this)" '.$imageSizeAttr.' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
+                                return $prepend . '<img ' . ($disableZoom === false ? 'onclick="lhinst.zoomImage(this)"' : '') . $imageSizeAttr . ' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
                             }
                         }
 

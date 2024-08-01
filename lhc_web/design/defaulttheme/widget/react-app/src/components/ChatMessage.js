@@ -154,7 +154,11 @@ class ChatMessage extends PureComponent {
                 console.log('Unknown click event: ' + attrs.onclick);
             }
         }
-        e.preventDefault();
+
+        // Process clicks on IMG always and any tag with class process-click
+        if (e.target.tagName !== 'IMG' && (!attrs.class || attrs.class.indexOf('process-click') === -1)) {
+            e.preventDefault();
+        }
 
         // Why did we previously auto focused on button click?
         // It just makes a screen smaller and is bad for UI
