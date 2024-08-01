@@ -443,6 +443,7 @@ class erLhAbstractModelWidgetTheme {
         $config = erConfigClassLhConfig::getInstance();
         $chatLocaleFallback = $config->getDirLanguage('content_language');
         $defaultSiteAccess = $config->getSetting( 'site', 'default_site_access',false);
+        $defaultSiteAccessList = $config->getSetting( 'site', 'default_site_access_list',false);
         $chatLocale = erLhcoreClassChatValidator::getVisitorLocale();
         $siteAccess = erLhcoreClassSystem::instance()->SiteAccess;
 
@@ -533,7 +534,7 @@ class erLhAbstractModelWidgetTheme {
                 }
             }
 
-            if ($translated === false && !empty($defaultSiteAccess) && $siteAccess !== $defaultSiteAccess) {
+            if ($translated === false && !empty($defaultSiteAccess) && $siteAccess !== $defaultSiteAccess && (empty($defaultSiteAccessList) || !in_array($siteAccess,$defaultSiteAccessList))) {
                 if (in_array($attr,$attributesDirect)) {
                     $this->$attr = '';
                 } elseif (isset($attributes[$attr])) {
