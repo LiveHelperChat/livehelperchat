@@ -185,7 +185,7 @@ class erLhcoreClassUpdate
 						$status[] = "[{$columnDesired['field']}] column was not found";
 						
 						$default = '';
-						if ($columnDesired['default'] != null){
+						if ($columnDesired['default'] !== null) {
 							$default = " DEFAULT '{$columnDesired['default']}'";
 						}
 								

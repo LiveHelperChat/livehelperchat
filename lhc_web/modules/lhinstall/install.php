@@ -2557,7 +2557,7 @@ try {
   `priority_asc` int(11) NOT NULL DEFAULT 0,
   `from_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `from_address` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `from_address_clean` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `from_address_clean` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `lang` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_message_id` bigint(20) unsigned NOT NULL,
