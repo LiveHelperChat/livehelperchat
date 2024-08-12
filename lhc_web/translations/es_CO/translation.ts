@@ -6,6 +6,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Qué tanto debemos esperar antes de informar al operador sobre un chat no respondido</translation>
     </message>
@@ -601,6 +609,10 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
+    <message>
+      <source>Auto responders with lowest values will be applied first</source>
+      <translation>Los autorespondedores con valores más bajos se aplicarán primero</translation>
+    </message>
     <message>
       <source>Welcome message</source>
       <translation>mensaje de bienvenida</translation>
@@ -1230,6 +1242,10 @@
       <translation>Imagen personalizada 5</translation>
     </message>
     <message>
+      <source>Do not show default content on success form submit.</source>
+      <translation>No mostrar el contenido por defecto al enviar el formulario.</translation>
+    </message>
+    <message>
       <source>Disabled</source>
       <translation>Desactivado</translation>
     </message>
@@ -1352,6 +1368,14 @@
     <message>
       <source>Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.</source>
       <translation>Usar nueva apariencia de widget para código antiguo.</translation>
+    </message>
+    <message>
+      <source>Enable drag and drop for status widget</source>
+      <translation>Activar la función de arrastrar y soltar para el widget de estado</translation>
+    </message>
+    <message>
+      <source>Animate need help position change after status widget position was changed</source>
+      <translation>Animar el cambio de posición de need help después de cambiar la posición del widget de estado</translation>
     </message>
     <message>
       <source>Need help standard text</source>
@@ -1986,6 +2010,22 @@
       <translation>Nuevo color de fondo del mensaje</translation>
     </message>
     <message>
+      <source>Reaction to visitor message bubble background color</source>
+      <translation>Reacción al color de fondo de la burbuja de mensaje del visitante</translation>
+    </message>
+    <message>
+      <source>Reaction to visitor message bubble icon color</source>
+      <translation>Reacción al color del icono de la burbuja de mensaje del visitante</translation>
+    </message>
+    <message>
+      <source>Reaction to operator message bubble background color</source>
+      <translation>Reacción al color de fondo de la burbuja de mensajes del operador</translation>
+    </message>
+    <message>
+      <source>Reaction to operator message bubble icon color</source>
+      <translation>Reacción al color del icono de la burbuja de mensajes del operador</translation>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation>Temas del widget</translation>
     </message>
@@ -2377,6 +2417,10 @@
       <translation>Tipo de variable</translation>
     </message>
     <message>
+      <source>Content field to extract. You can access JWT token content field.</source>
+      <translation>Campo de contenido a extraer. Puede acceder al campo de contenido del token JWT.</translation>
+    </message>
+    <message>
       <source>Default message</source>
       <translation>Mensaje predeterminado</translation>
     </message>
@@ -2675,6 +2719,10 @@
     <message>
       <source>Website cookie</source>
       <translation>Cookie de sitio web</translation>
+    </message>
+    <message>
+      <source>JWT Token content field</source>
+      <translation>Campo de contenido del token JWT</translation>
     </message>
     <message>
       <source>Chat variables</source>
@@ -4679,6 +4727,46 @@
       <translation>Chats abandonados</translation>
     </message>
     <message>
+      <source>previous month</source>
+      <translation>mes anterior</translation>
+    </message>
+    <message>
+      <source>last 7 days</source>
+      <translation>últimos 7 días</translation>
+    </message>
+    <message>
+      <source>last 2 days</source>
+      <translation>últimos 2 días</translation>
+    </message>
+    <message>
+      <source>last 15 days</source>
+      <translation>últimos 15 días</translation>
+    </message>
+    <message>
+      <source>last 30 days</source>
+      <translation>últimos 30 días</translation>
+    </message>
+    <message>
+      <source>yesterday</source>
+      <translation>ayer</translation>
+    </message>
+    <message>
+      <source>this week</source>
+      <translation>esta semana</translation>
+    </message>
+    <message>
+      <source>this month</source>
+      <translation>este mes</translation>
+    </message>
+    <message>
+      <source>today</source>
+      <translation>hoy</translation>
+    </message>
+    <message>
+      <source>previous week</source>
+      <translation>semana anterior</translation>
+    </message>
+    <message>
       <source>Dropped chat</source>
       <translation>Chat abandonado</translation>
     </message>
@@ -5475,6 +5563,10 @@
       <translation>Sólo operadores que estuvieron en línea durante el periodo seleccionado</translation>
     </message>
     <message>
+      <source>Exclude deactivated operators</source>
+      <translation>Excluir operadores desactivados</translation>
+    </message>
+    <message>
       <source>Agent</source>
       <translation>Agente</translation>
     </message>
@@ -5651,6 +5743,10 @@
       <translation>Incluye horas (desde, a)</translation>
     </message>
     <message>
+      <source>Hour</source>
+      <translation>Hora</translation>
+    </message>
+    <message>
       <source>Group results by operator</source>
       <translation>Resultado de grupo por asesor</translation>
     </message>
@@ -5737,6 +5833,54 @@
     <message>
       <source>Go to my views</source>
       <translation>Ir a mis vistas</translation>
+    </message>
+    <message>
+      <source>Date range filter</source>
+      <translation>Filtro de intervalo de fechas</translation>
+    </message>
+    <message>
+      <source>My defined date range</source>
+      <translation>Mi intervalo de fechas definido</translation>
+    </message>
+    <message>
+      <source>Today</source>
+      <translation>Hoy</translation>
+    </message>
+    <message>
+      <source>Yesterday</source>
+      <translation>Ayer</translation>
+    </message>
+    <message>
+      <source>Last 2 days</source>
+      <translation>Últimos 2 días</translation>
+    </message>
+    <message>
+      <source>Last 7 days</source>
+      <translation>Últimos 7 días</translation>
+    </message>
+    <message>
+      <source>Last 15 days</source>
+      <translation>Últimos 15 días</translation>
+    </message>
+    <message>
+      <source>Last 30 days</source>
+      <translation>Últimos 30 días</translation>
+    </message>
+    <message>
+      <source>This week</source>
+      <translation>Esta semana</translation>
+    </message>
+    <message>
+      <source>This month</source>
+      <translation>Este mes</translation>
+    </message>
+    <message>
+      <source>Previous week</source>
+      <translation>Semana anterior</translation>
+    </message>
+    <message>
+      <source>Previous month</source>
+      <translation>Mes anterior</translation>
     </message>
     <message>
       <source>Include records from the past</source>
@@ -7337,7 +7481,7 @@
     </message>
     <message>
       <source>There was a problem sending your request. Please try again later!</source>
-      <translation type="unfinished"/>
+      <translation>Ha habido un problema al enviar su solicitud. Vuelva a intentarlo más tarde.</translation>
     </message>
   </context>
   <context>
@@ -10166,6 +10310,10 @@
       <translation>Usuario en línea</translation>
     </message>
     <message>
+      <source>Sender E-mail</source>
+      <translation>Correo electrónico del remitente</translation>
+    </message>
+    <message>
       <source>Remove block</source>
       <translation>Retirar bloqueo</translation>
     </message>
@@ -10176,6 +10324,10 @@
     <message>
       <source>Bocked by</source>
       <translation>Bloqueado por</translation>
+    </message>
+    <message>
+      <source>Sender e-mail</source>
+      <translation>Correo electrónico del remitente</translation>
     </message>
     <message>
       <source>Expires</source>
@@ -10194,6 +10346,10 @@
       <translation>Usuario en línea (cookie)</translation>
     </message>
     <message>
+      <source>day (cool off)</source>
+      <translation>día (refrescarse)</translation>
+    </message>
+    <message>
       <source>days (cool off)</source>
       <translation>días (enfriamiento)</translation>
     </message>
@@ -10208,6 +10364,10 @@
     <message>
       <source>Blocked users</source>
       <translation>Usuarios bloqueados</translation>
+    </message>
+    <message>
+      <source>Block sender</source>
+      <translation>Bloquear remitente</translation>
     </message>
     <message>
       <source>Please enter an IP to block</source>
@@ -10236,6 +10396,10 @@
     <message>
       <source>Visitor was blocked!</source>
       <translation>¡Visitante bloqueado!</translation>
+    </message>
+    <message>
+      <source>Sender was blocked!</source>
+      <translation>¡El remitente ha sido bloqueado!</translation>
     </message>
   </context>
   <context>
@@ -13566,15 +13730,15 @@
     </message>
     <message>
       <source>You can test notification by entering chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Puedes probar la notificación introduciendo el ID del chat</translation>
     </message>
     <message>
       <source>Test notification</source>
-      <translation type="unfinished"/>
+      <translation>Notificación de prueba</translation>
     </message>
     <message>
       <source>If you do not see a notification after a click it means your settings are not correct, or you do not allow notifications.</source>
-      <translation type="unfinished"/>
+      <translation>Si no ves una notificación después de hacer clic, significa que tu configuración no es correcta o que no permites las notificaciones.</translation>
     </message>
     <message>
       <source>Show notification only if I am an owner pending chat</source>
@@ -18075,6 +18239,14 @@
       <translation>Mensajes anteriores</translation>
     </message>
     <message>
+      <source>Block sender</source>
+      <translation>Bloquear remitente</translation>
+    </message>
+    <message>
+      <source>Sender is blocked!</source>
+      <translation>El remitente está bloqueado.</translation>
+    </message>
+    <message>
       <source>Active</source>
       <translation>Activo</translation>
     </message>
@@ -18355,6 +18527,10 @@
     <message>
       <source>Skip message, messages will not be imported</source>
       <translation>Omitir mensaje, los mensajes no se importarán</translation>
+    </message>
+    <message>
+      <source>Matching rule applies to blocked e-mails</source>
+      <translation>La regla de concordancia se aplica a los correos electrónicos bloqueados</translation>
     </message>
     <message>
       <source>Choose all mailbox</source>
@@ -18755,6 +18931,14 @@
     <message>
       <source>Show integration information.</source>
       <translation>Muestra información de integración.</translation>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation>Sí</translation>
+    </message>
+    <message>
+      <source>No, uploaded files types might not be detected correctly!</source>
+      <translation>No, es posible que los tipos de archivos cargados no se detecten correctamente.</translation>
     </message>
     <message>
       <source>Main attributes</source>
@@ -20821,6 +21005,22 @@
     <message>
       <source>Settings</source>
       <translation>Ajustes</translation>
+    </message>
+    <message>
+      <source>Ignore operators online statuses and use departments online hours.</source>
+      <translation>Ignore los estados en línea de los operadores y utilice las horas en línea de los departamentos.</translation>
+    </message>
+    <message>
+      <source>For all departments.</source>
+      <translation>Para todos los departamentos.</translation>
+    </message>
+    <message>
+      <source>Only for this department.</source>
+      <translation>Sólo para este departamento.</translation>
+    </message>
+    <message>
+      <source>This is a global setting and is set for the all departments.</source>
+      <translation>Esta es una configuración global y se establece para todos los departamentos.</translation>
     </message>
   </context>
   <context>

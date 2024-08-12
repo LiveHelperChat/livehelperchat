@@ -6,6 +6,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -601,6 +609,10 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
+    <message>
+      <source>Auto responders with lowest values will be applied first</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Welcome message</source>
       <translation>歡迎信息</translation>
@@ -1230,6 +1242,10 @@
       <translation>自訂圖片5</translation>
     </message>
     <message>
+      <source>Do not show default content on success form submit.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disabled</source>
       <translation>已禁用</translation>
     </message>
@@ -1352,6 +1368,14 @@
     <message>
       <source>Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.</source>
       <translation>使用新的小部件外觀查找舊的嵌入代碼。 如果您不能輕易更改舊的嵌入代碼，則可以強制系統仍然加載新的小部件。</translation>
+    </message>
+    <message>
+      <source>Enable drag and drop for status widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Animate need help position change after status widget position was changed</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Need help standard text</source>
@@ -1986,6 +2010,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Reaction to visitor message bubble background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reaction to visitor message bubble icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reaction to operator message bubble background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reaction to operator message bubble icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation>Widget 主題</translation>
     </message>
@@ -2377,6 +2417,10 @@
       <translation>變量類型</translation>
     </message>
     <message>
+      <source>Content field to extract. You can access JWT token content field.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default message</source>
       <translation>預設信息</translation>
     </message>
@@ -2674,6 +2718,10 @@
     </message>
     <message>
       <source>Website cookie</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>JWT Token content field</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4679,6 +4727,46 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>previous month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last 7 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last 2 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last 15 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last 30 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>yesterday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>this week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>this month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>today</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>previous week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Dropped chat</source>
       <translation type="unfinished"/>
     </message>
@@ -5475,6 +5563,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Exclude deactivated operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Agent</source>
       <translation>代理</translation>
     </message>
@@ -5651,6 +5743,10 @@
       <translation>包括小時（從，到）</translation>
     </message>
     <message>
+      <source>Hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Group results by operator</source>
       <translation>結果按客服人員分組</translation>
     </message>
@@ -5736,6 +5832,54 @@
     </message>
     <message>
       <source>Go to my views</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range filter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>My defined date range</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Today</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yesterday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 2 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 7 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 15 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 30 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous month</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10166,6 +10310,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Sender E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Remove block</source>
       <translation>解除封鎖</translation>
     </message>
@@ -10175,6 +10323,10 @@
     </message>
     <message>
       <source>Bocked by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender e-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10194,6 +10346,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>day (cool off)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>days (cool off)</source>
       <translation type="unfinished"/>
     </message>
@@ -10208,6 +10364,10 @@
     <message>
       <source>Blocked users</source>
       <translation>被封鎖的訪客</translation>
+    </message>
+    <message>
+      <source>Block sender</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter an IP to block</source>
@@ -10235,6 +10395,10 @@
     </message>
     <message>
       <source>Visitor was blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender was blocked!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -18075,6 +18239,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Block sender</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender is blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active</source>
       <translation type="unfinished"/>
     </message>
@@ -18354,6 +18526,10 @@
     </message>
     <message>
       <source>Skip message, messages will not be imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matching rule applies to blocked e-mails</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18754,6 +18930,14 @@
     </message>
     <message>
       <source>Show integration information.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No, uploaded files types might not be detected correctly!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -20820,6 +21004,22 @@
     <name>lhsystem/singlesetting</name>
     <message>
       <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ignore operators online statuses and use departments online hours.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For all departments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only for this department.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is a global setting and is set for the all departments.</source>
       <translation type="unfinished"/>
     </message>
   </context>

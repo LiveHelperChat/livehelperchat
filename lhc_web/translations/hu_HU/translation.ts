@@ -6,6 +6,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Mennyi idő elteltével kapjon az operátor értesítést egy megválaszolatlan üzenetről?</translation>
     </message>
@@ -155,7 +163,7 @@
     </message>
     <message>
       <source>On chat close exit chat</source>
-      <translation>A beszélgetés bezárásakor kilépés a beszélgetésből</translation>
+      <translation>Egy beszélgetés bezárásakor kilépés a beszélgetésből</translation>
     </message>
     <message>
       <source/>
@@ -235,7 +243,7 @@
     </message>
     <message>
       <source>Hide close button in dropdown</source>
-      <translation>A lezárás gomb elrejtése a legördülő menüben</translation>
+      <translation>A bezárás gomb elrejtése legördülő menüben</translation>
     </message>
     <message>
       <source>Home page tabs order</source>
@@ -247,7 +255,7 @@
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation>Meg kell adnia a látogatónak e-mail címet a GYIK-hez?</translation>
+      <translation>Meg kell adniuk a látogatóknak e-mail-címet a GYIK-hez?</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
@@ -596,11 +604,15 @@
     </message>
     <message>
       <source>Please choose atleast one department!</source>
-      <translation>Kérjük, válassz legalább egy részleget!</translation>
+      <translation>Kérjük, válassz legalább egy részleget</translation>
     </message>
   </context>
   <context>
     <name>abstract/widgettheme</name>
+    <message>
+      <source>Auto responders with lowest values will be applied first</source>
+      <translation>A legalacsonyabb értékű automatikus válaszokat alkalmazza először a rendszer</translation>
+    </message>
     <message>
       <source>Welcome message</source>
       <translation>Üdvözlő üzenet</translation>
@@ -1230,6 +1242,10 @@
       <translation>5. egyéni kép</translation>
     </message>
     <message>
+      <source>Do not show default content on success form submit.</source>
+      <translation>Ne jelenjen meg az alapértelmezett tartalom az űrlap sikeres elküldése után</translation>
+    </message>
+    <message>
       <source>Disabled</source>
       <translation>Letiltva</translation>
     </message>
@@ -1263,7 +1279,7 @@
     </message>
     <message>
       <source>Stars field Nr. (1-5)</source>
-      <translation>A kapcsolódó „csillagok engedélyezése”-sorszám (1–5)</translation>
+      <translation>A kapcsolódó „csillagozás engedélyezése”-sorszám (1–5)</translation>
     </message>
     <message>
       <source>If more than one theme is passed, randomly chosen theme is fixed for selected period of time.</source>
@@ -1352,6 +1368,14 @@
     <message>
       <source>Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.</source>
       <translation>Új widget használata a régi beágyazási kódokhoz. Ha nem egykönnyen módosítható egy régi beágyazási kód, akkor kényszerítheted a rendszert, hogy az új widgetet töltse be</translation>
+    </message>
+    <message>
+      <source>Enable drag and drop for status widget</source>
+      <translation>„Fogd és vidd” engedélyezése az állapot-widgetnél</translation>
+    </message>
+    <message>
+      <source>Animate need help position change after status widget position was changed</source>
+      <translation>A „Segíthetünk?” elem pozícióváltásának animálása az állapot-widget helyének megváltozásakor</translation>
     </message>
     <message>
       <source>Need help standard text</source>
@@ -1986,6 +2010,22 @@
       <translation>Az új üzenetek jelzőjének háttérszíne</translation>
     </message>
     <message>
+      <source>Reaction to visitor message bubble background color</source>
+      <translation>A látogatói üzenetre reagálás buborékjának háttérszíne</translation>
+    </message>
+    <message>
+      <source>Reaction to visitor message bubble icon color</source>
+      <translation>A látogatói üzenetre reagálás buborékjában lévő ikon színe</translation>
+    </message>
+    <message>
+      <source>Reaction to operator message bubble background color</source>
+      <translation>Az operátori üzenetre reagálás buborékjának háttérszíne</translation>
+    </message>
+    <message>
+      <source>Reaction to operator message bubble icon color</source>
+      <translation>Az operátori üzenetre reagálás buborékjában lévő ikon színe</translation>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation>Widget-témák</translation>
     </message>
@@ -2377,6 +2417,10 @@
       <translation>Változó típusa</translation>
     </message>
     <message>
+      <source>Content field to extract. You can access JWT token content field.</source>
+      <translation>Kivonatolandó tartalommező. Hozzáférhetsz a JWT token tartalommezőjéhez</translation>
+    </message>
+    <message>
       <source>Default message</source>
       <translation>Alapértelmezett üzenet</translation>
     </message>
@@ -2677,8 +2721,12 @@
       <translation>Webhelysüti</translation>
     </message>
     <message>
+      <source>JWT Token content field</source>
+      <translation>A JWT token tartalommezője</translation>
+    </message>
+    <message>
       <source>Chat variables</source>
-      <translation>Beszélgetési változók</translation>
+      <translation>Beszélgetésváltozók</translation>
     </message>
     <message>
       <source>Pro active chat campaigns</source>
@@ -3132,7 +3180,7 @@
     </message>
     <message>
       <source>You cannot modify canned messages for the departments you are not assigned to!</source>
-      <translation>Nem módosíthatod azoknak a részlegeknek az üzenetsablonjait, amelyekbe nem tartozol bele!</translation>
+      <translation>Nem módosíthatod azoknak a részlegeknek az üzenetsablonjait, amelyekbe nem tartozol bele</translation>
     </message>
     <message>
       <source>Please enter language name!</source>
@@ -3148,7 +3196,7 @@
     </message>
     <message>
       <source>🔍 Navigate with ⮃ and ↵ Enter. Esc to quit.</source>
-      <translation>🔍 Navigálás: ⮃ (fel-le), majd   (Enter) • Kilépés: Esc</translation>
+      <translation>🔍 Navigálás: ⮃ (fel-le), majd ↲ (Enter) • Kilépés: Esc</translation>
     </message>
     <message>
       <source>Send instantly</source>
@@ -4249,7 +4297,7 @@
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation>Használatai feltételek elfogadására szolgáló jelölőnégyzet</translation>
+      <translation>A használati feltételek elfogadására szolgáló jelölőnégyzet</translation>
     </message>
     <message>
       <source>Checked by default</source>
@@ -4425,7 +4473,7 @@
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
-      <translation>Kérjük, legalább egy 40 karakter hosszú titkosítási kulcsot adj meg!</translation>
+      <translation>Kérjük, legalább egy 40 karakter hosszú titkosítási kulcsot adj meg</translation>
     </message>
     <message>
       <source>Copy of Default</source>
@@ -4512,7 +4560,7 @@
     </message>
     <message>
       <source>Debug chat attributes</source>
-      <translation>Hibakeresés a chattulajdonságokban</translation>
+      <translation>Hibakeresés a beszélgetési tulajdonságokban</translation>
     </message>
     <message>
       <source>Export</source>
@@ -4679,6 +4727,46 @@
       <translation>Elhagyott beszélgetések</translation>
     </message>
     <message>
+      <source>previous month</source>
+      <translation>az előző hónap</translation>
+    </message>
+    <message>
+      <source>last 7 days</source>
+      <translation>az elmúlt 7 nap</translation>
+    </message>
+    <message>
+      <source>last 2 days</source>
+      <translation>az elmúlt 2 nap</translation>
+    </message>
+    <message>
+      <source>last 15 days</source>
+      <translation>az elmúlt 15 nap</translation>
+    </message>
+    <message>
+      <source>last 30 days</source>
+      <translation>az elmúlt 30 nap</translation>
+    </message>
+    <message>
+      <source>yesterday</source>
+      <translation>tegnap</translation>
+    </message>
+    <message>
+      <source>this week</source>
+      <translation>ez a hét</translation>
+    </message>
+    <message>
+      <source>this month</source>
+      <translation>ez a hónap</translation>
+    </message>
+    <message>
+      <source>today</source>
+      <translation>a mai nap</translation>
+    </message>
+    <message>
+      <source>previous week</source>
+      <translation>az előző hét</translation>
+    </message>
+    <message>
       <source>Dropped chat</source>
       <translation>Eldobott beszélgetések</translation>
     </message>
@@ -4704,7 +4792,7 @@
     </message>
     <message>
       <source>Chat ID</source>
-      <translation>Beszélgetésazon.</translation>
+      <translation>Besz. azon.</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -4740,7 +4828,7 @@
     </message>
     <message>
       <source>Any</source>
-      <translation>Bármely</translation>
+      <translation>Bármelyik</translation>
     </message>
     <message>
       <source>Not Voted</source>
@@ -4796,7 +4884,7 @@
     </message>
     <message>
       <source>Proactive invitation</source>
-      <translation>Proaktív meghívás</translation>
+      <translation>Proaktív meghívó</translation>
     </message>
     <message>
       <source>Bot</source>
@@ -4956,7 +5044,7 @@
     </message>
     <message>
       <source>Reset</source>
-      <translation>Vissza</translation>
+      <translation>Visszaállítás</translation>
     </message>
     <message>
       <source>Choose status</source>
@@ -5475,6 +5563,10 @@
       <translation>Csak azok az operátorok, akik a kiválasztott időszakban online elérhetők voltak</translation>
     </message>
     <message>
+      <source>Exclude deactivated operators</source>
+      <translation>Az inaktív operátorok kihagyása</translation>
+    </message>
+    <message>
       <source>Agent</source>
       <translation>Ügynök</translation>
     </message>
@@ -5651,6 +5743,10 @@
       <translation>Belefoglalandó időszak (kezdő és befejező óra)</translation>
     </message>
     <message>
+      <source>Hour</source>
+      <translation>Óra</translation>
+    </message>
+    <message>
       <source>Group results by operator</source>
       <translation>Eredmények csoportosítása operátoronként</translation>
     </message>
@@ -5737,6 +5833,54 @@
     <message>
       <source>Go to my views</source>
       <translation>Tovább az Áttekintéseimhez</translation>
+    </message>
+    <message>
+      <source>Date range filter</source>
+      <translation>Dátumtartomány szűrése</translation>
+    </message>
+    <message>
+      <source>My defined date range</source>
+      <translation>Általam meghatározott dátumtartomány</translation>
+    </message>
+    <message>
+      <source>Today</source>
+      <translation>A mai nap</translation>
+    </message>
+    <message>
+      <source>Yesterday</source>
+      <translation>Tegnap</translation>
+    </message>
+    <message>
+      <source>Last 2 days</source>
+      <translation>Az elmúlt 2 nap</translation>
+    </message>
+    <message>
+      <source>Last 7 days</source>
+      <translation>Az elmúlt 7 nap</translation>
+    </message>
+    <message>
+      <source>Last 15 days</source>
+      <translation>Az elmúlt 15 nap</translation>
+    </message>
+    <message>
+      <source>Last 30 days</source>
+      <translation>Az elmúlt 30 nap</translation>
+    </message>
+    <message>
+      <source>This week</source>
+      <translation>Ez a hét</translation>
+    </message>
+    <message>
+      <source>This month</source>
+      <translation>Ez a hónap</translation>
+    </message>
+    <message>
+      <source>Previous week</source>
+      <translation>Az előző hét</translation>
+    </message>
+    <message>
+      <source>Previous month</source>
+      <translation>Az előző hónap</translation>
     </message>
     <message>
       <source>Include records from the past</source>
@@ -6111,11 +6255,11 @@
     </message>
     <message>
       <source>This mailbox was already added!</source>
-      <translation>Ez a postafiók már fel lett véve!</translation>
+      <translation>Ez a postafiók már fel lett véve</translation>
     </message>
     <message>
       <source>Please choose mailbox and user!</source>
-      <translation>Kérjük, válassz postafiókot és felhasználót!</translation>
+      <translation>Kérjük, válassz postafiókot és felhasználót</translation>
     </message>
     <message>
       <source>Personal Mailbox Rules</source>
@@ -6577,7 +6721,7 @@
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation>Alkalmazás alapértelmezett időzónája</translation>
+      <translation>Az alkalmazás alapértelmezett időzónája:</translation>
     </message>
     <message>
       <source>Wrong email address</source>
@@ -6702,15 +6846,15 @@
     </message>
     <message>
       <source>Enable stars</source>
-      <translation>Csillagok engedélyezése</translation>
+      <translation>csillagozás engedélyezése</translation>
     </message>
     <message>
       <source>Enable question</source>
-      <translation>Kérdés engedélyezése</translation>
+      <translation>kérdésfeltevés engedélyezése</translation>
     </message>
     <message>
       <source>Enable question with an answers</source>
-      <translation>Kérdés engedélyezése válasszal</translation>
+      <translation>kérdésfeltevés engedélyezése (válasszal)</translation>
     </message>
   </context>
   <context>
@@ -6725,7 +6869,7 @@
     </message>
     <message>
       <source>New message!</source>
-      <translation>Új üzenet!</translation>
+      <translation>Új üzenet</translation>
     </message>
     <message>
       <source>Chat is currently unavailable</source>
@@ -7337,7 +7481,7 @@
     </message>
     <message>
       <source>There was a problem sending your request. Please try again later!</source>
-      <translation>Probléma történt a kérése elküldésekor. Kérjük, próbálja meg később!</translation>
+      <translation>Probléma történt a kérése elküldésekor. Kérjük, próbálja meg később</translation>
     </message>
   </context>
   <context>
@@ -8434,7 +8578,7 @@
     </message>
     <message>
       <source>Returning visitor, visits in total</source>
-      <translation>Visszatérő látogató esetén a látogatások száma</translation>
+      <translation>Visszatérő látogató esetén a látogatások száma:</translation>
     </message>
   </context>
   <context>
@@ -8718,7 +8862,7 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Függőben lévő chatek</translation>
+      <translation>Függőben lévő beszélgetések</translation>
     </message>
     <message>
       <source>Inactive chats</source>
@@ -8876,7 +9020,7 @@
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Beszélgetés bezárása…</translation>
+      <translation>Beszélgetés lezárása…</translation>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -9032,7 +9176,7 @@
     </message>
     <message>
       <source>Chat owner</source>
-      <translation>Beszélgetés tulajdonosa</translation>
+      <translation>A beszélgetés tulajdonosa</translation>
     </message>
     <message>
       <source>Operator chats during this conversations.</source>
@@ -9372,7 +9516,7 @@
     </message>
     <message>
       <source>Are you sure you want to delete this item?</source>
-      <translation>Biztos, hogy törölni szeretnéd ezt az elemet?</translation>
+      <translation>Biztos, hogy törölni szeretnéd?</translation>
     </message>
     <message>
       <source>Mobile</source>
@@ -9404,7 +9548,7 @@
     </message>
     <message>
       <source>has accepted the chat!</source>
-      <translation>elfogadta a chat felkérést!</translation>
+      <translation>elfogadta a beszélgetést</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -9608,11 +9752,11 @@
     </message>
     <message>
       <source>File is not UTF-8 encoded!</source>
-      <translation>A fájl nem UTF-8-kódolású!</translation>
+      <translation>A fájl nem UTF-8-kódolású</translation>
     </message>
     <message>
       <source>Expected columns does not match!</source>
-      <translation>A kapott oszlopok nem egyeznek a vártakkal!</translation>
+      <translation>A kapott oszlopok nem egyeznek a vártakkal</translation>
     </message>
     <message>
       <source>Invalid file format</source>
@@ -9620,7 +9764,7 @@
     </message>
     <message>
       <source>Please choose at-least one mailing list!</source>
-      <translation>Kérjük, válassz legalább egy levelezőlistát!</translation>
+      <translation>Kérjük, válassz legalább egy levelezőlistát</translation>
     </message>
     <message>
       <source>Missing CSRF Token!!</source>
@@ -9787,7 +9931,7 @@
     </message>
     <message>
       <source>Join as</source>
-      <translation>Csatlakozás a fentiként</translation>
+      <translation>Csatlakozás a kiválasztás szerint</translation>
     </message>
     <message>
       <source>This chat was closed. You can not write messages anymore.</source>
@@ -10166,6 +10310,10 @@
       <translation>Online felhasználó</translation>
     </message>
     <message>
+      <source>Sender E-mail</source>
+      <translation>A feladó e-mail-címe</translation>
+    </message>
+    <message>
       <source>Remove block</source>
       <translation>Korlátozás feloldása</translation>
     </message>
@@ -10176,6 +10324,10 @@
     <message>
       <source>Bocked by</source>
       <translation>Korlátozta:</translation>
+    </message>
+    <message>
+      <source>Sender e-mail</source>
+      <translation>A feladó e-mail-címe</translation>
     </message>
     <message>
       <source>Expires</source>
@@ -10194,6 +10346,10 @@
       <translation>Online felhasználó (süti)</translation>
     </message>
     <message>
+      <source>day (cool off)</source>
+      <translation>nap (lehiggadási idő)</translation>
+    </message>
+    <message>
       <source>days (cool off)</source>
       <translation>nap (lehiggadási idő)</translation>
     </message>
@@ -10208,6 +10364,10 @@
     <message>
       <source>Blocked users</source>
       <translation>Korlátozott felhasználók</translation>
+    </message>
+    <message>
+      <source>Block sender</source>
+      <translation>Feladó korlátozása</translation>
     </message>
     <message>
       <source>Please enter an IP to block</source>
@@ -10236,6 +10396,10 @@
     <message>
       <source>Visitor was blocked!</source>
       <translation>A látogató korlátozva</translation>
+    </message>
+    <message>
+      <source>Sender was blocked!</source>
+      <translation>A feladó korlátozva</translation>
     </message>
   </context>
   <context>
@@ -10474,7 +10638,7 @@
     </message>
     <message>
       <source>Automatically accept assigned chats</source>
-      <translation>A hozzám rendelt beszélgetések automatikus elfogadása</translation>
+      <translation>A felhasználóhoz rendelt beszélgetések automatikus elfogadása</translation>
     </message>
     <message>
       <source>Auto join private chats</source>
@@ -10486,15 +10650,15 @@
     </message>
     <message>
       <source>Remove my closed chats from opened chat list on page refresh</source>
-      <translation>A lezárt beszélgetéseim eltávolítása a megnyitott beszélgetések listájáról oldalfrissítéskor</translation>
+      <translation>A felhasználó lezárt beszélgetéseinek eltávolítása a megnyitott beszélgetések listájáról oldalfrissítéskor</translation>
     </message>
     <message>
       <source>Include not only my chats</source>
-      <translation>Nem csak az én beszélgetéseimet beleértve</translation>
+      <translation>Nem csak a felhasználó beszélgetéseit beleértve</translation>
     </message>
     <message>
       <source>Other operators chats also will be closed on page refresh</source>
-      <translation>Más operátorok beszélgetései is le legyenek zárva oldalfrissítésekor</translation>
+      <translation>Más operátorok beszélgetései is le lesznek zárva oldalfrissítéskor</translation>
     </message>
     <message>
       <source>How much time has to be passed after chat close before chat is removed. Time in minutes.</source>
@@ -10506,7 +10670,7 @@
     </message>
     <message>
       <source>Auto preload previous visitor chat messages</source>
-      <translation>Az előző látogató (beszélgetési) üzeneteinek automatikus előtöltése</translation>
+      <translation>Az előző látogató üzeneteinek automatikus előtöltése</translation>
     </message>
     <message>
       <source>Default number of rows for chat text area</source>
@@ -10698,7 +10862,7 @@
     </message>
     <message>
       <source>Department assignment could not be found!</source>
-      <translation>Nem található részleghez rendelés!</translation>
+      <translation>Nem található részleghez rendelés</translation>
     </message>
     <message>
       <source>Created</source>
@@ -10777,7 +10941,7 @@
     </message>
     <message>
       <source>Choose for what icons we should show notification.</source>
-      <translation>Válassza ki, milyen figyelmeztető ikonokat szeretne használni.</translation>
+      <translation>Válaszd ki, milyen figyelmeztető ikonokat szeretnél használni</translation>
     </message>
     <message>
       <source>Choose what icons you want to exclude from the list.</source>
@@ -10869,7 +11033,7 @@
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation>Az aktív és függőben lévő beszélgetéseim</translation>
+      <translation>Az aktív és függő beszélgetéseim</translation>
     </message>
     <message>
       <source>Bot chats</source>
@@ -10932,7 +11096,7 @@
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation>Az aktív és függőben lévő beszélgetéseim</translation>
+      <translation>Az aktív és függő beszélgetéseim</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -11072,7 +11236,7 @@
     </message>
     <message>
       <source>Bot chats</source>
-      <translation>Bot chatek</translation>
+      <translation>Bottal folytatott beszélgetések</translation>
     </message>
     <message>
       <source>Departments stats</source>
@@ -11180,7 +11344,7 @@
     </message>
     <message>
       <source>New chat has been transferred to you directly!</source>
-      <translation>Egy új beszélgetés lett közvetlenül Neked átadva!</translation>
+      <translation>Egy új beszélgetés lett közvetlenül Neked átadva</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -12433,7 +12597,7 @@
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation>Az aktív és függőben lévő beszélgetéseim</translation>
+      <translation>Az aktív és függő beszélgetéseim</translation>
     </message>
     <message>
       <source>Unread messages</source>
@@ -12646,11 +12810,11 @@
     </message>
     <message>
       <source>New message!</source>
-      <translation>Új üzenet!</translation>
+      <translation>Új üzenet</translation>
     </message>
     <message>
       <source>New messages!</source>
-      <translation>Új üzenetek!</translation>
+      <translation>Új üzenetek</translation>
     </message>
     <message>
       <source>↓ Scroll to the bottom</source>
@@ -12773,7 +12937,7 @@
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat or chat was merged/deleted!</source>
-      <translation>Nincs hozzáférési jogosultságod az aktuális beszélgetéshez, vagy pedig a beszélgetést összevonták, esetleg törölték!</translation>
+      <translation>Nincs hozzáférési jogosultságod az aktuális beszélgetéshez, vagy pedig a beszélgetést összevonták, esetleg törölték</translation>
     </message>
   </context>
   <context>
@@ -13055,7 +13219,7 @@
     </message>
     <message>
       <source>User attribute</source>
-      <translation>Felhasználói tulajdonság</translation>
+      <translation>Felhasználótulajdonságok</translation>
     </message>
     <message>
       <source>Chat attributes</source>
@@ -13067,7 +13231,7 @@
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation>Címzett e-mail-címe</translation>
+      <translation>A látogató e-mail-címe</translation>
     </message>
     <message>
       <source>Inform me then visitor returns</source>
@@ -13442,7 +13606,7 @@
     </message>
     <message>
       <source>Product</source>
-      <translation>Termék(ek)</translation>
+      <translation>Termékek</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
@@ -13606,7 +13770,7 @@
     </message>
     <message>
       <source>Quick notifications are the ones that you see at the top left corner of the application.</source>
-      <translation>A gyorsértesítéseket az alkalmazás bal felső sarkában láthatod</translation>
+      <translation>A gyorsértesítések az alkalmazás bal felső sarkában jelennek meg</translation>
     </message>
     <message>
       <source>Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.</source>
@@ -13670,7 +13834,7 @@
     </message>
     <message>
       <source>User will receive alert notification if chat is transferred directly to him. He will be able to accept it directly from alert.</source>
-      <translation>A rendszer értesíti a felhasználókat, ha egy beszélgetés közvetlenül hozzájuk kerül. Ezt közvetlenül az értesítésből tudják elfogadni</translation>
+      <translation>A rendszer értesíti a felhasználót, ha egy beszélgetés közvetlenül hozzá kerül. Ezt közvetlenül az értesítésből tudja elfogadni</translation>
     </message>
     <message>
       <source>Activity tracking is set at global level. User settings will be be ignored. Timeout value still will be taken from account settings.</source>
@@ -14195,7 +14359,7 @@
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
-      <translation>Kérjük, először válaszd ki a statisztika paramétereit!</translation>
+      <translation>Kérjük, először válaszd ki a statisztika paramétereit</translation>
     </message>
     <message>
       <source>Total chats</source>
@@ -14668,7 +14832,7 @@
     </message>
     <message>
       <source>Please provide modal URL!</source>
-      <translation>Kérjük, adj meg URL-t a felugró panelhez!</translation>
+      <translation>Kérjük, adj meg URL-t a felugró panelhez</translation>
     </message>
     <message>
       <source>We will show a form in a moment!</source>
@@ -14841,7 +15005,7 @@
     </message>
     <message>
       <source>Reply e-mail</source>
-      <translation>Válaszcím</translation>
+      <translation>Válaszcím (e-mail)</translation>
     </message>
     <message>
       <source>From e-mail</source>
@@ -15003,7 +15167,7 @@
     <name>chat/transferchat</name>
     <message>
       <source>current</source>
-      <translation>a jelenlegi</translation>
+      <translation>jelenlegi</translation>
     </message>
     <message>
       <source>Member of these departments groups</source>
@@ -15039,7 +15203,7 @@
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
-      <translation>Egy beszélgetés átadása a részleged egy másik felhasználójának</translation>
+      <translation>A beszélgetés átadása a részleged egy másik felhasználójának</translation>
     </message>
     <message>
       <source>Only logged and online operators</source>
@@ -15078,11 +15242,11 @@
     <name>chat/userjoined</name>
     <message>
       <source>Visitor has joined the chat!</source>
-      <translation>A látogató csatlakozott a beszélgetéshez!</translation>
+      <translation>A látogató csatlakozott a beszélgetéshez</translation>
     </message>
     <message>
       <source>Visitor has joined the chat from popup chat window!</source>
-      <translation>A látogató felugró beszélgetésablakból csatlakozott a beszélgetéshez!</translation>
+      <translation>A látogató felugró beszélgetésablakból csatlakozott a beszélgetéshez</translation>
     </message>
   </context>
   <context>
@@ -15783,23 +15947,23 @@
     </message>
     <message>
       <source>Hidden</source>
-      <translation>Rejtve</translation>
+      <translation>Rejtve?</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Letiltva</translation>
+      <translation>Letiltva?</translation>
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation>Csak akkor látható, ha online</translation>
+      <translation>Csak ha online?</translation>
     </message>
     <message>
       <source>Overloaded</source>
-      <translation>Túlterhelve</translation>
+      <translation>Túlterhelve?</translation>
     </message>
     <message>
       <source>Archived</source>
-      <translation>Archiválva</translation>
+      <translation>Archiválva?</translation>
     </message>
     <message>
       <source>Load statistic</source>
@@ -15931,7 +16095,7 @@
     </message>
     <message>
       <source>Operator in chat will see automatically members from this group to be invited into private support chat within chat.</source>
-      <translation>A beszélgetést folytató operátorok automatikusan látni fogják, ha a csoport tagjai meghívót kapnak a beszélgetéseken belüli támogatási magánbeszélgetésekbe!</translation>
+      <translation>A beszélgetést folytató operátorok automatikusan látni fogják, ha a csoport tagjai meghívót kapnak a beszélgetéseken belüli támogatási magánbeszélgetésekbe</translation>
     </message>
     <message>
       <source>Replaceable variables</source>
@@ -16339,7 +16503,7 @@
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
-      <translation>Az azonosítónak 10 karakternél rövidebbnek kell lennie!</translation>
+      <translation>Az azonosítónak 10 karakternél rövidebbnek kell lennie</translation>
     </message>
     <message>
       <source>Please enter question!</source>
@@ -16731,7 +16895,7 @@
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation>Érvénytelen fájl!</translation>
+      <translation>Érvénytelen fájl</translation>
     </message>
     <message>
       <source>Copy of</source>
@@ -17136,11 +17300,11 @@
     </message>
     <message>
       <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
-      <translation>Megmutatja azt átlagos időt, amely alatt az ügynök válaszol egy-egy látogatói üzenetre, a teljes beszélgetést figyelembe véve</translation>
+      <translation>Megmutatja azt az átlagos időt, amely alatt az ügynök válaszolt egy-egy látogatói üzenetre, a teljes beszélgetést figyelembe véve</translation>
     </message>
     <message>
       <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
-      <translation>Megmutatja, hogy a beszélgetés elfogadása után mennyi időbe telik, amíg az ügynök válaszol a látogató első üzenetére</translation>
+      <translation>Megmutatja, hogy a beszélgetés elfogadása után mennyi időbe telt, amíg az ügynök válaszolt a látogató első üzenetére</translation>
     </message>
     <message>
       <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
@@ -17708,23 +17872,23 @@
     </message>
     <message>
       <source>Please enter a name!</source>
-      <translation>Kérjük, adj meg nevet!</translation>
+      <translation>Kérjük, adj meg nevet</translation>
     </message>
     <message>
       <source>Please enter a subject!</source>
-      <translation>Kérjük, adj meg tárgyat!</translation>
+      <translation>Kérjük, adj meg tárgyat</translation>
     </message>
     <message>
       <source>Please choose a mailbox!</source>
-      <translation>Kérjük, válassz postafiókot!</translation>
+      <translation>Kérjük, válassz postafiókot</translation>
     </message>
     <message>
       <source>Please enter an e-mail!</source>
-      <translation>Kérjük, adj meg e-mail-címet!</translation>
+      <translation>Kérjük, adj meg e-mail-címet</translation>
     </message>
     <message>
       <source>This recipient already exists in this campaign!</source>
-      <translation>Ez a címzett már létezik ebben a kampányban!</translation>
+      <translation>Ez a címzett már létezik ebben a kampányban</translation>
     </message>
     <message>
       <source>Connection could not be established. Please check your logins.</source>
@@ -17912,11 +18076,11 @@
     </message>
     <message>
       <source>Please choose a merge destination!</source>
-      <translation>Kérjük, válassz összevonási célt!</translation>
+      <translation>Kérjük, válassz összevonási célt</translation>
     </message>
     <message>
       <source>Please choose what mails you want to merge!</source>
-      <translation>Kérjük, válaszd ki, mely leveleket szeretnéd összevonni!</translation>
+      <translation>Kérjük, válaszd ki, mely leveleket szeretnéd összevonni</translation>
     </message>
     <message>
       <source>New</source>
@@ -18075,6 +18239,14 @@
       <translation>Korábbi üzenetek</translation>
     </message>
     <message>
+      <source>Block sender</source>
+      <translation>Feladó korlátozása</translation>
+    </message>
+    <message>
+      <source>Sender is blocked!</source>
+      <translation>A feladó korlátozva</translation>
+    </message>
+    <message>
       <source>Active</source>
       <translation>Aktív</translation>
     </message>
@@ -18212,7 +18384,7 @@
     </message>
     <message>
       <source>Seems there is some connectivity problem with a server!</source>
-      <translation>Úgy tűnik, hogy valamilyen szerverkapcsolódási probléma áll fenn!</translation>
+      <translation>Úgy tűnik, hogy valamilyen szerverkapcsolódási probléma áll fenn</translation>
     </message>
     <message>
       <source>Incorrect file type</source>
@@ -18357,6 +18529,10 @@
       <translation>Üzenet kihagyása; az üzenetek nem lesznek importálva</translation>
     </message>
     <message>
+      <source>Matching rule applies to blocked e-mails</source>
+      <translation>Az egyeztetési szabály alkalmazása a korlátozott e-mailekre</translation>
+    </message>
+    <message>
       <source>Choose all mailbox</source>
       <translation>Az összes postafiók kijelölése</translation>
     </message>
@@ -18457,7 +18633,7 @@
     </message>
     <message>
       <source>Reply to e-mail</source>
-      <translation>Válaszcím</translation>
+      <translation>Válaszcím (e-mail)</translation>
     </message>
     <message>
       <source>Reply to name</source>
@@ -18646,11 +18822,11 @@
     </message>
     <message>
       <source>Continuous chat events</source>
-      <translation>Folyamatos beszélgetési események</translation>
+      <translation>Beszélgetési eseménysorozatok</translation>
     </message>
     <message>
       <source>Continuous mail events</source>
-      <translation>Folyamatos levelezési események</translation>
+      <translation>Levelezési eseménysorozatok</translation>
     </message>
     <message>
       <source>This is hook event</source>
@@ -18666,7 +18842,7 @@
     </message>
     <message>
       <source>This is continuous chat event</source>
-      <translation>Ez egy folyamatos beszélgetési esemény</translation>
+      <translation>Ez egy beszélgetési eseménysorozat</translation>
     </message>
     <message>
       <source>Make sure you define some conditions. Only pending, active and bot chats are checked against these conditions.</source>
@@ -18674,7 +18850,7 @@
     </message>
     <message>
       <source>This is continuous mail event</source>
-      <translation>Ez egy folyamatos levelezési esemény</translation>
+      <translation>Ez egy levelezési eseménysorozat</translation>
     </message>
     <message>
       <source>Make sure you define some conditions. Only new, active mails are checked against these conditions.</source>
@@ -18755,6 +18931,14 @@
     <message>
       <source>Show integration information.</source>
       <translation>Integrációs információk megjelenítése</translation>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation>Igen</translation>
+    </message>
+    <message>
+      <source>No, uploaded files types might not be detected correctly!</source>
+      <translation>Nem; előfordulhat, hogy a feltöltött fájltípusokat nem helyesen ismeri fel a rendszer!</translation>
     </message>
     <message>
       <source>Main attributes</source>
@@ -19301,7 +19485,7 @@
     </message>
     <message>
       <source>To get the same behaviour on desktop and mobile you can set the &quot;require-interaction&quot; option to true, which means the user must click or dismiss the notification.</source>
-      <translation>Ha ugyanazt a viselkedést szeretnéd elérni asztali számítógépen és mobilon is, akkor a „require-interaction” lehetőséget „igaz”-ra állíthatod, ami azt jelenti, hogy a felhasználóknak vagy rá kell kattintaniuk (tapintaniuk) az értesítésekre, vagy el kell utasítaniuk azokat</translation>
+      <translation>Ha ugyanazt a viselkedést szeretnéd elérni asztali számítógépen és mobilon is, akkor a „require-interaction” lehetőséget igazra állíthatod (bejelölheted), ami azt jelenti, hogy a felhasználóknak vagy rá kell kattintaniuk (koppintaniuk) az értesítésekre, vagy el kell utasítaniuk azokat</translation>
     </message>
     <message>
       <source>When you use the tag option, the default behavior of a new notification replacing an existing one is that there is no sound, vibration and the screen is kept asleep.</source>
@@ -19325,7 +19509,7 @@
     </message>
     <message>
       <source>You must provide a subject that is either a mailto: or a URL.</source>
-      <translation>Adj meg egy kapcsolódó cím, amely vagy egy mailto:, vagy egy URL-cím lehet</translation>
+      <translation>Adj meg egy kapcsolódó címet, amely vagy egy mailto:, vagy egy URL-cím lehet</translation>
     </message>
     <message>
       <source>HTTP Host*</source>
@@ -20064,11 +20248,11 @@
     </message>
     <message>
       <source>Please enter your feedback!</source>
-      <translation>Kérjük, írja meg visszajelzését!</translation>
+      <translation>Kérjük, írja meg visszajelzését</translation>
     </message>
     <message>
       <source>You have already sent your feedback!</source>
-      <translation>Már elküldte a visszajelzést!</translation>
+      <translation>Már elküldte a visszajelzést</translation>
     </message>
   </context>
   <context>
@@ -20766,7 +20950,7 @@
     </message>
     <message>
       <source>Login</source>
-      <translation>Bejelentkezés</translation>
+      <translation>Bejelentkezési azonosító (e-mail-cím)</translation>
     </message>
     <message>
       <source>Password</source>
@@ -20821,6 +21005,22 @@
     <message>
       <source>Settings</source>
       <translation>Beállítások</translation>
+    </message>
+    <message>
+      <source>Ignore operators online statuses and use departments online hours.</source>
+      <translation>Az operátorok online állapotainak figyelmen kívül hagyása, és a részlegek online óráinak használata</translation>
+    </message>
+    <message>
+      <source>For all departments.</source>
+      <translation>Minden részleg esetén</translation>
+    </message>
+    <message>
+      <source>Only for this department.</source>
+      <translation>Csak a megadott részleg(ek) esetén</translation>
+    </message>
+    <message>
+      <source>This is a global setting and is set for the all departments.</source>
+      <translation>Ez egy globális beállítás, és az összes részlegre vonatkozik</translation>
     </message>
   </context>
   <context>
@@ -21516,7 +21716,7 @@
     </message>
     <message>
       <source>Your session has ended. Please login!</source>
-      <translation>Lejárt a munkameneted. Kérjük, jelentkezz be!</translation>
+      <translation>Lejárt a munkameneted. Kérjük, jelentkezz be</translation>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
@@ -21873,11 +22073,11 @@
     </message>
     <message>
       <source>Continuous chat event</source>
-      <translation>Folyamatos beszélgetési esemény</translation>
+      <translation>Beszélgetési eseménysorozat</translation>
     </message>
     <message>
       <source>Continuous mail event</source>
-      <translation>Folyamatos levelezési esemény</translation>
+      <translation>Levelezési eseménysorozat</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -22315,11 +22515,11 @@
     </message>
     <message>
       <source>has accepted a transferred chat!</source>
-      <translation>– elfogadott egy átadott beszélgetést!</translation>
+      <translation>– elfogadott egy átadott beszélgetést</translation>
     </message>
     <message>
       <source>has closed a conversation from chat!</source>
-      <translation>lezárt egy üzenetváltást a beszélgetésből!</translation>
+      <translation>lezárt egy üzenetváltást a beszélgetésből</translation>
     </message>
     <message>
       <source>You do not have permission to close this chat!</source>
@@ -22729,15 +22929,15 @@
     </message>
     <message>
       <source>changed chat department from</source>
-      <translation>módosította a beszélgetés részlegét erről:</translation>
+      <translation>módosította a beszélgetés részlegét:</translation>
     </message>
     <message>
       <source>to</source>
-      <translation>erre:</translation>
+      <translation>»</translation>
     </message>
     <message>
       <source>changed visitor nick from</source>
-      <translation>módosította a látogató becenevét erről:</translation>
+      <translation>módosította a látogató becenevét:</translation>
     </message>
   </context>
   <context>
@@ -22889,11 +23089,11 @@
     </message>
     <message>
       <source>You have to choose one of required groups!</source>
-      <translation>Választanod kell a szükséges csoportok közül egyet!</translation>
+      <translation>Választanod kell a szükséges csoportok közül egyet</translation>
     </message>
     <message>
       <source>You are trying to assign group which are not known!</source>
-      <translation>Ismeretlen csoportot próbálsz hozzárendelni!</translation>
+      <translation>Ismeretlen csoportot próbálsz hozzárendelni</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
@@ -22956,7 +23156,7 @@
     <name>lhrestapi/validation</name>
     <message>
       <source>Authorization failed!</source>
-      <translation>A hitelesítés sikertelen!</translation>
+      <translation>A hitelesítés sikertelen</translation>
     </message>
     <message>
       <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
@@ -22964,7 +23164,7 @@
     </message>
     <message>
       <source>Rest API IP restrictions applies! </source>
-      <translation>REST API IP-korlátozás érvényesítve!</translation>
+      <translation>REST API IP-korlátozás érvényesítve</translation>
     </message>
     <message>
       <source>Authorization header is missing!</source>
@@ -23319,7 +23519,7 @@
     </message>
     <message>
       <source>Please choose a webhook!</source>
-      <translation>Kérjük, válassz egy webhookot!</translation>
+      <translation>Kérjük, válassz egy webhookot</translation>
     </message>
   </context>
   <context>
@@ -23334,7 +23534,7 @@
     </message>
     <message>
       <source>File too big!</source>
-      <translation>A fájl túl nagy!</translation>
+      <translation>A fájl túl nagy</translation>
     </message>
     <message>
       <source>Processing...</source>
@@ -23342,7 +23542,7 @@
     </message>
     <message>
       <source>Upload failed!</source>
-      <translation>Sikertelen feltöltés!</translation>
+      <translation>Sikertelen feltöltés</translation>
     </message>
     <message>
       <source>Completed.</source>

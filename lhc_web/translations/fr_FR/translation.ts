@@ -6,6 +6,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Combien de temps devons-nous attendre avant d&apos;informer l&apos;opérateur d&apos;un chat resté sans réponse ?</translation>
     </message>
@@ -601,6 +609,10 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
+    <message>
+      <source>Auto responders with lowest values will be applied first</source>
+      <translation>Les répondeurs automatiques dont les valeurs sont les plus faibles seront appliqués en premier.</translation>
+    </message>
     <message>
       <source>Welcome message</source>
       <translation>Message de bienvenue</translation>
@@ -1230,6 +1242,10 @@
       <translation>Image personnalisée 5</translation>
     </message>
     <message>
+      <source>Do not show default content on success form submit.</source>
+      <translation>Ne pas afficher le contenu par défaut lors de l&apos;envoi d&apos;un formulaire réussi.</translation>
+    </message>
+    <message>
       <source>Disabled</source>
       <translation>Désactivé</translation>
     </message>
@@ -1352,6 +1368,14 @@
     <message>
       <source>Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.</source>
       <translation>Utilisez un nouveau widget et recherchez l&apos;ancien code d&apos;intégration. Si vous ne pouvez pas changer facilement les anciens codes d&apos;intégration, vous pouvez forcer le système à charger le nouveau widget.</translation>
+    </message>
+    <message>
+      <source>Enable drag and drop for status widget</source>
+      <translation>Activer le glisser-déposer pour le widget d&apos;état</translation>
+    </message>
+    <message>
+      <source>Animate need help position change after status widget position was changed</source>
+      <translation>Animer le changement de position de l&apos;aide après que la position du widget d&apos;état a été modifiée</translation>
     </message>
     <message>
       <source>Need help standard text</source>
@@ -1986,6 +2010,22 @@
       <translation>Couleur d&apos;arrière-plan du nouveau message</translation>
     </message>
     <message>
+      <source>Reaction to visitor message bubble background color</source>
+      <translation>Réaction à la couleur d&apos;arrière-plan de la bulle de message du visiteur</translation>
+    </message>
+    <message>
+      <source>Reaction to visitor message bubble icon color</source>
+      <translation>Réaction à la couleur de l&apos;icône de la bulle de message du visiteur</translation>
+    </message>
+    <message>
+      <source>Reaction to operator message bubble background color</source>
+      <translation>Réaction à la couleur de fond de la bulle de message de l&apos;opérateur</translation>
+    </message>
+    <message>
+      <source>Reaction to operator message bubble icon color</source>
+      <translation>Réaction à la couleur de l&apos;icône de la bulle de message de l&apos;opérateur</translation>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation>Thèmes du widget</translation>
     </message>
@@ -2377,6 +2417,10 @@
       <translation>Type de variable</translation>
     </message>
     <message>
+      <source>Content field to extract. You can access JWT token content field.</source>
+      <translation>Champ de contenu à extraire. Vous pouvez accéder au champ de contenu du jeton JWT.</translation>
+    </message>
+    <message>
       <source>Default message</source>
       <translation>Message par défaut</translation>
     </message>
@@ -2675,6 +2719,10 @@
     <message>
       <source>Website cookie</source>
       <translation>Cookie du site web</translation>
+    </message>
+    <message>
+      <source>JWT Token content field</source>
+      <translation>Champ du contenu du jeton JWT</translation>
     </message>
     <message>
       <source>Chat variables</source>
@@ -4679,6 +4727,46 @@
       <translation>Chats abandonnés</translation>
     </message>
     <message>
+      <source>previous month</source>
+      <translation>mois précédent</translation>
+    </message>
+    <message>
+      <source>last 7 days</source>
+      <translation>7 derniers jours</translation>
+    </message>
+    <message>
+      <source>last 2 days</source>
+      <translation>2 derniers jours</translation>
+    </message>
+    <message>
+      <source>last 15 days</source>
+      <translation>15 derniers jours</translation>
+    </message>
+    <message>
+      <source>last 30 days</source>
+      <translation>30 derniers jours</translation>
+    </message>
+    <message>
+      <source>yesterday</source>
+      <translation>hier</translation>
+    </message>
+    <message>
+      <source>this week</source>
+      <translation>cette semaine</translation>
+    </message>
+    <message>
+      <source>this month</source>
+      <translation>ce mois-ci</translation>
+    </message>
+    <message>
+      <source>today</source>
+      <translation>aujourd&apos;hui</translation>
+    </message>
+    <message>
+      <source>previous week</source>
+      <translation>semaine précédente</translation>
+    </message>
+    <message>
       <source>Dropped chat</source>
       <translation>Chat abandonné</translation>
     </message>
@@ -5475,6 +5563,10 @@
       <translation>Uniquement les opérateurs qui étaient en ligne pendant la période sélectionnée</translation>
     </message>
     <message>
+      <source>Exclude deactivated operators</source>
+      <translation>Exclure les opérateurs désactivés</translation>
+    </message>
+    <message>
       <source>Agent</source>
       <translation>Agent</translation>
     </message>
@@ -5651,6 +5743,10 @@
       <translation>Heures inclues (de, à)</translation>
     </message>
     <message>
+      <source>Hour</source>
+      <translation>Heure</translation>
+    </message>
+    <message>
       <source>Group results by operator</source>
       <translation>Grouper les résultats par opérateur</translation>
     </message>
@@ -5737,6 +5833,54 @@
     <message>
       <source>Go to my views</source>
       <translation>Voir mes opinions</translation>
+    </message>
+    <message>
+      <source>Date range filter</source>
+      <translation>Filtre de plage de dates</translation>
+    </message>
+    <message>
+      <source>My defined date range</source>
+      <translation>Ma plage de dates définie</translation>
+    </message>
+    <message>
+      <source>Today</source>
+      <translation>Aujourd&apos;hui</translation>
+    </message>
+    <message>
+      <source>Yesterday</source>
+      <translation>Hier</translation>
+    </message>
+    <message>
+      <source>Last 2 days</source>
+      <translation>Les 2 derniers jours</translation>
+    </message>
+    <message>
+      <source>Last 7 days</source>
+      <translation>7 derniers jours</translation>
+    </message>
+    <message>
+      <source>Last 15 days</source>
+      <translation>15 derniers jours</translation>
+    </message>
+    <message>
+      <source>Last 30 days</source>
+      <translation>30 derniers jours</translation>
+    </message>
+    <message>
+      <source>This week</source>
+      <translation>Cette semaine</translation>
+    </message>
+    <message>
+      <source>This month</source>
+      <translation>Ce mois-ci</translation>
+    </message>
+    <message>
+      <source>Previous week</source>
+      <translation>Semaine précédente</translation>
+    </message>
+    <message>
+      <source>Previous month</source>
+      <translation>Mois précédent</translation>
     </message>
     <message>
       <source>Include records from the past</source>
@@ -6781,7 +6925,7 @@
     </message>
     <message>
       <source>Are you sure you want to close this chat?</source>
-      <translation>Êtes-vous sûr de vouloir terminer cette conversation?</translation>
+      <translation>Êtes-vous sûr de vouloir terminer cette conversation ?</translation>
     </message>
     <message>
       <source>Type your message here...</source>
@@ -7337,7 +7481,7 @@
     </message>
     <message>
       <source>There was a problem sending your request. Please try again later!</source>
-      <translation type="unfinished"/>
+      <translation>Il y a eu un problème lors de l&apos;envoi de votre demande. Veuillez réessayer plus tard !</translation>
     </message>
   </context>
   <context>
@@ -10166,6 +10310,10 @@
       <translation>Utilisateur en ligne</translation>
     </message>
     <message>
+      <source>Sender E-mail</source>
+      <translation>E-mail de l&apos;expéditeur</translation>
+    </message>
+    <message>
       <source>Remove block</source>
       <translation>Retirer le blocage</translation>
     </message>
@@ -10176,6 +10324,10 @@
     <message>
       <source>Bocked by</source>
       <translation>Bocké par</translation>
+    </message>
+    <message>
+      <source>Sender e-mail</source>
+      <translation>Courriel de l&apos;expéditeur</translation>
     </message>
     <message>
       <source>Expires</source>
@@ -10194,6 +10346,10 @@
       <translation>Utilisateur en ligne (cookie)</translation>
     </message>
     <message>
+      <source>day (cool off)</source>
+      <translation>jour (refroidissement)</translation>
+    </message>
+    <message>
       <source>days (cool off)</source>
       <translation>jours (refroidissement)</translation>
     </message>
@@ -10208,6 +10364,10 @@
     <message>
       <source>Blocked users</source>
       <translation>Visiteurs bloqués</translation>
+    </message>
+    <message>
+      <source>Block sender</source>
+      <translation>Bloquer l&apos;expéditeur</translation>
     </message>
     <message>
       <source>Please enter an IP to block</source>
@@ -10236,6 +10396,10 @@
     <message>
       <source>Visitor was blocked!</source>
       <translation>Le visiteur a été bloqué !</translation>
+    </message>
+    <message>
+      <source>Sender was blocked!</source>
+      <translation>L&apos;expéditeur a été bloqué !</translation>
     </message>
   </context>
   <context>
@@ -13566,15 +13730,15 @@
     </message>
     <message>
       <source>You can test notification by entering chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Vous pouvez tester la notification en entrant l&apos;ID du chat</translation>
     </message>
     <message>
       <source>Test notification</source>
-      <translation type="unfinished"/>
+      <translation>Notification de test</translation>
     </message>
     <message>
       <source>If you do not see a notification after a click it means your settings are not correct, or you do not allow notifications.</source>
-      <translation type="unfinished"/>
+      <translation>Si vous ne voyez pas de notification après un clic, cela signifie que vos paramètres ne sont pas corrects ou que vous n&apos;autorisez pas les notifications.</translation>
     </message>
     <message>
       <source>Show notification only if I am an owner pending chat</source>
@@ -18075,6 +18239,14 @@
       <translation>Messages précédents</translation>
     </message>
     <message>
+      <source>Block sender</source>
+      <translation>Bloquer l&apos;expéditeur</translation>
+    </message>
+    <message>
+      <source>Sender is blocked!</source>
+      <translation>L&apos;expéditeur est bloqué !</translation>
+    </message>
+    <message>
       <source>Active</source>
       <translation>Actif</translation>
     </message>
@@ -18355,6 +18527,10 @@
     <message>
       <source>Skip message, messages will not be imported</source>
       <translation>Sauter le message, les messages ne seront pas importés</translation>
+    </message>
+    <message>
+      <source>Matching rule applies to blocked e-mails</source>
+      <translation>La règle de correspondance s&apos;applique aux e-mails bloqués</translation>
     </message>
     <message>
       <source>Choose all mailbox</source>
@@ -18755,6 +18931,14 @@
     <message>
       <source>Show integration information.</source>
       <translation>Afficher les informations relatives à l&apos;intégration.</translation>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation>Oui</translation>
+    </message>
+    <message>
+      <source>No, uploaded files types might not be detected correctly!</source>
+      <translation>Non, il se peut que les types de fichiers téléchargés ne soient pas détectés correctement !</translation>
     </message>
     <message>
       <source>Main attributes</source>
@@ -20821,6 +21005,22 @@
     <message>
       <source>Settings</source>
       <translation>Paramètres</translation>
+    </message>
+    <message>
+      <source>Ignore operators online statuses and use departments online hours.</source>
+      <translation>Ignorer les statuts en ligne des opérateurs et utiliser les heures en ligne des départements.</translation>
+    </message>
+    <message>
+      <source>For all departments.</source>
+      <translation>Pour tous les départements.</translation>
+    </message>
+    <message>
+      <source>Only for this department.</source>
+      <translation>Uniquement pour ce département.</translation>
+    </message>
+    <message>
+      <source>This is a global setting and is set for the all departments.</source>
+      <translation>Il s&apos;agit d&apos;un paramètre global qui s&apos;applique à tous les départements.</translation>
     </message>
   </context>
   <context>

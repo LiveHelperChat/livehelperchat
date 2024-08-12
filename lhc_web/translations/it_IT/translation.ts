@@ -6,6 +6,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Quanto dovremmo aspettare prima di informare l&apos;operatore in merito alla chat non risposta.</translation>
     </message>
@@ -601,6 +609,10 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
+    <message>
+      <source>Auto responders with lowest values will be applied first</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Welcome message</source>
       <translation>Messaggio di benvenuto</translation>
@@ -1230,6 +1242,10 @@
       <translation>Immagine personalizzata 5</translation>
     </message>
     <message>
+      <source>Do not show default content on success form submit.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disabled</source>
       <translation>Disabilitato</translation>
     </message>
@@ -1351,6 +1367,14 @@
     </message>
     <message>
       <source>Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable drag and drop for status widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Animate need help position change after status widget position was changed</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1989,6 +2013,22 @@ Messaggi in stile bolla</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Reaction to visitor message bubble background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reaction to visitor message bubble icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reaction to operator message bubble background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reaction to operator message bubble icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget themes</source>
       <translation>Temi Widget</translation>
     </message>
@@ -2381,6 +2421,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Tipo di variabile</translation>
     </message>
     <message>
+      <source>Content field to extract. You can access JWT token content field.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default message</source>
       <translation>Messaggio predefinito</translation>
     </message>
@@ -2680,6 +2724,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Website cookie</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>JWT Token content field</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4685,6 +4733,46 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>previous month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last 7 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last 2 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last 15 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last 30 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>yesterday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>this week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>this month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>today</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>previous week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Dropped chat</source>
       <translation type="unfinished"/>
     </message>
@@ -5481,6 +5569,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Exclude deactivated operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Agent</source>
       <translation>Agente</translation>
     </message>
@@ -5657,6 +5749,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Includi ore (da, a)</translation>
     </message>
     <message>
+      <source>Hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Group results by operator</source>
       <translation>Raggruppa risultati per operatore</translation>
     </message>
@@ -5742,6 +5838,54 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Go to my views</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range filter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>My defined date range</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Today</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yesterday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 2 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 7 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 15 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last 30 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous month</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10172,6 +10316,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Sender E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Remove block</source>
       <translation>Rimuovi blocco</translation>
     </message>
@@ -10181,6 +10329,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Bocked by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender e-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10200,6 +10352,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>day (cool off)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>days (cool off)</source>
       <translation type="unfinished"/>
     </message>
@@ -10214,6 +10370,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Blocked users</source>
       <translation>Utenti bloccati</translation>
+    </message>
+    <message>
+      <source>Block sender</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter an IP to block</source>
@@ -10241,6 +10401,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Visitor was blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender was blocked!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -18081,6 +18245,14 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Block sender</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sender is blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active</source>
       <translation type="unfinished"/>
     </message>
@@ -18360,6 +18532,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Skip message, messages will not be imported</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matching rule applies to blocked e-mails</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18760,6 +18936,14 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Show integration information.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No, uploaded files types might not be detected correctly!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -20826,6 +21010,22 @@ Icona colonna, testo icone materiale</translation>
     <name>lhsystem/singlesetting</name>
     <message>
       <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ignore operators online statuses and use departments online hours.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For all departments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only for this department.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is a global setting and is set for the all departments.</source>
       <translation type="unfinished"/>
     </message>
   </context>
