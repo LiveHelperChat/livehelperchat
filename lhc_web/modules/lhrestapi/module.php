@@ -234,5 +234,7 @@ $FunctionList['updatelastactivity'] = array('explain' => 'Allow operator update 
 $FunctionList['file_download'] = array('explain' => 'Allow operator to download file');
 $FunctionList['list_extensions'] = array('explain' => 'Allow operator to list extensions');
 $FunctionList['survey'] = array('explain' => 'Allow operator to work with survey');
+$FunctionList['generateautologin'] = array('explain' => 'Allow operator to generate auto login for the caller account');
+$FunctionList['generateautologinall'] = array('explain' => 'Allow operator to generate auto login for any account');
 
 ?>

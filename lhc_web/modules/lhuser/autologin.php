@@ -37,8 +37,8 @@ if ($data['enabled'] == 1) {
     
     $dataRequest = array(
         'r' => base64_decode(rawurldecode($Params['user_parameters_unordered']['r'])),
-        'u' => rawurldecode($Params['user_parameters_unordered']['u']),
-        'l' => rawurldecode($Params['user_parameters_unordered']['l']),
+        'u' => rawurldecode(isset($Params['user_parameters_unordered']['u']) ? $Params['user_parameters_unordered']['u'] : ''),
+        'l' => rawurldecode(isset($Params['user_parameters_unordered']['l']) ? $Params['user_parameters_unordered']['l'] : ''),
         't' => rawurldecode($Params['user_parameters_unordered']['t']),
     );
 

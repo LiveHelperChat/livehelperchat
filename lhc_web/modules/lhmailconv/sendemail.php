@@ -64,6 +64,10 @@ $tpl->setArray(array(
     'item' => $item,
 ));
 
+if (isset($Params['user_parameters_unordered']['layout']) && $Params['user_parameters_unordered']['layout'] == 'popup') {
+    $Result['pagelayout'] = 'popup';
+}
+
 $Result['content'] = $tpl->fetch();
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::design('js/tinymce/js/tinymce/tinymce.min.js').'"></script>';
 

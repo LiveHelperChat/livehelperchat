@@ -21,7 +21,7 @@ $ViewList['tpx'] = array(
 
 $ViewList['sendemail'] = array(
     'params' => array(),
-    'uparams' => array('chat_id'),
+    'uparams' => array('chat_id','layout','var1','var2','var3','var4'),
     'functions' => array( 'send_mail' )
 );
 
