@@ -107,15 +107,40 @@ class erLhcoreClassRestAPIHandler
             
             $dataAuthorisation = explode(' ', $authorization);
             $apiData = explode(':', base64_decode($dataAuthorisation[1]));
-            
-            if (count($apiData) != 2) {
-                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
-            }
 
-            // There is no current workflow in progress
-            $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('rest_api.validate_request', array(
-                'headers' => $headers,
-            ));
+            if (strtolower($dataAuthorisation[0]) == 'bearer') {
+
+                $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('rest_api.validate_bearer_request', array(
+                    'headers' => $headers,
+                ));
+
+                if ($handler === false) {
+                    if (class_exists('\LiveHelperChatExtension\ssoprovider\providers\erLhcoreClassOAuthHelper')) {
+
+                        $result = \LiveHelperChatExtension\ssoprovider\providers\erLhcoreClassOAuthHelper::validateBearer($dataAuthorisation[1]);
+
+                        $apiKey = new erLhAbstractModelRestAPIKey();
+                        $apiKey->user_id = $result['user_id'];
+                        $apiKey->active = 1;
+                        $apiKey->user = erLhcoreClassModelUser::fetch($apiKey->user_id);
+                        $apiData[0] = $apiKey->user->username;
+                        $handler = [];
+                        $handler['api_key'] = $apiKey;
+
+                    } else {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Bearer authorization failed!'));
+                    }
+                }
+            } else {
+                if (count($apiData) != 2) {
+                    throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
+                }
+
+                // There is no current workflow in progress
+                $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('rest_api.validate_request', array(
+                    'headers' => $headers,
+                ));
+            }
 
             if ($handler !== false) {
                 $apiKey = $handler['api_key'];
