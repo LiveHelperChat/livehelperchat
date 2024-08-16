@@ -1107,14 +1107,23 @@ class erLhcoreClassGenericBotActionRestapi
                             $contentJSON = json_decode($content, true);
                         }
 
-                        $successLocation = self::extractAttribute($contentJSON, $outputCombination['success_location']);
+                        if ($outputCombination['success_location'] == '__all__') {
+                            $successLocation = ['value' => $contentJSON, 'found' => true];
+                        } else {
+                            $successLocation = self::extractAttribute($contentJSON, $outputCombination['success_location']);
+                        }
+
 
                         if ($successLocation['found'] === true) {
 
                             $responseValueSub = array();
                             for ($i = 2; $i <= 6; $i++) {
                                 if (isset($outputCombination['success_location_' . $i]) && $outputCombination['success_location_' . $i] != '') {
-                                    $successLocationNumbered = self::extractAttribute($contentJSON,$outputCombination['success_location_' . $i]);
+                                    if ($outputCombination['success_location_' . $i] == '__all__') {
+                                        $successLocationNumbered = ['value' => $contentJSON, 'found' => true];
+                                    } else {
+                                        $successLocationNumbered = self::extractAttribute($contentJSON, $outputCombination['success_location_' . $i]);
+                                    }
                                     if ($successLocationNumbered['found'] === true) {
                                         $responseValueSub[$i] = $successLocationNumbered['value'];
                                     }
