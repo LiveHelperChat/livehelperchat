@@ -835,6 +835,7 @@ class erLhcoreClassGenericBotActionRestapi
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'curl/7.29.0');
 
         if (isset($methodSettings['method']) && ($methodSettings['method'] == 'PUT' || $methodSettings['method'] == 'DELETE')) {
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $methodSettings['method']);
