@@ -4,10 +4,6 @@ try
 {
     erLhcoreClassRestAPIHandler::validateRequest();
 
-    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhrestapi', 'generateautologin')) {
-        throw new Exception('You do not have permission. `lhrestapi`, `generateautologin` is required.');
-    }
-
     $requestBody = json_decode(file_get_contents('php://input'),true);
 
     if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhrestapi', 'generateautologinall')) {
