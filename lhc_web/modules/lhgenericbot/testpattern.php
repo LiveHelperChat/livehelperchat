@@ -105,7 +105,13 @@ if (isset($_POST['mail'])){
                     foreach ($chat->{$dynamicAttr}->getState() as $stateKey => $stateAttr) {
                         if (is_array($stateAttr) || is_object($stateAttr)) {
                             foreach ($stateAttr as $stateAttrKey => $stateAttrValue) {
-                                $patterns[] = '{args.chat.' . $dynamicAttr . '.' . $stateKey . ' .' . $stateAttrKey .' } = ' . ((is_array($stateAttrValue) || is_object($stateAttrValue)) ? json_encode($stateAttrValue) : $stateAttrValue);
+                                if (is_array($stateAttrValue) || is_object($stateAttrValue)){
+                                    foreach ($stateAttrValue as $stateSubAttrValueKey => $stateSubAttrValue){
+                                        $patterns[] = '{args.chat.' . $dynamicAttr . '.' . $stateKey . ' .' . $stateAttrKey . '.' . $stateSubAttrValueKey . '} = ' . ((is_array($stateSubAttrValue) || is_object($stateSubAttrValue)) ? json_encode($stateSubAttrValue) : $stateSubAttrValue);
+                                    }
+                                } else {
+                                    $patterns[] = '{args.chat.' . $dynamicAttr . '.' . $stateKey . ' .' . $stateAttrKey .' } = ' . ((is_array($stateAttrValue) || is_object($stateAttrValue)) ? json_encode($stateAttrValue) : $stateAttrValue);
+                                }
                             }
                         } else {
                             $patterns[] = '{args.chat.' . $dynamicAttr .'.' . $stateKey .'} = ' . $stateAttr;
