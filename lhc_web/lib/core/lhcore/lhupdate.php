@@ -57,7 +57,7 @@ class erLhcoreClassUpdate
     		}
 		}
 
-        $archives = \LiveHelperChat\Models\mailConv\Archive\Range::getList(array('ignore_fields' => array('year_month','range_from','range_to','older_than','last_id','first_id'),'offset' => 0, 'limit' => 1000000,'sort' => 'id ASC'));
+        $archives = \LiveHelperChat\Models\mailConv\Archive\Range::getList(array('ignore_fields' => array('name','year_month','range_from','range_to','older_than','last_id','first_id'),'offset' => 0, 'limit' => 1000000,'sort' => 'id ASC'));
 
 		if (isset($definition['tables']['lhc_mailconv_conversation']))
 		{
