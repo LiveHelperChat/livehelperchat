@@ -190,6 +190,12 @@ class erLhcoreClassChatStatistic {
                         $numberOfChats[$dateUnix]['chatinitmanualinv'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array( 'invitation_id' => 0, 'chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
                     }
 
+                    if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('devicetype',$paramsExecution['charttypes'])) {
+                        $numberOfChats[$dateUnix]['mobileinit'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('device_type' => 1), 'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
+                        $numberOfChats[$dateUnix]['tabletinit'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array( 'filter' => array('device_type' => 2), 'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
+                        $numberOfChats[$dateUnix]['desktopinit'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array( 'device_type' => 0), 'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
+                    }
+
                     if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('msgtype',$paramsExecution['charttypes'])) {
 
                         $filterOur = array_merge_recursive(array('filter' 	=> array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter);
@@ -4394,12 +4400,23 @@ class erLhcoreClassChatStatistic {
                 ]);
             }
         } else if ($type == 'proactivevsdefault') {
-            fputcsv($fp, ['date','Proactive','Visitors initiated']);
+            fputcsv($fp, ['date','Proactive','Visitors initiated','Manual invitation']);
             foreach ($statistic['numberOfChatsPerMonth'] as $key => $data) {
                 fputcsv($fp,[
                     date('Y-m-d H:i:s',$key),
                     $data['chatinitproact'],
-                    $data['chatinitdefault']
+                    $data['chatinitdefault'],
+                    $data['chatinitmanualinv']
+                ]);
+            }
+        } else if ($type == 'devicetype') {
+            fputcsv($fp, ['date','Desktop','Mobile','Tablet']);
+            foreach ($statistic['numberOfChatsPerMonth'] as $key => $data) {
+                fputcsv($fp,[
+                    date('Y-m-d H:i:s',$key),
+                    $data['desktopinit'],
+                    $data['mobileinit'],
+                    $data['tabletinit']
                 ]);
             }
         } else if ($type == 'country') {
