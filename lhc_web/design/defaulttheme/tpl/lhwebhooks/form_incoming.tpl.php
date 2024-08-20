@@ -111,6 +111,7 @@
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane form-group active" id="main_message_attributes">
 
+        <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Message related attributes')?></h4>
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
@@ -123,8 +124,28 @@
                        <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.message_direct" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This attribute contains direct message and NOT a messages array');?></label>
                 </div>
             </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Messages ID');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.message_id" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Reply to message ID');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.message_id_reply" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Time');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.time" value="" />
+                </div>
+            </div>
         </div>
 
+        <hr>
+        <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat related attributes')?></h4>
         <div class="row">
             <div class="col-6">
 
@@ -167,13 +188,6 @@
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.email" value="" />
                 </div>
             </div>
-            <div class="col-6">
-                <div class="form-group">
-                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Time');?></label>
-                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.time" value="" />
-                </div>
-            </div>
-
             <div class="col-6">
                 <div class="row">
                     <div class="col-6">

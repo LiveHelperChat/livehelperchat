@@ -24,6 +24,7 @@
             (isset($metaMessageData['content']['accept_action']) ||
             isset($metaMessageData['content']['transfer_action_user']) ||
             isset($metaMessageData['content']['transfer_action_dep']) ||
+            isset($metaMessageData['content']['reply_to']) ||
             isset($metaMessageData['content']['change_owner_action']) ||
             isset($metaMessageData['content']['change_dep_action']))) : ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/meta_render_msg_body_admin_pre_msg.tpl.php'));?>

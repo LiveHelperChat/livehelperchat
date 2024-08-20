@@ -879,13 +879,33 @@ class erLhcoreClassChatWebhookIncoming {
                     $timeValue = self::extractAttribute('time', $conditions, $payloadMessage, time());
                     $msg->time = is_numeric($timeValue) ? $timeValue : strtotime($timeValue);
 
+                    $externalMessageId = self::extractAttribute('message_id', $conditions, $payloadMessage, '');
+
+                    $metaMessage = [];
+                    if (!empty($externalMessageId)) {
+                        $metaMessage = ['iwh_msg_id' => $externalMessageId];
+                    }
+
+                    $replyToMessageId = self::extractAttribute('message_id_reply', $conditions, $payloadMessage, '');
+                    if (!empty($replyToMessageId)) {
+                        $metaReplyMessage = ['reply_to' => ['iwh_msg_id' => $replyToMessageId]];
+                        $msgReplyTo = erLhcoreClassModelmsg::findOne(['filter' => ['chat_id' => $chat->id],'customfilter' => ['`meta_msg` != \'\' AND JSON_EXTRACT(meta_msg,\'$.iwh_msg_id\') = ' . ezcDbInstance::get()->quote($replyToMessageId)]]);
+                        if (is_object($msgReplyTo)) {
+                            $metaReplyMessage['reply_to']['db_msg_id'] = $msgReplyTo->id;
+                        }
+                        $metaMessage['content'] = $metaReplyMessage;
+                    }
+
+                    if (!empty($metaMessage)) {
+                        $msg->meta_msg = json_encode($metaMessage);
+                        $msg->meta_msg_array = $metaMessage;
+                    }
+
                     if ($msg->msg != '') {
                         erLhcoreClassChat::getSession()->save($msg);
-
                         $chat->last_user_msg_time = $msg->time;
                         $chat->last_msg_id = $msg->id;
                     }
-
 
                     $errorMessages = [];
                     if (!empty(self::$staticErrors)) {
@@ -1385,10 +1405,31 @@ class erLhcoreClassChatWebhookIncoming {
                     $msg->chat_id = $chat->id;
                     $msg->user_id = $sender;
 
+                    $externalMessageId = self::extractAttribute('message_id', $conditions, $payloadMessage, '');
+
+                    $metaMessage = [];
+                    if (!empty($externalMessageId)) {
+                        $metaMessage = ['iwh_msg_id' => $externalMessageId];
+                    }
+
+                    $replyToMessageId = self::extractAttribute('message_id_reply', $conditions, $payloadMessage, '');
+                    if (!empty($replyToMessageId)) {
+                        $metaReplyMessage = ['reply_to' => ['iwh_msg_id' => $replyToMessageId]];
+                        $msgReplyTo = erLhcoreClassModelmsg::findOne(['filter' => ['chat_id' => $chat->id],'customfilter' => ['`meta_msg` != \'\' AND JSON_EXTRACT(meta_msg,\'$.iwh_msg_id\') = ' . ezcDbInstance::get()->quote($replyToMessageId)]]);
+                        if (is_object($msgReplyTo)) {
+                            $metaReplyMessage['reply_to']['db_msg_id'] = $msgReplyTo->id;
+                        }
+                        $metaMessage['content'] = $metaReplyMessage;
+                    }
+
+                    if (!empty($metaMessage)) {
+                        $msg->meta_msg = json_encode($metaMessage);
+                        $msg->meta_msg_array = $metaMessage;
+                    }
+
                     if ($msg->msg != '') {
                         $timeValue = self::extractAttribute('time', $conditions, $payloadMessage, time());
                         $msg->time = is_numeric($timeValue) ? $timeValue : strtotime($timeValue);
-
                         erLhcoreClassChat::getSession()->save($msg);
                     }
 

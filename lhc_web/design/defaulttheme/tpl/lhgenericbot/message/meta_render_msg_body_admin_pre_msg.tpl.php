@@ -15,6 +15,15 @@
             <span class="material-icons text-info">swap_horiz</span>
         <?php elseif ($type == 'change_dep_action') : // Chat department was changed?>
             <span class="material-icons text-info">location_away</span>
+        <?php elseif ($type == 'reply_to') : // Chat department was changed?>
+            <blockquote class="blockquote" title="<?php echo htmlspecialchars($metaMessage['iwh_msg_id']); ?>">
+                <?php if (isset($metaMessage['db_msg_id'])) { $messageReplyTo = erLhcoreClassModelmsg::fetch($metaMessage['db_msg_id']); } ?>
+                <?php if (isset($messageReplyTo) && is_object($messageReplyTo)) : ?>
+                    <?php echo htmlspecialchars($messageReplyTo->msg); ?>
+                <?php else: ?>
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Reply To')?>: <?php echo htmlspecialchars($metaMessage['iwh_msg_id']); ?>
+                <?php endif; ?>
+            </blockquote>
         <?php endif; ?>
     <?php endforeach; endif; ?>
 <?php endif; ?>
