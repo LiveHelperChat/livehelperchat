@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad11e7eb37b7d2ebc1c19d52d6312750",
+    "content-hash": "34f96bf24989bd15ffcbb8f1fe8a9472",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -2147,6 +2147,112 @@
                 }
             ],
             "time": "2024-03-23T07:42:40+00:00"
+        },
+        {
+            "name": "longman/telegram-bot",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-telegram-bot/core.git",
+                "reference": "e80416306f6cd054fd6b5e3a947528e18bdbf518"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-telegram-bot/core/zipball/e80416306f6cd054fd6b5e3a947528e18bdbf518",
+                "reference": "e80416306f6cd054fd6b5e3a947528e18bdbf518",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-pdo": "*",
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "php": "^8.1",
+                "psr/log": "^1.1|^2.0|^3.0"
+            },
+            "require-dev": {
+                "dms/phpunit-arraysubset-asserts": "^0.2",
+                "monolog/monolog": "^2.1",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.83.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Longman\\TelegramBot\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Avtandil Kikabidze aka LONGMAN",
+                    "email": "akalongman@gmail.com",
+                    "homepage": "http://longman.me",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Armando Lüscher",
+                    "email": "armando@noplanman.ch",
+                    "homepage": "https://noplanman.ch",
+                    "role": "Developer"
+                },
+                {
+                    "name": "PHP Telegram Bot Team",
+                    "homepage": "https://github.com/php-telegram-bot/core/graphs/contributors",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Telegram bot",
+            "homepage": "https://github.com/php-telegram-bot/core",
+            "keywords": [
+                "api",
+                "bot",
+                "telegram"
+            ],
+            "support": {
+                "issues": "https://github.com/php-telegram-bot/core/issues",
+                "source": "https://github.com/php-telegram-bot/core"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/php-telegram-bot/core#donate",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/noplanman",
+                    "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/phptelegrambot",
+                    "type": "ko_fi"
+                },
+                {
+                    "url": "https://liberapay.com/PHP-Telegram-Bot",
+                    "type": "liberapay"
+                },
+                {
+                    "url": "https://opencollective.com/php-telegram-bot",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://www.patreon.com/phptelegrambot",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/longman/telegram-bot",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-05-25T19:57:59+00:00"
         },
         {
             "name": "minishlink/web-push",
@@ -5675,7 +5781,8 @@
         "php-imap/php-imap": 20,
         "tgallice/fb-messenger-sdk": 20,
         "sonata-project/google-authenticator": 20,
-        "endroid/qr-code": 20
+        "endroid/qr-code": 20,
+        "longman/telegram-bot": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
