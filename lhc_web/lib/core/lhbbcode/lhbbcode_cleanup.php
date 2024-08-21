@@ -967,7 +967,9 @@ class erLhcoreClassBBCodePlain
 
     public static function makeQuote($matches)
     {
-        if ($matches[1]) {
+        if (isset($matches[2])) {
+            return '<blockquote class="blockquote"> ' . $matches[2] . ' </blockquote>';
+        } else if ($matches[1]) {
             return '<blockquote class="blockquote"> ' . $matches[1] . ' </blockquote>';
         } else {
             return $matches[0];
@@ -1040,6 +1042,7 @@ class erLhcoreClassBBCodePlain
 
         // Quote
         $ret = preg_replace_callback('#\[quote\](.*?)\[/quote\]#is', 'erLhcoreClassBBCodePlain::makeQuote', $ret);
+        $ret = preg_replace_callback('#\[quote="?([0-9]+)"?\](.*?)\[/quote\]#is', 'erLhcoreClassBBCodePlain::makeQuote', $ret);
 
         // Youtube block
         $ret = preg_replace_callback('#\[youtube\](.*?)\[/youtube\]#is', 'erLhcoreClassBBCodePlain::_make_youtube_block', $ret);

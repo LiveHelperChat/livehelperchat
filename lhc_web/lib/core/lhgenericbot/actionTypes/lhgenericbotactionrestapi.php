@@ -403,6 +403,11 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
+        // Cleanup if file bodu has reply to api defined
+        if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && count($files) == 1 && strpos($methodSettings['body_raw_file'],'{reply_to}') !== false) {
+             $msg_text_cleaned = trim(preg_replace('#\[quote="?([0-9]+)"?\](.*?)\[/quote\]#ms','',$msg_text_cleaned));
+        }
+
         // Allow extensions to preparse send message
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_parse_send_clean', array('msg' => & $msg_text_cleaned));
 
@@ -674,7 +679,13 @@ class erLhcoreClassGenericBotActionRestapi
                 $msg_text_cleaned = '';
             }
         }
-        
+
+        if ($file_api === true) {
+            $methodSettings['body_raw_file'] = self::processReplyTo($methodSettings['body_raw_file'], $msg_text);
+        } else {
+            $methodSettings['body_raw'] = self::processReplyTo($methodSettings['body_raw'], $msg_text);
+        }
+
         $replaceVariables = array(
             '{{msg}}' => $msg_text,
             '{{msg_shortened_256}}' => substr($msg_text,0,254),
@@ -1266,6 +1277,34 @@ class erLhcoreClassGenericBotActionRestapi
             'content_6' => '',
             'meta' => array()
         );
+    }
+
+    public static function processReplyTo($bodyRequest, & $msg_text)
+    {
+        if (strpos($bodyRequest,'{reply_to}') !== false) {
+            $matchesReplyTo = [];
+            preg_match_all('#\[quote="?([0-9]+)"?\](.*?)\[/quote\]#is', $msg_text, $matchesReplyTo);
+            if (isset($matchesReplyTo[0]) && is_array($matchesReplyTo[0]) && !empty($matchesReplyTo[0])){
+                foreach ($matchesReplyTo[0] as $index => $matchReplyTo) {
+                    $msg = erLhcoreClassModelmsg::fetch($matchesReplyTo[1][$index]);
+                    if (is_object($msg)) {
+                        // Reply To Message Object was found so we can adjust message itself
+                        $msg_text = str_replace($matchReplyTo, '', $msg_text);
+                        $metaData = $msg->meta_msg_array;
+                        $iwh_msg_id = '';
+                        if (isset($metaData['iwh_msg_id'])) {
+                            $iwh_msg_id = $metaData['iwh_msg_id'];
+                        }
+                        $bodyRequest = str_replace(['{reply_to}','{/reply_to}','raw_{{iwh_msg_id}}','raw_{{db_msg_id}}'],['','', str_replace('\\\/','\/',self::trimOnce(json_encode($iwh_msg_id))), str_replace('\\\/','\/',self::trimOnce(json_encode($msg->id)))],$bodyRequest);
+                        $bodyRequest = str_replace(['{{iwh_msg_id}}','{{db_msg_id}}'],[json_encode($iwh_msg_id),json_encode($msg->id)],$bodyRequest);
+                    }
+                }
+            }
+            // Message object not found remove API block from request body
+            $bodyRequest = preg_replace('/\{reply_to\}(.*?)\{\/reply_to\}/ms','',$bodyRequest);
+        }
+
+        return $bodyRequest;
     }
 
     public static function extractDynamicParams($methodSettings, $params) {

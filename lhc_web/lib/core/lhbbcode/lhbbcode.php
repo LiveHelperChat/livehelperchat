@@ -1057,7 +1057,9 @@ class erLhcoreClassBBCode
 
    public static function makeQuote($matches)
    {
-       if ($matches[1]) {
+       if (isset($matches[2])) {
+           return '<blockquote class="blockquote"> ' . $matches[2] . ' </blockquote>';
+       } else if ($matches[1]) {
            return '<blockquote class="blockquote"> ' . $matches[1] . ' </blockquote>';
        } else {
            return $matches[0];
@@ -1081,7 +1083,7 @@ class erLhcoreClassBBCode
 
        $replacer = 'IMG_REPLACE';
 
-       if (strpos($msg,'[quote]') !== false) {
+       if (strpos($msg,'[/quote]') !== false) {
            $replacer = '';
        }
 
@@ -1252,6 +1254,7 @@ class erLhcoreClassBBCode
         if (self::isBBCodeTagSupported('[quote]',$paramsMessage)) {
             // Quote
             $ret = preg_replace_callback('#\[quote\](.*?)\[/quote\]#is', 'erLhcoreClassBBCode::makeQuote', $ret);
+            $ret = preg_replace_callback('#\[quote="?([0-9]+)"?\](.*?)\[/quote\]#is', 'erLhcoreClassBBCode::makeQuote', $ret);
         }
 
         if (self::isBBCodeTagSupported('[youtube]',$paramsMessage)) {
@@ -1338,6 +1341,7 @@ class erLhcoreClassBBCode
            '/\[img\](.*?)\[\/img\]/ms',
            '/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms',
            '/\[quote\]/ms',
+           '/\[quote\=([0-9]+)\]/ms',
            '/\[\/quote\]/ms',
            '/\[fs([0-9]+)\](.*?)\[\/fs\]/ms',
            '/\[level\=([A-Za-z0-9\-\s]{2,60})\](.*?)\[\/level\]/ms',
@@ -1354,6 +1358,7 @@ class erLhcoreClassBBCode
            '\1',
            '',
            '\2 \1',
+           '',
            '',
            '',
            '\2',
