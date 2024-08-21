@@ -317,11 +317,15 @@ class erLhcoreClassGenericBotActionRestapi
         // Allow extensions to preparse send message
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_parse_send', array('msg' => & $msg_text));
 
-        $msg_text_cleaned = $msg_text;
+        $msg_text_cleaned_files = $msg_text_cleaned = $msg_text;
 
+        if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && strpos($methodSettings['body_raw_file'],'{reply_to}') !== false) {
+            $msg_text_cleaned_files = trim(preg_replace('#\[quote="?([0-9]+)"?\](.*?)\[/quote\]#ms','',$msg_text_cleaned));
+        }
+        
         // We have to extract attached files and send them separately
         $matches = array();
-        preg_match_all('/\[file="?(.*?)"?\]/', $msg_text, $matches);
+        preg_match_all('/\[file="?(.*?)"?\]/', $msg_text_cleaned_files, $matches);
 
         $media = array();
         $files = array();
