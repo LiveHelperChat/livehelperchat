@@ -81,7 +81,8 @@
     "slim/slim": "^3.12.4",
     "giggsey/libphonenumber-for-php": "^8.12.44",
     "elasticsearch/elasticsearch": "~7.0",
-    "longman/telegram-bot": "dev-master#e80416306f6cd054fd6b5e3a947528e18bdbf518"
+    "longman/telegram-bot": "dev-master#e80416306f6cd054fd6b5e3a947528e18bdbf518",
+    "daneren2005/php-resque": "dev-master#f0c08e1555b4a16c12e19a296c22e95d37e78fc2"
   },
   "type": "project"
 }
