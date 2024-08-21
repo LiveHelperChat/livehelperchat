@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b378eb7092c66eee40cc434723b38795",
+    "content-hash": "446862ed7072fa3efd7dd5b90e33f7cf",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -5354,7 +5354,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LiveHelperChat/fb-messenger-sdk.git",
-                "reference": "520c2c6b6a926b16fd12e538ecfbbbf13cf813b8"
+                "reference": "47498e9926df01f2633835ff3ffb310f88ac444f"
             },
             "type": "library",
             "autoload": {
@@ -5900,5 +5900,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

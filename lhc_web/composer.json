@@ -72,7 +72,7 @@
     "webklex/php-imap": "^5.1.0",
     "deeplcom/deepl-php": "^1.3",
     "aws/aws-sdk-php": "3.x",
-    "tgallice/fb-messenger-sdk": "dev-master#520c2c6b6a926b16fd12e538ecfbbbf13cf813b8",
+    "tgallice/fb-messenger-sdk": "dev-master#47498e9926df01f2633835ff3ffb310f88ac444f",
     "facebook/graph-sdk": "*",
     "symfony/event-dispatcher": "^7.1",
     "sonata-project/google-authenticator": "^3.0@dev",
