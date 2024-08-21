@@ -331,7 +331,7 @@ function lh(){
                 event.stopPropagation();
                 event.preventDefault();
                 $.getJSON(e.data.that.wwwDir + 'chat/quotemessage/' + msgId, function(data){
-                    data.msg && e.data.that.insertTextToMessageArea(e.data.chat_id, data.msg);
+                    data.msg && e.data.that.insertTextToMessageArea(e.data.chat_id, data.msg, msgId);
                     e.data.that.hidePopover();
                 });
             });
@@ -424,10 +424,10 @@ function lh(){
         }
     }
 
-    this.insertTextToMessageArea = function (chat_id, msg) {
+    this.insertTextToMessageArea = function (chat_id, msg, msgId) {
         var textArea = $('#CSChatMessage-'+chat_id);
         var textAreaVal = textArea.val().replace(/^\s*\n/g, "");
-        textArea.val((textAreaVal != '' ? textAreaVal + '[quote]' + msg + '[/quote]' : '[quote]'+msg+'[/quote]')+"\n").focus();
+        textArea.val((textAreaVal != '' ? textAreaVal + '[quote'+ (msgId ? '=' + msgId : '') + ']' + msg + '[/quote]' : '[quote'+ (msgId ? '=' + msgId : '') + ']'+msg+'[/quote]')+"\n").focus();
 
         var ta = textArea[0];
         var maxrows = 30;
