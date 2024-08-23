@@ -616,8 +616,12 @@ if ($tab == 'active') {
 
     $userFilterDefault = erLhcoreClassGroupUser::getConditionalUserFilter();
 
-    if (!empty($userFilterDefault)){
-        $filterParams['filter'] = array_merge_recursive($filterParams['filter'], $userFilterDefault);
+    if (!empty($userFilterDefault)) {
+        if (isset($filterParams['filter']['filterin']['id'])) {
+            $filterParams['filter']['filterin']['id'] = array_values(array_intersect($filterParams['filter']['filterin']['id'],$userFilterDefault['filterin']['id']));
+        } else {
+            $filterParams['filter']['filterin']['id'] = array_values($userFilterDefault['filterin']['id']);
+        }
     }
 
     if (isset($_GET['xmlagentstatistic'])) {
