@@ -650,6 +650,10 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
+        if (!isset($paramsCustomer['params']['chat'])) {
+            $paramsCustomer['params']['chat'] = $paramsCustomer['chat'];
+        }
+
         $dynamicParamsVariables = self::extractDynamicParams($methodSettings, $paramsCustomer['params']);
 
         $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat']);
