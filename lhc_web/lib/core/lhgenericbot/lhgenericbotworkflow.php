@@ -1703,6 +1703,10 @@ class erLhcoreClassGenericBotWorkflow {
                         $params['trigger_action_id'] = $messageNew['trigger_action_id'];
                     }
 
+                    if (!isset($params['args'])) {
+                        $params['args'] = [];
+                    }
+
                     $response = self::processTrigger($chat, $trigger, $setLastMessageId, $params);
 
                     if ($messageNew['status'] == 'continue_all' || (is_array($response) && isset($response['status']) && $response['status'] == 'stop' && $messageNew['status'] == 'continue')) {
