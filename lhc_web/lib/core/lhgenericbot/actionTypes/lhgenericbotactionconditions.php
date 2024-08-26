@@ -115,6 +115,10 @@ class erLhcoreClassGenericBotActionConditions {
 
                     if (empty($attr) && isset($params['replace_array']) && !empty($params['replace_array'])) {
                         $attr = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$condition['content']['attr']);
+                        // No replacement were found, restore to empty string
+                        if ($attr == $condition['content']['attr']) {
+                            $attr = '';
+                        }
                     }
 
                     // Replace right side of the attribute
