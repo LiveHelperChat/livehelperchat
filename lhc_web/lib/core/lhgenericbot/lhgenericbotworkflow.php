@@ -2036,7 +2036,7 @@ class erLhcoreClassGenericBotWorkflow {
                             $messageContext->saveThis();
 
                             if (!isset($messageClickData['no_name']) || $messageClickData['no_name'] === false) {
-                                $messageUser = $message = self::sendAsUser($chat, $messageClick);
+                                $messageUser = $message = self::sendAsUser($chat, $messageClick, ['meta_msg_meta' => (isset($params['meta_msg_meta']) ? $params['meta_msg_meta'] : [])]);
                                 $chat->last_user_msg_time = $message->time;
                                 $chat->last_msg_id = $message->id;
                                 $chat->updateThis(['update' => ['last_user_msg_time','last_msg_id']]);
@@ -2199,7 +2199,7 @@ class erLhcoreClassGenericBotWorkflow {
                             $messageContext->saveThis();
                             
                             if (!isset($messageClickData['no_name']) || $messageClickData['no_name'] === false) {
-                                $message = self::sendAsUser($chat, $messageClick);
+                                $message = self::sendAsUser($chat, $messageClick, ['meta_msg_meta' => (isset($params['meta_msg_meta']) ? $params['meta_msg_meta'] : [])]);
                             }
                         }
 
@@ -2631,7 +2631,7 @@ class erLhcoreClassGenericBotWorkflow {
         self::setLastMessageId($chat, $msg->id, true);
     }
 
-    public static function sendAsUser($chat, $messageText) {
+    public static function sendAsUser($chat, $messageText, $params = []) {
         $msg = new erLhcoreClassModelmsg();
         $msg->msg = trim($messageText);
         $msg->chat_id = $chat->id;
@@ -2640,6 +2640,11 @@ class erLhcoreClassGenericBotWorkflow {
 
         if ($chat->chat_locale != '' && $chat->chat_locale_to != '') {
             erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
+        }
+
+        if (isset($params['meta_msg_meta']) && is_array($params['meta_msg_meta']) && !empty($params['meta_msg_meta'])) {
+            $msg->meta_msg = json_encode($params['meta_msg_meta']);
+            $msg->meta_msg_array = $params['meta_msg_meta'];
         }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_user_saved',array('msg' => & $msg, 'chat' => & $chat));

@@ -1136,6 +1136,7 @@ class erLhcoreClassChatWebhookIncoming {
                             $payloadParts = explode('__',$buttonPayload);
                             $message = erLhcoreClassModelmsg::fetch($payloadParts[3]);
                             self::sendBotResponse($chat, $message, array(
+                                'meta_msg_meta' => $metaMessage,
                                 'type' => 'trigger',
                                 'payload' => $payloadParts[1] . '__' . $payloadParts[2],
                                 'msg_last_id' => $chat->last_msg_id // Message visitor is clicking is not necessary the last message
@@ -1144,6 +1145,7 @@ class erLhcoreClassChatWebhookIncoming {
                             $payloadParts = explode('__',$buttonPayload);
                             $message = erLhcoreClassModelmsg::fetch($payloadParts[3]);
                             self::sendBotResponse($chat, $message, array(
+                                'meta_msg_meta' => $metaMessage,
                                 'type' => 'payload',
                                 'payload' => $payloadParts[1] . '__' . $payloadParts[2],
                                 'msg_last_id' => $chat->last_msg_id // Message visitor is clicking is not necessary the last message
@@ -1540,11 +1542,23 @@ class erLhcoreClassChatWebhookIncoming {
                         'transfer_timeout_ac'
                     ]]);
 
+                    // Check that payload context message exists
+                    $ignore_default = false;
+
+                    if ($typeMessage == 'button') {
+                        $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $buttonBody, '.');
+                        if ($messageData['found'] == true && $messageData['value'] != '') {
+                            $buttonPayload = $messageData['value'];
+                            $payloadParts = explode('__',$buttonPayload);
+                            $ignore_default = is_object(erLhcoreClassModelmsg::fetch($payloadParts[3]));
+                        }
+                    }
+
                     // Set bot
                     if ($msg->id > 0) {
-                        erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg, 'ignore_default' => ($typeMessage == 'button')));
+                        erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg, 'ignore_default' => $ignore_default));
                     } else {
-                        erLhcoreClassChatValidator::setBot($chat, array('ignore_default' => ($typeMessage == 'button')));
+                        erLhcoreClassChatValidator::setBot($chat, array('ignore_default' => $ignore_default));
                     }
 
                     $db->commit();
@@ -1557,16 +1571,15 @@ class erLhcoreClassChatWebhookIncoming {
                 // Release eChat record
                 $db->commit();
 
-                if ($typeMessage == 'button') {
+                if ($typeMessage == 'button' && $ignore_default === true) {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $buttonBody, '.');
                     if ($messageData['found'] == true && $messageData['value'] != '') {
-
                         $buttonPayload = $messageData['value'];
-
                         if (strpos($buttonPayload, 'trigger__') === 0) {
                             $payloadParts = explode('__',$buttonPayload);
                             $message = erLhcoreClassModelmsg::fetch($payloadParts[3]);
                             self::sendBotResponse($chat, $message, array(
+                                'meta_msg_meta' => $metaMessage,
                                 'init' => true,
                                 'type' => 'trigger',
                                 'payload' => $payloadParts[1] . '__' . $payloadParts[2],
@@ -1576,6 +1589,7 @@ class erLhcoreClassChatWebhookIncoming {
                             $payloadParts = explode('__',$buttonPayload);
                             $message = erLhcoreClassModelmsg::fetch($payloadParts[3]);
                             self::sendBotResponse($chat, $message, array(
+                                'meta_msg_meta' => $metaMessage,
                                 'init' => true,
                                 'type' => 'payload',
                                 'payload' => $payloadParts[1] . '__' . $payloadParts[2],
@@ -1607,7 +1621,8 @@ class erLhcoreClassChatWebhookIncoming {
                     }
 
                 } else {
-                    self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id : $chat->last_msg_id), 'init' => true));
+                    // Commented out. Because if there is no user message stored, means all responses are bot responses.
+                    self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id :  0 /*$chat->last_msg_id*/), 'init' => true));
                 }
 
                 // If we are not in bot status error messages are not sent.
@@ -1808,15 +1823,16 @@ class erLhcoreClassChatWebhookIncoming {
 
             $lastMessageIdNew = $lastMessageId = $chat->last_msg_id;
 
-            if (!isset($params['init']) || $params['init'] == false) {
+            // We enable button click payloads for new chats, but not regular message processes.
+            //if (!isset($params['init']) || $params['init'] == false) {
                 if (isset($params['type']) && $params['type'] == 'payload' && $msg instanceof erLhcoreClassModelmsg) {
-                    erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $msg, $params['payload'], array('processed' => false));
+                    erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $msg, $params['payload'], array('meta_msg_meta' => (isset($params['meta_msg_meta']) ? $params['meta_msg_meta'] : []), 'processed' => false));
                 } else if (isset($params['type']) && $params['type'] == 'trigger' && $msg instanceof erLhcoreClassModelmsg) {
-                    erLhcoreClassGenericBotWorkflow::processTriggerClick($chat, $msg, $params['payload'], array('processed' => false));
-                } else {
+                    erLhcoreClassGenericBotWorkflow::processTriggerClick($chat, $msg, $params['payload'], array('meta_msg_meta' => (isset($params['meta_msg_meta']) ? $params['meta_msg_meta'] : []), 'processed' => false));
+                } elseif (!isset($params['init']) || $params['init'] == false) {
                     erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
                 }
-            }
+            //}
 
             if (!isset($params['msg_last_id'])) {
                 $params['msg_last_id'] = $msg->id;
