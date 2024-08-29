@@ -202,8 +202,15 @@
                             <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.chat_id_2" value="" />
                         </div>
                     </div>
+
                     <div class="col-12">
-                        We will combine both fields into single identifier <span class="badge bg-secondary">chat_id__chat_id_2</span>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Switch Chat ID with Chat ID 2 if this condition matches');?>
+                        <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.chat_id_switch" value="" />
+                    </div>
+
+
+                    <div class="col-12">
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','We will combine both fields into single identifier');?>&nbsp;<span class="badge bg-secondary">chat_id__chat_id_2</span>
                     </div>
                 </div>
             </div>

@@ -625,17 +625,25 @@ class erLhcoreClassGenericBotActionRestapi
             foreach ($paramsCustomer['params']['msg']->meta_msg_array['content']['buttons_generic'] as $quickReplyButton) {
                 if ($quickReplyButton['type'] == 'trigger' || $quickReplyButton['type'] == 'button') {
                     if (isset($matchCycles[1][0])) {
-                        $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
+                        $templateButton = $matchCycles[1][0];
+                        $templateButton = preg_replace('/\{url_btn_payload\}(.*?)\{\/url_btn_payload\}/ms','',$templateButton);
+                        $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}','{trigger_btn_payload}','{/trigger_btn_payload}'],[
                             json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . $quickReplyButton['content']['payload']. '__' . md5($quickReplyButton['content']['name']) .'__'.$paramsCustomer['params']['msg']->id),
-                            json_encode($quickReplyButton['content']['name'])
-                        ],$matchCycles[1][0]);
+                            json_encode($quickReplyButton['content']['name']),
+                            '',
+                            ''
+                        ],$templateButton);
                     }
                 } elseif ($quickReplyButton['type'] == 'url') {
                     if (isset($matchCycles[1][0])) {
-                        $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
+                        $templateButton = $matchCycles[1][0];
+                        $templateButton = preg_replace('/\{trigger_btn_payload\}(.*?)\{\/trigger_btn_payload\}/ms','',$templateButton);
+                        $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}','{url_btn_payload}','{/url_btn_payload}'],[
                             json_encode($quickReplyButton['content']['payload']),
-                            json_encode($quickReplyButton['content']['name'])
-                        ],$matchCycles[1][0]);
+                            json_encode($quickReplyButton['content']['name']),
+                            '',
+                            ''
+                        ],$templateButton);
                     }
                 }
             }

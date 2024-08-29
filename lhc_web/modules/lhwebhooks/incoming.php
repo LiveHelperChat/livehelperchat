@@ -1,6 +1,6 @@
 <?php
 
-$dummyPayload = null;
+$dummyPayload = isset($dummyPayload) ? $dummyPayload : null;
 
 try {
 

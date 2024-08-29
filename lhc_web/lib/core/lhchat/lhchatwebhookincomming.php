@@ -48,6 +48,49 @@ class erLhcoreClassChatWebhookIncoming {
         }
     }
 
+    public static function isValidCondition($field, $conditions, $payloadMessage)
+    {
+        if (!isset($conditions[$field]) || empty($conditions[$field])) {
+            return false;
+        }
+
+        $validConditions = true;
+
+        $conditionsPairs = explode("||",$conditions[$field]);
+
+        foreach ($conditionsPairs as $conditionsPair) {
+            $conditionsPairData = explode('=', $conditionsPair);
+
+            $exists = false;
+            if ($conditionsPairData[1] === 'false') {
+                $conditionsPairData[1] = false;
+            } elseif ($conditionsPairData[1] === '__exists__') {
+                $exists = true;
+            } elseif ($conditionsPairData[1] === 'true') {
+                $conditionsPairData[1] = true;
+            } elseif (strpos($conditionsPairData[1], ',') !== false) {
+                $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
+            }
+
+            $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
+            $messageValue = $messageData['value'];
+
+            if ($messageData['found'] === false) {
+                $validConditions = false;
+            }
+
+            if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                $validConditions = false;
+            }
+
+            if ($messageData['found'] === true && $exists == true) {
+                $validConditions = true;
+            }
+        }
+
+        return $validConditions;
+    }
+
     public static function processMessage($incomingWebhook, $payloadMessage, $payloadAll) {
 
         $conditions = $incomingWebhook->conditions_array;
@@ -508,9 +551,13 @@ class erLhcoreClassChatWebhookIncoming {
                 foreach ($conditionsPairs as $conditionsPair) {
                     $conditionsPairData = explode('=', $conditionsPair);
 
+                    $exists = false;
+
                     if ($conditionsPairData[1] === 'false') {
                         $conditionsPairData[1] = false;
-                    } elseif ($conditionsPairData[1] === 'true') {
+                    } elseif ($conditionsPairData[1] === '__exists__') {
+                        $exists = true;
+                    }  elseif ($conditionsPairData[1] === 'true') {
                         $conditionsPairData[1] = true;
                     } elseif (strpos($conditionsPairData[1], ',') !== false) {
                         $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
@@ -539,6 +586,11 @@ class erLhcoreClassChatWebhookIncoming {
                             $typeMessage = 'unknown';
                         }
                     }
+
+                    if ($messageData['found'] === true && $exists == true) {
+                        $typeMessage = 'button';
+                    }
+
                 }
 
                 if ($typeMessage == 'button') {
@@ -562,8 +614,12 @@ class erLhcoreClassChatWebhookIncoming {
                 foreach ($conditionsPairs as $conditionsPair) {
                     $conditionsPairData = explode('=', $conditionsPair);
 
+                    $exists = false;
+
                     if ($conditionsPairData[1] === 'false') {
                         $conditionsPairData[1] = false;
+                    } elseif ($conditionsPairData[1] === '__exists__') {
+                        $exists = true;
                     } elseif ($conditionsPairData[1] === 'true') {
                         $conditionsPairData[1] = true;
                     } elseif (strpos($conditionsPairData[1], ',') !== false) {
@@ -592,6 +648,10 @@ class erLhcoreClassChatWebhookIncoming {
                         } else {
                             $typeMessage = 'unknown';
                         }
+                    }
+
+                    if ($messageData['found'] === true && $exists == true) {
+                        $typeMessage = 'button';
                     }
                 }
 
@@ -655,26 +715,46 @@ class erLhcoreClassChatWebhookIncoming {
             foreach ($conditionsPairs as $conditionsPair) {
                 $conditionsPairData = explode('=', $conditionsPair);
 
+                $exists = false;
+
                 if ($conditionsPairData[1] === 'false') {
                     $conditionsPairData[1] = false;
+                } elseif ($conditionsPairData[1] === '__exists__') {
+                    $exists = true;
                 } elseif ($conditionsPairData[1] === 'true') {
                     $conditionsPairData[1] = true;
                 } elseif (strpos($conditionsPairData[1], ',') !== false) {
                     $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
                 }
 
-                if ((is_array($conditionsPairData[1]) && !in_array($payloadMessage[$conditionsPairData[0]], $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($payloadMessage[$conditionsPairData[0]]) && $payloadMessage[$conditionsPairData[0]] == $conditionsPairData[1]))) {
+                $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
+                $messageValue = $messageData['value'];
+
+                if ($messageData['found'] === false) {
                     $sender = 0;
+                }
+
+                if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    $sender = 0;
+                }
+
+                if ($messageData['found'] === true && $exists == true) {
+                    $sender = -2;
                 }
             }
         }
 
-        $chatIdExternal2 = self::extractAttribute('chat_id_2',$conditions,$payloadMessage);
+        $chatIdSwitch = self::isValidCondition('chat_id_switch', $conditions, $payloadMessage);
 
-        $chat_id_original = $conditions['chat_id'];
+        $chatIdFirst = $chatIdSwitch === true ? 'chat_id_2' : 'chat_id';
+        $chatIdLast = $chatIdSwitch === true ? 'chat_id' : 'chat_id_2';
+
+        $chatIdExternal2 = self::extractAttribute($chatIdLast,$conditions,$payloadMessage);
+
+        $chat_id_original = $conditions[$chatIdFirst];
         foreach (explode('|||',$chat_id_original) as $chat_id) {
-            $conditions['chat_id'] = $chat_id;
-            $chatIdExternal = self::extractAttribute('chat_id',$conditions,$payloadMessage);
+            $conditions[$chatIdFirst] = $chat_id;
+            $chatIdExternal = self::extractAttribute($chatIdFirst,$conditions,$payloadMessage);
             if ($chatIdExternal != '') {
                 break;
             }
@@ -682,17 +762,17 @@ class erLhcoreClassChatWebhookIncoming {
 
         if ($chatIdExternal == '') {
             foreach (explode('|||',$chat_id_original) as $chat_id) {
-                $conditions['chat_id'] = $chat_id;
-                $chatIdExternal = self::extractAttribute('chat_id',$conditions,$payloadAll);
+                $conditions[$chatIdFirst] = $chat_id;
+                $chatIdExternal = self::extractAttribute($chatIdFirst,$conditions,$payloadAll);
                 if ($chatIdExternal != '') {
                     break;
                 }
             }
-            $chatIdExternal = self::extractAttribute('chat_id',$conditions,$payloadAll);
+            $chatIdExternal = self::extractAttribute($chatIdFirst,$conditions,$payloadAll);
         }
 
         if ($chatIdExternal2 == '') {
-            $chatIdExternal2 = self::extractAttribute('chat_id_2',$conditions,$payloadAll);
+            $chatIdExternal2 = self::extractAttribute($chatIdLast,$conditions,$payloadAll);
         }
 
         if ($chatIdExternal != '' && isset($conditions['chat_id_preg_rule']) && $conditions['chat_id_preg_rule'] != '') {
@@ -713,6 +793,10 @@ class erLhcoreClassChatWebhookIncoming {
         $db = ezcDbInstance::get();
 
         if ($eChat === false) {
+
+            if ($sender === -2) {
+                throw new Exception('First message is operator message. We ignore those and do not start chat in that scenario');
+            }
 
             $db->beginTransaction();
 
@@ -1175,7 +1259,7 @@ class erLhcoreClassChatWebhookIncoming {
                         }
                     }
 
-                } else {
+                } elseif ($msg->user_id === 0) {
                     self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id : $chat->last_msg_id), 'init' => $renotify));
                 }
 
@@ -1221,7 +1305,8 @@ class erLhcoreClassChatWebhookIncoming {
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.restart_chat',array(
                             'chat' => & $chat,
                             'msg' => $msg,
-                            'source' => 'webhook'
+                            'source' => 'webhook',
+                            'webhook' => & $incomingWebhook
                         ));
                     }
                 }
@@ -1442,16 +1527,21 @@ class erLhcoreClassChatWebhookIncoming {
                         $previousChat = erLhcoreClassModelChat::fetch($eChat->chat_id);
                     }
 
-                    $chatIdExternal2 = self::extractAttribute('chat_id_2', $conditions, $payloadMessage);
+                    $chatIdSwitch = self::isValidCondition('chat_id_switch', $conditions, $payloadMessage);
 
-                    $eChat->chat_external_id = self::extractAttribute('chat_id', $conditions, $payloadMessage);
+                    $chatIdFirst = $chatIdSwitch === true ? 'chat_id_2' : 'chat_id';
+                    $chatIdLast = $chatIdSwitch === true ? 'chat_id' : 'chat_id_2';
+
+                    $chatIdExternal2 = self::extractAttribute($chatIdLast, $conditions, $payloadMessage);
+
+                    $eChat->chat_external_id = self::extractAttribute($chatIdFirst, $conditions, $payloadMessage);
 
                     if ($eChat->chat_external_id == '') {
-                        $eChat->chat_external_id = self::extractAttribute('chat_id', $conditions, $payloadAll);
+                        $eChat->chat_external_id = self::extractAttribute($chatIdFirst, $conditions, $payloadAll);
                     }
 
                     if ($chatIdExternal2 == '') {
-                        $chatIdExternal2 = self::extractAttribute('chat_id_2', $conditions, $payloadAll);
+                        $chatIdExternal2 = self::extractAttribute($chatIdLast, $conditions, $payloadAll);
                     }
 
                     if ($eChat->chat_external_id == '') {
@@ -1620,7 +1710,7 @@ class erLhcoreClassChatWebhookIncoming {
                         }
                     }
 
-                } else {
+                } elseif ($msg->user_id === 0) {
                     // Commented out. Because if there is no user message stored, means all responses are bot responses.
                     self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id :  0 /*$chat->last_msg_id*/), 'init' => true));
                 }
@@ -1736,7 +1826,8 @@ class erLhcoreClassChatWebhookIncoming {
                  */
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array(
                     'chat' => & $chat,
-                    'msg' => $msg
+                    'msg' => $msg,
+                    'webhook' => & $incomingWebhook
                 ));
 
                 self::$chatInstance = $chat;
