@@ -19,6 +19,13 @@ if (isset($msg['user_id']) && $msg['user_id'] != 0) : $reactionsOperator = '';?>
                     <?php endif; ?>
                 <?php endforeach;?>
             <?php endif; ?>
+
+            <?php if (isset($metaMessageData['content']['reactions']['current_emoji']) && is_array($metaMessageData['content']['reactions']['current_emoji'])) : ?>
+                <?php foreach ($metaMessageData['content']['reactions']['current_emoji'] as $reactionItem => $reactionValue) : ?>
+                    <?php $reactionsOperator .= '<span class="reaction-item pt-0 me-0 reaction-selected">'. $reactionItem . '</span>';?>
+                <?php endforeach;?>
+            <?php endif; ?>
+
         <?php endif; ?>
     <?php endforeach;endif; ?>
 

@@ -419,6 +419,7 @@ class erLhcoreClassGenericBotActionRestapi
         $file_url = null;
         $file_name = null;
         $file_size = null;
+        $file_mime = null;
 
         $file_api = false;
 
@@ -540,9 +541,11 @@ class erLhcoreClassGenericBotActionRestapi
                     }
 
                     $file_size = $mediaFile->size;
+                    $file_mime = $mediaFile->type;
                     $file_url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
                 } else {
                     $file_size = $file->size;
+                    $file_mime = $file->type;
                     $file_body = '';
                     if (strpos($file->remote_url,'http://') !== false || strpos($file->remote_url,'https://') !== false) {
                         $file_url = $file->remote_url;
@@ -725,6 +728,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_url}}' => $file_url,
             '{{file_name}}' => $file_name,
             '{{file_size}}' => $file_size,
+            '{{file_mime}}' => $file_mime,
             '{{timestamp}}' => time()
         );
 
@@ -759,6 +763,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{media}}' => json_encode($media),
             '{{file_body}}' => json_encode($file_body),
             '{{file_url}}' => json_encode($file_url),
+            '{{file_mime}}' => json_encode($file_mime),
             '{{file_name}}' =>json_encode($file_name),
             '{{file_size}}' =>json_encode($file_size),
             '{{timestamp}}' => time()
