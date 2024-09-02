@@ -28,9 +28,21 @@ if (is_numeric($Params['user_parameters_unordered']['chat_id'])) {
     $item->from_address = $chat->email;
     $item->from_name = $chat->nick;
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.new_mail_from_chat', array('msg' => & $item, 'chat' => & $chat));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.new_mail_from_chat', array(
+        'uparams' => $Params['user_parameters_unordered'],
+        'msg' => & $item,
+        'chat' => & $chat,
+        'tpl' => & $tpl
+    ));
 
     $tpl->set('chat',$chat);
+} else {
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.new_mail_from_vars', array(
+        'uparams' => $Params['user_parameters_unordered'],
+        'msg' => & $item,
+        'chat' => & $chat,
+        'tpl' => & $tpl
+    ));
 }
 
 if (ezcInputForm::hasPostData()) {
