@@ -37,7 +37,26 @@ try {
             erLhcoreClassMailconv::$conversationAttributesRemove
         );
 
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+            $conv->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($conv->from_address);
+        }
+
+        if (isset($conv->phone)) {
+            $conv->phone_front = $conv->phone;
+
+            if ($conv->phone != '' && !erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_see_unhidden')) {
+                $conv->phone_front = \LiveHelperChat\Helpers\Anonymizer::maskPhone($conv->phone);
+                if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','have_phone_link')) {
+                    $conv->phone = '';
+                }
+            }
+        }
+
         $returnAttributes['conv'] = $conv;
+
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+            $message->setSensitive(true);
+        }
 
         erLhcoreClassChat::prefillGetAttributesObject($message,
             erLhcoreClassMailconv::$messagesAttributes,
@@ -56,6 +75,12 @@ try {
             $message->alt_body = "";
         }
 
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+            if ($message->response_type !== erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
+                $message->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($message->from_address);
+            }
+        }
+
         $requestPayload = json_decode(file_get_contents('php://input'),true);
 
         if (isset($requestPayload['keyword']) && !empty($requestPayload['keyword']) && is_array($requestPayload['keyword'])) {
@@ -64,6 +89,7 @@ try {
                 $message->subject = str_ireplace($keyword,'🔍'.$keyword.'🔍',$message->subject);
             }
         }
+
 
         $returnAttributes['message'] = $message;
 

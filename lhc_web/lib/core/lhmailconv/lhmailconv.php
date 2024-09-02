@@ -84,7 +84,9 @@ class erLhcoreClassMailconv {
         'department',
         'user',
         'mailbox',
-        'customer_email' // // After sensitive information
+        'customer_email', // // After sensitive information
+        'from_address_clean',
+        'mail_variables',
     ];
 
     public static $conversationAttributes = [

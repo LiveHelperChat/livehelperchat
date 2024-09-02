@@ -9,6 +9,16 @@ if (!($mail instanceof \erLhcoreClassModelMailconvMessage)) {
     }
 }
 
+if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+    $mail->setSensitive(true);
+}
+
+if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+    if ($mail->response_type !== erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
+        $mail->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($mail->from_address);
+    }
+}
+
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/mailprint.tpl.php');
 $tpl->set('chat',$mail);
 
