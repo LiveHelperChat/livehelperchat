@@ -153,7 +153,7 @@ class erLhcoreClassChatWebhookIncoming {
                     if (key_exists($mainConditionStatus,$statusMap) && $msgReplyTo->del_st != erLhcoreClassModelmsg::STATUS_READ) {
                         $msgReplyTo->del_st = max($statusMap[$mainConditionStatus],$msgReplyTo->del_st);
                         $msgReplyTo->updateThis(['update' => ['del_st']]);
-                        $chat->operation_admin .= "lhinst.updateMessageRowAdmin({$msgReplyTo->chat_id},{$msgReplyTo->id});";
+                        $chat->operation_admin = "lhinst.updateMessageRowAdmin({$msgReplyTo->chat_id},{$msgReplyTo->id});";
                         if ($msgReplyTo->del_st == erLhcoreClassModelmsg::STATUS_READ) {
                             $chat->has_unread_op_messages = 0;
                         }
@@ -184,7 +184,7 @@ class erLhcoreClassChatWebhookIncoming {
                             $msgReplyTo->meta_msg = json_encode($metaMsg);
                             $msgReplyTo->meta_msg_array = $metaMsg;
                             $msgReplyTo->updateThis(['update' => ['meta_msg']]);
-                            $chat->operation_admin .= "lhinst.updateMessageRowAdmin({$msgReplyTo->chat_id},{$msgReplyTo->id});";
+                            $chat->operation_admin = "lhinst.updateMessageRowAdmin({$msgReplyTo->chat_id},{$msgReplyTo->id});";
                             $chat->updateThis(['update' => ['operation_admin']]);
                             // NodeJS to update message delivery status
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msgReplyTo, 'chat' => & $chat));
@@ -215,7 +215,7 @@ class erLhcoreClassChatWebhookIncoming {
                                 $msgReplyTo->meta_msg = json_encode($metaMsg);
                                 $msgReplyTo->updateThis(['update' => ['meta_msg']]);
 
-                                $chat->operation_admin .= "lhinst.updateMessageRowAdmin({$msgReplyTo->chat_id},{$msgReplyTo->id});";
+                                $chat->operation_admin = "lhinst.updateMessageRowAdmin({$msgReplyTo->chat_id},{$msgReplyTo->id});";
                                 $chat->updateThis(['update' => ['operation_admin']]);
                                 // NodeJS to update message delivery status
                                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msgReplyTo, 'chat' => & $chat));
@@ -1155,6 +1155,9 @@ class erLhcoreClassChatWebhookIncoming {
                     $metaMessage = [];
                     if (!empty($externalMessageId)) {
                         $metaMessage = ['iwh_msg_id' => $externalMessageId];
+                        if (isset($conditions['message_id_uniq']) && $conditions['message_id_uniq'] == 1 && erLhcoreClassModelmsg::getCount(['filter' => ['chat_id' => $chat->id], 'customfilter' => ['`meta_msg` != \'\' AND JSON_EXTRACT(meta_msg,\'$.iwh_msg_id\') = ' . ezcDbInstance::get()->quote($externalMessageId)]]) > 0) {
+                            throw new Exception('Message with external id of '.$externalMessageId.' already exists!');
+                        }
                     }
 
                     $replyToMessageId = self::extractAttribute('message_id_reply', $conditions, $payloadMessage, '');
@@ -1684,6 +1687,10 @@ class erLhcoreClassChatWebhookIncoming {
                     $metaMessage = [];
                     if (!empty($externalMessageId)) {
                         $metaMessage = ['iwh_msg_id' => $externalMessageId];
+
+                        if (isset($conditions['message_id_uniq']) && $conditions['message_id_uniq'] == 1 && erLhcoreClassModelmsg::getCount(['filter' => ['chat_id' => $chat->id], 'customfilter' => ['`meta_msg` != \'\' AND JSON_EXTRACT(meta_msg,\'$.iwh_msg_id\') = ' . ezcDbInstance::get()->quote($externalMessageId)]]) > 0) {
+                            throw new Exception('Message with external id of '.$externalMessageId.' already exists!');
+                        }
                     }
 
                     $replyToMessageId = self::extractAttribute('message_id_reply', $conditions, $payloadMessage, '');

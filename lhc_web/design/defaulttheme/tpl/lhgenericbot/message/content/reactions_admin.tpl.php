@@ -1,7 +1,7 @@
 <?php
+$reactionsOutput = '';
 if (isset($metaMessage['content'])) :
 $reactions = explode("\n",trim($metaMessage['content']));
-$reactionsOutput = '';
 $hasReactionsSelected = false;
 foreach ($reactions as $reaction) {
     $partsReaction = explode("|",$reaction);
@@ -11,9 +11,16 @@ foreach ($reactions as $reaction) {
         $reactionsOutput .= "<span title=\"" . htmlspecialchars(isset($partsReaction[3]) ? $partsReaction[3] : '') . "\"  class=\"reaction-item{$className}\">{$partsReaction[0]}</span>";
     }
 }
-?>
-<?php if (!empty($reactionsOutput)) : ?>
+endif; ?>
+
+<?php if (isset($metaMessage['current_emoji']) && is_array($metaMessage['current_emoji'])) : ?>
+    <?php foreach ($metaMessage['current_emoji'] as $reactionItem => $reactionValue) : ?>
+        <?php $reactionsOutput .= '<span class="reaction-item pt-0 me-0 reaction-selected">'. $reactionItem . '</span>';?>
+    <?php endforeach;?>
+<?php endif; ?>
+
+<?php if (isset($reactionsOutput) && !empty($reactionsOutput)) : ?>
 <div class="reactions-holder">
     <?php echo $reactionsOutput?>
 </div>
-<?php endif; endif; ?>
+<?php  endif; ?>

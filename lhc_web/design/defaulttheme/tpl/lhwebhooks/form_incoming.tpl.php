@@ -129,6 +129,9 @@
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Messages ID');?></label>
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.message_id" value="" />
+                    <div class="form-group">
+                        <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.message_id_uniq" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Check for messages uniqueness by message id');?></label>
+                    </div>
                 </div>
             </div>
             <div class="col-6">
