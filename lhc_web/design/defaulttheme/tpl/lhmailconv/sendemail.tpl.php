@@ -54,7 +54,7 @@
 
 <?php if (!isset($updated)) : ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($chat)) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?>" id="sendemail-form" ng-non-bindable method="post" autocomplete="new-password">
+<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($uparams['var1'])) :?>/(var1)/<?php echo htmlspecialchars($uparams['var1'])?><?php endif;?><?php if (isset($uparams['var1'])) :?>/(var2)/<?php echo htmlspecialchars($uparams['var2'])?><?php endif;?><?php if (isset($chat) && $chat->id > 0) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?>" id="sendemail-form" ng-non-bindable method="post" autocomplete="new-password">
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 

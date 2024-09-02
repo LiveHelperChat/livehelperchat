@@ -45,6 +45,8 @@ if (is_numeric($Params['user_parameters_unordered']['chat_id'])) {
     ));
 }
 
+$tpl->set('uparams',$Params['user_parameters_unordered']);
+
 if (ezcInputForm::hasPostData()) {
 
     $Errors = erLhcoreClassMailconvValidator::validateNewEmail($item, $chat);
