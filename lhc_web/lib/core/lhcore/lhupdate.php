@@ -146,7 +146,7 @@ class erLhcoreClassUpdate
 								$typeMatch = false;
 							}
 
-							if ($columnDesired['default'] != $column['default']) {
+                            if (trim($columnDesired['default'],"'") != trim($column['default'],"'")) {
 								$typeMatch = false;
 							}
 
