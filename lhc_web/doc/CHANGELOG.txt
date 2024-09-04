@@ -7,6 +7,8 @@
 5. Check conditions bot response was working incorrectly in some situations.
 6. Mail search will lowercase e-mails and remove dots.
 
+execute doc/update_db/update_316.sql for update
+
 4.45v
 
 1. E-Mail conversations search will now use `from_address_clean` attribute which is a new attribute without dot's in the name.
