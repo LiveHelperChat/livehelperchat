@@ -268,6 +268,8 @@ class erLhcoreClassChatWebhookIncoming {
 
             if ($messageData['found'] !== true && $exists == true) {
                 $validConditions = false;
+            } elseif ($messageData['found'] === true && $exists === true) {
+                $validConditions = true;
             }
 
             if ($validConditions === false) {
