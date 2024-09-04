@@ -450,6 +450,7 @@ try {
                   `repeat_number` int(11) NOT NULL DEFAULT '1',
                   `survey_timeout` int(11) NOT NULL DEFAULT '0',
                   `survey_id` int(11) NOT NULL DEFAULT '0',
+                  `disabled` tinyint(1) NOT NULL DEFAULT '0',
                   `wait_timeout_hold_1` int(11) NOT NULL,
                   `wait_timeout_hold_2` int(11) NOT NULL,
                   `wait_timeout_hold_3` int(11) NOT NULL,
@@ -482,7 +483,8 @@ try {
                   `languages` text NOT NULL,
                   `ignore_pa_chat` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
-                  KEY `siteaccess_position` (`siteaccess`,`position`)
+                  KEY `siteaccess_position` (`siteaccess`,`position`),
+                  KEY `disabled` (`disabled`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                     $db->query("CREATE TABLE `lh_abstract_widget_theme` (

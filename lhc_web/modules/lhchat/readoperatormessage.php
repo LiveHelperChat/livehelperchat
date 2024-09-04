@@ -560,7 +560,7 @@ if (isset($_POST['askQuestion']))
 
                $responder = $userInstance->invitation->autoresponder;
                
-               if ($responder !== false) {
+               if ($responder !== false && $responder instanceof erLhAbstractModelAutoResponder && $responder->disabled == 0) {
 
                    $responder->translateByChat($chat->chat_locale);
 

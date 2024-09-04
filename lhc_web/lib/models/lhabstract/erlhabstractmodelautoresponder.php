@@ -22,6 +22,7 @@ class erLhAbstractModelAutoResponder {
 			'operator'  		=> $this->operator,
 			'siteaccess'  		=> $this->siteaccess,
 			'wait_message'		=> $this->wait_message,
+			'disabled'		    => $this->disabled,
 
 			// Pending chat messages
 			'timeout_message'	=> $this->timeout_message,
@@ -295,7 +296,7 @@ class erLhAbstractModelAutoResponder {
 		$session = erLhcoreClassAbstract::getSession();
 		$q = $session->createFindQuery( 'erLhAbstractModelAutoResponder' );
 		$q->where( '(' . $q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) )
-            .' OR `siteaccess` = \'\') AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $chat->dep_id ) ).' OR `dep_id` = 0 OR `id` IN (SELECT `autoresponder_id` FROM `lh_abstract_auto_responder_dep` WHERE `dep_id` = ' . (int)$chat->dep_id . ') ) AND `only_proactive` = 0 AND `user_id` = 0')
+            .' OR `siteaccess` = \'\') AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $chat->dep_id ) ).' OR `dep_id` = 0 OR `id` IN (SELECT `autoresponder_id` FROM `lh_abstract_auto_responder_dep` WHERE `dep_id` = ' . (int)$chat->dep_id . ') ) AND `disabled` = 0 AND `only_proactive` = 0 AND `user_id` = 0')
 		->orderBy('`dep_id` ASC, `position` ASC')
 		->limit( 1 );
 
@@ -909,6 +910,7 @@ class erLhAbstractModelAutoResponder {
 	public $ignore_pa_chat = 0;
 	
 	public $user_id = 0;
+	public $disabled = 0;
 
 	public $hide_add = false;
 	public $hide_delete = false;

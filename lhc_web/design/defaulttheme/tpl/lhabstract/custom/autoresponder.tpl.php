@@ -32,6 +32,10 @@
 </div>
 
 <div class="form-group">
+    <label><?php echo erLhcoreClassAbstract::renderInput('disabled', $fields['disabled'], $object)?> <?php echo $fields['disabled']['trans'];?></label>
+</div>
+
+<div class="form-group">
 <label><?php echo $fields['siteaccess']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('siteaccess', $fields['siteaccess'], $object)?>
 </div>
