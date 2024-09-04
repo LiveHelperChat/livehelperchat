@@ -192,7 +192,7 @@ if ($tab == 'active') {
     }
 
     $filterParams['input_form']->work_hours_starts = isset($configuration['work_hours_starts']) ? $configuration['work_hours_starts'] : 8;
-    $filterParams['input_form']->work_hours_ends = isset($configuration['work_hours_ends']) ? $configuration['work_hours_ends'] : 17;
+    $filterParams['input_form']->work_hours_ends = isset($configuration['work_hours_ends']) ? $configuration['work_hours_ends'] : 16;
 
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
 
