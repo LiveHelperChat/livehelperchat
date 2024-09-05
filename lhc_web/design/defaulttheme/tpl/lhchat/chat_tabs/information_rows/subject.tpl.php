@@ -19,7 +19,11 @@
         foreach ($subjectsChat as $subject) : ?><span class="badge bg-info fs12" <?php if (is_object($subject->subject) && $subject->subject->color != '') : ?>style="background-color:#<?php echo htmlspecialchars($subject->subject->color)?>!important;" <?php endif;?> ><?php echo htmlspecialchars($subject)?></span>&nbsp;<?php endforeach; ?>
 
         <?php foreach($chat->aicons as $aicon) : ?>
-            <span class="material-icons" title="<?php print isset($aicon['t']) ? htmlspecialchars($aicon['t']) : htmlspecialchars($aicon['i'])?>" <?php if (isset($aicon['c']) && $aicon['c'] != '') : ?>style="color:<?php echo htmlspecialchars($aicon['c'])?>"<?php endif; ?> ><?php echo htmlspecialchars(is_array($aicon) && isset($aicon['i']) ? $aicon['i'] : $aicon)?></span>
+            <?php if (isset($aicon['i']) && strpos($aicon['i'],'/') !== false) : ?>
+                <img class="me-1" title="<?php isset($aicon['t']) ? print htmlspecialchars($aicon['t']) : htmlspecialchars($aicon['i'])?>" src="<?php echo $aicon['i'];?>" />
+            <?php else : ?>
+                <i class="material-icons" style="color: <?php isset($aicon['c']) ? print htmlspecialchars($aicon['c']) : print '#6c757d'?>" title="<?php isset($aicon['t']) ? print htmlspecialchars($aicon['t']) : htmlspecialchars($aicon['i'])?>"><?php isset($aicon['i']) ? print htmlspecialchars($aicon['i']) : htmlspecialchars($aicon)?></i>
+            <?php endif; ?>
         <?php endforeach; ?>
 
     </td>
