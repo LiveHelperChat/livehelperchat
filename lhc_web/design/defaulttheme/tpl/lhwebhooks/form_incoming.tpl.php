@@ -980,6 +980,11 @@
                     <input type="text" class="form-control form-control-sm" placeholder="message.attribute.location=read" ng-model="webhookincomingsctl.conditions.msg_delivery_read_condition" value="" />
                 </div>
             </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_read_global" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','All unread chat messages should be marked as read');?></label>
+                </div>
+            </div>
             <div class="col-6">
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID field location');?></label>
@@ -1047,7 +1052,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Reaction emoji location');?></label>
-                    <input type="text" class="form-control form-control-sm" placeholder="type=reaction" ng-model="webhookincomingsctl.conditions.msg_delivery_reaction_location" value="" />
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_reaction_location" value="" />
                 </div>
            </div>
             <div class="col-6">
@@ -1075,6 +1080,11 @@
             <div class="col-12">
                 <div class="form-group">
                     <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_reaction_remove_prev" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Remove previous visitor reaction on action');?></label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_reaction_remove_if_empty" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Remove previous visitor reaction if emoji location is empty');?></label>
                 </div>
             </div>
         </div>

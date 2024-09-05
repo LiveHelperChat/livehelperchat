@@ -135,7 +135,22 @@ class erLhcoreClassChatWebhookIncoming {
                 ];
 
                 if ($eChat !== false && ($chat = $eChat->chat) !== false && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
-                    $msgReplyTo = erLhcoreClassModelmsg::findOne(['filter' => ['chat_id' => $chat->id], 'customfilter' => ['`meta_msg` != \'\' AND JSON_EXTRACT(meta_msg,\'$.iwh_msg_id\') = ' . ezcDbInstance::get()->quote($messageId)]]);
+
+                         if (isset($conditions['msg_delivery_'.$mainConditionStatus.'_global']) && $conditions['msg_delivery_'.$mainConditionStatus.'_global'] == 1) {
+
+                             $msgReplyToAll = erLhcoreClassModelmsg::getList(['filter' => ['chat_id' => $chat->id],
+                                 'filternotin' => ['user_id' => [-1,0]],
+                                 'filterin' => ['del_st' => [erLhcoreClassModelmsg::STATUS_PENDING,erLhcoreClassModelmsg::STATUS_SENT,erLhcoreClassModelmsg::STATUS_DELIVERED]
+                             ]]);
+
+                             if (!empty($msgReplyToAll)) {
+                                 $msgReplyTo = array_shift($msgReplyToAll);
+                             }
+
+                         } else {
+                             $msgReplyTo = erLhcoreClassModelmsg::findOne(['filter' => ['chat_id' => $chat->id], 'customfilter' => ['`meta_msg` != \'\' AND JSON_EXTRACT(meta_msg,\'$.iwh_msg_id\') = ' . ezcDbInstance::get()->quote($messageId)]]);
+                         }
+
                 } elseif (isset($conditions['msg_delivery_'.$mainConditionStatus.'_use_msg_id']) && $conditions['msg_delivery_'.$mainConditionStatus.'_use_msg_id'] == 1) {
                     $msgReplyTo = erLhcoreClassModelmsg::findOne(
                         [
@@ -154,6 +169,22 @@ class erLhcoreClassChatWebhookIncoming {
                         $msgReplyTo->del_st = max($statusMap[$mainConditionStatus],$msgReplyTo->del_st);
                         $msgReplyTo->updateThis(['update' => ['del_st']]);
                         $chat->operation_admin = "lhinst.updateMessageRowAdmin({$msgReplyTo->chat_id},{$msgReplyTo->id});";
+
+                        // Mark remaining messages to correct status
+                        if (!empty($msgReplyToAll)) {
+                            foreach ($msgReplyToAll as $msgReplyToAllItem) {
+
+                                $msgReplyToAllItem->del_st = max($statusMap[$mainConditionStatus],$msgReplyToAllItem->del_st);
+                                $msgReplyToAllItem->updateThis(['update' => ['del_st']]);
+
+                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msgReplyToAllItem, 'chat' => & $chat));
+
+                                if (strlen($chat->operation_admin) < 120) {
+                                    $chat->operation_admin .= "lhinst.updateMessageRowAdmin({$msgReplyToAllItem->chat_id},{$msgReplyToAllItem->id});";
+                                }
+                            }
+                        }
+
                         if ($msgReplyTo->del_st == erLhcoreClassModelmsg::STATUS_READ) {
                             $chat->has_unread_op_messages = 0;
                         }
@@ -165,7 +196,7 @@ class erLhcoreClassChatWebhookIncoming {
                         if (!empty($reactionContent)) {
                             $metaMsg = $msgReplyTo->meta_msg_array;
 
-                            $reactionId = self::extractAttribute('msg_delivery_reaction_action_id',$conditions,$payloadMessage,1);
+                            $reactionId = self::extractAttribute('msg_delivery_'.$mainConditionStatus.'_action_id',$conditions,$payloadMessage,1);
 
                             $removePrevious = isset($conditions['msg_delivery_'.$mainConditionStatus.'_remove_prev']) && $conditions['msg_delivery_'.$mainConditionStatus.'_remove_prev'] == 1;
 
@@ -188,10 +219,14 @@ class erLhcoreClassChatWebhookIncoming {
                             $chat->updateThis(['update' => ['operation_admin']]);
                             // NodeJS to update message delivery status
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msgReplyTo, 'chat' => & $chat));
+                        } elseif (isset($conditions['msg_delivery_'.$mainConditionStatus.'_remove_if_empty']) && $conditions['msg_delivery_'.$mainConditionStatus.'_remove_if_empty'] == 1) {
+                            $mainConditionStatus = 'un_reaction'; // Un-Reaction process should take over
                         }
-                    } else if ($mainConditionStatus == 'un_reaction') {
+                    }
 
-                        $reactionId = self::extractAttribute('msg_delivery_reaction_action_id',$conditions,$payloadMessage,1);
+                    if ($mainConditionStatus == 'un_reaction') {
+
+                        $reactionId = self::extractAttribute('msg_delivery_'.$mainConditionStatus.'_action_id',$conditions,$payloadMessage,1);
 
                         if ($reactionId == '') {
                             $reactionId = 1;
