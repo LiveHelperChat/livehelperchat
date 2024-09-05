@@ -1057,6 +1057,12 @@ class erLhcoreClassBBCodePlain
 
         $ret = trim($ret);
 
+        if (isset($paramsMessage['clean_event']) && $paramsMessage['clean_event'] === true) {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.make_plain_message', array(
+                'msg' => & $ret
+            ));
+        }
+
         return $ret;
     }
 
