@@ -57,7 +57,11 @@ class erLhcoreClassUpdate
     		}
 		}
 
-        $archives = \LiveHelperChat\Models\mailConv\Archive\Range::getList(array('ignore_fields' => array('name','year_month','range_from','range_to','older_than','last_id','first_id'),'offset' => 0, 'limit' => 1000000,'sort' => 'id ASC'));
+        try {
+            $archives = \LiveHelperChat\Models\mailConv\Archive\Range::getList(array('ignore_fields' => array('name','year_month','range_from','range_to','older_than','last_id','first_id'),'offset' => 0, 'limit' => 1000000,'sort' => 'id ASC'));
+        } catch (Exception $e) {
+            $archives = [];
+        }
 
 		if (isset($definition['tables']['lhc_mailconv_conversation']))
 		{
@@ -146,7 +150,7 @@ class erLhcoreClassUpdate
 								$typeMatch = false;
 							}
 
-                            if (trim($columnDesired['default'],"'") != trim($column['default'],"'")) {
+                            if (trim((string)$columnDesired['default'],"'") != trim((string)$column['default'],"'")) {
 								$typeMatch = false;
 							}
 
