@@ -1475,7 +1475,13 @@ class erLhcoreClassChatWebhookIncoming {
                                 // Send default message for unknown button click
                                 $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
 
-                                $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('default_unknown_btn' => 1)));
+                                if ($buttonPayload == 'GET_STARTED') {
+                                    $filterButtonEvent = array('default' => 1);
+                                } else {
+                                    $filterButtonEvent = array('default_unknown_btn' => 1);
+                                }
+
+                                $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => $filterButtonEvent));
 
                                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
                                     erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array('args' => array('msg_text' => $buttonPayload)));
@@ -1871,7 +1877,15 @@ class erLhcoreClassChatWebhookIncoming {
                         if ($messageData['found'] == true && $messageData['value'] != '') {
                             $buttonPayload = $messageData['value'];
                             $payloadParts = explode('__',$buttonPayload);
-                            $ignore_default = is_object(erLhcoreClassModelmsg::fetch($payloadParts[3]));
+                            $ignore_default = isset($payloadParts[3]) && is_object(erLhcoreClassModelmsg::fetch($payloadParts[3]));
+                            if ($buttonPayload == 'GET_STARTED') {
+                                $msgNotice = new erLhcoreClassModelmsg();
+                                $msgNotice->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Chat started by') . ' "' . 'GET_STARTED' . '" ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','payload!');
+                                $msgNotice->chat_id = $chat->id;
+                                $msgNotice->user_id = -1;
+                                $msgNotice->time = time();
+                                $msgNotice->saveThis();
+                            }
                         }
                     }
 
@@ -1930,7 +1944,13 @@ class erLhcoreClassChatWebhookIncoming {
                                 // Send default message for unknown button click
                                 $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
 
-                                $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('default_unknown_btn' => 1)));
+                                if ($buttonPayload == 'GET_STARTED') {
+                                    $filterButtonEvent = array('default' => 1);
+                                } else {
+                                    $filterButtonEvent = array('default_unknown_btn' => 1);
+                                }
+
+                                $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => $filterButtonEvent));
 
                                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
                                     erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array('args' => array('msg_text' => $buttonPayload)));
