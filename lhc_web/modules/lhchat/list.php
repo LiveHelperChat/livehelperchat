@@ -22,6 +22,7 @@ if ( isset($_POST['doDelete']) ) {
 		foreach ($chats as $chatToDelete) {
 			if (erLhcoreClassChat::hasAccessToWrite($chatToDelete) && ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chatToDelete->user_id == $currentUser->getUserID())))
 			{
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete', array('chat' => & $chatToDelete, 'user' => $currentUser));
 				$chatToDelete->removeThis();
 			}
 		}
@@ -162,6 +163,7 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
         $filterParams['filter']['offset'] = 0;
 
         foreach (erLhcoreClassModelChat::getList($filterParams['filter']) as $item){
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete', array('chat' => & $item, 'user' => $currentUser));
             $item->removeThis();
         }
 
