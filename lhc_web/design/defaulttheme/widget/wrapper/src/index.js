@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 231;
+            lhc.version = 232;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -871,22 +871,35 @@
                     }
                 });
 
-                attributesWidget.originalTitle = document.title;
-                attributesWidget.blinkInterval = null;
-
                 attributesWidget.eventEmitter.addListener('change_language', (data) => {
                     attributesWidget.lang = data.lng.replace('/', '') + '/';
                 });
+
+                attributesWidget.originalTitle = document.title;
+                attributesWidget.blinkInterval = null;
+                attributesWidget.titleChanged = false;
 
                 attributesWidget.eventEmitter.addListener('unread_message_title', (data) => {
                     clearInterval(attributesWidget.blinkInterval);
                     if (data.status == false) {
                         attributesWidget.blinkInterval = setInterval(() => {
-                            document.title = (Math.round(new Date().getTime() / 1000) % 2) ? '💬 ' + attributesWidget.originalTitle : attributesWidget.originalTitle;
+                            if (Math.round(new Date().getTime() / 1000) % 2) {
+                                attributesWidget.originalTitle = document.title;
+                                document.title = '💬 ' + document.title;
+                                attributesWidget.titleChanged = true;
+                            } else {
+                                if (attributesWidget.titleChanged === true) {
+                                    document.title = attributesWidget.originalTitle;
+                                }
+                                attributesWidget.titleChanged = false;
+                            }
                         }, 1000);
                     } else {
                         attributesWidget.focused = true;
-                        document.title = attributesWidget.originalTitle;
+                        if (attributesWidget.titleChanged === true) {
+                            document.title = attributesWidget.originalTitle;
+                            attributesWidget.titleChanged = false;
+                        }
                     }
                 });
 
