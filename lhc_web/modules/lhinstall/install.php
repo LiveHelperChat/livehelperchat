@@ -1549,6 +1549,7 @@ try {
                 ('export_hash',	'{$exportHash}',	0,	'Chats export secret hash',	0),
                 ('do_no_track_ip', 0, 0, 'Do not track visitors IP',0),
                 ('remember_username','1','0','Should we remember username for the next time visitor starts a chat?','0'),
+                ('remember_phone_email','1','0','Should we remember E-Mail, Phone for the next time visitor starts a chat?','0'),
                 ('ignore_typing', 0, 0, 'Do not store what visitor is typing',0),
                 ('encrypt_msg_after', 0, 0, 'After how many days anonymize messages',0),
                 ('encrypt_msg_op', 0, 0, 'Anonymize also operators messages',0),

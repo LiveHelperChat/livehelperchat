@@ -321,10 +321,6 @@ if (empty($Errors)) {
                     $chat->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE;
                 }
 
-                $userInstance->chat_id = $chat->id;
-                $userInstance->dep_id = $chat->dep_id;
-                $userInstance->chat_time = time();
-
                 if (!isset($resetMessage)) {
                     $userInstance->message_seen = 1;
                     $userInstance->message_seen_ts = time();
@@ -333,6 +329,22 @@ if (empty($Errors)) {
                 if ($userInstance->visitor_tz == '') {
                     $userInstance->visitor_tz = $chat->user_tz_identifier;
                 }
+
+                if (erLhcoreClassModelChatConfig::fetch('remember_phone_email')->current_value == 1 && $userInstance->chat_id > 0) {
+                    $chatLegacy = erLhcoreClassModelChat::fetch($userInstance->chat_id);
+                    if (is_object($chatLegacy)) {
+                        if ($chatLegacy->phone != '' && $chat->phone == '') {
+                            $chat->phone = $chatLegacy->phone;
+                        }
+                        if ($chatLegacy->email != '' && $chat->email == '') {
+                            $chat->email = $chatLegacy->email;
+                        }
+                    }
+                }
+
+                $userInstance->dep_id = $chat->dep_id;
+                $userInstance->chat_time = time();
+                $userInstance->chat_id = $chat->id;
 
                 if (erLhcoreClassModelChatConfig::fetch('remember_username')->current_value == 1) {
                     if ($chat->nick != 'Visitor') {

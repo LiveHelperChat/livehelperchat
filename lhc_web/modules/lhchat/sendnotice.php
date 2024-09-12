@@ -151,6 +151,10 @@ if ( isset($_POST['SendMessage']) ) {
 
                 if ($chatPast instanceof erLhcoreClassModelChat) {
                     $chat->nick = $chatPast->nick;
+                    if (erLhcoreClassModelChatConfig::fetch('remember_phone_email')->current_value == 1) {
+                        $chat->phone = $chatPast->phone;
+                        $chat->email = $chatPast->email;
+                    }
                 }
 
                 if (erLhcoreClassModelChatConfig::fetch('remember_username')->current_value == 1) {

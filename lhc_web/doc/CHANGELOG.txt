@@ -1,3 +1,12 @@
+4.47v
+
+1. Blinking title fixes with one page applications.
+2. Option to remember phone, email for the next time visitor starts a chats
+3. Chat delete event was missing on chat deletion from list.
+4. Compatibility with new Facebook Extension including WhatsApp, Instagram, Messenger support.
+5. Statistic chart will not include 17 as default work hour.
+6. SSO extension compatibility 
+
 4.46v
 
 1. More options to parse incoming request for incoming webhooks

@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('remember_phone_email','1','0','Should we remember E-Mail, Phone for the next time visitor starts a chat?','0');

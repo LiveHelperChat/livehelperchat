@@ -9937,6 +9937,13 @@
         "hidden": "0"
       },
       {
+        "identifier": "remember_phone_email",
+        "value": "1",
+        "type": "0",
+        "explain": "Should we remember E-Mail, Phone for the next time visitor starts a chat?",
+        "hidden": "0"
+      },
+      {
         "identifier": "inform_unread_message",
         "value": "0",
         "type": "0",
