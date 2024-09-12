@@ -883,7 +883,7 @@
                     clearInterval(attributesWidget.blinkInterval);
                     if (data.status == false) {
                         attributesWidget.blinkInterval = setInterval(() => {
-                            if (Math.round(new Date().getTime() / 1000) % 2) {
+                            if (Math.round(new Date().getTime() / 1000) % 2 && attributesWidget.titleChanged === false) {
                                 attributesWidget.originalTitle = document.title;
                                 document.title = '💬 ' + document.title;
                                 attributesWidget.titleChanged = true;
