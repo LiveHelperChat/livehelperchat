@@ -1053,7 +1053,21 @@ class erLhcoreClassModelChatOnlineUser
                     if ($item->operator_message != '' || $item->message_seen == 1) {
                         $item->operator_message = '';
                         $item->message_seen = 0;
-                        $item->updateThis(['update' => ['message_seen','operator_message']]);
+
+                        if (!isset($onlineAttrSystem)) {
+                            $onlineAttrSystem = $item->online_attr_system_array;
+                        }
+
+                        $updateAttributes = ['message_seen','operator_message'];
+
+                        if (isset($onlineAttrSystem['qinv'])) {
+                            unset($onlineAttrSystem['qinv']);
+                            $item->online_attr_system = json_encode($onlineAttrSystem);
+                            $item->online_attr_system_array = $onlineAttrSystem;
+                            $updateAttributes[] = 'online_attr_system';
+                        }
+
+                        $item->updateThis(['update' => $updateAttributes]);
                     }
                 }
             }

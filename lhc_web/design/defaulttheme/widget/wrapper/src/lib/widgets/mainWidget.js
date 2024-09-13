@@ -297,7 +297,7 @@ export class mainWidget{
 
     showInvitation() {
         this.is_invitation = true;
-        if (this.attributes.cont_ss) {
+        if (this.attributes.cont_ss && !this.attributes.full_invitation) {
             this.cont.elmDom.style.cssText = this.originalCSS;
         }
         this.show();

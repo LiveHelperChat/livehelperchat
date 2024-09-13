@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 232;
+            lhc.version = 233;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -208,6 +208,7 @@
                     storageHandler: storageHandler,
                     staticJS: {},
                     nh : null, // Need help data
+                    full_invitation: false,
                     init_calls: [],
                     childCommands: [],
                     childExtCommands: [],
@@ -828,9 +829,11 @@
                 attributesWidget.eventEmitter.addListener('hideInvitation', (data) => {
                     attributesWidget.mainWidget.hideInvitation();
                     if (data.full) {
+                        attributesWidget.full_invitation = true;
                         attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender': 'closeButton'}]);
                         attributesWidget.eventEmitter.emitEvent('fullInvitation', [data]);
                     } else {
+                        attributesWidget.full_invitation = false;
                         attributesWidget.eventEmitter.emitEvent('cancelInvitation', []);
                     }
                     attributesWidget.mainWidget.resizeTrigger();
