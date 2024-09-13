@@ -62,7 +62,7 @@ class erLhcoreClassChatWebhookIncoming {
     {
         $conditions = $incomingWebhook->conditions_array;
 
-        foreach (['sent','delivered','read','rejected','reaction','un_reaction'] as $mainConditionStatus) {
+        foreach (['sent','delivered','read','rejected','reaction','un_reaction','edited'] as $mainConditionStatus) {
             $messageId = self::extractAttribute('msg_delivery_'.$mainConditionStatus.'_id', $conditions, $payloadMessage, '');
             if ($messageId != '' &&
                 (
@@ -190,7 +190,20 @@ class erLhcoreClassChatWebhookIncoming {
                         }
                         $chat->updateThis(['update' => ['operation_admin','has_unread_op_messages']]);
                         // NodeJS to update message delivery status
-                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msgReplyTo, 'chat' => & $chat));
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msgReplyTo, 'chat' => & $chat, 'reason' => 'delivery_status_change'));
+                    } elseif ($mainConditionStatus == 'edited') {
+
+                        $reactionContent = self::extractAttribute('msg_delivery_edited_location', $conditions, $payloadMessage);
+
+                        if (!empty($reactionContent)) {
+                            $msgReplyTo->msg = $reactionContent;
+                            $msgReplyTo->updateThis(['update' => ['msg']]);
+                            $chat->operation_admin = "lhinst.updateMessageRowAdmin({$msgReplyTo->chat_id},{$msgReplyTo->id});";
+                            $chat->updateThis(['update' => ['operation_admin']]);
+                            
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msgReplyTo, 'chat' => & $chat, 'reason' => 'content_edited'));
+                        }
+
                     } elseif ($mainConditionStatus == 'reaction') { // Reaction to message
                         $reactionContent = self::extractAttribute('msg_delivery_reaction_location', $conditions, $payloadMessage);
                         if (!empty($reactionContent)) {
@@ -218,7 +231,7 @@ class erLhcoreClassChatWebhookIncoming {
                             $chat->operation_admin = "lhinst.updateMessageRowAdmin({$msgReplyTo->chat_id},{$msgReplyTo->id});";
                             $chat->updateThis(['update' => ['operation_admin']]);
                             // NodeJS to update message delivery status
-                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msgReplyTo, 'chat' => & $chat));
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msgReplyTo, 'chat' => & $chat,'reason' => 'emoji_add'));
                         } elseif (isset($conditions['msg_delivery_'.$mainConditionStatus.'_remove_if_empty']) && $conditions['msg_delivery_'.$mainConditionStatus.'_remove_if_empty'] == 1) {
                             $mainConditionStatus = 'un_reaction'; // Un-Reaction process should take over
                         }
@@ -253,7 +266,7 @@ class erLhcoreClassChatWebhookIncoming {
                                 $chat->operation_admin = "lhinst.updateMessageRowAdmin({$msgReplyTo->chat_id},{$msgReplyTo->id});";
                                 $chat->updateThis(['update' => ['operation_admin']]);
                                 // NodeJS to update message delivery status
-                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msgReplyTo, 'chat' => & $chat));
+                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msgReplyTo, 'chat' => & $chat, 'reason' => 'emoji_remove'));
                             }
                         }
                     }

@@ -1028,6 +1028,41 @@
         </div>
 
         <hr>
+        <h5>Text Message edit action</h5>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Message ID location');?></label>
+                    <input type="text" class="form-control form-control-sm" placeholder="" ng-model="webhookincomingsctl.conditions.msg_delivery_edited_id" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered text message edit');?></label>
+                    <input type="text" class="form-control form-control-sm" placeholder="message.edited_message=__exists__" ng-model="webhookincomingsctl.conditions.msg_delivery_edited_condition" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID field location');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_edited_chat_id" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID 2 field location');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_edited_chat_id_2" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Text message new content location</label>
+                    <input type="text" class="form-control form-control-sm ng-pristine ng-valid ng-not-empty ng-touched" ng-model="webhookincomingsctl.conditions.msg_delivery_edited_location" value="">
+                </div>
+            </div>
+        </div>
+
+
 
         <h5>React action</h5>
         <div class="row">
