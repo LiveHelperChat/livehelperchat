@@ -223,7 +223,42 @@ class erLhcoreClassModelChatOnlineUser
                             }
                         }
                     }
- 
+
+                    $replaceCustomArgs = [];
+
+                    $matchesMessage = [];
+                    preg_match_all('/\{[A-Za-z0-9\_]+\}/is',$this->operator_message_front, $matchesMessage);
+                    if (isset($matchesMessage[0]) && !empty($matchesMessage[0])) {
+                        foreach ($matchesMessage[0] as $replaceItem) {
+                            if (key_exists($replaceItem,$replaceArray) == false) {
+                                $replaceCustomArgs[] = $replaceItem;
+                            }
+                        }
+                    }
+
+                    $replaceCustomArgs = array_unique($replaceCustomArgs);
+
+                    if (!empty($replaceCustomArgs)) {
+                        $identifiers = [];
+                        $identifiersApplied = [];
+                        foreach ($replaceCustomArgs as $replaceArg) {
+                            $identifiers[] = str_replace(['{','}'],'', $replaceArg);
+                        }
+
+                        $replaceRules = erLhcoreClassModelCannedMsgReplace::getList(array(
+                                'sort' => 'repetitiveness DESC', // Default translation will be the last one if more than one same identifier is found
+                                'limit' => false,
+                                'filterin' => array('identifier' => $identifiers))
+                        );
+
+                        foreach ($replaceRules as $replaceRule) {
+                            if ($replaceRule->is_active && !in_array($replaceRule->identifier,$identifiersApplied)) {
+                                $replaceArray['{' . $replaceRule->identifier . '}'] = $replaceRule->getValueReplace(['chat' => $this]);
+                                $identifiersApplied[] = $replaceRule->identifier;
+                            }
+                        }
+                    }
+
                     if (!empty($replaceArray)){
                         $this->operator_message_front = str_replace(array_keys($replaceArray), array_values($replaceArray), $this->operator_message_front);
                     }
