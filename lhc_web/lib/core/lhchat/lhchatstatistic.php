@@ -4400,7 +4400,7 @@ class erLhcoreClassChatStatistic {
                 ]);
             }
         } else if ($type == 'proactivevsdefault') {
-            fputcsv($fp, ['date','Proactive','Visitors initiated','Manual invitation']);
+            fputcsv($fp, ['date','Proactive','Visitor initiated','Manual invitation']);
             foreach ($statistic['numberOfChatsPerMonth'] as $key => $data) {
                 fputcsv($fp,[
                     date('Y-m-d H:i:s',$key),
@@ -4702,7 +4702,7 @@ class erLhcoreClassChatStatistic {
                 ]);
             }
         } else if ($type == 'cs_proactivevsdefault') {
-            fputcsv($fp, ['Date','Proactive','Visitors initiated']);
+            fputcsv($fp, ['Date','Proactive','Visitor initiated']);
             foreach ($statistic['numberOfChatsPerMonth'] as $monthUnix => $data) {
                 fputcsv($fp,[
                     ($monthUnix > 10 ? date('Y-m-d H:i:s',$monthUnix) : $weekDays[(int)$monthUnix]),
