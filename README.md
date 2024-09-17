@@ -24,12 +24,14 @@ http://livehelperchat.com/demo-12c.html
  * [Jitsi - Voice & Video & ScreenShare](https://doc.livehelperchat.com/docs/integrating/jitsi) powered by [jitsi](https://jitsi.org/), Free out of the box integration
  * [Rest API](https://api.livehelperchat.com)
  * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with the possibility to integrate any third-party AI
+   * E.g Rasa AI https://doc.livehelperchat.com/docs/bot/rasa-integration-intent
+   * E.g ChatGPT https://doc.livehelperchat.com/docs/bot/chatgpt-integration
  * [Telegram](https://github.com/LiveHelperChat/telegram)
  * [Rasa](https://doc.livehelperchat.com/docs/bot/rasa-integration)
  * [Mattermost](https://github.com/LiveHelperChat/mattermost)
- * [Facebook messenger](https://github.com/LiveHelperChat/fbmessenger)
+ * [Facebook messenger, Intsagram](https://github.com/LiveHelperChat/fbmessenger)
  * [Facebook WhatsApp](https://github.com/LiveHelperChat/fbmessenger#whatsapp-configuration)
- * [Google Business Message](https://github.com/LiveHelperChat/GoogleBusinessMessage)
+ * [Facebook Instagram](https://github.com/LiveHelperChat/fbmessenger#whatsapp-configuration)
  * [Insult detection](https://github.com/LiveHelperChat/lhcinsult) powered by [DeepPavlov.ai](https://demo.deeppavlov.ai/#/en/insult) and [NudeNet](https://github.com/notAI-tech/NudeNet)
  * [SMS, WhatsApp](https://github.com/LiveHelperChat/twilio) (Twilio based)
  * [WhatsApp](https://doc.livehelperchat.com/docs/integrating/whatsapp) open-wa based.
@@ -45,8 +47,16 @@ http://livehelperchat.com/demo-12c.html
  * [Sentiment analysis using DeepPavlov](https://github.com/LiveHelperChat/sentiment)
  * [Shopify integration](https://github.com/LiveHelperChat/pluginshopify) 
  * [MessageBird integration](https://doc.livehelperchat.com/docs/integrating/messagebird-whatsapp/) 
+ * [https://bird.com](https://github.com/LiveHelperChat/mbird)
  * [CloudTalk integration](https://doc.livehelperchat.com/docs/integrating/cloudtalk/) 
  * [Chat API integration](https://doc.livehelperchat.com/docs/integrating/chat-api-com/) 
+ * [LDAP](https://github.com/LiveHelperChat/lhldap)
+ * [https://www.wildix.com](https://github.com/LiveHelperChat/wildixin)
+ * [MS Authentification](https://github.com/LiveHelperChat/lhcmsauth)
+ * [https://zapier.com](https://github.com/LiveHelperChat/zapier)
+ * SSO 
+   * https://github.com/LiveHelperChat/ssoprovider-demo
+   * https://github.com/LiveHelperChat/ssoprovider
 
 ## Quick development guide
  * After the app is installed, disable cache and enable debug output.
@@ -89,6 +99,7 @@ https://explore.transifex.com/remigijus-kiminas/live-helper-chat/
 A few main features:
 
  * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with the possibility to integrate any third-party AI
+ * Tens of thousands chats per day support using [ElasticSearch](https://github.com/LiveHelperChat/elasticsearch), [NodeJS](https://github.com/LiveHelperChat/NodeJS-Helper), [PHP-Resque](https://github.com/LiveHelperChat/lhc-php-resque) System is highly optimised and battle tested for high load environment
  * XMPP support for notifications about new chats (iPhone, iPad, Android, Blackberry, GTalk, etc.)
  * Chrome extension
  * Repeatable sound notifications
@@ -101,7 +112,8 @@ A few main features:
  * Send delayed canned messages as if it was a real user typing
  * Chats archive
  * Priority queue
- * Chats statistic generation, top chats
+ * [Chats statistic generation](https://doc.livehelperchat.com/docs/chat/statistic)
+ * Advanced agents performance tracking
  * Resume chat after the user closed the chat
  * All chats in a single window with tabs interface; tabs are remembered before they are closed
  * Chat transcript print
@@ -109,7 +121,7 @@ A few main features:
  * Site widget
  * Page embed mode for live support script or widget mode, or standard mode
  * Multilanguage
- * Chats transfering
+ * Chats transferring
  * Departments
  * Files upload
  * Chat search
@@ -168,6 +180,10 @@ A few main features:
  * Dekstop client supports HTTPS
  * Protection against spammers using advanced captcha technique without requiring users to enter any captcha code.
  * Option for operator set online or offline mode.
+ * Automatic chat closing
+ * Distribution of visitors to different operators depending on their GEO / language (two different clients in different languages are contacting. It is possible to configure the distribution so that a Lithuanian-speaking client gets to a Lithuanian-speaking operator, and an English-speaking client to an English-speaking operator)
+ * Custom distribution of visitors based on their attributes.
+ * Subjects/Topics for chat
  * Desktop client for
   * Windows
   * Linux 
@@ -176,6 +192,8 @@ A few main features:
   * Roles
   * Groups
   * Users
+
+
 
 Forum:
 http://forum.livehelperchat.com/
