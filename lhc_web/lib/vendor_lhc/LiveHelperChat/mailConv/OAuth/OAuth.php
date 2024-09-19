@@ -10,14 +10,14 @@ namespace LiveHelperChat\mailConv\OAuth
             $this->mailbox = $mailbox;
         }
 
-        public static function getPassword($mailbox) {
+        public static function getPassword($mailbox, $forceRefresh = false) {
             if (strpos($mailbox->imap,'outlook.office365.com') !== false) {
                 $oauth = \LiveHelperChat\Models\mailConv\OAuthMS::findOne(['filter' => ['mailbox_id' => $mailbox->id]]);
                 if (!is_object($oauth)) {
                     throw new \Exception('OAuth not found for MS');
                 }
 
-                if ($oauth->dtExpires < time() + 600) {
+                if ($oauth->dtExpires < time() + 600 || $forceRefresh === true) {
 
                     //attempt token refresh
                     if ($oauth->txtRefreshToken) {
@@ -78,7 +78,7 @@ namespace LiveHelperChat\mailConv\OAuth
                 }
             }
 
-            $client = $cm->make([
+            $connectionArgs = [
                 'host' => $host['host'],
                 'port' => $host['port'],
                 'encryption' => (in_array('tls',$pathArguments) ? 'tls' : 'ssl'),
@@ -87,9 +87,20 @@ namespace LiveHelperChat\mailConv\OAuth
                 'password' => $password,
                 'protocol' => $protocolDefault,
                 'authentication' => "oauth",
-            ]);
+            ];
 
-            $client->connect();
+            try {
+                $client = $cm->make($connectionArgs);
+                $client->connect();
+            } catch (\Exception $e) {
+                if (strpos($e->getMessage(), "NO AUTHENTICATE") !== false) {
+                    $connectionArgs['password'] = self::getPassword($mailbox,true);
+                    $client = $cm->make($connectionArgs);
+                    $client->connect();
+                } else {
+                    throw $e;
+                }
+            }
 
             return $client;
         }
