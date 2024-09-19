@@ -125,31 +125,6 @@ class erLhAbstractModelSurvey {
 		return $this->name;
 	}
 
-    public function checkPermission() {
-
-        $currentUser = erLhcoreClassUser::instance();
-
-        if ($currentUser->hasAccessTo( 'lhdepartment', 'see_all')) {
-            return true;
-        }
-
-        /**
-         * Append user departments filter
-         * */
-        $departmentParams = array();
-        $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
-        if ($userDepartments !== true) {
-            // Find all departments where this survey is assigned
-            // We allow to view information if all departments this survey is assigned operator has access to.
-            $depIDS = array_keys(erLhcoreClassModelDepartament::getList(['limit' => false, 'customfilter' => ["`lh_departament`.`bot_configuration` != '' AND JSON_CONTAINS(`lh_departament`.`bot_configuration`," . (int)$this->id . ",'$.survey_id')"]]));
-            if (empty($depIDS) || count(array_diff($depIDS, $userDepartments)) > 0) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static function getFilter() {
         // Global filters
         $filter = erLhcoreClassUserDep::conditionalDepartmentFilter(false,'id');

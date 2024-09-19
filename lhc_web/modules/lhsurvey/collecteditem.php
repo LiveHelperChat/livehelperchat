@@ -4,7 +4,7 @@ $item = erLhAbstractModelSurveyItem::fetch((int)$Params['user_parameters']['id']
 
 $survey = erLhAbstractModelSurvey::fetch($item->survey_id);
 
-if ( $survey->checkPermission() === false ) {
+if (!erLhcoreClassChat::hasAccessToRead($item,['scope' => 'dep'])) {
     die('No permission to read results');
     exit;
 } else {

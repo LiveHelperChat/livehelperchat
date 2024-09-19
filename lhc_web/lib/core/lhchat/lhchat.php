@@ -1498,47 +1498,44 @@ class erLhcoreClassChat {
         return !in_array($chat->dep_id, $dep);
    }
 
-   public static function hasAccessToRead($chat)
+   public static function hasAccessToRead($chat, $params = [])
    {
        $currentUser = erLhcoreClassUser::instance();
 
        $userData = $currentUser->getUserData(true);
 
        if ( $userData->all_departments == 0 && $chat->dep_id != 0) {
-
             /*
              * --From now permission is strictly by assigned department, not by chat owner
              *
              * Finally decided to keep this check, it allows more advance permissions configuration
              * */
-
-            if (!$currentUser->hasAccessTo('lhchat','allowopenclosedchats') && $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+            if ((!isset($params['scope']) || $params['scope'] != 'dep') && !$currentUser->hasAccessTo('lhchat','allowopenclosedchats') && $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
                 return false;
             }
 
-       		if ($chat->user_id == $currentUser->getUserID()) return true;
+       		if ((!isset($params['scope']) || $params['scope'] != 'dep') && $chat->user_id == $currentUser->getUserID()) return true;
 
             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID(), $userData->cache_version);
 
             if (count($userDepartaments) == 0) return false;
 
             if (in_array($chat->dep_id,$userDepartaments)) {
-            	if ($currentUser->hasAccessTo('lhchat','allowopenremotechat') == true || $chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT){
+            	if ((isset($params['scope']) && $params['scope'] == 'dep') || ((!isset($params['scope']) || $params['scope'] != 'dep') && ($currentUser->hasAccessTo('lhchat','allowopenremotechat') == true || $chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT))){
             		return true;
-            	} elseif ($chat->user_id == 0 || $chat->user_id == $currentUser->getUserID()) {
+            	} elseif ((!isset($params['scope']) || $params['scope'] != 'dep') && ($chat->user_id == 0 || $chat->user_id == $currentUser->getUserID())) {
             		return true;
             	}
-
             	return false;
             }
 
             return false;
 
-       } elseif ($userData->all_departments != 0 && $chat->user_id != 0 && $chat->user_id != $currentUser->getUserID() && !$currentUser->hasAccessTo('lhchat','allowopenremotechat')) {
+       } elseif ((!isset($params['scope']) || $params['scope'] != 'dep') && $userData->all_departments != 0 && $chat->user_id != 0 && $chat->user_id != $currentUser->getUserID() && !$currentUser->hasAccessTo('lhchat','allowopenremotechat')) {
            return false;
        }
 
-       if (!$currentUser->hasAccessTo('lhchat','allowopenclosedchats') && $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+       if ((!isset($params['scope']) || $params['scope'] != 'dep') && !$currentUser->hasAccessTo('lhchat','allowopenclosedchats') && $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
            return false;
        }
 
