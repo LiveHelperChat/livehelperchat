@@ -246,6 +246,10 @@ class erLhcoreClassGenericBotValidator {
                     $triggersId[] = (int)$action['content']['attr_options']['callback_match'];
                 }
 
+                if (isset($action['content']['attr_options']['callback_unmatch']) && is_numeric($action['content']['attr_options']['callback_unmatch']) && $action['content']['attr_options']['callback_unmatch'] > 0) {
+                    $triggersId[] = (int)$action['content']['attr_options']['callback_unmatch'];
+                }
+
                 if (isset($action['content']['attr_options']['callback_reschedule']) && is_numeric($action['content']['attr_options']['callback_reschedule']) && $action['content']['attr_options']['callback_reschedule'] > 0) {
                     $triggersId[] = (int)$action['content']['attr_options']['callback_reschedule'];
                 }
@@ -460,6 +464,9 @@ class erLhcoreClassGenericBotValidator {
 
             $replaceArraySearch[] = '"callback_match":"' . $oldTriggerId . '"';
             $replaceArrayReplace[] = '"callback_match":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"callback_unmatch":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"callback_unmatch":"' . $newTriggerId . '"';
 
             $replaceArraySearch[] = '"trigger_id":"' . $oldTriggerId . '"';
             $replaceArrayReplace[] = '"trigger_id":"' . $newTriggerId . '"';
