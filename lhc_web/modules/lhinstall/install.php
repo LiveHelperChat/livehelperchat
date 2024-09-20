@@ -2371,7 +2371,7 @@ try {
                       `expires_on` int(11) NOT NULL,
                       `notifications_status` int(11) NOT NULL DEFAULT 1,
                       `error` int(11) NOT NULL DEFAULT 0,
-                      `last_error` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                      `last_error` text COLLATE utf8mb4_unicode_ci NOT NULL,
                       PRIMARY KEY (`id`),
                       KEY `token` (`token`),
                       KEY `device_token_device_type_v2` (`device_token`(191),`device_type`),

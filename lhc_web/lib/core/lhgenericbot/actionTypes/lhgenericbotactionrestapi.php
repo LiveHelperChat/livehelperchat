@@ -85,7 +85,21 @@ class erLhcoreClassGenericBotActionRestapi
                     'method' => & $method
                 ));
 
-                $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
+                if (
+                    isset($method['polling_n_times']) && (int)$method['polling_n_times'] >= 1 && $method['polling_n_times'] <= 10 &&
+                    isset($method['polling_n_delay']) && (int)$method['polling_n_delay'] >= 1 && $method['polling_n_delay'] <= 10
+                ) {
+                    for ($i = 0; $i < (int)$method['polling_n_times']; $i++) {
+                        sleep($method['polling_n_delay']);
+                        $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
+                        // Request succeeded we can exit a loop
+                        if (isset($response['conditions_met']) && $response['conditions_met'] == true) {
+                            break;
+                        }
+                    }
+                } else {
+                    $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
+                }
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_after_request', array(
                     'restapi' => & $restAPI,
@@ -126,6 +140,8 @@ class erLhcoreClassGenericBotActionRestapi
                         }
                     }
                 }
+
+
 
                 // We have found exact matching response type
                 // Let's check has user checked any trigger to execute.
@@ -1252,7 +1268,18 @@ class erLhcoreClassGenericBotActionRestapi
                         'content_5' => (isset($responseValueSub[5]) ? $responseValueSub[5] : ''),
                         'content_6' => (isset($responseValueSub[6]) ? $responseValueSub[6] : ''),
                         'meta' => $meta,
+                        'conditions_met' => true,
                         'id' => $outputCombination['id']);
+
+                    if (isset($outputCombination['success_preg_replace']) && $outputCombination['success_preg_replace'] != '') {
+                        $replaceRules = explode("\n", $outputCombination['success_preg_replace']);
+                        foreach ($replaceRules as $replaceRule) {
+                            $replaceRuleOptions = explode('==>',$replaceRule);
+                            for ($i = 1; $i <= 6; $i++) {
+                                $responseFormatted['content' . ($i > 1 ? '_' . $i : '')] = preg_replace('/'.$replaceRuleOptions[0].'/is',(isset($replaceRuleOptions[1]) ? $replaceRuleOptions[1] : ''), $responseFormatted['content' . ($i > 1 ? '_' . $i : '')]);
+                            }
+                        }
+                    }
 
                     if (isset($outputCombination['method_name']) && !empty(trim($outputCombination['method_name']))) {
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_rest_api_method.' . trim($outputCombination['method_name']),
@@ -1276,6 +1303,7 @@ class erLhcoreClassGenericBotActionRestapi
                 'http_code' => $httpcode,
                 'http_error' => $http_error,
                 'http_data' => $http_data,
+                'conditions_met' => false,
                 'content_2' => '',
                 'content_3' => '',
                 'content_4' => '',
@@ -1291,6 +1319,7 @@ class erLhcoreClassGenericBotActionRestapi
             'http_code' => $httpcode,
             'http_error' => $http_error,
             'http_data' => $http_data,
+            'conditions_met' => false,
             'content_2' => '',
             'content_3' => '',
             'content_4' => '',

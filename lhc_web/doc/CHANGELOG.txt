@@ -1,3 +1,13 @@
+4.48v
+
+1. Mobile notifications will work now for Mobile App. Although correct windows may not open.
+2. Chat GPT Flow support In Rest API section. Polling support.
+3. Survey page will show only collected items for departments agent is assigned to.
+4. Replaceable variables will be supported also in proactive chat invitations.
+5. Message edit action support for web UI if visitor edit's it's message.
+
+execute doc/update_db/update_318.sql for update
+
 4.47v
 
 1. Blinking title fixes with one page applications.
@@ -6,6 +16,8 @@
 4. Compatibility with new Facebook Extension including WhatsApp, Instagram, Messenger support.
 5. Statistic chart will not include 17 as default work hour.
 6. SSO extension compatibility 
+
+execute doc/update_db/update_317.sql for update
 
 4.46v
 

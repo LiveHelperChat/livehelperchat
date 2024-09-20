@@ -75,6 +75,7 @@
         <li role="presentation" class="nav-item"><a class="nav-link" href="#outputrest-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Output parsing');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#conditions-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Conditions');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#remote-msg-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Remote Message ID');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" href="#polling-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Polling');?></a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -426,6 +427,9 @@
                         <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_location_meta" placeholder="response:msg">
                     </div>
 
+                    <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Preg replace rules to apply extracted content.')?></h6>
+                    <textarea ng-model="paramOutput.success_preg_replace" class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can apply preg replace rules to extracted content. One rule per row. Format example: ^.{5,}+$==>Replace with content')?>"></textarea>
+
                     <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Custom event')?></h6>
 
                     <div class="input-group input-group-sm">
@@ -468,7 +472,9 @@
                                 <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_compare_value" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Value to compare')?>">
                             </div>
                         </div>
+                        </div>
 
+                        <div class="row">
                         <div class="col-4">
                             <div class="form-group">
                                 <label>2. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If required you can also have condition to check')?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Response Location. It will also fail if attribute is not found.')?></label>
@@ -497,7 +503,6 @@
                                 <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_compare_value_2" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Value to compare')?>">
                             </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -506,6 +511,20 @@
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If you want to add custom data within each send message to its meta_data attribute you can provide response path here')?></p>
             <input type="text" class="form-control form-control-sm" ng-model="param.remote_message_id" placeholder="messages:0:id" value="" />
         </div>
+
+        <div role="tabpanel" class="tab-pane" id="polling-{{$index}}">
+            <div class="row">
+                <div class="col-6">
+                    <label>Repeat request n times if conditions is not met (polling)</label>
+                    <input type="number" class="form-control form-control-sm" ng-model="param.polling_n_times" placeholder="0" min="0" max="10" />
+                </div>
+                <div class="col-6">
+                    <label>Making n seconds delay between each request</label>
+                    <input type="number" class="form-control form-control-sm" ng-model="param.polling_n_delay" placeholder="1" min="1" max="5" />
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
