@@ -496,13 +496,18 @@ class erLhcoreClassLHCMobile {
 
         if ($channelName != '') {
             $fields['message']['android'] = [
+                "priority" => "high",
                 'notification' =>  [
                     "click_action" => "FLUTTER_NOTIFICATION_CLICK",
-                    "channel_id" => $channelName
+                    "channel_id" => $channelName,
+                    "sound" => "default"
                 ]
             ];
             $fields['message']['apns']['payload']['aps']['category'] = 'FLUTTER_NOTIFICATION_CLICK';
+            $fields['message']['apns']['headers']['apns-priority'] = "10";
+            $fields['message']['apns']['payload']['aps']['sound'] = "default";
         }
+
 
         $headers = array
         (
