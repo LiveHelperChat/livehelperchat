@@ -14,7 +14,11 @@ class erLhcoreClassGenericBotActionRestapi
         
         if (isset($action['content']['rest_api']) && is_numeric($action['content']['rest_api']) && isset($action['content']['rest_api_method']) && !empty($action['content']['rest_api_method'])) {
 
-            $restAPI = erLhcoreClassModelGenericBotRestAPI::fetch($action['content']['rest_api']);
+            if (isset($params['rest_api_object'])) {
+                $restAPI = $params['rest_api_object'];
+            } else {
+                $restAPI = erLhcoreClassModelGenericBotRestAPI::fetch($action['content']['rest_api']);
+            }
 
             if ($restAPI instanceof erLhcoreClassModelGenericBotRestAPI) {
 
