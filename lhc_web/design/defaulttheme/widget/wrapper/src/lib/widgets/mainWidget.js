@@ -151,7 +151,7 @@ export class mainWidget{
         {
             this.screenAttributesUpdate = () => {
 
-                if (this.is_invitation === true) {
+                if (this.is_invitation === true && attributes.full_invitation === false) {
                     return;
                 }
 
