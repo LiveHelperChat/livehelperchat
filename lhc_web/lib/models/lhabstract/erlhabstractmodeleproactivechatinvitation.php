@@ -845,6 +845,12 @@ class erLhAbstractModelProactiveChatInvitation {
                     $item->online_attr_system_array = $onlineAttrSystem;
                 }
 
+                if (isset($onlineAttrSystem['qinv']) && isset($messageContent->design_data_array['full_on_invitation']) && $messageContent->design_data_array['full_on_invitation'] == true) {
+                    unset($onlineAttrSystem['qinv']);
+                    $item->online_attr_system = json_encode($onlineAttrSystem);
+                    $item->online_attr_system_array = $onlineAttrSystem;
+                }
+
                 if ($item->dep_id > 0 && isset($messageContent->design_data_array['lock_department']) && $messageContent->design_data_array['lock_department'] == true) {
                     $onlineAttrSystem['inv_ldp'] = $item->dep_id; // Remember department to set it later
                     $item->online_attr_system = json_encode($onlineAttrSystem);
