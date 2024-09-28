@@ -97,7 +97,8 @@ class erLhcoreClassGenericBotActionCollectable {
                     if ($handler !== false && isset($handler['render']) && is_callable($handler['render'])) {
                         $metaMessage['content']['buttons'] = array(
                             'render_function' => $handler['render'],
-                            'render_args' => $handler['render_args']
+                            'render_args' => $handler['render_args'],
+                            'verify_hash' => md5(json_encode([$handler['render_args'], $handler['render']]) . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))
                         );
                     }
                 }
@@ -113,7 +114,8 @@ class erLhcoreClassGenericBotActionCollectable {
                     if ($handler !== false && isset($handler['render']) && is_callable($handler['render'])) {
                         $metaMessage['content']['custom'] = array(
                             'render_function' => $handler['render'],
-                            'render_args' => $handler['render_args']
+                            'render_args' => $handler['render_args'],
+                            'verify_hash' => md5(json_encode([$handler['render_args'], $handler['render']]) . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))
                         );
                     }
                 }

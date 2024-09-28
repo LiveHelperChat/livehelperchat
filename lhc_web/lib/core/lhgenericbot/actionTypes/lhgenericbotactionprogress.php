@@ -24,6 +24,7 @@ class erLhcoreClassGenericBotActionProgress {
             {
                 $action['content']['args'] = $handler['render_args'];
                 $action['content']['method'] = $handler['render'];
+                $action['content']['verify_hash'] = md5(json_encode([$handler['render_args'], $handler['render']]) . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 
                 if (isset($action['content']['argument_template']['args'])) {
                     $metaMessage['content']['payload_data'] = $action['content']['argument_template']['args'];

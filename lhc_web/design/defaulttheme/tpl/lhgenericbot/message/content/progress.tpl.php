@@ -1,5 +1,5 @@
 <?php
-if (is_callable($metaMessage['method'])) :
+if (isset($metaMessage['verify_hash']) && md5(json_encode([$metaMessage['args'], $metaMessage['method']]) . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )) == $metaMessage['verify_hash'] && is_callable($metaMessage['method'])) :
 $jsExecute = call_user_func_array($metaMessage['method'],array($metaMessage['args'])); ?>
 <script>
     function interval_function_<?php echo $msg['id']?>(){
