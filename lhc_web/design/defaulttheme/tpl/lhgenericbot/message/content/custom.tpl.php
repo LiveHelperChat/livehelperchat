@@ -1,5 +1,5 @@
 <div class="meta-auto-hide meta-message-<?php echo $messageId?>">
-    <?php if (isset($metaMessage['verify_hash']) && md5(json_encode([$metaMessage['render_args'],$metaMessage['render_function']]) . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )) == $metaMessage['verify_hash'] && is_callable($metaMessage['render_function'])) :
+    <?php if (isset($metaMessage['verify_hash']) && md5(json_encode([$metaMessage['render_args'],$metaMessage['render_function']]) . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )) === $metaMessage['verify_hash'] && is_callable($metaMessage['render_function'])) :
         $argsCall =  $metaMessage['render_args'];
         $argsCall[] = $messageId;
         $metaMessageContent = call_user_func_array($metaMessage['render_function'],$argsCall) ?>
