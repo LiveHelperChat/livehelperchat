@@ -260,6 +260,13 @@ class erLhcoreClassGenericBotActionRestapi
                     if (erLhcoreClassGenericBotWorkflow::$setBotFlow === false) {
                         $msg->time += 1;
                     }
+
+                    foreach (['buttons','custom','progress'] as $contentType) {
+                        if (isset($response['meta']['content'][$contentType])){
+                            unset($response['meta']['content'][$contentType]);
+                        }
+                    }
+
                     $msg->meta_msg = (isset($response['meta']) && !empty($response['meta'])) ? json_encode($response['meta']) : '';
                     $msg->msg = $response['content'];
 
