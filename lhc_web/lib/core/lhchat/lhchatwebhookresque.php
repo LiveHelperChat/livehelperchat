@@ -70,7 +70,12 @@ class erLhcoreClassChatWebhookResque {
 
             // processTrigger always requires a chat so fake it.
             if (isset($params['mail']) && $params['mail'] instanceof erLhcoreClassModelMailconvMessage) {
-                $params['chat'] = $params['mail'];
+                $params['mail'] = $params['chat'] = erLhcoreClassModelMailconvMessage::fetch($params['mail']->id);
+                
+                if (isset($params['conversation']) && $params['conversation'] instanceof erLhcoreClassModelMailconvConversation) {
+                    $params['conversation'] = erLhcoreClassModelMailconvConversation::fetch($params['conversation']->id);
+                }
+                
             } else if (!isset($params['chat']) || !($params['chat'] instanceof erLhcoreClassModelChat)) {
                 $params['chat'] = new erLhcoreClassModelChat();
                 $params['chat']->id = -1;
