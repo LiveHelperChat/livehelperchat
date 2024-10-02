@@ -2,6 +2,7 @@ import { helperFunctions } from "../../lib/helperFunctions";
 import { fetchMessages, checkChatStatus, updateMessage } from "../../actions/chatActions"
 
 import socketCluster from "socketcluster-client";
+import i18n from "../../i18n";
 
 
 class _nodeJSChat {
@@ -200,7 +201,7 @@ class _nodeJSChat {
                                 if (op.data.status == true) {
                                     dispatch({
                                         'type': 'chat_status_changed',
-                                        'data': {text: op.data.ttx}
+                                        'data': {text: op.data.typer ? op.data.typer + " " + i18n.t('chat.typing'): op.data.ttx}
                                     });
                                 } else {
                                     dispatch({
