@@ -203,17 +203,17 @@ class erLhcoreClassChatCleanup {
 
                 if ($timeoutCleanup > 0) {
                     // Proactive events cleanup
-                    $stmt = $db->prepare('DELETE T2 FROM lh_abstract_proactive_chat_event as T2 INNER JOIN lh_chat_online_user as T1 ON T1.id = T2.vid_id WHERE last_visit < :last_visit');
+                    $stmt = $db->prepare('DELETE T2 FROM lh_abstract_proactive_chat_event as T2 INNER JOIN lh_chat_online_user as T1 ON T1.id = T2.vid_id WHERE last_visit < :last_visit LIMIT 50000');
                     $stmt->bindValue(':last_visit', (int)(time() - ($timeoutCleanup * 24 * 3600)), PDO::PARAM_INT);
                     $stmt->execute();
 
                     // Online user cleanup
-                    $stmt = $db->prepare('DELETE FROM lh_chat_online_user WHERE last_visit < :last_activity');
+                    $stmt = $db->prepare('DELETE FROM lh_chat_online_user WHERE last_visit < :last_activity LIMIT 50000');
                     $stmt->bindValue(':last_activity', (int)(time() - ($timeoutCleanup * 24 * 3600)), PDO::PARAM_INT);
                     $stmt->execute();
 
                     // Cleanup proactive statistic. As it's related to online visitors cleanup it with same workflow
-                    $stmt = $db->prepare('DELETE FROM lh_abstract_proactive_chat_campaign_conv WHERE ctime < :ctime');
+                    $stmt = $db->prepare('DELETE FROM lh_abstract_proactive_chat_campaign_conv WHERE ctime < :ctime LIMIT 50000');
                     $stmt->bindValue(':ctime', (int)(time() - ($timeoutCleanup * 24 * 3600)), PDO::PARAM_INT);
                     $stmt->execute();
                 }
