@@ -504,6 +504,11 @@ class erLhcoreClassGenericBotActionCommand {
                     if ($action['content']['payload'] == 'meta_msg') {
                         $meta_msg_array = $params['msg']->meta_msg_array;
                         $meta_msg_array = array_merge_recursive($meta_msg_array, json_decode($contentPayload,true));
+                        foreach (['buttons','custom','progress'] as $contentType) {
+                            if (isset($meta_msg_array['content'][$contentType])){
+                                unset($meta_msg_array['content'][$contentType]);
+                            }
+                        }
                         $params['msg']->meta_msg_array = $meta_msg_array;
                         $params['msg']->meta_msg = json_encode($meta_msg_array);
                     } else {

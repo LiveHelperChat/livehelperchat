@@ -1168,22 +1168,32 @@ class erLhcoreClassGenericBotActionRestapi
 
                         if ($outputCombination['success_location'] == '__all__') {
                             $successLocation = ['value' => $contentJSON, 'found' => true];
+                        } else if (strpos($outputCombination['success_location'],'__max__') === 0) {
+                            $successLocation = self::extractAttribute($contentJSON, str_replace('__max__','',$outputCombination['success_location']));
+                            if ($successLocation['found'] === true && is_array($successLocation['value'])) {
+                                $successLocation['value'] = max($successLocation['value']);
+                            }
                         } else {
                             $successLocation = self::extractAttribute($contentJSON, $outputCombination['success_location']);
                         }
 
-
                         if ($successLocation['found'] === true) {
-
                             $responseValueSub = array();
                             for ($i = 2; $i <= 6; $i++) {
                                 if (isset($outputCombination['success_location_' . $i]) && $outputCombination['success_location_' . $i] != '') {
+                                    $aggregation = '';
                                     if ($outputCombination['success_location_' . $i] == '__all__') {
                                         $successLocationNumbered = ['value' => $contentJSON, 'found' => true];
+                                    } else if (strpos($outputCombination['success_location_' . $i],'__max__') === 0) {
+                                        $successLocationNumbered = self::extractAttribute($contentJSON, str_replace('__max__','',$outputCombination['success_location_' . $i]));
+                                        $aggregation = 'max';
                                     } else {
                                         $successLocationNumbered = self::extractAttribute($contentJSON, $outputCombination['success_location_' . $i]);
                                     }
                                     if ($successLocationNumbered['found'] === true) {
+                                        if ($aggregation === 'max' && is_array($successLocationNumbered['value'])) {
+                                            $successLocationNumbered['value'] = max($successLocationNumbered['value']);
+                                        }
                                         $responseValueSub[$i] = $successLocationNumbered['value'];
                                     }
                                 }
