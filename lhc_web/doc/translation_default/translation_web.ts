@@ -20,6 +20,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -149,6 +153,10 @@
     </message>
     <message>
       <source>Should we remember username for the next time visitor starts a chat?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Should we remember E-Mail, Phone for the next time visitor starts a chat?</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1120,6 +1128,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose a bot</source>
       <translation type="unfinished"/>
     </message>
@@ -1253,10 +1265,6 @@
     </message>
     <message>
       <source>Do not show default content on success form submit.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Disabled</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3293,6 +3301,10 @@
     </message>
     <message>
       <source>Even if you enter a year. This canned message will be active annually at the same time each year.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time in database server</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7194,6 +7206,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat started by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>payload!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File is to big! Maximum</source>
       <translation type="unfinished"/>
     </message>
@@ -9846,6 +9866,10 @@
     </message>
     <message>
       <source>Opened chat by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reply To</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14192,6 +14216,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Device type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Number of chats by subject</source>
       <translation type="unfinished"/>
     </message>
@@ -14312,6 +14340,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Desktop</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitors</source>
       <translation type="unfinished"/>
     </message>
@@ -14380,11 +14420,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Proactive chats number vs visitor initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Total chats by channel</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Proactive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor initiated</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17038,6 +17086,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can put visitor message as placeholder</source>
       <translation type="unfinished"/>
     </message>
@@ -17186,7 +17238,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>response:msg you can leave an empty if you want forward whole response.</source>
+      <source>response:msg you can leave an empty if you want forward whole response or enter __all__.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17214,6 +17266,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Preg replace rules to apply extracted content.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can apply preg replace rules to extracted content. One rule per row. Format example: ^.{5,}+$==&gt;Replace with content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom event</source>
       <translation type="unfinished"/>
     </message>
@@ -17227,6 +17287,10 @@
     </message>
     <message>
       <source>Response Location. It will also fail if attribute is not found.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>response:msg you can leave an empty if you want forward whole response.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19019,6 +19083,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Messages delivery and reactions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat options</source>
       <translation type="unfinished"/>
     </message>
@@ -19027,11 +19095,35 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Message related attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages attribute location</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>This attribute contains direct message and NOT a messages array</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for messages uniqueness by message id</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reply to message ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat related attributes</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19059,15 +19151,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Chat ID field location</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat ID 2 field location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch Chat ID with Chat ID 2 if this condition matches</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will combine both fields into single identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19180,6 +19276,50 @@
     </message>
     <message>
       <source>For message being considered images message should have attribute value equal to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message ID location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All unread chat messages should be marked as read</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered text message edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message id location to which visitor reacted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reaction message ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered reaction message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reaction emoji location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Try to find chat by message id if we chat was not found by id</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reaction is a standalone unicode character</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove previous visitor reaction on action</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove previous visitor reaction if emoji location is empty</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -23176,6 +23316,10 @@
   </context>
   <context>
     <name>lhrestapi/validation</name>
+    <message>
+      <source>Bearer authorization failed!</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Authorization failed!</source>
       <translation type="unfinished"/>
