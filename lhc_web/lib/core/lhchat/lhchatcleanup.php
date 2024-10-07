@@ -203,7 +203,7 @@ class erLhcoreClassChatCleanup {
 
                 if ($timeoutCleanup > 0) {
                     // Proactive events cleanup
-                    $stmt = $db->prepare('DELETE T2 FROM lh_abstract_proactive_chat_event as T2 INNER JOIN lh_chat_online_user as T1 ON T1.id = T2.vid_id WHERE last_visit < :last_visit LIMIT 50000');
+                    $stmt = $db->prepare('DELETE T2 FROM lh_abstract_proactive_chat_event as T2 INNER JOIN lh_chat_online_user as T1 ON T1.id = T2.vid_id WHERE last_visit < :last_visit');
                     $stmt->bindValue(':last_visit', (int)(time() - ($timeoutCleanup * 24 * 3600)), PDO::PARAM_INT);
                     $stmt->execute();
 
