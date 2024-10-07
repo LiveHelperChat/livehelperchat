@@ -14,6 +14,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Как долго нужно ждать перед тем, как сообщить оператору о неотвеченном чате</translation>
     </message>
@@ -36,6 +40,10 @@
     <message>
       <source>How long keep operators online sessions data? (days)</source>
       <translation>Как долго хранить информацию о сессиях операторов? (в днях)</translation>
+    </message>
+    <message>
+      <source>Which ip should not be allowed to be blocked</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -10375,6 +10383,10 @@
       <translation>Пожалуйста, введите IP в блок</translation>
     </message>
     <message>
+      <source>This IP can not be blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
       <translation>Неудачная попытка заблокировать пользователя, возможно у вас недостаточно прав?</translation>
     </message>
@@ -17260,6 +17272,10 @@
       <translation>Телефон</translation>
     </message>
     <message>
+      <source>canned message replaceable variables</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If you are using those vars in Rest API calls make sure you use double brackets E.g</source>
       <translation>Если вы используете эти переменные в вызовах Rest API, убедитесь, что вы используете двойные скобки. Например</translation>
     </message>
@@ -20964,6 +20980,10 @@
     <message>
       <source>Port</source>
       <translation>Порт</translation>
+    </message>
+    <message>
+      <source>Bind IP, multiple IP can be separated by comma. Random IP will be chosen.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Re-captcha settings</source>

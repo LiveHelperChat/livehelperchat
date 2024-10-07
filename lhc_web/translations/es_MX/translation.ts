@@ -14,6 +14,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Qué tanto debemos esperar antes de informar al operador sobre un chat no respondido</translation>
     </message>
@@ -36,6 +40,10 @@
     <message>
       <source>How long keep operators online sessions data? (days)</source>
       <translation>Cuanto tiempo conservar datos de sesión en línea de los operadores? (días)</translation>
+    </message>
+    <message>
+      <source>Which ip should not be allowed to be blocked</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -10374,6 +10382,10 @@
       <translation>Por favor introduzca la IP a bloquear</translation>
     </message>
     <message>
+      <source>This IP can not be blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
       <translation>Bloquear al usuario ha fallado, quizá no cuente con permisos para bloquear usuarios</translation>
     </message>
@@ -17259,6 +17271,10 @@
       <translation>Teléfono</translation>
     </message>
     <message>
+      <source>canned message replaceable variables</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If you are using those vars in Rest API calls make sure you use double brackets E.g</source>
       <translation type="unfinished"/>
     </message>
@@ -20963,6 +20979,10 @@
     <message>
       <source>Port</source>
       <translation>Puerto</translation>
+    </message>
+    <message>
+      <source>Bind IP, multiple IP can be separated by comma. Random IP will be chosen.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Re-captcha settings</source>

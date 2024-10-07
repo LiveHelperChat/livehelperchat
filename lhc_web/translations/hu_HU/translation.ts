@@ -14,6 +14,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Mennyi idő elteltével kapjon az operátor értesítést egy megválaszolatlan üzenetről?</translation>
     </message>
@@ -36,6 +40,10 @@
     <message>
       <source>How long keep operators online sessions data? (days)</source>
       <translation>Mennyi ideig legyenek megőrizve az operátorok online munkamenetei (napokban megadva)?</translation>
+    </message>
+    <message>
+      <source>Which ip should not be allowed to be blocked</source>
+      <translation>Mely IP-cím(ek) NE legyen(ek) korlátozva?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -2924,7 +2932,7 @@
     </message>
     <message>
       <source>Replaceable variables</source>
-      <translation>Cserélhető változók</translation>
+      <translation>Behelyettesíthető változók</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -6123,7 +6131,7 @@
     </message>
     <message>
       <source>Supported replaceable variable.</source>
-      <translation>Támogatott cserélhető változók</translation>
+      <translation>Támogatott behelyettesíthető változók</translation>
     </message>
     <message>
       <source>Real operator Name and Surname</source>
@@ -10374,6 +10382,10 @@
       <translation>Adj meg egy IP-címet a korlátozáshoz</translation>
     </message>
     <message>
+      <source>This IP can not be blocked!</source>
+      <translation>Ez az IP-cím nem korlátozható!</translation>
+    </message>
+    <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
       <translation>Felhasználó korlátozása sikertelen. Előfordulhat, hogy nincsen jogosultságod korlátozni a felhasználókat?</translation>
     </message>
@@ -13438,7 +13450,7 @@
     </message>
     <message>
       <source>Canned replaceable variables</source>
-      <translation>Üzenetsablonok cserélhető változói</translation>
+      <translation>Üzenetsablonok behelyettesíthető változói</translation>
     </message>
     <message>
       <source>Chat</source>
@@ -16099,7 +16111,7 @@
     </message>
     <message>
       <source>Replaceable variables</source>
-      <translation>Cserélhető változók</translation>
+      <translation>Behelyettesíthető változók</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -17259,6 +17271,10 @@
       <translation>Telefonszám</translation>
     </message>
     <message>
+      <source>canned message replaceable variables</source>
+      <translation>Egy eltárolt üzenet behelyettesíthető változója</translation>
+    </message>
+    <message>
       <source>If you are using those vars in Rest API calls make sure you use double brackets E.g</source>
       <translation>Ha ezeket a változókat REST API-hívásokban használod, győződj meg róla, hogy dupla zárójelet használsz, pl.:</translation>
     </message>
@@ -17372,7 +17388,7 @@
     </message>
     <message>
       <source>Supported replaceable variables. They are taken from online visitor passed variables.</source>
-      <translation>A támogatott cserélhető változók. Az online látogatók által átadott változókból átvéve</translation>
+      <translation>A támogatott behelyettesíthető változók. Az online látogatók által átadott változókból átvéve</translation>
     </message>
     <message>
       <source>visitor nick if we know it from previous chats</source>
@@ -18589,7 +18605,7 @@
     </message>
     <message>
       <source>Supported replaceable variable.</source>
-      <translation>Támogatott cserélhető változók</translation>
+      <translation>A támogatott behelyettesíthető változók:</translation>
     </message>
     <message>
       <source>and</source>
@@ -18649,7 +18665,7 @@
     </message>
     <message>
       <source>Replaceable variables?</source>
-      <translation>Cserélhető változók?</translation>
+      <translation>Mik azok a behelyettesíthető változók?</translation>
     </message>
     <message>
       <source>Checking for ticket.</source>
@@ -20963,6 +20979,10 @@
     <message>
       <source>Port</source>
       <translation>Port</translation>
+    </message>
+    <message>
+      <source>Bind IP, multiple IP can be separated by comma. Random IP will be chosen.</source>
+      <translation>IP-cím(ek) hozzákötése a kapcsolathoz (bind IP) – több IP-t vesszővel elválasztva adhatsz meg. Ekkor egy véletlenszerű IP-címet fog kiválasztani a rendszer</translation>
     </message>
     <message>
       <source>Re-captcha settings</source>

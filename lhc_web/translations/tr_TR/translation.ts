@@ -14,6 +14,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -36,6 +40,10 @@
     <message>
       <source>How long keep operators online sessions data? (days)</source>
       <translation>Operatörlerin online session verileri kaç gün tutulsun?</translation>
+    </message>
+    <message>
+      <source>Which ip should not be allowed to be blocked</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -10376,6 +10384,10 @@
       <translation>Lütfen engellemek için bir IP girin</translation>
     </message>
     <message>
+      <source>This IP can not be blocked!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
       <translation>Kullanıcı engelleme işlemi başarısız oldu, belki de kullanıcıları engelleme iznini sahip değilsiniz? </translation>
     </message>
@@ -17261,6 +17273,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>canned message replaceable variables</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If you are using those vars in Rest API calls make sure you use double brackets E.g</source>
       <translation type="unfinished"/>
     </message>
@@ -20965,6 +20981,10 @@
     <message>
       <source>Port</source>
       <translation>Port</translation>
+    </message>
+    <message>
+      <source>Bind IP, multiple IP can be separated by comma. Random IP will be chosen.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Re-captcha settings</source>
