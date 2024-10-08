@@ -71,7 +71,8 @@ try {
             header('Content-type: '.$file->type);
 
             if (!isset($Params['user_parameters_unordered']['inline']) || $Params['user_parameters_unordered']['inline'] != 'true') {
-                header('Content-Disposition: attachment; filename="'.$file->id.'-'.$file->chat_id.'.'.$file->extension.'"');
+                // Download with file name
+                header('Content-Disposition: attachment; filename="'.$file->id.'-'.pathinfo($file->upload_name, PATHINFO_FILENAME).'.'.$file->extension.'"');
             }
         }
 
