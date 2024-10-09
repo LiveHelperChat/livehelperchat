@@ -14,13 +14,16 @@ class DownloadHelper
                 $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
                 $mailboxFolderOAuth = $mailboxHandler->getFolderByPath($mail->mb_folder);
 
-                $messagesCollection = $mailboxFolderOAuth->search()->whereUid($mail->uid)->get();
-
-                if ($messagesCollection->total() == 1) {
-                    $email = $messagesCollection->shift();
-                    $bodyRaw = "";
-                    $bodyRaw .= json_decode(json_encode($email->getHeader()), true)['raw'];
-                    $bodyRaw .= $email->getRawBody();
+                if ($mailboxFolderOAuth !== null) {
+                    $messagesCollection = $mailboxFolderOAuth->search()->whereUid($mail->uid)->get();
+                    if ($messagesCollection->total() == 1) {
+                        $email = $messagesCollection->shift();
+                        $bodyRaw = "";
+                        $bodyRaw .= json_decode(json_encode($email->getHeader()), true)['raw'];
+                        $bodyRaw .= $email->getRawBody();
+                    } else {
+                        $bodyRaw = '';
+                    }
                 } else {
                     $bodyRaw = '';
                 }
