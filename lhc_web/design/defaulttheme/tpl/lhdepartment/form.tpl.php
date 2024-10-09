@@ -28,6 +28,9 @@
         <label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Will not be visible to visitor');?>" type="checkbox" name="Hidden" value="1" <?php if ($departament->hidden == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hidden');?></label>
     </div>
     <div class="col-md-3">
+        <label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Offline');?>" type="checkbox" name="dep_offline" value="1" <?php if ($departament->dep_offline == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Offline');?></label>
+    </div>
+    <div class="col-md-3">
         <label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Archived');?>" type="checkbox" name="archive" value="1" <?php if ($departament->archive == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Archived');?></label>
     </div>
 </div>

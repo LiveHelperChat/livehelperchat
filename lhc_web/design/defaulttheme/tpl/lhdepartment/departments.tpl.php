@@ -12,6 +12,7 @@
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Disabled');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Visible only if online');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Overloaded');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Offline');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Archived');?></th>
     <th width="1%">&nbsp;</th>
     <th width="1%">&nbsp;</th>
@@ -32,6 +33,7 @@
         <td ng-non-bindable><?php if ($departament->disabled == 1) : ?><span class="material-icons">block</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td ng-non-bindable><?php if ($departament->visible_if_online == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td ng-non-bindable><?php if ($departament->is_overloaded == true) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
+        <td ng-non-bindable><?php if ($departament->dep_offline == 1) : ?><span class="material-icons">flash_off</span><?php else : ?><span class="material-icons">flash_on</span><?php endif;?></td>
         <td ng-non-bindable><?php if ($departament->archive == 1) : ?><span class="material-icons">archive</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td nowrap ng-non-bindable>
             <a class="btn btn-secondary btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/edit/<?php echo htmlspecialchars($departament->id)?>/(action)/operators'})" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Assigned operators');?></a>

@@ -179,6 +179,9 @@ class erLhcoreClassDepartament{
                 'hide_send_email' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+                'dep_offline' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
                 // Bot attributes
                 'bot_id' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
@@ -475,7 +478,13 @@ class erLhcoreClassDepartament{
 	   	} else {
 	   		$department->delay_lm = 0;
 	   	}
-	   	
+
+	   	if ( $form->hasValidData( 'dep_offline' ) ) {
+	   		$department->dep_offline = 1;
+	   	} else {
+	   		$department->dep_offline = 0;
+	   	}
+
 	   	if ( $form->hasValidData( 'pending_max' ) )
 	   	{
 	   		$department->pending_max = $form->pending_max;

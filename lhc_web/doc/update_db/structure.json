@@ -6692,6 +6692,14 @@
         "extra": ""
       },
       {
+        "field": "dep_offline",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "archive",
         "type": "tinyint(1)",
         "null": "NO",
@@ -11743,7 +11751,8 @@
         "bot_chats_counter" : "ALTER TABLE `lh_departament` ADD INDEX `bot_chats_counter` (`bot_chats_counter`);",
         "archive" : "ALTER TABLE `lh_departament` ADD INDEX `archive` (`archive`);",
         "identifier_2" : "ALTER TABLE `lh_departament` ADD INDEX `identifier_2` (`identifier`(191));",
-        "ignore_op_status" : "ALTER TABLE `lh_departament` ADD INDEX `ignore_op_status` (`ignore_op_status`);"
+        "ignore_op_status" : "ALTER TABLE `lh_departament` ADD INDEX `ignore_op_status` (`ignore_op_status`);",
+        "dep_offline" : "ALTER TABLE `lh_departament` ADD INDEX `dep_offline` (`dep_offline`);"
       },
       "old" : ["oha_sh_eh","identifier"]
     },

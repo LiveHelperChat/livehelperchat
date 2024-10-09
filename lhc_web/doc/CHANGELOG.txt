@@ -1,3 +1,9 @@
+4.49v
+
+1. You can set custom department strictly offline.
+
+execute doc/update_db/update_319.sql for update
+
 4.48v
 
 1. Mobile notifications will work now for Mobile App. Although correct windows may not open.
