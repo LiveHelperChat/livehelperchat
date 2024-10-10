@@ -493,6 +493,10 @@ class StartChat extends Component {
         return <p className="p-2">{this.props.chatwidget.getIn(['onlineData','paid','message'])}</p>
     }
 
+    if (this.props.chatwidget.getIn(['chat_ui','disabled'])) {
+        return <ChatAbort closeText={t('button.close')} full_height={true} close={(e) => this.props.dispatch(minimizeWidget(true))} as_html={true} text={this.props.chatwidget.getIn(['chat_ui','disabled'])} />;
+    }
+
     if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {
             if (this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','department','departments']).size <= 1 && this.props.chatwidget.getIn(['onlineData','fields_visible']) <= 1 && (this.props.chatwidget.getIn(['customData','fields']).size == 0 || hasVisibleCustomFields === false)) {
 
@@ -504,10 +508,6 @@ class StartChat extends Component {
                 if (this.props.chatwidget.hasIn(['chat_ui','msg_expand']) && this.props.chatwidget.get('mode') == 'embed') {
                     msg_expand = "overflow-scroll position-relative";
                     bottom_messages += " position-relative";
-                }
-
-                if (this.props.chatwidget.getIn(['chat_ui','disabled'])) {
-                    return <ChatAbort closeText={t('button.close')} full_height={true} close={(e) => this.props.dispatch(minimizeWidget(true))} as_html={true} text={this.props.chatwidget.getIn(['chat_ui','disabled'])} />;
                 }
 
                 return (

@@ -562,6 +562,9 @@
             list.hideInvisible = data.im;
             list.hideOnline = data.ho;
             list.lhcVersion = data.v;
+            if (data.notice) {
+                list.lhcNotice = data.notice;
+            }
             list.alwaysOnline = data.a_on;
             list.additionalColumns = data.col;
             list.widgetsActive = data.widgets;

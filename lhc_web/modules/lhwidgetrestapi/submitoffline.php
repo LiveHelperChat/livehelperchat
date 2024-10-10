@@ -70,6 +70,22 @@ $additionalParams['offline'] = true;
 // Validate post data
 $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
 
+if (empty($Errors) && isset($startDataFields['pre_conditions']) && !empty($startDataFields['pre_conditions'])) {
+    $preConditions = json_decode($startDataFields['pre_conditions'], true);
+    if (
+        (isset($preConditions['maintenance_mode']) && $preConditions['maintenance_mode'] == 1) ||
+        (isset($preConditions['online']) && !empty($preConditions['online'])) ||
+        (isset($preConditions['offline']) && !empty($preConditions['offline'])) ||
+        (isset($preConditions['disable']) && !empty($preConditions['disable'])) ) {
+
+        $outcome = erLhcoreClassChatValidator::validatePreconditions($preConditions, ['is_online' => false, 'online_user' => (isset($onlineUser) ? $onlineUser : false)]);
+
+        if ($outcome['mode'] == 'disable' || $outcome['mode'] == 'terminate') {
+            $Errors[] = $outcome['message'];
+        }
+    }
+}
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started', array('chat' => & $chat, 'errors' => & $Errors, 'offline' => (isset($additionalParams['offline']) && $additionalParams['offline'] == true)));
 
 if (empty($Errors)) {

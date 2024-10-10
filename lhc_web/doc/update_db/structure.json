@@ -10512,6 +10512,13 @@
         "hidden": "0"
       },
       {
+        "identifier": "notice_message",
+        "value": "",
+        "type": "0",
+        "explain": "",
+        "hidden": "1"
+      },
+      {
         "identifier": "reopen_as_new",
         "value": "1",
         "type": "0",

@@ -1082,6 +1082,7 @@ $chat_ui['max_length'] = (int)erLhcoreClassModelChatConfig::fetch('max_message_l
 if (isset($start_data_fields['pre_conditions']) && !empty($start_data_fields['pre_conditions'])) {
     $preConditions = json_decode($start_data_fields['pre_conditions'], true);
     if (
+        (isset($preConditions['maintenance_mode']) && $preConditions['maintenance_mode'] == 1) ||
         (isset($preConditions['online']) && !empty($preConditions['online'])) ||
         (isset($preConditions['offline']) && !empty($preConditions['offline'])) ||
         (isset($preConditions['disable']) && !empty($preConditions['disable'])) ) {
