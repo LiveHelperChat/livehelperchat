@@ -192,10 +192,10 @@
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show this message to the visitors who opens a chat widget.')?></label>
     <textarea placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show this message to the visitors who opens a chat widget.')?>" class="form-control form-control-sm" ng-model="preconditions.conditions.maintenance_mode_message"></textarea>
     <ul>
-        <li>New chats can't be started, widget will be hidden.</li>
-        <li>Widget will be visible for those who have already started a chat.</li>
-        <li>Anyone who have widget open and want's to start a chat will get validation error.</li>
-        <li>After you see there are no pending/bot/active chats you can turn off the server or do your thing.</li>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','New chats can not be started, widget will be hidden.')?></li>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Widget will be visible for those who have already started a chat.')?></li>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Anyone who have widget open and want to start a chat will get validation error.')?></li>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','After you see there are no pending/bot/active chats you can turn off the server or do your thing.')?></li>
     </ul>
 </div>
 
