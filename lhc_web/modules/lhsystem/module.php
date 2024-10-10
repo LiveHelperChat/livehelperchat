@@ -96,6 +96,12 @@ $ViewList['bbcode'] = array(
     'functions' => array( 'messagecontentprotection' )
 );
 
+$ViewList['notice'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'notice' )
+);
+
 $FunctionList['use'] = array('explain' => 'Allow user to see configuration links');
 $FunctionList['expirecache'] = array('explain' => 'Allow user to clear cache');
 $FunctionList['generatejs'] = array('explain' => 'Allow user to access HTML generation');
@@ -114,5 +120,6 @@ $FunctionList['usersactions'] = array('explain' => 'Allow user to see operators 
 $FunctionList['ga_configuration'] = array('explain' => 'Allow user to configure Events Tracking');
 $FunctionList['singlesetting'] = array('explain' => 'Allow user to change app settings');
 $FunctionList['messagecontentprotection'] = array('explain' => 'Allow user to configure message content protection');
+$FunctionList['notice'] = array('explain' => 'Allow operator to configure static notice message');
 
 ?>

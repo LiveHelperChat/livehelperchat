@@ -388,6 +388,10 @@
                         LHC_API.args.position_placement = attributesWidget.position_placement = data.wposition;
                     }
 
+                    if (data.core_position) {
+                        LHC_API.args.position = attributesWidget.position = data.core_position;
+                    }
+
                     attributesWidget.captcha = {hash: data.hash, ts: data.hash_ts};
                     attributesWidget.userSession.setVID(data.vid);
 
