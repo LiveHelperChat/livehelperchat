@@ -511,7 +511,7 @@
                                     {#if column.cenabl == true && column.iconm == true}
                                         {#each column.items as val}
                                             {#if chat[val]}
-                                                <span class="material-icons me-0" on:click={(e) => {column.iconp && lhcServices.openModal('chat/icondetailed/'+chat.id + '/' + column.id,e)}} title={column.iconp == true ? 'Click for more information | ' : ''}{chat[val + '_tt'] ? chat[val + '_tt'] : chat[val]} style:color={column.icon[chat[val]].color}>{column.icon[chat[val]].icon}</span>
+                                                <span class="material-icons me-0" on:click={(e) => {column.iconp && lhcServices.openModal('chat/icondetailed/'+chat.id + '/' + column.id,e)}} title={column.iconp == true ? 'Click for more information | ' : ''}{chat[val + '_tt'] ? chat[val + '_tt'] : chat[val]} style:color={column.icon[chat[val]] && column.icon[chat[val]].color ? column.icon[chat[val]].color : '#CECECE'}>{column.icon[chat[val]] && column.icon[chat[val]].icon ? column.icon[chat[val]].icon : 'unknown_document'}</span>
                                             {/if}
                                         {/each}
                                     {/if}

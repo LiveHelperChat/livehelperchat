@@ -46,7 +46,7 @@ if (!empty($id)) {
                     'has_popup' => $iconAdditional->has_popup,
                     'icon_id' => $iconAdditional->id,
                     'title' => (isset($chat->{'cc_' . $iconAdditional->id . '_tt'})) ? $chat->{'cc_' . $iconAdditional->id . '_tt'} : (isset($chat->{'cc_' . $iconAdditional->id}) ? $chat->{'cc_' . $iconAdditional->id} : ''),
-                    'icon' => ($iconAdditional->column_icon != "" && strpos($iconAdditional->column_icon, '"') !== false) ? $columnIconData[$chat->{'cc_' . $iconAdditional->id}]['icon'] : $iconAdditional->column_icon,
+                    'icon' => ($iconAdditional->column_icon != "" && strpos($iconAdditional->column_icon, '"') !== false) ? (isset($columnIconData[$chat->{'cc_' . $iconAdditional->id}]['icon']) ? $columnIconData[$chat->{'cc_' . $iconAdditional->id}]['icon'] : 'unknown_document') : $iconAdditional->column_icon,
                     'color' => isset($columnIconData[$chat->{'cc_' . $iconAdditional->id}]['color']) ? $columnIconData[$chat->{'cc_' . $iconAdditional->id}]['color'] : '#CECECE'
                 ];
             }
