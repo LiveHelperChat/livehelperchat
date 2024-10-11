@@ -250,22 +250,22 @@ class erLhcoreClassDepartament{
 
             $key = 'StartHour'.ucfirst($dayShort);
             $definition[$key] = new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 23)
             );
 
             $key = 'StartMinutes'.ucfirst($dayShort);
             $definition[$key] = new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 60)
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 59)
             );
 
             $key = 'EndHour'.ucfirst($dayShort);
             $definition[$key] = new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 24)
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 23)
             );
 
             $key = 'EndMinutes'.ucfirst($dayShort);
             $definition[$key] = new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 60)
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'mx_range' => 59)
             );
         }
 

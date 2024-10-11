@@ -1054,7 +1054,7 @@ class erLhcoreClassChat {
 
                 if(!empty($result)) {
                     foreach ($result as $item) {
-                        if($item['start_hour'] <= (int)(date('G') . date('i')) && $item['end_hour'] > (int)(date('G') . date('i')))
+                        if($item['start_hour'] <= (int)(date('G') . date('i')) && $item['end_hour'] >= (int)(date('G') . date('i')))
                             $rowsNumber++;
                     }
                 } else {
@@ -1064,15 +1064,15 @@ class erLhcoreClassChat {
                     $endHoursColumnName = $daysColumns[$column].'_end_hour';
 
                     if (is_numeric($dep_id)) {
-                        $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE `lh_departament`.`disabled` = 0 AND `lh_departament`.`dep_offline` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND online_hours_active = 1 AND {$startHoursColumnName} <= :start_hour AND {$endHoursColumnName} > :end_hour AND {$startHoursColumnName} != -1 AND {$endHoursColumnName} != -1 AND id = :dep_id");
+                        $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE `lh_departament`.`disabled` = 0 AND `lh_departament`.`dep_offline` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND online_hours_active = 1 AND {$startHoursColumnName} <= :start_hour AND {$endHoursColumnName} >= :end_hour AND {$startHoursColumnName} != -1 AND {$endHoursColumnName} != -1 AND id = :dep_id");
                         $stmt->bindValue(':dep_id', $dep_id);
                     } elseif (is_array($dep_id)) {
                         $sqlDepartment = '';
                         if (!empty($dep_id)) {
                             $sqlDepartment = "AND id IN (". implode(',', $dep_id) .")";
                         }
-                        $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE `lh_departament`.`disabled` = 0 AND `lh_departament`.`dep_offline` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND online_hours_active = 1 AND {$startHoursColumnName} <= :start_hour AND {$endHoursColumnName} > :end_hour AND {$startHoursColumnName} != -1 AND {$endHoursColumnName} != -1 {$sqlDepartment}");
-                    }
+                        $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE `lh_departament`.`disabled` = 0 AND `lh_departament`.`dep_offline` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND online_hours_active = 1 AND {$startHoursColumnName} <= :start_hour AND {$endHoursColumnName} >= :end_hour AND {$startHoursColumnName} != -1 AND {$endHoursColumnName} != -1 {$sqlDepartment}");
+                     }
                     
                     $stmt->bindValue(':start_hour', date('G') . date('i'), PDO::PARAM_INT);
                     $stmt->bindValue(':end_hour', date('G') . date('i'), PDO::PARAM_INT);
@@ -1134,7 +1134,7 @@ class erLhcoreClassChat {
 
                if(!empty($result)) {
                    foreach ($result as $item) {
-                       if($item['start_hour'] <= (int)(date('G') . date('i')) && $item['end_hour'] > (int)(date('G') . date('i')))
+                       if($item['start_hour'] <= (int)(date('G') . date('i')) && $item['end_hour'] >= (int)(date('G') . date('i')))
                            $rowsNumber++;
                    }
                } else {                   
@@ -1143,7 +1143,7 @@ class erLhcoreClassChat {
                    $startHoursColumnName = $daysColumns[$column].'_start_hour';
                    $endHoursColumnName = $daysColumns[$column].'_end_hour';
 
-                   $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE `lh_departament`.`hidden` = 0 AND `lh_departament`.`dep_offline` = 0 AND `lh_departament`.`disabled` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND online_hours_active = 1 AND {$startHoursColumnName} <= :start_hour AND {$endHoursColumnName} > :end_hour AND {$startHoursColumnName} != -1 AND {$endHoursColumnName} != -1");
+                   $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE `lh_departament`.`hidden` = 0 AND `lh_departament`.`dep_offline` = 0 AND `lh_departament`.`disabled` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND online_hours_active = 1 AND {$startHoursColumnName} <= :start_hour AND {$endHoursColumnName} >= :end_hour AND {$startHoursColumnName} != -1 AND {$endHoursColumnName} != -1");
                    $stmt->bindValue(':start_hour', date('G') . date('i'), PDO::PARAM_INT);
                    $stmt->bindValue(':end_hour', date('G') . date('i'), PDO::PARAM_INT);
                    $stmt->execute();
