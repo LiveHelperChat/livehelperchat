@@ -17,6 +17,10 @@ if (!class_exists('erLhcoreClassInstance') && $_SERVER['REQUEST_METHOD'] === 'PO
 $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
 $data = (array)$auditOptions->data;
 
+if ( isset($_POST['ReloadOperatorsBackOffice']) ) {
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.reload_backoffice',array());
+}
+
 if ( isset($_POST['StoreOptions']) ) {
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {

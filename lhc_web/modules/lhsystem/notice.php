@@ -46,6 +46,8 @@ if ( isset($_POST['StoreUserSettingsAction']) ) {
     $esOptions->value = serialize($data);
     $esOptions->saveThis();
 
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.notice_update',array());
+
     $tpl->set('updated','done');
 }
 

@@ -46,6 +46,7 @@
     </div>
 
     <input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+    <input type="submit" class="btn btn-secondary" name="ReloadOperatorsBackOffice" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Reload back office for operators. Requires NodeJS'); ?>" />
 
 </form>
 

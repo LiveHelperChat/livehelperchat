@@ -208,6 +208,10 @@
         lhcServices.storeLocalSetting(item_id,value);
     });
 
+    ee.addListener('svelteNoticeUpdated', function () {
+        updateNoticeData();
+    });
+
     ee.addListener('svelteAppendActiveChats',function () {
         lhcServices.loadActiveChats().then(function(data) {
             let tabs = jQuery('#tabs');
@@ -246,6 +250,30 @@
     });
 
     $lhcList['onlineusers_m_h'] = lhcServices.restoreLocalSetting('onlineusers_m_h',null,false);
+
+    async function updateNoticeData(){
+        const responseTrack = await fetch(WWW_DIR_JAVASCRIPT  + 'chat/loadinitialdata', {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            }
+        });
+
+        const data = await responseTrack.json();
+
+        if (data.logout || data.error_url) {
+            document.location.reload();
+            return;
+        }
+
+        if (data.notice) {
+            $lhcList['lhcNotice'] = data.notice;
+        } else {
+            $lhcList['lhcNotice'] = {'message' : '', 'level' : 'primary'};
+        }
+    }
+
 
     function toggleList(variable) {
         $lhcList[variable] = !$lhcList[variable];
