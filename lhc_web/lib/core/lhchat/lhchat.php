@@ -1113,7 +1113,7 @@ class erLhcoreClassChat {
        } else {
 
 	       	if ($ignoreUserStatus === false) {
-                $stmt = $db->prepare('SELECT COUNT(lh_departament.id) AS found FROM lh_departament WHERE `lh_departament`.`disabled` = 0 AND (`lh_departament`.`dep_offline` = 0) AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND lh_departament.hidden = 0 AND lh_departament.disabled = 0');
+                $stmt = $db->prepare('SELECT COUNT(lh_departament.id) AS found FROM lh_departament WHERE `lh_departament`.`dep_offline` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND `lh_departament`.`hidden` = 0 AND `lh_departament`.`disabled` = 0');
                 $stmt->execute();
                 $rowsNumberDep = $stmt->fetchColumn();
                 if ($rowsNumberDep > 0) {
@@ -1126,7 +1126,7 @@ class erLhcoreClassChat {
 
            if ($rowsNumber == 0) { // Perhaps auto active is turned on for some of departments
 
-               $stmt = $db->prepare("SELECT lh_departament_custom_work_hours.start_hour, lh_departament_custom_work_hours.end_hour FROM lh_departament_custom_work_hours INNER JOIN lh_departament ON lh_departament.id = lh_departament_custom_work_hours.dep_id WHERE `lh_departament`.`disabled` = 0 AND `lh_departament`.`dep_offline` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND lh_departament.hidden = 0 AND lh_departament.disabled = 0 AND date_from <= :date_from AND date_to >= :date_to");
+               $stmt = $db->prepare("SELECT lh_departament_custom_work_hours.start_hour, lh_departament_custom_work_hours.end_hour FROM lh_departament_custom_work_hours INNER JOIN lh_departament ON lh_departament.id = lh_departament_custom_work_hours.dep_id WHERE `lh_departament`.`dep_offline` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND `lh_departament`.`hidden` = 0 AND `lh_departament`.`disabled` = 0 AND date_from <= :date_from AND date_to >= :date_to");
                $stmt->bindValue(':date_from',strtotime(date('Y-m-d')),PDO::PARAM_INT);
                $stmt->bindValue(':date_to',strtotime(date('Y-m-d')),PDO::PARAM_INT);
                $stmt->execute();
@@ -1143,7 +1143,7 @@ class erLhcoreClassChat {
                    $startHoursColumnName = $daysColumns[$column].'_start_hour';
                    $endHoursColumnName = $daysColumns[$column].'_end_hour';
 
-                   $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE `lh_departament`.`dep_offline` = 0 AND `lh_departament`.`disabled` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND online_hours_active = 1 AND {$startHoursColumnName} <= :start_hour AND {$endHoursColumnName} > :end_hour AND {$startHoursColumnName} != -1 AND {$endHoursColumnName} != -1");
+                   $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE `lh_departament`.`hidden` = 0 AND `lh_departament`.`dep_offline` = 0 AND `lh_departament`.`disabled` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND online_hours_active = 1 AND {$startHoursColumnName} <= :start_hour AND {$endHoursColumnName} > :end_hour AND {$startHoursColumnName} != -1 AND {$endHoursColumnName} != -1");
                    $stmt->bindValue(':start_hour', date('G') . date('i'), PDO::PARAM_INT);
                    $stmt->bindValue(':end_hour', date('G') . date('i'), PDO::PARAM_INT);
                    $stmt->execute();
@@ -1154,7 +1154,7 @@ class erLhcoreClassChat {
 
            // Check is bot enabled for department
            if ($rowsNumber == 0 && (!isset($params['exclude_bot']) || $params['exclude_bot'] == false)) {
-               $stmt = $db->prepare("SELECT bot_configuration FROM `lh_departament` WHERE `lh_departament`.`dep_offline` = 0 AND `lh_departament`.`disabled` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter)");
+               $stmt = $db->prepare("SELECT bot_configuration FROM `lh_departament` WHERE `lh_departament`.`hidden` = 0 AND `lh_departament`.`dep_offline` = 0 AND `lh_departament`.`disabled` = 0 AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter)");
                $stmt->execute();
                $resultItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                if (is_array($resultItems)) {
