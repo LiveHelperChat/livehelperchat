@@ -1,6 +1,7 @@
 4.50v
 
 1. You can put quickly chat into maintenance mode.
+2. Improvements how online status is checked once there is no passed department.
 
 execute doc/update_db/update_320.sql for update
 
