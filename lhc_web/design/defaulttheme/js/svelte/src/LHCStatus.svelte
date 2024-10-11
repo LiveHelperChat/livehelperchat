@@ -11,6 +11,7 @@
     let firstVersion = 0;
 
     $ : lhcVersion = $lhcList.lhcVersion;
+    $ : lhcNotice = $lhcList.lhcNotice;
 
     function versionChanged() {
         if (firstVersion == 0) {
@@ -30,15 +31,16 @@
     $ : lhcVersion, versionChanged();
 </script>
 
-{#if $lhcList.lhcPendingRefresh || $lhcList.lhcConnectivityProblem || $lhcList.inActive}
+{#if $lhcList.lhcPendingRefresh || $lhcList.lhcConnectivityProblem || $lhcList.inActive || $lhcList.lhcNotice.message}
 <div ng-non-bindable class="version-updated float-start">
+    {#if $lhcList.lhcNotice.message}<div class={"text-"+$lhcList.lhcNotice.level}><i class={"material-icons "+"text-"+$lhcList.lhcNotice.level}>brand_awareness</i>{$lhcList.lhcNotice.message}</div>{/if}
     {#if $lhcList.lhcPendingRefresh}<div><i class="material-icons">update</i>This window will be automatically refreshed in {lhcVersionCounter} seconds due to a version update.</div>{/if}
     {#if $lhcList.lhcConnectivityProblem}<div>You have weak internet connection or the server has problems. Try to refresh the  page. Error code {$lhcList.lhcConnectivityProblemExplain}</div>{/if}
     {#if $lhcList.inActive}<div>You went offline because of inactivity. Please close other chat windows if you have any</div>{/if}
 </div>
 {/if}
 
-{#if hide_quick_notification == 0 && !($lhcList.lhcPendingRefresh || $lhcList.lhcConnectivityProblem == true || $lhcList.inActive == true) && $lhcList.last_actions.length > 0}
+{#if hide_quick_notification == 0 && !($lhcList.lhcPendingRefresh || $lhcList.lhcConnectivityProblem == true || $lhcList.inActive == true || $lhcList.lhcNotice.message) && $lhcList.last_actions.length > 0}
     <div ng-non-bindable class="text-muted float-start fs12 abbr-list d-none d-sm-block">
 
         {#if $lhcList.last_actions_index < $lhcList.last_actions.length - 1}<span class="material-icons action-image" on:click={(e) => $lhcList.last_actions_index++}>expand_more</span>{/if}

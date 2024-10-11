@@ -239,7 +239,6 @@ $widgets = erLhcoreClassChat::array_flatten($widgets);
 $dwic = json_decode(erLhcoreClassModelUserSetting::getSetting('dwic', ''),true);
 $not_ic = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_nic', ''),true);
 
-
 $response = array(
     'widgets' => $widgets,
     'exc_ic' => ($dwic === null ? [] : $dwic),
@@ -268,6 +267,14 @@ $response = array(
         'bot_notifications' => (int)erLhcoreClassModelUserSetting::getSetting('bot_notifications',0)
     )
 );
+
+$noticeOptions = erLhcoreClassModelChatConfig::fetch('notice_message');
+$data = (array)$noticeOptions->data;
+
+if (!empty($data['message'])) {
+    $response['notice']['message'] = $data['message'];
+    $response['notice']['level'] = !empty($data['level']) ? $data['level'] : 'primary';
+}
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.loadinitialdata',array('lists' => & $response));
 

@@ -10,6 +10,7 @@ export const lhcList = writable({
 
     lhcCoreLoaded : false,
     lhcVersion: 0,
+    lhcNotice: {'message' : '', 'level' : 'primary'},
     last_actions_index: 0,
     last_actions: [],
     userDepartments: [],
