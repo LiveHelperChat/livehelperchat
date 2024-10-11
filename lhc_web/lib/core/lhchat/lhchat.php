@@ -1032,7 +1032,7 @@ class erLhcoreClassChat {
 					$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 				}
 				$stmt->execute();
-				$rowsNumber = $stmt->fetchColumn();	
+				$rowsNumber = $stmt->fetchColumn();
        		}
 
 			if ($rowsNumber == 0 && (!isset($params['exclude_online_hours']) || $params['exclude_online_hours'] == false)) { // Perhaps auto active is turned on for some of departments
@@ -1077,7 +1077,7 @@ class erLhcoreClassChat {
                     $stmt->bindValue(':start_hour', date('G') . date('i'), PDO::PARAM_INT);
                     $stmt->bindValue(':end_hour', date('G') . date('i'), PDO::PARAM_INT);
                     $stmt->execute();
-                    $rowsNumber = $stmt->fetchColumn();                     
+                    $rowsNumber = $stmt->fetchColumn();
                 }
 			}					
 
