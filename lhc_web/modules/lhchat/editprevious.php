@@ -20,7 +20,7 @@ try {
 		    if (
                 ($lastMessage['user_id'] == $currentUser->getUserID()) ||
                 ($lastMessage['user_id'] == 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviouvis')) ||
-                ($lastMessage['user_id'] > 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviousop'))
+                (($lastMessage['user_id'] == -2 || $lastMessage['user_id'] > 0) && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviousop'))
             ) {
 
                 if ($lastMessage['user_id'] == $currentUser->getUserID()) {

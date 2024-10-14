@@ -18,7 +18,7 @@ try {
 
         if (isset($removeMessage) && $removeMessage->chat_id == $chat->id && (
             ($removeMessage->user_id == 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','removemsgvi')) ||
-            ($removeMessage->user_id > 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','removemsgop'))
+            (($removeMessage->user_id > 0 || $removeMessage->user_id == -2) && erLhcoreClassUser::instance()->hasAccessTo('lhchat','removemsgop'))
             )
         ) {
 

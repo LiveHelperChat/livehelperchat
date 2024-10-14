@@ -303,12 +303,12 @@ function lh(){
             var canEdit = !$('#CSChatMessage-'+e.data.chat_id).attr('readonly');
             var isOwner = ($('#CSChatMessage-'+e.data.chat_id).attr('disable-edit') !== "true" && (
                         ($(this).attr('data-op-id') == confLH.user_id && ($('#CSChatMessage-'+e.data.chat_id).attr('edit-all') === "true") || ($('#messagesBlock-' + e.data.chat_id + ' > div.message-admin').length > 0 && msgId == $('#messagesBlock-' + e.data.chat_id + ' > div.message-admin').last().attr('id').replace('msg-',''))) ||
-                        ($('#CSChatMessage-'+e.data.chat_id).attr('edit-op') === "true" && parseInt($(this).attr('data-op-id')) > 0) ||
+                        ($('#CSChatMessage-'+e.data.chat_id).attr('edit-op') === "true" && (parseInt($(this).attr('data-op-id')) > 0 || parseInt($(this).attr('data-op-id')) === -2)) ||
                         ($('#CSChatMessage-'+e.data.chat_id).attr('edit-vis') === "true" && parseInt($(this).attr('data-op-id')) === 0)
                     )
              ) && canEdit;
 
-            var canRemove = (parseInt($(this).attr('data-op-id')) === 0 && $('#CSChatMessage-'+e.data.chat_id).attr('remove-msg-vi') === "true") || (parseInt($(this).attr('data-op-id')) > 0 && $('#CSChatMessage-'+e.data.chat_id).attr('remove-msg-op') === "true");
+            var canRemove = (parseInt($(this).attr('data-op-id')) === 0 && $('#CSChatMessage-'+e.data.chat_id).attr('remove-msg-vi') === "true") || ((parseInt($(this).attr('data-op-id')) === -2 || parseInt($(this).attr('data-op-id')) > 0) && $('#CSChatMessage-'+e.data.chat_id).attr('remove-msg-op') === "true");
 
             var quoteParams = {
                 placement:'right',

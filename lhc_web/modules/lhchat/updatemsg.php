@@ -35,7 +35,7 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 	        if ($msg->chat_id == $Chat->id && (
                     $msg->user_id == $currentUser->getUserID() ||
                     ($msg->user_id == 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviouvis')) ||
-                    ($msg->user_id > 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviousop'))
+                    (($msg->user_id > 0 || $msg->user_id == -2) && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviousop'))
                 )
             ) {
 
