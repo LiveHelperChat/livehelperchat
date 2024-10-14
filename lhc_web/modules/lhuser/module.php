@@ -178,7 +178,7 @@ $ViewList['setinvisible'] = array (
 $ViewList['autologinconfig'] = array(
     'params' => array(),
     'uparams' => array('csfr'),
-    'functions' => array( 'userautologin' )
+    'functions' => array( 'userautologinconfig' )
 );
 
 $ViewList['passwordrequirements'] = array(
@@ -241,7 +241,8 @@ $FunctionList['changevisibility'] = array('explain' => 'Allow user to change his
 $FunctionList['change_visibility_list'] = array('explain' => 'Allow user to choose what list should be visible by him, pending/active/unread/closed');
 $FunctionList['allowtochoosependingmode'] = array('explain' => 'Allow user to choose what pending chats he can see, only assigned to him or all.');
 $FunctionList['receivepermissionrequest'] = array('explain' => 'Allow user to choose should he receive other operators permissions requests');
-$FunctionList['userautologin'] = array('explain' => 'Allow user to configure autologin');
+$FunctionList['userautologin'] = array('explain' => 'Allow user to use autologin');
+$FunctionList['userautologinconfig'] = array('explain' => 'Allow user to configure autologin');
 $FunctionList['canseedepartmentstats'] = array('explain' => 'Allow user to see departments statistic');
 $FunctionList['canseealldepartmentstats'] = array('explain' => 'Allow user to see all departments statistic, not only from his departments');
 $FunctionList['import'] = array('explain' => 'Allow user to import users');
@@ -254,7 +255,7 @@ $FunctionList['setopstatus'] = array('explain' => 'Allow user to change other us
 $FunctionList['change_chat_nickname'] = array('explain' => 'Allow user to change his own chat nickname');
 $FunctionList['changephoto'] = array('explain' => 'Allow user to change his own photo/avatar');
 $FunctionList['change_job_title'] = array('explain' => 'Allow user to change his own job title');
-$FunctionList['change_core_attributes'] = array('explain' => 'Allow user to change his own username/password/e-mail/XMPP Username');
+$FunctionList['change_core_attributes'] = array('explain' => 'Allow user to change his own username/password/e-mail/XMPP Usernautoame');
 $FunctionList['change_name_surname'] = array('explain' => 'Allow user to change his own name/surname');
 $FunctionList['change_password'] = array('explain' => 'Allow user to change his password');
 $FunctionList['pswdsecurity'] = array('explain' => 'Allow user to manage password requirements');
