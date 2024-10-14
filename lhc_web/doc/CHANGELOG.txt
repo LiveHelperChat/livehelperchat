@@ -3,6 +3,9 @@
 1. Now you can remove selected message completely.
 2. Preparation for further works on custom online periods per department.
 3. Online/Offline peridios for operator will be tracked more precisely.
+4. Switch from || to OR syntax for SQL queries.
+5. Hours format for work hours switched to 23:59 as max value for end period.
+
 
 execute doc/update_db/update_321.sql for update
 
