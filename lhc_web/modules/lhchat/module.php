@@ -142,6 +142,12 @@ $ViewList['editprevious'] = array(
     'functions' => array( 'editprevious' )
 );
 
+$ViewList['deletemsg'] = array(
+    'params' => array('chat_id','msg_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['quotemessage'] = array(
     'params' => array('id'),
     'uparams' => array('type'),
@@ -811,5 +817,7 @@ $FunctionList['chat_see_unhidden_email'] = array('explain' => 'Allow operator to
 $FunctionList['see_sensitive_information'] = array('explain' => 'Allow operator to see sensitive information in the messages');
 $FunctionList['my_chats_filter'] = array('explain' => 'Allow operator to see department filter for my active pending chats widget');
 $FunctionList['allowopenclosedchats'] = array('explain' => 'Allow operator to open closed chats');
+$FunctionList['removemsgop'] = array('explain' => 'Allow to remove operator any operator message');
+$FunctionList['removemsgvi'] = array('explain' => 'Allow to remove operator any visitor message');
 
 ?>

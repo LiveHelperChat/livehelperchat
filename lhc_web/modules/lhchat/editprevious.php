@@ -16,7 +16,7 @@ try {
             $lastMessage = erLhcoreClassChat::getGetLastChatMessageEdit($chat->id, $currentUser->getUserID());
         }
 
-		if (isset($lastMessage['msg'])) {
+		if (isset($lastMessage['msg']) && $lastMessage['chat_id'] == $chat->id) {
 		    if (
                 ($lastMessage['user_id'] == $currentUser->getUserID()) ||
                 ($lastMessage['user_id'] == 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviouvis')) ||

@@ -341,42 +341,48 @@ class erLhcoreClassUser{
        return $this->userid;
    }
 
-   function updateLastVisit($lda = 0)
+   function updateLastVisit($lda = 0, $action = 0, $user_id = 0)
    {
        // Because of how user departments table is locked sometimes we have lock deadlines. We need refactor or remove locking for user departments tables.
        try {
              $db = ezcDbInstance::get();
              $db->beginTransaction();
 
+             $user_id = $user_id > 0 ? $user_id : $this->userid;
+
              if ($lda > 0) {
                  $_SESSION['lhc_online_session_lda'] = $lda;
              }
 
-             if ((!isset($_SESSION['lhc_online_session'])) || (isset($_SESSION['lhc_online_session']) && (time() - $_SESSION['lhc_online_session'] > 20))) {
+             if ($action === 2 || $action === 1 || (!isset($_SESSION['lhc_online_session'])) || (isset($_SESSION['lhc_online_session']) && (time() - $_SESSION['lhc_online_session'] > 20))) {
 
-                 erLhcoreClassUserDep::updateLastActivityByUser($this->userid, time(), isset($_SESSION['lhc_online_session_lda']) ? (int)$_SESSION['lhc_online_session_lda'] : 0);
+                 erLhcoreClassUserDep::updateLastActivityByUser($user_id, time(), isset($_SESSION['lhc_online_session_lda']) ? (int)$_SESSION['lhc_online_session_lda'] : 0);
 
                  $userData = $this->getUserData(true);
 
-                 if ($userData->hide_online == 0)
+                 if ($userData->hide_online == 0 || $action === 2 || $action === 1) // Is online or went offline
                  {
-                     $stmt = $db->prepare("SELECT id FROM lh_users_online_session WHERE user_id = :user_id AND lactivity > :lactivity_back");
-                     $stmt->bindValue(':user_id',$this->userid,PDO::PARAM_INT);
-                     $stmt->bindValue(':lactivity_back',time()-40,PDO::PARAM_INT);
-                     $stmt->execute();
-                     $id = $stmt->fetch(PDO::FETCH_COLUMN);
+                     $id = 0;
+                     if ($action !== 1) { // We want previous record only if it's based on activity or visitor went offline
+                         $stmt = $db->prepare("SELECT `id` FROM `lh_users_online_session` WHERE `user_id` = :user_id AND `lactivity` > :lactivity_back ORDER BY `id` DESC LIMIT 1");
+                         $stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
+                         $stmt->bindValue(':lactivity_back',time()-40,PDO::PARAM_INT);
+                         $stmt->execute();
+                         $id = $stmt->fetch(PDO::FETCH_COLUMN);
+                     }
 
-                     if (is_numeric($id)) {
-                         $stmt = $db->prepare('UPDATE lh_users_online_session SET lactivity = :lactivity, duration = :lactivity_two - time WHERE id = :id');
+                     if (is_numeric($id) && $id > 0) {
+                         $stmt = $db->prepare('UPDATE `lh_users_online_session` SET `lactivity` = :lactivity, `duration` = :lactivity_two - `time`, `type` = '.($action > 0 ? (int)$action : '`type`').' WHERE `id` = :id');
                          $stmt->bindValue(':id',$id,PDO::PARAM_INT);
                          $stmt->bindValue(':lactivity_two',time(),PDO::PARAM_INT);
                          $stmt->bindValue(':lactivity',time(),PDO::PARAM_INT);
                          $stmt->execute();
-                     } else {
-                         $stmt = $db->prepare('INSERT INTO lh_users_online_session SET time = :time, lactivity = :lactivity, duration = 0, user_id = :user_id');
+                     } else if ($action !== 2) {
+                         $stmt = $db->prepare('INSERT INTO `lh_users_online_session` SET `time` = :time, `type` = :type, `lactivity` = :lactivity, `duration` = 0, `user_id` = :user_id');
                          $stmt->bindValue(':lactivity',time(),PDO::PARAM_INT);
                          $stmt->bindValue(':time',time(),PDO::PARAM_INT);
-                         $stmt->bindValue(':user_id',$this->userid,PDO::PARAM_INT);
+                         $stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
+                         $stmt->bindValue(':type',$action,PDO::PARAM_INT);
                          $stmt->execute();
                      }
                  }
@@ -387,8 +393,8 @@ class erLhcoreClassUser{
 
              $db->commit();
         } catch (Exception $e) {
-           //print_r($e);
-             // @todo fix me
+           // print_r($e);
+           // @todo fix me
         }
    }
 

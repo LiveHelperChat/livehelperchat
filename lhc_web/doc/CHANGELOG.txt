@@ -1,3 +1,11 @@
+4.51v
+
+1. Now you can remove selected message completely.
+2. Preparation for further works on custom online periods per department.
+3. Online/Offline peridios for operator will be tracked more precisely.
+
+execute doc/update_db/update_321.sql for update
+
 4.50v
 
 1. You can put quickly chat into maintenance mode.

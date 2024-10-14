@@ -19,7 +19,8 @@ class erLhcoreClassModelUserOnlineSession
             'user_id' => $this->user_id,
             'time' => $this->time,
             'lactivity' => $this->lactivity,
-            'duration' => $this->duration
+            'duration' => $this->duration,
+            'type' => $this->type
         );
     }
     
@@ -116,15 +117,16 @@ class erLhcoreClassModelUserOnlineSession
         }
     }
 
+    const ACTIVITY = 0;
+    const ONLINE = 1;
+    const OFFLINE = 2;
+
     public $id = null;
-
     public $user_id = null;
-
     public $time = null;
-
     public $lactivity = null;
-
     public $duration = null;
+    public $type = self::ACTIVITY;
 
     public $chatsOnline = 0;
 

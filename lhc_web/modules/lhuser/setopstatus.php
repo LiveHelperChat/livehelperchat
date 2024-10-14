@@ -35,6 +35,8 @@ if (ezcInputForm::hasPostData()) {
 
         erLhcoreClassChat::updateActiveChats($user->id);
 
+        $currentUser->updateLastVisit(time(), $user->hide_online == 1 ? 2 : 1, $user->id); // Went offline OR went online
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $user, 'reason' => 'user_action'));
 
         $db->commit();

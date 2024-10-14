@@ -20,7 +20,8 @@ class erLhcoreClassModelDepartamentCustomWorkHours
             'date_from' => $this->date_from,
             'date_to' => $this->date_to,
             'start_hour' => $this->start_hour,
-            'end_hour' => $this->end_hour
+            'end_hour' => $this->end_hour,
+            'repetitiveness' => $this->repetitiveness
         );
     }
 
@@ -60,6 +61,8 @@ class erLhcoreClassModelDepartamentCustomWorkHours
     public $start_hour = 0;
 
     public $end_hour = 0;
+    
+    public $repetitiveness = 0;
 }
 
 ?>

@@ -22,6 +22,8 @@ try {
 
     erLhcoreClassUser::getSession()->update($userData);
 
+    $currentUser->updateLastVisit(time(), $userData->hide_online == 1 ? 2 : 1); // Went offline OR went online
+
     erLhcoreClassUserDep::setHideOnlineStatus($userData);
 
     erLhcoreClassChat::updateActiveChats($userData->id);

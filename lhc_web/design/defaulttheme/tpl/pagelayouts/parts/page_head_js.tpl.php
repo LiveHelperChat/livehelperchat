@@ -14,6 +14,7 @@ confLH.transLation = <?php echo json_encode(array(
             'new_chat' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat request'),
             'transfered' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat has been transferred to you directly!'),
             'edit' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Edit'),
+            'remove' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Remove'),
             'quote' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Quote'),
             'copy' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Copy'),
             'copy_group' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Copy all'),

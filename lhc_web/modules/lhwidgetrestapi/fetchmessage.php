@@ -18,7 +18,7 @@ try {
 
     if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $requestPayload['hash'])
     {
-        $msg = erLhcoreClassModelmsg::fetch($requestPayload['msg_id']);
+        $msg = erLhcoreClassModelmsg::fetch((int)$requestPayload['msg_id']);
 
         if ($msg instanceof erLhcoreClassModelmsg && $msg->chat_id == $chat->id) {
 
@@ -32,10 +32,12 @@ try {
             if (isset($requestPayload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($requestPayload['theme'])) !== false) {
                 $tpl->set('theme',erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']));
             }
-
             echo json_encode(array('id' => $msg->id, 'msg' => trim($tpl->fetch())));
-            exit;
+        } else {
+            echo json_encode(array('id' => (int)$requestPayload['msg_id'], 'msg' => ''));
         }
+    } else {
+        echo json_encode(array('id' => (int)$requestPayload['msg_id'], 'msg' => ''));
     }
 
 } catch ( Exception $e ) {

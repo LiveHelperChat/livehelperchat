@@ -394,6 +394,7 @@ try {
         	       `time` int(11) NOT NULL, 
         	       `duration` int(11) NOT NULL, 
         	       `lactivity` int(11) NOT NULL, 
+        	       `type` tinyint(1) NOT NULL DEFAULT '0',
         	       PRIMARY KEY (`id`), 
         	       KEY `user_id_lactivity` (`user_id`, `lactivity`), KEY `lactivity` (`lactivity`) ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
@@ -1957,8 +1958,10 @@ try {
 				  `date_to` int(11) NOT NULL,
 				  `start_hour` int(11) NOT NULL,
 				  `end_hour` int(11) NOT NULL,
+                  `repetitiveness` tinyint(1) unsigned NOT NULL DEFAULT '0',
 				  PRIMARY KEY (`id`),
 				  KEY `dep_id` (`dep_id`),
+				  KEY `repetitiveness` (`repetitiveness`),
 				  KEY `date_from` (`date_from`),
 				  KEY `search_active` (`date_from`, `date_to`, `dep_id`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");

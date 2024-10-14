@@ -300,12 +300,15 @@ function lh(){
             }
 
             var msgId = $(this).attr('id').replace('msg-','');
+            var canEdit = !$('#CSChatMessage-'+e.data.chat_id).attr('readonly');
             var isOwner = ($('#CSChatMessage-'+e.data.chat_id).attr('disable-edit') !== "true" && (
                         ($(this).attr('data-op-id') == confLH.user_id && ($('#CSChatMessage-'+e.data.chat_id).attr('edit-all') === "true") || ($('#messagesBlock-' + e.data.chat_id + ' > div.message-admin').length > 0 && msgId == $('#messagesBlock-' + e.data.chat_id + ' > div.message-admin').last().attr('id').replace('msg-',''))) ||
                         ($('#CSChatMessage-'+e.data.chat_id).attr('edit-op') === "true" && parseInt($(this).attr('data-op-id')) > 0) ||
                         ($('#CSChatMessage-'+e.data.chat_id).attr('edit-vis') === "true" && parseInt($(this).attr('data-op-id')) === 0)
                     )
-             );
+             ) && canEdit;
+
+            var canRemove = (parseInt($(this).attr('data-op-id')) === 0 && $('#CSChatMessage-'+e.data.chat_id).attr('remove-msg-vi') === "true") || (parseInt($(this).attr('data-op-id')) > 0 && $('#CSChatMessage-'+e.data.chat_id).attr('remove-msg-op') === "true");
 
             var quoteParams = {
                 placement:'right',
@@ -315,7 +318,7 @@ function lh(){
                 container:'#chat-id-'+e.data.chat_id,
                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
                 content:function(){
-                    return '<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>'+confLH.transLation.quote+'</a>'+ (isOwner ? '<br/><a href="#" id="edit-popover-'+e.data.chat_id+'" ><i class="material-icons">edit</i>'+confLH.transLation.edit+'</a>' : '') + '<br/><a href="#" id="ask-help-popover-'+e.data.chat_id+'" ><i class="material-icons">supervisor_account</i>'+confLH.transLation.ask_help+'</a>' + (hasSelection ? '<br/><a href="#" id="copy-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a>' : '') + (!hasSelection ? '<br/><a href="#" id="copy-all-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a><br/><a href="#" id="copy-group-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy_group+'</a>' : '')+(!hasSelection ? '<br/><a href="#" id="translate-msg-'+e.data.chat_id+'" ><i class="material-icons">language</i>'+confLH.transLation.translate+'</a>' : '');
+                    return (canEdit ? ('<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>'+confLH.transLation.quote+'</a><br/>') : '') + (canRemove ? '<a href="#" id="remove-popover-'+e.data.chat_id+'" ><i class="material-icons">delete</i>'+confLH.transLation.remove+'</a><br/>' : '') + (isOwner ? '<a href="#" id="edit-popover-'+e.data.chat_id+'" ><i class="material-icons">edit</i>'+confLH.transLation.edit+'</a><br/>' : '') + '<a href="#" id="ask-help-popover-'+e.data.chat_id+'" ><i class="material-icons">supervisor_account</i>'+confLH.transLation.ask_help+'</a>' + (hasSelection ? '<br/><a href="#" id="copy-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a>' : '') + (!hasSelection ? '<br/><a href="#" id="copy-all-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a><br/><a href="#" id="copy-group-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy_group+'</a>' : '')+(!hasSelection ? '<br/><a href="#" id="translate-msg-'+e.data.chat_id+'" ><i class="material-icons">language</i>'+confLH.transLation.translate+'</a>' : '');
                 }
             }
             
@@ -333,6 +336,19 @@ function lh(){
                 $.getJSON(e.data.that.wwwDir + 'chat/quotemessage/' + msgId, function(data){
                     data.msg && e.data.that.insertTextToMessageArea(e.data.chat_id, data.msg, msgId);
                     e.data.that.hidePopover();
+                });
+            });
+
+            $('#remove-popover-'+e.data.chat_id).click(function(event){
+                event.stopPropagation();
+                event.preventDefault();
+                $.postJSON(e.data.that.wwwDir + 'chat/deletemsg/' + e.data.chat_id + '/' + msgId, function(data){
+                    if (data.error == 'f') {
+                        e.data.that.hidePopover();
+                        $('#msg-'+msgId).remove();
+                    } else {
+                        alert(data.result);
+                    }
                 });
             });
 

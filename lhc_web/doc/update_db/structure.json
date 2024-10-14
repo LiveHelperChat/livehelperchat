@@ -2182,6 +2182,14 @@
         "key": "",
         "default": null,
         "extra": ""
+      },
+      {
+        "field": "type",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_notification_subscriber": [
@@ -7240,6 +7248,14 @@
         "key": "",
         "default": null,
         "extra": ""
+      },
+      {
+        "field": "repetitiveness",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_faq": [
@@ -11782,6 +11798,12 @@
         "delete_on_exp" : "ALTER TABLE `lh_canned_msg` ADD INDEX `delete_on_exp` (`delete_on_exp`);"
       },
       "old" : ["position_title"]
+    },
+    "lh_departament_custom_work_hours" : {
+      "new" : {
+        "repetitiveness" : "ALTER TABLE `lh_departament_custom_work_hours` ADD INDEX `repetitiveness` (`repetitiveness`);"
+      },
+      "old" : []
     },
     "lhc_mailconv_response_template" : {
       "new" : {

@@ -427,7 +427,7 @@ function processResponseCheckStatus(response, getState, dispatch) {
                 updateUISettings({'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
             } else if (action.indexOf('lhinst.updateMessageRow') !== -1) {
                 const state = getState();
-                updateMessage({'msg_id' : action.replace('lhinst.updateMessageRow(','').replace(')',''), 'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']), 'mode' :  state.chatwidget.get('mode'), 'theme' : state.chatwidget.get('theme'), 'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
+                updateMessage({'msg_id' : action.replace('lhinst.updateMessageRow(','').replace(')','').replace(';',''), 'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']), 'mode' :  state.chatwidget.get('mode'), 'theme' : state.chatwidget.get('theme'), 'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
             }
         });
     }
