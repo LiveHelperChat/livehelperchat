@@ -33,8 +33,8 @@
     <tr>
         <td><?php echo $item->id?></td>
         <td><?php echo htmlspecialchars($item->user_name)?></td>
-        <td><?php echo htmlspecialchars($item->time_front)?> <?php if ($item->type == erLhcoreClassModelUserOnlineSession::ONLINE) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went online');?><?php endif; ?></td>
-        <td><?php echo htmlspecialchars($item->lactivity_front)?> <?php if ($item->type == erLhcoreClassModelUserOnlineSession::OFFLINE) :?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went offline');?><?php endif; ?></td>
+        <td><?php echo htmlspecialchars($item->time_front)?>&nbsp;<?php if ($item->type == erLhcoreClassModelUserOnlineSession::ONLINE) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went online');?><?php endif; ?></td>
+        <td><?php echo htmlspecialchars($item->lactivity_front)?>&nbsp;<?php if ($item->type == erLhcoreClassModelUserOnlineSession::OFFLINE) :?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went offline');?><?php endif; ?></td>
         <td><?php echo $item->duration_front?></td>
         <td>
             <?php if ( $item->chatsOnline > 0) : ?>

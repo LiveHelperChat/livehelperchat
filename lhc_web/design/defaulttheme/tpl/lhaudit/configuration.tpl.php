@@ -45,8 +45,7 @@
     <?php endforeach; ?>
     </div>
 
-    <input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
-    <input type="submit" class="btn btn-secondary" name="ReloadOperatorsBackOffice" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Reload back office for operators. Requires NodeJS'); ?>" />
+    <input type="submit" class="btn btn-sm btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />&nbsp;<input type="submit" class="btn btn-secondary btn-sm" name="ReloadOperatorsBackOffice" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Reload back office for operators. Requires NodeJS'); ?>" />
 
 </form>
 
