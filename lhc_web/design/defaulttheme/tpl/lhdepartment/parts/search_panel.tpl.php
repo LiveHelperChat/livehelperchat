@@ -9,7 +9,13 @@
 			<input type="text" class="form-control" name="name" value="<?php echo htmlspecialchars($input->name)?>" />
 		   </div>
 		</div>
-		<div class="col-md-3">
+        <div class="col-md-3">
+		   <div class="form-group">
+			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Alias');?></label>
+			<input type="text" class="form-control" name="alias" value="<?php echo htmlspecialchars($input->alias)?>" />
+		   </div>
+		</div>
+		<div class="col-md-2">
 		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hidden');?></label>
 			<select class="form-control" name="hidden">
@@ -19,7 +25,7 @@
 			</select>
 		   </div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
 		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Visible only if online');?></label>
 			<select class="form-control" name="visible_if_online">
@@ -29,7 +35,7 @@
 			</select>
 		   </div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
 		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Disabled');?></label>
 			<select class="form-control" name="disabled">

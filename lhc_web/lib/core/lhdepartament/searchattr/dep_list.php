@@ -50,6 +50,18 @@ $fieldsSearch['name'] = array (
     )
 );
 
+$fieldsSearch['alias'] = array (
+    'type' => 'text',
+    'trans' => 'Sort by',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'like',
+    'filter_table_field' => 'alias',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldSortAttr = array (
 'field'      => false,
 'default'    => false,
