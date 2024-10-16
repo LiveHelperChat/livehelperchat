@@ -120,6 +120,7 @@
                         <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Workdays/work hours, during these days/hours chat will be active automatically');?></li>
                         <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours, 24 hours format, 1 - 24, minutes format 0 - 60');?></li>
                         <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you want that chat ignored operators online status and went online only by these defined hours can do that');?> <a href="#" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>/(action)/onlinehours'})"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','here');?></a></li>
+                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If we find custom period for specific day it takes priority over day work hours definition');?></li>
                     </ul>
 
                     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','These hours will be using');?> <b><?php erConfigClassLhConfig::getInstance()->getSetting( 'site', 'time_zone' ) != '' ? print erConfigClassLhConfig::getInstance()->getSetting( 'site', 'time_zone' ) : print date_default_timezone_get()?></b> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','time zone');?> <b>[<?php echo (new DateTime('now', new DateTimeZone(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'time_zone' ) != '' ? erConfigClassLhConfig::getInstance()->getSetting( 'site', 'time_zone' ) : date_default_timezone_get())))->format('Y-m-d H:i:s') ?>]</b> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','to render widget online status');?>. <a href="<?php echo erLhcoreClassDesign::baseurl('system/timezone')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Change default time zone.');?></a></p>
@@ -180,20 +181,54 @@
 						<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom period');?></h4>
 
 						<div class="row">
-							<div class="col-4">
+							<div class="col-3">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Period type');?></label>
+                                    <select id="period-repetitiveness" class="form-control form-control-sm">
+                                        <option value="0">Period</option>
+                                        <option value="1">Day of the week</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-6 show-by-period show-by-period-1" style="display: none;">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Choose day of the week');?></label>
+                                    <?php $weekDays = array(
+                                        1 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Monday'),
+                                        2 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Tuesday'),
+                                        3 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Wednesday'),
+                                        4 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Thursday'),
+                                        5 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Friday'),
+                                        6 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Saturday'),
+                                        7 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Sunday'),
+                                    ); ?>
+                                    <select id="day-of-week" class="form-control form-control-sm">
+                                        <?php foreach ($weekDays as $dayShort => $dayLong) : ?>
+                                            <option value="<?php echo $dayShort?>"><?php echo $dayLong?></option>
+                                        <?php endforeach;?>
+                                    </select>
+                                </div>
+                            </div>
+
+
+							<div class="col-3 show-by-period show-by-period-0">
 								<div class="form-group">
 									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Date from');?></label>
 									<input type="text" class="form-control form-control-sm" name="custom_date_from" id="custom_date_from" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom work day');?>" placeholder="<?php echo date('Y-m-d'); ?>" />
 								</div>
 							</div>
-							<div class="col-4">
+
+							<div class="col-3 show-by-period show-by-period-0">
 								<div class="form-group">
 									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Date to');?></label>
 									<input type="text" class="form-control form-control-sm" name="custom_date_to" id="custom_date_to" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom work day');?>" placeholder="<?php echo date('Y-m-d'); ?>" />
 								</div>
 							</div>
-							<div class="col-4">
-								<button type="button" class="btn btn-secondary btn-block mt-2" id="add-period-button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add');?></button>
+
+							<div class="col-3">
+                                <label class="d-block">&nbsp;</label>
+								<button type="button" class="btn btn-sm btn-secondary btn-block" id="add-period-button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add');?></button>
 							</div>
 						</div>
 						<div class="row">

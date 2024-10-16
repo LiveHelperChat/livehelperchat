@@ -12,7 +12,7 @@ $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersist
 foreach ([
              'dep_id','date_from',
              'date_to','start_hour',
-             'end_hour'
+             'end_hour','repetitiveness'
          ] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
