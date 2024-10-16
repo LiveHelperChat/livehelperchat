@@ -1103,10 +1103,18 @@ class erLhcoreClassDepartament{
                'start_hour_min' => $departamentCustomWorkHour->start_minutes_front,
                'end_hour'       => $departamentCustomWorkHour->end_hour_front,
                'end_hour_min'   => $departamentCustomWorkHour->end_minutes_front,
-               'repetitiveness'   => $departamentCustomWorkHour->repetitiveness,
-               'day_of_week'   => $departamentCustomWorkHour->date_from
+               'repetitiveness' => $departamentCustomWorkHour->repetitiveness,
+               'day_of_week'    => $departamentCustomWorkHour->date_from
            );
        }
+
+       usort($data, function ($a, $b) {
+            if ($a['day_of_week'] > $b['day_of_week'] || ($a['day_of_week'] == $b['day_of_week'] && $a['start_hour'] > $b['start_hour'])) {
+                return 1;
+            } else {
+                return -1;
+            }
+       });
 
        return $data;
    }

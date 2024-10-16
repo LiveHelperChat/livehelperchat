@@ -185,8 +185,8 @@
                                 <div class="form-group">
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Period type');?></label>
                                     <select id="period-repetitiveness" class="form-control form-control-sm">
-                                        <option value="0">Period</option>
-                                        <option value="1">Day of the week</option>
+                                        <option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Period');?></option>
+                                        <option value="1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Day of the week');?></option>
                                     </select>
                                 </div>
                             </div>
@@ -266,7 +266,7 @@
 									<th></th>
 								</tr>
 								</thead>
-                                <tbody id="custom-periods-list" remove-action="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Remove');?>">
+                                <tbody id="custom-periods-list" week-day="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Day of the week')?>" remove-action="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Remove');?>">
 								</tbody>
 						</table>
 					</div>

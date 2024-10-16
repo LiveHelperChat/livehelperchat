@@ -119,7 +119,7 @@ $( document ).ready(function() {
         periodList.innerHTML = '';
         let item = '';
         depCustomPeriods.forEach((item, index) => {
-            periodList.innerHTML += '<tr><td>'+(item.repetitiveness == 0 ? escapeHtml(item.date_from) + ' - ' + escapeHtml(item.date_to) : 'Week day [' + item.day_of_week + ']') + '</td><td>' + escapeHtml(item.start_hour) +':'+ escapeHtml(item.start_hour_min) +'</td>' +
+            periodList.innerHTML += '<tr><td>'+(item.repetitiveness == 0 ? escapeHtml(item.date_from) + ' - ' + escapeHtml(item.date_to) : periodList.getAttribute('week-day')+' [' + item.day_of_week + ']') + '</td><td>' + escapeHtml(item.start_hour) +':'+ escapeHtml(item.start_hour_min) +'</td>' +
                 '<td>'+escapeHtml(item.end_hour) +':' + escapeHtml(item.end_hour_min) +'</td><td><button class="btn btn-sm btn-danger" type="button" onclick="ee.emitEvent(\'delete_custom_period\',['+index+'])">'+periodList.getAttribute('remove-action')+'</button>' +
                 '<input type="hidden" name="customPeriodDateFrom[]" value="'+escapeHtml(item.date_from)+'">' +
                 '<input type="hidden" name="customPeriodDateTo[]" value="'+escapeHtml(item.date_to)+'">' +
