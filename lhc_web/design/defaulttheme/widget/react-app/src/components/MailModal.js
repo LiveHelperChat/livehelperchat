@@ -21,7 +21,7 @@ class MailModal extends PureComponent {
 
         this.setState({'sending' : true});
 
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/sendmailsettings/" + this.props.chatId + '/' + this.props.chatHash + '/(action)/send', {email:this.state.mail}, {headers : {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/sendmailsettings/" + this.props.chatId + '/' + this.props.chatHash + '/(action)/send', JSON.stringify({email:this.state.mail}), {headers : {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
             if (response.data.error == false) {
                 this.props.toggle();
             } else {
