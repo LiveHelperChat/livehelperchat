@@ -551,7 +551,7 @@ $ts = time();
 $outputResponse['wv'] = 234;
  
 // React APP versions
-$outputResponse['v'] = 333;
+$outputResponse['v'] = 334;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
@@ -623,7 +623,7 @@ if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true) {
 $outputResponse['static'] = array(
     'screenshot' =>  $host . erLhcoreClassDesign::design('js/html2canvas.min.js'). '?v=' . $outputResponse['v'],
     'app' => $host . ((isset($_GET['ie']) && $_GET['ie'] == 'true') ? erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js') . '?v=' . $outputResponse['v'] : erLhcoreClassDesign::design('js/widgetv2/react.app.js') . '?v=' . $outputResponse['v']),
-    'vendor' => $host . ((isset($_GET['ie']) && $_GET['ie'] == 'true') ? erLhcoreClassDesign::design('js/widgetv2/vendor.ie.js') . '?v=a3' : erLhcoreClassDesign::design('js/widgetv2/vendor.js') . '?v=a3'),
+    'vendor' => $host . ((isset($_GET['ie']) && $_GET['ie'] == 'true') ? erLhcoreClassDesign::design('js/widgetv2/vendor.ie.js') . '?v=a3' : erLhcoreClassDesign::design('js/widgetv2/vendor.js') . '?v=a4'),
     'widget_css' => $host . (erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language') == 'ltr' ? erLhcoreClassDesign::designCSS('css/widgetv2/bootstrap.min.css;css/widgetv2/widget.css;css/widgetv2/widget_override.css') : erLhcoreClassDesign::designCSS('css/widgetv2/bootstrap.min.rtl.css;css/widgetv2/widget.css;css/widgetv2/widget_rtl.css;css/widgetv2/widget_override_rtl.css')),
     'dir' => erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language'),
     'cl' => erConfigClassLhConfig::getInstance()->getDirLanguage('content_language'),
