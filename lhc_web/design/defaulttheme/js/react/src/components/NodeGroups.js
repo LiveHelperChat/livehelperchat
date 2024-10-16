@@ -12,7 +12,7 @@ import { fetchNodeGroups, addNodeGroup, updateNodeGroup } from "../actions/nodeG
 
 class NodeGroups extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.dispatch(fetchNodeGroups(this.props.botId))
     }
 
@@ -37,8 +37,8 @@ class NodeGroups extends Component {
                 {mappedNodeGroups}
                 <hr/>
                 <div className="btn-group" role="group" aria-label="Basic example">
-                    <button className="btn btn-sm btn-secondary" onClick={this.addGroup.bind(this)}><i class="material-icons">add</i>Add group</button>
-                    <button className="btn btn-sm btn-secondary" onClick={this.importGroup.bind(this)}><i class="material-icons">cloud_upload</i>Import group</button>
+                    <button className="btn btn-sm btn-secondary" onClick={this.addGroup.bind(this)}><i className="material-icons">add</i>Add group</button>
+                    <button className="btn btn-sm btn-secondary" onClick={this.importGroup.bind(this)}><i className="material-icons">cloud_upload</i>Import group</button>
                 </div>
             </div>
         );

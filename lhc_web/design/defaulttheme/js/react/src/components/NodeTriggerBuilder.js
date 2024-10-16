@@ -303,7 +303,7 @@ class NodeTriggerBuilder extends Component {
                                     </div>
                                 </div>
 
-                                <textarea readOnly="readOnly" id="json-body-trigger" rows="10" className="form-control fs11" value={JSON.stringify(this.props.currenttrigger.getIn(['currenttrigger','actions']).toJSON(), null, (this.state.compressCode == false ? 4 : 0))}></textarea>
+                                <textarea readOnly={true} id="json-body-trigger" rows="10" className="form-control fs11" value={JSON.stringify(this.props.currenttrigger.getIn(['currenttrigger','actions']).toJSON(), null, (this.state.compressCode == false ? 4 : 0))}></textarea>
                                 <p><small><i>&quot;_id&quot; can be ignored</i></small></p>
 
                                 <div className="row">

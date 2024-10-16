@@ -5,8 +5,7 @@ concat   = require('gulp-concat'),
 watch 	 = require('gulp-watch'),
 webpack = require('webpack'),
 webpackConfig = require('./webpack.config.js'),
-bower = require('gulp-bower'),
-react = require('gulp-react');
+bower = require('gulp-bower');
 var babel = require('gulp-babel');
 var newer        = require('gulp-newer');
 var eslint       = require('gulp-eslint');
@@ -73,57 +72,6 @@ gulp.task('js-angular-online', function() {
 	.pipe(uglify())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
-
-gulp.task('react', function () {
-    return	gulp.src([
-    	"design/defaulttheme/js/react/src/*.jsx"
-	])
-        .pipe(sourcemaps.init())
-        .pipe(babel({
-            presets: ["react", "@babel/preset-env"]
-        }))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest("design/defaulttheme/js/react/build"));
-});
-
-gulp.task('react-components', function () {
-    return	gulp.src([
-        "design/defaulttheme/js/react/src/components/*.jsx"
-	])
-	.pipe(sourcemaps.init())
-	.pipe(babel({
-		presets: ["@babel/react", "@babel/preset-env"]
-	}))
-	.pipe(sourcemaps.write('.'))
-	.pipe(gulp.dest("design/defaulttheme/js/react/build/components"));
-});
-
-gulp.task('react-js',  function() {
-
-    process.env.NODE_ENV = 'production';
-
-    return browserify('design/defaulttheme/js/react/src/index.jsx')
-        .transform("babelify", {
-        	presets: ["@babel/preset-react", "@babel/preset-env"],
-            plugins: ['react-html-attrs', 'transform-class-properties', ["@babel/plugin-proposal-decorators", { "legacy": true}]]
-        })
-        .bundle()
-        .on('error', gutil.log)
-        .pipe(source('all.js'))
-        .pipe(buffer())
-        .pipe(uglify({ mangle: false }))
-        .pipe(gulp.dest('design/defaulttheme/js/react/build'))
-});
-
-gulp.task('default-react', gulp.series('react-js', function() {
-    gulp.watch([
-    	'design/defaulttheme/js/react/src/!*.js',
-		'design/defaulttheme/js/react/src/!*.jsx',
-		'design/defaulttheme/js/react/src/!*!/!*.js',
-		'design/defaulttheme/js/react/src/!*!/!*!/!*.js',
-		'design/defaulttheme/js/react/src/!*!/!*!/!*!/!*.js'
-	], ['react-js']);
-}));
 
 gulp.task('js-angular-checkmodel', function() {
 	var stylePath = ['design/defaulttheme/js/checklist-model.js'];

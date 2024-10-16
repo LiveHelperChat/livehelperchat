@@ -132,14 +132,14 @@ class NodeGroupTrigger extends Component {
 
         return (
                 <li>
-                    <div class="btn-group trigger-btn">
+                    <div className="btn-group trigger-btn">
                         <button onClick={this.loadTriggerActions.bind(this)} className={classNameCurrent}>{this.props.trigger.get('name')}</button>
-                            <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" className="btn btn-sm btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-trigger">
-                            <li className="dropdown-item"><a href="#" onClick={this.removeTrigger}><i class="material-icons">delete</i> Delete</a></li>
-                            <li className="dropdown-item"><a href="#" onClick={this.makeCopy}><i class="material-icons">file_copy</i> Copy</a></li>
-                            <li className="dropdown-item"><a href="#" onClick={(e) => this.changeGroup(!this.state.changingGroup)}><i class="material-icons">home</i> Change group</a></li>
+                        <ul className="dropdown-menu dropdown-menu-trigger">
+                            <li className="dropdown-item"><a href="#" onClick={this.removeTrigger}><i className="material-icons">delete</i> Delete</a></li>
+                            <li className="dropdown-item"><a href="#" onClick={this.makeCopy}><i className="material-icons">file_copy</i> Copy</a></li>
+                            <li className="dropdown-item"><a href="#" onClick={(e) => this.changeGroup(!this.state.changingGroup)}><i className="material-icons">home</i> Change group</a></li>
                             <div className="dropdown-divider"></div>
                             <li className="dropdown-item"><label className="mb-0" title="This message will be send tu visitor then chat starts"><input onChange={this.setDefaultTrigger} type="checkbox" checked={this.props.trigger.get('default')} /> Default</label></li>
                             <li className="dropdown-item"><label className="mb-0" title="This message will be send to visitor then we could dot determine what we should do with a visitor message"><input onChange={this.setDefaultUnknownTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown')} /> Default for unknown message</label></li>

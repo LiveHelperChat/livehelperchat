@@ -117,7 +117,7 @@ class NodeTriggerActionList extends Component {
                             
                                 <span className="input-group-text" id="basic-addon1"><span className="material-icons">vpn_key</span></span>
 
-                            <input type="text" className="form-control" readOnly="true" value={this.props.action.getIn(['_id'])} title="Action ID"/>
+                            <input type="text" className="form-control" readOnly={true} value={this.props.action.getIn(['_id'])} title="Action ID"/>
                         </div>
                     </div>
                     <div className="pe-2 pt-1 text-nowrap">

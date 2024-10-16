@@ -38,7 +38,7 @@ class NodeGroup extends Component {
         this.props.dispatch(addTrigger({id: this.props.group.get('id')}));
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.dispatch(fetchNodeGroupTriggers(this.props.group.get('id')))
     }
 
