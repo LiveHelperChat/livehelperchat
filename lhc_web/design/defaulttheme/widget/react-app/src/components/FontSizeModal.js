@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import axios from "axios";
 import { withTranslation } from 'react-i18next';
 
 class FontSizeModal extends PureComponent {

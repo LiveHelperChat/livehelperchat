@@ -62,18 +62,18 @@ class HeaderChat extends Component {
                 position = position == 'left'  ? 'start' : (position == 'right' ? 'end' : position);
                 if (btn.get('btn') == 'min' && closeInst) {
                     iconsNumber++;
-                    return <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.closeWidget() : '' }} className={"minimize-icon header-link float-"+position} title={this.props.chatwidget.getIn(['chat_ui','min_text']) || t('button.minimize')} onClick={this.closeWidget}>
+                    return <a key={btn.get('pos')+index} tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.closeWidget() : '' }} className={"minimize-icon header-link float-"+position} title={this.props.chatwidget.getIn(['chat_ui','min_text']) || t('button.minimize')} onClick={this.closeWidget}>
                         {(this.props.chatwidget.hasIn(['chat_ui','img_icon_min']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_min'])} alt="" />) || <i className="material-icons">&#xf11c;</i>}
                     </a>;
                 } else if (btn.get('btn') == 'popup' && hasPopup) {
                     iconsNumber++;
-                    return <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.popup() : '' }} className={"header-link float-"+position} title={this.props.chatwidget.getIn(['chat_ui','popup_text']) || t('button.popup')} onClick={this.popup}>
+                    return <a key={btn.get('pos')+index} tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.popup() : '' }} className={"header-link float-"+position} title={this.props.chatwidget.getIn(['chat_ui','popup_text']) || t('button.popup')} onClick={this.popup}>
                         {(this.props.chatwidget.hasIn(['chat_ui','img_icon_popup']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_popup'])} alt="" />) || <i className="material-icons">&#xf106;</i>}
                     </a>;
                 } else if (btn.get('btn') == 'close' && showClose) {
                     const endText = this.props.chatwidget.getIn(['chat_ui','end_chat_text']) || t('button.end_chat');
                     iconsNumber++;
-                    return <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.endChat() : '' }} title={endText} className={"header-link float-"+position} onClick={this.endChat}>
+                    return <a key={btn.get('pos')+index} tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.endChat() : '' }} title={endText} className={"header-link float-"+position} onClick={this.endChat}>
                         {(this.props.chatwidget.hasIn(['chat_ui','img_icon_close']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_close'])} alt="" />) || <i className="material-icons">&#xf10a;</i>}
                         {btn.get('print') && <span className="end-chat-text">{endText}</span>}
                     </a>;
@@ -85,7 +85,7 @@ class HeaderChat extends Component {
                     } else {
                         fheightText = this.props.chatwidget.getIn(['chat_ui','fheight_text_col']) || t('button.fheight_text_col');
                     }
-                    return <a tabIndex="0" title={fheightText} onKeyPress={(e) => { e.key === "Enter" ? this.switchColumn() : '' }} className={"header-link float-"+position} onClick={this.switchColumn}>
+                    return <a key={btn.get('pos')+index} tabIndex="0" title={fheightText} onKeyPress={(e) => { e.key === "Enter" ? this.switchColumn() : '' }} className={"header-link float-"+position} onClick={this.switchColumn}>
                         {(this.props.chatwidget.hasIn(['chat_ui','img_icon_fheight']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_fheight'])} alt="" />) || (<i className="material-icons">{this.props.chatwidget.get('position_placement').includes('full_height') ? <React.Fragment>&#xf123;</React.Fragment> : <React.Fragment>&#xf126;</React.Fragment>}</i>)}
                     </a>;
                 }
@@ -96,24 +96,25 @@ class HeaderChat extends Component {
             if (position != 'dropdown') {
                 return;
             }
+
             if (btn.get('btn') == 'min' && closeInst) {
                 dropdownNumber++;
                 const minText = this.props.chatwidget.getIn(['chat_ui','min_text']) || t('button.minimize');
-                return <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.closeWidget() : '' }} className={"minimize-icon header-link header-burger-link d-block text-nowrap py-1 ps-1"} title={minText} onClick={this.closeWidget}>
+                return <a key={btn.get('pos')+index} tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.closeWidget() : '' }} className={"minimize-icon header-link header-burger-link d-block text-nowrap py-1 ps-1"} title={minText} onClick={this.closeWidget}>
                     {(this.props.chatwidget.hasIn(['chat_ui','img_icon_min']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_min'])} alt="" />) || <i className="material-icons">&#xf11c;</i>}
                     <span className="menu-text text-nowrap">{minText}</span>
                 </a>;
             } else if (btn.get('btn') == 'popup' && hasPopup) {
                 dropdownNumber++;
                 const popupText = this.props.chatwidget.getIn(['chat_ui','popup_text']) || t('button.popup');
-                return <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.popup() : '' }} className={"header-link header-burger-link d-block text-nowrap  py-1 ps-1"} title={popupText} onClick={this.popup}>
+                return <a key={btn.get('pos')+index} tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.popup() : '' }} className={"header-link header-burger-link d-block text-nowrap  py-1 ps-1"} title={popupText} onClick={this.popup}>
                     {(this.props.chatwidget.hasIn(['chat_ui','img_icon_popup']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_popup'])} alt="" />) || <i className="material-icons">&#xf106;</i>}
                     <span className="menu-text text-nowrap">{popupText}</span>
                 </a>;
             } else if (btn.get('btn') == 'close' && showClose) {
                 dropdownNumber++;
                 const endText = this.props.chatwidget.getIn(['chat_ui','end_chat_text']) || t('button.end_chat');
-                return <a tabIndex="0" title={endText} onKeyPress={(e) => { e.key === "Enter" ? this.endChat() : '' }} className={"header-link header-burger-link  py-1 d-block text-nowrap ps-1"} onClick={this.endChat}>
+                return <a key={btn.get('pos')+index} tabIndex="0" title={endText} onKeyPress={(e) => { e.key === "Enter" ? this.endChat() : '' }} className={"header-link header-burger-link  py-1 d-block text-nowrap ps-1"} onClick={this.endChat}>
                     {(this.props.chatwidget.hasIn(['chat_ui','img_icon_close']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_close'])} alt="" />) || <i className="material-icons">&#xf10a;</i>}
                     <span className="menu-text">{endText}</span>
                 </a>;
@@ -125,7 +126,7 @@ class HeaderChat extends Component {
                 } else {
                     fheightText = this.props.chatwidget.getIn(['chat_ui','fheight_text_col']) || t('button.fheight_text_col');
                 }
-                return <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.switchColumn() : '' }} title={fheightText} className={"header-link header-burger-link py-1 d-block text-nowrap ps-1"} onClick={this.switchColumn}>
+                return <a key={btn.get('pos')+index} tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.switchColumn() : '' }} title={fheightText} className={"header-link header-burger-link py-1 d-block text-nowrap ps-1"} onClick={this.switchColumn}>
                     {(this.props.chatwidget.hasIn(['chat_ui','img_icon_fheight']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_fheight'])} alt="" />) || (<i className="material-icons">{this.props.chatwidget.get('position_placement').includes('full_height') ? <React.Fragment>&#xf123;</React.Fragment> : <React.Fragment>&#xf126;</React.Fragment>} </i>)}
                     <span className="menu-text text-nowrap">{fheightText}</span>
                 </a>;

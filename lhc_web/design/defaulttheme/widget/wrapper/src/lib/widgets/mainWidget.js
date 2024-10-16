@@ -14,6 +14,7 @@ export class mainWidget{
         this.originalCSS = '';
         this.bottom_override = false;
         this.is_invitation = false;
+        this.is_loaded = false;
 
         this.cont = new UIConstructorIframe((prefix || 'lhc')+'_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
@@ -96,7 +97,8 @@ export class mainWidget{
     }
 
     checkLoadStatus() {
-        if (this.loadStatus['css'] == true && this.loadStatus['theme'] == true && this.loadStatus['font_status'] == true && this.loadStatus['font_preload'] == true && this.loadStatus['css_preload'] == true) {
+        if (this.is_loaded == false && this.loadStatus['css'] == true && this.loadStatus['theme'] == true && this.loadStatus['font_status'] == true && this.loadStatus['font_preload'] == true && this.loadStatus['css_preload'] == true) {
+            this.is_loaded = true;
             this.loadApp();
         }
     }
