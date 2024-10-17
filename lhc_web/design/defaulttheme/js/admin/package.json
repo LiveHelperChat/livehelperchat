@@ -20,7 +20,7 @@
     "@babel/preset-env": "^7.25.8",
     "@babel/preset-react": "^7.25.7",
     "@tinymce/tinymce-react": "^3.14.0",
-    "axios": "^0.21.4",
+    "axios": "^1.7.7",
     "babel-loader": "^8.4.1",
     "babel-plugin-module-resolver": "^3.2.0",
     "bootstrap.native": "^2.0.27",
