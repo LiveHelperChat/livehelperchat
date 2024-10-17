@@ -3,6 +3,7 @@ import axios from "axios";
 import parse, { domToReact } from 'html-react-parser';
 import { withTranslation } from 'react-i18next';
 import Xwiper from 'xwiper';
+import { flushSync } from 'react-dom';
 
 class ChatModal extends PureComponent {
 
@@ -17,7 +18,10 @@ class ChatModal extends PureComponent {
     componentDidMount() {
         axios.get(window.lhcChat['base_url'] + this.props.dataUrl)
         .then((response) => {
-            this.setState({'body' : response.data});
+            flushSync(() => {
+                this.setState({'body' : response.data});
+            });
+
             var container = document.getElementById('dialog-content');
             var bsn = require("bootstrap.native/dist/components/tab-native");
             var tabs = container.querySelectorAll('[data-bs-toggle="tab"]');

@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Suspense, lazy } from 'react';
 import i18n from "./components/i18n/i18n";
+import { createRoot } from 'react-dom/client';
 
 const VoiceCall = React.lazy(() => import('./components/VoiceCall'));
 
@@ -10,8 +10,6 @@ __webpack_public_path__ = WWW_DIR_LHC_WEBPACK_ADMIN;
 
 var el = document.getElementById('root');
 if (el !== null) {
-    ReactDOM.render(
-        <Suspense fallback="..."><VoiceCall isVisitor={window.initParams.isVisitor} initParams={window.initParams} ></VoiceCall></Suspense>,
-        el
-    );
+    const root = createRoot(el);
+    root.render(<Suspense fallback="..."><VoiceCall isVisitor={window.initParams.isVisitor} initParams={window.initParams} ></VoiceCall></Suspense>);
 }
