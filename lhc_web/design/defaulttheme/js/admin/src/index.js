@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Suspense, lazy } from 'react';
 import i18n from "./components/i18n/i18n";
+import { createRoot } from 'react-dom/client';
+
 
 const CannedMessages = React.lazy(() => import('./components/CannedMessages'));
 const MailChat = React.lazy(() => import('./components/MailChat'));
@@ -11,25 +12,24 @@ const GroupChat = React.lazy(() => import('./components/GroupChat'));
 // set webpack loading path
 __webpack_public_path__ = WWW_DIR_LHC_WEBPACK_ADMIN;
 
-ee.addListener('adminChatLoaded',(chatId) => {
-    var el = document.getElementById('canned-messages-chat-container-'+chatId);
+let rootScopes = {};
 
+ee.addListener('adminChatLoaded',(chatId) => {
+    let scope = 'canned-messages-chat-container-'+chatId;
+    var el = document.getElementById(scope);
     if (el !== null) {
-        ReactDOM.render(
-            <Suspense fallback="..."><CannedMessages chatId={chatId}/></Suspense>,
-            el
-        );
+        rootScopes[scope] = createRoot(el);
+        rootScopes[scope].render(<Suspense fallback="..."><CannedMessages chatId={chatId}/></Suspense>);
     }
 })
 
 ee.addListener('groupChatTabLoaded',(chatId) => {
-    var el = document.getElementById('chat-id-'+chatId);
+    let scope = 'chat-id-'+chatId;
+    var el = document.getElementById(scope);
     if (el !== null) {
         chatId = chatId.replace('gc','');
-        ReactDOM.render(
-            <Suspense fallback="..."><GroupChat chatId={chatId} userId={confLH.user_id} /></Suspense>,
-            el
-        );
+        rootScopes[scope] = createRoot(el);
+        rootScopes[scope].render( <Suspense fallback="..."><GroupChat chatId={chatId} userId={confLH.user_id} /></Suspense>);
     }
 })
 
@@ -37,52 +37,62 @@ ee.addListener('mailChatTabLoaded',(chatId, modeChat, disableRemember, keyword) 
     modeChat = (typeof modeChat != 'undefined' ? modeChat : '');
     disableRemember = (typeof disableRemember != 'undefined' ? disableRemember : false);
     keyword = (typeof keyword != 'undefined' ? keyword : []);
-    var el = document.getElementById('chat-id-' + modeChat + chatId);
+    let scope = 'chat-id-' + modeChat + chatId;
+    var el = document.getElementById(scope);
     if (el !== null) {
         chatId = chatId.replace('mc','');
-        ReactDOM.render(
-            <Suspense fallback="..."><MailChat chatId={chatId} keyword={keyword} userId={confLH.user_id} mode={modeChat} disableRemember={disableRemember} /></Suspense>,
-            el
-        );
+        rootScopes[scope] = createRoot(el);
+        rootScopes[scope].render( <Suspense fallback="..."><MailChat chatId={chatId} keyword={keyword} userId={confLH.user_id} mode={modeChat} disableRemember={disableRemember} /></Suspense>);
     }
 })
 
 ee.addListener('privateChatStart',(chatId, params) => {
-    var el = document.getElementById('private-chat-tab-root-'+chatId);
+    let scope = 'private-chat-tab-root-'+chatId;
+    var el = document.getElementById(scope);
     if (el !== null) {
-        ReactDOM.render(
-            <Suspense fallback="..."><GroupChat paramsStart={params || {}} chatPublicId={chatId} userId={confLH.user_id} /></Suspense>,
-            el
-        );
+        rootScopes[scope] = createRoot(el);
+        rootScopes[scope].render(<Suspense fallback="..."><GroupChat paramsStart={params || {}} chatPublicId={chatId} userId={confLH.user_id} /></Suspense>);
     }
 })
 
 ee.addListener('unloadGroupChat', (chatId) => {
-    var el = document.getElementById('chat-id-'+chatId);
-    if (el !== null) {
-        ReactDOM.unmountComponentAtNode(el)
+    let scope = 'chat-id-'+chatId;
+    var el = document.getElementById(scope);
+    if (el !== null && rootScopes[scope]) {
+        rootScopes[scope].unmount();
+        rootScopes[scope] = null;
+        delete rootScopes[scope];
     }
 });
 
 
 ee.addListener('unloadMailChat', (chatId, modeChat) => {
     modeChat = (typeof modeChat != 'undefined' ? modeChat : '');
-    var el = document.getElementById('chat-id-'+modeChat+chatId);
-    if (el !== null) {
-        ReactDOM.unmountComponentAtNode(el)
+    let scope = 'chat-id-'+modeChat+chatId;
+    var el = document.getElementById(scope);
+    if (el !== null && rootScopes[scope]) {
+        rootScopes[scope].unmount();
+        rootScopes[scope] = null;
+        delete rootScopes[scope];
     }
 });
 
 ee.addListener('removeSynchroChat', (chatId) => {
     // Canned messages component
-    var el = document.getElementById('canned-messages-chat-container-'+chatId);
-    if (el !== null) {
-        ReactDOM.unmountComponentAtNode(el)
+    let scope = 'canned-messages-chat-container-'+chatId;
+    var el = document.getElementById(scope);
+    if (el !== null && rootScopes[scope]) {
+        rootScopes[scope].unmount();
+        rootScopes[scope] = null;
+        delete rootScopes[scope];
     }
     // Private chat component
-    el = document.getElementById('private-chat-tab-root-'+chatId);
-    if (el !== null) {
-        ReactDOM.unmountComponentAtNode(el)
+    scope = 'private-chat-tab-root-'+chatId;
+    el = document.getElementById(scope);
+    if (el !== null && rootScopes[scope]) {
+        rootScopes[scope].unmount();
+        rootScopes[scope] = null;
+        delete rootScopes[scope];
     }
 });
 
@@ -93,10 +103,8 @@ $(document).ready(function(){
     var elOrder = elOrderMode && elOrderMode.getAttribute('data-mode');
 
     if (el !== null) {
-        ReactDOM.render(
-            <Suspense fallback="..."><DashboardChatTabs static_order={elOrder == 'static'} /></Suspense>,
-            el
-        );
+        const root = createRoot(el);
+        root.render(<Suspense fallback="..."><DashboardChatTabs static_order={elOrder == 'static'} /></Suspense>);
     }
 
     try {

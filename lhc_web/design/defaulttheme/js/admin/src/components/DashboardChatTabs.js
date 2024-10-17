@@ -616,7 +616,7 @@ const DashboardChatTabs = props => {
             {(!state.chats || state.chats.length == 0) && <div className="text-center text-muted p-2"><span className="material-icons">chat</span>{t('chat_tabs.open_chats')}</div>}
             {state.chats.map((chat, index) => (
 
-                <div title={chat.id} onClick={() => chatTabClick(chat)} className={"p-1 action-image chat-tabs-row"+(chat.active ? ' chat-tab-active' : '')+(chat.vwa ? ' long-response-chat' : '')}>
+                <div key={"chat-"+chat.id} title={chat.id} onClick={() => chatTabClick(chat)} className={"p-1 action-image chat-tabs-row"+(chat.active ? ' chat-tab-active' : '')+(chat.vwa ? ' long-response-chat' : '')}>
                         <div className="fs12">
 
                             <button type="button" onClick={(e) => closeDialog(e,chat)} className="float-end btn-link m-0 ms-1 p-0 btn btn-xs"><i className="material-icons me-0">close</i></button>
@@ -652,7 +652,7 @@ const DashboardChatTabs = props => {
             ))}
 
             {state.mails.map((chat, index) => (
-                <div title={chat.id} onClick={() => mailTabClick(chat)} className={"p-1 action-image chat-tabs-row"+(chat.active ? ' chat-tab-active' : '')}>
+                <div key={"mail-"+chat.id} title={chat.id} onClick={() => mailTabClick(chat)} className={"p-1 action-image chat-tabs-row"+(chat.active ? ' chat-tab-active' : '')}>
                     <div className="fs12">
                         <span title={chat.from_name} ><i className="material-icons">mail_outline</i>{chat.from_address}</span>
 
