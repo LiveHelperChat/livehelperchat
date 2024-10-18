@@ -185,8 +185,11 @@ class NodeTriggerActionRestAPI extends Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-6">
-                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','background_process'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','background_process'])} /> Send Rest API Call in the background.</label> <i className="material-icons" title="You have to be using lhc-php-resque extension.">info</i>
+                    <div className="col-12">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','background_process'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','background_process'])} /> Send Rest API Call in the background always.</label> <i className="material-icons" title="You have to be using lhc-php-resque extension.">info</i>
+                    </div>
+                    <div className="col-12">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','background_process_delegate'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','background_process_delegate'])} /> Send Rest API Call in the background if we are not already in it.</label> <i className="material-icons" title="You have to be using lhc-php-resque extension.">info</i>
                     </div>
                     <div className="col-6">
                         <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','no_body'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','no_body'])} /> Do not save response.</label>

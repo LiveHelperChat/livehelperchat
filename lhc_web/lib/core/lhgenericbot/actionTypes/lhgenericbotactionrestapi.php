@@ -54,7 +54,14 @@ class erLhcoreClassGenericBotActionRestapi
                 }
 
                 // Callback should be executed as background task
-                if ((isset($action['content']['attr_options']['background_process']) && $action['content']['attr_options']['background_process'] == true)) {
+                if (
+                    (
+                        (isset($action['content']['attr_options']['background_process']) && $action['content']['attr_options']['background_process'] == true)
+                            ||
+                        (isset($action['content']['attr_options']['background_process_delegate']) && $action['content']['attr_options']['background_process_delegate'] == true && erLhcoreClassSystem::instance()->backgroundMode === false)
+                    )
+                    && class_exists('erLhcoreClassExtensionLhcphpresque')
+                ) {
 
                     $event = new erLhcoreClassModelGenericBotChatEvent();
                     $event->chat_id = $chat->id;
@@ -74,7 +81,7 @@ class erLhcoreClassGenericBotActionRestapi
                     )));
 
                     // Save only if user has resque extension
-                    if ((!isset($params['do_not_save']) || $params['do_not_save'] == false) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+                    if ((!isset($params['do_not_save']) || $params['do_not_save'] == false)) {
                         $event->saveThis();
                         $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
                         erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_api_queue', 'erLhcoreClassLHCBotWorker', array('inst_id' => $inst_id, 'action' => 'rest_api', 'event_id' => $event->id));
