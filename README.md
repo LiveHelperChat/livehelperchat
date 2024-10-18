@@ -25,7 +25,8 @@ http://livehelperchat.com/demo-12c.html
  * [Rest API](https://api.livehelperchat.com)
  * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with the possibility to integrate any third-party AI
    * E.g Rasa AI https://doc.livehelperchat.com/docs/bot/rasa-integration-intent
-   * E.g ChatGPT https://doc.livehelperchat.com/docs/bot/chatgpt-integration
+   * E.g ChatGPT (Chat Completion) https://doc.livehelperchat.com/docs/bot/chatgpt-integration 
+   * E.g ChatGPT (Assistant) https://github.com/LiveHelperChat/chatGPT
  * [Telegram](https://github.com/LiveHelperChat/telegram)
  * [Rasa](https://doc.livehelperchat.com/docs/bot/rasa-integration)
  * [Mattermost](https://github.com/LiveHelperChat/mattermost)
