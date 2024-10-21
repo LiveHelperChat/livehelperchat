@@ -31,6 +31,8 @@ return array (
                     'default_group' => '',
                     'default_user' => '',
                     'site_address' => '',
+                    'allow_iframe' => false,
+                    'allow_iframe_domain' => '',
                     'trusted_host_patterns' => [
                     ],
                     'extensions' =>

@@ -91,7 +91,7 @@ class erLhcoreClassModule{
                 // Send X-Frame-Options if URL is private
                 // Or it's site_admin based one
                 if (isset($currentUser) || erLhcoreClassSystem::instance()->SiteAccess == 'site_admin') {
-                    header('X-Frame-Options: SAMEORIGIN');
+                    header("Content-Security-Policy: frame-ancestors 'self' ". (self::$validIframeDomains === false ? '' : self::$validIframeDomains));
                 }
 
             	if (isset($currentUser) && $currentUser->isLogged() && ($timeZone = $currentUser->getUserTimeZone()) != '') {    
@@ -615,7 +615,7 @@ class erLhcoreClassModule{
     }
 
     public static function moduleInit($params = array())
-    {        
+    {
         $cfg = erConfigClassLhConfig::getInstance();
         
         self::$debugEnabled = $cfg->getSetting('site', 'debug_output');
@@ -632,9 +632,16 @@ class erLhcoreClassModule{
         self::$dateFormat = $cfg->getSetting('site', 'date_format', false);
         self::$dateHourFormat = $cfg->getSetting('site', 'date_hour_format', false);
         self::$dateDateHourFormat = $cfg->getSetting('site', 'date_date_hour_format', false);
-        
+
+        if ($cfg->getSetting('site', 'allow_iframe', false) === true) {
+            @ini_set('session.cookie_samesite', 'None');
+            @ini_set('session.cookie_secure', true);
+        }
+
+        self::$validIframeDomains = $cfg->getSetting('site', 'allow_iframe_domain', false);
+
         $url = erLhcoreClassURL::getInstance();
-        
+
         if (!isset($params['ignore_extensions'])){
             // Attatch extension listeners
             self::attatchExtensionListeners();
@@ -703,6 +710,7 @@ class erLhcoreClassModule{
     public static $dateFormat = NULL;
     public static $dateHourFormat = NULL;
     public static $dateDateHourFormat = NULL;
+    public static $validIframeDomains = NULL;
 }
 
 ?>
