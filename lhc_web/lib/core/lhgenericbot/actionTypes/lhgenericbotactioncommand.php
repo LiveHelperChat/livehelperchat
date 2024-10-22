@@ -124,6 +124,23 @@ class erLhcoreClassGenericBotActionCommand {
                 }
             }
 
+        } elseif ($action['content']['command'] == 'loopvariable') {
+
+            $variablesAppend = $action['content']['payload'];
+
+            foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                if (is_object($valueReplace) || is_array($valueReplace)) {
+                    $variablesAppend = @str_replace($keyReplace,json_encode($valueReplace),$variablesAppend);
+                } else {
+                    $variablesAppend = @str_replace($keyReplace,$valueReplace,$variablesAppend);
+                }
+            }
+
+            //print_r($variablesAppend);
+            // Update evening and morning phone to +3706545478
+
+
+
         } elseif ($action['content']['command'] == 'transfertobot') {
             $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
             $chat->last_op_msg_time = time();
@@ -547,7 +564,17 @@ class erLhcoreClassGenericBotActionCommand {
                     $variablesArray = (array)$params['msg']->__get('meta_msg_array');
 
                     if (isset($params['replace_array']) && is_array($params['replace_array'])) {
-                        $variablesAppend = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload']);
+
+                        $variablesAppend = $action['content']['payload'];
+
+                        foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                            if (is_object($valueReplace) || is_array($valueReplace)) {
+                                $variablesAppend = @str_replace($keyReplace,json_encode($valueReplace),$variablesAppend);
+                            } else {
+                                $variablesAppend = @str_replace($keyReplace,$valueReplace,$variablesAppend);
+                            }
+                        }
+
                     } else {
                         $variablesAppend = $action['content']['payload'];
                     }

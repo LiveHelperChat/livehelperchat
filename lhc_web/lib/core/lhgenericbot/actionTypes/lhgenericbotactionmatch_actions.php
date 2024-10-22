@@ -49,9 +49,14 @@ class erLhcoreClassGenericBotActionMatch_actions {
             // Override search payload
             if (isset($action['content']['text']) && !empty($action['content']['text'])) {
                 $payload = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat, 'args' => $params));
-
                 if (isset($params['replace_array'])) {
-                    $payload = str_replace(array_keys($params['replace_array']), array_values($params['replace_array']), $payload);
+                    foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                        if (is_object($valueReplace) || is_array($valueReplace)) {
+                            $payload = @str_replace($keyReplace,json_encode($valueReplace),$payload);
+                        } else {
+                            $payload = @str_replace($keyReplace,$valueReplace,$payload);
+                        }
+                    }
                 }
             }
 

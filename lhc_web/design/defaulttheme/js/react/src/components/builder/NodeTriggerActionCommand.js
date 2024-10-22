@@ -71,6 +71,7 @@ class NodeTriggerActionCommand extends Component {
                                     <option value="setsubject">Set subject</option>
                                     <option value="setliveattr">Set widget live attribute</option>
                                     <option value="removeprocess">Remove any previous process</option>
+                                    {/*<option value="loopvariable">Loop through variable</option>*/}
                                 </optgroup>
                                 <optgroup label="Chat messages aggregation">
                                     <option value="messageaggregation">Messages aggregation</option>
@@ -386,7 +387,30 @@ class NodeTriggerActionCommand extends Component {
                     </div>
                 </div>}
 
-                <hr className="hr-big" />
+                {this.props.action.getIn(['content','command']) == 'loopvariable' &&
+                    <div>
+                        <div className="form-group">
+                            <label>Variable location</label>
+                            <input className="form-control form-control-sm" type="text" placeholder="{content_1}"
+                                   onChange={(e) => this.onchangeAttr({'path': ['payload'], 'value': e.target.value})}
+                                   defaultValue={this.props.action.getIn(['content', 'payload'])}/>
+                        </div>
+                        <div className="form-group">
+                            <label>Internal variable mapping</label>
+                            <textarea
+                                placeholder={"{content_1}=>id" + "\n{content_2}=>function.name\n{content_3}=>function.arguments"}
+                                className="form-control form-control-sm" type="text"
+                                onChange={(e) => this.onchangeAttr({'path': ['payload_arg'], 'value': e.target.value})}
+                                defaultValue={this.props.action.getIn(['content', 'payload_arg'])}></textarea>
+                        </div>
+                        <div className="form-group">
+                            <label>Triger to execute for each cycle</label>
+                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path': ['payload_online'], 'value': e})}
+                                             payload={this.props.action.getIn(['content', 'payload_online'])}/>
+                        </div>
+                    </div>}
+
+                <hr className="hr-big"/>
             </div>
         );
     }

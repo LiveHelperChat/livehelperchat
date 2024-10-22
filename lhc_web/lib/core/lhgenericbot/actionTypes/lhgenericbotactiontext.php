@@ -172,8 +172,20 @@ class erLhcoreClassGenericBotActionText {
         }
 
         if (isset($params['replace_array'])) {
-            $msg->msg = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$msg->msg);
+            foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                if (is_object($valueReplace) || is_array($valueReplace)) {
+                    if (isset($action['content']['attr_options']['json_replace']) && $action['content']['attr_options']['json_replace'] === true)
+                    {
+                        $msg->msg = @str_replace($keyReplace,json_encode($valueReplace),$msg->msg);
+                    } else {
+                        $msg->msg = @str_replace($keyReplace,'[' . $keyReplace . ' - OBJECT OR ARRAY]',$msg->msg);
+                    }
+                } else {
+                    $msg->msg = @str_replace($keyReplace,$valueReplace,$msg->msg);
+                }
+            }
         }
+
 
         if (isset($params['auto_responder']) && $params['auto_responder'] === true) {
             $metaMessage['content']['auto_responder'] = true;
