@@ -1,3 +1,17 @@
+
+<div class="d-flex flex-column m-0 p-0 h-100">
+    <?php if ((!isset($Result['popup']) || $Result['popup'] === false) && isset($Result['path'])) :
+        $pathElementCount = count($Result['path'])-1;
+        if ($pathElementCount >= 0): ?>
+            <div id="path-container" style="margin-left: -8px;margin-right: -7px" ng-non-bindable>
+                <ul class="breadcrumb rounded-0 border-bottom p-2 mb-0" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <li class="breadcrumb-item"><a rel="home" itemprop="url" href="<?php echo erLhcoreClassDesign::baseurl()?>"><span itemprop="title"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Home')?></span></a></li>
+                    <?php foreach ($Result['path'] as $key => $pathItem) : if (isset($pathItem['url']) && $pathElementCount != $key) { ?><li class="breadcrumb-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<?php echo $pathItem['url']?>" itemprop="url"><span itemprop="title"><?php echo htmlspecialchars(htmlspecialchars_decode($pathItem['title'],ENT_QUOTES))?></span></a></li><?php } else { ?><li class="breadcrumb-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title"><?php echo htmlspecialchars(htmlspecialchars_decode($pathItem['title'], ENT_QUOTES))?></span></li><?php }; ?><?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+    <?php endif;?>
+
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send an e-mail');?></h1>
 
 <?php if (isset($updated)) :
@@ -54,7 +68,7 @@
 
 <?php if (!isset($updated)) : ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($uparams['var1'])) :?>/(var1)/<?php echo htmlspecialchars($uparams['var1'])?><?php endif;?><?php if (isset($uparams['var1'])) :?>/(var2)/<?php echo htmlspecialchars($uparams['var2'])?><?php endif;?><?php if (isset($chat) && $chat->id > 0) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?>" id="sendemail-form" ng-non-bindable method="post" autocomplete="new-password">
+<form class="d-flex flex-column flex-grow-1 overflow-scroll position-relative" action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($uparams['var1'])) :?>/(var1)/<?php echo htmlspecialchars($uparams['var1'])?><?php endif;?><?php if (isset($uparams['var1'])) :?>/(var2)/<?php echo htmlspecialchars($uparams['var2'])?><?php endif;?><?php if (isset($chat) && $chat->id > 0) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?><?php if (isset($Result['popup']) && $Result['popup'] === true) : ?>/(layout)/popup<?php endif;?>" id="sendemail-form" ng-non-bindable method="post" autocomplete="new-password">
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
@@ -72,8 +86,8 @@
         <input type="text" class="form-control form-control-sm" name="subject" value="<?php echo htmlspecialchars($item->subject)?>" />
     </div>
 
-    <div class="row">
-        <div class="col-6">
+    <div class="row me-0 ms-0">
+        <div class="col-6 ps-0">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Recipient E-mail');?></label>
                 <?php if (isset($chat) && !erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email')) : ?>
@@ -83,7 +97,7 @@
                 <?php endif; ?>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-6 pe-0">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Recipient Name');?></label>
                 <input type="text" class="form-control form-control-sm" name="from_name" value="<?php echo htmlspecialchars($item->from_name)?>" />
@@ -91,14 +105,14 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-6">
+    <div class="row me-0 ms-0">
+        <div class="col-6 ps-0">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Reply to e-mail');?></label>
                 <input type="text" placeholder="If not filled we will use mailbox e-mail" class="form-control form-control-sm" name="to_data" value="<?php echo htmlspecialchars($item->to_data)?>" />
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-6 pe-0">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Reply to name');?></label>
                 <input type="text" placeholder="If not filled we will use mailbox name" class="form-control form-control-sm" name="reply_to_data" value="<?php echo htmlspecialchars($item->reply_to_data)?>" />
@@ -106,14 +120,19 @@
         </div>
     </div>
 
-    <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/body.tpl.php'));?>
+    <div class="flex-grow-1 position-relative">
+        <?php $tinyMceOptions = ['hide_form_group' => true,'height' => '\'100%\'']; ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/body.tpl.php'));?>
+    </div>
 
-    <input type="hidden" name="send_status" id="id_send_status" value="0">
-
-    <div class="btn-group mt-2">
-        <button name="SendEmail" onclick="$('.send-buttons').attr('disabled','disabled').text('Sending...');$('#sendemail-form').submit()" class="send-buttons btn btn-sm btn-primary" type="submit"><i class="material-icons">send</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send as closed');?></button>
-        <button name="SendEmailActive" onclick="$('.send-buttons').attr('disabled','disabled').text('Sending...');$('#id_send_status').val(1);$('#sendemail-form').submit()" class="send-buttons btn btn-sm btn-outline-secondary" type="submit"><i class="material-icons text-success">send</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send as Active');?></button>
+    <div>
+        <input type="hidden" name="send_status" id="id_send_status" value="0">
+        <div class="btn-group mt-2">
+            <button name="SendEmail" onclick="$('.send-buttons').attr('disabled','disabled').text('Sending...');$('#sendemail-form').submit()" class="send-buttons btn btn-sm btn-primary" type="submit"><i class="material-icons">send</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send as closed');?></button>
+            <button name="SendEmailActive" onclick="$('.send-buttons').attr('disabled','disabled').text('Sending...');$('#id_send_status').val(1);$('#sendemail-form').submit()" class="send-buttons btn btn-sm btn-outline-secondary" type="submit"><i class="material-icons text-success">send</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send as Active');?></button>
+        </div>
     </div>
 
 </form>
 <?php endif; ?>
+</div>

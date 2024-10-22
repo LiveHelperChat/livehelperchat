@@ -79,13 +79,10 @@ $tpl->setArray(array(
 ));
 
 if (isset($Params['user_parameters_unordered']['layout']) && $Params['user_parameters_unordered']['layout'] == 'popup') {
-    $Result['pagelayout'] = 'popup';
+    $Result['pagelayout'] = 'chattabs';
 }
 
-$Result['content'] = $tpl->fetch();
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::design('js/tinymce/js/tinymce/tinymce.min.js').'"></script>';
-
-$Result['path'] = array(
+$tpl->set('Result',['popup' => isset($Result['pagelayout']), 'path' => array(
     array(
         'url' => erLhcoreClassDesign::baseurl('system/configuration') . '#!#mailconv',
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail conversation')
@@ -94,6 +91,9 @@ $Result['path'] = array(
         'url' => erLhcoreClassDesign::baseurl('mailconv/conversations'),
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'New')
     )
-);
+)]);
+
+$Result['content'] = $tpl->fetch();
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::design('js/tinymce/js/tinymce/tinymce.min.js').'"></script>';
 
 ?>
