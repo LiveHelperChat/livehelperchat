@@ -22,7 +22,21 @@ if (ezcInputForm::hasPostData()) {
         $data = json_decode($content,true);
 
         if ($data !== null) {
-            erLhcoreClassGenericBotValidator::importBot($data);
+            $botData = erLhcoreClassGenericBotValidator::importBot($data);
+
+            if (isset($_POST['rest_api']) && $_POST['rest_api'] > 0) {
+                foreach ($botData['triggers'] as $trigger) {
+                    $actions = $trigger->actions_front;
+                    foreach ($actions as $indexAction  => $action) {
+                        if (isset($actions[$indexAction]['content']['rest_api']) && is_numeric($actions[$indexAction]['content']['rest_api'])) {
+                            $actions[$indexAction]['content']['rest_api'] = (int)$_POST['rest_api'];
+                        }
+                    }
+                    $trigger->actions_front = $actions;
+                    $trigger->actions = json_encode($actions);
+                    $trigger->updateThis(['update' => ['actions']]);
+                }
+            }
         }
 
         $tpl->set('updated',true);
