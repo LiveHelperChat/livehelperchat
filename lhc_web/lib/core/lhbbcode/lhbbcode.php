@@ -619,6 +619,10 @@ class erLhcoreClassBBCode
            $text = str_replace($in, $out, $text);
        }
 
+       if ((strpos($text,'__') !== false || strpos($text,'**') !== false) && class_exists('Michelf\Markdown')){
+           $text = trim(\LiveHelperChat\Helpers\LHCMarkdown::defaultTransform($text));
+       }
+
     	// BBCode to find...
     	$in = array( 	  '/\[b\](.*?)\[\/b\]/ms' => '[b]',
     					 '/\[i\](.*?)\[\/i\]/ms' => '[i]',

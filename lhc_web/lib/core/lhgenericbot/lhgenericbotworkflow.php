@@ -2361,23 +2361,55 @@ class erLhcoreClassGenericBotWorkflow {
             preg_match_all('/{foreach=((content_[0-9])|args\[([a-z\._]+)\])}(.*?){\/foreach}/is', $message, $matchesCycle);
             if (isset($matchesCycle[4]) && is_array($matchesCycle[4])) {
                 foreach ($matchesCycle[4] as $foreachCounter => $foreachCycle) {
+                    $counter = 0;
                     $output = '';
                     if (isset($params['args']['replace_array']['{' . $matchesCycle[2][$foreachCounter] . '}']) && is_array($params['args']['replace_array']['{' . $matchesCycle[2][$foreachCounter] . '}'])) {
+                        $totalElements = count($params['args']['replace_array']['{' . $matchesCycle[2][$foreachCounter] . '}']);
                         foreach ($params['args']['replace_array']['{' . $matchesCycle[2][$foreachCounter] . '}'] as $foreachItem) {
                             $paramsForeach = $params;
                             $paramsForeach['args']['item'] = $foreachItem;
-                            $output .= self::translateMessage($foreachCycle, $paramsForeach);
+                            $foreachCycleParse = $foreachCycle;
+                            if ($counter > 0 && $counter < $totalElements) {
+                                $foreachCycleParse = trim(str_replace(['{separator}','{/separator}'],'', $foreachCycleParse));
+                            } else {
+                                $foreachCycleParse = preg_replace('/\{separator\}(.*?)\{\/separator\}/ms','', $foreachCycleParse);
+                            }
+                            $foreachCycleParse = str_replace('{index_element}',$counter + 1,$foreachCycleParse);
+
+                            if (strpos($foreachCycleParse,'{as_json}') !== false) {
+                                $foreachCycleParse = str_replace('{as_json}','',$foreachCycleParse);
+                                $paramsForeach['as_json'] = true;
+                            }
+                            
+                            $output .= self::translateMessage($foreachCycleParse, $paramsForeach);
+                            $counter++;
                         }
+
                     } else if (isset($matchesCycle[3][$foreachCounter]) && !empty($matchesCycle[3][$foreachCounter])){
                         if (isset($params['chat'])) {
                             $params['args']['chat'] = $params['chat'];
                         }
                         $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'],$matchesCycle[3][$foreachCounter], '.');
                         if ($valueAttribute['found'] == true && is_array($valueAttribute['value'])) {
+                            $totalElements = count($valueAttribute['value']);
                             foreach ($valueAttribute['value'] as $foreachItem) {
                                 $paramsForeach = $params;
                                 $paramsForeach['args']['item'] = $foreachItem;
-                                $output .= self::translateMessage($foreachCycle, $paramsForeach);
+                                $foreachCycleParse = $foreachCycle;
+                                if ($counter > 0 && $counter < $totalElements) {
+                                    $foreachCycleParse = trim(str_replace(['{separator}','{/separator}'],'', $foreachCycleParse));
+                                } else {
+                                    $foreachCycleParse = preg_replace('/\{separator\}(.*?)\{\/separator\}/ms','', $foreachCycleParse);
+                                }
+                                $foreachCycleParse = str_replace('{index_element}',$counter + 1,$foreachCycleParse);
+
+                                if (strpos($foreachCycleParse,'{as_json}') !== false) {
+                                    $foreachCycleParse = str_replace('{as_json}','',$foreachCycleParse);
+                                    $paramsForeach['as_json'] = true;
+                                }
+
+                                $output .= self::translateMessage($foreachCycleParse, $paramsForeach);
+                                $counter++;
                             }
                         }
                     }

@@ -96,6 +96,19 @@ class erLhcoreClassGenericBotActionRestapi
                     'method' => & $method
                 ));
 
+                if (!empty($action['content']['attr_options']['custom_args_1'])) {
+                    if (isset($params['replace_array'])) {
+                        foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                            if (is_object($valueReplace) || is_array($valueReplace)) {
+                                $action['content']['attr_options']['custom_args_1'] = @str_replace($keyReplace,json_encode($valueReplace),$action['content']['attr_options']['custom_args_1']);
+                            } else {
+                                $action['content']['attr_options']['custom_args_1'] = @str_replace($keyReplace,$valueReplace,$action['content']['attr_options']['custom_args_1']);
+                            }
+                        }
+                    }
+                    $action['content']['attr_options']['custom_args_1'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['attr_options']['custom_args_1'], array('chat' => $chat, 'args' => $params));
+                }
+
                 if (
                     isset($method['polling_n_times']) && (int)$method['polling_n_times'] >= 1 && $method['polling_n_times'] <= 10 &&
                     isset($method['polling_n_delay']) && (int)$method['polling_n_delay'] >= 1 && $method['polling_n_delay'] <= 10
@@ -763,7 +776,8 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_name}}' => $file_name,
             '{{file_size}}' => $file_size,
             '{{file_mime}}' => $file_mime,
-            '{{timestamp}}' => time()
+            '{{timestamp}}' => time(),
+            '{{custom_args_1}}' => isset($paramsCustomer['action']['content']['attr_options']['custom_args_1']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_1'] : null
         );
 
         $replaceVariables = array_merge($replaceVariables, $dynamicReplaceVariables);
@@ -800,6 +814,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_mime}}' => json_encode($file_mime),
             '{{file_name}}' =>json_encode($file_name),
             '{{file_size}}' =>json_encode($file_size),
+            '{{custom_args_1}}' => json_encode(isset($paramsCustomer['action']['content']['attr_options']['custom_args_1']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_1'] : null),
             '{{timestamp}}' => time()
         );
 
