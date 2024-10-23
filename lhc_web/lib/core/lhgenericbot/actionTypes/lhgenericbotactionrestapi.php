@@ -826,6 +826,29 @@ class erLhcoreClassGenericBotActionRestapi
             $replaceVariablesJSON[$keyDynamic] = json_encode($valueDynamic);
         }
 
+        // Keep body only if specific variable is not empty
+        if (isset($methodSettings['body_raw'])) {
+            $matchesExtension = [];
+            preg_match_all('/\{not_empty__(.*?)\}(.*?)\{\/not_empty\}/ms', $methodSettings['body_raw'], $matchesExtension);
+            $varsCheck = [];
+            if (!empty($matchesExtension[1])) {
+                foreach ($matchesExtension[1] as $indexExtension => $varCheck) {
+                    $varsCheck = array_merge($varsCheck, explode('||', $varCheck));
+                    $allFilled = true;
+                    foreach ($varsCheck as $varCheckReplace) {
+                        if (empty($replaceVariables['{{'.$varCheckReplace.'}}'])) {
+                            $allFilled = false;
+                        }
+                    }
+                    if ($allFilled) {
+                        $methodSettings['body_raw'] = str_replace($matchesExtension[0][$indexExtension],$matchesExtension[2][$indexExtension], $methodSettings['body_raw']);
+                    } else {
+                        $methodSettings['body_raw'] = str_replace($matchesExtension[0][$indexExtension],'', $methodSettings['body_raw']);
+                    }
+                }
+            }
+        }
+
         if (isset($methodSettings['conditions']) && is_array($methodSettings['conditions']) && !empty($methodSettings['conditions'])) {
             foreach ($methodSettings['conditions'] as $condition){
 
