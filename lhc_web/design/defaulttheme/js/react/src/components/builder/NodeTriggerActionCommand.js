@@ -71,6 +71,7 @@ class NodeTriggerActionCommand extends Component {
                                     <option value="setsubject">Set subject</option>
                                     <option value="setliveattr">Set widget live attribute</option>
                                     <option value="removeprocess">Remove any previous process</option>
+                                    <option value="disableuntillopmsg">Disable visitor sending messages untill next operator/bot messages.</option>
                                     {/*<option value="loopvariable">Loop through variable</option>*/}
                                 </optgroup>
                                 <optgroup label="Chat messages aggregation">

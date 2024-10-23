@@ -163,6 +163,39 @@ class erLhcoreClassGenericBotActionCommand {
                     erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true);
                 }
             }
+        } elseif ($action['content']['command'] == 'disableuntillopmsg') {
+
+            $db = ezcDbInstance::get();
+
+            try {
+
+                $db->beginTransaction();
+                $chat->syncAndLock('`chat_variables`');
+
+                $variablesArray = [];
+
+                if (!empty($chat->chat_variables)) {
+                    $variablesArray = json_decode($chat->chat_variables,true);
+                }
+
+                if (!is_array($variablesArray)) {
+                    $variablesArray = array();
+                }
+
+                if (!isset($variablesArray['bot_lock_msg'])) {
+                    $variablesArray['bot_lock_msg'] = $chat->last_msg_id;
+                    $chat->chat_variables = json_encode($variablesArray);
+                    $chat->chat_variables_array = $variablesArray;
+                    $chat->updateThis(['update' => ['chat_variables']]);
+                }
+
+                $db->commit();
+
+            } catch (Exception $e) {
+                $db->rollback();
+                throw $e;
+            }
+
         } elseif ($action['content']['command'] == 'closechat') {
 
             $chat->pnd_time = time();

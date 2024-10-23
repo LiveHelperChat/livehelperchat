@@ -259,6 +259,18 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
                 }
             }
 
+            $lockTextArea = isset($chat->chat_variables_array['bot_lock_msg']);
+
+            if ($lockTextArea === true && isset($operatorIdLast) && ($operatorIdLast == -2 || $operatorIdLast > 0) && $chat->chat_variables_array['bot_lock_msg'] < $LastMessageID) {
+                $lockTextArea = false;
+                $chatVariables = $chat->chat_variables_array;
+                unset($chatVariables['bot_lock_msg']);
+                $chat->chat_variables_array = $chatVariables;
+                $chat->chat_variables = json_encode($chatVariables);
+                $updateFields[] = 'chat_variables';
+                $saveChat = true;
+            }
+
 		    if ($saveChat === true || $chat->lsync < time()-30) {
 		        $chat->lsync = time();
 		    	$chat->updateThis(array('update' => $updateFields));
@@ -313,6 +325,10 @@ if (isset($requestPayload['lfmsgid']) && (int)$requestPayload['lfmsgid'] > 0) {
     $responseArray['message_id_first'] = max($firstVisitorMessageId,$requestPayload['lfmsgid']); // We want to scroll to first visitor message
 } else {
     $responseArray['message_id_first'] = isset($operatorIdLast) && $operatorIdLast == 0 ? 0 : (int)$firstOperatorMessageId;
+}
+
+if (isset($lockTextArea) && $lockTextArea === true) {
+    $responseArray['lock_send'] = true;
 }
 
 $responseArray['messages'] = trim($content);
