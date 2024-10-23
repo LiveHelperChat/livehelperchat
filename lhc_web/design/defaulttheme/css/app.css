@@ -2374,7 +2374,6 @@ html {
     z-index: 9999;
     height: 100%;
     right: 7px;
-    background: white;
 }
 
 .chat-tab-selected > .tabs-column > .tab-pane.chat-tab-pane > .row,

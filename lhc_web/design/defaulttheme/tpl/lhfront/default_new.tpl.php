@@ -124,7 +124,7 @@
             $('#tabs').on('shown.bs.tab', function (event) {
                 if ($(event.target).hasClass('chat-nav-item')){
                     $(this).addClass('chat-tab-selected');
-                } else {
+                } else if (!$(event.target).parent().parent().hasClass('chat-tab-sub-items')) {
                     $(this).removeClass('chat-tab-selected');
                 }
             });
