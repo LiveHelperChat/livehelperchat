@@ -1178,6 +1178,40 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
+        if (is_object($paramsCustomer['rest_api']) &&  isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) {
+
+            $contentDebug = json_decode($content,true);
+
+            $paramsRequestDebug = $paramsRequest;
+
+            if (isset($paramsRequestDebug['body'])) {
+                $contentDebugBody = json_decode($paramsRequestDebug['body'],true);
+                if (is_array($contentDebugBody)) {
+                    $paramsRequestDebug['body'] = $contentDebugBody;
+                }
+            }
+            
+            erLhcoreClassLog::write(
+                json_encode([
+                    'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknwon'),
+                    'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
+                    'params_request' => $paramsRequestDebug,
+                    'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
+                    'return_content' => is_array($contentDebug) ? $contentDebug : $content,
+                    'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
+                    'msg_text' => $msg_text,
+                ], JSON_PRETTY_PRINT),
+                ezcLog::SUCCESS_AUDIT,
+                array(
+                    'source' => 'Bot',
+                    'category' => 'rest_api',
+                    'line' => __LINE__,
+                    'file' => __FILE__,
+                    'object_id' => (isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat']) ? $paramsCustomer['chat']->id : 0)
+                )
+            );
+        }
+
         if (isset($methodSettings['output']) && !empty($methodSettings['output'])) {
 
             $allOptional = true;

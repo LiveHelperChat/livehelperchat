@@ -103,6 +103,11 @@ class erLhAbstractModelAudit
                 return $this->message_array;
                 break;
 
+            case 'id_frontend':
+                $this->id_frontend = '[' . $this->id . '] ' . $this->object_id;
+                return $this->id_frontend;
+                break;
+
             default:
                 break;
         }

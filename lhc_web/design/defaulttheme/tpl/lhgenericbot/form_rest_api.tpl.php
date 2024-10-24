@@ -14,6 +14,10 @@
 </div>
 
 <div class="form-group">
+    <label><input type="checkbox" ng-model="lhcrestapi.log_audit" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Log all request and their responses in audit log.');?></label>
+</div>
+
+<div class="form-group">
     <label><input type="checkbox" ng-model="lhcrestapi.ecache" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Enable cache');?></label>
 
     <?php if ($item->id > 0) : ?>

@@ -16,8 +16,9 @@ return array(
         )),
     'object_id' => array(
         'type' => 'text_display',
+        'frontend' => 'id_frontend',
         'no_wrap' => true,
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Object ID'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', '[Record ID] [Object ID]'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
@@ -34,7 +35,7 @@ return array(
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message'),
         'required' => false,
         'width' => '80',
-        'wrap_start' => '<textarea class="form-control fs11">',
+        'wrap_start' => '<textarea class="form-control fs11" rows="10">',
         'wrap_end' => '</textarea>',
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),

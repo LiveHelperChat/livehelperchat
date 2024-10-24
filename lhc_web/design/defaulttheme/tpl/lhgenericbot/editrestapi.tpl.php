@@ -12,6 +12,7 @@
     window.rest_api_parameters = <?php isset($item->configuration_array['parameters']) ? print json_encode($item->configuration_array['parameters'],JSON_HEX_APOS) : print "[]"?>;
     window.botRestAPIHost = <?php isset($item->configuration_array['host']) ? print json_encode($item->configuration_array['host'], JSON_HEX_APOS) : print "\"\""?>;
     window.botRestAPIECache = <?php isset($item->configuration_array['ecache']) && $item->configuration_array['ecache'] == true ? print 'true' : print 'false'?>;
+    window.botRestAPIAuditLog = <?php isset($item->configuration_array['log_audit']) && $item->configuration_array['log_audit'] == true ? print 'true' : print 'false'?>;
 </script>
 
 <form action="" method="post" autocomplete="new-password" enctype="multipart/form-data" ng-controller="BotRestAPIParameters as lhcrestapi" ng-init='lhcrestapi.initParams();'>

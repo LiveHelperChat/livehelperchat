@@ -114,7 +114,17 @@ class erLhcoreClassGenericBotActionConditions {
                     }
 
                     if (empty($attr) && isset($params['replace_array']) && !empty($params['replace_array'])) {
-                        $attr = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$condition['content']['attr']);
+
+                        $attr = $condition['content']['attr'];
+
+                        foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                            if (is_object($valueReplace) || is_array($valueReplace)) {
+                                $attr = @str_replace($keyReplace,json_encode($valueReplace),$attr);
+                            } else {
+                                $attr = @str_replace($keyReplace,$valueReplace,$attr);
+                            }
+                        }
+
                         // No replacement were found, restore to empty string
                         if ($attr == $condition['content']['attr']) {
                             $attr = '';
