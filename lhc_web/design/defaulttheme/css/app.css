@@ -292,6 +292,19 @@ a:hover{
 	font-size: 24px;
 }
 
+
+.fs17{
+    font-size:17px;
+}
+
+.fs18{
+    font-size:18px;
+}
+
+.fs19{
+    font-size:19px;
+}
+
 .icon-user-status {
 	color:#BB474A;
 }
