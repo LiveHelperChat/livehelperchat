@@ -38,7 +38,7 @@
 <?php endif; ?>
 
 <?php if (isset($updated)) : ?>
-<a class="btn btn-sm btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>?new=1"><span class="material-icons">mail</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send a new e-mail');?></a>
+<a class="btn btn-sm btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($uparams['var1'])) :?>/(var1)/<?php echo htmlspecialchars($uparams['var1'])?><?php endif;?><?php if (isset($uparams['var1'])) :?>/(var2)/<?php echo htmlspecialchars($uparams['var2'])?><?php endif;?><?php if (isset($chat) && $chat->id > 0) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?><?php if (isset($Result['popup']) && $Result['popup'] === true) : ?>/(layout)/popup<?php endif;?>?new=1"><span class="material-icons">mail</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send a new e-mail');?></a>
 <?php endif; ?>
 
 <?php if (isset($updated) && isset($outcome['copy']['success']) && $outcome['copy']['success'] == true && isset($outcome['copy']['message_id'])) : ?>
@@ -62,8 +62,8 @@
                 counter = counter + 1;
             }, 2000);
         })();
+        window.parent.postMessage('lhc_chat::mail_sent','*');
     </script>
-
 <?php endif; ?>
 
 <?php if (!isset($updated)) : ?>

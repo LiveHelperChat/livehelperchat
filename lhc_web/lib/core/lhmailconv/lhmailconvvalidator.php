@@ -809,8 +809,10 @@ class erLhcoreClassMailconvValidator {
                 // Generate message_id upfront
                 $mailReply->MessageID = sprintf('<%s@%s>', $mailReply->generateId(), $mailReply->serverHostname());
 
-                // Update body with pixel image
-                $mailReply->Body = self::generatePixel($mailReply->Body,sha1($mailReply->MessageID));
+                // Update body with pixel image if body is not empty
+                if ($mailReply->AltBody != '') {
+                    $mailReply->Body = self::generatePixel($mailReply->Body, sha1($mailReply->MessageID));
+                }
 
                 $response['send'] = $mailReply->Send();
 
@@ -891,8 +893,10 @@ class erLhcoreClassMailconvValidator {
             // Generate message_id upfront
             $mailReply->MessageID = sprintf('<%s@%s>', $mailReply->generateId(), $mailReply->serverHostname());
 
-            // Update body with pixel image
-            $mailReply->Body = self::generatePixel($mailReply->Body,sha1($mailReply->MessageID));
+            // Update body with pixel image if body is not empty
+            if ($mailReply->AltBody != '') {
+                $mailReply->Body = self::generatePixel($mailReply->Body,sha1($mailReply->MessageID));
+            }
 
             $response['send'] = $mailReply->Send();
 
