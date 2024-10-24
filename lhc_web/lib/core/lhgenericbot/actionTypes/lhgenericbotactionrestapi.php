@@ -1439,6 +1439,7 @@ class erLhcoreClassGenericBotActionRestapi
             $matchesValues = [];
             preg_match_all('~\{\{args\.((?:[^\{\}\}]++|(?R))*)\}\}~', $item,$matchesValues);
 
+            // Replace value
             if (!empty($matchesValues[0])) {
                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
                     $valueAttribute = self::extractAttribute($userData['params'], $matchesValues[1][$indexElement], '.');
@@ -1446,12 +1447,32 @@ class erLhcoreClassGenericBotActionRestapi
                 }
             }
 
+            // Replace key
             $matchesValues = [];
             preg_match_all('~\{\{args\.((?:[^\{\}\}]++|(?R))*)\}\}~', $key, $matchesValues);
             if (!empty($matchesValues[0])) {
                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
                     $valueAttribute = self::extractAttribute($userData['params'], $matchesValues[1][$indexElement], '.');
                     $userData['dynamic_variables'][$elementValue] = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
+                }
+            }
+
+            // Look for checking variables
+            $matchesValues = [];
+            preg_match_all('~\{not_empty__args\.((?:[^\{\}\}]++|(?R))*)\}~', $key, $matchesValues);
+            if (!empty($matchesValues[0])) {
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                    $valueAttribute = self::extractAttribute($userData['params'], $matchesValues[1][$indexElement], '.');
+                    $userData['dynamic_variables']['{{args.' . $matchesValues[1][$indexElement] .'}}'] = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
+                }
+            }
+
+            $matchesValues = [];
+            preg_match_all('~\{not_empty__args\.((?:[^\{\}\}]++|(?R))*)\}~', $item, $matchesValues);
+            if (!empty($matchesValues[0])) {
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                    $valueAttribute = self::extractAttribute($userData['params'], $matchesValues[1][$indexElement], '.');
+                    $userData['dynamic_variables']['{{args.' . $matchesValues[1][$indexElement] .'}}'] = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
                 }
             }
 
