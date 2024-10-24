@@ -969,6 +969,10 @@ button.material-icons-button{
     margin:9px;
 }
 
+.fs11{
+    font-size:11px;
+}
+
 .fs12{
     font-size:12px;
 }
@@ -977,13 +981,26 @@ button.material-icons-button{
     font-size:13px;
 }
 
-.fs11{
-    font-size:11px;
-}
-
 .fs14{
     font-size:14px;
 }
+
+.fs16{
+    font-size:16px;
+}
+
+.fs17{
+    font-size:17px;
+}
+
+.fs18{
+    font-size:18px;
+}
+
+.fs19{
+    font-size:19px;
+}
+
 
 .fs25{
     font-size:25px;

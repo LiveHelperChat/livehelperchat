@@ -619,7 +619,7 @@ class erLhcoreClassBBCode
            $text = str_replace($in, $out, $text);
        }
 
-       if ((strpos($text,'__') !== false || strpos($text,'**') !== false) && class_exists('Michelf\Markdown')){
+       if ((strpos($text,'##') !== false || strpos($text,'__') !== false || strpos($text,'**') !== false) && class_exists('Michelf\Markdown')){
            $text = trim(\LiveHelperChat\Helpers\LHCMarkdown::defaultTransform($text));
        }
 
