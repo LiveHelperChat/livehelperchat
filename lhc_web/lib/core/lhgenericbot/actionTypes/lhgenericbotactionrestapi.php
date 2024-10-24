@@ -1178,7 +1178,10 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
-        if (is_object($paramsCustomer['rest_api']) &&  isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) {
+        if (is_object($paramsCustomer['rest_api']) &&
+            (isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) ||
+            (isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'])
+        ) {
 
             $contentDebug = json_decode($content,true);
 
@@ -1190,26 +1193,51 @@ class erLhcoreClassGenericBotActionRestapi
                     $paramsRequestDebug['body'] = $contentDebugBody;
                 }
             }
-            
-            erLhcoreClassLog::write(
-                json_encode([
+
+            if (isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) {
+                erLhcoreClassLog::write(
+                    json_encode([
+                        'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name'),
+                        'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknwon'),
+                        'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
+                        'params_request' => $paramsRequestDebug,
+                        'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
+                        'return_content' => is_array($contentDebug) ? $contentDebug : $content,
+                        'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
+                        'msg_text' => $msg_text,
+                    ], JSON_PRETTY_PRINT),
+                    ezcLog::SUCCESS_AUDIT,
+                    array(
+                        'source' => 'Bot',
+                        'category' => 'rest_api',
+                        'line' => __LINE__,
+                        'file' => __FILE__,
+                        'object_id' => (isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat']) ? $paramsCustomer['chat']->id : 0)
+                    )
+                );
+            }
+
+            if (isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'] && isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat'])) {
+                $msgLog = new erLhcoreClassModelmsg();
+                $msgLog->user_id = -1;
+                $msgLog->chat_id = $paramsCustomer['chat']->id;
+                $msgLog->time = time();
+                $msgLog->meta_msg = json_encode(['content' => ['html' => [
+                    'debug' => true,
+                    'content' => json_encode([
+                    'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name'),
                     'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknwon'),
                     'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
                     'params_request' => $paramsRequestDebug,
                     'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                     'return_content' => is_array($contentDebug) ? $contentDebug : $content,
-                    'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
+                    'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                     'msg_text' => $msg_text,
-                ], JSON_PRETTY_PRINT),
-                ezcLog::SUCCESS_AUDIT,
-                array(
-                    'source' => 'Bot',
-                    'category' => 'rest_api',
-                    'line' => __LINE__,
-                    'file' => __FILE__,
-                    'object_id' => (isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat']) ? $paramsCustomer['chat']->id : 0)
-                )
-            );
+                ],JSON_PRETTY_PRINT)]]]);
+                $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name').'[/i]';
+                $msgLog->saveThis();
+            }
+
         }
 
         if (isset($methodSettings['output']) && !empty($methodSettings['output'])) {
