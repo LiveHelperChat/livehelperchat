@@ -829,19 +829,22 @@ class erLhcoreClassGenericBotActionRestapi
         // Keep body only if specific variable is not empty
         if (isset($methodSettings['body_raw'])) {
             $matchesExtension = [];
-            preg_match_all('/\{not_empty__(.*?)\}(.*?)\{\/not_empty\}/ms', $methodSettings['body_raw'], $matchesExtension);
-            $varsCheck = [];
-            if (!empty($matchesExtension[1])) {
-                foreach ($matchesExtension[1] as $indexExtension => $varCheck) {
-                    $varsCheck = array_merge($varsCheck, explode('||', $varCheck));
+            preg_match_all('/\{(not|is)_empty__(.*?)\}(.*?)\{\/(not|is)_empty\}/ms', $methodSettings['body_raw'], $matchesExtension);
+            if (!empty($matchesExtension[2])) {
+                foreach ($matchesExtension[2] as $indexExtension => $varCheck) {
+                    $varsCheck = explode('||', $varCheck);
                     $allFilled = true;
                     foreach ($varsCheck as $varCheckReplace) {
-                        if (empty($replaceVariables['{{'.$varCheckReplace.'}}'])) {
+                        if (
+                            ($matchesExtension[1][$indexExtension] == 'not' && empty($replaceVariables['{{'.$varCheckReplace.'}}']))
+                            ||
+                            ($matchesExtension[1][$indexExtension] == 'is' && !empty($replaceVariables['{{'.$varCheckReplace.'}}']))
+                        ) {
                             $allFilled = false;
                         }
                     }
                     if ($allFilled) {
-                        $methodSettings['body_raw'] = str_replace($matchesExtension[0][$indexExtension],$matchesExtension[2][$indexExtension], $methodSettings['body_raw']);
+                        $methodSettings['body_raw'] = str_replace($matchesExtension[0][$indexExtension],$matchesExtension[3][$indexExtension], $methodSettings['body_raw']);
                     } else {
                         $methodSettings['body_raw'] = str_replace($matchesExtension[0][$indexExtension],'', $methodSettings['body_raw']);
                     }
@@ -1459,20 +1462,20 @@ class erLhcoreClassGenericBotActionRestapi
 
             // Look for checking variables
             $matchesValues = [];
-            preg_match_all('~\{not_empty__args\.((?:[^\{\}\}]++|(?R))*)\}~', $key, $matchesValues);
+            preg_match_all('~\{(not|is)_empty__args\.((?:[^\{\}\}]++|(?R))*)\}~', $key, $matchesValues);
             if (!empty($matchesValues[0])) {
                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                    $valueAttribute = self::extractAttribute($userData['params'], $matchesValues[1][$indexElement], '.');
-                    $userData['dynamic_variables']['{{args.' . $matchesValues[1][$indexElement] .'}}'] = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
+                    $valueAttribute = self::extractAttribute($userData['params'], $matchesValues[2][$indexElement], '.');
+                    $userData['dynamic_variables']['{{args.' . $matchesValues[2][$indexElement] .'}}'] = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
                 }
             }
 
             $matchesValues = [];
-            preg_match_all('~\{not_empty__args\.((?:[^\{\}\}]++|(?R))*)\}~', $item, $matchesValues);
+            preg_match_all('~\{(not|is)_empty__args\.((?:[^\{\}\}]++|(?R))*)\}~', $item, $matchesValues);
             if (!empty($matchesValues[0])) {
                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                    $valueAttribute = self::extractAttribute($userData['params'], $matchesValues[1][$indexElement], '.');
-                    $userData['dynamic_variables']['{{args.' . $matchesValues[1][$indexElement] .'}}'] = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
+                    $valueAttribute = self::extractAttribute($userData['params'], $matchesValues[2][$indexElement], '.');
+                    $userData['dynamic_variables']['{{args.' . $matchesValues[2][$indexElement] .'}}'] = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
                 }
             }
 
