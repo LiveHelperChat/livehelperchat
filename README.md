@@ -19,6 +19,8 @@ http://livehelperchat.com/demo-12c.html
 
 ## Integrations
 
+If you are installing extensions make sure that your version has webhooks enabled - https://github.com/LiveHelperChat/livehelperchat/blob/master/lhc_web/settings/settings.ini.default.php#L86
+
  * [Mobile app](https://github.com/LiveHelperChat/lhc_messenger) flutter
  * [Agora - Voice & Video & ScreenShare](https://doc.livehelperchat.com/docs/voice-video-screenshare) powered by [agora](https://www.agora.io/en/), paid
  * [Jitsi - Voice & Video & ScreenShare](https://doc.livehelperchat.com/docs/integrating/jitsi) powered by [jitsi](https://jitsi.org/), Free out of the box integration
