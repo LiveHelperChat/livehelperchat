@@ -83,7 +83,7 @@ return array (
                 ),
             'webhooks' =>
                 array(
-                    'enabled' => false,
+                    'enabled' => true,
                     'worker' => 'http',
                 ),
             'chat' => array(
