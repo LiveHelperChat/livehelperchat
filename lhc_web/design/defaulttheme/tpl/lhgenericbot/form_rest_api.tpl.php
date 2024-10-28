@@ -21,6 +21,11 @@
     <label><input type="checkbox" ng-model="lhcrestapi.log_system" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Log all request and their responses as system messages.');?></label>
 </div>
 
+<div class="form-group" ng-show="lhcrestapi.log_audit || lhcrestapi.log_system">
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Log only those who returned this http status. Separate multiple by comma.');?></label>
+    <input type="text" class="form-control" name="log_code"  ng-model="lhcrestapi.log_code" value="" placeholder="200" />
+</div>
+
 <div class="form-group">
     <label><input type="checkbox" ng-model="lhcrestapi.ecache" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Enable cache');?></label>
 

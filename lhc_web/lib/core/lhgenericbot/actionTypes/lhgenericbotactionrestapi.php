@@ -1194,14 +1194,24 @@ class erLhcoreClassGenericBotActionRestapi
                 }
             }
 
-            if (isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) {
+            $code = explode(',',str_replace(' ','',isset($paramsCustomer['rest_api']->configuration_array['log_code']) ? $paramsCustomer['rest_api']->configuration_array['log_code'] : ''));
+
+            $validCode = true;
+
+            // Not empty
+            // Code is not marked as ignore
+            if (!empty($code) && in_array($httpcode,$code)) {
+                $validCode = false;
+            }
+
+            if ($validCode === true && isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) {
                 erLhcoreClassLog::write(
                     json_encode([
                         'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name'),
+                        'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                         'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknwon'),
                         'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
                         'params_request' => $paramsRequestDebug,
-                        'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                         'return_content' => is_array($contentDebug) ? $contentDebug : $content,
                         'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
                         'msg_text' => $msg_text,
@@ -1217,7 +1227,7 @@ class erLhcoreClassGenericBotActionRestapi
                 );
             }
 
-            if (isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'] && isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat'])) {
+            if ($validCode === true && isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'] && isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat'])) {
                 $msgLog = new erLhcoreClassModelmsg();
                 $msgLog->user_id = -1;
                 $msgLog->chat_id = $paramsCustomer['chat']->id;
@@ -1226,10 +1236,10 @@ class erLhcoreClassGenericBotActionRestapi
                     'debug' => true,
                     'content' => json_encode([
                     'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name'),
+                    'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                     'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknwon'),
                     'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
                     'params_request' => $paramsRequestDebug,
-                    'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                     'return_content' => is_array($contentDebug) ? $contentDebug : $content,
                     'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                     'msg_text' => $msg_text,
