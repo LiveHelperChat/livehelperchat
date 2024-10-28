@@ -2816,15 +2816,18 @@ function lh(){
                 if (confLH.new_dashboard == true) {
                     ee.emitEvent('activateNextTab',[chat_id,(evt.which == 38 ? true : false)]);
                 } else {
+
                     if (evt.which == 38) {
                         var tab = lhinst.smartTabFocus($('#tabs'),chat_id,{keep:true,up:true});
                     } else {
                         var tab = lhinst.smartTabFocus($('#tabs'),chat_id,{keep:true,up:false});
                     }
+
                     var parts = tab.split('chat-id-');
-                    if (parts[1] && !isNaN(parts[1])) {
+
+                    if (parts[1] && !isNaN(parts[1].replace('mc',''))) {
+                        $('#tabs > div > div.chat-tab-pane.active.show:not(#chat-id-' + parts[1] + ')').removeClass('active show');
                         $('#chat-tab-link-'+parts[1]).click();
-                        (new bootstrap.Tab(document.querySelector('#chat-tab-link-'+parts[1]))).show();
                     }
                 }
                 return ;
