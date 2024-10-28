@@ -22,7 +22,7 @@
 </div>
 
 <div class="form-group" ng-show="lhcrestapi.log_audit || lhcrestapi.log_system">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Log only those who returned this http status. Separate multiple by comma.');?></label>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Log only those who returned non these http status. Separate multiple by comma.');?></label>
     <input type="text" class="form-control" name="log_code"  ng-model="lhcrestapi.log_code" value="" placeholder="200" />
 </div>
 
