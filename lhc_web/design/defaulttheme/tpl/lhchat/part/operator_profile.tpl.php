@@ -2,6 +2,12 @@
 	<div class="align-self-center op-photo">
 		<?php if ($user->has_photo_avatar) : ?>
      			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support_img.tpl.php'));?>
+        <?php elseif (isset($theme) && $theme !== false && $theme->operator_image_avatar !== false) : ?>
+                <?php if ($theme->operator_image_url !== false) : ?>
+                    <img width="48" height="48" src="<?php echo $theme->operator_image_url?>" alt="">
+                <?php else : ?>
+                    <img width="48" height="48" src="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($theme->bot_configuration_array['operator_avatar'])?>" alt="" />
+                <?php endif; ?>
      	<?php else : ?>
      		<i class="icon-assistant material-icons me-0"><?php if (isset($react) && $react === true) : ?>&#xf10d;<?php else : ?>account_box<?php endif; ?></i>
      	<?php endif;?>

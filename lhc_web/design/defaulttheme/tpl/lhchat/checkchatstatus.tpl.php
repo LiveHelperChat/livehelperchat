@@ -6,7 +6,7 @@
     <?php if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT && ($user = $chat->user) !== false) : ?>
         <?php \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('user' => & $user, 'chat' => $chat)); ?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_main_pre.tpl.php')); ?>
-    	<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile.tpl.php'));?>
     <?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) : ?>
         <h6 class="fs12 status-text"><?php if ($theme !== false  && $theme->bot_status_text != '') : ?>
             <?php echo htmlspecialchars($theme->bot_status_text)?>
