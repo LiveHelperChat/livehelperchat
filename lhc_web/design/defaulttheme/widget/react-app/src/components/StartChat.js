@@ -500,7 +500,7 @@ class StartChat extends Component {
     if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {
             if (this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','department','departments']).size <= 1 && this.props.chatwidget.getIn(['onlineData','fields_visible']) <= 1 && (this.props.chatwidget.getIn(['customData','fields']).size == 0 || hasVisibleCustomFields === false)) {
 
-                var classMessageInput = "ps-0 no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0 " + (this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? 'msg-two-line' : 'msg-one-line');
+                var classMessageInput = (!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) || this.props.chatwidget.hasIn(['chat_ui','lng_btnh']) ? 'ps-0' : 'ps-2')+" no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0 " + (this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? 'msg-two-line' : 'msg-one-line');
 
                 var msg_expand = "flex-grow-1 overflow-scroll position-relative";
                 var bottom_messages = "bottom-message px-1";
