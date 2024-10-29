@@ -125,6 +125,52 @@ class erLhcoreClassGenericBotActionRestapi
                     $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
                 }
 
+                // Log if polling conditions fails
+                if (isset($method['polling_n_times']) && (int)$method['polling_n_times'] >= 1 && $method['polling_n_times'] <= 10 && isset($response['conditions_met']) && $response['conditions_met'] !== true) {
+                    if (isset($restAPI->configuration_array['log_audit']) && $restAPI->configuration_array['log_audit']) {
+                        erLhcoreClassLog::write(
+                            json_encode([
+                                'name' => '(polling conditions failed) [' . $restAPI->name . '] ' . (isset($method['name']) ? $method['name'] : 'unknwon_name'),
+                                'http_code' => (isset($response['http_code']) ? $response['http_code'] : 'unknown'),
+                                'method' => (isset($method['method']) ? $method['method'] : 'unknwon'),
+                                'request_type' => (isset($method['body_request_type']) ? $method['body_request_type'] : ''),
+                                'params_request' => $response['params_request'],
+                                'return_content' => $response['content_raw'],
+                                'msg_id' => (isset($params['msg']) && is_object($params['msg'])) ? $params['msg']->id : 0,
+                                'msg_text' => '-',
+                            ], JSON_PRETTY_PRINT),
+                            ezcLog::SUCCESS_AUDIT,
+                            array(
+                                'source' => 'Bot',
+                                'category' => 'rest_api',
+                                'line' => __LINE__,
+                                'file' => __FILE__,
+                                'object_id' => (isset($chat) && is_object($chat) ? $chat->id : 0)
+                            )
+                        );
+                    }
+                    if (isset($restAPI->configuration_array['log_system']) && $restAPI->configuration_array['log_system'] && isset($chat) && is_object($chat)) {
+                        $msgLog = new erLhcoreClassModelmsg();
+                        $msgLog->user_id = -1;
+                        $msgLog->chat_id = $chat->id;
+                        $msgLog->time = time();
+                        $msgLog->meta_msg = json_encode(['content' => ['html' => [
+                            'debug' => true,
+                            'content' => json_encode([
+                                'name' => '[' . $restAPI->name . '] ' . (isset($method['name']) ? $method['name'] : 'unknwon_name'),
+                                'http_code' => (isset($response['http_code']) ? $response['http_code'] : 'unknown'),
+                                'method' => (isset($method['method']) ? $method['method'] : 'unknwon'),
+                                'request_type' => (isset($method['body_request_type']) ? $method['body_request_type'] : ''),
+                                'params_request' => $response['params_request'],
+                                'return_content' => $response['content_raw'],
+                                'msg_id' =>  (isset($params['msg']) && is_object($params['msg'])) ?  $params['msg']->id : 0,
+                                'msg_text' => '-',
+                            ],JSON_PRETTY_PRINT)]]]);
+                        $msgLog->msg = '(polling conditions failed) [' . $restAPI->name . '] ' . '[i]'.(isset($method['name']) ? $method['name'] : 'unknown_name').'[/i]';
+                        $msgLog->saveThis();
+                    }
+                }
+
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_after_request', array(
                     'restapi' => & $restAPI,
                     'chat' => $chat,
@@ -896,6 +942,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'content_6' => '',
                         'http_error' => '',
                         'content_raw' => '',
+                        'params_request' => '',
                         'meta' => '',
                         'id' => 0
                     );
@@ -1075,6 +1122,7 @@ class erLhcoreClassGenericBotActionRestapi
             return array(
                 'content' => 'Invalid URL filter_var validation failed',
                 'content_raw' => 'Invalid URL filter_var validation failed',
+                'params_request' => '',
                 'http_code' => '500',
                 'http_error' => '500',
                 'http_data' => '500',
@@ -1093,6 +1141,7 @@ class erLhcoreClassGenericBotActionRestapi
             return array(
                 'content' => 'Only HTTP/HTTPS protocols are supported. In automated hosting environment 80 and 443 ports only.',
                 'content_raw' => 'Only HTTP/HTTPS protocols are supported. In automated hosting environment 80 and 443 ports only.',
+                'params_request' => '',
                 'http_code' => '500',
                 'http_error' => '500',
                 'http_data' => '500',
@@ -1235,16 +1284,16 @@ class erLhcoreClassGenericBotActionRestapi
                 $msgLog->meta_msg = json_encode(['content' => ['html' => [
                     'debug' => true,
                     'content' => json_encode([
-                    'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name'),
+                    'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name'),
                     'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
-                    'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknwon'),
+                    'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknown'),
                     'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
                     'params_request' => $paramsRequestDebug,
                     'return_content' => is_array($contentDebug) ? $contentDebug : $content,
                     'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                     'msg_text' => $msg_text,
                 ],JSON_PRETTY_PRINT)]]]);
-                $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name').'[/i]';
+                $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
                 $msgLog->saveThis();
             }
 
@@ -1410,6 +1459,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'content_6' => (isset($responseValueSub[6]) ? $responseValueSub[6] : ''),
                         'meta' => $meta,
                         'conditions_met' => true,
+                        'params_request' => $paramsRequest,
                         'id' => $outputCombination['id']);
 
                     if (isset($outputCombination['success_preg_replace']) && $outputCombination['success_preg_replace'] != '') {
@@ -1444,6 +1494,7 @@ class erLhcoreClassGenericBotActionRestapi
                 'http_code' => $httpcode,
                 'http_error' => $http_error,
                 'http_data' => $http_data,
+                'params_request' => $paramsRequest,
                 'conditions_met' => false,
                 'content_2' => '',
                 'content_3' => '',
@@ -1460,6 +1511,7 @@ class erLhcoreClassGenericBotActionRestapi
             'http_code' => $httpcode,
             'http_error' => $http_error,
             'http_data' => $http_data,
+            'params_request' => $paramsRequest,
             'conditions_met' => false,
             'content_2' => '',
             'content_3' => '',
