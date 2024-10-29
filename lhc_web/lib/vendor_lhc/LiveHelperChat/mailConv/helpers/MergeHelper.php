@@ -10,6 +10,10 @@ class MergeHelper
             throw new \Exception('Please choose at-least one source mail!');
         }
 
+        if (key_exists($target->id, $source)) {
+            throw new \Exception('Source and target mails should be different!');
+        }
+
         $db = \ezcDbInstance::get();
 
         try {
