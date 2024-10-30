@@ -187,7 +187,7 @@ try {
     <li>Is the bcmath extension detected - <?php echo extension_loaded('bcmath') ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-warning">No, GEO detection will be disabled</span>'; ?></li>
     <li>Is the php-xml extension detected - <?php echo function_exists('simplexml_load_string') ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-warning">No</span>'; ?></li>
     <li>Is the fileinfo extension detected - <?php echo extension_loaded ('fileinfo' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
-    <li>Is the ldap extension detected - <?php echo function_exists ('ldap_search' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the ldap extension detected - <?php echo function_exists ('ldap_search' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-warning">No, required only you use `lhldap` extension</span>'; ?></li>
     <li>Is the imap extension detected - <?php echo extension_loaded ('imap' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
     <li>Is the redis or phpiredis extension detected - <?php echo extension_loaded ('phpiredis' ) || extension_loaded('redis') ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
     <li>Is the soap extension detected - <?php echo extension_loaded ('soap' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
