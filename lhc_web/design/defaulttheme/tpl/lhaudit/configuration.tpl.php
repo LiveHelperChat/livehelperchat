@@ -189,7 +189,7 @@ try {
     <li>Is the fileinfo extension detected - <?php echo extension_loaded ('fileinfo' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
     <li>Is the ldap extension detected - <?php echo function_exists ('ldap_search' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
     <li>Is the imap extension detected - <?php echo extension_loaded ('imap' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
-    <li>Is the phpiredis extension detected - <?php echo extension_loaded ('phpiredis' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
+    <li>Is the redis or phpiredis extension detected - <?php echo extension_loaded ('phpiredis' ) || extension_loaded('redis') ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
     <li>Is the soap extension detected - <?php echo extension_loaded ('soap' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
     <li>Is the zlib extension detected - <?php echo extension_loaded ('zlib' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
     <li>Is the zip extension detected - <?php echo extension_loaded ('zip' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
