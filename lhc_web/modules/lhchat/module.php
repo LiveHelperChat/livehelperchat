@@ -549,7 +549,8 @@ $ViewList['modal'] = array (
 $ViewList['demo'] = array (
     'params' => array(),
     'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger'),
-	'multiple_arguments' => array('department')
+	'multiple_arguments' => array('department'),
+    'functions' => array( 'use' ),
 );
 
 $ViewList['chatwidget'] = array (

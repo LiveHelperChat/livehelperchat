@@ -34,7 +34,7 @@ if ($startDataDepartment === false) {
     $start_data_fields = $startDataFields = (array)$startData->data;
 }
 
-if (isset($startDataFields['requires_dep']) && $startDataFields['requires_dep'] == true && empty($dep)) {
+if (!isset($demoMode) && isset($startDataFields['requires_dep']) && $startDataFields['requires_dep'] == true && empty($dep)) {
     $Result['pagelayout'] = 'userchat';
     $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
     $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Department is required!'));
@@ -48,7 +48,7 @@ if ($Params['user_parameters_unordered']['vid'] == 'undefined') {
     $Params['user_parameters_unordered']['vid'] = null;
 }
 
-if (isset($startDataFields['disable_start_chat']) && $startDataFields['disable_start_chat'] == true && empty($Params['user_parameters_unordered']['vid']) && (!is_numeric($Params['user_parameters_unordered']['id']) || $Params['user_parameters_unordered']['hash'] == '')) {
+if (!isset($demoMode) && isset($startDataFields['disable_start_chat']) && $startDataFields['disable_start_chat'] == true && empty($Params['user_parameters_unordered']['vid']) && (!is_numeric($Params['user_parameters_unordered']['id']) || $Params['user_parameters_unordered']['hash'] == '')) {
     $Result['pagelayout'] = 'userchat';
     $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
     $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Disabled!'));

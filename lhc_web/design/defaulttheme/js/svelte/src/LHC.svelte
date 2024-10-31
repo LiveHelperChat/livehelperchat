@@ -128,6 +128,11 @@
         }
     });
 
+    ee.addListener('svelteWentActive', function(){
+        jQuery('#myModal').modal('hide');
+        setActiveInterface();
+    });
+
     ee.addListener('angularStartChatbyId',function (chat_id) {
         lhinst.addOpenTrace('view_clicked');
         startChatByID(chat_id);
