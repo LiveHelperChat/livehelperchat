@@ -1,4 +1,3 @@
-import SourceToken from './SourceToken.svelte';
 
 export function tokenizeInputLHC(target, val){
 
@@ -22,13 +21,18 @@ export function tokenizeInputLHC(target, val){
 
     const convertToPlainText = (val) => {
         var txt = document.createElement("div");
-        txt.innerHTML = val;
-        return txt.innerText;
+        txt.innerHTML =
+            val.replaceAll('<br>','___BR___')
+            .replaceAll("\r\n","___BR___")
+            .replaceAll("\n","___BR___")
+            .replaceAll("<b>","___BLD___")
+            .replaceAll("</b>","___BLDC___");
+        return txt.innerText.replaceAll('___BR___','<br>').replaceAll("___BLD___","<b>").replaceAll("___BLDC___","</b>");
     }
 
-    const createSourceTokens = (text) => {
+   /* const createSourceTokens = (text) => {
         // when backspacing all input, for some reason <br> is appended
-        if(text === '<br>'){
+        if (text === '<br>') {
             target.innerHTML = '';
             return;
         }
@@ -36,13 +40,28 @@ export function tokenizeInputLHC(target, val){
         text = stripHTML(text);
         target.innerHTML = '';
         new SourceToken({target, props: {text}})
-    }
+    }*/
 
     return {
         update(val) {
+            val = val.replaceAll('&nbsp;',' ').replace(/<suggester.*?>.*?<\/suggester>/g,'');
+            let valueOriginal = val;
             val = decodeHTMLCharacters(val);
             val = convertToPlainText(val);
-            target.innerHTML = val.replaceAll("\n","<br>\n");
+
+            if (JSON.stringify(val.replace(/\s+/g, "")) != JSON.stringify(valueOriginal.replace(/\s+/g, ""))) {
+                target.innerHTML = val;
+            } else {
+                let elements = target.getElementsByTagName('suggester');
+                for (const cell of elements) {
+                    target.removeChild(cell);
+                }
+                if (val.substr(val.length - 4) != '<br>'){
+                    const template = document.createElement('template');
+                    template.innerHTML = "<suggester style='color: #cecece; padding-left:3px; user-select: none' contentEditable=\"false\">Suggested</suggester>";
+                    target.appendChild(template.content.firstChild);
+                }
+            }
         }
     }
 }
