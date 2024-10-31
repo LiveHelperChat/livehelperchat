@@ -4,6 +4,7 @@ $templateOverride = 'lhchat/demo.tpl.php';
 
 // Use demo pagelayout
 $pagelayoutOverride = 'demo';
+$demoMode = true;
 
 // Disable online tracking for demo by session cookies
 $_GET['cd'] = 1;
