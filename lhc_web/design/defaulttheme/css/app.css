@@ -2499,3 +2499,7 @@ html {
      vertical-align: middle;
      border-radius: 7px;
  }
+
+.hide-suggester > suggester{
+    display: none;
+}

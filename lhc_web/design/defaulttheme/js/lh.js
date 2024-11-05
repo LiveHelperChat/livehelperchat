@@ -409,10 +409,20 @@ function lh(){
                 event.preventDefault();
                 $.getJSON(e.data.that.wwwDir + 'chat/editprevious/' + e.data.chat_id + '/' + msgId, function(data){
                     if (data.error == 'f') {
+
                         var textArea = $('#CSChatMessage-'+e.data.chat_id);
-                        textArea.val(data.msg).attr('data-msgid',data.id).addClass('edit-mode');
+
+                        if (textArea.prop('nodeName') == 'LHC-EDITOR') {
+                            textArea[0].setContent(data.msg);
+                            textArea.addClass('edit-mode');
+                            textArea[0].setFocus();
+                        } else {
+                            textArea.val(data.msg).attr('data-msgid',data.id).addClass('edit-mode');
+                            textArea.focus();
+                        }
+
                         $('#msg-'+data.id).addClass('edit-mode');
-                        textArea.focus();
+
                     } else {
                         alert(data.result);
                     }

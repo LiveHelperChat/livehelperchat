@@ -2486,7 +2486,7 @@ class erLhcoreClassGenericBotWorkflow {
                                 $date = new DateTime();
                             }
 
-                            if ((int)$startEnd[0] > $date->format('H') || (int)$startEnd[1] < $date->format('H') || (isset($dayArgs[1]) && !in_array($date->format('N'),explode(',',$dayArgs[1])))) {
+                            if ( !((int)$startEnd[0] <= $date->format('H') && (int)$startEnd[1] > $date->format('H')) || (isset($dayArgs[1]) && !in_array($date->format('N'),explode(',',$dayArgs[1])))) {
                                 $data['replace'] = '';
                             }
                         }
@@ -2494,8 +2494,6 @@ class erLhcoreClassGenericBotWorkflow {
 
                     $replaceArray[$data['search']] = $data['replace'];
                 }
-
-                erLhcoreClassLog::write(print_r($replaceArray,true));
 
                 if (isset($params['as_json']) && $params['as_json'] == true) {
                     foreach ($replaceArray as $indexReplace => $replaceValue) {
