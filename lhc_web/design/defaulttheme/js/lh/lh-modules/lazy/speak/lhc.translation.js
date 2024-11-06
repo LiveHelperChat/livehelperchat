@@ -56,10 +56,25 @@ module.exports = (function() {
         params.btn.prop('disabled', 'disabled');
         params.btn.button('loading');
 
-        jQuery.postJSON(WWW_DIR_JAVASCRIPT + 'translation/translateoperatormessage/' + params['chat_id'], {msg: jQuery('#CSChatMessage-' + params['chat_id']).val()}, function (data) {
+        let editor = jQuery('#CSChatMessage-' + params['chat_id']);
+        let value = '';
+
+        if (editor.prop('nodeName') == 'LHC-EDITOR') {
+            value = editor[0].getContent();
+        } else {
+            value = editor.val();
+        }
+
+        jQuery.postJSON(WWW_DIR_JAVASCRIPT + 'translation/translateoperatormessage/' + params['chat_id'], {msg: value}, function (data) {
 
             if (data.error === false) {
-                jQuery('#CSChatMessage-' + params['chat_id']).val(data.msg)
+
+                if (editor.prop('nodeName') == 'LHC-EDITOR') {
+                    editor[0].setContent(data.msg);
+                } else {
+                    editor.val(data.msg)
+                }
+
             } else {
                 alert(data.msg);
             }

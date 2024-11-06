@@ -38,8 +38,19 @@ const CannedMessages = props => {
 
     const fillMessage = (message) => {
         let element = document.getElementById('CSChatMessage-'+props.chatId);
-        element.value = element.getAttribute('content_modified') ? element.value + message.msg : message.msg ;
-        element.focus();
+
+        if (element.nodeName == 'LHC-EDITOR') {
+            if (element.getAttribute('content_modified')) {
+                element.insertContent(message.msg);
+            } else {
+                element.setContent(message.msg);
+            }
+            element.setFocus();
+        } else {
+            element.value = element.getAttribute('content_modified') ? element.value + message.msg : message.msg ;
+            element.focus();
+        }
+
         message.subject_ids && element.setAttribute('subjects_ids',message.subject_ids);
         element.setAttribute('canned_id',message.id);
         renderPreview(message);
@@ -193,7 +204,13 @@ const CannedMessages = props => {
         }
 
         if (e.keyCode == 27) {
-            document.getElementById('CSChatMessage-' + props.chatId).focus();
+            let element = document.getElementById('CSChatMessage-' + props.chatId);
+            if (element.nodeName == 'LHC-EDITOR') {
+                element.setFocus();
+            } else {
+                element.focus();
+            }
+
             setCollapsed(true);
         }
 
@@ -202,8 +219,14 @@ const CannedMessages = props => {
                 item.messages.map(message => {
                     if (message.current) {
                         let element = document.getElementById('CSChatMessage-' + props.chatId);
-                        element.value = message.msg;
-                        element.focus();
+                        if (element.nodeName == 'LHC-EDITOR') {
+                            element.setContent(message.msg);
+                            element.setFocus();
+                        } else {
+                            element.value = message.msg;
+                            element.focus();
+                        }
+
                         message.subject_ids && element.setAttribute('subjects_ids',message.subject_ids);
                         element.setAttribute('canned_id',message.id);
                         setCollapsed(true);

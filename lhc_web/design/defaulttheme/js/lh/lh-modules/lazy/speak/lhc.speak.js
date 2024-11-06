@@ -11,11 +11,29 @@ var LHCSpeechToTextCallbackListener = (function() {
         this.final_transcript = '';
         this.chat_id = params['chat_id'];
         this.recognition = params['recognition'];
-        this.originText = $('#CSChatMessage-' + this.chat_id).val() != '' ? $('#CSChatMessage-' + this.chat_id).val() + ' ' : '';
+        this.editor = $('#CSChatMessage-' + this.chat_id);
+        this.originText = this.getContent() != '' ? this.getContent() + ' ' : '';
+    }
+
+    LHCSpeechToTextCallbackListener.prototype.getContent = function() {
+        if (this.editor.prop('nodeName') == 'LHC-EDITOR') {
+            return this.editor[0].getContent();
+        } else {
+            return this.editor.val();
+        }
+    }
+
+    LHCSpeechToTextCallbackListener.prototype.setContent = function(content) {
+        if (this.editor.prop('nodeName') == 'LHC-EDITOR') {
+            this.editor[0].setContent(content);
+            this.editor[0].setFocus();
+        } else {
+            this.editor.val(content).focus();
+        }
     }
 
     LHCSpeechToTextCallbackListener.prototype.onstart = function() {
-        $('#CSChatMessage-' + this.chat_id).addClass('admin-chat-mic');
+        this.editor.addClass('admin-chat-mic');
         $('#user-chat-status-' + this.chat_id).removeClass('icon-user').addClass('icon-mic');
         $('#mic-chat-' + this.chat_id).addClass('text-danger').find('.mic-lang').text(this.recognition.lang);
         $('#user-is-typing-' + this.chat_id).html('Speak now.').css("visibility", "visible");
@@ -23,12 +41,12 @@ var LHCSpeechToTextCallbackListener = (function() {
 
     LHCSpeechToTextCallbackListener.prototype.onend = function() {
         $('#user-chat-status-' + this.chat_id).addClass('icon-user').removeClass('icon-mic');
-        $('#CSChatMessage-' + this.chat_id).removeClass('admin-chat-mic');
+        this.editor.removeClass('admin-chat-mic');
         $('#mic-chat-' + this.chat_id).removeClass('text-danger').find('.mic-lang').text('');
         $('#user-is-typing-' + this.chat_id).html('');
 
         if (this.startOnEnd === true) {
-            this.originText = $('#CSChatMessage-' + this.chat_id).val();
+            this.originText = this.getContent();
             this.final_transcript = '';
             this.startOnEnd = false;
             this.recognition.start();
@@ -63,8 +81,9 @@ var LHCSpeechToTextCallbackListener = (function() {
                 $('#user-is-typing-' + this.chat_id).html('').css("visibility", "hidden");
             }
 
-            $('#CSChatMessage-' + this.chat_id).val(this.originText + this.final_transcript + interim_transcript).focus();
-            
+           this.setContent(this.originText + this.final_transcript + interim_transcript);
+           this.focus();
+
             ee.emitEvent('afterSpeechToTextCallbackResult',[this.chat_id, this.originText + this.final_transcript + interim_transcript]);
             
             // Pretend that operator is typing

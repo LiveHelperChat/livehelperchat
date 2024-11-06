@@ -87,7 +87,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="window.lhcSelector = $(this).attr('data-selector'); lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'/chat/bbcodeinsert/0/(mode)/editor'})">
                     <i class="material-icons me-0">&#xE24E;</i>
                 </button>
-                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="return lhc.revealModal({'loadmethod':'post', 'datapost':{'msg':$($(this).attr('data-selector')).val()}, 'url':WWW_DIR_JAVASCRIPT +'chat/previewmessage'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Preview')?>"><i class="material-icons me-0">visibility</i></button>
+                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="return lhc.revealModal({'loadmethod':'post', 'datapost':{'msg':  $($(this).attr('data-selector')).prop('nodeName') == 'LHC-EDITOR' ? $($(this).attr('data-selector'))[0].getContent() : $($(this).attr('data-selector')).val()  }, 'url':WWW_DIR_JAVASCRIPT +'chat/previewmessage'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Preview')?>"><i class="material-icons me-0">visibility</i></button>
             </div>
 
                 <?php if ((int)erLhcoreClassModelUserSetting::getSetting('column_chats', 0) == 1 || (($detect = new Mobile_Detect()) && ($detect->isMobile() || $detect->isTablet()))) :  ?>

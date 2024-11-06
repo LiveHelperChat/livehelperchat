@@ -26,27 +26,30 @@ export function LHCEditorStore(data) {
             return store;
         }),
         addHistory : (item) => update((store) => {
-            if (item) {
 
-                // If same item being added ignore it.
-                // Happens on first letter of text editor
-                if (store.current == item) return store;
-
-                // If we are in the middle of the history remove steps from index location
-                if (store.index != store.history.length - 1) {
-                    store.history.splice(store.index + 1);
-                }
-
-                // Store only last 20 records of history
-                // If more remove the oldest history item
-                if (store.history.length >= 20) {
-                    store.history.shift();
-                }
-
-                store.history.push(item);
-                store.index = store.history.length - 1;
-                store.current = item;
+            if (item == "<br>") {
+                item = "";
             }
+
+            // If same item being added ignore it.
+            // Happens on first letter of text editor
+            if (store.current == item) return store;
+
+            // If we are in the middle of the history remove steps from index location
+            if (store.index != store.history.length - 1) {
+                store.history.splice(store.index + 1);
+            }
+
+            // Store only last 20 records of history
+            // If more remove the oldest history item
+            if (store.history.length >= 20) {
+                store.history.shift();
+            }
+
+            store.history.push(item);
+            store.index = store.history.length - 1;
+            store.current = item;
+
             return store;
         })
     };

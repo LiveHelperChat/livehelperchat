@@ -1,21 +1,39 @@
 <svelte:options customElement={{
 		tag: 'lhc-editor',
-		shadow: 'none'}}/>
+		shadow: 'none',
+		extend: (customElementConstructor) => {
+          return class extends customElementConstructor {
+            constructor() {
+              super();
+              this.host = this; // or this.shadowRoot, or whatever you need
+            }
+          };
+    }
+}}/>
 
 <script>
     let textContent = ''
 
-    import {tokenizeInputLHC,handlePaste} from './tokenizeInputLHC.js'
+    import {tokenizeInputLHC,handlePaste, insertFormatingLHC, insertContentLHC, saveSelection, setCursorAtEnd, replaceRangeLHC} from './tokenizeInputLHC.js'
     import {LHCEditorStore} from './LHCEditorStore.js'
     import {writable} from 'svelte/store';
     import { onMount } from 'svelte';
 
+    export let host;
     export let scope = 'chat';
     export let record_id = '0';
     export let debug = false;
+    export let warning_area = false;
+    export let placeholder = "";
+    export let readonly = null;
+    export let whisper;
+    export let enable_canned_suggester;
+    export let disable_key_listeners;
+    export let data_rows_default = 2;
 
+    let rangeRestore = null;
     let hideSuggester = false;
-
+    let ignoreMeta = false;
     let	html = writable('');
     let history = LHCEditorStore({'index' : 0, 'current' : '', 'history' : ['']});
     let myInput;
@@ -25,28 +43,77 @@
     let historyTimeout = null;
     let historyTimeoutDuration = 500;
     let pendingHistory = false;
+    let contenteditable = "true";
 
     onMount(() => {
-        return () => clearInterval(historyTimeout);
+        // Make is if chat is is loaded it's not in background maybe?
+        setCursorAtEnd(myInput);
+
+        if (enable_canned_suggester) {
+            var cannedMessageSuggest = new LHCCannedMessageAutoSuggest({
+                'textarea': myInput,
+                'chat_id': record_id,
+                'uppercase_enabled': confLH.auto_uppercase
+            });
+        }
+
+        if (document.getElementById('fileupload-'+record_id) && window['file_upload_'+record_id]) {
+            lhinst.addFileUpload(window['file_upload_'+record_id]);
+        } else {
+            console.log(window['file_upload_'+record_id]);
+        }
+
+        return () => {
+            clearInterval(historyTimeout);
+            cannedMessageSuggest.unbindEvents();
+        };
     });
 
-    export function setContent(content) {
+    export function getEditor(){
+        return myInput;
+    }
+
+    export function setContent(content, options) {
+       hideSuggester = true;
+
+       if (options && options['ignore_meta']) {
+           ignoreMeta = true;
+       }
+
        html.set(content.trim());
     }
 
-    function setCursorAtEnd(){
-        var range, selection;
-        range = document.createRange();//Create a range (a range is a like the selection but invisible)
-        range.selectNodeContents(myInput);//Select the entire contents of the element with the range
-        range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
-        selection = window.getSelection();//get the selection object (allows you to change selection)
-        selection.removeAllRanges();//remove any selections already made
-        selection.addRange(range);//make the range you have just created the visible selection
+    export function insertContent(content,options) {
+        hideSuggester = true;
+        insertContentLHC( options && options['new_line'] && myInput.innerHTML !== '' ? "\n" + content : content, rangeRestore, myInput, html, options);
+    }
+
+    // Replaces range by provided content
+    export function replaceRange(content) {
+        replaceRangeLHC(content, rangeRestore, myInput, html);
+    }
+
+    export function insertFormating(start,end) {
+       if ([
+           'b','i','u','s',
+           'quote','youtube','html','code',
+           'fs10','fs11','fs12','fs13','fs14','fs15','fs16',
+       ].indexOf(start) !== -1 || start.indexOf('color=') === 0) {
+           insertFormatingLHC(start, end, rangeRestore, myInput, html);
+       }
+    }
+
+    export function getContent() {
+        return cleanupForStore($history['current']).trim();
+    }
+
+    export function getContentLive() {
+        return cleanupForStore($html.replace(/<suggester.*?>.*?<\/suggester>/g,'')).trim();
     }
 
     export function setFocus() {
         setTimeout(() => {
-            setCursorAtEnd();
+            setCursorAtEnd(myInput);
         },1);
     }
 
@@ -66,14 +133,37 @@
             .replaceAll('</i>',"[/i]")
             .replaceAll('</b>',"[/b]")
             .replaceAll('<u>',"[u]")
-            .replaceAll('</u>',"[/u]");
+            .replaceAll('</u>',"[/u]")
+            .replaceAll('</strike>',"[/s]")
+            .replaceAll('<strike>',"[s]")
+            .replaceAll('&nbsp;',' ')
+            .replaceAll('&amp;','&')
+            .replaceAll('&lt;','<')
+            .replaceAll('&gt;','>');
     }
 
     function disable(e){
         var ret=true;
         let forceHistory = false;
 
+        if (disable_key_listeners) {
+            return;
+        }
+
+
+        if (e.altKey && (e.keyCode === 38 || e.keyCode === 40)) {
+            ee.emitEvent('activateNextTab',[record_id,(e.keyCode === 38)]);
+            return;
+        }
+
+        if (readonly) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+        }
+
         if(e.ctrlKey) {
+
 
             switch(e.keyCode) {
 
@@ -97,13 +187,22 @@
                     ignoreChange = false;
                     break;
 
-                /*case 73: //ctrl+I or ctrl+i
-                case 105: ret=false;
+                case 66: //ctrl+B
+                    insertFormating('b','b');
+                    ret = false;
+                    break;
+
+                case 73: //ctrl+I or ctrl+i
+                case 105:
+                    insertFormating('i','i');
+                    ret = false;
                     break;
 
                 case 85: //ctrl+U or ctrl+u
-                case 117: ret=false;
-                    break;*/
+                case 117:
+                    insertFormating('u','u');
+                    ret=false;
+                    break;
 
             }
         } else if (e.shiftKey) {
@@ -121,8 +220,12 @@
             let value = cleanupForStore($history['current']).trim();
             if (value) {
                 ee.emitEvent('svelte_'+scope+'_'+record_id+'_msg', [value]);
-                html.set('');
+                lhinst.addmsgadmin(record_id);
+                ee.emitEvent('afterAdminMessageSent',[record_id]);
             }
+        } else if (e.keyCode === 38) { // Up keyboard to edit previous
+            syncHistory();
+            lhinst.editPrevious(record_id);
         }
 
         if (forceHistory === true || e.keyCode === 32) { // Space. On space always record history
@@ -139,6 +242,7 @@
     }
 
     function checkCursorPosition(e) {
+        rangeRestore = saveSelection();
 
         if (e && e.keyCode && (e.keyCode === 40 || e.keyCode === 37)) { // Keyboard up and left navigation
             hideSuggester = true;
@@ -186,20 +290,72 @@
         }
     }
 
+    export function getCaretPositionAndContent(options){
+        if (window.getSelection) {
+            var sel = window.getSelection();
+            if (sel.rangeCount) {
+                let range = sel.getRangeAt(0);
+                if ((options && options['ignore_parent']) || range.commonAncestorContainer.parentNode === myInput) { // If we want to allow return position if parent element is our editable node
+
+                    let post_range = document.createRange();
+                    post_range.selectNodeContents(myInput);
+                    post_range.setStart(range.startContainer, 0);
+                    post_range.setEnd(range.endContainer, range.endOffset);
+
+                    let next_text = post_range.cloneContents();
+
+                    if (next_text.lastElementChild && next_text.lastElementChild.tagName == 'SUGGESTER') {
+                        next_text.removeChild(next_text.lastElementChild);
+                    }
+
+                    return {
+                        'caret' : range.endOffset,
+                        'content' : next_text.textContent.replace(/\u00a0/g, " ")
+                    };
+                }
+            }
+        }
+
+        return {
+            'caret' : 0,
+            'content' : ""
+        }
+    }
+
     function contentChanged(){
         html.set(myInput.innerHTML);
     }
 
     html.subscribe((value) => {
+
+        let presentValue = value.replace(/<suggester.*?>.*?<\/suggester>/g,'');
+
+        if (presentValue === '<br>') {
+            presentValue = '';
+            myInput.innerHTML = "";
+        }
+
+        if (presentValue === '') {
+            host.removeAttribute('content_modified');
+            if (ignoreMeta === false) {
+                host.removeAttribute('subjects_ids');
+                host.removeAttribute('canned_id');
+            } else {
+                ignoreMeta = false;
+            }
+        } else {
+            host.setAttribute('content_modified', true);
+        }
+
         if (ignoreChange === false) {
             pendingHistory = true;
             clearTimeout(historyTimeout);
             historyTimeout = setTimeout(() => {
                 pendingHistory = false;
-                history.addHistory(value.replaceAll('&nbsp;',' ').replace(/<suggester.*?>.*?<\/suggester>/g,''));
+                history.addHistory(presentValue);
             },historyTimeoutDuration);
         } else {
-            history.setCurrent(value.replaceAll('&nbsp;',' ').replace(/<suggester.*?>.*?<\/suggester>/g,''));
+            history.setCurrent(presentValue);
         }
     });
 
@@ -210,9 +366,17 @@
 </script>
 
 <div contenteditable="true"
-     class={hideSuggester ? 'hide-suggester' : ''}
-     placeholder="Enter text"
-     on:paste={(e) => handlePaste(e, myInput, html)}
+     class={"form-control form-control-sm form-send-textarea form-group"+(whisper === "1" ? ' bg-light' : '')+(warning_area === true ? ' form-control-warning' : '')+(hideSuggester ? ' hide-suggester' : '')}
+     placeholder={placeholder}
+     on:paste={(e) => {
+         if (readonly) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+        }
+        handlePaste(e, myInput, html);
+     }}
+     style:min-height={(data_rows_default * 27) + "px"}
      on:keydown={disable}
      on:click={checkCursorPosition}
      on:keyup={checkCursorPosition}

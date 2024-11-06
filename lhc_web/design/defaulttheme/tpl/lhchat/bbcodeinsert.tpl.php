@@ -93,31 +93,55 @@ $icons = array(
 
             var textAreaElement = jQuery(selectorInsert);
 
-            var caretPos = textAreaElement[0].selectionStart;
-            var textAreaTxt = jQuery(selectorInsert).val();
+            if (textAreaElement.prop('nodeName') == 'LHC-EDITOR') {
 
-            var txtToAdd = $(this).attr('data-bb-code');
-            if (typeof $(this).attr('data-promt') != 'undefined' && $(this).attr('data-promt') == 'img') {
-                var link = prompt("<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter link to an image')?>");
-                if (link) {
-                    txtToAdd = '[' + txtToAdd + ']' + link + '[/' + txtToAdd + ']';
-                    textAreaElement.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
+                var txtToAdd = $(this).attr('data-bb-code');
+                if (typeof $(this).attr('data-promt') != 'undefined' && $(this).attr('data-promt') == 'img') {
+                    var link = prompt("<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter link to an image')?>");
+                    if (link) {
+                        txtToAdd = '[' + txtToAdd + ']' + link + '[/' + txtToAdd + ']';
+                        textAreaElement[0].insertContent(txtToAdd);
+                        $('#myModal').modal('hide');
+                    }
+                } else if (typeof $(this).attr('data-promt') != 'undefined' && $(this).attr('data-promt') == 'url') {
+                    var link = prompt("<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter a link')?>");
+                    if (link) {
+                        txtToAdd = '[url=' + link + ']<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Here is a link')?>[/url]';
+                        textAreaElement[0].insertContent(txtToAdd);
+                        $('#myModal').modal('hide');
+                    }
+                } else {
+                    textAreaElement[0].insertContent(txtToAdd);
                     $('#myModal').modal('hide');
                 }
-            } else if (typeof $(this).attr('data-promt') != 'undefined' && $(this).attr('data-promt') == 'url') {
-                var link = prompt("<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter a link')?>");
-                if (link) {
-                    txtToAdd = '[url=' + link + ']<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Here is a link')?>[/url]';
-                    textAreaElement.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
-                    $('#myModal').modal('hide');
-                }
+
             } else {
-                textAreaElement.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos)).focus();
-                $('#myModal').modal('hide');
-                setTimeout(function () {
-                    textAreaElement.focus();
-                },500)
-            };
+                var caretPos = textAreaElement[0].selectionStart;
+                var textAreaTxt = jQuery(selectorInsert).val();
+
+                var txtToAdd = $(this).attr('data-bb-code');
+                if (typeof $(this).attr('data-promt') != 'undefined' && $(this).attr('data-promt') == 'img') {
+                    var link = prompt("<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter link to an image')?>");
+                    if (link) {
+                        txtToAdd = '[' + txtToAdd + ']' + link + '[/' + txtToAdd + ']';
+                        textAreaElement.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
+                        $('#myModal').modal('hide');
+                    }
+                } else if (typeof $(this).attr('data-promt') != 'undefined' && $(this).attr('data-promt') == 'url') {
+                    var link = prompt("<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter a link')?>");
+                    if (link) {
+                        txtToAdd = '[url=' + link + ']<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Here is a link')?>[/url]';
+                        textAreaElement.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos));
+                        $('#myModal').modal('hide');
+                    }
+                } else {
+                    textAreaElement.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos)).focus();
+                    $('#myModal').modal('hide');
+                    setTimeout(function () {
+                        textAreaElement.focus();
+                    },500)
+                }
+            }
 
             return false;
         });</script>
