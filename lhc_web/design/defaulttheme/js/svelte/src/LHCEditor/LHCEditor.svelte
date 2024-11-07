@@ -79,8 +79,11 @@
     let contenteditable = "true";
 
     onMount(() => {
-        // Make is if chat is is loaded it's not in background maybe?
-        setFocus(myInput);
+        // Make is if chat is is loaded it's not in background
+        let tab = document.getElementById('chat-tab-li-'+record_id);
+        if (tab && tab.firstChild && tab.firstChild.classList.contains("active")) {
+            setFocus(myInput);
+        }
 
         if (enable_canned_suggester) {
             var cannedMessageSuggest = new LHCCannedMessageAutoSuggest({
