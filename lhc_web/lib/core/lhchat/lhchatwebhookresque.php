@@ -83,17 +83,32 @@ class erLhcoreClassChatWebhookResque {
                 $params['chat'] = erLhcoreClassModelChat::fetch($params['chat']->id);
             }
 
+            $setLastMessage = false;
+
             if (isset($params['chat']) && $params['chat'] instanceof erLhcoreClassModelChat && isset($params['msg'])) {
                 $params['chat']->last_message = $params['msg'];
             }
-            
+
+            if (isset($params['chat']) && $params['chat'] instanceof erLhcoreClassModelChat && $params['chat']->id > 0) {
+                $setLastMessage = true;
+            }
+
             if (erLhcoreClassChatWebhookHttp::isValidConditions($webhook, $params['chat']) === true) {
-                erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $params));
+                $lastMessage = erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('set_last_msg_id' => $setLastMessage, 'args' => $params));
             } elseif ($webhook->trigger_id_alt > 0) {
                 $trigger = erLhcoreClassModelGenericBotTrigger::fetch($webhook->trigger_id_alt);
                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                    erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $params));
+                    $lastMessage = erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('set_last_msg_id' => $setLastMessage, 'args' => $params));
                 }
+            }
+
+            // For NodeJS to inform operators about new message
+            if ($setLastMessage === true && isset($lastMessage) && $lastMessage instanceof erLhcoreClassModelmsg && $lastMessage->id > 0) {
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_added_passive', array(
+                    'chat' => & $params['chat'],
+                    'msg' => $lastMessage,
+                    'source' => 'webhook_worker'
+                ));
             }
         }
     }

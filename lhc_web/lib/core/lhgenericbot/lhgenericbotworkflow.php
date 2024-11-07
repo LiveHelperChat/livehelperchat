@@ -1739,9 +1739,19 @@ class erLhcoreClassGenericBotWorkflow {
             }
         }
 
-        if ($setLastMessageId == true && isset($message) && $message instanceof erLhcoreClassModelmsg) {
-            if ($message->id > 0) {
+        if (isset($message) && $message instanceof erLhcoreClassModelmsg && $message->id > 0) {
+            if ($setLastMessageId === true) {
                 self::setLastMessageId($chat, $message->id, true, (isset($params['args']) ? $params['args'] : []));
+            } elseif (isset($params['set_last_msg_id']) && $params['set_last_msg_id'] === true) {
+                // Webhooks in the background will update last_msg_id if it's older than present.
+                // Required for operators to refresh result
+                $db = ezcDbInstance::get();
+                $stmt = $db->prepare("UPDATE `lh_chat` SET `last_msg_id` = :last_msg_id WHERE `id` = :id AND `last_msg_id` < :last_msg_id_2");
+                $chat->last_msg_id = max($message->id, $chat->last_msg_id);
+                $stmt->bindValue(':id',$chat->id,PDO::PARAM_INT);
+                $stmt->bindValue(':last_msg_id',$message->id,PDO::PARAM_INT);
+                $stmt->bindValue(':last_msg_id_2',$message->id,PDO::PARAM_INT);
+                $stmt->execute();
             }
         }
 
