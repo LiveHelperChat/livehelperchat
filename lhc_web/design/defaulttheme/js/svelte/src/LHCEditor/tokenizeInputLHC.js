@@ -76,7 +76,9 @@ export function tokenizeInputLHC(target, val){
             val = convertToPlainText(val);
             val = val.replace(/\u00a0/g, " "); //NBSP internal character
 
-            if (JSON.stringify(val.replace(/\s+/g, "")) != JSON.stringify(valueOriginal.replace(/\s+/g, ""))) {
+            if (val === "<br>") {
+                target.innerHTML = "";
+            } else if (JSON.stringify(val.replace(/\s+/g, "")) != JSON.stringify(valueOriginal.replace(/\s+/g, ""))) {
                 target.innerHTML = val;
             } else {
                 /*let elements = target.getElementsByTagName('suggester');
@@ -102,6 +104,7 @@ export function insertFormatingLHC(formating, formatingend, range, myInput, html
         insertTextWrap('[' + formating +']', '[/' + formatingend+']');
     }
     html.set(myInput.innerHTML);
+
 }
 
 function insertTextWrap(wrapStart,wrapEnd) {

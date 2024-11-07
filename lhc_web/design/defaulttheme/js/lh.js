@@ -402,7 +402,7 @@ function lh(){
                         var textArea = $('#CSChatMessage-'+e.data.chat_id);
 
                         if (textArea.prop('nodeName') == 'LHC-EDITOR') {
-                            textArea[0].setContent(data.msg);
+                            textArea[0].setContent(data.msg,{"convert_bbcode" : true});
                             textArea.attr('data-msgid',data.id).addClass('edit-mode');
                             textArea[0].setFocus();
                         } else {
@@ -458,7 +458,7 @@ function lh(){
         var textArea = $('#CSChatMessage-'+chat_id);
 
         if (textArea.prop('nodeName') == 'LHC-EDITOR') {
-            textArea[0].insertContent('[quote'+ (msgId ? '=' + msgId : '') + ']'+msg+'[/quote]',{"new_line":true});
+            textArea[0].insertContent('[quote'+ (msgId ? '=' + msgId : '') + ']'+msg+'[/quote]',{"new_line":true,"convert_bbcode" : true});
         } else {
             var textAreaVal = textArea.val().replace(/^\s*\n/g, "");
             textArea.val((textAreaVal != '' ? textAreaVal + '[quote'+ (msgId ? '=' + msgId : '') + ']' + msg + '[/quote]' : '[quote'+ (msgId ? '=' + msgId : '') + ']'+msg+'[/quote]')+"\n").focus();
@@ -1649,7 +1649,7 @@ function lh(){
 	this.sendLinkToEditor = function(chat_id, embed_code,file_id) {
         let editor = window.parent.$('#CSChatMessage-'+chat_id);
         if (editor.prop('nodeName') == 'LHC-EDITOR') {
-            editor[0].insertContent(embed_code,{"new_line":true});
+            editor[0].insertContent(embed_code,{"new_line":true,"convert_bbcode" : true});
         } else {
             var val = editor.val();
             editor.val(((val != '') ? val+"\n" : val)+embed_code);
@@ -1666,13 +1666,13 @@ function lh(){
 
         if (typeof params !== 'undefined' && typeof params['replace'] !== `undefined` && params['replace'] == true){
             if (editor.prop('nodeName') == 'LHC-EDITOR') {
-                editor[0].setContent(embed_code);
+                editor[0].setContent(embed_code,{"convert_bbcode" : true});
             } else {
                 editor.val(embed_code);
             }
         } else {
             if (editor.prop('nodeName') == 'LHC-EDITOR') {
-                editor[0].insertContent(embed_code,{"new_line":true});
+                editor[0].insertContent(embed_code,{"new_line":true,"convert_bbcode" : true});
             } else {
                 var val = editor.val();
                 editor.val(((val != '') ? val+"\n" : val)+embed_code);
@@ -2716,7 +2716,7 @@ function lh(){
                         textArea.attr('placeholder',placeholerOriginal);
 
                         if (textArea.prop('nodeName') == 'LHC-EDITOR') {
-                            textArea[0].insertConent(pdata.msg);
+                            textArea[0].insertConent(pdata.msg,{"convert_bbcode" : true});
                         } else {
                             textArea.val((textArea.val() + ' ' + pdata.msg).trim());
                         }
@@ -2739,7 +2739,7 @@ function lh(){
                     textArea.attr('placeholder',placeholerOriginal);
 
                     if (textArea.prop('nodeName') == 'LHC-EDITOR') {
-                        textArea[0].insertConent(pdata.msg);
+                        textArea[0].insertConent(pdata.msg,{"convert_bbcode" : true});
                     } else {
                         textArea.val(textArea.val() + ' ' + pdata.msg);
                     }
@@ -2776,7 +2776,7 @@ function lh(){
 				if (data.error == 'f') {
 
                     if (textArea.prop('nodeName') == 'LHC-EDITOR') {
-                        textArea[0].setContent(data.msg);
+                        textArea[0].setContent(data.msg,{"convert_bbcode" : true});
                     } else {
                         textArea.val(data.msg);
                     }
@@ -3340,7 +3340,7 @@ function lh(){
 
                     var txtArea = $('#CSChatMessage-'+data_config.chat_id);
                     if (txtArea.prop('nodeName') == 'LHC-EDITOR') {
-                        txtArea[0].insertContent(response.result.msg,{"new_line" : true});
+                        txtArea[0].insertContent(response.result.msg,{"new_line" : true,"convert_bbcode" : true});
                     } else {
                         var txtValue = jQuery.trim(txtArea.val());
                         txtArea.val(txtValue + (txtValue != '' ? "\n" : "") + response.result.msg + "\n");

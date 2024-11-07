@@ -41,9 +41,9 @@ const CannedMessages = props => {
 
         if (element.nodeName == 'LHC-EDITOR') {
             if (element.getAttribute('content_modified')) {
-                element.insertContent(message.msg);
+                element.insertContent(message.msg,{"convert_bbcode" : true});
             } else {
-                element.setContent(message.msg);
+                element.setContent(message.msg,{"convert_bbcode" : true});
             }
             element.setFocus();
         } else {
@@ -220,7 +220,7 @@ const CannedMessages = props => {
                     if (message.current) {
                         let element = document.getElementById('CSChatMessage-' + props.chatId);
                         if (element.nodeName == 'LHC-EDITOR') {
-                            element.setContent(message.msg);
+                            element.setContent(message.msg,{"convert_bbcode" : true});
                             element.setFocus();
                         } else {
                             element.value = message.msg;

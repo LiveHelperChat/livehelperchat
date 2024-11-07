@@ -40,9 +40,9 @@ export function LHCEditorStore(data) {
                 store.history.splice(store.index + 1);
             }
 
-            // Store only last 20 records of history
+            // Store only last 10 records of history
             // If more remove the oldest history item
-            if (store.history.length >= 20) {
+            if (store.history.length >= 10) {
                 store.history.shift();
             }
 

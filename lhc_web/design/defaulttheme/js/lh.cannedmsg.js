@@ -178,9 +178,11 @@ var LHCCannedMessageAutoSuggest = (function() {
             let data = this.textareaHolder[0].getCaretPositionAndContent();
             var caretPos = data['caret'];
             var originalText = data['content'];
+            var originalTextLength = data['full_content'].length;
         } else {
             var originalText = this.getValue();
             var caretPos = this.textarea[0].selectionStart;
+            var originalTextLength = originalText.length;
         }
 
         var capText = originalText;
@@ -191,7 +193,7 @@ var LHCCannedMessageAutoSuggest = (function() {
         }
 
         // Replace very first character
-    	if (originalText.length <= 3) {
+    	if (originalTextLength <= 3) {
             capText = capText.replace(capText.charAt(0),capText.charAt(0).toUpperCase());
 		}
 
@@ -482,7 +484,7 @@ var LHCCannedMessageAutoSuggest = (function() {
                     textBeforeCursor = textBeforeCursor.substring(0, index) + textAppend;
                     _that.textarea.val(textBeforeCursor + currentValue.substring(caretPos));
                 } else {
-                    _that.textareaHolder[0].insertContent(textAppend,{"replace_from":"#"});
+                    _that.textareaHolder[0].insertContent(textAppend,{"replace_from":"#","convert_bbcode" : true});
                 }
 
                 if (subjects_ids) {

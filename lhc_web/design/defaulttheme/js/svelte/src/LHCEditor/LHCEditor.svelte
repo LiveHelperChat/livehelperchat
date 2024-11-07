@@ -18,7 +18,6 @@
     import {LHCEditorStore} from './LHCEditorStore.js'
     import {writable} from 'svelte/store';
     import { onMount } from 'svelte';
-
     export let host;
     export let scope = 'chat';
     export let record_id = '0';
@@ -30,6 +29,40 @@
     export let enable_canned_suggester;
     export let disable_key_listeners;
     export let data_rows_default = 2;
+
+    const conversionBBCodePairs = {
+        '&amp;' : '&',
+        '&lt;' : '<',
+        '&gt;' : '>',
+        '<br>' : "\n",
+        '<b>' : "[b]",
+        '<i>' : "[i]",
+        '</i>' : "[/i]",
+        '</b>' : "[/b]",
+        '<u>' : "[u]",
+        '</u>' : "[/u]",
+        '</strike>' : "[/s]",
+        '<strike>' : "[s]",
+        '&nbsp;' : ' '
+    };
+
+    const conversionHTMLBBPairs = {
+        "\r\n" : "",
+        "\n" : "",
+        '<br>' : "\n",
+        '<b>':"[b]",
+        '</b>' : "[/b]",
+        '<i>' : "[i]",
+        '</i>' :"[/i]",
+        '<u>' : "[u]",
+        '</u>' : "[/u]",
+        '</strike>' : "[/s]",
+        '<strike>' : "[s]",
+        '&nbsp;' : ' ',
+        '&amp;' : '&',
+        '&lt;' : '<',
+        '&gt;' : '>'
+    };
 
     let rangeRestore = null;
     let hideSuggester = false;
@@ -47,7 +80,7 @@
 
     onMount(() => {
         // Make is if chat is is loaded it's not in background maybe?
-        setCursorAtEnd(myInput);
+        setFocus(myInput);
 
         if (enable_canned_suggester) {
             var cannedMessageSuggest = new LHCCannedMessageAutoSuggest({
@@ -59,8 +92,6 @@
 
         if (document.getElementById('fileupload-'+record_id) && window['file_upload_'+record_id]) {
             lhinst.addFileUpload(window['file_upload_'+record_id]);
-        } else {
-            console.log(window['file_upload_'+record_id]);
         }
 
         return () => {
@@ -76,16 +107,40 @@
     export function setContent(content, options) {
        hideSuggester = true;
 
-       if (options && options['ignore_meta']) {
-           ignoreMeta = true;
+       if (options) {
+           if (options['ignore_meta']) {
+               ignoreMeta = true;
+           }
+           if (options['convert_bbcode']) {
+               content = cleanupForEditor(content)
+           }
        }
 
        html.set(content.trim());
     }
 
+    function cleanupForEditor(content) {
+        content = content.replaceAll("\r\n","\n");
+        for (const [key, value] of Object.entries(conversionBBCodePairs)) {
+            content = content.replaceAll(value, key);
+        }
+        return content;
+    }
+
     export function insertContent(content,options) {
         hideSuggester = true;
-        insertContentLHC( options && options['new_line'] && myInput.innerHTML !== '' ? "\n" + content : content, rangeRestore, myInput, html, options);
+
+        if (options) {
+            if (options['convert_bbcode']) {
+                content = cleanupForEditor(content);
+            }
+
+            if (options['new_line'] && myInput.innerHTML !== '') {
+                content = "\n" + content;
+            }
+        }
+
+        insertContentLHC(content, rangeRestore, myInput, html, options);
     }
 
     // Replaces range by provided content
@@ -126,20 +181,12 @@
     }
 
     function cleanupForStore(text) {
-        return text
-            .replaceAll('<br>',"\n")
-            .replaceAll('<b>',"[b]")
-            .replaceAll('<i>',"[i]")
-            .replaceAll('</i>',"[/i]")
-            .replaceAll('</b>',"[/b]")
-            .replaceAll('<u>',"[u]")
-            .replaceAll('</u>',"[/u]")
-            .replaceAll('</strike>',"[/s]")
-            .replaceAll('<strike>',"[s]")
-            .replaceAll('&nbsp;',' ')
-            .replaceAll('&amp;','&')
-            .replaceAll('&lt;','<')
-            .replaceAll('&gt;','>');
+
+        for (const [key, value] of Object.entries(conversionHTMLBBPairs)) {
+            text = text.replaceAll(key, value);
+        }
+
+        return text;
     }
 
     function disable(e){
@@ -173,7 +220,8 @@
                     ret=false;
                     history.goPrev();
                     ignoreChange = true;
-                    $html = $history['history'][$history['index']];
+                    html.set($history['history'][$history['index']]);
+                    setFocus();
                     ignoreChange = false;
                     break;
 
@@ -183,7 +231,8 @@
                     ret=false;
                     ignoreChange = true;
                     history.goNext();
-                    $html = $history['history'][$history['index']];
+                    html.set($history['history'][$history['index']]);
+                    setFocus();
                     ignoreChange = false;
                     break;
 
@@ -251,7 +300,7 @@
             hideSuggester = false;
         }
 
-        var sel, range, pre_range, this_text, at_start, post_range, next_text, at_end;
+        var sel, range, post_range, next_text, at_end;
         if (window.getSelection) {
             sel = window.getSelection();
             if (sel.getRangeAt && sel.rangeCount) {
@@ -295,7 +344,7 @@
             var sel = window.getSelection();
             if (sel.rangeCount) {
                 let range = sel.getRangeAt(0);
-                if ((options && options['ignore_parent']) || range.commonAncestorContainer.parentNode === myInput) { // If we want to allow return position if parent element is our editable node
+                //if ((options && options['ignore_parent']) || range.commonAncestorContainer.parentNode === myInput) { // If we want to allow return position if parent element is our editable node
 
                     let post_range = document.createRange();
                     post_range.selectNodeContents(myInput);
@@ -310,15 +359,17 @@
 
                     return {
                         'caret' : range.endOffset,
-                        'content' : next_text.textContent.replace(/\u00a0/g, " ")
+                        'content' : next_text.textContent.replace(/\u00a0/g, " "),
+                        'full_content' : myInput.textContent.replace(/\u00a0/g, " ")
                     };
-                }
+                //}
             }
         }
 
         return {
             'caret' : 0,
-            'content' : ""
+            'content' : "",
+            'full_content': myInput.textContent.replace(/\u00a0/g, " ")
         }
     }
 
@@ -380,6 +431,7 @@
      on:keydown={disable}
      on:click={checkCursorPosition}
      on:keyup={checkCursorPosition}
+     on:focusout={checkCursorPosition}
      bind:innerHTML={$html}
      on:input={contentChanged}
      bind:this={myInput}
