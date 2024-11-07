@@ -52,18 +52,6 @@ export function tokenizeInputLHC(target, val){
             .replaceAll('___LT___','&lt;');
     }
 
-   /* const createSourceTokens = (text) => {
-        // when backspacing all input, for some reason <br> is appended
-        if (text === '<br>') {
-            target.innerHTML = '';
-            return;
-        }
-        // remove <span> tags from prior
-        text = stripHTML(text);
-        target.innerHTML = '';
-        new SourceToken({target, props: {text}})
-    }*/
-
     return {
         update(val) {
             val = val
@@ -251,32 +239,3 @@ function insertText(pastedData) {
         document.selection.createRange().text = pastedData;
     }
 }
-
-
-/*export function addNewLine(target, store) {
-
-    /*var range,selection;
-
-    store.set(get(store) + "<br><br>");
-
-    range = document.createRange();//Create a range (a range is a like the selection but invisible)
-    range.selectNodeContents(target);//Select the entire contents of the element with the range
-    range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
-    selection = window.getSelection();//get the selection object (allows you to change selection)
-    selection.removeAllRanges();//remove any selections already made
-    selection.addRange(range);//make the range you have just created the visible selection*/
-
-    /*text = "asdasd";
-
-    var sel, range;
-    if (window.getSelection) {
-        sel = window.getSelection();
-        if (sel.getRangeAt && sel.rangeCount) {
-            range = sel.getRangeAt(0);
-            range.deleteContents();
-            range.insertNode( document.createTextNode(text) );
-        }
-    } else if (document.selection && document.selection.createRange) {
-        document.selection.createRange().text = text;
-    }
-}*/

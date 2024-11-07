@@ -145,6 +145,7 @@
 
     // Replaces range by provided content
     export function replaceRange(content) {
+        rangeRestore = saveSelection();
         replaceRangeLHC(content, rangeRestore, myInput, html);
     }
 
@@ -309,17 +310,6 @@
                     hideSuggester = true;
                 }
 
-                // Create a new range to deal with text before the cursor
-                //pre_range = document.createRange();
-                // Have this range select the entire contents of the editable div
-                //pre_range.selectNodeContents(myInput);
-                // Set the end point of this range to the start point of the cursor
-                //pre_range.setEnd(range.startContainer, range.startOffset);
-                // Fetch the contents of this range (text before the cursor)
-                //this_text = pre_range.cloneContents();
-                // If the text's length is 0, we're at the start of the div.
-                //at_start = this_text.textContent.length === 0;
-
                 // Rinse and repeat for text after the cursor to determine if we're at the end.
                 post_range = document.createRange();
                 post_range.selectNodeContents(myInput);
@@ -443,9 +433,3 @@
 <div>{$html}</div>
 <pre>{textContent}</pre>
 {/if}
-
-<style>
-    div.hide-suggester suggester{
-        display: none;
-    }
-</style>
