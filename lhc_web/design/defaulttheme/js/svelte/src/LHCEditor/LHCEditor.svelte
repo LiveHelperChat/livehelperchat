@@ -400,9 +400,9 @@
         }
     });
 
-    history.subscribe((value) => {
+    /*history.subscribe((value) => {
        console.log(value);
-    });
+    });*/
 
 </script>
 
