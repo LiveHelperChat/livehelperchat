@@ -82,7 +82,6 @@ var LHCSpeechToTextCallbackListener = (function() {
             }
 
            this.setContent(this.originText + this.final_transcript + interim_transcript);
-           this.focus();
 
             ee.emitEvent('afterSpeechToTextCallbackResult',[this.chat_id, this.originText + this.final_transcript + interim_transcript]);
             

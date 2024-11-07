@@ -473,7 +473,7 @@ var LHCCannedMessageAutoSuggest = (function() {
                 var subjects_ids = $(this).attr('subjects_ids');
                 var canned_id = $(this).attr('canned_id');
 
-                if (this.newEditor === false) {
+                if (_that.newEditor === false) {
                     currentValue = _that.getValue();
 
                     var caretPos = _that.textarea[0].selectionStart;
@@ -496,7 +496,7 @@ var LHCCannedMessageAutoSuggest = (function() {
                 }
 
 				// Set cursor position
-                if (this.newEditor === false) {
+                if (_that.newEditor === false) {
                     if ('selectionStart' in _that.textarea[0]) {
                         _that.textarea[0].selectionStart = textBeforeCursor.length;
                         _that.textarea[0].selectionEnd = textBeforeCursor.length;

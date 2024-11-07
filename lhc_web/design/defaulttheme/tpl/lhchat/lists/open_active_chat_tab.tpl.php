@@ -26,6 +26,16 @@
                         <?php else : ?>
                             <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'In dynamic chats order mode'); ?></a>
                         <?php endif; ?>
+
+
+                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Switch between old and new editor')?>" class="dropdown-item csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/new_editor"><i class="material-icons">draw</i>
+                    <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_editor', 0) == 1) : ?>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Switch to old editor'); ?></a>
+                    <?php else : ?>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Switch to new editor'); ?></a>
+                    <?php endif; ?>
+
+
                 <?php endif; ?>
 
                 <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1) == 1) : ?>

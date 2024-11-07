@@ -22,6 +22,9 @@ if ($Params['user_parameters_unordered']['action'] == 'tabs') {
 } elseif ($Params['user_parameters_unordered']['action'] == 'column_chats') {
     $identifier = 'column_chats';
     $defaultValue = 0;
+} elseif ($Params['user_parameters_unordered']['action'] == 'new_editor') {
+    $identifier = 'new_editor';
+    $defaultValue = 0;
 }
 
 $oldSetting = (int)erLhcoreClassModelUserSetting::getSetting($identifier, $defaultValue);

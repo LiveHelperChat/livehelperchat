@@ -2677,8 +2677,6 @@ function lh(){
                     textArea.removeAttr('canned_id');
                 }
 
-                console.log(textArea);
-
                 if (textArea.attr('whisper')) {
                     pdata.whisper = 1;
                 }
