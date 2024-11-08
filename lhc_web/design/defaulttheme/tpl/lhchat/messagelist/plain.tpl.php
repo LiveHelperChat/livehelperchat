@@ -23,7 +23,7 @@ foreach ($messages as $msg ) :
 
     $metaRenderedAppend = '';
     $subtype = '';
-    if (isset($metaMessageData) && is_array($metaMessageData)) {
+    if (isset($metaMessageData) && is_array($metaMessageData) && !isset($hideMetaRaw)) {
         if (isset($metaMessageData['content'])){
             foreach ($metaMessageData['content'] as $type => $metaMessage) {
                 if ( $type == 'html' ) {
@@ -62,7 +62,7 @@ foreach ($messages as $msg ) :
         }
     }
 
-    if (isset($_GET['meta']) && $_GET['meta'] == 'true' && $msg->meta_msg != '') {
+    if (!isset($hideMetaRaw) && isset($_GET['meta']) && $_GET['meta'] == 'true' && $msg->meta_msg != '') {
         $metaRenderedAppend .= "====================={$separatorMessage}" . $msg->meta_msg . "{$separatorMessage}====================={$separatorMessage}";
     }
 
