@@ -109,7 +109,7 @@ $ViewList['nodegroups'] = array(
 
 $ViewList['list'] = array(
     'params' => array(),
-    'uparams' => array(),
+    'uparams' => array('name'),
     'functions' => array( 'use' )
 );
 
