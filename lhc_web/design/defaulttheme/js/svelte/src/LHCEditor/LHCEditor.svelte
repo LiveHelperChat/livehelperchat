@@ -97,6 +97,8 @@
             lhinst.addFileUpload(window['file_upload_'+record_id]);
         }
 
+        ee.emitEvent('adminChatEditorLoaded', [record_id, myInput]);
+
         return () => {
             clearInterval(historyTimeout);
             cannedMessageSuggest.unbindEvents();
@@ -150,6 +152,23 @@
     export function replaceRange(content) {
         rangeRestore = saveSelection();
         replaceRangeLHC(content, rangeRestore, myInput, html);
+    }
+
+    export function removeSuggester() {
+        let elements = myInput.getElementsByTagName('suggester');
+        for (const cell of elements) {
+            myInput.removeChild(cell);
+        }
+    }
+
+    export function setSuggester(content) {
+        removeSuggester();
+
+        if (content && !myInput.classList.contains('hide-suggester') && $html.substr($html.length - 4) != '<br>') { // Append auto completely if we are not on a new line
+            const template = document.createElement('template');
+            template.innerHTML = "<suggester style='color: #cecece; user-select: none' contentEditable=\"false\">" + content + "</suggester>";
+            myInput.appendChild(template.content.firstChild);
+        }
     }
 
     export function insertFormating(start,end) {
@@ -332,6 +351,38 @@
         }
     }
 
+    export function isCursorAtEnd() {
+
+        var sel, range, post_range, next_text, at_end;
+
+        if (window.getSelection) {
+            sel = window.getSelection();
+            if (sel.getRangeAt && sel.rangeCount) {
+                range = sel.getRangeAt(0);
+                if (range.startOffset != range.endOffset) {
+                    return false;
+                }
+
+                // Rinse and repeat for text after the cursor to determine if we're at the end.
+                post_range = document.createRange();
+                post_range.selectNodeContents(myInput);
+                post_range.setStart(range.endContainer, range.endOffset);
+                next_text = post_range.cloneContents();
+
+                if (next_text.lastElementChild && next_text.lastElementChild.tagName == 'SUGGESTER'){
+                    next_text.removeChild(next_text.lastElementChild);
+                }
+
+                at_end = next_text.textContent.length === 0;
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
     export function getCaretPositionAndContent(options){
         if (window.getSelection) {
             var sel = window.getSelection();
@@ -410,7 +461,8 @@
 </script>
 
 <div contenteditable="true"
-     class={"form-control form-control-sm form-send-textarea form-group"+(whisper === "1" ? ' bg-light' : '')+(warning_area === true ? ' form-control-warning' : '')+(hideSuggester ? ' hide-suggester' : '')}
+     id={"editor-"+record_id}
+     class={"lhc-editor form-control form-control-sm form-send-textarea form-group"+(whisper === "1" ? ' bg-light' : '')+(warning_area === true ? ' form-control-warning' : '')+(hideSuggester ? ' hide-suggester' : '')}
      placeholder={placeholder}
      on:paste={(e) => {
          if (readonly) {
