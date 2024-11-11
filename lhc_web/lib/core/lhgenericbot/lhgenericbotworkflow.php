@@ -2496,7 +2496,21 @@ class erLhcoreClassGenericBotWorkflow {
                                 $date = new DateTime();
                             }
 
-                            if ( !((int)$startEnd[0] <= $date->format('H') && (int)$startEnd[1] > $date->format('H')) || (isset($dayArgs[1]) && !in_array($date->format('N'),explode(',',$dayArgs[1])))) {
+                            if (
+                                !(
+                                    ($startEnd[0] > $startEnd[1] &&
+                                        (
+                                                (int)$startEnd[0] <= $date->format('H')
+                                            ||
+                                                (int)$startEnd[1] > $date->format('H')
+                                        )
+                                    )
+                                    ||
+                                    ($startEnd[0] < $startEnd[1] && (int)$startEnd[0] <= $date->format('H') && (int)$startEnd[1] > $date->format('H'))
+                                )
+                                ||
+                                    (isset($dayArgs[1]) && !in_array($date->format('N'),explode(',',$dayArgs[1])))
+                            ) {
                                 $data['replace'] = '';
                             }
                         }

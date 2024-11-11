@@ -19,6 +19,9 @@
                                 <li>{welcome_message__Welcome to our website}</li>
                                 <li>{good_evening__Good evening__t[17:24]} - Show this message from 17 until midnight</li>
                                 <li>{good_morning__Good morning__t[0:17]} - Show this message from midnight until evening</li>
+                                <li>{good_overnight__Good morning__t[22:4]} - Show this message from 22 till 4 in the morning</li>
+                                <li>{good_morning_monday__Good morning monday__t[7:9]||1} - Show this message only on Monday</li>
+                                <li>{good_morning_tue_wed__Good morning monday__t[7:9]||2,3} - Show this message only on Tuesday and Wednesday</li>
                             </ul>
                     </li>
                 </ul>

@@ -10,6 +10,7 @@
         <li><strong>{args.chat.chat_variables_array.playerClass}</strong> condition <strong>Contains</strong> E.g <strong>vip_</strong> would match <b>vip_1,vip_2</b> </li>
         <li><strong>{args.chat.plain_user_name}</strong> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Operator nick');?> </li>
         <li><strong>{args.chat.user.name_support}</strong> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Operator nick');?> </li>
+        <li><strong>{args.chat.online_user.previous_chat.chat_variables_array.vip}</strong> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Previous chat additional chat variable');?> </li>
         <?php if (isset($_GET['canned'])) : ?>
             <li><strong>{nick}</strong> = <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Visitor nick');?></li>
             <li><strong>{email}</strong> = <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Visitor e-mail');?></li>

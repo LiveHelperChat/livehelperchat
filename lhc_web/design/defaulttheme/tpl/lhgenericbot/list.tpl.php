@@ -1,3 +1,5 @@
+<?php include(erLhcoreClassDesign::designtpl('lhgenericbot/search_panel.tpl.php')); ?>
+
 <?php if (isset($items)) : ?>
 
 <table class="table" cellpadding="0" cellspacing="0" width="100%" ng-non-bindable>
