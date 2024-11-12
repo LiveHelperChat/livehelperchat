@@ -232,6 +232,9 @@
             return;
         }
 
+        // Inform NodeJS extension
+        record_id && lhinst.operatorTypingCallback(record_id);
+
         if(e.ctrlKey) {
 
 
