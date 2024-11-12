@@ -989,7 +989,7 @@ div.message-row.response+div.message-row.response:hover .msg-date,
     text-align:right;
 }
 
-.admin-chat-mic {
+.admin-chat-mic, .admin-chat-mic > .form-send-textarea {
 	background:url(../images/icons/mic.gif) no-repeat center center;
 }
 
@@ -1228,7 +1228,7 @@ ul.user-settings-list li{
 	transition: background-color 1000ms linear;	
 }
 
-.edit-mode,
+.edit-mode, .edit-mode > .form-send-textarea,
 .recent_visit {
 	background-color:#E0F3FF !important;
 	transition: background-color 1000ms linear;	
@@ -2499,3 +2499,12 @@ html {
      vertical-align: middle;
      border-radius: 7px;
  }
+
+.hide-suggester > suggester{
+    display: none;
+}
+
+.form-send-textarea[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: var(--bs-secondary-color);
+}

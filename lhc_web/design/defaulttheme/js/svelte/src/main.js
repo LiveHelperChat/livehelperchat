@@ -8,3 +8,6 @@ export { default as ChatsCounter } from './LinkActions/ChatsCounter.svelte';
 
 /* Widgets */
 export { default as LHCWidget } from './Widgets/LHCWidget.svelte';
+
+/* Chat send message area */
+export { default as LHCEditor } from './LHCEditor/LHCEditor.svelte';

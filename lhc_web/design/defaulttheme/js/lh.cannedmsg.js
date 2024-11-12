@@ -26,12 +26,13 @@ var LHCCannedMessageAutoSuggest = (function() {
         // General one
 		var _that = this;
 		
-		this.textarea = jQuery('#CSChatMessage-'+this.chat_id);
+		this.textareaHolder = jQuery('#CSChatMessage-'+this.chat_id);
+        this.newEditor = false;
 
-		this.textarea.bind('keyup', function (evt) {
+        this.keyUpCallback = function (evt) {
 
-			if (_that.nextUppercaseEnabled == true)
-			{
+            if (_that.nextUppercaseEnabled == true)
+            {
                 if (_that.nextUppercase == true) {
                     clearTimeout(_that.nextUppercaseCallback);
                     _that.nextUppercaseCallback = setTimeout(function(){
@@ -40,45 +41,45 @@ var LHCCannedMessageAutoSuggest = (function() {
                 } else {
                     _that.capitalizeSentences(evt);
                 }
-			}
+            }
 
-			if (evt.key == '#' || evt.keyCode == 51 || evt.keyCode == 222) {	
-				_that.currentText = _that.textarea.val();				
-				_that.showSuggester();	
-			} else if (evt.keyCode == 32 && _that.suggesting == true) {
-				_that.stopSuggesting();
-			} else if (_that.suggesting == true && evt.keyCode != 38 && evt.keyCode != 40 && evt.keyCode != 39 && evt.keyCode != 37 && evt.keyCode != 13) {
-				
-				if (_that.currentText !== _that.textarea.val()) { // Show suggester only if text is different
-					_that.showSuggester();
-					_that.currentText = _that.textarea.val();					
-				}
-				
-			} else if (_that.suggesting == true && (evt.keyCode == 37 || evt.keyCode == 39) && _that.cannedMode === false) {
-				
-				var oldKeyword = _that.currentKeword;
-				
-				if (oldKeyword !== _that.extractKeyword()) { // Only if keyword is different, happens if we migrate from canned messages to normal list.
-					_that.showSuggester();					
-				}
-				
-			} else if (_that.suggesting == false && (evt.keyCode == 39 || evt.keyCode == 37 || evt.keyCode == 8)) { // Perhaps user moved cursor to the right				
-				if (_that.extractKeyword() !== null) {					
-					_that.showSuggester();
-				}				
-			}
-		});
-		
-		this.textarea.bind('keydown', function (evt) {
-			if (_that.suggesting == true) {	
-				if (evt.keyCode == 38) {
-					_that.moveAction('up');
-					evt.preventDefault();
-					evt.stopImmediatePropagation();
-				} else if (evt.keyCode == 40) {					
-					_that.moveAction('down');					
-					evt.preventDefault();
-				} else if ((evt.keyCode == 39 || evt.keyCode == 37) && _that.cannedMode === true) { // right/left arrow
+            if (evt.key == '#' || evt.keyCode == 51 || evt.keyCode == 222) {
+                _that.currentText = _that.getValue();
+                _that.showSuggester();
+            } else if (evt.keyCode == 32 && _that.suggesting == true) {
+                _that.stopSuggesting();
+            } else if (_that.suggesting == true && evt.keyCode != 38 && evt.keyCode != 40 && evt.keyCode != 39 && evt.keyCode != 37 && evt.keyCode != 13) {
+
+                if (_that.currentText !== _that.getValue()) { // Show suggester only if text is different
+                    _that.showSuggester();
+                    _that.currentText = _that.getValue();
+                }
+
+            } else if (_that.suggesting == true && (evt.keyCode == 37 || evt.keyCode == 39) && _that.cannedMode === false) {
+
+                var oldKeyword = _that.currentKeword;
+
+                if (oldKeyword !== _that.extractKeyword()) { // Only if keyword is different, happens if we migrate from canned messages to normal list.
+                    _that.showSuggester();
+                }
+
+            } else if (_that.suggesting == false && (evt.keyCode == 39 || evt.keyCode == 37 || evt.keyCode == 8)) { // Perhaps user moved cursor to the right
+                if (_that.extractKeyword() !== null) {
+                    _that.showSuggester();
+                }
+            }
+        };
+
+        this.keyDownCallback = function (evt) {
+            if (_that.suggesting == true) {
+                if (evt.keyCode == 38) {
+                    _that.moveAction('up');
+                    evt.preventDefault();
+                    evt.stopImmediatePropagation();
+                } else if (evt.keyCode == 40) {
+                    _that.moveAction('down');
+                    evt.preventDefault();
+                } else if ((evt.keyCode == 39 || evt.keyCode == 37) && _that.cannedMode === true) { // right/left arrow
 
                     // Current menu index
                     var index = $('#canned-hash-current-'+_that.chat_id+' li.current-item').parent().parent().index();
@@ -94,15 +95,15 @@ var LHCCannedMessageAutoSuggest = (function() {
                     // How many columns we have
                     var subItems = $('#canned-hash-current-'+_that.chat_id+' .list-sub-items > li').length;
 
-				    // we have only one sub-block so we can prefill instantly
+                    // we have only one sub-block so we can prefill instantly
                     // User clicked right arrow and we did not had any blocks
-				    if (subItems == 0) {
+                    if (subItems == 0) {
                         $('#canned-hash-current-'+_that.chat_id+' li.current-item > span.canned-msg').trigger( "click" );
                     } else {
 
                         var indexInList = $('#canned-hash-current-'+_that.chat_id+' li.current-item').index();
 
-				        // User clicked right and we have more than one block
+                        // User clicked right and we have more than one block
                         $('#canned-hash-current-'+_that.chat_id+' li.current-item').removeClass('current-item');
 
                         // We have to check how many elements this block from right has and try to activate li element in direct position
@@ -126,36 +127,65 @@ var LHCCannedMessageAutoSuggest = (function() {
                     evt.preventDefault();
                     evt.stopImmediatePropagation();
 
-				} else if (evt.keyCode == 39 || evt.keyCode == 13) { // right arrow OR enter
+                } else if (evt.keyCode == 39 || evt.keyCode == 13) { // right arrow OR enter
 
-				    var preventDefault = true;
+                    var preventDefault = true;
                     var element = null;
 
-				    if (_that.cannedMode === false) {
-				        element = $('#canned-hash-'+_that.chat_id+' > li.current-item a');
-					} else {
+                    if (_that.cannedMode === false) {
+                        element = $('#canned-hash-'+_that.chat_id+' > li.current-item a');
+                    } else {
                         element = $('#canned-hash-current-'+_that.chat_id+' li.current-item > span.canned-msg');
-					}
+                    }
 
-				    if (element !== null && element.length > 0) {
+                    if (element !== null && element.length > 0) {
                         element.trigger( "click" );
                         evt.preventDefault();
                         evt.stopImmediatePropagation();
                     }
 
-				}
-			}
-		});
+                }
+            }
+        }
+
+        if (this.textareaHolder.prop('nodeName') == 'LHC-EDITOR') {
+            this.newEditor = true;
+            this.textarea = jQuery(params['textarea']);
+            this.textarea.bind('keyup', this.keyUpCallback);
+            this.textarea.bind('keydown', this.keyDownCallback);
+        } else {
+            this.textarea = this.textareaHolder;
+            this.textarea.bind('keyup', this.keyUpCallback);
+            this.textarea.bind('keydown',  this.keyDownCallback);
+        }
 	}
+
+    LHCCannedMessageAutoSuggest.prototype.unbindEvents = function(){
+        this.textarea.unbind('keyup',this.keyUpCallback);
+        this.textarea.unbind('keydown',this.keyDownCallback);
+    }
+
+    LHCCannedMessageAutoSuggest.prototype.getValue = function() {
+        return this.textareaHolder.prop('nodeName') == 'LHC-EDITOR' ? this.textareaHolder[0].getContentLive() : this.textarea.val()
+    }
 
     /*
     * Capitalizes sentences.
     * */
     LHCCannedMessageAutoSuggest.prototype.capitalizeSentences = function(evt) {
 
-        var originalText = this.textarea.val();
+        if (this.newEditor === true) {
+            let data = this.textareaHolder[0].getCaretPositionAndContent();
+            var caretPos = data['caret'];
+            var originalText = data['content'];
+            var originalTextLength = data['full_content'].length;
+        } else {
+            var originalText = this.getValue();
+            var caretPos = this.textarea[0].selectionStart;
+            var originalTextLength = originalText.length;
+        }
+
         var capText = originalText;
-        var caretPos = this.textarea[0].selectionStart;
 
         if (evt.keyCode == 8 || evt.keyCode == 46) {
             this.nextUppercase = false;
@@ -163,7 +193,7 @@ var LHCCannedMessageAutoSuggest = (function() {
         }
 
         // Replace very first character
-    	if (originalText.length <= 3) {
+    	if (originalTextLength <= 3) {
             capText = capText.replace(capText.charAt(0),capText.charAt(0).toUpperCase());
 		}
 
@@ -179,25 +209,34 @@ var LHCCannedMessageAutoSuggest = (function() {
         }
 
         if (confLH.content_language == 'en') {
-            capText = capText.replace(/\si\s/g,' I ');
+            if (this.newEditor === true) {
+                capText = capText.replace(/\si\s/g,' I&nbsp;');
+            } else {
+                capText = capText.replace(/\si\s/g,' I ');
+            }
 		}
 
 		if (capText != originalText) {
 
-            this.textarea.val(capText);
+            if (this.newEditor === false) {
+                this.textarea.val(capText);
 
-            if ('selectionStart' in this.textarea[0]) {
-                this.textarea[0].selectionStart = caretPos;
-                this.textarea[0].selectionEnd = caretPos;
-            } else if (this.textarea[0].setSelectionRange) {
-                this.textarea[0].setSelectionRange(caretPos, caretPos);
-            } else if (this.textarea[0].createTextRange) {
-                var range = this.textarea[0].createTextRange();
-                range.collapse(true);
-                range.moveEnd('character', caretPos);
-                range.moveStart('character', caretPos);
-                range.select();
+                if ('selectionStart' in this.textarea[0]) {
+                    this.textarea[0].selectionStart = caretPos;
+                    this.textarea[0].selectionEnd = caretPos;
+                } else if (this.textarea[0].setSelectionRange) {
+                    this.textarea[0].setSelectionRange(caretPos, caretPos);
+                } else if (this.textarea[0].createTextRange) {
+                    var range = this.textarea[0].createTextRange();
+                    range.collapse(true);
+                    range.moveEnd('character', caretPos);
+                    range.moveStart('character', caretPos);
+                    range.select();
+                }
+            } else {
+                this.textareaHolder[0].replaceRange(capText);
             }
+
 		}
 	}
 
@@ -297,14 +336,25 @@ var LHCCannedMessageAutoSuggest = (function() {
 		this.cannedMode = false;
 		this.currentText = null;
 		this.currentKeword = null;
+        if (this.newEditor) {
+            this.textareaHolder[0].removeAttribute('disable_key_listeners');
+        }
 	}
 	
 	LHCCannedMessageAutoSuggest.prototype.extractKeyword = function()
 	{
-		var caretPos = this.textarea[0].selectionStart;
-		currentValue = this.textarea.val();
-		var keyword = '';
-		
+        var caretPos = 0, currentValue = "";
+        if (this.newEditor === false){
+            caretPos = this.textarea[0].selectionStart;
+            currentValue = this.textarea.val();
+        } else {
+            let data = this.textareaHolder[0].getCaretPositionAndContent({"ignore_parent":true});
+            caretPos = data['caret'];
+            currentValue = data['content'];
+        }
+
+        var keyword = '';
+
 		for (i = caretPos; i > 0; i--) {
 			char = currentValue.substring(i-1, i);
 			if (char == ' ') {	
@@ -324,17 +374,24 @@ var LHCCannedMessageAutoSuggest = (function() {
 
 	this.timeoutRequest = null;
 
+    LHCCannedMessageAutoSuggest.prototype.startSuggesting = function(){
+        this.suggesting = true;
+        if (this.newEditor) {
+            this.textareaHolder[0].setAttribute('disable_key_listeners',true);
+        }
+    }
+
 	LHCCannedMessageAutoSuggest.prototype.showSuggester = function()
 	{
 		var _that = this;
 		
-		this.extractKeyword();	
+		this.extractKeyword();
 		this.cannedMode = false;
         clearTimeout(this.timeoutRequest);
 
-		if (this.currentKeword !== null) {	
+		if (this.currentKeword !== null) {
 
-			this.suggesting = true;
+            _that.startSuggesting(true);
 
 			this.timeoutRequest = setTimeout(function () {
 
@@ -411,45 +468,50 @@ var LHCCannedMessageAutoSuggest = (function() {
             });
 
 			content.find('span.canned-msg').click(function(){
-								
-				// Insert selected text
-				var caretPos = _that.textarea[0].selectionStart,
-		        currentValue = _that.textarea.val();
+
                 var textAppend = $(this).attr('data-msg');
                 var subjects_ids = $(this).attr('subjects_ids');
                 var canned_id = $(this).attr('canned_id');
 
-                var textBeforeCursor = currentValue.substring(0, caretPos);
+                if (_that.newEditor === false) {
+                    currentValue = _that.getValue();
 
-                // Strip keyword
-                var index = textBeforeCursor.lastIndexOf('#');
-                textBeforeCursor =  textBeforeCursor.substring(0, index) + textAppend;
+                    var caretPos = _that.textarea[0].selectionStart;
 
-                _that.textarea.val(textBeforeCursor + currentValue.substring(caretPos));
+                    var textBeforeCursor = currentValue.substring(0, caretPos);
+                    // Strip keyword
+                    var index = textBeforeCursor.lastIndexOf('#');
+                    textBeforeCursor = textBeforeCursor.substring(0, index) + textAppend;
+                    _that.textarea.val(textBeforeCursor + currentValue.substring(caretPos));
+                } else {
+                    _that.textareaHolder[0].insertContent(textAppend,{"replace_from":"#","convert_bbcode" : true});
+                }
 
                 if (subjects_ids) {
-                    _that.textarea.attr('subjects_ids',subjects_ids);
+                    _that.textareaHolder.attr('subjects_ids',subjects_ids);
                 }
 
                 if (canned_id) {
-                    _that.textarea.attr('canned_id',canned_id);
+                    _that.textareaHolder.attr('canned_id',canned_id);
                 }
 
 				// Set cursor position
-				if ('selectionStart' in _that.textarea[0]) {
-					_that.textarea[0].selectionStart = textBeforeCursor.length;
-					_that.textarea[0].selectionEnd = textBeforeCursor.length;
-		        } else if (_that.textarea[0].setSelectionRange) {
-		        	_that.textarea[0].setSelectionRange(textBeforeCursor.length, textBeforeCursor.length);
-		        } else if (_that.textarea[0].createTextRange) {
-		            var range = _that.textarea[0].createTextRange();
-		            range.collapse(true);
-		            range.moveEnd('character', textBeforeCursor.length);
-		            range.moveStart('character', textBeforeCursor.length);
-		            range.select();
-		        }
+                if (_that.newEditor === false) {
+                    if ('selectionStart' in _that.textarea[0]) {
+                        _that.textarea[0].selectionStart = textBeforeCursor.length;
+                        _that.textarea[0].selectionEnd = textBeforeCursor.length;
+                    } else if (_that.textarea[0].setSelectionRange) {
+                        _that.textarea[0].setSelectionRange(textBeforeCursor.length, textBeforeCursor.length);
+                    } else if (_that.textarea[0].createTextRange) {
+                        var range = _that.textarea[0].createTextRange();
+                        range.collapse(true);
+                        range.moveEnd('character', textBeforeCursor.length);
+                        range.moveStart('character', textBeforeCursor.length);
+                        range.select();
+                    }
 
-                _that.textarea[0].focus();
+                    _that.textarea[0].focus();
+                }
 
 				_that.stopSuggesting();
 			});

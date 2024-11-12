@@ -211,9 +211,15 @@ module.exports = (function() {
                 lhinst.updateChatFiles(this.chat_id);
 
                 var txtArea = $('#CSChatMessage-'+this.chat_id);
-                var txtValue = jQuery.trim(txtArea.val());
-                txtArea.val(txtValue + (txtValue != '' ? "\n" : "") + req.response.msg + "\n");
-                txtArea.focus();
+
+                if (txtArea.prop('nodeName') == 'LHC-EDITOR') {
+                    txtArea[0].setContent(req.response.msg,{"new_line":true});
+                    txtArea[0].setFocus();
+                } else {
+                    var txtValue = jQuery.trim(txtArea.val());
+                    txtArea.val(txtValue + (txtValue != '' ? "\n" : "") + req.response.msg + "\n");
+                    txtArea.focus();
+                }
 
                 if (LHCCallbacks.addFileUpload) {
                     LHCCallbacks.addFileUpload(this.chat_id);
