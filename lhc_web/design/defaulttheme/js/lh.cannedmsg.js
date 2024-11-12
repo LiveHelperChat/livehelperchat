@@ -209,12 +209,8 @@ var LHCCannedMessageAutoSuggest = (function() {
         }
 
         if (confLH.content_language == 'en') {
-            if (this.newEditor === true) {
-                capText = capText.replace(/\si\s/g,' I&nbsp;');
-            } else {
-                capText = capText.replace(/\si\s/g,' I ');
-            }
-		}
+            capText = capText.replace(/\si\s/g,' I ');
+        }
 
 		if (capText != originalText) {
 
@@ -234,6 +230,12 @@ var LHCCannedMessageAutoSuggest = (function() {
                     range.select();
                 }
             } else {
+
+                // In new editor we have to replace last character with &nbsp;
+                if (this.newEditor === true && capText.endsWith(' ')) {
+                    capText = capText.substring(0, capText.length - 1) + "&nbsp;";
+                }
+
                 this.textareaHolder[0].replaceRange(capText);
             }
 
