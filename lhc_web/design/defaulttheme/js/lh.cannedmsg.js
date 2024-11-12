@@ -232,7 +232,7 @@ var LHCCannedMessageAutoSuggest = (function() {
             } else {
 
                 // In new editor we have to replace last character with &nbsp;
-                if (this.newEditor === true && capText.endsWith(' ')) {
+                if (capText.endsWith(' ')) {
                     capText = capText.substring(0, capText.length - 1) + "&nbsp;";
                 }
 
