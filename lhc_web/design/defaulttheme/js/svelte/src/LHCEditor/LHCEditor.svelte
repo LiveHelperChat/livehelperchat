@@ -205,6 +205,8 @@
 
     function cleanupForStore(text) {
 
+        text = text.replace(/<(b|i|u|strike)\sstyle=".*?">/g,"<$1>");
+
         for (const [key, value] of Object.entries(conversionHTMLBBPairs)) {
             text = text.replaceAll(key, value);
         }
@@ -263,19 +265,25 @@
                     break;
 
                 case 66: //ctrl+B
+                    historyTimeoutDuration = 0;
                     insertFormating('b','b');
+                    rangeRestore = saveSelection();
                     ret = false;
                     break;
 
                 case 73: //ctrl+I or ctrl+i
                 case 105:
+                    historyTimeoutDuration = 0;
                     insertFormating('i','i');
+                    rangeRestore = saveSelection();
                     ret = false;
                     break;
 
                 case 85: //ctrl+U or ctrl+u
                 case 117:
+                    historyTimeoutDuration = 0;
                     insertFormating('u','u');
+                    rangeRestore = saveSelection();
                     ret=false;
                     break;
 

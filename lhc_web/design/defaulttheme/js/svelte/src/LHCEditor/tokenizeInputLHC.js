@@ -57,12 +57,19 @@ export function tokenizeInputLHC(target, val){
             val = val
                 .replaceAll('&nbsp;',' ')
                 .replaceAll('&amp;','&')
+                .replace(/<(b|i|u|strike)\sstyle=".*?">/g,"<$1>")
                 .replace(/<suggester.*?>.*?<\/suggester>/g,'');
             let valueOriginal = val;
+
+            /*console.log('START');
+            console.log(JSON.stringify(val));*/
 
             val = decodeHTMLCharacters(val);
             val = convertToPlainText(val);
             val = val.replace(/\u00a0/g, " "); //NBSP internal character
+
+            /*console.log(JSON.stringify(valueOriginal));
+            console.log('END');*/
 
             if (val === "<br>") {
                 target.innerHTML = "";
