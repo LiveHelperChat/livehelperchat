@@ -66,6 +66,14 @@ class erLhcoreClassMailconvWorkflow {
                 $message->wait_time = $message->accept_time - $message->ctime;
             }
 
+            // Assign user id to conversation id if it was not assigned,
+            // This is required in case the operator just closes conversation.
+            // The Same conversation can have multiple operators working on ticket
+            // We want to keep any previously set user_id
+            if ($message->user_id == 0) {
+                $message->user_id = $conv->user_id;
+            }
+
             // Update always conversation user to present conversation user
             $message->conv_user_id = $conv->user_id;
 
