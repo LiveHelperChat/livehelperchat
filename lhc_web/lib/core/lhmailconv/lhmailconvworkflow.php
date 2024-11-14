@@ -39,6 +39,7 @@ class erLhcoreClassMailconvWorkflow {
             {
                 $message->status = erLhcoreClassModelMailconvMessage::STATUS_RESPONDED;
                 $message->response_type = erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED;
+                $message->user_id = $conv->user_id; // In case we are changing message status always update user_id
             }
 
             if ($message->lr_time == 0) {
