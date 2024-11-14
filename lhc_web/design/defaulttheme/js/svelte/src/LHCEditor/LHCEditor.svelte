@@ -29,6 +29,9 @@
     export let enable_canned_suggester;
     export let disable_key_listeners;
     export let data_rows_default = 2;
+    export let disable_bb_bold = null;
+    export let disable_bb_underline = null;
+    export let disable_bb_italic = null;
 
     const conversionBBCodePairs = {
         '&amp;' : '&',
@@ -344,7 +347,9 @@
                     break;
 
                 case 66: //ctrl+B
-                    if (isSelected() === true) {
+                    if (disable_bb_bold) {
+                        ret = false;
+                    } else if (isSelected() === true) {
                         historyTimeoutDuration = 0;
                         insertFormating('b','b');
                         rangeRestore = saveSelection();
@@ -354,7 +359,9 @@
 
                 case 73: //ctrl+I or ctrl+i
                 case 105:
-                    if (isSelected() === true) {
+                    if (disable_bb_italic) {
+                        ret = false;
+                    } else if (isSelected() === true) {
                         historyTimeoutDuration = 0;
                         insertFormating('i','i');
                         rangeRestore = saveSelection();
@@ -364,7 +371,9 @@
 
                 case 85: //ctrl+U or ctrl+u
                 case 117:
-                    if (isSelected() === true) {
+                    if (disable_bb_underline) {
+                        ret = false;
+                    } else if (isSelected() === true) {
                         historyTimeoutDuration = 0;
                         insertFormating('u','u');
                         rangeRestore = saveSelection();
