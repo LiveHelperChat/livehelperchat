@@ -14,7 +14,7 @@
 <script>
     let textContent = ''
 
-    import {tokenizeInputLHC,handlePaste, insertFormatingLHC, insertContentLHC, saveSelection, setCursorAtEnd, replaceRangeLHC} from './tokenizeInputLHC.js'
+    import {tokenizeInputLHC,handlePaste, insertFormatingLHC, insertContentLHC, saveSelection, setCursorAtEnd, replaceRangeLHC, isSelected} from './tokenizeInputLHC.js'
     import {LHCEditorStore} from './LHCEditorStore.js'
     import {writable} from 'svelte/store';
     import { onMount } from 'svelte';
@@ -42,8 +42,7 @@
         '<u>' : "[u]",
         '</u>' : "[/u]",
         '</strike>' : "[/s]",
-        '<strike>' : "[s]",
-        '&nbsp;' : ' '
+        '<strike>' : "[s]"
     };
 
     const conversionHTMLBBPairs = {
@@ -126,9 +125,17 @@
 
     function cleanupForEditor(content) {
         content = content.replaceAll("\r\n","\n");
+
         for (const [key, value] of Object.entries(conversionBBCodePairs)) {
             content = content.replaceAll(value, key);
         }
+
+        // Replace multiple spaces with alternating &nbsp; and normal spaces
+        content = content.replace(/ {2,}/g, match => {
+            // Generate an alternating pattern of &nbsp; and normal spaces
+            return Array.from(match, (char, index) => (index % 2 === 0 ? '&nbsp;' : ' ')).join('');
+        });
+
         return content;
     }
 
@@ -203,9 +210,75 @@
         }
     }
 
+    // ChatGPT generated function :)
+    function convertInlineStyles(htmlString) {
+        // Create a temporary div element to hold the HTML content
+        var tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlString;
+
+        // Allowed tags for inline style conversion
+        const allowedTags = ['U', 'B', 'I', 'STRIKE', 'SPAN'];
+
+        // Mapping of style properties to elements
+        const styleToElementMap = {
+            'font-style: italic': 'i',
+            'font-weight: bold': 'b',
+            'text-decoration: underline': 'u',
+            'text-decoration: line-through': 'strike'
+        };
+
+        // Function to recursively process elements
+        function processElement(element) {
+            // Iterate over child nodes
+            Array.from(element.childNodes).forEach(child => {
+                // Only process element nodes and allowed tags
+                if (child.nodeType === Node.ELEMENT_NODE && allowedTags.includes(child.tagName)) {
+                    let style = child.getAttribute('style');
+
+                    if (style) {
+                        // Loop over each style in the mapping and apply wrapping elements
+                        Object.keys(styleToElementMap).forEach(styleRule => {
+                            if (style.includes(styleRule)) {
+                                // Create the wrapper element
+                                const wrapper = document.createElement(styleToElementMap[styleRule]);
+                                child.removeAttribute('style'); // Remove inline style
+
+                                // Wrap the child in the new element
+                                let clonedNode = child.cloneNode(true);
+
+                                if (child.tagName !== 'SPAN') {
+                                    wrapper.appendChild(clonedNode);
+                                } else {
+                                    // We get rid of SPAN at the same time
+                                    while (clonedNode.firstChild) {
+                                        wrapper.appendChild(clonedNode.firstChild);
+                                    }
+                                }
+
+                                element.replaceChild(wrapper, child);
+                                child = wrapper; // Update reference to continue wrapping if needed
+                            }
+                        });
+                    }
+
+                    // Recursively process child elements
+                    processElement(child);
+                }
+            });
+        }
+
+        // Process the top-level element
+        processElement(tempDiv);
+
+        // Return the modified HTML as a string
+        return tempDiv.innerHTML;
+    }
+
     function cleanupForStore(text) {
 
-        text = text.replace(/<(b|i|u|strike)\sstyle=".*?">/g,"<$1>");
+        text = convertInlineStyles(text);
+
+        text = text.replace(/<(b|i|u|strike)\sstyle=".*?">/g,"<$1>").replace(/<span style=".*?">(.*?)<\/span>/g,"$1").replace(/<span>(.*?)<\/span>/g,"$1");
 
         for (const [key, value] of Object.entries(conversionHTMLBBPairs)) {
             text = text.replaceAll(key, value);
@@ -239,8 +312,14 @@
 
         if(e.ctrlKey) {
 
-
             switch(e.keyCode) {
+
+                case 32: // ctrl+space
+                    setCursorAtEnd(myInput);
+                    rangeRestore = saveSelection();
+                    insertContent('&nbsp;');
+                    ret=false;
+                    break;
 
                 case 90: // ctrl+z
                     hideSuggester = true;
@@ -265,26 +344,32 @@
                     break;
 
                 case 66: //ctrl+B
-                    historyTimeoutDuration = 0;
-                    insertFormating('b','b');
-                    rangeRestore = saveSelection();
-                    ret = false;
+                    if (isSelected() === true) {
+                        historyTimeoutDuration = 0;
+                        insertFormating('b','b');
+                        rangeRestore = saveSelection();
+                        ret = false;
+                    }
                     break;
 
                 case 73: //ctrl+I or ctrl+i
                 case 105:
-                    historyTimeoutDuration = 0;
-                    insertFormating('i','i');
-                    rangeRestore = saveSelection();
-                    ret = false;
+                    if (isSelected() === true) {
+                        historyTimeoutDuration = 0;
+                        insertFormating('i','i');
+                        rangeRestore = saveSelection();
+                        ret = false;
+                    }
                     break;
 
                 case 85: //ctrl+U or ctrl+u
                 case 117:
-                    historyTimeoutDuration = 0;
-                    insertFormating('u','u');
-                    rangeRestore = saveSelection();
-                    ret=false;
+                    if (isSelected() === true) {
+                        historyTimeoutDuration = 0;
+                        insertFormating('u','u');
+                        rangeRestore = saveSelection();
+                        ret=false;
+                    }
                     break;
 
             }

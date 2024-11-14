@@ -58,7 +58,9 @@ export function tokenizeInputLHC(target, val){
                 .replaceAll('&nbsp;',' ')
                 .replaceAll('&amp;','&')
                 .replace(/<(b|i|u|strike)\sstyle=".*?">/g,"<$1>")
-                .replace(/<suggester.*?>.*?<\/suggester>/g,'');
+                .replace(/<suggester.*?>.*?<\/suggester>/g,'')
+                .replace(/<span style=".*?">(.*?)<\/span>/g,"$1")
+                .replace(/<span>(.*?)<\/span>/g,"$1");
             let valueOriginal = val;
 
             /*console.log('START');
@@ -91,14 +93,20 @@ export function tokenizeInputLHC(target, val){
 }
 
 export function insertFormatingLHC(formating, formatingend, range, myInput, html) {
-    restoreSelection(range, myInput);
+
+    let isSelected = range && range.startOffset != range.endOffset;
+
     let commandsSupported = {'b' : 'bold','i' : 'italic','u' : 'underline','s' : 'strikethrough'};
     if (commandsSupported[formating]) {
+        isSelected === true && restoreSelection(range, myInput);
         document.execCommand(commandsSupported[formating], false, null);
+        myInput.focus();
     } else {
+        restoreSelection(range, myInput);
         insertTextWrap('[' + formating +']', '[/' + formatingend+']');
     }
-    html.set(myInput.innerHTML);
+
+    isSelected && html.set(myInput.innerHTML);
 
 }
 
@@ -126,6 +134,18 @@ export function setCursorAtEnd(myInput){
     selection = window.getSelection();//get the selection object (allows you to change selection)
     selection.removeAllRanges();//remove any selections already made
     selection.addRange(range);//make the range you have just created the visible selection
+}
+
+// Function to check if we have selected any range
+export function isSelected() {
+    if (window.getSelection) {
+        let sel = window.getSelection();
+        if (sel.getRangeAt && sel.rangeCount) {
+            let range = sel.getRangeAt(0);
+            return range.startOffset != range.endOffset;
+        }
+    }
+    return false;
 }
 
 export function saveSelection() {
