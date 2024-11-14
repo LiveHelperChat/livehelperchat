@@ -103,11 +103,15 @@ try {
                     $message->wait_time = $message->accept_time - $message->ctime;
                     $message->status = erLhcoreClassModelMailconvMessage::STATUS_ACTIVE;
                     $message->conv_user_id = $conv->user_id;
+                    $message->user_id = $conv->user_id;
                     $message->updateThis();
                     $messages[$indexMessage] = $message;
                 } else {
+                    if ($message->user_id == 0) {
+                        $message->user_id = $conv->user_id;
+                    }
                     $message->conv_user_id = $conv->user_id;
-                    $message->updateThis(['update' => ['conv_user_id']]);
+                    $message->updateThis(['update' => ['conv_user_id', 'user_id']]);
                 }
             }
         }

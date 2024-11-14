@@ -136,6 +136,12 @@ try {
                 $stmt->bindValue(':conv_user_id',$conv->user_id,PDO::PARAM_INT);
                 $stmt->execute();
 
+                // Assign unassigned mails to present owner
+                $stmt = $db->prepare('UPDATE `lhc_mailconv_msg` SET `user_id` = :user_id WHERE `user_id` = 0 AND `conversation_id` = :conversation_id');
+                $stmt->bindValue(':conversation_id',$conv->id,PDO::PARAM_INT);
+                $stmt->bindValue(':user_id',$conv->user_id,PDO::PARAM_INT);
+                $stmt->execute();
+
                 erLhcoreClassChat::updateActiveChats($conv->user_id);
 
                 if ($conv->department !== false) {
