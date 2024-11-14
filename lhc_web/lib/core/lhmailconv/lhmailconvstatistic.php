@@ -601,6 +601,12 @@ class erLhcoreClassMailconvStatistic {
             unset($filter['filterlte']['time']);
         }
 
+        // In statistic there will be option to search by mail message owner or conversation owner
+        /*if (isset($filter['filter']['user_id'])){
+            $filter['filter']['conv_user_id'] = $filter['filter']['user_id'];
+            unset($filter['filter']['user_id']);
+        }*/
+
         $items = erLhcoreClassModelMailconvMessage::getCount(
             array_merge(array('limit' => 50, 'group' => 'response_type'),$filter),
             '',
@@ -620,10 +626,9 @@ class erLhcoreClassMailconvStatistic {
         }
 
         $itemState['mail_statistic_total'] = $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED]+
-            $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED] +
-            $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL] +
-            $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL];
-
+        $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED] +
+        $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL] +
+        $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL];
     }
 
 }

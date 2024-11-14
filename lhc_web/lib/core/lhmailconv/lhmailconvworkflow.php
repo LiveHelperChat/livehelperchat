@@ -66,6 +66,9 @@ class erLhcoreClassMailconvWorkflow {
                 $message->wait_time = $message->accept_time - $message->ctime;
             }
 
+            // Update always conversation user to present conversation user
+            $message->conv_user_id = $conv->user_id;
+
             $message->updateThis();
         }
 
