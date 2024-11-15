@@ -162,10 +162,10 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                         <div className="col-6">
                             <ul className="fs13 mb-0 list-unstyled">
                                 {message.accept_time_front && <li>{t('mail.accepted_at')}: {message.accept_time_front}</li>}
-                                {message.plain_user_name && <li>{t('mail.accepted_by')}: <b>{message.plain_user_name}</b></li>}
+                                {message.plain_user_name && <li data-id={message.user_id} >{t('mail.accepted_by')}: <b>{message.plain_user_name}</b></li>}
                                 {message.wait_time && <li>{t('mail.accept_wait_time')}: {message.wait_time_pending}</li>}
                                 {message.lr_time && message.response_time && <li>{t('mail.response_wait_time')}: {message.wait_time_response}, {t('mail.exc_pending_time')}</li>}
-                                {message.lr_time && <li>Response type: {message.response_type == 1 ? t('msg.nrr') : (message.response_type == 2 ? t('msg.orm') : t('msg.rbe'))}</li>}
+                                <li data-id={message.response_type}>{t('mail.rsp_type')}: {message.response_type == 1 ? t('msg.nrr') : (message.response_type == 2 ? t('msg.orm') : (message.response_type == 3 ? t('msg.rbe') : t('msg.unr')))}</li>
                                 {message.interaction_time && <li>{t('mail.interaction_time')}: {message.interaction_time_duration}</li>}
                                 {message.cls_time && <li>{t('mail.closed_at')}: {message.cls_time_front}</li>}
                                 {message.conv_duration_front && <li>{t('mail.response_wait_time')}: {message.conv_duration_front}</li>}
