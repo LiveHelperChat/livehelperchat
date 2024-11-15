@@ -221,7 +221,7 @@ $ViewList['mailhistory'] = array(
 
 $ViewList['conversations'] = array(
     'params' => array(),
-    'uparams' => array('timefrom_type','ids','is_external','ipp','timefromts','opened','phone','lang_ids','is_followup','sortby','conversation_status_ids','undelivered','view','has_attachment','mailbox_ids','conversation_id','subject','department_ids','department_group_ids','user_ids','group_ids','subject_id','wait_time_from','wait_time_till','nick','email','timefrom','timeto','user_id','export','conversation_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timefrom_seconds','timeto', 'timeto_minutes', 'timeto_hours','timeto_seconds','department_group_id', 'group_id'),
+    'uparams' => array('group_conv','timefrom_type','ids','is_external','ipp','timefromts','opened','phone','lang_ids','is_followup','sortby','conversation_status_ids','undelivered','view','has_attachment','mailbox_ids','conversation_id','subject','department_ids','department_group_ids','user_ids','group_ids','subject_id','wait_time_from','wait_time_till','nick','email','timefrom','timeto','user_id','export','conversation_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timefrom_seconds','timeto', 'timeto_minutes', 'timeto_hours','timeto_seconds','department_group_id', 'group_id'),
     'functions' => array( 'use_admin' ),
     'multiple_arguments' => array(
         'department_ids',

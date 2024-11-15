@@ -610,7 +610,7 @@ class erLhcoreClassMailconvStatistic {
             array_merge(array('limit' => 50, 'group' => 'response_type'),$filter),
             '',
             false,
-            'response_type, count(id) as total_records',
+            'response_type, count('. (isset($filterParams->group_conv) && $filterParams->group_conv == 1 ? 'distinct conversation_id' : 'id') .') as total_records',
             false,
             true
         );
