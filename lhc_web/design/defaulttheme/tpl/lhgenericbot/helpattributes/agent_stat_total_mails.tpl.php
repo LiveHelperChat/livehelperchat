@@ -31,4 +31,4 @@ Represents number of mail messages assigned to the operator. These includes
 This statistic is based on mail messages and their status. Not on the conversation itself. Each conversation consists of more than one mail message. If you want to have statistic based on conversation choose `Mail statistic is based on conversation user`.
 <br>
 <br>
-If you choose to generate mail statistic based on conversation statistic can be inaccurate because in one conversation, multiple operators might have written an e-mail.
+If you choose to generate mail statistic based on conversation user - statistic can be inaccurate because in one conversation, multiple operators might have written an e-mail.
