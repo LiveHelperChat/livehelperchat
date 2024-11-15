@@ -2320,7 +2320,7 @@ class erLhcoreClassChatStatistic {
                     'avgMaximumResponseTimePar_front' => $avgMaximumResponseTimePar_front
                 );
 
-                erLhcoreClassMailconvStatistic::getAgentStatistic($itemState, $filter, $user);
+                erLhcoreClassMailconvStatistic::getAgentStatistic($itemState, $filter, $user, $filterParams);
 
                 $list[] = (object)$itemState;
             }

@@ -176,6 +176,11 @@
             <label><input type="checkbox" <?php if ($input->exclude_deactivated == 1) : ?>checked="checked"<?php endif;?> name="exclude_deactivated" value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude deactivated operators')?></label>
         </div>
     </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label><input type="checkbox" <?php if ($input->mail_conv_user == 1) : ?>checked="checked"<?php endif;?> name="mail_conv_user" value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mail statistic is based on conversation user')?></label>
+        </div>
+    </div>
 
     <input type="hidden" name="doSearch" value="on" />
 

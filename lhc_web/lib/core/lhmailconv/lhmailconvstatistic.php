@@ -589,7 +589,7 @@ class erLhcoreClassMailconvStatistic {
         exit;
     }
 
-    public static function getAgentStatistic(& $itemState, $filter, $user) {
+    public static function getAgentStatistic(& $itemState, $filter, $user, $filterParams) {
 
         if (isset($filter['filtergte']['time'])) {
             $filter['filtergte']['udate'] = $filter['filtergte']['time'];
@@ -601,11 +601,10 @@ class erLhcoreClassMailconvStatistic {
             unset($filter['filterlte']['time']);
         }
 
-        // In statistic there will be option to search by mail message owner or conversation owner
-        /*if (isset($filter['filter']['user_id'])){
+        if (isset($filterParams->mail_conv_user) && $filterParams->mail_conv_user == 1 && isset($filter['filter']['user_id'])) {
             $filter['filter']['conv_user_id'] = $filter['filter']['user_id'];
             unset($filter['filter']['user_id']);
-        }*/
+        }
 
         $items = erLhcoreClassModelMailconvMessage::getCount(
             array_merge(array('limit' => 50, 'group' => 'response_type'),$filter),
