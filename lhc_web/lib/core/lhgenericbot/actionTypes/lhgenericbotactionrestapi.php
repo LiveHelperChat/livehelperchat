@@ -136,6 +136,7 @@ class erLhcoreClassGenericBotActionRestapi
                                 'request_type' => (isset($method['body_request_type']) ? $method['body_request_type'] : ''),
                                 'params_request' => $response['params_request'],
                                 'return_content' => $response['content_raw'],
+                                'http_error' => $response['http_error'],
                                 'msg_id' => (isset($params['msg']) && is_object($params['msg'])) ? $params['msg']->id : 0,
                                 'msg_text' => '-',
                             ], JSON_PRETTY_PRINT),
@@ -163,6 +164,7 @@ class erLhcoreClassGenericBotActionRestapi
                                 'request_type' => (isset($method['body_request_type']) ? $method['body_request_type'] : ''),
                                 'params_request' => $response['params_request'],
                                 'return_content' => $response['content_raw'],
+                                'http_error' => $response['http_error'],
                                 'msg_id' =>  (isset($params['msg']) && is_object($params['msg'])) ?  $params['msg']->id : 0,
                                 'msg_text' => '-',
                             ],JSON_PRETTY_PRINT)]]]);
@@ -1182,7 +1184,8 @@ class erLhcoreClassGenericBotActionRestapi
         $overridden = false;
 
         $http_data = json_encode($paramsRequest);
-
+        $http_error = '';
+        
         if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
             $content = $commandResponse['http_response'];
             $http_error = $commandResponse['http_error'];
@@ -1195,12 +1198,10 @@ class erLhcoreClassGenericBotActionRestapi
                 ($responseCache = erLhcoreClassModelGenericBotRestAPICache::findOne(['sort' => false, 'filter' => ['hash' => md5($http_data . $url), 'rest_api_id' => $paramsCustomer['rest_api']->id]])) &&
                 $responseCache instanceof erLhcoreClassModelGenericBotRestAPICache) {
                     $content = $responseCache->response;
-                    $http_error = '';
                     $httpcode = 200;
                     $overridden = true;
             } else {
                 $content = curl_exec($ch);
-                $http_error = '';
             }
         }
 
@@ -1262,6 +1263,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
                         'params_request' => $paramsRequestDebug,
                         'return_content' => is_array($contentDebug) ? $contentDebug : $content,
+                        'http_error' => $http_error,
                         'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
                         'msg_text' => $msg_text,
                     ], JSON_PRETTY_PRINT),
@@ -1290,6 +1292,7 @@ class erLhcoreClassGenericBotActionRestapi
                     'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
                     'params_request' => $paramsRequestDebug,
                     'return_content' => is_array($contentDebug) ? $contentDebug : $content,
+                    'http_error' => $http_error,
                     'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                     'msg_text' => $msg_text,
                 ],JSON_PRETTY_PRINT)]]]);
