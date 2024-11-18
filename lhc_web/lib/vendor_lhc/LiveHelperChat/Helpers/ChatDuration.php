@@ -105,6 +105,9 @@ class ChatDuration
             $diff = $row['time'] - $previousMessage['time'];
 
             if ($diff < $timeout && $diff > 0) {
+
+                $logDuration[] = 'CHAT_DURATION - [' .  date('H:i:s',$row['time']) . ' - ' .  date('H:i:s',$previousMessage['time']) . ' = ' . $diff . " < " . $timeout . "]"; // @debug
+
                 $timeToAdd += $diff;
                 if ($ownerChanged === false) {
                     $timeToAddParticipant += $diff;
