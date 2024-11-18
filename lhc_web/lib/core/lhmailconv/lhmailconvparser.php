@@ -708,6 +708,10 @@ class erLhcoreClassMailconvParser {
                             $conversations->user_id = $mailbox->user_id;
                         }
 
+                        if ($message->user_id == 0) {
+                            $message->user_id = $conversations->user_id;
+                        }
+
                         // It was just a send e-mail. We can mark conversations as finished. Until someone replies back to us.
                         if ($internalInit == true) {
 
@@ -740,7 +744,7 @@ class erLhcoreClassMailconvParser {
                         $message->priority = $priorityConversation;
                         $message->conversation_id = $conversations->id;
                         $message->dep_id = $conversations->dep_id;
-                        $message->updateThis(['update' =>  ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time','is_external','conv_user_id']]);
+                        $message->updateThis(['update' =>  ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time','is_external','conv_user_id','user_id']]);
 
                         // Save initial message
                         if (!empty($logImport)) {
@@ -863,8 +867,12 @@ class erLhcoreClassMailconvParser {
                             $message->conv_user_id = $conversation->user_id;
                         }
 
+                        if ($message->user_id == 0) {
+                            $message->user_id = $conversation->user_id;
+                        }
+
                         $message->mb_folder = $mailboxFolder['path'];
-                        $message->updateThis(['update' => ['mb_folder','conv_user_id']]);
+                        $message->updateThis(['update' => ['mb_folder', 'conv_user_id', 'user_id']]);
 
                         $messages[] = $message;
 
