@@ -393,7 +393,7 @@ class OnlineChat extends Component {
 
                     clearInterval(this.intervalPending);
                     this.intervalFunction();
-                    this.intervalPending = setInterval(this.intervalFunction,2000);
+                    this.intervalPending = setInterval(this.intervalFunction, 200);
                 } else {
                     this.delayed = true;
 

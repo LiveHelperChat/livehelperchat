@@ -1369,6 +1369,7 @@ class erLhcoreClassGenericBotActionRestapi
             'paramsCustomer' => $paramsCustomer,
             'methodSettings' => $methodSettings,
             'paramsRequest' => $paramsRequest,
+            'replaceVariables' => $replaceVariables,
             'httpcode' => $httpcode,
             'url' => $url,
             'fp' =>  (isset($fp) ? $fp : ''),
@@ -1378,7 +1379,7 @@ class erLhcoreClassGenericBotActionRestapi
         ]);
     }
 
-    public static function parseContentOutput($methodSettings){
+    public static function parseContentOutput($methodSettings) {
 
         extract($methodSettings);
 
