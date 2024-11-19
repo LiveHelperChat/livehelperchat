@@ -58,13 +58,22 @@
             </div>
         </div>
         <div class="col-6">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Method');?></label>
-            <select class="form-control form-control-sm" name="method" ng-model="param.method">
-                <option value="GET">GET</option>
-                <option value="POST">POST</option>
-                <option value="PUT">PUT</option>
-                <option value="DELETE">DELETE</option>
-            </select>
+
+            <div class="row">
+                <div class="col-6">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Method');?></label>
+                    <select class="form-control form-control-sm" name="method" ng-model="param.method">
+                        <option value="GET">GET</option>
+                        <option value="POST">POST</option>
+                        <option value="PUT">PUT</option>
+                        <option value="DELETE">DELETE</option>
+                    </select>
+                </div>
+                <div class="col-6 pt-4">
+                    <label><input type="checkbox" value="on" ng-model="param.streaming_request"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','This is a streaming request');?></label>
+                </div>
+            </div>
+
         </div>
         <div class="col-6">
             <div class="form-group">

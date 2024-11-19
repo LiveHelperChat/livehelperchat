@@ -125,6 +125,10 @@ class erLhcoreClassGenericBotActionRestapi
                     $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
                 }
 
+                if (isset($method['streaming_request']) && $method['streaming_request'] == 1) {
+                    $response = self::processStream(['response' => $response], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
+                }
+
                 // Log if polling conditions fails
                 if (isset($method['polling_n_times']) && (int)$method['polling_n_times'] >= 1 && $method['polling_n_times'] <= 10 && isset($response['conditions_met']) && $response['conditions_met'] !== true) {
                     if (isset($restAPI->configuration_array['log_audit']) && $restAPI->configuration_array['log_audit']) {
@@ -214,7 +218,6 @@ class erLhcoreClassGenericBotActionRestapi
                 }
 
 
-
                 // We have found exact matching response type
                 // Let's check has user checked any trigger to execute.
                 if (isset($response['id'])) {
@@ -257,7 +260,7 @@ class erLhcoreClassGenericBotActionRestapi
                         return $argsDefault;
 
                     } else {
-                        // Do nothing as user did not chose any trigger to execute
+                        // Do nothing as user did not choose any trigger to execute
                     }
                 } elseif (isset($action['content']['rest_api_method_output']['default_trigger']) && is_numeric($action['content']['rest_api_method_output']['default_trigger'])) {
 
@@ -348,6 +351,52 @@ class erLhcoreClassGenericBotActionRestapi
                 }
             }
         }
+    }
+
+    public static function processStream($response, $methodSettings, $paramsCustomer)
+    {
+        if (is_resource($response['response']['stream'])) {
+            while (($line = fgets($response['response']['stream'])) !== false) {
+
+                // Skip empty lines
+                if (trim($line) == '' || !str_starts_with($line, 'data: {')) {
+                    continue;
+                }
+
+                $data = str_replace('data: {','{',$line);
+
+                $responseStream = self::parseContentOutput([
+                    'content' => $data,
+                    'paramsCustomer' => $paramsCustomer,
+                    'methodSettings' => $methodSettings,
+                    'httpcode' => 200,
+                    'url' => null,
+                    'http_error' => null,
+                    'fp' => null,
+                    'http_data' => null,
+                    'paramsRequest' => null
+                ]);
+
+                if (isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1) {
+
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stream_flow', array(
+                        'restapi' => $paramsCustomer['rest_api'],
+                        'chat' => $paramsCustomer['chat'],
+                        'response' => $responseStream
+                    ));
+
+                    // Append stream to final output
+                    $response['response']['content'] .= $responseStream['content'];
+                    $response['response']['content_2'] .= $responseStream['content_2'];
+                    $response['response']['content_3'] .= $responseStream['content_3'];
+                    $response['response']['content_4'] .= $responseStream['content_4'];
+                    $response['response']['content_5'] .= $responseStream['content_5'];
+                    $response['response']['content_6'] .= $responseStream['content_6'];
+                }
+            }
+        }
+
+        return $response['response'];
     }
 
     public static function trimOnce($string)
@@ -1160,6 +1209,12 @@ class erLhcoreClassGenericBotActionRestapi
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
+        // Streaming request save stream to tmp file
+        if (isset($methodSettings['streaming_request']) && $methodSettings['streaming_request'] == 1) {
+            $fp = fopen('php://temp', 'w+');
+            curl_setopt($ch, CURLOPT_FILE, $fp);
+        }
+
         $paramsRequest = [
             'headers' => $headers,
             'url' => $url,
@@ -1207,6 +1262,14 @@ class erLhcoreClassGenericBotActionRestapi
 
         if ($overridden == false && curl_errno($ch)) {
             $http_error = curl_error($ch);
+        }
+
+        if (isset($fp)) {
+            rewind($fp);
+            // read one line and parse as it was our full response
+           if (($line = fgets($fp)) !== false && str_starts_with($line, 'data: ')) {
+               $content = str_replace('data: {','{',$line);
+            }
         }
 
         if ($overridden == false) {
@@ -1299,8 +1362,25 @@ class erLhcoreClassGenericBotActionRestapi
                 $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
                 $msgLog->saveThis();
             }
-
         }
+
+        // Check vars is scope correct
+        return self::parseContentOutput([
+            'paramsCustomer' => $paramsCustomer,
+            'methodSettings' => $methodSettings,
+            'paramsRequest' => $paramsRequest,
+            'httpcode' => $httpcode,
+            'url' => $url,
+            'fp' =>  (isset($fp) ? $fp : ''),
+            'content' => $content,
+            'http_error' => $http_error,
+            'http_data' => $http_data
+        ]);
+    }
+
+    public static function parseContentOutput($methodSettings){
+
+        extract($methodSettings);
 
         if (isset($methodSettings['output']) && !empty($methodSettings['output'])) {
 
@@ -1319,7 +1399,7 @@ class erLhcoreClassGenericBotActionRestapi
             usort($methodSettings['output'], function ($a, $b) {
                 return !(isset($a['output_priority']) && is_numeric($a['output_priority']) && (!isset($b['output_priority']) || $a['output_priority'] > $b['output_priority'])) ? 1 : 0;
             });
-            
+
             foreach ($methodSettings['output'] as $outputCombination)
             {
                 if ($allOptional == false && (!isset($paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk']) || $paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk'] == false)) {
@@ -1405,37 +1485,37 @@ class erLhcoreClassGenericBotActionRestapi
                     }
 
                     foreach([   [
-                                    'success_compare_value' => 'success_compare_value',
-                                    'success_condition' => 'success_condition',
-                                    'live_value' => $responseValueCompare,
-                                ],
+                        'success_compare_value' => 'success_compare_value',
+                        'success_condition' => 'success_condition',
+                        'live_value' => $responseValueCompare,
+                    ],
                                 [
                                     'success_compare_value' => 'success_compare_value_2',
                                     'success_condition' => 'success_condition_2',
                                     'live_value' => $responseValueCompare2,
                                 ]
                             ] as $attrCompare) {
-                                if (isset($outputCombination[$attrCompare['success_condition']]) && $outputCombination[$attrCompare['success_condition']] != '' && isset($outputCombination[$attrCompare['success_compare_value']]) && $outputCombination[$attrCompare['success_compare_value']] != '') {
-                                    if ( $outputCombination[$attrCompare['success_condition']] == 'eq' && !($attrCompare['live_value'] == $outputCombination[$attrCompare['success_compare_value']])) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'lt' && !($attrCompare['live_value'] < $outputCombination[$attrCompare['success_compare_value']])) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'lte' && !($attrCompare['live_value'] <= $outputCombination[$attrCompare['success_compare_value']])) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'neq' && !($attrCompare['live_value'] != $outputCombination[$attrCompare['success_compare_value']])) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'gte' && !($attrCompare['live_value'] >= $outputCombination[$attrCompare['success_compare_value']])) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'gt' && !($attrCompare['live_value'] > $outputCombination[$attrCompare['success_compare_value']])) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination[$attrCompare['success_compare_value']]),$attrCompare['live_value'],0) == false) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination[$attrCompare['success_compare_value']]),$attrCompare['live_value'],0) == true) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'contains' && strrpos($attrCompare['live_value'], $outputCombination[$attrCompare['success_compare_value']]) === false) {
-                                        continue 2;
-                                    }
-                                }
+                        if (isset($outputCombination[$attrCompare['success_condition']]) && $outputCombination[$attrCompare['success_condition']] != '' && isset($outputCombination[$attrCompare['success_compare_value']]) && $outputCombination[$attrCompare['success_compare_value']] != '') {
+                            if ( $outputCombination[$attrCompare['success_condition']] == 'eq' && !($attrCompare['live_value'] == $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'lt' && !($attrCompare['live_value'] < $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'lte' && !($attrCompare['live_value'] <= $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'neq' && !($attrCompare['live_value'] != $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'gte' && !($attrCompare['live_value'] >= $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'gt' && !($attrCompare['live_value'] > $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination[$attrCompare['success_compare_value']]),$attrCompare['live_value'],0) == false) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination[$attrCompare['success_compare_value']]),$attrCompare['live_value'],0) == true) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'contains' && strrpos($attrCompare['live_value'], $outputCombination[$attrCompare['success_compare_value']]) === false) {
+                                continue 2;
+                            }
+                        }
                     }
 
                     $meta = array();
@@ -1461,6 +1541,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'content_5' => (isset($responseValueSub[5]) ? $responseValueSub[5] : ''),
                         'content_6' => (isset($responseValueSub[6]) ? $responseValueSub[6] : ''),
                         'meta' => $meta,
+                        'stream' => (isset($fp) ? $fp : ''),
                         'conditions_met' => true,
                         'params_request' => $paramsRequest,
                         'id' => $outputCombination['id']);
@@ -1478,11 +1559,11 @@ class erLhcoreClassGenericBotActionRestapi
                     if (isset($outputCombination['method_name']) && !empty(trim($outputCombination['method_name']))) {
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_rest_api_method.' . trim($outputCombination['method_name']),
                             array(  'method_settings' => $methodSettings,
-                                    'params_customer' => $paramsCustomer,
-                                    'params_request' => $paramsRequest,
-                                    'url' => $url,
-                                    'custom_args' => str_replace(array_keys($replaceVariables), array_values($replaceVariables), (isset($outputCombination['method_name_args']) ? $outputCombination['method_name_args'] : '')),
-                                    'response' => $responseFormatted)
+                                'params_customer' => $paramsCustomer,
+                                'params_request' => $paramsRequest,
+                                'url' => $url,
+                                'custom_args' => str_replace(array_keys($replaceVariables), array_values($replaceVariables), (isset($outputCombination['method_name_args']) ? $outputCombination['method_name_args'] : '')),
+                                'response' => $responseFormatted)
                         );
                     }
 
@@ -1498,6 +1579,7 @@ class erLhcoreClassGenericBotActionRestapi
                 'http_error' => $http_error,
                 'http_data' => $http_data,
                 'params_request' => $paramsRequest,
+                'stream' => (isset($fp) ? $fp : ''),
                 'conditions_met' => false,
                 'content_2' => '',
                 'content_3' => '',
@@ -1515,6 +1597,7 @@ class erLhcoreClassGenericBotActionRestapi
             'http_error' => $http_error,
             'http_data' => $http_data,
             'params_request' => $paramsRequest,
+            'stream' => (isset($fp) ? $fp : ''),
             'conditions_met' => false,
             'content_2' => '',
             'content_3' => '',
