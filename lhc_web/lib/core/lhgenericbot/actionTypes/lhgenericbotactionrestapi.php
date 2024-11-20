@@ -125,10 +125,6 @@ class erLhcoreClassGenericBotActionRestapi
                     $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
                 }
 
-                if (isset($method['streaming_request']) && $method['streaming_request'] == 1) {
-                    $response = self::processStream(['response' => $response], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
-                }
-
                 // Log if polling conditions fails
                 if (isset($method['polling_n_times']) && (int)$method['polling_n_times'] >= 1 && $method['polling_n_times'] <= 10 && isset($response['conditions_met']) && $response['conditions_met'] !== true) {
                     if (isset($restAPI->configuration_array['log_audit']) && $restAPI->configuration_array['log_audit']) {
@@ -351,52 +347,6 @@ class erLhcoreClassGenericBotActionRestapi
                 }
             }
         }
-    }
-
-    public static function processStream($response, $methodSettings, $paramsCustomer)
-    {
-        if (is_resource($response['response']['stream'])) {
-            while (($line = fgets($response['response']['stream'])) !== false) {
-
-                // Skip empty lines
-                if (trim($line) == '' || !str_starts_with($line, 'data: {')) {
-                    continue;
-                }
-
-                $data = str_replace('data: {','{',$line);
-
-                $responseStream = self::parseContentOutput([
-                    'content' => $data,
-                    'paramsCustomer' => $paramsCustomer,
-                    'methodSettings' => $methodSettings,
-                    'httpcode' => 200,
-                    'url' => null,
-                    'http_error' => null,
-                    'fp' => null,
-                    'http_data' => null,
-                    'paramsRequest' => null
-                ]);
-
-                if (isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1) {
-
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stream_flow', array(
-                        'restapi' => $paramsCustomer['rest_api'],
-                        'chat' => $paramsCustomer['chat'],
-                        'response' => $responseStream
-                    ));
-
-                    // Append stream to final output
-                    $response['response']['content'] .= $responseStream['content'];
-                    $response['response']['content_2'] .= $responseStream['content_2'];
-                    $response['response']['content_3'] .= $responseStream['content_3'];
-                    $response['response']['content_4'] .= $responseStream['content_4'];
-                    $response['response']['content_5'] .= $responseStream['content_5'];
-                    $response['response']['content_6'] .= $responseStream['content_6'];
-                }
-            }
-        }
-
-        return $response['response'];
     }
 
     public static function trimOnce($string)
@@ -874,6 +824,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_size}}' => $file_size,
             '{{file_mime}}' => $file_mime,
             '{{timestamp}}' => time(),
+            '{{data_utc}}' => (new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s T'),
             '{{custom_args_1}}' => isset($paramsCustomer['action']['content']['attr_options']['custom_args_1']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_1'] : null
         );
 
@@ -912,6 +863,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_name}}' =>json_encode($file_name),
             '{{file_size}}' =>json_encode($file_size),
             '{{custom_args_1}}' => json_encode(isset($paramsCustomer['action']['content']['attr_options']['custom_args_1']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_1'] : null),
+            '{{data_utc}}' => json_encode((new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s T')),
             '{{timestamp}}' => time()
         );
 
@@ -1209,10 +1161,145 @@ class erLhcoreClassGenericBotActionRestapi
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
+        $responseContent = [];
+        $streamLines = [];
+        $logRequest = is_object($paramsCustomer['rest_api']) &&
+            (isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) ||
+            (isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system']);
+        $streamEvent = '';
+        $streamBuffer = ''; // In streaming chunk might contain multiple json parts untill it's complete
+
         // Streaming request save stream to tmp file
         if (isset($methodSettings['streaming_request']) && $methodSettings['streaming_request'] == 1) {
-            $fp = fopen('php://temp', 'w+');
-            curl_setopt($ch, CURLOPT_FILE, $fp);
+
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
+            curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) use (& $streamBuffer, &$responseContent, $paramsCustomer, $methodSettings, & $streamLines, $logRequest, & $streamEvent)  {
+                $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+                $trimmed_data = trim($data);
+
+                if (!empty($trimmed_data)) {
+                    $streamContent = ['content' => '','content_2' => '','content_3' => '','content_4' => '','content_5' => '','content_6' => ''];
+                    foreach (explode("\n",$trimmed_data) as $line) {
+                        $line = trim($line);
+
+                        if (isset($methodSettings['streaming_event_type_field']) && !empty($methodSettings['streaming_event_type_field'])) {
+                            if ($line != "" && str_starts_with(trim($line),$methodSettings['streaming_event_type_field'].': ')) { // This is event indication
+                                $streamEvent = str_replace($methodSettings['streaming_event_type_field'].': ','',$line);
+                                $streamBuffer = '';
+                            }
+                        }
+
+                        $dataStarted = str_starts_with(trim($line),'data: {');
+
+                        if ($line != "" && ($dataStarted === true || !empty($streamBuffer))) {
+
+                            if ($dataStarted === true) {
+                                $streamBuffer = str_replace('data: {','{',$line);
+                            } else {
+                                $streamBuffer .= $line;
+                            }
+
+                            json_decode($streamBuffer);
+                            if (json_last_error() != JSON_ERROR_NONE) {
+                                if ($logRequest === true && $line != "") {
+                                    $streamLines[] = self::getCurrentTimeWithMilliseconds(). ' [INVALID JSON] - [' . $streamEvent . '] - ' . $streamBuffer;
+                                }
+                                continue;
+                            } elseif ($logRequest === true && $line != "") {
+                                $streamLines[] = self::getCurrentTimeWithMilliseconds().' [VALID JSON] - [' . $streamEvent . '] - ' . $streamBuffer;
+                            }
+
+                            $responseStream = self::parseContentOutput([
+                                'content' => $streamBuffer,
+                                'paramsCustomer' => $paramsCustomer,
+                                'methodSettings' => $methodSettings,
+                                'httpcode' => $httpCode,
+                                'url' => null,
+                                'http_error' => null,
+                                'http_data' => null,
+                                'paramsRequest' => null,
+                                'stream_event' => $streamEvent
+                            ]);
+
+                            if (isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1) {
+                                if (isset($responseStream['stream_content']) && $responseStream['stream_content'] == true) {
+                                    $streamContent['content'] .= $responseStream['content'];
+                                    $streamContent['content_2'] .= $responseStream['content_2'];
+                                    $streamContent['content_3'] .= $responseStream['content_3'];
+                                    $streamContent['content_4'] .= $responseStream['content_4'];
+                                    $streamContent['content_5'] .= $responseStream['content_5'];
+                                    $streamContent['content_6'] .= $responseStream['content_6'];
+                                }
+                                if (
+                                    (isset($responseStream['stream_content']) && $responseStream['stream_content'] == true && empty($responseContent)) ||
+                                    (isset($responseStream['stream_final']) && $responseStream['stream_final'] == true)
+                                ) {
+                                    $responseContent = $responseStream;
+                                } else if (isset($responseStream['stream_content']) && $responseStream['stream_content'] == true) {
+                                    $responseContent['content'] .= $responseStream['content'];
+                                    $responseContent['content_2'] .= $responseStream['content_2'];
+                                    $responseContent['content_3'] .= $responseStream['content_3'];
+                                    $responseContent['content_4'] .= $responseStream['content_4'];
+                                    $responseContent['content_5'] .= $responseStream['content_5'];
+                                    $responseContent['content_6'] .= $responseStream['content_6'];
+                                }
+                            }
+                        }
+                    }
+
+                    if (isset($responseStream['content']) && $responseStream['content'] != '' && isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1) {
+                        if (isset($streamContent['content']) && isset($responseStream['stream_content']) && $responseStream['stream_content'] == true){
+                            // We need to replace space with non breaking space to preserve innerText attribute
+                            if (str_ends_with($streamContent['content'],' ')) {
+                                $streamContent['content'] = rtrim($streamContent['content']) . "\u{00A0}";
+                            }
+                            // Send aggregated chunk to chat
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stream_flow', array(
+                                'restapi' => $paramsCustomer['rest_api'],
+                                'chat' => $paramsCustomer['chat'],
+                                'response' => $streamContent
+                            ));
+                        }
+
+                        if (isset($responseStream['stream_execute_trigger']) && $responseStream['stream_execute_trigger'] == true) {
+
+                            if (isset($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']]) && is_numeric($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']])) {
+                                $argsDefault = array(
+                                      'replace_array' => array(
+                                        '{content_1}' => $responseStream['content'],
+                                        '{content_2}' => $responseStream['content_2'],
+                                        '{content_3}' => $responseStream['content_3'],
+                                        '{content_4}' => $responseStream['content_4'],
+                                        '{content_5}' => $responseStream['content_5'],
+                                        '{content_6}' => $responseStream['content_6'],
+                                        '{content_1_json}' => json_encode($responseStream['content']),
+                                        '{content_2_json}' => json_encode($responseStream['content_2']),
+                                        '{content_3_json}' => json_encode($responseStream['content_3']),
+                                        '{content_4_json}' => json_encode($responseStream['content_4']),
+                                        '{content_5_json}' => json_encode($responseStream['content_5']),
+                                        '{content_6_json}' => json_encode($responseStream['content_6']),
+                                        '{http_code}' => $responseStream['http_code'],
+                                        '{http_error}' => $responseStream['http_error'],
+                                        '{content_raw}' => $responseStream['content_raw'],
+                                        '{http_data}' => $responseStream['http_data']
+                                    )
+                                );
+
+                                $trigger = erLhcoreClassModelGenericBotTrigger::fetch($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']]);
+
+                                erLhcoreClassGenericBotWorkflow::processTrigger($paramsCustomer['chat'], $trigger, true, array('args' => $argsDefault));
+
+                                if ($logRequest === true) {
+                                    $streamLines[] = self::getCurrentTimeWithMilliseconds().' [trigger exec] - [' . $trigger->name . '] [' . $trigger->id . ']';
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                return strlen($data);
+            });
         }
 
         $paramsRequest = [
@@ -1264,14 +1351,6 @@ class erLhcoreClassGenericBotActionRestapi
             $http_error = curl_error($ch);
         }
 
-        if (isset($fp)) {
-            rewind($fp);
-            // read one line and parse as it was our full response
-           if (($line = fgets($fp)) !== false && str_starts_with($line, 'data: ')) {
-               $content = str_replace('data: {','{',$line);
-            }
-        }
-
         if ($overridden == false) {
             $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             if ($httpcode == 200 &&
@@ -1289,12 +1368,10 @@ class erLhcoreClassGenericBotActionRestapi
                         // Sometimes object already exists
                     }
             }
+            curl_close($ch);
         }
 
-        if (is_object($paramsCustomer['rest_api']) &&
-            (isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) ||
-            (isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'])
-        ) {
+        if ($logRequest === true) {
 
             $contentDebug = json_decode($content,true);
 
@@ -1327,6 +1404,8 @@ class erLhcoreClassGenericBotActionRestapi
                         'params_request' => $paramsRequestDebug,
                         'return_content' => is_array($contentDebug) ? $contentDebug : $content,
                         'http_error' => $http_error,
+                        'stream' => $responseContent,
+                        'stream_lines' => $streamLines,
                         'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
                         'msg_text' => $msg_text,
                     ], JSON_PRETTY_PRINT),
@@ -1356,12 +1435,18 @@ class erLhcoreClassGenericBotActionRestapi
                     'params_request' => $paramsRequestDebug,
                     'return_content' => is_array($contentDebug) ? $contentDebug : $content,
                     'http_error' => $http_error,
+                    'stream' => $responseContent,
+                    'stream_lines' => $streamLines,
                     'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                     'msg_text' => $msg_text,
                 ],JSON_PRETTY_PRINT)]]]);
                 $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
                 $msgLog->saveThis();
             }
+        }
+
+        if (!empty($responseContent)) {
+            return $responseContent;
         }
 
         // Check vars is scope correct
@@ -1372,16 +1457,25 @@ class erLhcoreClassGenericBotActionRestapi
             'replaceVariables' => $replaceVariables,
             'httpcode' => $httpcode,
             'url' => $url,
-            'fp' =>  (isset($fp) ? $fp : ''),
             'content' => $content,
             'http_error' => $http_error,
             'http_data' => $http_data
         ]);
     }
+    public static function getCurrentTimeWithMilliseconds() {
+        // Get the current time with microseconds as a float
+        $microTime = microtime(true);
 
-    public static function parseContentOutput($methodSettings) {
+        // Format the time as H:i:s and add milliseconds
+        $milliseconds = sprintf("%03d", ($microTime - floor($microTime)) * 1000);
+        $timeWithMilliseconds = date("H:i:s", $microTime) . ".$milliseconds";
 
-        extract($methodSettings);
+        // Print the time with milliseconds
+        return $timeWithMilliseconds;
+    }
+    public static function parseContentOutput($processOutputParams) {
+
+        extract($processOutputParams);
 
         if (isset($methodSettings['output']) && !empty($methodSettings['output'])) {
 
@@ -1405,6 +1499,11 @@ class erLhcoreClassGenericBotActionRestapi
             {
                 if ($allOptional == false && (!isset($paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk']) || $paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk'] == false)) {
                     // One of the conditions is checked, but not this one.
+                    continue;
+                }
+
+                // Streaming event does not match required one
+                if (isset($outputCombination['streaming_event_type_value']) && $outputCombination['streaming_event_type_value'] != '' && (!isset($processOutputParams['stream_event']) || $outputCombination['streaming_event_type_value'] != $processOutputParams['stream_event'])) {
                     continue;
                 }
 
@@ -1542,10 +1641,13 @@ class erLhcoreClassGenericBotActionRestapi
                         'content_5' => (isset($responseValueSub[5]) ? $responseValueSub[5] : ''),
                         'content_6' => (isset($responseValueSub[6]) ? $responseValueSub[6] : ''),
                         'meta' => $meta,
-                        'stream' => (isset($fp) ? $fp : ''),
                         'conditions_met' => true,
                         'params_request' => $paramsRequest,
-                        'id' => $outputCombination['id']);
+                        'id' => $outputCombination['id'],
+                        'stream_content' => (isset($outputCombination['stream_content']) && $outputCombination['stream_content'] == true),
+                        'stream_execute_trigger' => (isset($outputCombination['stream_execute_trigger']) && $outputCombination['stream_execute_trigger'] == true),
+                        'stream_final' => (isset($outputCombination['stream_final']) && $outputCombination['stream_final'] == true)
+                    );
 
                     if (isset($outputCombination['success_preg_replace']) && $outputCombination['success_preg_replace'] != '') {
                         $replaceRules = explode("\n", $outputCombination['success_preg_replace']);
@@ -1580,7 +1682,6 @@ class erLhcoreClassGenericBotActionRestapi
                 'http_error' => $http_error,
                 'http_data' => $http_data,
                 'params_request' => $paramsRequest,
-                'stream' => (isset($fp) ? $fp : ''),
                 'conditions_met' => false,
                 'content_2' => '',
                 'content_3' => '',
@@ -1598,7 +1699,6 @@ class erLhcoreClassGenericBotActionRestapi
             'http_error' => $http_error,
             'http_data' => $http_data,
             'params_request' => $paramsRequest,
-            'stream' => (isset($fp) ? $fp : ''),
             'conditions_met' => false,
             'content_2' => '',
             'content_3' => '',

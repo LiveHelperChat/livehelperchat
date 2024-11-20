@@ -109,10 +109,6 @@ class erLhcoreClassLHCBotWorker
                         $response = erLhcoreClassGenericBotActionRestapi::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
                     }
 
-                    if (isset($method['streaming_request']) && $method['streaming_request'] == 1) {
-                        $response = erLhcoreClassGenericBotActionRestapi::processStream(['response' => $response], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
-                    }
-
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_after_request', array(
                         'restapi' => & $restAPI,
                         'chat' => $chat,

@@ -46,7 +46,7 @@
 
 <div ng-repeat="param in lhcrestapi.parameters" class="mt-2">
 
-    <hr style="height: 5px;"/>
+    <div class="bg-info rounded text-center fw-bold text-white">{{param.name}}</div>
 
     <button type="button" class="btn btn-danger btn-xs" ng-click="lhcrestapi.deleteParam(lhcrestapi.parameters,param)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Delete');?></button>
 
@@ -59,19 +59,14 @@
         </div>
         <div class="col-6">
 
-            <div class="row">
-                <div class="col-6">
-                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Method');?></label>
-                    <select class="form-control form-control-sm" name="method" ng-model="param.method">
-                        <option value="GET">GET</option>
-                        <option value="POST">POST</option>
-                        <option value="PUT">PUT</option>
-                        <option value="DELETE">DELETE</option>
-                    </select>
-                </div>
-                <div class="col-6 pt-4">
-                    <label><input type="checkbox" value="on" ng-model="param.streaming_request"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','This is a streaming request');?></label>
-                </div>
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Method');?></label>
+                <select class="form-control form-control-sm" name="method" ng-model="param.method">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PUT">PUT</option>
+                    <option value="DELETE">DELETE</option>
+                </select>
             </div>
 
         </div>
@@ -98,6 +93,7 @@
         <li role="presentation" class="nav-item"><a class="nav-link" href="#conditions-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Conditions');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#remote-msg-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Remote Message ID');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#polling-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Polling');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" href="#streaming-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Streaming');?></a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -247,8 +243,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
         <div role="tabpanel" class="tab-pane" id="body-rest-{{$index}}">
 
@@ -526,7 +520,26 @@
                             </div>
                         </div>
                     </div>
+
+                    <h6>Streaming options</h6>
+                    <div class="row">
+                        <div class="col-12">
+                            <label>Output is matched only if event is this type</label>
+                        </div>
+                        <div class="col-12">
+                            <input type="text" ng-model="paramOutput.streaming_event_type_value" class="form-control form-control-sm" placeholder="thread.run.created">
+                        </div>
+                        <div class="col-6">
+                            <label class="d-block"><input type="checkbox" ng-model="paramOutput.stream_content" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Stream content if output is matched.');?></label>
+                            <label class="d-block"><input type="checkbox" ng-model="paramOutput.stream_execute_trigger" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Execute trigger on matched content. Stream will continue afterwards.');?></label>
+                            <label class="d-block"><input type="checkbox" ng-model="paramOutput.stream_final" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If matched use response as final response.');?></label>
+                        </div>
+                    </div>
+
                 </div>
+
+
+
 
         </div>
         <div role="tabpanel" class="tab-pane" id="remote-msg-{{$index}}">
@@ -545,6 +558,15 @@
                     <input type="number" class="form-control form-control-sm" ng-model="param.polling_n_delay" placeholder="1" min="1" max="5" />
                 </div>
             </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="streaming-{{$index}}">
+
+            <label class="d-block"><input type="checkbox" value="on" ng-model="param.streaming_request"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','This is a streaming request');?></label>
+
+            <label class="d-block">Streaming event type field</label>
+            <input type="text" ng-model="param.streaming_event_type_field" class="form-control form-control-sm" placeholder="event">
+
         </div>
 
     </div>
