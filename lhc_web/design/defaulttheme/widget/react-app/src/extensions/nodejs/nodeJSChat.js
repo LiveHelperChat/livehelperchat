@@ -23,6 +23,7 @@ class _nodeJSChat {
         const chatId = state.chatwidget.getIn(['chatData','id']);
         const chatHash = state.chatwidget.getIn(['chatData','hash']);
         const syncDefault = state.chatwidget.getIn(['chat_ui','sync_interval']);
+        var streamFlowStarted = null;
 
         var socketOptions = {
             protocolVersion: 1,
@@ -209,7 +210,24 @@ class _nodeJSChat {
                                         'data': {text: ''}
                                     });
                                 }
+                            } else if (op.op == 'sflow') {
+
+                                // We don't have any
+                                if (streamFlowStarted === null) {
+                                    streamFlowStarted = document.querySelector('#messages-scroll > div.message-row-typing > .msg-body');
+                                    if (streamFlowStarted) {
+                                        streamFlowStarted.innerText = "";
+                                        streamFlowStarted.parentElement.classList.add('message-row-typing-stream');
+                                    }
+                                }
+
+                                if (streamFlowStarted) {
+                                    streamFlowStarted.innerText += op.msg;
+                                    streamFlowStarted.scrollIntoView();
+                                }
+
                             } else if (op.op == 'cmsg' || op.op == 'schange') {
+                                streamFlowStarted = null;
                                 const state = getState();
                                 if (state.chatwidget.hasIn(['chatData','id'])){
                                     dispatch(fetchMessages({

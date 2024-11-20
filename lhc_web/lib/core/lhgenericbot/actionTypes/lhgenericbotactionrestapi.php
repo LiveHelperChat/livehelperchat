@@ -214,7 +214,6 @@ class erLhcoreClassGenericBotActionRestapi
                 }
 
 
-
                 // We have found exact matching response type
                 // Let's check has user checked any trigger to execute.
                 if (isset($response['id'])) {
@@ -257,7 +256,7 @@ class erLhcoreClassGenericBotActionRestapi
                         return $argsDefault;
 
                     } else {
-                        // Do nothing as user did not chose any trigger to execute
+                        // Do nothing as user did not choose any trigger to execute
                     }
                 } elseif (isset($action['content']['rest_api_method_output']['default_trigger']) && is_numeric($action['content']['rest_api_method_output']['default_trigger'])) {
 
@@ -825,6 +824,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_size}}' => $file_size,
             '{{file_mime}}' => $file_mime,
             '{{timestamp}}' => time(),
+            '{{date_utc}}' => (new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s T'),
             '{{custom_args_1}}' => isset($paramsCustomer['action']['content']['attr_options']['custom_args_1']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_1'] : null
         );
 
@@ -863,6 +863,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_name}}' =>json_encode($file_name),
             '{{file_size}}' =>json_encode($file_size),
             '{{custom_args_1}}' => json_encode(isset($paramsCustomer['action']['content']['attr_options']['custom_args_1']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_1'] : null),
+            '{{date_utc}}' => json_encode((new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s T')),
             '{{timestamp}}' => time()
         );
 
@@ -1160,6 +1161,147 @@ class erLhcoreClassGenericBotActionRestapi
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
+        $responseContent = [];
+        $streamLines = [];
+        $logRequest = is_object($paramsCustomer['rest_api']) &&
+            (isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) ||
+            (isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system']);
+        $streamEvent = '';
+        $streamBuffer = ''; // In streaming chunk might contain multiple json parts untill it's complete
+
+        // Streaming request save stream to tmp file
+        if (isset($methodSettings['streaming_request']) && $methodSettings['streaming_request'] == 1) {
+
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
+            curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) use (& $streamBuffer, &$responseContent, $paramsCustomer, $methodSettings, & $streamLines, $logRequest, & $streamEvent)  {
+                $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+                $trimmed_data = trim($data);
+
+                if (!empty($trimmed_data)) {
+                    $streamContent = ['content' => '','content_2' => '','content_3' => '','content_4' => '','content_5' => '','content_6' => ''];
+                    foreach (explode("\n",$trimmed_data) as $line) {
+                        $line = trim($line);
+
+                        if (isset($methodSettings['streaming_event_type_field']) && !empty($methodSettings['streaming_event_type_field'])) {
+                            if ($line != "" && str_starts_with(trim($line),$methodSettings['streaming_event_type_field'].': ')) { // This is event indication
+                                $streamEvent = str_replace($methodSettings['streaming_event_type_field'].': ','',$line);
+                                $streamBuffer = '';
+                            }
+                        }
+
+                        $dataStarted = str_starts_with(trim($line),'data: {');
+
+                        if ($line != "" && ($dataStarted === true || !empty($streamBuffer))) {
+
+                            if ($dataStarted === true) {
+                                $streamBuffer = str_replace('data: {','{',$line);
+                            } else {
+                                $streamBuffer .= $line;
+                            }
+
+                            json_decode($streamBuffer);
+                            if (json_last_error() != JSON_ERROR_NONE) {
+                                if ($logRequest === true && $line != "") {
+                                    $streamLines[] = self::getCurrentTimeWithMilliseconds(). ' [INVALID JSON] - [' . $streamEvent . '] - ' . $streamBuffer;
+                                }
+                                continue;
+                            } elseif ($logRequest === true && $line != "") {
+                                $streamLines[] = self::getCurrentTimeWithMilliseconds().' [VALID JSON] - [' . $streamEvent . '] - ' . $streamBuffer;
+                            }
+
+                            $responseStream = self::parseContentOutput([
+                                'content' => $streamBuffer,
+                                'paramsCustomer' => $paramsCustomer,
+                                'methodSettings' => $methodSettings,
+                                'httpcode' => $httpCode,
+                                'url' => null,
+                                'http_error' => null,
+                                'http_data' => null,
+                                'paramsRequest' => null,
+                                'stream_event' => $streamEvent
+                            ]);
+
+                            if (isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1) {
+                                if (isset($responseStream['stream_content']) && $responseStream['stream_content'] == true) {
+                                    $streamContent['content'] .= $responseStream['content'];
+                                    $streamContent['content_2'] .= $responseStream['content_2'];
+                                    $streamContent['content_3'] .= $responseStream['content_3'];
+                                    $streamContent['content_4'] .= $responseStream['content_4'];
+                                    $streamContent['content_5'] .= $responseStream['content_5'];
+                                    $streamContent['content_6'] .= $responseStream['content_6'];
+                                }
+                                if (
+                                    (isset($responseStream['stream_content']) && $responseStream['stream_content'] == true && empty($responseContent)) ||
+                                    (isset($responseStream['stream_final']) && $responseStream['stream_final'] == true)
+                                ) {
+                                    $responseContent = $responseStream;
+                                } else if (isset($responseStream['stream_content']) && $responseStream['stream_content'] == true) {
+                                    $responseContent['content'] .= $responseStream['content'];
+                                    $responseContent['content_2'] .= $responseStream['content_2'];
+                                    $responseContent['content_3'] .= $responseStream['content_3'];
+                                    $responseContent['content_4'] .= $responseStream['content_4'];
+                                    $responseContent['content_5'] .= $responseStream['content_5'];
+                                    $responseContent['content_6'] .= $responseStream['content_6'];
+                                }
+                            }
+                        }
+                    }
+
+                    if (isset($responseStream['content']) && $responseStream['content'] != '' && isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1) {
+                        if (isset($streamContent['content']) && isset($responseStream['stream_content']) && $responseStream['stream_content'] == true){
+                            // We need to replace space with non breaking space to preserve innerText attribute
+                            if (str_ends_with($streamContent['content'],' ')) {
+                                $streamContent['content'] = rtrim($streamContent['content']) . "\u{00A0}";
+                            }
+                            // Send aggregated chunk to chat
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stream_flow', array(
+                                'restapi' => $paramsCustomer['rest_api'],
+                                'chat' => $paramsCustomer['chat'],
+                                'response' => $streamContent
+                            ));
+                        }
+
+                        if (isset($responseStream['stream_execute_trigger']) && $responseStream['stream_execute_trigger'] == true) {
+
+                            if (isset($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']]) && is_numeric($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']])) {
+                                $argsDefault = array(
+                                      'replace_array' => array(
+                                        '{content_1}' => $responseStream['content'],
+                                        '{content_2}' => $responseStream['content_2'],
+                                        '{content_3}' => $responseStream['content_3'],
+                                        '{content_4}' => $responseStream['content_4'],
+                                        '{content_5}' => $responseStream['content_5'],
+                                        '{content_6}' => $responseStream['content_6'],
+                                        '{content_1_json}' => json_encode($responseStream['content']),
+                                        '{content_2_json}' => json_encode($responseStream['content_2']),
+                                        '{content_3_json}' => json_encode($responseStream['content_3']),
+                                        '{content_4_json}' => json_encode($responseStream['content_4']),
+                                        '{content_5_json}' => json_encode($responseStream['content_5']),
+                                        '{content_6_json}' => json_encode($responseStream['content_6']),
+                                        '{http_code}' => $responseStream['http_code'],
+                                        '{http_error}' => $responseStream['http_error'],
+                                        '{content_raw}' => $responseStream['content_raw'],
+                                        '{http_data}' => $responseStream['http_data']
+                                    )
+                                );
+
+                                $trigger = erLhcoreClassModelGenericBotTrigger::fetch($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']]);
+
+                                erLhcoreClassGenericBotWorkflow::processTrigger($paramsCustomer['chat'], $trigger, true, array('args' => $argsDefault));
+
+                                if ($logRequest === true) {
+                                    $streamLines[] = self::getCurrentTimeWithMilliseconds().' [trigger exec] - [' . $trigger->name . '] [' . $trigger->id . ']';
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                return strlen($data);
+            });
+        }
+
         $paramsRequest = [
             'headers' => $headers,
             'url' => $url,
@@ -1226,12 +1368,10 @@ class erLhcoreClassGenericBotActionRestapi
                         // Sometimes object already exists
                     }
             }
+            curl_close($ch);
         }
 
-        if (is_object($paramsCustomer['rest_api']) &&
-            (isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) ||
-            (isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'])
-        ) {
+        if ($logRequest === true) {
 
             $contentDebug = json_decode($content,true);
 
@@ -1264,6 +1404,8 @@ class erLhcoreClassGenericBotActionRestapi
                         'params_request' => $paramsRequestDebug,
                         'return_content' => is_array($contentDebug) ? $contentDebug : $content,
                         'http_error' => $http_error,
+                        'stream' => $responseContent,
+                        'stream_lines' => $streamLines,
                         'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
                         'msg_text' => $msg_text,
                     ], JSON_PRETTY_PRINT),
@@ -1293,14 +1435,47 @@ class erLhcoreClassGenericBotActionRestapi
                     'params_request' => $paramsRequestDebug,
                     'return_content' => is_array($contentDebug) ? $contentDebug : $content,
                     'http_error' => $http_error,
+                    'stream' => $responseContent,
+                    'stream_lines' => $streamLines,
                     'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                     'msg_text' => $msg_text,
                 ],JSON_PRETTY_PRINT)]]]);
                 $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
                 $msgLog->saveThis();
             }
-
         }
+
+        if (!empty($responseContent)) {
+            return $responseContent;
+        }
+
+        // Check vars is scope correct
+        return self::parseContentOutput([
+            'paramsCustomer' => $paramsCustomer,
+            'methodSettings' => $methodSettings,
+            'paramsRequest' => $paramsRequest,
+            'replaceVariables' => $replaceVariables,
+            'httpcode' => $httpcode,
+            'url' => $url,
+            'content' => $content,
+            'http_error' => $http_error,
+            'http_data' => $http_data
+        ]);
+    }
+    public static function getCurrentTimeWithMilliseconds() {
+        // Get the current time with microseconds as a float
+        $microTime = microtime(true);
+
+        // Format the time as H:i:s and add milliseconds
+        $milliseconds = sprintf("%03d", ($microTime - floor($microTime)) * 1000);
+        $timeWithMilliseconds = date("H:i:s", $microTime) . ".$milliseconds";
+
+        // Print the time with milliseconds
+        return $timeWithMilliseconds;
+    }
+    public static function parseContentOutput($processOutputParams) {
+
+        extract($processOutputParams);
 
         if (isset($methodSettings['output']) && !empty($methodSettings['output'])) {
 
@@ -1319,11 +1494,16 @@ class erLhcoreClassGenericBotActionRestapi
             usort($methodSettings['output'], function ($a, $b) {
                 return !(isset($a['output_priority']) && is_numeric($a['output_priority']) && (!isset($b['output_priority']) || $a['output_priority'] > $b['output_priority'])) ? 1 : 0;
             });
-            
+
             foreach ($methodSettings['output'] as $outputCombination)
             {
                 if ($allOptional == false && (!isset($paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk']) || $paramsCustomer['action']['content']['rest_api_method_output'][$outputCombination['id'] . '_chk'] == false)) {
                     // One of the conditions is checked, but not this one.
+                    continue;
+                }
+
+                // Streaming event does not match required one
+                if (isset($outputCombination['streaming_event_type_value']) && $outputCombination['streaming_event_type_value'] != '' && (!isset($processOutputParams['stream_event']) || $outputCombination['streaming_event_type_value'] != $processOutputParams['stream_event'])) {
                     continue;
                 }
 
@@ -1405,37 +1585,37 @@ class erLhcoreClassGenericBotActionRestapi
                     }
 
                     foreach([   [
-                                    'success_compare_value' => 'success_compare_value',
-                                    'success_condition' => 'success_condition',
-                                    'live_value' => $responseValueCompare,
-                                ],
+                        'success_compare_value' => 'success_compare_value',
+                        'success_condition' => 'success_condition',
+                        'live_value' => $responseValueCompare,
+                    ],
                                 [
                                     'success_compare_value' => 'success_compare_value_2',
                                     'success_condition' => 'success_condition_2',
                                     'live_value' => $responseValueCompare2,
                                 ]
                             ] as $attrCompare) {
-                                if (isset($outputCombination[$attrCompare['success_condition']]) && $outputCombination[$attrCompare['success_condition']] != '' && isset($outputCombination[$attrCompare['success_compare_value']]) && $outputCombination[$attrCompare['success_compare_value']] != '') {
-                                    if ( $outputCombination[$attrCompare['success_condition']] == 'eq' && !($attrCompare['live_value'] == $outputCombination[$attrCompare['success_compare_value']])) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'lt' && !($attrCompare['live_value'] < $outputCombination[$attrCompare['success_compare_value']])) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'lte' && !($attrCompare['live_value'] <= $outputCombination[$attrCompare['success_compare_value']])) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'neq' && !($attrCompare['live_value'] != $outputCombination[$attrCompare['success_compare_value']])) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'gte' && !($attrCompare['live_value'] >= $outputCombination[$attrCompare['success_compare_value']])) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'gt' && !($attrCompare['live_value'] > $outputCombination[$attrCompare['success_compare_value']])) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination[$attrCompare['success_compare_value']]),$attrCompare['live_value'],0) == false) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination[$attrCompare['success_compare_value']]),$attrCompare['live_value'],0) == true) {
-                                        continue 2;
-                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'contains' && strrpos($attrCompare['live_value'], $outputCombination[$attrCompare['success_compare_value']]) === false) {
-                                        continue 2;
-                                    }
-                                }
+                        if (isset($outputCombination[$attrCompare['success_condition']]) && $outputCombination[$attrCompare['success_condition']] != '' && isset($outputCombination[$attrCompare['success_compare_value']]) && $outputCombination[$attrCompare['success_compare_value']] != '') {
+                            if ( $outputCombination[$attrCompare['success_condition']] == 'eq' && !($attrCompare['live_value'] == $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'lt' && !($attrCompare['live_value'] < $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'lte' && !($attrCompare['live_value'] <= $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'neq' && !($attrCompare['live_value'] != $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'gte' && !($attrCompare['live_value'] >= $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'gt' && !($attrCompare['live_value'] > $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination[$attrCompare['success_compare_value']]),$attrCompare['live_value'],0) == false) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination[$attrCompare['success_compare_value']]),$attrCompare['live_value'],0) == true) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'contains' && strrpos($attrCompare['live_value'], $outputCombination[$attrCompare['success_compare_value']]) === false) {
+                                continue 2;
+                            }
+                        }
                     }
 
                     $meta = array();
@@ -1463,7 +1643,11 @@ class erLhcoreClassGenericBotActionRestapi
                         'meta' => $meta,
                         'conditions_met' => true,
                         'params_request' => $paramsRequest,
-                        'id' => $outputCombination['id']);
+                        'id' => $outputCombination['id'],
+                        'stream_content' => (isset($outputCombination['stream_content']) && $outputCombination['stream_content'] == true),
+                        'stream_execute_trigger' => (isset($outputCombination['stream_execute_trigger']) && $outputCombination['stream_execute_trigger'] == true),
+                        'stream_final' => (isset($outputCombination['stream_final']) && $outputCombination['stream_final'] == true)
+                    );
 
                     if (isset($outputCombination['success_preg_replace']) && $outputCombination['success_preg_replace'] != '') {
                         $replaceRules = explode("\n", $outputCombination['success_preg_replace']);
@@ -1478,11 +1662,11 @@ class erLhcoreClassGenericBotActionRestapi
                     if (isset($outputCombination['method_name']) && !empty(trim($outputCombination['method_name']))) {
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_rest_api_method.' . trim($outputCombination['method_name']),
                             array(  'method_settings' => $methodSettings,
-                                    'params_customer' => $paramsCustomer,
-                                    'params_request' => $paramsRequest,
-                                    'url' => $url,
-                                    'custom_args' => str_replace(array_keys($replaceVariables), array_values($replaceVariables), (isset($outputCombination['method_name_args']) ? $outputCombination['method_name_args'] : '')),
-                                    'response' => $responseFormatted)
+                                'params_customer' => $paramsCustomer,
+                                'params_request' => $paramsRequest,
+                                'url' => $url,
+                                'custom_args' => str_replace(array_keys($replaceVariables), array_values($replaceVariables), (isset($outputCombination['method_name_args']) ? $outputCombination['method_name_args'] : '')),
+                                'response' => $responseFormatted)
                         );
                     }
 

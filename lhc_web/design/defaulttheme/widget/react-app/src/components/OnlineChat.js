@@ -392,7 +392,8 @@ class OnlineChat extends Component {
                     }
 
                     clearInterval(this.intervalPending);
-                    this.intervalPending = setInterval(this.intervalFunction,150);
+                    this.intervalFunction();
+                    this.intervalPending = setInterval(this.intervalFunction, 200);
                 } else {
                     this.delayed = true;
 
@@ -490,7 +491,6 @@ class OnlineChat extends Component {
     getSnapshotBeforeUpdate(prevProps, prevState) {
         // Are we adding new item
         if (prevProps.chatwidget.getIn(['chatLiveData','messages']).size != this.props.chatwidget.getIn(['chatLiveData','messages']).size) {
-
             let setScroll = false;
             let setScrollBottom = true;
             let scrollValue = 0;
@@ -639,6 +639,10 @@ class OnlineChat extends Component {
             if (elm !== null) {
                 document.body.removeChild(elm);
             }
+        }
+
+        if (this.intervalFunction !== null) {
+            this.intervalFunction();
         }
     }
 

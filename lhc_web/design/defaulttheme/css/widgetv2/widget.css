@@ -951,6 +951,10 @@ button.material-icons-button{
     animation: blink 1500ms linear infinite;
 }
 
+.message-row-typing-stream {
+    animation: none;
+}
+
 @keyframes blink{
     0%{opacity: 0.3;}
     50%{opacity: .9;}
