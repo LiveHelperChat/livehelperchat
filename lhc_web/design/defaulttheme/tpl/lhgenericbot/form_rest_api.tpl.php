@@ -521,10 +521,10 @@
                         </div>
                     </div>
 
-                    <h6>Streaming options</h6>
+                    <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Streaming options');?></h6>
                     <div class="row">
                         <div class="col-12">
-                            <label>Output is matched only if event is this type</label>
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Output is matched only if event is this type');?></label>
                         </div>
                         <div class="col-12">
                             <input type="text" ng-model="paramOutput.streaming_event_type_value" class="form-control form-control-sm" placeholder="thread.run.created">
@@ -550,11 +550,11 @@
         <div role="tabpanel" class="tab-pane" id="polling-{{$index}}">
             <div class="row">
                 <div class="col-6">
-                    <label>Repeat request n times if conditions is not met (polling)</label>
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Repeat request n times if conditions is not met (polling)');?></label>
                     <input type="number" class="form-control form-control-sm" ng-model="param.polling_n_times" placeholder="0" min="0" max="10" />
                 </div>
                 <div class="col-6">
-                    <label>Making n seconds delay between each request</label>
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Making n seconds delay between each request');?></label>
                     <input type="number" class="form-control form-control-sm" ng-model="param.polling_n_delay" placeholder="1" min="1" max="5" />
                 </div>
             </div>
@@ -564,7 +564,7 @@
 
             <label class="d-block"><input type="checkbox" value="on" ng-model="param.streaming_request"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','This is a streaming request');?></label>
 
-            <label class="d-block">Streaming event type field</label>
+            <label class="d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Streaming event type field');?></label>
             <input type="text" ng-model="param.streaming_event_type_field" class="form-control form-control-sm" placeholder="event">
 
         </div>
