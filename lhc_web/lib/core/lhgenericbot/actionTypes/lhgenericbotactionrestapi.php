@@ -824,7 +824,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_size}}' => $file_size,
             '{{file_mime}}' => $file_mime,
             '{{timestamp}}' => time(),
-            '{{data_utc}}' => (new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s T'),
+            '{{date_utc}}' => (new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s T'),
             '{{custom_args_1}}' => isset($paramsCustomer['action']['content']['attr_options']['custom_args_1']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_1'] : null
         );
 
@@ -863,7 +863,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_name}}' =>json_encode($file_name),
             '{{file_size}}' =>json_encode($file_size),
             '{{custom_args_1}}' => json_encode(isset($paramsCustomer['action']['content']['attr_options']['custom_args_1']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_1'] : null),
-            '{{data_utc}}' => json_encode((new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s T')),
+            '{{date_utc}}' => json_encode((new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s T')),
             '{{timestamp}}' => time()
         );
 
