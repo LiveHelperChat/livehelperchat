@@ -731,9 +731,17 @@ class erLhcoreClassBBCode
    }
    
    public static function _make_code($matches){
-        return '<pre class="blockquote blockquote-code"><code>'.trim($matches[1]).'</code></pre>';
+        $hash = md5(trim($matches[1]));
+        self::$plainHash['codeblock'.$hash] = '<pre class="blockquote blockquote-code"><code>' . trim($matches[1]) . '</code></pre>';
+        return 'codeblock'.$hash;
    }
-      
+
+   public static function _make_code_plain($matches) {
+        $hash = md5(trim($matches[1]));
+        self::$plainHash['code'.$hash] = '<code>' . trim($matches[1]) . '</code>';
+        return 'code'.$hash;
+   }
+
    /**
     * Callback to convert URL match to HTML A element.
     *
@@ -1214,9 +1222,9 @@ class erLhcoreClassBBCode
 
         if (self::isBBCodeTagSupported('[code]',$paramsMessage)) {
             $ret = str_replace("```\n", '```', $ret);
-            $ret = preg_replace_callback('/\[code\](.*?)\[\/code\]/ms', "erLhcoreClassBBCode::_make_code", $ret);
             $ret = preg_replace_callback('/```(.*?)```/ms', "erLhcoreClassBBCode::_make_code", $ret);
-            $ret = preg_replace('/`(.*?)`/ms', '<code>\1</code>', $ret);
+            $ret = preg_replace_callback('/`(.*?)`/ms', "erLhcoreClassBBCode::_make_code_plain", $ret);
+            $ret = preg_replace_callback('/\[code\](.*?)\[\/code\]/ms', "erLhcoreClassBBCode::_make_code", $ret);
         }
 
         if (isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) {
@@ -1321,7 +1329,7 @@ class erLhcoreClassBBCode
         }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.after_make_clickable',array('msg' => & $ret));
-        
+
     	return $ret;
    }
    
