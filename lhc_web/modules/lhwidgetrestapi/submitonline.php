@@ -160,6 +160,7 @@ if (empty($Errors)) {
             $chat_variables_array[$chatVariableKey] = $chatVariableName;
         }
         $chat->chat_variables = json_encode($chat_variables_array);
+        $chat->chat_variables_array = $chat_variables_array;
     }
 
     if (isset($restAPI) && isset($requestPayload['additional_data']) && is_array($requestPayload['additional_data'])) {
@@ -168,6 +169,7 @@ if (empty($Errors)) {
             $chat_variables_array[$chatVariableKey] = $chatVariableName;
         }
         $chat->additional_data = json_encode($chat_variables_array);
+        $chat->additional_data_array = $chat_variables_array;
     }
 
     $nick = trim($chat->nick);
