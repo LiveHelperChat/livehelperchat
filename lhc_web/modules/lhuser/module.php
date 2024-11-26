@@ -37,7 +37,7 @@ $ViewList['loginasuser'] = array(
 
 $ViewList['account'] = array(
     'params' => array(),
-    'uparams' => array('msg','action','csfr','tab'),
+    'uparams' => array('msg','action','csfr','tab','title','message','fmsg'),
     'functions' => array( 'selfedit' )
 );
 

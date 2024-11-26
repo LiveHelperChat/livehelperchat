@@ -1,13 +1,60 @@
-<?php 
+<?php
+
+if (isset($_GET['doSearchCanned'])) {
+    $filterParamsCanned = erLhcoreClassSearchHandler::getParams(array(
+            'module' => 'chat',
+            'module_file' => 'canned_search',
+            'format_filter' => true,
+            'use_override' => true,
+            'uparams' => $paramsRequest['user_parameters_unordered']));
+} else {
+    $filterParamsCanned = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'canned_search','format_filter' => true, 'uparams' => $paramsRequest['user_parameters_unordered']));
+}
+
+$inputCanned = $filterParamsCanned['input_form'];
+
+?>
+
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/canned" method="get" ng-non-bindable>
+    <input type="hidden" name="doSearchCanned" value="1">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Title');?></label>
+                <input type="text" class="form-control form-control-sm" name="title" value="<?php echo htmlspecialchars($inputCanned->title)?>" />
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Message');?></label>
+                <input type="text" class="form-control form-control-sm" name="message" value="<?php echo htmlspecialchars($inputCanned->message)?>" />
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Fallback message');?></label>
+                <input type="text" class="form-control form-control-sm" name="fmsg" value="<?php echo htmlspecialchars($inputCanned->fmsg)?>" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="btn-group pt-4">
+                <input type="submit" name="doSearchCanned" class="btn btn-secondary d-block btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" /><a class="btn btn-outline-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/canned"><span class="material-icons">refresh</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Reset');?></a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<?php
+
 $pages = new lhPaginator();
-$pages->serverURL = erLhcoreClassDesign::baseurl('user/account').'/(tab)/canned';
-$pages->items_total = erLhcoreClassModelCannedMsg::getCount(array('filter' => array('user_id' => $user->id)));
-$pages->setItemsPerPage(10);
+$pages->serverURL = erLhcoreClassDesign::baseurl('user/account').'/(tab)/canned' . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParamsCanned['input_form']);
+$pages->items_total = erLhcoreClassModelCannedMsg::getCount(array_merge_recursive($filterParamsCanned['filter'],array('filter' => array('user_id' => $user->id))));
+$pages->setItemsPerPage(20);
 $pages->paginate();
 
 $cannedMessages = array();
 if ($pages->items_total > 0) {
-    $cannedMessages = erLhcoreClassModelCannedMsg::getList(array('filter' => array('user_id' => $user->id),'offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id ASC'));
+    $cannedMessages = erLhcoreClassModelCannedMsg::getList(array_merge_recursive($filterParamsCanned['filter'],array('filter' => array('user_id' => $user->id),'offset' => $pages->low, 'limit' => $pages->items_per_page)));
 }
 
 ?>
@@ -73,9 +120,6 @@ if ($pages->items_total > 0) {
 
         <lhc-multilanguage-tab identifier="languageCanned" <?php if ($canned_msg->languages != '') : ?>init_langauges="<?php echo ($canned_msg->id > 0 ? $canned_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab>
 
-        <?php /*
-        <li class="nav-item" ng-repeat="lang in cmsg.languages" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-bs-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
-        <li class="nav-item" ><a class="nav-link" href="#addlanguage" ng-click="cmsg.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Add translation');?></a></li>*/ ?>
     </ul>
 
     <div class="tab-content">
@@ -150,40 +194,10 @@ if ($pages->items_total > 0) {
                     'name_literal' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message')
                 ]
             ])?>;
-        </script>
+               $('.btn-block-department').makeDropdown();
+          </script>
 
         <lhc-multilanguage-tab-content identifier="languageCanned" <?php if ($canned_msg->languages != '') : ?>init_langauges="<?php echo ($canned_msg->id > 0 ? $canned_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
-
-        <?php /*<div ng-repeat="lang in cmsg.languages" role="tabpanel" class="tab-pane" id="lang-{{$index}}">
-
-            <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/language_choose.tpl.php'));?>
-
-            <ul class="nav nav-pills" role="tablist">
-                <li role="presentation" class="nav-item"><a class="nav-link active" href="#main-extension-lang-{{$index}}" aria-controls="main-extension-lang-{{$index}}" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages');?></a></li>
-                <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_lang_tab_multiinclude.tpl.php')); ?>
-            </ul>
-
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="main-extension-lang-{{$index}}">
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
-                        <?php $bbcodeOptions = array('selector' => '#message_lang-{{$index}}'); ?>
-                        <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
-                        <textarea class="form-control" rows="5" id="message_lang-{{$index}}" name="message_lang[{{$index}}]" ng-model="lang.message"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
-                        <?php $bbcodeOptions = array('selector' => '#fallback_message_lang-{{$index}}'); ?>
-                        <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
-                        <textarea class="form-control" rows="5" id="fallback_message_lang-{{$index}}" name="fallback_message_lang[{{$index}}]" ng-model="lang.fallback_message"></textarea>
-                    </div>
-                </div>
-                <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_lang_tab_content_multiinclude.tpl.php')); ?>
-            </div>
-
-        </div>*/ ?>
-
-
 
     </div>
 
