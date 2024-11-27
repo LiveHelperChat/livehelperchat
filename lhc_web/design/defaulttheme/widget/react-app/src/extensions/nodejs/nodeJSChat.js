@@ -216,13 +216,17 @@ class _nodeJSChat {
                                 if (streamFlowStarted === null) {
                                     streamFlowStarted = document.querySelector('#messages-scroll > div.message-row-typing > .msg-body');
                                     if (streamFlowStarted) {
-                                        streamFlowStarted.innerText = "";
+                                        streamFlowStarted.innerHTML = "";
                                         streamFlowStarted.parentElement.classList.add('message-row-typing-stream');
                                     }
                                 }
 
                                 if (streamFlowStarted) {
-                                    streamFlowStarted.innerText += op.msg;
+                                    if (op.as_html === true){
+                                        streamFlowStarted.innerHTML += op.msg.replaceAll('__SL__',"/");
+                                    } else {
+                                        streamFlowStarted.innerText += op.msg.replaceAll('__SL__',"/");
+                                    }
                                     streamFlowStarted.scrollIntoView();
                                 }
 

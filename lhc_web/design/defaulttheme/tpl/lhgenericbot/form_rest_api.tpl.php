@@ -531,15 +531,12 @@
                         </div>
                         <div class="col-6">
                             <label class="d-block"><input type="checkbox" ng-model="paramOutput.stream_content" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Stream content if output is matched.');?></label>
+                            <label class="d-block"><input type="checkbox" ng-model="paramOutput.stream_as_html" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Stream content as HTML.');?></label>
                             <label class="d-block"><input type="checkbox" ng-model="paramOutput.stream_execute_trigger" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Execute trigger on matched content. Stream will continue afterwards.');?></label>
                             <label class="d-block"><input type="checkbox" ng-model="paramOutput.stream_final" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If matched use response as final response.');?></label>
                         </div>
                     </div>
-
                 </div>
-
-
-
 
         </div>
         <div role="tabpanel" class="tab-pane" id="remote-msg-{{$index}}">

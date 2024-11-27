@@ -796,7 +796,7 @@ div.show-msg-ts-below > div.message-row:last-child .msg-date
 
 code {
     background: #f7f7f7;
-    padding:3px;
+    padding:2px;
     border-radius: 5px;
     color:#000;
     border:1px solid #c3c3c3;
@@ -813,7 +813,7 @@ code {
 
 .blockquote-code{
     padding: 5px;
-    padding-top:0;
+    padding-top:3px;
 }
 
 .blockquote-code:before{

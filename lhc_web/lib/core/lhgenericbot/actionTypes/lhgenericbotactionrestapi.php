@@ -1168,12 +1168,13 @@ class erLhcoreClassGenericBotActionRestapi
             (isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system']);
         $streamEvent = '';
         $streamBuffer = ''; // In streaming chunk might contain multiple json parts untill it's complete
+        $streamContentBuffer = '';
 
         // Streaming request save stream to tmp file
         if (isset($methodSettings['streaming_request']) && $methodSettings['streaming_request'] == 1) {
 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
-            curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) use (& $streamBuffer, &$responseContent, $paramsCustomer, $methodSettings, & $streamLines, $logRequest, & $streamEvent)  {
+            curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) use (& $streamBuffer, &$responseContent, $paramsCustomer, $methodSettings, & $streamLines, $logRequest, & $streamEvent, & $streamContentBuffer)  {
                 $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
                 $trimmed_data = trim($data);
 
@@ -1249,16 +1250,47 @@ class erLhcoreClassGenericBotActionRestapi
 
                     if (isset($responseStream['content']) && $responseStream['content'] != '' && isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1) {
                         if (isset($streamContent['content']) && isset($responseStream['stream_content']) && $responseStream['stream_content'] == true){
-                            // We need to replace space with non breaking space to preserve innerText attribute
-                            if (str_ends_with($streamContent['content'],' ')) {
-                                $streamContent['content'] = rtrim($streamContent['content']) . "\u{00A0}";
+
+                            // Are we streaming as HTML
+                            if (isset($responseStream['stream_as_html']) && $responseStream['stream_as_html'] == true) {
+
+                                $endsWithSpace = $startsWithSpace = false;
+
+                                $streamContentBuffer .= $streamContent['content'];
+
+                                // Send chunk only if it's content is a valid markdown
+                                if (self::isMarkdownRowComplete($streamContentBuffer)) {
+
+                                    $streamContentBuffer = str_replace(array("\r\n", "\r"), "\n", $streamContentBuffer);
+
+                                    $streamParsed = self::removeLeadingAndTrailingWhitespace($streamContentBuffer);
+
+                                    // Send aggregated chunk to chat
+                                    $paramsMessageRender = array('sender' => -2, 'keep_nl' => true);
+                                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stream_flow', array(
+                                        'restapi' => $paramsCustomer['rest_api'],
+                                        'chat' => $paramsCustomer['chat'],
+                                        'as_html' => true,
+                                        'response' => [
+                                            'content' => $streamParsed['leading_whitespace'] . erLhcoreClassBBCode::make_clickable(htmlspecialchars(trim($streamParsed['remaining_text'])), $paramsMessageRender) . $streamParsed['trailing_whitespace'],
+                                            'raw_content' => $streamContent]
+                                    ));
+                                    $streamContentBuffer = '';
+                                }
+
+                            } else { // Stream as plain text
+                                // We need to replace space with non breaking space to preserve innerText attribute
+                                if (str_ends_with($streamContent['content'],' ')) {
+                                    $streamContent['content'] = rtrim($streamContent['content']) . "\u{00A0}";
+                                }
+                                // Send aggregated chunk to chat
+                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stream_flow', array(
+                                    'restapi' => $paramsCustomer['rest_api'],
+                                    'chat' => $paramsCustomer['chat'],
+                                    'as_html' => false,
+                                    'response' => $streamContent
+                                ));
                             }
-                            // Send aggregated chunk to chat
-                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stream_flow', array(
-                                'restapi' => $paramsCustomer['rest_api'],
-                                'chat' => $paramsCustomer['chat'],
-                                'response' => $streamContent
-                            ));
                         }
 
                         if (isset($responseStream['stream_execute_trigger']) && $responseStream['stream_execute_trigger'] == true) {
@@ -1645,6 +1677,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'params_request' => $paramsRequest,
                         'id' => $outputCombination['id'],
                         'stream_content' => (isset($outputCombination['stream_content']) && $outputCombination['stream_content'] == true),
+                        'stream_as_html' => (isset($outputCombination['stream_as_html']) && $outputCombination['stream_as_html'] == true),
                         'stream_execute_trigger' => (isset($outputCombination['stream_execute_trigger']) && $outputCombination['stream_execute_trigger'] == true),
                         'stream_final' => (isset($outputCombination['stream_final']) && $outputCombination['stream_final'] == true)
                     );
@@ -1735,6 +1768,53 @@ class erLhcoreClassGenericBotActionRestapi
         }
 
         return $bodyRequest;
+    }
+
+    public static function removeLeadingAndTrailingWhitespace($string) {
+        // Match leading spaces and newlines
+        preg_match('/^(\s*)(\n*)/', $string, $leadingMatches);
+
+        // Match trailing spaces and newlines
+        preg_match('/(\s*)(\n*)$/', $string, $trailingMatches);
+
+        // Get the leading whitespace
+        $leadingWhitespace = isset($leadingMatches[0]) ? $leadingMatches[0] : '';
+
+        // Get the trailing whitespace
+        $trailingWhitespace = isset($trailingMatches[0]) ? $trailingMatches[0] : '';
+
+        // Get the remaining text after removing leading and trailing whitespace
+        $remainingText = substr($string, strlen($leadingWhitespace), strlen($string) - strlen($leadingWhitespace) - strlen($trailingWhitespace));
+
+        // Return the leading and trailing whitespace and the remaining text
+        return [
+            'leading_whitespace' => nl2br($leadingWhitespace),
+            'trailing_whitespace' => nl2br($trailingWhitespace),
+            'remaining_text' => $remainingText
+        ];
+    }
+
+    public static function isMarkdownRowComplete(string $row): bool {
+        // Check for proper balancing of bold markers (**)
+        $boldCount = substr_count($row, '**');
+        if ($boldCount % 2 !== 0) {
+            return false; // Unmatched bold markers
+        }
+
+        // Check for proper balancing of single backticks (`) for inline code
+        $singleBacktickCount = substr_count($row, '`');
+        if ($singleBacktickCount % 2 !== 0) {
+            return false; // Unmatched single backtick
+        }
+
+        // Check for proper balancing of triple backticks (```) for code blocks
+        $tripleBacktickCount = substr_count($row, '```');
+        if ($tripleBacktickCount % 2 !== 0) {
+            return false; // Unmatched triple backtick
+        }
+
+        // All markers are balanced
+        return true;
     }
 
     public static function extractDynamicParams($methodSettings, $params) {

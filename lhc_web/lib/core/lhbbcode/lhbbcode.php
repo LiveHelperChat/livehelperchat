@@ -598,7 +598,10 @@ class erLhcoreClassBBCode
    }
 
    public static function BBCode2Html($text, $paramsMessage = []) {
-    	$text = trim($text);
+
+       if (!isset($paramsMessage['keep_nl']) || $paramsMessage['keep_nl'] === false) {
+           $text = trim($text);
+       }
 
        $text = self::parseEmoji($text);
 
@@ -1181,7 +1184,10 @@ class erLhcoreClassBBCode
 
    // Converts bbcode and general links to hmtl code
    public static function make_clickable($ret, $paramsMessage = array()) {
-        $ret = ' ' . $ret;
+
+        if (!isset($paramsMessage['keep_nl']) || $paramsMessage['keep_nl'] === false) {
+            $ret = ' ' . $ret;
+        }
 
         $makeLinksClickable = true;
 
@@ -1317,7 +1323,9 @@ class erLhcoreClassBBCode
             $ret = preg_replace_callback('#\[survey="?(.*?)"?\]#is', 'erLhcoreClassBBCode::_make_url_survey', $ret);
         }
 
-    	$ret = trim($ret);
+       if (!isset($paramsMessage['keep_nl']) || $paramsMessage['keep_nl'] === false) {
+           $ret = trim($ret);
+       }
 
         if (isset($paramsMessage['msg_id']) && $paramsMessage['msg_id'] > 0) {
             $ret = str_replace('{msg_id}',$paramsMessage['msg_id'], $ret);
