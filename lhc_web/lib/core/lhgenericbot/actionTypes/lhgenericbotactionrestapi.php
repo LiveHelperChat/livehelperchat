@@ -1263,6 +1263,8 @@ class erLhcoreClassGenericBotActionRestapi
 
                                     $streamContentBuffer = str_replace(array("\r\n", "\r"), "\n", $streamContentBuffer);
 
+                                    $streamContentBuffer = str_replace("```\n", '```', $streamContentBuffer);
+
                                     $streamParsed = self::removeLeadingAndTrailingWhitespace($streamContentBuffer);
 
                                     // Send aggregated chunk to chat
