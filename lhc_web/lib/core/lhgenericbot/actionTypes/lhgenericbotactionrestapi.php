@@ -1119,12 +1119,19 @@ class erLhcoreClassGenericBotActionRestapi
         }
 
         $queryArgsString = http_build_query($queryArgs);
-        $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : '')) . (!empty($queryArgsString) ? '?'.$queryArgsString : '');
+        $replaceVariablesURL = [];
+
+        foreach ($replaceVariables as $keyVariable => $variableValue) {
+            $replaceVariablesURL[$keyVariable] = urlencode($variableValue);
+        }
+
+        $url = rtrim($host) . str_replace(array_keys($replaceVariablesURL), array_values($replaceVariablesURL), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : '')) . (!empty($queryArgsString) ? '?'.$queryArgsString : '');
 
         if (!filter_var($url, FILTER_VALIDATE_URL)) {
+
             return array(
-                'content' => 'Invalid URL filter_var validation failed',
-                'content_raw' => 'Invalid URL filter_var validation failed',
+                'content' => 'Invalid URL filter_var validation failed. '.$url,
+                'content_raw' => 'Invalid URL filter_var validation failed. '.$url,
                 'params_request' => '',
                 'http_code' => '500',
                 'http_error' => '500',
@@ -1142,8 +1149,8 @@ class erLhcoreClassGenericBotActionRestapi
 
         if (!in_array($urlParts['scheme'],['http','https']) || (class_exists('erLhcoreClassInstance') && isset($urlParts['port']) && !in_array($urlParts['port'],[80,443]))) {
             return array(
-                'content' => 'Only HTTP/HTTPS protocols are supported. In automated hosting environment 80 and 443 ports only.',
-                'content_raw' => 'Only HTTP/HTTPS protocols are supported. In automated hosting environment 80 and 443 ports only.',
+                'content' => 'Only HTTP/HTTPS protocols are supported. In automated hosting environment 80 and 443 ports only. '.$url,
+                'content_raw' => 'Only HTTP/HTTPS protocols are supported. In automated hosting environment 80 and 443 ports only. '.$url,
                 'params_request' => '',
                 'http_code' => '500',
                 'http_error' => '500',
