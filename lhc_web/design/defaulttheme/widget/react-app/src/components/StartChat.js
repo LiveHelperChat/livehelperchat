@@ -497,6 +497,10 @@ class StartChat extends Component {
         return <ChatAbort closeText={t('button.close')} full_height={true} close={(e) => this.props.dispatch(minimizeWidget(true))} as_html={true} text={this.props.chatwidget.getIn(['chat_ui','disabled'])} />;
     }
 
+    if (this.props.chatwidget.hasIn(['validationErrors','blocked_user'])) {
+        return <ChatAbort closeText={t('button.close')} full_height={true} close={(e) => this.props.dispatch(minimizeWidget(true))} as_html={true} text={this.props.chatwidget.getIn(['validationErrors','blocked_user'])} />;
+    }
+
     if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {
             if (this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','department','departments']).size <= 1 && this.props.chatwidget.getIn(['onlineData','fields_visible']) <= 1 && (this.props.chatwidget.getIn(['customData','fields']).size == 0 || hasVisibleCustomFields === false)) {
 
@@ -516,8 +520,6 @@ class StartChat extends Component {
                         {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
                         {this.state.changeLanguage && <ChatModal showModal={this.state.changeLanguage} setLanguage={this.setLanguageAction} toggle={this.changeLanguage} dataUrl={"/widgetrestapi/chooselanguage"} />}
-
-                        {this.props.chatwidget.hasIn(['validationErrors','blocked_user']) && <ChatAbort closeText={t('button.close')} as_html={true} close={(e) => this.props.dispatch(minimizeWidget(true))} text={this.props.chatwidget.getIn(['validationErrors','blocked_user'])} />}
 
                         {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && !this.props.chatwidget.hasIn(['proactive','data','std_header'])  && <ChatInvitationMessage mode='profile_only' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)

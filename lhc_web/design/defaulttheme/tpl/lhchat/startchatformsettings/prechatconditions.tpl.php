@@ -189,6 +189,7 @@
     <p class="mb-1"><strong>Maintenance</strong></p>
 <label class="d-block"><input type="checkbox" value="on" ng-model="preconditions.conditions.maintenance_mode" name="maintenance_mode" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Activate maintenance mode');?></label>
 <div ng-show="preconditions.conditions.maintenance_mode">
+    <label class="d-block"><input type="checkbox" value="on" ng-model="preconditions.conditions.maintenance_mode_widget" name="maintenance_mode_widget" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show widget in maintenance mode');?></label>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show this message to the visitors who opens a chat widget.')?></label>
     <textarea placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show this message to the visitors who opens a chat widget.')?>" class="form-control form-control-sm" ng-model="preconditions.conditions.maintenance_mode_message"></textarea>
     <ul>

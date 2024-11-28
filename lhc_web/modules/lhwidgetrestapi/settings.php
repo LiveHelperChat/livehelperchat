@@ -436,7 +436,7 @@ if (isset($start_data_fields['pre_conditions']) && !empty($start_data_fields['pr
             $disableNeedHelp = true;
             $outputResponse['disable_proactive'] = true;
 
-            if (isset($outcome['sub_mode']) && $outcome['sub_mode'] == 'maintenance') {
+            if (isset($outcome['sub_mode']) && $outcome['sub_mode'] == 'maintenance' && $outcome['show_widget'] !== true) {
                 $outputResponse['core_position'] = 'api';
             }
         }

@@ -124,7 +124,7 @@ if (empty($Errors) && isset($startDataFields['pre_conditions']) && !empty($start
         $outcome = erLhcoreClassChatValidator::validatePreconditions($preConditions, ['is_online' => true, 'online_user' => (isset($onlineUser) ? $onlineUser : false)]);
 
         if ($outcome['mode'] == 'disable' || $outcome['mode'] == 'terminate') {
-            $Errors[] = $outcome['message'];
+            $Errors['blocked_user'] = $outcome['message'];
         }
     }
 }

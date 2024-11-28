@@ -2687,7 +2687,11 @@ class erLhcoreClassChatValidator {
     public static function validatePreconditions($precondition, $params) {
 
         if (isset($precondition['maintenance_mode']) && $precondition['maintenance_mode'] == 1) {
-            return ['mode' => 'disable', 'sub_mode' => 'maintenance', 'message' => !empty($precondition['maintenance_mode_message']) ? $precondition['maintenance_mode_message'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.')];
+            return [
+                'mode' => 'disable',
+                'sub_mode' => 'maintenance',
+                'show_widget' => (isset($precondition['maintenance_mode_widget']) && $precondition['maintenance_mode_widget'] == 1),
+                'message' => !empty($precondition['maintenance_mode_message']) ? $precondition['maintenance_mode_message'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.')];
         }
 
         if (isset($precondition['online']) && !empty($precondition['online'])) {
