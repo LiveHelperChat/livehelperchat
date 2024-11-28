@@ -1254,8 +1254,6 @@ class erLhcoreClassGenericBotActionRestapi
                             // Are we streaming as HTML
                             if (isset($responseStream['stream_as_html']) && $responseStream['stream_as_html'] == true) {
 
-                                $endsWithSpace = $startsWithSpace = false;
-
                                 $streamContentBuffer .= $streamContent['content'];
 
                                 // Send chunk only if it's content is a valid markdown
@@ -1263,18 +1261,14 @@ class erLhcoreClassGenericBotActionRestapi
 
                                     $streamContentBuffer = str_replace(array("\r\n", "\r"), "\n", $streamContentBuffer);
 
-                                    $streamContentBuffer = str_replace("```\n", '```', $streamContentBuffer);
-
-                                    $streamParsed = self::removeLeadingAndTrailingWhitespace($streamContentBuffer);
-
                                     // Send aggregated chunk to chat
-                                    $paramsMessageRender = array('sender' => -2, 'keep_nl' => true);
+                                    $paramsMessageRender = array('sender' => -2);
                                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stream_flow', array(
                                         'restapi' => $paramsCustomer['rest_api'],
                                         'chat' => $paramsCustomer['chat'],
                                         'as_html' => true,
                                         'response' => [
-                                            'content' => $streamParsed['leading_whitespace'] . erLhcoreClassBBCode::make_clickable(htmlspecialchars(trim($streamParsed['remaining_text'])), $paramsMessageRender) . $streamParsed['trailing_whitespace'],
+                                            'content' => str_replace('[[EMPT]]','',erLhcoreClassBBCode::make_clickable(htmlspecialchars('[[EMPT]]'.$streamContentBuffer.'[[EMPT]]'), $paramsMessageRender)),
                                             'raw_content' => $streamContent]
                                     ));
                                     $streamContentBuffer = '';
@@ -1770,30 +1764,6 @@ class erLhcoreClassGenericBotActionRestapi
         }
 
         return $bodyRequest;
-    }
-
-    public static function removeLeadingAndTrailingWhitespace($string) {
-        // Match leading spaces and newlines
-        preg_match('/^(\s*)(\n*)/', $string, $leadingMatches);
-
-        // Match trailing spaces and newlines
-        preg_match('/(\s*)(\n*)$/', $string, $trailingMatches);
-
-        // Get the leading whitespace
-        $leadingWhitespace = isset($leadingMatches[0]) ? $leadingMatches[0] : '';
-
-        // Get the trailing whitespace
-        $trailingWhitespace = isset($trailingMatches[0]) ? $trailingMatches[0] : '';
-
-        // Get the remaining text after removing leading and trailing whitespace
-        $remainingText = substr($string, strlen($leadingWhitespace), strlen($string) - strlen($leadingWhitespace) - strlen($trailingWhitespace));
-
-        // Return the leading and trailing whitespace and the remaining text
-        return [
-            'leading_whitespace' => nl2br($leadingWhitespace),
-            'trailing_whitespace' => nl2br($trailingWhitespace),
-            'remaining_text' => $remainingText
-        ];
     }
 
     public static function isMarkdownRowComplete(string $row): bool {
