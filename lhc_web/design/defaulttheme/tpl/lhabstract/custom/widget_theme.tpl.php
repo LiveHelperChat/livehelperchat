@@ -1090,6 +1090,10 @@
                         <label><?php echo erLhcoreClassAbstract::renderInput('auto_bot_intro', $fields['auto_bot_intro'], $object)?> <?php echo $fields['auto_bot_intro']['trans'];?></label>
                     </div>
 
+                    <div class="form-group">
+                        <label><?php echo erLhcoreClassAbstract::renderInput('use_bot_profile', $fields['use_bot_profile'], $object)?> <?php echo $fields['use_bot_profile']['trans'];?></label>
+                    </div>
+
                     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Choose manually bot ant trigger')?></h5>
 
                     <p><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','For it to work, trigger has to have checked')?></i>&nbsp;<span class="badge bg-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Can be passed as argument')?></span></p>

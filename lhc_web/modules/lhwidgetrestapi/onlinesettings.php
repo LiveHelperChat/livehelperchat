@@ -985,6 +985,12 @@ if ($Params['user_parameters_unordered']['online'] == '1' && isset($startDataFie
     $tpl->set('start_data_fields',$startDataFields);
     $tpl->set('react',true);
 
+    if ($theme !== false && isset($theme->bot_configuration_array['use_bot_profile']) && $theme->bot_configuration_array['use_bot_profile'] == true && isset($bot) && ($bot instanceof erLhcoreClassModelGenericBotBot))
+    {
+        $tpl->set('bot',$bot);
+        $tpl->set('departament_id',$departament_id);
+    }
+
     if (!isset($chat_ui['operator_profile'])) {
         $chat_ui['operator_profile'] = '';
     }
