@@ -22,6 +22,9 @@ if ( isset($_POST['StoreOptions']) ) {
         'lang_url' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'exclude_mailbox' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
         'lang_provider' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
@@ -35,6 +38,12 @@ if ( isset($_POST['StoreOptions']) ) {
 
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
+
+    if ( $form->hasValidData( 'exclude_mailbox' )) {
+        $data['exclude_mailbox'] = $form->exclude_mailbox ;
+    } else {
+        $data['exclude_mailbox'] = '';
+    }
 
     if ( $form->hasValidData( 'lang_provider' )) {
         $data['lang_provider'] = $form->lang_provider ;

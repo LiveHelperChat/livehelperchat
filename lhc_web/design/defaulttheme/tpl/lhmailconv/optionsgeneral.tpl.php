@@ -48,6 +48,12 @@
         <input type="text" placeholder="Subject ID" class="form-control form-control-sm" value="<?php isset($general_options['subject_id']) ? print htmlspecialchars($general_options['subject_id']) : print ''?>" name="subject_id" />
     </div>
 
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Matching rules to exclude mailbox being automatically closed. Defines matching rule for the mailbox.')?></label>
+        <textarea class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Each new matching rule per line.')?>" name="exclude_mailbox"><?php isset($general_options['exclude_mailbox']) ? print htmlspecialchars($general_options['exclude_mailbox']) : print ''?></textarea>
+        <small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','E.g.')?> /^example@*/i</small>
+    </div>
+
     <input type="submit" class="btn btn-sm btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
 </form>
