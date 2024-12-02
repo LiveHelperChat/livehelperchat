@@ -1,4 +1,12 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/startchat_pre.tpl.php'));?>
+
+<?php if (isset($maintenance_mode)) : ?>
+<div class="pt-2">
+    <?php $errors[] = $maintenance_mode;?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+</div>
+<?php else : ?>
+
 <?php if ($chat_startchat_enabled == true) : ?>
 
 <?php if ($disabled_department === true) : ?>
@@ -161,6 +169,8 @@
 	</h4>
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/offline_form_startchat.tpl.php'));?>
 	
+<?php endif;?>
+
 <?php endif;?>
 
 <?php endif;?>

@@ -76,6 +76,8 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '' && (!isset($paidC
 	exit;
 }
 
+
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/startchat.tpl.php');
 $tpl->set('referer','');
 $tpl->set('referer_site','');
@@ -284,11 +286,36 @@ if (empty($Params['user_parameters_unordered']['vid']) && !((isset($_GET['cd']) 
     setcookie("lhc_vid", $Params['user_parameters_unordered']['vid'], time()+60*60*24*365, '/', '', erLhcoreClassSystem::$httpsMode, true);
 }
 
+if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && (string)$Params['user_parameters_unordered']['vid'] != '') {
+    // To track online users
+    $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'check_message_operator' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid']));
+}
+
+if (empty($Errors) && isset($startDataFields['pre_conditions']) && !empty($startDataFields['pre_conditions'])) {
+    $preConditions = json_decode($startDataFields['pre_conditions'], true);
+    if (
+        (isset($preConditions['maintenance_mode']) && $preConditions['maintenance_mode'] == 1) ||
+        (isset($preConditions['online']) && !empty($preConditions['online'])) ||
+        (isset($preConditions['offline']) && !empty($preConditions['offline'])) ||
+        (isset($preConditions['disable']) && !empty($preConditions['disable'])) ) {
+
+        $outcome = erLhcoreClassChatValidator::validatePreconditions($preConditions, ['is_online' => true, 'online_user' => (isset($userInstance) ? $userInstance : false)]);
+
+        if ($outcome['mode'] == 'disable' || $outcome['mode'] == 'terminate') {
+            $tpl->set('maintenance_mode', $outcome['message']);
+        }
+    }
+}
+
 if (isset($_POST['StartChat']) && $disabled_department === false) {
     // Validate post data
     $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
 
 	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started',array('chat' => & $chat, 'errors' => & $Errors, 'offline' => (isset($additionalParams['offline']) && $additionalParams['offline'] == true)));
+
+    if (isset($outcome) && ($outcome['mode'] == 'disable' || $outcome['mode'] == 'terminate')) {
+        $Errors['blocked_user'] = $outcome['message'];
+    }
 
 	if (count($Errors) == 0 && !isset($_POST['switchLang']))
     {
@@ -371,7 +398,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     	       // Assign chat to user
     	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && (string)$Params['user_parameters_unordered']['vid'] != '') {
     	            // To track online users
-    	            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'check_message_operator' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid']));
+    	            $userInstance = isset($userInstance) ? $userInstance : erLhcoreClassModelChatOnlineUser::handleRequest(array('message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'check_message_operator' => true, 'vid' => (string)$Params['user_parameters_unordered']['vid']));
     
     	            if ($userInstance !== false) {
     	                $userInstance->chat_id = $chat->id;
