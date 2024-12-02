@@ -29,7 +29,7 @@
                     <span class="material-icons text-primary">attach_file</span>
                 <?php elseif ($mail->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE) : ?>
                     <span class="material-icons text-primary">image</span>
-                <?php endif; ?><?php echo erLhcoreClassDesign::shrt($mail->subject,60,'...',30,ENT_QUOTES)?><?php if ($excludeMailbox === true) : ?> <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Mail excluded from auto closing!')?>" class="material-icons text-danger">block</span>[<?php echo htmlspecialchars($mailboxMail)?>] <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','excluded from auto closing!')?><?php endif; ?>
+                <?php endif; ?><?php echo erLhcoreClassDesign::shrt($mail->subject,60,'...',30,ENT_QUOTES)?><?php if ($excludeMailbox === true) : ?> [<?php echo htmlspecialchars($mailboxMail)?>] <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','excluded from auto closing!')?><?php endif; ?>
             </li>
         <?php endforeach; ?>
     </ul>
