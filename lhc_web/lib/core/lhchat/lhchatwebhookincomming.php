@@ -1029,10 +1029,20 @@ class erLhcoreClassChatWebhookIncoming {
 
         $db = ezcDbInstance::get();
 
+        // Check for block against online visitor record
+        // It's the only blocking option for third party chats
+        $vid = md5($incomingWebhook->id . '_' . $chatIdExternal);
+
         if ($eChat === false) {
 
             if ($sender === -2) {
                 throw new Exception('First message is operator message. We ignore those and do not start chat in that scenario');
+            }
+
+            if (($onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($vid)) !== false) {
+                if (erLhcoreClassModelChatBlockedUser::isBlocked(['online_user_id' => $onlineUser->id])) {
+                    throw new Exception('Blocked by online visitor profile!');
+                }
             }
 
             $db->beginTransaction();
@@ -1084,6 +1094,12 @@ class erLhcoreClassChatWebhookIncoming {
                     $renotify = false;
 
                     if ($chat instanceof erLhcoreClassModelChat && $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+
+                        if (($onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($vid)) !== false) {
+                            if (erLhcoreClassModelChatBlockedUser::isBlocked(['online_user_id' => $onlineUser->id])) {
+                                throw new Exception('Blocked by online visitor profile!');
+                            }
+                        }
 
                         if (isset($conditions['chat_status']) && $conditions['chat_status'] == 'active' && $chat->user_id > 0) {
                             $chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
