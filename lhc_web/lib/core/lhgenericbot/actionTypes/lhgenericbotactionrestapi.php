@@ -1122,7 +1122,9 @@ class erLhcoreClassGenericBotActionRestapi
         $replaceVariablesURL = [];
 
         foreach ($replaceVariables as $keyVariable => $variableValue) {
-            $replaceVariablesURL[$keyVariable] = urlencode($variableValue);
+            if (!str_contains($variableValue,'/')) {
+                $replaceVariablesURL[$keyVariable] = urlencode($variableValue);
+            }
         }
 
         $url = rtrim($host) . str_replace(array_keys($replaceVariablesURL), array_values($replaceVariablesURL), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : '')) . (!empty($queryArgsString) ? '?'.$queryArgsString : '');
