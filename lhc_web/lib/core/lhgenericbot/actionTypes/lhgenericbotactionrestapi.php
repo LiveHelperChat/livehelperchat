@@ -1122,14 +1122,62 @@ class erLhcoreClassGenericBotActionRestapi
         $replaceVariablesURL = [];
 
         foreach ($replaceVariables as $keyVariable => $variableValue) {
-            if (!str_contains($variableValue,'/')) {
-                $replaceVariablesURL[$keyVariable] = urlencode($variableValue);
-            }
+                $replaceVariablesURL['urlencode_' . $keyVariable] = urlencode($variableValue);
         }
 
-        $url = rtrim($host) . str_replace(array_keys($replaceVariablesURL), array_values($replaceVariablesURL), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : '')) . (!empty($queryArgsString) ? '?'.$queryArgsString : '');
+        $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables),str_replace(array_keys($replaceVariablesURL), array_values($replaceVariablesURL), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : ''))) . (!empty($queryArgsString) ? '?'.$queryArgsString : '');
 
         if (!filter_var($url, FILTER_VALIDATE_URL)) {
+
+            if (isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) {
+                erLhcoreClassLog::write(
+                    json_encode([
+                        'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name'),
+                        'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
+                        'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknwon'),
+                        'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
+                        'params_request' => '',
+                        'return_content' => 'Invalid URL filter_var validation failed. '.$url,
+                        'http_error' => '',
+                        'stream' => '',
+                        'stream_lines' => '',
+                        'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
+                        'msg_text' => $msg_text,
+                    ], JSON_PRETTY_PRINT),
+                    ezcLog::SUCCESS_AUDIT,
+                    array(
+                        'source' => 'Bot',
+                        'category' => 'rest_api',
+                        'line' => __LINE__,
+                        'file' => __FILE__,
+                        'object_id' => (isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat']) ? $paramsCustomer['chat']->id : 0)
+                    )
+                );
+            }
+
+            if (isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'] && isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat'])) {
+                $msgLog = new erLhcoreClassModelmsg();
+                $msgLog->user_id = -1;
+                $msgLog->chat_id = $paramsCustomer['chat']->id;
+                $msgLog->time = time();
+                $msgLog->meta_msg = json_encode(['content' => ['html' => [
+                    'debug' => true,
+                    'content' => json_encode([
+                        'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name'),
+                        'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
+                        'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknown'),
+                        'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
+                        'params_request' => '',
+                        'return_content' => 'Invalid URL filter_var validation failed. '.$url,
+                        'http_error' => '',
+                        'stream' => '',
+                        'stream_lines' => '',
+                        'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
+                        'msg_text' => $msg_text,
+                    ],JSON_PRETTY_PRINT)]]]);
+                $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
+                $msgLog->saveThis();
+            }
 
             return array(
                 'content' => 'Invalid URL filter_var validation failed. '.$url,
