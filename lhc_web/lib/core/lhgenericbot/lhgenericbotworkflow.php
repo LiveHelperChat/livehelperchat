@@ -647,14 +647,21 @@ class erLhcoreClassGenericBotWorkflow {
                             // Extract arguments if any
                             if (isset($eventData['content']['validation']['validation_args']) && $eventData['content']['validation']['validation_args'] != '') {
                                 $validationArgs = array();
-                                $rule = str_replace("\r","\n",$eventData['content']['validation']['validation_args']);
-                                $rules = array_filter(explode("\n",$rule));
-                                foreach ($rules as $ruleItem) {
-                                    $ruleItemData = explode('==>',$ruleItem);
-                                    $matches = array();
-                                    preg_match($ruleItemData[0], $payload,$matches);
-                                    if (!empty($matches) && isset($matches[$ruleItemData[1]]) && trim($matches[$ruleItemData[1]]) != '') {
-                                        $validationArgs[$ruleItemData[2]] = trim($matches[$ruleItemData[1]]);
+
+                                $validationArgsAsJson = json_decode($eventData['content']['validation']['validation_args'],true);
+
+                                if (json_last_error() === JSON_ERROR_NONE && is_array($validationArgsAsJson) && !empty($validationArgsAsJson)) {
+                                    $validationArgs = $validationArgsAsJson;
+                                } else {
+                                    $rule = str_replace("\r","\n",$eventData['content']['validation']['validation_args']);
+                                    $rules = array_filter(explode("\n",$rule));
+                                    foreach ($rules as $ruleItem) {
+                                        $ruleItemData = explode('==>',$ruleItem);
+                                        $matches = array();
+                                        preg_match($ruleItemData[0], $payload,$matches);
+                                        if (!empty($matches) && isset($matches[$ruleItemData[1]]) && trim($matches[$ruleItemData[1]]) != '') {
+                                            $validationArgs[$ruleItemData[2]] = trim($matches[$ruleItemData[1]]);
+                                        }
                                     }
                                 }
 

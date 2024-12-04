@@ -43,7 +43,13 @@ class erLhcoreClassGenericBotActionActions {
             $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
 
             if (isset($params['replace_array'])) {
-                $msg->msg = str_replace(array_keys($params['replace_array']), array_values($params['replace_array']), $msg->msg);
+                foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                    if (is_object($valueReplace) || is_array($valueReplace)) {
+                        $msg->msg = @str_replace($keyReplace,json_encode($valueReplace),$msg->msg);
+                    } else {
+                        $msg->msg = @str_replace($keyReplace,$valueReplace,$msg->msg);
+                    }
+                }
             }
 
             if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
@@ -53,6 +59,17 @@ class erLhcoreClassGenericBotActionActions {
 
         // Within next user message we will validate his username or anything else
         if ((isset($action['content']['event_background']) && $action['content']['event_background'] == true) || (isset($action['content']['event_background_inst']) && $action['content']['event_background_inst'])) {
+
+            if (isset($action['content']['event_arg_match']) && isset($params['replace_array'])) {
+                foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                    if (is_object($valueReplace) || is_array($valueReplace)) {
+                        $action['content']['event_arg_match'] = @str_replace($keyReplace,json_encode($valueReplace),$action['content']['event_arg_match']);
+                    } else {
+                        $action['content']['event_arg_match'] = @str_replace($keyReplace,$valueReplace,$action['content']['event_arg_match']);
+                    }
+                }
+            }
+
             $event = new erLhcoreClassModelGenericBotChatEvent();
             $event->chat_id = $chat->id;
             $event->ctime = time();
