@@ -83,6 +83,10 @@ class erLhcoreClassModelChatArchiveRange
             $messagesArchived += count($messages);
 
             foreach ($messages as $msg) {
+                if ($msg->meta_msg != '' && str_contains($msg->meta_msg, '"debug":true')) { // Ignore debug messages
+                    continue;
+                }
+
                 $msgArchive = new erLhcoreClassModelChatArchiveMsg();
                 $msgArchive->setState(get_object_vars($msg));
                 $msgArchive->saveThis();
