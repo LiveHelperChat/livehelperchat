@@ -25,14 +25,16 @@
         }
         
         // We skip render only if message is empty and it's not one of the supported admin meta messages
-        if ($msg['msg'] == '' &&
+        if (
+            ($msg['msg'] == '' &&
             (!isset($metaMessageData['content']['text_conditional'])) &&
             (!isset($metaMessageData['content']['chat_operation'])) &&
             (!isset($metaMessageData['content']['extension'])) &&
             (!isset($metaMessageData['content']['survey'])) &&
             (!isset($metaMessageData['content']['warning'])) &&
             (!isset($metaMessageData['content']['html']['content'])) &&
-            (!isset($metaMessageData['content']['button_message']))) {
+            (!isset($metaMessageData['content']['button_message']))) || (isset($metaMessageData['content']['html']['debug']) && $metaMessageData['content']['html']['debug'] && !erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_audit_system'))
+        ) {
             continue;
         }
 
