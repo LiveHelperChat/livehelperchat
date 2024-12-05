@@ -324,6 +324,7 @@ class StartChat extends Component {
             var messagesScroll = document.getElementById('messagesBlock');
             if (messagesScroll !== null) {
                 this.props.setMessages(messagesScroll.innerHTML);
+                this.scrollBottom();
             }
 
             var profileBody = document.getElementById('lhc-profile-body');

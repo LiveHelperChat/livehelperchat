@@ -6,6 +6,13 @@ class ChatIntroStatus extends PureComponent {
         super(props);
     }
 
+    componentDidMount() {
+        let elm = document.getElementById('messages-scroll');
+        if (elm) {
+            elm.scrollTop = elm.scrollHeight + 1000;
+        }
+    }
+
     render() {
         return <React.Fragment>
             {this.props.profileBefore !== null && <div dangerouslySetInnerHTML={{__html:this.props.profileBefore}}></div>}
