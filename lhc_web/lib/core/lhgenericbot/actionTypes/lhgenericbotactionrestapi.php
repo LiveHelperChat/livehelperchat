@@ -1412,6 +1412,7 @@ class erLhcoreClassGenericBotActionRestapi
 
         $http_data = json_encode($paramsRequest);
         $http_error = '';
+        $requestStarted = self::getCurrentTimeWithMilliseconds();
         
         if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
             $content = $commandResponse['http_response'];
@@ -1431,6 +1432,8 @@ class erLhcoreClassGenericBotActionRestapi
                 $content = curl_exec($ch);
             }
         }
+
+        $requestFinished = self::getCurrentTimeWithMilliseconds();
 
         if ($overridden == false && curl_errno($ch)) {
             $http_error = curl_error($ch);
@@ -1489,6 +1492,8 @@ class erLhcoreClassGenericBotActionRestapi
                         'params_request' => $paramsRequestDebug,
                         'return_content' => is_array($contentDebug) ? $contentDebug : $content,
                         'http_error' => $http_error,
+                        'started_at' => $requestStarted,
+                        'finished_at' => $requestFinished,
                         'stream' => $responseContent,
                         'stream_lines' => $streamLines,
                         'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
@@ -1520,6 +1525,8 @@ class erLhcoreClassGenericBotActionRestapi
                     'params_request' => $paramsRequestDebug,
                     'return_content' => is_array($contentDebug) ? $contentDebug : $content,
                     'http_error' => $http_error,
+                    'started_at' => $requestStarted,
+                    'finished_at' => $requestFinished,
                     'stream' => $responseContent,
                     'stream_lines' => $streamLines,
                     'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
