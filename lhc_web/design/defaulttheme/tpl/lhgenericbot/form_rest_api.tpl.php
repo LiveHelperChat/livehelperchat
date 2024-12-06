@@ -79,7 +79,7 @@
         <div class="col-6">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Maximum execution time');?></label>
-                <input type="number" max="30" min="1" class="form-control form-control-sm" ng-model="param.max_execution_time" placeholder="10" value="" />
+                <input type="number" max="60" min="1" class="form-control form-control-sm" ng-model="param.max_execution_time" placeholder="10" value="" />
             </div>
         </div>
     </div>
