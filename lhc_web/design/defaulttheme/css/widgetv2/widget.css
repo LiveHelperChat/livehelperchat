@@ -1155,21 +1155,11 @@ button.material-icons-button{
 /* I just don't like how they look so we get rid of this animation.*/
 /*.fade-in-fast {
     animation: fadeIn ease 0.3s;
-}
-.fade-in {
+}.fade-in {
     animation: fadeIn ease 1s;
 }*/
 .msg-to-store{
-    opacity:0.3;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity:0.3;
-    }
-    100% {
-        opacity:1;
-    }
+    opacity: 0.3;
 }
 
 #ChatSendButtonContainer{

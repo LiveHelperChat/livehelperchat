@@ -302,10 +302,8 @@ class ChatMessage extends PureComponent {
                             domNode.attribs.className += ' current-reacting-to';
                         }
 
-                        domNode.attribs.className += ' fade-in-fast';
-
                         if (domNode.attribs.className.indexOf('message-row') !== -1) {
-                            domNode.attribs.className += ' index-row-' + this.props.id;
+                            domNode.attribs.className += ' fade-in-fast index-row-' + this.props.id;
                         }
 
                         // Animate only if it's not first sync call
