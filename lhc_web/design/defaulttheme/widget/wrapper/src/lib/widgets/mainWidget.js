@@ -121,7 +121,6 @@ export class mainWidget{
 
         if (this.attributes.cont_ss) {
             this.originalCSS = this.cont.elmDom.style.cssText;
-            this.cont.elmDom.style.cssText += this.attributes.cont_ss;
         }
     }
 
@@ -288,6 +287,15 @@ export class mainWidget{
 
     hide () {
         this.cont.hide();
+    }
+
+    widgetRendered(){
+        if (!this.attributes.cont_ss) {
+            return;
+        }
+        if (this.is_invitation === false || (this.is_invitation === true && this.attributes.full_invitation)) {
+            this.cont.elmDom.style.cssText += this.attributes.cont_ss;
+        }
     }
 
     hideInvitation() {

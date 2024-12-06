@@ -249,6 +249,7 @@ export function initOfflineForm(obj) {
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/onlinesettings",  JSON.stringify(obj), defaultHeaders)
         .then((response) => {
             dispatch({type: "OFFLINE_FIELDS_UPDATED", data: response.data})
+            helperFunctions.sendMessageParent('widgetRendered',[]);
         })
         .catch((err) => {
             dispatch({type: "OFFLINE_FIELDS_REJECTED", data: err})
@@ -274,6 +275,7 @@ export function initOnlineForm(obj) {
             } else {
                 dispatch({type: "ONLINE_FIELDS_UPDATED", data: response.data})
             }
+            helperFunctions.sendMessageParent('widgetRendered',[]);
         })
         .catch((err) => {
             dispatch({type: "ONLINE_FIELDS_REJECTED", data: err})
@@ -375,7 +377,6 @@ export function initChatUI(obj) {
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/initchat",  JSON.stringify(obj), defaultHeaders)
         .then((response) => {
             dispatch({type: "INIT_CHAT_SUBMITTED", data: response.data})
-
             if (response.data.init_calls) {
                 response.data.init_calls.forEach((callExtension) => {
                     if (callExtension.extension === 'nodeJSChat') {
@@ -388,6 +389,7 @@ export function initChatUI(obj) {
                     }
                 });
             }
+            helperFunctions.sendMessageParent('widgetRendered',[]);
         })
         .catch((err) => {
             console.log(err);

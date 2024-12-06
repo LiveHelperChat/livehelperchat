@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 235;
+            lhc.version = 236;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -654,6 +654,12 @@
                         attributesWidget.userSession.setChatInformation({'id': null, 'hash': null});
                         attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
                         attributesWidget.proactive = {};
+                    }
+                });
+
+                attributesWidget.eventEmitter.addListener('widgetRendered', function (params) {
+                    if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'embed') {
+                        attributesWidget.mainWidget.widgetRendered();
                     }
                 });
 
