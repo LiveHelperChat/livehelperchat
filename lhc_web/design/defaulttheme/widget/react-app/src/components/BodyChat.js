@@ -177,17 +177,23 @@ class BodyChat extends Component {
 
         if (this.props.chatwidget.get('isChatting') === true) {
             className += " online-chat online-chat-status-" + this.props.chatwidget.getIn(['chatLiveData','status']);
+            if (this.props.chatwidget.getIn(['onlineData','fetched']) === false && this.props.chatwidget.get('initLoaded') === false) {
+                className += " hide";
+            }
             return (<React.Fragment>
-                {this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}
-                {this.props.chatwidget.get('mode') == 'widget' && <HeaderChat switchColumn={this.switchColumn} popupChat={this.popupChat} endChat={this.endChat} />}
+                {this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && (this.props.chatwidget.getIn(['onlineData','fetched']) === true || this.props.chatwidget.get('initLoaded') === true) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}
+                {(this.props.chatwidget.getIn(['onlineData','fetched']) === true || this.props.chatwidget.get('initLoaded') === true) && this.props.chatwidget.get('mode') == 'widget' && <HeaderChat switchColumn={this.switchColumn} popupChat={this.popupChat} endChat={this.endChat} />}
                 <div className={className}><OnlineChat hideMessageField={this.hideMessageField} profileBefore={this.profileHTML} messagesBefore={this.messagesHTML} cancelClose={this.cancelClose} endChat={this.endChat} /></div>
-                {this.props.chatwidget.hasIn(['chat_ui','custom_html_footer']) && this.props.chatwidget.getIn(['chat_ui','custom_html_footer']) != '' && <Suspense fallback=""><div className="lhc-custom-footer-below"><CustomHTML setStateParent={(state) => this.setState(state)} attr="custom_html_footer" /></div></Suspense>}
+                {this.props.chatwidget.hasIn(['chat_ui','custom_html_footer']) && this.props.chatwidget.getIn(['chat_ui','custom_html_footer']) != '' && (this.props.chatwidget.getIn(['onlineData','fetched']) === true || this.props.chatwidget.get('initLoaded') === true) && <Suspense fallback=""><div className="lhc-custom-footer-below"><CustomHTML setStateParent={(state) => this.setState(state)} attr="custom_html_footer" /></div></Suspense>}
             </React.Fragment>)
         } else if (this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === false) {
+            if (!this.props.chatwidget.getIn(['onlineData','fetched'])) {
+                className += " hide";
+            }
             className += " start-chat";
-            return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}
-                {this.props.chatwidget.get('mode') == 'widget' && <HeaderChat switchColumn={this.switchColumn} popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><StartChat botPayload={this.botPayload} setHideMessageField={this.setHideMessageField} setProfile={this.setProfile} setMessages={this.setMessages} /></div>
-                {this.props.chatwidget.hasIn(['chat_ui','custom_html_footer']) && this.props.chatwidget.getIn(['chat_ui','custom_html_footer']) != '' && <Suspense fallback=""><div className="lhc-custom-footer-below"><CustomHTML setStateParent={(state) => this.setState(state)} attr="custom_html_footer" /></div></Suspense>}
+            return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && this.props.chatwidget.getIn(['onlineData','fetched']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}
+                {this.props.chatwidget.getIn(['onlineData','fetched']) && this.props.chatwidget.get('mode') == 'widget' && <HeaderChat switchColumn={this.switchColumn} popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><StartChat botPayload={this.botPayload} setHideMessageField={this.setHideMessageField} setProfile={this.setProfile} setMessages={this.setMessages} /></div>
+                {this.props.chatwidget.hasIn(['chat_ui','custom_html_footer']) && this.props.chatwidget.getIn(['onlineData','fetched']) && this.props.chatwidget.getIn(['chat_ui','custom_html_footer']) != '' && <Suspense fallback=""><div className="lhc-custom-footer-below"><CustomHTML setStateParent={(state) => this.setState(state)} attr="custom_html_footer" /></div></Suspense>}
             </React.Fragment>)
         } else {
             className += " offline-chat";

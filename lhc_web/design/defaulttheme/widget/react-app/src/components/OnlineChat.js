@@ -881,7 +881,12 @@ class OnlineChat extends Component {
                     msg_expand = "overflow-scroll position-relative";
                 }
 
-                return <ChatIntroStatus value={this.state.value} profileBefore={this.props.profileBefore} msg_expand={msg_expand} messagesBefore={this.props.messagesBefore} placeholderMessage={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} />;
+                // If this data is not fetched it's not a form submit render and we can skip completely intro as it's just first time widget render on page refresh
+                if (this.props.chatwidget.getIn(['onlineData','fetched']) === false) {
+                    return null;
+                }
+
+            return <ChatIntroStatus value={this.state.value} profileBefore={this.props.profileBefore} msg_expand={msg_expand} messagesBefore={this.props.messagesBefore} placeholderMessage={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} />;
         }
         
         if (this.props.chatwidget.hasIn(['chatLiveData','ru']) && this.props.chatwidget.getIn(['chatLiveData','ru'])) {
