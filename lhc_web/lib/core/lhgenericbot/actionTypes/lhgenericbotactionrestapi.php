@@ -1848,6 +1848,12 @@ class erLhcoreClassGenericBotActionRestapi
         if ($tripleBacktickCount % 2 !== 0) {
             return false; // Unmatched triple backtick
         }
+        
+        $bracketsCount = substr_count($row, '[')+substr_count($row, ']');
+        $linkBracketCount = substr_count($row, '(')+substr_count($row, ')');
+        if ($bracketsCount > 0 && ($bracketsCount + $linkBracketCount) % 2 !== 0 || str_ends_with($row, ']')) {
+            return false;
+        }
 
         // All markers are balanced
         return true;

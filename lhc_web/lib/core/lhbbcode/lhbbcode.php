@@ -1221,6 +1221,12 @@ class erLhcoreClassBBCode
         }
 
         if (self::isBBCodeTagSupported('[url]',$paramsMessage)) {
+            // Convert markdown links to bbcode
+            $pattern = '/\[(.*?)\]\((.*?)\)/';
+            preg_match_all($pattern, $ret, $matches, PREG_SET_ORDER);
+            foreach ($matches as $match) {
+                $ret = str_replace($match[0], '[url="' . $match[2] . '"]' . $match[1] . '[/url]', $ret);
+            }
             $ret = preg_replace_callback('/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms', "erLhcoreClassBBCode::_make_url_embed", $ret);
         } else {
             $makeLinksClickable = false;
