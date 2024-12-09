@@ -37,6 +37,11 @@ class erLhcoreClassBBCode
            $url = substr( $url, 0, strrpos( $url, ')' ) );
        }
 
+       if (str_ends_with($url,'&quot')) {
+           $url = substr($url, 0, -5);
+           $suffix = '&quot' . $suffix;
+       }
+
        $url = self::esc_url($url);
        if ( empty($url) )
            return $matches[0];
@@ -665,11 +670,7 @@ class erLhcoreClassBBCode
 
     	$text = preg_replace($filteredBBCode['search'], $filteredBBCode['replace'], $text);
 
-    	// Prepare quote's
-    	$text = str_replace("\r\n","\n",$text);
-
     	// paragraphs
-    	$text = str_replace("\r", "", $text);
     	$text = nl2br($text);
 
     	// clean some tags to remain strict
@@ -1189,19 +1190,29 @@ class erLhcoreClassBBCode
             $ret = ' ' . $ret;
         }
 
+        $ret = str_replace("\r\n","\n",$ret);
+
         $makeLinksClickable = true;
 
         if (isset($paramsMessage['see_sensitive_information']) && $paramsMessage['see_sensitive_information'] === false && $paramsMessage['sender'] == 0) {
            $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret);
         }
 
-       if (self::isBBCodeTagSupported('[plain]',$paramsMessage)) {
-           $ret = preg_replace_callback('#\[plain\](.*?)\[/plain\]#is', 'erLhcoreClassBBCode::_make_plain_text', $ret);
-       }
+        if (self::isBBCodeTagSupported('[code]',$paramsMessage)) {
+           $ret = str_replace("```\n", '```', $ret);
+           $ret = str_replace("```\r", '```', $ret);
+           $ret = preg_replace_callback('/```(.*?)```/ms', "erLhcoreClassBBCode::_make_code", $ret);
+           $ret = preg_replace_callback('/`(.*?)`/ms', "erLhcoreClassBBCode::_make_code_plain", $ret);
+           $ret = preg_replace_callback('/\[code\](.*?)\[\/code\]/ms', "erLhcoreClassBBCode::_make_code", $ret);
+        }
 
-       if (self::isBBCodeTagSupported('[dateformat]',$paramsMessage)) {
+        if (self::isBBCodeTagSupported('[plain]',$paramsMessage)) {
+           $ret = preg_replace_callback('#\[plain\](.*?)\[/plain\]#is', 'erLhcoreClassBBCode::_make_plain_text', $ret);
+        }
+
+        if (self::isBBCodeTagSupported('[dateformat]',$paramsMessage)) {
            $ret = preg_replace_callback('#\[dateformat=([A-Za-z0-9:,\/.\-\s]{1,60})\](.*?)\[/dateformat\]#is', 'erLhcoreClassBBCode::_date_format', $ret);
-       }
+        }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_make_clickable',array('msg' => & $ret, 'makeLinksClickable' => & $makeLinksClickable));
 
@@ -1230,13 +1241,6 @@ class erLhcoreClassBBCode
             $ret = preg_replace_callback('/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms', "erLhcoreClassBBCode::_make_url_embed", $ret);
         } else {
             $makeLinksClickable = false;
-        }
-
-        if (self::isBBCodeTagSupported('[code]',$paramsMessage)) {
-            $ret = str_replace("```\n", '```', $ret);
-            $ret = preg_replace_callback('/```(.*?)```/ms', "erLhcoreClassBBCode::_make_code", $ret);
-            $ret = preg_replace_callback('/`(.*?)`/ms', "erLhcoreClassBBCode::_make_code_plain", $ret);
-            $ret = preg_replace_callback('/\[code\](.*?)\[\/code\]/ms', "erLhcoreClassBBCode::_make_code", $ret);
         }
 
         if (isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) {
