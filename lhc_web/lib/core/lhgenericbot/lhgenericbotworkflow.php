@@ -1627,7 +1627,7 @@ class erLhcoreClassGenericBotWorkflow {
     {
         static $logEnabled = null;
 
-        if (!($chat->id > 0)) {
+        if (!($chat->id > 0) || empty(self::$triggerNameDebug)) {
             return;
         }
 
@@ -1703,9 +1703,9 @@ class erLhcoreClassGenericBotWorkflow {
 
             self::$triggerNameDebug[] = $trigger->name . ' [Trigger ID - ' . $trigger->id . '] ' . ucfirst($action['type']) . (isset($action['_id']) ?  ' [Action ID - ' . $action['_id'] . ']' : '[Action ID - N/A]');
 
-            self::logAudit($chat);
-
             $messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
+
+            self::logAudit($chat);
 
             if ($messageNew instanceof erLhcoreClassModelmsg) {
 
