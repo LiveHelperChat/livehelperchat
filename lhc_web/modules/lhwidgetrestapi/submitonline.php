@@ -591,20 +591,6 @@ if (!isset($restAPI)) {
             fastcgi_finish_request();
         }
 
-        // Log executed triggers if required
-        if (!empty(erLhcoreClassGenericBotWorkflow::$triggerName) && isset($chat->chat_variables_array['gbot_debug']) && $chat->chat_variables_array['gbot_debug'] == 1) {
-            erLhcoreClassLog::write(json_encode(erLhcoreClassGenericBotWorkflow::$triggerNameDebug,JSON_PRETTY_PRINT),
-                ezcLog::SUCCESS_AUDIT,
-                array(
-                    'source' => 'lhc',
-                    'category' => 'bot',
-                    'line' => 0,
-                    'file' => 'submitonline.php',
-                    'object_id' => $chat->id
-                )
-            );
-        }
-
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array('chat' => & $chat, 'msg' => $messageInitial));
     }
 

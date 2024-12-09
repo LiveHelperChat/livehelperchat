@@ -12,6 +12,8 @@ class erLhcoreClassGenericBotActionEvent_type {
                 $params['first_trigger'] = $params['current_trigger'];
             }
 
+            erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = 'Event_type - ' . $params['identifier'];
+
             foreach ($action['content']['events'] as $event) {
                 if ($event['content']['identifier'] == $params['identifier']) {
                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($event['content']['trigger_id']);
@@ -26,6 +28,8 @@ class erLhcoreClassGenericBotActionEvent_type {
                 }
             }
         }
+
+        erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = 'Event_type [not found] - ' . isset($params['identifier']) ? $params['identifier'] : 'n/a';
 
         return null;
     }

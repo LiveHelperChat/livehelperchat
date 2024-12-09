@@ -60,7 +60,7 @@ class erLhcoreClassGenericBotActionMatch_actions {
                 }
             }
 
-            erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = 'Match action - ' . $payload;
+            erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = $trigger->name . ' [Trigger ID - ' . $trigger->id . '] Match action - ' . $payload;
 
             $filter = array();
 

@@ -1623,6 +1623,37 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
+    public static function logAudit($chat)
+    {
+        static $logEnabled = null;
+
+        if (!($chat->id > 0)) {
+            return;
+        }
+
+        if ($logEnabled === null) {
+            $logEnabled = str_contains($chat->chat_variables,'"gbot_debug":1');
+        }
+
+        if ($logEnabled == false) {
+            return;
+        }
+
+        erLhcoreClassLog::write(json_encode(erLhcoreClassGenericBotWorkflow::$triggerNameDebug,JSON_PRETTY_PRINT),
+            ezcLog::SUCCESS_AUDIT,
+            array(
+                'source' => 'lhc',
+                'category' => 'bot',
+                'line' => 0,
+                'file' => 'worker-'. (erLhcoreClassSystem::instance()->backgroundMode == true ? 'background' : 'web') .'.php',
+                'object_id' => $chat->id
+            )
+        );
+
+        self::$triggerNameDebug = [];
+
+    }
+
     public static function processTrigger($chat, $trigger, $setLastMessageId = false, $params = array())
     {
         static $recursion_counter = 0;
@@ -1650,7 +1681,6 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         self::$triggerName[] = $trigger->name;
-        self::$triggerNameDebug[] = $trigger->name . ' [ID - ' . $trigger->id . ']';
 
         $message = null;
         foreach ($trigger->actions_front as $action) {
@@ -1671,7 +1701,9 @@ class erLhcoreClassGenericBotWorkflow {
                 continue;
             }
 
-            self::$triggerNameDebug[] = ucfirst($action['type']) . (isset($action['_id']) ?  ' [TID - ' . $action['_id'] . ']' : '[TID - N/A]');
+            self::$triggerNameDebug[] = $trigger->name . ' [Trigger ID - ' . $trigger->id . '] ' . ucfirst($action['type']) . (isset($action['_id']) ?  ' [Action ID - ' . $action['_id'] . ']' : '[Action ID - N/A]');
+
+            self::logAudit($chat);
 
             $messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
 
