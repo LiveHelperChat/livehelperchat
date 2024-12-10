@@ -171,6 +171,7 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static $triggerName = [];
     public static $triggerNameDebug = [];
+    public static $auditCategory = 'bot';
 
     public static function removePreviousEvents($chat_id)
     {
@@ -1643,7 +1644,7 @@ class erLhcoreClassGenericBotWorkflow {
             ezcLog::SUCCESS_AUDIT,
             array(
                 'source' => 'lhc',
-                'category' => 'bot',
+                'category' => self::$auditCategory,
                 'line' => 0,
                 'file' => 'worker-'. (erLhcoreClassSystem::instance()->backgroundMode == true ? 'background' : 'web') .'.php',
                 'object_id' => $chat->id

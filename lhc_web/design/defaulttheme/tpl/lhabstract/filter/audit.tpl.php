@@ -109,6 +109,7 @@
             <option value="slow_request">slow_request</option>
             <option value="web_exception">Internal web error has accoured</option>
             <option value="bot">bot - bot related logged actions</option>
+            <option value="bot_webhook">bot_webhook - webhooks related logged actions</option>
             <option value="update_active_chats">update_active_chats</option>
             <option value="files">files - failed visitors files upload</option>
             <option value="translation">translation - translations failures</option>

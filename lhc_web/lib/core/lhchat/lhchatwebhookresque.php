@@ -93,6 +93,8 @@ class erLhcoreClassChatWebhookResque {
                 $setLastMessage = true;
             }
 
+            erLhcoreClassGenericBotWorkflow::$auditCategory = 'bot_webhook';
+
             if (erLhcoreClassChatWebhookHttp::isValidConditions($webhook, $params['chat']) === true) {
                 $lastMessage = erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('set_last_msg_id' => $setLastMessage, 'args' => $params));
             } elseif ($webhook->trigger_id_alt > 0) {
