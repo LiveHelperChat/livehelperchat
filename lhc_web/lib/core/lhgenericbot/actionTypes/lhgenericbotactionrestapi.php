@@ -1090,12 +1090,25 @@ class erLhcoreClassGenericBotActionRestapi
 
         } elseif (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'raw') {
 
+            $bodyPOST = $file_api === true ? $methodSettings['body_raw_file'] : $methodSettings['body_raw'];
+
             $rawReplaceArray = array();
             foreach ($replaceVariablesJSON as $keyVariable => $keyValue) {
-                $rawReplaceArray['raw_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce($keyValue));
+
+                if (str_contains($bodyPOST,'sensitive_'.$keyVariable)) {
+                    $rawReplaceArray['sensitive_'.$keyVariable] = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($keyValue);
+                }
+
+                if (str_contains($bodyPOST,'raw_sensitive_'.$keyVariable)) {
+                    $rawReplaceArray['raw_sensitive_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce(\LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($keyValue)));
+                }
+
+                if (str_contains($bodyPOST,'raw_'.$keyVariable)) {
+                    $rawReplaceArray['raw_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce($keyValue));
+                }
             }
 
-            $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray), $file_api === true ? $methodSettings['body_raw_file'] : $methodSettings['body_raw']);
+            $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray), $bodyPOST);
             $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $bodyPOST);
             $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
 
