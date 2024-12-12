@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 237;
+            lhc.version = 238;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -172,6 +172,7 @@
                     domain: LHC_API.args.domain || null,
                     domain_lhc: null,
                     instance_id: 0,
+                    broadcasChannel : new BroadcastChannel(prefixStorage+'_wchannel'),
                     profile_pic: LHC_API.args.profile_pic || null,
                     position: LHC_API.args.position || 'bottom_right',
                     position_placement: LHC_API.args.position_placement || 'bottom_right',
@@ -573,6 +574,22 @@
 
                 })
 
+                // Listen for broadcast channels
+                attributesWidget.broadcasChannel.addEventListener("message", function(event) {
+                    if (event.data.action === 'wstatus') {
+                        if (event.data.value != attributesWidget.widgetStatus.value) {
+                            attributesWidget.widgetStatus.next(event.data.value);
+                        }
+                    } else if (event.data.action === 'chat_started') {
+                        if (attributesWidget.userSession.id === null && event.data.data.id) {
+                            chatEvents.sendChildEvent('reopenNotification', [{
+                                'id': event.data.data.id,
+                                'hash': event.data.data.hash
+                            }]);
+                        }
+                    }
+                })
+
                 // Widget Hide event
                 attributesWidget.eventEmitter.addListener('closeWidget', function (params) {
                     attributesWidget.widgetStatus.next(false);
@@ -762,6 +779,8 @@
                     if (attributesWidget.fresh === false && (mode !== 'popup' || attributesWidget.kcw === true)) {
                         attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
                     }
+
+                    attributesWidget.broadcasChannel.postMessage({'action':'chat_started','data':data, 'mode': mode});
                 });
 
                 // Subscribe event
@@ -785,6 +804,8 @@
                             attributesWidget.userSession.ws = data ? '1' : null;
                             attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
                         }
+
+                        attributesWidget.broadcasChannel.postMessage({'action':'wstatus','value':data});
                         chatEvents.sendChildEvent('widgetStatus', [data]);
                     }
                 });

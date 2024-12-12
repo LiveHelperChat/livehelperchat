@@ -101,7 +101,6 @@ class _nodeJSChat {
                                         'id': op.data.id,
                                         'hash': op.data.hash
                                     }]);
-                                    attributes.eventEmitter.emitEvent('chatStarted', [op.data, 'widget']);
                                 }
                             } catch (e) {
                                 console.log(e);
