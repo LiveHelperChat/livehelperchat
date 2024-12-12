@@ -71,14 +71,60 @@ class _nodeJSChat {
             sampleChannel = socket.subscribe('uo_' + vid);
             if (firstRun == true) {
                 try {
+                    // We want to receive signal is widget open in any of the windows
+                    !attributes.widgetStatus.value && socket.transmitPublish('uo_' + vid, {op: 'ws_isopen'});
+
+                    // Subscribe to widget status, just ignore initial status
+                    attributes.widgetStatus.subscribe((data) => {
+                        socket.transmitPublish('uo_' + vid, {op: 'wstatus', status: data});
+                    }, true);
+
+                    // Listen for chat started event and dispatch to other windows
+                    attributes.eventEmitter.addListener('chatStarted', function (data, mode) {
+                        if (mode !== 'popup' || attributesWidget.kcw === true) {
+                            socket.transmitPublish('uo_' + vid, {op: 'chat_started', data: data});
+                        }
+                    });
+                } catch (e) {
+                    console.log(e);
+                }
+                try {
                     for await (let op of sampleChannel) {
                         if (op.op == 'check_message') {
                             attributes.eventEmitter.emitEvent('checkMessageOperator');
                         } else if (op.op == 'is_online') {
                             socket.transmitPublish('ous_'+instance_id,{op:'vi_online', status: true, vid: vid});
+                        } else if (op.op == 'chat_started') {
+                            try {
+                                if (attributes.userSession.id === null && op.data.id) {
+                                    chatEvents.sendChildEvent('reopenNotification', [{
+                                        'id': op.data.id,
+                                        'hash': op.data.hash
+                                    }]);
+                                    attributes.eventEmitter.emitEvent('chatStarted', [op.data, 'widget']);
+                                }
+                            } catch (e) {
+                                console.log(e);
+                            }
+                        } else if (op.op == 'ws_isopen') {
+                            try {
+                                if (attributes.widgetStatus.value) {
+                                    socket.transmitPublish('uo_'+vid,{op:'wstatus', status: true});
+                                }
+                            } catch (e) {
+                                console.log(e);
+                            }
+                        } else if (op.op == 'wstatus') {
+                            try {
+                                if (op.status != attributes.widgetStatus.value) {
+                                    attributes.widgetStatus.next(op.status);
+                                }
+                            } catch (e) {
+                                console.log(e);
+                            }
                         }
                     }
-                } catch (e){
+                } catch (e) {
                     // shut up old browsers
                 }
             }

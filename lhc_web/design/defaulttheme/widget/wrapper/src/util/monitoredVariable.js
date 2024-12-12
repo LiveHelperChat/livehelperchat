@@ -42,10 +42,10 @@ export class monitoredVariable {
         }
     }
 
-    subscribe(callback) {
+    subscribe(callback, ignoreSub) {
         this.listeners.push(callback);
         
-        if (!this.params['ignore_sub']) {
+        if (!this.params['ignore_sub'] && !ignoreSub) {
             callback(this.valueInternal);
         }
     }

@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 236;
+            lhc.version = 237;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -155,9 +155,7 @@
                     shidden: new BehaviorSubject(LHC_API.args.hide_status || false),
                     msgsnippet_status: new BehaviorSubject(false),
                     unread_counter: new BehaviorSubject(0),
-                    widgetStatus: new BehaviorSubject((storageHandler.getSessionStorage(prefixStorage + '_ws') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'))),
                     eventEmitter: new EventEmitter(),
-                    toggleSound: new BehaviorSubject(storageHandler.getSessionStorage(prefixStorage + '_sound') === 'true', {'ignore_sub': true}),
                     hideOffline: false,
                     offline: LHC_API.args.offline || null,
                     fscreen: LHC_API.args.fscreen || false,
@@ -237,6 +235,9 @@
                 attributesWidget.userSession.setAttributes(attributesWidget);
                 attributesWidget.userSession.setSessionInformation(attributesWidget.storageHandler.getSessionInformation());
                 attributesWidget.userSession.setSessionReferrer(storageHandler.getSessionReferrer());
+
+                attributesWidget.widgetStatus = new BehaviorSubject(attributesWidget.userSession.ws == '1' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'));
+                attributesWidget.toggleSound = new BehaviorSubject(!(attributesWidget.userSession.sd == '1'), {'ignore_sub': true});
 
                 if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
 
@@ -780,7 +781,9 @@
                     if (attributesWidget.mode !== 'popup') {
                         if (attributesWidget.mode !== 'embed') {
                             // Do not store open status in local storage because embed is always open
-                            attributesWidget.storageHandler.setSessionStorage(prefixStorage + '_ws', data);
+                            // attributesWidget.storageHandler.setSessionStorage(prefixStorage + '_ws', data);
+                            attributesWidget.userSession.ws = data ? '1' : null;
+                            attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
                         }
                         chatEvents.sendChildEvent('widgetStatus', [data]);
                     }
@@ -788,7 +791,8 @@
 
                 // Store sound settings
                 attributesWidget.toggleSound.subscribe((data) => {
-                    attributesWidget.storageHandler.setSessionStorage(prefixStorage + '_sound', data);
+                    attributesWidget.userSession.sd = !data ? '1' : null;
+                    attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
                 });
 
                 attributesWidget.onlineStatus.subscribe((data) => {
