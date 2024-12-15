@@ -15,16 +15,23 @@ It's an open-source powered application that brings simplicity and usability int
 
 ## Quick install guide
 
-If you clone git repository you have to install composer dependencies.
+### By cloning repository
 
-'''
-cd lhc_web
-composer install
-'''
+If you clone git repository you have to install composer dependencies. Min 8.2 PHP version.
 
-Now you can just enter in your browser 'lhc_web/index.php'
+```
+cd lhc_web && composer install
+```
 
-More information at documentation
+Now you can just enter in your browser `lhc_web/index.php`
+
+### By downloading from relese section
+
+Navigate to https://github.com/LiveHelperChat/livehelperchat/releases and download most recent relese.
+
+You do not need to install composer dependencies in that scenario.
+
+For alternative install ways read https://doc.livehelperchat.com/docs/install
 
 ## Demo
 
