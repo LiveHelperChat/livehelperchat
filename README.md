@@ -13,6 +13,19 @@ It's an open-source powered application that brings simplicity and usability int
 * Chat (Discord) https://discord.gg/YsZXQVh
 * [Laravel version of Live Helper Chat](https://github.com/LiveHelperChat/livehelperchat_laravel)
 
+## Quick install guide
+
+If you clone git repository you have to install composer dependencies.
+
+'''
+cd lhc_web
+composer install
+'''
+
+Now you can just enter in your browser 'lhc_web/index.php'
+
+More information at documentation
+
 ## Demo
 
 http://livehelperchat.com/demo-12c.html
