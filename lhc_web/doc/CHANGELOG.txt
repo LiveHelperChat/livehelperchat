@@ -1,3 +1,33 @@
+4.52v
+
+1. Widget will remain opened/closed across pages domain/subdomains. Widget will load chat instantly if chat is started on another tab of the same page.
+2. If NodeJS is used and chat is started on subdomain it will continue on all subdomain of the main domain.
+3. On page reload widget will avoid flickering while loading main widget components.
+4. Inline form will have a check to avoid it being submitted after chat was closed.
+5. Widget sounds settings will remain the same across the domain/subdomain navigation
+6. It's possible to mask sensitive information before it sending to Rest API endpoint. https://doc.livehelperchat.com/docs/bot/rest-api#magic-prefixes-for-replaceable-variables
+7. Bot log will log much more events and is usefull for bot debugging. It's activated in department edit. Log will appear in audit log.
+8. Markdown standard link support for better ChatGPT support.
+9. Rest API debug enhancement options. https://doc.livehelperchat.com/docs/bot/rest-api#audit-log
+10. If initial intro message was long, we did not scrolled to the bottom as we should.
+11. If `'lhaudit','see_audit_system'` permission was not set, operator will not see Rest API messages logged in the chat.
+12. Now it's possible to block third party chat from incoming webhooks.
+13. Sub URL has magic prefix `urlencode_` to encode elements in the query. https://doc.livehelperchat.com/docs/bot/rest-api#sub-url
+14. Option to disable mail ticket closed for some of the mailbox even if customer e-mail matches few of the tickets.
+15. Option to choose to show bot profile in widget theme.
+16. Maintenance mode improvements.
+17. Stream as HTML support for Rest API calls.
+18. Simple search for personal canned messages.
+19. In triple quotes sometimes code was parsed as a code. We should not parse anything in triple quotes.
+20. Improvements in explanations for e-mail messages.
+21. In department list you can search by department alias.
+22. Now it's possible to define multiple work periods in the single day.
+23. Updated to React 18 widget.
+24. Brand new text editor for the operators. Can be activated in the dashboard settings.
+
+No database update this time.
+
+
 4.51v
 
 1. Now you can remove selected message completely.
