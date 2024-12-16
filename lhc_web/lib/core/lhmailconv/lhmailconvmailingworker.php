@@ -7,6 +7,11 @@ class erLhcoreClassMailConvMailingWorker {
         $db = ezcDbInstance::get();
         $db->reconnect(); // Because it timeouts automatically, this calls to reconnect to database, this is implemented in 2.52v
 
+        if (isset($this->args['inst_id']) && $this->args['inst_id'] > 0) {
+            $cfg = \erConfigClassLhConfig::getInstance();
+            $db->query('USE ' . $cfg->getSetting('db', 'database_user_prefix') . $this->args['inst_id']);
+        }
+
         $db->beginTransaction();
         $campaign = erLhcoreClassModelMailconvMailingCampaign::fetchAndLock($this->args['campaign_id']);
 
@@ -59,7 +64,8 @@ class erLhcoreClassMailConvMailingWorker {
                 }
                 
                 if (count($recipients) == 20 && erLhcoreClassRedis::instance()->llen('resque:queue:lhc_mailing') <= 4) {
-                    erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailing', 'erLhcoreClassMailConvMailingWorker', array('campaign_id' => $campaign->id));
+                    $inst_id = class_exists('erLhcoreClassInstance') ? \erLhcoreClassInstance::$instanceChat->id : 0;
+                    erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailing', 'erLhcoreClassMailConvMailingWorker', array('inst_id' => $inst_id, 'campaign_id' => $campaign->id));
                 }
             }
         } else {

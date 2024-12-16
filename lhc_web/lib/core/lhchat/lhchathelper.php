@@ -360,7 +360,7 @@ class erLhcoreClassChatHelper
     	}
 
         if ($background == false && class_exists('erLhcoreClassExtensionLhcphpresque')) {
-            $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+            $inst_id = class_exists('erLhcoreClassInstance') ? \erLhcoreClassInstance::$instanceChat->id : 0;
             erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_webhook', 'erLhcoreClassChatWebhookResque', array('inst_id' => $inst_id, 'event_type' => 'merge_vid', 'old_vid' => $data['vid'], 'new_vid' => $data['new']));
             return;
         }
