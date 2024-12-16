@@ -13,7 +13,8 @@ try {
 
     if ($worker == 'resque' && class_exists('erLhcoreClassExtensionLhcphpresque')) {
         // We should start this job ASAP it's queue is free
-        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv', 'erLhcoreClassMailConvWorker', array('ignore_timeout' => true, 'mailbox_id' => $conv->mailbox_id));
+        $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv', 'erLhcoreClassMailConvWorker', array('inst_id' => $inst_id, 'ignore_timeout' => true, 'mailbox_id' => $conv->mailbox_id));
     } else {
         erLhcoreClassMailconvParser::syncMailbox($conv->mailbox, ['live' => true, 'only_send' => true]);
     }

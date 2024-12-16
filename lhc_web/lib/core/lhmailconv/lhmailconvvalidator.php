@@ -950,7 +950,8 @@ class erLhcoreClassMailconvValidator {
             $copyRecord->mailbox_id = $mailbox->id;
             $copyRecord->saveThis();
 
-            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array());
+            $inst_id = class_exists('\erLhcoreClassInstance') ? \erLhcoreClassInstance::$instanceChat->id : 0;
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array('inst_id' => $inst_id));
 
             return ['success' => true, 'message_id' => $mail->getLastMessageID()];
         }

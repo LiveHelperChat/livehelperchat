@@ -7,6 +7,11 @@ class erLhcoreClassMailConvWorker {
         $db = ezcDbInstance::get();
         $db->reconnect(); // Because it timeouts automatically, this calls to reconnect to database, this is implemented in 2.52v
 
+        if (isset($this->args['inst_id']) && $this->args['inst_id'] > 0) {
+            $cfg = \erConfigClassLhConfig::getInstance();
+            $db->query('USE ' . $cfg->getSetting('db', 'database_user_prefix') . $this->args['inst_id']);
+        }
+
         $mailboxId = $this->args['mailbox_id'];
         $mailbox = erLhcoreClassModelMailconvMailbox::fetch($mailboxId);
 

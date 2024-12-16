@@ -22,7 +22,8 @@ if (\LiveHelperChat\Models\mailConv\Delete\DeleteItem::estimateRows() > 0)
 {
     if ($worker == 'resque' && class_exists('erLhcoreClassExtensionLhcphpresque')) {
         if (erLhcoreClassRedis::instance()->llen('resque:queue:lhc_mailconv_delete') <= 4) {
-            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv_delete', '\LiveHelperChat\mailConv\workers\DeleteWorker', array('is_background' => true));
+            $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv_delete', '\LiveHelperChat\mailConv\workers\DeleteWorker', array('inst_id' => $inst_id, 'is_background' => true));
         }
     } else {
         $deleteWorker = new \LiveHelperChat\mailConv\workers\DeleteWorker();
