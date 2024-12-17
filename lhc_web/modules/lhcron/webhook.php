@@ -6,7 +6,12 @@
  *
  * */
 
-$fp = fopen("cache/webhook.lock", "w+");
+$id = '';
+if (class_exists('erLhcoreClassInstance')) {
+    $id = \erLhcoreClassInstance::$instanceChat->id;
+}
+
+$fp = fopen("cache/webhook{$id}.lock", "w+");
 
 // Gain the lock
 if (!flock($fp, LOCK_EX | LOCK_NB)) {

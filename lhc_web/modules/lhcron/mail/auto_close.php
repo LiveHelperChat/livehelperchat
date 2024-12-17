@@ -1,7 +1,13 @@
 <?php
 
 // php cron.php -s site_admin -c cron/mail/auto_close
-$fp = fopen("cache/cron_mail_auto_close.lock", "w+");
+
+$id = '';
+if (class_exists('erLhcoreClassInstance')) {
+    $id = \erLhcoreClassInstance::$instanceChat->id;
+}
+
+$fp = fopen("cache/cron_mail_auto_close{$id}.lock", "w+");
 
 // Gain the lock
 if (!flock($fp, LOCK_EX | LOCK_NB)) {

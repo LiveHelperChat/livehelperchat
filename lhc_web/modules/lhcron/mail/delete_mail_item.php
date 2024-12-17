@@ -4,7 +4,12 @@
  * php cron.php -s site_admin -c cron/mail/delete_mail_item
  *
  * */
-$fp = fopen("cache/cron_mail_delete_mail_item.lock", "w+");
+$id = '';
+if (class_exists('erLhcoreClassInstance')) {
+    $id = \erLhcoreClassInstance::$instanceChat->id;
+}
+
+$fp = fopen("cache/cron_mail_delete_mail_item{$id}.lock", "w+");
 
 // Gain the lock
 if (!flock($fp, LOCK_EX | LOCK_NB)) {

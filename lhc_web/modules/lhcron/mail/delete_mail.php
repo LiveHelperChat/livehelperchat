@@ -6,7 +6,13 @@
  * Deletes mails in the background based on filter setup. In this case it just schedules records to be deleted.
  * To finish deletion process you have to run php cron.php -s site_admin -c cron/mail/delete_mail_item
  * */
-$fp = fopen("cache/cron_mail_delete_mail.lock", "w+");
+
+$id = '';
+if (class_exists('erLhcoreClassInstance')) {
+    $id = \erLhcoreClassInstance::$instanceChat->id;
+}
+
+$fp = fopen("cache/cron_mail_delete_mail{$id}.lock", "w+");
 
 // Gain the lock
 if (!flock($fp, LOCK_EX | LOCK_NB)) {
