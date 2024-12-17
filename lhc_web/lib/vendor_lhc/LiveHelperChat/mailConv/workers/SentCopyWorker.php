@@ -10,6 +10,11 @@ class SentCopyWorker
 
         if (isset($this->args['inst_id']) && $this->args['inst_id'] > 0) {
             $cfg = \erConfigClassLhConfig::getInstance();
+            $db->query('USE ' . $cfg->getSetting('db', 'database'));
+
+            $instance = \erLhcoreClassModelInstance::fetch($this->args['inst_id']);
+            \erLhcoreClassInstance::$instanceChat = $instance;
+
             $db->query('USE ' . $cfg->getSetting('db', 'database_user_prefix') . $this->args['inst_id']);
         }
 
@@ -42,8 +47,7 @@ class SentCopyWorker
         }
 
         if ((count($ids) >= 10) && \erLhcoreClassRedis::instance()->llen('resque:queue:lhc_imap_copy') <= 4) {
-            $inst_id = class_exists('\erLhcoreClassInstance') ? \erLhcoreClassInstance::$instanceChat->id : 0;
-            \erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array('inst_id' => $inst_id));
+            \erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array('inst_id' => isset($this->args['inst_id']) && $this->args['inst_id'] > 0 ? $this->args['inst_id'] : 0));
         }
     }
 
