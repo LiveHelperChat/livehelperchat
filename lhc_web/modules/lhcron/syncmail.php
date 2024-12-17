@@ -13,14 +13,16 @@ $worker = $cfg->getSetting( 'webhooks', 'worker' );
 
 foreach ($mailbox as $mail) {
     if ($worker == 'resque' && class_exists('erLhcoreClassExtensionLhcphpresque')) {
-        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv', 'erLhcoreClassMailConvWorker', array('mailbox_id' => $mail->id));
+        $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv', 'erLhcoreClassMailConvWorker', array('inst_id' => $inst_id, 'mailbox_id' => $mail->id));
     } else {
         erLhcoreClassMailconvParser::syncMailbox($mail);
     }
 }
 
 if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
-    \erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array());
+    $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+    \erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array('inst_id' => $inst_id));
 }
 
 ?>

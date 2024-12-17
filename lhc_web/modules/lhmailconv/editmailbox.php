@@ -12,7 +12,8 @@ if (isset($Params['user_parameters_unordered']['action']) && $Params['user_param
     $worker = $cfg->getSetting( 'webhooks', 'worker' );
 
     if ($worker == 'resque' && class_exists('erLhcoreClassExtensionLhcphpresque')) {
-        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv', 'erLhcoreClassMailConvWorker', array('mailbox_id' => $item->id));
+        $inst_id = class_exists('erLhcoreClassInstance') ? \erLhcoreClassInstance::$instanceChat->id : 0;
+        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv', 'erLhcoreClassMailConvWorker', array('inst_id' => $inst_id, 'mailbox_id' => $item->id));
     } else {
         erLhcoreClassMailconvParser::syncMailbox($item, ['live' => true]);
     }

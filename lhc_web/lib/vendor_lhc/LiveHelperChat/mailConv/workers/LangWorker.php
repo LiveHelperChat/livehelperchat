@@ -8,6 +8,16 @@ class LangWorker
         $db = \ezcDbInstance::get();
         $db->reconnect(); // Because it timeouts automatically, this calls to reconnect to database, this is implemented in 2.52v
 
+        if (isset($this->args['inst_id']) && $this->args['inst_id'] > 0) {
+            $cfg = \erConfigClassLhConfig::getInstance();
+            $db->query('USE ' . $cfg->getSetting('db', 'database'));
+
+            $instance = \erLhcoreClassModelInstance::fetch($this->args['inst_id']);
+            \erLhcoreClassInstance::$instanceChat = $instance;
+
+            $db->query('USE ' . $cfg->getSetting('db', 'database_user_prefix') . $this->args['inst_id']);
+        }
+
         $messageId = $this->args['msg_id'];
         $message = \erLhcoreClassModelMailconvMessage::fetch($messageId);
 
@@ -97,7 +107,8 @@ class LangWorker
             $workerType = \erConfigClassLhConfig::getInstance()->getSetting( 'webhooks', 'worker' );
 
             if ($workerType == 'resque' && class_exists('erLhcoreClassExtensionLhcphpresque')) {
-                \erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv_lang', '\LiveHelperChat\mailConv\workers\LangWorker', array('msg_id' => $message->id));
+                $inst_id = class_exists('\erLhcoreClassInstance') ? \erLhcoreClassInstance::$instanceChat->id : 0;
+                \erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv_lang', '\LiveHelperChat\mailConv\workers\LangWorker', array('inst_id' => $inst_id, 'msg_id' => $message->id));
             } else {
                 $langDetect = new self();
                 $langDetect->args['msg_id'] = $message->id;

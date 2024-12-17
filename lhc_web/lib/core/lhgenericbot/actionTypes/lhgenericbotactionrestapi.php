@@ -59,6 +59,8 @@ class erLhcoreClassGenericBotActionRestapi
                         (isset($action['content']['attr_options']['background_process']) && $action['content']['attr_options']['background_process'] == true)
                             ||
                         (isset($action['content']['attr_options']['background_process_delegate']) && $action['content']['attr_options']['background_process_delegate'] == true && erLhcoreClassSystem::instance()->backgroundMode === false)
+                            ||
+                        (erLhcoreClassSystem::instance()->backgroundMode === false && class_exists('erLhcoreClassInstance')) // Always delegate automated hosting request to background worker if we are not in background already
                     )
                     && class_exists('erLhcoreClassExtensionLhcphpresque')
                 ) {

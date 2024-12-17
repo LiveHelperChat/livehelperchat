@@ -8,6 +8,16 @@ class DeleteWorker
         $db = \ezcDbInstance::get();
         $db->reconnect(); // Because it timeouts automatically, this calls to reconnect to database, this is implemented in 2.52v
 
+        if (isset($this->args['inst_id']) && $this->args['inst_id'] > 0) {
+            $cfg = \erConfigClassLhConfig::getInstance();
+            $db->query('USE ' . $cfg->getSetting('db', 'database'));
+
+            $instance = \erLhcoreClassModelInstance::fetch($this->args['inst_id']);
+            \erLhcoreClassInstance::$instanceChat = $instance;
+
+            $db->query('USE ' . $cfg->getSetting('db', 'database_user_prefix') . $this->args['inst_id']);
+        }
+
         $db->beginTransaction();
         try {
             $stmt = $db->prepare('SELECT `conversation_id`,`filter_id` FROM `lhc_mailconv_delete_item` WHERE `status` = 0 LIMIT :limit FOR UPDATE ');
@@ -101,7 +111,8 @@ class DeleteWorker
         }
 
         if (isset($this->args['is_background']) && count($chatsId) >= 20 && \erLhcoreClassRedis::instance()->llen('resque:queue:lhc_mailconv_delete') <= 4) {
-            \erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv_delete', '\LiveHelperChat\mailConv\workers\DeleteWorker', array('is_background' => true));
+            $inst_id = class_exists('erLhcoreClassInstance') ? \erLhcoreClassInstance::$instanceChat->id : 0;
+            \erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv_delete', '\LiveHelperChat\mailConv\workers\DeleteWorker', array('inst_id' => $inst_id, 'is_background' => true));
         }
     }
 }

@@ -6,13 +6,18 @@
  *
  * */
 
-$fp = fopen("cache/webhook.lock", "w+");
+$id = '';
+if (class_exists('erLhcoreClassInstance')) {
+    $id = \erLhcoreClassInstance::$instanceChat->id;
+}
+
+$fp = fopen("cache/webhook{$id}.lock", "w+");
 
 // Gain the lock
 if (!flock($fp, LOCK_EX | LOCK_NB)) {
     echo "Couldn't get the lock! Another process is already running";
     fclose($fp);
-    exit;
+    return;
 } else {
     echo "Lock acquired. Starting process!";
 }

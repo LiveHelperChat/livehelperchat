@@ -15,7 +15,8 @@ foreach (erLhAbstractModelSavedSearch::getList([
     'filtergt' => ['requested_at' => time() - 5 * 60] // Only views where operator requested update during last 5 minutes
 ]) as $search) {
     if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
-        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_views_update', 'erLhcoreClassViewResque', array('view_id' => $search->id));
+        $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_views_update', 'erLhcoreClassViewResque', array('inst_id' => $inst_id, 'view_id' => $search->id));
     } else {
         erLhcoreClassViewResque::updateView($search);
     }
