@@ -20,7 +20,14 @@
 
 echo "-=Starting departments stats aggregation=-\n";
 
-$valid = array_filter(explode(',',str_replace(' ','',trim($cronjobPathOption->value))));
+if (isset($cronjobPathOption) && $cronjobPathOption->value != '') {
+    $valid = array_filter(explode(',',str_replace(' ','',trim($cronjobPathOption->value))));
+} else {
+    $valid = array (
+        'avg_chat_duration',
+        'avg_wait_time'
+    );
+}
 
 if (empty($valid)) {
     $valid = array (
