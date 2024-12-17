@@ -137,7 +137,7 @@
                 {/if}
 
                 {#if $lhcList[type].list.length === 0 && type !== 'onlineusers' && type !== 'depgroups_stats'}
-                    <div class="m-1 alert alert-light"><i class="material-icons">search</i>All items will appear here.</div>
+                    <div class="m-1 alert alert-light"><i class="material-icons">search</i>{$t("widget.items_appear_here")}</div>
                 {/if}
 
             </div>

@@ -24,6 +24,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -464,6 +468,10 @@
     </message>
     <message>
       <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reload back office for operators. Requires NodeJS</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1924,6 +1932,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Use bot profile in the widget instead of default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Try to detect language from browser headers</source>
       <translation type="unfinished"/>
     </message>
@@ -2051,6 +2063,10 @@
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
+      <source>Object ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
       <translation type="unfinished"/>
     </message>
@@ -2111,7 +2127,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Object ID</source>
+      <source>[Record ID] [Object ID]</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3352,6 +3368,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Archived</source>
       <translation type="unfinished"/>
     </message>
@@ -3448,6 +3468,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>If we find custom period for specific day it takes priority over day work hours definition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>to render widget online status</source>
       <translation type="unfinished"/>
     </message>
@@ -3492,6 +3516,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Day of the week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose day of the week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Date from</source>
       <translation type="unfinished"/>
     </message>
@@ -3505,10 +3541,6 @@
     </message>
     <message>
       <source>Add</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Period</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4454,6 +4486,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Activate maintenance mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show widget in maintenance mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New chats can not be started, widget will be hidden.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget will be visible for those who have already started a chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Anyone who have widget open and want to start a chat will get validation error.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After you see there are no pending/bot/active chats you can turn off the server or do your thing.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If none of the above conditions are met widget will become hidden.</source>
       <translation type="unfinished"/>
     </message>
@@ -4516,6 +4572,10 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
+    <message>
+      <source>Enable debug logging</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Select event</source>
       <translation type="unfinished"/>
@@ -5141,6 +5201,34 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Monday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Brand members</source>
       <translation type="unfinished"/>
     </message>
@@ -5153,7 +5241,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Enable debug logging</source>
+      <source>Enable debug logging. Records will be found in Audit Log</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5162,6 +5250,10 @@
     </message>
     <message>
       <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Alias</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5198,6 +5290,10 @@
     </message>
     <message>
       <source>Only persistent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose Rest API</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5589,6 +5685,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Mail statistic is based on conversation user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by mail conversations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Agent</source>
       <translation type="unfinished"/>
     </message>
@@ -5622,34 +5726,6 @@
     </message>
     <message>
       <source>Day of the week</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Saturday</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7278,11 +7354,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>We are still working on your previous request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a message, max characters</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>You cannot send messages to this chat. Please refresh your browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message was removed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message could not be found!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7295,10 +7383,6 @@
     </message>
     <message>
       <source>No last message was found!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Message could not be found!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7355,6 +7439,10 @@
     </message>
     <message>
       <source>You can edit only your own messages!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was already closed!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8887,6 +8975,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Went online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Went offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active chats</source>
       <translation type="unfinished"/>
     </message>
@@ -9285,7 +9381,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Page from where visitor started a chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page from where visitor come and was seen very first time in current session.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9530,6 +9634,10 @@
     </message>
     <message>
       <source>active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>excluded from auto closing!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10284,6 +10392,10 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
+      <source>Online user (cookie)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>IP</source>
       <translation type="unfinished"/>
     </message>
@@ -10376,7 +10488,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Online user (cookie)</source>
+      <source>Online user profile</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10923,10 +11035,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Add translation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>New password was set, copy it or</source>
       <translation type="unfinished"/>
     </message>
@@ -10952,6 +11060,10 @@
     </message>
     <message>
       <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add translation</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -11389,6 +11501,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Remove</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Quote</source>
       <translation type="unfinished"/>
     </message>
@@ -11522,6 +11638,10 @@
     </message>
     <message>
       <source>Operator chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All items will appear here</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12714,6 +12834,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Switch between old and new editor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch to old editor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch to new editor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Click to switch modes</source>
       <translation type="unfinished"/>
     </message>
@@ -12926,6 +13058,10 @@
     </message>
     <message>
       <source>Change my persistent status to online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change my status to online/offline. Ctrl + F12 Shortcut.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13339,6 +13475,18 @@
       <source>Chat information was updated</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Actions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>system/configuration</name>
@@ -13604,6 +13752,10 @@
     </message>
     <message>
       <source>Sessions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notice message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -16024,6 +16176,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Archived</source>
       <translation type="unfinished"/>
     </message>
@@ -16944,6 +17100,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>In case you have imported the Rest API already. You can make sure the imported bot uses the chosen Rest API.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Bot imported</source>
       <translation type="unfinished"/>
     </message>
@@ -17007,6 +17167,18 @@
     </message>
     <message>
       <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log all request and their responses in audit log.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log all request and their responses as system messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ignore request with these http statuses. Separate multiple by comma.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17087,6 +17259,10 @@
     </message>
     <message>
       <source>Polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Streaming</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17306,7 +17482,47 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Streaming options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Output is matched only if event is this type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stream content if output is matched.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stream content as HTML.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute trigger on matched content. Stream will continue afterwards.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If matched use response as final response.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If you want to add custom data within each send message to its meta_data attribute you can provide response path here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Repeat request n times if conditions is not met (polling)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Making n seconds delay between each request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is a streaming request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Streaming event type field</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -17322,6 +17538,10 @@
     </message>
     <message>
       <source>Operator nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous chat additional chat variable</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17382,6 +17602,10 @@
     </message>
     <message>
       <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17797,9 +18021,25 @@
       <source>Subject to add if mail ticket is closed from chat. Enter a subject ID</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Matching rules to exclude mailbox being automatically closed. Defines matching rule for the mailbox.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Each new matching rule per line.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>module/mailconv</name>
+    <message>
+      <source>Responeded by e-mail</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Change mailbox</source>
       <translation type="unfinished"/>
@@ -18329,6 +18569,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Response type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active</source>
       <translation type="unfinished"/>
     </message>
@@ -18381,7 +18625,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Responeded by e-mail</source>
+      <source>Un-responded</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -20994,6 +21238,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Notice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Level of notice</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose correct language</source>
       <translation type="unfinished"/>
     </message>
@@ -22038,6 +22294,10 @@
     <name>user/wentinactive</name>
     <message>
       <source>Because of inactivity you went offline, click continue to go online.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Because of inactivity you went offline, click continue to go online. Ctrl+F12 Shortcut.</source>
       <translation type="unfinished"/>
     </message>
     <message>
