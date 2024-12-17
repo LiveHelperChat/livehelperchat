@@ -35,7 +35,9 @@ For alternative install ways read https://doc.livehelperchat.com/docs/install
 
 ## Demo
 
-http://livehelperchat.com/demo-12c.html
+http://livehelperchat.com/demo-12c.html 
+
+Demo with ChatGPT and streaming support can be found at https://doc.livehelperchat.com/ Try to ask a question about Live Helper Chat. ChatGPT install instructions [here](https://github.com/LiveHelperChat/chatGPT/)
 
 ## Integrations
 
