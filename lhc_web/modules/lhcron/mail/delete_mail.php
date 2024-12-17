@@ -12,7 +12,7 @@ $fp = fopen("cache/cron_mail_delete_mail.lock", "w+");
 if (!flock($fp, LOCK_EX | LOCK_NB)) {
     echo "Couldn't get the lock! Another process is already running\n";
     fclose($fp);
-    exit;
+    return;
 } else {
     echo "Lock acquired. Starting process!\n";
 }
