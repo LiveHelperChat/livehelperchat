@@ -15,6 +15,7 @@ export class mainWidget{
         this.bottom_override = false;
         this.is_invitation = false;
         this.is_loaded = false;
+        this.widget_rendered = false;
 
         this.cont = new UIConstructorIframe((prefix || 'lhc')+'_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
@@ -290,9 +291,19 @@ export class mainWidget{
     }
 
     widgetRendered(){
+
+        if (this.widget_rendered === false) {
+            var eldoc = null;
+            if (this.cont.elmDomDoc && (eldoc = this.cont.elmDomDoc.getElementById('root')) && eldoc) {
+                eldoc.classList.add('lhc-widget-loaded');
+                this.widget_rendered = true;
+            }
+        }
+
         if (!this.attributes.cont_ss) {
             return;
         }
+
         if (this.is_invitation === false || (this.is_invitation === true && this.attributes.full_invitation)) {
             this.cont.elmDom.style.cssText += this.attributes.cont_ss;
         }
