@@ -582,7 +582,6 @@
                         }
                     } else if (event.data.action === 'chat_started') {
                         if (attributesWidget.userSession.id === null && event.data.data.id) {
-                            console.log('reopen chat');
                             chatEvents.sendChildEvent('reopenNotification', [{
                                 'id': event.data.data.id,
                                 'hash': event.data.data.hash
