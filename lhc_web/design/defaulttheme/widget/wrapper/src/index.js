@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 240;
+            lhc.version = 241;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -582,6 +582,7 @@
                         }
                     } else if (event.data.action === 'chat_started') {
                         if (attributesWidget.userSession.id === null && event.data.data.id) {
+                            console.log('reopen chat');
                             chatEvents.sendChildEvent('reopenNotification', [{
                                 'id': event.data.data.id,
                                 'hash': event.data.data.hash
@@ -803,9 +804,9 @@
                             // attributesWidget.storageHandler.setSessionStorage(prefixStorage + '_ws', data);
                             attributesWidget.userSession.ws = data ? '1' : null;
                             attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
+                            attributesWidget.broadcasChannel.postMessage({'action':'wstatus','value':data});
                         }
 
-                        attributesWidget.broadcasChannel.postMessage({'action':'wstatus','value':data});
                         chatEvents.sendChildEvent('widgetStatus', [data]);
                     }
                 });

@@ -73,10 +73,10 @@ class _nodeJSChat {
             if (firstRun == true) {
                 try {
                     // We want to receive signal is widget open in any of the windows
-                    !attributes.widgetStatus.value && socket.transmitPublish('uo_' + vid, {op: 'ws_isopen'});
+                    attributes.mode != 'embed' && !attributes.widgetStatus.value && socket.transmitPublish('uo_' + vid, {op: 'ws_isopen'});
 
                     // Subscribe to widget status, just ignore initial status
-                    attributes.widgetStatus.subscribe((data) => {
+                    attributes.mode != 'embed' && attributes.widgetStatus.subscribe((data) => {
                         socket.transmitPublish('uo_' + vid, {op: 'wstatus', status: data});
                     }, true);
 
@@ -108,7 +108,7 @@ class _nodeJSChat {
                             }
                         } else if (op.op == 'ws_isopen') {
                             try {
-                                if (attributes.widgetStatus.value) {
+                                if (attributes.mode != 'embed' && attributes.widgetStatus.value) {
                                     socket.transmitPublish('uo_'+vid,{op:'wstatus', status: true});
                                 }
                             } catch (e) {
@@ -116,7 +116,7 @@ class _nodeJSChat {
                             }
                         } else if (op.op == 'wstatus') {
                             try {
-                                if (op.status != attributes.widgetStatus.value) {
+                                if (attributes.mode != 'embed' && op.status != attributes.widgetStatus.value) {
                                     attributes.widgetStatus.next(op.status);
                                 }
                             } catch (e) {
