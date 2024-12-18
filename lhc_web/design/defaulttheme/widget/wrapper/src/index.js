@@ -577,7 +577,7 @@
                 // Listen for broadcast channels
                 attributesWidget.broadcasChannel.addEventListener("message", function(event) {
                     if (event.data.action === 'wstatus') {
-                        if (event.data.value != attributesWidget.widgetStatus.value) {
+                        if (attributesWidget.mode != 'embed' && event.data.value != attributesWidget.widgetStatus.value) {
                             attributesWidget.widgetStatus.next(event.data.value);
                         }
                     } else if (event.data.action === 'chat_started') {
