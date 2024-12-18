@@ -968,6 +968,9 @@ if ($theme !== false) {
 
     if (isset($theme->bot_configuration_array['custom_html_footer']) && $theme->bot_configuration_array['custom_html_footer'] != '') {
         $chat_ui['custom_html_footer'] = $theme->bot_configuration_array['custom_html_footer'];
+        if (isset($theme->bot_configuration_array['custom_html_footer_raw']) && $theme->bot_configuration_array['custom_html_footer_raw'] == true) {
+            $chat_ui['chfr'] = 1;
+        }
     }
 
     if (isset($theme->bot_configuration_array['custom_html_header_body']) && $theme->bot_configuration_array['custom_html_header_body'] != '') {

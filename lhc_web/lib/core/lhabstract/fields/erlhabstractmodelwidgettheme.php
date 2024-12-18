@@ -149,6 +149,16 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                     )),
+                'custom_html_footer_raw' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Print raw HTML in footer without parsing it for special functions. Makes custom HTML in footer to render faster.'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                    )),
                 'always_present_nh' => array(
                     'type' => 'checkbox',
                     'main_attr' => 'bot_configuration_array',

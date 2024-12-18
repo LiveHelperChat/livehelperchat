@@ -1054,8 +1054,13 @@
                     <?php $translatableItem = array('identifier' => 'custom_html_header'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
+                    <div class="form-group">
+                        <label><?php echo erLhcoreClassAbstract::renderInput('custom_html_footer_raw', $fields['custom_html_footer_raw'], $object)?> <?php echo $fields['custom_html_footer_raw']['trans'];?></label>
+                    </div>
+
                     <?php $translatableItem = array('identifier' => 'custom_html_footer'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
 
                     <?php $translatableItem = array('identifier' => 'custom_html_header_body'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
