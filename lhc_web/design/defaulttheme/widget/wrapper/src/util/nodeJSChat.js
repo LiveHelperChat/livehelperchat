@@ -19,6 +19,7 @@ class _nodeJSChat {
             protocolVersion: 1,
             hostname: params.hostname,
             path: params.path,
+            disconnectOnUnload: false,
             authTokenName: 'socketCluster.authToken_vi'
         }
 

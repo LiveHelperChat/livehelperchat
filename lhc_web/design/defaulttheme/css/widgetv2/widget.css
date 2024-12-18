@@ -456,13 +456,6 @@ div.message-row.response div.msg-body.sub-message{
     color:#212529;
 }
 
-/* For reaction icons avoid scrolling up and down if operator is the last message */
-
-.bottom-message div.message-row.response:last-child,
-.bottom-message div.message-row.message-admin:last-child {
-    min-height: 47px;
-}
-
 .bottom-message div.response div.msg-body a.link{
     color:#fff;
     text-decoration:underline;

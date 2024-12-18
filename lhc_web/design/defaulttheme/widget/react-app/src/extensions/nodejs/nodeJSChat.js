@@ -29,6 +29,7 @@ class _nodeJSChat {
             protocolVersion: 1,
             hostname: params.hostname,
             path: params.path,
+            disconnectOnUnload: false,
             autoReconnectOptions: {initialDelay: 5000, randomness: 5000}
         }
 
@@ -245,7 +246,15 @@ class _nodeJSChat {
                             } else if (op.op == 'umsg') {
                                 const state = getState();
                                 if (state.chatwidget.hasIn(['chatData','id'])) {
-                                    updateMessage({'msg_id' :  op.msid,'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
+                                    updateMessage({
+                                        'msg_id' :  op.msid,
+                                        'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
+                                        'mode' : state.chatwidget.get('mode'),
+                                        'theme' : state.chatwidget.get('theme'),
+                                        'id' : state.chatwidget.getIn(['chatData','id']),
+                                        'hash' : state.chatwidget.getIn(['chatData','hash']),
+                                        'no_scroll' : true
+                                    })(dispatch, getState);
                                 }
                             } else if (op.op == 'schange' || op.op == 'cclose') {
                                 const state = getState();

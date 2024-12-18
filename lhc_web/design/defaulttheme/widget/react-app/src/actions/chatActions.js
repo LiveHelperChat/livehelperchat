@@ -460,11 +460,16 @@ export function updateMessage(obj) {
                 elm.className = classNameRow;
             }
 
-            // Just adjust a scroll
-            if (!obj.no_scroll) {
+            // Just adjust a scroll if it's required or we are updating the last message
+            // Scenario with reactions being added
+            if (!obj.no_scroll || (obj.lmgsid && obj.msg_id == obj.lmgsid)) {
                 let elmScroll = document.getElementById('messages-scroll');
                 if (elmScroll !== null) {
                     elmScroll.scrollTop = elmScroll.scrollHeight + 1000;
+                    // Sometimes scroll does not happen because UI is not refreshed yet and content is not updated
+                    setTimeout(() => {
+                        elmScroll !== null && (elmScroll.scrollTop = elmScroll.scrollHeight + 1000);
+                    },150);
                 }
             }
         })
