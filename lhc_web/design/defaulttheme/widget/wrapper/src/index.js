@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 241;
+            lhc.version = 242;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -582,6 +582,7 @@
                         }
                     } else if (event.data.action === 'chat_started') {
                         if (attributesWidget.userSession.id === null && event.data.data.id) {
+                            attributesWidget.userSession.setChatInformation(event.data.data, attributesWidget.nh && attributesWidget.nh.ap);
                             chatEvents.sendChildEvent('reopenNotification', [{
                                 'id': event.data.data.id,
                                 'hash': event.data.data.hash
@@ -769,6 +770,11 @@
 
                     if (mode !== 'popup' || attributesWidget.kcw === true) {
                         attributesWidget.userSession.setChatInformation(data, attributesWidget.nh && attributesWidget.nh.ap);
+                        attributesWidget.broadcasChannel.postMessage({'action':'chat_started', 'data':data, 'mode': mode});
+                        mode == 'popup' && chatEvents.sendChildEvent('reopenNotification', [{
+                            'id': data.id,
+                            'hash': data.hash
+                        }]);
                     }
 
                     if (mode == 'popup') {
@@ -780,7 +786,6 @@
                         attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
                     }
 
-                    attributesWidget.broadcasChannel.postMessage({'action':'chat_started','data':data, 'mode': mode});
                 });
 
                 // Subscribe event

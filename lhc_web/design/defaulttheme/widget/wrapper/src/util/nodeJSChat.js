@@ -82,7 +82,7 @@ class _nodeJSChat {
 
                     // Listen for chat started event and dispatch to other windows
                     attributes.eventEmitter.addListener('chatStarted', function (data, mode) {
-                        if (mode !== 'popup' || attributesWidget.kcw === true) {
+                        if (mode !== 'popup' || attributes.kcw === true) {
                             socket.transmitPublish('uo_' + vid, {op: 'chat_started', data: data});
                         }
                     });
