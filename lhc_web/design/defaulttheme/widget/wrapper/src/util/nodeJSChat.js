@@ -75,6 +75,9 @@ class _nodeJSChat {
                     // We want to receive signal is widget open in any of the windows
                     attributes.mode != 'embed' && !attributes.widgetStatus.value && socket.transmitPublish('uo_' + vid, {op: 'ws_isopen'});
 
+                    // We want to publish request to receive all the vars other instances has
+                    attributes.lhc_var !== null && socket.transmitPublish('uo_' + vid, {op: 'check_vars'});
+
                     // Subscribe to widget status, just ignore initial status
                     attributes.mode != 'embed' && attributes.widgetStatus.subscribe((data) => {
                         socket.transmitPublish('uo_' + vid, {op: 'wstatus', status: data});
@@ -114,6 +117,7 @@ class _nodeJSChat {
                             } catch (e) {
                                 console.log(e);
                             }
+
                         } else if (op.op == 'wstatus') {
                             try {
                                 if (attributes.mode != 'embed' && op.status != attributes.widgetStatus.value) {
@@ -122,6 +126,20 @@ class _nodeJSChat {
                             } catch (e) {
                                 console.log(e);
                             }
+                        } else if (op.op == 'current_vars') {
+                            try {
+                                if (op.lhc_var && attributes.lhc_var !== null) {
+                                    for (var index in op.lhc_var) {
+                                        if (typeof attributes.lhc_var[index] == 'undefined') {
+                                            attributes.lhc_var[index] = op.lhc_var[index];
+                                        }
+                                    }
+                                }
+                            } catch (e) {
+                                console.log(e);
+                            }
+                        } else if (op.op == 'check_vars') {
+                            attributes.lhc_var && socket.transmitPublish('uo_'+vid,{op:'current_vars', 'lhc_var': attributes.lhc_var});
                         }
                     }
                 } catch (e) {
