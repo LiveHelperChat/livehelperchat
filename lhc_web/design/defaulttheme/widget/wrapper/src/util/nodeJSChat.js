@@ -83,6 +83,11 @@ class _nodeJSChat {
                         socket.transmitPublish('uo_' + vid, {op: 'wstatus', status: data});
                     }, true);
 
+                    // Vars were updated, inform other instances
+                    attributes.lhc_var !== null && attributes.eventEmitter.addListener('jsVarsUpdated', function () {
+                        socket.transmitPublish('uo_'+vid, {op:'current_vars', 'lhc_var': attributes.lhc_var});
+                    });
+
                     // Listen for chat started event and dispatch to other windows
                     attributes.eventEmitter.addListener('chatStarted', function (data, mode) {
                         if (mode !== 'popup' || attributes.kcw === true) {
@@ -130,7 +135,7 @@ class _nodeJSChat {
                             try {
                                 if (op.lhc_var && attributes.lhc_var !== null) {
                                     for (var index in op.lhc_var) {
-                                        if (typeof attributes.lhc_var[index] == 'undefined') {
+                                        if ((typeof attributes.lhc_var[index] === 'undefined' || attributes.lhc_var[index] === '') && op.lhc_var[index] !== '' && attributes.lhc_var[index] !== op.lhc_var[index]) {
                                             attributes.lhc_var[index] = op.lhc_var[index];
                                         }
                                     }

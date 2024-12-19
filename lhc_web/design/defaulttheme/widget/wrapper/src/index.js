@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 243;
+            lhc.version = 244;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -530,6 +530,8 @@
                         if (data.js_vars.length > 0) {
                             attributesWidget.userSession.setupVarsMonitoring(data.js_vars, (vars, prefillVars) => {
                                 chatEvents.sendChildEvent('jsVars', [vars, prefillVars]);
+                                attributesWidget.broadcasChannel.postMessage({'action':'current_vars', 'lhc_var': JSON.parse(JSON.stringify(attributesWidget.lhc_var))});
+                                attributesWidget.eventEmitter.emitEvent('jsVarsUpdated');
                             });
                             attributesWidget.broadcasChannel.postMessage({'action':'check_vars'});
                         }
@@ -582,7 +584,7 @@
                     } else if (event.data.action === 'current_vars') {
                         if (attributesWidget.lhc_var !== null) {
                             for (var index in event.data.lhc_var) {
-                                if (typeof attributesWidget.lhc_var[index] == 'undefined') {
+                                if ((typeof attributesWidget.lhc_var[index] === 'undefined' || attributesWidget.lhc_var[index] === '') && event.data.lhc_var[index] !== '' && attributesWidget.lhc_var[index] !== event.data.lhc_var[index]) {
                                     attributesWidget.lhc_var[index] = event.data.lhc_var[index];
                                 }
                             }
