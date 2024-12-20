@@ -93,7 +93,10 @@ export class userSession {
                         obj[prop] = value;
 
                         clearTimeout(this.updateVarsTimeout);
-                        this.updateVarsTimeout = setTimeout( () =>{ this.updateJSVars(obj, cb);  },1000);
+                        this.updateVarsTimeout = setTimeout( () => {
+                                this.updateJSVars(obj, cb);
+                            },1000);
+                        this.attributes.ignoreVars === false && this.attributes.broadcasChannel.postMessage({'action':'current_vars', 'init':false, 'lhc_var': JSON.parse(JSON.stringify(obj))});
 
                         // Indicate success
                         return true;
@@ -111,6 +114,7 @@ export class userSession {
 
                 // Update vars initially
                 this.updateJSVars(this.attributes.lhc_var);
+                this.attributes.broadcasChannel.postMessage({'action':'check_vars', 'init':false, 'lhc_var': JSON.parse(JSON.stringify(this.attributes.lhc_var))});
 
             } else if (typeof LHCChatOptions !== 'undefined' && typeof LHCChatOptions.attr_prefill !== 'undefined') {
 

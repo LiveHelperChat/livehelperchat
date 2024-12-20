@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 244;
+            lhc.version = 246;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -213,7 +213,8 @@
                     childExtCommands: [],
                     lhc_var: (LHC_API.args.lhc_var || (typeof lhc_var !== 'undefined' ? lhc_var : null)),
                     loadcb: LHC_API.args.loadcb || null,
-                    LHCChatOptions: global[scopeScript + 'ChatOptions'] || {}
+                    LHCChatOptions: global[scopeScript + 'ChatOptions'] || {},
+                    ignoreVars : false
                 };
 
                 attributesWidget.widgetDimesions = new BehaviorSubject({
@@ -530,10 +531,8 @@
                         if (data.js_vars.length > 0) {
                             attributesWidget.userSession.setupVarsMonitoring(data.js_vars, (vars, prefillVars) => {
                                 chatEvents.sendChildEvent('jsVars', [vars, prefillVars]);
-                                attributesWidget.broadcasChannel.postMessage({'action':'current_vars', 'lhc_var': JSON.parse(JSON.stringify(attributesWidget.lhc_var))});
                                 attributesWidget.eventEmitter.emitEvent('jsVarsUpdated');
                             });
-                            attributesWidget.broadcasChannel.postMessage({'action':'check_vars'});
                         }
                     }
 
@@ -579,15 +578,16 @@
 
                 // Listen for broadcast channels
                 attributesWidget.broadcasChannel.addEventListener("message", function(event) {
-                    if (event.data.action === 'check_vars') {
-                        attributesWidget.lhc_var && attributesWidget.broadcasChannel.postMessage({'action':'current_vars', 'lhc_var': JSON.parse(JSON.stringify(attributesWidget.lhc_var))});
-                    } else if (event.data.action === 'current_vars') {
+                    if (event.data.action === 'current_vars' || event.data.action === 'check_vars') {
                         if (attributesWidget.lhc_var !== null) {
+                            attributesWidget.ignoreVars = true;
                             for (var index in event.data.lhc_var) {
-                                if ((typeof attributesWidget.lhc_var[index] === 'undefined' || attributesWidget.lhc_var[index] === '') && event.data.lhc_var[index] !== '' && attributesWidget.lhc_var[index] !== event.data.lhc_var[index]) {
+                                if ((typeof attributesWidget.lhc_var[index] === 'undefined' || attributesWidget.lhc_var[index] === '' || event.data.init === false) && event.data.lhc_var[index] !== '' && attributesWidget.lhc_var[index] !== event.data.lhc_var[index]) {
                                     attributesWidget.lhc_var[index] = event.data.lhc_var[index];
                                 }
                             }
+                            attributesWidget.ignoreVars = false;
+                            event.data.action === 'check_vars' && attributesWidget.broadcasChannel.postMessage({'action':'current_vars', 'init':true, 'lhc_var': JSON.parse(JSON.stringify(attributesWidget.lhc_var))});
                         }
                     } else if (event.data.action === 'wstatus') {
                         if (attributesWidget.mode != 'embed' && event.data.value != attributesWidget.widgetStatus.value) {

@@ -38,6 +38,8 @@ class _nodeJSChat {
         var chanelName = 'uo_' + vid;
         var instance_id = this.attributes.instance_id;
         var sampleChannel = null;
+        // Do not update vars while we are updating it from other browser tabs
+        var ignoreVars = false;
 
         let status = await socket.listener('connect').once();
         if (status.isAuthenticated) {
@@ -76,17 +78,18 @@ class _nodeJSChat {
                     attributes.mode != 'embed' && !attributes.widgetStatus.value && socket.transmitPublish('uo_' + vid, {op: 'ws_isopen'});
 
                     // We want to publish request to receive all the vars other instances has
-                    attributes.lhc_var !== null && socket.transmitPublish('uo_' + vid, {op: 'check_vars'});
+                    if (attributes.lhc_var !== null) {
+                        socket.transmitPublish('uo_' + vid, { 'clientId' : sampleChannel.client.clientId, op: 'check_vars', 'init':false, 'lhc_var': attributes.lhc_var});
+                        attributes.eventEmitter.addListener('jsVarsUpdated', function () {
+                            ignoreVars === false && attributes.ignoreVars === false && socket.transmitPublish('uo_' + vid, {'clientId' : sampleChannel.client.clientId, op:'current_vars', 'init':false, 'lhc_var': attributes.lhc_var});
+                            ignoreVars = false;
+                        });
+                    }
 
                     // Subscribe to widget status, just ignore initial status
                     attributes.mode != 'embed' && attributes.widgetStatus.subscribe((data) => {
                         socket.transmitPublish('uo_' + vid, {op: 'wstatus', status: data});
                     }, true);
-
-                    // Vars were updated, inform other instances
-                    attributes.lhc_var !== null && attributes.eventEmitter.addListener('jsVarsUpdated', function () {
-                        socket.transmitPublish('uo_'+vid, {op:'current_vars', 'lhc_var': attributes.lhc_var});
-                    });
 
                     // Listen for chat started event and dispatch to other windows
                     attributes.eventEmitter.addListener('chatStarted', function (data, mode) {
@@ -131,20 +134,26 @@ class _nodeJSChat {
                             } catch (e) {
                                 console.log(e);
                             }
-                        } else if (op.op == 'current_vars') {
+                        } else if (op.op == 'current_vars' || op.op == 'check_vars') {
                             try {
-                                if (op.lhc_var && attributes.lhc_var !== null) {
-                                    for (var index in op.lhc_var) {
-                                        if ((typeof attributes.lhc_var[index] === 'undefined' || attributes.lhc_var[index] === '') && op.lhc_var[index] !== '' && attributes.lhc_var[index] !== op.lhc_var[index]) {
-                                            attributes.lhc_var[index] = op.lhc_var[index];
+                                if (sampleChannel.client.clientId != op.clientId){
+                                    if (op.lhc_var && attributes.lhc_var !== null) {
+                                        ignoreVars = true;
+                                        attributes.ignoreVars = true;
+                                        for (var index in op.lhc_var) {
+                                            if ((typeof attributes.lhc_var[index] === 'undefined' || attributes.lhc_var[index] === '' || op.init === false) && op.lhc_var[index] !== '' && attributes.lhc_var[index] !== op.lhc_var[index]) {
+                                                attributes.lhc_var[index] = op.lhc_var[index];
+                                            }
                                         }
+                                        attributes.ignoreVars = false;
+                                    }
+                                    if (op.op == 'check_vars') {
+                                        attributes.lhc_var !== null && socket.transmitPublish('uo_'+vid,{'clientId' : sampleChannel.client.clientId, op:'current_vars', 'init':true, 'lhc_var': attributes.lhc_var});
                                     }
                                 }
                             } catch (e) {
                                 console.log(e);
                             }
-                        } else if (op.op == 'check_vars') {
-                            attributes.lhc_var && socket.transmitPublish('uo_'+vid,{op:'current_vars', 'lhc_var': attributes.lhc_var});
                         }
                     }
                 } catch (e) {
