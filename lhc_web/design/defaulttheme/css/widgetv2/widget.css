@@ -28,11 +28,11 @@ a {
 }
 
 .quick-replies{
-    margin:0.5rem 0;
+    margin:0.1rem 0;
 }
 
 .quick-replies > li {
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
 }
 
 div.message-row {
@@ -1305,4 +1305,8 @@ button.material-icons-button{
 
 .text-muted-light{
     color: #d3d3d3;
+}
+
+div.has-msg-to-store > div.message-admin .meta-auto-hide{
+    display: none!important;
 }

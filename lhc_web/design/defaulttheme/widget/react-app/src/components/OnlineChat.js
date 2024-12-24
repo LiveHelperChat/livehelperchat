@@ -931,6 +931,10 @@ class OnlineChat extends Component {
                 bottom_messages += " position-relative";
             }
 
+            if (this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) && this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size > 0) {
+                bottom_messages += " has-msg-to-store";
+            }
+
             var message_send_style = "mx-auto w-100";
 
             if (this.props.chatwidget.getIn(['chatLiveData','closed']) == true) {
