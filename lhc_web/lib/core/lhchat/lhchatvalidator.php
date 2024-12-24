@@ -2174,6 +2174,7 @@ class erLhcoreClassChatValidator {
                             }
                             $chat->chat_variables_array = $chatVariables;
                             $chat->chat_variables = json_encode($chatVariables);
+                            $chat->updateThis(['update' => ['chat_variables']]);
                         }
 
                         $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $botTrigger, false, array('args' => $params));
