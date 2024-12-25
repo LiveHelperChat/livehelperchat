@@ -52,6 +52,7 @@ If you are installing extensions, make sure that your version has webhooks enabl
    * E.g ChatGPT (Chat Completion) https://doc.livehelperchat.com/docs/bot/chatgpt-integration 
    * E.g ChatGPT (Assistant) https://github.com/LiveHelperChat/chatGPT
  * [Telegram](https://github.com/LiveHelperChat/telegram)
+ * [Viber](https://github.com/LiveHelperChat/viber)
  * [Rasa](https://doc.livehelperchat.com/docs/bot/rasa-integration)
  * [Mattermost](https://github.com/LiveHelperChat/mattermost)
  * [Facebook messenger, Intsagram](https://github.com/LiveHelperChat/fbmessenger)
