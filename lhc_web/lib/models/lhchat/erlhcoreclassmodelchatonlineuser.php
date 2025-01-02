@@ -1004,6 +1004,7 @@ class erLhcoreClassModelChatOnlineUser
             }
 
             $logPageView = false;
+            $locationPrevious = '';
 
             // Update variables only if it's not JS to check for operator message
             if (!isset($paramsHandle['check_message_operator']) || (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true)) {
@@ -1013,7 +1014,7 @@ class erLhcoreClassModelChatOnlineUser
                 if ($location !== null) {
                     $item->current_page = $location;
                 }
-                $item->page_title = isset($_POST['dt']) ? $_POST['dt'] : (isset($_GET['dt']) ? substr((string)rawurldecode($_GET['dt']),0,250) : '');
+                $item->page_title = isset($_POST['dt']) ? $_POST['dt'] : (isset($_GET['dt']) ? substr((string)rawurldecode($_GET['dt']),0,250) : $item->page_title);
                 $item->last_visit = time();
                 $item->store_chat = true;
                 $logPageView = true;
@@ -1135,7 +1136,7 @@ class erLhcoreClassModelChatOnlineUser
                 if ($newVisitor == true) {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.created', array('tpl' => (isset($paramsHandle['tpl']) ? $paramsHandle['tpl'] : false), 'ou' => & $item));
                 } elseif ($logPageView == true) {
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.pageview_logged', array('tpl' => (isset($paramsHandle['tpl']) ? $paramsHandle['tpl'] : false), 'ou' => & $item));
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.pageview_logged', array('url_changed' => ($locationPrevious !== $item->current_page), 'tpl' => (isset($paramsHandle['tpl']) ? $paramsHandle['tpl'] : false), 'ou' => & $item));
                 }
 
                 if ($activityChanged == true && $item->chat_id > 0) {
