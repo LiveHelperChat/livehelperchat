@@ -288,6 +288,9 @@ class erLhcoreClassDepartament{
             if ( $form->hasValidData( 'Alias' )  )
             {
                 $department->alias = $form->Alias;
+                if (is_numeric($department->alias)) {
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Alias should be not a plain number!');
+                }
             }
         }
 
