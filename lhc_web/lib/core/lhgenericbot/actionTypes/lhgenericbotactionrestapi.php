@@ -1962,12 +1962,12 @@ class erLhcoreClassGenericBotActionRestapi
             }
 
             $matchesValues = [];
-            preg_match_all('~\{\{previous_visitor_messages_url__([0-9]+)\}\}~', $item, $matchesValues);
+            preg_match_all('~\{\{previous_visitor_messages_url__([0-9]+)(?:__([0-9]+))?\}\}~', $item, $matchesValues);
             if (!empty($matchesValues[0])) {
                 $userData['dynamic_variables']['{if_previous_visitor_messages}'] = false;
                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
 
-                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => $matchesValues[1][$indexElement], 'sort' => 'id DESC', 'filter' => array('user_id' => 0, 'chat_id' => $userData['chat']->id))));
+                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => $matchesValues[1][$indexElement],'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('user_id' => 0, 'chat_id' => $userData['chat']->id))));
 
                     foreach ($messages as $indexMessage => $message) {
                         $messages[$indexMessage]->msg = $messages[$indexMessage]->msg . ".";
