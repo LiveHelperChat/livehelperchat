@@ -1987,6 +1987,34 @@ class erLhcoreClassGenericBotActionRestapi
                 }
             }
 
+            /// Continu ehere
+            /*$matchesValues = [];
+            //preg_match_all('/\{(not|is)_empty__(.*?)\}(.*?)\{\/(not|is)_empty\}/ms', $methodSettings['body_raw'], $matchesExtension);
+            preg_match_all('/\{previous_visitor_messages_list_url__([0-9]+)(?:__([0-9]+))?\}(.*?)\{\/previous_visitor_messages_list_url\}/', $item, $matchesValues);
+            if (!empty($matchesValues[0])) {
+                $userData['dynamic_variables']['{if_previous_visitor_messages_list}'] = false;
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+
+                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => $matchesValues[1][$indexElement],'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('user_id' => 0, 'chat_id' => $userData['chat']->id))));
+
+                    foreach ($messages as $indexMessage => $message) {
+                        $messages[$indexMessage]->msg = $messages[$indexMessage]->msg . ".";
+                    }
+
+                    // Fetch chat messages
+                    $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                    $tpl->set('chat', $userData['chat']);
+                    $tpl->set('messages', $messages);
+                    $tpl->set('remove_meta', true);
+
+                    $userData['dynamic_variables'][$elementValue] = trim($tpl->fetch());
+
+                    if (!empty($userData['dynamic_variables'][$elementValue])) {
+                        $userData['dynamic_variables']['{if_previous_visitor_messages_list}'] = true;
+                    }
+                }
+            }*/
+
             // Detect does customer want's somewhere all messages
             if (strpos($item,'{{msg_all_html}}') !== false && !in_array('{{msg_all_html}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all_html}}';
