@@ -883,7 +883,7 @@ class erLhcoreClassChat {
     	}
 
     	// Optimization - we get these stats only from last 50 chats
-        $filter['customfilter'][] = '`lh_chat`.`id` IN (SELECT `id` FROM (SELECT `id` FROM `lh_chat` ORDER BY `id` DESC LIMIT 50) AS `sq`)';
+        $filter['customfilter'][] = '`lh_chat`.`id` IN (SELECT `id` FROM (SELECT `id` FROM `lh_chat` ORDER BY `id` DESC LIMIT ' . (int)$limit . ') AS `sq`)';
 
     	return self::getList($filter);
     }

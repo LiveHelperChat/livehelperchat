@@ -67,7 +67,7 @@ class erLhcoreClassLHCMobile {
 
         if (isset($options['notifications']) && $options['notifications'] == true) {
             $chat = new erLhcoreClassModelChat();
-            $chat->nick = 'Live Helper Chat';
+            $chat->nick = 'Chat Test';
 
             self::sendPushNotification($session, $chat, ['chat_type' => 'test_notification', 'title' => $chat->nick, 'msg' => 'Test notifications']);
         } else {
@@ -439,18 +439,121 @@ class erLhcoreClassLHCMobile {
         fclose($fp);
     }
 
+    public static function getAccessToken()
+    {
+        $presentToken = json_decode(file_get_contents('cache/token.json'), true);
+
+        // Present token still valid
+        if (isset($presentToken['accessToken']) && $presentToken['exp'] >= time() + 1 * 60) {
+            return $presentToken;
+            exit;
+        }
+
+        $serviceAccountContent = include 'var/external/service_account.php';
+
+        // Load service account data
+        $serviceAccount = json_decode($serviceAccountContent, true);
+
+        $clientEmail = $serviceAccount['client_email'];
+        $privateKey = $serviceAccount['private_key'];
+        $firebaseScope = 'https://www.googleapis.com/auth/firebase.messaging';
+        $tokenUri = 'https://oauth2.googleapis.com/token';
+
+        // Create JWT Header
+        $header = [
+            'alg' => 'RS256',
+            'typ' => 'JWT'
+        ];
+
+        // Create JWT Claim Set
+        $now = time();
+        $exp = $now + 3600; // Token valid for 1 hour
+
+        $claims = [
+            'iss' => $clientEmail,
+            'scope' => $firebaseScope,
+            'aud' => $tokenUri,
+            'iat' => $now,
+            'exp' => $exp
+        ];
+
+        // Base64 URL Encode Function
+        function base64UrlEncode($data)
+        {
+            return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+        }
+
+        // Encode header and claim set
+        $encodedHeader = base64UrlEncode(json_encode($header));
+        $encodedClaims = base64UrlEncode(json_encode($claims));
+
+        // Sign the JWT
+        $signatureInput = $encodedHeader . '.' . $encodedClaims;
+        openssl_sign($signatureInput, $signature, $privateKey, 'SHA256');
+
+        // Encode the signature
+        $encodedSignature = base64UrlEncode($signature);
+
+        // Combine header, claims, and signature into the JWT
+        $jwt = $encodedHeader . '.' . $encodedClaims . '.' . $encodedSignature;
+
+        // Send a POST request to get the access token
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $tokenUri);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'curl/7.29.0');
+
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+            'grant_type' => 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+            'assertion' => $jwt
+        ]));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
+
+        $response = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            throw new Exception(curl_error($ch));
+        }
+
+        curl_close($ch);
+
+        // Decode the response to get the access token
+        $responseData = json_decode($response, true);
+
+        if (isset($responseData['access_token'])) {
+            $accessToken = $responseData['access_token'];
+            $tokenData = json_encode(['accessToken' => $accessToken, 'exp' => $exp]);
+            file_put_contents('cache/token.json', $tokenData);
+            return ['accessToken' => $accessToken, 'exp' => $exp];
+        } else {
+            throw new Exception('Could not get access token!');
+        }
+    }
+
     public static function sendAndoid(erLhcoreClassModelUserSession $session, $chat, $params = array())
     {
         $options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
 
-        if (!isset($options['fcm_key']) || $options['fcm_key'] == '') {
-            throw new Exception('FCM Key is not set');
+        $accessToken = explode('__',$options['fcm_key']);
+        $projectID = 'livehelperchat-85489';
+
+        if (isset($options['use_local_service_file']) && $options['use_local_service_file'] == true) {
+            $serviceAccount = include 'var/external/service_account.php';
+            $projectID = json_decode($serviceAccount, true)['project_id'];
         }
 
-        $accessToken = explode('__',$options['fcm_key']);
-
         if (count($accessToken) != 2 || (int)$accessToken[1] < time() + 60) {
-            $newAccessToken = json_decode(erLhcoreClassModelChatOnlineUser::executeRequest('https://mobiletoken.livehelperchat.com/', [], ['timeout' => 7, 'connect_timeout' => 7]),true);
+            if (isset($options['use_local_service_file']) && $options['use_local_service_file'] == true) {
+                $newAccessToken = self::getAccessToken();
+            } else {
+                $newAccessToken = json_decode(erLhcoreClassModelChatOnlineUser::executeRequest('https://mobiletoken.livehelperchat.com/', [], ['timeout' => 7, 'connect_timeout' => 7]),true);
+            }
             if (isset($newAccessToken['accessToken']) && isset($newAccessToken['exp'])) {
                 $accessToken[0] = $newAccessToken['accessToken'];
                 $mbOptions = erLhcoreClassModelChatConfig::fetch('mobile_options');
@@ -521,7 +624,7 @@ class erLhcoreClassLHCMobile {
         );
 
         $ch = curl_init();
-        curl_setopt($ch,CURLOPT_URL, 'https://fcm.googleapis.com/v1/projects/livehelperchat-85489/messages:send' );
+        curl_setopt($ch,CURLOPT_URL, 'https://fcm.googleapis.com/v1/projects/'.$projectID.'/messages:send' );
         curl_setopt($ch,CURLOPT_POST, true );
         curl_setopt($ch,CURLOPT_HTTPHEADER, $headers );
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true );

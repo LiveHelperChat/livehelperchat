@@ -8,11 +8,14 @@ if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],
     exit;
 }
 
-$activeChats = erLhcoreClassChat::getActiveChats(10);
-$closedChats = erLhcoreClassChat::getClosedChats(10);
-$pendingChats = erLhcoreClassChat::getPendingChats(10);
+$options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
+
+
+$activeChats = erLhcoreClassChat::getActiveChats(isset($options['limit_a']) && is_numeric($options['limit_a']) ? $options['limit_a'] : 10);
+$closedChats = erLhcoreClassChat::getClosedChats(isset($options['limit_c']) && is_numeric($options['limit_c']) ? $options['limit_c'] : 10);
+$pendingChats = erLhcoreClassChat::getPendingChats(isset($options['limit_p']) && is_numeric($options['limit_p']) ? $options['limit_p'] : 10);
 $transferedChats = erLhcoreClassTransfer::getTransferChats();
-$botChats = erLhcoreClassChat::getBotChats(10);
+$botChats = erLhcoreClassChat::getBotChats(isset($options['limit_b']) && is_numeric($options['limit_b']) ? $options['limit_b'] : 10);
 
 $unreadChats = array(); // erLhcoreClassChat::getUnreadMessagesChats(10,0);
 
@@ -49,8 +52,8 @@ erLhcoreClassChat::prefillGetAttributes($botChats,array('department_name','user_
 $onlineUsers = array();
 if ($currentUser->hasAccessTo('lhchat','use_onlineusers')) {
     
-    $filter = array('offset' => 0, 'limit' => 50, 'sort' => 'last_visit DESC','filtergt' => array('last_visit' => (time()-3600)));
-    
+    $filter = array('offset' => 0, 'limit' => (isset($options['limit_ov']) && is_numeric($options['limit_ov']) ? $options['limit_ov'] : 50), 'sort' => 'last_visit DESC','filtergt' => array('last_visit' => (time()-3600)));
+
     $departmentParams = array();
     $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
     if ($userDepartments !== true) {
@@ -60,7 +63,7 @@ if ($currentUser->hasAccessTo('lhchat','use_onlineusers')) {
         }
     }
     
-	$onlineUsers = erLhcoreClassModelChatOnlineUser::getList($filter);	
+    $onlineUsers = erLhcoreClassModelChatOnlineUser::getList($filter);
 }
 
 $columnsToHide = array('user_closed_ts','lsync','uagent','user_status_front','pnd_time','unanswered_chat','tslasign','reinform_timeout','unread_messages_informed','wait_timeout','wait_timeout_send','status_sub','timeout_message','nc_cb_executed','fbst','user_id','transfer_timeout_ts','operator_typing_id','transfer_timeout_ac','transfer_if_na','na_cb_executed','status','remarks','operation','operation_admin','screenshot_id','mail_send','online_user_id','dep_id','last_msg_id','hash','user_status','support_informed','support_informed','country_code','user_typing','user_typing_txt','lat','lon','chat_initiator','chat_variables','chat_duration','operator_typing','has_unread_messages','last_user_msg_time','additional_data');
@@ -78,7 +81,7 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_online_operators')->current_v
 }
 
 if ($canListOnlineUsers === true || $canListOnlineUsersAll === true) {
-    $onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser,$canListOnlineUsersAll, array(),50,7 * 24 * 3600);
+    $onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser,$canListOnlineUsersAll, array(),(isset($options['limit_op']) && is_numeric($options['limit_op']) ? $options['limit_op'] : 50),7 * 24 * 3600);
     erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('lastactivity_ago','offline_since','user_id','id','name_official','pending_chats','inactive_chats','active_chats','departments_names','hide_online','avatar'),array(),array('filter_function' => true, 'remove_all' => true));
 } else {
     $onlineOperators = [];

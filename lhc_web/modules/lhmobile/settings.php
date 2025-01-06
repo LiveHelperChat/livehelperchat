@@ -18,6 +18,27 @@ if ( isset($_POST['StoreOptions']) ) {
         ),
         'notifications' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'use_local_service_file' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'limit_p' => new ezcInputFormDefinitionElement( // Pending chats
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        ),
+        'limit_a' => new ezcInputFormDefinitionElement(  // Active chats
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        ),
+        'limit_c' => new ezcInputFormDefinitionElement(  // Closed chats
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        ),
+        'limit_b' => new ezcInputFormDefinitionElement(  // Bot chats
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        ),
+        'limit_ov' => new ezcInputFormDefinitionElement( // Online visitors
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        ),
+        'limit_op' => new ezcInputFormDefinitionElement( // Online operators
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
         )
     );
 
@@ -34,6 +55,26 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['fcm_key'] = $form->fcm_key ;
     } else {
         $data['fcm_key'] = '';
+    }
+
+    if ( $form->hasValidData( 'use_local_service_file' ) && $form->use_local_service_file == true ) {
+        if ($data['use_local_service_file'] != 1) { // Reset FCM key so we generate it next time
+            $data['fcm_key'] = '';
+        }
+        $data['use_local_service_file'] = 1;
+    } else {
+        if ($data['use_local_service_file'] != 0) { // Reset FCM key so we generate it next time
+            $data['fcm_key'] = '';
+        }
+        $data['use_local_service_file'] = 0;
+    }
+
+    foreach (['limit_p','limit_a','limit_c','limit_b','limit_ov','limit_op'] as $field) {
+        if ( $form->hasValidData( $field )) {
+            $data[$field] = $form->$field ;
+        } elseif (isset($data[$field])) {
+            unset($data[$field]);
+        }
     }
 
     $mbOptions->explain = '';
