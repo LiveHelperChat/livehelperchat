@@ -100,6 +100,7 @@ class ChatMessage extends PureComponent {
         if (attrs.onclick) {
             if (attrs.onclick.indexOf('lhinst.updateTriggerClicked') !== -1) {
                 this.updateTriggerClicked({type:'/(type)/triggerclicked'}, attrs, e.target);
+                e.target.classList.add('visited');
             } else if (attrs.onclick.indexOf('notificationsLHC.sendNotification') !== -1) {
 
                 this.props.dispatch(subscribeNotifications());
@@ -119,14 +120,17 @@ class ChatMessage extends PureComponent {
                 this.props.setReactingTo(0);
             } else if (attrs.onclick.indexOf('lhinst.buttonClicked') !== -1) {
                 this.updateTriggerClicked({type:''}, attrs, e.target);
+                e.target.classList.add('visited');
             } else if (attrs.onclick.indexOf('lhinst.startVoiceCall') !== -1) {
                 this.props.voiceCall();
             } else if (attrs.onclick.indexOf('lhinst.chooseFile') !== -1) {
                 this.props.abstractAction('fileupload');
             } else if (attrs.onclick.indexOf('lhinst.updateChatClicked') !== -1) {
                 this.updateTriggerClicked({type:'',mainType: 'updatebuttonclicked'}, attrs, e.target);
+                e.target.classList.add('visited');
             } else if (attrs.onclick.indexOf('lhinst.editGenericStep') !== -1) {
                 this.updateTriggerClicked({type:'/(type)/editgenericstep'}, attrs, e.target);
+                e.target.classList.add('visited');
             } else if (attrs.onclick.indexOf('lhinst.hideShowAction') !== -1) {
                 const args = JSON.parse(attrs['data-load']);
                 var more = document.getElementById('message-more-'+args['id']);

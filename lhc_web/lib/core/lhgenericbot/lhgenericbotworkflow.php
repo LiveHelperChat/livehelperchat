@@ -2003,6 +2003,12 @@ class erLhcoreClassGenericBotWorkflow {
 
                     $messageClickData = self::getClickName($messageContext->meta_msg_array, $payload, true, array('payload_hash' => $payloadHash));
 
+                    // Store click history
+                    $messageContext->meta_msg_array['ch'] = $messageContext->meta_msg_array['ch'] ?? array();
+                    $messageContext->meta_msg_array['ch'][] = $payloadHash;
+                    $messageContext->meta_msg = json_encode($messageContext->meta_msg_array);
+                    $messageContext->updateThis(['update' => ['meta_msg']]);
+
                     $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_trigger_click', array(
                         'chat' => & $chat,
                         'msg' => $messageContext,
@@ -2174,6 +2180,12 @@ class erLhcoreClassGenericBotWorkflow {
                     if ($continueExecution == true)
                     {
                         $messageClickData = self::getClickName($messageContext->meta_msg_array, $payload, true, array('payload_hash' => $payloadHash));
+
+                        // Store click history
+                        $messageContext->meta_msg_array['ch'] = $messageContext->meta_msg_array['ch'] ?? array();
+                        $messageContext->meta_msg_array['ch'][] = $payloadHash;
+                        $messageContext->meta_msg = json_encode($messageContext->meta_msg_array);
+                        $messageContext->updateThis(['update' => ['meta_msg']]);
 
                         $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_click', array(
                             'chat' => & $chat,

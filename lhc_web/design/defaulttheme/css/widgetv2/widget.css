@@ -1046,6 +1046,12 @@ button.material-icons-button{
     background: none;
     border: 0;
 }
+
+a.btn-url:visited,
+a.btn-link.visited{
+    color: #818182;
+}
+
 /**
 * List style
 */
