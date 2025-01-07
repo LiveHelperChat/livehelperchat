@@ -25,6 +25,10 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     $tplPlain->set('messages', $messages);
     $tplPlain->set('see_sensitive_information', $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
 
+    if (!(isset($_GET['whisper']) && $_GET['whisper'] == 'true')) {
+        $tplPlain->set('remove_whisper', true);
+    }
+
     if (isset($_GET['system']) || isset($_GET['meta'])) {
         echo json_encode(array('result' => $tplPlain->fetch()));
         exit;

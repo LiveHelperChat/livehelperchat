@@ -68,7 +68,11 @@ foreach ($messages as $msg ) :
 
     if (!isset($remove_meta) || $remove_meta == false ) {
 
-        $nickValue = '[' . ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->user_id == -1 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/plain','System assistant') : $msg->name_support)) . ']';
+        $nickValue = '[' . ($msg->user_id == 0 ? $chat->nick : ($msg->user_id == -1 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/plain','System assistant') : $msg->name_support)) . ']';
+
+        if (isset($render_as_html) && $render_as_html == true){
+            $nickValue = htmlspecialchars($nickValue);
+        }
 
         $date = '[' . date(erLhcoreClassModule::$dateDateHourFormat,$msg->time) . ']';
 
@@ -87,7 +91,7 @@ foreach ($messages as $msg ) :
             }
         }
 
-        $nick = $date . ' '. $nickValue . ' ' . (isset($metaMessageData['content']['whisper']) ? '- (' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/plain','whisper') . ')' : '');
+        $nick = $date . ' '. $nickValue . ' ' . (isset($metaMessageData['content']['whisper']) ? '- (' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/plain','whisper') . ') ' : '');
     }
 
     // Nothing to render
