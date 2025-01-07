@@ -29,6 +29,8 @@ if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $Params['user_par
                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
                 $tpl->set('chat', $chat);
                 $tpl->set('messages', $messages);
+                $tpl->set('remove_whisper', true);
+                $tpl->set('hideMetaRaw', true);
 
                 $mailTemplate->content = str_replace(array('{user_chat_nick}','{messages_content}','{chat_id}'), array($chat->nick, $tpl->fetch(), $chat->id), $mailTemplate->content);
 
