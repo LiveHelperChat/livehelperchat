@@ -2165,18 +2165,6 @@ class erLhcoreClassChatValidator {
                         // set flag that we are executing everything in start chat mode
                         erLhcoreClassGenericBotWorkflow::$startChat = true;
 
-                        if (isset($params['msg']) && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
-                            $chatVariables = $chat->chat_variables_array;
-                            if (!isset($chatVariables['msg_v'])) {
-                                $chatVariables['msg_v'] = 1;
-                            } else {
-                                $chatVariables['msg_v']++;
-                            }
-                            $chat->chat_variables_array = $chatVariables;
-                            $chat->chat_variables = json_encode($chatVariables);
-                            $chat->updateThis(['update' => ['chat_variables']]);
-                        }
-
                         $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $botTrigger, false, array('args' => $params));
 
                         if (isset($params['trigger_button_id'])) {
@@ -2191,6 +2179,18 @@ class erLhcoreClassChatValidator {
 
                         if (isset($message) && $message instanceof erLhcoreClassModelmsg && $message->id > 0 && $message->id > $chat->last_msg_id) {
                             $chat->last_msg_id = $message->id;
+                        }
+
+                        if ((isset($params['msg']) || !(isset($bot->configuration_array['ign_btn_clk']) && $bot->configuration_array['ign_btn_clk'] == true)) && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+                            $chatVariables = $chat->chat_variables_array;
+                            if (!isset($chatVariables['msg_v'])) {
+                                $chatVariables['msg_v'] = 1;
+                            } else {
+                                $chatVariables['msg_v']++;
+                            }
+                            $chat->chat_variables_array = $chatVariables;
+                            $chat->chat_variables = json_encode($chatVariables);
+                            $chat->updateThis(['update' => ['chat_variables']]);
                         }
                     }
 
