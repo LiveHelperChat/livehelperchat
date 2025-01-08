@@ -31,7 +31,7 @@
                                     <?php endif; ?>
                                 </td>
                                 <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,get_class($chat) == 'erLhcoreClassModelChat' ? $chat->time :  $chat->time/1000);?></td>
-                                <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,get_class($chat) == 'erLhcoreClassModelChat' ? $chat->time :  $chat->cls_time/1000);?></td>
+                                <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,get_class($chat) == 'erLhcoreClassModelChat' ? $chat->cls_time :  $chat->cls_time/1000);?></td>
                             </tr>
                         <?php endforeach; ?>
                         <tr class="bg-light">

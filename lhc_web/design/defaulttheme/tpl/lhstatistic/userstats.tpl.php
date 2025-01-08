@@ -21,6 +21,7 @@ $modalSize = 'xl';
                 <li role="presentation" class="nav-item"><a href="#user-status" class="nav-link active" aria-controls="user-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','User stats');?></a></li>
                 <li role="presentation" class="nav-item"><a href="#online-hours" class="nav-link" aria-controls="online-hours" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online hours');?></a></li>
                 <li role="presentation" class="nav-item"><a href="#login-history" class="nav-link" aria-controls="login-history" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?></a></li>
+                <li role="presentation" class="nav-item"><a href="#activechatsatmoment" class="nav-link" aria-controls="activechatsatmoment" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats momentary history');?></a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane" id="online-hours" style="max-height: 550px;overflow-y: auto">
@@ -144,6 +145,28 @@ $modalSize = 'xl';
                             </tr>
                         <?php endforeach; ?>
                     </table>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="activechatsatmoment" style="max-height: 550px;overflow-y: auto">
+
+                    <div class="row ms-0 me-0">
+                        <div class="col-auto">
+                            <input class="form-control form-control-sm" id="chats-moment-date" type="datetime-local">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" id="search-chats-moment" class="btn btn-sm btn-primary mb-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Search');?></button>
+                        </div>
+                    </div>
+
+                    <div id="active-chats-at-moment"></div>
+
+                    <script>
+                        $('#search-chats-moment').click(function() {
+                            $.post(WWW_DIR_JAVASCRIPT + 'statistic/userstats/<?php echo $user->id?>/(action)/chatsmoment',{'ts' : $('#chats-moment-date').val()}, function(data) {
+                                $('#active-chats-at-moment').html(data);
+                            });
+                        });
+                    </script>
+
                 </div>
                 <div role="tabpanel" class="tab-pane" id="login-history" style="max-height: 550px;overflow-y: auto">
 
