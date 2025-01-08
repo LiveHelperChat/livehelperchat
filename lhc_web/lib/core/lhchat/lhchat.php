@@ -2124,7 +2124,7 @@ class erLhcoreClassChat {
    public static function updateActiveChats($user_id, $ignoreEvent = false)
    {
        if ($user_id == 0) {
-           return;
+           return true;
        }
 
        $db = ezcDbInstance::get();
@@ -2140,6 +2140,7 @@ class erLhcoreClassChat {
 
        $activeMails = null;
        $pendingMails = null;
+       $success = false;
 
        if (!empty($ids)) {
 
@@ -2176,6 +2177,7 @@ class erLhcoreClassChat {
                    $stmt->bindValue(':pending_mails',(int)$pendingMails,PDO::PARAM_INT);
                    $stmt->execute();
 
+                   $success = true;
                    // Finish cycle
                    break;
 
@@ -2195,7 +2197,8 @@ class erLhcoreClassChat {
                                'object_id' => $user_id
                            )
                        );
-                       return;
+
+                       return $success;
                    } else {
                        // Just sleep for fraction of second and try again
                        usleep(150);
@@ -2207,6 +2210,8 @@ class erLhcoreClassChat {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.update_active_chats',array('user_id' => $user_id));
            }
        }
+
+       return $success;
    }
    
    public static function getAdjustment($geo_adjustment, $onlineUserVid = '', $widgetMode = false, $onlineUserDefined = false){
@@ -2300,6 +2305,33 @@ class erLhcoreClassChat {
                }
            }
        }
+   }
+
+   public static function lockOperatorsByDepartment($depId, $db)
+   {
+       $stmt = $db->prepare('SELECT `id` FROM lh_userdep WHERE `user_id` IN (SELECT `user_id` FROM lh_userdep WHERE `dep_id` = :dep_id AND hide_online = 0 AND ro = 0 AND last_activity > :last_activity)');
+       $stmt->bindValue(':dep_id',$depId);
+       $stmt->bindValue(':last_activity',time() - 600);
+       $stmt->execute();
+
+       $recordIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+       if (!empty($recordIds)) {
+           try {
+               $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE id IN (' . implode(',', $recordIds) . ') ORDER BY id ASC FOR UPDATE;');
+               $stmt->execute();
+               return true;
+           } catch (Exception $e) {
+               try {
+                   usleep(100);
+                   $stmt = $db->prepare('SELECT 1 FROM lh_userdep WHERE id IN (' . implode(',', $recordIds) . ') ORDER BY id ASC FOR UPDATE;');
+                   $stmt->execute();
+                   return true;
+               } catch (Exception $e) {
+                   error_log($e->getMessage() . "\n" . $e->getTraceAsString());
+               }
+           }
+       }
+       return false;
    }
 
    /**

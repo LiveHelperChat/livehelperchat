@@ -7,6 +7,20 @@
             <?php endif; ?>
 
             <span class="material-icons text-success" <?php if (isset($metaMessage['ol']) && is_array($metaMessage['ol']) && !empty($metaMessage['ol'])) : ?>title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Opened chat by')?> - <?php echo htmlspecialchars(implode(', ',$metaMessage['ol']))?>"<?php endif;?> >login</span>
+        <?php elseif ($type == 'assign_action') : // Chat was assigned to user?>
+            <?php $partsInfo =
+                [
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Previous chat assigned') . ' - ' . ($metaMessage['last_accepted'] > 0 ? date('Y-m-d H:i:s', $metaMessage['last_accepted']) : 'n/a'),
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Current chat assigned') . ' - ' . date('Y-m-d H:i:s', $msg['time']),
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Finished assign') . ' - ' . date('Y-m-d H:i:s', $metaMessage['assign_finished']),
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Pending chats') . ' - ' . $metaMessage['pending_chats'],
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Active chats') . ' - ' . $metaMessage['active_chats'],
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Inactive chats') . ' - ' . $metaMessage['inactive_chats'],
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Active chats update') . ' - ' . ($metaMessage['sac'] ? 'Y' : 'N'),
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Last assigned update') . ' - ' . ($metaMessage['sla'] ? 'Y' : 'N'),
+                ];
+            ?>
+            <span class="material-icons <?php echo ($metaMessage['sac'] != 1 || $metaMessage['sla'] != 1) ? 'text-danger' : 'text-info'?>" title="<?php echo implode("\n", $partsInfo)?>">switch_account</span>
         <?php elseif ($type == 'transfer_action_user') : // Chat was transferred to other user?>
             <span class="material-icons text-warning">logout</span>
         <?php elseif ($type == 'transfer_action_dep') : // Chat was transfered to departmnet?>

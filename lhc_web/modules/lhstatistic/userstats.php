@@ -1,10 +1,32 @@
 <?php
 
 if ($Params['user_parameters_unordered']['action'] == 'chatsmoment') {
-    $dateStr = $_POST['ts'];
-    $dateObj = new DateTime($dateStr, new DateTimeZone(date_default_timezone_get()));
-    $linuxTimestamp = $dateObj->getTimestamp();
-    $chats = erLhcoreClassModelChat::getList(['sort' => 'id ASC', 'limit' => 10, 'filterlte' => ['time' => $linuxTimestamp], 'filtergte' => ['cls_time' => $linuxTimestamp], 'filter' => ['user_id' => $Params['user_parameters']['id']]]);
+
+    $linuxTimestampEnd = $linuxTimestamp = time();
+
+
+    if (isset($_POST['ts']) && $_POST['ts'] != '') {
+        $dateStr = $_POST['ts'];
+        $dateObj = new DateTime($dateStr, new DateTimeZone(date_default_timezone_get()));
+        $linuxTimestamp = $dateObj->getTimestamp();
+    } else {
+        $linuxTimestamp = time();
+    }
+
+    if (isset($_POST['ts_end']) && $_POST['ts_end'] != '') {
+        $dateStr = $_POST['ts_end'];
+        $dateObj = new DateTime($dateStr, new DateTimeZone(date_default_timezone_get()));
+        $linuxTimestampEnd = $dateObj->getTimestamp();
+    } else {
+        $linuxTimestampEnd = $linuxTimestamp;
+    }
+
+    if ($linuxTimestampEnd == $linuxTimestamp) {
+        $chats = erLhcoreClassModelChat::getList(['sort' => 'id ASC', 'limit' => 100, 'filterlte' => ['time' => $linuxTimestamp], 'filtergte' => ['cls_time' => $linuxTimestamp], 'filter' => ['user_id' => $Params['user_parameters']['id']]]);
+    } else {
+        $chats = erLhcoreClassModelChat::getList(['sort' => 'id ASC', 'limit' => 100, 'filtergte' => ['time' => $linuxTimestamp], 'filterlte' => ['cls_time' => $linuxTimestampEnd], 'filter' => ['user_id' => $Params['user_parameters']['id']]]);
+    }
+
     $tpl = erLhcoreClassTemplate::getInstance('lhstatistic/momentary_chats.tpl.php');
     $tpl->set('previousChats', $chats);
     echo $tpl->fetch();

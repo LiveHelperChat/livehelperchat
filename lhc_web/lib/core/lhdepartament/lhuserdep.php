@@ -348,10 +348,11 @@ class erLhcoreClassUserDep
                 $stmt = $db->prepare("UPDATE lh_userdep SET last_accepted{$scope} = :last_accepted WHERE id IN (" . implode(',', $ids) . ');');
                 $stmt->bindValue(':last_accepted', $lastAccepted, PDO::PARAM_INT);
                 $stmt->execute();
+                return true;
             } catch (Exception $e) {
                 if ($try <= 5) {
                     usleep(500);
-                    self::updateLastAcceptedByUser($user_id, $lastAccepted, $scope, $try + 1);
+                    return self::updateLastAcceptedByUser($user_id, $lastAccepted, $scope, $try + 1);
                 } else {
                     erLhcoreClassLog::write(
                         json_encode([
@@ -370,9 +371,11 @@ class erLhcoreClassUserDep
                             'object_id' => 0
                         )
                     );
+                    return false;
                 }
             }
         }
+        return false;
     }
 
     public static function getSession()

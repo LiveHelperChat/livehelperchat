@@ -810,7 +810,13 @@ class erLhcoreClassChatWorkflow {
                 $db->beginTransaction();
 
                 // Lock chat record for update untill we finish this procedure
-                erLhcoreClassChat::lockDepartment($department->id, $db);
+                // Avoids any other chat in the same department to be assigned to the same operators
+                // erLhcoreClassChat::lockDepartment($department->id, $db);
+
+                // Skip everything if lock error happens
+                if (!erLhcoreClassChat::lockOperatorsByDepartment($department->id, $db)){
+                    return;
+                }
 
                 if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < $timestamp-$department->max_timeout_seconds))) {
 
@@ -859,7 +865,7 @@ class erLhcoreClassChatWorkflow {
                             $sort = 'assign_priority DESC, '.$sort;
                         }
 
-                        $sql = "SELECT user_id FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND user_id != :user_id {$appendSQL} ORDER BY {$sort} LIMIT 1";
+                        $sql = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND user_id != :user_id {$appendSQL} ORDER BY {$sort} LIMIT 1";
 
                         $tryDefault = true;
                         $byPriority = false;
@@ -888,8 +894,9 @@ class erLhcoreClassChatWorkflow {
 
                             $appendSQLPriority .= ' AND (chat_max_priority = 0 OR chat_max_priority >= ' . (int)$chat->priority .') AND (chat_min_priority = 0 OR chat_min_priority <= ' . (int)$chat->priority .')';
 
+
                             $db = ezcDbInstance::get();
-                            $stmt = $db->prepare("SELECT `lh_userdep`.`user_id` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id {$appendSQLPriority} ORDER BY {$sortPriority} LIMIT 1");
+                            $stmt = $db->prepare("SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id {$appendSQLPriority} ORDER BY {$sortPriority} LIMIT 1");
                             $stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
                             $stmt->bindValue(':last_activity',($timestamp - $isOnlineUser),PDO::PARAM_INT);
                             $stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
@@ -901,21 +908,19 @@ class erLhcoreClassChatWorkflow {
 
                             $stmt->execute();
 
-                            $user_id = $stmt->fetchColumn();
+                            $dataFetch = $stmt->fetch(PDO::FETCH_ASSOC);
+                            $user_id = $dataFetch['user_id'] ?? 0;
 
                             if (is_numeric($user_id) && $user_id > 0) {
                                 $tryDefault = false;
                                 $byPriority = true;
                             }
-
                         }
-
-
 
                         // Try to assign to operator speaking same language first
                         if ($tryDefault == true && $department->assign_same_language == 1 && $chat->chat_locale != '') {
 
-                            $sqlLanguages =  "SELECT `lh_userdep`.`user_id` FROM lh_userdep INNER JOIN lh_speech_user_language ON `lh_speech_user_language`.`user_id` = `lh_userdep`.`user_id` WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id AND `lh_speech_user_language`.`language` = :chatlanguage {$appendSQL} ORDER BY {$sort} LIMIT 1";
+                            $sqlLanguages =  "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep INNER JOIN lh_speech_user_language ON `lh_speech_user_language`.`user_id` = `lh_userdep`.`user_id` WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id AND `lh_speech_user_language`.`language` = :chatlanguage {$appendSQL} ORDER BY {$sort} LIMIT 1";
 
                             $db = ezcDbInstance::get();
                             $stmt = $db->prepare($sqlLanguages);
@@ -931,7 +936,8 @@ class erLhcoreClassChatWorkflow {
 
                             $stmt->execute();
 
-                            $user_id = $stmt->fetchColumn();
+                            $dataFetch = $stmt->fetch(PDO::FETCH_ASSOC);
+                            $user_id = $dataFetch['user_id'] ?? 0;
 
                             if (is_numeric($user_id) && $user_id > 0) {
                                 $tryDefault = false;
@@ -952,7 +958,8 @@ class erLhcoreClassChatWorkflow {
 
                             $stmt->execute();
 
-                            $user_id = $stmt->fetchColumn();
+                            $dataFetch = $stmt->fetch(PDO::FETCH_ASSOC);
+                            $user_id = $dataFetch['user_id'] ?? 0;
                         }
 
                     } else {
@@ -995,10 +1002,19 @@ class erLhcoreClassChatWorkflow {
                         $chat->last_msg_id = $msg->id;
                         $chat->updateThis(array('update' => array('last_msg_id','tslasign','user_id')));
 
-                        erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, $timestamp);
+                        $successLastAccepted = erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, $timestamp);
 
                         // Update fresh user statistic
-                        erLhcoreClassChat::updateActiveChats($chat->user_id);
+                        $successActiveChats = erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+                        if ($dataFetch) {
+                            $meta_msg_array = ['content' => ['assign_action' => $dataFetch]];
+                            $meta_msg_array['content']['assign_action']['assign_finished'] = time();
+                            $meta_msg_array['content']['assign_action']['sac'] = $successActiveChats;
+                            $meta_msg_array['content']['assign_action']['sla'] = $successLastAccepted;
+                            $msg->meta_msg = json_encode($meta_msg_array);
+                            $msg->updateThis(['update' => ['meta_msg']]);
+                        }
                     }
                 }
 

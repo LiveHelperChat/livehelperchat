@@ -150,9 +150,15 @@ $modalSize = 'xl';
 
                     <div class="row ms-0 me-0">
                         <div class="col-auto">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Start period*')?></label>
                             <input class="form-control form-control-sm" id="chats-moment-date" type="datetime-local">
                         </div>
                         <div class="col-auto">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','End period')?></label>
+                            <input class="form-control form-control-sm" id="chats-moment-date-end" type="datetime-local">
+                        </div>
+                        <div class="col-auto">
+                            <div>&nbsp;</div>
                             <button type="submit" id="search-chats-moment" class="btn btn-sm btn-primary mb-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Search');?></button>
                         </div>
                     </div>
@@ -161,7 +167,7 @@ $modalSize = 'xl';
 
                     <script>
                         $('#search-chats-moment').click(function() {
-                            $.post(WWW_DIR_JAVASCRIPT + 'statistic/userstats/<?php echo $user->id?>/(action)/chatsmoment',{'ts' : $('#chats-moment-date').val()}, function(data) {
+                            $.post(WWW_DIR_JAVASCRIPT + 'statistic/userstats/<?php echo $user->id?>/(action)/chatsmoment',{'ts_end' : $('#chats-moment-date-end').val() ,'ts' : $('#chats-moment-date').val()}, function(data) {
                                 $('#active-chats-at-moment').html(data);
                             });
                         });
