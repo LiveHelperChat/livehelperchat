@@ -1987,33 +1987,78 @@ class erLhcoreClassGenericBotActionRestapi
                 }
             }
 
-            /// Continu ehere
-            /*$matchesValues = [];
-            //preg_match_all('/\{(not|is)_empty__(.*?)\}(.*?)\{\/(not|is)_empty\}/ms', $methodSettings['body_raw'], $matchesExtension);
-            preg_match_all('/\{previous_visitor_messages_list_url__([0-9]+)(?:__([0-9]+))?\}(.*?)\{\/previous_visitor_messages_list_url\}/', $item, $matchesValues);
+            // Continue here
+            $matchesValues = [];
+            preg_match_all('/\{previous_visitor_messages_list_url__([0-9]+)(?:__([0-9]+))?\}(.*?)\{\/previous_visitor_messages_list_url\}/is', $item, $matchesValues);
             if (!empty($matchesValues[0])) {
                 $userData['dynamic_variables']['{if_previous_visitor_messages_list}'] = false;
                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
 
-                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => $matchesValues[1][$indexElement],'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('user_id' => 0, 'chat_id' => $userData['chat']->id))));
+                    $foreachCycleParse = $matchesValues[3][$indexElement];
 
-                    foreach ($messages as $indexMessage => $message) {
-                        $messages[$indexMessage]->msg = $messages[$indexMessage]->msg . ".";
+                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => $matchesValues[1][$indexElement],'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                    $totalElements = count($messages);
+                    $content = '';
+
+                    $counter = 0;
+                    foreach ($messages as $message) {
+
+                        if ($counter > 0 && $counter < $totalElements) {
+                            $foreachCycleParse = trim(str_replace(['{separator}','{/separator}'],'', $foreachCycleParse));
+                        } else {
+                            $foreachCycleParse = preg_replace('/\{separator\}(.*?)\{\/separator\}/ms','', $foreachCycleParse);
+                        }
+
+                        if ($message->user_id == -1) {
+                            continue;
+                        }
+
+                        if ($message->user_id == -2 || $message->user_id > 0) {
+                            $foreachCycleParse = preg_replace('/\{user\}(.*?)\{\/user\}/ms','', $foreachCycleParse);
+                            $foreachCycleParse = trim(str_replace(['{assistant}','{/assistant}'],'', $foreachCycleParse));
+                        } else {
+                            $foreachCycleParse = preg_replace('/\{assistant\}(.*?)\{\/assistant\}/ms','', $foreachCycleParse);
+                            $foreachCycleParse = trim(str_replace(['{user}','{/user}'],'', $foreachCycleParse));
+                        }
+
+                        // Continue
+                        $matchesExtension = [];
+                        preg_match_all('/\{(not|is)_empty__(.*?)\}(.*?)\{\/(not|is)_empty\}/ms', $foreachCycleParse, $matchesExtension);
+                        if (!empty($matchesExtension[2])) {
+                            foreach ($matchesExtension[2] as $indexExtension => $varCheck) {
+                                $varsCheck = explode('||', $varCheck);
+                                $allFilled = true;
+                                foreach ($varsCheck as $varCheckReplace) {
+                                    if (
+                                        ($matchesExtension[1][$indexExtension] == 'not' && empty($replaceVariables['{{'.$varCheckReplace.'}}']))
+                                        ||
+                                        ($matchesExtension[1][$indexExtension] == 'is' && !empty($replaceVariables['{{'.$varCheckReplace.'}}']))
+                                    ) {
+                                        $allFilled = false;
+                                    }
+                                }
+                                if ($allFilled) {
+                                    $foreachCycleParse = str_replace($matchesExtension[0][$indexExtension], $matchesExtension[3][$indexExtension], $foreachCycleParse);
+                                } else {
+                                    $foreachCycleParse = str_replace($matchesExtension[0][$indexExtension],'', $foreachCycleParse);
+                                }
+                            }
+                        }
+
+                        /*{"role": "user", "content": "Hi"},
+                        {"role":"assistant","content":"Hello! How can I assist you today?"},*/
+
+
+                        $counter++;
                     }
 
-                    // Fetch chat messages
-                    $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
-                    $tpl->set('chat', $userData['chat']);
-                    $tpl->set('messages', $messages);
-                    $tpl->set('remove_meta', true);
-
-                    $userData['dynamic_variables'][$elementValue] = trim($tpl->fetch());
+                    $userData['dynamic_variables'][$elementValue] = $content;
 
                     if (!empty($userData['dynamic_variables'][$elementValue])) {
                         $userData['dynamic_variables']['{if_previous_visitor_messages_list}'] = true;
                     }
                 }
-            }*/
+            }
 
             // Detect does customer want's somewhere all messages
             if (strpos($item,'{{msg_all_html}}') !== false && !in_array('{{msg_all_html}}',$userData['required_vars'])) {
