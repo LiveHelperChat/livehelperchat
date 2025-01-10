@@ -1656,6 +1656,8 @@ class erLhcoreClassAdminChatValidatorHelper {
             'botTrigger',
         );
 
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.analytics_events', array('events' => & $optionsEvents));
+
         foreach ($optionsEvents as $event){
             $definition[$event . '_category'] = new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'

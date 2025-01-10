@@ -47,6 +47,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
     <li role="presentation" class="nav-item"><a href="#invitation" class="nav-link<?php if ($tab == 'invitation') : ?> active<?php endif;?>" aria-controls="invitation" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Invitation');?></a></li>
     <li role="presentation" class="nav-item"><a href="#needhelp" class="nav-link<?php if ($tab == 'needhelp') : ?> active<?php endif;?>" aria-controls="needhelp" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Need help');?></a></li>
     <li role="presentation" class="nav-item"><a href="#bot" class="nav-link<?php if ($tab == 'bot') : ?> active<?php endif;?>" aria-controls="bot" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Bot');?></a></li>
+    <?php include(erLhcoreClassDesign::designtpl('lhsystem/ga/event_form_multiinclude_tab.tpl.php'));?>
 </ul>
 
 <div class="tab-content" ng-non-bindable>
@@ -445,4 +446,6 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
     </div>
+
+    <?php include(erLhcoreClassDesign::designtpl('lhsystem/ga/event_form_multiinclude_tab_content.tpl.php'));?>
 </div>

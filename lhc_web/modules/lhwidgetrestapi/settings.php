@@ -583,6 +583,8 @@ if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true) {
         'botTrigger',
     );
 
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.analytics_events', array('events' => & $optionEvents));
+
     $continueTrack = false;
 
     if ((isset($gaOptions['ga_all']) &&  $gaOptions['ga_all'] == true) || (isset($gaOptions['ga_dep']) && is_array($department) && count(array_intersect($department,$gaOptions['ga_dep'])) > 0)) {
