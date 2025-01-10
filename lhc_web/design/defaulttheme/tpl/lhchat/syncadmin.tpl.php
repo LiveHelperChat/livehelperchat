@@ -33,9 +33,15 @@
             (!isset($metaMessageData['content']['survey'])) &&
             (!isset($metaMessageData['content']['warning'])) &&
             (!isset($metaMessageData['content']['html']['content'])) &&
-            (!isset($metaMessageData['content']['button_message']))) || (isset($metaMessageData['content']['html']['debug']) && $metaMessageData['content']['html']['debug'] && !erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_audit_system'))
+            (!isset($metaMessageData['content']['button_message']))) || (((isset($metaMessageData['content']['attr_options']['as_json']) && $metaMessageData['content']['attr_options']['as_json']) || (isset($metaMessageData['content']['html']['debug']) && $metaMessageData['content']['html']['debug'])) && !erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_audit_system'))
         ) {
             continue;
+        }
+
+        if (isset($metaMessageData['content']['attr_options']['as_json']) && $metaMessageData['content']['attr_options']['as_json']) {
+            $metaMessageData['content']['html']['debug'] = true;
+            $metaMessageData['content']['html']['content'] = $msg['msg'];
+            $msg['msg'] = 'JSON Message';
         }
 
 if ($msg['user_id'] == -1) : ?>
