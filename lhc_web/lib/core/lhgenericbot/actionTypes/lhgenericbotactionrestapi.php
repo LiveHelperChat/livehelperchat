@@ -776,6 +776,16 @@ class erLhcoreClassGenericBotActionRestapi
             $methodSettings['body_raw'] = preg_replace('/\{if_previous_visitor_messages\}(.*?)\{\/if_previous_visitor_messages\}/ms','',$methodSettings['body_raw']);
         }
 
+        if (isset($dynamicReplaceVariables['{if_previous_visitor_messages_list}'])){
+            if ($dynamicReplaceVariables['{if_previous_visitor_messages_list}'] !== false) {
+                $methodSettings['body_raw'] = str_replace(trim($dynamicReplaceVariables['{if_previous_visitor_messages_list}']),$dynamicReplaceVariables[$dynamicReplaceVariables['{if_previous_visitor_messages_list}']], $methodSettings['body_raw']);
+                $methodSettings['body_raw'] = trim(str_replace(['{if_previous_visitor_messages}','{/if_previous_visitor_messages}'],'', $methodSettings['body_raw']));
+            } else {
+                $methodSettings['body_raw'] = preg_replace('/\{if_previous_visitor_messages_list\}(.*?)\{\/if_previous_visitor_messages_list\}/ms','',$methodSettings['body_raw']);
+                $methodSettings['body_raw'] = preg_replace('/\{previous_visitor_messages_list_url__([0-9]+)(?:__([0-9]+))?\}(.*?)\{\/previous_visitor_messages_list_url\}/is', '', $methodSettings['body_raw']);
+            }
+        }
+
         if (isset($methodSettings['check_word']) && $methodSettings['check_word'] == true) {
 
             $locale = $paramsCustomer['chat']->chat_locale;
@@ -1113,6 +1123,9 @@ class erLhcoreClassGenericBotActionRestapi
             $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray), $bodyPOST);
             $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $bodyPOST);
             $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
+
+            /*print_r($bodyPOST);
+            exit;*/
 
             curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
 
@@ -1691,11 +1704,12 @@ class erLhcoreClassGenericBotActionRestapi
                         $responseValueCompare2 = $responseValueCompare = $responseValue = $content;
                     }
 
-                    foreach([   [
-                        'success_compare_value' => 'success_compare_value',
-                        'success_condition' => 'success_condition',
-                        'live_value' => $responseValueCompare,
-                    ],
+                    foreach([
+                                [
+                                    'success_compare_value' => 'success_compare_value',
+                                    'success_condition' => 'success_condition',
+                                    'live_value' => $responseValueCompare,
+                                ],
                                 [
                                     'success_compare_value' => 'success_compare_value_2',
                                     'success_condition' => 'success_condition_2',
@@ -1994,22 +2008,46 @@ class erLhcoreClassGenericBotActionRestapi
                 $userData['dynamic_variables']['{if_previous_visitor_messages_list}'] = false;
                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
 
-                    $foreachCycleParse = $matchesValues[3][$indexElement];
+                    $foreachCycleParseTemplate = $matchesValues[3][$indexElement];
 
-                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => $matchesValues[1][$indexElement],'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => $matchesValues[1][$indexElement], 'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+
                     $totalElements = count($messages);
                     $content = '';
 
                     $counter = 0;
                     foreach ($messages as $message) {
-
+                        $foreachCycleParse = $foreachCycleParseTemplate;
                         if ($counter > 0 && $counter < $totalElements) {
                             $foreachCycleParse = trim(str_replace(['{separator}','{/separator}'],'', $foreachCycleParse));
                         } else {
                             $foreachCycleParse = preg_replace('/\{separator\}(.*?)\{\/separator\}/ms','', $foreachCycleParse);
                         }
 
+                        if ($counter == $totalElements - 1) {
+                            $foreachCycleParse = trim(str_replace(['{end_separator}','{/end_separator}'],'', $foreachCycleParse));
+                        } else {
+                            $foreachCycleParse = preg_replace('/\{end_separator\}(.*?)\{\/end_separator\}/ms','', $foreachCycleParse);
+                        }
+
+                        if ($message->user_id == -1 && isset($message->meta_msg_array['content']['attr_options']['as_json']) && $message->meta_msg_array['content']['attr_options']['as_json'] == true) {
+                            if ($counter > 0 && $counter < $totalElements) {
+                                if (preg_match('/\{separator\}(.*?)\{\/separator\}/', $foreachCycleParseTemplate, $matches)) {
+                                    $message->msg = $matches[1] . $message->msg;
+                                }
+                                if ($counter == $totalElements - 1) {
+                                    if (preg_match('/\{end_separator\}(.*?)\{\/end_separator\}/', $foreachCycleParseTemplate, $matches)) {
+                                        $message->msg .= $matches[1];
+                                    }
+                                }
+                            }
+                            $counter++;
+                            $content .= $message->msg;
+                            continue;
+                        }
+
                         if ($message->user_id == -1) {
+                            $counter++;
                             continue;
                         }
 
@@ -2021,18 +2059,34 @@ class erLhcoreClassGenericBotActionRestapi
                             $foreachCycleParse = trim(str_replace(['{user}','{/user}'],'', $foreachCycleParse));
                         }
 
+                        $matchesValuesItem = [];
+                        $replaceItemData = [];
+                        preg_match_all('~\{(not|is)_item_empty__args\.((?:[^\{\}\}]++|(?R))*)\}~', $foreachCycleParse, $matchesValuesItem);
+                        if (!empty($matchesValuesItem[0])) {
+                             foreach ($matchesValuesItem[0] as $indexElementItem => $elementValueItem) {
+                                $valueAttribute = self::extractAttribute(['chat' => $userData['chat'], 'item' => $message], $matchesValuesItem[2][$indexElement], '.');
+                                $replaceItemData['{{args.' . $matchesValuesItem[2][$indexElementItem] .'}}'] = $valueAttribute['found'] == true ? json_encode($valueAttribute['value']) : null;
+                            }
+                        }
+
+                        foreach ($replaceItemData as $keyVariable => $keyValue) {
+                            $replaceItemData['raw_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce($keyValue));
+                        }
+
+                        $foreachCycleParse = str_replace(array_keys($replaceItemData), array_values($replaceItemData), $foreachCycleParse);
+
                         // Continue
                         $matchesExtension = [];
-                        preg_match_all('/\{(not|is)_empty__(.*?)\}(.*?)\{\/(not|is)_empty\}/ms', $foreachCycleParse, $matchesExtension);
+                        preg_match_all('/\{(not|is)_item_empty__(.*?)\}(.*?)\{\/(not|is)_item_empty\}/ms', $foreachCycleParse, $matchesExtension);
                         if (!empty($matchesExtension[2])) {
                             foreach ($matchesExtension[2] as $indexExtension => $varCheck) {
                                 $varsCheck = explode('||', $varCheck);
                                 $allFilled = true;
                                 foreach ($varsCheck as $varCheckReplace) {
                                     if (
-                                        ($matchesExtension[1][$indexExtension] == 'not' && empty($replaceVariables['{{'.$varCheckReplace.'}}']))
+                                        ($matchesExtension[1][$indexExtension] == 'not' && empty($replaceItemData['{{'.$varCheckReplace.'}}']))
                                         ||
-                                        ($matchesExtension[1][$indexExtension] == 'is' && !empty($replaceVariables['{{'.$varCheckReplace.'}}']))
+                                        ($matchesExtension[1][$indexExtension] == 'is' && !empty($replaceItemData['{{'.$varCheckReplace.'}}']))
                                     ) {
                                         $allFilled = false;
                                     }
@@ -2044,18 +2098,15 @@ class erLhcoreClassGenericBotActionRestapi
                                 }
                             }
                         }
-
-                        /*{"role": "user", "content": "Hi"},
-                        {"role":"assistant","content":"Hello! How can I assist you today?"},*/
-
-
                         $counter++;
+                        $content .= $foreachCycleParse;
                     }
 
+                    $userData[$key] = str_replace($elementValue, $content, $userData[$key]);
                     $userData['dynamic_variables'][$elementValue] = $content;
 
                     if (!empty($userData['dynamic_variables'][$elementValue])) {
-                        $userData['dynamic_variables']['{if_previous_visitor_messages_list}'] = true;
+                        $userData['dynamic_variables']['{if_previous_visitor_messages_list}'] = $elementValue;
                     }
                 }
             }

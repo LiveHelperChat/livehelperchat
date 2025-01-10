@@ -230,6 +230,9 @@ class NodeTriggerActionText extends Component {
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','on_start_chat'])} /> Send message only at chat start.</label> <i className="material-icons" title="Message will be send only on chat start event.">info</i>
                             </div>
                             <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_json'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_json'])} /> Save content as JSON.</label> <i className="material-icons" title="Content will be parsed and saved as json content">info</i>
+                            </div>
+                            <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','hide_on_next'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','hide_on_next'])} /> Hide on next message.</label> <i className="material-icons" title="Hide message content on next message.">info</i>
                             </div>
                             <div role="group">
