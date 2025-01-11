@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 248;
+            lhc.version = 249;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -91,7 +91,6 @@
                 const prefixStorage = (prefixLowercase && LHC_API.args.scope_storage ? prefixLowercase : 'lhc');
                 const cookieEnabledUser = typeof LHC_API.args.cookie_enabled !== 'undefined' ? LHC_API.args.cookie_enabled : true;
                 const userMode = LHC_API.args.mode || 'widget';
-
                 var storageHandler = new storageHandler(global, LHC_API.args.domain || null, prefixStorage, cookieEnabledUser);
 
                 // Cookies are disabled and it's required for us to work. So switch to mode where cookies are not required
@@ -573,10 +572,8 @@
                             }
                         });
                     }
-
                 })
 
-                // Listen for broadcast channels
                 attributesWidget.broadcasChannel.addEventListener("message", function(event) {
                     if (event.data.action === 'current_vars' || event.data.action === 'check_vars') {
                         if (attributesWidget.lhc_var !== null) {
@@ -813,6 +810,8 @@
                     chatEvents.sendChildEvent('subcribedEvent', [data]);
                 });
 
+                var timeoutWidget = null;
+
                 // Track widget status changes
                 attributesWidget.widgetStatus.subscribe((data) => {
                     if (attributesWidget.mode !== 'popup') {
@@ -821,9 +820,12 @@
                             // attributesWidget.storageHandler.setSessionStorage(prefixStorage + '_ws', data);
                             attributesWidget.userSession.ws = data ? '1' : null;
                             attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
-                            attributesWidget.broadcasChannel.postMessage({'action':'wstatus','value':data});
-                        }
 
+                            clearTimeout(timeoutWidget);
+                            timeoutWidget = setTimeout(function(){
+                                attributesWidget.broadcasChannel.postMessage({'action':'wstatus','value':data});
+                            },50);
+                        }
                         chatEvents.sendChildEvent('widgetStatus', [data]);
                     }
                 });

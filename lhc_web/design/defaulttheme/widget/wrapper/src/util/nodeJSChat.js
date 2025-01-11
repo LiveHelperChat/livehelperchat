@@ -70,7 +70,7 @@ class _nodeJSChat {
         }
 
         async function connectSiteVisitor() {
-            var firstRun = sampleChannel == null,ignoreNext = true;
+            var firstRun = sampleChannel == null, ignoreNext = false, timeoutClear = null;
             sampleChannel = socket.subscribe('uo_' + vid);
             if (firstRun == true) {
                 try {
@@ -89,7 +89,10 @@ class _nodeJSChat {
                     // Subscribe to widget status, just ignore initial status
                     attributes.mode != 'embed' && attributes.widgetStatus.subscribe((data) => {
                         if (ignoreNext == true) {
-                            ignoreNext = false;
+                            clearTimeout(timeoutClear);
+                            timeoutClear = setTimeout(() => {
+                                ignoreNext = false;
+                            }, 1000);
                             return;
                         }
                         socket.transmitPublish('uo_' + vid, {op: 'wstatus', status: data, 'clientId' : sampleChannel.client.clientId,});
