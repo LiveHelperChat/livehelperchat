@@ -70,7 +70,7 @@ class _nodeJSChat {
         }
 
         async function connectSiteVisitor() {
-            var firstRun = sampleChannel == null;
+            var firstRun = sampleChannel == null,ignoreNext = true;
             sampleChannel = socket.subscribe('uo_' + vid);
             if (firstRun == true) {
                 try {
@@ -88,6 +88,10 @@ class _nodeJSChat {
 
                     // Subscribe to widget status, just ignore initial status
                     attributes.mode != 'embed' && attributes.widgetStatus.subscribe((data) => {
+                        if (ignoreNext == true) {
+                            ignoreNext = false;
+                            return;
+                        }
                         socket.transmitPublish('uo_' + vid, {op: 'wstatus', status: data, 'clientId' : sampleChannel.client.clientId,});
                     }, true);
 
@@ -129,6 +133,7 @@ class _nodeJSChat {
                         } else if (op.op == 'wstatus') {
                             try {
                                 if (attributes.mode != 'embed' && op.status != attributes.widgetStatus.value && sampleChannel.client.clientId != op.clientId) {
+                                    ignoreNext = true;
                                     attributes.widgetStatus.next(op.status);
                                 }
                             } catch (e) {
