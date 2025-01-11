@@ -75,7 +75,7 @@ class _nodeJSChat {
             if (firstRun == true) {
                 try {
                     // We want to receive signal is widget open in any of the windows
-                    attributes.mode != 'embed' && !attributes.widgetStatus.value && socket.transmitPublish('uo_' + vid, {op: 'ws_isopen'});
+                    attributes.mode != 'embed' && !attributes.widgetStatus.value && socket.transmitPublish('uo_' + vid, {op: 'ws_isopen', 'clientId' : sampleChannel.client.clientId});
 
                     // We want to publish request to receive all the vars other instances has
                     if (attributes.lhc_var !== null) {
@@ -88,13 +88,13 @@ class _nodeJSChat {
 
                     // Subscribe to widget status, just ignore initial status
                     attributes.mode != 'embed' && attributes.widgetStatus.subscribe((data) => {
-                        socket.transmitPublish('uo_' + vid, {op: 'wstatus', status: data});
+                        socket.transmitPublish('uo_' + vid, {op: 'wstatus', status: data, 'clientId' : sampleChannel.client.clientId,});
                     }, true);
 
                     // Listen for chat started event and dispatch to other windows
                     attributes.eventEmitter.addListener('chatStarted', function (data, mode) {
                         if (mode !== 'popup' || attributes.kcw === true) {
-                            socket.transmitPublish('uo_' + vid, {op: 'chat_started', data: data});
+                            socket.transmitPublish('uo_' + vid, {op: 'chat_started', data: data, 'clientId' : sampleChannel.client.clientId,});
                         }
                     });
                 } catch (e) {
@@ -108,7 +108,7 @@ class _nodeJSChat {
                             socket.transmitPublish('ous_'+instance_id,{op:'vi_online', status: true, vid: vid});
                         } else if (op.op == 'chat_started') {
                             try {
-                                if (attributes.userSession.id === null && op.data.id) {
+                                if (attributes.userSession.id === null && op.data.id && sampleChannel.client.clientId != op.clientId) {
                                     chatEvents.sendChildEvent('reopenNotification', [{
                                         'id': op.data.id,
                                         'hash': op.data.hash
@@ -119,7 +119,7 @@ class _nodeJSChat {
                             }
                         } else if (op.op == 'ws_isopen') {
                             try {
-                                if (attributes.mode != 'embed' && attributes.widgetStatus.value) {
+                                if (attributes.mode != 'embed' && attributes.widgetStatus.value && sampleChannel.client.clientId != op.clientId) {
                                     socket.transmitPublish('uo_'+vid,{op:'wstatus', status: true});
                                 }
                             } catch (e) {
@@ -128,7 +128,7 @@ class _nodeJSChat {
 
                         } else if (op.op == 'wstatus') {
                             try {
-                                if (attributes.mode != 'embed' && op.status != attributes.widgetStatus.value) {
+                                if (attributes.mode != 'embed' && op.status != attributes.widgetStatus.value && sampleChannel.client.clientId != op.clientId) {
                                     attributes.widgetStatus.next(op.status);
                                 }
                             } catch (e) {

@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 246;
+            lhc.version = 247;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
