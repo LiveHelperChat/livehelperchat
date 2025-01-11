@@ -301,6 +301,11 @@
                     params: getArguments()
                 }, (data) => {
 
+                    // Append exact protocol
+                    if (LHC_API.args.lhc_base_url.startsWith('//')) {
+                        attributesWidget.base_url = LHC_API.args.lhc_base_url = (window.location.protocol === 'http:' ? 'http:' : 'https:') + LHC_API.args.lhc_base_url;
+                    }
+
                     if (lhc.version !== data.wv && document.getElementById(attributesWidget.prefixLowercase+'-js-reload') === null) {
 
                         if (data.terminate) {

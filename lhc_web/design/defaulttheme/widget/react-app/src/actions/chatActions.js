@@ -253,6 +253,7 @@ export function initOfflineForm(obj) {
         })
         .catch((err) => {
             dispatch({type: "OFFLINE_FIELDS_REJECTED", data: err})
+            console.error(err);
         })
     }
 }
@@ -279,6 +280,7 @@ export function initOnlineForm(obj) {
         })
         .catch((err) => {
             dispatch({type: "ONLINE_FIELDS_REJECTED", data: err})
+            console.error(err);
         })
     }
 }
