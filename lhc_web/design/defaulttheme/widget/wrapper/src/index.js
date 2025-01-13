@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 249;
+            lhc.version = 251;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -815,7 +815,7 @@
                     chatEvents.sendChildEvent('subcribedEvent', [data]);
                 });
 
-                var timeoutWidget = null;
+                var timeoutWidget = null, originalStyleSheet = null, scrollPosition = { x: 0, y: 0 };
 
                 // Track widget status changes
                 attributesWidget.widgetStatus.subscribe((data) => {
@@ -830,6 +830,19 @@
                             timeoutWidget = setTimeout(function(){
                                 attributesWidget.broadcasChannel.postMessage({'action':'wstatus','value':data});
                             },50);
+
+                            if (attributesWidget.isMobile == true) {
+                                if (data === true) {
+                                    scrollPosition.x = window.scrollX;
+                                    scrollPosition.y = window.scrollY;
+                                    originalStyleSheet = document.body.style.cssText;
+                                    document.body.style.cssText = 'position: fixed; height: 100%; width: 100%; inset: 0px; overflow-y: hidden';
+                                } else if (originalStyleSheet !== null) {
+                                    document.body.style.cssText = originalStyleSheet;
+                                    window.scrollTo(scrollPosition.x, scrollPosition.y);
+                                }
+                            }
+
                         }
                         chatEvents.sendChildEvent('widgetStatus', [data]);
                     }
