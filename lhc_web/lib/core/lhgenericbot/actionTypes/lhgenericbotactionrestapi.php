@@ -1716,8 +1716,12 @@ class erLhcoreClassGenericBotActionRestapi
                                     'live_value' => $responseValueCompare2,
                                 ]
                             ] as $attrCompare) {
-                        if (isset($outputCombination[$attrCompare['success_condition']]) && $outputCombination[$attrCompare['success_condition']] != '' && isset($outputCombination[$attrCompare['success_compare_value']]) && $outputCombination[$attrCompare['success_compare_value']] != '') {
+                        if (isset($outputCombination[$attrCompare['success_condition']]) && $outputCombination[$attrCompare['success_condition']] != '' && (
+                            isset($outputCombination[$attrCompare['success_compare_value']]) && $outputCombination[$attrCompare['success_compare_value']] != ''
+                            )) {
                             if ( $outputCombination[$attrCompare['success_condition']] == 'eq' && !($attrCompare['live_value'] == $outputCombination[$attrCompare['success_compare_value']])) {
+                                continue 2;
+                            } else if ($outputCombination[$attrCompare['success_condition']] == 'notempty' && empty($attrCompare['live_value'])) {
                                 continue 2;
                             } else if ($outputCombination[$attrCompare['success_condition']] == 'lt' && !($attrCompare['live_value'] < $outputCombination[$attrCompare['success_compare_value']])) {
                                 continue 2;
@@ -2047,7 +2051,7 @@ class erLhcoreClassGenericBotActionRestapi
                         }
 
                         if ($message->user_id == -1) {
-                            $counter++;
+                            $totalElements--;
                             continue;
                         }
 

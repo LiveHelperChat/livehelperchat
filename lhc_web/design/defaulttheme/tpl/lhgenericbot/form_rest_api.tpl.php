@@ -470,7 +470,7 @@
                             <div class="form-group">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Response comparison')?></label>
                                 <select class="form-control form-control-sm" ng-model="paramOutput.success_condition" >
-                                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Check for presence of variable')?></option>
+                                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Choose')?></option>
                                     <option value="gt">&gt;</option>
                                     <option value="gte">&gt;=</option>
                                     <option value="lt">&lt;</option>
@@ -479,10 +479,11 @@
                                     <option value="neq">!=</option>
                                     <option value="like"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text like')?></option>
                                     <option value="notlike"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text not like')?></option>
+                                    <option value="notempty"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Not empty')?></option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4" ng-if="paramOutput.success_condition != '' && paramOutput.success_condition != undefined">
+                        <div class="col-4" ng-if="paramOutput.success_condition != '' && paramOutput.success_condition != undefined && paramOutput.success_condition != 'notempty'"">
                             <div class="form-group">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Comparison value')?></label>
                                 <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_compare_value" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Value to compare')?>">
@@ -501,7 +502,7 @@
                             <div class="form-group">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Response comparison')?></label>
                                 <select class="form-control form-control-sm" ng-model="paramOutput.success_condition_2" >
-                                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Check for presence of variable')?></option>
+                                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Choose')?></option>
                                     <option value="gt">&gt;</option>
                                     <option value="gte">&gt;=</option>
                                     <option value="lt">&lt;</option>
@@ -510,10 +511,11 @@
                                     <option value="neq">!=</option>
                                     <option value="like"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text like')?></option>
                                     <option value="notlike"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text not like')?></option>
+                                    <option value="notempty"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Not empty')?></option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4" ng-if="paramOutput.success_condition != '' && paramOutput.success_condition != undefined">
+                        <div class="col-4" ng-if="paramOutput.success_condition_2 != '' && paramOutput.success_condition_2 != undefined && paramOutput.success_condition_2 != 'empty'">
                             <div class="form-group">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Comparison value')?></label>
                                 <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_compare_value_2" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Value to compare')?>">
