@@ -44,6 +44,7 @@ const initialState = fromJS({
     // Was initialized data loaded
     initLoaded : false,
     msgLoaded : false,
+    chatEnded : false,
     proactive : {'pending' : false, 'has' : false, data : {}}, // Proactive invitation data holder
     lang : '',
     bot_id : '',
@@ -161,6 +162,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('chatLiveData',fromJS({'msg_to_store':[], 'lock_send' : false, 'lmsop':0, 'vtm':0, 'otm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lfmsgid': 0, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
                 .set('chatStatusData',fromJS({}))
                 .set('chat_ui_state',fromJS({'confirm_close': 0, 'show_survey' : 0, 'pre_survey_done' : 0}))
+                .set('chatEnded',true)
                 .set('initClose',false)
                 .set('msgLoaded',false)
                 .set('initLoaded',false);
