@@ -51,6 +51,7 @@ If you are installing extensions, make sure that your version has webhooks enabl
    * E.g Rasa AI https://doc.livehelperchat.com/docs/bot/rasa-integration-intent
    * E.g ChatGPT (Chat Completion) https://doc.livehelperchat.com/docs/bot/chatgpt-integration 
    * E.g ChatGPT (Assistant) https://github.com/LiveHelperChat/chatGPT
+   * E.g Ollama AI https://doc.livehelperchat.com/docs/bot/ollama-integration
  * [Telegram](https://github.com/LiveHelperChat/telegram)
  * [Viber](https://github.com/LiveHelperChat/viber)
  * [Rasa](https://doc.livehelperchat.com/docs/bot/rasa-integration)
