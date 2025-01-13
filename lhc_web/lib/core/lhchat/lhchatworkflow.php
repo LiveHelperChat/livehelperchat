@@ -737,11 +737,14 @@ class erLhcoreClassChatWorkflow {
         }
     }
 
+    public static $lastError = '';
+
     public static function autoAssign(& $chat, $department, $params = array()) {
 
         $timestamp = time();
+        self::$lastError = '';
 
-        if (is_object($department) && $department->active_balancing == 1 && ($department->max_ac_dep_chats == 0 || $department->active_chats_counter < $department->max_ac_dep_chats) && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < $timestamp-$department->max_timeout_seconds)) ){
+        if (is_object($department) && $department->active_balancing == 1 && ($department->max_ac_dep_chats == 0 || $department->active_chats_counter < $department->max_ac_dep_chats) && ($chat->user_id == 0 || ($department->max_timeout_seconds > 0 && $chat->tslasign < $timestamp-$department->max_timeout_seconds))){
 
             $isOnlineUser = (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'];
 
@@ -803,6 +806,7 @@ class erLhcoreClassChatWorkflow {
 
                     // Variable was not found ignore chat for a while
                     if ($valueToCompare === null) {
+                        self::$lastError = 'Auto delay vars not satisfied';
                         return;
                     }
                 }
@@ -815,6 +819,7 @@ class erLhcoreClassChatWorkflow {
 
                 // Skip everything if lock error happens
                 if (!erLhcoreClassChat::lockOperatorsByDepartment($department->id, $db)){
+                    self::$lastError = 'Locking operators failed';
                     return;
                 }
 
@@ -849,6 +854,7 @@ class erLhcoreClassChatWorkflow {
                         // Usefull for extension which has custom auto assign workflow
                         if (isset($params['user_ids'])) {
                             if (empty($params['user_ids'])) {
+                                self::$lastError = 'user_ids not set';
                                 return array('status' => erLhcoreClassChatEventDispatcher::STOP_WORKFLOW, 'user_id' => 0);
                             }
 
@@ -1015,6 +1021,8 @@ class erLhcoreClassChatWorkflow {
                             $msg->meta_msg = json_encode($meta_msg_array);
                             $msg->updateThis(['update' => ['meta_msg']]);
                         }
+                    } else {
+                        self::$lastError = 'Online operator was not found!';
                     }
                 }
 
@@ -1028,6 +1036,14 @@ class erLhcoreClassChatWorkflow {
                 $db->rollback();
                 throw $e;
             }
+        } else {
+            if (is_object($department)) {
+                self::$lastError = $department->active_balancing ."== 1 && (" . $department->max_ac_dep_chats . " == 0 || " . $department->active_chats_counter . "<" . $department->max_ac_dep_chats . ") && (" . $chat->user_id . "== 0 || (" . $department->max_timeout_seconds ." > 0 && " . $chat->tslasign ." < ". $timestamp . "- " . $department->max_timeout_seconds ."))";
+            }
+        }
+
+        if (isset($user_id) && $user_id > 0) {
+            return true;
         }
     }
 
