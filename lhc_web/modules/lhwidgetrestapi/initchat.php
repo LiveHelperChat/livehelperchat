@@ -226,7 +226,10 @@ try {
                 }
 
                 if (isset($theme->bot_configuration_array['after_chat_status']) && $theme->bot_configuration_array['after_chat_status'] != '') {
-                    $outputResponse['chat_ui']['after_chat_status'] = $theme->bot_configuration_array['after_chat_status'];
+                    $outputResponse['chat_ui']['after_chat_status'] = str_replace(
+                        ['{host}','{chat_id}','{chat_hash}'],
+                        [erLhcoreClassSystem::getHost(),$chat->id,$chat->hash],
+                        $theme->bot_configuration_array['after_chat_status']);
                 }
 
                 if (isset($theme->bot_configuration_array['prev_msg']) && $theme->bot_configuration_array['prev_msg'] == true) {
