@@ -2106,7 +2106,7 @@ class erLhcoreClassGenericBotActionRestapi
                         $content .= $foreachCycleParse;
                     }
 
-                    $userData[$key] = str_replace($elementValue, $content, $userData[$key]);
+                    $userData[$key] = str_replace($elementValue, $content, (isset($userData[$key]) ? $userData[$key] : ''));
                     $userData['dynamic_variables'][$elementValue] = $content;
 
                     if (!empty($userData['dynamic_variables'][$elementValue])) {
