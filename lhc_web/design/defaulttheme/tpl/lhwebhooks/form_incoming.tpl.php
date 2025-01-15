@@ -966,6 +966,35 @@
             </div>
         </div>
 
+        <h5>Deleted</h5>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Message ID location');?></label>
+                    <input type="text" class="form-control form-control-sm" placeholder="" ng-model="webhookincomingsctl.conditions.msg_delivery_deleted_id" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered deleted, message should have attribute value equal to');?></label>
+                    <input type="text" class="form-control form-control-sm" placeholder="message.attribute.location=deleted" ng-model="webhookincomingsctl.conditions.msg_delivery_deleted_condition" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID field location');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_deleted_chat_id" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID 2 field location');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_deleted_chat_id_2" value="" />
+                </div>
+            </div>
+        </div>
+
+
         <h5>Read</h5>
         <div class="row">
             <div class="col-6">

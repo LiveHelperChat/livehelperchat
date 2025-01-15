@@ -62,7 +62,7 @@ class erLhcoreClassChatWebhookIncoming {
     {
         $conditions = $incomingWebhook->conditions_array;
 
-        foreach (['sent','delivered','read','rejected','reaction','un_reaction','edited'] as $mainConditionStatus) {
+        foreach (['sent','delivered','read','rejected','reaction','un_reaction','edited','deleted'] as $mainConditionStatus) {
             $messageId = self::extractAttribute('msg_delivery_'.$mainConditionStatus.'_id', $conditions, $payloadMessage, '');
             if ($messageId != '' &&
                 (
@@ -191,6 +191,14 @@ class erLhcoreClassChatWebhookIncoming {
                         $chat->updateThis(['update' => ['operation_admin','has_unread_op_messages']]);
                         // NodeJS to update message delivery status
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msgReplyTo, 'chat' => & $chat, 'reason' => 'delivery_status_change'));
+                    } elseif ($mainConditionStatus == 'deleted') {
+
+                        $msgReplyTo->removeThis();
+                        $chat->operation_admin = "lhinst.updateMessageRowAdmin({$msgReplyTo->chat_id},{$msgReplyTo->id});\n";
+                        $chat->updateThis(array('update' => array('operation_admin')));
+
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.msg_removed', array('msg' => $msgReplyTo, 'chat' => $chat));
+
                     } elseif ($mainConditionStatus == 'edited') {
 
                         $reactionContent = self::extractAttribute('msg_delivery_edited_location', $conditions, $payloadMessage);
