@@ -90,12 +90,13 @@
     </div>
     
     <div class="col-md-12">
-    	<div class="row">
-    		<div class="col-md-1">
-    			<input type="submit" name="doSearch" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
-    		</div>    		
-    	</div>		
-	</div>		
+        <div class="btn-group me-2">
+                <button type="submit" name="doSearch" class="btn btn-sm btn-secondary" ><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?></button>
+                <?php if ($pages->items_total > 0) : ?>
+                    <button type="button" onclick="return lhc.revealModal({'title' : 'Report', backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/1?'})" class="btn btn-outline-secondary btn-sm"><span class="material-icons">summarize</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','View as report');?></button>
+                <?php endif; ?>
+        </div>
+    </div>
 
 </div>
 	

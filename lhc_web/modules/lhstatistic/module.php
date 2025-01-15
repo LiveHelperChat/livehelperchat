@@ -135,7 +135,7 @@ $ViewList['userstats'] = array(
 
 $ViewList['onlinehours'] = array(
     'params' => array(),
-    'uparams' => array('group_by','xls','timefrom','timeto','user_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
+    'uparams' => array('group_by','xls','timefrom','timeto','user_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes','export'),
     'functions' => array( 'viewstatistic' ),
     'multiple_arguments' => array('user_id')
 );

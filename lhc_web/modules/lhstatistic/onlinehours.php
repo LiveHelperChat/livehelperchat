@@ -12,6 +12,14 @@ if (isset($_GET['doSearch'])) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+if ($Params['user_parameters_unordered']['export'] == 1) {
+    $tpl = erLhcoreClassTemplate::getInstance('lhstatistic/onlinehours_report.tpl.php');
+    $tpl->set('items',erLhcoreClassModelUserOnlineSession::getList(array_merge($filterParams['filter'],array('offset' => 0, 'limit' => 1000, 'sort' => 'id ASC'))));
+    $tpl->set('filter',$filterParams['filter']);
+    echo $tpl->fetch();
+    exit;
+}
+
 $rowsNumber = null;
 
 if (empty($filterParams['filter'])) {
