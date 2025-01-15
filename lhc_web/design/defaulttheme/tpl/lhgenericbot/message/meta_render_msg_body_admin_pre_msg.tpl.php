@@ -35,7 +35,7 @@
                 $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Last operator message') . ' - ' . ($metaMessage['last_op_msg_time'] > 0 ? date('Y-m-d H:i:s', (int)$metaMessage['last_op_msg_time']) : 'n/a');
             }
             if (isset($metaMessage['delay'])) {
-                $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Delay') . ' - ' . is_numeric($metaMessage['delay']) ? (($msg['time'] - $metaMessage['delay']) .' s. &lt; ' .  (int)date('Y-m-d H:i:s', $metaMessage['delay'])) : $metaMessage['delay'];
+                $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Delay') . ' - ' . is_numeric($metaMessage['delay']) ? (($msg['time'] - $metaMessage['delay']) .' s. &lt; ' .  date('Y-m-d H:i:s', (int)$metaMessage['delay'])) : $metaMessage['delay'];
             }
             ?>
             <span class="material-icons text-muted" title="<?php echo implode("\n", $partsInfo)?>">info</span>
