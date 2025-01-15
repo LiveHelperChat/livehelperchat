@@ -598,7 +598,13 @@ class erLhcoreClassChatWorkflow {
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron because visitor left the pending/bot chat!');
+                if ($statusOriginal == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+                    $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron because visitor left the bot chat!');
+                } elseif ($statusOriginal == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT){
+                    $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron because visitor left the active chat!');
+                } else {
+                    $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron because visitor left the pending chat!');
+                }
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
                 $msg->meta_msg = json_encode(['content' => ['close_reason' => [
