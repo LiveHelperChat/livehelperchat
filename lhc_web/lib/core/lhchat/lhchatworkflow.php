@@ -252,6 +252,11 @@ class erLhcoreClassChatWorkflow {
 
                 $msg = new erLhcoreClassModelmsg();
                 $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron!');
+                $msg->meta_msg = json_encode(['content' => ['close_reason' => [
+                    'reason' => 'autoclose_timeout',
+                    'last_user_msg_time' => $chat->last_user_msg_time,
+                    'delay' => $delay
+                ]]]);
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
 
@@ -300,7 +305,10 @@ class erLhcoreClassChatWorkflow {
                 $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
-
+                $msg->meta_msg = json_encode(['content' => ['close_reason' => [
+                    'reason' => 'autoclose_timeout_initial',
+                    'delay' => $delay
+                ]]]);
                 $chat->last_user_msg_time = $msg->time = time();
 
                 erLhcoreClassChat::getSession()->save($msg);
@@ -343,7 +351,10 @@ class erLhcoreClassChatWorkflow {
                 $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
-
+                $msg->meta_msg = json_encode(['content' => ['close_reason' => [
+                    'reason' => 'autoclose_timeout_pending',
+                    'delay' => $delay
+                ]]]);
                 $chat->last_user_msg_time = $msg->time = time();
 
                 erLhcoreClassChat::getSession()->save($msg);
@@ -391,7 +402,10 @@ class erLhcoreClassChatWorkflow {
                 $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
-
+                $msg->meta_msg = json_encode(['content' => ['close_reason' => [
+                    'reason' => 'autoclose_timeout_active',
+                    'delay' => $delay
+                ]]]);
                 $chat->last_user_msg_time = $msg->time = time();
 
                 erLhcoreClassChat::getSession()->save($msg);
@@ -439,7 +453,11 @@ class erLhcoreClassChatWorkflow {
                 $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
-
+                $msg->meta_msg = json_encode(['content' => ['close_reason' => [
+                    'reason' => 'autoclose_timeout_bot',
+                    'delay' => $delay,
+                    'last_user_msg_time' => $chat->last_user_msg_time
+                ]]]);
                 $chat->last_user_msg_time = $msg->time = time();
 
                 erLhcoreClassChat::getSession()->save($msg);
@@ -492,7 +510,12 @@ class erLhcoreClassChatWorkflow {
                 $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron because of inactivity!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
-
+                $msg->meta_msg = json_encode(['content' => ['close_reason' => [
+                    'reason' => 'autoclose_activity_timeout',
+                    'delay' => $delay,
+                    'last_user_msg_time' => $chat->last_user_msg_time,
+                    'last_op_msg_time' => $chat->last_op_msg_time
+                ]]]);
                 $chat->last_user_msg_time = $msg->time = time();
 
                 erLhcoreClassChat::getSession()->save($msg);
@@ -578,6 +601,11 @@ class erLhcoreClassChatWorkflow {
                 $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron because visitor left the pending chat!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
+                $msg->meta_msg = json_encode(['content' => ['close_reason' => [
+                    'reason' => 'autoclose_activity_timeout',
+                    'delay' => implode(',',$timeoutParts),
+                    'lsync' => $chat->lsync
+                ]]]);
 
                 $chat->last_user_msg_time = $msg->time = time();
 

@@ -258,22 +258,22 @@
     		    <?php $attribute = 'show_languages';?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    <hr>		    
-    		    <?php $attribute = 'autoclose_timeout'?>
+    		    <?php $attribute = 'autoclose_timeout'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
-                <?php $attribute = 'autoclose_activity_timeout'?>
+                <?php $attribute = 'autoclose_activity_timeout'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
-                <?php $attribute = 'autoclose_abandon_pending'?>
+                <?php $attribute = 'autoclose_abandon_pending'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
-                <?php $attribute = 'autoclose_timeout_pending'?>
+                <?php $attribute = 'autoclose_timeout_pending'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
-                <?php $attribute = 'autoclose_timeout_active'?>
+                <?php $attribute = 'autoclose_timeout_active'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
-                <?php $attribute = 'autoclose_timeout_bot'?>
+                <?php $attribute = 'autoclose_timeout_bot'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
     		    <?php $attribute = 'autopurge_timeout'?>

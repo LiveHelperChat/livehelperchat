@@ -23,6 +23,22 @@
             <span class="material-icons <?php echo ($metaMessage['sac'] != 1 || $metaMessage['sla'] != 1) ? 'text-danger' : 'text-info'?>" title="<?php echo implode("\n", $partsInfo)?>">switch_account</span>
         <?php elseif ($type == 'transfer_action_user') : // Chat was transferred to other user?>
             <span class="material-icons text-warning">logout</span>
+        <?php elseif ($type == 'close_reason') :
+            $partsInfo = [];
+            if (isset($metaMessage['reason'])) {
+                $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Reason') . ' - ' . $metaMessage['reason'];
+            }
+            if (isset($metaMessage['last_user_msg_time'])) {
+                $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Last user message') . ' - ' . ($metaMessage['last_user_msg_time'] > 0 ? date('Y-m-d H:i:s', $metaMessage['last_user_msg_time']) : 'n/a');
+            }
+            if (isset($metaMessage['last_op_msg_time'])) {
+                $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Last operator message') . ' - ' . ($metaMessage['last_op_msg_time'] > 0 ? date('Y-m-d H:i:s', $metaMessage['last_op_msg_time']) : 'n/a');
+            }
+            if (isset($metaMessage['delay'])) {
+                $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Delay') . ' - ' . is_numeric($metaMessage['delay']) ? (($msg['time'] - $metaMessage['delay']) .' s. &lt; ' .  date('Y-m-d H:i:s', $metaMessage['delay'])) : $metaMessage['delay'];
+            }
+            ?>
+            <span class="material-icons text-muted" title="<?php echo implode("\n", $partsInfo)?>">info</span>
         <?php elseif ($type == 'transfer_action_dep') : // Chat was transfered to departmnet?>
             <span class="material-icons text-info">home</span>
         <?php elseif ($type == 'change_owner_action') : // Chat owner was changed?>
