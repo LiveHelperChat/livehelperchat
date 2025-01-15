@@ -10,9 +10,9 @@
         <?php elseif ($type == 'assign_action') : // Chat was assigned to user?>
             <?php $partsInfo =
                 [
-                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Previous chat assigned') . ' - ' . ($metaMessage['last_accepted'] > 0 ? date('Y-m-d H:i:s', $metaMessage['last_accepted']) : 'n/a'),
-                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Current chat assigned') . ' - ' . date('Y-m-d H:i:s', $msg['time']),
-                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Finished assign') . ' - ' . date('Y-m-d H:i:s', $metaMessage['assign_finished']),
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Previous chat assigned') . ' - ' . ($metaMessage['last_accepted'] > 0 ? date('Y-m-d H:i:s', (int)$metaMessage['last_accepted']) : 'n/a'),
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Current chat assigned') . ' - ' . date('Y-m-d H:i:s', (int)$msg['time']),
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Finished assign') . ' - ' . date('Y-m-d H:i:s', (int)$metaMessage['assign_finished']),
                     erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Pending chats') . ' - ' . $metaMessage['pending_chats'],
                     erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Active chats') . ' - ' . $metaMessage['active_chats'],
                     erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Inactive chats') . ' - ' . $metaMessage['inactive_chats'],
@@ -29,13 +29,13 @@
                 $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Reason') . ' - ' . $metaMessage['reason'];
             }
             if (isset($metaMessage['last_user_msg_time'])) {
-                $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Last user message') . ' - ' . ($metaMessage['last_user_msg_time'] > 0 ? date('Y-m-d H:i:s', $metaMessage['last_user_msg_time']) : 'n/a');
+                $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Last user message') . ' - ' . ($metaMessage['last_user_msg_time'] > 0 ? date('Y-m-d H:i:s', (int)$metaMessage['last_user_msg_time']) : 'n/a');
             }
             if (isset($metaMessage['last_op_msg_time'])) {
-                $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Last operator message') . ' - ' . ($metaMessage['last_op_msg_time'] > 0 ? date('Y-m-d H:i:s', $metaMessage['last_op_msg_time']) : 'n/a');
+                $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Last operator message') . ' - ' . ($metaMessage['last_op_msg_time'] > 0 ? date('Y-m-d H:i:s', (int)$metaMessage['last_op_msg_time']) : 'n/a');
             }
             if (isset($metaMessage['delay'])) {
-                $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Delay') . ' - ' . is_numeric($metaMessage['delay']) ? (($msg['time'] - $metaMessage['delay']) .' s. &lt; ' .  date('Y-m-d H:i:s', $metaMessage['delay'])) : $metaMessage['delay'];
+                $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Delay') . ' - ' . is_numeric($metaMessage['delay']) ? (($msg['time'] - $metaMessage['delay']) .' s. &lt; ' .  (int)date('Y-m-d H:i:s', $metaMessage['delay'])) : $metaMessage['delay'];
             }
             ?>
             <span class="material-icons text-muted" title="<?php echo implode("\n", $partsInfo)?>">info</span>
