@@ -146,7 +146,7 @@ class erLhcoreClassModelChatConfig {
 
    public static function getItems($paramsSearch = array())
    {
-       $paramsDefault = array('limit' => 100, 'offset' => 0);
+       $paramsDefault = array('limit' => 200, 'offset' => 0);
 
        $params = array_merge($paramsDefault,$paramsSearch);
 

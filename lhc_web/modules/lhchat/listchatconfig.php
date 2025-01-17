@@ -9,10 +9,10 @@ if ($currentUser->hasAccessTo('lhchat','administrateconfig')) {
             erLhcoreClassModule::redirect();
             exit;
         }
-        
+
 		foreach (erLhcoreClassModelChatConfig::getItems() as $item) {
 				$ConfigData = erLhcoreClassModelChatConfig::fetch($item->identifier);
-				
+
 				switch ($ConfigData->type) {
 					case erLhcoreClassModelChatConfig::SITE_ACCESS_PARAM_ON:
 							
