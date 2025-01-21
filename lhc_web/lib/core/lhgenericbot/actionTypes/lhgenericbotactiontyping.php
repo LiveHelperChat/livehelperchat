@@ -39,6 +39,12 @@ class erLhcoreClassGenericBotActionTyping {
 
             $action['content']['text'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat, 'args' => $params));
 
+            for ($i = 1; $i <= 3; $i++) {
+                if (isset($action['content']['delay_expose_text_'.$i]) && !empty($action['content']['delay_expose_text_'.$i])) {
+                    $action['content']['delay_expose_text_'.$i] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['delay_expose_text_'.$i], array('chat' => $chat, 'args' => $params));
+                }
+            }
+
             $metaMessage['content']['typing'] = $action['content'];
 
             if (isset($params['auto_responder']) && $params['auto_responder'] === true) {

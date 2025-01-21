@@ -65,31 +65,137 @@ class NodeTriggerActionTyping extends Component {
                     <div className="col-12">
                         <div className="form-group">
                             <label>Show typing for N seconds</label>
-                            <input type="text" placeholder="Value in seconds" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['duration'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','duration'])}/>
+                            <input type="text" placeholder="Value in seconds" className="form-control form-control-sm"
+                                   onChange={(e) => this.onchangeAttr({'path': ['duration'], 'value': e.target.value})}
+                                   defaultValue={this.props.action.getIn(['content', 'duration'])}/>
                         </div>
                         <div className="form-group">
-                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['untill_message'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','untill_message'])} />OR untill next operator message</label> <i className="material-icons" title="Usefull if some background job posts a message.">info</i>
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({
+                                'path': ['untill_message'],
+                                'value': e.target.checked
+                            })} defaultChecked={this.props.action.getIn(['content', 'untill_message'])}/> OR untill next
+                                operator message</label> <i className="material-icons"
+                                                            title="Usefull if some background job posts a message.">info</i>
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="form-group">
                             <label>Default typing text</label>
-                            <input placeholder="Typing..." type="text" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['text'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','text'])}/>
+                            <input placeholder="Typing..." type="text" className="form-control form-control-sm"
+                                   onChange={(e) => this.onchangeAttr({'path': ['text'], 'value': e.target.value})}
+                                   defaultValue={this.props.action.getIn(['content', 'text'])}/>
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="form-group">
                             <label>Delay typing appearance for n seconds</label>
-                            <input placeholder="Value in seconds" type="text" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['delay'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','delay'])}/>
+                            <input placeholder="Value in seconds" type="text" className="form-control form-control-sm"
+                                   onChange={(e) => this.onchangeAttr({'path': ['delay'], 'value': e.target.value})}
+                                   defaultValue={this.props.action.getIn(['content', 'delay'])}/>
                         </div>
                     </div>
+
+                    <div className={"col-12 "+(this.props.action.getIn(['content', 'untill_message']) ? '' : 'hide')}>
+
+                        <div className="row">
+                           <div className="col-12">
+                                <h6>Advanced settings</h6>
+                            </div>
+
+                            <div className="col-6">
+                                <div className="form-group">
+                                    <label>1. Show custom typing text if is exposed more than</label>
+                                    <input placeholder="5" title="Value in seconds" type="number" max="180"
+                                           className="form-control form-control-sm"
+                                           onChange={(e) => this.onchangeAttr({
+                                               'path': ['delay_expose_1'],
+                                               'value': e.target.value
+                                           })}
+                                           defaultValue={this.props.action.getIn(['content', 'delay_expose_1'])}/>
+                                </div>
+                            </div>
+                            <div className="col-6">
+                                <div className="form-group">
+                                    <label>1. Typing text</label>
+                                    <input placeholder="Still thinking, please wait..." type="text"
+                                           className="form-control form-control-sm"
+                                           onChange={(e) => this.onchangeAttr({
+                                               'path': ['delay_expose_text_1'],
+                                               'value': e.target.value
+                                           })}
+                                           defaultValue={this.props.action.getIn(['content', 'delay_expose_text_1'])}/>
+                                </div>
+                            </div>
+
+                            <div className="col-6">
+                                <div className="form-group">
+                                    <label>2. Show custom typing text if is exposed more than</label>
+                                    <input placeholder="10" title="Value in seconds" type="number" max="180"
+                                           className="form-control form-control-sm"
+                                           onChange={(e) => this.onchangeAttr({
+                                               'path': ['delay_expose_2'],
+                                               'value': e.target.value
+                                           })}
+                                           defaultValue={this.props.action.getIn(['content', 'delay_expose_2'])}/>
+                                </div>
+                            </div>
+                            <div className="col-6">
+                                <div className="form-group">
+                                    <label>2. Typing text</label>
+                                    <input placeholder="Still thinking, please wait..." type="text"
+                                           className="form-control form-control-sm"
+                                           onChange={(e) => this.onchangeAttr({
+                                               'path': ['delay_expose_text_2'],
+                                               'value': e.target.value
+                                           })}
+                                           defaultValue={this.props.action.getIn(['content', 'delay_expose_text_2'])}/>
+                                </div>
+                            </div>
+
+                            <div className="col-6">
+                                <div className="form-group">
+                                    <label>3. Show custom typing text if is exposed more than</label>
+                                    <input placeholder="15" title="Value in seconds" type="number" max="180"
+                                           className="form-control form-control-sm"
+                                           onChange={(e) => this.onchangeAttr({
+                                               'path': ['delay_expose_3'],
+                                               'value': e.target.value
+                                           })}
+                                           defaultValue={this.props.action.getIn(['content', 'delay_expose_3'])}/>
+                                </div>
+                            </div>
+                            <div className="col-6">
+                                <div className="form-group">
+                                    <label>3. Typing text</label>
+                                    <input placeholder="Still thinking, please wait..." type="text"
+                                           className="form-control form-control-sm"
+                                           onChange={(e) => this.onchangeAttr({
+                                               'path': ['delay_expose_text_3'],
+                                               'value': e.target.value
+                                           })}
+                                           defaultValue={this.props.action.getIn(['content', 'delay_expose_text_3'])}/>
+                                </div>
+                            </div>
+
+                            <hr/>
+
+                        </div>
+
+                    </div>
+
+
                     <div className="col-12">
                         <div role="group">
-                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','on_start_chat'])} /> Send typing only at chat start.</label> <i className="material-icons" title="Typing will be send only on chat start event.">info</i>
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({
+                                'path': ['on_start_chat'],
+                                'value': e.target.checked
+                            })} defaultChecked={this.props.action.getIn(['content', 'on_start_chat'])}/> Send typing
+                                only at chat start.</label> <i className="material-icons"
+                                                               title="Typing will be send only on chat start event.">info</i>
                         </div>
                     </div>
                 </div>
-                <hr className="hr-big" />
+                <hr className="hr-big"/>
 
             </div>
         );

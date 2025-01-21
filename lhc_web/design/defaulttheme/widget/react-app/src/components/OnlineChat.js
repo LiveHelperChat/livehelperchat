@@ -388,6 +388,25 @@ class OnlineChat extends Component {
 
                                 this.scrollBottom(false, false);
                             }
+                            
+                            if (params['expose_delays'] && !this.hasClass(msg,'message-row-typing-stream'))
+                            {
+                                let timePassed = Math.floor(Date.now() / 1000) - parseInt(params['expose_delays']['stime']);
+                                if (timePassed > 0) {
+                                    let bodyMessage = msg.querySelector('.msg-body');
+                                    if (bodyMessage) {
+                                        for (let i = 1; i <= 3; i++) {
+                                            if (
+                                                params['expose_delays']['delay_expose_' + i] &&
+                                                timePassed > parseInt(params['expose_delays']['delay_expose_' + i]) &&
+                                                bodyMessage.innerText != params['expose_delays']['delay_expose_text_' + i]
+                                            ) {
+                                                bodyMessage.innerText = params['expose_delays']['delay_expose_text_' + i];
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
 

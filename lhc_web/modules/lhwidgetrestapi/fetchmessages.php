@@ -115,6 +115,7 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
                                     $tpl->set('old_msg_id',(int)$requestPayload['old_msg_id']);
                                 }
                             }
+                            $tpl->set('init_sync',true);
                         } else {
                             $tpl->set('async_call',true);
                         }
