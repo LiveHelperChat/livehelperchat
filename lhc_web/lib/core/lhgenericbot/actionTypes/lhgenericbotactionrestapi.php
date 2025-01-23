@@ -1353,7 +1353,7 @@ class erLhcoreClassGenericBotActionRestapi
                                         'chat' => $paramsCustomer['chat'],
                                         'as_html' => true,
                                         'response' => [
-                                            'content' => str_replace('[[EMPT]]','',erLhcoreClassBBCode::make_clickable(htmlspecialchars('[[EMPT]]'.$streamContentBuffer.'[[EMPT]]'), $paramsMessageRender)),
+                                            'content' => str_replace('==EMPT==','',erLhcoreClassBBCode::make_clickable(htmlspecialchars('==EMPT=='.$streamContentBuffer.'==EMPT=='), $paramsMessageRender)),
                                             'raw_content' => $streamContent]
                                     ));
                                     $streamContentBuffer = '';
