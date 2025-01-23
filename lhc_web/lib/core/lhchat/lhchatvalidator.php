@@ -2198,6 +2198,13 @@ class erLhcoreClassChatValidator {
                 }
 
                 $chat->saveThis();
+            } else {
+                $msg = new erLhcoreClassModelmsg();
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Department is offline, bot cannot be assigned!');
+                $msg->chat_id = $chat->id;
+                $msg->user_id = -1;
+                $msg->time = time();
+                erLhcoreClassChat::getSession()->save($msg);
             }
         }
     }

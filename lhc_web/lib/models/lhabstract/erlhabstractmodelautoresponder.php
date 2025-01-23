@@ -447,6 +447,13 @@ class erLhAbstractModelAutoResponder {
                 if ($chat->gbot_id == 0) {
                     $chat->gbot_id = $trigger->bot_id;
                     $chat->updateThis(array('update' => array('gbot_id')));
+
+                    $msg = new erLhcoreClassModelmsg();
+                    $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat does not have any bot assigned, assigning auto responder bot.');
+                    $msg->chat_id = $chat->id;
+                    $msg->user_id = -1;
+                    $msg->time = time();
+                    erLhcoreClassChat::getSession()->save($msg);
                 }
 
                 if (isset($options['store_messages']) && $options['store_messages'] == true) {

@@ -499,9 +499,15 @@ if (empty($Errors)) {
                         $msg = new erLhcoreClassModelmsg();
                         $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage(trim($messageText), array('chat' => $chat, 'args' => ['chat' => $chat]));
                         $msg->meta_msg = $responder->getMeta($chat, 'pending');
+
                         if ($msg->meta_msg == '') {
                             $msg->meta_msg = '{"content":{"auto_responder":true}}';
+                        } else {
+                            $metaMessage = json_decode($msg->meta_msg, true);
+                            $metaMessage['content']['auto_responder'] = true;
+                            $msg->meta_msg = json_encode($metaMessage);
                         }
+                        
                         $msg->chat_id = $chat->id;
                         $msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
                         $msg->user_id = -2;
