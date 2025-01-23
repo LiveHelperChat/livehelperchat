@@ -594,6 +594,10 @@
 						    <label><?php echo erLhcoreClassAbstract::renderInput('print_btn_msg', $fields['print_btn_msg'], $object)?> <?php echo $fields['print_btn_msg']['trans'];?></label>
         		        </div>
 
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('same_target_link', $fields['same_target_link'], $object)?> <?php echo $fields['same_target_link']['trans'];?></label>
+        		        </div>
+
                         <div class="form-group">
                             <label><?php echo $fields['embed_closed']['trans'];?></label>
                             <select name="AbstractInput_embed_closed" class="form-control form-control-sm">

@@ -136,6 +136,10 @@ try {
                     $outputResponse['chat_ui']['embed_cls'] = (int)$theme->bot_configuration_array['embed_closed'];
                 }
 
+                if (isset($theme->bot_configuration_array['same_target_link']) && $theme->bot_configuration_array['same_target_link'] == true) {
+                    $outputResponse['chat_ui']['same_target_link'] = true;
+                }
+
                 if (isset($theme->bot_configuration_array['msg_expand']) && $theme->bot_configuration_array['msg_expand'] == true) {
                     $outputResponse['chat_ui']['msg_expand'] = true;
                 }

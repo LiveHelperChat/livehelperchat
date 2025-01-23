@@ -148,9 +148,26 @@ class ChatBotIntroMessage extends PureComponent {
                             return <button {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</button>
                         }
                     } else if (domNode.name && domNode.name === 'a') {
+
                         if (cloneAttr.onclick) {
                             return <a {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</a>
                         }
+                        /**
+                         * We can switch target to _top
+                         * - if we are in widget mode
+                         * - target is _blank
+                         * - website where widget is under the same domain
+                         * */
+                        if (this.props.embedMode && this.props.embedMode == 'widget' && this.props.targetSame && cloneAttr.target && cloneAttr.target == '_blank' && domNode.attribs.href) {
+                            const href = domNode.attribs.href;
+                            const parentHost = window.parent.location.host;
+                            const isSameHost = href.startsWith(`http://${parentHost}`) || href.startsWith(`https://${parentHost}`);
+                            if (isSameHost) {
+                                domNode.attribs.target = '_top';
+                                return <a {...domNode.attribs}>{domToReact(domNode.children)}</a>
+                            }
+                        }
+
                     } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
                         this.processBotAction(domNode);
                     }

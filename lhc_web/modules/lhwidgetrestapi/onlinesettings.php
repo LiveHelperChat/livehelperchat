@@ -725,6 +725,10 @@ if ($theme !== false) {
                 $chat_ui['img_icon_min'] = $theme->minimize_image_url;
             }
 
+            if (isset($theme->bot_configuration_array['same_target_link']) && $theme->bot_configuration_array['same_target_link'] == true) {
+                $chat_ui['same_target_link'] = true;
+            }
+
             foreach (array('min_text','popup_text','end_chat_text','fheight_text_class','fheight_text_col') as $textIcon) {
                 if (isset($theme->bot_configuration_array[$textIcon]) && $theme->bot_configuration_array[$textIcon] != '') {
                     $chat_ui[$textIcon] = $theme->bot_configuration_array[$textIcon];
