@@ -40,6 +40,8 @@ class StartChat extends Component {
 
         this.textMessageRef = React.createRef();
         this.messagesAreaRef = React.createRef();
+        
+        helperFunctions.eventEmitter.addListener('startChat', () => this.handleSubmit());
     }
 
     changeLanguage() {

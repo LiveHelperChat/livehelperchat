@@ -308,7 +308,14 @@ export function getCaptcha(dispatch, form, obj) {
 }
 
 export function submitOnlineForm(obj) {
-    return function(dispatch) {
+    return function(dispatch, getState) {
+
+        const state = getState();
+
+        if (state.chatwidget.get('processStatus') != 0) {
+            return;
+        }
+
         dispatch({type: "ONLINE_SUBMITTING"});
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitonline", JSON.stringify(obj), {withCredentials: true, headers : {'Content-Type': 'application/x-www-form-urlencoded'}})
         .then((response) => {
