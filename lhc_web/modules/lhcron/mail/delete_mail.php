@@ -20,6 +20,7 @@ if (!flock($fp, LOCK_EX | LOCK_NB)) {
     fclose($fp);
     return;
 } else {
+    chmod("cache/cron_mail_delete_mail{$id}.lock", 0666);
     echo "Lock acquired. Starting process!\n";
 }
 

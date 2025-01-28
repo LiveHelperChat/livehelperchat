@@ -19,6 +19,7 @@ if (!flock($fp, LOCK_EX | LOCK_NB)) {
     fclose($fp);
     return;
 } else {
+    chmod("cache/webhook{$id}.lock", 0666);
     echo "Lock acquired. Starting process!";
 }
 
