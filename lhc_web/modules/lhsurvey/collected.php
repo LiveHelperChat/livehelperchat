@@ -4,6 +4,27 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhsurvey/collected.tpl.php');
 
 $survey = erLhAbstractModelSurvey::fetch((int)$Params['user_parameters']['survey_id']);
 
+if ($currentUser->hasAccessTo('lhsurvey','delete_collected') && is_numeric($Params['user_parameters_unordered']['id']) && $Params['user_parameters_unordered']['action'] == 'delete') {
+    // Delete selected canned message
+    try {
+        if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+            die('Invalid CSRF Token');
+            exit;
+        }
+        $Msg = erLhAbstractModelSurveyItem::fetch((int)$Params['user_parameters_unordered']['id']);
+        $Msg->removeThis();
+    } catch (Exception $e) {
+        // Do nothing
+    }
+
+    if (isset($_SERVER['HTTP_REFERER'])) {
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    } else {
+        erLhcoreClassModule::redirect('survey/collected','/' . $survey->id);
+    }
+    exit;
+}
+
 if (isset($_GET['doSearch'])) {
     $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'survey','module_file' => 'survey_search','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     $filterParams['is_search'] = true;

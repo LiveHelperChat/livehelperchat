@@ -16,6 +16,9 @@
     <?php if ($input->group_results !== true) : ?>
     <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Time');?></th>
     <?php endif;?>
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhsurvey','delete_collected')) : ?>
+    <th width="1%">&nbsp;</th>
+    <?php endif;?>
 </tr>
 </thead>
 <?php foreach ($items as $item) : ?>
@@ -40,6 +43,11 @@
     	<?php if ($input->group_results !== true) : ?>
     	<td nowrap="nowrap"><?php echo htmlspecialchars($item->ftime_front)?></td>
     	<?php endif;?>
+        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhsurvey','delete_collected')) : ?>
+        <td>
+            <a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('survey/collected')?>/<?php echo $item->survey_id;?>/(action)/delete/(id)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete');?></a>
+        </td>
+        <?php endif;?>
     </tr>
 <?php endforeach; ?>
 </table>
