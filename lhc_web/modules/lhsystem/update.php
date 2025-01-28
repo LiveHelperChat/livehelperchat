@@ -18,9 +18,26 @@ if ((string)$Params['user_parameters_unordered']['action'] == 'statusdb' || (str
 	
     if ((string)$Params['user_parameters_unordered']['action'] == 'statusdbdoupdate') {
         erLhcoreClassUpdate::doTablesUpdate(json_decode($contentData,true));
+        // Update extensions
+        foreach (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' ) as $extension) {
+            if (file_exists('extension/'.$extension.'/doc/structure.json')) {
+                $contentDataExtension = file_get_contents('extension/'.$extension.'/doc/structure.json');
+                erLhcoreClassUpdate::doTablesUpdate(json_decode($contentDataExtension,true));
+            }
+        }
     }
 
-	$tables = erLhcoreClassUpdate::getTablesStatus(json_decode($contentData,true));
+    $tables = erLhcoreClassUpdate::getTablesStatus(json_decode($contentData,true));
+
+    // Handle extensions
+    foreach (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'extensions' ) as $extension) {
+        if (file_exists('extension/'.$extension.'/doc/structure.json')) {
+            $contentDataExtension = file_get_contents('extension/'.$extension.'/doc/structure.json');
+            $tablesExtension = erLhcoreClassUpdate::getTablesStatus(json_decode($contentDataExtension,true));
+            $tables = array_merge_recursive($tables,$tablesExtension);
+        }
+    }
+
 	$tpl->set('tables',$tables);
 	$tpl->set('scope',$Params['user_parameters_unordered']['scope']);
 	echo json_encode(array('result' => $tpl->fetch()));
