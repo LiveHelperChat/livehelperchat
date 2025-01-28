@@ -4,30 +4,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -1372,6 +1348,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Print raw HTML in footer without parsing it for special functions. Makes custom HTML in footer to render faster.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Always visible. Usefull if you make custom HTML and want that need help would be always visible.</source>
       <translation type="unfinished"/>
     </message>
@@ -1896,6 +1876,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Open link in the same browser tab if chat is in the widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show go to survey button on chat close</source>
       <translation type="unfinished"/>
     </message>
@@ -2062,10 +2046,6 @@
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
-    <message>
-      <source>Object ID</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
       <translation type="unfinished"/>
@@ -3344,7 +3324,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored.</source>
+      <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored. It has to be not number!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4573,10 +4553,6 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
-      <source>Enable debug logging</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Select event</source>
       <translation type="unfinished"/>
     </message>
@@ -5510,6 +5486,14 @@
     </message>
     <message>
       <source>Choose mailing list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View as report</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Report</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9497,6 +9481,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Include whisper messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages</source>
       <translation type="unfinished"/>
     </message>
@@ -9662,6 +9650,10 @@
     </message>
     <message>
       <source>Offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department is offline, bot cannot be assigned!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9981,6 +9973,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Reason</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last user message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last operator message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last time visitor seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide/Show HTML Code</source>
       <translation type="unfinished"/>
     </message>
@@ -10006,6 +10018,14 @@
     </message>
     <message>
       <source>Chat was closed by cron because of inactivity!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed by cron because visitor left the bot chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed by cron because visitor left the active chat!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10391,10 +10411,6 @@
   </context>
   <context>
     <name>chat/blockedusers</name>
-    <message>
-      <source>Online user (cookie)</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>IP</source>
       <translation type="unfinished"/>
@@ -12484,7 +12500,75 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Previous chat assigned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current chat assigned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Finished assign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inactive Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last assigned was updated successfully</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last assigned update failed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats were updated successfully</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats update failed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat is still running</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inactive chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last assigned update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start period*</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End period</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -12723,6 +12807,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chats momentary history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last chat assigned ago</source>
       <translation type="unfinished"/>
     </message>
@@ -12740,6 +12828,10 @@
     </message>
     <message>
       <source>All</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -14307,6 +14399,10 @@
     </message>
     <message>
       <source>ago at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message was removed!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -16573,6 +16669,29 @@
     </message>
   </context>
   <context>
+    <name>lhsystem/singlesetting</name>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ignore operators online statuses and use departments online hours.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For all departments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only for this department.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is a global setting and is set for the all departments.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>faq/faqwidget</name>
     <message>
       <source>FAQ</source>
@@ -17474,6 +17593,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not empty</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Comparison value</source>
       <translation type="unfinished"/>
     </message>
@@ -18036,10 +18163,6 @@
   </context>
   <context>
     <name>module/mailconv</name>
-    <message>
-      <source>Responeded by e-mail</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Change mailbox</source>
       <translation type="unfinished"/>
@@ -19524,6 +19647,10 @@
     </message>
     <message>
       <source>Message ID location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered deleted, message should have attribute value equal to</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -21419,29 +21546,6 @@
     </message>
   </context>
   <context>
-    <name>lhsystem/singlesetting</name>
-    <message>
-      <source>Settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Ignore operators online statuses and use departments online hours.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For all departments.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Only for this department.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This is a global setting and is set for the all departments.</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>system/transferconfiguration</name>
     <message>
       <source>Transfer configuration</source>
@@ -22292,10 +22396,6 @@
   </context>
   <context>
     <name>user/wentinactive</name>
-    <message>
-      <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Because of inactivity you went offline, click continue to go online. Ctrl+F12 Shortcut.</source>
       <translation type="unfinished"/>
@@ -23370,6 +23470,10 @@
     </message>
     <message>
       <source>Please enter a department name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Alias should be not a plain number!</source>
       <translation type="unfinished"/>
     </message>
     <message>
