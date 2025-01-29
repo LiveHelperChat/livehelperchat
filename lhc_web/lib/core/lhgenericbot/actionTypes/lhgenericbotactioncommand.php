@@ -932,7 +932,13 @@ class erLhcoreClassGenericBotActionCommand {
                 $valueTranslated = isset($action['content']['payload_arg']) ? $action['content']['payload_arg'] : '';
 
                 if (isset($params['replace_array'])) {
-                    $valueTranslated = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']), $valueTranslated);
+                    foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                        if (is_object($valueReplace) || is_array($valueReplace)) {
+                            $valueTranslated = @str_replace($keyReplace,json_encode($valueReplace),$valueTranslated);
+                        } else {
+                            $valueTranslated = @str_replace($keyReplace,$valueReplace,$valueTranslated);
+                        }
+                    }
                 }
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_dispatch_event', array(
