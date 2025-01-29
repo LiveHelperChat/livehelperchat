@@ -1512,16 +1512,22 @@ class erLhcoreClassChatWebhookIncoming {
                                 // Send default message for unknown button click
                                 $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
 
-                                if ($buttonPayload == 'GET_STARTED') {
-                                    $filterButtonEvent = array('default' => 1);
+                                if (is_object($bot)) {
+
+                                    if ($buttonPayload == 'GET_STARTED') {
+                                        $filterButtonEvent = array('default' => 1);
+                                    } else {
+                                        $filterButtonEvent = array('default_unknown_btn' => 1);
+                                    }
+
+                                    $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => $filterButtonEvent));
+
+                                    if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                                        erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array('args' => array('msg_text' => $buttonPayload)));
+                                    }
+
                                 } else {
-                                    $filterButtonEvent = array('default_unknown_btn' => 1);
-                                }
-
-                                $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => $filterButtonEvent));
-
-                                if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                                    erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array('args' => array('msg_text' => $buttonPayload)));
+                                    $chat->gbot_id = 0;
                                 }
                             }
 
@@ -1986,16 +1992,21 @@ class erLhcoreClassChatWebhookIncoming {
                                 // Send default message for unknown button click
                                 $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
 
-                                if ($buttonPayload == 'GET_STARTED') {
-                                    $filterButtonEvent = array('default' => 1);
+                                if (is_object($bot)) {
+                                    if ($buttonPayload == 'GET_STARTED') {
+                                        $filterButtonEvent = array('default' => 1);
+                                    } else {
+                                        $filterButtonEvent = array('default_unknown_btn' => 1);
+                                    }
+
+                                    $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => $filterButtonEvent));
+
+                                    if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                                        erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array('args' => array('msg_text' => $buttonPayload)));
+                                    }
+                                    
                                 } else {
-                                    $filterButtonEvent = array('default_unknown_btn' => 1);
-                                }
-
-                                $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => $filterButtonEvent));
-
-                                if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                                    erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array('args' => array('msg_text' => $buttonPayload)));
+                                    $chat->gbot_id = 0;
                                 }
                             }
 
