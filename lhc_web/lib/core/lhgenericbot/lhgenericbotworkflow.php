@@ -2785,7 +2785,7 @@ class erLhcoreClassGenericBotWorkflow {
 
         $stmt->bindValue(':id', $chat->id, PDO::PARAM_INT);
         $stmt->bindValue(':lsync', time(), PDO::PARAM_INT);
-        $stmt->bindValue(':has_unread_messages', ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ? 0 : 1), PDO::PARAM_INT);
+        $stmt->bindValue(':has_unread_messages', (($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) ? 0 : 1), PDO::PARAM_INT);
 
         if (!(isset($params['ignore_times']) && $params['ignore_times'] === true)) {
             $stmt->bindValue(':last_user_msg_time', time(), PDO::PARAM_INT);
