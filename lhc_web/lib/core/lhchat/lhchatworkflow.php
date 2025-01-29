@@ -712,6 +712,7 @@ class erLhcoreClassChatWorkflow {
                     // Usefull for extension which has custom auto assign workflow
                     if (isset($params['user_ids'])) {
                         if (empty($params['user_ids'])) {
+                            $db->rollback();
                             return array('status' => erLhcoreClassChatEventDispatcher::STOP_WORKFLOW, 'user_id' => 0);
                         }
 
@@ -854,6 +855,7 @@ class erLhcoreClassChatWorkflow {
                 // Skip everything if lock error happens
                 if (!erLhcoreClassChat::lockOperatorsByDepartment($department->id, $db)){
                     self::$lastError = 'Locking operators failed';
+                    $db->rollback();
                     return;
                 }
 
@@ -889,6 +891,7 @@ class erLhcoreClassChatWorkflow {
                         if (isset($params['user_ids'])) {
                             if (empty($params['user_ids'])) {
                                 self::$lastError = 'user_ids not set';
+                                $db->rollback();
                                 return array('status' => erLhcoreClassChatEventDispatcher::STOP_WORKFLOW, 'user_id' => 0);
                             }
 
