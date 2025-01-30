@@ -1,4 +1,4 @@
- <h2><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_statistic.tpl.php'));?></h2>
+<h2><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_statistic.tpl.php'));?></h2>
 <table class="table">
 	<thead>
 		<tr>
@@ -41,13 +41,19 @@
 		echo $totalVisitorsMessagesCount;?></td>
 	</tr>
 	<tr>
+		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_bot_messages.tpl.php'));?></td>
+		<td><?php
+		$botMessagesCount = erLhcoreClassModelmsg::getCount(array_merge_recursive($totalfilter,array('innerjoin' => array('lh_chat' => array('`lh_msg`.`chat_id`','`lh_chat`.`id`')), 'filterin' => array('`lh_msg`.`user_id`' => array(-2)))));
+		echo $botMessagesCount; ?></td>
+	</tr>
+    <tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_system_messages.tpl.php'));?></td>
 		<td><?php
-		$systemMessagesCount = erLhcoreClassModelmsg::getCount(array_merge_recursive($totalfilter,array('innerjoin' => array('lh_chat' => array('`lh_msg`.`chat_id`','`lh_chat`.`id`')), 'filterin' => array('`lh_msg`.`user_id`' => array(-1,-2)))));
+		$systemMessagesCount = erLhcoreClassModelmsg::getCount(array_merge_recursive($totalfilter,array('innerjoin' => array('lh_chat' => array('`lh_msg`.`chat_id`','`lh_chat`.`id`')), 'filterin' => array('`lh_msg`.`user_id`' => array(-1)))));
 		echo $systemMessagesCount; ?></td>
 	</tr>
 	<tr>
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/total_messages_only_operators.tpl.php'));?></td>
-		<td><?php echo $totalMessagesCount-$systemMessagesCount-$totalVisitorsMessagesCount?></td>
+		<td><?php echo $totalMessagesCount-$systemMessagesCount-$totalVisitorsMessagesCount-$botMessagesCount?></td>
 	</tr>
 </table>
