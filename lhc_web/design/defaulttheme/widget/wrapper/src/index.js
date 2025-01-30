@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 251;
+            lhc.version = 252;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -171,7 +171,7 @@
                     domain: LHC_API.args.domain || null,
                     domain_lhc: null,
                     instance_id: 0,
-                    broadcasChannel : new BroadcastChannel(prefixStorage+'_wchannel'),
+                    broadcasChannel : ('BroadcastChannel' in window ? (new BroadcastChannel(prefixStorage+'_wchannel')) : null),
                     profile_pic: LHC_API.args.profile_pic || null,
                     position: LHC_API.args.position || 'bottom_right',
                     position_placement: LHC_API.args.position_placement || 'bottom_right',
@@ -579,7 +579,7 @@
                     }
                 })
 
-                attributesWidget.broadcasChannel.addEventListener("message", function(event) {
+                attributesWidget.broadcasChannel && attributesWidget.broadcasChannel.addEventListener("message", function(event) {
                     if (event.data.action === 'current_vars' || event.data.action === 'check_vars') {
                         if (attributesWidget.lhc_var !== null) {
                             attributesWidget.ignoreVars = true;
@@ -785,7 +785,7 @@
 
                     if (mode !== 'popup' || attributesWidget.kcw === true) {
                         attributesWidget.userSession.setChatInformation(data, attributesWidget.nh && attributesWidget.nh.ap);
-                        attributesWidget.broadcasChannel.postMessage({'action':'chat_started', 'data':data, 'mode': mode});
+                        attributesWidget.broadcasChannel && attributesWidget.broadcasChannel.postMessage({'action':'chat_started', 'data':data, 'mode': mode});
                         mode == 'popup' && chatEvents.sendChildEvent('reopenNotification', [{
                             'id': data.id,
                             'hash': data.hash
@@ -826,10 +826,12 @@
                             attributesWidget.userSession.ws = data ? '1' : null;
                             attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
 
-                            clearTimeout(timeoutWidget);
-                            timeoutWidget = setTimeout(function(){
-                                attributesWidget.broadcasChannel.postMessage({'action':'wstatus','value':data});
-                            },50);
+                            if (attributesWidget.broadcasChannel) {
+                                clearTimeout(timeoutWidget);
+                                timeoutWidget = setTimeout(function(){
+                                    attributesWidget.broadcasChannel.postMessage({'action':'wstatus','value':data});
+                                },50);
+                            }
 
                             if (attributesWidget.isMobile == true) {
                                 if (data === true) {
