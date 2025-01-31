@@ -678,7 +678,15 @@ class erLhcoreClassFormRenderer {
     		$Errors = array();
     	
     		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
-    			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+                $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+
+                if (isset($params['error_style']) && $params['error_style'] == 'field') {
+                    $errorInline = "<div class=\"invalid-feedback\">{$errorString}</div>";
+                    self::$errorsInternal[] = $errorString;
+                } else {
+                    self::$errors[] = $errorString;
+                }
+
     		} elseif ($form->hasValidData( $params['name'] )) {
     			$value = $form->{$params['name']};
     			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
@@ -693,7 +701,7 @@ class erLhcoreClassFormRenderer {
     	}    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';
     	
-    	return "<textarea class=\"form-control form-control-sm\" name=\"{$params['name']}\" {$placeholder}>" . htmlspecialchars($value) . "</textarea>";
+    	return "<textarea class=\"form-control form-control-sm\" name=\"{$params['name']}\" {$placeholder}>" . htmlspecialchars($value) . "</textarea>" . $errorInline;
     }
     
     public static function renderAdditionalAtrributes($params) {
