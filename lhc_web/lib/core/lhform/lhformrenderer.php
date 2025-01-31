@@ -271,7 +271,7 @@ class erLhcoreClassFormRenderer {
     		$validationFields[$params['name']] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     		
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
-    		if (!$form->hasValidData($params['name']) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '') || (isset($params['validation_rule']) && $params['validation_rule'] != '' && !preg_match($params['validation_rule'],$form->{$params['name']}))) {
+    		if (!$form->hasValidData($params['name']) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '') || (isset($params['required']) && $params['required'] == 'required' && isset($params['validation_rule']) && $params['validation_rule'] != '' && !preg_match($params['validation_rule'],$form->{$params['name']}))) {
                 $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
 
                 if (isset($params['error_style']) && $params['error_style'] == 'field') {
