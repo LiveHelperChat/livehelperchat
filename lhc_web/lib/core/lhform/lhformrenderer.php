@@ -675,11 +675,11 @@ class erLhcoreClassFormRenderer {
     		$validationFields[$params['name']] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     	
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
-    		$Errors = array();
-    	
+            $isInvalid = false;
+
     		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
                 $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
-
+                $isInvalid = true;
                 if (isset($params['error_style']) && $params['error_style'] == 'field') {
                     $errorInline = "<div class=\"invalid-feedback\">{$errorString}</div>";
                     self::$errorsInternal[] = $errorString;
@@ -701,7 +701,7 @@ class erLhcoreClassFormRenderer {
     	}    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';
     	
-    	return "<textarea class=\"form-control form-control-sm\" name=\"{$params['name']}\" {$placeholder}>" . htmlspecialchars($value) . "</textarea>" . $errorInline;
+    	return "<textarea class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" name=\"{$params['name']}\" {$placeholder}>" . htmlspecialchars($value) . "</textarea>" . $errorInline;
     }
     
     public static function renderAdditionalAtrributes($params) {
