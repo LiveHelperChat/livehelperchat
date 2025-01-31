@@ -112,7 +112,7 @@ try {
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
-$validTabs = array('visitors','active','total','last24','chatsstatistic','agentstatistic','performance','departments','configuration','mail');
+$validTabs = array('visitors','active','last24','chatsstatistic','agentstatistic','performance','departments','configuration','mail');
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.valid_tabs', array(
     'valid_tabs' => & $validTabs
@@ -847,9 +847,6 @@ if ($tab == 'active') {
             'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
         ));
     }
-    
-} elseif ($tab == 'total') {
-    $tpl->set('totalfilter',erLhcoreClassUserDep::conditionalDepartmentFilter(false,'`lh_chat`.`dep_id`'));
 } else {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_tab', array(
         'tpl' => & $tpl,
