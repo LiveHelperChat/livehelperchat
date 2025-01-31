@@ -141,7 +141,7 @@ $(function() {
 		<td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/abandoned_chats.tpl.php'));?></td>
 		<td>
             <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input)?>/(abandoned_chat)/1">
-                <?php echo $last24hstatistic['abandoned_chats']?>
+                <?php echo isset($last24hstatistic['abandoned_chats']) ? $last24hstatistic['abandoned_chats'] : 0?>
             </a>
         </td>
     </tr>
@@ -149,7 +149,7 @@ $(function() {
         <td><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/dropped_chats.tpl.php'));?></td>
         <td>
             <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo erLhcoreClassSearchHandler::getURLAppendFromInput($input)?>/(dropped_chat)/1">
-                <?php echo $last24hstatistic['dropped_chats']?>
+                <?php echo isset($last24hstatistic['dropped_chats']) ? $last24hstatistic['dropped_chats'] : 0?>
             </a>
         </td>
     </tr>

@@ -1004,23 +1004,25 @@
             labels: [<?php $key = 0; foreach ($by_channel as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.($monthUnix > 10 ? date($groupby,$monthUnix) : $weekDays[(int)$monthUnix]).'\'';$key++; endforeach;?>],
             datasets: <?php
             $items = [];
-            foreach (array_keys(current($by_channel)) as $incomingId) {
-                $webHook = erLhcoreClassModelChatIncomingWebhook::fetch($incomingId);
-                $label = $webHook instanceof erLhcoreClassModelChatIncomingWebhook ? $webHook->name : $incomingId;
-                if (empty($label)) {
-                    $label = 'Chat';
+            if (is_array($by_channel) && !empty($by_channel)) {
+                foreach (array_keys(current($by_channel)) as $incomingId) {
+                    $webHook = erLhcoreClassModelChatIncomingWebhook::fetch($incomingId);
+                    $label = $webHook instanceof erLhcoreClassModelChatIncomingWebhook ? $webHook->name : $incomingId;
+                    if (empty($label)) {
+                        $label = 'Chat';
+                    }
+                    $itemData = [
+                        'label' => $label,
+                        'backgroundColor' => erLhcoreClassChatStatistic::colorFromString($label),
+                        'borderColor' =>  erLhcoreClassChatStatistic::colorFromString($label),
+                        'borderWidth' => 1,
+                        'data' => []
+                    ];
+                    foreach ($by_channel as $dataItem) {
+                        $itemData['data'][] = (int)$dataItem[$incomingId];
+                    }
+                    $items[] = $itemData;
                 }
-                $itemData = [
-                    'label' => $label,
-                    'backgroundColor' => erLhcoreClassChatStatistic::colorFromString($label),
-                    'borderColor' =>  erLhcoreClassChatStatistic::colorFromString($label),
-                    'borderWidth' => 1,
-                    'data' => []
-                ];
-                foreach ($by_channel as $dataItem) {
-                    $itemData['data'][] = (int)$dataItem[$incomingId];
-                }
-                $items[] = $itemData;
             }
             echo json_encode($items);
             ?>

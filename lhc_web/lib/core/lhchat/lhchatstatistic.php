@@ -1058,7 +1058,7 @@ class erLhcoreClassChatStatistic {
                 }
             }
 
-            if ($paramsExecution['action'] == 'count') {
+            if (isset($paramsExecution['action']) && $paramsExecution['action'] == 'count') {
                 $sql = "SELECT count(`id`)  FROM (SELECT `lh_canned_msg_use`.`canned_id` as `id` FROM lh_chat INNER JOIN `lh_canned_msg_use` ON `lh_canned_msg_use`.`chat_id` = `lh_chat`.`id` INNER JOIN `lh_canned_msg` ON `lh_canned_msg`.`id` = `lh_canned_msg_use`.`canned_id` {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY `lh_canned_msg_use`.`canned_id`) as total_stats";
 
                 $db = ezcDbInstance::get();
@@ -1075,7 +1075,7 @@ class erLhcoreClassChatStatistic {
 
             $limit = " LIMIT 20 OFFSET " .  (isset($paramsExecution['offset']) ? $paramsExecution['offset'] : 20);
 
-            if ($paramsExecution['action'] == 'export') {
+            if (isset($paramsExecution['action']) && $paramsExecution['action'] == 'export') {
                 $limit = '';
             }
 
@@ -1092,7 +1092,7 @@ class erLhcoreClassChatStatistic {
             $stmt->execute();
             $stats = $stmt->fetchAll();
 
-            if ($paramsExecution['action'] == 'export') {
+            if (isset($paramsExecution['action']) && $paramsExecution['action'] == 'export') {
                 $filename = "report-canned-".date('Y-m-d').".csv";
                 $fp = fopen('php://output', 'w');
 
