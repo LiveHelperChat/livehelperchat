@@ -6,7 +6,10 @@
  *
  * */
 
-$mailbox = erLhcoreClassModelMailconvMailbox::getList(['filter' => ['active' => 1]]);
+$mailbox = erLhcoreClassModelMailconvMailbox::getList(['customfilter' => [
+    '(`last_sync_time` < '. time() . ' - `sync_interval`)',
+    '(NOT (`sync_status` = ' . erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS . ' AND `sync_started` > 0 AND (' . time() . ' - `sync_started`) < 4800))'], // 80 minutes
+    'filter' => ['active' => 1]]);
 
 $cfg = erConfigClassLhConfig::getInstance();
 $worker = $cfg->getSetting( 'webhooks', 'worker' );
