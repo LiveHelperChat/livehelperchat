@@ -5,12 +5,14 @@ import {useTranslation} from 'react-i18next';
 var timeoutCannedMessage = null;
 var _requestTimeout = null;
 var _cancelToken;
+var _messageStoreInProgress = false;
 
 const CannedMessages = props => {
     const [data, setData] = useState([]);
     const [isLoaded, setLoaded] = useState(false);
     const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
     const [isCollapsed, setCollapsed] = useState(true);
+    const [messageIdStore, setmessageIdStore] = useState(0);
 
     const getRootCategory = () => {
         if (!isLoaded) {
@@ -63,6 +65,20 @@ const CannedMessages = props => {
             e.preventDefault();
         }
 
+        if (_messageStoreInProgress === true) {
+            return;
+        }
+
+        if (messageIdStore == message.id) {
+            if (!confirm(t('chat_canned.send_previous'))) {
+                return;
+            }
+        }
+
+        setmessageIdStore(message.id);
+
+        _messageStoreInProgress = true;
+
         setTimeout(() => {
             const formData = new FormData();
             formData.append('msg', message.msg);
@@ -84,6 +100,9 @@ const CannedMessages = props => {
             axios.post(WWW_DIR_JAVASCRIPT  + 'chat/addmsgadmin/' + props.chatId, formData,{
                 headers: {'X-CSRFToken': confLH.csrf_token}
             }).then(result => {
+
+                _messageStoreInProgress = false;
+
                 if (LHCCallbacks.addmsgadmin) {
                     LHCCallbacks.addmsgadmin(props.chatId);
                 };
@@ -95,8 +114,21 @@ const CannedMessages = props => {
 
                 lhinst.syncadmincall();
                 return true;
-            });
+            }).catch((error) => processRestAPIError(error));
         }, message.delay);
+    }
+
+    const processRestAPIError = (err) => {
+        _messageStoreInProgress = false;
+        if (!!err.isAxiosError && !err.response) {
+            alert(t('system.error'));
+        } else {
+            if (err.response.data.error) {
+                alert(err.response.data.error);
+            } else {
+                alert(JSON.stringify(err.response.data));
+            }
+        }
     }
 
     const mouseOver = (message) => {
@@ -371,7 +403,7 @@ const CannedMessages = props => {
                             <ul className="list-unstyled ms-4">
                                 {item.messages.map(message => (
                                     <li key={message.id} className={message.current ? 'fst-italic fw-bold' : ''} id={'canned-msg-'+props.chatId+'-'+message.id}>
-                                        <a className="hover-canned d-block" onMouseLeave={(e) => mouseLeave(message)} onMouseEnter={(e) => mouseOver(message)} title={message.msg} onClick={(e) => fillMessage(message)}><span title={t('chat_canned.send_instantly')} onClick={(e) => fillAndSend(message,e)} className="material-icons fs12">send</span> {message.message_title}</a>
+                                        <a className="hover-canned d-block user-select-none" onMouseLeave={(e) => mouseLeave(message)} onMouseEnter={(e) => mouseOver(message)} title={message.msg} onClick={(e) => fillMessage(message)}><span title={t('chat_canned.send_instantly')} onClick={(e) => fillAndSend(message,e)} className="material-icons fs12 user-select-none">send</span> {message.message_title}</a>
                                     </li>
                                 ))}
                             </ul>}
