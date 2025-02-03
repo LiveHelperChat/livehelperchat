@@ -867,7 +867,7 @@ class erLhcoreClassMailconvParser {
                             $message->conv_user_id = $conversation->user_id;
                         }
 
-                        if ($message->user_id == 0) {
+                        if ($conversation instanceof erLhcoreClassModelMailconvConversation && $message->user_id == 0) {
                             $message->user_id = $conversation->user_id;
                         }
 
