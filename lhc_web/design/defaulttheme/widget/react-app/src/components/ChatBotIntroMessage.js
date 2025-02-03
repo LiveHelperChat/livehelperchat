@@ -164,7 +164,11 @@ class ChatBotIntroMessage extends PureComponent {
                             const isSameHost = href.startsWith(`http://${parentHost}`) || href.startsWith(`https://${parentHost}`);
                             if (isSameHost) {
                                 domNode.attribs.target = '_top';
-                                return <a {...domNode.attribs}>{domToReact(domNode.children)}</a>
+                                if (this.props.isMobile) {
+                                    return <a {...domNode.attribs} onClick={(e) => this.props.minimizeWidget()}>{domToReact(domNode.children)}</a>
+                                } else {
+                                    return <a {...domNode.attribs}>{domToReact(domNode.children)}</a>
+                                }
                             }
                         }
 

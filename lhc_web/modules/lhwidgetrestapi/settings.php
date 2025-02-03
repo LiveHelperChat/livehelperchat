@@ -551,7 +551,7 @@ $ts = time();
 $outputResponse['wv'] = 252;
  
 // React APP versions
-$outputResponse['v'] = 348;
+$outputResponse['v'] = 349;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;

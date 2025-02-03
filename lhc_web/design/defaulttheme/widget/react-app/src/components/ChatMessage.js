@@ -368,7 +368,11 @@ class ChatMessage extends PureComponent {
                                         domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
                                     }
                                     domNode.attribs.target = '_top';
-                                    return <a {...domNode.attribs}>{domToReact(domNode.children)}</a>
+                                    if (this.props.isMobile) {
+                                        return <a {...domNode.attribs} onClick={(e) => this.props.minimizeWidget()}>{domToReact(domNode.children)}</a>
+                                    } else {
+                                        return <a {...domNode.attribs}>{domToReact(domNode.children)}</a>
+                                    }
                                 }
                             }
                         }
