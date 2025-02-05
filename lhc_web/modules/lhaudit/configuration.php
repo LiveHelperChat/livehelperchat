@@ -34,7 +34,6 @@ if ( isset($_POST['StoreOptions']) ) {
         'log_user' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
         'log_block' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
         'log_files' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
-        'log_perm' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
         'log_objects' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
     );
 
@@ -59,12 +58,6 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['log_js'] = 0;
     }
     
-    if ( $form->hasValidData( 'log_perm' )) {
-        $data['log_perm'] = 1;
-    } else {
-        $data['log_perm'] = 0;
-    }
-
     if ( $form->hasValidData( 'log_block' )) {
         $data['log_block'] = 1;
     } else {
