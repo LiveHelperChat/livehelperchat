@@ -36,6 +36,8 @@
         array('class' => 'Subject' ,'name' => 'Subject'),
         array('class' => 'Departament' ,'name' => 'Department'),
         array('class' => 'ChatConfig' ,'name' => 'Chat configuration'),
+        array('class' => 'erLhcoreClassModelRole' ,'name' => 'Role changes'),
+        array('class' => 'erLhcoreClassModelGroup' ,'name' => 'Group changes'),
     );
     ?>
 

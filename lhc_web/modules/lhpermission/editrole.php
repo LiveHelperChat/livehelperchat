@@ -36,6 +36,15 @@ if (isset($_POST['Update_role']))
         $Role->name = $form->Name;
         erLhcoreClassRole::getSession()->update($Role);
 
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $Role,
+            'msg' => array(
+                'action' => 'role_name_change',
+                'user_id' => $currentUser->getUserID(),
+                'new' => $Role
+            )
+        ));
+
         erLhcoreClassModule::redirect('permission/roles');
         exit ;
 
@@ -99,11 +108,20 @@ if (isset($_POST['Store_policy']))
                 $RoleFunction->limitation = $form->Limitation;
             }
 
-    		erLhcoreClassRole::getSession()->save($RoleFunction);
+            erLhcoreClassRole::getSession()->save($RoleFunction);
+
+            erLhcoreClassLog::logObjectChange(array(
+                'object' => $Role,
+                'msg' => array(
+                    'action' => 'assign_role_function',
+                    'user_id' => $currentUser->getUserID(),
+                    'new' => $RoleFunction
+                )
+            ));
 
             erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 
-    	}
+        }
             
     } else {
     	$tpl->set( 'errors', $Errors);
@@ -122,6 +140,17 @@ if (isset($_POST['Delete_policy']))
     {
         foreach ($_POST['PolicyID'] as $PolicyID)
         {
+            $RoleFunction = erLhcoreClassRole::getSession()->load( 'erLhcoreClassModelRoleFunction', $PolicyID);
+
+            erLhcoreClassLog::logObjectChange(array(
+                'object' => $Role,
+                'msg' => array(
+                    'action' => 'delete_role_function',
+                    'user_id' => $currentUser->getUserID(),
+                    'new' => $RoleFunction
+                )
+            ));
+
             erLhcoreClassRoleFunction::deleteRolePolicy($PolicyID);
         }
         erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
@@ -137,6 +166,21 @@ if (isset($_POST['Remove_group_from_role']) && isset($_POST['AssignedID']) && co
 
     foreach ($_POST['AssignedID'] as $AssignedID)
     {
+        $AssignedRole = erLhcoreClassRole::getSession()->load( 'erLhcoreClassModelGroupRole', $AssignedID);
+
+        $group = erLhcoreClassModelGroup::fetch($AssignedRole->group_id);
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $group,
+            'msg' => array(
+                'action' => 'delete_role_from_group',
+                'user_id' => $currentUser->getUserID(),
+                'group_role' => $AssignedRole,
+                'group' => $group,
+                'role' => $Role
+            )
+        ));
+
         erLhcoreClassGroupRole::deleteGroupRole($AssignedID);
     }
     erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
@@ -155,6 +199,20 @@ if (isset($_POST['AssignGroups']) && isset($_POST['GroupID']) && count($_POST['G
         $GroupRole->group_id =$GroupID;
         $GroupRole->role_id = $Role->id;;
         erLhcoreClassRole::getSession()->save($GroupRole);
+
+        $group = erLhcoreClassModelGroup::fetch($GroupID);
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $group,
+            'msg' => array(
+                'action' => 'assign_role_to_group',
+                'user_id' => $currentUser->getUserID(),
+                'group_role' => $GroupRole,
+                'group' => $group,
+                'role' => $Role
+            )
+        ));
+
     }
     erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 }

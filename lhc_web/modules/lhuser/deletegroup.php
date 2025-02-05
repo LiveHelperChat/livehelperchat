@@ -10,6 +10,17 @@ if ((int)$Params['user_parameters']['group_id'] == 1) {
     exit;
 }
 
+$GroupData = erLhcoreClassModelGroup::fetch((int)$Params['user_parameters']['group_id']);
+
+erLhcoreClassLog::logObjectChange(array(
+    'object' => $GroupData,
+    'msg' => array(
+        'action' => 'delete_group',
+        'user_id' => $currentUser->getUserID(),
+        'group' => $GroupData,
+    )
+));
+
 erLhcoreClassGroup::deleteGroup((int)$Params['user_parameters']['group_id']);
 
 erLhcoreClassAdminChatValidatorHelper::clearUsersCache();

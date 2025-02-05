@@ -55,6 +55,15 @@ if (isset($_POST['Save_group']) || isset($_POST['Save_group_and_assign_user']))
             erLhcoreClassGroupRole::assignGroupMembers($GroupData, $form->MemberGroup);
         }
 
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $GroupData,
+            'msg' => array(
+                'action' => 'new_group',
+                'user_id' => $currentUser->getUserID(),
+                'group' => $GroupData,
+            )
+        ));
+
         if (isset($_POST['Save_group_and_assign_user'])) {
             erLhcoreClassModule::redirect('user/editgroup/' . $GroupData->id . '/?adduser=1');
         } else {

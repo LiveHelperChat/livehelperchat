@@ -11,6 +11,19 @@ if (isset($_POST['AssignUsers']) && isset($_POST['UserID']) && count($_POST['Use
         $GroupUser->group_id = (int)$Params['user_parameters']['group_id'];
         $GroupUser->user_id = $UserID;
         erLhcoreClassUser::getSession()->save($GroupUser);
+
+       $Group = erLhcoreClassModelGroup::fetch((int)$Params['user_parameters']['group_id']);
+       $userAssigned = erLhcoreClassModelUser::fetch($UserID);
+
+       erLhcoreClassLog::logObjectChange(array(
+           'object' => $Group,
+           'msg' => array(
+               'action' => 'assign_user_to_group',
+               'user_id' => $currentUser->getUserID(),
+               'group' => $Group,
+               'user' => $userAssigned
+           )
+       ));
    }
 
    erLhcoreClassAdminChatValidatorHelper::clearUsersCache();

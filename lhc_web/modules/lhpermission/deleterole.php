@@ -20,6 +20,16 @@ if ($role->id != 1 && erLhcoreClassRole::canDeleteRole($role->id) === true) {
 	$q->deleteFrom( 'lh_grouprole' )->where( $q->expr->eq( 'role_id', $Params['user_parameters']['role_id'] ) );
 	$stmt = $q->prepare();
 	$stmt->execute();
+
+    erLhcoreClassLog::logObjectChange(array(
+        'object' => $role,
+        'msg' => array(
+            'action' => 'delete_role',
+            'user_id' => $currentUser->getUserID(),
+            'new' => $role
+        )
+    ));
+
 }
 
 erLhcoreClassAdminChatValidatorHelper::clearUsersCache();

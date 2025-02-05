@@ -28,8 +28,16 @@ if (isset($_POST['Save_role']) ||isset($_POST['New_policy']) )
     if (count($Errors) == 0)
     {
         $Role->name = $form->Name;
-
         erLhcoreClassRole::getSession()->save($Role);
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $Role,
+            'msg' => array(
+                'action' => 'new_role',
+                'user_id' => $currentUser->getUserID(),
+                'new' => $Role
+            )
+        ));
 
         if (isset($_POST['New_policy']))
             erLhcoreClassModule::redirect('permission/editrole/' . $Role->id .'/?newPolicy=1' );

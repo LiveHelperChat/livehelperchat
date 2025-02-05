@@ -58,6 +58,15 @@ if (isset($_POST['Update_group']) )
 
         erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $Group,
+            'msg' => array(
+                'action' => 'group_modified',
+                'user_id' => $currentUser->getUserID(),
+                'group' => $Group,
+            )
+        ));
+
         erLhcoreClassModule::redirect('user/grouplist');
         exit;
 
@@ -79,6 +88,20 @@ if (isset($_POST['AssignRoles']) && isset($_POST['RoleID']) && count($_POST['Rol
         $GroupRole->group_id = $Group->id;
         $GroupRole->role_id = $RoleID;
         erLhcoreClassRole::getSession()->save($GroupRole);
+
+        $Role = erLhcoreClassModelRole::fetch($RoleID);
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $Group,
+            'msg' => array(
+                'action' => 'assign_role_to_group',
+                'user_id' => $currentUser->getUserID(),
+                'group_role' => $GroupRole,
+                'group' => $Group,
+                'role' => $Role
+            )
+        ));
+
     }
 
     erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
@@ -94,7 +117,19 @@ if (isset($_POST['Remove_user_from_group']) && isset($_POST['AssignedID']) && co
     foreach ($_POST['AssignedID'] as $AssignedID)
     {
         $group_user = erLhcoreClassModelGroupUser::fetch($AssignedID);
+        $userRemoved = erLhcoreClassModelUser::fetch($group_user->user_id);
         $group_user->removeThis();
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $Group,
+            'msg' => array(
+                'action' => 'remove_user_from_group',
+                'user_id' => $currentUser->getUserID(),
+                'group' => $Group,
+                'user' => $userRemoved
+            )
+        ));
+
     }
 
     erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
@@ -109,7 +144,21 @@ if (isset($_POST['Remove_role_from_group']) && isset($_POST['AssignedID']) && co
 
     foreach ($_POST['AssignedID'] as $AssignedID)
     {
+        $AssignedRole = erLhcoreClassRole::getSession()->load( 'erLhcoreClassModelGroupRole', $AssignedID);
+        $Role = erLhcoreClassModelRole::fetch($AssignedRole->role_id);
+
         erLhcoreClassGroupRole::deleteGroupRole($AssignedID);
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $Group,
+            'msg' => array(
+                'action' => 'delete_role_from_group',
+                'user_id' => $currentUser->getUserID(),
+                'group_role' => $AssignedRole,
+                'group' => $Group,
+                'role' => $Role
+            )
+        ));
     }
 
     erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
@@ -122,7 +171,6 @@ $pages->serverURL = erLhcoreClassDesign::baseurl('user/editgroup').'/'.$Group->i
 $pages->paginate();
 
 $tpl->set('pages',$pages);
-
 
 if ($pages->items_total > 0) {
     $tpl->set('users',erLhcoreClassModelGroupUser::getList(array('filter' => array('group_id' => $Group->id),'offset' => $pages->low, 'limit' => $pages->items_per_page )));
