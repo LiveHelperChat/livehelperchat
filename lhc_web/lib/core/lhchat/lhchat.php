@@ -995,7 +995,14 @@ class erLhcoreClassChat {
        $enableCache = false;
 
        if (!(isset($params['disable_cache']) && $params['disable_cache'] === true) && class_exists('erLhcoreClassRedis')) {
-          $cacheKey = 'is_online_' . $exclipic . '_' . (new class { use erLhcoreClassDBTrait; })::multi_implode('_',$dep_id) . '_' . md5((new class { use erLhcoreClassDBTrait; })::multi_implode('_',$params));
+
+           $cacheKeyStatus = 'lhc_online_cache_key';
+
+           if (class_exists('erLhcoreClassInstance', false) && is_object(erLhcoreClassInstance::$instanceChat)) {
+               $cacheKeyStatus .= erLhcoreClassInstance::$instanceChat->id;
+           }
+
+          $cacheKey = 'is_online_' . (int)erLhcoreClassRedis::instance()->get($cacheKeyStatus) . '_' . $exclipic . '_' . (new class { use erLhcoreClassDBTrait; })::multi_implode('_',$dep_id) . '_' . md5((new class { use erLhcoreClassDBTrait; })::multi_implode('_',$params));
           $contentCache = erLhcoreClassRedis::instance()->get($cacheKey);
           if ($contentCache !== false) {
               $parts = explode('_', $contentCache);
