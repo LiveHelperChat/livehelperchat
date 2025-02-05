@@ -536,6 +536,132 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', array()
         )),
+
+        'nreply_vis_bot_id_1' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Choose a bot'),
+        'required' => false,
+        'frontend' => 'name',
+        'hidden' => true,
+        'source' => 'erLhcoreClassModelGenericBotBot::getList',
+        'params_call' => array(),
+        'main_attr' => 'bot_configuration_array',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        )),
+        'nreply_vis_1_trigger_id' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Choose a trigger'),
+        'required' => false,
+        'hidden' => true,
+        'frontend' => 'name',
+        'source' => 'erLhcoreClassModelGenericBotTrigger::getList',
+        'main_attr' => 'bot_configuration_array',
+        'params_call' => array('filter' => array('bot_id' => (isset($this->bot_configuration_array['nreply_vis_bot_id_1']) ? $this->bot_configuration_array['nreply_vis_bot_id_1'] : 0))),
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        )),
+
+        'nreply_vis_bot_id_2' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Choose a bot'),
+        'required' => false,
+        'frontend' => 'name',
+        'hidden' => true,
+        'source' => 'erLhcoreClassModelGenericBotBot::getList',
+        'params_call' => array(),
+        'main_attr' => 'bot_configuration_array',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        )),
+        'nreply_vis_2_trigger_id' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Choose a trigger'),
+        'required' => false,
+        'hidden' => true,
+        'frontend' => 'name',
+        'source' => 'erLhcoreClassModelGenericBotTrigger::getList',
+        'main_attr' => 'bot_configuration_array',
+        'params_call' => array('filter' => array('bot_id' => (isset($this->bot_configuration_array['nreply_vis_bot_id_2']) ? $this->bot_configuration_array['nreply_vis_bot_id_2'] : 0))),
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        )),
+
+        'nreply_vis_bot_id_3' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Choose a bot'),
+        'required' => false,
+        'frontend' => 'name',
+        'hidden' => true,
+        'source' => 'erLhcoreClassModelGenericBotBot::getList',
+        'params_call' => array(),
+        'main_attr' => 'bot_configuration_array',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        )),
+        'nreply_vis_3_trigger_id' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Choose a trigger'),
+        'required' => false,
+        'hidden' => true,
+        'frontend' => 'name',
+        'source' => 'erLhcoreClassModelGenericBotTrigger::getList',
+        'main_attr' => 'bot_configuration_array',
+        'params_call' => array('filter' => array('bot_id' => (isset($this->bot_configuration_array['nreply_vis_bot_id_3']) ? $this->bot_configuration_array['nreply_vis_bot_id_3'] : 0))),
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        )),
+
+        'nreply_vis_bot_id_4' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Choose a bot'),
+        'required' => false,
+        'frontend' => 'name',
+        'hidden' => true,
+        'source' => 'erLhcoreClassModelGenericBotBot::getList',
+        'params_call' => array(),
+        'main_attr' => 'bot_configuration_array',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        )),
+        'nreply_vis_4_trigger_id' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Choose a trigger'),
+        'required' => false,
+        'hidden' => true,
+        'frontend' => 'name',
+        'source' => 'erLhcoreClassModelGenericBotTrigger::getList',
+        'main_attr' => 'bot_configuration_array',
+        'params_call' => array('filter' => array('bot_id' => (isset($this->bot_configuration_array['nreply_vis_bot_id_4']) ? $this->bot_configuration_array['nreply_vis_bot_id_4'] : 0))),
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        )),
+
+        'nreply_vis_bot_id_5' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Choose a bot'),
+        'required' => false,
+        'frontend' => 'name',
+        'hidden' => true,
+        'source' => 'erLhcoreClassModelGenericBotBot::getList',
+        'params_call' => array(),
+        'main_attr' => 'bot_configuration_array',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        )),
+        'nreply_vis_5_trigger_id' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Choose a trigger'),
+        'required' => false,
+        'hidden' => true,
+        'frontend' => 'name',
+        'source' => 'erLhcoreClassModelGenericBotTrigger::getList',
+        'main_attr' => 'bot_configuration_array',
+        'params_call' => array('filter' => array('bot_id' => (isset($this->bot_configuration_array['nreply_vis_bot_id_5']) ? $this->bot_configuration_array['nreply_vis_bot_id_5'] : 0))),
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        )),
+
         'nreply_op_bot_id_1' => array(
         'type' => 'combobox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Choose a bot'),

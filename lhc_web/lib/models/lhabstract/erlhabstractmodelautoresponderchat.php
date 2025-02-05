@@ -250,7 +250,7 @@ class erLhAbstractModelAutoResponderChat
                         }
 
                         for ($i = 5; $i >= 1; $i--) {
-                            if ($this->active_send_status < $i && (!empty($this->auto_responder->{'timeout_reply_message_' . $i}) || $this->auto_responder->hasMeta($this->chat, 'nreply')) && $this->auto_responder->{'wait_timeout_reply_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_reply_' . $i}) ) {
+                            if ($this->active_send_status < $i && (!empty($this->auto_responder->{'timeout_reply_message_' . $i}) || $this->auto_responder->hasMeta($this->chat, 'nreply') || $this->auto_responder->hasMeta($this->chat, 'nreply_vis', $i)) && $this->auto_responder->{'wait_timeout_reply_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_reply_' . $i}) ) {
 
                                 $this->active_send_status = $i;
                                 $this->saveThis();
@@ -275,8 +275,10 @@ class erLhAbstractModelAutoResponderChat
                                     $this->chat->updateThis(array('update' => array('last_msg_id')));
                                 }
 
-                                $this->auto_responder->getMeta($this->chat, 'nreply', null, array('override_user_id' => $this->chat->user_id, 'override_nick' => $name_support, 'store_messages' => true));
+                                $this->auto_responder->getMeta($this->chat, 'nreply_vis', $i, array('override_user_id' => $this->chat->user_id, 'override_nick' => $name_support, 'store_messages' => true));
 
+                                // Legacy support
+                                $this->auto_responder->getMeta($this->chat, 'nreply', null, array('override_user_id' => $this->chat->user_id, 'override_nick' => $name_support, 'store_messages' => true));
                             }
                         }
 

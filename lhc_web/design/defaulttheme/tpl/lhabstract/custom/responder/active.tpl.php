@@ -42,5 +42,30 @@
         <?php echo erLhcoreClassAbstract::renderInput('timeout_reply_message_' . $i, $fields['timeout_reply_message_' . $i], $object)?>
         </div>
     </div>
+
+    <?php if (!isset($autoResponderOptions['hide_visitor_not_replying_bot']) || $autoResponderOptions['hide_visitor_not_replying_bot'] === false) : ?>
+    <div class="col-9">
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label><?php echo $fields['nreply_vis_bot_id_' . $i]['trans'];?></label>
+                    <?php echo erLhcoreClassAbstract::renderInput('nreply_vis_bot_id_' . $i, $fields['nreply_vis_bot_id_' . $i], $object)?>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label><?php echo $fields['nreply_vis_' . $i . '_trigger_id']['trans'];?></label>
+                    <div id="nreply_vis_<?php echo $i?>-trigger-list-id"></div>
+                </div>
+            </div>
+            <div class="col-4">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Preview')?></label>
+                <div id="nreply_vis_<?php echo $i?>-trigger-preview-window">
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+
 </div>
 <?php endfor;?>

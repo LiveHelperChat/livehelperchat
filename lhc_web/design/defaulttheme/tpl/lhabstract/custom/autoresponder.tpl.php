@@ -169,7 +169,7 @@
 </div>
 
 <script>
-$('select[name*="AbstractInput_pending_op_bot_id"],select[name*="AbstractInput_nreply_op_bot_id"],select[name="AbstractInput_nreply_bot_id"],select[name="AbstractInput_onhold_bot_id"]').change(function(){
+$('select[name*="AbstractInput_pending_op_bot_id"],select[name*="AbstractInput_nreply_op_bot_id"],select[name="AbstractInput_nreply_bot_id"],select[name="AbstractInput_onhold_bot_id"],select[name*="AbstractInput_nreply_vis_bot_id"]').change(function(){
     var identifier = $(this).attr('name').replace(/AbstractInput_|_bot_id/g,"");
     $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val() + '/0/(preview)/1/(element)/'+identifier+'_trigger_id', { }, function(data) {
         $('#'+identifier+'-trigger-list-id').html(data);
@@ -184,6 +184,7 @@ var responderItems = [{'id':'nreply_bot_id','val':<?php echo (isset($object->bot
 <?php for ($i = 1; $i <= 5; $i++)  : ?>
 responderItems.push({'id':'nreply_op_bot_id_<?php echo $i?>','val' : <?php echo (isset($object->bot_configuration_array['nreply_op_' . $i .'_trigger_id'])) ? $object->bot_configuration_array['nreply_op_' . $i .'_trigger_id'] : 0 ?>});
 responderItems.push({'id':'pending_op_bot_id_<?php echo $i?>','val' : <?php echo (isset($object->bot_configuration_array['pending_op_' . $i .'_trigger_id'])) ? $object->bot_configuration_array['pending_op_' . $i .'_trigger_id'] : 0 ?>});
+responderItems.push({'id':'nreply_vis_bot_id_<?php echo $i?>','val' : <?php echo (isset($object->bot_configuration_array['nreply_vis_' . $i .'_trigger_id'])) ? $object->bot_configuration_array['nreply_vis_' . $i .'_trigger_id'] : 0 ?>});
 <?php endfor; ?>
 
 $.each(responderItems, function( index, value ) {
