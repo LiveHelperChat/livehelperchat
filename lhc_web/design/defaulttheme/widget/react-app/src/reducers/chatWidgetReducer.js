@@ -91,6 +91,7 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.removeIn(action.attr);
         }
 
+        case 'processStatus':
         case 'operator':
         case 'leave_message':
         case 'phash':

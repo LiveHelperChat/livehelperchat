@@ -285,7 +285,7 @@ export function initOnlineForm(obj) {
     }
 }
 
-export function getCaptcha(dispatch, form, obj) {
+export function getCaptcha(dispatch, form, obj, getState) {
     var date = new Date();
     var timestamp = Math.round(date.getTime()/1000);
     axios.post(window.lhcChat['base_url'] + "captcha/captchastring/fake/" + timestamp, null, defaultHeaders)
@@ -299,7 +299,7 @@ export function getCaptcha(dispatch, form, obj) {
         // We auto resubmit only one time
         if (!obj.fields['tscaptcha_resubmit']) {
             obj.fields['tscaptcha_resubmit'] = 1;
-            form(obj)(dispatch);
+            form(obj)(dispatch, getState);
         } else {
             delete obj.fields['tscaptcha_resubmit'];
         }
@@ -322,7 +322,8 @@ export function submitOnlineForm(obj) {
 
             // If validation contains invalid captcha update it instantly
             if (response.data.success === false && response.data.errors.captcha) {
-                getCaptcha(dispatch, submitOnlineForm, obj);
+                dispatch({type: "processStatus", data: 0});
+                getCaptcha(dispatch, submitOnlineForm, obj, getState);
                 if (!obj.fields['tscaptcha_resubmit']) {
                     return;
                 }
@@ -342,14 +343,14 @@ export function submitOnlineForm(obj) {
 }
 
 export function submitOfflineForm(obj) {
-    return function(dispatch) {
+    return function(dispatch, getState) {
         dispatch({type: "OFFLINE_SUBMITTING"});
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitoffline", JSON.stringify(obj), {headers: { 'Content-Type': 'multipart/form-data'}})
         .then((response) => {
 
             // If validation contains invalid captcha update it instantly
             if (response.data.success === false && response.data.errors.captcha) {
-                getCaptcha(dispatch, submitOfflineForm, obj);
+                getCaptcha(dispatch, submitOfflineForm, obj, getState);
                 if (!obj.fields['tscaptcha_resubmit']) {
                     return;
                 }
