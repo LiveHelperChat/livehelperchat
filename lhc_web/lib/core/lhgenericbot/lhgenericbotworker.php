@@ -105,7 +105,6 @@ class erLhcoreClassLHCBotWorker
                             if (str_starts_with($key, '{arg_') && !isset($params[str_replace(['{','}'],'',$key)])) {
                                 $params[str_replace(['{','}'],'',$key)] = $value;
                             }
-                            unset($params['replace_array'][$key]);
                         }
                     }
 
