@@ -35,7 +35,7 @@
     --lhc-msg-date-text:#858585;
     --lhc-msg-body-sys-text:var(--bs-secondary-color);
     --lhc-msg-body-bg:transparent;
-    --lhc-new-msg-border: inherit;
+    --lhc-new-msg-border: rgba(var(--bs-danger-rgb), 1);
 }
 
 .btn-group-xs > .btn, .btn-xs {
