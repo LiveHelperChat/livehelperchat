@@ -98,6 +98,17 @@ class erLhcoreClassLHCBotWorker
 
                     $params['chat'] = $chat;
 
+                    if (isset($contentArray[0]['content']['replace_array']) && !empty($contentArray[0]['content']['replace_array'])) {
+                        $params['replace_array'] = $contentArray[0]['content']['replace_array'];
+                        foreach ($params['replace_array'] as $key => $value) {
+                            $params['replace_array'][str_replace(['{','}'],'',$key)] = $value;
+                            if (str_starts_with($key, '{arg_') && !isset($params[str_replace(['{','}'],'',$key)])) {
+                                $params[str_replace(['{','}'],'',$key)] = $value;
+                            }
+                            unset($params['replace_array'][$key]);
+                        }
+                    }
+
                     if (
                         isset($method['polling_n_times']) && (int)$method['polling_n_times'] >= 1 && $method['polling_n_times'] <= 10 &&
                         isset($method['polling_n_delay']) && (int)$method['polling_n_delay'] >= 1 && $method['polling_n_delay'] <= 10

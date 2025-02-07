@@ -111,6 +111,12 @@ class erLhcoreClassGenericBotActionRestapi
                     $action['content']['attr_options']['custom_args_1'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['attr_options']['custom_args_1'], array('chat' => $chat, 'args' => $params));
                 }
 
+                if (isset($params['replace_array']) && !empty($params['replace_array'])) {
+                    foreach ($params['replace_array'] as $key => $value) {
+                        $params['replace_array'][str_replace(['{','}'],'',$key)] = $value;
+                    }
+                }
+
                 if (
                     isset($method['polling_n_times']) && (int)$method['polling_n_times'] >= 1 && $method['polling_n_times'] <= 10 &&
                     isset($method['polling_n_delay']) && (int)$method['polling_n_delay'] >= 1 && $method['polling_n_delay'] <= 10
@@ -1441,7 +1447,7 @@ class erLhcoreClassGenericBotActionRestapi
         $http_data = json_encode($paramsRequest);
         $http_error = '';
         $requestStarted = self::getCurrentTimeWithMilliseconds();
-        
+
         if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
             $content = $commandResponse['http_response'];
             $http_error = $commandResponse['http_error'];
