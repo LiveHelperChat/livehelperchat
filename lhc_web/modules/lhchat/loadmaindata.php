@@ -117,18 +117,30 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
         );
     }
 
-
     $shortcutCommands = erLhcoreClassModelGenericBotCommand::getList(['customfilter' => ['(dep_id = 0 OR dep_id = ' . (int)$chat->dep_id . ')'], 'filternot' => ['shortcut_1' => '','shortcut_2' => '']]);
     foreach ($shortcutCommands as $command) {
-        $items[] = array (
-            'selector' => '#CSChatMessage-' . $chat->id,
-            'event_data' => [
-                'a' => strtolower($command->shortcut_1),
-                'b' => strtolower($command->shortcut_2),
-                'cmd' => trim($command->command . ' ' . $command->sub_command)
-            ],
-            'action' => 'keyup'
-        );
+        if ($command->enabled_display == 1) {
+            $items[] = array (
+                'selector' => '#CSChatMessage-' . $chat->id,
+                'event_data' => [
+                    'a' => strtolower($command->shortcut_1),
+                    'b' => strtolower($command->shortcut_2),
+                    'url' => 'chatcommand/command/' . $chat->id . '/' . $command->id,
+                ],
+                'action' => 'keyupmodal'
+            );
+        } else {
+            $items[] = array (
+                'selector' => '#CSChatMessage-' . $chat->id,
+                'event_data' => [
+                    'a' => strtolower($command->shortcut_1),
+                    'b' => strtolower($command->shortcut_2),
+                    'cmd' => trim($command->command . ' ' . $command->sub_command)
+                ],
+                'action' => 'keyup'
+            );
+        }
+
     }
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.loadmainchatdata',array(

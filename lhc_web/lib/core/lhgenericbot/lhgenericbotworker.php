@@ -207,14 +207,18 @@ class erLhcoreClassLHCBotWorker
 
                             self::processTrigger($chat, $action['content']['rest_api_method_output'][$response['id']], $argsDefault);
 
-                            if (class_exists('erLhcoreClassNodeJSRedis')) {
-                                erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $chat->id, 'o:' . json_encode(array('op' => 'cmsg')));
-                            }
-
                             $msgLast = erLhcoreClassModelmsg::fetch($msgId);
 
                             if ($msgLast instanceof erLhcoreClassModelmsg) {
                                 erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true]);
+                            }
+
+                            if (class_exists('erLhcoreClassNodeJSRedis')) {
+                                if (erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionNodejshelper')->getSettingVariable('automated_hosting')) {
+                                    erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $this->args['inst_id'] . '_' . $chat->id,'o:' . json_encode(array('op' => 'cmsg')));
+                                } else {
+                                    erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $chat->id, 'o:' . json_encode(array('op' => 'cmsg')));
+                                }
                             }
 
                             return;
@@ -271,10 +275,6 @@ class erLhcoreClassLHCBotWorker
 
                         self::processTrigger($chat, $action['content']['rest_api_method_output']['default_trigger'], $argsDefault);
 
-                        if (class_exists('erLhcoreClassNodeJSRedis')) {
-                            erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $chat->id, 'o:' . json_encode(array('op' => 'cmsg')));
-                        }
-
                         $msgLast = erLhcoreClassModelmsg::fetch($msgId);
 
                         if ($msgLast instanceof erLhcoreClassModelmsg) {
@@ -282,6 +282,14 @@ class erLhcoreClassLHCBotWorker
                         }
 
                         $chatVariables = $chat->chat_variables_array;
+
+                        if (class_exists('erLhcoreClassNodeJSRedis')) {
+                            if (erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionNodejshelper')->getSettingVariable('automated_hosting')) {
+                                erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $this->args['inst_id'] . '_' . $chat->id,'o:' . json_encode(array('op' => 'cmsg')));
+                            } else {
+                                erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $chat->id, 'o:' . json_encode(array('op' => 'cmsg')));
+                            }
+                        }
 
                         return;
                     }
@@ -306,7 +314,11 @@ class erLhcoreClassLHCBotWorker
                         }
 
                         if (class_exists('erLhcoreClassNodeJSRedis')) {
-                            erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $chat->id, 'o:' . json_encode(array('op' => 'cmsg')));
+                            if (erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionNodejshelper')->getSettingVariable('automated_hosting')) {
+                                erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $this->args['inst_id'] . '_' . $chat->id,'o:' . json_encode(array('op' => 'cmsg')));
+                            } else {
+                                erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $chat->id, 'o:' . json_encode(array('op' => 'cmsg')));
+                            }
                         }
                     }
                 }

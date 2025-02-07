@@ -206,6 +206,10 @@ function lh(){
                         el.removeClass(dataElement.class);
                     } else if (dataElement.action == 'add_class') {
                         el.addClass(dataElement.class);
+                    } else if (dataElement.action == 'keyupmodal') {
+                        el.bind('keyup', dataElement.event_data.a + '+' + dataElement.event_data.b, function() {
+                            lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+dataElement.event_data.url});
+                        });
                     } else if (dataElement.action == 'keyup') {
 
                         el.bind('keyup', dataElement.event_data.a + '+' + dataElement.event_data.b, function() {
