@@ -31,7 +31,7 @@ if ($Params['user_parameters_unordered']['export'] == 1) {
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('department/departments') . $append;
 $pages->items_total = erLhcoreClassModelDepartament::getCount(array_merge($filterParams['filter'],$departmentParams));
-$pages->setItemsPerPage(10);
+$pages->setItemsPerPage(20);
 $pages->paginate();
 
 $items = array();
