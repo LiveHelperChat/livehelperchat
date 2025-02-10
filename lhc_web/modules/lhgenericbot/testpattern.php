@@ -69,6 +69,8 @@ if (isset($_POST['mail'])){
         $response = erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Mail message does not exists or you do not have permission to access it!');
     }
 
+} elseif (isset($_POST['raw_value'])) {
+    $response = var_export(erLhcoreClassChatValidator::conditionsMatches([['field' => $_POST['raw_value'], 'comparator' => $_POST['comparator'], 'value' => $_POST['text_pattern']]],[]), true);
 } else {
     $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['id']);
 

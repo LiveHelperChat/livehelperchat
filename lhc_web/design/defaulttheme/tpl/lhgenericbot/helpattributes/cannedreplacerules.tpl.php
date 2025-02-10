@@ -39,6 +39,11 @@
             <input type="text" placeholder="{args.chat.id}" value="{args.chat.id}" id="test-pattern-replace-pattern" class="form-control form-control-sm">
         </div>
 
+        <div class="col-12 pb-2">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'RAW value to test against');?></label>
+            <textarea class="form-control form-control-sm" id="test-raw-value" rows="3"></textarea>
+        </div>
+
         <div class="col-6 pb-2">
             <select class="form-control form-control-sm" id="test-pattern-comparator">
                 <option value="" selected="">--Choose--</option>
@@ -68,6 +73,7 @@
                 <button type="button" id="test-pattern-action-mail" class="btn btn-sm btn-secondary"><span class="material-icons">regular_expression</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Extract mail attribute');?></button>
                 <button type="button" id="extract-pattern-action-mail" class="btn btn-sm btn-secondary"><span class="material-icons">zoom_in</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Explore all possible mail attributes');?></button>
                 <button type="button" id="test-text-pattern-action-mail" class="btn btn-sm btn-secondary"><span class="material-icons">code</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Test mail text pattern');?></button>
+                <button type="button" id="test-text-pattern-action-raw" class="btn btn-sm btn-secondary"><span class="material-icons">code</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Test RAW text pattern');?></button>
             </div>
 
         </div>
@@ -104,6 +110,11 @@
         });
         $('#test-text-pattern-action-mail').click(function(){
             $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-pattern-chat-id').val(), {'mail': true, 'comparator' : $('#test-pattern-comparator').val(), 'test_pattern' : $('#test-pattern-replace-pattern').val(), 'text_pattern' : $('#test-text-pattern').val()  }, function(data){
+                $('#pattern-replace-response').html(data);
+            });
+        });
+        $('#test-text-pattern-action-raw').click(function(){
+            $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-pattern-chat-id').val(), {'raw_value' : $('#test-raw-value').val(), 'comparator' : $('#test-pattern-comparator').val(), 'test_pattern' : $('#test-pattern-replace-pattern').val(), 'text_pattern' : $('#test-text-pattern').val()  }, function(data){
                 $('#pattern-replace-response').html(data);
             });
         });
