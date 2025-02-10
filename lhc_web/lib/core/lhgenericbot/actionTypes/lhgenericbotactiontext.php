@@ -264,6 +264,11 @@ class erLhcoreClassGenericBotActionText {
 
         if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
             erLhcoreClassChat::getSession()->save($msg);
+            
+            if (isset($action['content']['attr_options']['process_as_visitor']) && $action['content']['attr_options']['process_as_visitor'] == true)
+            {
+                erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
+            }
         }
 
         return $msg;
