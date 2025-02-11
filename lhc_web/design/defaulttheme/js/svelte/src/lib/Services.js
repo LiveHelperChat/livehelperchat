@@ -161,7 +161,7 @@ export default {
         let elm = document.getElementById(widget+'-panel-list');
         if (elm) {
             lhcList.update((list) => {
-                list[widget + '_m_h'] = expand === true ? parseInt(elm.offsetHeight + 28) + 'px' : parseInt(elm.offsetHeight - 28) + 'px';
+                list[widget + '_m_h'] = expand === true ? parseInt(elm.offsetHeight + 28) + 'px' : (parseInt(elm.offsetHeight - 28) > 56 ? parseInt(elm.offsetHeight - 28) : 56) + 'px';
                 localStorage.setItem(widget+'_m_h', list[widget + '_m_h']);
                 return list;
             });
