@@ -213,7 +213,7 @@ class erLhcoreClassMailconvParser {
                         $uuidStatusArray[$mailboxFolder['path']] = $statusMailbox->uidnext;
                     }
                 } catch (Exception $e) {
-                    $statsImport[] = 'Failed getting message box status - ' . $e->getMessage();
+                    $statsImport[] = 'Failed getting message box status | ' . $e->getMessage() . ' - ' . $e->getTraceAsString() . ' - ' . $e->getFile() . ' - ' . $e->getLine();
                 }
 
                 $mailbox->uuid_status_array = $uuidStatusArray;
