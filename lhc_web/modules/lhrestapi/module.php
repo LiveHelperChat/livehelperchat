@@ -39,6 +39,10 @@ $ViewList['fetchchat'] = array(
     'params' => array()
 );
 
+$ViewList['editwebhook'] = array(
+    'params' => array(),
+);
+
 $ViewList['fetchchatmessages'] = array(
     'params' => array()
 );
