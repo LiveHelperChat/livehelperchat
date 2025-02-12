@@ -2,10 +2,7 @@
 
 /**
  * php cron.php -s site_admin -c cron/dependencies
- *
- * Run every 1 hour or so.
- *
- * */
+  * */
 
 echo "Extensions check\n\n";
 
