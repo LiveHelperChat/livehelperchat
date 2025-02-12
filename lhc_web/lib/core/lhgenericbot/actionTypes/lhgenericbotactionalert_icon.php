@@ -30,8 +30,23 @@ class erLhcoreClassGenericBotActionAlert_icon {
         } else {
             $alertValue = isset($action['content']['attr_options']['show_alert']) && $action['content']['attr_options']['show_alert'] == true;
             $alertColor = isset($action['content']['attr_options']['aicon_color']) ? $action['content']['attr_options']['aicon_color'] : '';
+            $nickColor = isset($action['content']['attr_options']['nick_color']) ? $action['content']['attr_options']['nick_color'] : '';
+            $nickBold = isset($action['content']['attr_options']['bold_nick']) ? $action['content']['attr_options']['bold_nick'] : false;
 
-            if (!isset($chatVariables['aicons'][$alertIcon]) || $alertValue != $chatVariables['aicons'][$alertIcon]['alert']) {
+            if (
+                !isset($chatVariables['aicons'][$alertIcon]) ||
+                $alertValue != $chatVariables['aicons'][$alertIcon]['alert'] ||
+
+                (isset($chatVariables['aicons'][$alertIcon]['icolor']) && $alertColor != $chatVariables['aicons'][$alertIcon]['icolor']) ||
+                (!isset($chatVariables['aicons'][$alertIcon]['icolor']) && $alertColor != '') ||
+
+                (isset($chatVariables['aicons'][$alertIcon]['nc']) && $nickColor != $chatVariables['aicons'][$alertIcon]['nc']) ||
+                (!isset($chatVariables['aicons'][$alertIcon]['nc']) && $nickColor != '') ||
+
+                (isset($chatVariables['aicons'][$alertIcon]['b']) && $nickBold == false) ||
+                (!isset($chatVariables['aicons'][$alertIcon]['b']) && $nickBold == true)
+
+            ) {
 
                 $paramsIcon = ['alert' => $alertValue];
 
@@ -43,12 +58,12 @@ class erLhcoreClassGenericBotActionAlert_icon {
                     $paramsIcon['t'] = $action['content']['attr_options']['aicon_title'];
                 }
 
-                if (isset($action['content']['attr_options']['bold_nick']) && $action['content']['attr_options']['bold_nick'] === true) {
+                if ($nickBold === true) {
                     $paramsIcon['b'] = 1;
                 }
 
-                if (isset($action['content']['attr_options']['nick_color']) && $action['content']['attr_options']['nick_color'] != '') {
-                    $paramsIcon['nc'] = $action['content']['attr_options']['nick_color'];
+                if ($nickColor != '') {
+                    $paramsIcon['nc'] = $nickColor;
                 }
 
                 $chatVariables['aicons'][$alertIcon] = $paramsIcon;
@@ -63,7 +78,7 @@ class erLhcoreClassGenericBotActionAlert_icon {
             $db = ezcDbInstance::get();
 
             try {
-                
+
                 $db->beginTransaction();
 
                 // Lock record

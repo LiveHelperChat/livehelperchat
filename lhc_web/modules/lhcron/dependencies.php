@@ -2,7 +2,7 @@
 
 /**
  * php cron.php -s site_admin -c cron/dependencies
-  * */
+ * */
 
 echo "Extensions check\n\n";
 
