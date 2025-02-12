@@ -56,7 +56,12 @@
     {
       "name": "statistic",
       "description": "API Related to statistic"
+    },
+    {
+      "name": "Webhooks",
+      "description": "API Related to webhooks"
     }
+    
   ],
   "schemes": [
     "https",
@@ -535,6 +540,88 @@
             "login": []
           }
         ]
+      }
+    },
+    "/restapi/editwebhook": {
+      "put": {
+        "summary": "Update a webhook configuration",
+        "description": "Updates the configuration and status of an existing webhook.",
+        "operationId": "updateWebhook",
+        "tags": ["Webhooks"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "The ID of the webhook to update",
+                    "example": 42
+                  },
+                  "configuration": {
+                    "type": "string",
+                    "description": "JSON configuration for the webhook",
+                    "example": "{\"attr\": \"{args.chat.dep_id}\", \"condition\": \"neq\", \"value\": \"3\"}"
+                  },
+                  "disabled": {
+                    "type": "boolean",
+                    "description": "Whether the webhook is disabled",
+                    "example": false
+                  }
+                },
+                "required": ["id"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Webhook updated successfully"
+                    },
+                    "webhook_id": {
+                      "type": "integer",
+                      "example": 42
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters or webhook not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid parameters. ID is required."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/restapi/campaignsconversions": {
