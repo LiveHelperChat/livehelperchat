@@ -566,9 +566,9 @@
                     "example": "{\"attr\": \"{args.chat.dep_id}\", \"condition\": \"neq\", \"value\": \"3\"}"
                   },
                   "disabled": {
-                    "type": "boolean",
+                    "type": "integer",
                     "description": "Whether the webhook is disabled",
-                    "example": false
+                    "example": "1 to disabled, 0 to enabled"
                   }
                 },
                 "required": ["id"]
