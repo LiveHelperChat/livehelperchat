@@ -5,14 +5,14 @@ try {
 
     $requestBody = json_decode(file_get_contents('php://input'), true);
 
-    if (!isset($requestBody['id']) || !isset($requestBody['disabled'])) {
-        throw new Exception("Parâmetros inválidos. ID e status são obrigatórios.");
+    if (!isset($requestBody['id'])) {
+        throw new Exception("Invalid parameters. ID s are required.");
     }
 
     $webhook = erLhcoreClassModelChatWebhook::fetch((int)$requestBody['id']);
 
     if (!$webhook) {
-        throw new Exception("Webhook não encontrado.");
+        throw new Exception("Webhook not found.");
     }
 
     if (isset($requestBody['configuration'])) {
@@ -23,7 +23,7 @@ try {
 
     erLhcoreClassRestAPIHandler::outputResponse([
         'success' => true,
-        'message' => 'Webhook atualizado com sucesso.',
+        'message' => 'Webhook updated successfully',
         'webhook_id' => $webhook->id
     ]);
 
