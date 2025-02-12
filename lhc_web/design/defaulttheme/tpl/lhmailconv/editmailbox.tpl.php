@@ -242,7 +242,7 @@
         </div>
 
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_utilities') : ?>active<?php endif;?>" id="utilities">
-            <a class="btn btn-secondary btn-sm" title="Sync messages" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editmailbox')?>/<?php echo $item->id?>/(action)/sync?r=<?php echo time()?>#!#utilities" ><i class="material-icons">sync</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Check for a new messages');?></a>
+            <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editmailbox')?>/<?php echo $item->id?>/(action)/sync?r=<?php echo time()?>#!#utilities" ><i class="material-icons">sync</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Reset and import');?></a>&nbsp;<a class="btn btn-secondary btn-sm" title="Sync messages" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editmailbox')?>/<?php echo $item->id?>/(action)/resetsync?r=<?php echo time()?>#!#utilities" ><i class="material-icons">sync</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Reset import status');?></a>
 
             <?php if ($item->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS) : ?>
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','In progress');?>, <?php echo $item->sync_started_ago;?></p>
