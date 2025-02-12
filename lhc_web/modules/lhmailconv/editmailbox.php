@@ -11,6 +11,17 @@ if (isset($Params['user_parameters_unordered']['action']) && $Params['user_param
     $cfg = erConfigClassLhConfig::getInstance();
     $worker = $cfg->getSetting( 'webhooks', 'worker' );
 
+    $item->last_process_time = 0;
+    $item->sync_started = 0;
+    $item->last_sync_time = time() - 7200;
+    $item->sync_status = erLhcoreClassModelMailconvMailbox::SYNC_PENDING;
+    $uuidStatusArray = $item->uuid_status_array;
+    foreach ($uuidStatusArray as $key => $uuidStatus) {
+        $uuidStatusArray[$key] = 0;
+    }
+    $item->uuid_status = json_encode($uuidStatusArray);
+    $item->updateThis(array('update' => array('sync_started','last_sync_time','sync_status','last_process_time','uuid_status')));
+
     if ($worker == 'resque' && class_exists('erLhcoreClassExtensionLhcphpresque')) {
         $inst_id = class_exists('erLhcoreClassInstance') ? \erLhcoreClassInstance::$instanceChat->id : 0;
         erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv', 'erLhcoreClassMailConvWorker', array('inst_id' => $inst_id, 'mailbox_id' => $item->id));
