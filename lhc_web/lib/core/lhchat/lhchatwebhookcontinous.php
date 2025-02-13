@@ -162,6 +162,10 @@ class erLhcoreClassChatWebhookContinuous {
                                     }
                                 }
 
+                                if (!isset($conditionsCurrent['condition'])) {
+                                    $conditionsCurrent['condition'] = 'not_set';
+                                }
+
                                 if ($conditionsCurrent['condition'] == 'eq' && ($conditionAttr == $valueAttr)) {
                                     $conditionItemValid = true;
                                 } else if ($conditionsCurrent['condition'] == 'lt' && ($conditionAttr < $valueAttr)) {
