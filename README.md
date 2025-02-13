@@ -3,7 +3,7 @@ Live helper chat
 
 It's an open-source powered application that brings simplicity and usability into one place. With Live Helper Chat, you can bring live support to your site for free. http://livehelperchat.com. In a production environment, serving clients handling over [10,000](https://doc.livehelperchat.com/docs/performance) chats per day with dozens of operators actively working.  
 
-[![Live Helper Chat](https://livehelperchat.com/design/defaulttheme/images/logo.svg)](https://livehelperchat.com)
+[![Live Helper Chat](https://livehelperchat.com/design/frontendnew/images/lhc.png)](https://livehelperchat.com)
 
 [![Apple store](https://livehelperchat.com/design/defaulttheme/images/apps/apple.svg)](https://apps.apple.com/us/app/id1530399116) [![Google Play](https://livehelperchat.com/design/defaulttheme/images/apps/google-play.png?v=2)](https://play.google.com/store/apps/details?id=com.livehelperchat.chat) [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://marketplace.digitalocean.com/apps/live-helper-chat/?refcode=09c74421e3c2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste)
 
