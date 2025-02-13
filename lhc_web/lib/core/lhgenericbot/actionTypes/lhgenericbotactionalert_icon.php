@@ -88,6 +88,8 @@ class erLhcoreClassGenericBotActionAlert_icon {
 
                 $db->commit();
 
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.bot.alert_icon',array('chat' => & $chat));
+
             } catch (Exception $e) {
                 $db->rollback();
             }

@@ -206,6 +206,10 @@ const DashboardChatTabs = props => {
                     chat.live_status = nodeJSStatus.textContent == 'wifi';
                 }
 
+                if (!chat.nb) {
+                    chat.nb = false;
+                }
+
                 dispatch({
                     type: 'update_chat',
                     id: chat.id,
@@ -325,6 +329,12 @@ const DashboardChatTabs = props => {
                 }
             });
             loadChatTabIntro([chatId]);
+        }
+
+        function updateChatTab(params) {
+            if (!(!chatsRef.current.chats || chatsRef.current.chats.length == 0) && chatsRef.current.chats.findIndex(x => x.id == params.id) !== -1) {
+                loadChatTabIntro([params.id]);
+            }
         }
 
         function mailContentLoaded(chatId) {
@@ -478,6 +488,7 @@ const DashboardChatTabs = props => {
         ee.addListener('nodeJsTypingVisitorStopped',typingVisitorStopped)
         ee.addListener('nodeJsVisitorStatus',nodeJsVisitorStatus)
         ee.addListener('activateNextTab',activateNextTab)
+        ee.addListener('updateChatTab',updateChatTab)
 
         // Mail module
         ee.addListener('unloadMailChat',removeMailTab)
@@ -565,6 +576,7 @@ const DashboardChatTabs = props => {
             ee.removeListener('nodeJsTypingVisitorStopped', typingVisitorStopped);
             ee.removeListener('nodeJsVisitorStatus', nodeJsVisitorStatus);
             ee.removeListener('activateNextTab', activateNextTab);
+            ee.removeListener('updateChatTab',updateChatTab);
 
             ee.removeListener('unloadMailChat', removeMailTab);
             ee.removeListener('mailChatTabLoaded', addMailTab);
