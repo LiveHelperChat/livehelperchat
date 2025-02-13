@@ -103,7 +103,7 @@ class erLhcoreClassChatWebhookContinuous {
                                      }
                                 }
                             } elseif ($conditionsCurrent['type'] == '3') { // No response from operator for n seconds
-                                $conditionAttr = $conditionsCurrent['attr'];
+                                $conditionAttr = $conditionsCurrent['attr'] ?? '';
                                 if (strpos($conditionAttr,'{args.') !== false) {
                                     $matchesValues = array();
                                     preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $conditionAttr,$matchesValues);
@@ -115,7 +115,7 @@ class erLhcoreClassChatWebhookContinuous {
                                     }
                                 }
 
-                                $valueAttr = $conditionsCurrent['value'];
+                                $valueAttr = $conditionsCurrent['value'] ?? '';
 
                                 if (strpos($valueAttr,'{args.') !== false) {
                                     $matchesValues = array();
