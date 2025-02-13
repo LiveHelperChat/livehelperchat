@@ -241,7 +241,7 @@ const DashboardChatTabs = props => {
         });
     }
 
-    if (!document.getElementById('tabs')) {
+    if (!document.getElementById('tabs') && !document.getElementById('views-home')) {
         useInterval(() => {
 
             if (!state.chats || state.chats.length == 0) {

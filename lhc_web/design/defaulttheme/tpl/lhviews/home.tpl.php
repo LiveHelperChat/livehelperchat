@@ -1,7 +1,7 @@
 <script>
     <?php if (isset($default_view)) : ?>var vctrl_default_view_id = <?php echo $default_view;?>;<?php endif;?>
 </script>
-<div ng-controller="LiveHelperChatViewsCtrl as vctrl" >
+<div ng-controller="LiveHelperChatViewsCtrl as vctrl" id="views-home">
     <div class="row">
         <div translate="no" class="col chats-column view-chat-column border-right pe-0 ps-0">
             <div class="w-100 d-flex flex-column flex-grow-1">
