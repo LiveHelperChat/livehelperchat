@@ -210,6 +210,14 @@ const DashboardChatTabs = props => {
                     chat.nb = false;
                 }
 
+                if (!chat.nc) {
+                    chat.nc = null;
+                }
+
+                if (!chat.aicons) {
+                    chat.aicons = {};
+                }
+
                 dispatch({
                     type: 'update_chat',
                     id: chat.id,
