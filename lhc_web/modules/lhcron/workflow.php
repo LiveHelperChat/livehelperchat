@@ -27,6 +27,7 @@ if ($assignWorkflowTimeout > 0) {
         try {
             $db->beginTransaction();
             $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
+            $assignOutput = true;
             if (is_object($chat) && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
                 $assignOutput = erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => true));
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
@@ -60,6 +61,7 @@ foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'li
     try {
         $db->beginTransaction();
         $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
+        $assignOutput = true;
         if (is_object($chat) && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
             $assignOutput = erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => false));
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
