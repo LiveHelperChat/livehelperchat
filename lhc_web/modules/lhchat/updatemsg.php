@@ -62,15 +62,21 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 
 		        erLhcoreClassChat::getSession()->update($msg);
 
-                if ($contentChanged == true && $msg->user_id != $currentUser->getUserID()) {
+                if ($contentChanged == true && ($msg->user_id != $currentUser->getUserID() || !erLhcoreClassUser::instance()->hasAccessTo('lhchat','no_edit_history'))) {
                     $metaData = $msg->meta_msg_array;
+                    $historyContent = '[' . $currentUser->getUserID() . '] ' . $currentUser->getUserData()->name_support . ' ' . htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has modified a message.')) . ' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Original message')).' - [b]'.$originalMessage.'[/b]';
                     if (!isset($metaData['content']['notice']['content'])) {
-                        $metaData['content']['notice']['content'] =  '[' . $currentUser->getUserID() . '] ' . $currentUser->getUserData()->name_support . ' ' . htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has modified a message.')) . ' '.
-                        htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Original message')).' - [b]'.$originalMessage.'[/b]';
-                        $msg->meta_msg_array = $metaData;
-                        $msg->meta_msg = json_encode($metaData);
-                        $msg->updateThis(['update' => ['meta_msg']]);
+                        $metaData['content']['notice']['content'] =  $historyContent;
+                    } else {
+                        if (!isset($metaData['content']['notice']['content_history'])) {
+                            $metaData['content']['notice']['content_history'] = []; 
+                        }
+                        $metaData['content']['notice']['content_history'][] = $historyContent;
                     }
+
+                    $msg->meta_msg_array = $metaData;
+                    $msg->meta_msg = json_encode($metaData);
+                    $msg->updateThis(['update' => ['meta_msg']]);
                 }
 
 		        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncadmin.tpl.php');
