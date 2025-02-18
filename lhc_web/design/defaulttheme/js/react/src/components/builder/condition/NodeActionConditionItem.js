@@ -53,6 +53,8 @@ class NodeActionConditionItem extends Component {
                             <option value="like">Text like</option>
                             <option value="notlike">Text not like</option>
                             <option value="contains">Contains</option>
+                            <option value="isempty">Empty</option>
+                            <option value="notempty">Not Empty</option>
                         </select>
                     </div>
                 </div>

@@ -219,6 +219,12 @@ class erLhcoreClassGenericBotActionConditions {
                     } else if ($condition['content']['comp'] == 'contains' && !((isset($multiAttr) && !empty(array_intersect($multiAttr,explode(',',$valAttr)))) || (!isset($multiAttr) && strrpos($attr, $valAttr) !== false))) {
                         $conditionsMet = false;
                         break;
+                    } else if ($condition['content']['comp'] == 'notempty' && empty($attr)) {
+                        $conditionsMet = false;
+                        break;
+                    } else if ($condition['content']['comp'] == 'isempty' && !empty($attr)) {
+                        $conditionsMet = false;
+                        break;
                     }
                 }
             }
