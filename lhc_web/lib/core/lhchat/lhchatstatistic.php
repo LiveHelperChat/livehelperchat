@@ -2177,6 +2177,8 @@ class erLhcoreClassChatStatistic {
             $filterUsers['filter']['disabled'] = 0;
         }
 
+        $filterUsers['limit'] = 10000;
+
         $userList = erLhcoreClassModelUser::getUserList($filterUsers);
         
         if (empty($userList)) {
