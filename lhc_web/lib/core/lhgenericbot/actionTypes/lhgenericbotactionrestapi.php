@@ -2186,6 +2186,7 @@ class erLhcoreClassGenericBotActionRestapi
                 $tpl->set('chat', $userData['chat']);
                 $tpl->set('messages', $messages);
                 $tpl->set('remove_whisper', true);
+                $tpl->set('hideMetaRaw', true);
                 $userData['dynamic_variables']['{{msg_all_conversation}}'] = $tpl->fetch();
                 $userData['dynamic_variables']['{{msg_all_conversation_br}}'] = nl2br($userData['dynamic_variables']['{{msg_all_conversation}}']);
             }
