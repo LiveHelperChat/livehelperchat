@@ -23,8 +23,9 @@
 
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/city.tpl.php'));?>
 
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/send_mail.tpl.php'));?>
+
             <?php if (isset($canEditChat) && $canEditChat == true) : ?>
-                <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/send_mail.tpl.php'));?>
 
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/redirect_contact.tpl.php'));?>
 
