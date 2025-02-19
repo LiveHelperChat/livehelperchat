@@ -58,9 +58,16 @@ $ViewList['import'] = array(
     'functions' => array( 'use_import' ),
 );
 
+$ViewList['suggesterconfiguration'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'suggesterconfig' ),
+);
+
 $FunctionList['use'] = array('explain' => 'General permission to use canned messages module');
 $FunctionList['see_global'] = array('explain' => 'Allow operator to see global canned messages');
 $FunctionList['use_import'] = array('explain' => 'Allow operator to import canned messages');
 $FunctionList['use_replace'] = array('explain' => 'Allow operator manage replaceable variables');
+$FunctionList['suggesterconfig'] = array('explain' => 'Allow operator configure canned messages suggester');
 
 ?>

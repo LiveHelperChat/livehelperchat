@@ -30,6 +30,66 @@ class erLhcoreClassModelCannedMsgTagLink
         }
     }
 
+    public static function similar_text_match($keywords, $partial_word, $top = 1, $min_percent = 0) {
+        $matches = [];
+
+        foreach ($keywords as $word) {
+            similar_text($partial_word, $word->tag, $percent);
+            if ($percent >= $min_percent) {
+                $matches[] = ['id' => $word->id, 'percent' => $percent];
+            }
+        }
+
+        usort($matches, function ($a, $b) {
+            return $b['percent'] <=> $a['percent'];
+        });
+
+        return array_slice(array_column($matches, 'id'), 0, $top);
+    }
+
+
+    public static function getTagByKeyword($keyword, $paramsExecution)
+    {
+        $filterTagLinks = array('limit' => false);
+
+        $settingsCannedSuggester = erLhcoreClassModelChatConfig::fetch('canned_suggester_settings')->data;
+
+        $keywordPartial = mb_substr($keyword,0, $settingsCannedSuggester['first_n_letters'] ?? 1);
+
+        if (!empty($keyword)) {
+            $filterTagLinks['innerjoin']['lh_canned_msg_tag_link'] = ['`lh_canned_msg_tag`.`id`','`lh_canned_msg_tag_link`.`tag_id`'];
+            $filterTagLinks['filterlikeright']['`lh_canned_msg_tag`.`tag`'] = $keywordPartial;
+        }
+
+        // Apply tag linking query
+        $filterTagLinks['innerjoin']['lh_canned_msg'] = ['`lh_canned_msg`.`id`','`lh_canned_msg_tag_link`.`canned_id`'];
+
+        // Apply filtering query
+        $filterTagLinks['customfilter'][] = '( 
+                                    (department_id = 0 AND user_id = 0) OR 
+                                    (department_id = ' . (int)$paramsExecution['chat']->dep_id . ' AND user_id = 0) OR
+                                    (user_id = ' . (int)$paramsExecution['user']->id . ' AND department_id = 0) OR
+                                    (`lh_canned_msg`.`id` IN (SELECT canned_id FROM lh_canned_msg_dep WHERE dep_id = ' . (int)$paramsExecution['chat']->dep_id . ') AND (user_id = 0 OR ' . (int)$paramsExecution['user']->id . '))
+        )';
+
+        $tagsRelated = erLhcoreClassModelCannedMsgTag::getList($filterTagLinks);
+
+        if (empty($tagsRelated)) {
+            return [];
+        }
+
+        $similarTags = self::similar_text_match($tagsRelated, $keyword, ($settingsCannedSuggester['top_n_match'] ?? 1), ($settingsCannedSuggester['min_percentage'] ?? 0));
+
+        if (empty($similarTags)) {
+            return [];
+        }
+
+        $paramsExecution['ignore_keyword'] = true;
+        $paramsExecution['tag_link_id'] = $similarTags;
+
+        return self::formatSuggester('', $paramsExecution);
+    }
+
     public static function formatSuggester($keyword, $paramsExecution)
     {
         $filterTagLinks = array('limit' => false);
@@ -37,6 +97,10 @@ class erLhcoreClassModelCannedMsgTagLink
         if (!empty($keyword)) {
             $filterTagLinks['innerjoin']['lh_canned_msg_tag'] = ['`lh_canned_msg_tag`.`id`','`lh_canned_msg_tag_link`.`tag_id`'];
             $filterTagLinks['filterlikeright']['`lh_canned_msg_tag`.`tag`'] = $keyword;
+        }
+
+        if (isset($paramsExecution['tag_link_id'])) {
+            $filterTagLinks['filterin']['`lh_canned_msg_tag_link`.`tag_id`'] = $paramsExecution['tag_link_id'];
         }
 
         // Apply tag linking query
@@ -53,6 +117,11 @@ class erLhcoreClassModelCannedMsgTagLink
         $tagLinks = self::getList($filterTagLinks);
 
         if (empty($tagLinks)) {
+            if (empty($keyword)) {
+                return array();
+            } elseif (!isset($paramsExecution['ignore_keyword'])) {
+                return self::getTagByKeyword($keyword, $paramsExecution);
+            }
             return array();
         }
 
