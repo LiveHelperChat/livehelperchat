@@ -96,7 +96,11 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 	    $db->commit();
 
         if (isset($msg) && isset($Chat) && isset($contentChanged) && $contentChanged == true) {
+            // General messages was updated event
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msg, 'chat' => & $Chat));
+            
+            // Event indicates that admin has an updated message manually
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated_admin', array('msg' => & $msg, 'chat' => & $Chat));
         }
 
 	} catch (Exception $e) {
