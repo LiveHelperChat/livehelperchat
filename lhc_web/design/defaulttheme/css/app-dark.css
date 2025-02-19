@@ -147,6 +147,7 @@ div.message-row-typing div.msg-body {
     background-color:#314a2d !important;
 }
 
+.edit-mode > .form-send-textarea,
 .edit-mode {
     background-color:#000000 !important;
 }
