@@ -23,7 +23,7 @@
 
         <div class="form-group" >
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Tag's");?></label>
-            <input type="text"  class="form-control form-control-sm" name="Tags" value="<?php echo htmlspecialchars($canned_message->tags_plain)?>" />
+            <input type="text" class="form-control form-control-sm" name="Tags" value="<?php echo htmlspecialchars($canned_message->tags_plain)?>" />
         </div>
 
         <?php if ($canned_message->id > 0) : ?>

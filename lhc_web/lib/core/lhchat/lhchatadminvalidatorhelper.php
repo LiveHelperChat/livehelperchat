@@ -418,6 +418,16 @@ class erLhcoreClassAdminChatValidatorHelper {
             $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Canned message tags should not contain # character');
         }
 
+        if (strpos($cannedMessage->tags_plain,' ') !== false)
+        {
+            $tags = explode(',',$cannedMessage->tags_plain);
+            foreach ($tags as $tag) {
+                if (strpos(trim($tag),' ') !== false) {
+                    $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Canned message tags should not contain spaces');
+                    break;
+                }
+            }
+        }
 
         if ( !$form->hasValidData( 'DepartmentID' )  ) {
 
