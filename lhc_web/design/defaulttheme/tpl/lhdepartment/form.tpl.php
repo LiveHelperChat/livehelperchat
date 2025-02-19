@@ -6,11 +6,10 @@
         </div>
     </div>
     <div class="col-6">
-        <div class="form-group">
-            <label><a class="live-help-tooltip" data-bs-placement="top" title="" data-bs-toggle="tooltip" data-bs-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored. It has to be not number!');?>"><i class="material-icons">&#xE887;</i></a>
-
-                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Alias for argument. No spaces or slashes.');?></label>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Alias for argument. No spaces or slashes.');?> <a class="live-help-tooltip" data-bs-placement="top" title="" data-bs-toggle="tooltip" data-bs-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored. It has to be not number!');?>"><i class="material-icons">&#xE887;</i></a></label>
+        <div class="input-group input-group-sm mb-3">
             <input type="text" maxlength="50" <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managealias')) : ?>disabled<?php endif;?> class="form-control form-control-sm" placeholder="alias-number" name="Alias" value="<?php echo htmlspecialchars($departament->alias);?>" />
+            <span class="input-group-text"><input type="checkbox" name="priority_check" <?php if (isset($departament->bot_configuration_array['priority_check']) && $departament->bot_configuration_array['priority_check'] == 1) : ?>checked="checked"<?php endif;?> value="on" />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Priority check')?>&nbsp;<a class="live-help-tooltip" data-bs-placement="top" title="" data-bs-toggle="tooltip" data-bs-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','We will process priority rules for department changes. This introduces performance penalty.');?>"><i class="material-icons">&#xE887;</i></a></span>
         </div>
     </div>
 </div>

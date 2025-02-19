@@ -31,7 +31,7 @@ $validStart = false;
 
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
     if (!(isset($requestPayload['fields']['DepartamentID']) && $requestPayload['fields']['DepartamentID'] == -1)) {
-        $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+        $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department'],true, $requestPayload);
         $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
         $requestPayload['fields']['DepartamentID'] = $inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
     } else {

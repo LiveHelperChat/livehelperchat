@@ -71,7 +71,7 @@ if (isset($requestPayload['theme']) && !empty($requestPayload['theme'])) {
 $disabled_department = false;
 
 if (is_array($Params['user_parameters_unordered']['department']) && !empty($Params['user_parameters_unordered']['department'])) {
-    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department'],true, $Params['user_parameters_unordered']);
     $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
 }
 

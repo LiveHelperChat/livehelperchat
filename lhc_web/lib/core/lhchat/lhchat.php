@@ -2465,7 +2465,7 @@ class erLhcoreClassChat {
        return $subjectByChat;
    }
 
-   public static function extractDepartment($departments, $logInvalidRequest = true) {
+   public static function extractDepartment($departments, $logInvalidRequest = true, $paramsExecution = []) {
 
        $hasInvalidDepartment = false;
 
@@ -2498,6 +2498,52 @@ class erLhcoreClassChat {
                }
 
                if (isset($dep) && $dep instanceof erLhcoreClassModelDepartament) {
+
+                   if (isset($dep->bot_configuration_array['priority_check']) && $dep->bot_configuration_array['priority_check'] == 1) {
+
+                       $chat = new erLhcoreClassModelChat();
+
+                       // Init some main attributes
+                       erLhcoreClassModelChat::detectLocation($chat, $_GET['vid'] ?? ($paramsExecution['vid'] ?? ''));
+                       
+                       // Detect user locale
+                       $locale = erLhcoreClassChatValidator::getVisitorLocale();
+
+                       if ($locale !== null) {
+                           $chat->chat_locale = $locale;
+                       }
+
+                       // We set custom chat locale only if visitor is not using default siteaccss and default langauge is not english.
+                       if (erConfigClassLhConfig::getInstance()->getSetting('site','default_site_access') != erLhcoreClassSystem::instance()->SiteAccess) {
+                           $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting('site_access_options', erLhcoreClassSystem::instance()->SiteAccess);
+                           // Never override to en
+                           if (isset($siteAccessOptions['content_language'])) {
+                               $chat->chat_locale = $siteAccessOptions['content_language'];
+                           }
+                       }
+
+                       $chat->referrer = urldecode($_GET['r'] ?? '');
+                       $chat->session_referrer = urldecode($_GET['l'] ?? '');
+
+                       if (empty($chat->referrer)) {
+                           $chat->referrer = $chat->session_referrer;
+                       }
+
+                       if (empty($chat->referrer) && $chat->online_user_id > 0 && is_object($chat->online_user)) {
+                           $chat->referrer = $chat->online_user->referrer;
+                           $chat->session_referrer = $chat->online_user->current_page;
+                           if (empty($chat->referrer)) {
+                               $chat->referrer = $chat->session_referrer;
+                           }
+                       }
+
+                       $priority = erLhcoreClassChatValidator::getPriorityByAdditionalData($chat, array('detailed' => true));
+
+                       if ($priority !== false && $priority['dep_id'] > 0) {
+                           $dep = erLhcoreClassModelDepartament::fetch($priority['dep_id']);
+                       }
+                   }
+
                    $output['system'][] = (int)$dep->id;
                    $output['argument'][] = $dep->alias == '' ? $dep->id : $dep->alias;
                } else {

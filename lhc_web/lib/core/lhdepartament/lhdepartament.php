@@ -113,6 +113,9 @@ class erLhcoreClassDepartament{
                 'ExcludeInactiveChats' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+                'priority_check' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
                 'AutoAssignLowerLimit' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
@@ -398,6 +401,12 @@ class erLhcoreClassDepartament{
                 $botConfiguration['min_agent_priority'] = $form->min_agent_priority;
             } else {
                 $botConfiguration['min_agent_priority'] = 0;
+            }
+
+            if ($form->hasValidData( 'priority_check' ) && $form->priority_check == true) {
+                $botConfiguration['priority_check'] = 1;
+            } else {
+                $botConfiguration['priority_check'] = 0;
             }
 
             if ( $form->hasValidData( 'min_chat_priority' ) ) {
