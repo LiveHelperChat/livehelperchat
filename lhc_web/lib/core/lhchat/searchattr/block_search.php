@@ -14,6 +14,18 @@ $fieldsSearch['ip'] = array (
     )
 );
 
+$fieldsSearch['block_id'] = array (
+    'type' => 'text',
+    'trans' => 'Title',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'id',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldsSearch['nick'] = array (
     'type' => 'text',
     'trans' => 'Title',

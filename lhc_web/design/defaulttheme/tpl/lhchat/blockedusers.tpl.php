@@ -20,6 +20,9 @@
                 <div class="col">
                     <input type="text" class="form-control form-control-sm" name="nick" value="<?php echo htmlspecialchars($input->nick)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Nick/Email');?>" />
                 </div>
+                <div class="col">
+                    <input type="text" class="form-control form-control-sm" name="block_id" value="<?php echo htmlspecialchars($input->block_id)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block ID');?>" />
+                </div>
                 <div class="col-2">
                     <input type="submit" class="btn btn-sm btn-secondary w-100" name="doSearch" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Search');?>" />
                     <?php if (isset($enabled_log)) : ?>
