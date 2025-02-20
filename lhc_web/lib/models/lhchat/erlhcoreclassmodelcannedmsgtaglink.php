@@ -84,6 +84,7 @@ class erLhcoreClassModelCannedMsgTagLink
             return [];
         }
 
+        $paramsExecution['keyword_alias'] = $tagsRelated[$similarTags[0]]->tag;
         $paramsExecution['ignore_keyword'] = true;
         $paramsExecution['tag_link_id'] = $similarTags;
 
