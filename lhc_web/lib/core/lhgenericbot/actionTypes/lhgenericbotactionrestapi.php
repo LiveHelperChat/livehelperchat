@@ -2249,6 +2249,8 @@ class erLhcoreClassGenericBotActionRestapi
                 $tpl->set('chat', $userData['chat']);
                 $tpl->set('messages', $messages);
                 $tpl->set('remove_meta', true);
+                $tpl->set('remove_whisper', true);
+                $tpl->set('hideMetaRaw', true);
 
                 $userData['dynamic_variables']['{{msg_all_content}}'] = $tpl->fetch();
             }
@@ -2264,8 +2266,26 @@ class erLhcoreClassGenericBotActionRestapi
                 $tpl->set('chat', $userData['chat']);
                 $tpl->set('messages', $messages);
                 $tpl->set('remove_meta', true);
+                $tpl->set('hideMetaRaw', true);
+                $tpl->set('remove_whisper', true);
 
                 $userData['dynamic_variables']['{{msg_all_since_transfer_content}}'] = $tpl->fetch();
+            }
+
+            // All messages since operator took over with [<date>] [<nick>] and system messages
+            if (strpos($item,'{{msg_all_since_transfer_content_date_nick}}') !== false && !in_array('{{msg_all_since_transfer_content_date_nick}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{msg_all_since_transfer_content_date_nick}}';
+
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'filternot' => array('user_id' => -1), 'sort' => 'id DESC','filter', 'filtergte' => array('time' => $userData['chat']->pnd_time), 'filter' => array('chat_id' => $userData['chat']->id))));
+
+                // Fetch chat messages
+                $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                $tpl->set('chat', $userData['chat']);
+                $tpl->set('messages', $messages);
+                 $tpl->set('remove_whisper', true);
+                $tpl->set('hideMetaRaw', true);
+
+                $userData['dynamic_variables']['{{msg_all_since_transfer_content_date_nick}}'] = $tpl->fetch();
             }
 
             // All operator messages from chat
@@ -2279,6 +2299,8 @@ class erLhcoreClassGenericBotActionRestapi
                 $tpl->set('chat', $userData['chat']);
                 $tpl->set('messages', $messages);
                 $tpl->set('remove_meta', true);
+                $tpl->set('remove_whisper', true);
+                $tpl->set('hideMetaRaw', true);
 
                 $userData['dynamic_variables']['{{msg_all_op_msg_content}}'] = $tpl->fetch();
             }
@@ -2294,6 +2316,7 @@ class erLhcoreClassGenericBotActionRestapi
                 $tpl->set('chat', $userData['chat']);
                 $tpl->set('messages', $messages);
                 $tpl->set('remove_meta', true);
+                $tpl->set('hideMetaRaw', true);
 
                 $userData['dynamic_variables']['{{msg_all_vis_msg_content}}'] = $tpl->fetch();
             }
@@ -2309,6 +2332,8 @@ class erLhcoreClassGenericBotActionRestapi
                 $tpl->set('chat', $userData['chat']);
                 $tpl->set('messages', $messages);
                 $tpl->set('remove_meta', true);
+                $tpl->set('hideMetaRaw', true);
+                $tpl->set('remove_whisper', true);
 
                 $userData['dynamic_variables']['{{msg_all_vis_since_transfer_content}}'] = $tpl->fetch();
             }
