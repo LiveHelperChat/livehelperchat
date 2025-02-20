@@ -20,9 +20,16 @@ class erLhcoreClassChatWorkflow {
             $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
             
             \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat));
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true,'msg' => & $msg, 'chat' => & $chat));
 
             $msg->saveThis();
+
+            $originalValues = $msg->name_support . '_' .$msg->meta_msg . '_' . $msg->del_st;
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true,'msg' => & $msg, 'chat' => & $chat));
+
+            if ($originalValues != $msg->name_support . '_' . $msg->meta_msg . '_' . $msg->del_st) {
+                $msg->saveThis();
+            }
 
             if ($chat->last_msg_id < $msg->id) {
                 $chat->last_msg_id = $msg->id;
