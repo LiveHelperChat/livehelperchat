@@ -37,6 +37,8 @@ if ($value > 0) {
 
         $chat->anonymized = 1;
         $chat->saveThis();
+        
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('chat' => & $chat));
     }
 
     echo "Encrypting";
