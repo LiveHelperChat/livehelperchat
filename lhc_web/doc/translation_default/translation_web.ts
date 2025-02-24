@@ -4,6 +4,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -2961,6 +2965,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assume first n letter from keyword is valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum percentage to match for related tag to be considered as valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Top n matches tags should be considered as valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Copied</source>
       <translation type="unfinished"/>
     </message>
@@ -3189,6 +3209,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Canned message tags should not contain spaces</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose a department!</source>
       <translation type="unfinished"/>
     </message>
@@ -3209,11 +3233,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Canned messages suggester configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>🔍 Navigate with ⮃ and ↵ Enter. Esc to quit.</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Send instantly</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do you really want to send the same canned message as the previous one?</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3324,11 +3356,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Alias for argument. No spaces or slashes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored. It has to be not number!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Alias for argument. No spaces or slashes.</source>
+      <source>Priority check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will process priority rules for department changes. This introduces performance penalty.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5233,6 +5273,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Empty</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hidden</source>
       <translation type="unfinished"/>
     </message>
@@ -5996,6 +6044,10 @@
   <context>
     <name>module/mailconvmb</name>
     <message>
+      <source>Check for a new messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose a parent invitation</source>
       <translation type="unfinished"/>
     </message>
@@ -6160,7 +6212,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Check for a new messages</source>
+      <source>Reset and import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reset import status</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8099,6 +8155,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -8224,10 +8284,6 @@
     </message>
     <message>
       <source>Test</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8869,6 +8925,10 @@
     </message>
     <message>
       <source>Bots</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot was assigned to one of the chats. Please remove those chats first!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -10417,6 +10477,10 @@
     </message>
     <message>
       <source>Nick/Email</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Block ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13715,6 +13779,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Canned messages suggester configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Canned replaceable variables</source>
       <translation type="unfinished"/>
     </message>
@@ -15012,10 +15080,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Total statistics</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Total active chats</source>
       <translation type="unfinished"/>
     </message>
@@ -15025,6 +15089,10 @@
     </message>
     <message>
       <source>Total messages (including visitors, system and operator messages)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total messages (only bot messages)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -15041,6 +15109,10 @@
     </message>
     <message>
       <source>Total pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total statistics</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -16285,6 +16357,10 @@
     </message>
     <message>
       <source>Department alias</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17700,6 +17776,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>RAW value to test against</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Extract chat attribute</source>
       <translation type="unfinished"/>
     </message>
@@ -17721,6 +17801,10 @@
     </message>
     <message>
       <source>Test mail text pattern</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test RAW text pattern</source>
       <translation type="unfinished"/>
     </message>
     <message>
