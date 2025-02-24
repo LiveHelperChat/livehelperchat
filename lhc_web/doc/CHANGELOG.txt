@@ -1,3 +1,40 @@
+4.53v
+
+1. CURL Limit for Rest API calls increased to 360 seconds. Sometimes LLM takes long time to respond. Use it carefully and make sure you use PHP-Resque to delegate it to background workers.
+2. Translations updated
+3. Encrypt cronjob should dispatch chat modified event.
+4. FB Messenger extension we losing message attribute if it was an auto responder message.
+5. Blocked list can be searched by block id.
+6. New replaceable variable `{{msg_all_since_transfer_content_date_nick}}`. Usefull in AI Summarization https://doc.livehelperchat.com/docs/bot/summarize-with-ai
+7. Canned messages tags now has Similary search options `Canned messages suggester configuration` option in back office.
+8. `Priority check` option in department. It means if there is priority configured and that chat priority changes department we will show bot based on that new department.
+9. Message edit history will be always stored independently who modified it if opeartor does not have `'lhchat','no_edit_history'` permission.
+10. Send to e-mail will be shown if chat is closed.
+11. Agent statistic grouping will have limit of 10k. Some installations has more than 500 operators.
+12. Improvements in Alert icon bot response type. Will change icon if any of the icon attribute changes. E.g color.
+13. Webhook edit request.
+14. New cronjob to verify that you have all necessary php extensions `php cron.php -s site_admin -c cron/dependencies`
+15. Mailbox will have option to reset import status. `Reset import status`
+16. Operators sometimes collapsed widget completely and could not restore back.
+17. Options to log group/role changes in audit log.
+18. Avoid duplicate canned message on quick arrow clicks
+19. On mobile we should minimize widget if link is clicked
+20. Sync mail optimisation to avoid scheduling task for all mailbox always.
+21. Removed total statistic as we have last 24 hours statistic which is identical
+22. Forms module validation improvements.
+23. Fix auto assignment issue when transactions scope was not terminated.
+24. Do not allow visitor delete bot if it's assigned to one of the chats
+25. Update window will check extensions structure also.
+26. Avoid issues if cronjbos is run under root while testing
+27. New API to start chat via JS command - https://doc.livehelperchat.com/docs/javascript-arguments#start-a-chat
+28. Not all chat configuration records were fetched and updated.
+29. Instagram unsend message support.
+30. Widget flickering various fixes.
+31. Auto assignment will lock records by user. Sometimes if user was assigned to multiple departments he received to many chats.
+32. Chat export for visitor should include whisper and meta messages.
+
+No database update this time.
+
 4.52v
 
 1. Widget will remain opened/closed across pages domain/subdomains. Widget will load chat instantly if chat is started on another tab of the same page.
