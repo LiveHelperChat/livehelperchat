@@ -60,15 +60,21 @@ if (ezcInputForm::hasPostData()) {
         $response = array();
         $sendParams =  ['background' => true];
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.before_send', array(
-            'uparams' => $Params['user_parameters_unordered'],
-            'msg' => & $item,
-            'chat' => & $chat,
-            'tpl' => & $tpl,
-            'send_params' => & $sendParams
-        ));
+        try {
+            
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.before_send', array(
+                'uparams' => $Params['user_parameters_unordered'],
+                'msg' => & $item,
+                'chat' => & $chat,
+                'tpl' => & $tpl,
+                'send_params' => & $sendParams
+            ));
 
-        erLhcoreClassMailconvValidator::sendEmail($item, $response, $currentUser->getUserID(), $sendParams);
+            erLhcoreClassMailconvValidator::sendEmail($item, $response, $currentUser->getUserID(), $sendParams);
+
+        } catch (Exception $e) {
+            $response['errors'][] = $e->getMessage();
+        }
 
         if ($response['send'] == true) {
             $tpl->set('updated',true);
