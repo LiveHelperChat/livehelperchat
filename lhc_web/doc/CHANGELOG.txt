@@ -1,37 +1,37 @@
 4.53v
 
-1. CURL Limit for Rest API calls increased to 360 seconds. Sometimes LLM takes long time to respond. Use it carefully and make sure you use PHP-Resque to delegate it to background workers.
-2. Translations updated
-3. Encrypt cronjob should dispatch chat modified event.
-4. FB Messenger extension we losing message attribute if it was an auto responder message.
-5. Blocked list can be searched by block id.
-6. New replaceable variable `{{msg_all_since_transfer_content_date_nick}}`. Usefull in AI Summarization https://doc.livehelperchat.com/docs/bot/summarize-with-ai
-7. Canned messages tags now has Similary search options `Canned messages suggester configuration` option in back office.
-8. `Priority check` option in department. It means if there is priority configured and that chat priority changes department we will show bot based on that new department.
-9. Message edit history will be always stored independently who modified it if opeartor does not have `'lhchat','no_edit_history'` permission.
-10. Send to e-mail will be shown if chat is closed.
-11. Agent statistic grouping will have limit of 10k. Some installations has more than 500 operators.
-12. Improvements in Alert icon bot response type. Will change icon if any of the icon attribute changes. E.g color.
-13. Webhook edit request.
-14. New cronjob to verify that you have all necessary php extensions `php cron.php -s site_admin -c cron/dependencies`
-15. Mailbox will have option to reset import status. `Reset import status`
-16. Operators sometimes collapsed widget completely and could not restore back.
-17. Options to log group/role changes in audit log.
-18. Avoid duplicate canned message on quick arrow clicks
-19. On mobile we should minimize widget if link is clicked
-20. Sync mail optimisation to avoid scheduling task for all mailbox always.
-21. Removed total statistic as we have last 24 hours statistic which is identical
-22. Forms module validation improvements.
-23. Fix auto assignment issue when transactions scope was not terminated.
-24. Do not allow visitor delete bot if it's assigned to one of the chats
-25. Update window will check extensions structure also.
-26. Avoid issues if cronjbos is run under root while testing
-27. New API to start chat via JS command - https://doc.livehelperchat.com/docs/javascript-arguments#start-a-chat
-28. Not all chat configuration records were fetched and updated.
-29. Instagram unsend message support.
-30. Widget flickering various fixes.
-31. Auto assignment will lock records by user. Sometimes if user was assigned to multiple departments he received to many chats.
-32. Chat export for visitor should include whisper and meta messages.
+1. Increased the CURL timeout for REST API calls to 360 seconds. Since LLM responses can take a long time, use this carefully and delegate tasks to background workers using PHP-Resque.
+2. Updated translations.
+3. The encryption cron job now dispatches a "chat modified" event.
+4. Fixed an issue in the FB Messenger extension where message attributes were lost in auto-responder messages.
+5. The blocked list can now be searched by block ID.
+6. Added a new replaceable variable {{msg_all_since_transfer_content_date_nick}}, useful for AI summarization. Documentation.
+7. Canned message tags now support a similarity search option under "Canned Messages Suggester Configuration" in the back office.
+8. Added a "Priority Check" option in departments. If a chat's priority changes and moves to a different department, the bot will now respond based on the new department.
+9. Message edit history will always be stored, regardless of who modified it, unless the operator has the 'lhchat','no_edit_history' permission.
+10. The "Send to Email" option will now be available when a chat is closed.
+11. Agent statistics grouping is now limited to 10,000 entries, accommodating installations with over 500 operators.
+12. Improved the alert icon bot response type: the icon will now change when any of its attributes (e.g., color) are updated.
+13. Improved webhook editing functionality.
+14. Added a new cron job to verify required PHP extensions: `php cron.php -s site_admin -c cron/dependencies`
+15. The mailbox module now has an option to reset import status.
+16. Fixed an issue where operators collapsed the widget completely and could not restore it.
+17. Added an option to log group/role changes in the audit log.
+18. Prevented duplicate canned messages from appearing due to quick arrow clicks.
+19. On mobile, the widget will now minimize when a link is clicked.
+20. Optimized email synchronization to avoid scheduling tasks for all mailboxes unnecessarily.
+21. Removed the total statistics view, as the last 24-hour statistics provide identical information.
+22. Improved validation in the Forms module.
+23. Fixed an auto-assignment issue when the transaction scope was not properly terminated.
+24. Visitors are no longer allowed to delete a bot if it is assigned to an active chat.
+25. The update window will now check the structure of extensions as well.
+26. Resolved issues where cron jobs were run under the root user during testing.
+27. Introduced a new API to start a chat via a JavaScript command. Documentation.
+28. Fixed an issue where not all chat configuration records were fetched and updated.
+29. Added support for handling "unsend message" actions on Instagram.
+30. Various fixes to reduce widget flickering.
+31. Auto-assignment now locks records per user. Previously, users assigned to multiple departments received too many chats.
+32. Visitor chat exports now include whisper messages and meta messages.
 
 No database update this time.
 
