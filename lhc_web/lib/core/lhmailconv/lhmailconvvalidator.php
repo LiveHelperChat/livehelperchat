@@ -869,7 +869,7 @@ class erLhcoreClassMailconvValidator {
                 $mailReply->AddReplyTo($item->mailbox->mail, (string)$item->mailbox->name);
             }
 
-            $mailReply->AddAddress($item->from_address, $item->from_name);
+            $mailReply->AddAddress($params['raw_email'] ?? $item->from_address, $item->from_name);
 
             $item->body = self::prepareMailContent($item->body, $mailReply);
 
