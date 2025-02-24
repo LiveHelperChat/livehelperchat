@@ -994,25 +994,30 @@ class erLhcoreClassChat {
        // Redis Cache support
        $enableCache = false;
 
-       if (!(isset($params['disable_cache']) && $params['disable_cache'] === true) && class_exists('erLhcoreClassRedis')) {
+        if (!(isset($params['disable_cache']) && $params['disable_cache'] === true) && class_exists('erLhcoreClassRedis')) {
 
-           $cacheKeyStatus = 'lhc_online_cache_key';
+            $cacheKeyStatus = 'lhc_online_cache_key';
 
-           if (class_exists('erLhcoreClassInstance', false) && is_object(erLhcoreClassInstance::$instanceChat)) {
-               $cacheKeyStatus .= erLhcoreClassInstance::$instanceChat->id;
-           }
+            if (class_exists('erLhcoreClassInstance', false) && is_object(erLhcoreClassInstance::$instanceChat)) {
+                $cacheKeyStatus .= erLhcoreClassInstance::$instanceChat->id;
+            }
 
-          $cacheKey = 'is_online_' . (int)erLhcoreClassRedis::instance()->get($cacheKeyStatus) . '_' . $exclipic . '_' . (new class { use erLhcoreClassDBTrait; })::multi_implode('_',$dep_id) . '_' . md5((new class { use erLhcoreClassDBTrait; })::multi_implode('_',$params));
-          $contentCache = erLhcoreClassRedis::instance()->get($cacheKey);
-          if ($contentCache !== false) {
-              $parts = explode('_', $contentCache);
-              if (isset($parts[1]) && isset($parts[1]) == 1) {
-                  self::$botOnlyOnline = true;
-              }
-              return (int)$parts[0] > 0;
-          }
-          $enableCache = true;
-       }
+            $cacheKey = 'is_online_' . $cacheKeyStatus . '_' . $exclipic . '_' . (new class {
+                    use erLhcoreClassDBTrait;
+                })::multi_implode('_', $dep_id) . '_' . md5((new class {
+                    use erLhcoreClassDBTrait;
+                })::multi_implode('_', $params));
+
+            $contentCache = erLhcoreClassRedis::instance()->get($cacheKey);
+            if ($contentCache !== false) {
+                $parts = explode('_', $contentCache);
+                if (isset($parts[1]) && isset($parts[1]) == 1) {
+                    self::$botOnlyOnline = true;
+                }
+                return (int)$parts[0] > 0;
+            }
+            $enableCache = true;
+        }
 
        $db = ezcDbInstance::get();
 	   $rowsNumber = 0;

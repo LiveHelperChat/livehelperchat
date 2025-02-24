@@ -17,6 +17,7 @@ if (!isset($_GET['wopen']) || (isset($_GET['isproactive']) && $_GET['isproactive
 
     $isOnlineHelp = erLhcoreClassChat::isOnline($department, false, array(
         'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value,
+        'disable_cache' => ((int)erLhcoreClassModelChatConfig::fetch('enable_status_cache')->current_value === 0),
         'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']));
 
     erLhcoreClassRestAPIHandler::outputResponse(array('change_status' => true, 'online' => $isOnlineHelp));
