@@ -1,0 +1,1 @@
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Recipient E-mail');?>
