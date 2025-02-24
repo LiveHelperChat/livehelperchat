@@ -2,22 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Wie lange soll gewartet werden, bevor der Operator über nicht beantwortete Chats benachrichtigt wird?</translation>
     </message>
@@ -43,7 +27,7 @@
     </message>
     <message>
       <source>Which ip should not be allowed to be blocked</source>
-      <translation type="unfinished"/>
+      <translation>Welche IP sollte nicht blockiert werden können?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -148,6 +132,10 @@
     <message>
       <source>Should we remember username for the next time visitor starts a chat?</source>
       <translation>Benutzernamen des Besuchers für den nächsten Chat merken</translation>
+    </message>
+    <message>
+      <source>Should we remember E-Mail, Phone for the next time visitor starts a chat?</source>
+      <translation>Sollen wir die E.Mail-Adresse und Telefonnummer für das nächste mal speichern, wenn der Besucher ein Chat öffnet?</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
@@ -455,6 +443,10 @@
     <message>
       <source>New</source>
       <translation>Neu</translation>
+    </message>
+    <message>
+      <source>Reload back office for operators. Requires NodeJS</source>
+      <translation>Backoffice neu laden, Dies benötigt NodeJS</translation>
     </message>
     <message>
       <source>Updated</source>
@@ -1118,6 +1110,10 @@
       <translation>Randradius der Schaltfläche</translation>
     </message>
     <message>
+      <source>Disabled</source>
+      <translation>Deaktiviert</translation>
+    </message>
+    <message>
       <source>Choose a bot</source>
       <translation>Bot auswählen</translation>
     </message>
@@ -1254,10 +1250,6 @@
       <translation>Bei erfolgreichem Absenden des Formulars keine Standardinhalte anzeigen.</translation>
     </message>
     <message>
-      <source>Disabled</source>
-      <translation>Deaktiviert</translation>
-    </message>
-    <message>
       <source>Color</source>
       <translation>Farbe</translation>
     </message>
@@ -1352,6 +1344,10 @@
     <message>
       <source>Hide need help widget for mobile devices.</source>
       <translation>Hilfe benötigt? Widget bei mobilen Endgeräten verbergen.</translation>
+    </message>
+    <message>
+      <source>Print raw HTML in footer without parsing it for special functions. Makes custom HTML in footer to render faster.</source>
+      <translation>Zeigt rohes HTML in der Fußzeile, ohne es für spezielle Funktionen zu parsen. Macht benutzerdefiniertes HTML in der Fußzeile schneller zu rendern.</translation>
     </message>
     <message>
       <source>Always visible. Usefull if you make custom HTML and want that need help would be always visible.</source>
@@ -1878,6 +1874,10 @@
       <translation>Schaltfläche &quot;Drucken&quot; als Nachricht, sobald ein Besucher auf eine Schaltfläche klickt.</translation>
     </message>
     <message>
+      <source>Open link in the same browser tab if chat is in the widget</source>
+      <translation>Open link in the same browser tab if chat is in the widget</translation>
+    </message>
+    <message>
       <source>Show go to survey button on chat close</source>
       <translation>Schaltfläche &quot;Zur Umfrage gehen&quot; beim Schließen des Chats anzeigen</translation>
     </message>
@@ -1912,6 +1912,10 @@
     <message>
       <source>Automatically determine intro message by bot default message</source>
       <translation>Automatische Bestimmung der Intro-Nachricht durch die Standardbot-Nachricht</translation>
+    </message>
+    <message>
+      <source>Use bot profile in the widget instead of default</source>
+      <translation>Nutze das Bot-Profil anstelle des Standard-Profils</translation>
     </message>
     <message>
       <source>Try to detect language from browser headers</source>
@@ -2101,8 +2105,8 @@
       <translation>aktiviert werden</translation>
     </message>
     <message>
-      <source>Object ID</source>
-      <translation>Objekt ID</translation>
+      <source>[Record ID] [Object ID]</source>
+      <translation>[Record ID] [Object ID]</translation>
     </message>
     <message>
       <source>Category</source>
@@ -3294,6 +3298,10 @@
       <translation>Auch wenn Sie ein Jahr eingeben. Diese Dauermeldung wird jedes Jahr zur gleichen Zeit aktiv sein.</translation>
     </message>
     <message>
+      <source>Time in database server</source>
+      <translation>Zeit in dem Datenbank-Server</translation>
+    </message>
+    <message>
       <source>Edit department</source>
       <translation>Abteilung bearbeiten</translation>
     </message>
@@ -3314,8 +3322,8 @@
       <translation>Name</translation>
     </message>
     <message>
-      <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored.</source>
-      <translation>Wenn Sie einen Alias eingeben, stellen Sie sicher, dass Sie diese Zeichenfolge als Argument für eine Abteilung übergeben. Andernfalls wird das Argument ignoriert.</translation>
+      <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored. It has to be not number!</source>
+      <translation>Wenn Sie einen Alias eingeben, stellen Sie sicher, dass Sie diese Zeichenfolge als Argument für eine Abteilung übergeben. Andernfalls wird das Argument ignoriert. Es darf keine Nummer sein!</translation>
     </message>
     <message>
       <source>Alias for argument. No spaces or slashes.</source>
@@ -3336,6 +3344,10 @@
     <message>
       <source>Hidden</source>
       <translation>Versteckt</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>Offline</translation>
     </message>
     <message>
       <source>Archived</source>
@@ -3434,6 +3446,10 @@
       <translation>hier</translation>
     </message>
     <message>
+      <source>If we find custom period for specific day it takes priority over day work hours definition</source>
+      <translation>Wenn wir einen benutzerdefinierten Zeitraum für einen bestimmten Tag finden, hat dieser Vorrang vor der Definition von Arbeitszeiten</translation>
+    </message>
+    <message>
       <source>to render widget online status</source>
       <translation>um den Online-Status des Widgets wiederzugeben</translation>
     </message>
@@ -3478,6 +3494,18 @@
       <translation>Benutzerdefinierter Zeitraum</translation>
     </message>
     <message>
+      <source>Period</source>
+      <translation>Zeitraum</translation>
+    </message>
+    <message>
+      <source>Day of the week</source>
+      <translation>Wochentag</translation>
+    </message>
+    <message>
+      <source>Choose day of the week</source>
+      <translation>wähle einen Wochentag</translation>
+    </message>
+    <message>
       <source>Date from</source>
       <translation>Datum, von</translation>
     </message>
@@ -3492,10 +3520,6 @@
     <message>
       <source>Add</source>
       <translation>Hinzufügen</translation>
-    </message>
-    <message>
-      <source>Period</source>
-      <translation>Zeitraum</translation>
     </message>
     <message>
       <source>Start time</source>
@@ -4440,6 +4464,30 @@
       <translation>Diese Nachricht wird den Besuchern angezeigt, die ein Chat-Widget öffnen.</translation>
     </message>
     <message>
+      <source>Activate maintenance mode</source>
+      <translation>Wartungsarbeiten aktivieren</translation>
+    </message>
+    <message>
+      <source>Show widget in maintenance mode</source>
+      <translation>Soll das Widget im Wartungsmodus angezeigt werden</translation>
+    </message>
+    <message>
+      <source>New chats can not be started, widget will be hidden.</source>
+      <translation>Neue Chats können nicht gestartet werden, Widget wird ausgeblendet</translation>
+    </message>
+    <message>
+      <source>Widget will be visible for those who have already started a chat.</source>
+      <translation>Widget ist bei den Besuchern eingeblendet, welche bereits einen Chat geöffnet haben.</translation>
+    </message>
+    <message>
+      <source>Anyone who have widget open and want to start a chat will get validation error.</source>
+      <translation>Jeder, der das Widget geöffnet hat und einen Chat starten möchte, erhält einen Validierungsfehler.</translation>
+    </message>
+    <message>
+      <source>After you see there are no pending/bot/active chats you can turn off the server or do your thing.</source>
+      <translation>Wenn du siehst, dass keine Chats mehr anstehen oder aktiv sind, kannst du den Server ausschalten oder so.</translation>
+    </message>
+    <message>
       <source>If none of the above conditions are met widget will become hidden.</source>
       <translation>Wenn keine der Bedingungen oben erfüllt ist, wird das Widget verborgen.</translation>
     </message>
@@ -5127,6 +5175,34 @@
       <translation>Suche nach einem Benutzer.  Die ersten 50 Benutzer werden angezeigt.</translation>
     </message>
     <message>
+      <source>Monday</source>
+      <translation>Montag</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Dienstag</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Mittwoch</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Donnerstag</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Freitag</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Samstag</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Sonntag</translation>
+    </message>
+    <message>
       <source>Brand members</source>
       <translation>Mitglieder der Marke</translation>
     </message>
@@ -5139,8 +5215,8 @@
       <translation>Der Bot folgt den Online-Zeiten. Die Abteilung ist offline, wenn es keine Online-Operatoren gibt oder es außerhalb der Arbeitszeiten liegt.</translation>
     </message>
     <message>
-      <source>Enable debug logging</source>
-      <translation>Debug-Protokollierung einschalten</translation>
+      <source>Enable debug logging. Records will be found in Audit Log</source>
+      <translation>Aktivieren Sie die Debug-Protokollierung. Die Aufzeichnungen werden im Audit Log gefunden</translation>
     </message>
     <message>
       <source>Select translations</source>
@@ -5149,6 +5225,10 @@
     <message>
       <source>Name</source>
       <translation>Name</translation>
+    </message>
+    <message>
+      <source>Alias</source>
+      <translation>Alias</translation>
     </message>
     <message>
       <source>Hidden</source>
@@ -5185,6 +5265,10 @@
     <message>
       <source>Only persistent</source>
       <translation>Nur hartnäckige</translation>
+    </message>
+    <message>
+      <source>Choose Rest API</source>
+      <translation>Wähle die Rest-API aus</translation>
     </message>
     <message>
       <source>Please choose</source>
@@ -5403,6 +5487,14 @@
       <translation>Verteilerliste auswählen</translation>
     </message>
     <message>
+      <source>View as report</source>
+      <translation>Als Meldung anzeigen</translation>
+    </message>
+    <message>
+      <source>Report</source>
+      <translation>Meldung</translation>
+    </message>
+    <message>
       <source>Please click search first</source>
       <translation>Bitte erst auf Suche klicken</translation>
     </message>
@@ -5575,6 +5667,14 @@
       <translation>Deaktivierte Betreiber ausschließen</translation>
     </message>
     <message>
+      <source>Mail statistic is based on conversation user</source>
+      <translation>Die E-Mail-Statistik basiert auf der Konversation der Benutzer</translation>
+    </message>
+    <message>
+      <source>Group by mail conversations</source>
+      <translation>Gruppengespräche per E-Mail</translation>
+    </message>
+    <message>
       <source>Agent</source>
       <translation>Agent</translation>
     </message>
@@ -5609,34 +5709,6 @@
     <message>
       <source>Day of the week</source>
       <translation>Wochentag</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Sonntag</translation>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation>Montag</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Dienstag</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Mittwoch</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Donnerstag</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Freitag</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Samstag</translation>
     </message>
     <message>
       <source>Day interval to include from</source>
@@ -7192,6 +7264,14 @@
       <translation>Ihre Anfrage konnte nicht wie erwartet verarbeitet werden. Aber keine Sorge, dies war nicht ihr Fehler. Bitte senden Sie die Anfrage erneut. Falls Sie dieser Fehler wieder auftritt, müssen Sie uns über einen anderen Weg kontaktieren.</translation>
     </message>
     <message>
+      <source>Chat started by</source>
+      <translation>Chat wurde gestartet von</translation>
+    </message>
+    <message>
+      <source>payload!</source>
+      <translation>Nutzlast!</translation>
+    </message>
+    <message>
       <source>File is to big! Maximum</source>
       <translation>Datei ist zu groß! Maximum</translation>
     </message>
@@ -7256,12 +7336,24 @@
       <translation>Update-Aktionen konnten nicht gefunden werden!</translation>
     </message>
     <message>
+      <source>We are still working on your previous request!</source>
+      <translation>Wir bearbeiten noch eine vorherige Anfrage</translation>
+    </message>
+    <message>
       <source>Please enter a message, max characters</source>
       <translation>Bitte eine Nachricht mit maximalen Zeichen eingeben</translation>
     </message>
     <message>
       <source>You cannot send messages to this chat. Please refresh your browser.</source>
       <translation>Sie können keine Nachrichten an diesen Chat senden. Bitte aktualisieren Sie Ihren Browser.</translation>
+    </message>
+    <message>
+      <source>Message was removed!</source>
+      <translation>Nachricht entfernt</translation>
+    </message>
+    <message>
+      <source>Message could not be found!</source>
+      <translation>Nachricht konnte nicht gefunden werden!</translation>
     </message>
     <message>
       <source>You can edit only your last message!</source>
@@ -7274,10 +7366,6 @@
     <message>
       <source>No last message was found!</source>
       <translation>Es wurde keine letzte Nachricht gefunden!</translation>
-    </message>
-    <message>
-      <source>Message could not be found!</source>
-      <translation>Nachricht konnte nicht gefunden werden!</translation>
     </message>
     <message>
       <source>Pending Chat</source>
@@ -7334,6 +7422,10 @@
     <message>
       <source>You can edit only your own messages!</source>
       <translation>Sie können nur Ihre eigenen Nachrichten bearbeiten!</translation>
+    </message>
+    <message>
+      <source>Chat was already closed!</source>
+      <translation>Chat wurde bereits geschlossen</translation>
     </message>
     <message>
       <source>You have subscribed to new messages notifications!</source>
@@ -8865,6 +8957,14 @@
       <translation>War offline für</translation>
     </message>
     <message>
+      <source>Went online</source>
+      <translation>ging Online</translation>
+    </message>
+    <message>
+      <source>Went offline</source>
+      <translation>ging Offline</translation>
+    </message>
+    <message>
       <source>Active chats</source>
       <translation>Aktive Chats</translation>
     </message>
@@ -9263,8 +9363,16 @@
       <translation>Produkt</translation>
     </message>
     <message>
+      <source>Page from where visitor started a chat.</source>
+      <translation>Seite, von der der Besucher einen Chat gestartet hat</translation>
+    </message>
+    <message>
       <source>Screenshot</source>
       <translation>Bildschirmfoto</translation>
+    </message>
+    <message>
+      <source>Page from where visitor come and was seen very first time in current session.</source>
+      <translation>Seite, von der der Besucher kommt und in der aktuellen Sitzung zum ersten Mal gesehen wurde.</translation>
     </message>
     <message>
       <source>Theme</source>
@@ -9369,6 +9477,10 @@
     <message>
       <source>Include bot messages</source>
       <translation>Bot-Nachrichten einbeziehen</translation>
+    </message>
+    <message>
+      <source>Include whisper messages</source>
+      <translation>Flüsternachrichten einbeziehen</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -9511,6 +9623,10 @@
       <translation>aktiv</translation>
     </message>
     <message>
+      <source>excluded from auto closing!</source>
+      <translation>vom automatischen Schließen ausgeschlossen!</translation>
+    </message>
+    <message>
       <source>No related mail tickets were found!</source>
       <translation>Es wurden keine zugehörigen Mail-Tickets gefunden!</translation>
     </message>
@@ -9533,6 +9649,10 @@
     <message>
       <source>Offline message</source>
       <translation>Offline-Nachricht</translation>
+    </message>
+    <message>
+      <source>Department is offline, bot cannot be assigned!</source>
+      <translation>Abteilung ist offline, Bot kann nicht zugewiesen werden!</translation>
     </message>
     <message>
       <source>Auto responder got error</source>
@@ -9847,6 +9967,30 @@
       <translation>Geöffneter Chat von</translation>
     </message>
     <message>
+      <source>Reply To</source>
+      <translation>Antwort an</translation>
+    </message>
+    <message>
+      <source>Reason</source>
+      <translation>Grund</translation>
+    </message>
+    <message>
+      <source>Last user message</source>
+      <translation>Letzte Nachricht des Benutzers</translation>
+    </message>
+    <message>
+      <source>Last operator message</source>
+      <translation>Letzte Nachricht des Mitarbeiters</translation>
+    </message>
+    <message>
+      <source>Last time visitor seen</source>
+      <translation>Letztes Mal wo der Besucher gesehen wurde</translation>
+    </message>
+    <message>
+      <source>Delay</source>
+      <translation>Verzögerung</translation>
+    </message>
+    <message>
       <source>Hide/Show HTML Code</source>
       <translation>HTML-Code ausblenden/anzeigen</translation>
     </message>
@@ -9873,6 +10017,14 @@
     <message>
       <source>Chat was closed by cron because of inactivity!</source>
       <translation>Chat wurde von cron wegen Inaktivität geschlossen!</translation>
+    </message>
+    <message>
+      <source>Chat was closed by cron because visitor left the bot chat!</source>
+      <translation>Chat wurde von Cron geschlossen, weil Besucher den Bot-Chat verlassen hat!</translation>
+    </message>
+    <message>
+      <source>Chat was closed by cron because visitor left the active chat!</source>
+      <translation>Der Chat wurde von Cron geschlossen, weil ein Besucher den aktiven Chat verlassen hat!</translation>
     </message>
     <message>
       <source>Chat was closed by cron because visitor left the pending chat!</source>
@@ -10350,8 +10502,8 @@
       <translation>Besucher blockieren</translation>
     </message>
     <message>
-      <source>Online user (cookie)</source>
-      <translation>Online-Nutzer (Cookie)</translation>
+      <source>Online user profile</source>
+      <translation>Online-Nutzerprofil</translation>
     </message>
     <message>
       <source>day (cool off)</source>
@@ -10383,7 +10535,7 @@
     </message>
     <message>
       <source>This IP can not be blocked!</source>
-      <translation type="unfinished"/>
+      <translation>Diese IP-Adresse kann nicht gesperrt werden!</translation>
     </message>
     <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
@@ -10897,10 +11049,6 @@
       <translation>Allgemein</translation>
     </message>
     <message>
-      <source>Add translation</source>
-      <translation>Übersetzung hinzufügen</translation>
-    </message>
-    <message>
       <source>New password was set, copy it or</source>
       <translation>Neues Passwort wurde festgelegt, kopieren Sie es oder</translation>
     </message>
@@ -10927,6 +11075,10 @@
     <message>
       <source>Online</source>
       <translation>Online</translation>
+    </message>
+    <message>
+      <source>Add translation</source>
+      <translation>Übersetzung hinzufügen</translation>
     </message>
   </context>
   <context>
@@ -11363,6 +11515,10 @@
       <translation>Bearbeiten</translation>
     </message>
     <message>
+      <source>Remove</source>
+      <translation>entfernen</translation>
+    </message>
+    <message>
       <source>Quote</source>
       <translation>Zitat</translation>
     </message>
@@ -11497,6 +11653,10 @@
     <message>
       <source>Operator chats statistic</source>
       <translation>Statistik der Operator-Chats</translation>
+    </message>
+    <message>
+      <source>All items will appear here</source>
+      <translation>Alle Einträge werden hier erscheinen</translation>
     </message>
     <message>
       <source>Search for department</source>
@@ -12338,8 +12498,76 @@
       <translation>Beendet</translation>
     </message>
     <message>
+      <source>Previous chat assigned</source>
+      <translation>Vorheriger Chat zugewiesen</translation>
+    </message>
+    <message>
+      <source>Current chat assigned</source>
+      <translation>Aktueller Chat zugewiesen</translation>
+    </message>
+    <message>
+      <source>Finished assign</source>
+      <translation>Beendete Zuordnung</translation>
+    </message>
+    <message>
+      <source>Pending Chats</source>
+      <translation>Ausstehende Chats</translation>
+    </message>
+    <message>
+      <source>Active Chats</source>
+      <translation>Aktive Chats</translation>
+    </message>
+    <message>
+      <source>Inactive Chats</source>
+      <translation>Inaktive Chats</translation>
+    </message>
+    <message>
+      <source>Last assigned was updated successfully</source>
+      <translation>Letzte Zuweisung wurde erfolgreich aktualisiert</translation>
+    </message>
+    <message>
+      <source>Last assigned update failed</source>
+      <translation>Letzte zugewiesene Aktualisierung fehlgeschlagen</translation>
+    </message>
+    <message>
+      <source>Active chats were updated successfully</source>
+      <translation>Aktive Chats wurden erfolgreich aktualisiert</translation>
+    </message>
+    <message>
+      <source>Active chats update failed</source>
+      <translation>Aktualisierung aktiver Chats fehlgeschlagen</translation>
+    </message>
+    <message>
       <source>Chat is still running</source>
       <translation>Chat ist noch aktiv</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Anhängige Chats</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Aktive Chats</translation>
+    </message>
+    <message>
+      <source>Inactive chats</source>
+      <translation>Inaktive Chats</translation>
+    </message>
+    <message>
+      <source>Active chats update</source>
+      <translation>Aktualisierung der aktiven Chats</translation>
+    </message>
+    <message>
+      <source>Last assigned update</source>
+      <translation>Letzte zugewiesene Aktualisierung</translation>
+    </message>
+    <message>
+      <source>Start period*</source>
+      <translation>Startzeitraum*</translation>
+    </message>
+    <message>
+      <source>End period</source>
+      <translation>Ende der Periode</translation>
     </message>
   </context>
   <context>
@@ -12577,6 +12805,10 @@
       <translation>Benutzer-Statistiken</translation>
     </message>
     <message>
+      <source>Chats momentary history</source>
+      <translation>Chats momentane Geschichte</translation>
+    </message>
+    <message>
       <source>Last chat assigned ago</source>
       <translation>Letzter Chat vor vergeben</translation>
     </message>
@@ -12595,6 +12827,10 @@
     <message>
       <source>All</source>
       <translation>Alle</translation>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation>Suche</translation>
     </message>
   </context>
   <context>
@@ -12686,6 +12922,18 @@
     <message>
       <source>In dynamic chats order mode</source>
       <translation>Im Modus &quot;Dynamische Chats bestellen</translation>
+    </message>
+    <message>
+      <source>Switch between old and new editor</source>
+      <translation>Umschalten zwischen altem und neuem Editor</translation>
+    </message>
+    <message>
+      <source>Switch to old editor</source>
+      <translation>Zum alten Editor wechseln</translation>
+    </message>
+    <message>
+      <source>Switch to new editor</source>
+      <translation>Zum neuen Editor wechseln</translation>
     </message>
     <message>
       <source>Click to switch modes</source>
@@ -12901,6 +13149,10 @@
     <message>
       <source>Change my persistent status to online</source>
       <translation>Meinen dauerhaften Status auf online ändern</translation>
+    </message>
+    <message>
+      <source>Change my status to online/offline. Ctrl + F12 Shortcut.</source>
+      <translation>Meinen Status auf online/offline ändern. Tastenkombination Strg + F12.</translation>
     </message>
     <message>
       <source>Send chat to your email!</source>
@@ -13313,6 +13565,18 @@
       <source>Chat information was updated</source>
       <translation>Chatinformationen wurden aktualisiert</translation>
     </message>
+    <message>
+      <source>Actions</source>
+      <translation>Aktionen</translation>
+    </message>
+    <message>
+      <source>Conversation</source>
+      <translation>Konversation</translation>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation>Nachrichten</translation>
+    </message>
   </context>
   <context>
     <name>system/configuration</name>
@@ -13579,6 +13843,10 @@
     <message>
       <source>Sessions</source>
       <translation>Sitzungen</translation>
+    </message>
+    <message>
+      <source>Notice message</source>
+      <translation>Nachricht beachten</translation>
     </message>
     <message>
       <source>Notifications</source>
@@ -14131,6 +14399,10 @@
       <source>ago at</source>
       <translation>vor</translation>
     </message>
+    <message>
+      <source>Message was removed!</source>
+      <translation>Nachricht wurde entfernt!</translation>
+    </message>
   </context>
   <context>
     <name>chat/maintenance</name>
@@ -14188,6 +14460,10 @@
     <message>
       <source>Proactive chats number vs visitors initiated</source>
       <translation>Proaktive Chatanzahl vs Besucher eingeladen</translation>
+    </message>
+    <message>
+      <source>Device type</source>
+      <translation>Gerätetyp</translation>
     </message>
     <message>
       <source>Number of chats by subject</source>
@@ -14310,6 +14586,18 @@
       <translation>Besucher initiiert</translation>
     </message>
     <message>
+      <source>Mobile</source>
+      <translation>Mobil</translation>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation>Tablette</translation>
+    </message>
+    <message>
+      <source>Desktop</source>
+      <translation>Desktoip-Geräte</translation>
+    </message>
+    <message>
       <source>Visitors</source>
       <translation>Besucher</translation>
     </message>
@@ -14378,12 +14666,20 @@
       <translation>Chats insgesamt</translation>
     </message>
     <message>
+      <source>Proactive chats number vs visitor initiated</source>
+      <translation>Anzahl proaktiver Chats im Vergleich zu von Besuchern initiierten Chats</translation>
+    </message>
+    <message>
       <source>Total chats by channel</source>
       <translation>Chats insgesamt nach Kanal</translation>
     </message>
     <message>
       <source>Proactive</source>
       <translation>Proaktiv</translation>
+    </message>
+    <message>
+      <source>Visitor initiated</source>
+      <translation>Besucher initiiert</translation>
     </message>
     <message>
       <source>Default checked charts for</source>
@@ -15974,6 +16270,10 @@
       <translation>Überlastet</translation>
     </message>
     <message>
+      <source>Offline</source>
+      <translation>Offline</translation>
+    </message>
+    <message>
       <source>Archived</source>
       <translation>Archiviert</translation>
     </message>
@@ -16364,6 +16664,29 @@
     <message>
       <source>Edit</source>
       <translation>Bearbeiten</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhsystem/singlesetting</name>
+    <message>
+      <source>Settings</source>
+      <translation>Einstellungen</translation>
+    </message>
+    <message>
+      <source>Ignore operators online statuses and use departments online hours.</source>
+      <translation>Ignorieren Sie den Online-Status der Betreiber und nutzen Sie die Online-Stunden der Abteilungen.</translation>
+    </message>
+    <message>
+      <source>For all departments.</source>
+      <translation>Für alle Abteilungen.</translation>
+    </message>
+    <message>
+      <source>Only for this department.</source>
+      <translation>Nur für diese Abteilung.</translation>
+    </message>
+    <message>
+      <source>This is a global setting and is set for the all departments.</source>
+      <translation>Dies ist eine globale Einstellung und wird für alle Abteilungen festgelegt.</translation>
     </message>
   </context>
   <context>
@@ -16894,6 +17217,10 @@
       <translation>Bot importieren</translation>
     </message>
     <message>
+      <source>In case you have imported the Rest API already. You can make sure the imported bot uses the chosen Rest API.</source>
+      <translation>Falls Sie die Rest-API bereits importiert haben. Sie können sicherstellen, dass der importierte Bot die ausgewählte Rest-API verwendet.</translation>
+    </message>
+    <message>
       <source>Bot imported</source>
       <translation>Bot importiert</translation>
     </message>
@@ -16958,6 +17285,18 @@
     <message>
       <source>Host</source>
       <translation>Gastgeber</translation>
+    </message>
+    <message>
+      <source>Log all request and their responses in audit log.</source>
+      <translation>Protokollieren Sie alle Anfragen und ihre Antworten im Audit-Protokoll.</translation>
+    </message>
+    <message>
+      <source>Log all request and their responses as system messages.</source>
+      <translation>Protokollieren Sie alle Anfragen und ihre Antworten als Systemmeldungen.</translation>
+    </message>
+    <message>
+      <source>Ignore request with these http statuses. Separate multiple by comma.</source>
+      <translation>Ignoriere Anfragen mit diesen http-Status. Trennen Sie mehrere durch Komma.</translation>
     </message>
     <message>
       <source>Enable cache</source>
@@ -17034,6 +17373,14 @@
     <message>
       <source>Remote Message ID</source>
       <translation>ID der Fernmeldung</translation>
+    </message>
+    <message>
+      <source>Polling</source>
+      <translation>Abfrage</translation>
+    </message>
+    <message>
+      <source>Streaming</source>
+      <translation>Streaming</translation>
     </message>
     <message>
       <source>You can put visitor message as placeholder</source>
@@ -17184,8 +17531,8 @@
       <translation>Antwort Standort 1. Verfügbar als {content_1} in Nachrichten.</translation>
     </message>
     <message>
-      <source>response:msg you can leave an empty if you want forward whole response.</source>
-      <translation>response:msg können Sie leer lassen, wenn Sie die gesamte Antwort weiterleiten möchten.</translation>
+      <source>response:msg you can leave an empty if you want forward whole response or enter __all__.</source>
+      <translation>response:msg können Sie leer lassen, wenn Sie die gesamte Antwort weiterleiten wollen, oder __all__ eingeben.</translation>
     </message>
     <message>
       <source>Response Location 2. Available as {content_2} in messages.</source>
@@ -17212,6 +17559,14 @@
       <translation>Ort der Meta-Meldung. Wenn Sie die JSON-Syntax von Live Helper Chat unterstützen, können Sie den Ort dieser Antwort festlegen.</translation>
     </message>
     <message>
+      <source>Preg replace rules to apply extracted content.</source>
+      <translation>Preg-Ersetzungsregeln zur Anwendung extrahierter Inhalte.</translation>
+    </message>
+    <message>
+      <source>You can apply preg replace rules to extracted content. One rule per row. Format example: ^.{5,}+$==&gt;Replace with content</source>
+      <translation>Sie können preg replace Regeln auf extrahierte Inhalte anwenden. Eine Regel pro Zeile. Beispiel für das Format: ^.{5,}+$==&gt;Ersetzen durch Inhalt</translation>
+    </message>
+    <message>
       <source>Custom event</source>
       <translation>Benutzerdefiniertes Ereignis</translation>
     </message>
@@ -17228,8 +17583,20 @@
       <translation>Ort der Antwort. Sie schlägt auch fehl, wenn das Attribut nicht gefunden wird.</translation>
     </message>
     <message>
+      <source>response:msg you can leave an empty if you want forward whole response.</source>
+      <translation>response:msg können Sie leer lassen, wenn Sie die gesamte Antwort weiterleiten möchten.</translation>
+    </message>
+    <message>
       <source>Response comparison</source>
       <translation>Vergleich der Antworten</translation>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation>Wählen Sie</translation>
+    </message>
+    <message>
+      <source>Not empty</source>
+      <translation>Nicht leer</translation>
     </message>
     <message>
       <source>Comparison value</source>
@@ -17240,8 +17607,48 @@
       <translation>Zu vergleichender Wert</translation>
     </message>
     <message>
+      <source>Streaming options</source>
+      <translation>Streaming-Optionen</translation>
+    </message>
+    <message>
+      <source>Output is matched only if event is this type</source>
+      <translation>Die Ausgabe wird nur abgestimmt, wenn das Ereignis von diesem Typ ist</translation>
+    </message>
+    <message>
+      <source>Stream content if output is matched.</source>
+      <translation>Stream-Inhalt, wenn die Ausgabe übereinstimmt.</translation>
+    </message>
+    <message>
+      <source>Stream content as HTML.</source>
+      <translation>Inhalte als HTML streamen.</translation>
+    </message>
+    <message>
+      <source>Execute trigger on matched content. Stream will continue afterwards.</source>
+      <translation>Auslöser für übereinstimmende Inhalte ausführen. Der Stream wird anschließend fortgesetzt.</translation>
+    </message>
+    <message>
+      <source>If matched use response as final response.</source>
+      <translation>Bei Übereinstimmung Antwort als endgültige Antwort verwenden.</translation>
+    </message>
+    <message>
       <source>If you want to add custom data within each send message to its meta_data attribute you can provide response path here</source>
       <translation>Wenn Sie benutzerdefinierte Daten in das meta_data-Attribut jeder gesendeten Nachricht einfügen möchten, können Sie hier den Antwortpfad angeben</translation>
+    </message>
+    <message>
+      <source>Repeat request n times if conditions is not met (polling)</source>
+      <translation>Wiederholung der Anfrage n-mal, wenn die Bedingungen nicht erfüllt sind (Polling)</translation>
+    </message>
+    <message>
+      <source>Making n seconds delay between each request</source>
+      <translation>Verzögerung von n Sekunden zwischen den einzelnen Anfragen</translation>
+    </message>
+    <message>
+      <source>This is a streaming request</source>
+      <translation>Dies ist eine Streaming-Anfrage</translation>
+    </message>
+    <message>
+      <source>Streaming event type field</source>
+      <translation>Feld für die Art des Streaming-Ereignisses</translation>
     </message>
   </context>
   <context>
@@ -17259,6 +17666,10 @@
       <translation>Betreiber nick</translation>
     </message>
     <message>
+      <source>Previous chat additional chat variable</source>
+      <translation>Vorheriger Chat zusätzliche Chat-Variable</translation>
+    </message>
+    <message>
       <source>Visitor nick</source>
       <translation>Besucher nick</translation>
     </message>
@@ -17272,7 +17683,7 @@
     </message>
     <message>
       <source>canned message replaceable variables</source>
-      <translation type="unfinished"/>
+      <translation>ersetzbare Variablen für Festnetzmeldungen</translation>
     </message>
     <message>
       <source>If you are using those vars in Rest API calls make sure you use double brackets E.g</source>
@@ -17317,6 +17728,10 @@
     <message>
       <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
       <translation>Beschreibt die durchschnittliche Zeit, die der Agent für die Beantwortung einer Nachricht an den Besucher benötigt, wobei er die gesamte Konversation berücksichtigt.</translation>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
+      <translation>Gibt an, wie lange der Chat dauerte, bevor er beendet wurde. Die Chatdauer basiert auf der Zeit, die zwischen den Nachrichten vergeht.</translation>
     </message>
     <message>
       <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
@@ -17730,6 +18145,18 @@
     <message>
       <source>Subject to add if mail ticket is closed from chat. Enter a subject ID</source>
       <translation>Betreff, der hinzugefügt werden soll, wenn das E-Mail-Ticket im Chat geschlossen wird. Geben Sie eine Betreff-ID ein</translation>
+    </message>
+    <message>
+      <source>Matching rules to exclude mailbox being automatically closed. Defines matching rule for the mailbox.</source>
+      <translation>Übereinstimmungsregeln, um auszuschließen, dass die Mailbox automatisch geschlossen wird. Definiert die Übereinstimmungsregel für die Mailbox.</translation>
+    </message>
+    <message>
+      <source>Each new matching rule per line.</source>
+      <translation>Jede neue passende Regel pro Zeile.</translation>
+    </message>
+    <message>
+      <source>E.g.</source>
+      <translation>z.B.</translation>
     </message>
   </context>
   <context>
@@ -18263,6 +18690,10 @@
       <translation>Absender ist blockiert!</translation>
     </message>
     <message>
+      <source>Response type</source>
+      <translation>Antworttyp</translation>
+    </message>
+    <message>
       <source>Active</source>
       <translation>Aktiv</translation>
     </message>
@@ -18315,8 +18746,8 @@
       <translation>Dies ist unsere Antwortnachricht</translation>
     </message>
     <message>
-      <source>Responeded by e-mail</source>
-      <translation>Per E-Mail geantwortet</translation>
+      <source>Un-responded</source>
+      <translation>Unbeantwortete Fragen</translation>
     </message>
     <message>
       <source>ago</source>
@@ -19017,6 +19448,10 @@
       <translation>Bilder/Video 6</translation>
     </message>
     <message>
+      <source>Messages delivery and reactions</source>
+      <translation>Nachrichtenübermittlung und Reaktionen</translation>
+    </message>
+    <message>
       <source>Chat options</source>
       <translation>Chat-Optionen</translation>
     </message>
@@ -19025,12 +19460,36 @@
       <translation>Attribute</translation>
     </message>
     <message>
+      <source>Message related attributes</source>
+      <translation>Nachrichtenbezogene Attribute</translation>
+    </message>
+    <message>
       <source>Messages attribute location</source>
       <translation>Nachrichten Attribut Standort</translation>
     </message>
     <message>
       <source>This attribute contains direct message and NOT a messages array</source>
       <translation>Dieses Attribut enthält eine direkte Nachricht und NICHT ein Nachrichten-Array</translation>
+    </message>
+    <message>
+      <source>Messages ID</source>
+      <translation>Nachrichten ID</translation>
+    </message>
+    <message>
+      <source>Check for messages uniqueness by message id</source>
+      <translation>Prüfung auf Eindeutigkeit der Nachrichten anhand der Nachrichten-ID</translation>
+    </message>
+    <message>
+      <source>Reply to message ID</source>
+      <translation>Antwort auf Nachricht ID</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Zeit</translation>
+    </message>
+    <message>
+      <source>Chat related attributes</source>
+      <translation>Chatbezogene Attribute</translation>
     </message>
     <message>
       <source>Nick</source>
@@ -19057,16 +19516,20 @@
       <translation>E-Mail</translation>
     </message>
     <message>
-      <source>Time</source>
-      <translation>Zeit</translation>
-    </message>
-    <message>
       <source>Chat ID field location</source>
       <translation>Position des Chat-ID-Feldes</translation>
     </message>
     <message>
       <source>Chat ID 2 field location</source>
       <translation>Chat-ID 2 Feldposition</translation>
+    </message>
+    <message>
+      <source>Switch Chat ID with Chat ID 2 if this condition matches</source>
+      <translation>Chat-ID mit Chat-ID 2 vertauschen, wenn diese Bedingung erfüllt ist</translation>
+    </message>
+    <message>
+      <source>We will combine both fields into single identifier</source>
+      <translation>Wir werden beide Felder zu einem einzigen Bezeichner kombinieren</translation>
     </message>
     <message>
       <source>Chat ID Template for manual message sending. Use {chat_id} as placeholder</source>
@@ -19179,6 +19642,54 @@
     <message>
       <source>For message being considered images message should have attribute value equal to</source>
       <translation>Damit die Nachricht als Bilder betrachtet werden kann, sollte das Attribut message den folgenden Wert haben</translation>
+    </message>
+    <message>
+      <source>Message ID location</source>
+      <translation>Ort der Nachrichten-ID</translation>
+    </message>
+    <message>
+      <source>For message being considered deleted, message should have attribute value equal to</source>
+      <translation>Damit eine Nachricht als gelöscht gilt, sollte der Attributwert der Nachricht gleich sein</translation>
+    </message>
+    <message>
+      <source>All unread chat messages should be marked as read</source>
+      <translation>Alle ungelesenen Chat-Nachrichten sollten als gelesen markiert werden</translation>
+    </message>
+    <message>
+      <source>For message being considered text message edit</source>
+      <translation>Für eine Nachricht, die als Textnachricht gilt, bearbeiten</translation>
+    </message>
+    <message>
+      <source>Message id location to which visitor reacted</source>
+      <translation>Nachrichten-ID Ort, auf den der Besucher reagiert hat</translation>
+    </message>
+    <message>
+      <source>Reaction message ID</source>
+      <translation>ID der Reaktionsmeldung</translation>
+    </message>
+    <message>
+      <source>For message being considered reaction message</source>
+      <translation>Für die Nachricht, die als Reaktionsmeldung gilt</translation>
+    </message>
+    <message>
+      <source>Reaction emoji location</source>
+      <translation>Reaktion Emoji Standort</translation>
+    </message>
+    <message>
+      <source>Try to find chat by message id if we chat was not found by id</source>
+      <translation>Versucht, den Chat anhand der Nachrichten-ID zu finden, wenn wir den Chat nicht anhand der ID gefunden haben</translation>
+    </message>
+    <message>
+      <source>Reaction is a standalone unicode character</source>
+      <translation>Reaktion ist ein eigenständiges Unicode-Zeichen</translation>
+    </message>
+    <message>
+      <source>Remove previous visitor reaction on action</source>
+      <translation>Vorherige Besucherreaktion auf Aktion entfernen</translation>
+    </message>
+    <message>
+      <source>Remove previous visitor reaction if emoji location is empty</source>
+      <translation>Vorherige Besucherreaktion entfernen, wenn die Emoji-Position leer ist</translation>
     </message>
     <message>
       <source>If previous chat is found and it is closed we should</source>
@@ -20852,6 +21363,18 @@
       <translation>Einstellungen aktualisiert</translation>
     </message>
     <message>
+      <source>Notice message</source>
+      <translation>Notiz</translation>
+    </message>
+    <message>
+      <source>Level of notice</source>
+      <translation>Level der Notiz</translation>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation>Nachricht</translation>
+    </message>
+    <message>
       <source>Please choose correct language</source>
       <translation>Bitte korrekte Sprache wählen</translation>
     </message>
@@ -20982,7 +21505,7 @@
     </message>
     <message>
       <source>Bind IP, multiple IP can be separated by comma. Random IP will be chosen.</source>
-      <translation type="unfinished"/>
+      <translation>Bind IP, mehrere IP können durch Komma getrennt werden. Es wird eine zufällige IP gewählt.</translation>
     </message>
     <message>
       <source>Re-captcha settings</source>
@@ -21018,29 +21541,6 @@
     <message>
       <source>Secret key is not shown!</source>
       <translation>Geheimer Schlüssel wird verborgen!</translation>
-    </message>
-  </context>
-  <context>
-    <name>lhsystem/singlesetting</name>
-    <message>
-      <source>Settings</source>
-      <translation>Einstellungen</translation>
-    </message>
-    <message>
-      <source>Ignore operators online statuses and use departments online hours.</source>
-      <translation>Ignorieren Sie den Online-Status der Betreiber und nutzen Sie die Online-Stunden der Abteilungen.</translation>
-    </message>
-    <message>
-      <source>For all departments.</source>
-      <translation>Für alle Abteilungen.</translation>
-    </message>
-    <message>
-      <source>Only for this department.</source>
-      <translation>Nur für diese Abteilung.</translation>
-    </message>
-    <message>
-      <source>This is a global setting and is set for the all departments.</source>
-      <translation>Dies ist eine globale Einstellung und wird für alle Abteilungen festgelegt.</translation>
     </message>
   </context>
   <context>
@@ -21895,8 +22395,8 @@
   <context>
     <name>user/wentinactive</name>
     <message>
-      <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation>Wegen Inaktivität sind Sie offline gegangen. Klicken Sie auf Fortfahren um online zu gehen.</translation>
+      <source>Because of inactivity you went offline, click continue to go online. Ctrl+F12 Shortcut.</source>
+      <translation>Aufgrund von Inaktivität sind Sie offline gegangen. Klicken Sie auf Weiter, um online zu gehen. Tastenkombination Strg+F12.</translation>
     </message>
     <message>
       <source>Continue</source>
@@ -22971,6 +23471,10 @@
       <translation>Bitte einen Namen für die Abteilung angeben</translation>
     </message>
     <message>
+      <source>Alias should be not a plain number!</source>
+      <translation>Alias sollte keine einfache Nummer sein!</translation>
+    </message>
+    <message>
       <source>Minimum 5 seconds</source>
       <translation>Mindestens 5 Sekunden</translation>
     </message>
@@ -23174,6 +23678,10 @@
   </context>
   <context>
     <name>lhrestapi/validation</name>
+    <message>
+      <source>Bearer authorization failed!</source>
+      <translation>Autorisierung des Bearer fehlgeschlagen!</translation>
+    </message>
     <message>
       <source>Authorization failed!</source>
       <translation>Authentifizierung fehlgeschlagen!</translation>

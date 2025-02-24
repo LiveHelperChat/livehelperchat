@@ -2,22 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Cât timp ar trebui să așteptăm înainte de a informa operatorul despre conversația fără răspuns.</translation>
     </message>
@@ -148,6 +132,10 @@
     <message>
       <source>Should we remember username for the next time visitor starts a chat?</source>
       <translation>Ar trebui să ne amintim numele de utilizator pentru data viitoare când vizitatorul începe o conversație?</translation>
+    </message>
+    <message>
+      <source>Should we remember E-Mail, Phone for the next time visitor starts a chat?</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
@@ -455,6 +443,10 @@
     <message>
       <source>New</source>
       <translation>Nou</translation>
+    </message>
+    <message>
+      <source>Reload back office for operators. Requires NodeJS</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Updated</source>
@@ -1118,6 +1110,10 @@
       <translation>Rotunjirea chenarului butonului</translation>
     </message>
     <message>
+      <source>Disabled</source>
+      <translation>Dezactivat</translation>
+    </message>
+    <message>
       <source>Choose a bot</source>
       <translation>Alegeți un bot</translation>
     </message>
@@ -1254,10 +1250,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Disabled</source>
-      <translation>Dezactivat</translation>
-    </message>
-    <message>
       <source>Color</source>
       <translation type="unfinished"/>
     </message>
@@ -1352,6 +1344,10 @@
     <message>
       <source>Hide need help widget for mobile devices.</source>
       <translation>Ascunde widget cu nevoie de ajutor pe dispozitivele mobile.</translation>
+    </message>
+    <message>
+      <source>Print raw HTML in footer without parsing it for special functions. Makes custom HTML in footer to render faster.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Always visible. Usefull if you make custom HTML and want that need help would be always visible.</source>
@@ -1878,6 +1874,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Open link in the same browser tab if chat is in the widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show go to survey button on chat close</source>
       <translation>Afișați butonul Accesați sondajul la închiderea conversației</translation>
     </message>
@@ -1912,6 +1912,10 @@
     <message>
       <source>Automatically determine intro message by bot default message</source>
       <translation>Determinați automat mesajul introductiv prin mesajul implicit al botului</translation>
+    </message>
+    <message>
+      <source>Use bot profile in the widget instead of default</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Try to detect language from browser headers</source>
@@ -2101,8 +2105,8 @@
       <translation>activat</translation>
     </message>
     <message>
-      <source>Object ID</source>
-      <translation>ID obiect</translation>
+      <source>[Record ID] [Object ID]</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Category</source>
@@ -3294,6 +3298,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Time in database server</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit department</source>
       <translation>Editați departamentul</translation>
     </message>
@@ -3314,7 +3322,7 @@
       <translation>Nume</translation>
     </message>
     <message>
-      <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored.</source>
+      <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored. It has to be not number!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3336,6 +3344,10 @@
     <message>
       <source>Hidden</source>
       <translation>Ascuns</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Archived</source>
@@ -3434,6 +3446,10 @@
       <translation>aici</translation>
     </message>
     <message>
+      <source>If we find custom period for specific day it takes priority over day work hours definition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>to render widget online status</source>
       <translation>pentru a reda starea online a widgetului</translation>
     </message>
@@ -3478,6 +3494,18 @@
       <translation>Perioadă personalizată</translation>
     </message>
     <message>
+      <source>Period</source>
+      <translation>Perioadă</translation>
+    </message>
+    <message>
+      <source>Day of the week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose day of the week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Date from</source>
       <translation>Data de la</translation>
     </message>
@@ -3492,10 +3520,6 @@
     <message>
       <source>Add</source>
       <translation>Adaugă</translation>
-    </message>
-    <message>
-      <source>Period</source>
-      <translation>Perioadă</translation>
     </message>
     <message>
       <source>Start time</source>
@@ -4440,6 +4464,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Activate maintenance mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show widget in maintenance mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New chats can not be started, widget will be hidden.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget will be visible for those who have already started a chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Anyone who have widget open and want to start a chat will get validation error.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After you see there are no pending/bot/active chats you can turn off the server or do your thing.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If none of the above conditions are met widget will become hidden.</source>
       <translation type="unfinished"/>
     </message>
@@ -5127,6 +5175,34 @@
       <translation>Căutați un utilizator. Sunt afișați primii 50 de utilizatori.</translation>
     </message>
     <message>
+      <source>Monday</source>
+      <translation>Luni</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>Marți</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>Miercuri</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>Joi</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>Vineri</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>Sâmbătă</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>Duminică</translation>
+    </message>
+    <message>
       <source>Brand members</source>
       <translation type="unfinished"/>
     </message>
@@ -5139,7 +5215,7 @@
       <translation>Botul urmează orele online. Departamentul va fi offline dacă nu există operatori online sau este în afara programului de lucru.</translation>
     </message>
     <message>
-      <source>Enable debug logging</source>
+      <source>Enable debug logging. Records will be found in Audit Log</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5149,6 +5225,10 @@
     <message>
       <source>Name</source>
       <translation>Nume</translation>
+    </message>
+    <message>
+      <source>Alias</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Hidden</source>
@@ -5184,6 +5264,10 @@
     </message>
     <message>
       <source>Only persistent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose Rest API</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5403,6 +5487,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>View as report</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Report</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please click search first</source>
       <translation type="unfinished"/>
     </message>
@@ -5575,6 +5667,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Mail statistic is based on conversation user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by mail conversations</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Agent</source>
       <translation>Agent</translation>
     </message>
@@ -5609,34 +5709,6 @@
     <message>
       <source>Day of the week</source>
       <translation>Zi a săptămânii</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>Duminică</translation>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation>Luni</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>Marți</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>Miercuri</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>Joi</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>Vineri</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>Sâmbătă</translation>
     </message>
     <message>
       <source>Day interval to include from</source>
@@ -7192,6 +7264,14 @@
       <translation>Solicitarea dvs. nu a fost procesată conform așteptărilor - dar nu vă faceți griji că nu a fost vina dvs. Vă rugăm să retrimiteți solicitarea. Dacă întâmpinați aceeași problemă, va trebui să ne contactați prin alte mijloace.</translation>
     </message>
     <message>
+      <source>Chat started by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>payload!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File is to big! Maximum</source>
       <translation type="unfinished"/>
     </message>
@@ -7256,12 +7336,24 @@
       <translation>Acțiunile de actualizare nu au putut fi găsite!</translation>
     </message>
     <message>
+      <source>We are still working on your previous request!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a message, max characters</source>
       <translation>Vă rugăm să introduceți un mesaj, număr maxim de caractere</translation>
     </message>
     <message>
       <source>You cannot send messages to this chat. Please refresh your browser.</source>
       <translation>Nu puteți trimite mesaje la această conversație. Reîmprospătați browserul.</translation>
+    </message>
+    <message>
+      <source>Message was removed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message could not be found!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You can edit only your last message!</source>
@@ -7273,10 +7365,6 @@
     </message>
     <message>
       <source>No last message was found!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Message could not be found!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7334,6 +7422,10 @@
     <message>
       <source>You can edit only your own messages!</source>
       <translation>Puteți edita doar propriile mesaje!</translation>
+    </message>
+    <message>
+      <source>Chat was already closed!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have subscribed to new messages notifications!</source>
@@ -8865,6 +8957,14 @@
       <translation>A fost offline pentru</translation>
     </message>
     <message>
+      <source>Went online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Went offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active chats</source>
       <translation>Conversații active</translation>
     </message>
@@ -9263,8 +9363,16 @@
       <translation>Produs</translation>
     </message>
     <message>
+      <source>Page from where visitor started a chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Screenshot</source>
       <translation>Captură de ecran</translation>
+    </message>
+    <message>
+      <source>Page from where visitor come and was seen very first time in current session.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Theme</source>
@@ -9368,6 +9476,10 @@
     </message>
     <message>
       <source>Include bot messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include whisper messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9511,6 +9623,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>excluded from auto closing!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>No related mail tickets were found!</source>
       <translation type="unfinished"/>
     </message>
@@ -9532,6 +9648,10 @@
     </message>
     <message>
       <source>Offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department is offline, bot cannot be assigned!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9847,6 +9967,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Reply To</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reason</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last user message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last operator message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last time visitor seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide/Show HTML Code</source>
       <translation type="unfinished"/>
     </message>
@@ -9873,6 +10017,14 @@
     <message>
       <source>Chat was closed by cron because of inactivity!</source>
       <translation>Conversația a fost închisă automat de cron din cauza inactivității!</translation>
+    </message>
+    <message>
+      <source>Chat was closed by cron because visitor left the bot chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat was closed by cron because visitor left the active chat!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat was closed by cron because visitor left the pending chat!</source>
@@ -10350,7 +10502,7 @@
       <translation>Blochează vizitatorul</translation>
     </message>
     <message>
-      <source>Online user (cookie)</source>
+      <source>Online user profile</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10897,10 +11049,6 @@
       <translation>Principal</translation>
     </message>
     <message>
-      <source>Add translation</source>
-      <translation>Adăugați traducere</translation>
-    </message>
-    <message>
       <source>New password was set, copy it or</source>
       <translation type="unfinished"/>
     </message>
@@ -10927,6 +11075,10 @@
     <message>
       <source>Online</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add translation</source>
+      <translation>Adăugați traducere</translation>
     </message>
   </context>
   <context>
@@ -11363,6 +11515,10 @@
       <translation>Editează</translation>
     </message>
     <message>
+      <source>Remove</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Quote</source>
       <translation>Citat</translation>
     </message>
@@ -11496,6 +11652,10 @@
     </message>
     <message>
       <source>Operator chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All items will appear here</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12338,7 +12498,75 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Previous chat assigned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current chat assigned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Finished assign</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inactive Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last assigned was updated successfully</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last assigned update failed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats were updated successfully</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats update failed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat is still running</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inactive chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last assigned update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start period*</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>End period</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -12577,6 +12805,10 @@
       <translation>Statistici utilizator</translation>
     </message>
     <message>
+      <source>Chats momentary history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Last chat assigned ago</source>
       <translation>Ultima conversație atribuită acum</translation>
     </message>
@@ -12595,6 +12827,10 @@
     <message>
       <source>All</source>
       <translation>Toate</translation>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -12685,6 +12921,18 @@
     </message>
     <message>
       <source>In dynamic chats order mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch between old and new editor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch to old editor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch to new editor</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12901,6 +13149,10 @@
     <message>
       <source>Change my persistent status to online</source>
       <translation>Schimbați starea mea persistentă la online</translation>
+    </message>
+    <message>
+      <source>Change my status to online/offline. Ctrl + F12 Shortcut.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send chat to your email!</source>
@@ -13313,6 +13565,18 @@
       <source>Chat information was updated</source>
       <translation>Informațiile conversației au fost actualizate</translation>
     </message>
+    <message>
+      <source>Actions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>system/configuration</name>
@@ -13579,6 +13843,10 @@
     <message>
       <source>Sessions</source>
       <translation>Sesiuni</translation>
+    </message>
+    <message>
+      <source>Notice message</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Notifications</source>
@@ -14131,6 +14399,10 @@
       <source>ago at</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Message was removed!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/maintenance</name>
@@ -14188,6 +14460,10 @@
     <message>
       <source>Proactive chats number vs visitors initiated</source>
       <translation>Numărul de conversații proactive comparativ cu vizitatorii inițiați</translation>
+    </message>
+    <message>
+      <source>Device type</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of chats by subject</source>
@@ -14310,6 +14586,18 @@
       <translation>Inițiate de vizitatori</translation>
     </message>
     <message>
+      <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tablet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Desktop</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitors</source>
       <translation>Vizitatori</translation>
     </message>
@@ -14378,12 +14666,20 @@
       <translation>Totalul conversațiilor</translation>
     </message>
     <message>
+      <source>Proactive chats number vs visitor initiated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Total chats by channel</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Proactive</source>
       <translation>Proactive</translation>
+    </message>
+    <message>
+      <source>Visitor initiated</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Default checked charts for</source>
@@ -15974,6 +16270,10 @@
       <translation>Suprasolicitat</translation>
     </message>
     <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Archived</source>
       <translation>Arhivat</translation>
     </message>
@@ -16364,6 +16664,29 @@
     <message>
       <source>Edit</source>
       <translation>Editează</translation>
+    </message>
+  </context>
+  <context>
+    <name>lhsystem/singlesetting</name>
+    <message>
+      <source>Settings</source>
+      <translation>Setări</translation>
+    </message>
+    <message>
+      <source>Ignore operators online statuses and use departments online hours.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For all departments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only for this department.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is a global setting and is set for the all departments.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -16894,6 +17217,10 @@
       <translation>Importă bot</translation>
     </message>
     <message>
+      <source>In case you have imported the Rest API already. You can make sure the imported bot uses the chosen Rest API.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Bot imported</source>
       <translation>Bot importat</translation>
     </message>
@@ -16958,6 +17285,18 @@
     <message>
       <source>Host</source>
       <translation>Gazdă</translation>
+    </message>
+    <message>
+      <source>Log all request and their responses in audit log.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log all request and their responses as system messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ignore request with these http statuses. Separate multiple by comma.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable cache</source>
@@ -17033,6 +17372,14 @@
     </message>
     <message>
       <source>Remote Message ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Streaming</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17184,8 +17531,8 @@
       <translation>Locația de răspuns 1. Disponibil ca {content_1} în mesaje.</translation>
     </message>
     <message>
-      <source>response:msg you can leave an empty if you want forward whole response.</source>
-      <translation>răspuns: msg puteți lăsa un gol dacă doriți să transmiteți întregul răspuns.</translation>
+      <source>response:msg you can leave an empty if you want forward whole response or enter __all__.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Response Location 2. Available as {content_2} in messages.</source>
@@ -17212,6 +17559,14 @@
       <translation>Locație meta msg. Dacă acceptați sintaxa JSON Live Helper Chat, puteți seta locația acestui răspuns.</translation>
     </message>
     <message>
+      <source>Preg replace rules to apply extracted content.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can apply preg replace rules to extracted content. One rule per row. Format example: ^.{5,}+$==&gt;Replace with content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom event</source>
       <translation type="unfinished"/>
     </message>
@@ -17228,8 +17583,20 @@
       <translation>Locația de răspuns. De asemenea, va eșua dacă atributul nu este găsit.</translation>
     </message>
     <message>
+      <source>response:msg you can leave an empty if you want forward whole response.</source>
+      <translation>răspuns: msg puteți lăsa un gol dacă doriți să transmiteți întregul răspuns.</translation>
+    </message>
+    <message>
       <source>Response comparison</source>
       <translation>Compararea răspunsului</translation>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not empty</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Comparison value</source>
@@ -17240,7 +17607,47 @@
       <translation>Valoare de comparat</translation>
     </message>
     <message>
+      <source>Streaming options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Output is matched only if event is this type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stream content if output is matched.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stream content as HTML.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute trigger on matched content. Stream will continue afterwards.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If matched use response as final response.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If you want to add custom data within each send message to its meta_data attribute you can provide response path here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Repeat request n times if conditions is not met (polling)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Making n seconds delay between each request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is a streaming request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Streaming event type field</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -17256,6 +17663,10 @@
     </message>
     <message>
       <source>Operator nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous chat additional chat variable</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17316,6 +17727,10 @@
     </message>
     <message>
       <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17729,6 +18144,18 @@
     </message>
     <message>
       <source>Subject to add if mail ticket is closed from chat. Enter a subject ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Matching rules to exclude mailbox being automatically closed. Defines matching rule for the mailbox.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Each new matching rule per line.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g.</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -18263,6 +18690,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Response type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active</source>
       <translation type="unfinished"/>
     </message>
@@ -18315,7 +18746,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Responeded by e-mail</source>
+      <source>Un-responded</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19017,6 +19448,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Messages delivery and reactions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat options</source>
       <translation>Opțiuni de conversație</translation>
     </message>
@@ -19025,12 +19460,36 @@
       <translation>Atribute</translation>
     </message>
     <message>
+      <source>Message related attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages attribute location</source>
       <translation>Locația atributului Mesaje</translation>
     </message>
     <message>
       <source>This attribute contains direct message and NOT a messages array</source>
       <translation>Acest atribut conține un mesaj direct și NU o matrice de mesaje</translation>
+    </message>
+    <message>
+      <source>Messages ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for messages uniqueness by message id</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reply to message ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Oră</translation>
+    </message>
+    <message>
+      <source>Chat related attributes</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Nick</source>
@@ -19057,15 +19516,19 @@
       <translation>E-mail</translation>
     </message>
     <message>
-      <source>Time</source>
-      <translation>Oră</translation>
-    </message>
-    <message>
       <source>Chat ID field location</source>
       <translation>Locația câmpului ID conversație</translation>
     </message>
     <message>
       <source>Chat ID 2 field location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch Chat ID with Chat ID 2 if this condition matches</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will combine both fields into single identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19179,6 +19642,54 @@
     <message>
       <source>For message being considered images message should have attribute value equal to</source>
       <translation>Pentru ca mesajul să fie considerat imagine, acesta trebuie să aibă o valoare de atribut egală cu</translation>
+    </message>
+    <message>
+      <source>Message ID location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered deleted, message should have attribute value equal to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All unread chat messages should be marked as read</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered text message edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message id location to which visitor reacted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reaction message ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered reaction message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reaction emoji location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Try to find chat by message id if we chat was not found by id</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reaction is a standalone unicode character</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove previous visitor reaction on action</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove previous visitor reaction if emoji location is empty</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>If previous chat is found and it is closed we should</source>
@@ -20852,6 +21363,18 @@
       <translation>Setările au fost actualizate</translation>
     </message>
     <message>
+      <source>Notice message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Level of notice</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose correct language</source>
       <translation>Vă rugăm să alegeți limba corectă</translation>
     </message>
@@ -21018,29 +21541,6 @@
     <message>
       <source>Secret key is not shown!</source>
       <translation>Cheia secretă nu este afișată!</translation>
-    </message>
-  </context>
-  <context>
-    <name>lhsystem/singlesetting</name>
-    <message>
-      <source>Settings</source>
-      <translation>Setări</translation>
-    </message>
-    <message>
-      <source>Ignore operators online statuses and use departments online hours.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For all departments.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Only for this department.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This is a global setting and is set for the all departments.</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -21895,8 +22395,8 @@
   <context>
     <name>user/wentinactive</name>
     <message>
-      <source>Because of inactivity you went offline, click continue to go online.</source>
-      <translation>Din cauza inactivității, ați intrat offline, faceți clic pe continuați pentru a intra online.</translation>
+      <source>Because of inactivity you went offline, click continue to go online. Ctrl+F12 Shortcut.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Continue</source>
@@ -22971,6 +23471,10 @@
       <translation>Vă rugăm să introduceți un nume de departament</translation>
     </message>
     <message>
+      <source>Alias should be not a plain number!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Minimum 5 seconds</source>
       <translation>Minim 5 secunde</translation>
     </message>
@@ -23174,6 +23678,10 @@
   </context>
   <context>
     <name>lhrestapi/validation</name>
+    <message>
+      <source>Bearer authorization failed!</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Authorization failed!</source>
       <translation>Autorizația a eșuat!</translation>
