@@ -1011,7 +1011,7 @@ class erLhcoreClassChat {
             $contentCache = erLhcoreClassRedis::instance()->get($cacheKey);
             if ($contentCache !== false) {
                 $parts = explode('_', $contentCache);
-                if (isset($parts[1]) && isset($parts[1]) == 1) {
+                if (isset($parts[1]) && $parts[1] == 1) {
                     self::$botOnlyOnline = true;
                 }
                 return (int)$parts[0] > 0;
