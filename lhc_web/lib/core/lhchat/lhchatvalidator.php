@@ -2280,7 +2280,7 @@ class erLhcoreClassChatValidator {
                 return false;
             }
 
-            if ($skipOnlyOnlineCheck == true || erLhcoreClassChat::isOnlyBotOnline($chat->dep_id)) {
+            if ($skipOnlyOnlineCheck == true || erLhcoreClassChat::isOnline($chat->dep_id, false, array('ignore_user_status'=> (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value, 'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']))) {
 
                 $chat->setIP();
                 erLhcoreClassModelChat::detectLocation($chat);
