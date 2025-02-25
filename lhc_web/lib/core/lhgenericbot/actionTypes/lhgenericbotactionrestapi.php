@@ -1340,7 +1340,7 @@ class erLhcoreClassGenericBotActionRestapi
                     }
 
                     if (isset($responseStream['content']) && $responseStream['content'] != '' && isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1) {
-                        if (isset($streamContent['content']) && isset($responseStream['stream_content']) && $responseStream['stream_content'] == true){
+                        if (isset($streamContent['content']) && isset($responseStream['stream_content']) && $responseStream['stream_content'] == true && !(isset($responseStream['save_stream']) && $responseStream['save_stream'] == true)){
 
                             // Are we streaming as HTML
                             if (isset($responseStream['stream_as_html']) && $responseStream['stream_as_html'] == true) {
@@ -1776,6 +1776,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'params_request' => $paramsRequest,
                         'id' => $outputCombination['id'],
                         'stream_content' => (isset($outputCombination['stream_content']) && $outputCombination['stream_content'] == true),
+                        'save_stream' => (isset($outputCombination['save_stream']) && $outputCombination['save_stream'] == true),
                         'stream_as_html' => (isset($outputCombination['stream_as_html']) && $outputCombination['stream_as_html'] == true),
                         'stream_execute_trigger' => (isset($outputCombination['stream_execute_trigger']) && $outputCombination['stream_execute_trigger'] == true),
                         'stream_final' => (isset($outputCombination['stream_final']) && $outputCombination['stream_final'] == true)
@@ -2026,7 +2027,9 @@ class erLhcoreClassGenericBotActionRestapi
                     $content = '';
 
                     $counter = 0;
+
                     foreach ($messages as $message) {
+
                         $foreachCycleParse = $foreachCycleParseTemplate;
                         if ($counter > 0 && $counter < $totalElements) {
                             $foreachCycleParse = trim(str_replace(['{separator}','{/separator}'],'', $foreachCycleParse));
@@ -2057,6 +2060,11 @@ class erLhcoreClassGenericBotActionRestapi
                         }
 
                         if ($message->user_id == -1) {
+                            $totalElements--;
+                            continue;
+                        }
+
+                        if ($message->user_id == -2 && isset($message->meta_msg_array['content']['typing'])) {
                             $totalElements--;
                             continue;
                         }
