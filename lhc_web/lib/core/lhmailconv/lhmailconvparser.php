@@ -73,7 +73,7 @@ class erLhcoreClassMailconvParser {
 
     public static function syncMailbox($mailbox, $params = []) {
 
-        if ($mailbox->active == 0) {
+        if ($mailbox->active == 0 && (!isset($params['debug_sync']) || $params['debug_sync'] === false)) {
             return;
         }
 
