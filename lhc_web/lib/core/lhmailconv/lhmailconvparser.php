@@ -231,11 +231,19 @@ class erLhcoreClassMailconvParser {
                 $statsImport[] = 'Search started at '.date('Y-m-d H:i:s') . ' data range - '.$since;
 
                 if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
-                    $mailsInfo = $mailboxFolderOAuth->search()->since($sinceOAUTH)->get();
 
-                    // We disable server encoding because exchange servers does not support UTF-8 encoding in search.
+                    try {
+                        $mailsInfo = $mailboxFolderOAuth->search()->since($sinceOAUTH)->get();
+                    } catch (Exception $e) {
+                        $statsImport[] = 'Importing by date failed, falling back to recent items. '. $e->getMessage();
 
-                   // $mailsInfo = $mailboxFolderOAuth->search()->whereUid(2198477)->get();
+                        $mailsInfo = $mailboxFolderOAuth->search()->recent()->get();
+
+                        if (empty($mailsInfo)) {
+                            $statsImport[] = 'Recent returned empty list. Falling back to new';
+                            $mailsInfo = $mailboxFolderOAuth->search()->new()->get();
+                        }
+                    }
 
                     $statsImport[] = 'Search finished at '.date('Y-m-d H:i:s') . ' [' . count($mailsInfo) .']';
 
