@@ -147,7 +147,7 @@ class erLhcoreClassGenericBotActionText {
             $metaMessage['content']['attr_options'] = $action['content']['attr_options'];
         }
 
-        $action['content']['text'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat, 'args' => $params));
+        $action['content']['text'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('as_json' => (isset($action['content']['attr_options']['json_replace_args']) && $action['content']['attr_options']['json_replace_args'] === true), 'chat' => $chat, 'args' => $params));
 
         $msgData = explode('|||',(isset($action['content']['text']) ? trim($action['content']['text']) : ''));
 

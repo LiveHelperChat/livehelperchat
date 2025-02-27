@@ -785,7 +785,7 @@ class erLhcoreClassGenericBotActionRestapi
         if (isset($dynamicReplaceVariables['{if_previous_visitor_messages_list}'])){
             if ($dynamicReplaceVariables['{if_previous_visitor_messages_list}'] !== false) {
                 $methodSettings['body_raw'] = str_replace(trim($dynamicReplaceVariables['{if_previous_visitor_messages_list}']),$dynamicReplaceVariables[$dynamicReplaceVariables['{if_previous_visitor_messages_list}']], $methodSettings['body_raw']);
-                $methodSettings['body_raw'] = trim(str_replace(['{if_previous_visitor_messages}','{/if_previous_visitor_messages}'],'', $methodSettings['body_raw']));
+                $methodSettings['body_raw'] = trim(str_replace(['{if_previous_visitor_messages_list}','{/if_previous_visitor_messages_list}'],'', $methodSettings['body_raw']));
             } else {
                 $methodSettings['body_raw'] = preg_replace('/\{if_previous_visitor_messages_list\}(.*?)\{\/if_previous_visitor_messages_list\}/ms','',$methodSettings['body_raw']);
                 $methodSettings['body_raw'] = preg_replace('/\{previous_visitor_messages_list_url__([0-9]+)(?:__([0-9]+))?\}(.*?)\{\/previous_visitor_messages_list_url\}/is', '', $methodSettings['body_raw']);
