@@ -536,9 +536,11 @@
                             <div class="ps-2">
                                 <label class="d-block"><input ng-disabled="!paramOutput.stream_content" type="checkbox" ng-model="paramOutput.stream_as_html" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Stream content to visitor as HTML.');?></label>
                                 <label class="d-block"><input ng-disabled="!paramOutput.stream_content" type="checkbox" ng-model="paramOutput.save_stream" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Save stream without streaming it to visitor.');?></label>
+                                <label class="d-block"><input ng-disabled="!paramOutput.stream_content" type="checkbox" ng-model="paramOutput.final_match" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','No other stream event can be parsed after this type is matched.');?></label>
                             </div>
                             <label class="d-block"><input type="checkbox" ng-model="paramOutput.stream_execute_trigger" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Execute trigger on matched content. Stream will continue afterwards.');?></label>
                             <label class="d-block"><input type="checkbox" ng-model="paramOutput.stream_final" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If matched use response as final response.');?></label>
+                            <div class="ps-2"><label class="d-block"><input ng-disabled="!paramOutput.stream_final" type="checkbox" ng-model="paramOutput.final_match_stream" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','No other stream event can be parsed after this type is matched.');?></label></div>
                         </div>
                     </div>
                 </div>

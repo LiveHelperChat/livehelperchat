@@ -1260,12 +1260,14 @@ class erLhcoreClassGenericBotActionRestapi
         $streamEvent = '';
         $streamBuffer = ''; // In streaming chunk might contain multiple json parts untill it's complete
         $streamContentBuffer = '';
+        $lockMatchedOutput = false;
+        $currentMatchedOutput = '';
 
         // Streaming request save stream to tmp file
         if (isset($methodSettings['streaming_request']) && $methodSettings['streaming_request'] == 1) {
 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
-            curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) use (& $streamBuffer, &$responseContent, $paramsCustomer, $methodSettings, & $streamLines, $logRequest, & $streamEvent, & $streamContentBuffer)  {
+            curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) use (& $streamBuffer, &$responseContent, $paramsCustomer, $methodSettings, & $streamLines, $logRequest, & $streamEvent, & $streamContentBuffer, & $lockMatchedOutput, & $currentMatchedOutput)  {
                 $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
                 $trimmed_data = trim($data);
 
@@ -1313,6 +1315,27 @@ class erLhcoreClassGenericBotActionRestapi
                                 'stream_event' => $streamEvent
                             ]);
 
+                            if (isset($responseStream['final_match']) && $responseStream['final_match'] == true && $lockMatchedOutput !== true) {
+                                $responseContent = $responseStream;
+                                // Because we are saving stream itself we want to have empty vars
+                                $responseContent['content'] =
+                                $responseContent['content_2'] =
+                                $responseContent['content_3'] =
+                                $responseContent['content_4'] =
+                                $responseContent['content_5'] =
+                                $responseContent['content_6'] = '';
+                                $lockMatchedOutput = true;
+                            }
+
+                            if ($lockMatchedOutput === true) {
+                                if (empty($currentMatchedOutput)) {
+                                    $currentMatchedOutput = $responseStream['id'];
+                                } elseif (!(isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1) || $currentMatchedOutput != $responseStream['id']) {
+                                    $streamLines[] = self::getCurrentTimeWithMilliseconds().' SKIPPING - [' . $streamEvent . '] - ' . $streamBuffer;
+                                    continue;
+                                }
+                            }
+
                             if (isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1) {
                                 if (isset($responseStream['stream_content']) && $responseStream['stream_content'] == true) {
                                     $streamContent['content'] .= $responseStream['content'];
@@ -1327,6 +1350,15 @@ class erLhcoreClassGenericBotActionRestapi
                                     (isset($responseStream['stream_final']) && $responseStream['stream_final'] == true)
                                 ) {
                                     $responseContent = $responseStream;
+
+                                    if (isset($responseStream['final_match_stream']) && $responseStream['final_match_stream'] == true && $lockMatchedOutput !== true) {
+                                        $lockMatchedOutput = true;
+                                    }
+
+                                    if ($lockMatchedOutput === true && empty($currentMatchedOutput)) {
+                                        $currentMatchedOutput = $responseStream['id'];
+                                    }
+
                                 } else if (isset($responseStream['stream_content']) && $responseStream['stream_content'] == true) {
                                     $responseContent['content'] .= $responseStream['content'];
                                     $responseContent['content_2'] .= $responseStream['content_2'];
@@ -1777,6 +1809,8 @@ class erLhcoreClassGenericBotActionRestapi
                         'id' => $outputCombination['id'],
                         'stream_content' => (isset($outputCombination['stream_content']) && $outputCombination['stream_content'] == true),
                         'save_stream' => (isset($outputCombination['save_stream']) && $outputCombination['save_stream'] == true),
+                        'final_match' => (isset($outputCombination['final_match']) && $outputCombination['final_match'] == true),
+                        'final_match_stream' => (isset($outputCombination['final_match_stream']) && $outputCombination['final_match_stream'] == true),
                         'stream_as_html' => (isset($outputCombination['stream_as_html']) && $outputCombination['stream_as_html'] == true),
                         'stream_execute_trigger' => (isset($outputCombination['stream_execute_trigger']) && $outputCombination['stream_execute_trigger'] == true),
                         'stream_final' => (isset($outputCombination['stream_final']) && $outputCombination['stream_final'] == true)
