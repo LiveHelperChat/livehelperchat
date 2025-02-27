@@ -924,7 +924,7 @@ class erLhcoreClassBBCode
                         }
 
                         $audio = '';
-                        if (in_array($fileExtension,['mp3','wav','ogg','oga'])) {
+                        if (in_array($fileExtension,['mp3','wav','ogg','oga','m4a'])) {
                             return '<a rel="noreferrer" class="hidden-download audio-download" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'"></a><audio preload="none" style="width: 230px" controls><source src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" type="' . $file->type . '"></audio>';
                         } elseif (in_array($fileExtension,['mp4','avi','mov','ogg','3gpp'])) {
                             $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="embed-responsive-item" controls><source src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '"></video></div>';
