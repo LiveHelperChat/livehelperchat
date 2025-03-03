@@ -92,6 +92,8 @@ if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClas
         $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
         $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
 
+
+
 		$departments = erLhcoreClassModelDepartament::getList(array('filterin' => array('id' => $Params['user_parameters_unordered']['department'])));
 		
 		$disabledAll = true;
@@ -100,7 +102,9 @@ if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClas
 				$disabledAll = false;
 			}
 		}
-		
+
+
+
 		// Disable only if all provided departments are disabled
 		if ($disabledAll == true){
 			$disabled_department = true;
@@ -130,6 +134,9 @@ if (is_array($Params['user_parameters_unordered']['department']) && count($Param
 } else {
 	$inputData->departament_id = 0;
 }
+
+
+
 
 if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && ($startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("((`dep_ids` != '' AND JSON_CONTAINS(`dep_ids`,'" . (int)$inputData->departament_id . "','$')) OR department_id = " . (int)$inputData->departament_id . ")" )))) !== false) {
     $startDataFields = $startDataDepartment->data_array;

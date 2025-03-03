@@ -176,7 +176,7 @@ if (isset($chat) && $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)
     }
 }
 
-if (((int)$chat->user_id > 0 && \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::shouldMask($chat->user_id)) || $chat->user_id == 0) {
+if (((int)$chat->user_id > 0 && \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::shouldMask($chat->user_id)) || $chat->user_id == 0 || erLhcoreClassModelChatConfig::fetch('ignore_typing')->current_value == 1) {
     $responseArray['chat_ui']['hide_typing'] = true;
 } else {
     $responseArray['chat_ui']['hide_typing'] = false;
