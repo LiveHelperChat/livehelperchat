@@ -5,7 +5,15 @@
 </div>
 
 <input type="submit" class="btn btn-sm btn-secondary" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+
+<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','userstats')) : ?>
+    <a href="#" class="ps-2" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','See operator statistic')?>" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'statistic/userstats/<?php echo htmlspecialchars($user->id)?>'})">
+        <span class="material-icons">bar_chart</span>
+    </a>
+<?php endif; ?>
+
 <hr class="mt-3 mb-3">
+
 <?php endif; ?>
 
 <div class="row">
