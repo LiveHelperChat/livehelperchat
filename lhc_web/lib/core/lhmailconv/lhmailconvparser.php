@@ -263,6 +263,15 @@ class erLhcoreClassMailconvParser {
 
                     $statsImport[] = 'START Fetching mail info at '.date('Y-m-d H:i:s');
 
+                    // Start importing from newest
+                    rsort($mailsIds);
+
+                    if (isset($workflowOptions['import_limit_last']) && (int)$workflowOptions['import_limit_last'] > 0) {
+                        $mailsIds = array_splice($mailsIds,0,(int)$workflowOptions['import_limit_last']);
+                    } else {
+                        $mailsIds = array_splice($mailsIds,0,100);
+                    }
+
                     $mailsInfo = $mailboxHandler->getMailsInfo($mailsIds);
 
                     $statsImport[] = 'END Fetching mail info at '.date('Y-m-d H:i:s');
@@ -300,7 +309,7 @@ class erLhcoreClassMailconvParser {
                     }
 
                     if ($mailbox->import_since > 0 && $mailbox->import_since > (int)$vars['udate']) {
-                        $statsImport[] = date('Y-m-d H:i:s').' | Skipping because of import since - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                        $statsImport[] = date('Y-m-d H:i:s').' | Skipping because of import since - ' . $vars['message_id'] . ' - ' . $mailInfo->uid . ' at ' . date('Y-m-d H:i:s',(int)$vars['udate']);
                         continue;
                     }
 
@@ -309,7 +318,7 @@ class erLhcoreClassMailconvParser {
                     // check that we don't have already this e-mail
                     if ($existingMail instanceof erLhcoreClassModelMailconvMessage) {
                         $messages[] = $existingMail;
-                        $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail because record found - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                        $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail because record found - ' . $vars['message_id'] . ' - ' . $mailInfo->uid . ' at ' . date('Y-m-d H:i:s',(int)$vars['udate']);
                         continue;
                     }
 
@@ -942,7 +951,7 @@ class erLhcoreClassMailconvParser {
 
                         \LiveHelperChat\mailConv\workers\LangWorker::detectLanguage($message);
 
-                        $statsImport[] = date('Y-m-d H:i:s').' | Importing reply - ' . $vars['message_id'] . ' - ' .  $mailInfo->uid;
+                        $statsImport[] = date('Y-m-d H:i:s').' | Importing reply - ' . $vars['message_id'] . ' - ' .  $mailInfo->uid . ' at ' . date('Y-m-d H:i:s',(int)$vars['udate']);
                    }
                 }
             }

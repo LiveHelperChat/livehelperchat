@@ -289,6 +289,9 @@ class erLhcoreClassMailconvValidator {
             'workflow_older_than' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1, 'max_range' => 96)
             ),
+            'import_limit_last' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 100)
+            ),
             'workflow_close_status' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0),FILTER_REQUIRE_ARRAY
             ),
@@ -495,6 +498,12 @@ class erLhcoreClassMailconvValidator {
             $workflowParams['close_status'] = $form->workflow_close_status;
         } else {
             $workflowParams['close_status'] = [];
+        }
+
+        if ($form->hasValidData( 'import_limit_last' )) {
+            $workflowParams['import_limit_last'] = $form->import_limit_last;
+        } else {
+            $workflowParams['import_limit_last'] = 0;
         }
 
         if ($form->hasValidData( 'workflow_import_present' )) {

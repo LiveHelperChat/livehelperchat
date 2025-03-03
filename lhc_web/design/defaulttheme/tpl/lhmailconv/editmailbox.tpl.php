@@ -163,6 +163,12 @@
                     </div>
                 </div>
                 <div class="col-6">
+
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import last N E-mails. Default 100.');?></label>
+                        <input type="number" min="0" max="500" maxlength="250" class="form-control form-control-sm" name="import_limit_last" value="<?php isset($item->workflow_options_array['import_limit_last']) ? print htmlspecialchars($item->workflow_options_array['import_limit_last']) : null; ?>" />
+                    </div>
+
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Timeout in days after last response before we create a new issue');?></label>
                         <input type="number" maxlength="250" class="form-control form-control-sm" name="reopen_timeout" value="<?php echo htmlspecialchars($item->reopen_timeout)?>" />
