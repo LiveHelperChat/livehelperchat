@@ -263,7 +263,7 @@ class erLhcoreClassMailconvParser {
 
                     $statsImport[] = 'START Fetching mail info at '.date('Y-m-d H:i:s');
 
-                    // Start importing from newest
+                    // Apply limit from newest and skip oldest
                     rsort($mailsIds);
 
                     if (isset($workflowOptions['import_limit_last']) && (int)$workflowOptions['import_limit_last'] > 0) {
@@ -271,6 +271,9 @@ class erLhcoreClassMailconvParser {
                     } else {
                         $mailsIds = array_splice($mailsIds,0,100);
                     }
+
+                    // Import from oldest in all cases
+                    sort($mailsIds);
 
                     $mailsInfo = $mailboxHandler->getMailsInfo($mailsIds);
 
