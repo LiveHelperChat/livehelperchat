@@ -1887,7 +1887,7 @@ input[type="file"]{
 }
 
 .mail-message-body p{
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .mail-message-body blockquote{
