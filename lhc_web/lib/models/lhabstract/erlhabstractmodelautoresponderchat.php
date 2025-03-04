@@ -52,6 +52,8 @@ class erLhAbstractModelAutoResponderChat
                 \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => $this->chat));
 
                 $msg->saveThis();
+                $this->chat->last_msg_id = $msg->id;
+                $this->chat->updateThis(array('update' => array('last_msg_id')));
 
                 $originalValues = $msg->name_support .'_' .$msg->meta_msg . '_' . $msg->del_st;
 
@@ -60,9 +62,6 @@ class erLhAbstractModelAutoResponderChat
                 if ($originalValues != $msg->name_support . '_' .$msg->meta_msg . '_' . $msg->del_st) {
                     $msg->saveThis();
                 }
-
-                $this->chat->last_msg_id = $msg->id;
-                $this->chat->updateThis(array('update' => array('last_msg_id')));
             }
         }
     }
@@ -84,15 +83,16 @@ class erLhAbstractModelAutoResponderChat
                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
                 $msg->time = time();
                 $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
-                $msg->saveThis();
 
                 \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => $this->chat));
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $this->chat));
 
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $this->chat));
-
+                $msg->saveThis();
                 $this->chat->last_msg_id = $msg->id;
                 $this->chat->updateThis(array('update' => array('last_msg_id')));
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('no_auto_events' => true, 'msg' => & $msg, 'chat' => & $this->chat));
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('no_auto_events' => true, 'msg' => & $msg, 'chat' => & $this->chat));
             }
         }
     }
@@ -162,7 +162,7 @@ class erLhAbstractModelAutoResponderChat
 
                                     $originalValues = $msg->name_support .'_' .$msg->meta_msg . '_' . $msg->del_st;
 
-                                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true, 'msg' => & $msg, 'chat' => & $this->chat));
+                                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('no_auto_events' => true, 'ignore_times' => true, 'msg' => & $msg, 'chat' => & $this->chat));
 
                                     if ($originalValues != $msg->name_support .'_' .$msg->meta_msg . '_' . $msg->del_st) {
                                         $msg->saveThis();
@@ -220,16 +220,16 @@ class erLhAbstractModelAutoResponderChat
                         \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
 
                         $msg->saveThis();
+                        $this->chat->last_msg_id = $msg->id;
 
                         $originalValues = $msg->name_support . '_' .$msg->meta_msg . '_' . $msg->del_st;
 
-                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true,'msg' => & $msg, 'chat' => & $this->chat));
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('no_auto_events' => true, 'ignore_times' => true,'msg' => & $msg, 'chat' => & $this->chat));
 
                         if ($originalValues != $msg->name_support . '_' .$msg->meta_msg . '_' . $msg->del_st) {
                             $msg->saveThis();
                         }
 
-                        $this->chat->last_msg_id = $msg->id;
                         $this->chat->updateThis(array('update' => array('last_msg_id','status_sub','last_user_msg_time','last_op_msg_time','lsync','last_user_msg_time')));
                     }
                 }
@@ -252,19 +252,18 @@ class erLhAbstractModelAutoResponderChat
                             \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
 
                             $msg->saveThis();
+                            $this->chat->last_msg_id = $msg->id;
 
                             $originalValues = $msg->name_support . '_' . $msg->meta_msg . '_' . $msg->del_st;
 
-                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true,'msg' => & $msg, 'chat' => & $this->chat));
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('no_auto_events' => true, 'ignore_times' => true,'msg' => & $msg, 'chat' => & $this->chat));
 
                             if ($originalValues != $msg->name_support . '_' . $msg->meta_msg . '_' . $msg->del_st) {
                                 $msg->saveThis();
                             }
 
-                            $this->chat->last_msg_id = $msg->id;
                             $this->chat->cls_us = $this->chat->user_status_front + 1;
                             $this->chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
-
                             $this->chat->updateThis(array('update' => array('last_msg_id','status_sub','cls_us')));
 
                             if ($this->chat->user_id > 0) {
@@ -297,17 +296,17 @@ class erLhAbstractModelAutoResponderChat
                                     \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
 
                                     $msg->saveThis();
+                                    $this->chat->last_msg_id = $msg->id;
+                                    $this->chat->updateThis(array('update' => array('last_msg_id')));
 
                                     $originalValues = $msg->name_support .'_' .$msg->meta_msg . '_' . $msg->del_st;
 
-                                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true,'msg' => & $msg, 'chat' => & $this->chat));
+                                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('no_auto_events' => true, 'ignore_times' => true,'msg' => & $msg, 'chat' => & $this->chat));
 
                                     if ($originalValues != $msg->name_support . '_' .$msg->meta_msg . '_' . $msg->del_st) {
                                         $msg->saveThis();
                                     }
 
-                                    $this->chat->last_msg_id = $msg->id;
-                                    $this->chat->updateThis(array('update' => array('last_msg_id')));
                                 }
 
                                 $this->auto_responder->getMeta($this->chat, 'nreply_vis', $i, array('override_user_id' => $this->chat->user_id, 'override_nick' => $name_support, 'store_messages' => true));
@@ -345,17 +344,16 @@ class erLhAbstractModelAutoResponderChat
                                     \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
 
                                     $msg->saveThis();
+                                    $this->chat->last_msg_id = $msg->id;
+                                    $this->chat->updateThis(array('update' => array('last_msg_id')));
 
                                     $originalValues = $msg->name_support . '_' .$msg->meta_msg . '_' . $msg->del_st;
 
-                                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true,'msg' => & $msg, 'chat' => & $this->chat));
+                                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('no_auto_events' => true, 'ignore_times' => true,'msg' => & $msg, 'chat' => & $this->chat));
 
                                     if ($originalValues != $msg->name_support . '_' .$msg->meta_msg . '_' . $msg->del_st) {
                                         $msg->saveThis();
                                     }
-
-                                    $this->chat->last_msg_id = $msg->id;
-                                    $this->chat->updateThis(array('update' => array('last_msg_id')));
                                 }
 
                                 $this->auto_responder->getMeta($this->chat, 'nreply_op', $i, array('override_user_id' => $this->chat->user_id, 'override_nick' => $name_support, 'store_messages' => true));
@@ -397,17 +395,16 @@ class erLhAbstractModelAutoResponderChat
                                 \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
 
                                 $msg->saveThis();
+                                $this->chat->last_msg_id = $msg->id;
+                                $this->chat->updateThis(array('update' => array('last_msg_id')));
 
                                 $originalValues = $msg->name_support . '_' .$msg->meta_msg . '_' . $msg->del_st;
 
-                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true, 'msg' => & $msg, 'chat' => & $this->chat));
+                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('no_auto_events' => true, 'ignore_times' => true, 'msg' => & $msg, 'chat' => & $this->chat));
 
                                 if ($originalValues != $msg->name_support . '_' .$msg->meta_msg . '_' . $msg->del_st) {
                                     $msg->saveThis();
                                 }
-
-                                $this->chat->last_msg_id = $msg->id;
-                                $this->chat->updateThis(array('update' => array('last_msg_id')));
                             }
 
                             $this->auto_responder->getMeta($this->chat, 'onhold', null, array('override_user_id' => $this->chat->user_id, 'override_nick' => $name_support, 'store_messages' => true));

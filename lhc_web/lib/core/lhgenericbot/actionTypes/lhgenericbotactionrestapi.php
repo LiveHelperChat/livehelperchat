@@ -11,7 +11,7 @@ class erLhcoreClassGenericBotActionRestapi
         if (!isset($params['first_trigger'])) {
             $params['first_trigger'] = $params['current_trigger'];
         }
-        
+
         if (isset($action['content']['rest_api']) && is_numeric($action['content']['rest_api']) && isset($action['content']['rest_api_method']) && !empty($action['content']['rest_api_method'])) {
 
             if (isset($params['rest_api_object'])) {
@@ -1156,7 +1156,7 @@ class erLhcoreClassGenericBotActionRestapi
         $replaceVariablesURL = [];
 
         foreach ($replaceVariables as $keyVariable => $variableValue) {
-                $replaceVariablesURL['urlencode_' . $keyVariable] = urlencode($variableValue);
+                $replaceVariablesURL['urlencode_' . $keyVariable] = urlencode((string)$variableValue);
         }
 
         $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables),str_replace(array_keys($replaceVariablesURL), array_values($replaceVariablesURL), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : ''))) . (!empty($queryArgsString) ? '?'.$queryArgsString : '');
@@ -1626,7 +1626,7 @@ class erLhcoreClassGenericBotActionRestapi
 
         // Format the time as H:i:s and add milliseconds
         $milliseconds = sprintf("%03d", ($microTime - floor($microTime)) * 1000);
-        $timeWithMilliseconds = date("H:i:s", $microTime) . ".$milliseconds";
+        $timeWithMilliseconds = date("H:i:s", (int)$microTime) . ".$milliseconds";
 
         // Print the time with milliseconds
         return $timeWithMilliseconds;

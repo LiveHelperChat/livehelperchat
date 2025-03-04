@@ -468,7 +468,7 @@ class erLhAbstractModelAutoResponder {
 
                     // Dispatch event for a new messages
                     foreach (erLhcoreClassModelmsg::getList(['filtergt' => ['id' => $last_msg_id], 'filter' => ['chat_id' => $chat->id]]) as $newMessage) {
-                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('ignore_times' => true, 'msg' => & $newMessage, 'chat' => & $chat));
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('no_auto_events' => true, 'ignore_times' => true, 'msg' => & $newMessage, 'chat' => & $chat));
                     }
 
                 } else {
