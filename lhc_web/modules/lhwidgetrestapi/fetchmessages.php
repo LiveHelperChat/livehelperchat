@@ -50,32 +50,6 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 		        $chat->auto_responder->process();
 		    }
 
-        if (erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_value != 1 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->transfer_if_na == 1 &&
-            (
-                (
-                    $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac)
-                ) || (
-                    ($department = $chat->department) && $offlineDepartmentOperators = true && $department !== false &&
-                        (
-                            (isset($department->bot_configuration_array['off_op_exec']) && $department->bot_configuration_array['off_op_exec'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === false) ||
-                            (isset($department->bot_configuration_array['off_op_work_hours']) && $department->bot_configuration_array['off_op_work_hours'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'ignore_user_status' => true)) === false)
-                        )
-                )
-            ) ) {
-
-				$canExecuteWorkflow = true;
-
-				if (erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value >= 0) {
-					if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
-						$canExecuteWorkflow = erLhcoreClassChat::getPendingChatsCountPublic($chat->department->department_transfer_id) <= erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value;
-					}
-				}
-
-				if ($canExecuteWorkflow == true) {
-					erLhcoreClassChatWorkflow::transferWorkflow($chat, array('offline_operators' => isset($offlineDepartmentOperators)));
-				}
-			}
-
 			if ($chat->reinform_timeout > 0 && $chat->unread_messages_informed == 0 && $chat->has_unread_messages == 1 && (time()-$chat->last_user_msg_time) > $chat->reinform_timeout) {
 				$department = $chat->department;
 				if ($department !== false) {
