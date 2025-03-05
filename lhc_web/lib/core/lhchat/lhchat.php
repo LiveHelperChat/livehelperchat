@@ -1029,7 +1029,7 @@ class erLhcoreClassChat {
        		if ($ignoreUserStatus === false) {
 
 				if (is_numeric($dep_id)) {
-		           $stmt = $db->prepare("SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep INNER JOIN lh_departament ON lh_departament.id = :dep_id_dest WHERE `lh_departament`.`disabled` = 0 AND `lh_departament`.`dep_offline` = 0 AND `lh_departament`.`ignore_op_status` = 0 AND (lh_departament.pending_group_max = 0 OR lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 OR lh_departament.pending_max > lh_departament.pending_chats_counter) AND ((last_activity > :last_activity OR `lh_userdep`.`always_on` = 1) AND hide_online = 0 AND ro = 0) AND (dep_id = :dep_id {$exclipicFilter}) {$userFilter}");
+		           $stmt = $db->prepare("SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep INNER JOIN lh_departament ON lh_departament.id = :dep_id_dest WHERE `lh_departament`.`disabled` = 0 AND `lh_departament`.`dep_offline` = 0 " . ((!isset($params['include_users']) || $params['include_users'] === false) ? 'AND `lh_departament`.`ignore_op_status` = 0' : '') . " AND (lh_departament.pending_group_max = 0 OR lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 OR lh_departament.pending_max > lh_departament.pending_chats_counter) AND ((last_activity > :last_activity OR `lh_userdep`.`always_on` = 1) AND hide_online = 0 AND ro = 0) AND (dep_id = :dep_id {$exclipicFilter}) {$userFilter}");
 		           $stmt->bindValue(':dep_id',$dep_id,PDO::PARAM_INT);
 		           $stmt->bindValue(':dep_id_dest',$dep_id,PDO::PARAM_INT);
 		           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
@@ -1040,7 +1040,7 @@ class erLhcoreClassChat {
                         $dep_id_filter = array(-1);
                         $sqlDepartment = '';
 					}
-					$stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep, lh_departament WHERE ' . $sqlDepartment . '  `lh_departament`.`ignore_op_status` = 0 AND `lh_departament`.`disabled` = 0 AND `lh_departament`.`dep_offline` = 0 AND (lh_departament.pending_group_max = 0 OR lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 OR lh_departament.pending_max > lh_departament.pending_chats_counter) AND ((last_activity > :last_activity OR `lh_userdep`.`always_on` = 1) AND hide_online = 0 AND ro = 0) AND (dep_id IN ('. implode(',', $dep_id_filter) .") {$exclipicFilter}) {$userFilter}");
+					$stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep, lh_departament WHERE ' . $sqlDepartment . ' `lh_departament`.`disabled` = 0 ' . ((!isset($params['include_users']) || $params['include_users'] === false) ? 'AND `lh_departament`.`ignore_op_status` = 0' : '') . ' AND `lh_departament`.`dep_offline` = 0 AND (lh_departament.pending_group_max = 0 OR lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 OR lh_departament.pending_max > lh_departament.pending_chats_counter) AND ((last_activity > :last_activity OR `lh_userdep`.`always_on` = 1) AND hide_online = 0 AND ro = 0) AND (dep_id IN ('. implode(',', $dep_id_filter) .") {$exclipicFilter}) {$userFilter}");
 					$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 				}
 				$stmt->execute();

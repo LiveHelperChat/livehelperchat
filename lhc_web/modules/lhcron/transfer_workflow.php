@@ -40,10 +40,10 @@ if (erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_val
                             (
                                 (isset($isOnlineCache[$chat->dep_id]) && $isOnlineCache[$chat->dep_id] === false)
                                 ||
-                                (erLhcoreClassChat::isOnline($chat->dep_id,false, array('disable_cache' => true, 'exclude_bot' => true, 'exclude_online_hours' => true)) === false && ($isOnlineCache[$chat->dep_id] = false) === false)
+                                (erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'include_users' => true, 'exclude_online_hours' => true)) === false && ($isOnlineCache[$chat->dep_id] = false) === false)
                             )
                             ||
-                            (isset($department->bot_configuration_array['off_op_work_hours']) && $department->bot_configuration_array['off_op_work_hours'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('disable_cache' => true, 'exclude_bot' => true, 'ignore_user_status' => true)) === false)
+                            (isset($department->bot_configuration_array['off_op_work_hours']) && $department->bot_configuration_array['off_op_work_hours'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'ignore_user_status' => true)) === false)
                         )
                 )
             ) {

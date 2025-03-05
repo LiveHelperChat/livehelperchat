@@ -2054,6 +2054,13 @@
             "description": "Ignore user status",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "name": "include_users",
+            "in": "query",
+            "description": "Include operators status even if in departments settings it is chosen to ignore it.",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2168,6 +2175,13 @@
             "type": "boolean"
           },
           {
+            "name": "include_users",
+            "in": "query",
+            "description": "Include operators status even if in departments settings it is chosen to ignore it.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "name": "exclude_bot",
             "in": "query",
             "description": "Exclude bot status",
@@ -2246,6 +2260,13 @@
             "name": "ignore_user_status",
             "in": "query",
             "description": "Ignore user status",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "include_users",
+            "in": "query",
+            "description": "Include operators status even if in departments settings it is chosen to ignore it.",
             "required": false,
             "type": "boolean"
           },
