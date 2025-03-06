@@ -126,7 +126,7 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
     $filter = array('sort' => 'name ASC', 'limit' => 50, 'offset' => $offset);
 
     if (!empty($search)) {
-        $filter['customfilter'] = array('(`chat_nickname` LIKE ('. $db->quote('%'.$search.'%')  .') OR `name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `surname` LIKE ('. $db->quote('%'.$search.'%').'))');
+        $filter['customfilter'] = array('( CONCAT(`name`,\' \',`surname`) LIKE ('. $db->quote('%'.$search.'%')  .') OR `chat_nickname` LIKE ('. $db->quote('%'.$search.'%')  .') OR `name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `surname` LIKE ('. $db->quote('%'.$search.'%').'))');
     }
 
     if (isset($_GET['exclude_disabled']) && $_GET['exclude_disabled'] == 1) {

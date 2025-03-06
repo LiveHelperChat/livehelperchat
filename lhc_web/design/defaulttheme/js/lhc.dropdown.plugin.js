@@ -133,14 +133,12 @@ $.fn.makeDropdown = function(paramsDropdown) {
         if ($(this).attr('ajax-provider')) {
             ajaxScroll($(this));
         } else {
-            var filter = $(this).val();
+            var filter = $(this).val().toLowerCase();
             $(this).parent().parent().find('li.dropdown-result > ul').children('li').each(function(i) {
-                if (i > 0) {
-                    if (!$(this).text().toLowerCase().includes(filter) && filter != ''){
-                        $(this).hide();
-                    } else {
-                        $(this).show();
-                    }
+                if (!$(this).text().toLowerCase().includes(filter) && filter != ''){
+                    $(this).hide();
+                } else {
+                    $(this).show();
                 }
             });
         }
