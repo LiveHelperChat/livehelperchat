@@ -2061,6 +2061,13 @@
             "description": "Include operators status even if in departments settings it is chosen to ignore it.",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "name": "exclude_online_hours",
+            "in": "query",
+            "description": "Exclude online hours",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2187,6 +2194,13 @@
             "description": "Exclude bot status",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "name": "exclude_online_hours",
+            "in": "query",
+            "description": "Exclude online hours",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2274,6 +2288,13 @@
             "name": "exclude_bot",
             "in": "query",
             "description": "Exclude bot status",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "exclude_online_hours",
+            "in": "query",
+            "description": "Exclude online hours",
             "required": false,
             "type": "boolean"
           }
