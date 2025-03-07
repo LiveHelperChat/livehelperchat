@@ -1,3 +1,4 @@
+<h6><?php echo count($previousChats);?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','chats were found')?></h6>
 <table class="table table-hover table-small">
     <thead>
     <tr>

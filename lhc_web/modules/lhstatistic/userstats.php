@@ -22,7 +22,8 @@ if ($Params['user_parameters_unordered']['action'] == 'chatsmoment') {
     }
 
     if ($linuxTimestampEnd == $linuxTimestamp) {
-        $chats = erLhcoreClassModelChat::getList(['sort' => 'id ASC', 'limit' => 100, 'filterlte' => ['time' => $linuxTimestamp], 'filtergte' => ['cls_time' => $linuxTimestamp], 'filter' => ['user_id' => $Params['user_parameters']['id']]]);
+        $customFilter = ['((`status` = 2 AND `time` <= ' . $linuxTimestamp . ' AND `cls_time` >= ' . $linuxTimestamp .') OR (status IN (0,1) AND `time` <= ' . $linuxTimestamp. '))'];
+        $chats = erLhcoreClassModelChat::getList(['sort' => 'id ASC', 'limit' => 100, 'customfilter' => $customFilter,  'filter' => ['user_id' => $Params['user_parameters']['id']]]);
     } else {
         $chats = erLhcoreClassModelChat::getList(['sort' => 'id ASC', 'limit' => 100, 'filtergte' => ['time' => $linuxTimestamp], 'filterlte' => ['cls_time' => $linuxTimestampEnd], 'filter' => ['user_id' => $Params['user_parameters']['id']]]);
     }

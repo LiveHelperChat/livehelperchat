@@ -151,7 +151,7 @@ $modalSize = 'xl';
                     <div class="row ms-0 me-0">
                         <div class="col-auto">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Start period*')?></label>
-                            <input class="form-control form-control-sm" id="chats-moment-date" type="datetime-local">
+                            <input class="form-control form-control-sm" value="<?php if (isset($_GET['ts'])) : echo date('Y-m-d\TH:i',(int)$_GET['ts']);endif;?>" id="chats-moment-date" type="datetime-local">
                         </div>
                         <div class="col-auto">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','End period')?></label>
