@@ -11,6 +11,16 @@ $transItems = array(
     "homepage.always_online_mode" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Always online'),
     "homepage.always_online_activity" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Based on activity'),
 
+    "homepage.interact_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Sound is disabled (interact with page to enable)'),
+    "homepage.sound_disabled" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Sound is disabled (trying to enable...)'),
+    "homepage.browser_no_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Audio not supported in this browser'),
+
+
+    "homepage.enable_notifications" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Click to enable notifications'),
+    "homepage.notifications_not_supported" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Notifications not supported in this browser'),
+    "homepage.notifications_blocked" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Notifications blocked (check browser settings)'),
+    "homepage.notifications_like" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','You will now receive notifications from this site'),
+
     // Open chat
     'front_default.chat_id_to_open' => erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Chat ID to open'),
     'front_default.open_a_chat' => erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open a chat'),

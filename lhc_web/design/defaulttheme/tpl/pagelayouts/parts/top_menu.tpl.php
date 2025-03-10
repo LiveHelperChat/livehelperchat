@@ -40,8 +40,12 @@
 
             <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_multiinclude.tpl.php'));?>
 
+            <browser-notification></browser-notification>
+            <audio-checker></audio-checker>
+
             <?php if ($currentUser->hasAccessTo('lhchat','use') && $currentUser->hasAccessTo('lhuser','changeonlinestatus'))  : ?>
                     <li class="list-inline-item nav-item">
+
                         <change-online-status enable_shortcut="true"></change-online-status>
                         <?php /* <a href="#" class="nav-link"><i id="online-offline-user" class="material-icons ng-cloak" ng-click="lhc.changeOnline()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" >{{lhc.hideOnline == true ? 'flash_off' : 'flash_on'}}</i></a> */ ?>
                     </li>
