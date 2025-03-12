@@ -323,6 +323,12 @@ $ViewList['setinprogresstrigger'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['settriggerposition'] = array(
+    'params' => array('id','pos'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['setasargument'] = array(
     'params' => array('id','default'),
     'uparams' => array(),

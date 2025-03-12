@@ -64,7 +64,7 @@ cd ./design/defaulttheme/js/svelte && npm run build
 cd ../../../../
 
 echo "Generating JS/CSS files"
-php cron.php -s site_admin -c cron/util/generate_css -p 1
+php82 cron.php -s site_admin -c cron/util/generate_css -p 1
 
 echo "Compressing JS"
 gulp js-static

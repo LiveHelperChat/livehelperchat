@@ -6,7 +6,7 @@ $bot = erLhcoreClassModelGenericBotBot::fetch((int)$Params['user_parameters']['i
 
 $groups = erLhcoreClassModelGenericBotGroup::getList(array(
     'filterin' => array('bot_id' => $bot->getBotIds()),
-    'sort' => 'pos ASC, id ASC'
+    'sort' => '`pos` ASC, `id` ASC'
 ));
 
 echo json_encode(array_values($groups));

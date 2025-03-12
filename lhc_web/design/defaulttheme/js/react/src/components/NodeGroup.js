@@ -70,7 +70,7 @@ class NodeGroup extends Component {
     render() {
 
         if (this.props.nodegrouptriggers.get('nodegrouptriggers').has(this.props.group.get('id'))) {
-            var mappedNodeGroupTriggers = this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')).map(nodegrouptrigger =><NodeGroupTrigger triggerId={this.props.triggerId} key={nodegrouptrigger.get('id')} trigger={nodegrouptrigger}  />);
+            var mappedNodeGroupTriggers = this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')).sortBy(trigger => trigger.get('pos')).map(nodegrouptrigger =><NodeGroupTrigger triggerId={this.props.triggerId} key={nodegrouptrigger.get('id')} trigger={nodegrouptrigger}  />);
         } else {
             var mappedNodeGroupTriggers = "";
         }
