@@ -21,12 +21,12 @@ class LHCStatusWidget extends HTMLElement {
         }
     }
 
-    show(){
+    show() {
         this.style.setProperty("display","block","important");
-        this.resize();
+        window.orientation === undefined && this.resize();
     }
 
-    hide(){
+    hide() {
         this.style.setProperty("display","none","important");
     }
 
@@ -95,9 +95,12 @@ class LHCStatusWidget extends HTMLElement {
             initX, initY, firstX, firstY, objectMoved = false, lastTouch, moveAction = false, dragEnabled = this.getAttribute("drag-enabled") === "true";
 
         try {
-            if (this.getAttribute('vertical-unit') === 'px') {
-                window.addEventListener('resize', resize, false);
-                screen.orientation.addEventListener("change", resize);
+            if (dragEnabled === true && this.getAttribute('vertical-unit') === 'px') {
+                if (window.orientation !== undefined) {
+                    screen.orientation.addEventListener("change", resize);
+                } else {
+                    window.addEventListener('resize', resize, false);
+                }
             }
         } catch (e) {
             console.log(e);
