@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { fetchNodeGroupTriggerAction, removeTrigger, setDefaultTrigger, setDefaultUnknownTrigger, setDefaultAlwaysTrigger, setInProgressTrigger, setDefaultUnknownBtnTrigger, makeTriggerCopy, setTriggerGroup, setAsArgumentTrigger } from "../actions/nodeGroupTriggerActions"
+import { fetchNodeGroupTriggerAction, removeTrigger, setDefaultTrigger, setDefaultUnknownTrigger, setDefaultAlwaysTrigger, setInProgressTrigger, setDefaultUnknownBtnTrigger, makeTriggerCopy, setTriggerGroup, setAsArgumentTrigger, setTriggerPosition } from "../actions/nodeGroupTriggerActions"
 import { connect } from "react-redux";
 
 @connect((store) => {
@@ -14,7 +14,7 @@ class NodeGroupTrigger extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {isCurrent: false, changingGroup: false};
+        this.state = {isCurrent: false, changingGroup: false, position: this.props.trigger.get('pos')};
         this.removeTrigger = this.removeTrigger.bind(this);
         this.setDefaultTrigger = this.setDefaultTrigger.bind(this);
         this.setDefaultUnknownTrigger = this.setDefaultUnknownTrigger.bind(this);
@@ -106,7 +106,14 @@ class NodeGroupTrigger extends Component {
             return true;
         }
 
+        if (this.state.position != nextState.position){
+            return true;
+        }
+
         return false;
+    }
+    setPosition() {
+        this.props.dispatch(setTriggerPosition(this.props.trigger.set('pos',this.state.position)));
     }
 
     render() {
@@ -139,9 +146,17 @@ class NodeGroupTrigger extends Component {
                         <ul className="dropdown-menu dropdown-menu-trigger">
                             <li className="dropdown-item"><a href="#" onClick={this.removeTrigger}><i className="material-icons">delete</i> Delete</a></li>
                             <li className="dropdown-item"><a href="#" onClick={this.makeCopy}><i className="material-icons">file_copy</i> Copy</a></li>
-                            <li className="dropdown-item"><a href="#" onClick={(e) => this.changeGroup(!this.state.changingGroup)}><i className="material-icons">home</i> Change group</a></li>
                             <div className="dropdown-divider"></div>
-                            <li className="dropdown-item"><label className="mb-0" title="This message will be send tu visitor then chat starts"><input onChange={this.setDefaultTrigger} type="checkbox" checked={this.props.trigger.get('default')} /> Default</label></li>
+                            <li className="dropdown-item"><a href="#" onClick={(e) => this.changeGroup(!this.state.changingGroup)}><i className="material-icons">home</i> Change group</a></li>
+                            <li className="dropdown-item">
+                                <span><span className="material-icons text-muted">swap_vert</span><b>Trigger position in group</b></span>
+                                <div className="input-group input-group-sm me-2 mt-1">
+                                    <input type="number" title="Position" onChange={(e) => this.setState({position: parseInt(e.target.value)})} className="form-control" style={{"width" : "65px"}} defaultValue={this.props.trigger.get('pos')} placeholder="Position" aria-label="Input group example" aria-describedby="btnGroupAddon" />
+                                    <button className="btn btn-secondary" disabled={this.props.trigger.get('pos') == this.state.position} onClick={this.setPosition.bind(this)} type="button" id="button-addon1"><span className="material-icons me-0">done</span></button>
+                                </div>
+                            </li>
+                            <div className="dropdown-divider"></div>
+                            <li className="dropdown-item"><label className="mb-0" title="This message will be send tu visitor then chat starts"><input onChange={this.setDefaultTrigger} type="checkbox" checked={this.props.trigger.get('default')}/> Default</label></li>
                             <li className="dropdown-item"><label className="mb-0" title="This message will be send to visitor then we could dot determine what we should do with a visitor message"><input onChange={this.setDefaultUnknownTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown')} /> Default for unknown message</label></li>
                             <li className="dropdown-item"><label className="mb-0" title="This message will be send to visitor then we could dot determine what we should do with a button click"><input onChange={this.setDefaultUnknownBtnTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown_btn')} /> Default for unknown button click</label></li>
                             <li className="dropdown-item"><label className="mb-0" title="This trigger will be always checking independently in what process we are"><input onChange={this.setDefaultAlwaysTrigger} type="checkbox" checked={this.props.trigger.get('default_always')} /> Execute always</label></li>

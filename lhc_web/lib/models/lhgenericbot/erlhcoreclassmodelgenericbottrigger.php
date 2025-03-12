@@ -26,6 +26,7 @@ class erLhcoreClassModelGenericBotTrigger {
         	'default_unknown_btn' => $this->default_unknown_btn,
         	'as_argument' => $this->as_argument,
         	'in_progress' => $this->in_progress,
+        	'pos' => $this->pos,
         );
 
         return $stateArray;
@@ -86,4 +87,5 @@ class erLhcoreClassModelGenericBotTrigger {
     public $default_unknown_btn = 0;
     public $as_argument = 0;
     public $in_progress = 0;
+    public $pos = 0;
 }

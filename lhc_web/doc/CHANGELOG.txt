@@ -1,3 +1,19 @@
+4.54v
+
+1. Improved support for PHP 8.4.
+2. Updated Docker images to use PHP version 8.4. [Docker Standalone](https://github.com/LiveHelperChat/docker-standalone)
+3. Resolved an issue where the widget could disappear off the screen on iOS Safari when the user updated the page by dragging from top to bottom.
+4. The dashboard now displays sound and notification permissions live near the user account. [Installation Guide](https://doc.livehelperchat.com/docs/install#i-dont-get-a-soundnotification-for-new-chats)
+5. The bot constructor now allows changing the position of individual triggers within a trigger group.
+6. The momentary chat history will now display active and pending chats.
+7. Transfers between departments will now only work through a cron job and not via HTTP requests.
+8. Added an option to set the number of emails to be imported/checked during mail import.
+9. The global typing setting will now be respected, and it won't show what the visitor is typing if NodeJS is used.
+10. Adjusted the user experience for streaming settings in the REST API.
+11. Introduced a cron job to manually check the mail import flow. [Mail Import Debugging](https://doc.livehelperchat.com/docs/mail/sample-mailbox#how-to-test-debug)
+
+execute doc/update_db/update_322.sql for update
+
 4.53v
 
 1. Increased the CURL timeout for REST API calls to 360 seconds. Since LLM responses can take a long time, use this carefully and delegate tasks to background workers using PHP-Resque.

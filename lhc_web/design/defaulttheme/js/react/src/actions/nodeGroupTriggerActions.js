@@ -130,6 +130,19 @@ export function setTriggerGroup(obj, group_id) {
         }
 }
 
+export function setTriggerPosition(obj) {
+    return function(dispatch) {
+        dispatch({type: "SET_TRIGGER_POSITON", payload : obj});
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/settriggerposition/" + obj.get('id') + '/' +  obj.get('pos'))
+            .then((response) => {
+                dispatch({type: "SET_DEFAULT_UNKNOWN_BTN_FULFILLED", payload: response.data})
+            }).catch((err) => {
+            dispatch({type: "SET_DEFAULT_UNKNOWN_BTN_REJECTED", payload: err})
+        })
+    }
+}
+
+
 var timeoutEvent = null;
 
 export function updateTriggerEvent(obj) {
