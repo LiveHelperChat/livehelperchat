@@ -128,7 +128,7 @@ class PHPExcel_Writer_Excel2007 extends PHPExcel_Writer_Abstract implements PHPE
      *
 	 * @param 	PHPExcel	$pPHPExcel
      */
-    public function __construct(PHPExcel $pPHPExcel = null)
+    public function __construct(?PHPExcel $pPHPExcel = null)
     {
     	// Assign PHPExcel
 		$this->setPHPExcel($pPHPExcel);
@@ -432,7 +432,7 @@ class PHPExcel_Writer_Excel2007 extends PHPExcel_Writer_Abstract implements PHPE
 	 * @throws	PHPExcel_Writer_Exception
 	 * @return PHPExcel_Writer_Excel2007
 	 */
-	public function setPHPExcel(PHPExcel $pPHPExcel = null) {
+	public function setPHPExcel(?PHPExcel $pPHPExcel = null) {
 		$this->_spreadSheet = $pPHPExcel;
 		return $this;
 	}

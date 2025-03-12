@@ -124,7 +124,7 @@ class ezcMailRfc2231Implementation
      * @param ezcMailContentDispositionHeader $cd
      * @return ezcMailContentDispositionHeader
      */
-    public static function parseContentDisposition( $header, ezcMailContentDispositionHeader $cd = null )
+    public static function parseContentDisposition( $header, ?ezcMailContentDispositionHeader $cd = null )
     {
         if ( $cd === null )
         {

@@ -111,7 +111,7 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      * @param ezcPersistentIdentityMap $identityMap 
      * @param ezcPersistentSessionIdentityDecoratorOptions $options
      */
-    public function __construct( ezcPersistentSession $session, ezcPersistentIdentityMap $identityMap, ezcPersistentSessionIdentityDecoratorOptions $options = null )
+    public function __construct( ezcPersistentSession $session, ezcPersistentIdentityMap $identityMap, ?ezcPersistentSessionIdentityDecoratorOptions $options = null )
     {
         $this->session                   = $session;
         $this->properties['identityMap'] = $identityMap;

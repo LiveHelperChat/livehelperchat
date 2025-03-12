@@ -268,7 +268,7 @@ class ezcImageConverter
      * @throws ezcImageTransformationAlreadyExists 
      *         If a transformation with the given name does already exist. 
      */
-    public function createTransformation( $name, array $filters, array $mimeOut, ezcImageSaveOptions $saveOptions = null )
+    public function createTransformation( $name, array $filters, array $mimeOut, ?ezcImageSaveOptions $saveOptions = null )
     {
         if ( isset( $this->transformations[$name] ) )
         {

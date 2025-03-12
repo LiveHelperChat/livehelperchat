@@ -175,7 +175,7 @@ class ezcAuthenticationUrl
                 $newKey = '';
                 for ( $i = 0; $i < strlen( $paramKey ); $i++ )
                 {
-                    $newKey .= ( $paramKey{$i} === '_' && $key{$i} === '.' ) ? '.' : $paramKey{$i};
+                    $newKey .= ( $paramKey[$i] === '_' && $key[$i] === '.' ) ? '.' : $paramKey[$i];
                 }
 
                 $keys = array_keys( $params );

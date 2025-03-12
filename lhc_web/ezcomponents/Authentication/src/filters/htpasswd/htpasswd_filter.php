@@ -92,7 +92,7 @@ class ezcAuthenticationHtpasswdFilter extends ezcAuthenticationFilter
      * @param string $file The path and file name of the htpasswd file to use
      * @param ezcAuthenticationHtpasswdOptions $options Options for this class
      */
-    public function __construct( $file, ezcAuthenticationHtpasswdOptions $options = null )
+    public function __construct( $file, ?ezcAuthenticationHtpasswdOptions $options = null )
     {
         $this->file = $file;
         $this->options = ( $options === null ) ? new ezcAuthenticationHtpasswdOptions() : $options;

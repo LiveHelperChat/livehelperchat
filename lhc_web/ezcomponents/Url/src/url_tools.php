@@ -143,7 +143,7 @@ class ezcUrlTools
      * @param array(string=>mixed) $source The default array source, default $_SERVER
      * @return string
      */
-    public static function getCurrentUrl( array $source = null )
+    public static function getCurrentUrl( ?array $source = null )
     {
         if ( $source === null )
         {

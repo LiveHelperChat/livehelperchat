@@ -85,7 +85,7 @@ class ezcConsoleInputStandardHelpGenerator implements ezcConsoleInputHelpGenerat
      * @param array(string) $optionsFilter
      * @return array(array(string))
      */
-    public function generateUngroupedOptionHelp( $long = false, array $optionsFilter = null )
+    public function generateUngroupedOptionHelp( $long = false, ?array $optionsFilter = null )
     {
         $help = array();
         foreach ( $this->input->getOptions() as $id => $param )
@@ -143,7 +143,7 @@ class ezcConsoleInputStandardHelpGenerator implements ezcConsoleInputHelpGenerat
      * @param array(string) $params 
      * @return array(string=>array(array(string)))
      */
-    public function generateGroupedOptionHelp( array $groups, $long = false, array $optionsFilter = null )
+    public function generateGroupedOptionHelp( array $groups, $long = false, ?array $optionsFilter = null )
     {
         $help = array();
         foreach ( $groups as $groupName => $groupOptions )
@@ -257,7 +257,7 @@ class ezcConsoleInputStandardHelpGenerator implements ezcConsoleInputHelpGenerat
      * @param array(string) $optionsFilter
      * @return string
      */
-    public function generateSynopsis( array $optionFilter = null )
+    public function generateSynopsis( ?array $optionFilter = null )
     {
         $usedOptions = array( 'short' => array(), 'long' => array() );
         $allowsArgs = true;

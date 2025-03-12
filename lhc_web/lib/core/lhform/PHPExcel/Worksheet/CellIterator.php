@@ -71,7 +71,7 @@ class PHPExcel_Worksheet_CellIterator implements Iterator
 	 * @param PHPExcel_Worksheet 		$subject
 	 * @param int						$rowIndex
 	 */
-	public function __construct(PHPExcel_Worksheet $subject = null, $rowIndex = 1) {
+	public function __construct(?PHPExcel_Worksheet $subject = null, $rowIndex = 1) {
 		// Set subject and row index
 		$this->_subject 	= $subject;
 		$this->_rowIndex 	= $rowIndex;

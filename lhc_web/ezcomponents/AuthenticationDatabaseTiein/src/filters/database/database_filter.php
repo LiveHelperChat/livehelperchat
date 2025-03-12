@@ -121,7 +121,7 @@ class ezcAuthenticationDatabaseFilter extends ezcAuthenticationFilter implements
      * @param ezcAuthenticationDatabaseInfo $database Database to use in authentication
      * @param ezcAuthenticationDatabaseOptions $options Options for this class
      */
-    public function __construct( ezcAuthenticationDatabaseInfo $database, ezcAuthenticationDatabaseOptions $options = null )
+    public function __construct( ezcAuthenticationDatabaseInfo $database, ?ezcAuthenticationDatabaseOptions $options = null )
     {
         $this->options = ( $options === null ) ? new ezcAuthenticationDatabaseOptions() : $options;
         $this->database = $database;

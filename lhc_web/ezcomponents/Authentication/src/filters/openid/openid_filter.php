@@ -352,7 +352,7 @@ class ezcAuthenticationOpenidFilter extends ezcAuthenticationFilter implements e
      *
      * @param ezcAuthenticationOpenidOptions $options Options for this class
      */
-    public function __construct( ezcAuthenticationOpenidOptions $options = null )
+    public function __construct( ?ezcAuthenticationOpenidOptions $options = null )
     {
         $this->options = ( $options === null ) ? new ezcAuthenticationOpenidOptions() : $options;
     }

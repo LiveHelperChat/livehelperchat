@@ -506,7 +506,7 @@ class ezcConsoleInput
      *
      * @see ezcConsoleOptionException
      */ 
-    public function process( array $args = null )
+    public function process( ?array $args = null )
     {
         if ( $this->processed )
         {
@@ -772,7 +772,7 @@ class ezcConsoleInput
      *            to null instead of an empty array. Giving an empty array for 
      *            these will then be taken literally.
      */
-    public function getHelp( $long = false, array $params = array(), array $paramGrouping = null )
+    public function getHelp( $long = false, array $params = array(), ?array $paramGrouping = null )
     {
         // New handling
         $params = ( $params === array() || $params === null ? null : $params );
@@ -948,7 +948,7 @@ class ezcConsoleInput
      * @param array(string=>array(string)) $paramGrouping
      * @return string The generated help text.
      */
-    public function getHelpText( $programDesc, $width = 80, $long = false, array $params = null, $paramGrouping = null )
+    public function getHelpText( $programDesc, $width = 80, $long = false, ?array $params = null, $paramGrouping = null )
     {
         $help = $this->getHelp( $long, ( $params == null ? array() : $params ), $paramGrouping );
 
@@ -997,7 +997,7 @@ class ezcConsoleInput
      * @param array(string) $optionNames
      * @return string
      */
-    public function getSynopsis( array $optionNames = null )
+    public function getSynopsis( ?array $optionNames = null )
     {
         return $this->helpGenerator->generateSynopsis( $optionNames );
     }

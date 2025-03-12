@@ -652,7 +652,7 @@ abstract class ezcGraphDriver
      * @param ezcGraphRotation $rotation
      * @return void
      */
-    abstract public function drawTextBox( $string, ezcGraphCoordinate $position, $width, $height, $align, ezcGraphRotation $rotation = null );
+    abstract public function drawTextBox( $string, ezcGraphCoordinate $position, $width, $height, $align, ?ezcGraphRotation $rotation = null );
     
     /**
      * Draws a sector of cirlce

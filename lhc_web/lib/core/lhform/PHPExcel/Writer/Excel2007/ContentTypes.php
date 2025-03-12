@@ -43,7 +43,7 @@ class PHPExcel_Writer_Excel2007_ContentTypes extends PHPExcel_Writer_Excel2007_W
 	 * @return 	string 						XML Output
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	public function writeContentTypes(PHPExcel $pPHPExcel = null, $includeCharts = FALSE)
+	public function writeContentTypes(?PHPExcel $pPHPExcel = null, $includeCharts = FALSE)
 	{
 		// Create XML writer
 		$objWriter = null;
@@ -251,7 +251,7 @@ class PHPExcel_Writer_Excel2007_ContentTypes extends PHPExcel_Writer_Excel2007_W
 	 * @param 	string 						$pContentType 	Content type
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	private function _writeDefaultContentType(PHPExcel_Shared_XMLWriter $objWriter = null, $pPartname = '', $pContentType = '')
+	private function _writeDefaultContentType(?PHPExcel_Shared_XMLWriter $objWriter = null, $pPartname = '', $pContentType = '')
 	{
 		if ($pPartname != '' && $pContentType != '') {
 			// Write content type
@@ -272,7 +272,7 @@ class PHPExcel_Writer_Excel2007_ContentTypes extends PHPExcel_Writer_Excel2007_W
 	 * @param 	string 						$pContentType 	Content type
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	private function _writeOverrideContentType(PHPExcel_Shared_XMLWriter $objWriter = null, $pPartname = '', $pContentType = '')
+	private function _writeOverrideContentType(?PHPExcel_Shared_XMLWriter $objWriter = null, $pPartname = '', $pContentType = '')
 	{
 		if ($pPartname != '' && $pContentType != '') {
 			// Write content type

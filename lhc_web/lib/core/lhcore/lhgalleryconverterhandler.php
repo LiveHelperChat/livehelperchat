@@ -232,7 +232,7 @@ class erLhcoreClassGalleryImagemagickHandler extends ezcImageImagemagickHandler 
         }            
     }
     
-    public function saveComposite($image, $newFile = null, $mime = null, ezcImageSaveOptions $options = null)
+    public function saveComposite($image, $newFile = null, $mime = null, ?ezcImageSaveOptions $options = null)
     {
         if ( $options === null )
         {

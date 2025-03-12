@@ -56,7 +56,7 @@ class PHPExcel_WorksheetIterator implements Iterator
      *
      * @param PHPExcel         $subject
      */
-    public function __construct(PHPExcel $subject = null)
+    public function __construct(?PHPExcel $subject = null)
     {
         // Set subject
         $this->_subject = $subject;

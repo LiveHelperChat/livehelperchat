@@ -69,7 +69,7 @@ class ezcGraphMatrix
      * @param array $values Array with values
      * @return void
      */
-    public function __construct( $rows = 3, $columns = 3, array $values = null )
+    public function __construct( $rows = 3, $columns = 3, ?array $values = null )
     {
         $this->rows = max( 1, (int) $rows );
         $this->columns = max( 1, (int) $columns );

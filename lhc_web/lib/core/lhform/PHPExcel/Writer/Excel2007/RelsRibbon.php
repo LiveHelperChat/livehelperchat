@@ -42,7 +42,7 @@ class PHPExcel_Writer_Excel2007_RelsRibbon extends PHPExcel_Writer_Excel2007_Wri
 	 * @return 	string 		XML Output
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	public function writeRibbonRelationships(PHPExcel $pPHPExcel = null){
+	public function writeRibbonRelationships(?PHPExcel $pPHPExcel = null){
 		// Create XML writer
 		$objWriter = null;
 		if ($this->getParentWriter()->getUseDiskCaching()) {

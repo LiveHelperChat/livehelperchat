@@ -77,7 +77,7 @@ interface ezcConsoleInputHelpGenerator
      * @param array(string) $optionsFilter
      * @return array(array(string))
      */
-    public function generateUngroupedOptionHelp( $long = false, array $optionsFilter = null );
+    public function generateUngroupedOptionHelp( $long = false, ?array $optionsFilter = null );
 
     /**
      * Generates help information as a multidimensional array, grouped in categories.
@@ -124,7 +124,7 @@ interface ezcConsoleInputHelpGenerator
      * @param array(string) $params 
      * @return array(string=>array(array(string)))
      */
-    public function generateGroupedOptionHelp( array $groups, $long = false, array $optionsFilter = null );
+    public function generateGroupedOptionHelp( array $groups, $long = false, ?array $optionsFilter = null );
 
     /**
      * Generates help information as a multi-dimensonal array for the given $argumentDefinition.
@@ -164,7 +164,7 @@ interface ezcConsoleInputHelpGenerator
      *
      * @return string
      */
-    public function generateSynopsis( array $optionFilter = null );
+    public function generateSynopsis( ?array $optionFilter = null );
 }
 
 ?>

@@ -199,7 +199,7 @@ class ezcAuthenticationGroupFilter extends ezcAuthenticationFilter
      * @param array(ezcAuthenticationFilter|mixed) $filters Authentication filters
      * @param ezcAuthenticationGroupOptions $options Options for this class
      */
-    public function __construct( array $filters, ezcAuthenticationGroupOptions $options = null )
+    public function __construct( array $filters, ?ezcAuthenticationGroupOptions $options = null )
     {
         $this->options = ( $options === null ) ? new ezcAuthenticationGroupOptions() : $options;
 
@@ -383,7 +383,7 @@ class ezcAuthenticationGroupFilter extends ezcAuthenticationFilter
      *                                                  with $filter if the multipleCredentials
      *                                                  option is enabled
      */
-    public function addFilter( ezcAuthenticationFilter $filter, ezcAuthenticationCredentials $credentials = null )
+    public function addFilter( ezcAuthenticationFilter $filter, ?ezcAuthenticationCredentials $credentials = null )
     {
         if ( $this->options->multipleCredentials === true )
         {

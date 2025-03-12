@@ -356,7 +356,7 @@ class ezcGraphGdDriver extends ezcGraphDriver
      *
      * @return void
      */
-    protected function renderText( $image, $text, $type, $path, ezcGraphColor $color, ezcGraphCoordinate $position, $size, ezcGraphRotation $rotation = null )
+    protected function renderText( $image, $text, $type, $path, ezcGraphColor $color, ezcGraphCoordinate $position, $size, ?ezcGraphRotation $rotation = null )
     {
         if ( $rotation !== null )
         {
@@ -438,7 +438,7 @@ class ezcGraphGdDriver extends ezcGraphDriver
      * @param ezcGraphRotation $rotation
      * @return void
      */
-    public function drawTextBox( $string, ezcGraphCoordinate $position, $width, $height, $align, ezcGraphRotation $rotation = null )
+    public function drawTextBox( $string, ezcGraphCoordinate $position, $width, $height, $align, ?ezcGraphRotation $rotation = null )
     {
         $padding = $this->options->font->padding + ( $this->options->font->border !== false ? $this->options->font->borderWidth : 0 );
 

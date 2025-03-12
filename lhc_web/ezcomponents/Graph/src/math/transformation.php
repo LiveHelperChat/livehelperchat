@@ -39,7 +39,7 @@ class ezcGraphTransformation extends ezcGraphMatrix
      * @param array $values
      * @return void
      */
-    public function __construct( array $values = null )
+    public function __construct( ?array $values = null )
     {
         parent::__construct( 3, 3, $values );
     }

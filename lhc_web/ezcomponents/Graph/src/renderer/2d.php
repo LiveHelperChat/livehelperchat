@@ -672,8 +672,8 @@ class ezcGraphRenderer2d
         $dataNumber = 1,
         $dataCount = 1,
         $symbol = ezcGraph::NO_SYMBOL,
-        ezcGraphColor $symbolColor = null,
-        ezcGraphColor $fillColor = null,
+        ?ezcGraphColor $symbolColor = null,
+        ?ezcGraphColor $fillColor = null,
         $axisPosition = 0.,
         $thickness = 1. )
     {
@@ -871,8 +871,8 @@ class ezcGraphRenderer2d
         $dataNumber = 1,
         $dataCount = 1,
         $symbol = ezcGraph::NO_SYMBOL,
-        ezcGraphColor $symbolColor = null,
-        ezcGraphColor $fillColor = null,
+        ?ezcGraphColor $symbolColor = null,
+        ?ezcGraphColor $fillColor = null,
         $thickness = 1.
     )
     {
@@ -962,7 +962,7 @@ class ezcGraphRenderer2d
         ezcGraphFontOptions $font,
         $text,
         $size,
-        ezcGraphColor $markLines = null,
+        ?ezcGraphColor $markLines = null,
         $xOffset = 0,
         $yOffset = 0,
         $stepSize = 0.,
@@ -1104,8 +1104,8 @@ class ezcGraphRenderer2d
      */
     public function drawBox(
         ezcGraphBoundings $boundings,
-        ezcGraphColor $background = null,
-        ezcGraphColor $borderColor = null,
+        ?ezcGraphColor $background = null,
+        ?ezcGraphColor $borderColor = null,
         $borderWidth = 0,
         $margin = 0,
         $padding = 0,
@@ -1211,7 +1211,7 @@ class ezcGraphRenderer2d
         ezcGraphBoundings $boundings,
         $text,
         $align = ezcGraph::LEFT,
-        ezcGraphRotation $rotation = null )
+        ?ezcGraphRotation $rotation = null )
     {
         $this->driver->drawTextBox(
             $text,
@@ -1299,8 +1299,8 @@ class ezcGraphRenderer2d
         ezcGraphCoordinate $start,
         ezcGraphCoordinate $end,
         ezcGraphChartElementAxis $axis,
-        ezcGraphAxisLabelRenderer $labelClass = null,
-        ezcGraphBoundings $innerBoundings = null )
+        ?ezcGraphAxisLabelRenderer $labelClass = null,
+        ?ezcGraphBoundings $innerBoundings = null )
     {
         // Legacy axis drawing for BC reasons
         if ( $innerBoundings === null )
@@ -1523,7 +1523,7 @@ class ezcGraphRenderer2d
         ezcGraphCoordinate $start,
         ezcGraphCoordinate $end,
         ezcGraphChartElementAxis $axis,
-        ezcGraphAxisLabelRenderer $labelClass = null )
+        ?ezcGraphAxisLabelRenderer $labelClass = null )
     {
         // Store axis space for use by label renderer
         switch ( $axis->position )

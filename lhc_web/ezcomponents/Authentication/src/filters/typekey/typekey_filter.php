@@ -239,7 +239,7 @@ class ezcAuthenticationTypekeyFilter extends ezcAuthenticationFilter implements 
      *         if neither of the PHP gmp and bcmath extensions are installed
      * @param ezcAuthenticationTypekeyOptions $options Options for this class
      */
-    public function __construct( ezcAuthenticationTypekeyOptions $options = null )
+    public function __construct( ?ezcAuthenticationTypekeyOptions $options = null )
     {
         $this->options = ( $options === null ) ? new ezcAuthenticationTypekeyOptions() : $options;
         $this->lib = ezcAuthenticationMath::createBignumLibrary();

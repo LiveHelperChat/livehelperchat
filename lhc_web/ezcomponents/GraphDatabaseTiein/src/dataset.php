@@ -44,7 +44,7 @@ class ezcGraphDatabaseDataSet extends ezcGraphDataSet
      * @param array $definition
      * @return ezcGraphDatabase
      */
-    public function __construct( PDOStatement $statement, array $definition = null )
+    public function __construct( PDOStatement $statement, ?array $definition = null )
     {
         parent::__construct();
 
@@ -73,7 +73,7 @@ class ezcGraphDatabaseDataSet extends ezcGraphDataSet
      * @param array $definition
      * @return void
      */
-    protected function createFromPdo( PDOStatement $statement, array $definition = null ) 
+    protected function createFromPdo( PDOStatement $statement, ?array $definition = null ) 
     {
         if ( $definition === null )
         {

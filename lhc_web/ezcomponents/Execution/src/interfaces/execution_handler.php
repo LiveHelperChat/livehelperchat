@@ -30,6 +30,6 @@ interface ezcExecutionErrorHandler
      * @param Exception $e 
      * @return void
      */
-    static public function onError( Exception $e = null );
+    static public function onError( ?Exception $e = null );
 }
 ?>

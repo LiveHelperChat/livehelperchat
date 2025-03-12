@@ -5,7 +5,7 @@ class erLhcoreClassGenericBotException extends Exception {
     private $paramsException = array();
 
     // Redefine the exception so message isn't optional
-    public function __construct($message, $code = 0, Exception $previous = null, $params = array()) {
+    public function __construct($message, $code = 0, ?Exception $previous = null, $params = array()) {
         // some code
 
         $this->paramsException = $params;

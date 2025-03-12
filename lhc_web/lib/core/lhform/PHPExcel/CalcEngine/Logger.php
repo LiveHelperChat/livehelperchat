@@ -67,7 +67,7 @@ class PHPExcel_CalcEngine_Logger {
 	 */
 	private $_cellStack;
 
-	
+
 	/**
 	 * Instantiate a Calculation engine logger
 	 *

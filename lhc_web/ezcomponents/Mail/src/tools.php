@@ -89,7 +89,7 @@ class ezcMailTools
         if ( $name !== '' )
         {
             // remove the quotes around the name part if they are already there
-            if ( $name{0} === '"' && $name{strlen( $name ) - 1} === '"' )
+            if ( $name[0] === '"' && $name[strlen( $name ) - 1] === '"' )
             {
                 $name = substr( $name, 1, -1 );
             }

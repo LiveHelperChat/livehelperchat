@@ -200,7 +200,7 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 	 * @param array		&$colors		Colour Table
 	 * @param mixed		$parser			The formula parser created for the Workbook
 	 */
-	public function __construct(PHPExcel $phpExcel = null,
+	public function __construct(?PHPExcel $phpExcel = null,
 								&$str_total, &$str_unique, &$str_table, &$colors,
 								$parser )
 	{
@@ -1443,7 +1443,7 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
 	 *
 	 * @param PHPExcel_Shared_Escher $pValue
 	 */
-	public function setEscher(PHPExcel_Shared_Escher $pValue = null)
+	public function setEscher(?PHPExcel_Shared_Escher $pValue = null)
 	{
 		$this->_escher = $pValue;
 	}

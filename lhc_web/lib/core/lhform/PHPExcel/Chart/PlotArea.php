@@ -52,7 +52,7 @@ class PHPExcel_Chart_PlotArea
 	/**
 	 * Create a new PHPExcel_Chart_PlotArea
 	 */
-	public function __construct(PHPExcel_Chart_Layout $layout = null, $plotSeries = array())
+	public function __construct(?PHPExcel_Chart_Layout $layout = null, $plotSeries = array())
 	{
 		$this->_layout = $layout;
 		$this->_plotSeries = $plotSeries;

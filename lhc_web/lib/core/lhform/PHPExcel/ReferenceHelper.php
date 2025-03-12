@@ -380,7 +380,7 @@ class PHPExcel_ReferenceHelper
 	 * @param   PHPExcel_Worksheet  $pSheet     The worksheet that we're editing
 	 * @throws  PHPExcel_Exception
 	 */
-	public function insertNewBefore($pBefore = 'A1', $pNumCols = 0, $pNumRows = 0, PHPExcel_Worksheet $pSheet = NULL)
+	public function insertNewBefore($pBefore = 'A1', $pNumCols = 0, $pNumRows = 0, ?PHPExcel_Worksheet $pSheet = NULL)
 	{
 		$remove = ($pNumCols < 0 || $pNumRows < 0);
 		$aCellCollection = $pSheet->getCellCollection();

@@ -122,7 +122,7 @@ class erLhcoreClassBBCode
            } else {
                if ( ! is_array( $protocols ) )
                    $protocols = $protocols = array( 'http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet', 'mms', 'rtsp', 'svn', 'tel', 'fax', 'xmpp', 'webcal', 'urn' );
-               
+
                $good_protocol_url = self::wp_kses_bad_protocol( $url, $protocols );
                if ( strtolower( $good_protocol_url ) != strtolower( $url ) )
                    return '';

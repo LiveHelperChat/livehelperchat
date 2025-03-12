@@ -34,7 +34,7 @@ class ezcExecutionBasicErrorHandler implements ezcExecutionErrorHandler
      *
      * @return void
      */
-    static public function onError( Exception $e = null )
+    static public function onError( ?Exception $e = null )
     {
         echo <<<END
 This application stopped in an unclean way. Please contact the site

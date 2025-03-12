@@ -131,7 +131,7 @@ class ezcImageImagemagickBaseHandler extends ezcImageMethodcallHandler
      * @throws ezcImageFileNameInvalidException 
      *         If an invalid character (", ', $) is found in the file name.
      */
-    public function save( $image, $newFile = null, $mime = null, ezcImageSaveOptions $options = null )
+    public function save( $image, $newFile = null, $mime = null, ?ezcImageSaveOptions $options = null )
     {
         if ( $options === null )
         {

@@ -49,7 +49,7 @@ class ezcGraphAxisRotatedBoxedLabelRenderer extends ezcGraphAxisRotatedLabelRend
         ezcGraphCoordinate $start,
         ezcGraphCoordinate $end,
         ezcGraphChartElementAxis $axis,
-        ezcGraphBoundings $innerBoundings = null )
+        ?ezcGraphBoundings $innerBoundings = null )
     {
         // receive rendering parameters from axis
         $this->steps = $steps = $axis->getSteps();

@@ -77,7 +77,7 @@ class ezcPersistentObjectIdProperty
         $columnName = null,
         $propertyName = null,
         $visibility = null,
-        ezcPersistentGeneratorDefinition $generator = null,
+        ?ezcPersistentGeneratorDefinition $generator = null,
         $propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT,
         $databaseType = PDO::PARAM_STR
     )

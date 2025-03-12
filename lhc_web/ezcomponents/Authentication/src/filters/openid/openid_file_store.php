@@ -51,7 +51,7 @@ class ezcAuthenticationOpenidFileStore extends ezcAuthenticationOpenidStore
      * @param string $path The path where to save the nonces
      * @param ezcAuthenticationOpenidFileStoreOptions $options Options for this class
      */
-    public function __construct( $path, ezcAuthenticationOpenidFileStoreOptions $options = null )
+    public function __construct( $path, ?ezcAuthenticationOpenidFileStoreOptions $options = null )
     {
         $this->path = $path;
         $this->options = ( $options === null ) ? new ezcAuthenticationOpenidFileStoreOptions() : $options;

@@ -61,7 +61,7 @@ class ezcMailTransportConnection
      * @param int $port
      * @param ezcMailTransportOptions $options
      */
-    public function __construct( $server, $port, ezcMailTransportOptions $options = null )
+    public function __construct( $server, $port, ?ezcMailTransportOptions $options = null )
     {
         $errno = null;
         $errstr = null;

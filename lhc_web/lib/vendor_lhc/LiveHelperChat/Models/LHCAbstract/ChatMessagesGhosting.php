@@ -36,12 +36,12 @@ class ChatMessagesGhosting {
         $stmt = $db->prepare("SELECT count(lh_rolefunction.id)     
 
        FROM lh_rolefunction
-       
+
        INNER JOIN lh_role ON lh_role.id = lh_rolefunction.role_id
        INNER JOIN lh_grouprole ON lh_role.id = lh_grouprole.role_id
        INNER JOIN lh_groupuser ON lh_groupuser.group_id = lh_grouprole.group_id       
        INNER JOIN lh_group ON lh_grouprole.group_id = lh_group.id
-           
+
        WHERE 
            lh_groupuser.user_id = :user_id AND 
            lh_group.disabled = 0 AND
