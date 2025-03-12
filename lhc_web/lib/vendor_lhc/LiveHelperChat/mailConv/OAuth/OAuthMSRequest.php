@@ -87,7 +87,7 @@ class OAuthMSRequest
                                 <link rel="stylesheet" type="text/css" href="style.css" />
                         </head>
                         <body>
-                        <div id="fatalError"><div id="fatalErrorInner"><span>Something\'s gone wrong!</span>' . $message . '</div></div>
+                        <div id="fatalError"><div id="fatalErrorInner"><span>Something\'s gone wrong!</span>' . htmlspecialchars($message) . '</div></div>
                         </body>
                         </html>';
     }
