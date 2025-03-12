@@ -2232,28 +2232,28 @@ class erLhcoreClassChat {
    		$onlineUser = false;
    		
 	   	if (isset($geo_adjustment['use_geo_adjustment']) && $geo_adjustment['use_geo_adjustment'] == true){
-	   	
+
 	   		if ($widgetMode === true && $geo_adjustment['apply_widget'] == 0){
 	   			return $responseStatus;
 	   		}
-	   		
+
 	   		if (is_object($onlineUserDefined)){
 	   			$onlineUser = $onlineUserDefined;
 	   		} elseif (!empty($onlineUserVid)){
 	   			$onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($onlineUserVid);
 	   		}
-	   			   		
+
 	   		if ($onlineUser === false) {	   		
 		   		$onlineUser = new erLhcoreClassModelChatOnlineUser(); // Just to pass instance
 		   		$onlineUser->ip = erLhcoreClassIPDetect::getIP();
 		   		erLhcoreClassModelChatOnlineUser::detectLocation($onlineUser);
 	   		}
-	   			   		
+
 	   		$countriesAvailableFor = array();
 	   		if ($geo_adjustment['available_for'] != '') {
 	   			$countriesAvailableFor = explode(',', $geo_adjustment['available_for']);
 	   		}
-	   	
+
 	   		if (!in_array($onlineUser->user_country_code, $countriesAvailableFor)){
 	   			if ($geo_adjustment['other_countries'] == 'all') {
 	   				if (($geo_adjustment['other_status']) == 'offline'){	   				

@@ -1718,7 +1718,7 @@ class PHPExcel_Calculation {
 
 
 
-	private function __construct(PHPExcel $workbook = NULL) {
+	private function __construct(?PHPExcel $workbook = NULL) {
 		$setPrecision = (PHP_INT_SIZE == 4) ? 14 : 16;
 		$this->_savedPrecision = ini_get('precision');
 		if ($this->_savedPrecision < $setPrecision) {
@@ -1759,7 +1759,7 @@ class PHPExcel_Calculation {
 	 *									or NULL to create a standalone claculation engine
 	 * @return PHPExcel_Calculation
 	 */
-	public static function getInstance(PHPExcel $workbook = NULL) {
+	public static function getInstance(?PHPExcel $workbook = NULL) {
 		if ($workbook !== NULL) {
     		if (isset(self::$_workbookSets[$workbook->getID()])) {
     			return self::$_workbookSets[$workbook->getID()];
@@ -1780,7 +1780,7 @@ class PHPExcel_Calculation {
 	 * @access	public
 	 * @param   PHPExcel $workbook  Injected workbook identifying the instance to unset
 	 */
-	public static function unsetInstance(PHPExcel $workbook = NULL) {
+	public static function unsetInstance(?PHPExcel $workbook = NULL) {
 		if ($workbook !== NULL) {
     		if (isset(self::$_workbookSets[$workbook->getID()])) {
     			unset(self::$_workbookSets[$workbook->getID()]);
@@ -2205,7 +2205,7 @@ class PHPExcel_Calculation {
 	 * @return	mixed
 	 * @throws	PHPExcel_Calculation_Exception
 	 */
-	public function calculate(PHPExcel_Cell $pCell = NULL) {
+	public function calculate(?PHPExcel_Cell $pCell = NULL) {
 		try {
 			return $this->calculateCellValue($pCell);
 		} catch (PHPExcel_Exception $e) {
@@ -2223,7 +2223,7 @@ class PHPExcel_Calculation {
 	 * @return	mixed
 	 * @throws	PHPExcel_Calculation_Exception
 	 */
-	public function calculateCellValue(PHPExcel_Cell $pCell = NULL, $resetLog = TRUE) {
+	public function calculateCellValue(?PHPExcel_Cell $pCell = NULL, $resetLog = TRUE) {
 		if ($pCell === NULL) {
 			return NULL;
 		}
@@ -2309,7 +2309,7 @@ class PHPExcel_Calculation {
 	 * @return	mixed
 	 * @throws	PHPExcel_Calculation_Exception
 	 */
-	public function calculateFormula($formula, $cellID=NULL, PHPExcel_Cell $pCell = NULL) {
+	public function calculateFormula($formula, $cellID=NULL, ?PHPExcel_Cell $pCell = NULL) {
 		//	Initialise the logging settings
 		$this->formulaError = null;
 		$this->_debugLog->clearLog();
@@ -2363,7 +2363,7 @@ class PHPExcel_Calculation {
 	 * @return	mixed
 	 * @throws	PHPExcel_Calculation_Exception
 	 */
-	public function _calculateFormulaValue($formula, $cellID=null, PHPExcel_Cell $pCell = null) {
+	public function _calculateFormulaValue($formula, $cellID=null, ?PHPExcel_Cell $pCell = null) {
 		$cellValue = '';
 
 		//	Basic validation that this is indeed a formula
@@ -2728,7 +2728,7 @@ class PHPExcel_Calculation {
 	);
 
 	// Convert infix to postfix notation
-	private function _parseFormula($formula, PHPExcel_Cell $pCell = NULL) {
+	private function _parseFormula($formula, ?PHPExcel_Cell $pCell = NULL) {
 		if (($formula = $this->_convertMatrixReferences(trim($formula))) === FALSE) {
 			return FALSE;
 		}
@@ -3086,7 +3086,7 @@ class PHPExcel_Calculation {
 	}
 
 	// evaluate postfix notation
-	private function _processTokenStack($tokens, $cellID = NULL, PHPExcel_Cell $pCell = NULL) {
+	private function _processTokenStack($tokens, $cellID = NULL, ?PHPExcel_Cell $pCell = NULL) {
 		if ($tokens == FALSE) return FALSE;
 
 		//	If we're using cell caching, then $pCell may well be flushed back to the cache (which detaches the parent cell collection),
@@ -3726,7 +3726,7 @@ class PHPExcel_Calculation {
 	 * @return  mixed				Array of values in range if range contains more than one element. Otherwise, a single value is returned.
 	 * @throws	PHPExcel_Calculation_Exception
 	 */
-	public function extractCellRange(&$pRange = 'A1', PHPExcel_Worksheet $pSheet = NULL, $resetLog = TRUE) {
+	public function extractCellRange(&$pRange = 'A1', ?PHPExcel_Worksheet $pSheet = NULL, $resetLog = TRUE) {
 		// Return value
 		$returnValue = array ();
 
@@ -3784,7 +3784,7 @@ class PHPExcel_Calculation {
 	 * @param	boolean				$resetLog	Flag indicating whether calculation log should be reset or not
 	 * @throws	PHPExcel_Calculation_Exception
 	 */
-	public function extractNamedRange(&$pRange = 'A1', PHPExcel_Worksheet $pSheet = NULL, $resetLog = TRUE) {
+	public function extractNamedRange(&$pRange = 'A1', ?PHPExcel_Worksheet $pSheet = NULL, $resetLog = TRUE) {
 		// Return value
 		$returnValue = array ();
 

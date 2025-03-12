@@ -32,7 +32,7 @@ class ezcPersistentObjectTemplateSchemaWriter
      *
      * @param ezcPersistentObjectTemplateSchemaWriterOptions $options
      */
-    public function __construct( ezcPersistentObjectTemplateSchemaWriterOptions $options = null )
+    public function __construct( ?ezcPersistentObjectTemplateSchemaWriterOptions $options = null )
     {
         if ( $options === null )
         {

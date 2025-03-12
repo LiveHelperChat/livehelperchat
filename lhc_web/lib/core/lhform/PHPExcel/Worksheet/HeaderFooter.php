@@ -395,7 +395,7 @@ class PHPExcel_Worksheet_HeaderFooter
      * @throws PHPExcel_Exception
      * @return PHPExcel_Worksheet_HeaderFooter
      */
-    public function addImage(PHPExcel_Worksheet_HeaderFooterDrawing $image = null, $location = self::IMAGE_HEADER_LEFT) {
+    public function addImage(?PHPExcel_Worksheet_HeaderFooterDrawing $image = null, $location = self::IMAGE_HEADER_LEFT) {
     	$this->_headerFooterImages[$location] = $image;
     	return $this;
     }

@@ -26,7 +26,7 @@ class Creditcard implements MaskInterface
      * @param array $params
      * @param ValidatorInterface $luhnValidator
      */
-    public function __construct(array $params = [], ValidatorInterface $luhnValidator = null)
+    public function __construct(array $params = [], ?ValidatorInterface $luhnValidator = null)
     {
         if (isset($params['replacement']) && is_string($params['replacement'])) {
             $this->replacement = $params['replacement'];

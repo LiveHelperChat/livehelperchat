@@ -56,7 +56,7 @@ class ezcConsoleQuestionDialog implements ezcConsoleDialog
      * @param ezcConsoleQuestionDialogOptions $options Options.
      * @return void
      */
-    public function __construct( ezcConsoleOutput $output, ezcConsoleQuestionDialogOptions $options = null )
+    public function __construct( ezcConsoleOutput $output, ?ezcConsoleQuestionDialogOptions $options = null )
     {
         $this->output  = $output;
         $this->options = $options === null ? new ezcConsoleQuestionDialogOptions() : $options;

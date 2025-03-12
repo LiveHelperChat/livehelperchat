@@ -501,7 +501,7 @@ class ezcFeedRss1 extends ezcFeedProcessor implements ezcFeedParser
      * @param ezcFeed $feed The feed object in which to store the parsed XML element as a feed image
      * @param DOMElement $xml The XML element object to parse
      */
-    private function parseImage( ezcFeed $feed, DOMElement $xml = null )
+    private function parseImage( ezcFeed $feed, ?DOMElement $xml = null )
     {
         $image = $feed->add( 'image' );
         if ( $xml !== null )
@@ -536,7 +536,7 @@ class ezcFeedRss1 extends ezcFeedProcessor implements ezcFeedParser
      * @param ezcFeed $feed The feed object in which to store the parsed XML element as a feed textinput
      * @param DOMElement $xml The XML element object to parse
      */
-    private function parseTextInput( ezcFeed $feed, DOMElement $xml = null )
+    private function parseTextInput( ezcFeed $feed, ?DOMElement $xml = null )
     {
         $textInput = $feed->add( 'textInput' );
         if ( $xml !== null )

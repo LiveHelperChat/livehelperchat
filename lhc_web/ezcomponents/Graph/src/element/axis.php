@@ -470,7 +470,7 @@ abstract class ezcGraphChartElementAxis extends ezcGraphChartElement
      * @param ezcGraphBoundings $boundings Boundings for the axis
      * @return ezcGraphBoundings Remaining boundings
      */
-    public function render( ezcGraphRenderer $renderer, ezcGraphBoundings $boundings, ezcGraphBoundings $innerBoundings = null )
+    public function render( ezcGraphRenderer $renderer, ezcGraphBoundings $boundings, ?ezcGraphBoundings $innerBoundings = null )
     {
         $this->innerBoundings = $innerBoundings;
         $startSpace = $this->axisSpace;

@@ -164,7 +164,7 @@ class ezcCacheStack extends ezcCacheStorage
      * @param string $location 
      * @param ezcCacheStackOptions $options 
      */
-    public function __construct( $location, ezcCacheStackOptions $options = null )
+    public function __construct( $location, ?ezcCacheStackOptions $options = null )
     {
         if ( $options === null )
         {

@@ -92,7 +92,7 @@ class ezcAuthenticationTokenFilter extends ezcAuthenticationFilter
      * @param callback $function The encryption function to use when comparing tokens
      * @param ezcAuthenticationTokenOptions $options Options for this class
      */
-    public function __construct( $token, $function, ezcAuthenticationTokenOptions $options = null )
+    public function __construct( $token, $function, ?ezcAuthenticationTokenOptions $options = null )
     {
         $this->token = $token;
         $this->function = $function;

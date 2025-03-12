@@ -150,7 +150,7 @@ class PHPExcel_Chart
 	/**
 	 * Create a new PHPExcel_Chart
 	 */
-	public function __construct($name, PHPExcel_Chart_Title $title = null, PHPExcel_Chart_Legend $legend = null, PHPExcel_Chart_PlotArea $plotArea = null, $plotVisibleOnly = true, $displayBlanksAs = '0', PHPExcel_Chart_Title $xAxisLabel = null, PHPExcel_Chart_Title $yAxisLabel = null)
+	public function __construct($name, ?PHPExcel_Chart_Title $title = null, ?PHPExcel_Chart_Legend $legend = null, ?PHPExcel_Chart_PlotArea $plotArea = null, $plotVisibleOnly = true, $displayBlanksAs = '0', ?PHPExcel_Chart_Title $xAxisLabel = null, ?PHPExcel_Chart_Title $yAxisLabel = null)
 	{
 		$this->_name = $name;
 		$this->_title = $title;
@@ -187,7 +187,7 @@ class PHPExcel_Chart
 	 * @throws	PHPExcel_Chart_Exception
 	 * @return PHPExcel_Chart
 	 */
-	public function setWorksheet(PHPExcel_Worksheet $pValue = null) {
+	public function setWorksheet(?PHPExcel_Worksheet $pValue = null) {
 		$this->_worksheet = $pValue;
 
 		return $this;

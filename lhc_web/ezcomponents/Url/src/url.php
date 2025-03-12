@@ -116,7 +116,7 @@ class ezcUrl
      * @param string $url A string URL from which to construct the URL object
      * @param ezcUrlConfiguration $configuration An optional URL configuration used when parsing and building the URL
      */
-    public function __construct( $url = null, ezcUrlConfiguration $configuration = null )
+    public function __construct( $url = null, ?ezcUrlConfiguration $configuration = null )
     {
         $this->parseUrl( $url );
         $this->configuration = $configuration;

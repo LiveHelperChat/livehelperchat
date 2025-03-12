@@ -42,7 +42,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
 	 * @return 	string 						XML Output
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	public function writeChart(PHPExcel_Chart $pChart = null)
+	public function writeChart(?PHPExcel_Chart $pChart = null)
 	{
 		// Create XML writer
 		$objWriter = null;
@@ -122,7 +122,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
 	 * @param 	PHPExcel_Shared_XMLWriter 	$objWriter 		XML Writer
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	private function _writeTitle(PHPExcel_Chart_Title $title = null, $objWriter)
+	private function _writeTitle(?PHPExcel_Chart_Title $title = null, $objWriter)
 	{
 		if (is_null($title)) {
 			return;
@@ -166,7 +166,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
 	 * @param 	PHPExcel_Shared_XMLWriter 	$objWriter 		XML Writer
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	private function _writeLegend(PHPExcel_Chart_Legend $legend = null, $objWriter)
+	private function _writeLegend(?PHPExcel_Chart_Legend $legend = null, $objWriter)
 	{
 		if (is_null($legend)) {
 			return;
@@ -220,8 +220,8 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
 	private function _writePlotArea(PHPExcel_Chart_PlotArea $plotArea,
-									PHPExcel_Chart_Title $xAxisLabel = NULL,
-									PHPExcel_Chart_Title $yAxisLabel = NULL,
+									?PHPExcel_Chart_Title $xAxisLabel = NULL,
+									?PHPExcel_Chart_Title $yAxisLabel = NULL,
 									$objWriter,
 									PHPExcel_Worksheet $pSheet)
 	{
@@ -1080,7 +1080,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
 	 * @param 	PHPExcel_Shared_XMLWriter 	$objWriter 		XML Writer
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	private function _writeLayout(PHPExcel_Chart_Layout $layout = NULL, $objWriter)
+	private function _writeLayout(?PHPExcel_Chart_Layout $layout = NULL, $objWriter)
 	{
 		$objWriter->startElement('c:layout');
 

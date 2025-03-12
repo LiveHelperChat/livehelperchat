@@ -88,7 +88,7 @@ abstract class ezcConfigurationFileWriter extends ezcConfigurationWriter
      * @param int $permissions The file permission to use on the newly created
      *                         file, it uses the same values as chmod().
      */
-    public function __construct( $path = null, ezcConfiguration $config = null, $permissions = 0666 )
+    public function __construct( $path = null, ?ezcConfiguration $config = null, $permissions = 0666 )
     {
         if ( $path !== null )
         {

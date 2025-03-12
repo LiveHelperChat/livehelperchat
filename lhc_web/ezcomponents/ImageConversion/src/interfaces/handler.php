@@ -181,7 +181,7 @@ abstract class ezcImageHandler
      * @param ezcImageSaveOptions $options Options for saving.
      * @return void
      */
-    abstract public function save( $image, $newFile = null, $mime = null, ezcImageSaveOptions $options = null );
+    abstract public function save( $image, $newFile = null, $mime = null, ?ezcImageSaveOptions $options = null );
 
     /**
      * Close the file referenced by $image.

@@ -137,7 +137,7 @@ class PHPExcel_Writer_Excel5_Xf
 	 * @access public
 	 * @param PHPExcel_Style	The XF format
 	 */
-	public function __construct(PHPExcel_Style $style = null)
+	public function __construct(?PHPExcel_Style $style = null)
 	{
 		$this->_isStyleXf =     false;
 		$this->_fontIndex      = 0;

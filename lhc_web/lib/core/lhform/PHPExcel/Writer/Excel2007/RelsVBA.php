@@ -42,7 +42,7 @@ class PHPExcel_Writer_Excel2007_RelsVBA extends PHPExcel_Writer_Excel2007_Writer
 	 * @return 	string 		XML Output
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	public function writeVBARelationships(PHPExcel $pPHPExcel = null){
+	public function writeVBARelationships(?PHPExcel $pPHPExcel = null){
 		// Create XML writer
 		$objWriter = null;
 		if ($this->getParentWriter()->getUseDiskCaching()) {

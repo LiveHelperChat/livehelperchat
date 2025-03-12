@@ -50,7 +50,7 @@ class ezcConsoleMenuDialog implements ezcConsoleDialog
      * @param ezcConsoleMenuDialogOptions $options The options.
      * @return void
      */
-    public function __construct( ezcConsoleOutput $output, ezcConsoleMenuDialogOptions $options = null )
+    public function __construct( ezcConsoleOutput $output, ?ezcConsoleMenuDialogOptions $options = null )
     {
         $this->output  = $output;
         $this->options = $options === null ? new ezcConsoleMenuDialogOptions() : $options;

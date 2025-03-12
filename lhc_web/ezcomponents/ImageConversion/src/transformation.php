@@ -119,7 +119,7 @@ class ezcImageTransformation
      * @throws ezcImageMimeTypeUnsupportedException 
      *         If the output type is unsupported.
      */
-    public function __construct( ezcImageConverter $converter, $name, array $filters = array(), array $mimeOut = array(), ezcImageSaveOptions $saveOptions = null )
+    public function __construct( ezcImageConverter $converter, $name, array $filters = array(), array $mimeOut = array(), ?ezcImageSaveOptions $saveOptions = null )
     {
         $this->converter = $converter;
         $this->name = $name;

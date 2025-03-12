@@ -50,7 +50,7 @@ class ezcAuthenticationOpenidDbStore extends ezcAuthenticationOpenidStore
      * @param ezcDbHandler $instance The database instance used for this store
      * @param ezcAuthenticationOpenidDbStoreOptions $options Options for this class
      */
-    public function __construct( ezcDbHandler $instance, ezcAuthenticationOpenidDbStoreOptions $options = null )
+    public function __construct( ezcDbHandler $instance, ?ezcAuthenticationOpenidDbStoreOptions $options = null )
     {
         $this->instance = $instance;
         $this->options = ( $options === null ) ? new ezcAuthenticationOpenidDbStoreOptions() : $options;

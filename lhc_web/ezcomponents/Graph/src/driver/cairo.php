@@ -300,7 +300,7 @@ class ezcGraphCairoDriver extends ezcGraphDriver
      * @param ezcGraphRotation $rotation
      * @return void
      */
-    public function drawTextBox( $string, ezcGraphCoordinate $position, $width, $height, $align, ezcGraphRotation $rotation = null )
+    public function drawTextBox( $string, ezcGraphCoordinate $position, $width, $height, $align, ?ezcGraphRotation $rotation = null )
     {
         $this->initiliazeSurface();
 

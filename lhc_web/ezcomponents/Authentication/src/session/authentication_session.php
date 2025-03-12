@@ -105,7 +105,7 @@ class ezcAuthenticationSession
      *
      * @param ezcAuthenticationSessionOptions $options Options for this class
      */
-    public function __construct( ezcAuthenticationSessionOptions $options = null )
+    public function __construct( ?ezcAuthenticationSessionOptions $options = null )
     {
         $this->options = ( $options === null ) ? new ezcAuthenticationSessionOptions() : $options;
     }

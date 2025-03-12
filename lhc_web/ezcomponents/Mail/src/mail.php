@@ -120,7 +120,7 @@ class ezcMail extends ezcMailPart
     /**
      * Constructs an empty ezcMail object.
      */
-    public function __construct( ezcMailOptions $options = null )
+    public function __construct( ?ezcMailOptions $options = null )
     {
         parent::__construct();
 

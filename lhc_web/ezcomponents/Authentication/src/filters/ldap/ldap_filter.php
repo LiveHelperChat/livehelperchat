@@ -137,7 +137,7 @@ class ezcAuthenticationLdapFilter extends ezcAuthenticationFilter implements ezc
      * @param ezcAuthenticationLdapInfo $ldap How to connect to LDAP
      * @param ezcAuthenticationLdapOptions $options Options for this class
      */
-    public function __construct( ezcAuthenticationLdapInfo $ldap, ezcAuthenticationLdapOptions $options = null )
+    public function __construct( ezcAuthenticationLdapInfo $ldap, ?ezcAuthenticationLdapOptions $options = null )
     {
         if ( !ezcBaseFeatures::hasExtensionSupport( 'ldap' ) )
         {

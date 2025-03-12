@@ -94,7 +94,7 @@ class ezcAuthentication
      * @param ezcAuthenticationCredentials $credentials Authentication credentials
      * @param ezcAuthenticationOptions $options Options for this class
      */
-    public function __construct( ezcAuthenticationCredentials $credentials, ezcAuthenticationOptions $options = null )
+    public function __construct( ezcAuthenticationCredentials $credentials, ?ezcAuthenticationOptions $options = null )
     {
         $this->credentials = $credentials;
         $this->status = new ezcAuthenticationStatus();
