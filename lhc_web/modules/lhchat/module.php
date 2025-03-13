@@ -821,5 +821,6 @@ $FunctionList['allowopenclosedchats'] = array('explain' => 'Allow operator to op
 $FunctionList['removemsgop'] = array('explain' => 'Allow to remove operator any operator message');
 $FunctionList['removemsgvi'] = array('explain' => 'Allow to remove operator any visitor message');
 $FunctionList['no_edit_history'] = array('explain' => 'Do not store message edit history if edited by chat owner');
+$FunctionList['see_operator_name'] = array('explain' => 'Allow operator to see chat message real operator name');
 
 ?>
