@@ -43,7 +43,8 @@ div.auto-responder-msg > div.msg-body::before,
 }
 
 .mi-fs15{
-	font-size:15px;
+	font-size:17px;
+    padding-bottom: 3px;
 }
 
 .mat-100{

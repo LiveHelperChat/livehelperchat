@@ -29,7 +29,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
         $tplPlain->set('remove_whisper', true);
     }
 
-    if (isset($_GET['system']) || isset($_GET['meta'])) {
+    if (isset($_GET['system']) || isset($_GET['meta']) || isset($_GET['user_data']) ) {
         echo json_encode(array('result' => $tplPlain->fetch()));
         exit;
     }

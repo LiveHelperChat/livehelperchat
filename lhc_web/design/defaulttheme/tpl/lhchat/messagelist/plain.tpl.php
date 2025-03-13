@@ -91,7 +91,7 @@ foreach ($messages as $msg ) :
             }
         }
 
-        $nick = $date . ' '. $nickValue . ' ' . (isset($metaMessageData['content']['whisper']) ? '- (' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/plain','whisper') . ') ' : '');
+        $nick = $date . ' '. $nickValue . (isset($_GET['user_data']) ? ' ['. ($msg->user_id > 0 && ($userMessage = erLhcoreClassModelUser::fetch($msg->user_id)) !== false ? $userMessage->name_official . ' - ' : '') . $msg->user_id . ']' : '') . ' ' . (isset($metaMessageData['content']['whisper']) ? '- (' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/plain','whisper') . ') ' : '');
     }
 
     // Nothing to render
