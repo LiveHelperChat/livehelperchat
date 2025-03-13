@@ -2797,6 +2797,8 @@ class erLhcoreClassChatStatistic {
                 'department' => '`dep_id`',
                 'user_id' => '`user_id`',
                 'transfer_uid' => '`transfer_uid`',
+                'referrer' => '`referrer`',
+                'session_referrer' => '`session_referrer`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -2890,6 +2892,8 @@ class erLhcoreClassChatStatistic {
                 'department' => '`dep_id`',
                 'user_id' => '`user_id`',
                 'transfer_uid' => '`transfer_uid`',
+                'referrer' => '`referrer`',
+                'session_referrer' => '`session_referrer`'
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -2981,6 +2985,8 @@ class erLhcoreClassChatStatistic {
                 'department' => '`dep_id`',
                 'user_id' => '`user_id`',
                 'transfer_uid' => '`transfer_uid`',
+                'referrer' => '`referrer`',
+                'session_referrer' => '`session_referrer`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -3126,6 +3132,8 @@ class erLhcoreClassChatStatistic {
                 'department' => '`dep_id`',
                 'user_id' => '`user_id`',
                 'transfer_uid' => '`transfer_uid`',
+                'session_referrer' => '`session_referrer`',
+                'referrer' => '`referrer`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -3284,6 +3292,8 @@ class erLhcoreClassChatStatistic {
                 'department' => '`dep_id`',
                 'user_id' => '`user_id`',
                 'transfer_uid' => '`transfer_uid`',
+                'referrer' => '`referrer`',
+                'session_referrer' => '`session_referrer`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -3370,6 +3380,8 @@ class erLhcoreClassChatStatistic {
                 'department' => '`dep_id`',
                 'user_id' => '`user_id`',
                 'transfer_uid' => '`transfer_uid`',
+                'session_referrer' => '`session_referrer`',
+                'referrer' => '`referrer`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -3495,6 +3507,8 @@ class erLhcoreClassChatStatistic {
             'department' => '`dep_id`',
             'user_id' => '`user_id`',
             'transfer_uid' => '`transfer_uid`',
+            'referrer' => '`referrer`',
+            'session_referrer' => '`session_referrer`',
         );
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -3861,6 +3875,8 @@ class erLhcoreClassChatStatistic {
             'department' => '`dep_id`',
             'user_id' => '`user_id`',
             'transfer_uid' => '`transfer_uid`',
+            'session_referrer' => '`session_referrer`',
+            'referrer' => '`referrer`',
         );
 
         if (isset($filterParams['group_field']) && key_exists($filterParams['group_field'], $validGroupFields) && $filterParams['group_field'] == 'transfer_uid') {
