@@ -1124,6 +1124,13 @@ class erLhcoreClassGenericBotActionRestapi
                 if (str_contains($bodyPOST,'raw_'.$keyVariable)) {
                     $rawReplaceArray['raw_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce($keyValue));
                 }
+
+                if (str_contains($bodyPOST,'direct_'.$keyVariable)) {
+                    $directValue = json_decode($keyValue,true);
+                    if (is_string($directValue)) {
+                        $rawReplaceArray['direct_'.$keyVariable] = $directValue;
+                    }
+                }
             }
 
             $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray), $bodyPOST);

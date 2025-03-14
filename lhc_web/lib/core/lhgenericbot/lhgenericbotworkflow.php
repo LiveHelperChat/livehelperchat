@@ -1633,7 +1633,7 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         if ($logEnabled === null) {
-            $logEnabled = str_contains($chat->chat_variables,'"gbot_debug":1');
+            $logEnabled = str_contains((string)$chat->chat_variables,'"gbot_debug":1');
         }
 
         if ($logEnabled == false) {
