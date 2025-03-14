@@ -169,6 +169,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                                 {message.interaction_time && <li>{t('mail.interaction_time')}: {message.interaction_time_duration}</li>}
                                 {message.cls_time && <li>{t('mail.closed_at')}: {message.cls_time_front}</li>}
                                 {message.conv_duration_front && <li>{t('mail.response_wait_time')}: {message.conv_duration_front}</li>}
+                                <li>{t('mail.message_id')}: {message.id}</li>
                             </ul>
                         </div>
                     </div>

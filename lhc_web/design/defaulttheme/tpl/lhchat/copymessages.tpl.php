@@ -17,6 +17,9 @@
     <div class="col-4">
         <label><input type="checkbox" <?php if (isset($_GET['user_data']) && $_GET['user_data'] == 'true') : ?>checked="checked"<?php endif;?> id="id-copy-messages-user" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include operator data')?></label>
     </div>
+    <div class="col-4">
+        <label><input type="checkbox" <?php if (isset($_GET['message_id']) && $_GET['message_id'] == 'true') : ?>checked="checked"<?php endif;?> id="id-copy-messages-id" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include message ID')?></label>
+    </div>
 </div>
 
 <div class="form-group">
@@ -47,6 +50,10 @@ function copyMessageContent() {
 
     if ($('#id-copy-messages-user').is(':checked')) {
         args['user_data'] = 'true';
+    };
+
+    if ($('#id-copy-messages-id').is(':checked')) {
+        args['message_id'] = 'true';
     };
 
     $.getJSON(WWW_DIR_JAVASCRIPT  + 'chat/copymessages/<?php echo $chat->id?>', args, function(data){

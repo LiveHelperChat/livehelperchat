@@ -53,5 +53,7 @@ $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false );
 
 <?php endif; ?>
 
-<a href="<?php echo erLhcoreClassDesign::baseurl('webhooks/new')?>" class="btn btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
-
+<div class="btn-group">
+    <a href="<?php echo erLhcoreClassDesign::baseurl('webhooks/new')?>" class="btn btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
+    <button type="button" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'webhooks/dispatch'});" class="btn btn-outline-secondary btn-sm" name="debugChat"><span class="material-icons">code</span>Dispatch event</button>
+</div>

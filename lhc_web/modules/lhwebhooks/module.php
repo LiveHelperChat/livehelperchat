@@ -57,6 +57,12 @@ $ViewList['incomingwebhooks'] = array(
     'functions' => array( 'configuration' )
 );
 
+$ViewList['dispatch'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'configuration' )
+);
+
 $FunctionList['configuration'] = array('explain' => 'Webhooks module configuration');
 
 ?>

@@ -42,7 +42,8 @@ echo json_encode(array(
         "previous_messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Previous messages'),
         "block" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Block sender'),
         "is_blocked" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Sender is blocked!'),
-        "rsp_type" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Response type')
+        "rsp_type" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Response type'),
+        "message_id" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Message ID')
     ],
     "status" => [
         "pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','New'),

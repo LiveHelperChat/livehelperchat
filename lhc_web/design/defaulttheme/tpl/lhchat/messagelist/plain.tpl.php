@@ -76,6 +76,10 @@ foreach ($messages as $msg ) :
 
         $date = '[' . date(erLhcoreClassModule::$dateDateHourFormat,$msg->time) . ']';
 
+        if (isset($_GET['message_id']) && $_GET['message_id'] == 'true') {
+            $date = '[' . $msg->id . '] '.$date;
+        }
+
         if (isset($render_as_html) && $render_as_html == true) {
             if ($msg->user_id == 0) {
                 $nickValue = str_replace('{val}', $nickValue, $render_as_html_params['visitor_name_html']);

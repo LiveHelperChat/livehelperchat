@@ -6,7 +6,7 @@ var date = new Date();
 
 i18n.use(Backend).use(initReactI18next).init({
     backend: {
-        loadPath: WWW_DIR_JAVASCRIPT+'restapi/lang/{{ns}}?l={{lng}}&v=10'+(""+date.getFullYear() + date.getMonth() + date.getDate())
+        loadPath: WWW_DIR_JAVASCRIPT+'restapi/lang/{{ns}}?l={{lng}}&v=11'+(""+date.getFullYear() + date.getMonth() + date.getDate())
     },
     lng: confLH.lngUser || 'en',
     fallbackLng: confLH.lngUser || 'en',
