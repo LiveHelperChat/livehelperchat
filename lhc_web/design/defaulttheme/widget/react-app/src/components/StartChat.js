@@ -11,6 +11,8 @@ import { helperFunctions } from "../lib/helperFunctions";
 import ChatInvitationMessage from './ChatInvitationMessage';
 import ChatBotIntroMessage from './ChatBotIntroMessage';
 import ChatAbort from './ChatAbort';
+import SharedTextarea from './SharedTextarea';
+
 import { initOnlineForm, submitOnlineForm, minimizeWidget } from "../actions/chatActions"
 
 @connect((store) => {
@@ -38,7 +40,7 @@ class StartChat extends Component {
         this.setLanguageAction = this.setLanguageAction.bind(this);
         this.changeLanguage = this.changeLanguage.bind(this);
 
-        this.textMessageRef = React.createRef();
+        this.textMessageRef = this.props.textMessageRef; /*React.createRef();*/
         this.messagesAreaRef = React.createRef();
         
         helperFunctions.eventEmitter.addListener('startChat', () => this.handleSubmit());
@@ -78,6 +80,7 @@ class StartChat extends Component {
         }
 
         // Focus element so once OnlineChat component is mounted it remains focused
+        // For some reason if I use raw this.textMessageRef.current.focus(); it does not work on safary
         var elm = document.getElementById('CSChatMessage');
         if (elm !== null) {
             elm.focus();
@@ -265,12 +268,6 @@ class StartChat extends Component {
                 this.setBotPayload(this.props.botPayload);
             },10);
         }
-
-        // Just remove element if it exists
-        var elm = document.getElementById('CSChatMessage-tmp');
-        if (elm !== null) {
-            document.body.removeChild(elm);
-        }
     }
 
     componentWillUnmount() {
@@ -281,9 +278,6 @@ class StartChat extends Component {
             // Because online component has it's own text area we loose focus once we mount that component
             // We keeps this element focused and just switch focus between elements. So we do not loose keyboard.
             this.props.setHideMessageField(false);
-            elm.id = "CSChatMessage-tmp";
-            elm.style.cssText = "position:absolute;left:-999px;bottom:0px;";
-            document.body.appendChild(elm);
         }
     }
 
@@ -556,7 +550,33 @@ class StartChat extends Component {
                                 {(!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) || this.props.chatwidget.hasIn(['chat_ui','lng_btnh'])) && <ChatStartOptions bbEnabled={!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh'])} langEnabled={this.props.chatwidget.hasIn(['chat_ui','lng_btnh'])} changeLanguage={this.changeLanguage} toggleModal={this.toggleModal} />}
 
                                 <div className="mx-auto w-100">
-                                    <textarea autoFocus={this.props.chatwidget.get('isMobile') == false && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 && this.state.hasBotData === false ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
+
+                                    {/*<textarea
+                                    autoFocus={this.props.chatwidget.get('isMobile') == false && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true}
+                                    onFocus={this.moveCaretAtEnd}
+                                    maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])}+
+                                    aria-label="Type your message here..."+
+                                    id="CSChatMessage"+
+                                    value={this.props.chatwidget.get('processStatus') == 1 && this.state.hasBotData === false ? '' : this.state.Question}+
+                                    placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')}+
+                                    onKeyDown={this.enterKeyDown}+
+                                    onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})}+
+                                    ref={this.textMessageRef}+
+                                    rows="1"+
+                                    className={classMessageInput}+ />*/}
+
+                                    <SharedTextarea
+                                        text={this.props.chatwidget.get('processStatus') == 1 && this.state.hasBotData === false ? '' : this.state.Question}
+                                        textMaxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])}
+                                        textAutoFocus={this.props.chatwidget.get('isMobile') == false && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true}
+                                        onTextChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})}
+                                        onTextKeyDown={this.enterKeyDown}
+                                        onTextFocus={this.moveCaretAtEnd}
+                                        classNameText={classMessageInput}
+                                        textPlaceholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')}
+                                        textareaRef={this.props.textMessageRef}
+                                    />
+
                                 </div>
                                 <div className="disable-select" id="send-button-wrapper">
                                     <div className="user-chatwidget-buttons pt-2" id="ChatSendButtonContainer">

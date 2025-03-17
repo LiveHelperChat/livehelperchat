@@ -11,6 +11,7 @@ import ChatOptions from './ChatOptions';
 import ChatStatus from './ChatStatus';
 import ChatIntroStatus from './ChatIntroStatus';
 import ChatAbort from './ChatAbort';
+import SharedTextarea from './SharedTextarea';
 
 import { helperFunctions } from "../lib/helperFunctions";
 import { withTranslation } from 'react-i18next';
@@ -93,7 +94,7 @@ class OnlineChat extends Component {
 
         // Messages Area
         this.messagesAreaRef = React.createRef();
-        this.textMessageRef = React.createRef();
+        this.textMessageRef = this.props.textMessageRef; // React.createRef();
 
         this.updateMessages = this.updateMessages.bind(this);
         this.updateMessage = this.updateMessage.bind(this);
@@ -222,11 +223,6 @@ class OnlineChat extends Component {
         var elm = document.getElementById('CSChatMessage');
         if (elm !== null && ((this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget') || this.props.chatwidget.get('mode') == 'popup')) {
             elm.focus();
-
-            var elmtmp = document.getElementById('CSChatMessage-tmp');
-            if (elmtmp !== null) {
-                document.body.removeChild(elmtmp);
-            }
         }
     }
 
@@ -653,11 +649,6 @@ class OnlineChat extends Component {
             if (this.props.chatwidget.get('mode') == 'widget') {
                 this.textMessageRef.current && this.textMessageRef.current.focus();
             }
-
-            var elm = document.getElementById('CSChatMessage-tmp');
-            if (elm !== null) {
-                document.body.removeChild(elm);
-            }
         }
 
         if (this.intervalFunction !== null) {
@@ -905,7 +896,7 @@ class OnlineChat extends Component {
                     return null;
                 }
 
-            return <ChatIntroStatus value={this.state.value} profileBefore={this.props.profileBefore} msg_expand={msg_expand} messagesBefore={this.props.messagesBefore} placeholderMessage={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} />;
+            return <ChatIntroStatus textMessageRef={this.textMessageRef} value={this.state.value} profileBefore={this.props.profileBefore} msg_expand={msg_expand} messagesBefore={this.props.messagesBefore} placeholderMessage={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} />;
         }
         
         if (this.props.chatwidget.hasIn(['chatLiveData','ru']) && this.props.chatwidget.getIn(['chatLiveData','ru'])) {
@@ -1111,7 +1102,39 @@ class OnlineChat extends Component {
 
                         <div className={message_send_style}>
                             {this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','survey_id']) && <button type="button" onClick={this.goToSurvey} className="w-100 btn btn-success">{t('online_chat.go_to_survey')}</button>}
-                            {(!this.props.chatwidget.getIn(['chatLiveData','closed']) || !this.props.chatwidget.hasIn(['chat_ui','survey_id'])) && <textarea onFocus={(e) => {this.setState({'reactToMsgId' : 0})}} onTouchStart={this.scrollBottom} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed']) || this.props.chatwidget.get('network_down')} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={!this.props.chatwidget.getIn(['chatLiveData','closed']) ? this.state.value : ''} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className={"ps-0 no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6))) ? 'msg-two-line' : 'msg-one-line')} />}
+                            {(!this.props.chatwidget.getIn(['chatLiveData','closed'])
+                                    || !this.props.chatwidget.hasIn(['chat_ui','survey_id'])) &&
+
+                                <SharedTextarea
+                                    text={!this.props.chatwidget.getIn(['chatLiveData','closed']) ? this.state.value : ''}
+                                    textMaxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])}
+                                    onTextTouchStart={this.scrollBottom}
+                                    onTextKeyUp={this.keyUp}
+                                    onTextChange={this.handleChange}
+                                    onTextKeyDown={this.enterKeyDown}
+                                    textReadOnly={this.props.chatwidget.getIn(['chatLiveData','closed']) || this.props.chatwidget.get('network_down')}
+                                    onTextFocus={(e) => {this.setState({'reactToMsgId' : 0})}}
+                                    classNameText={"ps-0 no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6))) ? 'msg-two-line' : 'msg-one-line')}
+                                    textPlaceholder={placeholder}
+                                    textareaRef={this.props.textMessageRef}
+                                />
+
+                                /*<textarea
+                                onFocus={(e) => {this.setState({'reactToMsgId' : 0})}}+
+                                onTouchStart={this.scrollBottom}+
+                                maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])}+
+                                onKeyUp={this.keyUp}+
+                                readOnly={this.props.chatwidget.getIn(['chatLiveData','closed']) || this.props.chatwidget.get('network_down')}+
+                                id="CSChatMessage"+
+                                placeholder={placeholder}+
+                                onKeyDown={this.enterKeyDown}+
+                                value={!this.props.chatwidget.getIn(['chatLiveData','closed']) ? this.state.value : ''}+
+                                onChange={this.handleChange}+
+                                ref={this.textMessageRef}+
+                                rows="1"
+                                className={"ps-0 no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6))) ? 'msg-two-line' : 'msg-one-line')}
+                                />*/
+                            }
                         </div>
 
                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.get('network_down') && <div className="disable-select" id="send-button-wrapper">
