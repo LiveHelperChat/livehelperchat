@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NodeTriggerActionType from './NodeTriggerActionType';
 import NodeTriggerArgumentTemplate from './NodeTriggerArgumentTemplate';
 import NodeTriggerList from './NodeTriggerList';
+import CustomArguments from './RestAPI/CustomArguments';
 
 import { initRestMethods } from "../../actions/nodeGroupTriggerActions"
 import { connect } from "react-redux";
@@ -182,14 +183,7 @@ class NodeTriggerActionRestAPI extends Component {
                             <NodeTriggerList enableAction={true} payload_action_id={this.props.action.getIn(['content','rest_api_method_output','long_taking_action_id'])} onSetPayloadActionId={(e) => this.onchangeAttr({'path':['rest_api_method_output','long_taking_action_id'],'value':e})} onSetPayload={(e) => this.onchangeAttr({'path':['rest_api_method_output','long_taking_trigger'],'value':e})} payload={this.props.action.getIn(['content','rest_api_method_output','long_taking_trigger'])} />
                         </div>
                     </div>
-
-                    <div className="col-12">
-                        <div className="form-group">
-                            <label>Custom argument for the Rest API Call</label>
-                            <textarea onChange={(e) => this.onchangeAttr({'path' : ['attr_options','custom_args_1'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','attr_options','custom_args_1'])} placeholder="You will be able to access this argument in your Rest API call via {{custom_args_1}}" className="form-control form-control-sm"></textarea>
-                        </div>
-                    </div>
-
+                    <CustomArguments onchangeAttr={this.onchangeAttr} action={this.props.action} />
                 </div>
 
                 <div className="row">

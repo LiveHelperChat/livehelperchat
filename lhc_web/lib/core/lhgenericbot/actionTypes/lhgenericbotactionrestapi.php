@@ -98,17 +98,19 @@ class erLhcoreClassGenericBotActionRestapi
                     'method' => & $method
                 ));
 
-                if (!empty($action['content']['attr_options']['custom_args_1'])) {
-                    if (isset($params['replace_array'])) {
-                        foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
-                            if (is_object($valueReplace) || is_array($valueReplace)) {
-                                $action['content']['attr_options']['custom_args_1'] = @str_replace($keyReplace,json_encode($valueReplace),$action['content']['attr_options']['custom_args_1']);
-                            } else {
-                                $action['content']['attr_options']['custom_args_1'] = @str_replace($keyReplace,$valueReplace,$action['content']['attr_options']['custom_args_1']);
+                for ($i = 1; $i <= 5; $i++) {
+                    if (!empty($action['content']['attr_options']['custom_args_' . $i])) {
+                        if (isset($params['replace_array'])) {
+                            foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                                if (is_object($valueReplace) || is_array($valueReplace)) {
+                                    $action['content']['attr_options']['custom_args_' . $i] = @str_replace($keyReplace, json_encode($valueReplace), $action['content']['attr_options']['custom_args_' . $i]);
+                                } else {
+                                    $action['content']['attr_options']['custom_args_' . $i] = @str_replace($keyReplace, $valueReplace, $action['content']['attr_options']['custom_args_' . $i]);
+                                }
                             }
                         }
+                        $action['content']['attr_options']['custom_args_' . $i] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['attr_options']['custom_args_' . $i], array('chat' => $chat, 'args' => $params));
                     }
-                    $action['content']['attr_options']['custom_args_1'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['attr_options']['custom_args_1'], array('chat' => $chat, 'args' => $params));
                 }
 
                 if (isset($params['replace_array']) && !empty($params['replace_array'])) {
@@ -843,7 +845,11 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_mime}}' => $file_mime,
             '{{timestamp}}' => time(),
             '{{date_utc}}' => (new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s T'),
-            '{{custom_args_1}}' => isset($paramsCustomer['action']['content']['attr_options']['custom_args_1']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_1'] : null
+            '{{custom_args_1}}' => isset($paramsCustomer['action']['content']['attr_options']['custom_args_1']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_1'] : null,
+            '{{custom_args_2}}' => isset($paramsCustomer['action']['content']['attr_options']['custom_args_2']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_2'] : null,
+            '{{custom_args_3}}' => isset($paramsCustomer['action']['content']['attr_options']['custom_args_3']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_3'] : null,
+            '{{custom_args_4}}' => isset($paramsCustomer['action']['content']['attr_options']['custom_args_4']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_4'] : null,
+            '{{custom_args_5}}' => isset($paramsCustomer['action']['content']['attr_options']['custom_args_5']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_5'] : null
         );
 
         $replaceVariables = array_merge($replaceVariables, $dynamicReplaceVariables);
@@ -881,6 +887,10 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_name}}' =>json_encode($file_name),
             '{{file_size}}' =>json_encode($file_size),
             '{{custom_args_1}}' => json_encode(isset($paramsCustomer['action']['content']['attr_options']['custom_args_1']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_1'] : null),
+            '{{custom_args_2}}' => json_encode(isset($paramsCustomer['action']['content']['attr_options']['custom_args_2']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_2'] : null),
+            '{{custom_args_3}}' => json_encode(isset($paramsCustomer['action']['content']['attr_options']['custom_args_3']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_3'] : null),
+            '{{custom_args_4}}' => json_encode(isset($paramsCustomer['action']['content']['attr_options']['custom_args_4']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_4'] : null),
+            '{{custom_args_5}}' => json_encode(isset($paramsCustomer['action']['content']['attr_options']['custom_args_5']) ? $paramsCustomer['action']['content']['attr_options']['custom_args_5'] : null),
             '{{date_utc}}' => json_encode((new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s T')),
             '{{timestamp}}' => time()
         );
