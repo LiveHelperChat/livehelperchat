@@ -11,6 +11,7 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
     this.addParameter = function() {
         that.parameters.push({
             'method' : 'GET',
+            'position' : 0,
             'authorization' : '',
             'api_key_location' : 'header',
             'query' : [],
@@ -43,8 +44,17 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
         return JSON.stringify({'host' : that.host, 'log_code' : that.log_code, 'log_audit': that.log_audit, 'log_system' : this.log_system, 'ecache': that.ecache, 'parameters' : that.parameters});
     }
 
+
+    this.getFirstParameterId = function() {
+        if (this.parameters.length === 0) return null;
+        this.parameters.sort((a, b) => (a.position !== undefined ? a.position : 0) - (b.position !== undefined ? b.position : 0));
+        return this.parameters[0].id;
+    };
+
     this.initParams = function () {
         this.parameters = $window['rest_api_parameters'];
+        this.activeParam = this.getFirstParameterId();
+
         this.parameters.forEach(function(item){
            if (typeof item.conditions === 'undefined') {
                item.conditions = [];
