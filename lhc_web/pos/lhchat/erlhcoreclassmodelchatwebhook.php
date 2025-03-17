@@ -19,7 +19,7 @@ foreach (['status','configuration','event','name'] as $posAttr) {
 // 0 - One time event based on hook
 // 1 - Based on multiple conditions continous chat
 // 2 - Based on multiple conditions continous mail
-foreach (['type','disabled','bot_id_alt','trigger_id_alt','bot_id','trigger_id'] as $posAttr) {
+foreach (['type','disabled','bot_id_alt','trigger_id_alt','bot_id','trigger_id','delay'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

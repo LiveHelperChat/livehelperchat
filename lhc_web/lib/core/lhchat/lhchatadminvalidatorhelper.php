@@ -1448,6 +1448,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'bot_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
             ),
+            'delay' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 60)
+            ),
             'AbstractInput_trigger_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
             ),
@@ -1470,6 +1473,12 @@ class erLhcoreClassAdminChatValidatorHelper {
 
         if ($form->hasValidData( 'event' )) {
             $webhook->event = $form->event;
+        }
+
+        if ($form->hasValidData( 'delay' )) {
+            $webhook->delay = $form->delay;
+        } else {
+            $webhook->delay = 0;
         }
 
         if ($form->hasValidData( 'name' )) {

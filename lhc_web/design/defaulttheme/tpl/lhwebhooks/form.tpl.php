@@ -16,10 +16,22 @@
         <div class="form-group">
             <label><input type="radio" value="0" name="type" <?php if ($item->type == 0) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is hook event');?></label>
         </div>
-        <div class="form-group" ng-non-bindable>
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Event');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required if it is hook event');?>)</span></label>
-            <input type="text" class="form-control form-control-sm" name="event" value="<?php echo htmlspecialchars($item->event);?>" />
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group" ng-non-bindable>
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Event');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required if it is hook event');?>)</span></label>
+                    <input type="text" class="form-control form-control-sm" name="event" value="<?php echo htmlspecialchars($item->event);?>" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group" ng-non-bindable>
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Delay event processing by N seconds');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','applied only if background workers are used');?>)</span></label>
+                    <input type="number" max="60" min="0" class="form-control form-control-sm" name="delay" value="<?php echo htmlspecialchars($item->delay);?>" />
+                </div>
+            </div>
         </div>
+
     </div>
     <div role="tabpanel" class="tab-pane form-group" id="chooks-settings">
         <div class="form-group">

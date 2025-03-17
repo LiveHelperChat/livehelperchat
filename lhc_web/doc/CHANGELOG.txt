@@ -1,3 +1,15 @@
+4.55v
+
+1. Mobile devices keyboard wont go up/down on start chat action.
+2. Webhooks will have a delay which will be executed if background workers are used. Usefull in case one of the webhooks events is updating chat/mail and other event needs that.
+3. Rest API UX changes with tabs for easier navigation.
+4. Bot Rest API will have upto 5 custom args.
+5. Alias and real operator nick will be shown in back office of the admin.
+6. Option to dispatch events manually.
+7. `direct_` prefix for Rest API payloads.
+
+execute doc/update_db/update_323.sql for update
+
 4.54v
 
 1. Improved support for PHP 8.4.

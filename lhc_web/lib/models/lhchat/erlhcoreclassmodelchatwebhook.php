@@ -26,6 +26,7 @@ class erLhcoreClassModelChatWebhook {
             'type'          => $this->type,
             'configuration' => $this->configuration,
             'status'        => $this->status,
+            'delay'         => $this->delay,
         );
     }
 
@@ -83,6 +84,7 @@ class erLhcoreClassModelChatWebhook {
     public $type = 0;
     public $configuration = '';
     public $status = '';
+    public $delay = 0;
 }
 
 ?>

@@ -52,6 +52,10 @@ class erLhcoreClassChatWebhookResque {
 
         $webhook = erLhcoreClassModelChatWebhook::fetch($hookId);
 
+        if ((int)$webhook->delay > 0 && (int)$webhook->delay <= 60) {
+            sleep((int)$webhook->delay);
+        }
+
         $triggerId = $webhook->trigger_id;
 
         $params = unserialize(gzinflate(base64_decode($this->args['params'])));
