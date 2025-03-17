@@ -2508,3 +2508,9 @@ html {
     content: attr(placeholder);
     color: var(--bs-secondary-color);
 }
+
+.dropdown-item-no-highlight:focus, .dropdown-item-no-highlight:hover {
+    background-color: transparent !important;
+    color: inherit !important;
+    text-decoration: none !important;
+}

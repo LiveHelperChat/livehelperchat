@@ -148,7 +148,7 @@ class NodeGroupTrigger extends Component {
                             <li className="dropdown-item"><a href="#" onClick={this.makeCopy}><i className="material-icons">file_copy</i> Copy</a></li>
                             <div className="dropdown-divider"></div>
                             <li className="dropdown-item"><a href="#" onClick={(e) => this.changeGroup(!this.state.changingGroup)}><i className="material-icons">home</i> Change group</a></li>
-                            <li className="dropdown-item">
+                            <li className="dropdown-item dropdown-item-no-highlight" onClick={(e) => e.stopPropagation()}>
                                 <span><span className="material-icons text-muted">swap_vert</span><b>Trigger position in group</b></span>
                                 <div className="input-group input-group-sm me-2 mt-1">
                                     <input type="number" title="Position" onChange={(e) => this.setState({position: parseInt(e.target.value)})} className="form-control" style={{"width" : "65px"}} defaultValue={this.props.trigger.get('pos')} placeholder="Position" aria-label="Input group example" aria-describedby="btnGroupAddon" />
