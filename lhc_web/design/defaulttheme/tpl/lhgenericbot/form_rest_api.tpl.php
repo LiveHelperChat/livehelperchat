@@ -45,8 +45,8 @@
 
 <!-- Parameters tabs navigation -->
 <ul class="nav nav-tabs nav-tabs-bold mt-3" role="tablist" ng-show="lhcrestapi.parameters.length > 0">
-    <li role="presentation" class="nav-item" ng-repeat="param in lhcrestapi.parameters">
-        <a class="nav-link {{$index == 0 ? 'active' : ''}}" href="#param-tab-{{$index}}" aria-controls="param-{{$index}}" role="tab" data-bs-toggle="tab">
+    <li role="presentation" class="nav-item" ng-repeat="param in lhcrestapi.parameters | orderBy:'position' track by $index">
+        <a class="nav-link" ng-class="{'active': lhcrestapi.activeParam == param.id}" href="#param-tab-{{param.id}}" ng-click="lhcrestapi.activeParam = param.id" aria-controls="param-{{param.id}}" role="tab" data-bs-toggle="tab">
             {{param.name || ('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Request'); ?> ' + ($index + 1))}}
         </a>
     </li>
@@ -54,7 +54,7 @@
 
 <!-- Parameters tab content -->
 <div class="tab-content" ng-show="lhcrestapi.parameters.length > 0">
-    <div role="tabpanel" class="tab-pane {{$index == 0 ? 'active' : ''}}" id="param-tab-{{$index}}" ng-repeat="param in lhcrestapi.parameters">
+    <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.activeParam == param.id}" id="param-tab-{{param.id}}" ng-repeat="param in lhcrestapi.parameters | orderBy:'position' track by $index">
         <div class="mt-2">
 
             <button type="button" class="btn btn-danger btn-xs mt-2" ng-click="lhcrestapi.deleteParam(lhcrestapi.parameters,param)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Delete');?></button>
@@ -64,6 +64,12 @@
                     <div class="form-group">
                         <label><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Name of the request');?></b></label>
                         <input type="text" class="form-control form-control-sm" ng-model="param.name" placeholder="" value="" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Tab position');?></label>
+                        <input type="number" class="form-control form-control-sm" ng-model="param.position" placeholder="0" value="0" ng-model-options="{ updateOn: 'blur' }" />
                     </div>
                 </div>
                 <div class="col-6">
@@ -601,4 +607,4 @@
     </div>
 </div>
 
-<hr>
+<br>
