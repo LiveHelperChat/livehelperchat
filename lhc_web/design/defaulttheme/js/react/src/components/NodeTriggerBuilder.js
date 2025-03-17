@@ -228,7 +228,7 @@ class NodeTriggerBuilder extends Component {
                 } else if (action.get('type') == 'intentcheck') {
                     return <NodeTriggerActionIntentCheck upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'conditions') {
-                    return <NodeTriggerActionConditions upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
+                    return <NodeTriggerActionConditions upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
                 } else if (action.get('type') == 'match_actions') {
                     return <NodeTriggerActionMatchActions upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'event_type') {

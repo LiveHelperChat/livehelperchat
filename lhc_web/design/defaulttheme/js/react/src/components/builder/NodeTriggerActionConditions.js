@@ -14,6 +14,8 @@ class NodeTriggerActionConditions extends Component {
         this.addCondition = this.addCondition.bind(this);
         this.onDeleteField = this.onDeleteField.bind(this);
         this.onchangeFieldAttr = this.onchangeFieldAttr.bind(this);
+        this.onMoveUpField = this.onMoveUpField.bind(this);
+        this.onMoveDownField = this.onMoveDownField.bind(this);
     }
 
     changeType(e) {
@@ -38,6 +40,14 @@ class NodeTriggerActionConditions extends Component {
 
     onDeleteField(fieldIndex) {
         this.props.deleteSubelement({id : this.props.id, 'path' : ['content','conditions',fieldIndex]});
+    }
+
+    onMoveUpField(fieldIndex) {
+        this.props.moveUpSubelement({id : this.props.id, 'index' : fieldIndex, 'path' : ['content','conditions']});
+    }
+
+    onMoveDownField(fieldIndex) {
+        this.props.moveDownSubelement({id : this.props.id, 'index' : fieldIndex, 'path' : ['content','conditions']});
     }
 
     render() {

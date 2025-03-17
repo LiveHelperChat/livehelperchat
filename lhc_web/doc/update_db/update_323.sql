@@ -1,0 +1,1 @@
+ALTER TABLE `lh_webhook` ADD `delay` int(11) NOT NULL DEFAULT '0', COMMENT='';
