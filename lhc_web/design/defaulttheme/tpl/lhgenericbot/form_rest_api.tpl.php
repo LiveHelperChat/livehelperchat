@@ -44,7 +44,7 @@
 <span><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules?rest_api=1'});"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Explore');?></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','possible chat attributes directly.');?></span>
 
 <!-- Parameters tabs navigation -->
-<ul class="nav nav-tabs mt-3" role="tablist" ng-show="lhcrestapi.parameters.length > 0">
+<ul class="nav nav-tabs nav-tabs-bold mt-3" role="tablist" ng-show="lhcrestapi.parameters.length > 0">
     <li role="presentation" class="nav-item" ng-repeat="param in lhcrestapi.parameters">
         <a class="nav-link {{$index == 0 ? 'active' : ''}}" href="#param-tab-{{$index}}" aria-controls="param-{{$index}}" role="tab" data-bs-toggle="tab">
             {{param.name || ('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Request'); ?> ' + ($index + 1))}}
@@ -92,7 +92,7 @@
                     </div>
                 </div>
             </div>
-            <ul class="nav nav-tabs mb-2" role="tablist" >
+            <ul class="nav nav-tabs  nav-tabs-bold mb-2" role="tablist" >
                 <li role="presentation" class="nav-item"><a class="nav-link active" href="#params-rest-{{$index}}" aria-controls="params" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Params');?></a></li>
                 <li role="presentation" class="nav-item"><a class="nav-link" href="#authorization-rest-{{$index}}" aria-controls="authorization" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Authorization');?></a></li>
                 <li role="presentation" class="nav-item"><a class="nav-link" href="#headers-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Headers');?></a></li>
@@ -371,7 +371,7 @@
                     <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.output)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add combination')?></button>
 
                     <!-- Output combinations tab navigation -->
-                    <ul class="nav nav-tabs mt-3" role="tablist" ng-show="param.output.length > 0">
+                    <ul class="nav nav-tabs nav-tabs-bold mt-3" role="tablist" ng-show="param.output.length > 0">
                         <li role="presentation" class="nav-item" ng-repeat="paramOutput in param.output">
                             <a class="nav-link {{$index == 0 ? 'active' : ''}}" href="#output-combination-{{$parent.$index}}-{{$index}}" aria-controls="output-{{$index}}" role="tab" data-bs-toggle="tab">
                                 {{paramOutput.success_name || ('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Output'); ?> ' + ($index + 1))}}

@@ -36,6 +36,8 @@
     --lhc-msg-body-sys-text:var(--bs-secondary-color);
     --lhc-msg-body-bg:transparent;
     --lhc-new-msg-border: rgba(var(--bs-danger-rgb), 1);
+    --lhc-gradient-tab-start: #dfdfdf;
+    --lhc-gradient-tab-end: #FFF;
 }
 
 .btn-group-xs > .btn, .btn-xs {
@@ -2513,4 +2515,9 @@ html {
     background-color: transparent !important;
     color: inherit !important;
     text-decoration: none !important;
+}
+
+
+.nav-tabs-bold .nav-link.active {
+    background: linear-gradient(to bottom, var(--lhc-gradient-tab-start), var(--lhc-gradient-tab-end));
 }

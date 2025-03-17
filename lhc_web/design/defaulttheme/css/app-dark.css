@@ -25,6 +25,8 @@
     --lhc-msg-body-sys-tit-bg:#495057;
     --lhc-msg-body-sys-tit-text: #d4d0d0;
     --lhc-msg-date-text: #bcbcbc;
+    --lhc-gradient-tab-end: #343a40;
+    --lhc-gradient-tab-start: #000000;
 }
 
 .nav {
