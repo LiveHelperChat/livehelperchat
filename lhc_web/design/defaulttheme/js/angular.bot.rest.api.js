@@ -5,10 +5,13 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
     this.log_audit = "";
     this.log_system = "";
     this.log_code = "";
+    this.activeParam = "";
 
     var that = this;
 
     this.addParameter = function() {
+        let idLast = 'temp'+new Date().getTime();
+
         that.parameters.push({
             'method' : 'GET',
             'position' : 0,
@@ -20,8 +23,10 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
             'postparams' : [],
             'userparams' : [],
             'output' : [],
-            'id' : 'temp'+new Date().getTime()
+            'id' : idLast
         });
+
+        this.activeParam = idLast;
     };
 
     this.addParam = function (params) {
@@ -43,7 +48,6 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
     this.getJSON = function () {
         return JSON.stringify({'host' : that.host, 'log_code' : that.log_code, 'log_audit': that.log_audit, 'log_system' : this.log_system, 'ecache': that.ecache, 'parameters' : that.parameters});
     }
-
 
     this.getFirstParameterId = function() {
         if (this.parameters.length === 0) return null;
