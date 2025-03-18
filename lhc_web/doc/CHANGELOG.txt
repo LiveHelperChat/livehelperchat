@@ -7,6 +7,7 @@
 5. Alias and real operator nick will be shown in back office of the admin.
 6. Option to dispatch events manually.
 7. `direct_` prefix for Rest API payloads.
+8. Sample for OpenAI responses AI
 
 execute doc/update_db/update_323.sql for update
 
