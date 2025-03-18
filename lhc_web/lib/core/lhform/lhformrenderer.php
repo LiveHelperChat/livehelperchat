@@ -271,7 +271,7 @@ class erLhcoreClassFormRenderer {
     		$validationFields[$params['name']] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     		
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
-    		if (!$form->hasValidData($params['name']) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '') || (((!isset($params['required']) && $form->hasValidData($params['name']) && $form->{$params['name']} != '') || isset($params['required']) && $params['required'] == 'required') && isset($params['validation_rule']) && $params['validation_rule'] != '' && !preg_match($params['validation_rule'],$form->{$params['name']}))) {
+    		if (!$form->hasValidData($params['name']) || (isset($params['required']) && $params['required'] == 'required' && trim($form->{$params['name']}) == '') || (((!isset($params['required']) && $form->hasValidData($params['name']) && trim($form->{$params['name']}) != '') || isset($params['required']) && $params['required'] == 'required') && isset($params['validation_rule']) && $params['validation_rule'] != '' && !preg_match($params['validation_rule'],trim($form->{$params['name']})))) {
                 $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
 
                 if (isset($params['error_style']) && $params['error_style'] == 'field') {
@@ -283,11 +283,11 @@ class erLhcoreClassFormRenderer {
 
                 $isInvalid = true;
                 if ($form->hasValidData($params['name'])) {
-                    $value = $form->{$params['name']};
+                    $value = trim($form->{$params['name']});
                 }
-    		} elseif ($form->hasValidData( $params['name'] ) && (!isset($params['validation_rule']) || $params['validation_rule'] == '' || preg_match($params['validation_rule'],$form->{$params['name']}))) {
-    			$value = $form->{$params['name']};
-    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
+    		} elseif ($form->hasValidData( $params['name'] ) && (!isset($params['validation_rule']) || $params['validation_rule'] == '' || preg_match($params['validation_rule'],trim($form->{$params['name']})))) {
+    			$value = trim($form->{$params['name']});
+    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => trim($form->{$params['name']}));
     		}
     		
     	} else {
@@ -329,11 +329,11 @@ class erLhcoreClassFormRenderer {
 
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
 
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && trim($form->{$params['name']}) == '')) {
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
     		} elseif ($form->hasValidData( $params['name'] )) {
-    			$value = $form->{$params['name']};
-    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
+    			$value = trim($form->{$params['name']});
+    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => trim($form->{$params['name']}));
     		}
 
     	} else {
@@ -375,7 +375,7 @@ class erLhcoreClassFormRenderer {
     		$validationFields[$params['name']] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
     		
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && trim($form->{$params['name']}) == '')) {
                 $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
                 if (isset($params['error_style']) && $params['error_style'] == 'field') {
                     $errorInline = "<div class=\"invalid-feedback\">{$errorString}</div>";
@@ -385,8 +385,8 @@ class erLhcoreClassFormRenderer {
                 }
                 $isInvalid = true;
     		} elseif ($form->hasValidData( $params['name'] )) {
-    			$value = $form->{$params['name']};
-    			self::$collectedInfo[$params['name']] = array('main' => (isset($params['main']) && $params['main'] == 'true'),'definition' => $params,'value' => $form->{$params['name']});
+    			$value = trim($form->{$params['name']});
+    			self::$collectedInfo[$params['name']] = array('main' => (isset($params['main']) && $params['main'] == 'true'),'definition' => $params, 'value' => trim($form->{$params['name']}));
     			    			
     			// It's main form e-mail
     			if (self::$collectedInfo[$params['name']]['main'] == true) {
@@ -420,7 +420,7 @@ class erLhcoreClassFormRenderer {
     		
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
 
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && trim($form->{$params['name']}) == '')) {
                 $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
                 $isInvalid = true;
                 if (isset($params['error_style']) && $params['error_style'] == 'field') {
@@ -430,8 +430,8 @@ class erLhcoreClassFormRenderer {
                     self::$errors[] = $errorString;
                 }
     		} elseif ($form->hasValidData( $params['name'] )) {
-    			$value = $form->{$params['name']};
-    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
+    			$value = trim($form->{$params['name']});
+    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => trim($form->{$params['name']}));
     		}
     		
     	} else {
@@ -462,7 +462,7 @@ class erLhcoreClassFormRenderer {
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
     		$Errors = array();
     		
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && trim($form->{$params['name']}) == '')) {
                 $isInvalid = true;
                 $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
                 if (isset($params['error_style']) && $params['error_style'] == 'field') {
@@ -471,15 +471,15 @@ class erLhcoreClassFormRenderer {
                 } else {
                     self::$errors[] = $errorString;
                 }
-    		} elseif ($form->hasValidData( $params['name']) && $form->{$params['name']} != '') {
-    			if (strtotime($form->{$params['name']}) !== false) {
+    		} elseif ($form->hasValidData( $params['name']) && trim($form->{$params['name']}) != '') {
+    			if (strtotime(trim($form->{$params['name']})) !== false) {
                     $d = new DateTime($form->{$params['name']});
                     $value = $d->getTimestamp();
                     $valueFrontEnd = $form->{$params['name']};
 	    			self::$collectedInfo[$params['name']] = array('definition' => $params, 'value' => $value);
     			} else {
                     $isInvalid = true;
-                    $valueFrontEnd = $value = htmlspecialchars($form->{$params['name']});
+                    $valueFrontEnd = $value = htmlspecialchars(trim($form->{$params['name']}));
                     $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','invalid date format');
                     if (isset($params['error_style']) && $params['error_style'] == 'field') {
                         $errorInline = "<div class=\"invalid-feedback\">{$errorString}</div>";
@@ -526,11 +526,11 @@ class erLhcoreClassFormRenderer {
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
     		$Errors = array();
     		 
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && ($form->{$params['name']} == '' || (isset($params['default']) && $params['default'] == $form->{$params['name']})))) {
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && (trim($form->{$params['name']}) == '' || (isset($params['default']) && $params['default'] == trim($form->{$params['name']}))))) {
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
     		} elseif ($form->hasValidData( $params['name'] )) {
-    			$value = htmlspecialchars($form->{$params['name']});
-    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
+    			$value = htmlspecialchars(trim($form->{$params['name']}));
+    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => trim($form->{$params['name']}));
     		}
     		    		 
     	} else {
@@ -570,11 +570,11 @@ class erLhcoreClassFormRenderer {
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
     		$Errors = array();
     		 
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && ($form->{$params['name']} == '' || (isset($params['default']) && $params['default'] == $form->{$params['name']})))) {
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && (trim($form->{$params['name']}) == '' || (isset($params['default']) && $params['default'] == trim($form->{$params['name']}))))) {
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
     		} elseif ($form->hasValidData( $params['name'] )) {
-    			$value = htmlspecialchars($form->{$params['name']});
-    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
+    			$value = htmlspecialchars(trim($form->{$params['name']}));
+    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => trim($form->{$params['name']}));
     		}
     		    		 
     	} else {
@@ -608,11 +608,11 @@ class erLhcoreClassFormRenderer {
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
     		$Errors = array();
     		 
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && ($form->{$params['name']} == '' || (isset($params['default']) && $params['default'] == $form->{$params['name']})))) {
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && (trim($form->{$params['name']}) == '' || (isset($params['default']) && $params['default'] == trim($form->{$params['name']}))))) {
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
     		} elseif ($form->hasValidData( $params['name'] )) {
-    			$value = $form->{$params['name']};
-    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
+    			$value = trim($form->{$params['name']});
+    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => trim($form->{$params['name']}));
     		}
     		    		 
     	} else {
@@ -677,7 +677,7 @@ class erLhcoreClassFormRenderer {
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
             $isInvalid = false;
 
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && trim($form->{$params['name']}) == '')) {
                 $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
                 $isInvalid = true;
                 if (isset($params['error_style']) && $params['error_style'] == 'field') {
@@ -688,8 +688,8 @@ class erLhcoreClassFormRenderer {
                 }
 
     		} elseif ($form->hasValidData( $params['name'] )) {
-    			$value = $form->{$params['name']};
-    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
+    			$value = trim($form->{$params['name']});
+    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => trim($form->{$params['name']}));
     		}
     	
     	} else {
