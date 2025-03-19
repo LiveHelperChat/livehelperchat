@@ -173,9 +173,11 @@ class erLhcoreClassGenericBotActionText {
 
         if (isset($params['replace_array'])) {
             foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
-                if (is_object($valueReplace) || is_array($valueReplace)) {
-                    if (isset($action['content']['attr_options']['json_replace']) && $action['content']['attr_options']['json_replace'] === true)
-                    {
+                if (is_object($valueReplace) || is_array($valueReplace) || (isset($action['content']['attr_options']['json_replace_all']) && $action['content']['attr_options']['json_replace_all'] === true)) {
+                    if (
+                        (isset($action['content']['attr_options']['json_replace']) && $action['content']['attr_options']['json_replace'] === true) ||
+                        (isset($action['content']['attr_options']['json_replace_all']) && $action['content']['attr_options']['json_replace_all'] === true)
+                    ) {
                         $msg->msg = @str_replace($keyReplace,json_encode($valueReplace),$msg->msg);
                     } else {
                         $msg->msg = @str_replace($keyReplace,'[' . $keyReplace . ' - OBJECT OR ARRAY]',$msg->msg);

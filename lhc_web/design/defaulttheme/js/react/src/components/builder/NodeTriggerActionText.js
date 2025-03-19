@@ -238,13 +238,19 @@ class NodeTriggerActionText extends Component {
                             <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','auto_translate'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','auto_translate'])} /> Automatic translations.</label> <i className="material-icons" title="If you have enabled automatic translations for translation group we will translate this message. You can't mix manual and automatic translations in the same message. Before final save we will translate all response including buttons to visitor language.">info</i>
                             </div>
-                        </div>
-                        <div className="col-6">
                             <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_system'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_system'])} /> Save as a system message.</label> <i className="material-icons" title="Message will be saved as system message and will be invisible by visitor.">info</i>
                             </div>
                             <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_log_msg'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_log_msg'])} /> Save as a log message.</label> <i className="material-icons" title="Message will be saved in audit log only.">info</i>
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','json_replace'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','json_replace'])} /> Encode arrays and objects replaceable variables as JSON.</label>
+                            </div>
+                            <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','json_replace_all'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','json_replace_all'])} /> Encode all replaceable variables as JSON.</label>
                             </div>
                             <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','json_replace_args'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','json_replace_args'])} /> Encode arrays and objects of args.* variables as JSON</label>
@@ -254,9 +260,6 @@ class NodeTriggerActionText extends Component {
                             </div>
                             <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','process_as_visitor'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','process_as_visitor'])} /> Process as a new visitor message</label> <i className="material-icons" title="We will process message with a bot as it was a new visitor message.">info</i>
-                            </div>
-                            <div role="group">
-                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_log_msg'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_log_msg'])} /> Save as a log message.</label> <i className="material-icons" title="Message will be saved in audit log only.">info</i>
                             </div>
                             <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','reactions_visible'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','reactions_visible'])} /> Reactions always visible.</label> <i className="material-icons" title="Make reactions icons always visible. By default they are visible on mouse over.">info</i>
