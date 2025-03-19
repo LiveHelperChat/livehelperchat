@@ -13,7 +13,7 @@
             
             <?php if ($context == 'text') : ?>
                 <ul>
-                    <li>{<translation>__default message__t[show from hour, show till hour]} inclusive is first hour. Few examples
+                    <li>{&lt;translation&gt;__default message__t[show from hour, show till hour]} inclusive is first hour. Few examples
                             <ul>
                                 <li>Default message</li>
                                 <li>{welcome_message__Welcome to our website}</li>
@@ -24,6 +24,30 @@
                                 <li>{good_morning_tue_wed__Good morning monday__t[7:9]||2,3} - Show this message only on Tuesday and Wednesday</li>
                             </ul>
                     </li>
+                <li>Special functions are usefull in case you have checked <span class="badge bg-info">Save content as JSON.</span></li>
+                <li>Special functions for replaceable variables. Ensure you have checked <span class="badge bg-info">Encode all replaceable variables as JSON.</span>
+                    <ul>
+                        <li><span class="badge bg-info">rawjson_{content_1}</span> - Use for objects/arrays.<br>
+                            Rest API response : <span class="badge bg-info">json_encode(['price' => 100, 'currency' => 'EUR']);</span> Text body definition <span class="badge bg-info">"Should be rawjson_{content_1}"</span> resulting in <span class="badge bg-info">"Should be {\"price\":100,\"currency\":\"EUR\"}"</span>
+                        </li>
+                        <li><span class="badge bg-info">json_{content_1}</span> - Use for objects/arrays.<br>
+                            Rest API response : <span class="badge bg-info">json_encode(['price' => 100, 'currency' => 'EUR']);</span> Text body definition: <span class="badge bg-info">"output": json_{content_1}</span> results in <span class="badge bg-info">"output": "{\"price\":100,\"currency\":\"EUR\"}"</span>
+                        </li>
+                        <li><span class="badge bg-info">raw_{content_1}</span> - Use for strings/numbers.<br>
+                            Rest API response : <span class="badge bg-info">json_encode("Funny it\"s 30 EUR");</span> Example: <span class="badge bg-info">"output": "should be - raw_{content_1}"</span> results in <span class="badge bg-info">"output": "Should be Funny it\"s 30 EUR"</span>
+                        </li>
+                        <li><span class="badge bg-info">{content_1}</span> - Use for all.<br>
+                            Example: <span class="badge bg-info">"output": {content_1}</span> results in <span class="badge bg_info">"output": "Funny it\"s 30 EUR"</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>Special functions for <span class="badge bg-info">{args*}</span>. Ensure you have checked <span class="badge bg-info">Encode arrays and objects of args.* variables as JSON</span>
+                    <ul>
+                        <li><span class="badge bg-info">{args.chat.chat_variables_array.list__json}</span> - Use for objects/arrays.<br>
+                            Example: <span class="badge bg-info">"output": {args.chat.chat_variables_array.list__json}</span> results in <span class="badge bg-info">"[\"item_1\", \"items_2\", \"item_3\"]"</span>
+                        </li>
+                    </ul>
+                </li>
                 </ul>
             <?php endif; ?>
 

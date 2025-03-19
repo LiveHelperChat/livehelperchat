@@ -2649,13 +2649,19 @@ class erLhcoreClassGenericBotWorkflow {
                         $escapeProcess = true;
                     }
 
-                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $escapeOutput, '.');
+                    $jsonOutput = str_replace('__json','', $escapeOutput);
+                    $jsonProcess = false;
+                    if ($escapeOutput != $jsonOutput) {
+                        $jsonProcess = true;
+                    }
+
+                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $jsonOutput, '.');
                     $message = str_replace($elementValue,  $valueAttribute['found'] == true ? ((isset($params['as_json']) && $params['as_json'] == true) ?
-                        json_encode($valueAttribute['value']) :
+                        ($jsonProcess ? json_encode(json_encode($valueAttribute['value'])) : json_encode($valueAttribute['value'])) :
                         ($urlEncodeOutput === true ? rawurlencode($valueAttribute['value']) : (
                             $escapeProcess === true ? htmlspecialchars($valueAttribute['value']) : $valueAttribute['value']
                         ))
-                    ) : (isset($params['as_json']) && $params['as_json'] == true ? "null" : ''), $message);
+                    ) : (isset($params['as_json']) && $params['as_json'] == true ? ($jsonProcess ? json_encode("null") : "null") : ''), $message);
                 }
             }
         }

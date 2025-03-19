@@ -178,7 +178,15 @@ class erLhcoreClassGenericBotActionText {
                         (isset($action['content']['attr_options']['json_replace']) && $action['content']['attr_options']['json_replace'] === true) ||
                         (isset($action['content']['attr_options']['json_replace_all']) && $action['content']['attr_options']['json_replace_all'] === true)
                     ) {
-                        $msg->msg = @str_replace($keyReplace,json_encode($valueReplace),$msg->msg);
+                        if (str_contains($msg->msg, 'raw_'.$keyReplace) !== false) {
+                            $msg->msg = @str_replace('raw_'.$keyReplace, str_replace('\\\/','\/',erLhcoreClassGenericBotActionRestapi::trimOnce(json_encode($valueReplace))),$msg->msg);
+                        } elseif (str_contains($msg->msg, 'rawjson_'.$keyReplace) !== false) {
+                            $msg->msg = @str_replace('rawjson_'.$keyReplace, str_replace('\\\/','\/',erLhcoreClassGenericBotActionRestapi::trimOnce(json_encode(json_encode($valueReplace)))),$msg->msg);
+                        } elseif (str_contains($msg->msg, 'json_'.$keyReplace) !== false) {
+                            $msg->msg = @str_replace('json_'.$keyReplace,json_encode(json_encode($valueReplace)),$msg->msg);
+                        } else {
+                            $msg->msg = @str_replace($keyReplace,json_encode($valueReplace),$msg->msg);
+                        }
                     } else {
                         $msg->msg = @str_replace($keyReplace,'[' . $keyReplace . ' - OBJECT OR ARRAY]',$msg->msg);
                     }
