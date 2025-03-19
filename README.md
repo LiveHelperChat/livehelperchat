@@ -52,6 +52,7 @@ If you are installing extensions, make sure that your version has webhooks enabl
  * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with the possibility to integrate any third-party AI
    * E.g Rasa AI https://doc.livehelperchat.com/docs/bot/rasa-integration-intent
    * E.g ChatGPT (Chat Responses) https://doc.livehelperchat.com/docs/bot/chatgpt-responses
+     * https://youtu.be/Z-DzsIygsX0 video how to setup
    * E.g ChatGPT (Chat Completion) https://doc.livehelperchat.com/docs/bot/chatgpt-integration 
    * E.g ChatGPT (Assistant) https://github.com/LiveHelperChat/chatGPT Will be depreciated by OpenAI
    * E.g Ollama AI https://doc.livehelperchat.com/docs/bot/ollama-integration
