@@ -286,7 +286,7 @@ class erLhcoreClassGenericBotValidator {
 
     public static function exportBot($bot)
     {
-        $exportData = array('bot' => array('name' => $bot->name));
+        $exportData = array('bot' => array('nick' => $bot->nick, 'name' => $bot->name));
 
         $groups = erLhcoreClassModelGenericBotGroup::getList(array('sort' => 'id ASC', 'filter' => array('bot_id' => $bot->id)));
 
@@ -350,6 +350,7 @@ class erLhcoreClassGenericBotValidator {
     {
         $bot = new erLhcoreClassModelGenericBotBot();
         $bot->name = $data['bot']['name'] . ' - ' . date('Y-m-d H:i:s');
+        $bot->nick = !empty($data['bot']['nick']) ? $data['bot']['nick'] : $data['bot']['name'];
         $bot->saveThis();
 
         $replaceTriggerIds = array();
@@ -373,6 +374,7 @@ class erLhcoreClassGenericBotValidator {
                 $triggerObj = new erLhcoreClassModelGenericBotTrigger();
                 $triggerObj->bot_id = $bot->id;
                 $triggerObj->group_id = $groupObj->id;
+                $triggerObj->pos = isset($trigger['trigger']['pos']) ? intval($trigger['trigger']['pos']) : 0;
                 $triggerObj->name = $trigger['trigger']['name'];
                 $triggerObj->default = $trigger['trigger']['default'];
                 $triggerObj->default_unknown = $trigger['trigger']['default_unknown'];
