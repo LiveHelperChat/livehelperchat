@@ -130,6 +130,12 @@ class NodeTriggerActionConditions extends Component {
                             <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','continue_all'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','continue_all'])} /> If conditions are matched continue executing responses.</label>
                             <p><small>By default if conditions are met we execute trigger and stop any futher responses execution.</small></p>
                         </div>
+                        <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','log_matched'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','log_matched'])} /> Log detailed information in the log if conditions match</label>
+                        </div>
+                        <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','log_un_matched'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','log_un_matched'])} /> Log detailed information in the log if conditions does not match</label>
+                        </div>
                     </div>
                 </div>
                 <hr className="hr-big" />

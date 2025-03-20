@@ -170,21 +170,26 @@ class erLhcoreClassGenericBotActionConditions {
                             $valAttr = (string)$valAttr;
                         }
 
-                        $conditionsDebug[] = json_encode($attr) . ' ' . $condition['content']['comp'] . ' ' . json_encode($valAttr);
+                        $conditionsDebug[] = $condition['content']['attr'] . ' => ' .json_encode($attr) . ' ' . $condition['content']['comp'] . ' ' . json_encode($valAttr);
 
                         if ($condition['content']['comp'] == 'eq' && !((isset($multiAttr) && in_array($valAttr, $multiAttr)) || (!isset($multiAttr) && $attr == $valAttr))) {
+                            $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
                         } else if ($condition['content']['comp'] == 'lt' && !((isset($multiAttr) && count($multiAttr) < $valAttr) || (!isset($multiAttr) && $attr < $valAttr))) {
+                            $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
                         } else if ($condition['content']['comp'] == 'lte' && !((isset($multiAttr) && count($multiAttr) <= $valAttr) || (!isset($multiAttr) && $attr <= $valAttr))) {
+                            $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
                         } else if ($condition['content']['comp'] == 'neq' && !((isset($multiAttr) && count($multiAttr) != $valAttr) || (!isset($multiAttr) && $attr != $valAttr))) {
+                            $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
                         } else if ($condition['content']['comp'] == 'gte' && !((isset($multiAttr) && count($multiAttr) >= $valAttr) || (!isset($multiAttr) && $attr >= $valAttr))) {
+                            $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
                         } else if ($condition['content']['comp'] == 'gt' && !((isset($multiAttr) && count($multiAttr) > $valAttr) || (!isset($multiAttr) && $attr > $valAttr))) {
@@ -195,6 +200,7 @@ class erLhcoreClassGenericBotActionConditions {
                                 'msg' => $attr,
                                 'words_typo' => 0,
                             ))['found'] == false) {
+                            $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
                         } else if ($condition['content']['comp'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
@@ -202,30 +208,56 @@ class erLhcoreClassGenericBotActionConditions {
                                 'msg' => $attr,
                                 'words_typo' => 0,
                             ))['found'] == true) {
+                            $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
                         } else if ($condition['content']['comp'] == 'contains' && !((isset($multiAttr) && !empty(array_intersect($multiAttr, explode(',', $valAttr)))) || (!isset($multiAttr) && strrpos($attr, $valAttr) !== false))) {
+                            $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
                         } else if ($condition['content']['comp'] == 'notempty' && empty($attr)) {
+                            $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
                         } else if ($condition['content']['comp'] == 'isempty' && !empty($attr)) {
+                            $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
                         }
                     }
+                    $conditionsDebug[] = 'VALID';
                 }
 
                 erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = $conditionsDebug;
 
                 if ($conditionsMet) {
+                    erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = 'VALID';
                     $overallConditionsMet = true;
                     break;
+                } else {
+                    erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = 'INVALID';
                 }
             }
 
             if ($overallConditionsMet === true) {
+
+                // We want to log this always
+                if (isset($action['content']['attr_options']['log_matched']) && $action['content']['attr_options']['log_matched'] === true) {
+                    try {
+                        erLhcoreClassGenericBotWorkflow::logAudit($chat, true);
+                    } catch (Exception $e) { // In case log message is to big
+                        erLhcoreClassLog::write($e->getMessage(),
+                            ezcLog::SUCCESS_AUDIT,
+                            array(
+                                'source' => 'lhc',
+                                'category' => 'bot',
+                                'line' => __LINE__,
+                                'file' => __FILE__,
+                                'object_id' => $chat->id
+                            )
+                        );
+                    }
+                }
 
                 if (isset($action['content']['attr_options']['callback_reschedule']) && is_numeric($action['content']['attr_options']['callback_reschedule']) && $action['content']['attr_options']['callback_reschedule'] > 0) {
                     $pendingAction = new erLhcoreClassModelGenericBotPendingEvent();
@@ -238,6 +270,24 @@ class erLhcoreClassGenericBotActionConditions {
                     'trigger_id' => (isset($action['content']['attr_options']['callback_match']) && is_numeric($action['content']['attr_options']['callback_match']) ? $action['content']['attr_options']['callback_match'] : null)
                 );
             } else {
+
+                if (isset($action['content']['attr_options']['log_un_matched']) && $action['content']['attr_options']['log_un_matched'] === true) {
+                    try {
+                        erLhcoreClassGenericBotWorkflow::logAudit($chat, true);
+                    } catch (Exception $e) { // In case log message is to big
+                        erLhcoreClassLog::write($e->getMessage(),
+                            ezcLog::SUCCESS_AUDIT,
+                            array(
+                                'source' => 'lhc',
+                                'category' => 'bot',
+                                'line' => __LINE__,
+                                'file' => __FILE__,
+                                'object_id' => $chat->id
+                            )
+                        );
+                    }
+                }
+
                 if (isset($action['content']['attr_options']['callback_unreschedule']) && is_numeric($action['content']['attr_options']['callback_unreschedule']) && $action['content']['attr_options']['callback_unreschedule'] > 0) {
                     $pendingAction = new erLhcoreClassModelGenericBotPendingEvent();
                     $pendingAction->chat_id = $chat->id;

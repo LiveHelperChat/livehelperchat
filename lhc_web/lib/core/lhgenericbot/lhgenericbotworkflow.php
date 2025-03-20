@@ -1624,7 +1624,7 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
-    public static function logAudit($chat)
+    public static function logAudit($chat, $forceLog = false)
     {
         static $logEnabled = null;
 
@@ -1636,7 +1636,7 @@ class erLhcoreClassGenericBotWorkflow {
             $logEnabled = str_contains((string)$chat->chat_variables,'"gbot_debug":1');
         }
 
-        if ($logEnabled == false) {
+        if ($logEnabled == false && $forceLog === false) {
             return;
         }
 
