@@ -2049,6 +2049,14 @@ class erLhcoreClassChatValidator {
                 $msg->time = time();
                 erLhcoreClassChat::getSession()->save($msg);
 
+                // Store indication it's an offline message
+                $msg = new erLhcoreClassModelmsg();
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Offline request message was saved');
+                $msg->chat_id = $params['chat']->id;
+                $msg->user_id = -1;
+                $msg->time = time();
+                erLhcoreClassChat::getSession()->save($msg);
+
                 $params['chat']->unanswered_chat = 0;
                 $params['chat']->last_msg_id = $msg->id;
                 $params['chat']->saveThis();
