@@ -574,7 +574,7 @@ function lh(){
 
     	var hideTabs = confLH.new_dashboard && confLH.hide_tabs && document.getElementById('tabs-dashboard') !== null ? ' d-none' : '';
 
-    	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item'+hideTabs+'"><a class="nav-link chat-nav-item" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-bs-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="chat-tab-content '+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
+    	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item'+hideTabs+'"><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span><a class="nav-link chat-nav-item" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-bs-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="chat-tab-content '+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span></a></li>';
 
     	if (typeof position === 'undefined' || parseInt(position) == 0) {
     		tabs.find('> ul').append(contentLi);
@@ -877,7 +877,7 @@ function lh(){
             return ;
         }
 
-        var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item"><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-bs-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i class="whatshot blink-ani d-none text-warning material-icons">whatshot</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">mail_outline</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTabMail(\''+chat_id+'\',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
+        var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item"><span onclick="return lhinst.removeDialogTabMail(\''+chat_id+'\',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-bs-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i class="whatshot blink-ani d-none text-warning material-icons">whatshot</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">mail_outline</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span></a></li>';
 
         tabs.find('> ul').append(contentLi);
         var hash = window.location.hash.replace('#/','#');

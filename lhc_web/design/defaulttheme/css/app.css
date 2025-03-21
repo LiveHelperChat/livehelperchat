@@ -63,6 +63,10 @@ a.link {
 	margin-top: 15px;
 }
 
+#tabs .nav-item{
+    position:relative;
+}
+
 .form-group{
 	margin-bottom:0.5em;
 }
@@ -1103,14 +1107,15 @@ ul.user-settings-list li{
 
 .icon-close-chat{
 	position: absolute;
-	margin-right: -2px;
+    top: 4px;
 	display: inline !important;
 	width: auto !important;
-	right: 0;
-	margin-top: -10px;
+	right: 2px;
 	padding: 0 !important;
 	color:#CCC !important;
 	font-size: 14px !important;
+    cursor: pointer;
+    z-index:2;
 }
 
 .send-status-icon{
