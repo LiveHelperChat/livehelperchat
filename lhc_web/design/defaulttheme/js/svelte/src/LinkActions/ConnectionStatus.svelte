@@ -65,7 +65,6 @@
     });
 
     ee.addListener('socketDisconnected',() => {
-        refreshOnReturn();
         nodeJSConnected = false;
     });
 
