@@ -13,6 +13,7 @@ export const lhcList = writable({
     lhcBLockSync : false,
     lhcVersion: 0,
     lhcUpdatedAt: '-',
+    lhcUpdatedAtActivity: 0,
     lhcNotice: {'message' : '', 'level' : 'primary'},
     last_actions_index: 0,
     last_actions: [],

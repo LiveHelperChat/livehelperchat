@@ -343,6 +343,8 @@ class erLhcoreClassUser{
 
    function updateLastVisit($lda = 0, $action = 0, $user_id = 0)
    {
+       $statusUpdate = ['update_required' => false, 'updated' => (isset($_SESSION['lhc_online_session']) ? $_SESSION['lhc_online_session'] : 0)];
+
        // Because of how user departments table is locked sometimes we have lock deadlines. We need refactor or remove locking for user departments tables.
        try {
              $db = ezcDbInstance::get();
@@ -355,6 +357,8 @@ class erLhcoreClassUser{
              }
 
              if ($action === 2 || $action === 1 || (!isset($_SESSION['lhc_online_session'])) || (isset($_SESSION['lhc_online_session']) && (time() - $_SESSION['lhc_online_session'] > 20))) {
+
+                 $statusUpdate['update_required'] = true;
 
                  erLhcoreClassUserDep::updateLastActivityByUser($user_id, time(), isset($_SESSION['lhc_online_session_lda']) ? (int)$_SESSION['lhc_online_session_lda'] : 0);
 
@@ -386,16 +390,42 @@ class erLhcoreClassUser{
                          $stmt->execute();
                      }
                  }
-
-                 $_SESSION['lhc_online_session'] = time();
-                 $_SESSION['lhc_online_session_lda'] = 0;
              }
 
              $db->commit();
+
+             if ($statusUpdate['update_required']) {
+
+                 $_SESSION['lhc_online_session'] = time();
+                 $_SESSION['lhc_online_session_lda'] = 0;
+
+                 $statusUpdate['updated'] = time();
+             }
+
         } catch (Exception $e) {
-           // print_r($e);
-           // @todo fix me
+           try {
+               erLhcoreClassLog::write(
+                   json_encode([
+                       'error' => $e->getMessage(),
+                       'line' => $e->getLine(),
+                       'file' => $e->getFile(),
+                       'trace' => $e->getTraceAsString(),
+                   ], JSON_PRETTY_PRINT),
+                   ezcLog::SUCCESS_AUDIT,
+                   array(
+                       'source' => 'lhc',
+                       'category' => 'User',
+                       'line' => __LINE__,
+                       'file' => __FILE__,
+                       'object_id' => $user_id > 0 ? $user_id : $this->userid
+                   )
+               );
+           } catch (Exception $e) { // We for sure do not want to fail while logging an error
+
+           }
         }
+
+        return $statusUpdate;
    }
 
    function getUserList()

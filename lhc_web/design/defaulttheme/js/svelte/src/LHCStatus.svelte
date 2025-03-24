@@ -35,7 +35,7 @@
 <div ng-non-bindable class="version-updated float-start">
     {#if $lhcList.lhcNotice.message && !$lhcList.inActive && !$lhcList.lhcPendingRefresh && !$lhcList.lhcConnectivityProblem}<div class={"text-"+$lhcList.lhcNotice.level}><i class={"material-icons "+"text-"+$lhcList.lhcNotice.level}>brand_awareness</i>{$lhcList.lhcNotice.message}</div>{/if}
     {#if $lhcList.lhcPendingRefresh}<div><i class="material-icons">update</i>This window will be automatically refreshed in {lhcVersionCounter} seconds due to a version update.</div>{/if}
-    {#if $lhcList.lhcConnectivityProblem}<div>You have weak internet connection or the server has problems. Try to refresh the  page. Error code {$lhcList.lhcConnectivityProblemExplain}</div>{/if}
+    {#if $lhcList.lhcConnectivityProblem}<div>You have weak internet connection or the server has problems. Try to refresh the  page. Error code - <b>{$lhcList.lhcConnectivityProblemExplain}</b></div>{/if}
     {#if $lhcList.inActive}<div>You went offline because of inactivity. Please close other chat windows if you have any</div>{/if}
 </div>
 {/if}

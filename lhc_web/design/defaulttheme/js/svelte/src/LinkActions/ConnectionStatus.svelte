@@ -77,6 +77,8 @@
 
 
 <div class="py-2 text-center fs12">
+{#if $lhcList.lhcUpdatedAtActivity >0}<span title={$t("homepage.lau")}><span class="material-icons">progress_activity</span>{Math.floor(Date.now() / 1000) - $lhcList.lhcUpdatedAtActivity} s.</span>{/if}
+
 {#if !isOnline}
         <span class="text-danger"><span class="material-icons">wifi_off</span>{$t("homepage.no_connection")}</span>
     {:else}

@@ -43,7 +43,7 @@ $modalSize = 'xl';
                                     <td colspan="2">
                                     </td>
                                     <td colspan="1">
-                                        <div class="text-danger" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Was offline for');?>"><b><?php echo erLhcoreClassChat::formatSeconds($parentItem->time - $item->lactivity)?></b></div>
+                                        <div class="text-danger" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Was offline for');?>"><b><?php echo erLhcoreClassChat::formatSeconds($parentItem->time - $item->lactivity)?></b> <?php if ($item->type == erLhcoreClassModelUserOnlineSession::OFFLINE) :?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went offline');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Sync timeout');?><?php endif; ?></div>
                                     </td>
                                     <td>
                                         <?php if ( $item->chatsOffline > 0) : ?>
@@ -53,8 +53,8 @@ $modalSize = 'xl';
                                 </tr>
                             <?php endif; ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($item->time_front)?></td>
-                                <td><?php echo htmlspecialchars($item->lactivity_front)?></td>
+                                <td><?php echo htmlspecialchars($item->time_front)?>&nbsp;<?php if ($item->type == erLhcoreClassModelUserOnlineSession::ONLINE) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went online');?><?php endif; ?></td>
+                                <td><?php echo htmlspecialchars($item->lactivity_front)?>&nbsp;<?php if ($item->type == erLhcoreClassModelUserOnlineSession::OFFLINE) :?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went offline');?><?php endif; ?></td>
                                 <td><?php echo $item->duration_front?></td>
                                 <td>
                                 <?php if ( $item->chatsOnline > 0) : ?>

@@ -19,7 +19,7 @@ $startTimeRequest = microtime();
 $timeLog = [];
 
 // Update last visit
-$currentUser->updateLastVisit((int)$Params['user_parameters_unordered']['lda']);
+$lastVisitUpdateStatus = $currentUser->updateLastVisit((int)$Params['user_parameters_unordered']['lda']);
 
 $userData = $currentUser->getUserData(true);
 
@@ -1070,7 +1070,7 @@ if ($userData->operation_admin != '') {
     $ou = 1;
 }
 
-$responseSync = array('uat' => date('H:i:s'), 'v' => $version, 'error' => 'false', 'mac' => $my_active_chats, 'ina' => $userData->inactive_mode, 'a_on' => $userData->always_on, 'ou' => $ou, 'result' => $ReturnMessages, 'ho' => $userData->hide_online, 'im' => $userData->invisible_mode);
+$responseSync = array('aus' => $lastVisitUpdateStatus, 'uat' => date('H:i:s'), 'v' => $version, 'error' => 'false', 'mac' => $my_active_chats, 'ina' => $userData->inactive_mode, 'a_on' => $userData->always_on, 'ou' => $ou, 'result' => $ReturnMessages, 'ho' => $userData->hide_online, 'im' => $userData->invisible_mode);
 
 if (isset($currentOp) && $currentOp !== null) {
     $responseSync['ho'] = $currentOp->hide_online;

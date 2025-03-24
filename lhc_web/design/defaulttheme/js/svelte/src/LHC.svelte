@@ -1658,6 +1658,19 @@
                 list.inActive = data.ina === 1;
                 list.lhcListRequestInProgress = false;
                 list.lhcBLockSync = false;
+
+                if (data.aus.update_required) {
+                    if (data.aus.updated === 0) {
+                        list.lhcConnectivityProblem = true;
+                        list.lhcConnectivityProblemExplain = 'Last activity update failed!';
+                    } else {
+                        list.lhcConnectivityProblem = false;
+                        list.lhcUpdatedAtActivity = data.aus.updated;
+                    }
+                } else {
+                    list.lhcUpdatedAtActivity = data.aus.updated;
+                }
+
                 return list;
             });
 
