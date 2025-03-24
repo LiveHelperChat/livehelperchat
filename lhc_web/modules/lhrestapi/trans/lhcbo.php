@@ -15,6 +15,10 @@ $transItems = array(
     "homepage.sound_disabled" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Sound is disabled (trying to enable...)'),
     "homepage.browser_no_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Audio not supported in this browser'),
 
+    "homepage.no_connection" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','No connection detected!'),
+    "homepage.last_updated_at" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats data updated at'),
+    "homepage.node_js_status" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','NodeJS Connection Status'),
+    "homepage.sync_blocked" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Sync blocked because of inactivity'),
 
     "homepage.enable_notifications" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Click to enable notifications'),
     "homepage.notifications_not_supported" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Notifications not supported in this browser'),

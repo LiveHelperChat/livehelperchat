@@ -17,6 +17,11 @@ $ViewList['getchatdata'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['verifytoken'] = array(
+    'params' => array(),
+    'uparams' => array()
+);
+
 $ViewList['icondetailed'] = array(
     'params' => array('chat_id','column_id'),
     'uparams' => array(),

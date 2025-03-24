@@ -18,5 +18,7 @@
 	</div>
 	
 	<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/after_sidemnu_multiinclude.tpl.php'));?>
+
+    <lhc-connection-status></lhc-connection-status>
 </div>
 

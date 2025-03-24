@@ -1383,7 +1383,7 @@
             return;
         }
 
-        lhcLogic.lhcListRequestInProgress = true;
+        $lhcList.lhcListRequestInProgress = lhcLogic.lhcListRequestInProgress = true;
 
         clearTimeout(lhcLogic.timeoutControl);
 
@@ -1411,6 +1411,7 @@
             }
 
             if (lhcLogic.blockSync == true) {
+                $lhcList.lhcBLockSync = true;
                 clearTimeout(lhcLogic.timeoutControl);
                 lhcLogic.timeoutControl = setTimeout(function(){
                     lhcLogic.isListLoaded = false;
@@ -1649,11 +1650,14 @@
             }
 
             lhcList.update((list) => {
+                list.lhcUpdatedAt = data.uat;
                 list.lhcVersion = data.v;
                 list.hideOnline = data.ho === 1;
                 list.hideInvisible = data.im === 1;
                 list.alwaysOnline = data.a_on === 1;
                 list.inActive = data.ina === 1;
+                list.lhcListRequestInProgress = false;
+                list.lhcBLockSync = false;
                 return list;
             });
 
@@ -1671,6 +1675,9 @@
                 $lhcList.lhcConnectivityProblem = true;
                 $lhcList.lhcConnectivityProblemExplain = error;
                 console.error("There has been a problem with your fetch operation:", error);
+            } else {
+                $lhcList.lhcConnectivityProblem = true;
+                $lhcList.lhcConnectivityProblemExplain = 'DOM Exception';
             }
 
             lhcLogic.lhcListRequestInProgress = false;

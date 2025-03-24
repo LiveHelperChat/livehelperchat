@@ -9,7 +9,10 @@ export const lhcList = writable({
     department_onlineNames: [],
 
     lhcCoreLoaded : false,
+    lhcListRequestInProgress : false,
+    lhcBLockSync : false,
     lhcVersion: 0,
+    lhcUpdatedAt: '-',
     lhcNotice: {'message' : '', 'level' : 'primary'},
     last_actions_index: 0,
     last_actions: [],
