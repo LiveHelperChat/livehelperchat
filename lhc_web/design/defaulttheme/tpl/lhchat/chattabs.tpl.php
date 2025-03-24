@@ -9,7 +9,9 @@ $mychatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_li
 ?>
 
 <div role="tabpanel" ng-cloak id="tabs">
-		
+
+
+
 	<!-- Nav tabs -->
 	<ul class="nav nav-pills" role="tablist">
 
@@ -31,6 +33,10 @@ $mychatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_li
 		<?php if ($unreadTabEnabled == true) : ?>
 		<li role="presentation" class="nav-item"><a class="nav-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Unread messages');?>" href="#panel4" aria-controls="panel4" role="tab" data-bs-toggle="tab"><i class="material-icons chat-unread me-0">chat</i></a></li>
 		<?php endif;?>
+
+        <div class="position-absolute pe-2" style="right: 0">
+            <lhc-connection-status></lhc-connection-status>
+        </div>
 
 	</ul>
 
