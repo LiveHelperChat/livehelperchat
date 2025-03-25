@@ -776,6 +776,7 @@ class erLhcoreClassChatWorkflow {
     }
 
     public static $lastError = '';
+    public static $lastSuccess = '';
 
     public static function autoAssign(& $chat, $department, $params = array()) {
 
@@ -911,7 +912,9 @@ class erLhcoreClassChatWorkflow {
                             $sort = 'assign_priority DESC, '.$sort;
                         }
 
-                        $sql = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND user_id != :user_id {$appendSQL} ORDER BY {$sort} LIMIT 1";
+                        $sql = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND user_id != :user_id {$appendSQL} ORDER BY {$sort} LIMIT 2";
+
+                        self::$lastSuccess = $sql;
 
                         $tryDefault = true;
                         $byPriority = false;
@@ -940,9 +943,13 @@ class erLhcoreClassChatWorkflow {
 
                             $appendSQLPriority .= ' AND (chat_max_priority = 0 OR chat_max_priority >= ' . (int)$chat->priority .') AND (chat_min_priority = 0 OR chat_min_priority <= ' . (int)$chat->priority .')';
 
-
                             $db = ezcDbInstance::get();
-                            $stmt = $db->prepare("SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id {$appendSQLPriority} ORDER BY {$sortPriority} LIMIT 1");
+
+                            $sqlPriority = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id {$appendSQLPriority} ORDER BY {$sortPriority} LIMIT 2";
+
+                            self::$lastSuccess = $sqlPriority;
+
+                            $stmt = $db->prepare($sqlPriority);
                             $stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
                             $stmt->bindValue(':last_activity',($timestamp - $isOnlineUser),PDO::PARAM_INT);
                             $stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
@@ -966,7 +973,9 @@ class erLhcoreClassChatWorkflow {
                         // Try to assign to operator speaking same language first
                         if ($tryDefault == true && $department->assign_same_language == 1 && $chat->chat_locale != '') {
 
-                            $sqlLanguages =  "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep INNER JOIN lh_speech_user_language ON `lh_speech_user_language`.`user_id` = `lh_userdep`.`user_id` WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id AND `lh_speech_user_language`.`language` = :chatlanguage {$appendSQL} ORDER BY {$sort} LIMIT 1";
+                            $sqlLanguages =  "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep INNER JOIN lh_speech_user_language ON `lh_speech_user_language`.`user_id` = `lh_userdep`.`user_id` WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id AND `lh_speech_user_language`.`language` = :chatlanguage {$appendSQL} ORDER BY {$sort} LIMIT 2";
+
+                            self::$lastSuccess = $sqlLanguages;
 
                             $db = ezcDbInstance::get();
                             $stmt = $db->prepare($sqlLanguages);
@@ -991,6 +1000,9 @@ class erLhcoreClassChatWorkflow {
                         }
 
                         if ($tryDefault == true) {
+
+                            self::$lastSuccess = $sql;
+
                             $db = ezcDbInstance::get();
                             $stmt = $db->prepare($sql);
                             $stmt->bindValue(':dep_id',$department->id,PDO::PARAM_INT);
@@ -1054,10 +1066,20 @@ class erLhcoreClassChatWorkflow {
                         $successActiveChats = erLhcoreClassChat::updateActiveChats($chat->user_id);
 
                         if ($dataFetch) {
+
+                            self::$lastSuccess .= "\n" . json_encode($dataFetch);
+
+                            $nextOperator = [];
+                            if (is_object($stmt)) {
+                                $nextOperator = $stmt->fetch(PDO::FETCH_ASSOC);
+                                self::$lastSuccess .= "\n" . json_encode($nextOperator);
+                            }
+
                             $meta_msg_array = ['content' => ['assign_action' => $dataFetch]];
                             $meta_msg_array['content']['assign_action']['assign_finished'] = time();
                             $meta_msg_array['content']['assign_action']['sac'] = $successActiveChats;
                             $meta_msg_array['content']['assign_action']['sla'] = $successLastAccepted;
+                            $meta_msg_array['content']['assign_action']['next_op'] = $nextOperator;
                             $msg->meta_msg = json_encode($meta_msg_array);
                             $msg->updateThis(['update' => ['meta_msg']]);
                         }

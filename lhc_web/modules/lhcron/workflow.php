@@ -31,6 +31,9 @@ if ($assignWorkflowTimeout > 0) {
             if (is_object($chat) && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
                 $assignOutput = erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => true));
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
+                if ($assignOutput === true) {
+                    echo "[".$chat->id."] processed and was auto assigned ".date('Y-m-d H:i:s') . " " . erLhcoreClassChatWorkflow::$lastSuccess . "\n";
+                }
             }
             $db->commit();
             if ($assignOutput !== true) {
@@ -65,6 +68,9 @@ foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'li
         if (is_object($chat) && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
             $assignOutput = erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => false));
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
+            if ($assignOutput === true) {
+                echo "[".$chat->id."] processed and was auto assigned ".date('Y-m-d H:i:s') . " " . erLhcoreClassChatWorkflow::$lastSuccess . "\n";
+            }
         }
         $db->commit();
         if ($assignOutput !== true) {

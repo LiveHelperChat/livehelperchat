@@ -19,6 +19,14 @@
                     erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Active chats update') . ' - ' . ($metaMessage['sac'] ? 'Y' : 'N'),
                     erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Last assigned update') . ' - ' . ($metaMessage['sla'] ? 'Y' : 'N'),
                 ];
+                if (isset($metaMessage['next_op']) && $metaMessage['next_op'] !== false) {
+                    $partsInfo[] = '========';
+                    $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Next operator ID') . ' - ' . htmlspecialchars($metaMessage['next_op']['user_id']);
+                    $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Last accepted') . ' - ' . htmlspecialchars(date('Y-m-d H:i:s', (int)$metaMessage['next_op']['last_accepted']));
+                    $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Pending chats') . ' - ' . htmlspecialchars($metaMessage['next_op']['pending_chats']);
+                    $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Active chats') . ' - ' . htmlspecialchars($metaMessage['next_op']['active_chats']);
+                    $partsInfo[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Inactive chats') . ' - ' . htmlspecialchars($metaMessage['next_op']['inactive_chats']);
+                }
             ?>
             <span class="material-icons <?php echo ($metaMessage['sac'] != 1 || $metaMessage['sla'] != 1) ? 'text-danger' : 'text-info'?>" title="<?php echo implode("\n", $partsInfo)?>">switch_account</span>
         <?php elseif ($type == 'transfer_action_user') : // Chat was transferred to other user?>
