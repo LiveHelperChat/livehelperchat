@@ -915,6 +915,7 @@ class erLhcoreClassChatWorkflow {
                         $sql = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND user_id != :user_id {$appendSQL} ORDER BY {$sort} LIMIT 2";
 
                         self::$lastSuccess = $sql;
+                        $paramsFilterLog = [];
 
                         $tryDefault = true;
                         $byPriority = false;
@@ -955,7 +956,14 @@ class erLhcoreClassChatWorkflow {
                             $stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
                             $stmt->bindValue(':last_accepted',($timestamp - $department->delay_before_assign),PDO::PARAM_INT);
 
+                            $paramsFilterLog = [
+                                'last_activity' => ($timestamp - $isOnlineUser),
+                                'user_id' => $chat->user_id,
+                                'last_accepted' => ($timestamp - $department->delay_before_assign),
+                            ];
+
                             if ($department->max_active_chats > 0) {
+                                $paramsFilterLog['max_active_chats'] = $department->max_active_chats;
                                 $stmt->bindValue(':max_active_chats',$department->max_active_chats,PDO::PARAM_INT);
                             }
 
@@ -985,7 +993,15 @@ class erLhcoreClassChatWorkflow {
                             $stmt->bindValue(':last_accepted',($timestamp - $department->delay_before_assign),PDO::PARAM_INT);
                             $stmt->bindValue(':chatlanguage',$chat->chat_locale,PDO::PARAM_STR);
 
+                            $paramsFilterLog = [
+                                'last_activity' => ($timestamp - $isOnlineUser),
+                                'user_id' => $chat->user_id,
+                                'last_accepted' => ($timestamp - $department->delay_before_assign),
+                                'chatlanguage' => $chat->chat_locale,
+                            ];
+
                             if ($department->max_active_chats > 0) {
+                                $paramsFilterLog['max_active_chats'] = $department->max_active_chats;
                                 $stmt->bindValue(':max_active_chats',$department->max_active_chats,PDO::PARAM_INT);
                             }
 
@@ -1010,7 +1026,14 @@ class erLhcoreClassChatWorkflow {
                             $stmt->bindValue(':user_id',$chat->user_id,PDO::PARAM_INT);
                             $stmt->bindValue(':last_accepted',($timestamp - $department->delay_before_assign),PDO::PARAM_INT);
 
+                            $paramsFilterLog = [
+                                'last_activity' => ($timestamp - $isOnlineUser),
+                                'user_id' => $chat->user_id,
+                                'last_accepted' => ($timestamp - $department->delay_before_assign)
+                            ];
+
                             if ($department->max_active_chats > 0) {
+                                $paramsFilterLog['max_active_chats'] = $department->max_active_chats;
                                 $stmt->bindValue(':max_active_chats',$department->max_active_chats,PDO::PARAM_INT);
                             }
 
@@ -1072,7 +1095,11 @@ class erLhcoreClassChatWorkflow {
                             $nextOperator = [];
                             if (is_object($stmt)) {
                                 $nextOperator = $stmt->fetch(PDO::FETCH_ASSOC);
-                                self::$lastSuccess .= "\n" . json_encode($nextOperator);
+                                self::$lastSuccess .= "\nNEXT OP - " . json_encode($nextOperator);
+                            }
+
+                            if (isset($paramsFilterLog)) {
+                                self::$lastSuccess .= "\nFILTER - " . json_encode($paramsFilterLog);
                             }
 
                             $meta_msg_array = ['content' => ['assign_action' => $dataFetch]];

@@ -2,10 +2,19 @@
 /**
  * php cron.php -s site_admin -c cron/workflow
  *
+ * To have extensive debug output
+ * php cron.php -s site_admin -c cron/workflow -p debug
+ *
  * Run every 10 minits or so. On this cron depends automatic chat transfer and unaswered chats callback.
  *
  * */
 echo "Starting chat/workflow at ".date('Y-m-d H:i:s')."\n";
+
+if (is_string($cronjobPathOption->value) && $cronjobPathOption->value == 'debug') {
+    $debug = true;
+} else {
+    $debug = false;
+}
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.started',array());
 
@@ -22,6 +31,22 @@ $assignWorkflowTimeout = erLhcoreClassModelChatConfig::fetch('assign_workflow_ti
 
 echo "Auto assignment starts at ".date('Y-m-d H:i:s')."\n";
 
+function getOnlineOperatorsByDepartment($department_id)
+{
+    $db = ezcDbInstance::get();
+    $sqlPriority = "SELECT `lh_userdep`.`user_id`, 
+       `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, 
+       `lh_userdep`.`inactive_chats`, `lh_userdep`.`last_activity`, `lh_userdep`.`max_chats`,
+       `lh_userdep`.`exclude_autoasign`, `lh_userdep`.`exc_indv_autoasign`
+        FROM lh_userdep WHERE dep_id = :dep_id AND hide_online = 0 AND `lh_userdep`.`last_activity` > :last_activity LIMIT 10";
+
+    $stmt = $db->prepare($sqlPriority);
+    $stmt->bindValue(':dep_id',$department_id,PDO::PARAM_INT);
+    $stmt->bindValue(':last_activity',time() - 600,PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 if ($assignWorkflowTimeout > 0) {
     foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filterlt' => array('time' => (time() - $assignWorkflowTimeout)),'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat) {
         try {
@@ -31,8 +56,8 @@ if ($assignWorkflowTimeout > 0) {
             if (is_object($chat) && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
                 $assignOutput = erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => true));
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
-                if ($assignOutput === true) {
-                    echo "[".$chat->id."] processed and was auto assigned ".date('Y-m-d H:i:s') . " " . erLhcoreClassChatWorkflow::$lastSuccess . "\n";
+                if ($assignOutput === true && $debug === true) {
+                    echo "[".$chat->id."] processed and was auto assigned ".date('Y-m-d H:i:s') . " " . erLhcoreClassChatWorkflow::$lastSuccess .  "\nALL OPERATORS - " . json_encode(getOnlineOperatorsByDepartment($chat->dep_id)) . "\n";
                 }
             }
             $db->commit();
@@ -68,8 +93,8 @@ foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'li
         if (is_object($chat) && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
             $assignOutput = erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => false));
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
-            if ($assignOutput === true) {
-                echo "[".$chat->id."] processed and was auto assigned ".date('Y-m-d H:i:s') . " " . erLhcoreClassChatWorkflow::$lastSuccess . "\n";
+            if ($assignOutput === true && $debug === true) {
+                echo "[".$chat->id."] processed and was auto assigned ".date('Y-m-d H:i:s') . " | " . erLhcoreClassChatWorkflow::$lastSuccess . "\nALL OPERATORS - " . json_encode(getOnlineOperatorsByDepartment($chat->dep_id)) . "\n";
             }
         }
         $db->commit();

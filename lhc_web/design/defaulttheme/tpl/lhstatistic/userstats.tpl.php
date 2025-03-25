@@ -96,9 +96,7 @@ $modalSize = 'xl';
                                     <?php if ( $operator['last_accepted'] > 0) : ?>
                                         <?php $agoActivity = time() - $operator['last_accepted']; ?>
                                         <?php echo $agoActivity > 0 ? erLhcoreClassChat::formatSeconds($agoActivity) : '0 s.'?>
-                                    <?php else : ?>
-                                        n/a
-                                    <?php endif; ?>
+                                    <?php else : ?>n/a<?php endif; ?><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Assignment priority');?>"><span class="material-icons" >keyboard_arrow_up</span><?php echo $operator['assign_priority'];?></span>
                                 </td>
 
                                 <td><?php echo $operator['max_chats'];$totalStats['max_chats'] += $operator['max_chats']?></td>
