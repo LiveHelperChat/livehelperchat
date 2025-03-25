@@ -60,6 +60,7 @@ $transItems = array(
     "group_chat.new_group_name" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Your new group name'),
 
     // Widget
+    "widget.no_ping_for" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','No ping detected for'),
     "widget.more_rows" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','More rows'),
     "widget.less_rows" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Less rows'),
     "widget.collapse_expand" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout', 'collapse/expand'),

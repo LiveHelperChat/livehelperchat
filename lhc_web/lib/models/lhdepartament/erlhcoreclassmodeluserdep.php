@@ -64,6 +64,10 @@ class erLhcoreClassModelUserDep
                 $this->lastactivity_ago = erLhcoreClassChat::getAgoFormat($this->last_activity);
                 return $this->lastactivity_ago;
 
+            case 'lac_ago_s':
+                $this->lac_ago_s = time() - $this->last_activity;
+                return $this->lac_ago_s;
+
             case 'last_accepted_ago':
                 $this->last_accepted_ago = erLhcoreClassChat::getAgoFormat($this->last_accepted);
                 return $this->last_accepted_ago;

@@ -442,6 +442,7 @@
                             <span title={$t("widget.last_activity_ago") + " " + chat.lastactivity_ago}>{chat.name_official}</span>{#if chat.hide_online && chat.offline_since}, <span title={$t("widget.went_offline_ago",{'ago': chat.offline_since})}>{chat.offline_since}</span>{/if}
                         {/if}
 
+                        {#if chat.lac_ago_s > 35}<span title={$t("widget.no_ping_for") + " " + chat.lastactivity_ago} class="material-icons text-danger">wifi_off</span>{/if}
 
                     {:else if type == 'group_chats'}
 
