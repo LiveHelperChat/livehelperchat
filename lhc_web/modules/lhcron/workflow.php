@@ -34,11 +34,11 @@ echo "Auto assignment starts at ".date('Y-m-d H:i:s')."\n";
 function getOnlineOperatorsByDepartment($department_id)
 {
     $db = ezcDbInstance::get();
-    $sqlPriority = "SELECT `lh_userdep`.`id`,`lh_userdep`.`user_id`, 
+    $sqlPriority = "SELECT `lh_userdep`.`id`,`lh_userdep`.`user_id`, `lh_userdep`.`ro`,
        `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, 
        `lh_userdep`.`inactive_chats`, `lh_userdep`.`last_activity`, `lh_userdep`.`max_chats`,
-       `lh_userdep`.`exclude_autoasign`, `lh_userdep`.`exc_indv_autoasign`
-        FROM lh_userdep WHERE dep_id = :dep_id AND hide_online = 0 AND `lh_userdep`.`last_activity` > :last_activity LIMIT 10";
+       `lh_userdep`.`exclude_autoasign`, `lh_userdep`.`exc_indv_autoasign`, `lh_userdep`.`assign_priority`
+        FROM lh_userdep WHERE dep_id = :dep_id AND hide_online = 0 AND `lh_userdep`.`last_activity` > :last_activity ORDER BY `lh_userdep`.`assign_priority` DESC, `lh_userdep`.`last_accepted` ASC LIMIT 15";
 
     $stmt = $db->prepare($sqlPriority);
     $stmt->bindValue(':dep_id',$department_id,PDO::PARAM_INT);
