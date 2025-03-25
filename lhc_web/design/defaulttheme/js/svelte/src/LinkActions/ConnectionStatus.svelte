@@ -8,6 +8,8 @@
 
     let isOnline = navigator.onLine;
     let nodeJSConnected =  lh?.nodejsHelperOptions?.socketConnected === true ? true : (lh.nodejsHelperOptions ? false : null);
+    let nodeJSConnectedInitial = false;
+    let requestInProgress = false;
 
     function startListeners() {
         document.addEventListener('visibilitychange', () => {
@@ -22,9 +24,11 @@
     async function refreshOnReturn() {
 
         try {
-            if (!navigator.onLine) {
+            if (!navigator.onLine || requestInProgress === true) {
                 return;
             }
+
+            requestInProgress = true;
 
             const responseTrack = await fetch(WWW_DIR_JAVASCRIPT  + 'chat/verifytoken', {
                 method: "GET",
@@ -47,6 +51,8 @@
 
             ee.emitEvent('angularLoadChatList');
 
+            requestInProgress = false;
+
         } catch(err) {
             document.location.reload();
         }
@@ -60,12 +66,25 @@
     }
 
     ee.addListener('socketConnected',() => {
-        refreshOnReturn();
         nodeJSConnected = true;
+
+        // Skip initial connection signaling
+        if (nodeJSConnectedInitial === false) {
+            nodeJSConnectedInitial = true;
+            return;
+        }
+
+        refreshOnReturn();
+
     });
 
     ee.addListener('socketDisconnected',() => {
         nodeJSConnected = false;
+
+        // On IOS Safari this gets triggered instantly otherwise and page refreshes just
+        setTimeout( () => {
+            refreshOnReturn();
+        }, 5000);
     });
 
     onMount(() => {
