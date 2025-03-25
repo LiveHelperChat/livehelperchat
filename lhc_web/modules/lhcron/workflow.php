@@ -34,7 +34,7 @@ echo "Auto assignment starts at ".date('Y-m-d H:i:s')."\n";
 function getOnlineOperatorsByDepartment($department_id)
 {
     $db = ezcDbInstance::get();
-    $sqlPriority = "SELECT `lh_userdep`.`user_id`, 
+    $sqlPriority = "SELECT `lh_userdep`.`id`,`lh_userdep`.`user_id`, 
        `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, 
        `lh_userdep`.`inactive_chats`, `lh_userdep`.`last_activity`, `lh_userdep`.`max_chats`,
        `lh_userdep`.`exclude_autoasign`, `lh_userdep`.`exc_indv_autoasign`
