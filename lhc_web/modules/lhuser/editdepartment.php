@@ -177,6 +177,8 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
         $db = ezcDbInstance::get();
         $db->beginTransaction();
 
+        $depData = $userDep->getState();
+
         $Errors = erLhcoreClassUserValidator::validateDepartmentAssignment($userDep);
 
         if (count($Errors) == 0) {
@@ -189,6 +191,19 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
             if ($dep instanceof erLhcoreClassModelDepartamentGroup) {
                 $userDep->afterSave();
             }
+
+            erLhcoreClassLog::logObjectChange(array(
+                'object' => $user,
+                'msg' => array(
+                    'post_data' => $_POST,
+                    'action' => 'account_data_dep_edit',
+                    'class' => get_class($userDep),
+                    'object_id' => (get_class($userDep) == 'erLhcoreClassModelUserDep' ? $userDep->dep_id : $userDep->dep_group_id),
+                    'prev' => $depData,
+                    'new' => $userDep->getState(),
+                    'user_id' => $currentUser->getUserID()
+                )
+            ));
 
             $tpl->set('updated',true);
         }  else {

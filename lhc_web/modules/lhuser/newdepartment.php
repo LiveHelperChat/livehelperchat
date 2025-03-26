@@ -272,6 +272,7 @@ if ($user instanceof erLhcoreClassModelUser) {
             erLhcoreClassLog::logObjectChange(array(
                 'object' => $user,
                 'msg' => array(
+                    'post_data' => $_POST,
                     'action' => 'account_data_dep',
                     'dep_ids' => $form->dep_ids,
                     'mode' => $Params['user_parameters_unordered']['mode'],
