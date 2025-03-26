@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 253;
+            lhc.version = 254;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -837,14 +837,28 @@
                                 if (data === true) {
                                     scrollPosition.x = window.scrollX;
                                     scrollPosition.y = window.scrollY;
+                                    // Save history scroll behavior to restore later
+                                    scrollPosition.scrollBehavior = history.scrollRestoration;
+                                    // Prevent browser's automatic scroll restoration
+                                    if ('scrollRestoration' in history) {
+                                        history.scrollRestoration = 'manual';
+                                    }
                                     originalStyleSheet = document.body.style.cssText;
                                     document.body.style.cssText = 'position: fixed; height: 100%; width: 100%; inset: 0px; overflow-y: hidden';
                                 } else if (originalStyleSheet !== null) {
                                     document.body.style.cssText = originalStyleSheet;
-                                    window.scrollTo(scrollPosition.x, scrollPosition.y);
+                                    // Use scrollTo with instant behavior to avoid animation
+                                    window.scrollTo({
+                                        left: scrollPosition.x,
+                                        top: scrollPosition.y,
+                                        behavior: 'instant'
+                                    });
+                                    // Restore original scroll behavior
+                                    if ('scrollRestoration' in history && scrollPosition.scrollBehavior) {
+                                        history.scrollRestoration = scrollPosition.scrollBehavior;
+                                    }
                                 }
                             }
-
                         }
                         chatEvents.sendChildEvent('widgetStatus', [data]);
                     }
