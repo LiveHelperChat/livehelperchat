@@ -912,7 +912,7 @@ class erLhcoreClassChatWorkflow {
                             $sort = 'assign_priority DESC, '.$sort;
                         }
 
-                        $sql = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND user_id != :user_id {$appendSQL} ORDER BY {$sort} LIMIT 2";
+                        $sql = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND user_id != :user_id {$appendSQL} ORDER BY {$sort} LIMIT 3";
 
                         self::$lastSuccess = $sql;
                         $paramsFilterLog = [];
@@ -946,7 +946,7 @@ class erLhcoreClassChatWorkflow {
 
                             $db = ezcDbInstance::get();
 
-                            $sqlPriority = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id {$appendSQLPriority} ORDER BY {$sortPriority} LIMIT 2";
+                            $sqlPriority = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id {$appendSQLPriority} ORDER BY {$sortPriority} LIMIT 3";
 
                             self::$lastSuccess = $sqlPriority;
 
@@ -981,7 +981,7 @@ class erLhcoreClassChatWorkflow {
                         // Try to assign to operator speaking same language first
                         if ($tryDefault == true && $department->assign_same_language == 1 && $chat->chat_locale != '') {
 
-                            $sqlLanguages =  "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep INNER JOIN lh_speech_user_language ON `lh_speech_user_language`.`user_id` = `lh_userdep`.`user_id` WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id AND `lh_speech_user_language`.`language` = :chatlanguage {$appendSQL} ORDER BY {$sort} LIMIT 2";
+                            $sqlLanguages =  "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep INNER JOIN lh_speech_user_language ON `lh_speech_user_language`.`user_id` = `lh_userdep`.`user_id` WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id AND `lh_speech_user_language`.`language` = :chatlanguage {$appendSQL} ORDER BY {$sort} LIMIT 3";
 
                             self::$lastSuccess = $sqlLanguages;
 
@@ -1094,8 +1094,18 @@ class erLhcoreClassChatWorkflow {
 
                             $nextOperator = [];
                             if (is_object($stmt)) {
-                                $nextOperator = $stmt->fetch(PDO::FETCH_ASSOC);
-                                self::$lastSuccess .= "\nNEXT OP - " . json_encode($nextOperator);
+                                $nextOperatorRaw = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                                // Next operator is the same
+                                if (isset($nextOperatorRaw[0]['user_id']) && $nextOperatorRaw[0]['user_id'] == $chat->user_id && isset($nextOperatorRaw[1]['user_id'])) {
+                                    $nextOperator = $nextOperatorRaw[1];
+                                } elseif (isset($nextOperatorRaw[0]['user_id']) && $nextOperatorRaw[0]['user_id'] != $chat->user_id) {
+                                    $nextOperator = $nextOperatorRaw[0];
+                                } else {
+                                    $nextOperator = null;
+                                 }
+
+                                self::$lastSuccess .= "\nNEXT OP - " . json_encode($nextOperatorRaw);
                             }
 
                             if (isset($paramsFilterLog)) {
