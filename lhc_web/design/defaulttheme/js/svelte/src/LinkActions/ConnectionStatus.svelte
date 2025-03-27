@@ -80,11 +80,10 @@
 
     ee.addListener('socketDisconnected',() => {
         nodeJSConnected = false;
-
         // On IOS Safari this gets triggered instantly otherwise and page refreshes just
         setTimeout( () => {
             refreshOnReturn();
-        }, 5000);
+        }, 60000);
     });
 
     onMount(() => {
