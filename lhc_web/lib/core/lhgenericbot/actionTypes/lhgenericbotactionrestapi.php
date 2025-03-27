@@ -2462,6 +2462,8 @@ class erLhcoreClassGenericBotActionRestapi
                     $partPlainData = explode('___',$part);
                     if (isset($partPlainData[1]) && $partPlainData[1] === 'array_pop' && isset($partData[$partPlainData[0]]) && is_array($partData[$partPlainData[0]])) {
                         $partData = array_pop($partData[$partPlainData[0]]);
+                    } else if (isset($partPlainData[1]) && $partPlainData[1] === 'json_text' && isset($partData[$partPlainData[0]]) && is_string($partData[$partPlainData[0]])) {
+                        $partData = json_decode($partData[$partPlainData[0]],true);
                     } elseif (isset($partData[$part]) ) {
                         $partData = $partData[$part];
                     } else {
