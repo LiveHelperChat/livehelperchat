@@ -820,6 +820,8 @@ $FunctionList['list_pending_chats'] = array('explain' => 'Allow operator to list
 $FunctionList['use_unhidden_phone'] = array('explain' => 'Allow operator to see full phone number');
 $FunctionList['chat_see_email'] = array('explain' => 'Allow operator to see e-mail of the visitor');
 $FunctionList['chat_see_unhidden_email'] = array('explain' => 'Allow operator to see full e-mail address of the visitor');
+$FunctionList['chat_export_email'] = array('explain' => 'Allow operator to see e-mail address in exported file');
+$FunctionList['chat_export_phone'] = array('explain' => 'Allow operator to see phone in exported file');
 $FunctionList['see_sensitive_information'] = array('explain' => 'Allow operator to see sensitive information in the messages');
 $FunctionList['my_chats_filter'] = array('explain' => 'Allow operator to see department filter for my active pending chats widget');
 $FunctionList['allowopenclosedchats'] = array('explain' => 'Allow operator to open closed chats');

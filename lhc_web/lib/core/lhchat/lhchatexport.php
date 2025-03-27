@@ -444,8 +444,8 @@ class erLhcoreClassChatExport {
             fputcsv($df, $chatArray[0]);
         }
 
-        $emailVisible = erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_email') && erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email');
-        $phoneVisible = erLhcoreClassUser::instance()->hasAccessTo('lhchat','use_unhidden_phone');
+        $emailVisible = erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_email') && erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email') && erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_export_email');
+        $phoneVisible = erLhcoreClassUser::instance()->hasAccessTo('lhchat','use_unhidden_phone') && erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_export_phone');
 
         foreach ($chats as $itemPrimary) {
 
