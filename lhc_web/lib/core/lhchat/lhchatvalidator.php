@@ -62,22 +62,28 @@ class erLhcoreClassChatValidator {
 		if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Invalid CSRF token!');
 		}
-	
-		if ( !$form->hasValidData( 'Email' ) && $_POST['Email'] != '' ) {
-			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
-		} elseif ($form->hasValidData( 'Email' )) {
-			$chat->email = $form->Email;
-		}
-		
+
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_email') && erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email'))
+        {
+            if ( !$form->hasValidData( 'Email' ) && $_POST['Email'] != '' ) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
+            } elseif ($form->hasValidData( 'Email' )) {
+                $chat->email = $form->Email;
+            }
+        }
+
 		if ($form->hasValidData( 'UserNick' ) && $form->UserNick != '' && mb_strlen($form->UserNick) > 100)
 		{
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 50 characters');
 		}
-		
-		if ($form->hasValidData( 'UserPhone' )) {
-			$chat->phone = $form->UserPhone;
-		}
-		
+
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','use_unhidden_phone'))
+        {
+            if ($form->hasValidData( 'UserPhone' )) {
+                $chat->phone = $form->UserPhone;
+            }
+        }
+
 		if ($form->hasValidData( 'UserNick' ))
 		{
 			$chat->nick = $form->UserNick;

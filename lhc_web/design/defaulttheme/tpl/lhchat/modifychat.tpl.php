@@ -29,10 +29,12 @@ setTimeout(function() {
     <div role="tabpanel" class="tab-pane active" id="mainchatmodify">
         <form action="" method="post" onsubmit="$('#main-update-btn').attr('disabled','disabled').prepend('<span class=\'lhc-spin material-icons\'>refresh</span>')">
 
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_email') && erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email')) : ?>
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','E-mail');?></label>
                 <input class="form-control form-control-sm" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Recipient e-mail');?>" name="Email" value="<?php echo htmlspecialchars($chat->email);?>" />
             </div>
+            <?php endif; ?>
 
             <?php if ($chat->online_user instanceof erLhcoreClassModelChatOnlineUser) : ?>
             <div class="form-group">
@@ -46,10 +48,13 @@ setTimeout(function() {
                 <input class="form-control form-control-sm" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Nick');?>" name="UserNick" value="<?php echo htmlspecialchars($chat->nick);?>" />
             </div>
 
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','use_unhidden_phone')) : ?>
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Phone');?></label>
                 <input class="form-control form-control-sm" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Phone');?>" name="UserPhone" value="<?php echo htmlspecialchars($chat->phone);?>" />
             </div>
+            <?php endif; ?>
+
 
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
