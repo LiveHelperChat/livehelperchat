@@ -397,6 +397,8 @@ $FunctionList['list_pending_mails'] = array('explain' => 'Allow operator to list
 $FunctionList['mail_see_unhidden_email'] = array('explain' => 'Allow operator to see full e-mail address.');
 $FunctionList['phone_see_unhidden'] = array('explain' => 'Allow operator to see full phone number.');
 $FunctionList['have_phone_link'] = array('explain' => 'Allow operator to click phone number as a link. Phone number will be exposed.');
+$FunctionList['chat_export_email'] = array('explain' => 'Allow operator to see e-mail address in exported file');
+$FunctionList['chat_export_phone'] = array('explain' => 'Allow operator to see phone in exported file');
 $FunctionList['send_as_forward'] = array('explain' => 'Allow operator to forward mail message.');
 $FunctionList['can_download'] = array('explain' => 'Allow operator to download raw mail message.');
 

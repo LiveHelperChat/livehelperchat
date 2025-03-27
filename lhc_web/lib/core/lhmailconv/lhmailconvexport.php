@@ -115,6 +115,7 @@ class erLhcoreClassMailconvExport {
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Lang'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','From name'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','From address'),
+            erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Phone'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail subject'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Priority'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Started by'),
@@ -155,6 +156,7 @@ class erLhcoreClassMailconvExport {
             'lang',
             'from_name',
             'from_address',
+            'phone',
             'subject',
             'priority'
         );
@@ -194,6 +196,9 @@ class erLhcoreClassMailconvExport {
                 $items = isset($params['is_archive']) ? \LiveHelperChat\Models\mailConv\Archive\Conversation::getList($filterChunk) : erLhcoreClassModelMailconvConversation::getList($filterChunk);
             }
 
+            $emailVisible = false;erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','chat_export_email');
+            $phoneVisible = false;erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_see_unhidden') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','chat_export_phone');
+
             foreach ($items as $item) {
                 $itemCSV = [];
                 $is_live_archive = false;
@@ -218,6 +223,8 @@ class erLhcoreClassMailconvExport {
                         } else {
                             $itemCSV[] = 'N/A';
                         }
+                    } else if ($attr == 'phone' || $attr == 'from_address') {
+                        $itemCSV[] = ($attr == 'phone' && $phoneVisible) || ($attr == 'from_address' && $emailVisible) ? (string)$item->{$attr} : '';
                     } else {
                         $itemCSV[] = (string)$item->{$attr};
                     }
@@ -318,6 +325,7 @@ class erLhcoreClassMailconvExport {
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Department'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','From name'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','From address'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Phone'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail subject'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Priority'));
 
@@ -326,14 +334,23 @@ class erLhcoreClassMailconvExport {
             'department',
             'from_name',
             'from_address',
+            'phone',
             'subject',
             'priority',
         );
 
+        $emailVisible = false;erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','chat_export_email');
+        $phoneVisible = false;erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_see_unhidden') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','chat_export_phone');
+
         $i = 2;
         foreach ($items as $item) {
             foreach ($attributes as $key => $attr) {
-                $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (string)$item->{$attr});
+                if ($attr == 'phone' || $attr == 'from_address') {
+                    $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i,($attr == 'phone' && $phoneVisible) || ($attr == 'from_address' && $emailVisible) ? (string)$item->{$attr} : '');
+                } else {
+                    $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, (string)$item->{$attr});
+                }
+
             }
            
             $messages = erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $item->id]]);
