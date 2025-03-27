@@ -196,8 +196,8 @@ class erLhcoreClassMailconvExport {
                 $items = isset($params['is_archive']) ? \LiveHelperChat\Models\mailConv\Archive\Conversation::getList($filterChunk) : erLhcoreClassModelMailconvConversation::getList($filterChunk);
             }
 
-            $emailVisible = false;erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_export');
-            $phoneVisible = false;erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_see_unhidden') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_export');
+            $emailVisible = erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_export');
+            $phoneVisible = erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_see_unhidden') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_export');
 
             foreach ($items as $item) {
                 $itemCSV = [];
@@ -339,8 +339,8 @@ class erLhcoreClassMailconvExport {
             'priority',
         );
 
-        $emailVisible = false;erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_export');
-        $phoneVisible = false;erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_see_unhidden') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_export');
+        $emailVisible = erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_export');
+        $phoneVisible = erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_see_unhidden') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_export');
 
         $i = 2;
         foreach ($items as $item) {
