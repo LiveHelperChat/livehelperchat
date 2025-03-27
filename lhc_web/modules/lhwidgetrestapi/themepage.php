@@ -6,7 +6,7 @@ if (empty($Params['user_parameters']['theme']) || ($themeId = erLhcoreClassChat:
     exit;
 }
 
-$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters']['theme']);
+$theme = erLhAbstractModelWidgetTheme::fetch($themeId);
 
 if ($theme->modified > 0) {
     Header("Expires:".gmdate('D, d M Y H:i:s \G\M\T', time() + 3600));
