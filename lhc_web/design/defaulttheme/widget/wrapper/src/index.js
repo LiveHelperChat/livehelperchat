@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 254;
+            lhc.version = 255;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -237,7 +237,7 @@
                 attributesWidget.userSession.setSessionInformation(attributesWidget.storageHandler.getSessionInformation());
                 attributesWidget.userSession.setSessionReferrer(storageHandler.getSessionReferrer());
 
-                attributesWidget.widgetStatus = new BehaviorSubject(attributesWidget.userSession.ws == '1' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'));
+                attributesWidget.widgetStatus = new BehaviorSubject((attributesWidget.userSession.ws == '1' && attributesWidget.userSession.id !== null) || (LHC_API.args.mode && LHC_API.args.mode == 'embed'));
                 attributesWidget.toggleSound = new BehaviorSubject(!(attributesWidget.userSession.sd == '1'), {'ignore_sub': true});
 
                 if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
@@ -785,6 +785,11 @@
 
                     if (mode !== 'popup' || attributesWidget.kcw === true) {
                         attributesWidget.userSession.setChatInformation(data, attributesWidget.nh && attributesWidget.nh.ap);
+
+                        if (attributesWidget.mode !== 'embed') {
+                            attributesWidget.userSession.ws = 1;
+                        }
+
                         attributesWidget.broadcasChannel && attributesWidget.broadcasChannel.postMessage({'action':'chat_started', 'data':data, 'mode': mode});
                         mode == 'popup' && chatEvents.sendChildEvent('reopenNotification', [{
                             'id': data.id,
@@ -823,8 +828,10 @@
                         if (attributesWidget.mode !== 'embed') {
                             // Do not store open status in local storage because embed is always open
                             // attributesWidget.storageHandler.setSessionStorage(prefixStorage + '_ws', data);
-                            attributesWidget.userSession.ws = data ? '1' : null;
-                            attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
+                            if (attributesWidget.userSession.id !== null || !data) {
+                                attributesWidget.userSession.ws = data ? '1' : null;
+                                attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
+                            }
 
                             if (attributesWidget.broadcasChannel) {
                                 clearTimeout(timeoutWidget);
@@ -844,9 +851,10 @@
                                         history.scrollRestoration = 'manual';
                                     }
                                     originalStyleSheet = document.body.style.cssText;
-                                    document.body.style.cssText = 'position: fixed; height: 100%; width: 100%; inset: 0px; overflow-y: hidden';
+                                    document.body.style.cssText = 'height: 100% !important; min-height: 100% !important; max-height: 100% !important; width: 100% !important; min-width: 100% !important; max-width: 100% !important; overflow: hidden !important; position: fixed !important;';
                                 } else if (originalStyleSheet !== null) {
                                     document.body.style.cssText = originalStyleSheet;
+                                    originalStyleSheet = null;
                                     // Use scrollTo with instant behavior to avoid animation
                                     window.scrollTo({
                                         left: scrollPosition.x,
