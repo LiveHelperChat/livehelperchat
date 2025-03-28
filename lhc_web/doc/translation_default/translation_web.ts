@@ -8,6 +8,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -3388,6 +3392,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hidden departments are not shown in department choosing dropdown. They do not participate in online status check if department is not provided.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Offline</source>
       <translation type="unfinished"/>
     </message>
@@ -5789,6 +5797,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Page from which the customer came to the website.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Web page from which chat was started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Date range from to</source>
       <translation type="unfinished"/>
     </message>
@@ -6185,6 +6201,10 @@
     </message>
     <message>
       <source>Every 24 hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Import last N E-mails. Default 100.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7315,6 +7335,10 @@
     </message>
     <message>
       <source>Visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline request message was saved</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9019,11 +9043,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Went online</source>
+      <source>Went offline</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Went offline</source>
+      <source>Sync timeout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Went online</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9123,6 +9151,10 @@
     </message>
     <message>
       <source>Image preview</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dispatch event</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -9542,6 +9574,14 @@
     </message>
     <message>
       <source>Include whisper messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include operator data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include message ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11713,6 +11753,54 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Sound is disabled (interact with page to enable)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sound is disabled (trying to enable...)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Audio not supported in this browser</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No connection detected!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats data updated at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>NodeJS Connection Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sync blocked because of inactivity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online session updated ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to enable notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications not supported in this browser</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications blocked (check browser settings)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will now receive notifications from this site</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -12057,6 +12145,10 @@
     </message>
     <message>
       <source>Transferred chats to you or your department will appear here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No ping detected for</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12628,6 +12720,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Next operator ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last accepted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>chats were found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start period*</source>
       <translation type="unfinished"/>
     </message>
@@ -12888,6 +12992,10 @@
     </message>
     <message>
       <source>Pending mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assignment priority</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14467,6 +14575,10 @@
     </message>
     <message>
       <source>ago at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Alias</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17341,6 +17453,14 @@
   <context>
     <name>genericbot/restapi</name>
     <message>
+      <source>Stream content if output is matched.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stream content as HTML.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Text like</source>
       <translation type="unfinished"/>
     </message>
@@ -17401,11 +17521,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Name of the request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tab position</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17585,6 +17713,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Output</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Expected output definition</source>
       <translation type="unfinished"/>
     </message>
@@ -17693,11 +17825,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Stream content if output is matched.</source>
+      <source>Content of response is streamed to visitor.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Stream content as HTML.</source>
+      <source>Stream content to visitor as HTML.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save stream without streaming it to visitor.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No other stream event can be parsed after this type is matched.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18332,6 +18472,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Mail subject</source>
       <translation type="unfinished"/>
     </message>
@@ -18744,10 +18888,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Merge</source>
       <translation type="unfinished"/>
     </message>
@@ -19137,6 +19277,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Recipient E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Send an e-mail</source>
       <translation type="unfinished"/>
     </message>
@@ -19154,10 +19298,6 @@
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Recipient E-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19371,6 +19511,14 @@
     </message>
     <message>
       <source>required if it is hook event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delay event processing by N seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>applied only if background workers are used</source>
       <translation type="unfinished"/>
     </message>
     <message>
