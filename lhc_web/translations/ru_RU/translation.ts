@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Как долго нужно ждать перед тем, как сообщить оператору о неотвеченном чате</translation>
     </message>
@@ -2959,6 +2963,22 @@
       <translation>Новый</translation>
     </message>
     <message>
+      <source>Configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assume first n letter from keyword is valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum percentage to match for related tag to be considered as valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Top n matches tags should be considered as valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Copied</source>
       <translation>Скопировано</translation>
     </message>
@@ -3187,6 +3207,10 @@
       <translation>Теги запрещенных сообщений не должны содержать символ #</translation>
     </message>
     <message>
+      <source>Canned message tags should not contain spaces</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose a department!</source>
       <translation>Пожалуйста выберите департамент!</translation>
     </message>
@@ -3207,12 +3231,20 @@
       <translation>Настройки системы</translation>
     </message>
     <message>
+      <source>Canned messages suggester configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>🔍 Navigate with ⮃ and ↵ Enter. Esc to quit.</source>
       <translation>🔍 Навигация с помощью ⮃ и ↵ Enter. Esc для выхода.</translation>
     </message>
     <message>
       <source>Send instantly</source>
       <translation>Отправить мгновенно</translation>
+    </message>
+    <message>
+      <source>Do you really want to send the same canned message as the previous one?</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dialects</source>
@@ -3322,12 +3354,20 @@
       <translation>Название</translation>
     </message>
     <message>
+      <source>Alias for argument. No spaces or slashes.</source>
+      <translation>Псевдоним для аргумента. Без пробелов и косых черт.</translation>
+    </message>
+    <message>
       <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored. It has to be not number!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Alias for argument. No spaces or slashes.</source>
-      <translation>Псевдоним для аргумента. Без пробелов и косых черт.</translation>
+      <source>Priority check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will process priority rules for department changes. This introduces performance penalty.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visible only if online</source>
@@ -5232,6 +5272,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Empty</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hidden</source>
       <translation>Скрыть</translation>
     </message>
@@ -5995,6 +6043,10 @@
   <context>
     <name>module/mailconvmb</name>
     <message>
+      <source>Check for a new messages</source>
+      <translation>Проверьте наличие новых сообщений</translation>
+    </message>
+    <message>
       <source>Choose a parent invitation</source>
       <translation>Выберите родительское приглашение</translation>
     </message>
@@ -6159,8 +6211,12 @@
       <translation>В ожидании</translation>
     </message>
     <message>
-      <source>Check for a new messages</source>
-      <translation>Проверьте наличие новых сообщений</translation>
+      <source>Reset and import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reset import status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>In progress</source>
@@ -8098,6 +8154,10 @@
       <translation>Ваш запрос занимает слишком много времени. Пожалуйста, свяжитесь с администратором и отправьте ему url из вашего браузера.</translation>
     </message>
     <message>
+      <source>Settings updated</source>
+      <translation>Настройки обновлены</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>Настройки GEO-обнаружения</translation>
     </message>
@@ -8224,10 +8284,6 @@
     <message>
       <source>Test</source>
       <translation>Тест</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Настройки обновлены</translation>
     </message>
     <message>
       <source>Send message</source>
@@ -8869,6 +8925,10 @@
     <message>
       <source>Bots</source>
       <translation>Боты</translation>
+    </message>
+    <message>
+      <source>Bot was assigned to one of the chats. Please remove those chats first!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -10417,6 +10477,10 @@
     <message>
       <source>Nick/Email</source>
       <translation>Ник/электронная почта</translation>
+    </message>
+    <message>
+      <source>Block ID</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Block history</source>
@@ -13714,6 +13778,10 @@
       <translation>Шаблоны сообщений</translation>
     </message>
     <message>
+      <source>Canned messages suggester configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Canned replaceable variables</source>
       <translation>Консервированные сменные переменные</translation>
     </message>
@@ -15011,10 +15079,6 @@
       <translation>Почта</translation>
     </message>
     <message>
-      <source>Total statistics</source>
-      <translation>Общая статистика</translation>
-    </message>
-    <message>
       <source>Total active chats</source>
       <translation>Активные чаты</translation>
     </message>
@@ -15025,6 +15089,10 @@
     <message>
       <source>Total messages (including visitors, system and operator messages)</source>
       <translation>Всего сообщений (включая сообщения посетителей, системы и оператора)</translation>
+    </message>
+    <message>
+      <source>Total messages (only bot messages)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages (only operators)</source>
@@ -15041,6 +15109,10 @@
     <message>
       <source>Total pending chats</source>
       <translation>Всего ожидающих чатов</translation>
+    </message>
+    <message>
+      <source>Total statistics</source>
+      <translation>Общая статистика</translation>
     </message>
     <message>
       <source>Unanswered chats</source>
@@ -16285,6 +16357,10 @@
     <message>
       <source>Department alias</source>
       <translation>Псевдоним департамента</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Yes</source>
@@ -17699,6 +17775,10 @@
       <translation>Атрибут для извлечения</translation>
     </message>
     <message>
+      <source>RAW value to test against</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Extract chat attribute</source>
       <translation>Извлечение атрибута чата</translation>
     </message>
@@ -17721,6 +17801,10 @@
     <message>
       <source>Test mail text pattern</source>
       <translation>Тестовый шаблон почтового текста</translation>
+    </message>
+    <message>
+      <source>Test RAW text pattern</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your response will appear here!</source>

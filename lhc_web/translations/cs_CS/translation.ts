@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Jak dlouho máme čekat, než operátora informujeme o nezodpovězeném chatu.</translation>
     </message>
@@ -2959,6 +2963,22 @@
       <translation>Nový</translation>
     </message>
     <message>
+      <source>Configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assume first n letter from keyword is valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum percentage to match for related tag to be considered as valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Top n matches tags should be considered as valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Copied</source>
       <translation>Zkopírováno</translation>
     </message>
@@ -3187,6 +3207,10 @@
       <translation>Značky konzervovaných zpráv by neměly obsahovat znak #</translation>
     </message>
     <message>
+      <source>Canned message tags should not contain spaces</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose a department!</source>
       <translation>Vyberte si prosím oddělení!</translation>
     </message>
@@ -3207,12 +3231,20 @@
       <translation>Nastavení systému</translation>
     </message>
     <message>
+      <source>Canned messages suggester configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>🔍 Navigate with ⮃ and ↵ Enter. Esc to quit.</source>
       <translation>🔍 Navigujte pomocí ⮃ a ↵ Enter. Ukončení pomocí Esc.</translation>
     </message>
     <message>
       <source>Send instantly</source>
       <translation>Odeslat okamžitě</translation>
+    </message>
+    <message>
+      <source>Do you really want to send the same canned message as the previous one?</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Dialects</source>
@@ -3322,12 +3354,20 @@
       <translation>Nadpis</translation>
     </message>
     <message>
+      <source>Alias for argument. No spaces or slashes.</source>
+      <translation>Alias pro argument. Bez mezer a lomítek.</translation>
+    </message>
+    <message>
       <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored. It has to be not number!</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Alias for argument. No spaces or slashes.</source>
-      <translation>Alias pro argument. Bez mezer a lomítek.</translation>
+      <source>Priority check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will process priority rules for department changes. This introduces performance penalty.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visible only if online</source>
@@ -5231,6 +5271,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Empty</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hidden</source>
       <translation>Skrytý</translation>
     </message>
@@ -5994,6 +6042,10 @@
   <context>
     <name>module/mailconvmb</name>
     <message>
+      <source>Check for a new messages</source>
+      <translation>Kontrola nových zpráv</translation>
+    </message>
+    <message>
       <source>Choose a parent invitation</source>
       <translation>Vyberte si pozvánku pro rodiče</translation>
     </message>
@@ -6158,8 +6210,12 @@
       <translation>Čeká se na</translation>
     </message>
     <message>
-      <source>Check for a new messages</source>
-      <translation>Kontrola nových zpráv</translation>
+      <source>Reset and import</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reset import status</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>In progress</source>
@@ -8097,6 +8153,10 @@
       <translation>Váš požadavek trvá příliš dlouho. Kontaktujte prosím svého správce a pošlete mu url adresu z prohlížeče.</translation>
     </message>
     <message>
+      <source>Settings updated</source>
+      <translation>Nastavení aktualizováno</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>Konfigurace geodetekce</translation>
     </message>
@@ -8223,10 +8283,6 @@
     <message>
       <source>Test</source>
       <translation>Test</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Nastavení aktualizováno</translation>
     </message>
     <message>
       <source>Send message</source>
@@ -8868,6 +8924,10 @@
     <message>
       <source>Bots</source>
       <translation>Boti</translation>
+    </message>
+    <message>
+      <source>Bot was assigned to one of the chats. Please remove those chats first!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -10416,6 +10476,10 @@
     <message>
       <source>Nick/Email</source>
       <translation>Nick/Email</translation>
+    </message>
+    <message>
+      <source>Block ID</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Block history</source>
@@ -13713,6 +13777,10 @@
       <translation>Předpřipravené zprávy</translation>
     </message>
     <message>
+      <source>Canned messages suggester configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Canned replaceable variables</source>
       <translation>Vyměnitelné proměnné v konzervách</translation>
     </message>
@@ -15010,10 +15078,6 @@
       <translation>Mail</translation>
     </message>
     <message>
-      <source>Total statistics</source>
-      <translation>Celková statistika</translation>
-    </message>
-    <message>
       <source>Total active chats</source>
       <translation>Celkem aktivních rozhovorů</translation>
     </message>
@@ -15024,6 +15088,10 @@
     <message>
       <source>Total messages (including visitors, system and operator messages)</source>
       <translation>Zprávy celkem (včetně zpráv návštěvníků, systému a operátora)</translation>
+    </message>
+    <message>
+      <source>Total messages (only bot messages)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total messages (only operators)</source>
@@ -15040,6 +15108,10 @@
     <message>
       <source>Total pending chats</source>
       <translation>Celkem čekajících rozhovorů</translation>
+    </message>
+    <message>
+      <source>Total statistics</source>
+      <translation>Celková statistika</translation>
     </message>
     <message>
       <source>Unanswered chats</source>
@@ -16284,6 +16356,10 @@
     <message>
       <source>Department alias</source>
       <translation>Alias oddělení</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Yes</source>
@@ -17698,6 +17774,10 @@
       <translation>Atribut k extrakci</translation>
     </message>
     <message>
+      <source>RAW value to test against</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Extract chat attribute</source>
       <translation>Výpis atributu chatu</translation>
     </message>
@@ -17720,6 +17800,10 @@
     <message>
       <source>Test mail text pattern</source>
       <translation>Vzor textu testovací pošty</translation>
+    </message>
+    <message>
+      <source>Test RAW text pattern</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your response will appear here!</source>

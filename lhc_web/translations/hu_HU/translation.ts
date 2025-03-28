@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Mennyi idő elteltével kapjon az operátor értesítést egy megválaszolatlan üzenetről?</translation>
     </message>
@@ -2959,6 +2963,22 @@
       <translation>Új</translation>
     </message>
     <message>
+      <source>Configuration</source>
+      <translation>Beállítások</translation>
+    </message>
+    <message>
+      <source>Assume first n letter from keyword is valid</source>
+      <translation>A megadott számú kulcsszóeleji betű vizsgálata</translation>
+    </message>
+    <message>
+      <source>Minimum percentage to match for related tag to be considered as valid</source>
+      <translation>A legkisebb százalékos egyezés kapcsolódó címke ajánlásához</translation>
+    </message>
+    <message>
+      <source>Top n matches tags should be considered as valid</source>
+      <translation>A megadott számú legjobb egyezés címkék ajánlásához</translation>
+    </message>
+    <message>
       <source>Copied</source>
       <translation>Vágólapra másolva</translation>
     </message>
@@ -3187,6 +3207,10 @@
       <translation>Az üzenetsablonok címkéi nem tartalmazhatnak # karaktert</translation>
     </message>
     <message>
+      <source>Canned message tags should not contain spaces</source>
+      <translation>Az üzenetsablonok címkéi nem tartalmazhatnak szóközt</translation>
+    </message>
+    <message>
       <source>Please choose a department!</source>
       <translation>Kérjük, válassz egy részleget</translation>
     </message>
@@ -3207,12 +3231,20 @@
       <translation>Rendszerbeállítások</translation>
     </message>
     <message>
+      <source>Canned messages suggester configuration</source>
+      <translation>Az üzenetsablon-ajánló beállításai</translation>
+    </message>
+    <message>
       <source>🔍 Navigate with ⮃ and ↵ Enter. Esc to quit.</source>
       <translation>🔍 Navigálás: ⮃ (fel-le), majd ↲ (Enter) • Kilépés: Esc</translation>
     </message>
     <message>
       <source>Send instantly</source>
       <translation>Azonnali küldés</translation>
+    </message>
+    <message>
+      <source>Do you really want to send the same canned message as the previous one?</source>
+      <translation>Valóban újra el akarod küldeni az előzővel megegyező üzenetsablont?</translation>
     </message>
     <message>
       <source>Dialects</source>
@@ -3322,12 +3354,20 @@
       <translation>Név</translation>
     </message>
     <message>
+      <source>Alias for argument. No spaces or slashes.</source>
+      <translation>Az argumentum álneve (alias). Nem használható szóköz vagy perjel</translation>
+    </message>
+    <message>
       <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored. It has to be not number!</source>
       <translation>Álnév megadása esetén győződj meg róla, hogy ezt a karakterláncot egy részleg argumentumának is átadod – ellenkező esetben az argumentumot figyelmen kívül hagyja a rendszer. Az álnév nem lehet szám!</translation>
     </message>
     <message>
-      <source>Alias for argument. No spaces or slashes.</source>
-      <translation>Az argumentum álneve (alias). Nem használható szóköz vagy perjel</translation>
+      <source>Priority check</source>
+      <translation>Prioritásellenőrzés</translation>
+    </message>
+    <message>
+      <source>We will process priority rules for department changes. This introduces performance penalty.</source>
+      <translation>Részlegváltás esetén a prioritási szabályok feldolgozása. Ennek teljesítménybeli következményei lehetnek</translation>
     </message>
     <message>
       <source>Visible only if online</source>
@@ -5231,6 +5271,14 @@
       <translation>Álnév</translation>
     </message>
     <message>
+      <source>Empty</source>
+      <translation>Nincs megadva</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Azonosító</translation>
+    </message>
+    <message>
       <source>Hidden</source>
       <translation>Rejtve</translation>
     </message>
@@ -5994,6 +6042,10 @@
   <context>
     <name>module/mailconvmb</name>
     <message>
+      <source>Check for a new messages</source>
+      <translation>Új üzenetek ellenőrzése</translation>
+    </message>
+    <message>
       <source>Choose a parent invitation</source>
       <translation>– Válassz szülőmeghívót –</translation>
     </message>
@@ -6158,8 +6210,12 @@
       <translation>Függőben</translation>
     </message>
     <message>
-      <source>Check for a new messages</source>
-      <translation>Új üzenetek ellenőrzése</translation>
+      <source>Reset and import</source>
+      <translation>Visszaállítás és importálás</translation>
+    </message>
+    <message>
+      <source>Reset import status</source>
+      <translation>Az importálás állapotának visszaállítása</translation>
     </message>
     <message>
       <source>In progress</source>
@@ -8097,6 +8153,10 @@
       <translation>A kérése feldolgozása túl sokáig tart. Kérjük, lépjen kapcsolatba az adminisztrátorral, és küldje el neki az URL-címet a böngészőjéből</translation>
     </message>
     <message>
+      <source>Settings updated</source>
+      <translation>Beállítások frissítve</translation>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation>GEO-észlelési beállítások</translation>
     </message>
@@ -8223,10 +8283,6 @@
     <message>
       <source>Test</source>
       <translation>Teszt</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Beállítások frissítve</translation>
     </message>
     <message>
       <source>Send message</source>
@@ -8868,6 +8924,10 @@
     <message>
       <source>Bots</source>
       <translation>Botok</translation>
+    </message>
+    <message>
+      <source>Bot was assigned to one of the chats. Please remove those chats first!</source>
+      <translation>A bot hozzá van rendelve egy vagy több beszélgetéshez. Kérjük, először távolítsd el ezeket a beszélgetéseket (vagy ezekből a beszélgetésekből)</translation>
     </message>
   </context>
   <context>
@@ -10416,6 +10476,10 @@
     <message>
       <source>Nick/Email</source>
       <translation>Becenév / e-mail-cím</translation>
+    </message>
+    <message>
+      <source>Block ID</source>
+      <translation>Korlátozásazon.</translation>
     </message>
     <message>
       <source>Block history</source>
@@ -13713,8 +13777,12 @@
       <translation>Üzenetsablonok</translation>
     </message>
     <message>
+      <source>Canned messages suggester configuration</source>
+      <translation>Az üzenetsablon-ajánló beállításai</translation>
+    </message>
+    <message>
       <source>Canned replaceable variables</source>
-      <translation>Üzenetsablonok behelyettesíthető változói</translation>
+      <translation>Az üzenetsablonok behelyettesíthető változói</translation>
     </message>
     <message>
       <source>Chat</source>
@@ -15010,10 +15078,6 @@
       <translation>Levelek</translation>
     </message>
     <message>
-      <source>Total statistics</source>
-      <translation>Teljes statisztika</translation>
-    </message>
-    <message>
       <source>Total active chats</source>
       <translation>Az aktív beszélgetések száma</translation>
     </message>
@@ -15026,8 +15090,12 @@
       <translation>Üzenetek száma (beleértve a látogatói, rendszer- és operátorüzeneteket) </translation>
     </message>
     <message>
+      <source>Total messages (only bot messages)</source>
+      <translation>Üzenetek száma (csak botoké)</translation>
+    </message>
+    <message>
       <source>Total messages (only operators)</source>
-      <translation>Üzenetek száma (csak operátorok)</translation>
+      <translation>Üzenetek száma (csak operátoroké)</translation>
     </message>
     <message>
       <source>Total messages (only system messages)</source>
@@ -15035,11 +15103,15 @@
     </message>
     <message>
       <source>Total messages (only visitors)</source>
-      <translation>Üzenetek száma (csak látogatók)</translation>
+      <translation>Üzenetek száma (csak látogatóké)</translation>
     </message>
     <message>
       <source>Total pending chats</source>
       <translation>A függőben lévő beszélgetések száma</translation>
+    </message>
+    <message>
+      <source>Total statistics</source>
+      <translation>Teljes statisztika</translation>
     </message>
     <message>
       <source>Unanswered chats</source>
@@ -16284,6 +16356,10 @@
     <message>
       <source>Department alias</source>
       <translation>A részleg álneve</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Azonosító</translation>
     </message>
     <message>
       <source>Yes</source>
@@ -17683,7 +17759,7 @@
     </message>
     <message>
       <source>canned message replaceable variables</source>
-      <translation>Egy eltárolt üzenet behelyettesíthető változója</translation>
+      <translation>Egy üzenetsablon behelyettesíthető változója</translation>
     </message>
     <message>
       <source>If you are using those vars in Rest API calls make sure you use double brackets E.g</source>
@@ -17696,6 +17772,10 @@
     <message>
       <source>Attribute to extract</source>
       <translation>Kiemelendő tulajdonság</translation>
+    </message>
+    <message>
+      <source>RAW value to test against</source>
+      <translation>NYERS érték teszteléshez</translation>
     </message>
     <message>
       <source>Extract chat attribute</source>
@@ -17720,6 +17800,10 @@
     <message>
       <source>Test mail text pattern</source>
       <translation>E-mail-szövegminta tesztelése</translation>
+    </message>
+    <message>
+      <source>Test RAW text pattern</source>
+      <translation>NYERS szövegminta tesztelése</translation>
     </message>
     <message>
       <source>Your response will appear here!</source>
