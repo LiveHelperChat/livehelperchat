@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Live Helper Chat API description. You have to authorize to use API. Create API key in Live Helper Chat back office. During authorization provide operator username and key instead of password.",
+    "description": "Live Helper Chat API description. You have to authorize to use API. Create API key in Live Helper Chat back office. During authorization provide operator username and key instead of password. Database structure definition can be found at https://dbdiagram.io/d/Live-Helper-Chat-67e68aa04f7afba184913d62",
     "version": "1.0.1",
     "title": "Live Helper Chat API",
     "termsOfService": "",
