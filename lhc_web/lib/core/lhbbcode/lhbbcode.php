@@ -707,7 +707,10 @@ class erLhcoreClassBBCode
             $append = '</a>';
         }
 
-        return  "<div class=\"img_embed\">{$prepend}<img title=\"\" onclick='lhinst.zoomImage(this)' class='action-image img-fluid img-remote' src=\"".$url."\" alt=\"\" />{$append}</div>";
+        $hash = md5(trim($matches[2] . (isset($matches[1]) ? $matches[1] : '')));
+        self::$plainHash['embedimg'.$hash] = "<div class=\"img_embed\">{$prepend}<img title=\"\" onclick='lhinst.zoomImage(this)' class='action-image img-fluid img-remote' src=\"".$url."\" alt=\"\" />{$append}</div>";
+
+        return 'embedimg'.$hash;
    }
 
    public static function _make_embed_map($matches)
@@ -730,8 +733,10 @@ class erLhcoreClassBBCode
         $url = self::esc_url($in);
         if ( empty($url) )
             return '[url='.$matches[1].']' . $matches[2] . '[/url]';
-				
-        return '<a class="link" target="_blank" rel="noreferrer" href="'.$url.'">' . $matches[2] . '</a>';
+
+       $hash = md5(trim($matches[1] . $matches[2]));
+       self::$plainHash['link'.$hash] = '<a class="link" target="_blank" rel="noreferrer" href="'.$url.'">' . $matches[2] . '</a>';
+       return 'link'.$hash;
    }
    
    public static function _make_code($matches){
