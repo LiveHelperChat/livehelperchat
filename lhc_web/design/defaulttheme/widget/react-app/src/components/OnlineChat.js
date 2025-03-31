@@ -951,6 +951,10 @@ class OnlineChat extends Component {
                 bottom_messages += " has-msg-to-store";
             }
 
+            if (this.props.chatwidget.get('shown') === false){
+                bottom_messages += " invisible";
+            }
+
             var message_send_style = "mx-auto w-100";
 
             if (this.props.chatwidget.getIn(['chatLiveData','closed']) == true) {
