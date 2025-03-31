@@ -401,5 +401,6 @@ $FunctionList['mail_export'] = array('explain' => 'Allow operator to see e-mail 
 $FunctionList['phone_export'] = array('explain' => 'Allow operator to see phone in exported file');
 $FunctionList['send_as_forward'] = array('explain' => 'Allow operator to forward mail message.');
 $FunctionList['can_download'] = array('explain' => 'Allow operator to download raw mail message.');
+$FunctionList['export_variables'] = array('explain' => 'Allow operator export mail variable.');
 
 ?>

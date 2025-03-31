@@ -145,6 +145,8 @@ class erLhcoreClassMailconvExport {
             $firstRow[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Messages HTML');
         }
 
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.list_export_columns',array('items' => & $firstRow));
+
         // First row
         fputcsv($df, $firstRow);
 
@@ -198,6 +200,7 @@ class erLhcoreClassMailconvExport {
 
             $emailVisible = erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_export');
             $phoneVisible = erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_see_unhidden') && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_export');
+            $exportVariables = erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','export_variables');
 
             foreach ($items as $item) {
                 $itemCSV = [];
@@ -284,7 +287,7 @@ class erLhcoreClassMailconvExport {
                     }
                 }
 
-                $itemCSV[] = $item->mail_variables;
+                $itemCSV[] = $exportVariables === true ? $item->mail_variables : '';
 
                 // Messages content
                 if (in_array(3, $params['type'])) {
@@ -301,6 +304,8 @@ class erLhcoreClassMailconvExport {
                     $itemCSV[] = implode("\n\n===========================\n\n", $messagesBody);
                     $itemCSV[] = implode("\n\n===========================\n\n", $messagesBodyHTML);
                 }
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.list_export_item_data',array('item' => & $itemCSV, 'conversation' => $item));
 
                 fputcsv($df, $itemCSV);
             }
