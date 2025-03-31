@@ -112,6 +112,7 @@ class OnlineChat extends Component {
         this.pendingMetaUpdate = false;
         this.timeoutNewMessage = null;
         this.timeoutScroll = null;
+        this.widgetWasOpened = false;
 
         this.isTyping = false;
         this.typingStopped = null;
@@ -557,9 +558,10 @@ class OnlineChat extends Component {
 
         // Are we restoring widget visibility
         } else if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true) {
-            if (this.messagesAreaRef.current) {
+            if (this.widgetWasOpened === true && this.messagesAreaRef.current) {
                 return this.messagesAreaRef.current.scrollHeight - this.messagesAreaRef.current.scrollTop;
             }
+            this.widgetWasOpened = true;
             return 0;
         } else if (this.props.chatwidget.getIn(['chatLiveData','error']) && (
                 (this.props.chatwidget.getIn(['chatLiveData','lmsg']) && (this.state.errorMode == false || this.props.chatwidget.getIn(['chatLiveData','lmsg']) != prevProps.chatwidget.getIn(['chatLiveData','lmsg']))) ||
