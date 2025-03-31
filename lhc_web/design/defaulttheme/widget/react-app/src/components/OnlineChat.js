@@ -160,7 +160,7 @@ class OnlineChat extends Component {
                     this.setState({scrollButton: true});
                 }
             } else if (this.state.scrollButton !== false) {
-                this.setState({scrollButton: false, otm: 0});
+                this.setState({scrollButton: false, otm: 0, hasNew: false, newId: 0});
                 this.props.dispatch({'type' : 'UPDATE_LIVE_DATA', 'data' : {'attr': 'lfmsgid', 'val': 0}});
             }
         }
@@ -557,6 +557,9 @@ class OnlineChat extends Component {
 
         // Are we restoring widget visibility
         } else if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true) {
+            if (this.messagesAreaRef.current) {
+                return this.messagesAreaRef.current.scrollHeight - this.messagesAreaRef.current.scrollTop;
+            }
             return 0;
         } else if (this.props.chatwidget.getIn(['chatLiveData','error']) && (
                 (this.props.chatwidget.getIn(['chatLiveData','lmsg']) && (this.state.errorMode == false || this.props.chatwidget.getIn(['chatLiveData','lmsg']) != prevProps.chatwidget.getIn(['chatLiveData','lmsg']))) ||
@@ -609,7 +612,8 @@ class OnlineChat extends Component {
         if (snapshot !== null) {
             if (this.messagesAreaRef.current) {
                 var msgScroller = document.getElementById('messages-scroll');
-                var messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']));
+                var messageElement = document.getElementById('scroll-to-message') || document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']));
+
                 if (msgScroller && messageElement && messageElement.className.indexOf('ignore-auto-scroll') === -1 && (msgScroller.scrollHeight - msgScroller.offsetHeight) > messageElement.offsetTop) {
                     this.setState({scrollButton: true});
                     this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
