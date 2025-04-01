@@ -154,6 +154,11 @@ class OnlineChat extends Component {
 
     onScrollMessages() {
         if (this.messagesAreaRef.current) {
+
+            // If there was any scroll action
+            // We want to remember any other scroll position
+            this.widgetWasOpened = true;
+
             let scrollValue = this.messagesAreaRef.current.scrollHeight - this.messagesAreaRef.current.scrollTop;
             // Scroll to bottom if from bottom there is already less than 70px
             if ((scrollValue - this.messagesAreaRef.current.offsetHeight) > 70 ) {

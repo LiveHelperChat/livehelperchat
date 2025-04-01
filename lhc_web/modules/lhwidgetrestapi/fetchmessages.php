@@ -103,6 +103,7 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
                         $content = $tpl->fetch();
 
                         $operatorId = null;
+                        $unreadSince = null;
 
 				        foreach ($Messages as $msg) {
 
@@ -132,6 +133,11 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
                             $operatorIdLast = (int)$msg['user_id'];
 
                             $LastMessageID = $msg['id'];
+
+                            if ($unreadSince === null && ($msg['user_id'] > 0 || $msg['user_id'] == -2) && $msg['del_st'] != 3) {
+                                $unreadSince = $msg['id'];
+                            }
+
 				        }
 				    }
 				}
@@ -192,6 +198,8 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 
                     }
 
+                    $unreadSince = null;
+                    
                     if ($chat->status_sub_sub == erLhcoreClassModelChat::STATUS_SUB_SUB_MSG_DELIVERED) {
                         $chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_DEFAULT;
                         $updateFields[] = 'status_sub_sub';
@@ -299,7 +307,7 @@ $responseArray['message_id'] = (int)$LastMessageID;
 if (isset($requestPayload['lfmsgid']) && (int)$requestPayload['lfmsgid'] > 0) {
     $responseArray['message_id_first'] = max($firstVisitorMessageId,$requestPayload['lfmsgid']); // We want to scroll to first visitor message
 } else {
-    $responseArray['message_id_first'] = isset($operatorIdLast) && $operatorIdLast == 0 ? 0 : (int)$firstOperatorMessageId;
+    $responseArray['message_id_first'] = (isset($unreadSince) && is_numeric($unreadSince)) ? $unreadSince : (isset($operatorIdLast) && $operatorIdLast == 0 ? 0 : (int)$firstOperatorMessageId);
 }
 
 if (isset($lockTextArea) && $lockTextArea === true) {
