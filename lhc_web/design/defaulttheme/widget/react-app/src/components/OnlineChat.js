@@ -618,12 +618,14 @@ class OnlineChat extends Component {
 
         if (snapshot !== null) {
             if (this.messagesAreaRef.current) {
+
                 var msgScroller = document.getElementById('messages-scroll');
                 var messageElement = document.getElementById('scroll-to-message') || document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']));
 
-                if (msgScroller && messageElement && messageElement.className.indexOf('ignore-auto-scroll') === -1 && (msgScroller.scrollHeight - msgScroller.offsetHeight) > messageElement.offsetTop) {
+                if (msgScroller && messageElement && messageElement.className.indexOf('ignore-auto-scroll') === -1 && (msgScroller.scrollHeight - msgScroller.offsetHeight) - messageElement.offsetTop > 70) {
                     this.setState({scrollButton: true});
-                    this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
+                    // this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
+                    messageElement.scrollIntoView();
                 } else {
                     this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight - snapshot;
                 }
@@ -671,7 +673,8 @@ class OnlineChat extends Component {
         if (this.messagesAreaRef.current) {
             var messageElement;
             if (smartScroll && (messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']))) !== null && messageElement.className.indexOf('ignore-auto-scroll') === -1 ) {
-                this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
+                // this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
+                messageElement.scrollIntoView();
             } else {
                 this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
             }
@@ -750,6 +753,12 @@ class OnlineChat extends Component {
 
         helperFunctions.setSessionStorage('_ttxt','');
 
+        // Because message was added we want to reset scroll action, as visitor does not care about it
+        if (this.state.scrollButton !== false) {
+            this.setState({scrollButton: false, otm: 0, hasNew: false, newId: 0});
+            this.props.dispatch({'type' : 'UPDATE_LIVE_DATA', 'data' : {'attr': 'lfmsgid', 'val': 0}});
+        }
+
         this.props.dispatch(addMessage({
             'id': this.props.chatwidget.getIn(['chatData','id']),
             'hash' : this.props.chatwidget.getIn(['chatData','hash']),
@@ -760,7 +769,6 @@ class OnlineChat extends Component {
         }));
 
         this.setState({value: '', errorMode : false});
-
         this.currentMessageTyping = '';
         this.focusMessage();
         this.doScrollBottom();
