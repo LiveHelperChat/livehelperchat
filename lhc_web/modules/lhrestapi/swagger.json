@@ -22,6 +22,10 @@
       "description": "API Related to chats"
     },
     {
+      "name": "mail",
+      "description": "API Related to mails"
+    },
+    {
       "name": "survey",
       "description": "API Related to working with survey"
     },
@@ -68,6 +72,147 @@
     "http"
   ],
   "paths": {
+    "/restapi/conversations": {
+      "get": {
+        "tags": [
+          "mail"
+        ],
+        "summary": "Fetch mail conversations list. One conversation can have multiple main message in it. It's like a thread.",
+        "description": "Required permissions - `lhmailconv`,`use_admin`. List content depends on assigned API user departments.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "departament_ids",
+            "in": "query",
+            "description": "Department ID's",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "departament_groups_ids",
+            "in": "query",
+            "description": "Department group ID's",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "user_ids",
+            "in": "query",
+            "description": "User IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "status_ids",
+            "in": "query",
+            "description": "status_ids.  const STATUS_PENDING = 0;\nconst STATUS_ACTIVE = 1;\nconst STATUS_CLOSED = 2;",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "id_gt",
+            "in": "query",
+            "description": "ID greater than",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "time_gt",
+            "in": "query",
+            "description": "Time greater than. Unix timestamp.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "time_lt",
+            "in": "query",
+            "description": "Time less than. Unix timestamp.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "include_messages",
+            "description": "Include mail messages within conversation",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "include_department",
+            "description": "Include department within chat",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "prefill_fields",
+            "description": "What fields to prefill E.g messages_statistic, subject, link, time_created_front, department_name, plain_user_name, product_name, n_official, n_off_full, wait_time_pending, wait_time_seconds, cls_time_front, tatus_sub_sub, can_edit_chat, unread_time, chat_actions",
+            "required": false,
+            "type": "string",
+            "in": "query"
+          },
+          {
+            "name": "ignore_fields",
+            "description": "What fields to skip E.g product_id, product, department, time, status, user, additional_data, additional_data_array, mail_variables, mail_variables_array",
+            "required": false,
+            "type": "string",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch conversations list",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/chats": {
       "get": {
         "tags": [

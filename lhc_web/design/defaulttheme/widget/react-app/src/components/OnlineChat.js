@@ -964,7 +964,7 @@ class OnlineChat extends Component {
                 bottom_messages += " has-msg-to-store";
             }
 
-            if (this.props.chatwidget.get('shown') === false){
+            if (this.props.chatwidget.get('shown') === false && this.widgetWasOpened === false) {
                 bottom_messages += " invisible";
             }
 
