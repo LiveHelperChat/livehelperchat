@@ -17,6 +17,10 @@ $ViewList['chats'] = array(
     'params' => array()
 );
 
+$ViewList['conversations'] = array(
+    'params' => array()
+);
+
 $ViewList['onlineimage'] = array(
     'params' => array(),
     'uparams' => array('user_id','department'),

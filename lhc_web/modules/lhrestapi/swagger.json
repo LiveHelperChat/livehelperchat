@@ -84,44 +84,59 @@
         ],
         "parameters": [
           {
-            "name": "departament_ids",
+            "name": "department_ids[]",
             "in": "query",
             "description": "Department ID's",
             "required": false,
             "type": "array",
             "items":{
               "type":"integer"
-            }
+            },
+            "collectionFormat": "multi"
           },
           {
-            "name": "departament_groups_ids",
+            "name": "department_group_ids[]",
             "in": "query",
             "description": "Department group ID's",
             "required": false,
             "type": "array",
             "items":{
               "type":"integer"
-            }
+            },
+            "collectionFormat": "multi"
           },
           {
-            "name": "user_ids",
+            "name": "user_ids[]",
             "in": "query",
             "description": "User IDs",
             "required": false,
             "type": "array",
             "items":{
               "type":"integer"
-            }
+            },
+            "collectionFormat": "multi"
           },
           {
-            "name": "status_ids",
+            "name": "mailbox_ids[]",
             "in": "query",
-            "description": "status_ids.  const STATUS_PENDING = 0;\nconst STATUS_ACTIVE = 1;\nconst STATUS_CLOSED = 2;",
+            "description": "Mailbox IDs",
             "required": false,
             "type": "array",
-            "items":{
-              "type":"integer"
-            }
+            "items": {
+              "type": "integer"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "conversation_status_ids[]",
+            "in": "query",
+            "description": "Conversation status IDs. const STATUS_PENDING = 0; const STATUS_ACTIVE = 1; const STATUS_CLOSED = 2;",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "collectionFormat": "multi"
           },
           {
             "name": "limit",
@@ -148,17 +163,17 @@
             "format": "int32"
           },
           {
-            "name": "time_gt",
+            "name": "timefromts",
             "in": "query",
-            "description": "Time greater than. Unix timestamp.",
+            "description": "Time greater than. Unix timestamp. udate >=",
             "required": false,
             "type": "string",
             "format": "int32"
           },
           {
-            "name": "time_lt",
+            "name": "timetots",
             "in": "query",
-            "description": "Time less than. Unix timestamp.",
+            "description": "Time less than. Unix timestamp. udate <=",
             "required": false,
             "type": "string",
             "format": "int32"
@@ -172,8 +187,8 @@
             "in": "query"
           },
           {
-            "name": "include_department",
-            "description": "Include department within chat",
+            "name": "count_records",
+            "description": "Count total records by filter",
             "required": false,
             "type": "boolean",
             "default": false,
@@ -181,14 +196,14 @@
           },
           {
             "name": "prefill_fields",
-            "description": "What fields to prefill E.g messages_statistic, subject, link, time_created_front, department_name, plain_user_name, product_name, n_official, n_off_full, wait_time_pending, wait_time_seconds, cls_time_front, tatus_sub_sub, can_edit_chat, unread_time, chat_actions",
+            "description": "What fields to prefill E.g mail_variables_array, customer_email, interaction_time_duration, plain_user_name, user, last_mail_front, conv_duration_front, wait_time_response,wait_time_pending, department_name, subject_front, mailbox, department, pnd_time_front, ctime_front, udate_front, accept_time_front, cls_time_front, lr_time_front, pnd_time_front_ago, ctime_front_ago, udate_front_ago, accept_time_front_ago, cls_time_front_ago, lr_time_front_ago",
             "required": false,
             "type": "string",
             "in": "query"
           },
           {
             "name": "ignore_fields",
-            "description": "What fields to skip E.g product_id, product, department, time, status, user, additional_data, additional_data_array, mail_variables, mail_variables_array",
+            "description": "What fields to skip E.g mail_variables_array, customer_email, interaction_time_duration, plain_user_name, user, last_mail_front, conv_duration_front, wait_time_response,wait_time_pending, department_name, subject_front, mailbox, department, pnd_time_front, ctime_front, udate_front, accept_time_front, cls_time_front, lr_time_front, pnd_time_front_ago, ctime_front_ago, udate_front_ago, accept_time_front_ago, cls_time_front_ago, lr_time_front_ago",
             "required": false,
             "type": "string",
             "in": "query"
@@ -196,7 +211,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Fetch conversations list",
+            "description": "Fetch mail conversations list",
             "schema": {
             }
           },

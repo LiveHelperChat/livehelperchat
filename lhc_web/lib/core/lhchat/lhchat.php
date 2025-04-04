@@ -713,12 +713,16 @@ class erLhcoreClassChat {
                 $module = 'lhmailconv';
             }
 
-            if (!erLhcoreClassUser::instance()->hasAccessTo($module,'list_all_'.$scope)) {
+            if ((isset($params['rest_api']) && !erLhcoreClassRestAPIHandler::hasAccessTo($module,'list_all_'.$scope)) || (!isset($params['rest_api']) && !erLhcoreClassUser::instance()->hasAccessTo($module,'list_all_'.$scope))) {
+
                 $limitationPermission = false;
-                if (erLhcoreClassUser::instance()->hasAccessTo($module,'list_my_'.$scope)) {
-                    $limitationPermission = '(`user_id` = ' . (int)erLhcoreClassUser::instance()->getUserID() . ')';
-                    if (erLhcoreClassUser::instance()->hasAccessTo($module,'list_pending_'.$scope)) {
-                        $limitationPermission = '(`user_id` = ' . (int)erLhcoreClassUser::instance()->getUserID() . ' OR (`user_id` = 0 AND `status` = 0))';
+
+                if ((isset($params['rest_api']) && !erLhcoreClassRestAPIHandler::hasAccessTo($module,'list_my_'.$scope)) || (!isset($params['rest_api']) && erLhcoreClassUser::instance()->hasAccessTo($module,'list_my_'.$scope))) {
+
+                    $limitationPermission = '(`user_id` = ' . (isset($params['rest_api']) ? erLhcoreClassRestAPIHandler::getUserId() : (int)erLhcoreClassUser::instance()->getUserID()) . ')';
+
+                    if ((isset($params['rest_api']) && !erLhcoreClassRestAPIHandler::hasAccessTo($module,'list_pending_'.$scope)) || (!isset($params['rest_api']) && erLhcoreClassUser::instance()->hasAccessTo($module,'list_pending_'.$scope))) {
+                        $limitationPermission = '(`user_id` = ' . (isset($params['rest_api']) ? erLhcoreClassRestAPIHandler::getUserId() : (int)erLhcoreClassUser::instance()->getUserID()) . ' OR (`user_id` = 0 AND `status` = 0))';
                     }
                 }
             }
