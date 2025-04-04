@@ -113,6 +113,8 @@ class erLhcoreClassChatWebhookContinuous {
                                             $conditionAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $conditionAttr);
                                         }
                                     }
+                                } elseif (strpos($conditionAttr,'{condition.') !== false) {
+                                    $conditionAttr = erLhcoreClassGenericBotWorkflow::translateMessage($conditionAttr, array('chat' => $chat, 'args' => ['chat' => $chat]));
                                 }
 
                                 $valueAttr = $conditionsCurrent['value'] ?? '';
@@ -126,6 +128,8 @@ class erLhcoreClassChatWebhookContinuous {
                                             $valueAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $valueAttr);
                                         }
                                     }
+                                } elseif (strpos($valueAttr,'{condition.') !== false) {
+                                    $valueAttr = erLhcoreClassGenericBotWorkflow::translateMessage($valueAttr, array('chat' => $chat, 'args' => ['chat' => $chat]));
                                 }
 
                                 $replaceArray = array(
