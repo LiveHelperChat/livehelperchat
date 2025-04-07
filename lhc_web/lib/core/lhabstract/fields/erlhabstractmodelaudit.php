@@ -18,7 +18,7 @@ return array(
         'type' => 'text_display',
         'frontend' => 'id_frontend',
         'no_wrap' => true,
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', '[Record ID] [Object ID]'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', '[Record ID] [User ID] [Object ID]'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),

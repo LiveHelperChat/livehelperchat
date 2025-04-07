@@ -15,6 +15,7 @@ $ViewList['list'] = array(
     'uparams' => array(
         'name',
         'object_id',
+        'user_id',
         'category',
         'source',
         'message',

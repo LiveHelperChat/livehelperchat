@@ -96,10 +96,27 @@
 
     <div class="col-md-2">
         <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User ID');?></label>
+            <input type="text" class="form-control form-control-sm" name="user_id" value="<?php echo htmlspecialchars((string)$input_form->user_id)?>" />
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Category');?></label>
             <input type="text" list="category_list" class="form-control form-control-sm" name="category" value="<?php echo htmlspecialchars($input_form->category)?>" />
         </div>
         <datalist id="category_list" autocomplete="new-password">
+            <option value="chat_open">Chat open</option>
+            <option value="chat_view">Chat preview</option>
+            <option value="chat_search">Chat search</option>
+            <option value="chat_export">Chat export</option>
+            <option value="chat_export_elastic">Chat export ElasticSearch</option>
+            <option value="mail_open">Mail open</option>
+            <option value="mail_view">Mail preview</option>
+            <option value="mail_search">Mail search</option>
+            <option value="mail_export">Mail export</option>
+            <option value="mail_export_elastic">Mail export ElasticSearch</option>
             <option value="js">js</option>
             <option value="block">block</option>
             <option value="store">store</option>

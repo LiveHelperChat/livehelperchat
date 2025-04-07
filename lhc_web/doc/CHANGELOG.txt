@@ -1,3 +1,10 @@
+4.56v
+
+1. Low priority XSS issue with saving XMP settings.
+2. Chat/Mail open, preview, search, export actions will be logged if operator does not have `'lhaudit','ignore_view_actions'` permission.
+
+execute doc/update_db/update_324.sql for update
+
 4.55v
 
 1. Mobile devices keyboard wont go up/down on start chat action.

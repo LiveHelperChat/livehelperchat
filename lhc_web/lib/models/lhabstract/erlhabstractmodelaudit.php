@@ -24,6 +24,7 @@ class erLhAbstractModelAudit
             'source' => $this->source,
             'time' => $this->time,
             'object_id' => $this->object_id,
+            'user_id' => $this->user_id
         );
 
         return $stateArray;
@@ -104,7 +105,7 @@ class erLhAbstractModelAudit
                 break;
 
             case 'id_frontend':
-                $this->id_frontend = '[' . $this->id . '] ' . $this->object_id;
+                $this->id_frontend = '[' . $this->id . '] [' . $this->user_id . '] ' . $this->object_id;
                 return $this->id_frontend;
                 break;
 
@@ -130,6 +131,8 @@ class erLhAbstractModelAudit
     public $time = '';
 
     public $object_id = 0;
+
+    public $user_id = 0;
 
     public $filter_name = 'audit';
 

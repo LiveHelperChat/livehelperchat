@@ -226,6 +226,21 @@ try {
         echo json_encode($editorOptions,\JSON_INVALID_UTF8_IGNORE);
 
         $db->commit();
+
+        if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions')) {
+            erLhcoreClassLog::write($conv->id,
+                ezcLog::SUCCESS_AUDIT,
+                array(
+                    'source' => 'lhc',
+                    'category' => $Params['user_parameters_unordered']['mode'] == 'normal' ? 'mail_open' : 'mail_view',
+                    'line' => __LINE__,
+                    'file' => __FILE__,
+                    'object_id' => $conv->id,
+                    'user_id' => $currentUser->getUserID()
+                )
+            );
+        }
+
     } else {
         throw new Exception("No permission to read conversation.");
     }

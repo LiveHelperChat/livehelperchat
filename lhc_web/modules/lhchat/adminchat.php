@@ -200,6 +200,20 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 	    echo $tpl->fetch();
 	}
 
+    if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions')) {
+        erLhcoreClassLog::write($chat->id,
+            ezcLog::SUCCESS_AUDIT,
+            array(
+                'source' => 'lhc',
+                'category' => 'chat_open',
+                'line' => __LINE__,
+                'file' => __FILE__,
+                'object_id' => $chat->id,
+                'user_id' => $currentUser->getUserID()
+            )
+        );
+    }
+
 	exit;
 
 } else {

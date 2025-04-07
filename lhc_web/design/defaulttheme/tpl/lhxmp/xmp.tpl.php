@@ -115,7 +115,7 @@
 				<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Enter your app information bellow')?></h4>						
 				<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','OAuth 2.0 Client ID');?></label>
-				<input class="form-control" type="text" name="gtalk_client_id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Please enter your Client ID')?>" value="<?php (isset($xmp_data['gtalk_client_id']) && $xmp_data['gtalk_client_id'] != '') ? print $xmp_data['gtalk_client_id'] : print '' ?>" />
+				<input class="form-control" type="text" name="gtalk_client_id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Please enter your Client ID')?>" value="<?php (isset($xmp_data['gtalk_client_id']) && $xmp_data['gtalk_client_id'] != '') ? print htmlspecialchars($xmp_data['gtalk_client_id']) : print '' ?>" />
 				</div>
 				
 				<div class="form-group">

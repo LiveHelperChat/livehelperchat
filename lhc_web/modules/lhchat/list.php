@@ -68,6 +68,20 @@ if (isset($_GET['doSearch'])) {
 	$filterParams['is_search'] = false;
 }
 
+if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions') && count($filterParams['filter']) > 1) { // One element is always a sort. We want at-leat one real filter.
+    erLhcoreClassLog::write(erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']),
+        ezcLog::SUCCESS_AUDIT,
+        array(
+            'source' => 'lhc',
+            'category' => 'chat_search',
+            'line' => __LINE__,
+            'file' => __FILE__,
+            'object_id' => 0,
+            'user_id' => $currentUser->getUserID()
+        )
+    );
+}
+
 erLhcoreClassChatStatistic::formatUserFilter($filterParams);
 
 if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['input_form']->subject_id)) {
@@ -103,6 +117,19 @@ if ($Params['user_parameters_unordered']['print'] == 1) {
 if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 1) {
     if (ezcInputForm::hasPostData()) {
         session_write_close();
+        if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions') && count($filterParams['filter']) > 1) { // One element is always a sort. We want at-least one real filter.
+            erLhcoreClassLog::write(erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']),
+                ezcLog::SUCCESS_AUDIT,
+                array(
+                    'source' => 'lhc',
+                    'category' => 'chat_export',
+                    'line' => __LINE__,
+                    'file' => __FILE__,
+                    'object_id' => 0,
+                    'user_id' => $currentUser->getUserID()
+                )
+            );
+        }
         $ignoreFields = (new erLhcoreClassModelChat)->getState();
         unset($ignoreFields['id']);
         $ignoreFields = array_keys($ignoreFields);

@@ -31,6 +31,21 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
     $tpl->set('chat',$chat);
     $tpl->set('see_sensitive_information', $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
     echo $tpl->fetch();
+
+    if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions')) {
+        erLhcoreClassLog::write($chat->id,
+            ezcLog::SUCCESS_AUDIT,
+            array(
+                'source' => 'lhc',
+                'category' => 'chat_view',
+                'line' => __LINE__,
+                'file' => __FILE__,
+                'object_id' => $chat->id,
+                'user_id' => $currentUser->getUserID()
+            )
+        );
+    }
+
     exit;
 } else {
     $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');

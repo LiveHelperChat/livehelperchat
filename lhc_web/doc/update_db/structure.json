@@ -8232,6 +8232,14 @@
         "key": "PRI",
         "default": null,
         "extra": "auto_increment"
+      },
+      {
+        "field": "user_id",
+        "type": "bigint(20)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_departament_availability": [
@@ -11988,7 +11996,8 @@
     },
     "lh_audits" : {
       "new" : {
-        "time" : "ALTER TABLE `lh_audits` ADD INDEX `time` (`time`);"
+        "time" : "ALTER TABLE `lh_audits` ADD INDEX `time` (`time`);",
+        "user_id" : "ALTER TABLE `lh_audits` ADD INDEX `user_id` (`user_id`);"
       },
       "old" : [
 
