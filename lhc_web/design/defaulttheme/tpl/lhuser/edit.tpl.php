@@ -38,6 +38,10 @@
         <li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == 'tab_notifications') : ?>active<?php endif;?>" href="#notifications" aria-controls="notifications" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Notifications');?></a></li>
     <?php endif;?>
 
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_op_actions')) : ?>
+        <li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == 'tab_opactions') : ?>active<?php endif;?>" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>/(tab)/opactions" role="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Actions');?></a></li>
+    <?php endif;?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/custom_multiinclude_tab.tpl.php'));?>
 
 </ul>
@@ -411,6 +415,10 @@
     </div>
 
     <?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/notifications_tab_edit.tpl.php'));?>
+
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_op_actions') && $tab == 'tab_opactions') : ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/opactions_tab_edit.tpl.php'));?>
+    <?php endif; ?>
 
     <?php endif; ?>
 

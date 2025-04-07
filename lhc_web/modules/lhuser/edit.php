@@ -14,7 +14,13 @@ try {
 	exit;
 }
 
-$tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
+$validTabs = [
+    'canned' => 'tab_canned',
+    'opactions' => 'tab_opactions'
+];
+
+$tpl->set('tab',key_exists($Params['user_parameters_unordered']['tab'],$validTabs) ? $validTabs[$Params['user_parameters_unordered']['tab']] : '');
+$tpl->set('paramsRequest',$Params);
 
 $can_edit_groups = erLhcoreClassGroupRole::canEditUserGroups(erLhcoreClassUser::instance()->getUserData(), $UserData);
 

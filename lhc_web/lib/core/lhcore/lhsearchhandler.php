@@ -401,7 +401,13 @@ class erLhcoreClassSearchHandler
                         }
                     } elseif ($field['filter_type'] == 'filterin') {
                         if (!empty($inputParams->$key)) {
-                            $filter['filterin'][$field['filter_table_field']] = $inputParams->$key;
+                            $validValues = $inputParams->$key;
+                            if (isset($field['valid_options'])) {
+                                $validValues =  array_intersect($validValues, $field['valid_options']);
+                            }
+                            if (!empty($validValues)) {
+                                $filter['filterin'][$field['filter_table_field']] = $validValues;
+                            }
                         }
                     } elseif ($field['filter_type'] == 'filterin_elastic') {
                         if (!empty($inputParams->$key)) {

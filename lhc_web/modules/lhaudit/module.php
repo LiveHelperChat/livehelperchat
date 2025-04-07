@@ -43,5 +43,6 @@ $FunctionList['log_preview'] = array('explain' => 'Allow operator to preview log
 $FunctionList['see_system'] = array('explain' => 'Allow operator to see system status');
 $FunctionList['see_audit_system'] = array('explain' => 'Allow operator to see audit system messages');
 $FunctionList['ignore_view_actions'] = array('explain' => 'Do not log view actions from operator');
+$FunctionList['see_op_actions'] = array('explain' => 'Allow operator to see other operator logged actions');
 
 ?>

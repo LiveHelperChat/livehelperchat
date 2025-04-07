@@ -79,8 +79,12 @@ $ViewList['grouplist'] = array(
 
 $ViewList['edit'] = array(
     'params' => array('user_id'),
-    'uparams' => array('tab'),
-    'functions' => array( 'edituser' )
+    'uparams' => array('tab', 'category',
+        'timefrom','timefrom_hours','timefrom_seconds','timefrom_minutes',
+        'timeto', 'timeto_minutes', 'timeto_seconds', 'timeto_hours'
+    ),
+    'functions' => array( 'edituser' ),
+    'multiple_arguments' => array('category')
 );
 
 $ViewList['delete'] = array(

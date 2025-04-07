@@ -201,7 +201,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 	}
 
     if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions')) {
-        erLhcoreClassLog::write($chat->id,
+        erLhcoreClassLog::write(0,
             ezcLog::SUCCESS_AUDIT,
             array(
                 'source' => 'lhc',
