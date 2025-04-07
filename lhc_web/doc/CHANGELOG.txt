@@ -2,6 +2,11 @@
 
 1. Low priority XSS issue with saving XMP settings.
 2. Chat/Mail open, preview, search, export actions will be logged if operator does not have `'lhaudit','ignore_view_actions'` permission.
+3. Continuous webhooks for mails will support `{condition` syntax.
+4. Widget scroll improvements
+5. Permission window fixes
+6. Widget will remain closed of page reloads and chat is not started.
+7. New permission export for chats and mails
 
 execute doc/update_db/update_324.sql for update
 
