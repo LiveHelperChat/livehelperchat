@@ -34,11 +34,13 @@ $inputCanned = $filterParamsCanned['input_form'];
                                 'chat_open' => htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat open')),
                                 'chat_view' =>  htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat preview')),
                                 'chat_search' =>  htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat search')),
+                                'chat_search_elastic' =>  htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat search ElasticSearch')),
                                 'chat_export' => htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat export')),
-                                'chat_export_elastic' => htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat export elastic')),
+                                'chat_export_elastic' => htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat export ElasticSearch')),
                                 'mail_open' => htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mail open')),
                                 'mail_view' => htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mail preview')),
                                 'mail_search' => htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mail search')),
+                                'mail_search_elastic' => htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mail search ElasticSearch')),
                                 'mail_export' => htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mail export')),
                                 'mail_export_elastic' => htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mail export ElasticSearch')),
                                  ] as $itemCategory => $itemName) {
@@ -188,10 +190,23 @@ if ($pages->items_total > 0) {
         <tr>
             <td><?php echo $message->id?></td>
             <td><?php echo $message->object_id?></td>
-            <td><?php echo htmlspecialchars($message->category)?>
+            <td>
+                <span class="material-icons"><?php if (in_array($message->category,['chat_open','chat_view','chat_search','chat_export','chat_search_elastic','chat_export_elastic'])) : ?>chat<?php else : ?>mail<?php endif;?></span><?php echo htmlspecialchars($message->category)?>
             </td>
             <td>
-                <?php echo htmlspecialchars($message->message)?>
+                <?php if (in_array($message->category,['chat_open','chat_view'])) : ?>
+                    <a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/single')?>/<?php echo $message->object_id?>"><span class="material-icons">new_window</span><?php echo $message->object_id?></a>
+                <?php elseif (in_array($message->category,['mail_open','mail_view'])) : ?>
+                    <a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/single')?>/<?php echo $message->object_id?>"><span class="material-icons">new_window</span><?php echo $message->object_id?></a>
+                <?php elseif (in_array($message->category,['mail_search','mail_export'])) : ?>
+                    <a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?><?php echo htmlspecialchars($message->message)?>"><span class="material-icons">search</span><?php echo htmlspecialchars($message->message)?></a>
+                <?php elseif (in_array($message->category,['chat_export_elastic','chat_search_elastic'])) : ?>
+                    <a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('elasticsearch/list')?><?php echo htmlspecialchars($message->message)?>"><span class="material-icons">search</span><?php echo htmlspecialchars($message->message)?></a>
+                <?php elseif (in_array($message->category,['mail_search_elastic','mail_export_elastic'])) : ?>
+                    <a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('elasticsearch/listmail')?><?php echo htmlspecialchars($message->message)?>"><span class="material-icons">search</span><?php echo htmlspecialchars($message->message)?></a>
+                <?php elseif (in_array($message->category,['chat_search','chat_export'])) : ?>
+                    <a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo htmlspecialchars($message->message)?>"><span class="material-icons">search</span><?php echo htmlspecialchars($message->message)?></a>
+                <?php endif; ?>
             </td>
             <td>
                 <?php echo htmlspecialchars($message->time)?>

@@ -18,11 +18,13 @@ $fieldsSearch['category'] = array (
         'chat_search',
         'chat_export',
         'chat_export_elastic',
+        'chat_search_elastic',
         'mail_open',
         'mail_view',
         'mail_search',
         'mail_export',
         'mail_export_elastic',
+        'mail_search_elastic',
     )
 );
 

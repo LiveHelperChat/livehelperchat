@@ -110,11 +110,13 @@
             <option value="chat_open">Chat open</option>
             <option value="chat_view">Chat preview</option>
             <option value="chat_search">Chat search</option>
+            <option value="chat_search_elastic">Chat search ElasticSearch</option>
             <option value="chat_export">Chat export</option>
             <option value="chat_export_elastic">Chat export ElasticSearch</option>
             <option value="mail_open">Mail open</option>
             <option value="mail_view">Mail preview</option>
             <option value="mail_search">Mail search</option>
+            <option value="mail_search_elastic">Mail search ElasticSearch</option>
             <option value="mail_export">Mail export</option>
             <option value="mail_export_elastic">Mail export ElasticSearch</option>
             <option value="js">js</option>
