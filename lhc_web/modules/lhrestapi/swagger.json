@@ -150,6 +150,17 @@
             "collectionFormat": "multi"
           },
           {
+            "name": "identifier[]",
+            "in": "query",
+            "description": "Department identifiers. Only plain string and numbers allowed.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
             "name": "limit",
             "in": "query",
             "description": "Limit",
@@ -306,6 +317,17 @@
             "type": "boolean",
             "default": false,
             "in": "query"
+          },
+          {
+            "name": "identifier[]",
+            "in": "query",
+            "description": "Department identifiers. Only plain string and numbers allowed.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           },
           {
             "name": "user_id",

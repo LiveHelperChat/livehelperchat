@@ -31,6 +31,19 @@ class RestAPIValidator
             }
         }
 
+        if (isset($_GET['identifier'])) {
+            $identifiers = $_GET['identifier'];
+            \erLhcoreClassChat::validateFilterInString($identifiers);
+            if (!empty($identifiers)) {
+                $departments = \erLhcoreClassModelDepartament::getList(['filterin' => ['identifier' => $identifiers]]);
+                if (!empty($departments)){
+                    $filterParams['filter']['filter']['dep_id'] = array_keys($departments);
+                } else {
+                    $filterParams['filter']['filter']['id'] = -1;
+                }
+            }
+        }
+
         if (is_numeric($filterParams['input_form']->has_attachment)) {
             if ($filterParams['input_form']->has_attachment == \erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX) {
                 $filterParams['filter']['filterin']['lhc_mailconv_conversation.has_attachment'] = [

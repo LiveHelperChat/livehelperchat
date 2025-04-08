@@ -561,6 +561,19 @@ class erLhcoreClassRestAPIHandler
             }
         }
 
+        if (isset($_GET['identifier'])) {
+            $identifiers = $_GET['identifier'];
+            \erLhcoreClassChat::validateFilterInString($identifiers);
+            if (!empty($identifiers)) {
+                $departments = \erLhcoreClassModelDepartament::getList(['filterin' => ['identifier' => $identifiers]]);
+                if (!empty($departments)){
+                    $filter['filterin']['dep_id'] = array_keys($departments);
+                } else {
+                    $filter['filter']['id'] = -1;
+                }
+            }
+        }
+
         if (isset($_GET['id_gt']) && is_numeric($_GET['id_gt'])) {
             $filter['filtergt']['id'] = (int)$_GET['id_gt'];
         }
@@ -790,8 +803,8 @@ class erLhcoreClassRestAPIHandler
             erLhcoreClassChat::prefillGetAttributes($chats, $prefillFields, $ignoreFields, array('clean_ignore' => true, 'do_not_clean' => true));
         }
 
-        // Chats list
         return array(
+            'filter' => $filter,
             'list' => array_values($chats),
             'list_count' => $chatsCount,
             'error' => false
