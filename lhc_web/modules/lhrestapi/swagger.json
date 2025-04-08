@@ -139,6 +139,17 @@
             "collectionFormat": "multi"
           },
           {
+            "name": "subject_id[]",
+            "in": "query",
+            "description": "Subject ID",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "collectionFormat": "multi"
+          },
+          {
             "name": "limit",
             "in": "query",
             "description": "Limit",
@@ -192,6 +203,27 @@
             "required": false,
             "type": "boolean",
             "default": false,
+            "in": "query"
+          },
+          {
+            "name": "phone",
+            "description": "Phone",
+            "required": false,
+            "type": "string",
+            "in": "query"
+          },
+          {
+            "name": "email",
+            "description": "Email",
+            "required": false,
+            "type": "string",
+            "in": "query"
+          },
+          {
+            "name": "subject",
+            "description": "Mail subject",
+            "required": false,
+            "type": "string",
             "in": "query"
           },
           {
