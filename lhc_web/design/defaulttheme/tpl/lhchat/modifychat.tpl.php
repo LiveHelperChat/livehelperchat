@@ -23,6 +23,11 @@ setTimeout(function() {
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','chatdebug')) : ?>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#chatdebug" aria-controls="chatdebug" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Debug');?></a></li>
     <?php endif; ?>
+
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_op_actions')) : ?>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#opactions" aria-controls="opactions" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Actions');?></a></li>
+    <?php endif; ?>
+
 </ul>
 
 <div class="tab-content">
@@ -145,6 +150,13 @@ setTimeout(function() {
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Agents response times calculation log');?></h6>
             <pre class="fs11"><?php print_r($mainStats);?></pre>
 
+        </div>
+    <?php endif; ?>
+
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_op_actions')) : ?>
+        <div role="tabpanel" class="tab-pane mx550" id="opactions">
+            <?php $opActionsParams = ['scope' => 'chat', 'object_id' => $chat->id]; ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhaudit/op_actions_object.tpl.php'));?>
         </div>
     <?php endif; ?>
     

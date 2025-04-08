@@ -12,6 +12,10 @@
             <?php if ($chat->is_archive === false && erLhcoreClassUser::instance()->hasAccessTo('lhchat','chatdebug')) : ?>
                 <li role="presentation" class="nav-item"><a class="nav-link" href="#chatdebug" aria-controls="chatdebug" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Debug');?></a></li>
             <?php endif; ?>
+
+            <?php if ($chat->is_archive === false && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_op_actions')) : ?>
+                <li role="presentation" class="nav-item"><a class="nav-link" href="#opactions" aria-controls="opactions" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Actions');?></a></li>
+            <?php endif; ?>
         </ul>
 
         <div class="tab-content">
@@ -42,6 +46,12 @@
                     <pre class="fs11"><?php echo htmlspecialchars(json_encode($message->getState(),JSON_PRETTY_PRINT)); ?></pre>
                 <?php endforeach;?>
             </div>
+            <?php endif; ?>
+            <?php if ($chat->is_archive === false && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_op_actions')) : ?>
+                <div role="tabpanel" class="tab-pane mx550" id="opactions">
+                    <?php $opActionsParams = ['scope' => 'mail', 'object_id' => $chat->id]; ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhaudit/op_actions_object.tpl.php'));?>
+                </div>
             <?php endif; ?>
         </div>
 

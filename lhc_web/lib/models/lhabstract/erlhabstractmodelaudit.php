@@ -97,17 +97,35 @@ class erLhAbstractModelAudit
             case 'left_menu':
                 $this->left_menu = '';
                 return $this->left_menu;
-                break;
-                
+
             case 'message_array':
                 $this->message_array = json_decode($this->message, true);
                 return $this->message_array;
-                break;
 
             case 'id_frontend':
                 $this->id_frontend = '[' . $this->id . '] [' . $this->user_id . '] ' . $this->object_id;
                 return $this->id_frontend;
-                break;
+
+            case 'user_name':
+                return $this->user_name = (string)$this->user;
+
+            case 'plain_user_name':
+                $this->plain_user_name = false;
+                if ($this->user !== false) {
+                    $this->plain_user_name = (string)$this->user->name_support;
+                }
+                return $this->plain_user_name;
+
+            case 'user':
+                $this->user = false;
+                if ($this->user_id > 0) {
+                    try {
+                        $this->user = erLhcoreClassModelUser::fetch($this->user_id,true);
+                    } catch (Exception $e) {
+                        $this->user = false;
+                    }
+                }
+                return $this->user;
 
             default:
                 break;
