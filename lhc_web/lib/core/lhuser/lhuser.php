@@ -470,7 +470,7 @@ class erLhcoreClassUser{
        }
 
        // Provided rights have to be set
-       if (is_array($functions))
+       if (is_array($functions) && count($functions) > 1)
        {
            foreach ($functions as $function)
            {
@@ -479,6 +479,7 @@ class erLhcoreClassUser{
            }
 
        } else {
+           $functions = $functions[0];
            if (!isset($AccessArray[$module][$functions])) {
                return false;
            } elseif (isset($AccessArray[$module][$functions]) && $returnLimitation === true && !is_bool($AccessArray[$module][$functions])) {

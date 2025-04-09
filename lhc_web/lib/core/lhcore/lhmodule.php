@@ -42,7 +42,10 @@ class erLhcoreClassModule{
                 header('Pragma: no-cache');
                 header('Expires: Sun, 02 Jan 1990 00:00:00 GMT');
 
-                if (!$currentUser->hasAccessTo('lh'.self::$currentModuleName,$Params['module']['functions']))
+                $limitation = $currentUser->hasAccessTo('lh'.self::$currentModuleName,$Params['module']['functions'],true);
+
+                // If there is no limitation and no permission false is returned
+                if ($limitation === false)
                 {
                 	if ($currentUser->isLogged()) {
 	                 	include_once('modules/lhkernel/nopermission.php');
@@ -59,6 +62,8 @@ class erLhcoreClassModule{
                                exit;
                    	    }
                    	}
+                } else {
+                    $Params['user_limitation'] = $limitation;
                 }
             }
 
