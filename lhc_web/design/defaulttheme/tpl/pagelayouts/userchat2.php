@@ -89,7 +89,6 @@
     </div>
 </div>
 <?php if (isset($Result['theme_obj'])) { $Result['theme'] = $Result['theme_obj']; } ?>
-<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer_user.tpl.php'));?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/after_userchat.tpl.php'));?>
 <?php endif; ?>
