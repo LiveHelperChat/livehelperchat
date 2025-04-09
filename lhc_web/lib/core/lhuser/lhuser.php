@@ -479,7 +479,7 @@ class erLhcoreClassUser{
            }
 
        } else {
-           $functions = $functions[0];
+           $functions = is_array($functions) ? $functions[0] : $functions;
            if (!isset($AccessArray[$module][$functions])) {
                return false;
            } elseif (isset($AccessArray[$module][$functions]) && $returnLimitation === true && !is_bool($AccessArray[$module][$functions])) {
