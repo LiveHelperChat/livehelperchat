@@ -8,7 +8,8 @@ $UserData = $currentUser->getUserData();
 
 $validTabs = array(
     'canned' => 'tab_canned',
-    'autoresponder' => 'tab_autoresponder'
+    'autoresponder' => 'tab_autoresponder',
+    'notifications' => 'tab_notifications'
 );
 
 $tpl->set('tab',key_exists($Params['user_parameters_unordered']['tab'], $validTabs) ? $validTabs[$Params['user_parameters_unordered']['tab']] : '');
@@ -214,6 +215,10 @@ if (isset($_POST['UpdateNotifications_account'])) {
     erLhcoreClassModelUserSetting::setSetting('ownntfonly', $validateNotificationsData['ownntfonly']);
     erLhcoreClassModelUserSetting::setSetting('trackactivity', $validateNotificationsData['trackactivity']);
     erLhcoreClassModelUserSetting::setSetting('hide_quick_notifications', $validateNotificationsData['hide_quick_notifications']);
+
+    if (erLhcoreClassUser::instance()->hasAccessTo('lhnotifications','use_operator')) {
+        erLhcoreClassModelUserSetting::setSetting('hide_pers_chat', $validateNotificationsData['hide_pers_chat']);
+    }
 
     if ($currentUser->hasAccessTo('lhuser', 'largeactivitytimeout')) {
         erLhcoreClassModelUserSetting::setSetting('trackactivitytimeout', $validateNotificationsData['trackactivitytimeout']);

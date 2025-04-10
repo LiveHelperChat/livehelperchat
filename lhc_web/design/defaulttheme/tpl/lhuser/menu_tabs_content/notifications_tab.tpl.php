@@ -48,6 +48,12 @@
                         <br/><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Quick notifications are the ones that you see at the top left corner of the application.')?></i></small>
                     </div>
 
+                    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhnotifications','use_operator')) : ?>
+                    <div class="form-group">
+                        <label><input type="checkbox" name="hide_pers_chat" value="1" <?php erLhcoreClassModelUserSetting::getSetting('hide_pers_chat',0) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not show persistent notifications for chat actions');?></label>
+                    </div>
+                    <?php endif; ?>
+
 
                 </div>
                 <div class="col-6">
@@ -88,7 +94,48 @@
     	     <input type="submit" class="btn btn-secondary" name="UpdateNotifications_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
          </form>
          
-	 </div>	
+	 </div>
+
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhnotifications','use_operator')) : ?>
+
+    <script src="<?php echo erLhcoreClassDesign::designJS('js/lhc.notifications.min.js');?>"></script>
+
+    <?php $notificationsSettings = (array)erLhcoreClassModelChatConfig::fetch('notifications_settings_op')->data; ?>
+
+    <?php if ($notificationsSettings['enabled'] == 1) : ?>
+
+    <hr>
+    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/accounts','Persistent notifications');?></h3>
+
+    <?php if (isset($_GET['notification']) && $_GET['notification'] == 'fail' && isset($_GET['notification_reason'])) : ?>
+    <div class="alert alert-danger"><?php echo htmlspecialchars($_GET['notification_reason'])?></div>
+    <?php endif; ?>
+
+    <?php if (isset($_GET['notification']) && $_GET['notification'] == 'success') : ?>
+    <div class="alert alert-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/accounts','Success');?></div>
+    <?php endif; ?>
+
+    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/accounts','Those notifications are sent independently is browser closed or not. Notifications for chat is shown only if active window is not detected. Mobile notifications should be enabled.');?></p>
+
+    <button class="btn btn-sm btn-primary" id="subscribe-persistent"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/accounts','Subscribe');?></button>
+
+    <script>
+        (function(){
+            new LHCOperatorNotifications({
+                'public_key': <?php echo json_encode($notificationsSettings['public_key']); ?>
+            });
+        })();
+    </script>
+
+    <h5 class="mt-4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/accounts','Your subscriptions');?></h5>
+
+    <div id="subscriptions">
+
+    </div>
+
+    <?php endif; ?>
+
+    <?php endif; ?>
 </div>
 
 

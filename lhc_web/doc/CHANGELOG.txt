@@ -1,3 +1,13 @@
+4.57v
+
+1. Link to chat was not activating chat tab on first open.
+2. Push notifications based browser notifications. You can receive notifications even if back office is closed.
+3. Rest API for mail conversations and chat Rest API will support search by department identifier.
+4. Option to log operator actions (chat open/preview...) in audit log.
+5. Bunch of other small fixes...
+
+execute doc/update_db/update_325.sql for update
+
 4.56v
 
 1. Low priority XSS issue with saving XMP settings.

@@ -158,6 +158,14 @@ gulp.task('js-lh-canned', function() {
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
+gulp.task('js-lh-notifications', function() {
+	var stylePath = ['design/defaulttheme/js/lhc.notifications.js'];
+	return gulp.src(stylePath)
+	.pipe(concat('lhc.notifications.min.js'))
+	.pipe(uglify())
+	.pipe(gulp.dest('design/defaulttheme/js'));
+});
+
 gulp.task('js-lh-dashboard', function() {
 	var stylePath = ['design/defaulttheme/js/lhc.dashboard.js'];	
 	return gulp.src(stylePath)
@@ -227,7 +235,7 @@ gulp.task('js-cobrowse',gulp.series('js-cobrowse-operator','js-cobrowse-visitor'
 //bower setup
 gulp.task('bower-setup');
 
-gulp.task('default', gulp.series('js-lh-dashboard','js-cobrowse-operator','js-cobrowse-visitor','js-modal-ext','js-angular-main','js-main-fileupload','js-datepicker','js-colorpicker','js-lhc-speak-js','js-lh','js-lh-legacy','js-lh-plugin','js-lh-canned','js-angular-checkmodel','js-angular-online','js-lh-npm'));
+gulp.task('default', gulp.series('js-lh-notifications','js-lh-dashboard','js-cobrowse-operator','js-cobrowse-visitor','js-modal-ext','js-angular-main','js-main-fileupload','js-datepicker','js-colorpicker','js-lhc-speak-js','js-lh','js-lh-legacy','js-lh-plugin','js-lh-canned','js-angular-checkmodel','js-angular-online','js-lh-npm'));
 
 gulp.task('webpack', gulp.series('js-lh-npm'));
 

@@ -52,6 +52,168 @@ class erLhcoreClassNotifications {
 
         return $Errors;
     }
+    public static function validateTestNotificationOp(& $input, $subscriber) {
+
+        $definition = array(
+            'chat_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+            ),
+            'test_message' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'url' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ( $form->hasValidData( 'chat_id' ) ) {
+            $input->chat_id = $form->chat_id;
+        }
+
+        if ( $form->hasValidData( 'test_message' ) ) {
+            $input->test_message = $form->test_message;
+        }
+
+        if ( $form->hasValidData( 'url' ) ) {
+            $input->url = $form->url;
+        }
+
+        if (!($input->chat_id > 0 || $input->test_message != '' )) {
+            $Errors[] = "Please enter message or chat ID";
+        }
+
+        if (empty($Errors)) {
+            try {
+
+                if (is_numeric($input->chat_id) && $input->chat_id > 0) {
+                    $report = self::sendNotificationOpChat(erLhcoreClassModelChat::fetch($input->chat_id), $subscriber, ['ignore_active' => true]);
+                } else {
+                    $report = self::sendNotificationOpMessage($input->test_message, $subscriber, ['ignore_active' => true, 'data' => ['url' => $input->url]]);
+                }
+
+                $endpoint = $report->getRequest()->getUri()->__toString();
+
+                if (!$report->isSuccess()) {
+                    $Errors[] = "[x] Message failed to sent for subscription {$endpoint}: {$report->getReason()}";
+                }
+
+            } catch (Exception $e) {
+                $Errors[] = $e->getMessage();
+            }
+
+        }
+
+        return $Errors;
+    }
+
+    public static function sendNotificationOpChat($item, $subscriber, $paramsExecution = [])
+    {
+        $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 4, 'sort' => 'id DESC','filter' => array('chat_id' => $item->id))));
+        $messagesContent = '';
+        foreach ($messages as $msg ) {
+            if ($msg->user_id != -1) {
+                $messagesContent .= ($msg->user_id == 0 ? htmlspecialchars($item->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars(trim($msg->msg))."\n";
+            }
+        }
+
+        $subscriptionDestination = Subscription::create(json_decode($subscriber->params, true));
+
+        $nSettings = erLhcoreClassModelChatConfig::fetch('notifications_settings_op');
+        $data = (array)$nSettings->data;
+
+        $auth = array(
+            'VAPID' => array(
+                'subject' => $data['subject'],
+                'publicKey' => $data['public_key'],
+                'privateKey' =>  $data['private_key'] // in the real world, this would be in a secret file
+            ),
+        );
+
+        $webPush = new WebPush($auth);
+        $webPush->setAutomaticPadding(2000);
+
+        if ($item->user_id == 0) {
+            $title = erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/list','New chat') . ' #' . (string)$item->id .' ['. (string)$item->department .']';
+        } else {
+            $title = erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/list','Assigned chat') . ' #' . (string)$item->id .' ['. (string)$item->department .']';
+        }
+
+        $payload = array(
+            'renotify' => $data['renotify'],
+            'rinteraction' => $data['require_interaction'],
+            'icon' =>  $data['icon'],
+            'badge' =>  $data['badge'],
+            'tag' => 'lhc_chat_' . $item->id,
+            'msg' => trim($messagesContent),
+            'title' => $title,
+            'data' => array(
+                'type' => 'lhc_open_chat',
+                'cid' => $item->id,
+                'url' => 'https://' . $data['http_host'] . erLhcoreClassDesign::baseurldirect('front/default') . '/(cid)/' . $item->id . '/#!#chat-id-' . $item->id
+            )
+        );
+
+        $payload = array_merge_recursive($payload, $paramsExecution);
+
+        if (isset($data['vibrate']) && $data['vibrate'] != '') {
+            $payload['vibrate'] = explode(',',$data['vibrate']);
+        }
+
+        return $webPush->sendOneNotification(
+            $subscriptionDestination,
+            json_encode($payload),
+            ['topic' => 'lhc_chat_' . $item->id, 'TTL' => 5000]
+        );
+    }
+
+    public static function sendNotificationOpMessage($message, $subscriber, $paramsExecution = [])
+    {
+        $subscriptionDestination = Subscription::create(json_decode($subscriber->params, true));
+
+        $nSettings = erLhcoreClassModelChatConfig::fetch('notifications_settings_op');
+        $data = (array)$nSettings->data;
+
+        $auth = array(
+            'VAPID' => array(
+                'subject' => $data['subject'],
+                'publicKey' => $data['public_key'],
+                'privateKey' =>  $data['private_key']
+            ),
+        );
+
+        $webPush = new WebPush($auth);
+        $webPush->setAutomaticPadding(2000);
+
+        $title = erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/index', 'Notification');
+
+        $payload = array(
+            'renotify' => $data['renotify'],
+            'rinteraction' => $data['require_interaction'],
+            'icon' =>  $data['icon'],
+            'badge' =>  $data['badge'],
+            'tag' => 'lhc_op_' . $subscriber->id . '_' . time(),
+            'msg' => trim($message),
+            'title' => $title,
+            'data' => array(
+                'type' => 'lhc_open_url'
+            )
+        );
+
+        $payload = array_merge_recursive($payload, $paramsExecution);
+
+        if (isset($data['vibrate']) && $data['vibrate'] != '') {
+            $payload['vibrate'] = explode(',', $data['vibrate']);
+        }
+
+        return $webPush->sendOneNotification(
+            $subscriptionDestination,
+            json_encode($payload),
+            ['topic' => 'lhc_op_' . $subscriber->id . '_' . time(), 'TTL' => 5000]
+        );
+    }
 
     public static function validateSubscriber(& $bot) {
 

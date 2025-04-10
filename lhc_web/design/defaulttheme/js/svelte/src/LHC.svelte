@@ -96,6 +96,16 @@
 
     lhinst.channel = lhcLogic.channel = new BroadcastChannel('lhc_dashboard');
 
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.addEventListener('message', function(event) {
+            if (event.data.action === 'lhc_open_chat') {
+                startChatByID(event.data.chat_id);
+            } else if (event.data.action === 'lhc_open_url' && event.data.url) {
+                document.location = event.data.url;
+            }
+        });
+    }
+
     lhcLogic.channel.addEventListener("message", function(event) {
         if (event.isTrusted && event.data.action) {
 
@@ -543,7 +553,7 @@
         var elm = document.getElementById('load_chat_id');
 
         if (elm && openedChats.indexOf(elm.value) === -1) {
-            chat_id = elm.value;
+            chat_id = parseInt(elm.value);
             openedChats.push(elm.value);
             window.location.hash = '#!#chat-id-'+elm.value;
         }
@@ -551,7 +561,7 @@
         var elm = document.getElementById('load_mail_id');
 
         if (elm && openedmChats.indexOf(elm.value) === -1) {
-            mail_id = elm.value;
+            mail_id = parseInt(elm.value);
             openedmChats.push(elm.value);
             window.location.hash = '#!#chat-id-mc'+elm.value;
         }
@@ -730,7 +740,7 @@
         });
 
         data.cmopen.forEach(function(chatOpen) {
-            lhinst.startMailChat(chatOpen.id,jQuery('#tabs'),truncate(chatOpen.subject || 'Mail',10), !(chatOpen.id == mail_id));
+            lhinst.startMailChat(chatOpen.id,jQuery('#tabs'),truncate(chatOpen.subject || 'Mail',10), !(chatOpen.id === mail_id));
         });
 
         data.cmdel.forEach(function(chatOpen) {
@@ -1706,7 +1716,7 @@
     function startChatByID(chat_id, background) {
         if (!isNaN(chat_id)) {
             if (jQuery('#tabs').length > 0) {
-                jQuery('#menu-chat-options').dropdown('toggle');
+                /*jQuery('#menu-chat-options').dropdown('toggle'); Why this one was here*/
                 lhcServices.getChatData(chat_id).then(function(data) {
                     if (data.r) {
                         document.location = WWW_DIR_JAVASCRIPT + data.r;
