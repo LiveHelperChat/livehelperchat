@@ -4,6 +4,7 @@
 2. Push notifications based browser notifications. You can receive notifications even if back office is closed.
 3. Rest API for mail conversations and chat Rest API will support search by department identifier.
 4. Option to log operator actions (chat open/preview...) in audit log.
+5. Bunch of other small fixes...
 
 execute doc/update_db/update_325.sql for update
 
