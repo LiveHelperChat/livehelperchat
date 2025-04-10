@@ -60,6 +60,9 @@ class erLhcoreClassNotifications {
             ),
             'test_message' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'url' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             )
         );
 
@@ -74,6 +77,10 @@ class erLhcoreClassNotifications {
             $input->test_message = $form->test_message;
         }
 
+        if ( $form->hasValidData( 'url' ) ) {
+            $input->url = $form->url;
+        }
+
         if (!($input->chat_id > 0 || $input->test_message != '' )) {
             $Errors[] = "Please enter message or chat ID";
         }
@@ -84,7 +91,7 @@ class erLhcoreClassNotifications {
                 if (is_numeric($input->chat_id) && $input->chat_id > 0) {
                     $report = self::sendNotificationOpChat(erLhcoreClassModelChat::fetch($input->chat_id), $subscriber, ['ignore_active' => true]);
                 } else {
-                    $report = self::sendNotificationOpMessage($input->test_message, $subscriber, ['ignore_active' => true]);
+                    $report = self::sendNotificationOpMessage($input->test_message, $subscriber, ['ignore_active' => true, 'data' => ['url' => $input->url]]);
                 }
 
                 $endpoint = $report->getRequest()->getUri()->__toString();
@@ -128,7 +135,11 @@ class erLhcoreClassNotifications {
         $webPush = new WebPush($auth);
         $webPush->setAutomaticPadding(2000);
 
-        $title = 'New/Assigned chat at ' . (string)$item->department;
+        if ($item->user_id == 0) {
+            $title = erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/list','New chat') . ' #' . (string)$item->id .' ['. (string)$item->department .']';
+        } else {
+            $title = erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/list','Assigned chat') . ' #' . (string)$item->id .' ['. (string)$item->department .']';
+        }
 
         $payload = array(
             'renotify' => $data['renotify'],
@@ -145,7 +156,7 @@ class erLhcoreClassNotifications {
             )
         );
 
-        $payload = array_merge($payload, $paramsExecution);
+        $payload = array_merge_recursive($payload, $paramsExecution);
 
         if (isset($data['vibrate']) && $data['vibrate'] != '') {
             $payload['vibrate'] = explode(',',$data['vibrate']);
@@ -187,12 +198,11 @@ class erLhcoreClassNotifications {
             'msg' => trim($message),
             'title' => $title,
             'data' => array(
-                'type' => 'lhc_open_url',
-                'url' => 'https://' . $data['http_host'] . erLhcoreClassDesign::baseurldirect('user/account')
+                'type' => 'lhc_open_url'
             )
         );
 
-        $payload = array_merge($payload, $paramsExecution);
+        $payload = array_merge_recursive($payload, $paramsExecution);
 
         if (isset($data['vibrate']) && $data['vibrate'] != '') {
             $payload['vibrate'] = explode(',', $data['vibrate']);

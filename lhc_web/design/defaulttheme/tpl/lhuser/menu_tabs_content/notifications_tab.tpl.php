@@ -90,106 +90,46 @@
          
 	 </div>
 
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhnotifications','use_operator')) : ?>
+
+    <script src="<?php echo erLhcoreClassDesign::designJS('js/lhc.notifications.js');?>"></script>
 
     <?php $notificationsSettings = (array)erLhcoreClassModelChatConfig::fetch('notifications_settings_op')->data; ?>
 
     <?php if ($notificationsSettings['enabled'] == 1) : ?>
 
     <hr>
-    <h3>Persistent notifications</h3>
+    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/accounts','Persistent notifications');?></h3>
 
-    <p>Those notifications are sent independently is browser closed or not.</p>
+    <?php if (isset($_GET['notification']) && $_GET['notification'] == 'fail' && isset($_GET['notification_reason'])) : ?>
+    <div class="alert alert-danger"><?php echo htmlspecialchars($_GET['notification_reason'])?></div>
+    <?php endif; ?>
 
-    <button class="btn btn-sm btn-primary" id="subscribe-persistent">Subscribe</button>
+    <?php if (isset($_GET['notification']) && $_GET['notification'] == 'success') : ?>
+    <div class="alert alert-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/accounts','Success');?></div>
+    <?php endif; ?>
+
+    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/accounts','Those notifications are sent independently is browser closed or not. Notifications for chat is shown only if active window is not detected. Mobile notifications should be enabled.');?></p>
+
+    <button class="btn btn-sm btn-primary" id="subscribe-persistent"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/accounts','Subscribe');?></button>
 
     <script>
-        const publicKey = <?php echo json_encode($notificationsSettings['public_key']); ?>;
-
-        if ('serviceWorker' in navigator && 'PushManager' in window) {
-            // Register service worker
-            let swRegistration;
-            navigator.serviceWorker.register('<?php echo erLhcoreClassDesign::baseurl('notifications/serviceworkerop')?>')
-                .then(registration => {
-                    console.log('Service Worker registered');
-                    swRegistration = registration;
-                    return registration.pushManager.getSubscription();
-                })
-                .then(subscription => {
-                    document.getElementById('subscribe-persistent').addEventListener('click', () => {
-                        subscribeUser(swRegistration);
-                    });
-                });
-        }
-
-        async function subscribeUser(registration) {
-            const subscriptionOptions = {
-                userVisibleOnly: true,
-                applicationServerKey: urlBase64ToUint8Array(publicKey)
-            };
-            try {
-                const subscription = await registration.pushManager.subscribe(subscriptionOptions);
-                await fetch('<?php echo erLhcoreClassDesign::baseurl('notifications/subscribeop')?>', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(subscription),
-                    credentials: 'same-origin'
-                });
-
-                alert('Subscribed successfully');
-            } catch (error) {
-                alert('Subscription failed:'+ JSON.stringify(error));
-            }
-        }
-
-        function urlBase64ToUint8Array(base64String) {
-            const padding = '='.repeat((4 - base64String.length % 4) % 4);
-            const base64 = (base64String + padding)
-                .replace(/\-/g, '+')
-                .replace(/_/g, '/');
-            const rawData = window.atob(base64);
-            const outputArray = new Uint8Array(rawData.length);
-            for (let i = 0; i < rawData.length; ++i) {
-                outputArray[i] = rawData.charCodeAt(i);
-            }
-            return outputArray;
-        }
+        (function(){
+            new LHCOperatorNotifications({
+                'public_key': <?php echo json_encode($notificationsSettings['public_key']); ?>
+            });
+        })();
     </script>
 
-    <h5 class="mt-4">Your subscriptions</h5>
+    <h5 class="mt-4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/accounts','Your subscriptions');?></h5>
 
     <div id="subscriptions">
-        <table class="table table-sm">
-            <thead>
-                <th>Device</th>
-                <th>Registration date</th>
-                <th>Update date</th>
-                <th>Status</th>
-            </thead>
-            <?php foreach (\LiveHelperChat\Models\Notifications\OperatorSubscriber::getList(array('limit' => 100, 'filter' => array('user_id' => $user->id))) as $notificationSubscriber) : ?>
-            <tr>
-                <td><i class="material-icons" title="<?php echo htmlspecialchars($notificationSubscriber->uagent)?>"><?php echo ($notificationSubscriber->device_type == 0 ? 'computer' : ($notificationSubscriber->device_type == 1 ? 'smartphone' : 'tablet')) ?></i><?php echo ($notificationSubscriber->device_type == 0 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Computer') : ($notificationSubscriber->device_type == 1 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Smartphone') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Tablet'))) ?></td>
-                <td nowrap="nowrap">
-                    <?php echo $notificationSubscriber->ctime_front?>
-                </td>
-                <td nowrap="nowrap">
-                    <?php echo $notificationSubscriber->utime_front?>
-                </td>
-                <td>
-                    <?php if ($notificationSubscriber->status == 0) : ?>
-                        Active
-                    <?php else : ?>
-                        In-Active
-                    <?php endif; ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
+
     </div>
 
     <?php endif; ?>
 
+    <?php endif; ?>
 </div>
 
 

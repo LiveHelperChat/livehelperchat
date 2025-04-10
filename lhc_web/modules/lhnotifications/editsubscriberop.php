@@ -12,6 +12,7 @@ if ( isset($_POST['Cancel_edit']) ) {
 $input = new stdClass();
 $input->chat_id = '';
 $input->test_message = '';
+$input->url = '';
 
 if (isset($_POST['Send_action'])) {
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -62,7 +63,7 @@ $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System configuration')),
     array('url' => erLhcoreClassDesign::baseurl('notifications/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/index', 'Notifications')),
-    array('url' => erLhcoreClassDesign::baseurl('notifications/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/index','Subscribers list')),
+    array('url' => erLhcoreClassDesign::baseurl('notifications/oplist'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/index','Operators subscribers list')),
     array('title' => $subscriber->id));
 
 ?>

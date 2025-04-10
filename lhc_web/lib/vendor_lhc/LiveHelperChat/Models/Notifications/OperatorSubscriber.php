@@ -103,6 +103,7 @@ class OperatorSubscriber {
 
     public $id = null;
     public $chat_id = 0;
+    public $user_id = 0;
     public $ctime = 0;
     public $utime = 0;
     public $status = self::STATUS_SUBSCRIBED;

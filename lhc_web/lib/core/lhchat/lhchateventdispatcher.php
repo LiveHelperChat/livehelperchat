@@ -27,6 +27,7 @@ class erLhcoreClassChatEventDispatcher {
            // Do not set listeners if mobile is disabled
            if ($this->disableMobile == false) {
                $this->listen('chat.chat_started', 'erLhcoreClassLHCMobile::chatStarted');
+               $this->listen('chat.data_changed_auto_assign', 'erLhcoreClassLHCMobile::chatStarted');
                $this->listen('chat.addmsguser', 'erLhcoreClassLHCMobile::newMessage');
                $this->listen('chat.messages_added_passive', 'erLhcoreClassLHCMobile::newMessage');
                $this->listen('chat.genericbot_chat_command_transfer', 'erLhcoreClassLHCMobile::botTransfer');

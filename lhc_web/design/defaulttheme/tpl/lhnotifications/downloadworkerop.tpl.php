@@ -130,7 +130,7 @@ self.addEventListener('notificationclick', function(event) {
                 matchingClient.postMessage({
                     action: notificationData.type,
                     chat_id: (notificationData.cid ? notificationData.cid : null),
-                    url: (notificationData.url ? notificationData.url : ''),
+                    url: (notificationData.url ? notificationData.url : null),
                 });
                 break;
             }

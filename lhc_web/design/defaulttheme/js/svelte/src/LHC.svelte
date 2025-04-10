@@ -100,7 +100,7 @@
         navigator.serviceWorker.addEventListener('message', function(event) {
             if (event.data.action === 'lhc_open_chat') {
                 startChatByID(event.data.chat_id);
-            } else if (event.data.action === 'lhc_open_url') {
+            } else if (event.data.action === 'lhc_open_url' && event.data.url) {
                 document.location = event.data.url;
             }
         });

@@ -70,12 +70,37 @@ $ViewList['deletesubscriber'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['opdeletesubscriber'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['serviceworkerop'] = array(
     'params' => array(),
     'uparams' => array(),
     'functions' => array( 'use' )
 );
 
+$ViewList['opdeletesubscribermy'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use_operator' )
+);
+
+$ViewList['sendtest'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use_operator' )
+);
+
+$ViewList['loadsubscriptions'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use_operator' )
+);
+
 $FunctionList['use'] = array('explain' => 'Notifications module');
+$FunctionList['use_operator'] = array('explain' => 'Allow operator to use push notifications');
 
 ?>

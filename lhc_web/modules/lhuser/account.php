@@ -8,7 +8,8 @@ $UserData = $currentUser->getUserData();
 
 $validTabs = array(
     'canned' => 'tab_canned',
-    'autoresponder' => 'tab_autoresponder'
+    'autoresponder' => 'tab_autoresponder',
+    'notifications' => 'tab_notifications'
 );
 
 $tpl->set('tab',key_exists($Params['user_parameters_unordered']['tab'], $validTabs) ? $validTabs[$Params['user_parameters_unordered']['tab']] : '');
