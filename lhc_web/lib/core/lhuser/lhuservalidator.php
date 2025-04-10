@@ -824,8 +824,11 @@ class erLhcoreClassUserValidator {
             'hide_quick_notifications' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'hide_pers_chat' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            )
 	    );
-	    
+
 	    $form = new ezcInputForm( INPUT_POST, $definition );
 
 	    $data['show_alert_chat'] = ( $form->hasValidData( 'show_alert_chat' ) && $form->show_alert_chat == true ) ? 1 : 0;
@@ -835,6 +838,7 @@ class erLhcoreClassUserValidator {
 	    $data['trackactivitytimeout'] = ( $form->hasValidData( 'trackactivitytimeout' )) ? (int)$form->trackactivitytimeout : -1;
 	    $data['show_alert_transfer'] = ( $form->hasValidData( 'show_alert_transfer' ) && $form->show_alert_transfer == true) ? (int)$form->show_alert_transfer : 0;
 	    $data['hide_quick_notifications'] = ( $form->hasValidData( 'hide_quick_notifications' ) && $form->hide_quick_notifications == true) ? (int)$form->hide_quick_notifications : 0;
+        $data['hide_pers_chat'] = ( $form->hasValidData( 'hide_pers_chat' ) && $form->hide_pers_chat == true) ? (int)$form->hide_pers_chat : 0;
 
 	    return $data;
 	}

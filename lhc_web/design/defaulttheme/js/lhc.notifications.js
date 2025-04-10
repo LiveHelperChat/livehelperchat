@@ -7,20 +7,20 @@ var LHCOperatorNotifications = (function() {
             // Register service worker
             let swRegistration;
             navigator.serviceWorker.register(WWW_DIR_JAVASCRIPT + 'notifications/serviceworkerop')
-            .then(registration => {
-                if (registration.installing) {
-                    console.log('Service worker installing');
-                } else if (registration.waiting) {
-                    console.log('Service worker installed');
-                } else if (registration.active) {
-                    console.log('Service worker active');
-                }
+                .then(registration => {
+                    if (registration.installing) {
+                        console.log('Service worker installing');
+                    } else if (registration.waiting) {
+                        console.log('Service worker installed');
+                    } else if (registration.active) {
+                        console.log('Service worker active');
+                    }
 
-                console.log('Service Worker registered');
+                    console.log('Service Worker registered');
 
-                swRegistration = registration;
-                return registration.pushManager.getSubscription();
-            })
+                    swRegistration = registration;
+                    return registration.pushManager.getSubscription();
+                })
                 .then(subscription => {
                     document.getElementById('subscribe-persistent').addEventListener('click', () => {
                         subscribeUser(swRegistration);
@@ -56,10 +56,10 @@ var LHCOperatorNotifications = (function() {
                 method: 'GET',
                 credentials: 'same-origin'
             }).then((response) => response.text())
-              .then((html) => {
-                document.getElementById('subscriptions').innerHTML = html;
-                lhinst.protectCSFR();
-            }).catch((error) => {
+                .then((html) => {
+                    document.getElementById('subscriptions').innerHTML = html;
+                    lhinst.protectCSFR();
+                }).catch((error) => {
                 console.error('Error loading subscriptions:', error);
             });
         }

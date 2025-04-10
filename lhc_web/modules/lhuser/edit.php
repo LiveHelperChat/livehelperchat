@@ -101,7 +101,14 @@ if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_e
         if ($can_edit_groups == true) {
             $UserData->setUserGroups();
         }
-        
+
+        if ($UserData->disabled == 1){
+            $q = ezcDbInstance::get()->createDeleteQuery();
+            $q->deleteFrom( 'lh_notification_op_subscriber' )->where( $q->expr->eq( 'user_id', $UserData->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+        }
+
         $CacheManager = erConfigClassLhCacheConfig::getInstance();
         $CacheManager->expireCache();
        

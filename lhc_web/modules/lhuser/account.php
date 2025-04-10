@@ -216,6 +216,10 @@ if (isset($_POST['UpdateNotifications_account'])) {
     erLhcoreClassModelUserSetting::setSetting('trackactivity', $validateNotificationsData['trackactivity']);
     erLhcoreClassModelUserSetting::setSetting('hide_quick_notifications', $validateNotificationsData['hide_quick_notifications']);
 
+    if (erLhcoreClassUser::instance()->hasAccessTo('lhnotifications','use_operator')) {
+        erLhcoreClassModelUserSetting::setSetting('hide_pers_chat', $validateNotificationsData['hide_pers_chat']);
+    }
+
     if ($currentUser->hasAccessTo('lhuser', 'largeactivitytimeout')) {
         erLhcoreClassModelUserSetting::setSetting('trackactivitytimeout', $validateNotificationsData['trackactivitytimeout']);
     }

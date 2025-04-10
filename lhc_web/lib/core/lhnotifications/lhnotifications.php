@@ -109,7 +109,7 @@ class erLhcoreClassNotifications {
         return $Errors;
     }
 
-    public static function sendNotificationOpChat($item, $subscriber, $paramsExecution)
+    public static function sendNotificationOpChat($item, $subscriber, $paramsExecution = [])
     {
         $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 4, 'sort' => 'id DESC','filter' => array('chat_id' => $item->id))));
         $messagesContent = '';

@@ -1,5 +1,5 @@
 <?php
-$category = $opActionsParams['scope'] == 'mail' ? ['mail_open','mail_view'] : ['chat_view','chat_search'];
+$category = $opActionsParams['scope'] == 'mail' ? ['mail_open','mail_view'] : ['chat_view','chat_open'];
 $filter = ['filterin' => ['category' => $category],'filter' => ['object_id' => $opActionsParams['object_id']]];
 $itemsActions = erLhAbstractModelAudit::getList(array_merge_recursive($filter,array('offset' => 0, 'limit' => 1000)));
 ?>

@@ -48,6 +48,12 @@
                         <br/><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Quick notifications are the ones that you see at the top left corner of the application.')?></i></small>
                     </div>
 
+                    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhnotifications','use_operator')) : ?>
+                    <div class="form-group">
+                        <label><input type="checkbox" name="hide_pers_chat" value="1" <?php erLhcoreClassModelUserSetting::getSetting('hide_pers_chat',0) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not show persistent notifications for chat actions');?></label>
+                    </div>
+                    <?php endif; ?>
+
 
                 </div>
                 <div class="col-6">
@@ -92,7 +98,7 @@
 
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhnotifications','use_operator')) : ?>
 
-    <script src="<?php echo erLhcoreClassDesign::designJS('js/lhc.notifications.js');?>"></script>
+    <script src="<?php echo erLhcoreClassDesign::designJS('js/lhc.notifications.min.js');?>"></script>
 
     <?php $notificationsSettings = (array)erLhcoreClassModelChatConfig::fetch('notifications_settings_op')->data; ?>
 

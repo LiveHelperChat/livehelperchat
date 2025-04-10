@@ -553,7 +553,7 @@
         var elm = document.getElementById('load_chat_id');
 
         if (elm && openedChats.indexOf(elm.value) === -1) {
-            chat_id = elm.value;
+            chat_id = parseInt(elm.value);
             openedChats.push(elm.value);
             window.location.hash = '#!#chat-id-'+elm.value;
         }
@@ -561,7 +561,7 @@
         var elm = document.getElementById('load_mail_id');
 
         if (elm && openedmChats.indexOf(elm.value) === -1) {
-            mail_id = elm.value;
+            mail_id = parseInt(elm.value);
             openedmChats.push(elm.value);
             window.location.hash = '#!#chat-id-mc'+elm.value;
         }
@@ -740,7 +740,7 @@
         });
 
         data.cmopen.forEach(function(chatOpen) {
-            lhinst.startMailChat(chatOpen.id,jQuery('#tabs'),truncate(chatOpen.subject || 'Mail',10), !(chatOpen.id == mail_id));
+            lhinst.startMailChat(chatOpen.id,jQuery('#tabs'),truncate(chatOpen.subject || 'Mail',10), !(chatOpen.id === mail_id));
         });
 
         data.cmdel.forEach(function(chatOpen) {

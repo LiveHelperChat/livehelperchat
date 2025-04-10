@@ -287,9 +287,6 @@ class erLhcoreClassLHCMobile {
 
     public static function chatStarted($params) {
 
-
-
-
         // New chat notification should be send only if chat is pending
         // We are not interested in pending or bot chats etc.
         // But we are interested in direct notifications about chat
@@ -367,7 +364,7 @@ class erLhcoreClassLHCMobile {
 
         if (isset($options['enabled']) && $options['enabled'] == true) {
             foreach (\LiveHelperChat\Models\Notifications\OperatorSubscriber::getList(array('filter' => array('status' => 0))) as $operator) {
-                if (is_object($operator->user) &&
+                if (is_object($operator->user) && (int)erLhcoreClassModelUserSetting::getSetting('hide_pers_chat',0, $operator->user_id,true,true) === 0 &&
                     (int)erLhcoreClassModelUserSetting::getSetting('new_chat_sound',1, $operator->user_id,true,true) === 1 &&
                     ($operator->user->hide_online == 0 || (int)erLhcoreClassModelUserSetting::getSetting('sn_off',0, $operator->user_id,true,true) === 1) &&
                     (
@@ -398,7 +395,7 @@ class erLhcoreClassLHCMobile {
                         }
                     }
 
-                    $report = erLhcoreClassNotifications::sendNotificationOpChat($params['chat'], $operator, ['ignore_active' => true]);
+                    $report = erLhcoreClassNotifications::sendNotificationOpChat($params['chat'], $operator /*['ignore_active' => true]*/);
 
                     if (!$report->isSuccess()) {
                         $operator->last_error = $report->getReason();

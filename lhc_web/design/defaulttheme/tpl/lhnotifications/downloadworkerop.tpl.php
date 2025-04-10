@@ -97,10 +97,11 @@ self.addEventListener('push', function(event) {
         options.data = dataNotification.data;
     }
 
+
     // Do not show notification if window is focused
     const promiseChain = isClientFocused().then((clientIsFocused) => {
         if ((typeof dataNotification.ignore_active === 'undefined') && clientIsFocused) {
-            <?php /* console.log('Don\'t need to show a notification.'); */ ?>
+            <?php /*console.log('Don\'t need to show a notification.');*/ ?>
             return;
         }
         <?php /* Client isn't focused, we need to show a notification. */ ?>

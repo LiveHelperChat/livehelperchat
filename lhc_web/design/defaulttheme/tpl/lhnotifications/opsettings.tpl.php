@@ -14,8 +14,6 @@
 
     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Explains were taken from:')?> <a target="_blank" href="https://web-push-book.gauntface.com/demos/notification-examples/">https://web-push-book.gauntface.com/demos/notification-examples/</a></p>
 
-    <p><a href="<?php echo erLhcoreClassDesign::baseurl('notifications/downloadworkerop')?>"><i class="material-icons">cloud_download</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Download Service Worker')?></a> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','you will have to put this file in your domain root folder.')?></p>
-
     <div class="form-group">
         <label><input type="checkbox" value="on" name="enabled" <?php isset($n_settings['enabled']) && ($n_settings['enabled'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Enable notifications')?></label><br/>
     </div>
@@ -38,13 +36,13 @@
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Subject*')?></label>
-        <input type="text" class="form-control" name="subject" value="<?php (isset($n_settings['subject'])) ? print htmlspecialchars($n_settings['subject']) : ''?>">
+        <input type="text" class="form-control" name="subject" value="<?php (isset($n_settings['subject'])) ? print htmlspecialchars($n_settings['subject']) : print htmlspecialchars(erLhcoreClassSystem::getHost())?>">
         <small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','You must provide a subject that is either a mailto: or a URL.')?></i></small>
     </div>
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','HTTP Host*')?></label>
-        <input type="text" class="form-control" name="http_host" value="<?php (isset($n_settings['http_host']) && !empty($n_settings['http_host'])) ? print htmlspecialchars($n_settings['http_host']) : print str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?>">
+        <input type="text" class="form-control" placeholder="chat.example.com/index.php/site_admin" name="http_host" value="<?php (isset($n_settings['http_host']) && !empty($n_settings['http_host'])) ? print htmlspecialchars($n_settings['http_host']) : print str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('/'))?>">
         <small><i>You must provide host for notifications images.</i></small>
     </div>
 
@@ -61,7 +59,7 @@
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Vibrate')?></label>
-        <input type="text" class="form-control" name="vibrate" value="<?php if (isset($n_settings['vibrate'])) : ?><?php print htmlspecialchars($n_settings['vibrate']); endif ?>">
+        <input type="text" class="form-control" name="vibrate" value="<?php if (isset($n_settings['vibrate'])) : ?><?php print htmlspecialchars($n_settings['vibrate']); ?><?php else : ?>500,110,500,110,450,110,200,110,170,40,450,110,200,110,170,40,500<?php endif;?>">
     </div>
 
     <div class="form-group">
