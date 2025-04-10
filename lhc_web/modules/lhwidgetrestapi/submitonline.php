@@ -1,5 +1,5 @@
 <?php
-sleep(5);
+
 $requestPayload = json_decode(file_get_contents('php://input'),true);
 
 erLhcoreClassRestAPIHandler::setHeaders('Content-Type: application/json', (isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : (isset($requestPayload['host']) && $requestPayload['host'] != '' ? $requestPayload['host'] : "*")));
