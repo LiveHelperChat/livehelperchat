@@ -9,7 +9,17 @@ $ViewList['subscribe'] = array(
     'uparams' => array('hash','vid','hash_resume','theme','action')
 );
 
+$ViewList['subscribeop'] = array(
+    'params' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['list'] = array(
+    'params' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['oplist'] = array(
     'params' => array(),
     'functions' => array( 'use' )
 );
@@ -29,7 +39,17 @@ $ViewList['editsubscriber'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['editsubscriberop'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['downloadworker'] = array(
+    'params' => array(),
+    'functions' => array( 'use' )
+);
+
+$ViewList['downloadworkerop'] = array(
     'params' => array(),
     'functions' => array( 'use' )
 );
@@ -39,9 +59,20 @@ $ViewList['settings'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['opsettings'] = array(
+    'params' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['deletesubscriber'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['serviceworkerop'] = array(
+    'params' => array(),
+    'uparams' => array(),
     'functions' => array( 'use' )
 );
 

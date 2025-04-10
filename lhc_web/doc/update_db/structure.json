@@ -20,6 +20,16 @@
         "extra": ""
       }
     ],
+    "lh_notification_op_subscriber": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": ""
+      }
+    ],
     "lhc_mailconv_sent_copy": [
       {
         "field": "id",
@@ -12150,6 +12160,7 @@
     "lh_bot_condition" : "CREATE TABLE `lh_bot_condition` (\n                                    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n                                    `configuration` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                                    `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                                    `identifier` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                                    PRIMARY KEY (`id`),\n                                    KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lhc_mailconv_delete_item" : "CREATE TABLE `lhc_mailconv_delete_item` (\n                                            `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n                                            `conversation_id` bigint(20) unsigned NOT NULL,\n                                            `filter_id` bigint(20) unsigned NOT NULL,\n                                            `status` tinyint(1) unsigned NOT NULL DEFAULT 0,\n                                            PRIMARY KEY (`id`),\n                                            KEY `filter_id_status` (`filter_id`,`status`),\n                                            KEY `status` (`status`)\n) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lhc_mailconv_delete_filter" : "CREATE TABLE `lhc_mailconv_delete_filter` (\n                                              `id` int(11) unsigned NOT NULL AUTO_INCREMENT,`delete_policy` tinyint(1) unsigned NOT NULL DEFAULT 0, `processed_records` bigint(20) unsigned NOT NULL DEFAULT 0, `updated_at` bigint(20) unsigned NOT NULL,\n                                              `created_at` bigint(20) unsigned NOT NULL,\n                                              `user_id` bigint(20) unsigned NOT NULL,\n                                              `archive_id` int(11) unsigned NOT NULL DEFAULT 0,\n                                              `status` tinyint(1) unsigned NOT NULL DEFAULT 0,\n                                              `last_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n                                              `started_at` bigint(20) unsigned NOT NULL DEFAULT 0,\n                                              `finished_at` bigint(20) unsigned NOT NULL DEFAULT 0,\n                                              `filter` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                                              `filter_input` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                                              PRIMARY KEY (`id`),\n                                              KEY `status` (`status`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lh_mail_continuous_event" : "CREATE TABLE `lh_mail_continuous_event` (\n  `webhook_id` bigint(20) unsigned NOT NULL,\n  `message_id` bigint(20) unsigned NOT NULL,\n  `created_at` bigint(20) unsigned NOT NULL,\n  UNIQUE KEY `webhook_id_message_id` (`webhook_id`,`message_id`),\n  KEY `created_at` (`created_at`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
+    "lh_mail_continuous_event" : "CREATE TABLE `lh_mail_continuous_event` (\n  `webhook_id` bigint(20) unsigned NOT NULL,\n  `message_id` bigint(20) unsigned NOT NULL,\n  `created_at` bigint(20) unsigned NOT NULL,\n  UNIQUE KEY `webhook_id_message_id` (`webhook_id`,`message_id`),\n  KEY `created_at` (`created_at`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lh_notification_op_subscriber" : "CREATE TABLE `lh_notification_op_subscriber` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `user_id` bigint(20) unsigned NOT NULL,\n  `device_type` tinyint(1) NOT NULL,\n  `ctime` bigint(20) unsigned NOT NULL,\n  `utime` bigint(20) unsigned NOT NULL,\n  `status` tinyint(1) unsigned NOT NULL, `achat` tinyint(1) unsigned NOT NULL, `pchat` tinyint(1) unsigned NOT NULL,\n  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `last_error` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `subscriber_hash` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`), KEY `status` (`status`), KEY `user_id` (`user_id`), KEY `subscriber_hash` (`subscriber_hash`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
   }
 }

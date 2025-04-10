@@ -96,6 +96,16 @@
 
     lhinst.channel = lhcLogic.channel = new BroadcastChannel('lhc_dashboard');
 
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.addEventListener('message', function(event) {
+            if (event.data.action === 'lhc_open_chat') {
+                startChatByID(event.data.chat_id);
+            } else if (event.data.action === 'lhc_open_url') {
+                document.location = event.data.url;
+            }
+        });
+    }
+
     lhcLogic.channel.addEventListener("message", function(event) {
         if (event.isTrusted && event.data.action) {
 
@@ -1706,7 +1716,7 @@
     function startChatByID(chat_id, background) {
         if (!isNaN(chat_id)) {
             if (jQuery('#tabs').length > 0) {
-                jQuery('#menu-chat-options').dropdown('toggle');
+                /*jQuery('#menu-chat-options').dropdown('toggle'); Why this one was here*/
                 lhcServices.getChatData(chat_id).then(function(data) {
                     if (data.r) {
                         document.location = WWW_DIR_JAVASCRIPT + data.r;
