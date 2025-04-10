@@ -2,7 +2,7 @@
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/edit','Chat ID');?></label>
     <input type="text" name="chat_id" value="<?php echo htmlspecialchars($input->chat_id)?>" class="form-control">
 </div>
-<h5>OR</h5>
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/edit','OR');?></h5>
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
