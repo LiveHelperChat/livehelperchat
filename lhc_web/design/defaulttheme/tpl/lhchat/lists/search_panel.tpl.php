@@ -17,7 +17,7 @@
 		</div>
 		<div class="col-md-1">
 		  <div class="form-group">
-			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','E-mail');?></label>
+			<label><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/email_title.tpl.php')); ?></label>
 			<input type="text" class="form-control form-control-sm" name="email" value="<?php echo htmlspecialchars($input->email)?>" />
 		  </div>
 		</div>
