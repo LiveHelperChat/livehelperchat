@@ -1042,6 +1042,8 @@ class OnlineChat extends Component {
 
             const fontSizeStyle = {fontSize: (this.props.chatwidget.hasIn(['chat_ui','font_size']) ? this.state.fontSize : '100') + '%'};
 
+            const taw = this.props.chatwidget.hasIn(['chat_ui','taw']) ? this.props.chatwidget.getIn(['chat_ui','taw']) : 8.6;
+
             return (
                 <React.Fragment>
 
@@ -1137,7 +1139,7 @@ class OnlineChat extends Component {
                                     onTextKeyDown={this.enterKeyDown}
                                     textReadOnly={this.props.chatwidget.getIn(['chatLiveData','closed']) || this.props.chatwidget.get('network_down')}
                                     onTextFocus={(e) => {this.setState({'reactToMsgId' : 0})}}
-                                    classNameText={"ps-0 no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6))) ? 'msg-two-line' : 'msg-one-line')}
+                                    classNameText={"ps-0 no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/taw))) ? 'msg-two-line' : 'msg-one-line')}
                                     textPlaceholder={placeholder}
                                     textareaRef={this.props.textMessageRef}
                                 />

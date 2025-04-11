@@ -206,6 +206,10 @@ try {
                     $outputResponse['chat_ui']['switch_to_human'] = (int)$theme->bot_configuration_array['switch_to_human'];
                 }
 
+                if (isset($theme->bot_configuration_array['text_area_wrap']) && is_numeric($theme->bot_configuration_array['text_area_wrap'])) {
+                    $outputResponse['chat_ui']['taw'] = round($theme->bot_configuration_array['text_area_wrap'],2);
+                }
+
                 if (isset($theme->bot_configuration_array['close_in_status']) && $theme->bot_configuration_array['close_in_status'] == true) {
                     $outputResponse['chat_ui']['clinst'] = true;
                 }
