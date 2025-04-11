@@ -31,8 +31,7 @@ $ViewList['loginas'] = array(
 
 $ViewList['loginasuser'] = array(
     'params' => array('id'),
-    'uparams' => array('hash', 'ts'),
-    'functions' => array(  )
+    'uparams' => array('hash', 'ts')
 );
 
 $ViewList['account'] = array(

@@ -479,6 +479,11 @@ class erLhcoreClassUser{
            }
 
        } else {
+
+           if (is_array($functions) && empty($functions)) {
+               return true;
+           }
+
            $functions = is_array($functions) ? $functions[0] : $functions;
            if (!isset($AccessArray[$module][$functions])) {
                return false;
