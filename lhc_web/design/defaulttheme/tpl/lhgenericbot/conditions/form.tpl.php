@@ -16,6 +16,8 @@
 
     <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Main conditions');?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="material-icons text-muted">help</a></h6>
 
+    <p class="text-muted fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','If no conditions are defined, it is considered as invalid.');?></p>
+
     <textarea class="hide" name="configuration">{{pchat.value | json : 0}}</textarea>
 
     <div class="form-group">
