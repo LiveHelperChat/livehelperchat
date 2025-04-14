@@ -33,8 +33,11 @@
                         <li><span class="badge bg-info">json_{content_1}</span> - Use for objects/arrays.<br>
                             Rest API response : <span class="badge bg-info">json_encode(['price' => 100, 'currency' => 'EUR']);</span> Text body definition: <span class="badge bg-info">"output": json_{content_1}</span> results in <span class="badge bg-info">"output": "{\"price\":100,\"currency\":\"EUR\"}"</span>
                         </li>
-                        <li><span class="badge bg-info">raw_{content_1}</span> - Use for strings/numbers.<br>
+                        <li><span class="badge bg-info">raw_{content_1}</span> - Use for strings/numbers. Required - Encode all replaceable variables as JSON.<br>
                             Rest API response : <span class="badge bg-info">json_encode("Funny it\"s 30 EUR");</span> Example: <span class="badge bg-info">"output": "should be - raw_{content_1}"</span> results in <span class="badge bg-info">"output": "Should be Funny it\"s 30 EUR"</span>
+                        </li>
+                        <li><span class="badge bg-info">direct_{content_1}</span> - Use for strings/numbers in bot individualization. Required - Encode all replaceable variables as JSON.<br>
+                            Rest API response : <span class="badge bg-info">json_encode("Funny it\"s 30 EUR");</span> Example: <span class="badge bg-info">"output": {support_price__Should be fine direct_{content_1}}</span> results in <span class="badge bg-info">"output": "Should be Funny it\"s 30 EUR"</span>
                         </li>
                         <li><span class="badge bg-info">{content_1}</span> - Use for all.<br>
                             Example: <span class="badge bg-info">"output": {content_1}</span> results in <span class="badge bg_info">"output": "Funny it\"s 30 EUR"</span>

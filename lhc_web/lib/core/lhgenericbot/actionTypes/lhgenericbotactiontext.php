@@ -184,6 +184,8 @@ class erLhcoreClassGenericBotActionText {
                             $msg->msg = @str_replace('rawjson_'.$keyReplace, str_replace('\\\/','\/',erLhcoreClassGenericBotActionRestapi::trimOnce(json_encode(json_encode($valueReplace)))),$msg->msg);
                         } elseif (str_contains($msg->msg, 'json_'.$keyReplace) !== false) {
                             $msg->msg = @str_replace('json_'.$keyReplace,json_encode(json_encode($valueReplace)),$msg->msg);
+                        } elseif (str_contains($msg->msg, 'direct_'.$keyReplace) !== false) {
+                            $msg->msg = @str_replace('direct_'.$keyReplace, $valueReplace, $msg->msg);
                         } else {
                             $msg->msg = @str_replace($keyReplace,json_encode($valueReplace),$msg->msg);
                         }
@@ -201,7 +203,7 @@ class erLhcoreClassGenericBotActionText {
             $metaMessage['content']['auto_responder'] = true;
         }
 
-        $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->msg, array('chat' => $chat, 'args' => $params));
+        $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->msg, array('as_json' => (isset($action['content']['attr_options']['json_replace_all']) && $action['content']['attr_options']['json_replace_all'] === true), 'chat' => $chat, 'args' => $params));
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : (isset($params['meta_msg']) && !empty($params['meta_msg']) ? json_encode($params['meta_msg']) : '');
 
         if (!empty($msg->meta_msg)){
