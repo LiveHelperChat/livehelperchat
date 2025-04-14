@@ -1702,6 +1702,26 @@ class erLhcoreClassGenericBotWorkflow {
                 continue;
             }
 
+            // Check does conditions match
+            if (!empty($action['content']['trigger_condition'])) {
+
+                $action['content']['trigger_condition'] = trim($action['content']['trigger_condition']);
+                $negative = str_starts_with($action['content']['trigger_condition'],'-');
+                $condition = ltrim($action['content']['trigger_condition'],'-');
+                $conditionsToValidate = \LiveHelperChat\Models\Bot\Condition::getList(['filter' => ['identifier' => $condition]]);
+
+                foreach ($conditionsToValidate as $conditionToValidate) {
+                    $conditionValid = $conditionToValidate->isValid(['chat' => $chat, 'replace_array' => ($params['args']['replace_array'] ?? [])]);
+                    if (
+                        ($negative === false && $conditionValid === false) ||
+                        ($negative === true && $conditionValid === true)
+                    )
+                    {
+                        continue 2;
+                    }
+                }
+            }
+
             self::$triggerNameDebug[] = $trigger->name . ' [Trigger ID - ' . $trigger->id . '] ' . ucfirst($action['type']) . (isset($action['_id']) ?  ' [Action ID - ' . $action['_id'] . ']' : '[Action ID - N/A]');
 
             $messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
