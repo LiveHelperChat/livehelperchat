@@ -1,5 +1,5 @@
 <div class="form-group" ng-non-bindable>
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Identifier, use it like {identifier} in canned responses, or bot');?></label>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Identifier, use it like {identifier} in canned responses, or bot. Use {{replaceable.<identifier>}} in Rest API');?>. </label>
     <input maxlength="50" type="text" placeholder="E.g brand_name. Do not enter brackets" ng-non-bindable class="form-control form-control-sm" name="identifier" value="<?php echo htmlspecialchars($item->identifier);?>" />
 </div>
 

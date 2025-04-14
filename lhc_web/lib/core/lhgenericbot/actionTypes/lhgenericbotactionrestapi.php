@@ -1545,7 +1545,6 @@ class erLhcoreClassGenericBotActionRestapi
         if ($logRequest === true) {
 
             $contentDebug = json_decode($content,true);
-
             $paramsRequestDebug = $paramsRequest;
 
             if (isset($paramsRequestDebug['body'])) {
@@ -2020,22 +2019,32 @@ class erLhcoreClassGenericBotActionRestapi
          );
          
          array_walk_recursive($methodSettings, function ($item, $key, $userData) {
-            $matchesValues = [];
-            preg_match_all('~\{\{lhc\.((?:[^\{\}\}]++|(?R))*)\}\}~', $item,$matchesValues);
 
-            if (!empty($matchesValues[0])) {
-                foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                    $userData['dynamic_variables'][$elementValue] = $userData['chat']->{$matchesValues[1][$indexElement]};
-                }
-            }
+             // Process both item and key in a single loop to extract variables
+             foreach ([$item, $key] as $valueToProcess) {
+                 $matchesValues = [];
+                 preg_match_all('~\{\{lhc\.((?:[^\{\}\}]++|(?R))*)\}\}~', $valueToProcess, $matchesValues);
+                 if (!empty($matchesValues[0])) {
+                     foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                         $userData['dynamic_variables'][$elementValue] = $userData['chat']->{$matchesValues[1][$indexElement]};
+                     }
+                 }
+             }
 
-            $matchesValues = [];
-            preg_match_all('~\{\{lhc\.((?:[^\{\}\}]++|(?R))*)\}\}~', $key, $matchesValues);
-            if (!empty($matchesValues[0])) {
-                foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                    $userData['dynamic_variables'][$elementValue] = $userData['chat']->{$matchesValues[1][$indexElement]};
-                }
-            }
+             // Process replaceable variables in both item and key in a single loop
+             foreach ([$item, $key] as $valueToProcess) {
+                 $matchesValues = [];
+                 preg_match_all('~\{\{replaceable\.([a-zA-Z0-9_-]+)\}\}~', $valueToProcess, $matchesValues);
+                 if (!empty($matchesValues[0])) {
+                     foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                         if (!isset($userData['dynamic_variables'][$elementValue])) {
+                             $replaceRule = erLhcoreClassModelCannedMsgReplace::findOne(['filter' => ['identifier' => $matchesValues[1][$indexElement]]]);
+                             $userData['dynamic_variables'][$elementValue] = is_object($replaceRule) && $replaceRule->is_active ?
+                                 $replaceRule->getValueReplace(['chat' => $userData['chat'], 'user' => $userData['chat']->user]) : null;
+                         }
+                     }
+                 }
+             }
 
             $matchesValues = [];
             preg_match_all('~\{\{previous_visitor_messages_url__([0-9]+)(?:__([0-9]+))?\}\}~', $item, $matchesValues);
