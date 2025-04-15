@@ -135,6 +135,9 @@ class ChatDuration
 
                     $insertParts = [];
                     foreach ($statusOperators as $participantId => $duration) {
+                        if ($participantId == 0) {
+                            continue;
+                        }
                         $frt = $aart = $mart = 0;
                         if (isset($mainStats['response_times'][$participantId][0])) {
                             $frt = $mainStats['response_times'][$participantId][0];
