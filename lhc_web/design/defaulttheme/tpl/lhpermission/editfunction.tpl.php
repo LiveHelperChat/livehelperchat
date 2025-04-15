@@ -14,9 +14,14 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <div class="form-group">
+        <label><input type="checkbox" value="1" name="type" <?php if ($function->type == 1) : ?>checked="checked"<?php endif;?> >&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Exclude permission. Operator will lose access to this function.')?></label>
+    </div>
+
+    <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Limitation')?></label>
         <textarea name="Limitation" class="form-control"><?php echo htmlspecialchars($function->limitation)?></textarea>
     </div>
+
     <div class="btn-group" role="group" aria-label="...">
         <input type="submit" class="btn btn-secondary" name="Update_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
         <input type="submit" class="btn btn-secondary" name="Save_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save & Exit');?>"/>

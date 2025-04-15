@@ -70,6 +70,9 @@ if (isset($_POST['Store_policy']))
         'Limitation' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
         ),
+        'type' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
        'ModuleFunction' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'string',
 				null,
@@ -107,6 +110,8 @@ if (isset($_POST['Store_policy']))
             {
                 $RoleFunction->limitation = $form->Limitation;
             }
+
+            $RoleFunction->type = $form->hasValidData( 'type' ) && $form->type === true ? 1 : 0;
 
             erLhcoreClassRole::getSession()->save($RoleFunction);
 

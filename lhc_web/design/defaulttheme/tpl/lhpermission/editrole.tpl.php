@@ -34,6 +34,7 @@
 		     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Module');?></th>
 		     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Function');?></th>
 		     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Limitation');?></th>
+		     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Type');?></th>
 		     <th width="1%">&nbsp;</th>
 		</tr>
 		</thead>

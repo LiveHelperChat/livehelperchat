@@ -8562,6 +8562,14 @@
         "extra": ""
       },
       {
+        "field": "type",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "module",
         "type": "varchar(100)",
         "null": "NO",

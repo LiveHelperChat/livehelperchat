@@ -39,6 +39,15 @@ class erLhcoreClassRole{
    }
    
    public static function canUseByModuleAndFunction($AccessArray, $module, $functions) {
+
+       if (is_string($module) && (
+               (is_string($functions) && isset($AccessArray['ex_perm'][$module][$functions])) ||
+               (is_array($functions) && !empty($functions) && isset($AccessArray['ex_perm'][$module][$functions[0]]))
+           )
+       ) {
+           return false;
+       }
+
        // Global rights
        if (isset($AccessArray['*']['*']) || isset($AccessArray[$module]['*']))
        {
@@ -88,33 +97,34 @@ class erLhcoreClassRole{
         
         )
     * 
-    * */  
-   public static function accessArrayByUserID($user_id)
-   {
-       $db = ezcDbInstance::get();
-       
-       $stmt = $db->prepare('SELECT lh_rolefunction.module,lh_rolefunction.function,lh_rolefunction.limitation     
+    * */
+    public static function accessArrayByUserID($user_id)
+    {
+        $db = ezcDbInstance::get();
 
-       FROM lh_rolefunction
-       
-       INNER JOIN lh_role ON lh_role.id = lh_rolefunction.role_id
-       INNER JOIN lh_grouprole ON lh_role.id = lh_grouprole.role_id
-       INNER JOIN lh_groupuser ON lh_groupuser.group_id = lh_grouprole.group_id       
-       INNER JOIN lh_group ON lh_grouprole.group_id = lh_group.id
-           
-       WHERE lh_groupuser.user_id = :user_id AND lh_group.disabled = 0');
-        
+        $stmt = $db->prepare('SELECT `lh_rolefunction`.`module`,`lh_rolefunction`.`function`,`lh_rolefunction`.`limitation`,`lh_rolefunction`.`type`
+       FROM `lh_rolefunction`
+       INNER JOIN `lh_role` ON `lh_role`.`id` = `lh_rolefunction`.`role_id`
+       INNER JOIN `lh_grouprole` ON `lh_role`.`id` = `lh_grouprole`.`role_id`
+       INNER JOIN `lh_groupuser` ON `lh_groupuser`.`group_id` = `lh_grouprole`.`group_id`
+       INNER JOIN `lh_group` ON `lh_grouprole`.`group_id` = `lh_group`.`id`
+       WHERE `lh_groupuser`.`user_id` = :user_id AND `lh_group`.`disabled` = 0');
+
         $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
-        
+
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
+
         $AccessArray = array();
-        
+
         foreach ($rows as $Policy) {
-            $AccessArray[$Policy['module']][$Policy['function']] = $Policy['limitation'] != '' ? $Policy['limitation'] : true;
+            if ($Policy['type'] == 0) {
+                $AccessArray[$Policy['module']][$Policy['function']] = $Policy['limitation'] != '' ? $Policy['limitation'] : true;
+            } else {
+                $AccessArray['ex_perm'][$Policy['module']][$Policy['function']] = $Policy['limitation'];
+            }
         }
-        
+
         return $AccessArray;
     }
 

@@ -9,25 +9,19 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-$def->properties['role_id'] = new ezcPersistentObjectProperty();
-$def->properties['role_id']->columnName   = 'role_id';
-$def->properties['role_id']->propertyName = 'role_id';
-$def->properties['role_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
+foreach (array('module','function','limitation') as $attr) {
+    $def->properties[$attr] = new ezcPersistentObjectProperty();
+    $def->properties[$attr]->columnName   = $attr;
+    $def->properties[$attr]->propertyName = $attr;
+    $def->properties[$attr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+}
 
-$def->properties['module'] = new ezcPersistentObjectProperty();
-$def->properties['module']->columnName   = 'module';
-$def->properties['module']->propertyName = 'module';
-$def->properties['module']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
-
-$def->properties['function'] = new ezcPersistentObjectProperty();
-$def->properties['function']->columnName   = 'function';
-$def->properties['function']->propertyName = 'function';
-$def->properties['function']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['limitation'] = new ezcPersistentObjectProperty();
-$def->properties['limitation']->columnName   = 'limitation';
-$def->properties['limitation']->propertyName = 'limitation';
-$def->properties['limitation']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+foreach (array('role_id','type') as $attr) {
+    $def->properties[$attr] = new ezcPersistentObjectProperty();
+    $def->properties[$attr]->columnName   = $attr;
+    $def->properties[$attr]->propertyName = $attr;
+    $def->properties[$attr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def; 
 

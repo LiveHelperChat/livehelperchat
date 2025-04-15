@@ -2429,6 +2429,7 @@ try {
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_rolefunction` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `role_id` int(11) NOT NULL,
+                  `type` tinyint(1) unsigned NOT NULL DEFAULT '0',
                   `module` varchar(100) NOT NULL,
                   `function` varchar(100) NOT NULL,
                   `limitation` text NOT NULL,

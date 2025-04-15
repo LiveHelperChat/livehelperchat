@@ -1,3 +1,14 @@
+4.58v
+
+1. In some cases open action was not logged for chats.
+2. Module function can be assigned as `Exclude` type. Allows scenarios then operator has permission to all module functions, but excludes some.
+3. Replaceable variables available in Rest API now also. {{replaceable.<identifier>}}
+4. Option to control after how many characters new row appears in the widget. Widget theme.
+5. Bot individual trigger action can be checked against conditions. Allows easier migration of live bot.
+6. `Login as` was fixed.
+
+execute doc/update_db/update_326.sql for update
+
 4.57v
 
 1. Link to chat was not activating chat tab on first open.

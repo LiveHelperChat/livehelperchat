@@ -15,6 +15,9 @@ if (ezcInputForm::hasPostData())
     $definition = array(
         'Limitation' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
+        ),
+        'type' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
 
@@ -26,6 +29,7 @@ if (ezcInputForm::hasPostData())
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
 
+    $Function->type = $form->hasValidData( 'type' ) &&  $form->type === true ? 1 : 0;
     $Function->limitation = $form->Limitation;
     $Function->saveThis();
 

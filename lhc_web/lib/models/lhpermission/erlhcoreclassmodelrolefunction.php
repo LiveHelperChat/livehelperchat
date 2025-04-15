@@ -20,6 +20,7 @@ class erLhcoreClassModelRoleFunction
             'module' => $this->module,
             'function' => $this->function,
             'limitation' => $this->limitation,
+            'type' => $this->type,
         );
     }
 
@@ -28,6 +29,7 @@ class erLhcoreClassModelRoleFunction
     public $module = null;
     public $function = null;
     public $limitation = '';
+    public $type = 0;
 }
 
 ?>

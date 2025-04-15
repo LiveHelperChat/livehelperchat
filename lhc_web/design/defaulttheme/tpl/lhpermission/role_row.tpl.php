@@ -1,4 +1,5 @@
 <td ng-non-bindable><?php echo htmlspecialchars(erLhcoreClassModules::getModuleName($Function['module']))?>&nbsp;(<b><?php echo htmlspecialchars($Function['module'])?></b>)</td>
 <td ng-non-bindable><?php echo htmlspecialchars(erLhcoreClassModules::getFunctionName($Function['module'],$Function['function']))?>&nbsp;(<b><?php echo htmlspecialchars($Function['function'])?></b>)</td>
 <td ng-non-bindable><?php echo htmlspecialchars($Function['limitation'])?></td>
+<td ng-non-bindable><?php if ($Function['type'] == 0) : ?><span class="material-icons text-success">verified_user</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Grant');?><?php else : ?><span class="material-icons text-danger">remove_moderator</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Exclude');?><?php endif;?></td>
 <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('permission/editfunction')?>/<?php echo $Function['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit');?></a></td>

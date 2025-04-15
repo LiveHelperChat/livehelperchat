@@ -1,6 +1,6 @@
 <?php
 
-$Module = array( "name" => "System configuration");
+$Module = array( "name" => "Mobile configuration");
 
 $ViewList = array();
 

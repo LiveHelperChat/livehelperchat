@@ -1,0 +1,1 @@
+ALTER TABLE `lh_rolefunction` ADD `type` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';

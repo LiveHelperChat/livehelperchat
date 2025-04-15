@@ -23,6 +23,12 @@
 	     	<label class="fs12"><input type="checkbox" name="ModuleFunction[]" value="*"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/modulefunctions','All functions');?></label>
 	     </div>
 
+        <h5 class="pt-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Options')?></h5>
+
+        <div class="form-group">
+            <label><input type="checkbox" value="1" name="type">&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Exclude permission. Operator will lose access to this function.')?></label>
+        </div>
+
          <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Limitation');?></label>
             <textarea class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newpolicy','Enter any content which you will be able to get within users permissions')?>" name="Limitation"></textarea>

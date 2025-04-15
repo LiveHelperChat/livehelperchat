@@ -184,7 +184,6 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	        	    
 	    } catch (Exception $e) {
 	        $db->rollback();
-
             $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');
             $tpl->set('show_close_button',true);
             $tpl->set('auto_close_dialog',true);
@@ -194,6 +193,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
             exit;
 	    }
 	} else {
+        $db->rollback();
 	    $tpl->set('canEditChat',erLhcoreClassChat::hasAccessToWrite($chat));
 	    $tpl->set('chat',$chat);
         $tpl->set('see_sensitive_information',$see_sensitive_information);
@@ -213,8 +213,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
             )
         );
     }
-
-	exit;
+    exit;
 
 } else {
     $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');

@@ -455,6 +455,14 @@ class erLhcoreClassUser{
 
        $AccessArray = $this->accessArray();
 
+       if (is_string($module) && (
+                (is_string($functions) && isset($AccessArray['ex_perm'][$module][$functions])) ||
+               (is_array($functions) && !empty($functions) && isset($AccessArray['ex_perm'][$module][$functions[0]]))
+           )
+       ) {
+            return false;
+       }
+
        // Global rights
        if (isset($AccessArray['*']['*']) || isset($AccessArray[$module]['*']))
        {
