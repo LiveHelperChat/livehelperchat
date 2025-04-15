@@ -88,6 +88,35 @@ class erLhcoreClassFileUpload extends UploadHandler
                 $fileUpload->size = filesize($fileUpload->file_path_server);
             }
 
+            if (isset($this->options['max_res']) && $this->options['max_res'] > 0 && in_array($fileUpload->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                $conversionSettings[] = new ezcImageHandlerSettings( 'gd','erLhcoreClassGalleryGDHandler' );
+                $converter = new ezcImageConverter(
+                    new ezcImageConverterSettings(
+                        $conversionSettings
+                    )
+                );
+                $converter->createTransformation(
+                    'fitimage',
+                    array(
+                        new ezcImageFilter(
+                            'scale',
+                            array(
+                                'width'     => $this->options['max_res'],
+                                'height'    => $this->options['max_res']
+                            )
+                        ),
+                    ),
+                    array(
+                        'image/jpeg'
+                    ),
+                    new ezcImageSaveOptions(array('quality' => (int)95))
+                );
+                $converter->transform('fitimage', $fileUpload->file_path_server, $fileUpload->file_path_server);
+                $fileUpload->size = filesize($fileUpload->file_path_server);
+                $fileUpload->type = 'image/jpeg';
+                $fileUpload->extension = 'jpg';
+            }
+
             $fileUpload->saveThis();
 
             $file->id = $fileUpload->id;

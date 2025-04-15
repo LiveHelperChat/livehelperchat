@@ -50,6 +50,9 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'mdays_older' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
         ),
+        'MaximumResolution' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+        ),
         'mdays_older_visitor' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
         ),
@@ -118,6 +121,12 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['active_user_upload'] = true;
     } else {
         $data['active_user_upload'] = false;
+    }
+
+    if ($form->hasValidData('MaximumResolution')) {
+        $data['max_res'] = $form->MaximumResolution;
+    } else {
+        $data['max_res'] = '';
     }
 
     if ($form->hasValidData('ActiveFileUploadAdmin') && $form->ActiveFileUploadAdmin == true) {

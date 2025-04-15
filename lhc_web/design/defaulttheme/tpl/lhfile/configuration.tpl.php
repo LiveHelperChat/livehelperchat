@@ -53,6 +53,10 @@
         </label>
 		<input type="text" class="form-control" name="MaximumFileSize" value="<?php isset($file_data['fs_max']) ? print $file_data['fs_max'] : '' ?>" />
 	</div>
+    <div class="col-md-6">
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Maximum image resolution. Fit into square of n pixels.'); ?></label>
+		<input type="number" class="form-control" name="MaximumResolution" value="<?php isset($file_data['max_res']) && (int)$file_data['max_res'] > 10 ? print (int)$file_data['max_res'] : '' ?>" />
+	</div>
 </div>
 
     <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Files download permissions'); ?></h3>
