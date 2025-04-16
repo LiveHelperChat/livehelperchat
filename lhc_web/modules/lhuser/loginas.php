@@ -6,7 +6,8 @@ $ts = time();
 $hash = sha1($user->id . '_' . $user->password . '_' . erConfigClassLhConfig::getInstance()->getSetting('site','secrethash') . '_' . $ts);
 
 erLhcoreClassUser::instance()->logout();
-erLhcoreClassModule::redirect('user/loginasuser','/' . $user->id . '/(hash)/' . $hash . '/(ts)/' . $ts);
+
+erLhcoreClassModule::redirect('user/loginasuser','/' . $user->id . '/(hash)/' . $hash . '/(ts)/' . $ts . '/(showlogin)/1');
 
 exit;
 
