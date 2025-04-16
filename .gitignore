@@ -4,3 +4,9 @@
 
 # PhpStorm
 /.idea/
+
+# VS Studio
+/.vscode/
+
+# Firebase
+/.idx/
