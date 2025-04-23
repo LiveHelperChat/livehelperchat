@@ -244,9 +244,6 @@ class erLhcoreClassGenericBotActionText {
                 $messageToProcess = str_replace($placeholder, $value, $messageToProcess);
             }
 
-            // Ensure Rest API variables aren't parsed again
-            $messageToProcess = str_replace(['{'],['{ '], $messageToProcess);
-
             $msg->msg = $messageToProcess;
         }
 
