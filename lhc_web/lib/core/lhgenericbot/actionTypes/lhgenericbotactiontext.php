@@ -191,7 +191,7 @@ class erLhcoreClassGenericBotActionText {
                         }
                         // We do not want Rest API variables to be parsed once again afterwards.
                         // We just append spaces
-                        $msg->msg = str_replace(['{'],['{ '],$msg->msg);
+                        $msg->msg = str_replace(['{','}'],['{ ',' }'],$msg->msg);
                     } else {
                         $msg->msg = @str_replace($keyReplace,'[' . $keyReplace . ' - OBJECT OR ARRAY]',$msg->msg);
                     }
