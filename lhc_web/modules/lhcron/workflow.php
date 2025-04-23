@@ -10,7 +10,7 @@
  * */
 echo "Starting chat/workflow at ".date('Y-m-d H:i:s')."\n";
 
-if (is_string($cronjobPathOption->value) && $cronjobPathOption->value == 'debug') {
+if (isset($cronjobPathOption) && is_string($cronjobPathOption->value) && $cronjobPathOption->value == 'debug') {
     $debug = true;
 } else {
     $debug = false;
