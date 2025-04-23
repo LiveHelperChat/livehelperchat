@@ -2043,13 +2043,23 @@ function lh(){
         if (this.scrollLoading == false) {
             this.scrollLoading = true;
             var _that = this;
+            inst.find('.material-icons').addClass('lhc-spin');
             $.getJSON(this.wwwDir + 'chat/loadpreviousmessages/' + inst.attr('chat-id') + '/' + inst.attr('message-id') + '/(initial)/' + inst.attr('data-initial') + '/(original)/' + inst.attr('chat-original-id'), function(data) {
                 if (data.error == false) {
+
+                    inst.find('.material-icons').removeClass('lhc-spin');
 
                     inst.attr('data-initial',0);
 
                     var msg = $('#messagesBlock-'+inst.attr('chat-original-id'));
+
+                    var scrollHeight = msg[0].scrollHeight;
+                    var currentScroll = msg.scrollTop();
+
                     msg.prepend(data.result);
+
+                    var newScrollHeight = msg[0].scrollHeight;
+                    var scrollDiff = newScrollHeight - scrollHeight;
 
                     if (inst.attr('auto-scroll') == 1) {
                         inst.attr('auto-scroll',0);
@@ -2059,6 +2069,9 @@ function lh(){
                         if (elm) {
                             msg[0].scrollTop = elm.offsetTop;
                         }
+                    } else {
+                        // Maintain relative scroll position after content is prepended
+                        msg.scrollTop(currentScroll + scrollDiff);
                     }
 
                     if (data.has_messages == true) {
@@ -2990,6 +3003,11 @@ function lh(){
         if (confLH.scroll_load == 1) {
             $messageBlock[0].oldScrollTop = $messageBlock[0].scrollTop;
             $messageBlock.bind('scroll',function(event) {
+
+                if (_that.scrollLoading == true) {
+                    return ;
+                }
+
                 var $this = jQuery(this);
 
                 if ($this[0].oldScrollTop > $this[0].scrollTop && $this[0].scrollTop < 300 && $('#load-prev-btn-'+chat_id).length == 1) {
