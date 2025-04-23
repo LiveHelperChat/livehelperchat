@@ -171,34 +171,83 @@ class erLhcoreClassGenericBotActionText {
             }
         }
 
-        if (isset($params['replace_array'])) {
-            foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+        if (isset($params['replace_array']) && !empty($params['replace_array'])) {
+            // Sort keys by length in descending order to avoid partial matches
+            $keys = array_keys($params['replace_array']);
+            usort($keys, function($a, $b) {
+                return strlen($b) - strlen($a);
+            });
+
+            // Create a copy of the message for replacements
+            $messageToProcess = $msg->msg;
+            $replacedSegments = [];
+            $nextPlaceholderId = 0;
+
+            // First pass: handle complex replacements (objects, arrays) with placeholders
+            foreach ($keys as $keyReplace) {
+                $valueReplace = $params['replace_array'][$keyReplace];
+
                 if (is_object($valueReplace) || is_array($valueReplace) || (isset($action['content']['attr_options']['json_replace_all']) && $action['content']['attr_options']['json_replace_all'] === true)) {
                     if (
                         (isset($action['content']['attr_options']['json_replace']) && $action['content']['attr_options']['json_replace'] === true) ||
                         (isset($action['content']['attr_options']['json_replace_all']) && $action['content']['attr_options']['json_replace_all'] === true)
                     ) {
-                        if (str_contains($msg->msg, 'raw_'.$keyReplace) !== false) {
-                            $msg->msg = @str_replace('raw_'.$keyReplace, str_replace('\\\/','\/',erLhcoreClassGenericBotActionRestapi::trimOnce(json_encode($valueReplace))),$msg->msg);
-                        } elseif (str_contains($msg->msg, 'rawjson_'.$keyReplace) !== false) {
-                            $msg->msg = @str_replace('rawjson_'.$keyReplace, str_replace('\\\/','\/',erLhcoreClassGenericBotActionRestapi::trimOnce(json_encode(json_encode($valueReplace)))),$msg->msg);
-                        } elseif (str_contains($msg->msg, 'json_'.$keyReplace) !== false) {
-                            $msg->msg = @str_replace('json_'.$keyReplace,json_encode(json_encode($valueReplace)),$msg->msg);
-                        } elseif (str_contains($msg->msg, 'direct_'.$keyReplace) !== false) {
-                            $msg->msg = @str_replace('direct_'.$keyReplace, $valueReplace, $msg->msg);
-                        } else {
-                            $msg->msg = @str_replace($keyReplace,json_encode($valueReplace),$msg->msg);
+                        if (str_contains($messageToProcess, 'raw_'.$keyReplace) !== false) {
+                            $replacement = str_replace('\\\/','\/',erLhcoreClassGenericBotActionRestapi::trimOnce(json_encode($valueReplace)));
+                            $messageToProcess = @str_replace('raw_'.$keyReplace, "[[PLACEHOLDER_{$nextPlaceholderId}]]", $messageToProcess);
+                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = $replacement;
+                            $nextPlaceholderId++;
                         }
-                        // We do not want Rest API variables to be parsed once again afterwards.
-                        // We just append spaces
-                        $msg->msg = str_replace(['{','}'],['{ ',' }'],$msg->msg);
+                        if (str_contains($messageToProcess, 'rawjson_'.$keyReplace) !== false) {
+                            $replacement = str_replace('\\\/','\/',erLhcoreClassGenericBotActionRestapi::trimOnce(json_encode(json_encode($valueReplace))));
+                            $messageToProcess = @str_replace('rawjson_'.$keyReplace, "[[PLACEHOLDER_{$nextPlaceholderId}]]", $messageToProcess);
+                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = $replacement;
+                            $nextPlaceholderId++;
+                        }
+                        if (str_contains($messageToProcess, 'json_'.$keyReplace) !== false) {
+                            $replacement = json_encode(json_encode($valueReplace));
+                            $messageToProcess = @str_replace('json_'.$keyReplace, "[[PLACEHOLDER_{$nextPlaceholderId}]]", $messageToProcess);
+                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = $replacement;
+                            $nextPlaceholderId++;
+                        }
+                        if (str_contains($messageToProcess, 'direct_'.$keyReplace) !== false) {
+                            $replacement = $valueReplace;
+                            $messageToProcess = @str_replace('direct_'.$keyReplace, "[[PLACEHOLDER_{$nextPlaceholderId}]]", $messageToProcess);
+                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = $replacement;
+                            $nextPlaceholderId++;
+                        }
+                        if (!str_contains($messageToProcess, 'raw_'.$keyReplace) &&
+                            !str_contains($messageToProcess, 'rawjson_'.$keyReplace) &&
+                            !str_contains($messageToProcess, 'json_'.$keyReplace) &&
+                            !str_contains($messageToProcess, 'direct_'.$keyReplace)) {
+                            $replacement = json_encode($valueReplace);
+                            $messageToProcess = @str_replace($keyReplace, "[[PLACEHOLDER_{$nextPlaceholderId}]]", $messageToProcess);
+                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = $replacement;
+                            $nextPlaceholderId++;
+                        }
                     } else {
-                        $msg->msg = @str_replace($keyReplace,'[' . $keyReplace . ' - OBJECT OR ARRAY]',$msg->msg);
+                        $replacement = '[' . $keyReplace . ' - OBJECT OR ARRAY]';
+                        $messageToProcess = @str_replace($keyReplace, "[[PLACEHOLDER_{$nextPlaceholderId}]]", $messageToProcess);
+                        $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = $replacement;
+                        $nextPlaceholderId++;
                     }
                 } else {
-                    $msg->msg = @str_replace($keyReplace,$valueReplace,$msg->msg);
+                    // Simple scalar replacement
+                    $messageToProcess = @str_replace($keyReplace, "[[PLACEHOLDER_{$nextPlaceholderId}]]", $messageToProcess);
+                    $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = $valueReplace;
+                    $nextPlaceholderId++;
                 }
             }
+
+            // Replace all placeholders with actual content
+            foreach ($replacedSegments as $placeholder => $value) {
+                $messageToProcess = str_replace($placeholder, $value, $messageToProcess);
+            }
+
+            // Ensure Rest API variables aren't parsed again
+            $messageToProcess = str_replace(['{'],['{ '], $messageToProcess);
+
+            $msg->msg = $messageToProcess;
         }
 
 
