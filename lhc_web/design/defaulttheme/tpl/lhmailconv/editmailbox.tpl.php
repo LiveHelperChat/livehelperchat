@@ -293,9 +293,10 @@
                     'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Select'),
                     'selected_id'    => $item->mrules_id,
                     'css_class'      => 'form-control',
+                    'css_class_result' => 'mw-100',
                     'display_name'   => 'display_name',
                     'ajax'           => 'mrules',
-                    'list_function_params' => [],
+                    'list_function_params' => ['limit' => 10],
                     'list_function'  => 'erLhcoreClassModelMailconvMatchRule::getList',
                 )); ?>
             </div>

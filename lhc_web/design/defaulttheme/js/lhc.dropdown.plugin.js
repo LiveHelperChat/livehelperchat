@@ -12,7 +12,6 @@ $.fn.makeDropdown = function(paramsDropdown) {
     _this.each(function () {
 
         var limitMax = $(this).attr('data-limit') ? parseInt($(this).attr('data-limit')) : 0;
-
         var selectedItems = $(this).find('.selected-items-filter');
 
         $(this).find('.btn-department-dropdown').attr('data-text',$(this).find('.btn-department-dropdown').text());
@@ -100,7 +99,7 @@ $.fn.makeDropdown = function(paramsDropdown) {
         if (_thisItem.find('.btn-block-department-filter > input').attr('ajax-provider')) {
             _thisItem.find('.dropdown-result').scroll(function(e){
                 if ((parseInt($(this)[0].scrollHeight) - parseInt($(this)[0].clientHeight)) == parseInt($(this).scrollTop())) {
-                    ajaxScroll($(this).parent().find('.btn-block-department-filter > input'),$(this).find('li').length);
+                    ajaxScroll($(this).parent().find('.btn-block-department-filter > input'), $(this).find('li').length);
                 }
             });
         }
@@ -108,6 +107,7 @@ $.fn.makeDropdown = function(paramsDropdown) {
 
     // @todo add timout funtion
     var timeoutSearch = null;
+    var currentRequest = null;
 
     var ajaxScroll = function(itemElm, offset) {
         var parent = itemElm.parent().parent();
@@ -116,17 +116,29 @@ $.fn.makeDropdown = function(paramsDropdown) {
         var noSelector = itemElm.parent().parent().parent().parent().parent().attr('data-noselector') ? true : false;
         var limitMax = itemElm.parent().parent().parent().parent().parent().attr('data-limit') ? parseInt(itemElm.parent().parent().parent().parent().parent().attr('data-limit')) : 0;
 
-        $.getJSON(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/' + itemElm.attr('ajax-provider') + '/?q=' + encodeURIComponent(itemElm.val()) + (offset ? '&offset=' + parseInt(offset) : ''), function(data) {
-            var append = '';
-            data.items.forEach(function(item) {
-                var isSelected = parentHolder.find('.delete-item[data-value="' + item.id + '"]').length == 1;
-                append += '<li class="search-option-item" data-stoppropagation="true"><label><input type="' + typeElement +'" '+(isSelected ? ' checked="checked" ' : '')+' name="'+(noSelector === true ? '' : 'selector-')+itemElm.attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" value="'+item.id+'"> ' + item.name +'</label></li>';
-            });
-            if (!offset) {
-                parent.find('.search-option-item').remove();
+        if (timeoutSearch !== null) {
+            clearTimeout(timeoutSearch);
+        }
+
+        timeoutSearch = setTimeout(function() {
+
+            if (currentRequest != null) {
+                currentRequest.abort();
+                currentRequest = null;
             }
-            parent.find('.dropdown-result > .dropdown-lhc').append(append);
-        })
+
+            currentRequest = $.getJSON(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/' + itemElm.attr('ajax-provider') + '/?q=' + encodeURIComponent(itemElm.val()) + (offset ? '&offset=' + parseInt(offset) : ''), function(data) {
+                var append = '';
+                data.items.forEach(function(item) {
+                    var isSelected = parentHolder.find('.delete-item[data-value="' + item.id + '"]').length == 1;
+                    append += '<li class="search-option-item" data-stoppropagation="true"><label><input type="' + typeElement +'" '+(isSelected ? ' checked="checked" ' : '')+' name="'+(noSelector === true ? '' : 'selector-')+itemElm.attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" value="'+item.id+'"> ' + item.name +'</label></li>';
+                });
+                if (!offset) {
+                    parent.find('.search-option-item').remove();
+                }
+                parent.find('.dropdown-result > .dropdown-lhc').append(append);
+            })
+        }, 200);
     }
 
     filterInput.keyup(function() {

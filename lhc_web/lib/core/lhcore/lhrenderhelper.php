@@ -224,7 +224,7 @@ class erLhcoreClassRenderHelper {
                         <li class="btn-block-department-filter">
                             <input data-scope="' . str_replace('[]','',$params['input_name']) . '" ' . (isset($params['ajax']) ? 'ajax-provider="' . $params['ajax'] . '"' : '') . ' type="text" class="form-control input-sm" value="" />
                             <div class="selected-items-filter">'.$selectedOptions.'</div>
-                        </li><li class="dropdown-result"><ul class="list-unstyled dropdown-lhc">';
+                        </li><li class="dropdown-result '. ($params['css_class_result'] ?? '') .'"><ul class="list-unstyled dropdown-lhc">';
 
         $items = call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array());
         $ngModel = isset($params['ng-model']) ? ' ng-model="'.$params['ng-model'].'" ' : '';
