@@ -102,6 +102,11 @@ $ViewList['notice'] = array(
     'functions' => array( 'notice' )
 );
 
+$ViewList['confirmdialog'] = array(
+    'params' => array(),
+    'uparams' => array()
+);
+
 $FunctionList['use'] = array('explain' => 'Allow user to see configuration links');
 $FunctionList['expirecache'] = array('explain' => 'Allow user to clear cache');
 $FunctionList['generatejs'] = array('explain' => 'Allow user to access HTML generation');

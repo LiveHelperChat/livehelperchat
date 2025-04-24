@@ -11,8 +11,12 @@
 
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel.tpl.php')); ?>
 
+                    <?php if (isset($stats_delete)) : $msg = $stats_delete['selected'] . ' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/list', 'chats were selected for deletion, and') . ' ' . $stats_delete['deleted'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/list', 'of them were deleted!');?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_info.tpl.php')); ?>
+                    <?php endif; ?>
+
                     <?php if ($pages->items_total > 0) { ?>
-                    
+
                     <form action="<?php echo $input->form_action,$inputAppend?>" method="post">
                     
                     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
@@ -116,7 +120,7 @@
                         <input type="submit" name="doClose" class="btn btn-warning" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Close selected');?>" />
                         <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','deleteglobalchat') || erLhcoreClassUser::instance()->hasAccessTo('lhchat','deletechat')) : ?>
 
-                        <button type="submit" name="doDelete" disabled id="delete-selected-btn" class="btn btn-danger" onclick="return confirm(confLH.transLation.delete_confirm)" value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?> (<span id="delete-selected">0</span>)</button>
+                        <button type="button" name="doDelete" disabled onclick="lhc.confirmDelete($(this))" id="delete-selected-btn" class="btn btn-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?> (<span id="delete-selected">0</span>)</button>
 
                         <?php if ($pages->items_total > 0) : ?>
                             <button type="button" onclick="return lhc.revealModal({'title' : 'Delete all', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/3'})" class="btn btn-danger btn-sm"><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete all items')?> (<?php echo $pages->items_total?>)</button>

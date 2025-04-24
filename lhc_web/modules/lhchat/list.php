@@ -2,9 +2,12 @@
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/lists.tpl.php');
 
+/*echo $_SERVER['REQUEST_METHOD'];
+exit;*/
+
 if ( isset($_POST['doDelete']) ) {
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
-		erLhcoreClassModule::redirect('chat/list');
+		erLhcoreClassModule::redirect('chat/list',"?failed=1");
 		exit;
 	}
 
@@ -17,16 +20,21 @@ if ( isset($_POST['doDelete']) ) {
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
 
+    $stats = ['selected' =>0, 'deleted' => 0];
+
 	if ( $form->hasValidData( 'ChatID' ) && !empty($form->ChatID) ) {
 		$chats = erLhcoreClassModelChat::getList(array('limit' => false, 'filterin' => array('id' => $form->ChatID)));
+        $stats['selected'] = count($chats);
 		foreach ($chats as $chatToDelete) {
 			if (erLhcoreClassChat::hasAccessToWrite($chatToDelete) && ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $chatToDelete->user_id == $currentUser->getUserID())))
 			{
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete', array('chat' => & $chatToDelete, 'user' => $currentUser));
 				$chatToDelete->removeThis();
+                $stats['deleted']++;
 			}
 		}
 	}
+    $tpl->set('stats_delete', $stats);
 }
 
 if ( isset($_POST['doClose']) ) {

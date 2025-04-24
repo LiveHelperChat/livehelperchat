@@ -47,8 +47,16 @@ __webpack_public_path__ = window.WWW_DIR_LHC_WEBPACK;
                     'hidecallback' : function() {
                         document.removeEventListener("keyup", showPreviewClickListener);
                 }});
-			},
+            },
 
+            confirmDelete : function(inst) {
+                this.revealModal({'url': WWW_DIR_JAVASCRIPT + 'system/confirmdialog','backdrop':true, 'showcallback' : function(){
+                        $('#confirm-button-action').click(function() {
+                            inst.parent().append('<input type="hidden" name="'+inst.attr('name')+'" value="1" />');
+                            inst.closest('form').trigger('submit');
+                        });
+                }});
+            },
 
             previewMail : function(chat_id,event) {
                 var keyword = '',navigatorList = '';
