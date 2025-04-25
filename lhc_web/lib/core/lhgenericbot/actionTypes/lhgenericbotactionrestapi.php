@@ -2119,6 +2119,14 @@ class erLhcoreClassGenericBotActionRestapi
                             continue;
                         }
 
+                        if (str_contains($foreachCycleParse, '{skip_empty_msg}')) {
+                            $foreachCycleParse = str_replace('{skip_empty_msg}','', $foreachCycleParse);
+                            if ($message->msg == '') {
+                                $totalElements--;
+                                continue;
+                            }
+                        }
+
                         if ($message->user_id == -1) {
                             $totalElements--;
                             continue;
