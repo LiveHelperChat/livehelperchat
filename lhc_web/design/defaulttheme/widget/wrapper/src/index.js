@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 255;
+            lhc.version = 256;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -482,7 +482,7 @@
                             attributesWidget.widgetDimesions.nextProperty('wright_inv', data.chat_ui.wright_inv);
                         }
 
-                        if (data.chat_ui.mobile_popup && isMobile) {
+                        if (data.chat_ui.mobile_popup && isMobile && attributesWidget.mode != 'embed') {
                             attributesWidget.mode = 'popup';
                         }
 
