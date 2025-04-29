@@ -39,6 +39,6 @@
         <?php elseif (isset($metaMessageData)): ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/meta_render_msg_body_admin.tpl.php'));?>
         <?php endif; ?>
-    </div>
+    </div><?php echo "\n";?>
     <?php (in_array('nl',$subMessage['flags'])) ? print '<br />' : ''; ?>
 <?php endforeach; ?>
