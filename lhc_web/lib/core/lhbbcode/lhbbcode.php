@@ -857,7 +857,7 @@ class erLhcoreClassBBCode
 
    public static function _make_upload_link($matches){
        $data = $matches[1];
-       return '<a class="action-image alert-link" onclick="lhinst.chooseFile()">' . htmlspecialchars($data) . '</a>';
+       return '<a class="action-image alert-link text-decoration-underline" onclick="lhinst.chooseFile()">' . htmlspecialchars($data) . '</a>';
    }
 
    public static function _make_base_link($matches) {
