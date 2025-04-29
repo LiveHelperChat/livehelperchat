@@ -276,6 +276,10 @@ if (!empty($data['message'])) {
     $response['notice']['level'] = !empty($data['level']) ? $data['level'] : 'primary';
 }
 
+if (!empty($data['message_connection'])) {
+    $response['message_connection'] = $data['message_connection'];
+}
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.loadinitialdata',array('lists' => & $response));
 
 echo json_encode($response);

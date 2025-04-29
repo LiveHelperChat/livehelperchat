@@ -16,6 +16,9 @@ if ( isset($_POST['StoreUserSettingsAction']) ) {
         'message' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'message_connection' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
         'level' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         )
@@ -26,11 +29,16 @@ if ( isset($_POST['StoreUserSettingsAction']) ) {
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
 
-
     if ( $form->hasValidData( 'message' ) ) {
         $data['message'] = $form->message;
     } else {
         $data['message'] = '';
+    }
+
+    if ( $form->hasValidData( 'message_connection' ) ) {
+        $data['message_connection'] = $form->message_connection;
+    } else {
+        $data['message_connection'] = '';
     }
 
     if ($form->hasValidData( 'level') && in_array($form->level,['primary','warning','danger','success'])) {
@@ -54,6 +62,6 @@ if ( isset($_POST['StoreUserSettingsAction']) ) {
 $tpl->set('data',$data);
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Notice message')))
+$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Notice messages')))
 
 ?>

@@ -608,6 +608,9 @@
             if (data.notice) {
                 list.lhcNotice = data.notice;
             }
+            if (data.message_connection) {
+                list.lhcMessageConnection = data.message_connection;
+            }
             list.alwaysOnline = data.a_on;
             list.additionalColumns = data.col;
             list.widgetsActive = data.widgets;

@@ -20,6 +20,7 @@ $transItems = array(
     "homepage.node_js_status" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','NodeJS Connection Status'),
     "homepage.sync_blocked" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Sync blocked because of inactivity'),
     "homepage.lau" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Online session updated ago'),
+    "homepage.connection_explain" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Connection problem detected. Please check your connectivity.'),
 
     "homepage.enable_notifications" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Click to enable notifications'),
     "homepage.notifications_not_supported" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Notifications not supported in this browser'),

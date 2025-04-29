@@ -106,4 +106,13 @@
             <span class={($lhcList.lhcConnectivityProblem ? " text-danger" : " text-muted")} title={$t("homepage.last_updated_at")}><span class={"material-icons"}>{$lhcList.lhcListRequestInProgress ? 'sync' : ($lhcList.lhcConnectivityProblem ? 'sync_problem' : 'history')}</span>{$lhcList.lhcUpdatedAt}</span>
         {/if}
 {/if}
+
+    {#if !isOnline || $lhcList.lhcConnectivityProblem}
+        {#if $lhcList.lhcMessageConnection}
+            {@html $lhcList.lhcMessageConnection}
+        {:else}
+            <div class="text-danger fs14"><span class="material-icons">wifi_off</span>{$t("homepage.connection_explain")}</div>
+        {/if}
+    {/if}
+
 </div>

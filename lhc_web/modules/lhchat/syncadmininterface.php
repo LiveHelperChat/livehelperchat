@@ -1,4 +1,5 @@
 <?php
+
 header ( 'content-type: application/json; charset=utf-8' );
 $currentUser = erLhcoreClassUser::instance();
 
