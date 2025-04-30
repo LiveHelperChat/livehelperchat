@@ -58,6 +58,7 @@ If you are installing extensions, make sure that your version has webhooks enabl
    * E.g ChatGPT (Assistant) https://github.com/LiveHelperChat/chatGPT Will be depreciated by OpenAI
    * E.g Ollama AI https://doc.livehelperchat.com/docs/bot/ollama-integration
    * E.g Gemini https://doc.livehelperchat.com/docs/bot/gemini-integration
+   * E.g Dialogflow https://github.com/LiveHelperChat/dialogflowes
  * [Telegram](https://github.com/LiveHelperChat/telegram)
  * [Viber](https://github.com/LiveHelperChat/viber)
  * [Rasa](https://doc.livehelperchat.com/docs/bot/rasa-integration)
