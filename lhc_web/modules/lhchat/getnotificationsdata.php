@@ -207,8 +207,7 @@ foreach ($items as $item) {
         'msg' => $messageNotification,
         'nt' => $item->nick,
         'last_id_identifier' => $type,
-        'last_id' => $item->id,
-        'data' => $item
+        'last_id' => $item->id
     );
 }
 
