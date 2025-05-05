@@ -142,6 +142,8 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
                 $updateFields[] = 'operation_admin';
             }*/
 
+            $last_user_msg_time = $chat->last_user_msg_time;
+
             $chat->last_user_msg_time = $msg->time;
             $chat->lsync = time();
             $chat->last_msg_id = $chat->last_msg_id < $msg->id ? $msg->id : $chat->last_msg_id;
@@ -149,7 +151,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
             $chat->unanswered_chat = ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT ? 1 : 0);
             $chat->updateThis(array('update' => $updateFields));
 
-            if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
+            if ($chat->has_unread_messages == 1 && $last_user_msg_time < (time() - 5)) {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat',array('chat' => & $chat));
             }
 
