@@ -13,7 +13,7 @@
     </div>
 
     <div class="form-group">
-        <label>FCM Key</label>
+        <label>Bearer token. Delete content to generate new one.</label>
         <input type="text" class="form-control" name="fcm_key" value="<?php isset($mb_options['fcm_key']) ? print htmlspecialchars($mb_options['fcm_key']) : ''?>" />
     </div>
 
