@@ -53,7 +53,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
         $user = $chat->getChatOwner();
         if ($user !== false)
         {
-            $ownerString = $user->name.' '.$user->surname;
+            $ownerString = $user->username;
         }
         
         $cannedmsg = erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id,$currentUser->getUserID());
