@@ -158,17 +158,25 @@ $modalSize = 'xl';
                         <div class="col-auto">
                             <div>&nbsp;</div>
                             <button type="submit" id="search-chats-moment" class="btn btn-sm btn-primary mb-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Search');?></button>
+                           <a class="live-help-tooltip ps-1" data-placement="top" data-bs-html="true" data-bs-toggle="tooltip" data-bs-custom-class="wider-tooltip" data-bs-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("statistic/departmentstats","When only START date is provided, we will show chats that:")?> &lt;br&gt;
+- <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("statistic/departmentstats","Were CLOSED and started BEFORE the start date but closed AFTER the start date");?>&lt;br&gt;
+- <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("statistic/departmentstats","Are active/pending and started BEFORE the start date");?>&lt;br&gt;
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("statistic/departmentstats","When BOTH start AND end dates are provided, we will show chats where");?>:&lt;br&gt;
+- <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("statistic/departmentstats","Chat start time is AFTER the start date");?>&lt;br&gt;
+- <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("statistic/departmentstats","Chat end time is BEFORE the end date");?>" ><i class="material-icons">help</i></a>
                         </div>
                     </div>
-
                     <div id="active-chats-at-moment"></div>
-
                     <script>
                         $('#search-chats-moment').click(function() {
                             $.post(WWW_DIR_JAVASCRIPT + 'statistic/userstats/<?php echo $user->id?>/(action)/chatsmoment',{'ts_end' : $('#chats-moment-date-end').val() ,'ts' : $('#chats-moment-date').val()}, function(data) {
                                 $('#active-chats-at-moment').html(data);
                             });
                         });
+                        (function(){
+                            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+                            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+                        })();
                     </script>
 
                 </div>

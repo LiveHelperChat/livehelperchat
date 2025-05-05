@@ -2526,3 +2526,8 @@ html {
 .nav-tabs-bold .nav-link.active {
     background: linear-gradient(to bottom, var(--lhc-gradient-tab-start), var(--lhc-gradient-tab-end));
 }
+
+.wider-tooltip .tooltip-inner {
+    max-width: 650px;
+    text-align: left;
+}
