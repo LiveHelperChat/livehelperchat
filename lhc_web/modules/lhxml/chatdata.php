@@ -55,10 +55,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
         {
             $ownerString = $user->name.' '.$user->surname;
         }
-        
-        $cannedmsg = erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id,$currentUser->getUserID());
-        
-    	echo json_encode(array('operator' => (string)$currentUser->getUserData(true)->name_support,'error' => false, 'canned_messages' => array_values($cannedmsg), 'chat' => $chat, 'ownerstring' => $ownerString));
+
+    	echo json_encode(array('operator' => (string)$currentUser->getUserData(true)->name_support,'error' => false, 'canned_messages' => [], 'chat' => $chat, 'ownerstring' => $ownerString));
     	
 	    flush();
 	    session_write_close();
