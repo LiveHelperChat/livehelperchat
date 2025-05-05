@@ -175,7 +175,12 @@ foreach ($items as $item) {
     } elseif ($itemsTypes[$item->id] == 'subject_chats') {
         $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Trigger alert chat!');
     } elseif ($itemsTypes[$item->id] == 'active_chat') {
-        $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Assigned Chat');
+        if ($item->status == 1 &&
+            time() - 10 > ($item->wait_time + ($item->pnd_time > 0 ? $item->pnd_time : $item->time))) { // Chat was accepted more than 10 seconds ago
+            $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Unread message');
+        } else {
+            $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Assigned Chat');
+        }
     }
     
     $type = $itemsTypes[$item->id];
@@ -202,7 +207,8 @@ foreach ($items as $item) {
         'msg' => $messageNotification,
         'nt' => $item->nick,
         'last_id_identifier' => $type,
-        'last_id' => $item->id
+        'last_id' => $item->id,
+        'data' => $item
     );
 }
 
