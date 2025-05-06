@@ -133,6 +133,7 @@ export default function (dispatch, getState) {
         {id : 'onlineStatus',cb : (data) => {dispatch({type: 'onlineStatus', data: data})}},
         {id : 'toggleSound',cb : (data) => {dispatch({type: 'toggleSound', data: data})}},
         {id : 'widgetStatus',cb : (data) => {dispatch({type: 'widgetStatus', data: data})}},
+        {id : 'vars_encrypted',cb : (data) => {dispatch({type: 'vars_encrypted', data: data})}},
         {id : 'jsVars',cb : (data, data2) => {
             dispatch({type: 'jsVars', data: data});
             if (typeof data2 !== 'undefined') {

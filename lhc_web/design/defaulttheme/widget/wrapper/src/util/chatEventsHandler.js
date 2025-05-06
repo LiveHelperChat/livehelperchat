@@ -32,6 +32,7 @@ class chatEventsHandler {
             'onlineStatus' : this.attributes['onlineStatus'].value,
             'toggleSound' : this.attributes['toggleSound'].value,
             'widgetStatus' : this.attributes['widgetStatus'].value,
+            'vars_encrypted' : this.attributes['vars_encrypted'],
             'jsVars' : this.getJSVarsValues(this.attributes['jsVars'].value),
             'isMobile' : this.attributes['isMobile'],
             'department' : this.attributes['department'],

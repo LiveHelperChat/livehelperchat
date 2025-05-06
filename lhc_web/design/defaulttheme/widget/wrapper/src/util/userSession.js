@@ -207,7 +207,7 @@ export class userSession {
         }
 
         var xhr = new XMLHttpRequest();
-        xhr.open( "POST", this.attributes.LHC_API.args.lhc_base_url + 'chat/updatejsvars/(userinit)/true' + this.getAppendVariables(), true);
+        xhr.open( "POST", this.attributes.LHC_API.args.lhc_base_url + 'chat/updatejsvars/(userinit)/true' + this.getAppendVariables() + (this.attributes.LHC_API.args.vars_encrypted ? '/(encrypted)/true' : ''), true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         if (this.withCredentials == true) {
             xhr.withCredentials = true;
@@ -220,7 +220,7 @@ export class userSession {
         let varsJSON = this.getVars(vars);
 
         var xhr = new XMLHttpRequest();
-        xhr.open( "POST", this.attributes.LHC_API.args.lhc_base_url + '/chat/updatejsvars' + this.getAppendVariables(), true);
+        xhr.open( "POST", this.attributes.LHC_API.args.lhc_base_url + '/chat/updatejsvars' + this.getAppendVariables() + (this.attributes.LHC_API.args.vars_encrypted ? '/(encrypted)/true' : ''), true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         if (this.withCredentials == true) {
             xhr.withCredentials = true;

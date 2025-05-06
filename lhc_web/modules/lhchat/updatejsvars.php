@@ -35,7 +35,7 @@ try {
         $jsonData = json_decode ( $data, true );
 
         if ($Params['user_parameters_unordered']['userinit'] !== 'true') {
-            erLhcoreClassChatValidator::validateJSVarsVisitor ( $vid, $jsonData);
+            erLhcoreClassChatValidator::validateJSVarsVisitor ( $vid, $jsonData, $Params['user_parameters_unordered']['encrypted'] === 'true');
         }
 
         if (
@@ -60,7 +60,7 @@ try {
             }
 
             // Update chat variables
-            erLhcoreClassChatValidator::validateJSVarsChat ($chat, $jsonData);
+            erLhcoreClassChatValidator::validateJSVarsChat ($chat, $jsonData, $Params['user_parameters_unordered']['encrypted'] === 'true');
             $db->commit();
 
             // Force operators to check for new messages

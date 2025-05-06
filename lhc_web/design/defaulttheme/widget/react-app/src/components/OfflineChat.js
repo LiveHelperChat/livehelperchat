@@ -55,6 +55,7 @@ class OfflineChat extends Component {
         }
 
         fields['jsvar'] = this.props.chatwidget.get('jsVars');
+        fields['vars_encrypted'] = this.props.chatwidget.get('vars_encrypted');
         fields['captcha_' + this.props.chatwidget.getIn(['captcha','hash'])] = this.props.chatwidget.getIn(['captcha','ts']);
         fields['tscaptcha'] = this.props.chatwidget.getIn(['captcha','ts']);
         fields['user_timezone'] = helperFunctions.getTimeZone();

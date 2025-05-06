@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 256;
+            lhc.version = 257;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -158,6 +158,7 @@
                     hideOffline: false,
                     offline: LHC_API.args.offline || null,
                     fscreen: LHC_API.args.fscreen || false,
+                    vars_encrypted: LHC_API.args.vars_encrypted || false,
                     isMobile: isMobile,
                     isIE: (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1 || typeof Object.assign !== 'function'),
                     fresh: LHC_API.args.fresh || false,

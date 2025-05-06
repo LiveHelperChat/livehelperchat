@@ -114,6 +114,10 @@ export class mainWidgetPopup {
                 urlArgumetns = urlArgumetns + "/(subject)/" + this.attributes['subject_id'];
             }
 
+            if (this.attributes['vars_encrypted']) {
+                urlArgumetns = urlArgumetns + "/(encrypted)/true";
+            }
+
             if (this.attributes['priority']) {
                 urlArgumetns = urlArgumetns + "/(priority)/" + this.attributes['priority'];
             }

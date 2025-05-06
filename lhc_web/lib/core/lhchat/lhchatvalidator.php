@@ -177,6 +177,7 @@ class erLhcoreClassChatValidator {
         $validationFields['operator'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1));
         $validationFields['user_timezone'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw');
         $validationFields['HasProductID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean');
+        $validationFields['vars_encrypted'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean');
         $validationFields['keyUpStarted'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1));
         $validationFields['bot_id'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1));
         $validationFields['trigger_id'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1));
@@ -789,6 +790,10 @@ class erLhcoreClassChatValidator {
         foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
             if (($form->hasValidData( 'jsvar' ) && isset($additionalParams['payload_data']['jsvar'][$jsVar->id]) && $additionalParams['payload_data']['jsvar'][$jsVar->id] !== null && $additionalParams['payload_data']['jsvar'][$jsVar->id] !== '') || ($jsVar->type == 5 && isset($_COOKIE[$jsVar->js_variable]))) {
 
+                if ($form->hasValidData( 'vars_encrypted') && $form->vars_encrypted === true) {
+                    $jsVar->type = 3;
+                }
+
                 if (strpos($jsVar->var_identifier,'lhc.') !== false) {
                     $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
 
@@ -963,7 +968,7 @@ class erLhcoreClassChatValidator {
         return $Errors;
     }
 
-    public static function validateJSVarsVisitor($visitor, $data) {
+    public static function validateJSVarsVisitor($visitor, $data, $encrypted = false) {
 
         $hashData = md5($visitor->online_attr_system . '_' . $visitor->online_attr);
 
@@ -974,6 +979,10 @@ class erLhcoreClassChatValidator {
         $variableSet = [];
 
         foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$visitor->dep_id))) as $jsVar) {
+
+            if ($encrypted === true){
+                $jsVar->type = 3;
+            }
 
             if (isset($onlineAttr[$jsVar->var_identifier]) && $jsVar->persistent == 0 && !in_array($jsVar->var_identifier,$variableSet)) {
                 unset($onlineAttr[$jsVar->var_identifier]);
@@ -1105,7 +1114,7 @@ class erLhcoreClassChatValidator {
         return in_array($tzid,DateTimeZone::listIdentifiers(DateTimeZone::ALL_WITH_BC));
     }
 
-    public static function validateJSVarsChat($chat, $data) {
+    public static function validateJSVarsChat($chat, $data, $encrypted = false) {
 
         $additionalDataArray = $chat->additional_data_array;
         $chatVariablesDataArray = $chat->chat_variables_array;
@@ -1126,6 +1135,10 @@ class erLhcoreClassChatValidator {
             $removeVars = [];
 
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
+
+                if ($encrypted === true) {
+                    $jsVar->type = 3;
+                }
 
                 if (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)])) {
                     $val = is_bool($data[str_replace('lhc_var.','',$jsVar->js_variable)]) ? $data[str_replace('lhc_var.','',$jsVar->js_variable)] : trim($data[str_replace('lhc_var.','',$jsVar->js_variable)]);
@@ -1884,6 +1897,17 @@ class erLhcoreClassChatValidator {
                 if ($valueStore === false) {
                     throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not decrypt data!'));
                 }
+
+                $partsVal = explode('__varex', $valueStore);
+
+                if (isset($partsVal[1]) && is_numeric($partsVal[1])) {
+                    if ((int)$partsVal[1] > time()) {
+                        $valueStore = $partsVal[0];
+                    } else {
+                        $valueStore = "";
+                    }
+                }
+
             }
         }
         
