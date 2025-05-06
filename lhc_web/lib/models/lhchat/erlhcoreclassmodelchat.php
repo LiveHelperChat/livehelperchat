@@ -133,10 +133,11 @@ class erLhcoreClassModelChat {
 
    public function beforeRemove()
    {
+       $db = ezcDbInstance::get();
+
        foreach ([
            'lh_msg',
            'lh_chat_action',
-           'lh_transfer',
            'lh_chat_online_user_footprint',
            'lh_cobrowse',
            'lh_speech_chat_language',
@@ -147,11 +148,19 @@ class erLhcoreClassModelChat {
            'lh_chat_incoming',
            'lh_chat_participant',
            'lh_canned_msg_use'] as $table) {
-           $q = ezcDbInstance::get()->createDeleteQuery();
+           $q = $db->createDeleteQuery();
            $q->deleteFrom($table)->where( $q->expr->eq( 'chat_id', $this->id ) );
            $stmt = $q->prepare();
            $stmt->execute();
        }
+
+       $q = $db->createDeleteQuery();
+       $q->deleteFrom("lh_transfer")->where(
+           $q->expr->eq( 'chat_id', $this->id ),
+           $q->expr->eq( 'transfer_scope', 0 )
+       );
+       $stmt = $q->prepare();
+       $stmt->execute();
 
        $this->removePendingEvents();
 

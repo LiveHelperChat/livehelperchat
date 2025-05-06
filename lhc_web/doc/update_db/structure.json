@@ -11714,9 +11714,10 @@
     "lh_userdep" : {
       "new" : {
         "user_id_type" : "ALTER TABLE `lh_userdep` ADD INDEX `user_id_type` (`user_id`, `type`);",
-        "online_op_widget" : "ALTER TABLE `lh_userdep` ADD INDEX `online_op_widget` (`last_activity`,`user_id`,`dep_id`,`always_on`);"
+        "online_op_widget_2" : "ALTER TABLE `lh_userdep` ADD INDEX `online_op_widget_2` (`dep_id`, `last_activity`, `user_id`);",
+        "online_op_widget_3" : "ALTER TABLE `lh_userdep` ADD INDEX `online_op_widget_3` (`user_id`, `active_chats`);"
       },
-      "old" : ["user_id"]
+      "old" : ["user_id","online_op_widget"]
     },
     "lh_chat_online_user_footprint" : {
       "new" : {"chat_id" : "ALTER TABLE `lh_chat_online_user_footprint` ADD INDEX `chat_id` (`chat_id`);"},
@@ -11920,6 +11921,12 @@
     "lh_admin_theme" : {
       "new" : {
         "user_id" : "ALTER TABLE `lh_admin_theme` ADD INDEX `user_id` (`user_id`);"
+      },
+      "old" : []
+    },
+    "lh_transfer" : {
+      "new" : {
+        "chat_id_transfer" : "ALTER TABLE `lh_transfer` ADD INDEX `chat_id_transfer` (`chat_id`,`transfer_scope`);"
       },
       "old" : []
     },

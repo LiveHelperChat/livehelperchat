@@ -98,6 +98,17 @@ if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['i
     $filterParams['filter']['filterin']['`lh_abstract_subject_chat`.`subject_id`'] = $filterParams['input_form']->subject_id;
 }
 
+if ($filterParams['input_form']->cls_time == true) {
+    if (isset($filterParams['filter']['filtergte']['time'])) {
+        $filterParams['filter']['filtergte']['cls_time'] = $filterParams['filter']['filtergte']['time'];
+        unset($filterParams['filter']['filtergte']['time']);
+    }
+    if (isset($filterParams['filter']['filterlte']['time'])) {
+        $filterParams['filter']['filterlte']['cls_time'] = $filterParams['filter']['filterlte']['time'];
+        unset($filterParams['filter']['filterlte']['time']);
+    }
+}
+
 /**
  * Departments filter
  * */

@@ -133,6 +133,15 @@ class erLhcoreClassModelMailconvConversation
         foreach ($messagesInternal as $messageInternal) {
             $messageInternal->removeThis();
         }
+
+        $db = ezcDbInstance::get();
+        $q = $db->createDeleteQuery();
+        $q->deleteFrom("lh_transfer")->where(
+            $q->expr->eq( 'chat_id', $this->id ),
+            $q->expr->eq( 'transfer_scope', 1 )
+        );
+        $stmt = $q->prepare();
+        $stmt->execute();
     }
 
     public function __get($var)

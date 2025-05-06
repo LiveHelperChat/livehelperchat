@@ -33,6 +33,15 @@ class erLhcoreClassMailconvWorkflow {
         $conv->conv_duration = self::getConversationDuration($messages);
         $conv->saveThis();
 
+        $db = ezcDbInstance::get();
+        $q = $db->createDeleteQuery();
+        $q->deleteFrom("lh_transfer")->where(
+            $q->expr->eq( 'chat_id', $conv->id ),
+            $q->expr->eq( 'transfer_scope', 1 )
+        );
+        $stmt = $q->prepare();
+        $stmt->execute();
+
         foreach ($messages as $message) {
 
             if ($message->status != erLhcoreClassModelMailconvMessage::STATUS_RESPONDED)
