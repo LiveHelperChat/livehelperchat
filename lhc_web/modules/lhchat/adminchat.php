@@ -154,8 +154,13 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 
     	    if ($operatorAccepted == true) {
     	    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.accept',array('chat' => & $chat,'user' => $currentUser));	    	
-    	    	erLhcoreClassChat::updateActiveChats($chat->user_id);	
-    
+    	    	erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+                // Other operator accepts sometimes assigned chat manually so we have to update previous chat owner stats
+                if ($previousUserId != $chat->user_id && $previousUserId > 0) {
+                    erLhcoreClassChat::updateActiveChats($previousUserId);
+                }
+
     	    	if ($chat->department !== false) {
     	    	    erLhcoreClassChat::updateDepartmentStats($chat->department);
     	    	}
