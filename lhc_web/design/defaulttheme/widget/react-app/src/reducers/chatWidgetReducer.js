@@ -9,6 +9,7 @@ const initialState = fromJS({
     isOnline: false,
     isChatting: false,
     isOfflineMode: false,
+    vars_encrypted: false,
     newChat: true,
     departmentDefault: null,
     theme: null,
@@ -91,6 +92,7 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.removeIn(action.attr);
         }
 
+        case 'vars_encrypted':
         case 'processStatus':
         case 'operator':
         case 'leave_message':

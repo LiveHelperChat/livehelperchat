@@ -116,7 +116,7 @@ $ViewList['updateattribute'] = array(
 
 $ViewList['updatejsvars'] = array(
 		'params' => array(),
-		'uparams' => array('hash','hash_resume','vid','userinit'),
+		'uparams' => array('hash','hash_resume','vid','userinit','encrypted'),
 );
 
 $ViewList['logevent'] = array(
