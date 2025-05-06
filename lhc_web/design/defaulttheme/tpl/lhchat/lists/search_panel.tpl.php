@@ -669,6 +669,7 @@
                 <div class="col-2"><label class="col-form-label"><input type="checkbox" name="proactive_chat" value="<?php echo erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE ?>" <?php $input->proactive_chat == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Proactive chat')?></label></div>
                 <div class="col-2"><label class="col-form-label"><input type="checkbox" name="not_invitation" value="0" <?php $input->not_invitation === 0 ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Not automatic invitation')?></label></div>
                 <div class="col-2"><label class="col-form-label"><input type="checkbox" name="transfer_happened" value="1" <?php $input->transfer_happened == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Transfer happened')?></label></div>
+                <div class="col-2"><label class="col-form-label"><input type="checkbox" name="cls_time" value="1" <?php $input->cls_time == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search by close time')?></label></div>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel_multiinclude.tpl.php'));?>
             </div>
         </div>

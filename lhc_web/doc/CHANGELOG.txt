@@ -1,3 +1,25 @@
+4.59v
+
+1. Fixed an issue where the assigned operator's statistics were not updated if the chat was auto-assigned but handled by another operator.
+2. Optimized database indexing for the online operators widget, improving data fetching speed by 40–50%.
+3. Browser notifications now display unread messages instead of just indicating the assigned chat.
+4. Improved clarity of explanations in mobile settings.
+5. Added support for canned messages in the mobile app.
+6. Implemented a workaround for a Chrome bug: Chromium issue 414284085.
+7. Added the option to display a custom message for connection issues.
+8. Fixed an issue where the widget, when set to embed mode with a popup-on-click action, failed to render. This now properly handles misconfigurations.
+9. The foreach loop in REST API calls now supports a {skip_empty_msg} option to ignore empty messages.
+10. The dropdown search component now aborts previous API calls when a new one is made.
+11. Migrated browser confirm dialogs to modal-based dialogs to resolve a Safari issue where confirm and submit actions were not handled correctly.
+12. Improved user experience when scrolling to previous messages.
+13. Fixed an issue causing double replacements in bot trigger texts.
+14. Added an option to crop visitor-uploaded images to a square in file upload settings.
+15. Option in chat list search by chat close time.
+16. `lh_transfer` table was not cleaned up in some scenarios.
+17. Various minor improvements throughout the system.
+
+execute doc/update_db/update_327.sql for update
+
 4.58v
 
 1. In some cases open action was not logged for chats.

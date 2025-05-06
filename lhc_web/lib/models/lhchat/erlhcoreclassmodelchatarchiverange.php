@@ -144,39 +144,49 @@ class erLhcoreClassModelChatArchiveRange
                 $this->last_id = $lastChatID;
             }
 
-            $q = ezcDbInstance::get()->createDeleteQuery();
+            $db = ezcDbInstance::get();
 
             // Participants
+            $q = $db->createDeleteQuery();
             $q->deleteFrom( 'lh_chat_participant' )->where( $q->expr->eq( 'chat_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
 
             // Messages
+            $q = $db->createDeleteQuery();
             $q->deleteFrom( 'lh_msg' )->where( $q->expr->eq( 'chat_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
 
             // Transfered chats
-            $q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            $q = $db->createDeleteQuery();
+            $q->deleteFrom( 'lh_transfer' )->where(
+                $q->expr->eq( 'chat_id', $item->id ),
+                $q->expr->eq( 'transfer_scope', 0 )
+            );
             $stmt = $q->prepare();
             $stmt->execute();
 
             // Delete screen sharing
+            $q = $db->createDeleteQuery();
             $q->deleteFrom( 'lh_cobrowse' )->where( $q->expr->eq( 'chat_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
 
             // Delete auto responder
+            $q = $db->createDeleteQuery();
             $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
 
             // Chat actions
+            $q = $db->createDeleteQuery();
             $q->deleteFrom( 'lh_chat_action' )->where( $q->expr->eq( 'chat_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
 
             // Chat subject
+            $q = $db->createDeleteQuery();
             $q->deleteFrom( 'lh_abstract_subject_chat' )->where( $q->expr->eq( 'chat_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();

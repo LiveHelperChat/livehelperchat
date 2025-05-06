@@ -2086,39 +2086,40 @@ try {
                     erLhcoreClassUser::getSession()->save($UserData);
 
                     // User departaments
-                    $db->query("CREATE TABLE IF NOT EXISTS `lh_userdep` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `user_id` int(11) NOT NULL,
-                  `dep_id` int(11) NOT NULL,
-                  `last_activity` int(11) NOT NULL,
-                  `lastd_activity` int(11) NOT NULL DEFAULT '0',
-                  `exclude_autoasign` tinyint(1) NOT NULL DEFAULT '0',
-                  `exc_indv_autoasign` tinyint(1) NOT NULL DEFAULT '0',
-                  `hide_online` int(11) NOT NULL,
-                  `last_accepted` int(11) NOT NULL DEFAULT '0',
-                  `active_chats` int(11) NOT NULL DEFAULT '0',
-                  `pending_chats` int(11) NOT NULL DEFAULT '0',
-                  `inactive_chats` int(11) NOT NULL DEFAULT '0',
-                  `max_chats` int(11) NOT NULL DEFAULT '0',
-                  `type` int(11) NOT NULL DEFAULT '0',
-                  `ro` tinyint(1) NOT NULL DEFAULT '0',
-                  `hide_online_ts` int(11) NOT NULL DEFAULT '0',
-                  `dep_group_id` int(11) NOT NULL DEFAULT '0',
-                  `always_on` tinyint(1) NOT NULL DEFAULT '0',
-                  `exclude_autoasign_mails` tinyint(1) NOT NULL DEFAULT '0',
-                  `active_mails` int(11) NOT NULL DEFAULT '0',
-                  `pending_mails` int(11) NOT NULL DEFAULT '0',
-                  `max_mails` int(11) NOT NULL DEFAULT '0',
-                  `last_accepted_mail` int(11) NOT NULL DEFAULT '0',
-                  `assign_priority` int(11) NOT NULL DEFAULT '0',
-                  `chat_max_priority` int(11) NOT NULL DEFAULT '0',
-                  `chat_min_priority` int(11) NOT NULL DEFAULT '0',
-                  PRIMARY KEY (`id`),
-                  KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
-                  KEY `dep_id` (`dep_id`),
-                  KEY `user_id_type` (`user_id`,`type`),
-                  KEY `online_op_widget` (`last_activity`,`user_id`,`dep_id`,`always_on`)
-                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+                    $db->query("CREATE TABLE `lh_userdep` (
+                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                      `user_id` int(11) NOT NULL,
+                      `dep_id` int(11) NOT NULL,
+                      `last_activity` int(11) NOT NULL,
+                      `hide_online` int(11) NOT NULL,
+                      `last_accepted` int(11) NOT NULL DEFAULT 0,
+                      `active_chats` int(11) NOT NULL DEFAULT 0,
+                      `type` int(11) NOT NULL DEFAULT 0,
+                      `dep_group_id` int(11) NOT NULL DEFAULT 0,
+                      `hide_online_ts` int(11) NOT NULL DEFAULT 0,
+                      `pending_chats` int(11) NOT NULL DEFAULT 0,
+                      `inactive_chats` int(11) NOT NULL DEFAULT 0,
+                      `max_chats` int(11) NOT NULL DEFAULT 0,
+                      `exclude_autoasign` tinyint(1) NOT NULL DEFAULT 0,
+                      `ro` tinyint(1) NOT NULL DEFAULT 0,
+                      `always_on` tinyint(1) NOT NULL DEFAULT 0,
+                      `lastd_activity` int(11) NOT NULL DEFAULT 0,
+                      `exc_indv_autoasign` tinyint(1) NOT NULL DEFAULT 0,
+                      `exclude_autoasign_mails` tinyint(1) NOT NULL DEFAULT 0,
+                      `active_mails` int(11) NOT NULL DEFAULT 0,
+                      `pending_mails` int(11) NOT NULL DEFAULT 0,
+                      `max_mails` int(11) NOT NULL DEFAULT 0,
+                      `last_accepted_mail` int(11) NOT NULL DEFAULT 0,
+                      `assign_priority` int(11) NOT NULL DEFAULT 0,
+                      `chat_max_priority` int(11) NOT NULL DEFAULT 0,
+                      `chat_min_priority` int(11) NOT NULL DEFAULT 0,
+                      PRIMARY KEY (`id`),
+                      KEY `dep_id` (`dep_id`),
+                      KEY `user_id_type` (`user_id`,`type`),
+                      KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
+                      KEY `online_op_widget_2` (`dep_id`,`last_activity`,`user_id`),
+                      KEY `online_op_widget_3` (`user_id`,`active_chats`)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                     // Insert record to departament instantly
                     $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`,`type`,`dep_group_id`,`exclude_autoasign`) VALUES ({$UserData->id},0,0,0,0,0,0,0,0)");
@@ -2126,20 +2127,21 @@ try {
                     $db->query("CREATE TABLE `lh_group_work` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `group_id` int(11) NOT NULL, `group_work_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `group_id` (`group_id`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     // Transfer chat
-                    $db->query("CREATE TABLE IF NOT EXISTS `lh_transfer` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
-				  `chat_id` int(11) NOT NULL,
-				  `dep_id` int(11) NOT NULL,
-				  `transfer_user_id` int(11) NOT NULL,
-				  `from_dep_id` int(11) NOT NULL,
-				  `ctime` int(11) NOT NULL,
-                  `transfer_scope` int(11) NOT NULL DEFAULT '0',
-				  `transfer_to_user_id` int(11) NOT NULL,
-				  PRIMARY KEY (`id`),
-				  KEY `dep_id` (`dep_id`),
-				  KEY `transfer_user_id_dep_id` (`transfer_user_id`,`dep_id`),
-				  KEY `transfer_to_user_id` (`transfer_to_user_id`)
-				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                    $db->query("CREATE TABLE `lh_transfer` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `chat_id` int(11) NOT NULL,
+                  `dep_id` int(11) NOT NULL,
+                  `transfer_user_id` int(11) NOT NULL,
+                  `from_dep_id` int(11) NOT NULL,
+                  `transfer_to_user_id` int(11) NOT NULL,
+                  `ctime` int(11) NOT NULL,
+                  `transfer_scope` int(11) NOT NULL DEFAULT 0,
+                  PRIMARY KEY (`id`),
+                  KEY `dep_id` (`dep_id`),
+                  KEY `transfer_user_id_dep_id` (`transfer_user_id`,`dep_id`),
+                  KEY `transfer_to_user_id` (`transfer_to_user_id`),
+                  KEY `chat_id_transfer` (`chat_id`,`transfer_scope`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     // Remember user table
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_users_remember` (

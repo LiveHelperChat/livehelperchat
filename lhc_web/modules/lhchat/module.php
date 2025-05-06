@@ -299,7 +299,7 @@ $ViewList['loadinitialdata'] = array(
 
 $ViewList['list'] = array(
     'params' => array(),
-    'uparams' => array('sortby','timefrom_type','timefromts','transfer_happened','phone','not_invitation','proactive_chat','view','dropped_chat','abandoned_chat','country_ids','has_unread_op_messages','cls_us','export','chat_status_ids','cf','with_bot','no_operator','has_operator','without_bot','bot_ids','ip','department_ids','department_group_ids','user_ids','group_ids','subject_id','anonymized','una','chat_duration_from','chat_duration_till','wait_time_from','wait_time_till','chat_id','nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id','timefrom','timefrom_seconds','timefrom_minutes','timefrom_hours','timeto', 'timeto_minutes', 'timeto_seconds', 'timeto_hours', 'department_group_id', 'group_id', 'invitation_id',
+    'uparams' => array('cls_time','sortby','timefrom_type','timefromts','transfer_happened','phone','not_invitation','proactive_chat','view','dropped_chat','abandoned_chat','country_ids','has_unread_op_messages','cls_us','export','chat_status_ids','cf','with_bot','no_operator','has_operator','without_bot','bot_ids','ip','department_ids','department_group_ids','user_ids','group_ids','subject_id','anonymized','una','chat_duration_from','chat_duration_till','wait_time_from','wait_time_till','chat_id','nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id','timefrom','timefrom_seconds','timefrom_minutes','timefrom_hours','timeto', 'timeto_minutes', 'timeto_seconds', 'timeto_hours', 'department_group_id', 'group_id', 'invitation_id',
         'country_ids',
         'region',
         'iwh_ids',

@@ -134,6 +134,15 @@ class erLhcoreClassChatHelper
             $stmt->execute();
         }
 
+        $q = $db->createDeleteQuery();
+        $q->deleteFrom("lh_transfer")->where(
+            $q->expr->eq( 'chat_id', $chatId ),
+            $q->expr->eq( 'transfer_scope', 0 )
+        );
+        $stmt = $q->prepare();
+        $stmt->execute();
+
+
         // Close by support chat
         erLhcoreClassModelGroupChat::closeByChatId($chatId);
     }
