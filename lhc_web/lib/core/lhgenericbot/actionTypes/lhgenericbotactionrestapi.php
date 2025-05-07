@@ -2137,6 +2137,11 @@ class erLhcoreClassGenericBotActionRestapi
                             continue;
                         }
 
+                        if (!empty($message->meta_msg_array['content']['attr_options']['ignore_rest_api'])) {
+                            $totalElements--;
+                            continue;
+                        }
+
                         if ($message->user_id == -2 || $message->user_id > 0) {
                             $foreachCycleParse = preg_replace('/\{user\}(.*?)\{\/user\}/ms','', $foreachCycleParse);
                             $foreachCycleParse = trim(str_replace(['{assistant}','{/assistant}'],'', $foreachCycleParse));

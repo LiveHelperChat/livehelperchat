@@ -270,6 +270,9 @@ class NodeTriggerActionText extends Component {
                             <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','reactions_visible'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','reactions_visible'])} /> Reactions always visible.</label> <i className="material-icons" title="Make reactions icons always visible. By default they are visible on mouse over.">info</i>
                             </div>
+                            <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','ignore_rest_api'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','ignore_rest_api'])} /> Ignore message in Rest API</label> <i className="material-icons" title="When enabled, this message will be excluded from chat transcript when sending via Rest API. Applies only to `previous_visitor_messages_list_url`">info</i>
+                            </div>
                         </div>
                         <div className="col-12 pb-2">
                             <label>Webhook execution delay</label> <i className="material-icons" title="Sometimes if you have background workers webhook messages events are executed in paralell. If you want to keep exact order you can add a delay.">info</i>
