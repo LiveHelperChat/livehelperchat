@@ -24,9 +24,14 @@ $q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'transfer_user_id', $Param
 $stmt = $q->prepare();
 $stmt->execute();
 
-// User departaments
+// User departments
 $q = ezcDbInstance::get()->createDeleteQuery();
 $q->deleteFrom( 'lh_userdep' )->where( $q->expr->eq( 'user_id', $Params['user_parameters']['user_id'] ) );
+$stmt = $q->prepare();
+$stmt->execute();
+
+$q = ezcDbInstance::get()->createDeleteQuery();
+$q->deleteFrom( 'lh_userdep_disabled' )->where( $q->expr->eq( 'user_id', $Params['user_parameters']['user_id'] ) );
 $stmt = $q->prepare();
 $stmt->execute();
 
@@ -54,9 +59,14 @@ $q->deleteFrom( 'lh_speech_user_language' )->where( $q->expr->eq( 'user_id', $Pa
 $stmt = $q->prepare();
 $stmt->execute();
 
-// User groups
+// User department group memberships
 $q = ezcDbInstance::get()->createDeleteQuery();
 $q->deleteFrom( 'lh_departament_group_user' )->where( $q->expr->eq( 'user_id', $Params['user_parameters']['user_id'] ) );
+$stmt = $q->prepare();
+$stmt->execute();
+
+$q = ezcDbInstance::get()->createDeleteQuery();
+$q->deleteFrom( ' lh_departament_group_user_disabled' )->where( $q->expr->eq( 'user_id', $Params['user_parameters']['user_id'] ) );
 $stmt = $q->prepare();
 $stmt->execute();
 

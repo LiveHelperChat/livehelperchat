@@ -1573,6 +1573,7 @@ try {
                 ('preload_iframes','0','0','Preload widget. It will avoid loading delay after clicking widget','0'),
                 ('product_show_departament','0','0','Enable products show by departments', '1'),
                 ('paidchat_data','','0','Paid chat configuration','1'),
+                ('version_updates',	'328',	0,	'',	1),
                 ('del_on_close_no_msg','0','0','Delete chat on close if there are no messages from the visitor','0'),
                 ('mheight_op','200','0','Messages box height for operator','0'),
                 ('listd_op','10','0','Default number of online operators to show','0'),
@@ -1871,6 +1872,20 @@ try {
                   KEY `user_id` (`user_id`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                 $db->query("CREATE TABLE `lh_departament_group_user_disabled` (
+                                             `id` int(11) NOT NULL AUTO_INCREMENT,
+                                             `dep_group_id` int(11) NOT NULL,
+                                             `user_id` int(11) NOT NULL,
+                                             `read_only` tinyint(1) unsigned NOT NULL DEFAULT 0,
+                                             `exc_indv_autoasign` tinyint(1) unsigned NOT NULL DEFAULT 0,
+                                             `assign_priority` int(11) NOT NULL DEFAULT 0,
+                                             `chat_min_priority` int(11) NOT NULL DEFAULT 0,
+                                             `chat_max_priority` int(11) NOT NULL DEFAULT 0,
+                                             PRIMARY KEY (`id`),
+                                             KEY `dep_group_id` (`dep_group_id`),
+                                             KEY `user_id` (`user_id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
                     $db->query("CREATE TABLE `lh_departament_availability` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `dep_id` int(11) NOT NULL, `hour` int(11) NOT NULL, `hourminute` int(4) NOT NULL, `minute` int(11) NOT NULL, `time` int(11) NOT NULL, `ymdhi` bigint(20) NOT NULL, `ymd` int(11) NOT NULL, `status` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `ymdhi` (`ymdhi`), KEY `dep_id` (`dep_id`),  KEY `hourminute` (`hourminute`), KEY `time` (`time`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_abstract_product_departament` (
@@ -2121,6 +2136,41 @@ try {
                       KEY `online_op_widget_2` (`dep_id`,`last_activity`,`user_id`),
                       KEY `online_op_widget_3` (`user_id`,`active_chats`)
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+                    $db->query("CREATE TABLE `lh_userdep_disabled` (
+                              `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                              `user_id` int(11) NOT NULL,
+                              `dep_id` int(11) NOT NULL,
+                              `last_activity` bigint(20) unsigned NOT NULL,
+                              `hide_online` int(11) NOT NULL,
+                              `last_accepted` bigint(20) unsigned NOT NULL DEFAULT 0,
+                              `active_chats` int(11) NOT NULL DEFAULT 0,
+                              `type` int(11) NOT NULL DEFAULT 0,
+                              `dep_group_id` int(11) NOT NULL DEFAULT 0,
+                              `hide_online_ts` bigint(20) unsigned NOT NULL DEFAULT 0,
+                              `pending_chats` int(11) NOT NULL DEFAULT 0,
+                              `inactive_chats` int(11) NOT NULL DEFAULT 0,
+                              `max_chats` int(11) NOT NULL DEFAULT 0,
+                              `exclude_autoasign` tinyint(1) NOT NULL DEFAULT 0,
+                              `ro` tinyint(1) NOT NULL DEFAULT 0,
+                              `always_on` tinyint(1) NOT NULL DEFAULT 0,
+                              `lastd_activity` bigint(20) unsigned NOT NULL DEFAULT 0,
+                              `exc_indv_autoasign` tinyint(1) NOT NULL DEFAULT 0,
+                              `exclude_autoasign_mails` tinyint(1) NOT NULL DEFAULT 0,
+                              `active_mails` int(11) NOT NULL DEFAULT 0,
+                              `pending_mails` int(11) NOT NULL DEFAULT 0,
+                              `max_mails` int(11) NOT NULL DEFAULT 0,
+                              `last_accepted_mail` bigint(20) unsigned NOT NULL DEFAULT 0,
+                              `assign_priority` int(11) NOT NULL DEFAULT 0,
+                              `chat_max_priority` int(11) NOT NULL DEFAULT 0,
+                              `chat_min_priority` int(11) NOT NULL DEFAULT 0,
+                              PRIMARY KEY (`id`),
+                              KEY `dep_id` (`dep_id`),
+                              KEY `user_id_type` (`user_id`,`type`),
+                              KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
+                              KEY `online_op_widget_2` (`dep_id`,`last_activity`,`user_id`),
+                              KEY `online_op_widget_3` (`user_id`,`active_chats`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     // Insert record to departament instantly
                     $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`,`type`,`dep_group_id`,`exclude_autoasign`) VALUES ({$UserData->id},0,0,0,0,0,0,0,0)");

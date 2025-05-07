@@ -1,10 +1,17 @@
 <?php if (!(!isset($departmentEditParams['all_departments']) || $departmentEditParams['all_departments'] == false)) : ?>
 
 <div class="pb-2">
-    <label><input type="checkbox" value="on" name="all_departments" <?php echo $user->all_departments == 1 ? 'checked="checked"' : '' ?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','All departments')?></label>
+    <label><input type="checkbox" value="on" <?php if ($user->disabled == 1) :?>disabled="disabled"<?php endif;?> name="all_departments" <?php echo $user->all_departments == 1 ? 'checked="checked"' : '' ?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','All departments')?></label>
 </div>
 
+<?php if ($user->disabled == 0) : ?>
 <input type="submit" class="btn btn-sm btn-secondary" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+<?php else : ?>
+    <div data-alert class="alert alert-danger alert-dismissible fade show p-2 ps-4" ng-non-bindable>
+
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','You cannot make changes because this user account is disabled!');?>
+    </div>
+<?php endif; ?>
 
 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','userstats')) : ?>
     <a href="#" class="ps-2" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','See operator statistic')?>" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'statistic/userstats/<?php echo htmlspecialchars($user->id)?>'})">

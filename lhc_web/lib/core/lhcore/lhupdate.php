@@ -309,7 +309,36 @@ class erLhcoreClassUpdate
 				$tablesStatus[$table]['error'] = true;
 			}
 		}
-		
+
+        erLhcoreClassModelChatConfig::$disableCache = true;
+
+        $versionOption = erLhcoreClassModelChatConfig::fetch('version_updates');
+        $version_updates = $versionOption->current_value;
+        if (empty($version_updates) && !is_numeric($version_updates)) {
+            $versionOption->explain = '';
+            $versionOption->type = 0;
+            $versionOption->hidden = 1;
+            $versionOption->identifier = 'version_updates';
+            $version_updates = $versionOption->value = 327;
+            $versionOption->saveThis();
+        }
+
+        foreach ($definition['version_updates'] as $version => $queries) {
+            if ((int)$version > (int)$version_updates) {
+                foreach ($queries as $query) {
+                    $tablesStatus['update_queries']['queries'][] = $query;
+                    $tablesStatus['update_queries']['error'] = true;
+                    $tablesStatus['update_queries']['status'] = 'Version migrate queries required';
+                }
+            }
+        }
+
+        if ($version_updates < self::DB_VERSION) {
+            $tablesStatus['update_queries']['queries'][] = "UPDATE `lh_chat_config` SET value = '" . self::DB_VERSION . "' WHERE `identifier` = 'version_updates' LIMIT 1;";
+            $tablesStatus['update_queries']['error'] = true;
+            $tablesStatus['update_queries']['status'] = 'Version migrate queries required';
+        }
+
 		return $tablesStatus;
 	}
 }

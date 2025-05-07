@@ -60,7 +60,7 @@ class erLhcoreClassUserDep
         return $idArray;
     }
 
-    public static function getUserDepartamentsIndividual($userID = false, $readOnly = false)
+    public static function getUserDepartamentsIndividual($userID = false, $readOnly = false, $disabled = false)
     {
         $db = ezcDbInstance::get();
 
@@ -68,14 +68,14 @@ class erLhcoreClassUserDep
             $userID = erLhcoreClassUser::instance()->getUserID();
         }
 
-        $stmt = $db->prepare('SELECT dep_id FROM lh_userdep WHERE user_id = :user_id AND type = 0 AND ro = ' . (int)$readOnly . ' ORDER BY id ASC');
+        $stmt = $db->prepare('SELECT dep_id FROM lh_userdep' . ($disabled === true ? '_disabled' : '') . ' WHERE user_id = :user_id AND type = 0 AND ro = ' . (int)$readOnly . ' ORDER BY id ASC');
         $stmt->bindValue(':user_id', $userID);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    public static function getUserDepartamentsExcAutoassignIds($userID = false)
+    public static function getUserDepartamentsExcAutoassignIds($userID = false, $disabled = false)
     {
         $db = ezcDbInstance::get();
 
@@ -83,14 +83,14 @@ class erLhcoreClassUserDep
             $userID = erLhcoreClassUser::instance()->getUserID();
         }
 
-        $stmt = $db->prepare('SELECT dep_id FROM lh_userdep WHERE user_id = :user_id AND type = 0 AND exc_indv_autoasign = 1 ORDER BY id ASC');
+        $stmt = $db->prepare('SELECT dep_id FROM lh_userdep' . ($disabled === true ? '_disabled' : '') . ' WHERE user_id = :user_id AND type = 0 AND exc_indv_autoasign = 1 ORDER BY id ASC');
         $stmt->bindValue(':user_id', $userID);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    public static function getUserIndividualParams($userID = false)
+    public static function getUserIndividualParams($userID = false, $disabled = false)
     {
         $db = ezcDbInstance::get();
 
@@ -98,7 +98,7 @@ class erLhcoreClassUserDep
             $userID = erLhcoreClassUser::instance()->getUserID();
         }
 
-        $stmt = $db->prepare('SELECT `assign_priority`,`chat_min_priority`,`chat_max_priority`,`dep_id` FROM `lh_userdep` WHERE `user_id` = :user_id AND `type` = 0 ORDER BY `id` ASC');
+        $stmt = $db->prepare('SELECT `assign_priority`,`chat_min_priority`,`chat_max_priority`,`dep_id` FROM `lh_userdep' . ($disabled === true ? '_disabled' : '') . '` WHERE `user_id` = :user_id AND `type` = 0 ORDER BY `id` ASC');
         $stmt->bindValue(':user_id', $userID);
         $stmt->execute();
 
@@ -110,6 +110,37 @@ class erLhcoreClassUserDep
         }
 
         return $rowsReturn;
+    }
+
+    public static function changeDisableStatus($user_id, $disabled)
+    {
+        $db = ezcDbInstance::get();
+
+        if ($disabled === true) {
+            $db->beginTransaction();
+            try {
+                $db->query('INSERT IGNORE INTO `lh_userdep_disabled` SELECT * FROM `lh_userdep` WHERE `lh_userdep`.`user_id` = ' . (int)$user_id);
+                $db->query('DELETE FROM `lh_userdep` WHERE `lh_userdep`.`user_id` = ' . (int)$user_id);
+                $db->query('INSERT IGNORE INTO `lh_departament_group_user_disabled` SELECT * FROM `lh_departament_group_user` WHERE `lh_departament_group_user`.`user_id` = ' . (int)$user_id);
+                $db->query('DELETE FROM `lh_departament_group_user` WHERE `lh_departament_group_user`.`user_id` = ' . (int)$user_id);
+                $db->commit();
+            } catch (Exception $e) {
+                $db->rollback();
+                throw $e;
+            }
+        } else {
+            $db->beginTransaction();
+            try {
+                $db->query('INSERT IGNORE INTO `lh_userdep` SELECT * FROM `lh_userdep_disabled` WHERE `lh_userdep_disabled`.`user_id` = ' . (int)$user_id);
+                $db->query('DELETE FROM `lh_userdep_disabled` WHERE `lh_userdep_disabled`.`user_id` = ' . (int)$user_id);
+                $db->query('INSERT IGNORE INTO `lh_departament_group_user` SELECT * FROM `lh_departament_group_user_disabled` WHERE `lh_departament_group_user_disabled`.`user_id` = ' . (int)$user_id);
+                $db->query('DELETE FROM `lh_departament_group_user_disabled` WHERE `lh_departament_group_user_disabled`.`user_id` = ' . (int)$user_id);
+                $db->commit();
+            } catch (Exception $e) {
+                $db->rollback();
+                throw $e;
+            }
+        }
     }
 
     public static function conditionalDepartmentGroupFilter($userID = false, $column = 'id') {
