@@ -2155,10 +2155,20 @@ class erLhcoreClassGenericBotActionRestapi
                             }
                         }
 
+                        $rawReplaceArray = array();
                         foreach ($replaceItemData as $keyVariable => $keyValue) {
-                            $replaceItemData['raw_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce($keyValue));
+                            if (str_contains($foreachCycleParse, 'raw_'.$keyVariable)) {
+                                $rawReplaceArray['raw_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce($keyValue));
+                            }
+                            if (str_contains($foreachCycleParse, 'sensitive_'.$keyVariable)) {
+                                $rawReplaceArray['sensitive_'.$keyVariable] = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($keyValue);
+                            }
+                            if (str_contains($foreachCycleParse, 'raw_sensitive_'.$keyVariable)) {
+                                $rawReplaceArray['raw_sensitive_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce(\LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($keyValue)));
+                            }
                         }
 
+                        $foreachCycleParse = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray), $foreachCycleParse);
                         $foreachCycleParse = str_replace(array_keys($replaceItemData), array_values($replaceItemData), $foreachCycleParse);
 
                         // Continue
