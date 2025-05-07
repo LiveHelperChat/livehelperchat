@@ -333,7 +333,10 @@ class erLhcoreClassUpdate
             }
         }
 
-        if ($version_updates < self::DB_VERSION) {
+        static $versionCompared = false;
+
+        if ($versionCompared === false && $version_updates < self::DB_VERSION) {
+            $versionCompared = true;
             $tablesStatus['update_queries']['queries'][] = "UPDATE `lh_chat_config` SET value = '" . self::DB_VERSION . "' WHERE `identifier` = 'version_updates' LIMIT 1;";
             $tablesStatus['update_queries']['error'] = true;
             $tablesStatus['update_queries']['status'] = 'Version migrate queries required';
