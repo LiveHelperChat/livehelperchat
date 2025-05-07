@@ -173,7 +173,11 @@ class erLhcoreClassModelUserDep
 
             if (count($userDepartaments) == 0) return array();
 
-            $filter['customfilter'][] = '(dep_id IN (' . implode(',', $userDepartaments) . ') OR user_id = ' . $currentUser->getUserID() . ')';
+            if (isset($paramsExecution['dashboard']) && $paramsExecution['dashboard'] === true) {
+                $filter['customfilter'][] = '(dep_id IN (' . implode(',', $userDepartaments) . '))';
+            } else {
+                $filter['customfilter'][] = '(dep_id IN (' . implode(',', $userDepartaments) . ') OR user_id = ' . $currentUser->getUserID() . ')';
+            }
         };
 
         if (isset($paramsExecution['dashboard']) && $paramsExecution['dashboard'] === true){
