@@ -58,6 +58,8 @@ try
     $groups_can_edit = erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'editusergroupall') == true ? true : erLhcoreClassGroupRole::getGroupsAccessedByUser(erLhcoreClassRestAPIHandler::getUser() );
     $userParams = array('payload_data' => $requestBody, 'show_all_pending' => 1, 'global_departament' => array(), 'groups_can_read' => array(), 'groups_can_edit' => ($groups_can_edit === true ? true : $groups_can_edit['groups']));
 
+    $userDisabled = $user->disabled;
+
     $Errors = erLhcoreClassRestAPIUserValidator::validateUser($user, $userParams);
 
     if (count($Errors) == 0)
@@ -69,23 +71,31 @@ try
 
         $user->saveThis();
 
-        if (isset($user->departments_ids_array)) {
-            if (count($user->departments_ids_array) > 0) {
-                erLhcoreClassUserDep::addUserDepartaments($user->departments_ids_array, $user->id, $user, $user->departments_ids_read_array);
-            } else {
-                erLhcoreClassUserDep::addUserDepartaments(array(), $user->id, $user, $user->departments_ids_read_array);
+        if ($userDisabled != $user->disabled) {
+            erLhcoreClassUserDep::changeDisableStatus($user->id, $user->disabled == 1);
+        }
+
+        if ($user->disabled == 0) {
+            if (isset($user->departments_ids_array)) {
+                if (count($user->departments_ids_array) > 0) {
+                    erLhcoreClassUserDep::addUserDepartaments($user->departments_ids_array, $user->id, $user, $user->departments_ids_read_array);
+                } else {
+                    erLhcoreClassUserDep::addUserDepartaments(array(), $user->id, $user, $user->departments_ids_read_array);
+                }
+            }
+
+            if (isset($user->user_groups_id)) {
+                $user->setUserGroups();
+            }
+
+            if (isset($user->department_groups)) {
+                erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($user, $user->department_groups);
             }
         }
 
-        if (isset($user->user_groups_id)) {
-            $user->setUserGroups();
-        }
-
-        if (isset($user->department_groups)) {
-            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($user, $user->department_groups);
-        }
 
         erLhcoreClassUserDep::setHideOnlineStatus($user);
+
 
         $user->refreshThis();
 

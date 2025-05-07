@@ -1,3 +1,15 @@
+4.60v
+
+1. Disabled operators departments relations will be stored in separate table. Performance improvement.
+2. `Ignore message in Rest API` option in text message. Will avoid message being send inside `previous_visitor_messages_list_url` loop.
+3. Option in chat configuration `Delete chat on close there there is no visitor messages in chat` usefull in case you are using auto chat start in start chat form settings.
+4. `sensitive`, `raw`, `sensitive_raw` prefixes support for `sensitive_{{args.item.msg}}` syntax inside `previous_visitor_messages_list_url` loop
+5. Encrypted variables passing additional options https://doc.livehelperchat.com/docs/custom-fields-and-prefill#how-securely-pass-attributes
+6. JS api to hide need help widget manually. https://doc.livehelperchat.com/docs/javascript-arguments#hide-need-help-widget
+7. Update script to support migration queries.
+
+execute doc/update_db/update_328.sql for update
+
 4.59v
 
 1. Fixed an issue where the assigned operator's statistics were not updated if the chat was auto-assigned but handled by another operator.

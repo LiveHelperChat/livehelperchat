@@ -238,29 +238,29 @@
 		<?php endif; ?>
 
 		<?php
-		  $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id);
-		  $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id, true);
-          $userDepartamentsAutoExc = erLhcoreClassUserDep::getUserDepartamentsExcAutoassignIds($user->id);
-          $userDepartamentsParams = erLhcoreClassUserDep::getUserIndividualParams($user->id);
+		  $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id, false, $user->disabled == 1);
+		  $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id, true, $user->disabled == 1);
+          $userDepartamentsAutoExc = erLhcoreClassUserDep::getUserDepartamentsExcAutoassignIds($user->id, $user->disabled == 1);
+          $userDepartamentsParams = erLhcoreClassUserDep::getUserIndividualParams($user->id, $user->disabled == 1);
 
-		  $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
-		  $userDepartamentsGroupRead = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id, true);
-          $userDepartamentsGroupAutoExc = erLhcoreClassModelDepartamentGroupUser::getUserGroupsExcAutoassignIds($user->id);
-          $userDepartamentsGroupParams = erLhcoreClassModelDepartamentGroupUser::getUserGroupsParams($user->id);
+		  $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id, false, $user->disabled == 1);
+		  $userDepartamentsGroupRead = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id, true, $user->disabled == 1);
+          $userDepartamentsGroupAutoExc = erLhcoreClassModelDepartamentGroupUser::getUserGroupsExcAutoassignIds($user->id, $user->disabled == 1);
+          $userDepartamentsGroupParams = erLhcoreClassModelDepartamentGroupUser::getUserGroupsParams($user->id, $user->disabled == 1);
 
           $departmentEditParams = [
                   'self_edit' => false,
                   'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','edit_all_departments'),
                   'individual' => [
                           'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual'),
-                          'edit_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual'),
-                          'edit_personal' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_individual'),
+                          'edit_all' => $user->disabled == 0 && erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual'),
+                          'edit_personal' => $user->disabled == 0 && erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_individual'),
                           'all_dep'  => $userDepartamentsParams,
                   ],
                   'groups' => [
                       'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments_groups') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
-                      'edit_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
-                      'edit_personal' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_group'),
+                      'edit_all' => $user->disabled == 0 && erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
+                      'edit_personal' => $user->disabled == 0 && erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_group'),
                       'all_group' => $userDepartamentsGroupParams
                   ]
           ];

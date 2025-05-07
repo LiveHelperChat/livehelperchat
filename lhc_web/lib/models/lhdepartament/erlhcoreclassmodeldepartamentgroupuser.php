@@ -32,31 +32,38 @@ class erLhcoreClassModelDepartamentGroupUser
         return $this->name;
     }
 
-    public static function getUserGroupsIds($user_id, $read_only = false)
+    public static function getUserGroupsIds($user_id, $read_only = false, $disabled = false)
     {
         $db = ezcDbInstance::get();
-        $stmt = $db->prepare('SELECT dep_group_id FROM lh_departament_group_user WHERE user_id = :user_id AND read_only = :read_only');
+        $stmt = $db->prepare('SELECT dep_group_id FROM lh_departament_group_user' . ($disabled === true ? '_disabled' : '') . ' WHERE user_id = :user_id AND read_only = :read_only');
         $stmt->bindValue( ':user_id',$user_id);
         $stmt->bindValue( ':read_only',$read_only === false ? 0 : 1);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    public static function getUserGroupsExcAutoassignIds($user_id)
+    public static function getUserGroupsExcAutoassignIds($user_id, $disabled = false)
     {
         $db = ezcDbInstance::get();
-        $stmt = $db->prepare('SELECT dep_group_id FROM lh_departament_group_user WHERE user_id = :user_id AND exc_indv_autoasign = 1');
+        $stmt = $db->prepare('SELECT dep_group_id FROM lh_departament_group_user' . ($disabled === true ? '_disabled' : '') . ' WHERE user_id = :user_id AND exc_indv_autoasign = 1');
         $stmt->bindValue( ':user_id',$user_id);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    public static function getUserGroupsParams($user_id)
+    public static function getUserGroupsParams($user_id, $disabled = false)
     {
         $itemsRemap = [];
 
-        foreach (self::getList(['limit' => false, 'filter' => ['user_id' => $user_id]]) as $item) {
-            $itemsRemap[$item->dep_group_id] = $item->getState();
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('SELECT * FROM `lh_departament_group_user' . ($disabled === true ? '_disabled' : '') . '` WHERE `user_id` = :user_id');
+        $stmt->bindValue(':user_id', $user_id);
+        $stmt->execute();
+
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($rows as $item) {
+            $itemsRemap[$item['dep_group_id']] = $item;
         }
 
         return $itemsRemap;

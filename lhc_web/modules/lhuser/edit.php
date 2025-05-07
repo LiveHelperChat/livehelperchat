@@ -42,6 +42,8 @@ if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_e
 
     $originalSettings['old'] = $UserData->getState();
 
+    $userDisabled = $UserData->disabled;
+
     $Errors = erLhcoreClassUserValidator::validateUserEdit($UserData, $params);
 	
     if ( isset($_POST['DeletePhoto']) ) {
@@ -107,6 +109,10 @@ if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_e
             $q->deleteFrom( 'lh_notification_op_subscriber' )->where( $q->expr->eq( 'user_id', $UserData->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
+        }
+
+        if ($userDisabled != $UserData->disabled) {
+            erLhcoreClassUserDep::changeDisableStatus($UserData->id, $UserData->disabled == 1);
         }
 
         $CacheManager = erConfigClassLhCacheConfig::getInstance();
