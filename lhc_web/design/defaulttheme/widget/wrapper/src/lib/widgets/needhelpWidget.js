@@ -177,6 +177,10 @@ export class needhelpWidget{
             this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['theme'] = true; this.checkLoadStatus()}, id : "lhc-theme-needhelp", crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themeneedhelp/' + this.attributes.theme + '?v=' + Date.now()}, true);
         });
 
+        attributes.eventEmitter.addListener('nhClose',() => {
+            attributes.eventEmitter.emitEvent('nhClosed', [{'sender' : 'api'}]);
+            this.hide(true);
+        });
     }
 
     hide (persistent) {
