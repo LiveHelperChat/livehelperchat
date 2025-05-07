@@ -10248,6 +10248,13 @@
         "hidden": "0"
       },
       {
+        "identifier": "del_on_close_no_msg",
+        "value": "0",
+        "type": "0",
+        "explain": "Delete chat on close if there are no messages from the visitor",
+        "hidden": "0"
+      },
+      {
         "identifier": "hide_button_dropdown",
         "value": "0",
         "type": "0",

@@ -282,12 +282,16 @@
     		    <?php $attribute = 'assign_workflow_timeout'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
+                <?php $attribute = 'del_on_close_no_msg'; $boolValue = true; ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
     		    <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Close button')?></h4>
     		    <?php $attribute = 'hide_button_dropdown'; $boolValue = true; ?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
     		    <?php $attribute = 'on_close_exit_chat'; $boolValue = true; ?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
 
                 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat duration')?></h4>
                 <?php $attribute = 'cduration_timeout_user'; ?>

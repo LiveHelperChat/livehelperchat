@@ -1,0 +1,1 @@
+INSERT INTO `lh_chat_config` (`identifier`,`value`,`type`,`explain`,`hidden`) VALUES ('del_on_close_no_msg','0','0','Delete chat on close if there are no messages from the visitor','0');

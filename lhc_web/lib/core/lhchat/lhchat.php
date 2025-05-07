@@ -1715,28 +1715,26 @@ class erLhcoreClassChat {
    }
    
    public static function closeChatCallback($chat, $operator = false) {
-	   	$extensions = erConfigClassLhConfig::getInstance()->getOverrideValue( 'site', 'extensions' );
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.close',array('chat' => & $chat, 'user_data' => $operator));
 
-	   	$instance = erLhcoreClassSystem::instance();
+        $dep = $chat->department;
 
-	   	foreach ($extensions as $ext) {
-	   		$callbackFile = $instance->SiteDir . '/extension/' . $ext . '/callbacks/close_chat.php';
-	   		if (file_exists($callbackFile)) {
-	   			include $callbackFile;
-	   		}
-	   	}
-	   	
-	   	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.close',array('chat' => & $chat, 'user_data' => $operator));
-	   	
-	   	$dep = $chat->department;
-	   	
-	   	if ( $dep !== false) {
-	   	    self::updateDepartmentStats($dep);
-	   	}
-	   	
-	   	if ( $dep !== false && ($dep->inform_close == 1 || $dep->inform_close_all == 1)) {
-	   		erLhcoreClassChatMail::informChatClosed($chat, $operator);
-	   	}
+        if ( $dep !== false) {
+            self::updateDepartmentStats($dep);
+        }
+
+        if ( $dep !== false && ($dep->inform_close == 1 || $dep->inform_close_all == 1)) {
+            erLhcoreClassChatMail::informChatClosed($chat, $operator);
+        }
+
+        $checkEmpty = erLhcoreClassModelChatConfig::fetch('del_on_close_no_msg')->current_value;
+
+        if ($checkEmpty == 1) {
+           if (erLhcoreClassModelmsg::getCount(['filter' => ['user_id' => 0, 'chat_id' => $chat->id]]) === 0) {
+               erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete', array('chat' => & $chat, 'user_data' => $operator));
+               $chat->removeThis();
+           }
+        }
    }
 
    /**
