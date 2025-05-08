@@ -1,0 +1,1 @@
+<input type="text" class="form-control form-control-sm" name="IPToBlock" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP/E-mail');?>" />

@@ -37,7 +37,7 @@
         <form class="mb-2" action="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>"  method="post">
             <div class="row">
                 <div class="col-6">
-                    <input type="text" class="form-control form-control-sm" name="IPToBlock" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP/E-mail');?>" />
+                    <?php include(erLhcoreClassDesign::designtpl('lhchat/blockedusers/nick.tpl.php'));?>
                 </div>
                 <div class="col-6">
                     <div class="btn-group w-100" role="group" aria-label="Basic example">
@@ -167,11 +167,25 @@
             ?>
         </td>
         <td><?php echo htmlspecialchars((string)$item->department)?></td>
-        <td><?php echo htmlspecialchars($item->nick)?></td>
+        <td>
+            <?php if (in_array($item->btype, [erLhcoreClassModelChatBlockedUser::BLOCK_EMAIL_CONV,erLhcoreClassModelChatBlockedUser::BLOCK_EMAIL])) : ?>
+                <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_email')) : ?>
+                    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email')) : ?>
+                        <?php echo htmlspecialchars($item->nick)?>
+                    <?php else : ?>
+                        <?php echo htmlspecialchars(LiveHelperChat\Helpers\Anonymizer::maskEmail($item->nick))?>
+                    <?php endif; ?>
+                <?php else : ?>
+                    <span class="material-icons">visibility_off</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','E-mail hidden');?>
+                <?php endif; ?>
+            <?php else : ?>
+                <?php echo htmlspecialchars($item->nick)?>
+            <?php endif; ?>
+        </td>
         <td><?php echo htmlspecialchars($item->expires_front)?> [<?php echo $item->block_duration?>]</td>
         <td><?php echo htmlspecialchars($item->datets_front)?></td>
         <td><?php echo htmlspecialchars($item->user)?></td>
-        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>/(remove_block)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Remove block');?></a></td>
+        <td nowrap><a data-trans="delete_confirm" class="csfr-required csfr-post btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>/(remove_block)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Remove block');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>

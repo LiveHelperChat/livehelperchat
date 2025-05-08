@@ -106,7 +106,7 @@
             <?php endif;?>
 
 	         <?php if (!isset($hide_delete)) : ?>
-	         	<td><a class="csfr-required btn btn-danger btn-xs" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/list','Are you sure?')?>')" href="<?php echo erLhcoreClassDesign::baseurl('abstract/delete')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
+	         	<td><a class="csfr-required btn btn-danger btn-xs csfr-post" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('abstract/delete')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
 	         <?php endif;?>
 
 	    </tr>

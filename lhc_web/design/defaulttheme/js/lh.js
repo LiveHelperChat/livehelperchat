@@ -1011,16 +1011,26 @@ function lh(){
 
                 inst.addClass('csfr-post-executed');
 
-                if (!inst.attr('data-trans') || confirm(confLH.transLation[inst.attr('data-trans')])){
+                if (inst.attr('data-trans')) {
+                    lhc.revealModal({'url': WWW_DIR_JAVASCRIPT + 'system/confirmdialog', 'backdrop':true,
+                        'hidecallback' : function(){
+                            inst.removeClass('csfr-post-executed');
+                        },
+                        'showcallback' : function(){
+                        $('#confirm-button-action').click(function() {
+                            $.post(inst.attr('href'), function(){
+                                document.location.reload();
+                            }).fail(function(){
+                                document.location.reload();
+                            });
+                        });
+                    }});
+                } else {
                     $.post(inst.attr('href'), function(){
                         document.location.reload();
                     }).fail(function(){
                         document.location.reload();
                     });
-                } else {
-                    setTimeout(function(){
-                        inst.removeClass('csfr-post-executed');
-                    },500);
                 }
             }
     	});
