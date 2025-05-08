@@ -15,16 +15,16 @@ $validMailGroups = ['pmails','amails'];
 
 if (isset($Params['user_parameters_unordered']['id']) && is_array($Params['user_parameters_unordered']['id'])) {
     foreach ($Params['user_parameters_unordered']['id'] as $itemNotification) {
-
         $partsAlerts = explode('__',$itemNotification);
         $item = array_shift($partsAlerts);
-
         if (is_numeric($item)) {
             $itemsGrouped[$type][] = (int)$item;
             if (in_array($type,$validChatGroups)) {
                 $itemsTypes[$item] = $type;
-                if ($type != 'transfer_chat' && $type != 'transfer_chat_dep')
+                $notificationsTypes[$item] = $partsAlerts;
+                if ($type != 'transfer_chat' && $type != 'transfer_chat_dep'){
                     $itemsID[] = (int)$item;
+                }
             }
         } else {
             $type = $item;
@@ -148,10 +148,12 @@ foreach ($items as $item) {
         $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Alert notification');
 
         $alertText = [];
-        foreach ($notificationsTypes[$item->id] as $identifier) {
-            $alert = erLhAbstractModelChatAlertIcon::findOne(array('filter' => array('identifier' => $identifier)));
-            if ($alert instanceof erLhAbstractModelChatAlertIcon) {
-                $alertText[] = $alert->name;
+        if (isset($notificationsTypes[$item->id])){
+            foreach ($notificationsTypes[$item->id] as $identifier) {
+                $alert = erLhAbstractModelChatAlertIcon::findOne(array('filter' => array('identifier' => $identifier)));
+                if ($alert instanceof erLhAbstractModelChatAlertIcon) {
+                    $alertText[] = $alert->name;
+                }
             }
         }
 
