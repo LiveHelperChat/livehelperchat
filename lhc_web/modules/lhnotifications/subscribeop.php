@@ -29,7 +29,7 @@ try {
     // Finish saving subscription
     $detect = new Mobile_Detect;
     $notificationSubscriber->user_id = $currentUser->getUserID();
-    $notificationSubscriber->uagent = (string)$detect->getUserAgent();
+    $notificationSubscriber->uagent = mb_substr((string)$detect->getUserAgent(), 0, 250);
     $notificationSubscriber->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
     $notificationSubscriber->ip = erLhcoreClassIPDetect::getIP();
     $notificationSubscriber->utime = time();

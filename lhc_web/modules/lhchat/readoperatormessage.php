@@ -672,7 +672,7 @@ if (isset($_POST['askQuestion']))
        
        // Detect device
        $detect = new Mobile_Detect;
-       $chat->uagent = (string)$detect->getUserAgent();
+       $chat->uagent = mb_substr((string)$detect->getUserAgent(), 0, 250);
        $chat->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
        
        $chat->last_msg_id = $msg->id;

@@ -175,7 +175,7 @@ if ( isset($_POST['SendMessage']) ) {
                 $chat->online_user_id = $visitor->id;
                 $chat->user_tz_identifier = $visitor->visitor_tz;
                 $chat->device_type = $visitor->device_type - 1;
-                $chat->uagent = $visitor->user_agent;
+                $chat->uagent = mb_substr($visitor->user_agent, 0, 250);
                 $chat->dep_id = $visitor->dep_id;
                 $chat->wait_time = 1;
 
