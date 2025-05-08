@@ -137,6 +137,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])){
     $filterParams['filter']['filter']['id'] = (int)$_GET['id'];
 }
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.blockedusers_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
+
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('chat/blockedusers').$append;
 $pages->items_total = erLhcoreClassModelChatBlockedUser::getCount($filterParams['filter']);
