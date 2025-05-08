@@ -1253,7 +1253,7 @@ class erLhcoreClassBBCode
         } else if (isset($paramsMessage['html_as_text']) && $paramsMessage['html_as_text'] == true) {
             $ret = preg_replace_callback('/\[html\](.*?)\[\/html\]/ms', function ($matches) {
                 $messageId = erLhcoreClassChat::generateHash(10);
-                return '<button class="btn btn-xs text-white fs13 btn-link btn-sm p-0 pb-1" onclick="$(\'#message-more-'. $messageId.'\').toggleClass(\'hide\')" >'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser', 'Hide/Show HTML Code').'</button><span id="message-more-'. $messageId.'" class="hide"><br/><code class="rounded mx170 text-white">'.trim($matches[1]).'</code></span>';
+                return '<button class="btn btn-xs btn-secondary fs13 btn-sm p-1 mb-1" onclick="$(\'#message-more-'. $messageId.'\').toggleClass(\'hide\')" >'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser', 'Hide/Show HTML Code').'</button><span id="message-more-'. $messageId.'" class="hide"><br/><code class="rounded mx170 text-dark">'.trim($matches[1]).'</code></span>';
             }, $ret);
         }
 

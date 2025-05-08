@@ -11,7 +11,10 @@
             <div id="messagesBlockWrap">
                 <div id="messagesBlock">
                     <div class="message-row message-admin operator-changes"><span class="usr-tit op-tit"><i class="material-icons chat-operators mi-fs15 me-0">account_box</i>Operator</span>
-                        <?php $msgBody = $msg; ?>
+                        <?php
+                        $msgBody = $msg;
+                        $paramsMessageRender = array('sender' => erLhcoreClassUser::instance()->getUserID(), 'html_as_text' => true);
+                        ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
                     </div>
                 </div>

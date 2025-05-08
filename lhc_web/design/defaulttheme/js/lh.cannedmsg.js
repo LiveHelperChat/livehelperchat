@@ -304,7 +304,7 @@ var LHCCannedMessageAutoSuggest = (function() {
                 element = $('#canned-hash-current-' + this.chat_id).parent().find('.canned-msg-preview');
 			}
 
-            element.html(dataMsg);
+            element.text(dataMsg);
 
             this.htmlPreviewTimeout = setTimeout(function(){
                 $.post(WWW_DIR_JAVASCRIPT + 'chat/previewmessage/' + _that.chat_id,{msg_body : true, msg : dataMsg}, function(data) {

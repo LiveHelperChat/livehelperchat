@@ -156,11 +156,11 @@ const CannedMessages = props => {
         }
 
         if (message === null) {
-            element.innerHTML = '';
+            element.innerText = element.innerHTML = '';
             return;
         }
 
-        element.innerHTML = message.msg;
+        element.innerText = message.msg;
 
         const formData = new FormData();
         formData.append('msg', message.msg);
