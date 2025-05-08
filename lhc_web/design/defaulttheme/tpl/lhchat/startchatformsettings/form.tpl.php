@@ -423,10 +423,40 @@
             <label><input type="checkbox" value="on" name="RequireLockForPassedDepartment" <?php (isset($start_chat_data['requires_dep_lock']) && $start_chat_data['requires_dep_lock'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','User can not change passed department.');?></label>
 
             <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Encryption')?></h4>
-            <div class="form-group" ng-non-bindable>
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Encryption key, min length 40');?></label> 
-				<input class="form-control" type="text" name="CustomFieldsEncryption" value="<?php (isset($start_chat_data['custom_fields_encryption'])) ? print htmlspecialchars($start_chat_data['custom_fields_encryption']) : ''?>" />
-			</div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group" ng-non-bindable>
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Encryption key, min length 40');?></label>
+                        <input class="form-control" type="text" id="encryption-key" name="CustomFieldsEncryption" value="<?php (isset($start_chat_data['custom_fields_encryption'])) ? print htmlspecialchars($start_chat_data['custom_fields_encryption']) : ''?>" />
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="form-group" ng-non-bindable>
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Test encrypt/decrypt');?></label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="encrypted-val" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Encrypted text or text to encrypt');?>" aria-describedby="basic-addon2">
+                            <button id="decrypt-action" class="btn btn-outline-secondary border-secondary-control" type="button"><span class="material-icons">key</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Decrypt');?></button>
+                            <button id="encrypt-action" class="btn btn-outline-secondary border-secondary-control" type="button"><span class="material-icons">encrypted</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Encrypt');?></button>
+                            <input type="text" readonly="readonly" id="encrypted-output" class="form-control bg-light" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Result');?>..." aria-describedby="basic-addon2">
+                        </div>
+                        <script>
+                            (function(){
+                                $('#decrypt-action, #encrypt-action').click(function(){
+                                    var operation = $(this).attr('id').split('-')[0]; // 'decrypt' or 'encrypt'
+                                    $.post(WWW_DIR_JAVASCRIPT + 'chatsettings/testencryption', {
+                                        'op': operation,
+                                        'key': $('#encryption-key').val(),
+                                        'val': $('#encrypted-val').val()
+                                    }, function(data){
+                                        $('#encrypted-output').val(data);
+                                    });
+                                });
+                            })();
+                        </script>
+                    </div>
+                </div>
+            </div>
 		</div>
 		
 		<div role="tabpanel" class="tab-pane" id="customfields">

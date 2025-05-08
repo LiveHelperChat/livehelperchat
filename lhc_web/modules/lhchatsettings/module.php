@@ -42,6 +42,11 @@ $ViewList['startchatformsettingsindex'] = array(
     'functions' => array( 'administrate' )
 );
 
+$ViewList['testencryption'] = array(
+    'params' => array(),
+    'functions' => array( 'administrate' )
+);
+
 $ViewList['editeventsettings'] = array(
     'params' => array('id'),
     'functions' => array( 'events' )
