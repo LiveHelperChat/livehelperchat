@@ -18,7 +18,7 @@
                     <input type="text" class="form-control form-control-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?>" />
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control form-control-sm" name="nick" value="<?php echo htmlspecialchars($input->nick)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Nick/Email');?>" />
+                    <?php include(erLhcoreClassDesign::designtpl('lhchat/blockedusers/nick.tpl.php'));?>
                 </div>
                 <div class="col">
                     <input type="text" class="form-control form-control-sm" name="block_id" value="<?php echo htmlspecialchars($input->block_id)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block ID');?>" />
@@ -37,7 +37,7 @@
         <form class="mb-2" action="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>"  method="post">
             <div class="row">
                 <div class="col-6">
-                    <?php include(erLhcoreClassDesign::designtpl('lhchat/blockedusers/nick.tpl.php'));?>
+                    <input type="text" class="form-control form-control-sm" name="IPToBlock" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP/E-mail');?>" />
                 </div>
                 <div class="col-6">
                     <div class="btn-group w-100" role="group" aria-label="Basic example">
