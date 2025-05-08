@@ -1,5 +1,11 @@
 <?php
 
+$options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
+
+if (!isset($options['notifications']) || !$options['notifications']) {
+    exit;
+}
+
 header('Content-type: application/json');
 
 $currentUser = erLhcoreClassUser::instance();

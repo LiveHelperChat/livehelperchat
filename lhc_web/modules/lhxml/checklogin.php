@@ -8,6 +8,12 @@ header('Content-type: application/json');
 @ini_set('session.cookie_samesite', 'None');
 @ini_set('session.cookie_secure', true);
 
+$options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
+
+if (!isset($options['notifications']) || !$options['notifications']) {
+    exit;
+}
+
 $currentUser = erLhcoreClassUser::instance();
 
 if ($currentUser->authenticate($_POST['username'],$_POST['password']))

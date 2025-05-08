@@ -1,4 +1,11 @@
 <?php
+
+$options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
+
+if (!isset($options['notifications']) || !$options['notifications']) {
+    exit;
+}
+
 $currentUser = erLhcoreClassUser::instance();
 if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],$_POST['password']))
 {

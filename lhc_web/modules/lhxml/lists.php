@@ -2,14 +2,17 @@
 
 header ( 'content-type: application/json; charset=utf-8' );
 
+$options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
+
+if (!isset($options['notifications']) || !$options['notifications']) {
+    exit;
+}
+
 $currentUser = erLhcoreClassUser::instance();
 if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],$_POST['password']))
 {
     exit;
 }
-
-$options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
-
 
 $activeChats = erLhcoreClassChat::getActiveChats(isset($options['limit_a']) && is_numeric($options['limit_a']) ? $options['limit_a'] : 10);
 $closedChats = erLhcoreClassChat::getClosedChats(isset($options['limit_c']) && is_numeric($options['limit_c']) ? $options['limit_c'] : 10);

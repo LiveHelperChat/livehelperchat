@@ -9,7 +9,7 @@
     <?php endif; ?>
 
     <div class="form-group">
-        <label><input type="checkbox" value="on" name="notifications" <?php isset($mb_options['notifications']) && ($mb_options['notifications'] == true) ? print 'checked="checked"' : ''?> /> Enable notifications</label><br/>
+        <label><input type="checkbox" value="on" name="notifications" <?php isset($mb_options['notifications']) && ($mb_options['notifications'] == true) ? print 'checked="checked"' : ''?> /> Enable mobile application and mobile notifications</label><br/>
     </div>
 
     <div class="form-group">
