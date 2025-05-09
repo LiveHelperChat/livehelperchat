@@ -45,7 +45,8 @@ $.fn.makeDropdown = function(paramsDropdown) {
             var presentId = 0;
             if ($(this).is(':checked')) {
                 if (selectedItems.find('.delete-item[data-value="'+$(this).val()+'"]').length == 0) {
-                    selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' + $(this).val() + '"><input type="hidden" value="' + $(this).val() + '" name="'+_thisItem.find('.btn-block-department-filter > input').attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" /><i class="material-icons chat-unread">delete</i>' + $(this).parent().text().trim() + "</a></div>");
+                    var escapedName = $('<div>').text($(this).parent().text().trim()).html();
+                    selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' + $(this).val() + '"><input type="hidden" value="' + $(this).val() + '" name="'+_thisItem.find('.btn-block-department-filter > input').attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" /><i class="material-icons chat-unread">delete</i>' + escapedName + "</a></div>");
                 }
                 if (limitMax > 0) {
                     selectedItems.find('.delete-item:gt('+(limitMax - 1)+')').each(function(){
@@ -74,7 +75,8 @@ $.fn.makeDropdown = function(paramsDropdown) {
             if ($(this).is(':checked')) {
                 _thisItem.find('.btn-department-dropdown').text($(this).parent().text());
                 selectedItems.find('.delete-item').parent().remove();
-                selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' + $(this).val() + '"><input type="hidden" value="' + $(this).val() + '" name="'+_thisItem.find('.btn-block-department-filter > input').attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" /><i class="material-icons chat-unread">delete</i>' + $(this).parent().text().trim() + "</a></div>");
+                var escapedName = $('<div>').text($(this).parent().text().trim()).html();
+                selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' + $(this).val() + '"><input type="hidden" value="' + $(this).val() + '" name="'+_thisItem.find('.btn-block-department-filter > input').attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" /><i class="material-icons chat-unread">delete</i>' + escapedName + "</a></div>");
             }
         })
 
@@ -131,7 +133,8 @@ $.fn.makeDropdown = function(paramsDropdown) {
                 var append = '';
                 data.items.forEach(function(item) {
                     var isSelected = parentHolder.find('.delete-item[data-value="' + item.id + '"]').length == 1;
-                    append += '<li class="search-option-item" data-stoppropagation="true"><label><input type="' + typeElement +'" '+(isSelected ? ' checked="checked" ' : '')+' name="'+(noSelector === true ? '' : 'selector-')+itemElm.attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" value="'+item.id+'"> ' + item.name +'</label></li>';
+                    var escapedName = $('<div>').text(item.name).html();
+                    append += '<li class="search-option-item" data-stoppropagation="true"><label><input type="' + typeElement +'" '+(isSelected ? ' checked="checked" ' : '')+' name="'+(noSelector === true ? '' : 'selector-')+itemElm.attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" value="'+item.id+'"> ' + escapedName +'</label></li>';
                 });
                 if (!offset) {
                     parent.find('.search-option-item').remove();
