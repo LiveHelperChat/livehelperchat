@@ -1,6 +1,14 @@
 <?php
 
 return array(
+    'id' => array(
+        'type' => 'none',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','ID'),
+        'required' => false,
+        'width' => '1',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     'dep_id' => array(
         'type' => 'combobox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Department rule to apply'),

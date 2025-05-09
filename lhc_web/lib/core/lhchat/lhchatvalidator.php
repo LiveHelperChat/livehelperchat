@@ -929,7 +929,7 @@ class erLhcoreClassChatValidator {
         $chat->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
 
         // Set priority by additional variables
-        $priority = self::getPriorityByAdditionalData($chat, array('detailed' => true));
+        $priority = self::getPriorityByAdditionalData($chat, array('detailed' => true, 'log_if_needed' => true));
 
         if ($priority !== false && $priority['priority'] > $chat->priority) {
             $chat->priority = $priority['priority'];
@@ -1458,7 +1458,19 @@ class erLhcoreClassChatValidator {
     {
         $priorityRules = erLhAbstractModelChatPriority::getList(array('sort' => 'sort_priority DESC, priority DESC', 'customfilter' => array('dep_id = 0 OR dep_id = ' .(int)$chat->dep_id)));
 
+        $prefixLog = 'chat_';
+        if (isset($paramsExecution['alias'])) {
+            $prefixLog = 'alias_';
+            self::$routingActions[$prefixLog.'alias'][] = $paramsExecution['alias'];
+        }
+
+        self::$routingActions[$prefixLog.'chat_department'][] = $chat->dep_id;
+
+        self::$routingActions[$prefixLog.'chat'][] = array_filter($chat->getState());
+
         foreach ($priorityRules as $priorityRule) {
+
+            self::$routingActions[$prefixLog.'rule_checking'][] = $priorityRule->id;
 
             $ruleMatched = true;
 
@@ -1506,6 +1518,8 @@ class erLhcoreClassChatValidator {
                     }
                 }
 
+                self::$routingActions[$prefixLog.'condition'][] = '['.$priorityRule->id.']'.$rule['field'] . json_encode($valueToCompare). $rule['comparator']  . json_encode($rule['value']);
+
                 if ($valueToCompare !== null) {
                     if ($rule['comparator'] == '=' && $rule['value'] != $valueToCompare) {
                         $ruleMatched = false;
@@ -1534,48 +1548,67 @@ class erLhcoreClassChatValidator {
 
             if ($ruleMatched == true) {
                 if (isset($paramsExecution['detailed']) && $paramsExecution['detailed'] == true) {
-
                     $canChangeDepartment = true;
-
                     if (!empty($priorityRule->present_role_is)) {
                         $canChangeDepartment = \LiveHelperChat\Models\Brand\BrandMember::getCount(['filter' => ['dep_id' => $chat->dep_id, 'role' => $priorityRule->present_role_is]]) > 0;
                     }
 
                     if ($canChangeDepartment === false) {
+                        self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
                         return array('priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
                     }
 
                     if (!empty($priorityRule->role_destination)) {
-
                         $presentRole = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['dep_id' => $chat->dep_id]]);
-
                         if (!is_object($presentRole)) {
+                            self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
                             return array('priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
                         }
 
                         $destinationBrandMember = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['brand_id' => $presentRole->brand_id, 'role' => $priorityRule->role_destination]]);
 
                         if (!is_object($destinationBrandMember)) {
+                            self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
                             return array('priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
                         }
-
+                        self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $destinationBrandMember->dep_id);
                         return array('priority' => $priorityRule->priority, 'dep_id' => $destinationBrandMember->dep_id);
-
                     } else {
+                        self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $priorityRule->dest_dep_id);
                         return array('priority' => $priorityRule->priority, 'dep_id' => $priorityRule->dest_dep_id);
                     }
-
 
                 } else {
                     return $priorityRule->priority;
                 }
-
             }
         }
 
         return false;
     }
-    
+
+    public static $routingActions = [];
+
+    public static function logRoutingActions($chat)
+    {
+        $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
+        $data = (array)$auditOptions->data;
+        if (isset($data['log_routing']) && $data['log_routing'] == 1) {
+            if (!empty(self::$routingActions)) {
+                erLhcoreClassLog::write(json_encode(self::$routingActions,JSON_PRETTY_PRINT),
+                    ezcLog::SUCCESS_AUDIT,
+                    array(
+                        'source' => 'lhc',
+                        'category' => 'routing_priority',
+                        'line' => __LINE__,
+                        'file' => __FILE__,
+                        'object_id' => (int)$chat->id
+                    )
+                );
+            }
+        }
+    }
+
     /**
      * Validates custom fields
      */

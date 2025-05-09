@@ -192,6 +192,8 @@ if (empty($Errors)) {
 
         $chat->saveThis();
 
+        erLhcoreClassChatValidator::logRoutingActions($chat);
+
         if (isset($restAPI) && isset($requestPayload['messages']) && is_array($requestPayload['messages'])) {
             erLhcoreClassRestAPIHandler::importMessages($chat, $requestPayload['messages']);
         }

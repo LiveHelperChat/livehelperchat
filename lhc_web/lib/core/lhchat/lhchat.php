@@ -2544,7 +2544,10 @@ class erLhcoreClassChat {
                            }
                        }
 
-                       $priority = erLhcoreClassChatValidator::getPriorityByAdditionalData($chat, array('detailed' => true));
+                       // Maybe we add in the future
+                       // $chat->dep_id = $dep->id;
+
+                       $priority = erLhcoreClassChatValidator::getPriorityByAdditionalData($chat, array('alias' => $department . ' OR ' . erLhcoreClassSystem::instance()->SiteAccess . '-' . $department, 'detailed' => true, 'log_if_needed' => true));
 
                        if ($priority !== false && $priority['dep_id'] > 0) {
                            $dep = erLhcoreClassModelDepartament::fetch($priority['dep_id']);
@@ -2577,6 +2580,8 @@ class erLhcoreClassChat {
                return ['argument' => [],'system' => []];
            }
        }
+
+       erLhcoreClassChatValidator::$routingActions['alias_output'] = $output;
 
        return $output;
    }

@@ -20,7 +20,7 @@ $itemsActions = erLhAbstractModelAudit::getList(array_merge_recursive($filter,ar
         </td>
         <td nowrap="">
             <?php if ($itemAction->user_id > 0) : ?>
-                <a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $itemAction->user_id;?>">[<?php echo $itemAction->user_id;?>] <?php echo $itemAction->plain_user_name;?></a>
+                <a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $itemAction->user_id;?>">[<?php echo $itemAction->user_id;?>] <?php echo htmlspecialchars($itemAction->plain_user_name);?></a>
             <?php endif; ?>
         </td>
         <td>

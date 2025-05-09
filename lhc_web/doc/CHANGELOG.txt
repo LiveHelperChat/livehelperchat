@@ -1,10 +1,10 @@
 4.61v
 
 1. Various security fixes.
-
+2. Option to log chat priority rules applied.
+3. Option to pass `chat_id` and `chat_hash`
 
 execute doc/update_db/update_398.sql for update
-
 
 4.60v
 
