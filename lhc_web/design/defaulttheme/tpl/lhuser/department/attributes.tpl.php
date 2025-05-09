@@ -23,7 +23,7 @@
 <div class="row pb-2">
     <div class="col-6">
         <label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Alias nick')?></label>
-        <input type="text" class="form-control form-control-sm" maxlength="50" name="alias_nick" value="<?php echo $userDepAlias->nick?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Department alias')?>" />
+        <input type="text" class="form-control form-control-sm" maxlength="50" name="alias_nick" value="<?php echo htmlspecialchars($userDepAlias->nick)?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Department alias')?>" />
     </div>
     <div class="col-4">
         <label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Avatar')?></label>
