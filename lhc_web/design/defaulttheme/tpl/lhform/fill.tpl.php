@@ -32,7 +32,9 @@ if (!empty($errors)) : ?>
         <input type="hidden" name="jsvar[<?php echo $index?>]" value="<?php echo htmlspecialchars($item)?>" />
     <?php endforeach;endif;?>
 
+    <?php if (isset($custom_fields)) : ?>
     <input type="hidden" name="custom_fields" value="<?php echo htmlspecialchars(json_encode($custom_fields))?>">
+    <?php endif; ?>
 
     <?php if (isset($chat_id)) : ?>
     <input type="hidden" name="chat_id" value="<?php echo htmlspecialchars($chat_id)?>">

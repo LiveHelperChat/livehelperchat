@@ -88,21 +88,23 @@ class erLhcoreClassFormRenderer {
 
         if (isset($_POST['custom_fields']) && !empty($_POST['custom_fields'])) {
             $customFields = json_decode($_POST['custom_fields'], true);
-            foreach ($customFields as $customField) {
-                $valueStore = $customField['value'];
-                if (isset($customField['encrypted']) && $customField['encrypted'] == true) {
-                    try {
-                        $valueStore = erLhcoreClassChatValidator::decryptAdditionalField($valueStore);
-                    } catch (Exception $e) {
-                        $valueStore = $e->getMessage();
+            if (is_array($customFields)) {
+                foreach ($customFields as $customField) {
+                    $valueStore = $customField['value'];
+                    if (isset($customField['encrypted']) && $customField['encrypted'] == true) {
+                        try {
+                            $valueStore = erLhcoreClassChatValidator::decryptAdditionalField($valueStore);
+                        } catch (Exception $e) {
+                            $valueStore = $e->getMessage();
+                        }
                     }
-                }
 
-                $collectedData[] = array(
-                    'identifier' => str_replace(' ','_',strtolower($customField['name'])),
-                    'name' => $customField['name'],
-                    'value' => $valueStore
-                );
+                    $collectedData[] = array(
+                        'identifier' => str_replace(' ','_',strtolower($customField['name'])),
+                        'name' => $customField['name'],
+                        'value' => $valueStore
+                    );
+                }
             }
         }
 

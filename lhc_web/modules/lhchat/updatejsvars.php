@@ -29,7 +29,7 @@ try {
         $chat = false;
     }
 
-    if (is_object($vid)) {
+    if (is_object($vid) && isset($_POST ['data'])) {
 
         $data = $_POST ['data'];
         $jsonData = json_decode ( $data, true );
