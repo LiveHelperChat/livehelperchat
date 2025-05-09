@@ -323,12 +323,14 @@ class erLhcoreClassUpdate
             $versionOption->saveThis();
         }
 
-        foreach ($definition['version_updates'] as $version => $queries) {
-            if ((int)$version > (int)$version_updates) {
-                foreach ($queries as $query) {
-                    $tablesStatus['update_queries']['queries'][] = $query;
-                    $tablesStatus['update_queries']['error'] = true;
-                    $tablesStatus['update_queries']['status'] = 'Version migrate queries required';
+        if (isset($definition['version_updates'])) {
+            foreach ($definition['version_updates'] as $version => $queries) {
+                if ((int)$version > (int)$version_updates) {
+                    foreach ($queries as $query) {
+                        $tablesStatus['update_queries']['queries'][] = $query;
+                        $tablesStatus['update_queries']['error'] = true;
+                        $tablesStatus['update_queries']['status'] = 'Version migrate queries required';
+                    }
                 }
             }
         }
