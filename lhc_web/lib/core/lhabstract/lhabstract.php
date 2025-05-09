@@ -188,7 +188,7 @@ class erLhcoreClassAbstract
                     $selected = $value == $item->id ? 'selected="selected"' : '';
                     $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
 
-                    $return .= '<option value="' . $item->id . '" ' . $selected . '>' . ((string)$nameAttr) . '</option>';
+                    $return .= '<option value="' . $item->id . '" ' . $selected . '>' . (htmlspecialchars((string)$nameAttr)) . '</option>';
                 }
                 $return .= "</select>";
 
