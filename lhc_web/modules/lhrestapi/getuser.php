@@ -4,8 +4,6 @@ try
 {
     erLhcoreClassRestAPIHandler::validateRequest();
 
-
-
     // init data
     $user_id        = isset($_GET['user_id'])? intval($_GET['user_id']) : (isset($_POST['user_id']) ? intval($_POST['user_id']) : 0);
     $username    = isset($_GET['username'])? trim($_GET['username']) : (isset($_POST['username']) ? trim($_POST['username']) : '');
@@ -18,6 +16,11 @@ try
      
     // init user
     $user = ($user_id > 0)? erLhcoreClassModelUser::fetch($user_id) : erLhcoreClassModelUser::findOne(array('filter' => $param));
+
+    if (!($user instanceof erLhcoreClassModelUser) && empty($email) && !empty($username) && str_contains($username, '@')) {
+        $param = array('email' => $username);
+        $user = erLhcoreClassModelUser::findOne(array('filter' => $param));
+    }
 
     // check we have data
     if (! ($user instanceof erLhcoreClassModelUser)) 

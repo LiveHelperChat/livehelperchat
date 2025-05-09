@@ -167,6 +167,11 @@ class erLhcoreClassRestAPIHandler
                 }
 
                 $user = erLhcoreClassModelUser::findOne(array('filter' => array('username' => $apiData[0])));
+
+                if (!($user instanceof erLhcoreClassModelUser)) {
+                    $user = erLhcoreClassModelUser::findOne(array('filter' => array('email' => $apiData[0])));
+                }
+
                 if (!($user instanceof erLhcoreClassModelUser) || !password_verify($apiData[1], $user->password)) {
 
                     if ($user instanceof erLhcoreClassModelUser) {
