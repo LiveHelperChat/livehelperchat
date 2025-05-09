@@ -2085,6 +2085,7 @@ try {
                   KEY `rec_per_req` (`rec_per_req`),
                   KEY `disabled` (`disabled`),
                   KEY `email` (`email`),
+                  KEY `username` (`username`),
                   KEY `xmpp_username` (`xmpp_username`(191))
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 

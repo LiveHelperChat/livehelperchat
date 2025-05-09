@@ -11784,7 +11784,8 @@
     "lh_users" : {
       "new" : {
         "rec_per_req" : "ALTER TABLE `lh_users` ADD INDEX `rec_per_req` (`rec_per_req`);",
-        "disabled" : "ALTER TABLE `lh_users` ADD INDEX `disabled` (`disabled`);"
+        "disabled" : "ALTER TABLE `lh_users` ADD INDEX `disabled` (`disabled`);",
+        "username" : "ALTER TABLE `lh_users` ADD INDEX `username` (`username`);"
       },
       "old" : []
     },

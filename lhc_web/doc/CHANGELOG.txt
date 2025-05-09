@@ -1,3 +1,11 @@
+4.61v
+
+1. Various security fixes.
+
+
+execute doc/update_db/update_398.sql for update
+
+
 4.60v
 
 1. Disabled operators departments relations will be stored in separate table. Performance improvement.

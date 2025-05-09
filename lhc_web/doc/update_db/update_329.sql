@@ -1,0 +1,1 @@
+ALTER TABLE `lh_users` ADD INDEX `username` (`username`);
