@@ -5,9 +5,13 @@ Security Fixes
 Multiple XSS vulnerabilities were fixed (all required operator login to exploit)
 These were minor security issues that couldn't be exploited by anonymous visitors
 
-Reported by (Manojkumar J)[https://www.linkedin.com/in/manojkumar-j-7ba35b202]
+Reported by:
 
-Their website https://www.hackerbro.net
+* Name: Manojkumar Jaganathan (TheWhiteEvil)
+* LinkedIn: https://www.linkedin.com/in/manojkumar-j-7ba35b202/
+* HackerOne Profile: https://hackerone.com/the-white-evil?type=user
+* Company: HackerBro Technologies
+* Their website https://www.hackerbro.net
 
 Specific fixes included:
     1. Properly escaping operator names in the dropdown filtering box
