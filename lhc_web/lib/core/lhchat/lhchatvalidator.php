@@ -1591,21 +1591,17 @@ class erLhcoreClassChatValidator {
 
     public static function logRoutingActions($chat)
     {
-        $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
-        $data = (array)$auditOptions->data;
-        if (isset($data['log_routing']) && $data['log_routing'] == 1) {
-            if (!empty(self::$routingActions)) {
-                erLhcoreClassLog::write(json_encode(self::$routingActions,JSON_PRETTY_PRINT),
-                    ezcLog::SUCCESS_AUDIT,
-                    array(
-                        'source' => 'lhc',
-                        'category' => 'routing_priority',
-                        'line' => __LINE__,
-                        'file' => __FILE__,
-                        'object_id' => (int)$chat->id
-                    )
-                );
-            }
+        if (!empty(self::$routingActions)) {
+            erLhcoreClassLog::write(json_encode(self::$routingActions,JSON_PRETTY_PRINT),
+                ezcLog::SUCCESS_AUDIT,
+                array(
+                    'source' => 'lhc',
+                    'category' => 'routing_priority',
+                    'line' => __LINE__,
+                    'file' => __FILE__,
+                    'object_id' => (int)$chat->id
+                )
+            );
         }
     }
 

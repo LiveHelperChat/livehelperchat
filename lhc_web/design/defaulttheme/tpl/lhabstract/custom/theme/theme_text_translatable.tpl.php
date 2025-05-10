@@ -15,7 +15,16 @@
 
 <div class="mt-2" ng-controller="ThemeAttrTranslatableCtrl as attrTranslatable" ng-init='attrTranslatable.identifier = "<?php echo $translatableItem['identifier']?>";<?php if (isset($object->{$fields[$translatableItem['identifier']][$mainAttribute]}[$translatableItem['identifier'] . '_lang'])) : ?>attrTranslatable.setLanguage("<?php echo $translatableItem['identifier']?>");<?php endif;?>attrTranslatable.setDialects();'>
     <ul class="nav nav-tabs" role="tablist" id="translate-tabs-<?php echo $translatableItem['identifier']?>">
-        <li role="presentation" class="nav-item" ><a class="nav-link active" href="#main-<?php echo $translatableItem['identifier']?>" aria-controls="main-<?php echo $translatableItem['identifier']?>" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Main');?></a></li>
+        <li role="presentation" class="nav-item" ><a class="nav-link active" href="#main-<?php echo $translatableItem['identifier']?>" aria-controls="main-<?php echo $translatableItem['identifier']?>" role="tab" data-bs-toggle="tab" >
+                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Main');?>&nbsp;[<?php
+                if (!isset($languageList)) {
+                    $config = erConfigClassLhConfig::getInstance();
+                    $defaultSiteAccess = $config->getSetting( 'site', 'default_site_access',false);
+                    $defaultSiteAccessList = $config->getSetting( 'site', 'default_site_access_list',false);
+                    $languageList = implode(',',array_unique(array_merge([$defaultSiteAccess],is_array($defaultSiteAccessList) ? $defaultSiteAccessList : array())));
+                }
+                echo htmlspecialchars($languageList);
+                ?>]</a></li>
         <li ng-repeat="lang in attrTranslatable.languages" class="nav-item" role="presentation"><a href="#lang-<?php echo $translatableItem['identifier']?>-{{$index}}" class="nav-link" aria-controls="lang-<?php echo $translatableItem['identifier']?>-{{$index}}" role="tab" data-bs-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{attrTranslatable.getLanguagesChecked(lang)}}]</a></li>
         <li class="nav-item"><a href="#addlanguage" class="nav-link" ng-click="attrTranslatable.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Add translation');?></a></li>
     </ul>

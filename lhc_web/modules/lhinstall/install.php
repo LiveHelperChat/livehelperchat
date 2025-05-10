@@ -1555,6 +1555,7 @@ try {
                 ('ignore_typing', 0, 0, 'Do not store what visitor is typing',0),
                 ('encrypt_msg_after', 0, 0, 'After how many days anonymize messages',0),
                 ('notice_message','','0','','1'),
+                ('audit_configuration',	'a:7:{s:8:\"days_log\";i:90;s:11:\"log_objects\";a:0:{}s:6:\"log_js\";i:0;s:9:\"log_block\";i:0;s:11:\"log_routing\";i:0;s:9:\"log_files\";i:0;s:8:\"log_user\";i:0;}',	0,	'',	1),
                 ('encrypt_msg_op', 0, 0, 'Anonymize also operators messages',0),
                 ('valid_domains','','0','Domains where script can be embedded. E.g example.com, google.com','0'),
                 ('message_seen_timeout', 24, 0, 'Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.',	0),
