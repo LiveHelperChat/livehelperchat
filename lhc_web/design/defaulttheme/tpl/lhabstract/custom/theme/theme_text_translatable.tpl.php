@@ -27,6 +27,7 @@
                 ?>]</a></li>
         <li ng-repeat="lang in attrTranslatable.languages" class="nav-item" role="presentation"><a href="#lang-<?php echo $translatableItem['identifier']?>-{{$index}}" class="nav-link" aria-controls="lang-<?php echo $translatableItem['identifier']?>-{{$index}}" role="tab" data-bs-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{attrTranslatable.getLanguagesChecked(lang)}}]</a></li>
         <li class="nav-item"><a href="#addlanguage" class="nav-link" ng-click="attrTranslatable.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Add translation');?></a></li>
+        <li class="nav-item ms-auto"><a href="https://doc.livehelperchat.com/docs/theme#multilanguage-flow" target="_blank" class="material-icons">help</a></li>
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="main-<?php echo $translatableItem['identifier']?>">
