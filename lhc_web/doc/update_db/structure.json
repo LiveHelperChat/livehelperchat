@@ -10646,6 +10646,13 @@
         "hidden": "1"
       },
       {
+        "identifier": "audit_configuration",
+        "value": "a:7:{s:8:\"days_log\";i:90;s:11:\"log_objects\";a:0:{}s:6:\"log_js\";i:0;s:9:\"log_block\";i:0;s:11:\"log_routing\";i:0;s:9:\"log_files\";i:0;s:8:\"log_user\";i:0;}",
+        "type": "0",
+        "explain": "",
+        "hidden": "1"
+      },
+      {
         "identifier": "recaptcha_data",
         "value": "",
         "type": "0",
@@ -11784,7 +11791,8 @@
     "lh_users" : {
       "new" : {
         "rec_per_req" : "ALTER TABLE `lh_users` ADD INDEX `rec_per_req` (`rec_per_req`);",
-        "disabled" : "ALTER TABLE `lh_users` ADD INDEX `disabled` (`disabled`);"
+        "disabled" : "ALTER TABLE `lh_users` ADD INDEX `disabled` (`disabled`);",
+        "username" : "ALTER TABLE `lh_users` ADD INDEX `username` (`username`);"
       },
       "old" : []
     },

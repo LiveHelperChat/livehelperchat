@@ -192,6 +192,11 @@ if (empty($Errors)) {
 
         $chat->saveThis();
 
+        $logRouting = (int)erLhcoreClassModelChatConfig::fetch('audit_configuration')->data['log_routing'];
+        if ($logRouting == 1) {
+            erLhcoreClassChatValidator::logRoutingActions($chat);
+        }
+
         if (isset($restAPI) && isset($requestPayload['messages']) && is_array($requestPayload['messages'])) {
             erLhcoreClassRestAPIHandler::importMessages($chat, $requestPayload['messages']);
         }
