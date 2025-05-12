@@ -1574,7 +1574,7 @@ try {
                 ('preload_iframes','0','0','Preload widget. It will avoid loading delay after clicking widget','0'),
                 ('product_show_departament','0','0','Enable products show by departments', '1'),
                 ('paidchat_data','','0','Paid chat configuration','1'),
-                ('version_updates',	'328',	0,	'',	1),
+                ('version_updates',	'329',	0,	'',	1),
                 ('del_on_close_no_msg','0','0','Delete chat on close if there are no messages from the visitor','0'),
                 ('mheight_op','200','0','Messages box height for operator','0'),
                 ('listd_op','10','0','Default number of online operators to show','0'),
@@ -1874,7 +1874,7 @@ try {
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                  $db->query("CREATE TABLE `lh_departament_group_user_disabled` (
-                                             `id` int(11) NOT NULL AUTO_INCREMENT,
+                                             `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                                              `dep_group_id` int(11) NOT NULL,
                                              `user_id` int(11) NOT NULL,
                                              `read_only` tinyint(1) unsigned NOT NULL DEFAULT 0,
