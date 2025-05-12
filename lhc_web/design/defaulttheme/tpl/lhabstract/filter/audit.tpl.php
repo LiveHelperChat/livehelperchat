@@ -149,6 +149,7 @@
             <option value="rest_api">Rest API calls</option>
             <option value="Role">Role changes</option>
             <option value="Group">Group changes</option>
+            <option value="routing_priority">Routing Priority</option>
             <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/audit/category_list_multiinclude.tpl.php'));?>
         </datalist>
     </div>

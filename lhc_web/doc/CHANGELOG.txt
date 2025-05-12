@@ -1,3 +1,32 @@
+4.61v
+
+Security Fixes
+
+Multiple XSS vulnerabilities were fixed (all required operator login to exploit)
+These were minor security issues that couldn't be exploited by anonymous visitors
+
+Reported by:
+
+* Name: Manojkumar Jaganathan (TheWhiteEvil)
+* LinkedIn: https://www.linkedin.com/in/manojkumar-j-7ba35b202/
+* HackerOne Profile: https://hackerone.com/the-white-evil?type=user
+* Company: HackerBro Technologies
+* Their website https://www.hackerbro.net
+
+Specific fixes included:
+    1. Properly escaping operator names in the dropdown filtering box
+    2. Escaping bot usernames in the Telegram module
+    3. Escaping operator names in the change owner window
+    4. Escaping "Alias nick" field in department assignment modals
+    5. Escaping Facebook page "Name" fields
+    6. Escaping canned message content in chat window flows
+New Features
+    1. Added logging capability for chat priority rules application
+    2. Added support for passing chat_id and chat_hash parameters
+    3. Improved UI to show which siteaccess is being used for translated text in widget themes
+
+execute doc/update_db/update_329.sql for update
+
 4.60v
 
 1. Disabled operators departments relations will be stored in separate table. Performance improvement.

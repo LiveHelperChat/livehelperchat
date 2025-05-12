@@ -12,9 +12,13 @@
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('audit/options','How many days keep log?')?></label>
         <input type="text" class="form-control" name="days_log" value="<?php isset($audit_options['days_log']) ? print $audit_options['days_log'] : print '90'?>" />
     </div>
-    
+
     <div class="form-group">
         <label><input type="checkbox" name="log_js" <?php if (isset($audit_options['log_js']) && $audit_options['log_js'] == true) : ?>checked<?php endif;?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('audit/options','Log javascript errors')?></label>
+    </div>
+
+    <div class="form-group">
+        <label><input type="checkbox" name="log_routing" <?php if (isset($audit_options['log_routing']) && $audit_options['log_routing'] == true) : ?>checked<?php endif;?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('audit/options','Log applied routing/chat priority rules')?></label>
     </div>
 
     <div class="form-group">
