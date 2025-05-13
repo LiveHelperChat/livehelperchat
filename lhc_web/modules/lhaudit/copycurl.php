@@ -106,8 +106,8 @@ function constructCurlCommandFromJson(string $jsonInput): string
     // --- Extract and add the URL ---
     if (isset($data['params_request']['url'])) {
         $url = $data['params_request']['url'];
-        // It's good practice to ensure the URL is properly quoted for the shell
-        $curlCommand .= ' ' . escapeshellarg($url);
+        // Quote the URL properly with single quotes and escape any existing single quotes
+        $curlCommand .= " '" . str_replace("'", "'\\''", $url) . "'";
     } else {
         return "Error: 'params_request.url' not found in JSON input.";
     }
@@ -115,9 +115,9 @@ function constructCurlCommandFromJson(string $jsonInput): string
     // --- Extract and add headers ---
     if (isset($data['params_request']['headers']) && is_array($data['params_request']['headers'])) {
         foreach ($data['params_request']['headers'] as $header) {
-            // Ensure each header is properly quoted and put on a new line
-            $curlCommand .= ' \
-    -H ' . escapeshellarg($header);
+            // Use single quotes to preserve the header value exactly
+            $curlCommand .= " \
+    -H '" . str_replace("'", "'\\''", $header) . "'";
         }
     }
 
@@ -193,8 +193,11 @@ function constructCurlCommandFromJson(string $jsonInput): string
         if (json_last_error() !== JSON_ERROR_NONE) {
             return "Error: Could not encode modified body to JSON. " . json_last_error_msg();
         }
-        // Add the data payload, ensuring it's properly quoted for the shell
-        $curlCommand .= " -d " . escapeshellarg($bodyJson);
+        
+        // Add the data payload using a file input approach which is safer for complex JSON
+        // This avoids issues with shell escaping of quotes within the JSON
+        $curlCommand .= " --data-binary @-";
+        $curlCommand .= " << 'CURL_DATA_EOF'\n" . $bodyJson . "\nCURL_DATA_EOF";
     }
 
     return $curlCommand;
