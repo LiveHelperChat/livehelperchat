@@ -200,7 +200,7 @@ function constructCurlCommandFromJson(string $jsonInput): string
     return $curlCommand;
 }
 
-$tpl->set('command',constructCurlCommandFromJson(isset($msg->meta_msg_array['content']['html']['content'])) ? $msg->meta_msg_array['content']['html']['content'] : '');
+$tpl->set('command',constructCurlCommandFromJson(isset($msg->meta_msg_array['content']['html']['content']) ? $msg->meta_msg_array['content']['html']['content'] : ''));
 
 echo $tpl->fetch();
 exit;
