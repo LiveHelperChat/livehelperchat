@@ -745,7 +745,21 @@ function lh(){
     this.copyContent = function(inst){
 
         var textArea = document.createElement("textarea");
-        textArea.value = inst.attr('data-copy');
+
+        var copyContent = '';
+
+        if (inst.attr('data-copy-id')) {
+            // If data-copy-id is provided, get content from the referenced element
+            var sourceElement = document.getElementById(inst.attr('data-copy-id'));
+            if (sourceElement) {
+                copyContent = sourceElement.value || sourceElement.innerHTML;
+            }
+        } else {
+            // Otherwise use the data-copy attribute directly
+            copyContent = inst.attr('data-copy');
+        }
+
+        textArea.value = copyContent;
 
         // Avoid scrolling to bottom
         textArea.style.top = "0";

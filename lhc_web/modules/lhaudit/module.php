@@ -38,6 +38,12 @@ $ViewList['test'] = array(
     'uparams' => array()
 );
 
+$ViewList['copycurl'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'see_audit_system' ),
+);
+
 $FunctionList['use'] = array('explain' => 'Allow operator to configure audit module');
 $FunctionList['log_preview'] = array('explain' => 'Allow operator to preview log record');
 $FunctionList['see_system'] = array('explain' => 'Allow operator to see system status');

@@ -16,12 +16,12 @@ $appendPrintExportURL = '';
     </div>
 <div class="modal-body<?php (isset($modalBodyClass)) ? print ' '.$modalBodyClass : ''?>">
     <div class="modal-body">
-        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Are you sure?')?></h5>
+        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Are you sure?')?></h5>
     </div>
     <div class="modal-footer ps-0 pe-0 ms-0 me-0">
         <div class="row w-100 ps-0 pe-0 ms-0 me-0">
-            <div class="col"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button></div>
-            <div class="col ps-0 ms-0 me-0"><button type="button" id="confirm-button-action" class="btn btn-danger float-end">Proceed</button></div>
+            <div class="col"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')?></button></div>
+            <div class="col ps-0 ms-0 me-0"><button type="button" id="confirm-button-action" class="btn btn-danger float-end"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Proceed')?></button></div>
         </div>
     </div>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
