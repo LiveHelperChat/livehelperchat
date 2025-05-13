@@ -1574,7 +1574,7 @@ try {
                 ('preload_iframes','0','0','Preload widget. It will avoid loading delay after clicking widget','0'),
                 ('product_show_departament','0','0','Enable products show by departments', '1'),
                 ('paidchat_data','','0','Paid chat configuration','1'),
-                ('version_updates',	'329',	0,	'',	1),
+                ('version_updates',	'330',	0,	'',	1),
                 ('del_on_close_no_msg','0','0','Delete chat on close if there are no messages from the visitor','0'),
                 ('mheight_op','200','0','Messages box height for operator','0'),
                 ('listd_op','10','0','Default number of online operators to show','0'),
@@ -2387,10 +2387,12 @@ try {
   `chat_list_enabled` tinyint(1) NOT NULL DEFAULT 0,
   `mail_list_enabled` tinyint(1) NOT NULL DEFAULT 0,
   `mail_enabled` tinyint(1) NOT NULL DEFAULT 0,
+  `chat_window_enabled` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `enabled` (`enabled`),
   KEY `online_enabled` (`online_enabled`),
-  KEY `chat_enabled` (`chat_enabled`)
+  KEY `chat_enabled` (`chat_enabled`),
+  KEY `chat_window_enabled` (`chat_window_enabled`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                     $db->query("CREATE TABLE `lh_abstract_chat_priority` (`id` int(11) NOT NULL AUTO_INCREMENT,`value` text COLLATE utf8mb4_unicode_ci NOT NULL,`role_destination` varchar(50) NOT NULL,`present_role_is` varchar(50) NOT NULL, `dep_id` int(11) NOT NULL, `dest_dep_id` int(11) NOT NULL DEFAULT 0, `sort_priority` int(11) NOT NULL DEFAULT 0,`priority` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");

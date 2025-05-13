@@ -35,7 +35,7 @@ if ($userData->force_logout == 1) {
 // We do not need a session anymore
 session_write_close();
 
-$columnsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_identifier','enabled','popup_content','has_popup','icon_mode','online_enabled','column_icon'), 'sort' => false, 'filter' => array('enabled' => 1, 'chat_enabled' => 1)));
+$columnsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_identifier','enabled','popup_content','has_popup','icon_mode','online_enabled','column_icon','chat_window_enabled'), 'sort' => false, 'filter' => array('enabled' => 1, 'chat_enabled' => 1)));
 
 // User has included custom column which we ignore by default
 foreach ($columnsAdditional as $columnAdditional) {

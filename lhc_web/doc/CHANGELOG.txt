@@ -1,3 +1,9 @@
+4.62v
+
+1. Option to show hidden chat variable directly in the chat window.
+
+execute doc/update_db/update_330.sql for update
+
 4.61v
 
 Security Fixes
