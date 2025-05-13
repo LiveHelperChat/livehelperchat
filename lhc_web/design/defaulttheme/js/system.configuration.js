@@ -75,9 +75,9 @@
             });
         }
 
-        function manageSearchContainerSize(searchTerm) {
+        function manageSearchContainerSize(expand) {
             if (searchContainer) {
-                if (searchTerm !== '') {
+                if (expand) {
                     searchContainer.classList.remove('col-md-6');
                     searchContainer.classList.add('col-md-12');
                 } else {
@@ -93,7 +93,7 @@
                 headerElement.style.display = 'none';
             }
             
-            manageSearchContainerSize(this.value.trim());
+            manageSearchContainerSize(true);
             
             // Execute search if input already has content
             if (this.value.trim() !== '') {
@@ -116,15 +116,15 @@
                 headerElement.style.display = '';
             }
 
-            searchContainer.classList.remove('col-md-12');
-            searchContainer.classList.add('col-md-6');
+            manageSearchContainerSize(false);
    
             // Clear the search input if we want to restore everything on blur
             // this.value = '';
-            
-            resetElementsVisibility();
-            restoreTabFunctionality();
-            resetColumnVisibility();
+            setTimeout(function(){
+                resetElementsVisibility();
+                restoreTabFunctionality();
+                resetColumnVisibility();
+            },500);
         });
         
         searchInput.addEventListener('input', function() {
@@ -132,9 +132,6 @@
             const configLinks = document.querySelectorAll('#system-tabs .tab-content a');
             const configListItems = document.querySelectorAll('#system-tabs .tab-content li');
             const tabPanes = document.querySelectorAll('#system-tabs .tab-content .tab-pane');
-            
-            // Manage search container size based on search term
-            manageSearchContainerSize(searchTerm);
 
             // Reset visibility
             resetElementsVisibility();
