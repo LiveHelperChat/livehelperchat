@@ -3,8 +3,8 @@
 
     <div class="row">
 
-        <div class="col-6">
-            <h6>Mail option</h6>
+        <div class="col-md-6">
+            <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mail options')?></h5>
 
             <ul class="circle small-list">
 
@@ -42,8 +42,8 @@
 
             </ul>
         </div>
-        <div class="col-6">
-            <h6>Mailing options</h6>
+        <div class="col-md-6">
+            <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mailing options')?></h5>
 
             <ul class="circle small-list">
 

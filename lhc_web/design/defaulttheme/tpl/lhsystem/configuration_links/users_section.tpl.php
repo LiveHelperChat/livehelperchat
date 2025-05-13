@@ -2,7 +2,7 @@
 <?php if ($system_configuration_links_users_section_enabled == true) : ?>
 
   	<?php if ($currentUser->hasAccessTo('lhuser','userlist') || $currentUser->hasAccessTo('lhuser','grouplist') || $currentUser->hasAccessTo('lhpermission','list')) : ?>
-	  	<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users');?></h4>
+	  	<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users');?></h5>
 		<ul class="circle small-list">
 		    <?php if ($currentUser->hasAccessTo('lhuser','userlist')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/userlist')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users');?></a></li>
@@ -42,7 +42,7 @@
 	 	 
 
 	 <?php if ($currentUser->hasAccessTo('lhsystem','usersactions')) : ?>
-	 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Advanced');?></h4>
+	 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Advanced');?></h5>
      <ul class="circle small-list">
         <li><a href="<?php echo erLhcoreClassDesign::baseurl('system/usersactions')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Users actions');?></a></li>
      </ul>

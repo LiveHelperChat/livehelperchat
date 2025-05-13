@@ -1,6 +1,21 @@
-<h1><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/configuration_title.tpl.php'));?></h1>
+<div class="row">
+    <div class="col-md-6" id="header-system-configuration">
+        <h1><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/configuration_title.tpl.php'));?></h1>
+    </div>
+    <div class="col-md-6">
+        <div class="mb-3">
+            <div class="input-group">
+                <span class="input-group-text"><i class="material-icons me-0">search</i></span>
+                <input type="text" id="configuration-search" class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Search for configuration options...');?>">
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
+
+
 
 <div role="tabpanel" id="system-tabs">
 
@@ -24,7 +39,7 @@
 			<div class="row">
 				<div class="col-md-6">
 
-					<h4><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></h4>
+					<h5><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></h5>
 
 					<ul>
         	      		<?php if ($currentUser->hasAccessTo('lhsystem','timezone')) : ?>
@@ -55,7 +70,7 @@
         			</ul>
 
                     <?php if ($currentUser->hasAccessTo('lhabstract','use') && $currentUser->hasAccessTo('lhsystem','auditlog')) : ?>
-                            <h4>Audit</h4>
+                            <h5>Audit</h5>
                             <ul>
                                 <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/audit_log.tpl.php'));?>
                             </ul>
@@ -86,9 +101,5 @@
     </div>
 </div>
 <script>
-(function(){
-    var hash = window.location.hash;
-    let tab = document.querySelector('#system-tabs a[href="' + hash.replace('#!','') + '"]');
-    tab && (new bootstrap.Tab(tab)).show();
-})();
+
 </script>
