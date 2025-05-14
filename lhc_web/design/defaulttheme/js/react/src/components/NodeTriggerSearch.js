@@ -24,10 +24,10 @@ class NodeTriggerSearch extends Component {
         this.searchTimeout = null;
     }
 
-    handleInputChange(e) {
+    handleInputChange(e) {        
         const keyword = e.target.value;
-        this.setState({ keyword });
-        
+        this.setState({ keyword:keyword, loading: true});
+
         // Clear any existing timeout
         if (this.searchTimeout) {
             clearTimeout(this.searchTimeout);
@@ -56,11 +56,11 @@ class NodeTriggerSearch extends Component {
         const { keyword, includeTranslations } = this.state;
         
         if (!keyword.trim()) {
-            this.setState({ triggers: [] });
+            this.setState({ triggers: [], loading: false });
             return;
         }
 
-        this.setState({ loading: true, error: null, triggers: []});
+        this.setState({ error: null});
 
         searchNodeTriggers(this.props.botId, keyword, includeTranslations ? 'include_translations' : null)
             .then(data => {
@@ -91,7 +91,7 @@ class NodeTriggerSearch extends Component {
             <div className="node-trigger-search">
             <div className="mb-1">
             <div className="input-group input-group-sm">
-            <span className="input-group-text"><i className="material-icons me-0">search</i></span>
+            <span className="input-group-text"><i className={"material-icons me-0 "+ (loading ? 'lhc-spin' : '')}>{loading ? 'refresh' : 'search'}</i></span>
             <input
                 type="text"
                 className="form-control form-control-sm"
@@ -114,7 +114,6 @@ class NodeTriggerSearch extends Component {
 
             {error && <div className="alert alert-danger pt-1 pb-1 mb-0">{error}</div>}
             
-            {loading && <div className="alert alert-info pt-1 pb-1 mb-0">Searching...</div>}
             {triggers.length > 0 && (
             <div className="row">
             <div className="col-12">
@@ -144,10 +143,7 @@ class NodeTriggerSearch extends Component {
             </div>
             </div>
             )}
-
-            {!loading && triggers.length === 0 && keyword.trim() && !error && (
-            <div className="alert alert-info pt-1 pb-1 mb-0">No triggers found matching your search.</div>
-            )}
+ 
             </div>
         );
     }
