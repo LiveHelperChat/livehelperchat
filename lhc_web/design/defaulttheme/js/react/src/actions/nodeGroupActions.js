@@ -52,4 +52,18 @@ export function updateNodeGroup(obj) {
     }
 }
 
+export function searchNodeTriggers(botId, keyword, includeTranslations = null) {
+    let url = WWW_DIR_JAVASCRIPT + `/genericbot/triggersearch/${botId}/?keyword=${encodeURIComponent(keyword)}`;
+    if (includeTranslations) {
+        url += `&include_translations=1`;
+    }
+    return axios.get(url)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((err) => {
+            throw err;
+        });
+}
+
 

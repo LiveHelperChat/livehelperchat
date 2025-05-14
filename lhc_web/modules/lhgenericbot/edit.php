@@ -2,7 +2,7 @@
 
 $tpl = erLhcoreClassTemplate::getInstance('lhgenericbot/edit.tpl.php');
 
-$bot =  erLhcoreClassModelGenericBotBot::fetch((int)$Params['user_parameters']['id']);
+$bot = erLhcoreClassModelGenericBotBot::fetch((int)$Params['user_parameters']['id']);
 
 if ( isset($_POST['Cancel_bot']) ) {
     erLhcoreClassModule::redirect('genericbot/list');
