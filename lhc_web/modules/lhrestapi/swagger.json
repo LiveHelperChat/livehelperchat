@@ -95,6 +95,17 @@
             "collectionFormat": "multi"
           },
           {
+            "name": "ids[]",
+            "in": "query",
+            "description": "Conversations IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            },
+            "collectionFormat": "multi"
+          },
+          {
             "name": "department_group_ids[]",
             "in": "query",
             "description": "Department group ID's",

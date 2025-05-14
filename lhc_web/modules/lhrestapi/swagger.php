@@ -26,6 +26,7 @@ $chats_parameters = '';
 $elastic_definition = '';
 $elastic_mail = '';
 $elastic_mail_search_parameters = '';
+$elastic_chat_search_parameters = '';
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('restapi.swagger', array(
     'elastic_mail_definition' => & $elastic_mail,
@@ -33,7 +34,8 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('restapi.swagger', arr
     'append_definitions' => & $append_definitions,
     'append_paths' => & $append_paths,
     'chats_parameters' => & $chats_parameters,
-    'elastic_mail_search_parameters' => & $elastic_mail_search_parameters
+    'elastic_mail_search_parameters' => & $elastic_mail_search_parameters,
+    'elastic_chat_search_parameters' => & $elastic_chat_search_parameters
 ));
 
 echo str_replace(
@@ -46,7 +48,9 @@ echo str_replace(
         '{{chats_parameters}}',
         '{{append_elastic_definitions}}',
         '{{append_elastic_mail_definitions}}',
-        '{{elastic_mail_search_parameters}}'),
+        '{{elastic_mail_search_parameters}}',
+        '{{elastic_chat_search_parameters}}'
+    ),
     array(
         erLhcoreClassDesign::baseurldirect(),
         time(),
@@ -56,7 +60,9 @@ echo str_replace(
         $chats_parameters,
         $elastic_definition,
         $elastic_mail,
-        $elastic_mail_search_parameters)
+        $elastic_mail_search_parameters,
+        $elastic_chat_search_parameters
+    )
     , $content);
 exit;
 
