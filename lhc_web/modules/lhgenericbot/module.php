@@ -35,6 +35,12 @@ $ViewList['newcommand'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['triggersearch'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['editcommand'] = array(
     'params' => array('id'),
     'uparams' => array(),

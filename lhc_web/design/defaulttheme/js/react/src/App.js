@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import NodeGroups from './components/NodeGroups';
+import NodeTriggerSearch from './components/NodeTriggerSearch';
 import NodeTriggerBuilder from './components/NodeTriggerBuilder';
 import NodeTriggerBuilderPreview from './components/NodeTriggerBuilderPreview';
 import {fetchNodeGroupTriggerAction} from "./actions/nodeGroupTriggerActions"
@@ -43,6 +44,7 @@ class App extends Component {
         return (
             <div className="row">
                 <div className="col-4">
+                    <NodeTriggerSearch botId={this.props.botId} />
                     <NodeGroups triggerId={this.props.triggerId} botId={this.props.botId}/>
                 </div>
                 <div className="col-5">
