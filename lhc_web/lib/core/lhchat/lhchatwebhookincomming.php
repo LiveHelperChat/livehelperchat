@@ -9,9 +9,9 @@ class erLhcoreClassChatWebhookIncoming {
         $conditions = $incomingWebhook->conditions_array;
 
         if (isset($conditions['main_cond']) && $conditions['main_cond'] != "") {
-            $conditionsPairs = explode("||",$conditions['main_cond']);
+            $conditionsPairs = explode("||", $conditions['main_cond']);
             foreach ($conditionsPairs as $conditionsPair) {
-                $conditionsPairData = explode('=',$conditionsPair);
+                $conditionsPairData = explode('=', $conditionsPair);
 
                 if (isset($conditionsPairData[1])) {
                     if ($conditionsPairData[1] === 'false') {
@@ -22,24 +22,35 @@ class erLhcoreClassChatWebhookIncoming {
                         $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
                     }
                 } else { // Checks only for existence of attribute
-
-                    if (!isset($payload[$conditionsPairData[0]])) {
-                        throw new Exception('Conditional attribute does not exists ['.$conditionsPairData[0].']!' . json_encode($payload));
+                    $payloadValue = self::getNestedValue($payload, $conditionsPairData[0]);
+                    if (!isset($payloadValue)) {
+                        throw new Exception('Conditional attribute does not exist ['.$conditionsPairData[0].']!' . json_encode($payload));
                     }
 
                     // All good, attribute exists
                     continue;
                 }
 
-                if ((is_array($conditionsPairData[1]) && !in_array($payload[$conditionsPairData[0]], $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($payload[$conditionsPairData[0]]) && $payload[$conditionsPairData[0]] == $conditionsPairData[1]))) {
-                    throw new Exception('Main conditions does not met!' . json_encode($payload));
+                $conditionValue = $conditionsPairData[1];
+                $payloadValue = self::getNestedValue($payload, $conditionsPairData[0]);
+                $conditionsFailed = false;
+
+                if (is_array($conditionValue) && !in_array($payloadValue, $conditionValue)) {
+                    $conditionsFailed = true;
+                }
+                if (!is_array($conditionValue) && !(isset($payloadValue) && $payloadValue == $conditionValue)) {
+                    $conditionsFailed = true;
+                }
+
+                if ($conditionsFailed) {
+                    throw new Exception('Main conditions not met! [' . $conditionsPairData[0] . '] expected [' . json_encode($conditionValue) . '] got [' . json_encode($payloadValue) . ']' . json_encode($payload));
                 }
             }
         }
 
         $messages = isset($conditions['messages']) && $conditions['messages'] != '' ? $payload[$conditions['messages']] : [$payload];
 
-        if (isset($conditions['messages']) && $conditions['messages'] != '' &&  isset($conditions['message_direct']) && $conditions['message_direct'] == true) {
+        if (isset($conditions['messages']) && $conditions['messages'] != '' && isset($conditions['message_direct']) && $conditions['message_direct'] == true) {
             $messages = [$messages];
         }
 
@@ -56,6 +67,20 @@ class erLhcoreClassChatWebhookIncoming {
                 self::processMessage($incomingWebhook, $message, $payload);
             }
         }
+    }
+
+    /**
+     * Helper to support dot-notation keys like "data.local"
+     */
+    public static function getNestedValue($array, $keyPath) {
+        $keys = explode('.', $keyPath);
+        foreach ($keys as $key) {
+            if (!is_array($array) || !array_key_exists($key, $array)) {
+                return $array;
+            }
+            $array = $array[$key];
+        }
+        return $array;
     }
 
     public static function processDeliveryStatus($incomingWebhook, $payloadMessage, $payloadAll)

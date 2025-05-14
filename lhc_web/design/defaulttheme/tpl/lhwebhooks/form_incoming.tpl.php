@@ -247,7 +247,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','General conditions for messages being processed. These are first level attributes');?></label>
-                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.main_cond" placeholder="main attribute=value expected||main attribute=value expected" value="" />
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.main_cond" placeholder="main attribute=value expected||main.nested.attribute=value1,value2" value="" />
                 </div>
             </div>
             <div class="col-6">
