@@ -8,7 +8,7 @@
     if (searchInput) {
         const headerElement = document.getElementById('header-system-configuration');
         const searchContainer = searchInput.closest('.col-md-6');
-        
+
         // Helper functions to reduce code duplication
         function resetElementsVisibility() {
             // Reset visibility for all elements
@@ -23,6 +23,10 @@
             
             // Reset visibility for all h5 elements
             document.querySelectorAll('#system-tabs .tab-content h5').forEach(header => {
+                header.style.display = '';
+            });
+
+            document.querySelectorAll('#system-tabs .tab-content div').forEach(header => {
                 header.style.display = '';
             });
         }
@@ -94,12 +98,6 @@
             }
             
             manageSearchContainerSize(true);
-            
-            // Execute search if input already has content
-            if (this.value.trim() !== '') {
-                // Trigger the input event to execute the search
-                this.dispatchEvent(new Event('input'));
-            }
         });
         
         // Add escape key to lose focus
@@ -112,19 +110,11 @@
         // Show header when search input loses focus (only if search is empty)
         searchInput.addEventListener('blur', function() {
             // Always restore header visibility on blur
-            if (headerElement) {
+            if (this.value.toLowerCase().trim() === '' && headerElement) {
                 headerElement.style.display = '';
             }
 
-            manageSearchContainerSize(false);
-   
-            // Clear the search input if we want to restore everything on blur
-            // this.value = '';
-            setTimeout(function(){
-                resetElementsVisibility();
-                restoreTabFunctionality();
-                resetColumnVisibility();
-            },500);
+            manageSearchContainerSize(this.value.toLowerCase().trim() !== '');
         });
         
         searchInput.addEventListener('input', function() {
@@ -229,16 +219,7 @@
 
             } else {
                 restoreTabFunctionality();
-
-                // Show all headers when search is cleared
-                document.querySelectorAll('#system-tabs .tab-content h5,#system-tabs .tab-content ul').forEach(header => {
-                    header.style.display = '';
-                });
-
-                // Reset column visibility
-                document.querySelectorAll('#system-tabs .tab-content .col-md-6').forEach(column => {
-                    column.style.display = '';
-                });
+                resetElementsVisibility();
             }
         });
     }
