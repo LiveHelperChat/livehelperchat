@@ -9,31 +9,8 @@ class erLhcoreClassChatWebhookIncoming {
         $conditions = $incomingWebhook->conditions_array;
 
         if (isset($conditions['main_cond']) && $conditions['main_cond'] != "") {
-            $conditionsPairs = explode("||",$conditions['main_cond']);
-            foreach ($conditionsPairs as $conditionsPair) {
-                $conditionsPairData = explode('=',$conditionsPair);
-
-                if (isset($conditionsPairData[1])) {
-                    if ($conditionsPairData[1] === 'false') {
-                        $conditionsPairData[1] = false;
-                    } elseif ($conditionsPairData[1] === 'true') {
-                        $conditionsPairData[1] = true;
-                    } elseif (strpos($conditionsPairData[1], ',') !== false) {
-                        $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
-                    }
-                } else { // Checks only for existence of attribute
-
-                    if (!isset($payload[$conditionsPairData[0]])) {
-                        throw new Exception('Conditional attribute does not exists ['.$conditionsPairData[0].']!' . json_encode($payload));
-                    }
-
-                    // All good, attribute exists
-                    continue;
-                }
-
-                if ((is_array($conditionsPairData[1]) && !in_array($payload[$conditionsPairData[0]], $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($payload[$conditionsPairData[0]]) && $payload[$conditionsPairData[0]] == $conditionsPairData[1]))) {
-                    throw new Exception('Main conditions does not met!' . json_encode($payload));
-                }
+            if (!self::isValidCondition('main_cond', $conditions, $payload)) {
+                throw new Exception('Main conditions does not met!' . json_encode($payload));
             }
         }
 
@@ -299,6 +276,10 @@ class erLhcoreClassChatWebhookIncoming {
 
         foreach ($conditionsPairs as $conditionsPair) {
             $conditionsPairData = explode('=', $conditionsPair);
+
+            if (!isset($conditionsPairData[1])) {
+                $conditionsPairData[1] = '__exists__';
+            }
 
             $exists = false;
             if ($conditionsPairData[1] === 'false') {
