@@ -91,6 +91,7 @@
         lhcSettingUpdateProgress: [],
         lhcSettingAllSelected: false,
         channel: null,
+        isCTRLPressed: false,
         abortController : new AbortController()
     };
 
@@ -150,7 +151,11 @@
 
     ee.addListener('svelteOpenChat',function (chat_id) {
         lhinst.addOpenTrace('click');
-        startChatByID(chat_id);
+        startChatByID(chat_id,lhcLogic.isCTRLPressed);
+    });
+
+    ee.addListener('svelteOpenMail',function (chat_id, subject) {
+        lhinst.startMailChat(chat_id,jQuery('#tabs'),truncate(subject,10),lhcLogic.isCTRLPressed);
     });
 
     //ee.emitEvent("svelteAction",[{'type':'info_history','msg':"History record"}]);
@@ -517,6 +522,24 @@
         $lhcList.rmtoggle = lhcServices.restoreLocalSetting('rmtoggle','false',false) != 'false';
         lhcServices.getToggleWidget(lhcList,'track_open_chats');
         lhcServices.getToggleWidget(lhcList,'group_offline_chats');
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Control' || e.ctrlKey) {
+                lhcLogic.isCTRLPressed = true;
+            }
+        });
+
+        document.addEventListener('keyup', function(e) {
+            if (e.key === 'Control') {
+                lhcLogic.isCTRLPressed = false;
+            }
+        });
+
+        // Reset the ctrl key state when window loses focus
+        window.addEventListener('blur', function() {
+            lhcLogic.isCTRLPressed = false;
+        });
+
 
         var appendURL = '';
         var openedChats = getOpenedChatIds('achat_id');

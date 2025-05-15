@@ -628,7 +628,7 @@ function lh(){
     	        return;
             }
     	    
-    		if (typeof focusTab === 'undefined' || focusTab === true || hash == '#chat-id-'+chat_id){
+    		if ((typeof focusTab === 'undefined' || focusTab === true || hash == '#chat-id-'+chat_id) && url.indexOf('(arg)/backgroundid') === -1) {
 	    		tabs.find('> ul > li > a.active').removeClass("active");
 	    		tabs.find('> ul > #chat-tab-li-'+chat_id+' > a').addClass("active");
 	    		tabs.find('> div.tab-content > div.active').removeClass('active');
@@ -883,11 +883,13 @@ function lh(){
     this.addMailTab = function(tabs, name, chat_id, background) {
         // If tab already exits return
         if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
-            tabs.find('> ul > li > a.active').removeClass("active");
-            tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");
-            tabs.find('> div.tab-content > div.active').removeClass('active');
-            tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');
-            ee.emitEvent('mailChatTabClicked', [chat_id.replace('mc','')]);
+            if (background !== true) {
+                tabs.find('> ul > li > a.active').removeClass("active");
+                tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");
+                tabs.find('> div.tab-content > div.active').removeClass('active');
+                tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');
+                ee.emitEvent('mailChatTabClicked', [chat_id.replace('mc','')]);
+            }
             return ;
         }
 

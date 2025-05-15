@@ -54,10 +54,10 @@
         hide_action_buttons : osettings_hide_action_buttons === "true"
     };
 
-    let btnSecondaryClass = lhcLogic.hide_action_buttons === true ? "btn-outline-secondary" : "btn-secondary";
-    let btnSuccessClass = lhcLogic.hide_action_buttons === true ? "btn-outline-success" : "btn-success";
-    let btnDangerClass = lhcLogic.hide_action_buttons === true ? "btn-outline-danger" : "btn-danger";
-    let btnInfoClass = lhcLogic.hide_action_buttons === true ? "btn-outline-info" : "btn-info";
+    let btnSecondaryClass = lhcLogic.hide_action_buttons === true ? "btn-outline-secondary" : "btn-outline-secondary";
+    let btnSuccessClass = lhcLogic.hide_action_buttons === true ? "btn-outline-success" : "btn-outline-success";
+    let btnDangerClass = lhcLogic.hide_action_buttons === true ? "btn-outline-danger" : "btn-outline-danger";
+    let btnInfoClass = lhcLogic.hide_action_buttons === true ? "btn-outline-info" : "btn-outline-info";
 
     ee.addListener('svelteOnlineUserSetting',function (settingName, value) {
         lhcLogic.wasInitiated = false;
@@ -833,7 +833,7 @@
                             {/if}
 
                             {#if ou.user_country_code != '' && !lhcLogic.hide_action_buttons}
-                                <span class="btn btn-xs btn-primary up-case-first">{ou.user_country_name}{ou.city != '' ? ' | '+ou.city : ''}</span><span class="btn btn-primary btn-xs"><i class="material-icons">access_time</i>{ou.visitor_tz} - {ou.visitor_tz_time}</span>
+                                <span class="btn btn-xs btn-outline-primary up-case-first">{ou.user_country_name}{ou.city != '' ? ' | '+ou.city : ''}</span><span class="btn btn-outline-primary btn-xs"><i class="material-icons">access_time</i>{ou.visitor_tz} - {ou.visitor_tz_time}</span>
                             {/if}
 
                             <a href="#" title={$t('widget.start_a_chat')} class={"btn btn-xs "+btnSecondaryClass} on:click={(e) => lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+ou.id})}><i class="material-icons me-0">send</i>{#if !lhcLogic.hide_action_buttons}&nbsp;{$t('widget.start_a_chat')}{/if}</a>

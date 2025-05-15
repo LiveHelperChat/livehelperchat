@@ -18,7 +18,7 @@
 
                     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-                    <table cellpadding="0" cellspacing="0" class="table table-sm list-links" width="100%">
+                    <table cellpadding="0" cellspacing="0" class="table table-sm list-links" id="mail-list-table" width="100%">
                         <thead>
                         <tr>
                             <th><input class="mb-0" type="checkbox" id="check-all-items" /></th>
@@ -74,9 +74,9 @@
                                     <span class="material-icons">image</span>
                                 <?php endif; ?>
 
-                                <a class="me-2" onclick='lhinst.startMailChat(<?php echo $item->id?>,$("#tabs"),<?php echo json_encode($item->subject_front,JSON_HEX_APOS)?>)' href="#!#chat-id-mc<?php echo $item->id?>"><?php echo $item->id; ?></a>
+                                <a class="me-2 mail-link" title="<?php echo htmlspecialchars($item->subject_front)?>" href="#/chat-id-mc<?php echo $item->id?>"><?php echo $item->id; ?></a>
 
-                                <a class="user-select-none" onclick='lhinst.startMailChat(<?php echo $item->id?>,$("#tabs"),<?php echo json_encode($item->subject_front,JSON_HEX_APOS)?>)' href="#!#chat-id-mc<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?>&nbsp;<small><?php echo $item->total_messages?></small></a>
+                                <a class="user-select-none mail-link" title="<?php echo htmlspecialchars($item->subject_front)?>" href="#/chat-id-mc<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?>&nbsp;<small><?php echo $item->total_messages?></small></a>
 
                                 <?php if (is_array($item->subjects)) : $subjectPresent = [];?>
                                     <?php foreach ($item->subjects as $subject) : if (!in_array($subject->id, $subjectPresent)) : $subjectPresent[] = $subject->id;?>
@@ -134,6 +134,11 @@
                                 updateDeleteArchiveUI();
                             });
                             $('input[name="ConversationID[]"]').change(updateDeleteArchiveUI);
+                            $('#mail-list-table a.mail-link').click(function(event){
+                                window.location.href = event.currentTarget.href;
+                                ee.emitEvent('svelteOpenMail',[window.location.hash.split('chat-id-mc')[1],event.currentTarget.title]);
+                                event.preventDefault(); // Prevent the default behavior (opening a new tab)
+                            })
                         });
                     </script>
 
