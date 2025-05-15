@@ -131,9 +131,9 @@ export default {
         }
         lhc.previewMail(chat_id);
     },
-    startMailChat : function (chat_id, name) {
+    startMailChat : function (chat_id, name, background) {
         if (jQuery('#tabs').length > 0) {
-            return lhinst.startMailChat(chat_id,jQuery('#tabs'),this.truncate(name || 'Mail',10));
+            return lhinst.startMailChat(chat_id,jQuery('#tabs'),this.truncate(name || 'Mail',10), background);
         }
     },
     previewChat : function(chat_id,event){
@@ -173,10 +173,10 @@ export default {
     startChatNewWindowTransfer : function(chat_id,name,transfer_id, transfer_scope) {
         return lhinst.startChatNewWindowTransfer(chat_id,name,transfer_id, transfer_scope);
     },
-    startChat : function (chat_id,name) {
+    startChat : function (chat_id,name,background) {
         if ($('#tabs').length > 0) {
             lhinst.addOpenTrace('click');
-            return lhinst.startChat(chat_id,$('#tabs'),this.truncate((name || 'Visitor'),10));
+            return lhinst.startChat(chat_id,$('#tabs'),this.truncate((name || 'Visitor'),10),background);
         } else {
             lhinst.startChatNewWindow(chat_id,name);
         }

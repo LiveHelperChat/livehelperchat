@@ -530,7 +530,7 @@
         });
 
         document.addEventListener('keyup', function(e) {
-            if (e.key === 'Control') {
+            if (e.key === 'Control' || e.ctrlKey) {
                 lhcLogic.isCTRLPressed = false;
             }
         });

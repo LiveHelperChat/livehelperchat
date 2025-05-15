@@ -37,13 +37,32 @@
     let check_row_class = !override_item_open && type !== "transfer_chats" && type !== "group_chats" && type !== "online_op" && type !== "depgroups_stats";
     let check_online = !override_item_open && type !== "my_mails" && type !== "active_mails" && type !== "pending_mails" && type !== "alarm_mails";
 
+    let isCTRLPressed = false;
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Control' || e.ctrlKey) {
+            isCTRLPressed = true;
+        }
+    });
+
+    document.addEventListener('keyup', function(e) {
+        if (e.key === 'Control' || e.ctrlKey) {
+            isCTRLPressed = false;
+        }
+    });
+
+    // Reset the ctrl key state when window loses focus
+    window.addEventListener('blur', function() {
+        isCTRLPressed = false;
+    });
+
     function openItem(chat) {
         if (type === "group_chats") {
             lhcServices.startGroupChat(chat.id,chat.name)
         } else if (type === "my_mails" || type === "active_mails" || type === "pending_mails" || type === "alarm_mails") {
-            lhcServices.startMailChat(chat.id,chat.subject_front);
+            lhcServices.startMailChat(chat.id, chat.subject_front, isCTRLPressed);
         } else {
-            lhcServices.startChat(chat.id,chat.nick)
+            lhcServices.startChat(chat.id, chat.nick, !isCTRLPressed);
         }
     }
 
