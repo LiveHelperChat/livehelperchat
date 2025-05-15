@@ -1,6 +1,7 @@
 <script>
     import lhcServices from '../../lib/Services.js';
     import { t } from "../../i18n/i18n.js";
+    import { onMount, onDestroy } from 'svelte';
 
     export let sort_identifier = null;
     export let type = null;
@@ -39,21 +40,34 @@
 
     let isCTRLPressed = false;
 
-    document.addEventListener('keydown', function(e) {
+    // Event handler functions
+    function handleKeyDown(e) {
         if (e.key === 'Control' || e.ctrlKey) {
             isCTRLPressed = true;
         }
-    });
+    }
 
-    document.addEventListener('keyup', function(e) {
+    function handleKeyUp(e) {
         if (e.key === 'Control' || e.ctrlKey) {
             isCTRLPressed = false;
         }
+    }
+
+    function handleBlur() {
+        isCTRLPressed = false;
+    }
+
+    // Set up and clean up event listeners using Svelte lifecycle methods
+    onMount(() => {
+        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('keyup', handleKeyUp);
+        window.addEventListener('blur', handleBlur);
     });
 
-    // Reset the ctrl key state when window loses focus
-    window.addEventListener('blur', function() {
-        isCTRLPressed = false;
+    onDestroy(() => {
+        document.removeEventListener('keydown', handleKeyDown);
+        document.removeEventListener('keyup', handleKeyUp);
+        window.removeEventListener('blur', handleBlur);
     });
 
     function openItem(chat) {
