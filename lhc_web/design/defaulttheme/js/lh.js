@@ -565,10 +565,18 @@ function lh(){
         this.logOpenTrace.push(log);
     }
 
+    this.animateClick = function(chat_id) {
+        $('#chat-tab-link-'+chat_id).addClass('blink-tab-item');
+        setTimeout(function() {
+            $('#chat-tab-link-'+chat_id).removeClass('blink-tab-item');
+        }, 1000);
+    }
+
     this.addTab = function(tabs, url, name, chat_id, focusTab, position) {
     	// If tab already exits return
     	if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
             lhinst.logOpenTrace = [];
+            this.animateClick(chat_id);
     		return ;
     	}
 
@@ -888,8 +896,10 @@ function lh(){
                 tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");
                 tabs.find('> div.tab-content > div.active').removeClass('active');
                 tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');
-                ee.emitEvent('mailChatTabClicked', [chat_id.replace('mc','')]);
+            } else {
+                this.animateClick(chat_id);
             }
+            ee.emitEvent('mailChatTabClicked', [chat_id.replace('mc','')]);
             return ;
         }
 
@@ -986,6 +996,8 @@ function lh(){
                 tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");
                 tabs.find('> div.tab-content > div.active').removeClass('active');
                 tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');
+            } else {
+                this.animateClick(chat_id);
             }
     		window.location.hash = '#/chat-id-'+chat_id;
         }
@@ -1007,7 +1019,9 @@ function lh(){
 	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend+'/(arg)/'+backgroundType, name, chat_id, false);
 	    	ee.emitEvent('chatStartBackground', [chat_id,{name:name}]);
 	    	return true;
-    	}
+    	} else {
+            this.animateClick(chat_id);
+        }
     	
     	return false;
     };

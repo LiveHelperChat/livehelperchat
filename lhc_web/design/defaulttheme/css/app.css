@@ -2531,3 +2531,9 @@ html {
     max-width: 650px;
     text-align: left;
 }
+
+.blink-tab-item{animation: animate 1s linear 1}
+@keyframes animate {
+    0% {box-shadow: 0 0 0 0 rgba(255, 109, 74, 0.7), 0 0 0 0 rgba(255, 109, 74, 0.7)}
+    100% {box-shadow: 0 0 0 20px rgba(255, 109, 74, 0), 0 0 0 0 rgba(255, 109, 74, 0.7)}
+}
