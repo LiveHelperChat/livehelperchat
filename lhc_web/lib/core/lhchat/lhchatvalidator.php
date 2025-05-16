@@ -1136,7 +1136,11 @@ class erLhcoreClassChatValidator {
 
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
 
+                $caseInsensitive = false;
                 if ($encrypted === true) {
+                    if ($jsVar->type == 4) {
+                        $caseInsensitive = true;
+                    }
                     $jsVar->type = 3;
                 }
 
@@ -1186,7 +1190,7 @@ class erLhcoreClassChatValidator {
 
                         if (
                             ($jsVar->type != 4 && trim($chat->{$lhcVar}) != trim($val) && $val != '') ||
-                            ($jsVar->type == 4 && trim(mb_strtolower($chat->{$lhcVar})) != trim(mb_strtolower($val)) && $val != '')
+                            (($jsVar->type == 4 || $caseInsensitive === true) && trim(mb_strtolower($chat->{$lhcVar})) != trim(mb_strtolower($val)) && $val != '')
                         ) {
 
                             if ($jsVar->change_message != '') {
@@ -1229,7 +1233,7 @@ class erLhcoreClassChatValidator {
                             if (
                                 !isset($chatVariablesDataArray[$jsVar->var_identifier]) ||
                                 ($jsVar->type != 4 && trim($chatVariablesDataArray[$jsVar->var_identifier]) != trim($val)) ||
-                                ($jsVar->type == 4 && trim(mb_strtolower($chatVariablesDataArray[$jsVar->var_identifier])) != trim(mb_strtolower($val)))) {
+                                (($jsVar->type == 4 || $caseInsensitive === true) && trim(mb_strtolower($chatVariablesDataArray[$jsVar->var_identifier])) != trim(mb_strtolower($val)))) {
 
                                 if ($jsVar->change_message != '') {
                                     $messagesSave[] = str_replace(['{old_val}','{new_val}'],[(isset($chatVariablesDataArray[$jsVar->var_identifier]) ? $chatVariablesDataArray[$jsVar->var_identifier] : '...'), $val],$jsVar->change_message);
