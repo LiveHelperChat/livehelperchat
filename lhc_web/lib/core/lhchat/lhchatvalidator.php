@@ -1189,7 +1189,7 @@ class erLhcoreClassChatValidator {
                         }
 
                         if (
-                            ($jsVar->type != 4 && trim($chat->{$lhcVar}) != trim($val) && $val != '') ||
+                            ($jsVar->type != 4 && $caseInsensitive === false && trim($chat->{$lhcVar}) != trim($val) && $val != '') ||
                             (($jsVar->type == 4 || $caseInsensitive === true) && trim(mb_strtolower($chat->{$lhcVar})) != trim(mb_strtolower($val)) && $val != '')
                         ) {
 
@@ -1232,7 +1232,7 @@ class erLhcoreClassChatValidator {
                         if ($jsVar->inv == 1) {
                             if (
                                 !isset($chatVariablesDataArray[$jsVar->var_identifier]) ||
-                                ($jsVar->type != 4 && trim($chatVariablesDataArray[$jsVar->var_identifier]) != trim($val)) ||
+                                ($jsVar->type != 4 && $caseInsensitive === false && trim($chatVariablesDataArray[$jsVar->var_identifier]) != trim($val)) ||
                                 (($jsVar->type == 4 || $caseInsensitive === true) && trim(mb_strtolower($chatVariablesDataArray[$jsVar->var_identifier])) != trim(mb_strtolower($val)))) {
 
                                 if ($jsVar->change_message != '') {
