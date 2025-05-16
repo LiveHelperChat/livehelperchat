@@ -523,13 +523,13 @@
         lhcServices.getToggleWidget(lhcList,'group_offline_chats');
 
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Control' || e.ctrlKey) {
+            if (e.key === 'Control' || e.ctrlKey || e.key === 'Meta' || e.metaKey) {
                 $lhcList.isCTRLPressed = true;
             }
         });
 
         document.addEventListener('keyup', function(e) {
-            if (e.key === 'Control' || e.ctrlKey) {
+            if (e.key === 'Control' || e.ctrlKey || e.key === 'Meta' || e.metaKey) {
                 $lhcList.isCTRLPressed = false;
             }
         });
