@@ -60,8 +60,12 @@ try {
             }
 
             // Update chat variables
-            erLhcoreClassChatValidator::validateJSVarsChat ($chat, $jsonData, $Params['user_parameters_unordered']['encrypted'] === 'true');
+            $needUpdate = erLhcoreClassChatValidator::validateJSVarsChat ($chat, $jsonData, $Params['user_parameters_unordered']['encrypted'] === 'true', false);
             $db->commit();
+
+            if ($needUpdate === true) {
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('chat' => & $chat, 'params' => array()));
+            }
 
             // Force operators to check for new messages
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat', array(

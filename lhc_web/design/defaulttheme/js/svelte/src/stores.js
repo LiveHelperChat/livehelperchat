@@ -99,6 +99,8 @@ export const lhcList = writable({
     limitalm: "10",
     limitmm: "10",
 
+    isCTRLPressed:false,
+
     pendingmd : [],
     pendingmd_products : [],
     pendingmd_dpgroups : [],

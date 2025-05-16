@@ -91,7 +91,6 @@
         lhcSettingUpdateProgress: [],
         lhcSettingAllSelected: false,
         channel: null,
-        isCTRLPressed: false,
         abortController : new AbortController()
     };
 
@@ -151,11 +150,11 @@
 
     ee.addListener('svelteOpenChat',function (chat_id) {
         lhinst.addOpenTrace('click');
-        startChatByID(chat_id,lhcLogic.isCTRLPressed);
+        startChatByID(chat_id,$lhcList.isCTRLPressed);
     });
 
     ee.addListener('svelteOpenMail',function (chat_id, subject) {
-        lhinst.startMailChat(chat_id,jQuery('#tabs'),truncate(subject,10),lhcLogic.isCTRLPressed);
+        lhinst.startMailChat(chat_id,jQuery('#tabs'),truncate(subject,10),$lhcList.isCTRLPressed);
     });
 
     //ee.emitEvent("svelteAction",[{'type':'info_history','msg':"History record"}]);
@@ -525,19 +524,19 @@
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Control' || e.ctrlKey) {
-                lhcLogic.isCTRLPressed = true;
+                $lhcList.isCTRLPressed = true;
             }
         });
 
         document.addEventListener('keyup', function(e) {
             if (e.key === 'Control' || e.ctrlKey) {
-                lhcLogic.isCTRLPressed = false;
+                $lhcList.isCTRLPressed = false;
             }
         });
 
         // Reset the ctrl key state when window loses focus
         window.addEventListener('blur', function() {
-            lhcLogic.isCTRLPressed = false;
+            $lhcList.isCTRLPressed = false;
         });
 
 

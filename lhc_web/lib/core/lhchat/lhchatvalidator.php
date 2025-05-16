@@ -1114,14 +1114,14 @@ class erLhcoreClassChatValidator {
         return in_array($tzid,DateTimeZone::listIdentifiers(DateTimeZone::ALL_WITH_BC));
     }
 
-    public static function validateJSVarsChat($chat, $data, $encrypted = false) {
+    public static function validateJSVarsChat($chat, $data, $encrypted = false, $dispatchEvent = true) {
 
         $additionalDataArray = $chat->additional_data_array;
         $chatVariablesDataArray = $chat->chat_variables_array;
+        $needUpdate = false;
 
         if ( !empty($data))
         {
-            $needUpdate = false;
             $variablesUpdates = false;
             $stringParts = array();
             $updateColumns = array(
@@ -1348,10 +1348,14 @@ class erLhcoreClassChatValidator {
 
                 $db->commit();
 
-                // Perhaps someone is listening for chat modifications
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('chat' => & $chat, 'params' => array()));
+                if ($dispatchEvent === true) {
+                    // Perhaps someone is listening for chat modifications
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('chat' => & $chat, 'params' => array()));
+                }
             }
         }
+
+        return $needUpdate;
     }
 
     public static function updateAdditionalVariables($chat) {

@@ -38,45 +38,13 @@
     let check_row_class = !override_item_open && type !== "transfer_chats" && type !== "group_chats" && type !== "online_op" && type !== "depgroups_stats";
     let check_online = !override_item_open && type !== "my_mails" && type !== "active_mails" && type !== "pending_mails" && type !== "alarm_mails";
 
-    let isCTRLPressed = false;
-
-    // Event handler functions
-    function handleKeyDown(e) {
-        if (e.key === 'Control' || e.ctrlKey) {
-            isCTRLPressed = true;
-        }
-    }
-
-    function handleKeyUp(e) {
-        if (e.key === 'Control' || e.ctrlKey) {
-            isCTRLPressed = false;
-        }
-    }
-
-    function handleBlur() {
-        isCTRLPressed = false;
-    }
-
-    // Set up and clean up event listeners using Svelte lifecycle methods
-    onMount(() => {
-        document.addEventListener('keydown', handleKeyDown);
-        document.addEventListener('keyup', handleKeyUp);
-        window.addEventListener('blur', handleBlur);
-    });
-
-    onDestroy(() => {
-        document.removeEventListener('keydown', handleKeyDown);
-        document.removeEventListener('keyup', handleKeyUp);
-        window.removeEventListener('blur', handleBlur);
-    });
-
     function openItem(chat) {
         if (type === "group_chats") {
             lhcServices.startGroupChat(chat.id,chat.name)
         } else if (type === "my_mails" || type === "active_mails" || type === "pending_mails" || type === "alarm_mails") {
-            lhcServices.startMailChat(chat.id, chat.subject_front, isCTRLPressed);
+            lhcServices.startMailChat(chat.id, chat.subject_front, $lhcList.isCTRLPressed);
         } else {
-            lhcServices.startChat(chat.id, chat.nick, !isCTRLPressed);
+            lhcServices.startChat(chat.id, chat.nick, !$lhcList.isCTRLPressed);
         }
     }
 
