@@ -26,6 +26,7 @@ class erLhAbstractModelChatVariable
             'change_message' => $this->change_message,
             'old_js_id' => $this->old_js_id,
             'content_field' => $this->content_field,
+            'try_decrypt' => $this->try_decrypt,
         );
 
         return $stateArray;
@@ -142,6 +143,7 @@ class erLhAbstractModelChatVariable
     public $type = 0;
     public $persistent = 0;
     public $inv = 0;
+    public $try_decrypt = 0;
     public $change_message = '';
     public $old_js_id = '';
     public $content_field = '';

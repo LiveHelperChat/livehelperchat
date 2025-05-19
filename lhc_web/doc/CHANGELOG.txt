@@ -1,3 +1,14 @@
+4.63v
+
+1. Attribute to set additional variable to check if it is encrypted in the first place.
+2. `Permission` tab in user window will allow checking which group/role grants specific permission.
+3. Holding CTRL will open chat tab in the background.
+4. Possibility to search by trigger body in the bot constructor.
+5. When logging Rest API message as system message, it will enable generating CURL request by logged data.
+6. Search in system configuration.
+
+execute doc/update_db/update_331.sql for update
+
 4.62v
 
 1. Option to show hidden chat variable directly in the chat window.

@@ -790,7 +790,16 @@ class erLhcoreClassChatValidator {
         foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
             if (($form->hasValidData( 'jsvar' ) && isset($additionalParams['payload_data']['jsvar'][$jsVar->id]) && $additionalParams['payload_data']['jsvar'][$jsVar->id] !== null && $additionalParams['payload_data']['jsvar'][$jsVar->id] !== '') || ($jsVar->type == 5 && isset($_COOKIE[$jsVar->js_variable]))) {
 
-                if ($form->hasValidData( 'vars_encrypted') && $form->vars_encrypted === true) {
+                $secure = false;
+
+                if ($jsVar->try_decrypt == 1 && isset($additionalParams['payload_data']['jsvar'][$jsVar->id]) && strlen($additionalParams['payload_data']['jsvar'][$jsVar->id]) > 40) { // Encrypted var is min 40 characters length
+                    try {
+                        $additionalParams['payload_data']['jsvar'][$jsVar->id] = self::decryptAdditionalField($additionalParams['payload_data']['jsvar'][$jsVar->id], $chat);
+                        $secure = true;
+                    } catch (Exception $e) {
+                        // Do nothing and ignore just
+                    }
+                } elseif ($form->hasValidData( 'vars_encrypted') && $form->vars_encrypted === true) {
                     $jsVar->type = 3;
                 }
 
@@ -798,10 +807,11 @@ class erLhcoreClassChatValidator {
                     $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
 
                     $val = $additionalParams['payload_data']['jsvar'][$jsVar->id];
-                    $secure = false;
                     if ($jsVar->type == 3) {
                         try {
-                            $val = self::decryptAdditionalField($val, $chat);
+                            if ($secure === false) {
+                                $val = self::decryptAdditionalField($val, $chat);
+                            }
                             $secure = true;
                         } catch (Exception $e) {
                             $val = $e->getMessage();
@@ -838,8 +848,6 @@ class erLhcoreClassChatValidator {
                     }
 
                 } else {
-                    $secure = false;
-
                     if ($jsVar->type == 5 && isset($_COOKIE[$jsVar->js_variable])) {
                         $val = $_COOKIE[$jsVar->js_variable];
                     } else {
@@ -869,7 +877,9 @@ class erLhcoreClassChatValidator {
                         $val = (float)$val;
                     } elseif ($jsVar->type == 3) {
                         try {
-                            $val = self::decryptAdditionalField($val, $chat);
+                            if ($secure === false) {
+                                $val = self::decryptAdditionalField($val, $chat);
+                            }
                             $secure = true;
                         } catch (Exception $e) {
                             $val = $e->getMessage();
@@ -980,7 +990,18 @@ class erLhcoreClassChatValidator {
 
         foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$visitor->dep_id))) as $jsVar) {
 
-            if ($encrypted === true){
+            $secure = false;
+            if ($jsVar->try_decrypt == 1 &&
+                ((isset($data[$jsVar->id]) && strlen($data[$jsVar->id]) > 40 && $directVar = true) ||
+                (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)]) && $directVar = false && strlen($data[str_replace('lhc_var.','',$jsVar->js_variable)]) > 40 ))
+            ) { // Encrypted var is min 40 characters length
+                try {
+                    $data[$directVar === true ? $jsVar->id : str_replace('lhc_var.','',$jsVar->js_variable)] = self::decryptAdditionalField($directVar === true ? $data[$jsVar->id] : $data[str_replace('lhc_var.','',$jsVar->js_variable)]);
+                    $secure = true;
+                } catch (Exception $e) {
+                    // Do nothing and ignore just
+                }
+            } elseif ($encrypted === true) {
                 $jsVar->type = 3;
             }
 
@@ -1043,7 +1064,6 @@ class erLhcoreClassChatValidator {
             }
 
             if ($val !== null && $val !== '') {
-                $secure = false;
                 $variableSet[] = $jsVar->var_identifier;
                 if (is_bool($val)) {
                     // Do nothing
@@ -1055,7 +1075,9 @@ class erLhcoreClassChatValidator {
                     $val = (float)$val;
                 } elseif ($jsVar->type == 3) {
                     try {
-                        $val = self::decryptAdditionalField($val);
+                        if ($secure === false) {
+                            $val = self::decryptAdditionalField($val);
+                        }
                         $secure = true;
                     } catch (Exception $e) {
                         $val = $e->getMessage();
@@ -1137,7 +1159,21 @@ class erLhcoreClassChatValidator {
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
 
                 $caseInsensitive = false;
-                if ($encrypted === true) {
+                $secure = false;
+
+                if ($jsVar->try_decrypt == 1 &&
+                    (
+                        (isset($data[$jsVar->id]) && strlen($data[$jsVar->id]) > 40 && $directVar = true) ||
+                        (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)]) &&  $directVar = false && strlen($data[str_replace('lhc_var.','',$jsVar->js_variable)]) > 40)
+                    )
+                ) { // Encrypted var is min 40 characters length
+                    try {
+                        $data[$directVar === true ? $jsVar->id : str_replace('lhc_var.','',$jsVar->js_variable)] = self::decryptAdditionalField(($directVar === true ? $data[$jsVar->id] : $data[str_replace('lhc_var.','',$jsVar->js_variable)]), $chat);
+                        $secure = true;
+                    } catch (Exception $e) {
+                        // Do nothing and ignore just
+                    }
+                } else if ($encrypted === true) {
                     if ($jsVar->type == 4) {
                         $caseInsensitive = true;
                     }
@@ -1176,9 +1212,6 @@ class erLhcoreClassChatValidator {
                 if ($val !== null && $val !== '') {
                     if (strpos($jsVar->var_identifier,'lhc.') !== false) {
                         $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
-
-                        $secure = false;
-
                         if ($val != '' && $jsVar->type == 3) {
                             try {
                                 $val = self::decryptAdditionalField($val, $chat);
@@ -1211,7 +1244,6 @@ class erLhcoreClassChatValidator {
                             $needUpdate = true;
                         }
                     } else {
-                        $secure = false;
                         if (is_bool($val)) {
                             // Do nothing
                         } elseif ($jsVar->type == 0 || $jsVar->type == 4 || $jsVar->type == 5 || $jsVar->type == 6) {
@@ -1930,10 +1962,6 @@ class erLhcoreClassChatValidator {
 
             if ($keyDecrypt !== null) {
                 $valueStore = lhSecurity::decrypt($valueStore,$keyDecrypt);
-
-                if ($valueStore === false) {
-                    throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Could not decrypt data!'));
-                }
 
                 $partsVal = explode('__varex', $valueStore);
 
