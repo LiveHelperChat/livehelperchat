@@ -4,7 +4,17 @@ erLhcoreClassRestAPIHandler::setHeaders();
 
 session_write_close();
 
+if (!is_numeric($Params['user_parameters']['chat_id'])){
+    echo json_encode(array('error' => true, 'message' => 'Chat id not numeric!'));
+    exit;
+}
+
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
+
+if (!is_object($chat)) {
+    echo json_encode(array('error' => true, 'message' => 'Chat not found!'));
+    exit;
+}
 
 $validStatuses = array(
     erLhcoreClassModelChat::STATUS_PENDING_CHAT,
@@ -22,8 +32,6 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat
 
 try {
     if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
-
-
         if ($Params['user_parameters_unordered']['type'] != 'manualtrigger') {
             if (!isset($paramsPayload['id']) || !is_numeric($paramsPayload['id'])) {
                 throw new Exception('Message not provided!');

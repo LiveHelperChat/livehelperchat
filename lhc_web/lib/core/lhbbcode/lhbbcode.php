@@ -873,7 +873,7 @@ class erLhcoreClassBBCode
    		    $mainData = explode(' ',$matches[1]);
    		    $parts = explode('_',$mainData[0]);
    			$fileID = $parts[0];
-   			$hash = $parts[1];
+   			$hash = isset($parts[1]) ? $parts[1] : null;
    			$displayType = isset($parts[2]) ? $parts[2] : null;
    			try {
    				$file = erLhcoreClassModelChatFile::fetch($fileID);

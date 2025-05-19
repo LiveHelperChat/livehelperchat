@@ -9,10 +9,21 @@ if (!empty($_GET) && $_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 try {
+
+    if (!isset($requestPayload['id'])) {
+        echo erLhcoreClassRestAPIHandler::outputResponse(['error' => 'Missing chat ID!']);
+        exit;
+    }
+
     $db = ezcDbInstance::get();
     $db->beginTransaction();
 
     $chat = erLhcoreClassModelChat::fetchAndLock($requestPayload['id']);
+
+    if (!is_object($chat)) {
+        echo erLhcoreClassRestAPIHandler::outputResponse(['error' => 'Chat not found!']);
+        exit;
+    }
 
     erLhcoreClassChat::setTimeZoneByChat($chat);
 

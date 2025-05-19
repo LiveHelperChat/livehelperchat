@@ -40,6 +40,11 @@ erTranslationClassLhTranslation::$htmlEscape = false;
 
 $requestPayload = json_decode(file_get_contents('php://input'),true);
 
+if (!is_array($requestPayload)) {
+    erLhcoreClassRestAPIHandler::outputResponse(['error' => 'Invalid request!']);
+    exit;
+}
+
 foreach ($requestPayload as $attr => $attrValue) {
     $Params['user_parameters_unordered'][$attr] = $attrValue;
 }
