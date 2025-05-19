@@ -8,7 +8,7 @@ if ($user->id == $currentUser->getUserID() || $currentUser->hasAccessTo('lhchat'
 {
     $tpl->set('user',$user);
     $tpl->set('permissions',erLhcoreClassRole::accessArrayByUserID($user->id));
-    
+    $tpl->set('detail_permissions',$currentUser->hasAccessTo('lhpermission','list'));
     echo $tpl->fetch();
 }
 

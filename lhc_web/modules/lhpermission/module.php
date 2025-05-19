@@ -68,6 +68,11 @@ $ViewList['explorer'] = array(
     'functions' => array( 'explorer' )
 );
 
+$ViewList['whogrants'] = array(
+    'params' => array('user_id','module_check','function_check'),
+    'functions' => array( 'list' )
+);
+
 $FunctionList['edit'] = array('explain' => 'Access to edit role');
 $FunctionList['delete'] = array('explain' => 'Access to delete role');
 $FunctionList['list'] = array('explain' => 'Access to list roles');
