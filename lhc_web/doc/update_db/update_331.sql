@@ -1,1 +1,2 @@
 ALTER TABLE `lh_abstract_chat_variable` ADD `try_decrypt` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';
+UPDATE `lh_chat_config` SET value = '331' WHERE `identifier` = 'version_updates' LIMIT 1;
