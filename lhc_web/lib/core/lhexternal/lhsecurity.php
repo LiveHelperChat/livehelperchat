@@ -19,11 +19,31 @@ class lhSecurity {
 
     public static function decrypt(string $data, string $key) : string
     {
-        $data = base64_decode($data);
-        $ivSize = openssl_cipher_iv_length(self::$method);
-        $iv = substr($data, 0, $ivSize);
-        $data = openssl_decrypt(substr($data, $ivSize), self::$method, $key, OPENSSL_RAW_DATA, $iv);
+        try {
+            $data = base64_decode($data);
+            if ($data === false) {
+                throw new Exception('Invalid base64 encoding');
+            }
 
-        return $data;
+            $ivSize = openssl_cipher_iv_length(self::$method);
+            if ($ivSize === false) {
+                throw new Exception('Invalid cipher method');
+            }
+
+            if (strlen($data) <= $ivSize) {
+                throw new Exception('Data is too short');
+            }
+
+            $iv = substr($data, 0, $ivSize);
+            $decrypted = openssl_decrypt(substr($data, $ivSize), self::$method, $key, OPENSSL_RAW_DATA, $iv);
+
+            if ($decrypted === false) {
+                throw new Exception('Decryption failed: ' . openssl_error_string());
+            }
+
+            return $decrypted;
+        } catch (Exception $e) {
+            throw new Exception('Decryption error: ' . $e->getMessage());
+        }
     }
 }

@@ -6249,6 +6249,14 @@
         "extra": ""
       },
       {
+        "field": "try_decrypt",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "change_message",
         "type": "varchar(250)",
         "null": "NO",
