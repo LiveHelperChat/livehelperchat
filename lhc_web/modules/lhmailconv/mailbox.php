@@ -10,6 +10,31 @@ if (isset($_GET['doSearch'])) {
     $filterParams['is_search'] = false;
 }
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $Params['user_parameters_unordered']['resetstatus'] == 'reset') {
+
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        die('Invalid CSRF Token');
+        exit;
+    }
+
+    $mailboxReset = erLhcoreClassModelMailconvMailbox::getList(array_merge(array('limit' => 1000, 'offset' => 0),$filterParams['filter']));
+    foreach ($mailboxReset as $item) {
+        $item->last_process_time = 0;
+        $item->sync_started = 0;
+        $item->last_sync_time = 0;
+        $item->sync_status = erLhcoreClassModelMailconvMailbox::SYNC_PENDING;
+        $uuidStatusArray = $item->uuid_status_array;
+        foreach ($uuidStatusArray as $key => $uuidStatus) {
+            $uuidStatusArray[$key] = 0;
+        }
+        $item->uuid_status = json_encode($uuidStatusArray);
+        $item->updateThis(array('update' => array('sync_started','last_sync_time','sync_status','last_process_time','uuid_status')));
+    }
+
+    echo "ok";
+    exit;
+}
+
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 $pages = new lhPaginator();

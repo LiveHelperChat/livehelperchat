@@ -48,11 +48,14 @@
         <?php endforeach; ?>
     </table>
 
-    <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
-
     <?php if (isset($pages)) : ?>
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
     <?php endif;?>
 <?php endif; ?>
 
-<a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/newmailbox')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
+<div class="btn-group btn-group-sm">
+    <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/newmailbox')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
+    <a class="btn btn-warning csfr-required csfr-post" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/mailbox')?>/(resetstatus)/reset<?php echo $inputAppend?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Reset status');?></a>
+</div>
+
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
