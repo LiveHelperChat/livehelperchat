@@ -20,7 +20,7 @@ if (!($onlineUser instanceof erLhcoreClassModelChatOnlineUser) || $onlineUser->v
     exit;
 }
 
-if (is_numeric($payload['invitation']) && $payload['invitation'] > 0) {
+if (isset($payload['invitation']) && is_numeric($payload['invitation']) && $payload['invitation'] > 0) {
     $invitationData = erLhAbstractModelProactiveChatInvitation::setInvitation($onlineUser, (int)$payload['invitation']);
 }
 
@@ -94,7 +94,7 @@ if (isset($payload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($pay
 // Bot message as full widget body
 if ($outputResponse['invitation_id'] > 0) {
 
-    $invitation = $invitationData['variation'];
+    $invitation = isset($invitationData['variation']) ? $invitationData['variation'] : null;
 
     if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($invitation->design_data_array['append_bot']) && $invitation->design_data_array['append_bot'] == 1 && $invitation->bot_id > 0 && $invitation->trigger_id > 0) {
 
