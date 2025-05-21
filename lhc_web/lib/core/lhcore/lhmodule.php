@@ -95,7 +95,10 @@ class erLhcoreClassModule{
 
                 // Send X-Frame-Options if URL is private
                 // Or it's site_admin based one
-                if (isset($currentUser) || erLhcoreClassSystem::instance()->SiteAccess == 'site_admin') {
+                if (isset($currentUser) || erLhcoreClassSystem::instance()->SiteAccess == 'site_admin' || (
+                        is_array(erConfigClassLhConfig::getInstance()->getSetting('site', 'default_admin_site_access', false)) &&
+                        in_array(erLhcoreClassSystem::instance()->SiteAccess,erConfigClassLhConfig::getInstance()->getSetting('site', 'default_admin_site_access', false))
+                    ) ) {
                     header("Content-Security-Policy: frame-ancestors 'self' ". (self::$validIframeDomains === false ? '' : self::$validIframeDomains));
                 }
 

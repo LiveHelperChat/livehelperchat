@@ -54,11 +54,12 @@ class erLhcoreClassURL extends ezcUrl {
 
             $availableSiteaccess = $cfgSite->getSetting( 'site', 'available_site_access' );
             $defaultSiteAccess = $cfgSite->getSetting( 'site', 'default_site_access' );
-           
+            $optionsSiteAccessAdmin = $cfgSite->getSetting('site','default_admin_site_access', false);
+
             if ($defaultSiteAccess != $siteaccess && in_array($siteaccess,$availableSiteaccess))
             {
                 $optionsSiteAccess = $cfgSite->getSetting('site_access_options',$siteaccess);
-                $sysConfiguration->Language = $siteaccess == 'site_admin' ? erLhcoreClassModelUserSetting::getSetting('user_language',$optionsSiteAccess['locale'],false,true) : $optionsSiteAccess['locale'];
+                $sysConfiguration->Language = ($siteaccess == 'site_admin' || (is_array($optionsSiteAccessAdmin) && in_array($siteaccess, $optionsSiteAccessAdmin))) ? erLhcoreClassModelUserSetting::getSetting('user_language',$optionsSiteAccess['locale'],false,true) : $optionsSiteAccess['locale'];
                 $sysConfiguration->ThemeSite = $optionsSiteAccess['theme'];
                 $sysConfiguration->ContentLanguage = $optionsSiteAccess['content_language'];
                 
@@ -90,7 +91,7 @@ class erLhcoreClassURL extends ezcUrl {
 
                 // Falling back
                 $sysConfiguration->SiteAccess = $defaultSiteAccess;
-                $sysConfiguration->Language = $siteaccess == 'site_admin' ? erLhcoreClassModelUserSetting::getSetting('user_language',$optionsSiteAccess['locale'],false,true) : $optionsSiteAccess['locale'];
+                $sysConfiguration->Language = ($siteaccess == 'site_admin' || (is_array($optionsSiteAccessAdmin) && in_array($siteaccess, $optionsSiteAccessAdmin))) ? erLhcoreClassModelUserSetting::getSetting('user_language',$optionsSiteAccess['locale'],false,true) : $optionsSiteAccess['locale'];
                 $sysConfiguration->ThemeSite = $optionsSiteAccess['theme'];
                 $sysConfiguration->ContentLanguage = $optionsSiteAccess['content_language'];
 

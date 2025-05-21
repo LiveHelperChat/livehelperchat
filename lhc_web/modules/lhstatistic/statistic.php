@@ -55,7 +55,7 @@ if (!$currentUser->isLogged() || !$currentUser->hasAccessTo('lhstatistic','views
 
             $urlArguments = str_replace('/(report)/' , '/(reportverified)/1/(reporthash)/' . $newHash . '/(reportts)/' . $ts . '/(r)/' . $hashRandom . '/(report)/', $urlArguments);
 
-            header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin') . '/' . $urlArguments);
+            header('Location: ' .erLhcoreClassDesign::baseurldirect('') . erLhcoreClassSystem::instance()->SiteAccess . '/' . $urlArguments);
             exit;
         }
     }

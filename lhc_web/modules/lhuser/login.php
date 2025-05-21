@@ -13,39 +13,56 @@ if (
     $crossDomainCookie = true;
 }
 
+$configInstance = erConfigClassLhConfig::getInstance();
+
 $isExternalRequest = (isset($Params['user_parameters_unordered']['external_request'])) ? true : false;
 
 $currentUser = erLhcoreClassUser::instance();
 
+$possibleLoginSiteAccess = array();
+
+$adminSiteAccess = $configInstance->getSetting('site', 'default_admin_site_access', false);
+
+if (is_array($adminSiteAccess)) {
+    $possibleLoginSiteAccess = $adminSiteAccess;
+} else {
+    $possibleLoginSiteAccess[] = 'site_admin';
+}
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_site_access', array('loginSiteAccess' => & $possibleLoginSiteAccess));
+
 // We want cookie to be cross domain
 if ($currentUser->isLogged() && $crossDomainCookie === true && isset($_GET['ts']) && isset($_GET['token']) && ($_GET['ts'] > time() - 10 * 60) && sha1(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ).sha1(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ).'_external_login_' . $_GET['ts'])) == $_GET['token']) {
     $currentUser->logout();
-    header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/user/login').'?cookie=crossdomain&logout=1');
+    header('Location: ' .erLhcoreClassDesign::baseurldirect('') . $possibleLoginSiteAccess[0] . '/user/login'.'?cookie=crossdomain&logout=1');
     exit;
 }
 
 $instance = erLhcoreClassSystem::instance();
 
-$possibleLoginSiteAccess = array();
-
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_site_access', array('loginSiteAccess' => & $possibleLoginSiteAccess));
-
-$possibleLoginSiteAccess[] = 'site_admin';
-
 if (!in_array($instance->SiteAccess, $possibleLoginSiteAccess)) {
+    if (!in_array('site_admin',$possibleLoginSiteAccess)) {
+        $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error.tpl.php');
+        $tpl->set('errors', ['Invalid login URL']);
+        $tpl->set('hideErrorButton',true);
+        $Result['pagelayout'] = 'login';
+        $Result['content'] = $tpl->fetch();
+        return;
+    } else {
+        if ($currentUser->isLogged() && !empty($Params['user_parameters_unordered']['r'])) {
+            header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin').'/'.base64_decode(rawurldecode($Params['user_parameters_unordered']['r'])));
+            exit;
+        }
 
-    if ($currentUser->isLogged() && !empty($Params['user_parameters_unordered']['r'])) {
-        header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin').'/'.base64_decode(rawurldecode($Params['user_parameters_unordered']['r'])));
+        $redirect = rawurldecode($Params['user_parameters_unordered']['r']);
+        $redirectFull = $redirect != '' ? '/(r)/'.rawurlencode($redirect) : '';
+
+        header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/user/login').$redirectFull );
         exit;
     }
 
-    $redirect = rawurldecode($Params['user_parameters_unordered']['r']);
-    $redirectFull = $redirect != '' ? '/(r)/'.rawurlencode($redirect) : '';
-
-    header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/user/login').$redirectFull );
-    exit;
 } elseif ($currentUser->isLogged() && !empty($Params['user_parameters_unordered']['r'])) {
-    header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin').'/'.base64_decode(rawurldecode($Params['user_parameters_unordered']['r'])));
+    header('Location: ' .erLhcoreClassDesign::baseurldirect('') . $possibleLoginSiteAccess[0] . '/'.base64_decode(rawurldecode($Params['user_parameters_unordered']['r'])));
     exit;
 }
 
