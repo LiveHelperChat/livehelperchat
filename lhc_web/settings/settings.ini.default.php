@@ -27,6 +27,7 @@ return array (
                     'date_date_hour_format' => 'Y-m-d H:i:s',
                     'default_site_access' => 'eng',
                     'default_site_access_list' => ['eng'],
+                    'default_admin_site_access' => ['site_admin'],
                     'maps_api_key' => false,
                     'default_group' => '',
                     'default_user' => '',
