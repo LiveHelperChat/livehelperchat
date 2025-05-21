@@ -43,7 +43,7 @@ $instance = erLhcoreClassSystem::instance();
 if (!in_array($instance->SiteAccess, $possibleLoginSiteAccess)) {
     if (!in_array('site_admin',$possibleLoginSiteAccess)) {
         $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error.tpl.php');
-        $tpl->set('errors', ['Invalid login URL']);
+        $tpl->set('errors', [erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Invalid back office URL')]);
         $tpl->set('hideErrorButton',true);
         $Result['pagelayout'] = 'login';
         $Result['content'] = $tpl->fetch();
