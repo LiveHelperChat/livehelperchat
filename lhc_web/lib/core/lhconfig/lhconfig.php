@@ -69,8 +69,9 @@ class erConfigClassLhConfig
         $value = $this->getSetting('site',$attribute);
 
         $siteAccess = erLhcoreClassSystem::instance()->SiteAccess;
+        $optionsSiteAccessAdmin = $this->getSetting('site','default_admin_site_access', false);
         
-        if ($siteAccess == 'site_admin') {
+        if ($siteAccess == 'site_admin' || (is_array($optionsSiteAccessAdmin) && in_array($siteAccess, $optionsSiteAccessAdmin))) {
 	        $valueOverride = $this->getSetting('site_access_options',$siteAccess);
 	
 	        if (key_exists($attribute,$valueOverride)){

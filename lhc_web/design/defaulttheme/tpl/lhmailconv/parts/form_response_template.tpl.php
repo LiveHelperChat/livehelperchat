@@ -9,7 +9,7 @@
 
 <?php if ($item->id > 0) : ?>
     <label>
-        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Subject");?> <button type="button" class="btn btn-xs btn-outline-secondary pb-1 ps-1" onclick="return lhc.revealModal({'url':'/index.php/site_admin/mailconv/subject/<?php echo $item->id?>'})"><i class="material-icons me-0"></i></button>
+        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Subject");?> <button type="button" class="btn btn-xs btn-outline-secondary pb-1 ps-1" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'mailconv/subject/<?php echo $item->id?>'})"><i class="material-icons me-0"></i></button>
         <div id="response-template-subjects-<?php echo $item->id?>"></div>
         <script>
             $.get(WWW_DIR_JAVASCRIPT + 'mailconv/subject/<?php echo $item->id?>/?getsubjects=1', function(data) {

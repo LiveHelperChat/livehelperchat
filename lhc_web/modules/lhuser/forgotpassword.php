@@ -4,6 +4,31 @@ header('X-Frame-Options: DENY');
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/forgotpassword.tpl.php');
 
+$possibleLoginSiteAccess = array();
+
+$configInstance = erConfigClassLhConfig::getInstance();
+
+$adminSiteAccess = $configInstance->getSetting('site', 'default_admin_site_access', false);
+
+if (is_array($adminSiteAccess)) {
+    $possibleLoginSiteAccess = $adminSiteAccess;
+} else {
+    $possibleLoginSiteAccess[] = 'site_admin';
+}
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_site_access', array('loginSiteAccess' => & $possibleLoginSiteAccess));
+
+$instance = erLhcoreClassSystem::instance();
+
+if (!in_array($instance->SiteAccess, $possibleLoginSiteAccess)) {
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error.tpl.php');
+    $tpl->set('errors', [erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Invalid back office URL')]);
+    $tpl->set('hideErrorButton',true);
+    $Result['pagelayout'] = 'login';
+    $Result['content'] = $tpl->fetch();
+    return;
+}
+
 $currentUser = erLhcoreClassUser::instance();
 
 if (isset($_POST['Forgotpassword'])) {

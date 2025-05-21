@@ -23,8 +23,6 @@
         <input class="form-control form-control-sm" type="text" name="ms_secret" value="<?php (isset($ms_options['ms_secret'])) ? print htmlspecialchars($ms_options['ms_secret']) : print ''?>" />
     </div>
 
-    <?php /*https://devmysql.livehelperchat.com/site_admin/msoauth/oauth*/ ?>
-
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/msauth','Login URL to set in APP settings')?></label>
         <input readonly type="text" class="form-control form-control-sm" value="https://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('mailconvoauth/msoauth')?>">

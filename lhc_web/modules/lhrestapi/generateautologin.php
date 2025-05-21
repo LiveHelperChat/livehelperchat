@@ -64,7 +64,21 @@ try
 
         $hashValidation = sha1($params['secret_hash'].sha1($params['secret_hash'].implode(',', $dataRequest)));
 
-        return erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect("user/autologin") . "/{$hashValidation}".implode('', $dataRequestAppend);
+        $configInstance = erConfigClassLhConfig::getInstance();
+
+        $possibleLoginSiteAccess = array();
+
+        $adminSiteAccess = $configInstance->getSetting('site', 'default_admin_site_access', false);
+
+        if (is_array($adminSiteAccess)) {
+            $possibleLoginSiteAccess = $adminSiteAccess;
+        } else {
+            $possibleLoginSiteAccess[] = 'site_admin';
+        }
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_site_access', array('loginSiteAccess' => & $possibleLoginSiteAccess));
+
+        return erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect("") . $possibleLoginSiteAccess[0] . '/user/autologin' . "/{$hashValidation}".implode('', $dataRequestAppend);
     }
 
     $requestBody['secret_hash'] = $data['secret_hash'];

@@ -6,29 +6,52 @@ header('X-Robots-Tag: noindex,nofollow');
 $currentUser = erLhcoreClassUser::instance();
 $instance = erLhcoreClassSystem::instance();
 
-if ($instance->SiteAccess != 'site_admin') {
+$configInstance = erConfigClassLhConfig::getInstance();
 
-    if ($currentUser->isLogged() && !empty($Params['user_parameters_unordered']['r'])) {
-        header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin').'/'.base64_decode(rawurldecode($Params['user_parameters_unordered']['r'])));
+$possibleLoginSiteAccess = array();
+
+$adminSiteAccess = $configInstance->getSetting('site', 'default_admin_site_access', false);
+
+if (is_array($adminSiteAccess)) {
+    $possibleLoginSiteAccess = $adminSiteAccess;
+} else {
+    $possibleLoginSiteAccess[] = 'site_admin';
+}
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_site_access', array('loginSiteAccess' => & $possibleLoginSiteAccess));
+
+if (!in_array($instance->SiteAccess,$possibleLoginSiteAccess)) {
+    if (!in_array('site_admin',$possibleLoginSiteAccess)) {
+        $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error.tpl.php');
+        $tpl->set('errors', ['Invalid login URL']);
+        $tpl->set('hideErrorButton',true);
+        $Result['pagelayout'] = 'login';
+        $Result['content'] = $tpl->fetch();
+        return;
+    } else {
+
+        if ($currentUser->isLogged() && !empty($Params['user_parameters_unordered']['r'])) {
+            header('Location: ' . erLhcoreClassDesign::baseurldirect('site_admin') . '/' . base64_decode(rawurldecode($Params['user_parameters_unordered']['r'])));
+            exit;
+        }
+
+        $redirect = base64_decode(rawurldecode($Params['user_parameters_unordered']['r']));
+        $redirectFull = $redirect != '' ? '/(r)/' . rawurlencode(base64_encode($redirect)) : '';
+
+        $redirect = rawurldecode($Params['user_parameters_unordered']['u']);
+        $redirectFull .= $redirect != '' ? '/(u)/' . rawurlencode($redirect) : '';
+
+        $redirect = rawurldecode($Params['user_parameters_unordered']['l']);
+        $redirectFull .= $redirect != '' ? '/(l)/' . rawurlencode($redirect) : '';
+
+        $redirect = rawurldecode($Params['user_parameters_unordered']['t']);
+        $redirectFull .= $redirect != '' ? '/(t)/' . rawurlencode($redirect) : '';
+
+        $redirectHash = rawurlencode(rawurldecode($Params['user_parameters']['hash']));
+
+        header('Location: ' . erLhcoreClassDesign::baseurldirect('site_admin/user/autologin') . '/' . $redirectHash . $redirectFull);
         exit;
     }
-
-    $redirect = base64_decode(rawurldecode($Params['user_parameters_unordered']['r']));
-    $redirectFull = $redirect != '' ? '/(r)/'.rawurlencode(base64_encode($redirect)) : '';
-
-    $redirect = rawurldecode($Params['user_parameters_unordered']['u']);
-    $redirectFull .= $redirect != '' ? '/(u)/'.rawurlencode($redirect) : '';
-
-    $redirect = rawurldecode($Params['user_parameters_unordered']['l']);
-    $redirectFull .= $redirect != '' ? '/(l)/'.rawurlencode($redirect) : '';
-
-    $redirect = rawurldecode($Params['user_parameters_unordered']['t']);
-    $redirectFull .= $redirect != '' ? '/(t)/'.rawurlencode($redirect) : '';
-
-    $redirectHash = rawurlencode(rawurldecode($Params['user_parameters']['hash']));
-        
-    header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/user/autologin').'/'.$redirectHash.$redirectFull );
-    exit;
 }
 
 $data = erLhcoreClassModelChatConfig::fetch('autologin_data')->data;
@@ -69,7 +92,7 @@ if ($data['enabled'] == 1) {
         
         if ($userToLogin instanceof erLhcoreClassModelUser) {
             erLhcoreClassUser::instance()->setLoggedUser($userToLogin->id);
-            header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin').'/'.ltrim($dataRequest['r'],'/'));
+            header('Location: ' .erLhcoreClassDesign::baseurldirect('') . $instance->SiteAccess . '/'.ltrim($dataRequest['r'],'/'));
             exit;            
         } else {
             die(erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Could not find a provided user'));

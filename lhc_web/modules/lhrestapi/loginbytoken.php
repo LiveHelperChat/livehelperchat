@@ -29,7 +29,22 @@ try {
         if ($userToLogin instanceof erLhcoreClassModelUser) {
             erLhcoreClassUser::instance()->setLoggedUser($userToLogin->id);
             if ($modeAPI == false) {
-                header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin').'/'.ltrim($r, '/'));
+
+                $configInstance = erConfigClassLhConfig::getInstance();
+
+                $possibleLoginSiteAccess = array();
+
+                $adminSiteAccess = $configInstance->getSetting('site', 'default_admin_site_access', false);
+
+                if (is_array($adminSiteAccess)) {
+                    $possibleLoginSiteAccess = $adminSiteAccess;
+                } else {
+                    $possibleLoginSiteAccess[] = 'site_admin';
+                }
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_site_access', array('loginSiteAccess' => & $possibleLoginSiteAccess));
+
+                header('Location: ' .erLhcoreClassDesign::baseurldirect('') . $possibleLoginSiteAccess[0] . '/'.ltrim($r, '/'));
                 exit;
             } else {
                 echo json_encode(array('error' => false, 'msg' => 'Session started', 'url' => erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('site_admin').'/'.ltrim($r,'/')));
