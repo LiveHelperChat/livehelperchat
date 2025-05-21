@@ -8,6 +8,8 @@ $currentUser = erLhcoreClassUser::instance();
 
 try {
 
+     erLhcoreClassRestAPIHandler::validateRequest();
+
     if ($currentUser->authenticate($_POST['username'], $_POST['password']))
     {
         $sessionToken = null;
