@@ -126,7 +126,14 @@ setTimeout(function() {
             <?php endforeach; ?>
             </table>
 
-            <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->getState(),JSON_PRETTY_PRINT)); ?></pre>
+            <pre class="fs11"><?php
+                $chatVariables = $chat->getState();
+                $chatVariables['chat_variables_array'] = $chat->chat_variables_array;
+                if (is_array($chatVariables['chat_variables_array'])) {
+                    $chatVariables['chat_variables'] = $chatVariables['chat_variables_array'];
+                    unset($chatVariables['chat_variables_array']);
+                } echo htmlspecialchars(json_encode($chatVariables,JSON_PRETTY_PRINT));
+            ?></pre>
 
             <?php
             $debugString = ' ((' . $chat->lsync .'[lsync] < (' . $chat->pnd_time .'[pnd_time]+' . $chat->wait_time . '[wait_time]) &&' . $chat->wait_time .'[wait_time]> 1) || (' . $chat->lsync . '[lsync] >  (' . $chat->pnd_time . '[pnd_time]+' . $chat->wait_time . '[wait_time]) && ' . $chat->wait_time. '[wait_time] > 1 && ' . $chat->user_id . '[user_id] == 0) | Visitor left before chat was accepted';
