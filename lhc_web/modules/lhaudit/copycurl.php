@@ -203,7 +203,21 @@ function constructCurlCommandFromJson(string $jsonInput): string
     return $curlCommand;
 }
 
-$tpl->set('command',constructCurlCommandFromJson(isset($msg->meta_msg_array['content']['html']['content']) ? $msg->meta_msg_array['content']['html']['content'] : ''));
+$debugData = isset($msg->meta_msg_array['content']['html']['content']) ? json_decode($msg->meta_msg_array['content']['html']['content'],true) : '';
+
+if (isset($debugData['params_request'])) {
+    if (isset($debugData['params_request']['body']) && !is_array($debugData['params_request']['body'])) {
+        $bodyJSON = json_decode(str_replace(["\n","\r\n"],"",$debugData['params_request']['body']),true);
+        if (is_array($bodyJSON)) {
+            $debugData['params_request']['body'] = $bodyJSON;
+        }
+    }
+    $debugData = json_encode($debugData);
+} else {
+    $debugData = $msg->meta_msg_array['content']['html']['content'];
+}
+
+$tpl->set('command',constructCurlCommandFromJson($debugData));
 
 echo $tpl->fetch();
 exit;
