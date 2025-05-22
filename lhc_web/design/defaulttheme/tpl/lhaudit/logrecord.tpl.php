@@ -6,6 +6,11 @@ $modalBodyClass = 'p-1'
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 <div class="m-2 mx550">
+
+    <?php if ($object->category == 'rest_api' &&  ($debugData = json_decode($object->message,true)) && isset($debugData['params_request'])) : ?>
+        <button class="btn btn-xs btn-outline-secondary" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('audit/copycurl')?>/<?php print $object->id?>/audit'});"  type="button">Copy as CURL</button>
+    <?php endif; ?>
+
     <?php foreach ($object->getFields() as $fieldName => $attr) : ?>
         <?php if (!isset($attr['hide_edit'])) : ?>
             <?php if ($attr['type'] == 'title') : ?>

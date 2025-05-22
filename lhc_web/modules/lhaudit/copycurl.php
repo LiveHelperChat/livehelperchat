@@ -1,7 +1,13 @@
 <?php
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhaudit/copycurl.tpl.php');
-$msg = erLhcoreClassModelmsg::fetch($Params['user_parameters']['id']);
+
+if ($Params['user_parameters']['scope'] === 'audit') {
+    $msg = erLhAbstractModelAudit::fetch($Params['user_parameters']['id']);
+} else {
+    $msg = erLhcoreClassModelmsg::fetch($Params['user_parameters']['id']);
+}
+
 
 /**
  * First pass: Find all property paths that contain non-empty arrays
@@ -203,7 +209,11 @@ function constructCurlCommandFromJson(string $jsonInput): string
     return $curlCommand;
 }
 
-$debugData = isset($msg->meta_msg_array['content']['html']['content']) ? json_decode($msg->meta_msg_array['content']['html']['content'],true) : '';
+if ($msg instanceof erLhAbstractModelAudit) {
+    $debugData = json_decode($msg->message,true);
+} else {
+    $debugData = isset($msg->meta_msg_array['content']['html']['content']) ? json_decode($msg->meta_msg_array['content']['html']['content'],true) : '';
+}
 
 if (isset($debugData['params_request'])) {
     if (isset($debugData['params_request']['body']) && !is_array($debugData['params_request']['body'])) {
@@ -214,7 +224,12 @@ if (isset($debugData['params_request'])) {
     }
     $debugData = json_encode($debugData);
 } else {
-    $debugData = $msg->meta_msg_array['content']['html']['content'];
+    if ($msg instanceof erLhAbstractModelAudit) {
+        $debugData = $msg->meta_msg_array['content']['html']['content'];
+    } else {
+        $debugData = $msg->message;
+    }
+
 }
 
 $tpl->set('command',constructCurlCommandFromJson($debugData));

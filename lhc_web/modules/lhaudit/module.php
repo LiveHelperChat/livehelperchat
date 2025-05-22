@@ -39,7 +39,7 @@ $ViewList['test'] = array(
 );
 
 $ViewList['copycurl'] = array(
-    'params' => array('id'),
+    'params' => array('id','scope'),
     'uparams' => array(),
     'functions' => array( 'see_audit_system' ),
 );
