@@ -1552,14 +1552,20 @@ class erLhcoreClassChatWebhookIncoming {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_added_passive', array(
                         'chat' => & $chat,
                         'msg' => $msg,
-                        'source' => 'webhook'
+                        'source' => 'webhook',
+                        'webhook' => & $incomingWebhook,
+                        'webhook_data' => $payloadAll,
+                        'webhook_msg' => $payloadMessage
                     ));
 
                     // If operator has closed a chat we need force back office sync
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.nodjshelper_notify_delay', array(
                         'chat' => & $chat,
                         'msg' => $msg,
-                        'source' => 'webhook'
+                        'source' => 'webhook',
+                        'webhook' => & $incomingWebhook,
+                        'webhook_data' => $payloadAll,
+                        'webhook_msg' => $payloadMessage
                     ));
 
                     if ($renotify == true) {
@@ -1568,7 +1574,9 @@ class erLhcoreClassChatWebhookIncoming {
                             'chat' => & $chat,
                             'msg' => $msg,
                             'source' => 'webhook',
-                            'webhook' => & $incomingWebhook
+                            'webhook' => & $incomingWebhook,
+                            'webhook_data' => $payloadAll,
+                            'webhook_msg' => $payloadMessage
                         ));
                     }
                 }
@@ -1666,6 +1674,7 @@ class erLhcoreClassChatWebhookIncoming {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming_chat_before_save', array(
                         'webhook' => & $incomingWebhook,
                         'data' => & $payloadAll,
+                        'webhook_msg' => $payloadMessage,
                         'chat' => & $chat
                     ));
 
@@ -1674,6 +1683,7 @@ class erLhcoreClassChatWebhookIncoming {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming_chat_started', array(
                         'webhook' => & $incomingWebhook,
                         'data' => & $payloadAll,
+                        'webhook_msg' => $payloadMessage,
                         'chat' => & $chat
                     ));
 
@@ -1884,6 +1894,7 @@ class erLhcoreClassChatWebhookIncoming {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming_chat_before_update_new', array(
                         'webhook' => & $incomingWebhook,
                         'data' => & $payloadAll,
+                        'webhook_msg' => $payloadMessage,
                         'chat' => & $chat,
                         'echat' => $eChat
                     ));
@@ -2112,6 +2123,8 @@ class erLhcoreClassChatWebhookIncoming {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array(
                     'chat' => & $chat,
                     'msg' => $msg,
+                    'webhook_msg' => $payloadMessage,
+                    'webhook_data' => $payloadAll,
                     'webhook' => & $incomingWebhook
                 ));
 
