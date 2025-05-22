@@ -786,7 +786,7 @@ class erLhcoreClassGenericBotActionRestapi
 
         if (isset($dynamicReplaceVariables['{if_previous_visitor_messages_list}'])){
             if ($dynamicReplaceVariables['{if_previous_visitor_messages_list}'] !== false) {
-                $methodSettings['body_raw'] = str_replace(trim($dynamicReplaceVariables['{if_previous_visitor_messages_list}']),$dynamicReplaceVariables[$dynamicReplaceVariables['{if_previous_visitor_messages_list}']], $methodSettings['body_raw']);
+                $methodSettings['body_raw'] = str_replace(trim($dynamicReplaceVariables['{if_previous_visitor_messages_list}']),str_replace('{{','__lhc_bracket__',$dynamicReplaceVariables[$dynamicReplaceVariables['{if_previous_visitor_messages_list}']]), $methodSettings['body_raw']);
                 $methodSettings['body_raw'] = trim(str_replace(['{if_previous_visitor_messages_list}','{/if_previous_visitor_messages_list}'],'', $methodSettings['body_raw']));
             } else {
                 $methodSettings['body_raw'] = preg_replace('/\{if_previous_visitor_messages_list\}(.*?)\{\/if_previous_visitor_messages_list\}/ms','',$methodSettings['body_raw']);
@@ -856,6 +856,8 @@ class erLhcoreClassGenericBotActionRestapi
 
         $replaceVariables = array_merge($replaceVariables, $dynamicParamsVariables);
 
+
+
         foreach ($replaceVariables as $keyVariable => $variableValue) {
             if (is_array($variableValue) || is_object($variableValue)) {
                 $replaceVariables[$keyVariable] = json_encode($variableValue);
@@ -902,6 +904,8 @@ class erLhcoreClassGenericBotActionRestapi
         foreach ($dynamicParamsVariables as $keyDynamic => $valueDynamic) {
             $replaceVariablesJSON[$keyDynamic] = json_encode($valueDynamic);
         }
+
+        $replaceVariablesJSON['__lhc_bracket__'] = '{{';
 
         // Keep body only if specific variable is not empty
         if (isset($methodSettings['body_raw'])) {
