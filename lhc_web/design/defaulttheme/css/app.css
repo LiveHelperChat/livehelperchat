@@ -38,6 +38,7 @@
     --lhc-new-msg-border: rgba(var(--bs-danger-rgb), 1);
     --lhc-gradient-tab-start: #dfdfdf;
     --lhc-gradient-tab-end: #FFF;
+    --lhc-tab-link-bg: #f8f9fa;
 }
 
 .btn-group-xs > .btn, .btn-xs {
@@ -1378,6 +1379,7 @@ input[type="file"]{
 
 .nav-pills .nav-link{
 	position:relative;
+    background: var(--lhc-tab-link-bg);
 }
 
 .nav-pills>li>a {
@@ -1387,7 +1389,7 @@ input[type="file"]{
 }
 
 .nav-pills>li>a:hover{
-	background-color:#f7f6f6;
+	background-color: #f3f3f3;
 }
 
 .sidebar ul li {
