@@ -4,14 +4,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -324,6 +316,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Delete chat on close there there is no visitor messages in chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Home page dashboard widgets order</source>
       <translation type="unfinished"/>
     </message>
@@ -459,6 +455,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copied</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy as CURL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Updated</source>
       <translation type="unfinished"/>
     </message>
@@ -476,10 +488,6 @@
     </message>
     <message>
       <source>Block country</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Close</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -572,6 +580,14 @@
     </message>
     <message>
       <source>Send feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proceed</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1172,6 +1188,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Try to decrypt variable first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This variable is invisible for operator and will be stored in chat_variables attribute</source>
       <translation type="unfinished"/>
     </message>
@@ -1397,6 +1417,10 @@
     </message>
     <message>
       <source>Widget border width (px)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ratio for new row to appear</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2115,7 +2139,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>[Record ID] [Object ID]</source>
+      <source>[Record ID] [User ID] [Object ID]</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2332,6 +2356,10 @@
     </message>
     <message>
       <source>Visible in the widget chat lists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled in chat window</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2809,6 +2837,10 @@
       <source>Value</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>If no conditions are defined, it is considered as invalid.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/cannedmsg</name>
@@ -2893,11 +2925,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Category</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Identifier, use it like {identifier} in canned responses, or bot</source>
+      <source>Identifier, use it like {identifier} in canned responses, or bot. Use {{replaceable.&lt;identifier&gt;}} in Rest API</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4442,6 +4482,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Test encrypt/decrypt</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Encrypted text or text to encrypt</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Decrypt</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Encrypt</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Result</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Possible use cases</source>
       <translation type="unfinished"/>
     </message>
@@ -4649,6 +4709,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Category</source>
       <translation type="unfinished"/>
     </message>
@@ -4674,10 +4738,6 @@
     </message>
     <message>
       <source>Exclude personal responses</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4877,6 +4937,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Nick</source>
       <translation type="unfinished"/>
     </message>
@@ -4898,10 +4962,6 @@
     </message>
     <message>
       <source>Chat ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5086,6 +5146,10 @@
     </message>
     <message>
       <source>Transfer happened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search by close time</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5917,6 +5981,62 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Action type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose action type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat open</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat preview</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat search ElasticSearch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat export</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat export ElasticSearch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail open</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail preview</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail search ElasticSearch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail export</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail export ElasticSearch</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose department you want to add</source>
       <translation type="unfinished"/>
     </message>
@@ -6059,10 +6179,6 @@
   </context>
   <context>
     <name>module/mailconvmb</name>
-    <message>
-      <source>Check for a new messages</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Choose a parent invitation</source>
       <translation type="unfinished"/>
@@ -6313,6 +6429,10 @@
     </message>
     <message>
       <source>Import priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reset status</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7330,10 +7450,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Could not decrypt data!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Visitor</source>
       <translation type="unfinished"/>
     </message>
@@ -8166,13 +8282,6 @@
     </message>
   </context>
   <context>
-    <name>abstract/list</name>
-    <message>
-      <source>Are you sure?</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>chat/onlineusers</name>
     <message>
       <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
@@ -8778,6 +8887,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Log applied routing/chat priority rules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Log applied blocks</source>
       <translation type="unfinished"/>
     </message>
@@ -9016,6 +9129,10 @@
     </message>
     <message>
       <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10516,10 +10633,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Nick/Email</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Block ID</source>
       <translation type="unfinished"/>
     </message>
@@ -10580,11 +10693,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>E-mail hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Remove block</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick/Email</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10752,6 +10873,10 @@
     </message>
     <message>
       <source>Time filter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notification was sent</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10987,6 +11112,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You cannot make changes because this user account is disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Individual departments</source>
       <translation type="unfinished"/>
     </message>
@@ -11107,6 +11236,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Actions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User receives other operators permissions request</source>
       <translation type="unfinished"/>
     </message>
@@ -11148,6 +11281,10 @@
     </message>
     <message>
       <source>Hide quick notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not show persistent notifications for chat actions</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11782,6 +11919,10 @@
     </message>
     <message>
       <source>Online session updated ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Connection problem detected. Please check your connectivity.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13006,6 +13147,30 @@
       <source>Search</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>When only START date is provided, we will show chats that:</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Were CLOSED and started BEFORE the start date but closed AFTER the start date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are active/pending and started BEFORE the start date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>When BOTH start AND end dates are provided, we will show chats where</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat start time is AFTER the start date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat end time is BEFORE the end date</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>front/default</name>
@@ -13664,6 +13829,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Actions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>E-mail</source>
       <translation type="unfinished"/>
     </message>
@@ -13740,10 +13909,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Actions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Conversation</source>
       <translation type="unfinished"/>
     </message>
@@ -13796,6 +13961,18 @@
     </message>
     <message>
       <source>Brands</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitors notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search for configuration options...</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14023,15 +14200,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Notice message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Subscribers list</source>
+      <source>Notice messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14544,6 +14713,17 @@
     </message>
     <message>
       <source>Empty...</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/list</name>
+    <message>
+      <source>chats were selected for deletion, and</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>of them were deleted!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -15462,6 +15642,13 @@
     </message>
     <message>
       <source>Information collected. Only chat form</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/list</name>
+    <message>
+      <source>Are you sure?</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -17121,6 +17308,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Maximum visitor image resolution. Images will be resized to fit within a square of this many pixels.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Files download permissions</source>
       <translation type="unfinished"/>
     </message>
@@ -17452,14 +17643,6 @@
   </context>
   <context>
     <name>genericbot/restapi</name>
-    <message>
-      <source>Stream content if output is matched.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Stream content as HTML.</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Text like</source>
       <translation type="unfinished"/>
@@ -17885,6 +18068,10 @@
     </message>
     <message>
       <source>Previous chat additional chat variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor message content</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -20152,6 +20339,22 @@
       <source>Subscriber endpoint settings</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>OR</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL, optional.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>notifications/admin</name>
@@ -20160,11 +20363,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Settings</source>
+      <source>Visitors settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Subscribers list</source>
+      <source>Visitors subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators subscribers list</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -20172,6 +20383,18 @@
     <name>notifications/list</name>
     <message>
       <source>Subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assigned chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -20209,6 +20432,26 @@
       <source>Update time</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In-Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>notifications/notifications</name>
@@ -20226,14 +20469,6 @@
     </message>
     <message>
       <source>Explains were taken from:</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Download Service Worker</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>you will have to put this file in your domain root folder.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -20304,6 +20539,14 @@
       <source>Private key is not shown after save</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Download Service Worker</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>you will have to put this file in your domain root folder.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>paidchat/expiredchat</name>
@@ -20350,6 +20593,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Exclude permission. Operator will lose access to this function.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Limitation</source>
       <translation type="unfinished"/>
     </message>
@@ -20390,6 +20637,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Role assigned groups</source>
       <translation type="unfinished"/>
     </message>
@@ -20399,6 +20650,26 @@
     </message>
     <message>
       <source>Assign a group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Grant</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Role</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Summary</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -20538,6 +20809,10 @@
     </message>
     <message>
       <source>Choose a module function</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Options</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -21490,6 +21765,10 @@
   <context>
     <name>mailconv/module</name>
     <message>
+      <source>Mail options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Mailbox list</source>
       <translation type="unfinished"/>
     </message>
@@ -21534,6 +21813,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Mailing options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Mailing list</source>
       <translation type="unfinished"/>
     </message>
@@ -21547,6 +21830,10 @@
     </message>
     <message>
       <source>Send an e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Speech options</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -21597,7 +21884,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Notice message</source>
+      <source>Notice messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Generic notice message at the top bar</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -21606,6 +21897,10 @@
     </message>
     <message>
       <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notice message in case of connection issues</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -22473,6 +22768,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You will be redirected and logged in as a different user in a few moments...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You were logged out because another user logged under same account</source>
       <translation type="unfinished"/>
     </message>
@@ -22517,6 +22816,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Invalid back office URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>CSFR token is invalid, try to resubmit form</source>
       <translation type="unfinished"/>
     </message>
@@ -22550,6 +22853,29 @@
     </message>
     <message>
       <source>Failed login. XML_CHECK_LOGIN</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>notifications/accounts</name>
+    <message>
+      <source>Persistent notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Success</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Those notifications are sent independently is browser closed or not. Notifications for chat is shown only if active window is not detected. Mobile notifications should be enabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subscribe</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your subscriptions</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -22945,41 +23271,6 @@
     </message>
   </context>
   <context>
-    <name>lhxml/userinfo</name>
-    <message>
-      <source>ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>IP address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Current page</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last visit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User agent</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Message seen</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>abstract/email_template</name>
     <message>
       <source>Popup content, icon will have an option to show a modal window</source>
@@ -23047,6 +23338,53 @@
     </message>
     <message>
       <source>E-mail templates</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/survey</name>
+    <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars for feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max stars pos</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for evaluation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for plain question</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title for custom questions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -23196,53 +23534,6 @@
     </message>
     <message>
       <source>Only from defined IP/IP range request will be permitted.</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/survey</name>
-    <message>
-      <source>ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Feedback text</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Max stars pos</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Title for evaluation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Required</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Title for plain question</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Title for custom questions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Survey</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -23820,6 +24111,33 @@
     </message>
   </context>
   <context>
+    <name>notifications/index</name>
+    <message>
+      <source>Notification</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators subscribers list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
@@ -24226,21 +24544,6 @@
     <name>mobile/sessions</name>
     <message>
       <source>Sessions</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>notifications/index</name>
-    <message>
-      <source>Notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Subscribers list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings</source>
       <translation type="unfinished"/>
     </message>
   </context>
