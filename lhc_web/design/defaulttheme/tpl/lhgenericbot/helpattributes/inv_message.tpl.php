@@ -10,4 +10,5 @@
     <li><span class="badge bg-secondary">{nick}</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'visitor nick if we know it from previous chats');?></li>
     <li><span class="badge bg-secondary">{lhc.var.&lt;variable key&gt;}</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'invisible by operator');?></li>
     <li><span class="badge bg-secondary">{lhc.add.&lt;variable key&gt;}</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'visible by operator');?></li>
+    <li><span class="badge bg-secondary">{canned_replaceable_variables}</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Canned replaceable variables');?></li>
 </ul>
