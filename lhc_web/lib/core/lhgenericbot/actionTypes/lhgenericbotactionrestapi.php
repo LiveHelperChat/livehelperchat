@@ -1552,7 +1552,7 @@ class erLhcoreClassGenericBotActionRestapi
             $paramsRequestDebug = $paramsRequest;
 
             if (isset($paramsRequestDebug['body'])) {
-                $contentDebugBody = json_decode($paramsRequestDebug['body'],true);
+                $contentDebugBody = json_decode(str_replace(["\n","\r\n"],"",$paramsRequestDebug['body']),true);
                 if (is_array($contentDebugBody)) {
                     $paramsRequestDebug['body'] = $contentDebugBody;
                 }
