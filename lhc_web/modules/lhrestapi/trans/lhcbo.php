@@ -128,6 +128,7 @@ $transItems = array(
     "widget.taken_time_dep" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Taken time to render departments statistic'),
     "widget.op_chats_statistic" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Operator chats statistic'),
     "widget.items_appear_here" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','All items will appear here'),
+    "widget.op_statistic" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Total operators active in backend (last 10 min). (Number) is count of those also in online status.'),
 
     // Widget options
     "widget_options.hide_disabled" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide disabled'),

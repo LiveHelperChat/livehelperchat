@@ -83,7 +83,9 @@ class erLhcoreClassModelDepartament {
             'max_timeout_seconds_mail' => $this->max_timeout_seconds_mail,
             'delay_before_assign_mail' => $this->delay_before_assign_mail,
             'ignore_op_status' => $this->ignore_op_status,
-            'dep_offline' => $this->dep_offline
+            'dep_offline' => $this->dep_offline,
+            'max_load_op' => $this->max_load_op,
+            'max_load_op_h' => $this->max_load_op_h
         );
     }
 
@@ -331,7 +333,8 @@ class erLhcoreClassModelDepartament {
     public $alias = '';
     public $ignore_op_status = 0;
     public $dep_offline = 0;
-
+    public $max_load_op = 0;
+    public $max_load_op_h = 0;
 
     // 0 - disabled
     // > 0 - delay in seconds

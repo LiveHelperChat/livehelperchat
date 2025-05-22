@@ -8,7 +8,7 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic', 'statisticdep')){
 }
 ?>
 
-<lhc-widget <?php if (isset($customCardNoId)) : ?>no_panel_id="true"<?php endif;?> icon_class="chat-active" data_panel_id="departments_stats" permissions='<?php echo json_encode($permissionsWidget);?>' card_icon="home" no_link="true" column_2_width="12%" no_counter="true" list_identifier="departments_stats" type="depgroups_stats" optionsPanel='<?php echo json_encode(array('panelid' => 'departmentd','limitid' => 'limitd', 'disable_product' => true, 'hide_department' => true, 'hide_depgroup' => true))?>' www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>" expand_identifier="dstats_widget_exp" panel_list_identifier="departmentd-panel-list"></lhc-widget>
+<lhc-widget <?php if (isset($customCardNoId)) : ?>no_panel_id="true"<?php endif;?> icon_class="chat-active" data_panel_id="departments_stats" permissions='<?php echo json_encode($permissionsWidget);?>' card_icon="home" no_link="true"  column_3_width="12%" column_2_width="12%" no_counter="true" list_identifier="departments_stats" type="depgroups_stats" optionsPanel='<?php echo json_encode(array('panelid' => 'departmentd','limitid' => 'limitd', 'disable_product' => true, 'hide_department' => true, 'hide_depgroup' => true))?>' www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>" expand_identifier="dstats_widget_exp" panel_list_identifier="departmentd-panel-list"></lhc-widget>
 
 <?php /*
 <div class="card card-dashboard" data-panel-id="departments_stats" ng-init="lhc.getToggleWidget('dstats_widget_exp')">

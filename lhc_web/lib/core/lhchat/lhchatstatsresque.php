@@ -109,14 +109,14 @@ class erLhcoreClassChatStatsResque {
 
         // Get max load for a specific department
 
-        $stmt = $db->prepare('SELECT SUM(max_chats) as max_chats FROM (SELECT MAX(max_chats) as max_chats FROM `lh_userdep` WHERE `ro` = 0 AND `dep_id` = :dep_id AND `last_activity` > :last_activity AND (`hide_online` = 0 OR `hide_online_ts` > :hide_online_ts) GROUP BY `user_id`) as tmp;');
+        $stmt = $db->prepare('SELECT SUM(max_chats) as max_chats, COUNT(`user_id`) AS `max_load_op` FROM (SELECT MAX(max_chats) as max_chats,`user_id` FROM `lh_userdep` WHERE `ro` = 0 AND `dep_id` = :dep_id AND `last_activity` > :last_activity AND (`hide_online` = 0 OR `hide_online_ts` > :hide_online_ts) GROUP BY `user_id`) as tmp;');
         $stmt->bindValue(':dep_id',$dep->id,PDO::PARAM_INT);
         $stmt->bindValue(':last_activity',time()-600, PDO::PARAM_INT);
         $stmt->bindValue(':hide_online_ts',time()-600, PDO::PARAM_INT);
         $stmt->execute();
-        $maxChats = (int)$stmt->fetchColumn();
+        $maxChats = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $stmt = $db->prepare('SELECT SUM(`max_chats`) as `max_chats`, SUM(`active_chats`) AS `active_chats`, SUM(`inactive_chats`) AS `inactive_chats` FROM (SELECT MAX(`max_chats`) as `max_chats`,MAX(`inactive_chats`) AS `inactive_chats`,MAX(`active_chats`) AS `active_chats` FROM `lh_userdep` WHERE `ro` = 0 AND `dep_id` = :dep_id AND `hide_online` = 0 AND `last_activity` > :last_activity GROUP BY `user_id`) as tmp;');
+        $stmt = $db->prepare('SELECT SUM(`max_chats`) as `max_chats`, SUM(`active_chats`) AS `active_chats`, SUM(`inactive_chats`) AS `inactive_chats`, COUNT(`user_id`) AS `max_load_op_h` FROM (SELECT MAX(`max_chats`) as `max_chats`,MAX(`inactive_chats`) AS `inactive_chats`,MAX(`active_chats`) AS `active_chats`, `user_id` FROM `lh_userdep` WHERE `ro` = 0 AND `dep_id` = :dep_id AND `hide_online` = 0 AND `last_activity` > :last_activity GROUP BY `user_id`) as tmp;');
         $stmt->bindValue(':dep_id',$dep->id,PDO::PARAM_INT);
         $stmt->bindValue(':last_activity',time()-600, PDO::PARAM_INT);
         $stmt->execute();
@@ -155,10 +155,14 @@ class erLhcoreClassChatStatsResque {
             }
         }
 
-        $dep->max_load = $maxChats;
+        $dep->max_load = isset($maxChats['max_chats']) ? $maxChats['max_chats'] : 0;
         $dep->max_load_h = isset($maxChatsHard['max_chats']) ? $maxChatsHard['max_chats'] : 0;
         $dep->inop_chats_cnt = isset($maxChatsHard['inactive_chats']) ? $maxChatsHard['inactive_chats'] : 0;
         $dep->acop_chats_cnt = isset($maxChatsHard['active_chats']) ? $maxChatsHard['active_chats'] : 0;
+
+        // Online operators stats
+        $dep->max_load_op = isset($maxChats['max_load_op']) ? $maxChats['max_load_op'] : 0;
+        $dep->max_load_op_h = isset($maxChatsHard['max_load_op_h']) ? $maxChatsHard['max_load_op_h'] : 0;
 
         $statsMails = erLhcoreClassModelMailconvConversation::getCount(array(
             'group' => '`status`',
@@ -186,7 +190,7 @@ class erLhcoreClassChatStatsResque {
         }
 
         if ($update === true) {
-            $dep->updateThis(array('update' => array('pending_mails_counter','active_mails_counter','inop_chats_cnt','acop_chats_cnt','active_chats_counter','pending_chats_counter','bot_chats_counter','inactive_chats_cnt','max_load','max_load_h')));
+            $dep->updateThis(array('update' => array('max_load_op','max_load_op_h','pending_mails_counter','active_mails_counter','inop_chats_cnt','acop_chats_cnt','active_chats_counter','pending_chats_counter','bot_chats_counter','inactive_chats_cnt','max_load','max_load_h')));
         }
     }
 
@@ -195,14 +199,14 @@ class erLhcoreClassChatStatsResque {
 
         $db = ezcDbInstance::get();
 
-        $stmt = $db->prepare('SELECT SUM(`max_chats`) AS `max_chats` FROM (SELECT MAX(`max_chats`) AS `max_chats` FROM `lh_userdep` WHERE `ro` = 0 AND `dep_id` IN (SELECT `dep_id` FROM `lh_departament_group_member` WHERE `dep_group_id` = :dep_group_id) AND last_activity > :last_activity AND (hide_online = 0 OR hide_online_ts > :hide_online_ts) GROUP BY `user_id`) as `tmp`;');
+        $stmt = $db->prepare('SELECT SUM(`max_chats`) AS `max_chats`, COUNT(`user_id`) AS `max_load_op` FROM (SELECT MAX(`max_chats`) AS `max_chats`, `user_id` FROM `lh_userdep` WHERE `ro` = 0 AND `dep_id` IN (SELECT `dep_id` FROM `lh_departament_group_member` WHERE `dep_group_id` = :dep_group_id) AND last_activity > :last_activity AND (hide_online = 0 OR hide_online_ts > :hide_online_ts) GROUP BY `user_id`) as `tmp`;');
         $stmt->bindValue(':dep_group_id',$depGroupObj->id,PDO::PARAM_INT);
         $stmt->bindValue(':last_activity',time()-600, PDO::PARAM_INT);
         $stmt->bindValue(':hide_online_ts',time()-600, PDO::PARAM_INT);
         $stmt->execute();
-        $maxChats = (int)$stmt->fetchColumn();
+        $maxChats = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $stmt = $db->prepare('SELECT SUM(`max_chats`) AS `max_chats`, SUM(`active_chats`) AS `active_chats`, SUM(`inactive_chats`) AS `inactive_chats` FROM (SELECT MAX(`max_chats`) AS `max_chats`,MAX(`inactive_chats`) AS `inactive_chats`,MAX(`active_chats`) AS `active_chats` FROM `lh_userdep` WHERE `ro` = 0 AND `dep_id` IN (SELECT `dep_id` FROM `lh_departament_group_member` WHERE `dep_group_id` = :dep_group_id) AND hide_online = 0 AND `last_activity` > :last_activity GROUP BY `user_id`) as `tmp`;');
+        $stmt = $db->prepare('SELECT SUM(`max_chats`) AS `max_chats`, SUM(`active_chats`) AS `active_chats`, SUM(`inactive_chats`) AS `inactive_chats`, COUNT(`user_id`) AS `max_load_op_h`  FROM (SELECT MAX(`max_chats`) AS `max_chats`,MAX(`inactive_chats`) AS `inactive_chats`,MAX(`active_chats`) AS `active_chats`, `user_id` FROM `lh_userdep` WHERE `ro` = 0 AND `dep_id` IN (SELECT `dep_id` FROM `lh_departament_group_member` WHERE `dep_group_id` = :dep_group_id) AND hide_online = 0 AND `last_activity` > :last_activity GROUP BY `user_id`) as `tmp`;');
         $stmt->bindValue(':dep_group_id',$depGroupObj->id,PDO::PARAM_INT);
         $stmt->bindValue(':last_activity',time()-600, PDO::PARAM_INT);
         $stmt->execute();
@@ -222,8 +226,6 @@ class erLhcoreClassChatStatsResque {
             'count', false, 'count(`id`) as `total`, `status`, `status_sub`', false, true
         );
 
-
-
         $depGroupObj->inachats_cnt = $depGroupObj->achats_cnt = $depGroupObj->pchats_cnt = $depGroupObj->bchats_cnt = 0;
 
         foreach ($statsChats as $statsChat) {
@@ -241,10 +243,13 @@ class erLhcoreClassChatStatsResque {
             }
         }
 
-        $depGroupObj->max_load = $maxChats;
+        $depGroupObj->max_load =  isset($maxChats['max_chats']) ? $maxChats['max_chats'] : 0; ;
         $depGroupObj->max_load_h = isset($maxChatsHard['max_chats']) ? $maxChatsHard['max_chats'] : 0;
         $depGroupObj->inopchats_cnt = isset($maxChatsHard['inactive_chats']) ? $maxChatsHard['inactive_chats'] : 0;
         $depGroupObj->acopchats_cnt = isset($maxChatsHard['active_chats']) ? $maxChatsHard['active_chats'] : 0;
+
+        $depGroupObj->max_load_op = isset($maxChats['max_load_op']) ? $maxChats['max_load_op'] : 0;
+        $depGroupObj->max_load_op_h = isset($maxChatsHard['max_load_op_h']) ? $maxChatsHard['max_load_op_h'] : 0;
 
         if ($update === true) {
             $depGroupObj->updateThis();

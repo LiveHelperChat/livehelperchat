@@ -1,3 +1,15 @@
+4.64v
+
+1. Departments widget will show online operators counter also, not only their slots.
+2. Copy CURL Command will be available in audit login also. Click info icon and you will find it.
+3. Debug window in chat will preparse chat_variables for better understandability.
+3. If user message contained LHC internal tag Rest API was reparsing them again.
+4. Chat tabs will be light background for better visibility.
+5. Option to have custom back office site access more easier. https://doc.livehelperchat.com/docs/security
+6. Changes to avoid notices in case invalid request is made.
+
+execute doc/update_db/update_332.sql for update
+
 4.63v
 
 1. Attribute to set additional variable to check if it is encrypted in the first place.

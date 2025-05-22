@@ -13,8 +13,25 @@ $modalBodyClass = 'p-1'
         </ul>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="dep-status">
-                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats statistic');?></h6>
                 <?php if (isset($department)) : $department_live = clone $department; erLhcoreClassChatStatsResque::updateDepartmentStats($department_live, false); ?>
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operators online');?></h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="material-icons">history</span><strong><?php echo $department->max_load_op?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_live->max_load_op?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online operators soft');?><br/><span class="badge bg-secondary">max_load_op</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="material-icons">history</span><strong><?php echo $department->max_load_op_h?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_live->max_load_op_h?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online operators hard');?><br/><span class="badge bg-secondary">max_load_op_h</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats statistic');?></h6>
                     <div class="row">
                         <div class="col-6">
                             <ul class="list-unstyled">
@@ -92,7 +109,28 @@ $modalBodyClass = 'p-1'
 
                 <?php else : ?>
 
+
                     <?php $department_group_live = clone $department_group; erLhcoreClassChatStatsResque::updateDepartmentGroupStats($department_group_live, false); ?>
+
+                    <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operators online');?></h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="material-icons">history</span><strong><?php echo $department_group->max_load_op?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_group_live->max_load_op?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online operators soft');?><br/><span class="badge bg-secondary">max_load_op</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="material-icons">history</span><strong><?php echo $department_group->max_load_op_h?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_group_live->max_load_op_h?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online operators hard');?><br/><span class="badge bg-secondary">max_load_op_h</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats statistic');?></h6>
                     <div class="row">
                         <div class="col-6">
                             <ul class="list-unstyled">

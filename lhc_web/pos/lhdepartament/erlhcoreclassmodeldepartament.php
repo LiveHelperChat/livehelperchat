@@ -19,7 +19,7 @@ foreach (['name','email','xmpp_recipients','xmpp_group_recipients','identifier',
 foreach (['max_ac_dep_mails','max_timeout_seconds_mail','delay_before_assign_mail','priority','archive','active_mail_balancing','department_transfer_id','transfer_timeout','online_hours_active','inform_delay','inform_close','inform_unread','inform_unread_delay','disabled',
              'visible_if_online','hidden','active_chats_counter','pending_chats_counter','max_load','max_load_h','nc_cb_execute','na_cb_execute','delay_lm','active_balancing','max_active_mails','max_active_chats','max_ac_dep_chats',
              'exclude_inactive_chats','delay_before_assign','max_timeout_seconds','attr_int_1','attr_int_2','attr_int_3','sort_priority','inform_close_all','pending_max','pending_group_max','bot_chats_counter','inactive_chats_cnt','inop_chats_cnt',
-             'acop_chats_cnt','assign_same_language','ignore_op_status','dep_offline'] as $posAttr) {
+             'acop_chats_cnt','assign_same_language','ignore_op_status','dep_offline','max_load_op','max_load_op_h'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;
