@@ -3,7 +3,7 @@
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/departmentstats.tpl.php');
 
 try {
-
+    $tpl->set('tab', $Params['user_parameters_unordered']['tab'] === 'op' ? 'op' : 'chats');
     if ($Params['user_parameters_unordered']['type'] == 'group') {
         $department_group = erLhcoreClassModelDepartamentGroup::fetch($Params['user_parameters']['id']);
         $tpl->set('department_group', $department_group);

@@ -25,6 +25,8 @@ class erLhcoreClassModelDepartamentGroup
             'max_load_h' => $this->max_load_h,
             'inopchats_cnt' => $this->inopchats_cnt,
             'acopchats_cnt' => $this->acopchats_cnt,
+            'max_load_op' => $this->max_load_op,
+            'max_load_op_h' => $this->max_load_op_h
         );
     }
 
@@ -77,6 +79,8 @@ class erLhcoreClassModelDepartamentGroup
     public $acopchats_cnt = 0;
     public $max_load = 0;
     public $max_load_h = 0;
+    public $max_load_op = 0;
+    public $max_load_op_h = 0;
 }
 
 ?>

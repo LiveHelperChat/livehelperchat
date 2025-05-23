@@ -245,7 +245,7 @@
                 <i title={$t("widget.department")} class="material-icons">home</i>{#if show_department_title}{$t("widget.department")}{/if}
             {/if}
 
-            {#if no_expand === false}
+            {#if no_expand === false && type != 'depgroups_stats'}
             <div class="float-end expand-actions">
                 <a on:click={lhcServices.changeWidgetHeight(lhcList,panel_id,true)} class="text-muted disable-select">
                     <i title={$t("widget.more_rows")}  class="material-icons">expand</i>
@@ -257,6 +257,20 @@
             {/if}
 
         </th>
+        {/if}
+
+        {#if type == 'depgroups_stats'}
+            <th width="11%">
+                <i title={$t("widget.op_statistic")} class="material-icons text-info">support_agent</i>
+                <div class="float-end expand-actions">
+                    <a on:click={lhcServices.changeWidgetHeight(lhcList,panel_id,true)} class="text-muted disable-select">
+                        <i title={$t("widget.more_rows")}  class="material-icons">expand</i>
+                    </a>
+                    <a on:click={lhcServices.changeWidgetHeight(lhcList,panel_id,false)} class="text-muted disable-select">
+                        <i title={$t("widget.less_rows")} class="material-icons">compress</i>
+                    </a>
+                </div>
+            </th>
         {/if}
 
     </tr>
@@ -284,6 +298,15 @@
                             <span class={(depgroup.max_load_h && depgroup.max_load_h - ((depgroup.acopchats_cnt ? depgroup.acopchats_cnt : 0) - (depgroup.inopchats_cnt ? depgroup.inopchats_cnt : 0)) <= 3) ? 'text-danger fw-bold' : ''}>{depgroup.max_load_h ? (depgroup.max_load_h - ((depgroup.acopchats_cnt ? depgroup.acopchats_cnt : 0) - (depgroup.inopchats_cnt ? depgroup.inopchats_cnt : 0))) : 'n/a'}</span>&nbsp;({depgroup.max_load ? (depgroup.max_load - ((depgroup.achats_cnt ? depgroup.achats_cnt : 0) - (depgroup.inachats_cnt ? depgroup.inachats_cnt : 0))) : 'n/a'})
                         {/if}
                     </td>
+                    <td>
+                        {#if permissions.indexOf('lhstatistic_statisticdep') !== -1}
+                            <a href="#" on:click={(e) => lhcServices.openModal('statistic/departmentstats/' + depgroup.id + '/(type)/group/(tab)/op')}>
+                                {depgroup.max_load_op ? depgroup.max_load_op : 'n/a'} ({depgroup.max_load_op_h ? depgroup.max_load_op_h : 'n/a'})
+                            </a>
+                        {:else}
+                            {depgroup.max_load_op ? depgroup.max_load_op : 'n/a'} ({depgroup.max_load_op_h ? depgroup.max_load_op_h : 'n/a'})
+                        {/if}
+                    </td>
                 </tr>
             {/each}
             </tbody>
@@ -296,7 +319,8 @@
             <th width="12%"><i title={$t("widget_title.pending_chats")} class="material-icons chat-pending">chat</i></th>
             <th width="12%"><i title={$t("widget_title.active_chats")} class="material-icons chat-active">chat</i></th>
             <th width="12%"><i title={$t("widget_title.bot_chats")} class="material-icons chat-active">android</i></th>
-            <th width="21%"><i title={$t("widget.load_statistic")} class="material-icons text-info">donut_large</i></th>
+            <th width="11%"><i title={$t("widget.load_statistic")} class="material-icons text-info">donut_large</i></th>
+            <th width="11%"><i title={$t("widget.op_statistic")} class="material-icons text-info">support_agent</i></th>
         </tr>
         </thead>
 
@@ -311,7 +335,6 @@
             <td><a class="d-block" href={WWW_DIR_JAVASCRIPT + 'chat/list/(department_ids)/' + department.id + '/(chat_status_ids)/1'}>{department.active_chats_counter ? department.active_chats_counter : 0}</a></td>
             <td><a class="d-block" href={WWW_DIR_JAVASCRIPT + 'chat/list/(department_ids)/' + department.id + '/(chat_status_ids)/5'}>{department.bot_chats_counter ? department.bot_chats_counter : 0}</a></td>
             <td nowrap title='{department.inactive_chats_cnt ? department.inactive_chats_cnt : "0"} {$t("widget.inactive_chats")+".\n"}{department.inop_chats_cnt ? department.inop_chats_cnt : "0"} {$t("widget.inactive_op_chats")+".\n"}{department.acop_chats_cnt ? department.acop_chats_cnt : "0"} {$t("widget.active_op_chats")+".\n"}{$t("widget.hard_limit")} - {department.max_load_h ? department.max_load_h : "0"}, {$t("widget.soft_limit")} - {department.max_load ? department.max_load : "0"}.{"\n"+$t("widget.hard_limit_explain")}'>
-
                 {#if permissions.indexOf('lhstatistic_statisticdep') !== -1}
                     <a href="#" on:click={(e) => lhcServices.openModal('statistic/departmentstats/'+department.id)}>
                         <span class={(department.max_load_h && department.max_load_h - ((department.acop_chats_cnt ? department.acop_chats_cnt : 0) - (department.inop_chats_cnt ? department.inop_chats_cnt : 0)) <= 3) ? 'text-danger fw-bold' : ''}>{department.max_load_h ? (department.max_load_h - ((department.acop_chats_cnt ? department.acop_chats_cnt : 0) - (department.inop_chats_cnt ? department.inop_chats_cnt : 0))) : 'n/a'}</span>&nbsp;({department.max_load ? (department.max_load - ((department.active_chats_counter ? department.active_chats_counter : 0) - (department.inactive_chats_cnt ? department.inactive_chats_cnt : 0))) : 'n/a'})
@@ -319,9 +342,15 @@
                 {:else}
                     <span class={(department.max_load_h && department.max_load_h - ((department.acop_chats_cnt ? department.acop_chats_cnt : 0) - (department.inop_chats_cnt ? department.inop_chats_cnt : 0)) <= 3) ? 'text-danger fw-bold' : ''}>{department.max_load_h ? (department.max_load_h - ((department.acop_chats_cnt ? department.acop_chats_cnt : 0) - (department.inop_chats_cnt ? department.inop_chats_cnt : 0))) : 'n/a'}</span>&nbsp;({department.max_load ? (department.max_load - ((department.active_chats_counter ? department.active_chats_counter : 0) - (department.inactive_chats_cnt ? department.inactive_chats_cnt : 0))) : 'n/a'})
                 {/if}
-
-
-
+            </td>
+            <td>
+                {#if permissions.indexOf('lhstatistic_statisticdep') !== -1}
+                    <a href="#" on:click={(e) => lhcServices.openModal('statistic/departmentstats/' + department.id + '/(tab)/op')}>
+                        {department.max_load_op ? department.max_load_op : 'n/a'} ({department.max_load_op_h ? department.max_load_op_h : 'n/a'})
+                    </a>
+                {:else}
+                    {department.max_load_op ? department.max_load_op : 'n/a'} ({department.max_load_op_h ? department.max_load_op_h : 'n/a'})
+                {/if}
             </td>
         </tr>
         {/each}

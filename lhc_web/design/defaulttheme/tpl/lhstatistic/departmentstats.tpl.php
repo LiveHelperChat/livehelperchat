@@ -7,14 +7,31 @@ $modalBodyClass = 'p-1'
 <div class="modal-body" ng-non-bindable>
     <div class="p-2">
         <ul class="nav nav-pills mb-3" role="tablist">
-            <li role="presentation" class="nav-item"><a href="#dep-status" class="nav-link active" aria-controls="dep-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats');?></a></li>
-            <li role="presentation" class="nav-item"><a href="#user-status" class="nav-link" aria-controls="user-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operators');?></a></li>
+            <li role="presentation" class="nav-item"><a href="#dep-status" class="nav-link<?php if ($tab == 'chats') : ?> active<?php endif;?>" aria-controls="dep-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats');?></a></li>
+            <li role="presentation" class="nav-item"><a href="#user-status" class="nav-link<?php if ($tab == 'op') : ?> active<?php endif;?>" aria-controls="user-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operators');?></a></li>
             <li role="presentation" class="nav-item"><a href="#dep-chats-users" class="nav-link" aria-controls="dep-chats-users" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats operators');?></a></li>
         </ul>
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="dep-status">
-                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats statistic');?></h6>
+            <div role="tabpanel" class="tab-pane<?php if ($tab == 'chats') : ?> active<?php endif;?>" id="dep-status">
                 <?php if (isset($department)) : $department_live = clone $department; erLhcoreClassChatStatsResque::updateDepartmentStats($department_live, false); ?>
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operators online');?></h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="material-icons">history</span><strong><?php echo $department->max_load_op?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_live->max_load_op?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online operators soft');?><br/><span class="badge bg-secondary">max_load_op</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="material-icons">history</span><strong><?php echo $department->max_load_op_h?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_live->max_load_op_h?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online operators hard');?><br/><span class="badge bg-secondary">max_load_op_h</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats statistic');?></h6>
                     <div class="row">
                         <div class="col-6">
                             <ul class="list-unstyled">
@@ -92,7 +109,28 @@ $modalBodyClass = 'p-1'
 
                 <?php else : ?>
 
+
                     <?php $department_group_live = clone $department_group; erLhcoreClassChatStatsResque::updateDepartmentGroupStats($department_group_live, false); ?>
+
+                    <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operators online');?></h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="material-icons">history</span><strong><?php echo $department_group->max_load_op?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_group_live->max_load_op?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online operators soft');?><br/><span class="badge bg-secondary">max_load_op</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="material-icons">history</span><strong><?php echo $department_group->max_load_op_h?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_group_live->max_load_op_h?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online operators hard');?><br/><span class="badge bg-secondary">max_load_op_h</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats statistic');?></h6>
                     <div class="row">
                         <div class="col-6">
                             <ul class="list-unstyled">
@@ -172,7 +210,7 @@ $modalBodyClass = 'p-1'
 
                 <?php endif; ?>
             </div>
-            <div role="tabpanel" class="tab-pane mx550" id="user-status">
+            <div role="tabpanel" class="tab-pane mx550<?php if ($tab == 'op') : ?> active<?php endif;?>" id="user-status">
 
                     <?php
                     if (isset($department)) {
@@ -199,9 +237,13 @@ $modalBodyClass = 'p-1'
                         <?php $totalStats = array('max_chats' => 0, 'active_chats' => 0, 'inactive_chats' => 0); foreach ($operatorsStatus as $operator) : ?>
                         <tr class="<?php if ($operator['ro'] == 1) : ?>text-muted<?php endif;?>">
                             <td>
-                                <span title="<?php if ($operator['ro'] == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Read only');?><?php endif;?>" class="material-icons<?php if ($operator['ro'] == 1) : ?> text-muted<?php else : ?> text-success<?php endif;?>"><?php if ($operator['ro'] == 1) : ?>edit_off<?php else :?>edit<?php endif;?></span>
-                                <a <?php if ($operator['ro'] == 1) : ?>class="text-muted"<?php endif;?> href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $operator['user_id']?>/(chat_status_ids)/0/1"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?>" class="material-icons">chat</span></a>
-                                <a <?php if ($operator['ro'] == 1) : ?>class="text-muted"<?php endif;?> title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Edit operator');?>" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $operator['user_id']?>"><span class="material-icons">account_box</span><?php echo $operator['user_id']?></a>
+                                <span class=" text-truncate d-inline-block" style="max-width: 200px;">
+                                    <span title="<?php if ($operator['ro'] == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Read only');?><?php endif;?>" class="material-icons<?php if ($operator['ro'] == 1) : ?> text-muted<?php else : ?> text-success<?php endif;?>"><?php if ($operator['ro'] == 1) : ?>edit_off<?php else :?>edit<?php endif;?></span>
+                                    <a <?php if ($operator['ro'] == 1) : ?>class="text-muted"<?php endif;?> href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $operator['user_id']?>/(chat_status_ids)/0/1"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?>" class="material-icons">chat</span></a>
+                                    <a <?php if ($operator['ro'] == 1) : ?>class="text-muted"<?php endif;?> title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Edit operator');?>" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $operator['user_id']?>"><span class="material-icons">account_box</span>
+                                        <?php echo htmlspecialchars(($userStat = erLhcoreClassModelUser::fetch($operator['user_id'])) !== false ? $userStat->name_official : $operator['user_id']);?>
+                                    </a>
+                                </span>
                             </td>
                             <td><?php echo $operator['max_chats'];
                                 if ($operator['ro'] == 0) {$totalStats['max_chats'] += $operator['max_chats'];}?>
@@ -249,9 +291,11 @@ $modalBodyClass = 'p-1'
                         <?php $totalStats = array('max_chats' => 0, 'active_chats' => 0, 'inactive_chats' => 0); foreach ($operatorsStatusHard as $operator) : ?>
                         <tr class="<?php if ($operator['ro'] == 1) : ?>text-muted<?php endif;?>">
                             <td>
-                                <span title="<?php if ($operator['ro'] == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Read only');?><?php endif;?>" class="material-icons<?php if ($operator['ro'] == 1) : ?> text-muted<?php else : ?> text-success<?php endif;?>"><?php if ($operator['ro'] == 1) : ?>edit_off<?php else :?>edit<?php endif;?></span>
-                                <a <?php if ($operator['ro'] == 1) : ?>class="text-muted"<?php endif;?> href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $operator['user_id']?>/(chat_status_ids)/0/1"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?>" class="material-icons">chat</span></a>
-                                <a <?php if ($operator['ro'] == 1) : ?>class="text-muted"<?php endif;?> title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Edit operator');?>" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $operator['user_id']?>"><span class="material-icons">account_box</span><?php echo $operator['user_id']?></a>
+                                <span class=" text-truncate d-inline-block" style="max-width: 200px;">
+                                    <span title="<?php if ($operator['ro'] == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Read only');?><?php endif;?>" class="material-icons<?php if ($operator['ro'] == 1) : ?> text-muted<?php else : ?> text-success<?php endif;?>"><?php if ($operator['ro'] == 1) : ?>edit_off<?php else :?>edit<?php endif;?></span>
+                                    <a <?php if ($operator['ro'] == 1) : ?>class="text-muted"<?php endif;?> href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $operator['user_id']?>/(chat_status_ids)/0/1"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?>" class="material-icons">chat</span></a>
+                                    <a <?php if ($operator['ro'] == 1) : ?>class="text-muted"<?php endif;?> title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Edit operator');?>" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $operator['user_id']?>"><span class="material-icons">account_box</span><?php echo htmlspecialchars(($userStat = erLhcoreClassModelUser::fetch($operator['user_id'])) !== false ? $userStat->name_official : $operator['user_id']);?></a>
+                                </span>
                             </td>
                             <td><?php echo $operator['max_chats'];if ($operator['ro'] == 0) {$totalStats['max_chats'] += $operator['max_chats'];}?></td>
                             <td><?php echo $operator['active_chats'];if ($operator['ro'] == 0) {$totalStats['active_chats'] += $operator['active_chats'];}?></td>

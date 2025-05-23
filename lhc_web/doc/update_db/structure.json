@@ -6617,6 +6617,22 @@
         "extra": ""
       },
       {
+        "field": "max_load_op",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "max_load_op_h",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "inopchats_cnt",
         "type": "int(11)",
         "null": "NO",
@@ -6772,6 +6788,22 @@
       {
         "field": "max_load",
         "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "max_load_op",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "max_load_op_h",
+        "type": "int(11) unsigned",
         "null": "NO",
         "key": "",
         "default": "0",
