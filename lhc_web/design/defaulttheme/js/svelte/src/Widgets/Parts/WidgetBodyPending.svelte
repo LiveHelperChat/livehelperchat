@@ -300,7 +300,7 @@
                     </td>
                     <td>
                         {#if permissions.indexOf('lhstatistic_statisticdep') !== -1}
-                            <a href="#" on:click={(e) => lhcServices.openModal('statistic/departmentstats/'+depgroup.id + '/(type)/group')}>
+                            <a href="#" on:click={(e) => lhcServices.openModal('statistic/departmentstats/' + depgroup.id + '/(type)/group/(tab)/op')}>
                                 {depgroup.max_load_op ? depgroup.max_load_op : 'n/a'} ({depgroup.max_load_op_h ? depgroup.max_load_op_h : 'n/a'})
                             </a>
                         {:else}
@@ -345,7 +345,7 @@
             </td>
             <td>
                 {#if permissions.indexOf('lhstatistic_statisticdep') !== -1}
-                    <a href="#" on:click={(e) => lhcServices.openModal('statistic/departmentstats/'+department.id)}>
+                    <a href="#" on:click={(e) => lhcServices.openModal('statistic/departmentstats/' + department.id + '/(tab)/op')}>
                         {department.max_load_op ? department.max_load_op : 'n/a'} ({department.max_load_op_h ? department.max_load_op_h : 'n/a'})
                     </a>
                 {:else}
