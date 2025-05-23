@@ -175,12 +175,18 @@ class erLhcoreClassChatExport {
 	    $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Department name'));
 	    $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Pending chats number'));
 	    $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Active chats number'));
-	    
+	    $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Bot chats number'));
+	    $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Online operators (soft)'));
+	    $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(6, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Online operators (hard)'));
+
 	    $attributes = array(
 	        'id',
 	        'name',
 	        'pending_chats_counter',
 	        'active_chats_counter',
+	        'bot_chats_counter',
+	        'max_load_op',
+	        'max_load_op_h',
 	    );
 	    
 	    $i = 2;
