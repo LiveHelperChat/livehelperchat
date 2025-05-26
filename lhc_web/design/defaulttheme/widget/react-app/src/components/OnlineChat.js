@@ -1062,7 +1062,7 @@ class OnlineChat extends Component {
 
                     {this.props.chatwidget.getIn(['chat_ui_state','confirm_close']) == 1 && <ChatModal confirmClose={this.props.endChat} cancelClose={this.props.cancelClose} toggle={this.props.cancelClose} dataUrl={"/chat/confirmleave/"+this.props.chatwidget.getIn(['chatData','id'])+"/"+this.props.chatwidget.getIn(['chatData','hash'])} />}
 
-                    {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
+                    {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert/"+this.props.chatwidget.getIn(['chatData','id'])+"?react=1"} />}
 
                     {this.state.changeLanguage && <ChatModal showModal={this.state.changeLanguage} setLanguage={this.setLanguageAction} insertText={this.insertText} toggle={this.changeLanguage} dataUrl={"/widgetrestapi/chooselanguage/(id)/"+this.props.chatwidget.getIn(['chatData','id'])+"/(hash)/"+this.props.chatwidget.getIn(['chatData','hash'])} />}
 

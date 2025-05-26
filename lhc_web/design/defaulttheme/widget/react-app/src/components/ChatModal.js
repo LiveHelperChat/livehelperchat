@@ -61,11 +61,15 @@ class ChatModal extends PureComponent {
             var link = prompt(t('bbcode.img_link'));
             if (link) {
                 txtToAdd = '[' + txtToAdd + ']' + link + '[/' + txtToAdd + ']';
+            } else {
+                txtToAdd = '';
             }
         } else if (e['data-promt'] && e['data-promt'] == 'url') {
             var link = prompt(t('bbcode.link'));
             if (link) {
                 txtToAdd = '[url=' + link + ']'+t('bbcode.link_here')+'[/url]';
+            } else {
+                txtToAdd = '';
             }
         }
         this.props.insertText(txtToAdd);

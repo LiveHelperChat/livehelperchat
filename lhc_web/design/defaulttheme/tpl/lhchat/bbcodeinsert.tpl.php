@@ -48,7 +48,7 @@ $icons = array(
                 <?php foreach ($icons as $index => $iconGroup) : ?>
                     <div role="tabpanel" class="tab-pane bb-list<?php if ($index == 0) : ?> active<?php endif;?><?php if (isset($chat_id) && $chat_id !== null) : ?> admin-emoji<?php endif;?>" id="bbcode-smiley-<?php echo $index?><?php if (isset($bbcodeParams['tab_prefix'])) : ?><?php echo $bbcodeParams['tab_prefix']?><?php endif; ?>">
                         <?php if ($index == 0) : ?>
-                            <?php if (!isset($bb_code_disabled) || !in_array('[img]',$bb_code_disabled)) : ?>
+                            <?php if ((!isset($bb_code_disabled) || !in_array('[img]',$bb_code_disabled)) && !isset($file_upload_disabled)) : ?>
                             <a tabindex="0" bbitem="true" class="rounded d-inline-block bg-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Image'); ?>" data-promt="img" data-bb-code="img"><i class="material-icons mr-0"><?php if (isset($react) && $react == true) : ?>&#xf114;<?php else : ?>image<?php endif; ?></i></a>
                             <?php endif; ?>
 

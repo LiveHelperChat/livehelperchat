@@ -45,9 +45,20 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
         $chat = erLhcoreClassModelChat::fetchAndLock($payload['id']);
 
         if (isset($chat->chat_variables_array['bot_lock_msg'])) {
+            $db->rollback();
             $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','We are still working on your previous request!');
             echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));
             exit;
+        }
+
+        // Do not allow to post images if file upload is disabled
+        if (str_contains($payload['msg'],'[img]')) {
+            $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
+            if (!(isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true || (isset($chat->chat_variables_array['lhc_fu']) && $chat->chat_variables_array['lhc_fu'] == 1))) {
+                $db->rollback();
+                echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Upload disabled!')));
+                exit;
+            }
         }
 
         // We do not want to call mobile notifications and any related database calls

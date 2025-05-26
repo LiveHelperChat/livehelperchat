@@ -220,8 +220,8 @@
         {/if}
 
         {#if type == 'depgroups_stats'}
-        <th width="12%"><i title={$t("widget_title.active_chats")} class="material-icons chat-active">chat</i></th>
-        <th width="12%"><i title={$t("widget_title.bot_chats")} class="material-icons chat-active">android</i></th>
+        <th width="8%"><i title={$t("widget_title.active_chats")} class="material-icons chat-active">chat</i></th>
+        <th width="8%"><i title={$t("widget_title.bot_chats")} class="material-icons chat-active">android</i></th>
         {/if}
 
         {#if type == 'active_mails' || type == 'alarm_mails' || show_username_always}
@@ -260,7 +260,7 @@
         {/if}
 
         {#if type == 'depgroups_stats'}
-            <th width="11%">
+            <th width="20%">
                 <i title={$t("widget.op_statistic")} class="material-icons text-info">support_agent</i>
                 <div class="float-end expand-actions">
                     <a on:click={lhcServices.changeWidgetHeight(lhcList,panel_id,true)} class="text-muted disable-select">
