@@ -8,13 +8,37 @@ class ChatStartOptions extends PureComponent {
     }
 
     componentDidMount() {
-        var bsn = require("bootstrap.native/dist/components/dropdown-native");
-        new bsn(document.getElementById('chat-dropdown-options'));
+        const enabledOptionsCount = (this.props.bbEnabled ? 1 : 0) + (this.props.langEnabled ? 1 : 0);
+        
+        // Only initialize dropdown if multiple options are enabled
+        if (enabledOptionsCount > 1) {
+            var bsn = require("bootstrap.native/dist/components/dropdown-native");
+            new bsn(document.getElementById('chat-dropdown-options'));
+        }
     }
 
     render() {
         const { t } = this.props;
+        const enabledOptionsCount = (this.props.bbEnabled ? 1 : 0) + (this.props.langEnabled ? 1 : 0);
         
+        // If only one option is enabled, show it directly
+        if (enabledOptionsCount === 1) {
+            if (this.props.bbEnabled) {
+                return (
+                    <div className="disable-select ps-1 pt-2">
+                        <button onClick={(e) => this.props.toggleModal()} title={t('button.bb_code')} type="button" className="border-0 p-0 material-icons settings text-muted bbcode-ico" id="chat-dropdown-options" role="button" tabIndex="0">&#xf104;</button>
+                    </div>
+                );
+            } else if (this.props.langEnabled) {
+                return (
+                    <div className="disable-select ps-1 pt-2">
+                        <button onClick={(e) => this.props.changeLanguage()} title={t('button.lang')} type="button" className="border-0 p-0 material-icons settings text-muted lang-ico" id="chat-dropdown-options" role="button" tabIndex="0">&#xf11e;</button>
+                    </div>
+                );
+            }
+        }
+        
+        // If multiple options or no options, show dropdown
         return (
             <div className="btn-group dropup disable-select ps-1 pt-2">
                 <button type="button" className="border-0 p-0 material-icons settings text-muted" id="chat-dropdown-options" role="button" data-bs-toggle="dropdown" tabIndex="0" aria-haspopup="true" aria-expanded="false">&#xf100;</button>
