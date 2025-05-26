@@ -53,14 +53,58 @@ class erLhcoreClassModelGenericBotTrItem {
         }
     }
 
+    public function afterParse($params)
+    {
+
+        $matchesValues = [];
+        preg_match_all('~\{(not|is)_empty__args\.([a-zA-Z0-9_\.]+(?:\.\{[a-zA-Z0-9_]+\})?)\}~', $this->translation_front, $matchesValues);
+        $replaceVariables = [];
+
+        if (!empty($matchesValues[0])) {
+            foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                $params['args']['chat'] = isset($params['chat']) ? $params['chat'] : null;
+                $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $matchesValues[2][$indexElement], '.');
+                $replaceVariables['{{' . $matchesValues[2][$indexElement] . '}}'] = $valueAttribute['found'] ? $valueAttribute['value'] : null;
+            }
+        }
+
+        if (isset($this->translation_front) && !empty($replaceVariables)) {
+            $matchesExtension = [];
+            preg_match_all('/\{(not|is)_empty__args\.([a-zA-Z0-9_\.]+(?:\.\{[a-zA-Z0-9_]+\})?)\}(.*?)\{\/(not|is)_empty\}/ms', $this->translation_front, $matchesExtension);
+            if (!empty($matchesExtension[2])) {
+                foreach ($matchesExtension[2] as $indexExtension => $varCheck) {
+                    $varsCheck = explode('||', $varCheck);
+                    $allFilled = true;
+                    foreach ($varsCheck as $varCheckReplace) {
+                        if (
+                            ($matchesExtension[1][$indexExtension] == 'not' && empty($replaceVariables['{{'.$varCheckReplace.'}}']))
+                            ||
+                            ($matchesExtension[1][$indexExtension] == 'is' && !empty($replaceVariables['{{'.$varCheckReplace.'}}']))
+                        ) {
+                            $allFilled = false;
+                        }
+                    }
+                    if ($allFilled) {
+                        $this->translation_front = str_replace($matchesExtension[0][$indexExtension],$matchesExtension[3][$indexExtension], $this->translation_front);
+                    } else {
+                        $this->translation_front = str_replace($matchesExtension[0][$indexExtension],'',  $this->translation_front);
+                    }
+                }
+            }
+        }
+
+        $this->translation_front = trim($this->translation_front);
+    }
+
     /**
      * @desc translate auto responder if translation by chat exists
      *
      * @param $locale
      */
-    public function translateByChat($locale) {
+    public function translateByChat($locale, $params = []) {
 
         $this->translation_front = $this->translation_array['default'];
+        $this->afterParse($params);
 
         if ($locale === null) {
             return;
@@ -70,6 +114,7 @@ class erLhcoreClassModelGenericBotTrItem {
         foreach ($this->translation_array['items'] as $data) {
             if (in_array($locale, $data['languages'])) {
                 $this->translation_front = $data['message'];
+                $this->afterParse($params);
                 return;
             }
         }
@@ -79,6 +124,7 @@ class erLhcoreClassModelGenericBotTrItem {
         foreach ($this->translation_array['items'] as $data) {
             if (in_array($localeShort, $data['languages'])) {
                 $this->translation_front = $data['message'];
+                $this->afterParse($params);
                 return;
             }
         }
@@ -88,6 +134,7 @@ class erLhcoreClassModelGenericBotTrItem {
             if ($translationGroup instanceof erLhcoreClassModelGenericBotTrGroup && $translationGroup->bot_lang != '') {
                 try {
                     $this->translation_front = erLhcoreClassTranslate::translateTo($this->translation_front, $translationGroup->bot_lang, $localeShort);
+                    $this->afterParse($params);
                 } catch (Exception $e) {
                     erLhcoreClassLog::write( $e->getMessage() . "\n" . $e->getTraceAsString(),
                         ezcLog::SUCCESS_AUDIT,

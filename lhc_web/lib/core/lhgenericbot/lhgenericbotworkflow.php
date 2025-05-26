@@ -2544,7 +2544,7 @@ class erLhcoreClassGenericBotWorkflow {
                     if (isset($configuration['bot_tr_id']) && $configuration['bot_tr_id'] > 0 && !empty($identifiers)) {
                         $items = erLhcoreClassModelGenericBotTrItem::getList(array('filterin' => array('identifier' => array_keys($identifiers)),'filter' => array('group_id' => $configuration['bot_tr_id'])));
                         foreach ($items as $item) {
-                            $item->translateByChat($locale);
+                            $item->translateByChat($locale, $params);
                             $identifiers[$item->identifier]['replace'] = $item->translation_front;
                         }
                     }
@@ -2587,7 +2587,6 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                         }
                     }
-
                     $replaceArray[$data['search']] = $data['replace'];
                 }
 
@@ -2751,7 +2750,6 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         return $message;
-
     }
 
     public static function sendAsBot($chat, $message, $metaMessage = array())
