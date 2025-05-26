@@ -619,7 +619,7 @@ $ViewList['chatpreview'] = array(
 );
 
 $ViewList['bbcodeinsert'] = array(
-	'params' => array('chat_id','hash'),
+	'params' => array('chat_id'),
 	'uparams' => array('mode')
 );
 
