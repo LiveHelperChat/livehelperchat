@@ -42,7 +42,7 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
     //mysql> select * from audits\G;
     //*************************** 1. row ***************************
     //category: updateInternal
-    //file: /home/miguel/gcoop/AsisenteVirtual/livehelperchat_bccl/lhc_web/ezcomponents/PersistentObject/src/handlers/save_handler.php
+    //file: lhc_web/ezcomponents/PersistentObject/src/handlers/save_handler.php
     //id: 1
     //line: 408
     //message: id_usuario: 1 UserName: lhc Object Updated: array (
@@ -61,9 +61,32 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
     //1 row in set (0.00 sec)
 	static function write($msg, $level=ezcLog::WARNING, $attributes = array()) {
 		// Use log
+        static $logFileWriterAdded = false;
+
 		$log = ezcLog::getInstance ();
+
+        if (!in_array($level,[ezcLog::FAILED_AUDIT,ezcLog::SUCCESS_AUDIT]) && $logFileWriterAdded === false) {
+            $logFileWriterAdded = true;
+            self::addLogFileWrite($log);
+        }
+
 		$log->log ( $msg, $level, $attributes);
 	}
+
+    public static function addLogFileWrite($log) {
+        #Rule for log write to a file
+        #For INFO,NOTICE,WARNING,ERROR,FATAL and DEBUG severities;
+        $filter = new ezcLogFilter();
+        $filter->severity = ezcLog::INFO | ezcLog::NOTICE | ezcLog::WARNING | ezcLog::ERROR | ezcLog::FATAL | ezcLog::DEBUG;
+
+        $cfg = erConfigClassLhConfig::getInstance();
+        $defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
+        $defaultUser = $cfg->getSetting( 'site', 'default_user', false );
+
+        $writeAll = new ezcLogUnixFileWriter ( "cache", "default.log",204800, 5, $defaultUser, $defaultGroup);
+
+        $log->getMapper ()->appendRule ( new ezcLogFilterRule ( $filter, $writeAll, true ) );
+    }
 
     //Set de write destination in relation to the level of message.
     // For INFO,NOTICE,WARNING,ERROR,FATAL and DEBUG severitis the 
@@ -72,31 +95,16 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
     // For SUCCESS_AUDIT and FAILED_AUDIT the write destination is "audits" table in DB.
     // The "audits" table must be create before.
 	public static function configureObject($log) {
-		#Rule for log write to a file
-		#For INFO,NOTICE,WARNING,ERROR,FATAL and DEBUG severities;
-		$filter = new ezcLogFilter();
-  		$filter->severity = ezcLog::INFO | ezcLog::NOTICE | ezcLog::WARNING | ezcLog::ERROR | ezcLog::FATAL | ezcLog::DEBUG;
-
-		$cfg = erConfigClassLhConfig::getInstance();
-		$defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
-		$defaultUser = $cfg->getSetting( 'site', 'default_user', false );
-
-		$writeAll = new ezcLogUnixFileWriter ( "cache", "default.log",204800, 5, $defaultUser, $defaultGroup);
-
-		$log->getMapper ()->appendRule ( new ezcLogFilterRule ( $filter, $writeAll, true ) );
-
 		#Rule for log write to a table in db
 		#For SUCCESS_AUDIT and FAILED_AUDIT severities;
 		$filter_audit = new ezcLogFilter();
  		$filter_audit->severity = ezcLog::SUCCESS_AUDIT | ezcLog::FAILED_AUDIT;
 		$db = ezcDbInstance::get();
-
 		$log->getMapper()->appendRule( new ezcLogFilterRule( $filter_audit, new ezcLogDatabaseWriter( $db, "lh_audits" ), true ) );
 	}
 
 	public static function logObjectChange($params)
     {
-
         $className = str_replace(array('erLhcoreClassModel','erLhAbstractModel'),'',get_class($params['object']));
 
         if (isset($params['check_log']) && $params['check_log'] == true) {
