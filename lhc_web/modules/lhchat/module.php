@@ -535,25 +535,25 @@ $ViewList['startchat'] = array (
 
 $ViewList['start'] = array (
     'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger'),
+    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger','encrypted'),
 	'multiple_arguments' => array('department')
 );
 
 $ViewList['begin'] = array (
     'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger'),
+    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger','encrypted'),
 	'multiple_arguments' => array('department')
 );
 
 $ViewList['modal'] = array (
     'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger'),
+    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger','encrypted'),
 	'multiple_arguments' => array('department')
 );
 
 $ViewList['demo'] = array (
     'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger'),
+    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger','encrypted'),
 	'multiple_arguments' => array('department'),
     'functions' => array( 'use' ),
 );

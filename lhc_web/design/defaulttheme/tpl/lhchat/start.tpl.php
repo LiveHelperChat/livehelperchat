@@ -34,6 +34,10 @@
             $params['toggleSound'] = true;
         }
 
+        if ($vars_encrypted === true) {
+            $params['vars_encrypted'] = true;
+        }
+
         $params['staticJS']['chunk_js'] = erLhcoreClassDesign::design('js/widgetv2');
         $params['staticJS']['dir'] = erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language');
         $params['staticJS']['cl'] = erConfigClassLhConfig::getInstance()->getDirLanguage('content_language');
