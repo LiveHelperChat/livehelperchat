@@ -69,7 +69,7 @@
     "ext-json": "*",
     "aws/aws-sdk-php": "3.x",
     "colinmollenhour/credis": "~1.2",
-    "daneren2005/php-resque": "dev-master#f0c08e1555b4a16c12e19a296c22e95d37e78fc2",
+    "daneren2005/php-resque": "dev-master#5facd365d2e9761d95dd9ee6c63b7fafcf11955d",
     "deeplcom/deepl-php": "^1.3",
     "elasticsearch/elasticsearch": "~7.0",
     "endroid/qr-code": "5.1.0",
