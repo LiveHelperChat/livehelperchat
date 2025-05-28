@@ -52,6 +52,10 @@ class erLhcoreClassChatWebhookResque {
 
         $webhook = erLhcoreClassModelChatWebhook::fetch($hookId);
 
+        if (!is_object($webhook)) {
+            return;
+        }
+
         if ((int)$webhook->delay > 0 && (int)$webhook->delay <= 60) {
             sleep((int)$webhook->delay);
         }
