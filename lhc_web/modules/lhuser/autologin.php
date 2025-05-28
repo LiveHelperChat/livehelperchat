@@ -89,8 +89,13 @@ if ($data['enabled'] == 1) {
         } catch (Exception $e) {
             die($e->getMessage());
         }
-        
+
         if ($userToLogin instanceof erLhcoreClassModelUser) {
+
+            $userToLogin->force_logout = 0;
+            $userToLogin->llogin = time();
+            $userToLogin->updateThis(['update' => ['force_logout','llogin']]);
+
             erLhcoreClassUser::instance()->setLoggedUser($userToLogin->id);
             header('Location: ' .erLhcoreClassDesign::baseurldirect('') . $instance->SiteAccess . '/'.ltrim($dataRequest['r'],'/'));
             exit;            

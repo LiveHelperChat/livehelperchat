@@ -53,6 +53,9 @@ if ($ts > time()) {
                         ));
                     }
 
+                    $user->force_logout = 0;
+                    $user->llogin = time();
+
                     erLhcoreClassUser::getSession()->update($user);
                                         
                     // Login user instantly as during password change he verified his logins

@@ -28,6 +28,11 @@ if (is_array($autologinConfiguration)) {
     }
 
     if ($userToLogin instanceof erLhcoreClassModelUser) {
+
+        $userToLogin->force_logout = 0;
+        $userToLogin->llogin = time();
+        $userToLogin->updateThis(['update' => ['force_logout','llogin']]);
+
         erLhcoreClassUser::instance()->setLoggedUser($userToLogin->id);
         header('Location: ' .erLhcoreClassDesign::baseurldirect($autologinConfiguration['site_access']). '/' . $autologinConfiguration['url'] );
         exit;
