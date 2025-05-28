@@ -9,6 +9,11 @@ if ($user instanceof erLhcoreClassModelUser && $hash == sha1($user->id . '_' . $
 
     if (empty($Params['user_parameters_unordered']['showlogin'])) {
 
+        // Reset force logout option
+        $user->force_logout = 0;
+        $user->llogin = time();
+        $user->updateThis(['update' => ['force_logout','llogin']]);
+
         erLhcoreClassUser::instance()->setLoggedUser($user->id);
 
         // change status instnatly of offline. To avoid any conflicts
