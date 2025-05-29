@@ -1013,11 +1013,9 @@ class erLhcoreClassChatValidator {
 
                 if ($jsVar->var_identifier == 'lhc.nick' && isset($onlineAttrSystem['username'])) {
                     unset($onlineAttrSystem['username']);
-
                     if (isset($onlineAttrSystem['username_secure'])) {
                         unset($onlineAttrSystem['username_secure']);
                     }
-
                     $visitor->online_attr_system = json_encode($onlineAttrSystem);
                     $visitor->online_attr_system_array = $onlineAttrSystem;
                 }
@@ -1031,9 +1029,7 @@ class erLhcoreClassChatValidator {
                 if (isset($onlineAttrSystem[$jsVar->var_identifier . '_secure'])) {unset($onlineAttrSystem[ $jsVar->var_identifier . '_secure']);};
 
                 if ($jsVar->var_identifier == 'lhc.nick' && isset($onlineAttrSystem['username'])) {
-
                     unset($onlineAttrSystem['username']);
-
                     if (isset($onlineAttrSystem['username_secure'])) {unset($onlineAttrSystem['username_secure']);};
                 }
 
@@ -1067,6 +1063,7 @@ class erLhcoreClassChatValidator {
             }
 
             if ($val !== null && $val !== '') {
+                $decryptFailed = false;
                 $variableSet[] = $jsVar->var_identifier;
                 if (is_bool($val)) {
                     // Do nothing
@@ -1083,34 +1080,37 @@ class erLhcoreClassChatValidator {
                         }
                         $secure = true;
                     } catch (Exception $e) {
+                        $decryptFailed = true;
                         $val = $e->getMessage();
                     }
                 }
 
-                if ($jsVar->var_identifier == 'lhc.nick' && $val != '') {
-                    $onlineAttrSystem['username'] = $val;
-                    if ($secure === true) {
-                        $onlineAttrSystem['username_secure'] = true;
-                    } elseif (isset($onlineAttrSystem['username_secure'])) {
-                        unset($onlineAttrSystem['username_secure']);
-                    }
-                    $visitor->online_attr_system = json_encode($onlineAttrSystem);
-                    $visitor->online_attr_system_array = $onlineAttrSystem;
-                }
-
-                if ($jsVar->inv == 1) {
-                    if ($val !== '') {
-                        $onlineAttrSystem[$jsVar->var_identifier] = $val;
+                if ($decryptFailed === false) {
+                    if ($jsVar->var_identifier == 'lhc.nick' && $val != '') {
+                        $onlineAttrSystem['username'] = $val;
                         if ($secure === true) {
-                            $onlineAttrSystem[$jsVar->var_identifier . '_secure'] = true;
-                        } elseif (isset($onlineAttrSystem[$jsVar->var_identifier . '_secure'])) {
-                            unset($onlineAttrSystem[$jsVar->var_identifier . '_secure']);
+                            $onlineAttrSystem['username_secure'] = true;
+                        } elseif (isset($onlineAttrSystem['username_secure'])) {
+                            unset($onlineAttrSystem['username_secure']);
                         }
                         $visitor->online_attr_system = json_encode($onlineAttrSystem);
                         $visitor->online_attr_system_array = $onlineAttrSystem;
                     }
-                } else {
-                    $onlineAttr[$jsVar->var_identifier] =  array('h' => false, 'secure' => $secure, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+
+                    if ($jsVar->inv == 1) {
+                        if ($val !== '') {
+                            $onlineAttrSystem[$jsVar->var_identifier] = $val;
+                            if ($secure === true) {
+                                $onlineAttrSystem[$jsVar->var_identifier . '_secure'] = true;
+                            } elseif (isset($onlineAttrSystem[$jsVar->var_identifier . '_secure'])) {
+                                unset($onlineAttrSystem[$jsVar->var_identifier . '_secure']);
+                            }
+                            $visitor->online_attr_system = json_encode($onlineAttrSystem);
+                            $visitor->online_attr_system_array = $onlineAttrSystem;
+                        }
+                    } else {
+                        $onlineAttr[$jsVar->var_identifier] =  array('h' => false, 'secure' => $secure, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+                    }
                 }
             }
         }
@@ -1228,11 +1228,10 @@ class erLhcoreClassChatValidator {
                             ($jsVar->case_insensitive == 1 && trim(mb_strtolower($chat->{$lhcVar})) != trim(mb_strtolower($val)) && $val != '')
                         ) {
 
-                            if ($jsVar->change_message != '') {
-                                $messagesSave[] = str_replace(['{old_val}','{new_val}'],[$chat->{$lhcVar},$val],$jsVar->change_message);
-                            }
-
                             if ($encryptFailed === false) {
+                                if ($jsVar->change_message != '') {
+                                    $messagesSave[] = str_replace(['{old_val}','{new_val}'],[$chat->{$lhcVar},$val],$jsVar->change_message);
+                                }
                                 $chat->{$lhcVar} = $val;
                             }
 
