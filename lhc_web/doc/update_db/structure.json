@@ -6257,6 +6257,14 @@
         "extra": ""
       },
       {
+        "field": "case_insensitive",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "change_message",
         "type": "varchar(250)",
         "null": "NO",
@@ -12119,6 +12127,10 @@
       "DELETE FROM `lh_userdep` WHERE `lh_userdep`.`user_id` IN (SELECT `id` FROM `lh_users` WHERE `disabled` = 1);",
       "INSERT IGNORE INTO `lh_departament_group_user_disabled` SELECT * FROM `lh_departament_group_user` WHERE `lh_departament_group_user`.`user_id` IN (SELECT `id` FROM `lh_users` WHERE `disabled` = 1);",
       "DELETE FROM `lh_departament_group_user` WHERE `lh_departament_group_user`.`user_id` IN (SELECT `id` FROM `lh_users` WHERE `disabled` = 1);"
+    ],
+    "333" : [
+      "UPDATE `lh_abstract_chat_variable` SET `case_insensitive` = 1 WHERE `type` = 4;",
+      "UPDATE `lh_abstract_chat_variable` SET `type` = 0 WHERE `type` = 4;"
     ]
   },
   "tables_create": {

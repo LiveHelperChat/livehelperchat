@@ -1,3 +1,13 @@
+4.65v
+
+1. Department statistic modal window will show department online status. Usefull for investigations.
+2. Case insensitive will be a global in additional chat variables.
+3. Sometimes while loging as other operator did not worked and operator was logged out instantly.
+4. vars_encrypted option should be respected in popup.
+5. If condition support in bot individualization.
+
+execute doc/update_db/update_333.sql for update
+
 4.64v
 
 1. Departments widget will show online operators counter also, not only their slots.

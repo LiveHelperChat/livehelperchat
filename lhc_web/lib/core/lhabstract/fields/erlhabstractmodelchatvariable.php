@@ -65,6 +65,14 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )),
+    'case_insensitive' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Case insensitive'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
     'inv' => array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'This variable is invisible for operator and will be stored in chat_variables attribute'),

@@ -16,7 +16,7 @@ foreach (['js_variable','var_name','var_identifier','change_message','old_js_id'
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-foreach (['dep_id','type','persistent','inv','try_decrypt'] as $posAttr) {
+foreach (['dep_id','type','persistent','inv','try_decrypt','case_insensitive'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

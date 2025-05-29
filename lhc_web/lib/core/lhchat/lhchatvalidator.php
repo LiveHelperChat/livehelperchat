@@ -372,7 +372,6 @@ class erLhcoreClassChatValidator {
         	}
         }
 
-        
         // Validate phone
         if (isset($validationFields['Phone'])) {
             if (((!$form->hasValidData( 'Phone' ) || $form->Phone == '' || mb_strlen($form->Phone) < erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value) && ( ($start_data_fields['phone_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required')))) {
@@ -807,6 +806,9 @@ class erLhcoreClassChatValidator {
                     $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
 
                     $val = $additionalParams['payload_data']['jsvar'][$jsVar->id];
+
+                    $encryptFailed = false;
+
                     if ($jsVar->type == 3) {
                         try {
                             if ($secure === false) {
@@ -815,6 +817,7 @@ class erLhcoreClassChatValidator {
                             $secure = true;
                         } catch (Exception $e) {
                             $val = $e->getMessage();
+                            $encryptFailed = true;
                         }
                     }
 
@@ -843,7 +846,7 @@ class erLhcoreClassChatValidator {
                         $chat->chat_variables = json_encode($chatVariables);
                     }
 
-                    if ($chat->{$lhcVar} != $val && $val != '') {
+                    if ($chat->{$lhcVar} != $val && $val != '' && $encryptFailed === false) {
                         $chat->{$lhcVar} = $val;
                     }
 
@@ -869,7 +872,7 @@ class erLhcoreClassChatValidator {
 
                     if (is_bool($val)) {
                         // Do nothing
-                    } elseif ($jsVar->type == 0 || $jsVar->type == 4 || $jsVar->type == 5 || $jsVar->type == 6) {
+                    } elseif ($jsVar->type == 0 || $jsVar->type == 5 || $jsVar->type == 6) {
                         $val = (string)$val;
                     } elseif ($jsVar->type == 1) {
                         $val = (int)$val;
@@ -1067,7 +1070,7 @@ class erLhcoreClassChatValidator {
                 $variableSet[] = $jsVar->var_identifier;
                 if (is_bool($val)) {
                     // Do nothing
-                } elseif ($jsVar->type == 0 || $jsVar->type == 4 || $jsVar->type == 5 || $jsVar->type == 6) {
+                } elseif ($jsVar->type == 0 || $jsVar->type == 5 || $jsVar->type == 6) {
                     $val = (string)$val;
                 } elseif ($jsVar->type == 1) {
                     $val = (int)$val;
@@ -1157,8 +1160,6 @@ class erLhcoreClassChatValidator {
             $removeVars = [];
 
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
-
-                $caseInsensitive = false;
                 $secure = false;
 
                 if ($jsVar->try_decrypt == 1 &&
@@ -1174,9 +1175,6 @@ class erLhcoreClassChatValidator {
                         // Do nothing and ignore just
                     }
                 } else if ($encrypted === true) {
-                    if ($jsVar->type == 4) {
-                        $caseInsensitive = true;
-                    }
                     $jsVar->type = 3;
                 }
 
@@ -1212,25 +1210,31 @@ class erLhcoreClassChatValidator {
                 if ($val !== null && $val !== '') {
                     if (strpos($jsVar->var_identifier,'lhc.') !== false) {
                         $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
+
+                        $encryptFailed = false;
+
                         if ($val != '' && $jsVar->type == 3) {
                             try {
                                 $val = self::decryptAdditionalField($val, $chat);
                                 $secure = true;
                             } catch (Exception $e) {
                                 $val = $e->getMessage();
+                                $encryptFailed = true;
                             }
                         }
 
                         if (
-                            ($jsVar->type != 4 && $caseInsensitive === false && trim($chat->{$lhcVar}) != trim($val) && $val != '') ||
-                            (($jsVar->type == 4 || $caseInsensitive === true) && trim(mb_strtolower($chat->{$lhcVar})) != trim(mb_strtolower($val)) && $val != '')
+                            ($jsVar->case_insensitive == 0 && trim($chat->{$lhcVar}) != trim($val) && $val != '') ||
+                            ($jsVar->case_insensitive == 1 && trim(mb_strtolower($chat->{$lhcVar})) != trim(mb_strtolower($val)) && $val != '')
                         ) {
 
                             if ($jsVar->change_message != '') {
                                 $messagesSave[] = str_replace(['{old_val}','{new_val}'],[$chat->{$lhcVar},$val],$jsVar->change_message);
                             }
 
-                            $chat->{$lhcVar} = $val;
+                            if ($encryptFailed === false) {
+                                $chat->{$lhcVar} = $val;
+                            }
 
                             if ($secure === true) {
                                 $chatVariablesDataArray[$lhcVar . '_secure'] = true;
@@ -1246,7 +1250,7 @@ class erLhcoreClassChatValidator {
                     } else {
                         if (is_bool($val)) {
                             // Do nothing
-                        } elseif ($jsVar->type == 0 || $jsVar->type == 4 || $jsVar->type == 5 || $jsVar->type == 6) {
+                        } elseif ($jsVar->type == 0 || $jsVar->type == 5 || $jsVar->type == 6) {
                             $val = (string)$val;
                         } elseif ($jsVar->type == 1) {
                             $val = (int)$val;
@@ -1264,8 +1268,8 @@ class erLhcoreClassChatValidator {
                         if ($jsVar->inv == 1) {
                             if (
                                 !isset($chatVariablesDataArray[$jsVar->var_identifier]) ||
-                                ($jsVar->type != 4 && $caseInsensitive === false && trim($chatVariablesDataArray[$jsVar->var_identifier]) != trim($val)) ||
-                                (($jsVar->type == 4 || $caseInsensitive === true) && trim(mb_strtolower($chatVariablesDataArray[$jsVar->var_identifier])) != trim(mb_strtolower($val)))) {
+                                ($jsVar->case_insensitive == 0 && trim($chatVariablesDataArray[$jsVar->var_identifier]) != trim($val)) ||
+                                ($jsVar->case_insensitive == 1 && trim(mb_strtolower($chatVariablesDataArray[$jsVar->var_identifier])) != trim(mb_strtolower($val)))) {
 
                                 if ($jsVar->change_message != '') {
                                     $messagesSave[] = str_replace(['{old_val}','{new_val}'],[(isset($chatVariablesDataArray[$jsVar->var_identifier]) ? $chatVariablesDataArray[$jsVar->var_identifier] : '...'), $val],$jsVar->change_message);
@@ -1287,7 +1291,7 @@ class erLhcoreClassChatValidator {
                                 $logMessage[$jsVar->var_identifier] = $jsVar->change_message;
                             }
 
-                            $stringParts[] = array('secure' => $secure, 't' => $jsVar->type, 'h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+                            $stringParts[] = array('secure' => $secure, 'ci' => $jsVar->case_insensitive, 'h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                         }
                     }
                 }
@@ -1312,8 +1316,8 @@ class erLhcoreClassChatValidator {
                 foreach ($stringParts as $newItem) {
                     if ($item['identifier'] == $newItem['identifier']) {
                         if (
-                            ($newItem['value'] != $item['value'] && (!isset($newItem['t']) || $newItem['t'] != 4)) ||
-                            (isset($newItem['t']) && $newItem['t'] == 4 && mb_strtolower($newItem['value']) != mb_strtolower($item['value']))
+                            ($newItem['value'] != $item['value'] && (!isset($newItem['ci']) || $newItem['ci'] != 1)) ||
+                            (isset($newItem['ci']) && $newItem['ci'] == 1 && mb_strtolower($newItem['value']) != mb_strtolower($item['value']))
                         ) {
 
                             if (isset($logMessage[$newItem['identifier']])) {
@@ -1332,8 +1336,8 @@ class erLhcoreClassChatValidator {
 
             foreach ($stringParts as $newItem) {
                 if (isset($newItem['identifier']) && !in_array($newItem['identifier'],$identifiersUpdated)){
-                    if (isset($newItem['t'])) {
-                        unset($newItem['t']);
+                    if (isset($newItem['ci'])) {
+                        unset($newItem['ci']);
                     }
                     $additionalDataArray[] = $newItem;
                     $needUpdate = true;
@@ -1423,15 +1427,15 @@ class erLhcoreClassChatValidator {
                     if (strpos($jsVar->var_identifier,'lhc.') !== false) {
                         $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
                         if (
-                            ($jsVar->type != 4 && $chat->{$lhcVar} != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') ||
-                            ($jsVar->type == 4 && mb_strtolower($chat->{$lhcVar}) != mb_strtolower($form->jsvar[$jsVar->id]) && $form->jsvar[$jsVar->id] != '')
+                            ($jsVar->case_insensitive == 0 && $chat->{$lhcVar} != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') ||
+                            ($jsVar->case_insensitive == 1 && mb_strtolower($chat->{$lhcVar}) != mb_strtolower($form->jsvar[$jsVar->id]) && $form->jsvar[$jsVar->id] != '')
                         ) {
                             $chat->{$lhcVar} = $form->jsvar[$jsVar->id];
                             $updateColumns[] = $lhcVar;
                         }
                     } else {
                         $val = $form->jsvar[$jsVar->id];
-                        if ($jsVar->type == 0 || $jsVar->type == 4) {
+                        if ($jsVar->type == 0) {
                             $val = (string)$val;
                         } elseif ($jsVar->type == 1) {
                             $val = (int)$val;
