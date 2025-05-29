@@ -10,6 +10,9 @@ $modalBodyClass = 'p-1'
             <li role="presentation" class="nav-item"><a href="#dep-status" class="nav-link<?php if ($tab == 'chats') : ?> active<?php endif;?>" aria-controls="dep-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats');?></a></li>
             <li role="presentation" class="nav-item"><a href="#user-status" class="nav-link<?php if ($tab == 'op') : ?> active<?php endif;?>" aria-controls="user-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operators');?></a></li>
             <li role="presentation" class="nav-item"><a href="#dep-chats-users" class="nav-link" aria-controls="dep-chats-users" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats operators');?></a></li>
+            <?php if (isset($department)) : ?>
+            <li role="presentation" class="nav-item"><a href="#online-status" class="nav-link" aria-controls="online-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online status');?></a></li>
+            <?php endif; ?>
         </ul>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane<?php if ($tab == 'chats') : ?> active<?php endif;?>" id="dep-status">
@@ -387,6 +390,75 @@ $modalBodyClass = 'p-1'
 
 
             </div>
+            <?php if (isset($department)) : ?>
+            <div role="tabpanel" class="tab-pane" id="online-status">
+                <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online settings');?></h5>
+                <ul>
+                    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online timeout');?> - <?php echo (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']?> S.</li>
+                    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Status cache');?> - <?php if ((int)erLhcoreClassModelChatConfig::fetch('enable_status_cache')->current_value === 0) : ?><span class="badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No');?></span><?php else : ?><span class="badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Yes');?></span><?php endif;?></li>
+                    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Ignore operator (global level)');?> - <?php if ((int)erLhcoreClassModelChatConfig::fetch('enable_status_cache')->current_value === 0) : ?><span class="badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No');?></span><?php else : ?><span class="badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Yes');?></span><?php endif;?></li>
+                    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Ignore operator (department level)');?> - <?php if ((int)$department->ignore_op_status == 0) : ?><span class="badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No');?></span><?php else : ?><span class="badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Yes');?></span><?php endif;?></li>
+                </ul>
+                <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Status');?></h5>
+                <ul>
+                    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Status if this was the only department passed (default widget status check)');?>
+                        <?php
+                        if (erLhcoreClassChat::isOnline($department->id, false, array(
+                            'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
+                            'disable_cache' => ((int)erLhcoreClassModelChatConfig::fetch('enable_status_cache')->current_value === 0),
+                            'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
+                        ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?>
+                    </li>
+                    <li>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Status if online hours were ignored (operators and bot configuration respected)');?>
+                        <?php
+                        if (erLhcoreClassChat::isOnline($department->id, false, array(
+                            'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
+                            'disable_cache' => true,
+                            'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value,
+                            'exclude_online_hours' => true
+                        ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?>
+                    </li>
+                    <li>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Status if online operators were ignored and only online hours and bot check would be done');?>
+                        <?php if (erLhcoreClassChat::isOnline($department->id, false, array(
+                            'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
+                            'disable_cache' => true,
+                            'ignore_user_status' => true
+                        ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?>
+                    </li>
+                    <li>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Status if bot was ignored (default check for `Stop chat and transfer to human` trigger action)');?>
+                        <?php
+                        if (erLhcoreClassChat::isOnline($department->id, false, array(
+                            'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
+                            'disable_cache' => true,
+                            'exclude_bot' => true
+                        ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?>
+                    </li>
+                    <li>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Status if bot and online hours were ignored (default check for `Stop chat and transfer to human` trigger action with `Ignore department status and always transfer to operator` option checked)');?>
+                        <?php
+                        if (erLhcoreClassChat::isOnline($department->id, false, array(
+                            'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
+                            'disable_cache' => true,
+                            'exclude_bot' => true,
+                            'exclude_online_hours' => true
+                        ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?>
+                    </li>
+                    <li>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Status if bot and operators status would be excluded. Only online hours would be checked');?>
+                        <?php
+                        if (erLhcoreClassChat::isOnline($department->id, false, array(
+                            'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
+                            'disable_cache' => true,
+                            'exclude_bot' => true,
+                            'ignore_user_status' => true
+                        ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?>
+                    </li>
+                </ul>
+            </div>
+            <?php endif;?>
         </div>
     </div>
 </div>

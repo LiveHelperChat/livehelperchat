@@ -22,10 +22,9 @@
     <tr>
         <td nowrap="">
             <a href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo $departament->id?></a>
-            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','statisticdep')) : ?><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'statistic/departmentstats/<?php echo $departament->id?>'})"><?php endif; ?>
-            <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Load statistic');?>" class="material-icons text-info">donut_large</i>
-            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','statisticdep')) : ?></a><?php endif; ?>
-
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','statisticdep')) : ?>
+            <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'statistic/departmentstats/<?php echo $departament->id?>'})"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Load statistic');?>" class="ms-1 me-0 material-icons text-info">donut_large</i></a>
+            <?php endif; ?>
         </td>
         <td ng-non-bindable title="<?php echo $departament->sort_priority?>"><a class="d-block" href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?><?php if (!empty($departament->alias)) : ?><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Department alias');?>" class="ps-1 small text-muted"><span class="material-icons">link</span><?php echo htmlspecialchars($departament->alias);?></span><?php endif;?><?php if (!empty($departament->identifier)) : ?><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Identifier');?>" class="ps-1 small text-muted"><span class="material-icons">key</span><?php echo htmlspecialchars($departament->identifier);?></span><?php endif;?></a></td>
         <td ng-non-bindable><?php echo htmlspecialchars($departament->email)?></td>
