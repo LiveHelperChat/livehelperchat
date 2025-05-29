@@ -21,8 +21,7 @@
             <td colspan="4">
             </td>
             <td colspan="1">
-
-                <div class="text-danger" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Was offline for');?>"><b><?php echo erLhcoreClassChat::formatSeconds($parentItem->time - $item->lactivity)?></b> <?php if ($item->type == erLhcoreClassModelUserOnlineSession::OFFLINE) :?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went offline');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Sync timeout');?><?php endif; ?></div>
+                <div class="text-danger" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Was offline for');?>"><b><?php echo erLhcoreClassChat::formatSeconds($parentItem->time - $item->lactivity)?></b>&nbsp;<?php if ($item->type == erLhcoreClassModelUserOnlineSession::OFFLINE) :?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went offline');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Sync timeout');?><?php endif; ?></div>
             </td>
             <td>
                 <?php if ( $item->chatsOffline > 0) : ?>
