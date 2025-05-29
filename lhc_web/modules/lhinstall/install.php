@@ -1574,7 +1574,7 @@ try {
                 ('preload_iframes','0','0','Preload widget. It will avoid loading delay after clicking widget','0'),
                 ('product_show_departament','0','0','Enable products show by departments', '1'),
                 ('paidchat_data','','0','Paid chat configuration','1'),
-                ('version_updates',	'332',	0,	'',	1),
+                ('version_updates',	'333',	0,	'',	1),
                 ('del_on_close_no_msg','0','0','Delete chat on close if there are no messages from the visitor','0'),
                 ('mheight_op','200','0','Messages box height for operator','0'),
                 ('listd_op','10','0','Default number of online operators to show','0'),
@@ -2344,7 +2344,7 @@ try {
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_abstract_rest_api_key_remote` ( `id` int(11) NOT NULL AUTO_INCREMENT, `api_key` varchar(50) NOT NULL, `username` varchar(50) NOT NULL, `name` varchar(50) NOT NULL, `host` varchar(250) NOT NULL, `active` tinyint(1) NOT NULL DEFAULT '0', `position` int(11) NOT NULL DEFAULT '0', PRIMARY KEY (`id`), KEY `active` (`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
-                    $db->query("CREATE TABLE `lh_abstract_chat_variable` ( `id` int(11) NOT NULL AUTO_INCREMENT, `content_field` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL, `var_name` varchar(255) NOT NULL, `try_decrypt` tinyint(1) unsigned NOT NULL DEFAULT '0', `var_identifier` varchar(255) NOT NULL,`inv` tinyint(1) NOT NULL, `old_js_id` varchar(50) NOT NULL, `change_message` varchar(250) NOT NULL, `type` tinyint(1) NOT NULL, `persistent` tinyint(1) NOT NULL, `js_variable` varchar(255) NOT NULL, `dep_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                    $db->query("CREATE TABLE `lh_abstract_chat_variable` ( `id` int(11) NOT NULL AUTO_INCREMENT, `content_field` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL, `var_name` varchar(255) NOT NULL, `case_insensitive` tinyint(1) unsigned NOT NULL DEFAULT '0', `try_decrypt` tinyint(1) unsigned NOT NULL DEFAULT '0', `var_identifier` varchar(255) NOT NULL,`inv` tinyint(1) NOT NULL, `old_js_id` varchar(50) NOT NULL, `change_message` varchar(250) NOT NULL, `type` tinyint(1) NOT NULL, `persistent` tinyint(1) NOT NULL, `js_variable` varchar(255) NOT NULL, `dep_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                     $db->query("CREATE TABLE `lh_webhook` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `event` varchar(50) NOT NULL, `delay` int(11) NOT NULL DEFAULT '0', `bot_id_alt` int(11) NOT NULL DEFAULT '0', `trigger_id_alt` int(11) NOT NULL DEFAULT '0', `bot_id` int(11) NOT NULL, `trigger_id` int(11) NOT NULL, `disabled` tinyint(1) NOT NULL, `status` longtext NOT NULL,`configuration` longtext NOT NULL, `type` tinyint(1) NOT NULL DEFAULT 0, PRIMARY KEY (`id`), KEY `event_disabled` (`event`,`disabled`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                     $db->query("CREATE TABLE `lh_generic_bot_rest_api_cache` (
   `hash` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,

@@ -27,6 +27,7 @@ class erLhAbstractModelChatVariable
             'old_js_id' => $this->old_js_id,
             'content_field' => $this->content_field,
             'try_decrypt' => $this->try_decrypt,
+            'case_insensitive' => $this->case_insensitive,
         );
 
         return $stateArray;
@@ -48,44 +49,32 @@ class erLhAbstractModelChatVariable
 
         $item = new stdClass();
         $item->id = 0;
-        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','String (case sensitive)');
-
-        $items[] = $item;
-
-        $item = new stdClass();
-        $item->id = 4;
-        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','String (case insensitive)');
-
+        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','String');
         $items[] = $item;
 
         $item = new stdClass();
         $item->id = 1;
         $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Integer');
-
         $items[] = $item;
 
         $item = new stdClass();
         $item->id = 2;
         $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Decimal');
-
         $items[] = $item;
 
         $item = new stdClass();
         $item->id = 3;
         $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Encrypted');
-
         $items[] = $item;
 
         $item = new stdClass();
         $item->id = 5;
         $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Website cookie');
-
         $items[] = $item;
 
         $item = new stdClass();
         $item->id = 6;
         $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','JWT Token content field');
-
         $items[] = $item;
 
         return $items;
@@ -144,6 +133,7 @@ class erLhAbstractModelChatVariable
     public $persistent = 0;
     public $inv = 0;
     public $try_decrypt = 0;
+    public $case_insensitive = 0;
     public $change_message = '';
     public $old_js_id = '';
     public $content_field = '';
