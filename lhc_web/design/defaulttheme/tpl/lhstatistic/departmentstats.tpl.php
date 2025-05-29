@@ -433,7 +433,8 @@ $modalBodyClass = 'p-1'
                         if (erLhcoreClassChat::isOnline($department->id, false, array(
                             'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
                             'disable_cache' => true,
-                            'exclude_bot' => true
+                            'exclude_bot' => true,
+                            'include_users' => true,
                         ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?>
                     </li>
                     <li>
@@ -443,6 +444,7 @@ $modalBodyClass = 'p-1'
                             'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
                             'disable_cache' => true,
                             'exclude_bot' => true,
+                            'include_users' => true,
                             'exclude_online_hours' => true
                         ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?>
                     </li>

@@ -18,6 +18,7 @@ class erLhcoreClassGenericBotActionCommand {
 
             $filterOnline = array(
                 'exclude_bot' => true,
+                'include_users' => true,
                 'exclude_online_hours' => (isset($action['content']['payload_ignore_dep_hours']) && $action['content']['payload_ignore_dep_hours'] == true),
             );
 
