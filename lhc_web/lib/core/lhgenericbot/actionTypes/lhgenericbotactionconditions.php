@@ -95,7 +95,8 @@ class erLhcoreClassGenericBotActionConditions {
                         } elseif ($paramsConditions[0] == 'online_op_department') {
                             $attr = erLhcoreClassChat::isOnline($chat->dep_id, false, array(
                                 'exclude_bot' => true,
-                                'exclude_online_hours' => true
+                                'exclude_online_hours' => true,
+                                'include_users' => true
                             )) ? 1 : 0;
                             $valAttr = (int)$valAttr;
                         } elseif (isset($chatVariables[$condition['content']['attr']])) {
