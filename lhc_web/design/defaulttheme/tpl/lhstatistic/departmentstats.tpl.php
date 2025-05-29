@@ -437,7 +437,7 @@ $modalBodyClass = 'p-1'
                         ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?>
                     </li>
                     <li>
-                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Status if bot and online hours were ignored (default check for `Stop chat and transfer to human` trigger action with `Ignore department status and always transfer to operator` option checked)');?>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Status if bot and online hours were ignored (default check for `Stop chat and transfer to human` trigger action with `Ignore department online hours` option checked)');?>
                         <?php
                         if (erLhcoreClassChat::isOnline($department->id, false, array(
                             'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
