@@ -25,7 +25,13 @@ class erLhcoreClassGenericBotActionExecute_js {
 
             if (isset($action['content']['ext_args'])) {
                 if (isset($params['replace_array'])) {
-                    $action['content']['ext_args'] = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['ext_args']);
+                    foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                        if (is_object($valueReplace) || is_array($valueReplace)) {
+                            $action['content']['ext_args'] = @str_replace($keyReplace, json_encode($valueReplace), $action['content']['ext_args']);
+                        } else {
+                            $action['content']['ext_args'] = @str_replace($keyReplace, $valueReplace, $action['content']['ext_args']);
+                        }
+                    }
                 }
                 $action['content']['ext_args'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['ext_args'], array('chat' => $chat, 'args' => $params));
             }
