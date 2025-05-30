@@ -10,12 +10,12 @@
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','MCE Plugins')?> <button id="mce_plugins_default" type="button" class="btn btn-xs btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Set default')?></button></label>
-        <textarea rows="10" class="form-control" id="mce_plugins_value" name="mce_plugins"><?php isset($mc_options['mce_plugins']) ? print htmlspecialchars($mc_options['mce_plugins']) : ''?></textarea>
+        <textarea rows="5" class="form-control" id="mce_plugins_value" name="mce_plugins"><?php isset($mc_options['mce_plugins']) ? print htmlspecialchars($mc_options['mce_plugins']) : ''?></textarea>
     </div>
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','MCE Toolbar')?> <button id="mce_toolbar_default" type="button" class="btn btn-xs btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Set default')?></button></label>
-        <textarea rows="10" class="form-control" id="mce_toolbar_value" name="mce_toolbar"><?php isset($mc_options['mce_toolbar']) ? print htmlspecialchars($mc_options['mce_toolbar']) : ''?></textarea>
+        <textarea rows="5" class="form-control" id="mce_toolbar_value" name="mce_toolbar"><?php isset($mc_options['mce_toolbar']) ? print htmlspecialchars($mc_options['mce_toolbar']) : ''?></textarea>
     </div>
 
     <div class="form-group">
@@ -37,6 +37,16 @@
         <input type="text" class="form-control form-control-sm" name="image_skipped_text" value="<?php isset($mc_options['image_skipped_text']) ? print htmlspecialchars($mc_options['image_skipped_text']) : ''?>" placeholder="[img]"/>
     </div>
 
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Reply to template')?> <button id="reply_toolbar_default" type="button" class="btn btn-xs btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Set default')?></button></label>
+        <textarea rows="5" class="form-control" id="id_reply_to_tmp" name="reply_to_tmp"><?php isset($mc_options['reply_to_tmp']) ? print htmlspecialchars($mc_options['reply_to_tmp']) : ''?></textarea>
+    </div>
+
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Forward to template:')?> <button id="forward_toolbar_default" type="button" class="btn btn-xs btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Set default')?></button></label>
+        <textarea rows="5" class="form-control" id="id_forward_to_tmp" name="forward_to_tmp"><?php isset($mc_options['forward_to_tmp']) ? print htmlspecialchars($mc_options['forward_to_tmp']) : ''?></textarea>
+    </div>
+
     <input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
     <script>
@@ -46,6 +56,18 @@
             });
             $('#mce_toolbar_default').click(function(){
                 $('#mce_toolbar_value').val("undo redo | fontselect formatselect fontsizeselect | table | paste pastetext | subscript superscript | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | lhtemplates lhfiles insertfile image pageembed template link anchor codesample | bullist numlist outdent indent | removeformat permanentpen | charmap emoticons | fullscreen print preview paste code | help");
+            });
+            $('#reply_toolbar_default').click(function(){
+                $('#id_reply_to_tmp').val("<p>On {args.msg.udate__datef__Y-m-d H:i} {args.msg.from_name__or__msg.from_address} wrote:</p>");
+            });
+            $('#forward_toolbar_default').click(function(){
+                $('#id_forward_to_tmp').val(<?php echo json_encode("---------- Forwarded message ---------<br/>
+From: {args.msg.from_name__not_empty__<b>}{args.msg.from_name}{args.msg.from_name__not_empty__</b> }<{args.msg.from_address}><br/>
+Date: {args.msg.udate__datef__D}, {args.msg.udate__datef__d}, {args.msg.udate__datef__M} {args.msg.udate__datef__Y} at {args.msg.udate__datef__H:i} <br/>
+Subject: {args.msg.subject}<br/>
+To: {args.msg.to_data_front}<br/>
+{args.msg.cc_data_front__not_empty__Cc: }{args.msg.cc_data_front}{args.msg.cc_data_front__not_empty__<br/>}
+{args.msg.bcc_data_front__not_empty__Bcc: }{args.msg.bcc_data_front}{args.msg.bcc_data_front__not_empty__<br/>}");?>);
             });
         });
     </script>

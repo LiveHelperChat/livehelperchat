@@ -2674,7 +2674,36 @@ class erLhcoreClassGenericBotWorkflow {
                         $jsonProcess = true;
                     }
 
-                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $jsonOutput, '.');
+                    // Perhaps it want format output to date
+                    $dateFormat = explode('__datef__', $jsonOutput);
+                    $jsonOutput = $dateFormat[0];
+
+                    // Not empty operator
+                    $notEmpty = explode('__not_empty__', $jsonOutput);
+                    $jsonOutput = $notEmpty[0];
+
+                    // Multiple vars check
+                    $varsCheck = explode('__or__', $jsonOutput);
+                    $valueAttribute = ['found' => false, 'value' => ''];
+
+                    // Loop through all possible OR conditions until we find one that works
+                    foreach ($varsCheck as $varToCheck) {
+                        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $varToCheck, '.');
+
+                        // If we found a valid value, break the loop
+                        if ($valueAttribute['found'] === true && !empty($valueAttribute['value'])) {
+                            break;
+                        }
+                    }
+
+                    if (isset($dateFormat[1]) && $valueAttribute['found'] === true) {
+                        $valueAttribute['value'] = date($dateFormat[1], $valueAttribute['value']);
+                    }
+
+                    if (isset($notEmpty[1]) && $valueAttribute['found'] === true && !empty($valueAttribute['value'])) {
+                        $valueAttribute['value'] = $notEmpty[1];
+                    }
+
                     $message = str_replace($elementValue,  $valueAttribute['found'] == true ? ((isset($params['as_json']) && $params['as_json'] == true) ?
                         ($jsonProcess ? json_encode(json_encode($valueAttribute['value'])) : json_encode($valueAttribute['value'])) :
                         ($urlEncodeOutput === true ? rawurlencode($valueAttribute['value']) : (

@@ -59,29 +59,43 @@ try {
             }
         }
 
-        $prepend = '<p>' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','On') . ' ' . date('Y-m-d H:i',$message->udate).', '. ($message->from_name != '' ? $message->from_name : $message->from_address) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','wrote') . ':</p>';
+        $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
+        $mcOptionsData = (array)$mcOptions->data;
+
+        if (!empty($mcOptionsData['reply_to_tmp'])) {
+            $prepend = erLhcoreClassGenericBotWorkflow::translateMessage($mcOptionsData['reply_to_tmp'], array('chat' => $message, 'args' => ['chat' => $message, 'msg' => $message]));
+        } else {
+            $prepend = '<p>' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','On') . ' ' . date('Y-m-d H:i',$message->udate).', '. ($message->from_name != '' ? $message->from_name : $message->from_address) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','wrote') . ':</p>';
+        }
 
         if ($Params['user_parameters']['mode'] == 'forward' && $currentUser->hasAccessTo('lhmailconv', 'send_as_forward')) {
             $replyRecipientsMapped = [['email' => '', 'name' => '']];
             $message->cc_data_array = [];
             $message->bcc_data_array = [];
-            $partsIntro = [
-                erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','From') . ': ' . ($message->from_name != '' ? '<b>' . $message->from_name .'</b>' : '') . ' <' . $message->from_address .'>',
-                erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Date') . ': ' . date('D',$message->udate) . ', ' . date('d',$message->udate) . ' ' . date('M',$message->udate) . ' ' . date('Y',$message->udate) . ' '. erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','at') . ' ' . date('H:i',$message->udate),
-                erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Subject') . ': ' . $message->subject,
-                erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','To') . ': ' . $message->to_data_front,
-            ];
 
-            if (!empty($message->cc_data_front)) {
-                $partsIntro[] = 'Cc: ' . $message->cc_data_front;
+            if (!empty($mcOptionsData['forward_to_tmp'])) {
+                $prepend = erLhcoreClassGenericBotWorkflow::translateMessage($mcOptionsData['forward_to_tmp'], array('chat' => $message, 'args' => ['chat' => $message, 'msg' => $message]));
+            } else {
+                $partsIntro = [
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','From') . ': ' . ($message->from_name != '' ? '<b>' . $message->from_name .'</b>' : '') . ' <' . $message->from_address .'>',
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Date') . ': ' . date('D',$message->udate) . ', ' . date('d',$message->udate) . ' ' . date('M',$message->udate) . ' ' . date('Y',$message->udate) . ' '. erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','at') . ' ' . date('H:i',$message->udate),
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Subject') . ': ' . $message->subject,
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','To') . ': ' . $message->to_data_front,
+                ];
+
+                $cc_data_front = $message->cc_data_front;
+                if (!empty($cc_data_front)) {
+                    $partsIntro[] = 'Cc: ' . $message->cc_data_front;
+                }
+
+                $bcc_data_front = $message->bcc_data_front;
+                if (!empty($bcc_data_front)) {
+                    $partsIntro[] = 'Bcc: ' . $message->bcc_data_front;
+                }
+
+                $prepend = "---------- " . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Forwarded message') . " ---------<br/>";
+                $prepend .= implode("<br/>",$partsIntro);
             }
-
-            if (!empty($message->bcc_data_front)) {
-                $partsIntro[] = 'Bcc: ' . $message->bcc_data_front;
-            }
-
-            $prepend = "---------- " . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Forwarded message') . " ---------<br/>";
-            $prepend .= implode("<br/>",$partsIntro);
         }
 
         if (empty($replyRecipientsMapped)) {
@@ -155,11 +169,11 @@ try {
         }
 
         echo json_encode([
-            'intro' => ($conv->mailbox->signature_under == 1 ? '<div class="gmail_signature">' . $signature . '</div>' : '') . $prepend,
+            'intro' => (!empty($signature) && $conv->mailbox->signature_under == 1 ? '<div class="gmail_signature">' . $signature . '</div>' : '') . $prepend,
             'user_id' => $conv->user_id,
             'is_owner' => (erLhcoreClassUser::instance()->getUserID() == $conv->user_id),
             'is_self_reply' => $isSelfReply,
-            'signature' => '<div class="gmail_signature">' . $signature . '</div>',
+            'signature' => (!empty($signature) ? '<div class="gmail_signature">' . $signature . '</div>' : ''),
             'signature_under' => ($conv->mailbox->signature_under == 1),
             'recipients' => [
             'to' => $message->to_data_array,

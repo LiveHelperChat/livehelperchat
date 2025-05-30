@@ -19,6 +19,12 @@ if ( isset($_POST['StoreOptions']) ) {
         'mce_toolbar' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'reply_to_tmp' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'forward_to_tmp' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
         'image_skipped_text' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -37,6 +43,18 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['mce_plugins'] = $form->mce_plugins ;
     } else {
         $data['mce_toolbar'] = '';
+    }
+
+    if ( $form->hasValidData( 'reply_to_tmp' )) {
+        $data['reply_to_tmp'] = $form->reply_to_tmp ;
+    } else {
+        $data['reply_to_tmp'] = '';
+    }
+
+    if ( $form->hasValidData( 'forward_to_tmp' )) {
+        $data['forward_to_tmp'] = $form->forward_to_tmp ;
+    } else {
+        $data['forward_to_tmp'] = '';
     }
 
     if ( $form->hasValidData( 'mce_toolbar' )) {
