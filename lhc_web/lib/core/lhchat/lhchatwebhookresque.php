@@ -44,7 +44,28 @@ class erLhcoreClassChatWebhookResque {
 
         // Helper tasks
         if (isset($this->args['event_type']) && $this->args['event_type'] == 'merge_vid') {
-            erLhcoreClassChatHelper::mergeVid(['vid' => $this->args['old_vid'], 'new' => $this->args['new_vid']], true);
+            try {
+                erLhcoreClassChatHelper::mergeVid(['vid' => $this->args['old_vid'], 'new' => $this->args['new_vid']], true);
+            } catch (Exception $e) {
+                erLhcoreClassLog::write(
+                    json_encode([
+                        'message' => $e->getMessage(),
+                        'file' => $e->getFile(),
+                        'line' => $e->getLine(),
+                        'trace' => $e->getTrace(),
+                        'raw' => (string)$e,
+                    ],JSON_PRETTY_PRINT)
+                    ,
+                    ezcLog::SUCCESS_AUDIT,
+                    array(
+                        'source' => 'lhc',
+                        'category' => 'resque_exception',
+                        'line' => __LINE__,
+                        'file' => __FILE__,
+                        'object_id' => 0
+                    )
+                );
+            }
             return;
         }
 
