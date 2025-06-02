@@ -61,13 +61,15 @@
                 $('#id_reply_to_tmp').val("<p>On {args.msg.udate__datef__Y-m-d H:i} {args.msg.from_name__or__msg.from_address} wrote:</p>");
             });
             $('#forward_toolbar_default').click(function(){
-                $('#id_forward_to_tmp').val(<?php echo json_encode("---------- Forwarded message ---------<br/>
-From: {args.msg.from_name__not_empty__<b>}{args.msg.from_name}{args.msg.from_name__not_empty__</b> }<{args.msg.from_address}><br/>
-Date: {args.msg.udate__datef__D}, {args.msg.udate__datef__d}, {args.msg.udate__datef__M} {args.msg.udate__datef__Y} at {args.msg.udate__datef__H:i} <br/>
-Subject: {args.msg.subject}<br/>
-To: {args.msg.to_data_front}<br/>
-{args.msg.cc_data_front__not_empty__Cc: }{args.msg.cc_data_front}{args.msg.cc_data_front__not_empty__<br/>}
-{args.msg.bcc_data_front__not_empty__Bcc: }{args.msg.bcc_data_front}{args.msg.bcc_data_front__not_empty__<br/>}");?>);
+                $('#id_forward_to_tmp').val(<?php echo json_encode(implode("\n",[
+                        "---------- Forwarded message ---------<br/>",
+                        "From: {args.msg.from_name__not_empty__<b>}{args.msg.from_name}{args.msg.from_name__not_empty__</b> }<{args.msg.from_address}><br/>",
+                        "Date: {args.msg.udate__datef__D}, {args.msg.udate__datef__d}, {args.msg.udate__datef__M} {args.msg.udate__datef__Y} at {args.msg.udate__datef__H:i}<br/>",
+                        "Subject: {args.msg.subject}<br/>",
+                        "To: {args.msg.to_data_front}<br/>",
+                        "{args.msg.cc_data_front__not_empty__Cc: }{args.msg.cc_data_front}{args.msg.cc_data_front__not_empty__<br/>}",
+                        "{args.msg.bcc_data_front__not_empty__Bcc: }{args.msg.bcc_data_front}{args.msg.bcc_data_front__not_empty__<br/>}"
+                        ])); ?>);
             });
         });
     </script>
