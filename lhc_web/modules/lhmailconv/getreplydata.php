@@ -106,7 +106,12 @@ try {
 
         if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($conv)) {
 
-            if ($conv->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING && $conv->user_id != $userData->id && !$currentUser->hasAccessTo('lhchat','open_all')) {
+            if (
+                ($conv->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING &&
+                    $conv->user_id != $userData->id &&
+                    !$currentUser->hasAccessTo('lhmailconv','open_all')) &&
+                ($conv->user_id != 0 || !$currentUser->hasAccessTo('lhmailconv','open_unassigned_mail'))
+            ) {
                 throw new Exception('You do not have permission to open all pending mails.');
             }
 

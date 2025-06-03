@@ -751,7 +751,7 @@ $ViewList['searchprovider'] = array(
 );
 
 $FunctionList['use'] = array('explain' => 'General permission to use chat module');
-$FunctionList['open_all'] = array('explain' => 'Allow operator to open all chats, not only assigned to him');
+$FunctionList['open_all'] = array('explain' => 'Allow operator to open all pending chats, not only assigned to him');
 $FunctionList['changeowner'] = array('explain' => 'Allow operator to change chat owner');
 $FunctionList['singlechatwindow'] = array('explain' =>'Allow operator to use single chat window functionality');
 $FunctionList['allowchattabs'] = array('explain' =>'Allow operator to user chat rooms functionality');
@@ -829,5 +829,6 @@ $FunctionList['removemsgop'] = array('explain' => 'Allow to remove operator any 
 $FunctionList['removemsgvi'] = array('explain' => 'Allow to remove operator any visitor message');
 $FunctionList['no_edit_history'] = array('explain' => 'Do not store message edit history if edited by chat owner');
 $FunctionList['see_operator_name'] = array('explain' => 'Allow operator to see chat message real operator name');
+$FunctionList['open_unassigned_chat'] = array('explain' => 'Allow operator to open unassigned pending chat and become an owner of it.')
 
 ?>

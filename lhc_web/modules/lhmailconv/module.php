@@ -402,5 +402,7 @@ $FunctionList['phone_export'] = array('explain' => 'Allow operator to see phone 
 $FunctionList['send_as_forward'] = array('explain' => 'Allow operator to forward mail message.');
 $FunctionList['can_download'] = array('explain' => 'Allow operator to download raw mail message.');
 $FunctionList['export_variables'] = array('explain' => 'Allow operator export mail variable.');
+$FunctionList['open_all'] = array('explain' => 'Allow operator to open all pending mails, not only assigned to him');
+$FunctionList['open_unassigned_mail'] = array('explain' => 'Allow operator to open unassigned pending mail')
 
 ?>
