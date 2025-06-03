@@ -22,7 +22,7 @@
         <label><input type="checkbox" name="Disabled" value="on" <?php $canned_message->disabled == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Disabled');?></label>
 
         <div class="form-group" >
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Tag's");?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Tags");?></label>
             <input type="text" class="form-control form-control-sm" name="Tags" value="<?php echo htmlspecialchars($canned_message->tags_plain)?>" />
         </div>
 

@@ -1192,6 +1192,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Case insensitive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This variable is invisible for operator and will be stored in chat_variables attribute</source>
       <translation type="unfinished"/>
     </message>
@@ -2747,11 +2751,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>String (case sensitive)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>String (case insensitive)</source>
+      <source>String</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3157,7 +3157,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Tag's</source>
+      <source>Tags</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3210,6 +3210,10 @@
     </message>
     <message>
       <source>Canned message was saved</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tag's</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7666,6 +7670,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Upload disabled!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You cannot send messages to this chat. Chat has been closed.</source>
       <translation type="unfinished"/>
     </message>
@@ -11954,6 +11962,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Total operators active in backend (last 10 min). (Number) is count of those also in online status.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search for department</source>
       <translation type="unfinished"/>
     </message>
@@ -12988,11 +13000,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chats statistic</source>
+      <source>Online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators online</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Live data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators soft</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators hard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats statistic</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13093,6 +13121,58 @@
     </message>
     <message>
       <source>Just now</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online timeout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status cache</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ignore operator (global level)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ignore operator (department level)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status if this was the only department passed (default widget status check)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status if online hours were ignored (operators and bot configuration respected)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status if online operators were ignored and only online hours and bot check would be done</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status if bot was ignored (default check for `Stop chat and transfer to human` trigger action)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status if bot and online hours were ignored (default check for `Stop chat and transfer to human` trigger action with `Ignore department online hours` option checked)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status if bot and operators status would be excluded. Only online hours would be checked</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18231,6 +18311,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Canned replaceable variables</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Samples how to change bubble background</source>
       <translation type="unfinished"/>
     </message>
@@ -18517,6 +18601,14 @@
     </message>
     <message>
       <source>Copy</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reply to template</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Forward to template:</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -23583,6 +23675,18 @@
     </message>
     <message>
       <source>Active chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot chats number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators (soft)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online operators (hard)</source>
       <translation type="unfinished"/>
     </message>
     <message>
