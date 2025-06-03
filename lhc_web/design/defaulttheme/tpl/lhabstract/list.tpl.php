@@ -102,11 +102,11 @@
 	        <?php endforeach;?>
 
             <?php if (!isset($hide_edit)) : ?>
-	        <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit');?></a></td>
+	        <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/<?php echo $identifier . '/' . $item->id . $extension?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit');?></a></td>
             <?php endif;?>
 
 	         <?php if (!isset($hide_delete)) : ?>
-	         	<td><a class="csfr-required btn btn-danger btn-xs csfr-post" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('abstract/delete')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
+	         	<td><a class="csfr-required btn btn-danger btn-xs csfr-post" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('abstract/delete')?>/<?php echo $identifier . '/' . $item->id . $extension?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
 	         <?php endif;?>
 
 	    </tr>
@@ -124,7 +124,7 @@
 
 <?php if (!isset($hide_add)) : ?>
 
-	<a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
+	<a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier,$extension?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
 
 	<br>
 <?php endif;?>

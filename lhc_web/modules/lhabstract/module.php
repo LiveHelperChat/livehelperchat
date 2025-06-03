@@ -6,13 +6,15 @@ $ViewList = array();
 
 $ViewList['new'] = array(
     'functions' => array( 'use' ),
-    'params' => array('identifier')
+    'params' => array('identifier'),
+    'uparams' => array('extension')
 );
 
 $ViewList['list'] = array(
     'functions' => array( 'use' ),
     'params' => array('identifier'),
     'uparams' => array(
+        'extension',
         'name',
         'object_id',
         'user_id',
@@ -36,13 +38,14 @@ $ViewList['copyautoresponder'] = array(
 
 $ViewList['edit'] = array(
     'functions' => array( 'use' ),
-    'params' => array('identifier','object_id')
+    'params' => array('identifier','object_id'),
+    'uparams' => array('extension')
 );
 
 $ViewList['delete'] = array(
     'functions' => array( 'use' ),
     'params' => array('identifier','object_id'),
-    'uparams' => array('csfr')
+    'uparams' => array('csfr','extension')
 );
 
 $ViewList['index'] = array(

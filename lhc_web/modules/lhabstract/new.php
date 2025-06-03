@@ -3,11 +3,20 @@
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.new_'.strtolower($Params['user_parameters']['identifier']).'_general', array());
 
 $tpl = erLhcoreClassTemplate::getInstance('lhabstract/new.tpl.php');
-
+$extension = '';
+$tpl->set('extension','');
 $objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
 
 if (!class_exists($objectClass)) {
-    $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+    if (!empty($Params['user_parameters_unordered']['extension'])) {
+        $objectClass = '\LiveHelperChatExtension\\' . $Params['user_parameters_unordered']['extension'] . '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+        if (class_exists($objectClass)) {
+            $extension = '/(extension)/' . $Params['user_parameters_unordered']['extension'];
+            $tpl->set('extension',$extension);
+        }
+    } else {
+        $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+    }
 }
 
 $objectData = new $objectClass;
@@ -60,12 +69,12 @@ if ( isset($_POST['SaveClient']) || isset($_POST['UpdateClient']) ) {
         ));
 
         if ( isset($_POST['SaveClient']) ) {
-        	erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier']);
+        	erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier'] . $extension);
         	exit;
         }
 
         if ( isset($_POST['UpdateClient']) ) {
-        	erLhcoreClassModule::redirect('abstract/edit','/'.$Params['user_parameters']['identifier'].'/'.$objectData->id);
+        	erLhcoreClassModule::redirect('abstract/edit','/'.$Params['user_parameters']['identifier'].'/'.$objectData->id . $extension);
         	exit;
         }
 

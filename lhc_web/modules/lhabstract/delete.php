@@ -8,12 +8,24 @@ if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'
 }
 
 $objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
+$extension = '';
 
 if (!class_exists($objectClass)) {
-    $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+    if (!empty($Params['user_parameters_unordered']['extension'])) {
+        $objectClass = '\LiveHelperChatExtension\\' . $Params['user_parameters_unordered']['extension'] . '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+        if (class_exists($objectClass)) {
+            $extension = '/(extension)/' . $Params['user_parameters_unordered']['extension'];
+        }
+    } else {
+        $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+    }
 }
 
-$ObjectData = erLhcoreClassAbstract::getSession()->load( $objectClass, (int)$Params['user_parameters']['object_id'] );
+if (method_exists($objectClass, 'fetch')) {
+    $ObjectData = call_user_func($objectClass.'::fetch', (int)$Params['user_parameters']['object_id']);
+} else {
+    $ObjectData = erLhcoreClassAbstract::getSession()->load($objectClass, (int)$Params['user_parameters']['object_id']);
+}
 
 $object_trans = $ObjectData->getModuleTranslations();
 
@@ -49,7 +61,7 @@ erLhcoreClassLog::logObjectChange(array(
 $cache = CSCacheAPC::getMem();
 $cache->increaseCacheVersion('site_attributes_version');
 
-erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier']);
+erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier'] . $extension);
 exit;
 
 ?>

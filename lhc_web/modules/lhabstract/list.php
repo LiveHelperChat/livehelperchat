@@ -3,11 +3,18 @@
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.list_'.strtolower($Params['user_parameters']['identifier']).'_general', array());
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhabstract/list.tpl.php');
-
+$tpl->set('extension','');
 $objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
 
 if (!class_exists($objectClass)) {
-    $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+    if (!empty($Params['user_parameters_unordered']['extension'])) {
+        $objectClass = '\LiveHelperChatExtension\\' . $Params['user_parameters_unordered']['extension'] . '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+        if (class_exists($objectClass)) {
+            $tpl->set('extension','/(extension)/' . $Params['user_parameters_unordered']['extension']);
+        }
+    } else {
+        $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+    }
 }
 
 $objectData = new $objectClass;

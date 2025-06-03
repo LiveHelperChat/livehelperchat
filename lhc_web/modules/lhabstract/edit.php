@@ -5,15 +5,29 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.edit_'.strto
 $tpl = erLhcoreClassTemplate::getInstance('lhabstract/edit.tpl.php');
 
 $objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
+$extension = '';
+$tpl->set('extension',$extension);
 
 if (!class_exists($objectClass)) {
-    $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+    if (!empty($Params['user_parameters_unordered']['extension'])) {
+        $objectClass = '\LiveHelperChatExtension\\' . $Params['user_parameters_unordered']['extension'] . '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+        if (class_exists($objectClass)) {
+            $extension = '/(extension)/' . $Params['user_parameters_unordered']['extension'];
+            $tpl->set('extension',$extension);
+        }
+    } else {
+        $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+    }
 }
 
-$ObjectData = erLhcoreClassAbstract::getSession()->load($objectClass, (int)$Params['user_parameters']['object_id'] );
+if (method_exists($objectClass, 'fetch')) {
+    $ObjectData = call_user_func($objectClass.'::fetch', (int)$Params['user_parameters']['object_id']);
+} else {
+    $ObjectData = erLhcoreClassAbstract::getSession()->load($objectClass, (int)$Params['user_parameters']['object_id'] );
+}
 
 if (isset($_POST['CancelAction'])) {
-    erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier']);
+    erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier'] . $extension);
     exit;
 }
 
@@ -70,7 +84,7 @@ if (isset($_POST['SaveClient']) || isset($_POST['UpdateClient']))
         ));
 
         if (isset($_POST['SaveClient'])){
-	        erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier']);
+	        erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier'] . $extension);
 	        exit;
         }
 
@@ -116,11 +130,11 @@ if (isset($object_trans['path'])){
     } else {
         $Result['path'] = $object_trans['path'];
     }
-	$Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'], 'title' => $object_trans['name']);
+	$Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'] . $extension, 'title' => $object_trans['name']);
 	$Result['path'][] = array('title' =>erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit'));
 } else {
 	$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
-			array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'], 'title' => $object_trans['name']),
+			array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'] . $extension, 'title' => $object_trans['name']),
 			array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit'))
 	);
 }
