@@ -704,7 +704,7 @@ class erLhcoreClassGenericBotActionRestapi
 
                         $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
                             json_encode($quickReplyButton['content']['payload']),
-                            json_encode($quickReplyButton['content']['name'].'ma,e')
+                            json_encode($quickReplyButton['content']['name'])
                         ],$buttonContent);
                     }
                 }
