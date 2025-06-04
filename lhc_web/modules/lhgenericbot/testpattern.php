@@ -78,7 +78,9 @@ if (isset($_POST['mail'])){
 
     if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($chat)) {
 
-        if (isset($_POST['extract_action'])) {
+        if (isset($_POST['priority_id'])) {
+            $response = json_encode(erLhcoreClassChatValidator::getPriorityByAdditionalData($chat, array('priority_id' => $_POST['priority_id'], 'detailed' => true, 'log_if_needed' => true)),true);
+        } elseif (isset($_POST['extract_action'])) {
             $patterns = [];
             foreach ($chat->getState() as $stateKey => $stateAttr) {
                 $patterns[] = '{args.chat.' . $stateKey .'} = ' . $stateAttr;

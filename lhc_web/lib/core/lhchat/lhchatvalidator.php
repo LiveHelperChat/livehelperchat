@@ -1499,7 +1499,13 @@ class erLhcoreClassChatValidator {
 
     public static function getPriorityByAdditionalData($chat, $paramsExecution = array())
     {
-        $priorityRules = erLhAbstractModelChatPriority::getList(array('sort' => 'sort_priority DESC, priority DESC', 'customfilter' => array('dep_id = 0 OR dep_id = ' .(int)$chat->dep_id)));
+        if (isset($paramsExecution['priority_id'])) {
+           $filter = ['filter' => ['id' => $paramsExecution['priority_id']]];
+        } else {
+           $filter = ['sort' => 'sort_priority DESC, priority DESC', 'customfilter' => array('dep_id = 0 OR dep_id = ' .(int)$chat->dep_id)];
+        }
+
+        $priorityRules = erLhAbstractModelChatPriority::getList($filter);
 
         $prefixLog = 'chat_';
         if (isset($paramsExecution['alias'])) {

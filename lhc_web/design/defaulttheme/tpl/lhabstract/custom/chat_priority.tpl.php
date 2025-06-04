@@ -65,9 +65,22 @@
 
     <textarea class="hide" name="AbstractInput_value">{{pchat.value | json : 0}}</textarea>
 
-    <div class="form-group">
-        <input type="button" ng-click="pchat.addFilter()" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Add condition');?>">
+    <div class="btn-group btn-group-sm me-2 mb-2" role="group">
+        <div class="input-group input-group-sm">
+            <button type="button" ng-click="pchat.addFilter()" class="btn btn-secondary text-nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Add condition');?></button>
+            <input type="text" class="form-control form-control-sm" id="test-chat-id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="">
+            <button type="button" id="check-against-chat" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save priority rule first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Check against chat');?></button>
+            <div id="output-test" class="ps-1"></div>
+        </div>
     </div>
+
+    <script>
+        $('#check-against-chat').click(function(){
+            $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-chat-id').val(), {'priority_id' : <?php echo $object->id?>, 'check_priority':true }, function(data){
+                $('#output-test').html(data);
+            });
+        });
+    </script>
 
     <div class="row" ng-show="pchat.value.length > 0">
         <div class="col-11">
