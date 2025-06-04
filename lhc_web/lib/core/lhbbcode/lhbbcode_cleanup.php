@@ -968,9 +968,9 @@ class erLhcoreClassBBCodePlain
     public static function makeQuote($matches)
     {
         if (isset($matches[2])) {
-            return '<blockquote class="blockquote"> ' . $matches[2] . ' </blockquote>';
+            return '[quote] ' . $matches[2] . ' [/quote]';
         } else if ($matches[1]) {
-            return '<blockquote class="blockquote"> ' . $matches[1] . ' </blockquote>';
+            return '[quote] ' . $matches[1] . ' [/quote]';
         } else {
             return $matches[0];
         }
