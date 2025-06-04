@@ -107,13 +107,13 @@
             <a title={$t($lhcList.suspend_widgets.indexOf(type) === -1 ? "widget.pause_widget" : "widget.resume_widget")} on:click={(e) => lhcServices.suspendSync(lhcList,type)} class="ms-0 me-1 text-muted float-end material-icons pt-1">{$lhcList.suspend_widgets.indexOf(type) === -1 ? 'pause' : 'play_arrow'}</a>
 
             {#if !no_duration && $lhcList[type].tt}
-            <span title={$t("widget.taken_time")} class="d-none d-xl-inline badge me-1 float-end bg-light text-muted pe-0 pt-1p5 fs11 fw-light">
+            <span title={$t("widget.taken_time")} class="d-none d-xl-inline badge me-1 float-end text-muted pe-0 pt-1p5 fs11 fw-light">
                 {$lhcList[type].tt} s.
             </span>
             {/if}
 
             {#if type == 'depgroups_stats' && $lhcList['departments_stats'].tt}
-                <span title={$t("widget.taken_time_dep")} class="d-none d-xl-inline badge me-1 float-end bg-light text-muted pe-0 pt-1p5 fs11 fw-light">
+                <span title={$t("widget.taken_time_dep")} class="d-none d-xl-inline badge me-1 float-end text-muted pe-0 pt-1p5 fs11 fw-light">
                     {$lhcList['departments_stats'].tt} s.
                 </span>
             {/if}
