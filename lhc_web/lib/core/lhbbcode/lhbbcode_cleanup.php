@@ -965,17 +965,6 @@ class erLhcoreClassBBCodePlain
         return preg_replace( '#(<a([ \r\n\t]+[^>]+?>|>))<a [^>]+?>([^>]+?)</a></a>#i', "$1$3</a>", $r );
     }
 
-    public static function makeQuote($matches)
-    {
-        if (isset($matches[2])) {
-            return '[quote] ' . $matches[2] . ' [/quote]';
-        } else if ($matches[1]) {
-            return '[quote] ' . $matches[1] . ' [/quote]';
-        } else {
-            return $matches[0];
-        }
-    }
-
     public static function extractMetaByMessage(& $msg) {
         $meta = array();
         if (strpos($msg,'[html_snippet]') !== false) {
@@ -1040,14 +1029,9 @@ class erLhcoreClassBBCodePlain
         // Paypal button
         $ret = preg_replace_callback('#\[paypal\](.*?)\[/paypal\]#is', 'erLhcoreClassBBCodePlain::_make_paypal_button', $ret);
 
-        // Quote
-        $ret = preg_replace_callback('#\[quote\](.*?)\[/quote\]#is', 'erLhcoreClassBBCodePlain::makeQuote', $ret);
-        $ret = preg_replace_callback('#\[quote="?([0-9]+)"?\](.*?)\[/quote\]#is', 'erLhcoreClassBBCodePlain::makeQuote', $ret);
-
         // Youtube block
         $ret = preg_replace_callback('#\[youtube\](.*?)\[/youtube\]#is', 'erLhcoreClassBBCodePlain::_make_youtube_block', $ret);
 
-        $ret = preg_replace('#\[translation\](.*?)\[/translation\]#is', '<span class="tr-msg">$1</span>', $ret);
 
         // File block
         $ret = preg_replace_callback('#\[file="?(.*?)"?\]#is', 'erLhcoreClassBBCodePlain::_make_url_file', $ret);
