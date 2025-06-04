@@ -68,12 +68,15 @@
     <div class="btn-group btn-group-sm me-2 mb-2" role="group">
         <div class="input-group input-group-sm">
             <button type="button" ng-click="pchat.addFilter()" class="btn btn-secondary text-nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Add condition');?></button>
+            <?php if (is_numeric($object->id)) : ?>
             <input type="text" class="form-control form-control-sm" id="test-chat-id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="">
             <button type="button" id="check-against-chat" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save priority rule first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Check against chat');?></button>
             <div id="output-test" class="ps-1"></div>
+            <?php endif; ?>
         </div>
     </div>
 
+    <?php if (is_numeric($object->id)) : ?>
     <script>
         $('#check-against-chat').click(function(){
             $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-chat-id').val(), {'priority_id' : <?php echo $object->id?>, 'check_priority':true }, function(data){
@@ -81,6 +84,7 @@
             });
         });
     </script>
+    <?php endif; ?>
 
     <div class="row" ng-show="pchat.value.length > 0">
         <div class="col-11">
