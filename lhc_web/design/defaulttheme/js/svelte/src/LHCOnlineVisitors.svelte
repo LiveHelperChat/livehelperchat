@@ -291,6 +291,10 @@
             }
         }
 
+        if (activeList === true && $lhcList.suspend_widgets.indexOf('onlineusers') !== -1) {
+            activeList = false;
+        }
+
         if (activeList === false) {
             lhcLogic.lastSyncSkipped = true;
             clearTimeout(lhcLogic.timeoutControl);
@@ -316,6 +320,8 @@
             if (!responseTrack.ok) {
                 throw new Error("Network response was not OK [" + responseTrack.status + "] ["+ responseTrack.statusText+"]");
             }
+
+
 
             const data = await responseTrack.json();
             lhcList.update((list) => {

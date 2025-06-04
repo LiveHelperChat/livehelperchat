@@ -2539,3 +2539,7 @@ html {
     0% {box-shadow: 0 0 0 0 rgba(255, 109, 74, 0.7), 0 0 0 0 rgba(255, 109, 74, 0.7)}
     100% {box-shadow: 0 0 0 20px rgba(255, 109, 74, 0), 0 0 0 0 rgba(255, 109, 74, 0.7)}
 }
+
+.pt-1p5{
+    padding-top: .375rem!important;
+}

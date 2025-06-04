@@ -80,6 +80,24 @@ export default {
         });
     },
 
+    suspendSync : function(lhcList, type) {
+        lhcList.update((list) => {
+
+            // Check if type is already in the array
+            const index = list.suspend_widgets.indexOf(type);
+
+            if (index === -1) {
+                // Add type if it's not in the array
+                list.suspend_widgets.push(type);
+            } else {
+                // Remove type if it's already in the array
+                list.suspend_widgets.splice(index, 1);
+            }
+
+            return list;
+        });
+    },
+
     getToggleWidgetSort : function(lhcList, variable, defaultValue) {
         lhcList.update((list) => {
             list.toggleWidgetData[variable] = this.restoreLocalSetting(variable,(typeof defaultValue === 'undefined' ? '' : defaultValue),false);

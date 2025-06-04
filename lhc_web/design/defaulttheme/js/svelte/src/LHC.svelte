@@ -1473,6 +1473,10 @@
 
                 for (const [key, item] of Object.entries(data.result)) {
 
+                    if ($lhcList.suspend_widgets.indexOf(key) !== -1) {
+                        continue;
+                    }
+
                     $lhcList[key] = item;
 
                     if (tabs.length == 0 && (key == 'pending_chat' || key == 'my_chats')) {

@@ -7,7 +7,7 @@ export const lhcList = writable({
     department_online : [],
     department_online_dpgroups : [],
     department_onlineNames: [],
-
+    suspend_widgets: [],
     lhcCoreLoaded : false,
     lhcListRequestInProgress : false,
     lhcBLockSync : false,
