@@ -80,7 +80,7 @@
     <script>
         $('#check-against-chat').click(function(){
             $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-chat-id').val(), {'priority_id' : <?php echo $object->id?>, 'check_priority':true }, function(data){
-                $('#output-test').text(data);
+                $('#output-test').html(data);
             });
         });
     </script>
