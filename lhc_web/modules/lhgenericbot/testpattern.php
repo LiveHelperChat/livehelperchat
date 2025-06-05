@@ -80,6 +80,9 @@ if (isset($_POST['mail'])){
 
         if (isset($_POST['priority_id'])) {
             $response = json_encode(erLhcoreClassChatValidator::getPriorityByAdditionalData($chat, array('priority_id' => $_POST['priority_id'], 'detailed' => true, 'log_if_needed' => true)),true);
+        } elseif (isset($_POST['condition_id'])) {
+            $conditionToValidate = \LiveHelperChat\Models\Bot\Condition::fetch($_POST['condition_id']);
+            $response = $conditionToValidate->isValid(['chat' => $chat]) === true ? '✔️' : '❌';
         } elseif (isset($_POST['extract_action'])) {
             $patterns = [];
             foreach ($chat->getState() as $stateKey => $stateAttr) {

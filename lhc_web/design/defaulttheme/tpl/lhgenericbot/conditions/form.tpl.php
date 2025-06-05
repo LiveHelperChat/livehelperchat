@@ -20,9 +20,27 @@
 
     <textarea class="hide" name="configuration">{{pchat.value | json : 0}}</textarea>
 
-    <div class="form-group">
-        <input type="button" ng-click="pchat.addFilter()" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Add condition');?>">
+    <div class="btn-group btn-group-sm me-2 mb-2" role="group">
+        <div class="input-group input-group-sm">
+            <input type="button" ng-click="pchat.addFilter()" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Add condition');?>">
+            <?php if (is_numeric($item->id)) : ?>
+                <input type="text" class="form-control form-control-sm" id="test-chat-id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="">
+                <button type="button" id="check-against-chat" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save condition first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Check against chat');?></button>
+                <div id="output-test" class="ps-1 pt-1"></div>
+            <?php endif; ?>
+        </div>
     </div>
+
+    <?php if (is_numeric($item->id)) : ?>
+        <script>
+            $('#check-against-chat').click(function(){
+                $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-chat-id').val(), {'condition_id' : <?php echo $item->id?>}, function(data){
+                    $('#output-test').html(data);
+                });
+            });
+        </script>
+    <?php endif; ?>
+
 
     <div class="row" ng-show="pchat.value.length > 0">
         <div class="col-11">
