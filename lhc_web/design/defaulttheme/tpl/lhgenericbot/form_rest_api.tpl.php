@@ -372,7 +372,7 @@
 
                 <div role="tabpanel" class="tab-pane" id="outputrest-rest-{{$index}}">
 
-                    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can define response conditions to which you will be able to add corresponding triggers.')?></p>
+                    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can define response conditions to which you will be able to add corresponding triggers.')?> <a target="_blank" class="material-icons" href="https://doc.livehelperchat.com/docs/bot/rest-api#output-parsing">help</a> </p>
 
                     <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.output)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add combination')?></button>
 
