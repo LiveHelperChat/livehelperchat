@@ -61,6 +61,7 @@ If you are installing extensions, make sure that your version has webhooks enabl
    * E.g Dialogflow https://github.com/LiveHelperChat/dialogflowes
  * [Telegram](https://github.com/LiveHelperChat/telegram)
  * [Viber](https://github.com/LiveHelperChat/viber)
+ * [Discord](https://github.com/LiveHelperChat/discord-bot)
  * [Rasa](https://doc.livehelperchat.com/docs/bot/rasa-integration)
  * [Mattermost](https://github.com/LiveHelperChat/mattermost)
  * [Facebook messenger, Intsagram](https://github.com/LiveHelperChat/fbmessenger)
