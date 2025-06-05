@@ -1,7 +1,32 @@
-<div class="form-group" ng-non-bindable>
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Identifier, use it like {identifier} in canned responses, or bot. Use {{replaceable.<identifier>}} in Rest API');?>. </label>
-    <input maxlength="50" type="text" placeholder="E.g brand_name. Do not enter brackets" ng-non-bindable class="form-control form-control-sm" name="identifier" value="<?php echo htmlspecialchars($item->identifier);?>" />
+<div class="row">
+    <div class="col-8">
+        <div class="form-group" ng-non-bindable>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Identifier, use it like {identifier} in canned responses, or bot. Use {{replaceable.<identifier>}} in Rest API');?>. </label>
+            <input maxlength="50" type="text" placeholder="E.g brand_name. Do not enter brackets" ng-non-bindable class="form-control form-control-sm" name="identifier" value="<?php echo htmlspecialchars($item->identifier);?>" />
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="btn-group w-100 btn-group-sm me-2 mb-2 mt-4" role="group">
+            <div class="input-group input-group-sm">
+                <?php if (is_numeric($item->id)) : ?>
+                    <input type="text" class="form-control form-control-sm" id="test-chat-id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="">
+                    <button type="button" id="check-against-chat" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save condition first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Check against chat');?></button>
+                    <div id="output-test" class="ps-1 pt-1"></div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
 </div>
+
+<?php if (is_numeric($item->id)) : ?>
+    <script>
+        $('#check-against-chat').click(function(){
+            $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-chat-id').val(), {'replaceable_id' : <?php echo $item->id?>}, function(data){
+                $('#output-test').text(data);
+            });
+        });
+    </script>
+<?php endif; ?>
 
 <script>
     (function(){

@@ -80,6 +80,12 @@ if (isset($_POST['mail'])){
 
         if (isset($_POST['priority_id'])) {
             $response = json_encode(erLhcoreClassChatValidator::getPriorityByAdditionalData($chat, array('priority_id' => $_POST['priority_id'], 'detailed' => true, 'log_if_needed' => true)),true);
+        } elseif (isset($_POST['replaceable_id'])) {
+            $replaceable = erLhcoreClassModelCannedMsgReplace::fetch($_POST['replaceable_id']);
+            $response = $replaceable->getValueReplace(['chat' => $chat, 'user' => $chat->user]);
+            if (empty($response)){
+                $response = 'n/a';
+            }
         } elseif (isset($_POST['condition_id'])) {
             $conditionToValidate = \LiveHelperChat\Models\Bot\Condition::fetch($_POST['condition_id']);
             $response = $conditionToValidate->isValid(['chat' => $chat]) === true ? '✔️' : '❌';

@@ -35,7 +35,7 @@
         <script>
             $('#check-against-chat').click(function(){
                 $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-chat-id').val(), {'condition_id' : <?php echo $item->id?>}, function(data){
-                    $('#output-test').html(data);
+                    $('#output-test').text(data);
                 });
             });
         </script>
