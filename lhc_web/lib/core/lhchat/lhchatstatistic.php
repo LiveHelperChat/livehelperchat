@@ -4169,7 +4169,7 @@ class erLhcoreClassChatStatistic {
 
                     $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('city != \'\' AND FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. $dateEqual)));
                     $filterFormated['sort'] = 'total_records DESC';
-                    $filterFormated['group'] = 'city';
+                    $filterFormated['group'] = 'city, user_country_name';
                     $filterFormated['limit'] = 5;
 
                     $justDemo = erLhcoreClassModelChatOnlineUser::getCount($filterFormated, '', false, 'city, user_country_name, count(id) as total_records', false, true);

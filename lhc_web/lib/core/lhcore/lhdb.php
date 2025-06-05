@@ -68,6 +68,7 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                     if (isset(self::$connectionMaster)) return self::$connectionMaster; // If we do not user slaves and slave request already got connection
                     $db = ezcDbFactory::create( "mysql://{$cfg->getSetting( 'db', 'user' )}:{$cfg->getSetting( 'db', 'password' )}@{$cfg->getSetting( 'db', 'host' )}:{$cfg->getSetting( 'db', 'port' )}/{$cfg->getSetting( 'db', 'database' )}" );
                     $db->query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'");
+                    // $db->query("SET sql_mode='ONLY_FULL_GROUP_BY'"); For future testing purposes
                     $tz = $cfg->getSetting( 'db', 'tz', false );
                     if ($tz != '') {
                         try {
