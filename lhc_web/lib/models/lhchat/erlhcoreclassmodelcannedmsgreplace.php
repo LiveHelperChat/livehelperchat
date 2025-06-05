@@ -179,6 +179,8 @@ class erLhcoreClassModelCannedMsgReplace
                                     $conditionAttr = str_replace($elementValue, $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $conditionAttr);
                                 }
                             }
+                        } else if (str_starts_with($conditionAttr,'{condition')) {
+                            $conditionAttr = erLhcoreClassGenericBotWorkflow::translateMessage($conditionAttr, array('user' => $params['user'], 'chat' => $params['chat'], 'args' => ['chat' => $params['chat']]));
                         }
 
                         $valueAttr = $conditionsCurrent['value'];
@@ -192,6 +194,8 @@ class erLhcoreClassModelCannedMsgReplace
                                     $valueAttr = str_replace($elementValue, $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $valueAttr);
                                 }
                             }
+                        } else if (str_starts_with($valueAttr,'{condition')) {
+                            $valueAttr = erLhcoreClassGenericBotWorkflow::translateMessage($valueAttr, array('user' => $params['user'], 'chat' => $params['chat'], 'args' => ['chat' => $params['chat']]));
                         }
 
                         $replaceArray = array(
