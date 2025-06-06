@@ -20,10 +20,26 @@
     echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 </div>
 
-<div class="form-group" ng-non-bindable>
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Identifier');?></label>
-    <input type="text" class="form-control form-control-sm" name="identifier" value="<?php echo htmlspecialchars($item->identifier);?>" />
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group" ng-non-bindable>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Identifier');?></label>
+            <input type="text" class="form-control form-control-sm" name="identifier" value="<?php echo htmlspecialchars($item->identifier);?>" />
+        </div>
+    </div>
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhgenericbot','use_cases') && is_numeric($item->id)) : ?>
+    <div class="col-md-6">
+        <button type="button" id="btn-use-cases" class="mt-4 btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Investigate places where this translation is used');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Use cases');?></button>
+    </div>
+    <script>
+        $('#btn-use-cases').click(function(){
+            lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/usecases/tritem/<?php echo $item->id?>'});
+        });
+    </script>
+    <?php endif; ?>
 </div>
+
+
 
 <div class="form-group">
     <label><input type="checkbox" name="auto_translate" <?php $item->auto_translate == 1 ? print 'checked="checked"' : ''?> value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','If translation is not found use translation service')?></label>

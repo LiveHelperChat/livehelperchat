@@ -9,8 +9,13 @@
         <div class="btn-group w-100 btn-group-sm me-2 mb-2 mt-4" role="group">
             <div class="input-group input-group-sm">
                 <?php if (is_numeric($item->id)) : ?>
+                    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhgenericbot','test_pattern')) : ?>
                     <input type="text" class="form-control form-control-sm" id="test-chat-id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="">
                     <button type="button" id="check-against-chat" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save condition first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Check against chat');?></button>
+                    <?php endif; ?>
+                    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhgenericbot','use_cases')) : ?>
+                        <button type="button" id="btn-use-cases" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Investigate places where this variable is used');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Use cases');?></button>
+                    <?php endif; ?>
                     <div id="output-test" class="ps-1 pt-1"></div>
                 <?php endif; ?>
             </div>
@@ -24,6 +29,9 @@
             $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-chat-id').val(), {'replaceable_id' : <?php echo $item->id?>}, function(data){
                 $('#output-test').html(data);
             });
+        });
+        $('#btn-use-cases').click(function(){
+           lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/usecases/replace/<?php echo $item->id?>'});
         });
     </script>
 <?php endif; ?>

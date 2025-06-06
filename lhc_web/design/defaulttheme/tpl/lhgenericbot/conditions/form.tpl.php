@@ -24,8 +24,13 @@
         <div class="input-group input-group-sm">
             <input type="button" ng-click="pchat.addFilter()" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Add condition');?>">
             <?php if (is_numeric($item->id)) : ?>
+                <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhgenericbot','test_pattern')) : ?>
                 <input type="text" class="form-control form-control-sm" id="test-chat-id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="">
                 <button type="button" id="check-against-chat" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save condition first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Check against chat');?></button>
+                <?php endif; ?>
+                <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhgenericbot','use_cases')) : ?>
+                <button type="button" id="btn-use-cases" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Investigate places where this condition is used');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Use cases');?></button>
+                <?php endif; ?>
                 <div id="output-test" class="ps-1 pt-1"></div>
             <?php endif; ?>
         </div>
@@ -38,8 +43,14 @@
                     $('#output-test').html(data);
                 });
             });
+            $('#btn-use-cases').click(function(){
+                lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/usecases/condition/<?php echo $item->id?>'});
+            });
         </script>
     <?php endif; ?>
+
+
+
 
 
     <div class="row" ng-show="pchat.value.length > 0">

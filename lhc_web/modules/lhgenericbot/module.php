@@ -20,7 +20,7 @@ $ViewList['initbot'] = array(
 $ViewList['testpattern'] = array(
     'params' => array('id'),
     'uparams' => array(),
-    'functions' => array( 'use' )
+    'functions' => array( 'test_pattern' )
 );
 
 $ViewList['commands'] = array(
@@ -39,6 +39,12 @@ $ViewList['triggersearch'] = array(
     'params' => array('id'),
     'uparams' => array(),
     'functions' => array( 'use' )
+);
+
+$ViewList['usecases'] = array(
+    'params' => array('type','id'),
+    'uparams' => array(),
+    'functions' => array( 'use_cases' )
 );
 
 $ViewList['editcommand'] = array(
@@ -422,5 +428,7 @@ $FunctionList['use_operator'] = array('explain' => 'Allow operator to change bot
 $FunctionList['see_actions'] = array('explain' => 'Allow operator to see chat actions');
 $FunctionList['use_individualization'] = array('explain' => 'Allow operator to change bot individualisation');
 $FunctionList['manage_conditions'] = array('explain' => 'Allow operator to manage conditions templates');
+$FunctionList['use_cases'] = array('explain' => 'Allow operator see use cases of the object');
+$FunctionList['test_pattern'] = array('explain' => 'Allow operator see use cases of the object');
 
 ?>
