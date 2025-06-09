@@ -1,6 +1,15 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance('lhgenericbot/bot.tpl.php');
+if ($Params['user_parameters_unordered']['type'] == 'chart') {
+    $tpl = erLhcoreClassTemplate::getInstance('lhgenericbot/bot_chart.tpl.php');
+    $bot = erLhcoreClassModelGenericBotBot::fetch((int)$Params['user_parameters']['id']);
+    $tpl->set('bot',$bot);
+    echo $tpl->fetch();
+    exit;
+} else {
+    $tpl = erLhcoreClassTemplate::getInstance('lhgenericbot/bot.tpl.php');
+}
+
 
 $bot = erLhcoreClassModelGenericBotBot::fetch((int)$Params['user_parameters']['id']);
 
