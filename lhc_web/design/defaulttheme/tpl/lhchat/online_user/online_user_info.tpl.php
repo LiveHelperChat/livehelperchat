@@ -41,15 +41,17 @@
                 <?php echo htmlspecialchars($addItem['key'])?> - <?php echo htmlspecialchars($addItem['value'])?>
             </li>
         <?php else : ?>
-        <li class="text-break">
-            <?php if (!is_numeric($attrKey)) :?><?php echo htmlspecialchars($attrKey)?> - <?php endif?><?php
-                if ($attrKey == 'init'){
-                    echo '<small class="fs12">'.htmlspecialchars($addItem).'</small>';
+        <?php if (!is_numeric($attrKey) && ($attrKey !== 'init' || erLhcoreClassUser::instance()->hasAccessTo('lhchat', 'chatdebug'))) : ?><li class="text-break"><?php endif; ?>
+            <?php if (!is_numeric($attrKey) && ($attrKey !== 'init' || erLhcoreClassUser::instance()->hasAccessTo('lhchat', 'chatdebug'))) :?><?php echo htmlspecialchars($attrKey)?> - <?php endif?><?php
+                if ($attrKey == 'init') {
+                    if (erLhcoreClassUser::instance()->hasAccessTo('lhchat', 'chatdebug')) {
+                        echo '<small class="fs12">'.htmlspecialchars($addItem).'</small>';
+                    }
                 } else {
                     echo htmlspecialchars(json_encode($addItem,JSON_PRETTY_PRINT));
                 }
             ?>
-         </li>
+            <?php if (!is_numeric($attrKey) && ($attrKey !== 'init' || erLhcoreClassUser::instance()->hasAccessTo('lhchat', 'chatdebug'))) : ?></li><?php endif; ?>
         <?php endif; ?>
     <?php endforeach; ?>
     </ul>
