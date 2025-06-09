@@ -148,7 +148,7 @@ $modalBodyClass = 'p-1'
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
-<script src="<?php echo erLhcoreClassDesign::designJS('js/mermaid.min.js');?>"></script>
+<script src="<?php echo erLhcoreClassDesign::designJSStatic('js/mermaid.min.js');?>"></script>
 
 <div class="mb-3">
     <div class="btn-group btn-group-sm" role="group" aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/bot','Zoom controls')?>">
@@ -191,7 +191,9 @@ $modalBodyClass = 'p-1'
             secondaryColor: '#bbdefb',
             tertiaryColor: '#e3f2fd'
         },
-        startOnLoad: false
+        startOnLoad: false,
+        maxEdges: 5000,
+        maxTextSize: 100000
     });
     
     // Force initialization for modal window
