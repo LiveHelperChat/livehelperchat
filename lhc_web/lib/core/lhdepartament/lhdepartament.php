@@ -86,6 +86,9 @@ class erLhcoreClassDepartament{
 	   			'off_op_exec' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+                'no_transfer_no_operators' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
                 'off_op_work_hours' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
@@ -450,6 +453,13 @@ class erLhcoreClassDepartament{
 		   		$botConfiguration['off_op_exec'] = 1;
 		   	} else {
                 $botConfiguration['off_op_exec'] = 0;
+		   	}
+
+		   	if ( $form->hasValidData( 'no_transfer_no_operators' ) && $form->no_transfer_no_operators == true )
+		   	{
+		   		$botConfiguration['no_transfer_no_operators'] = 1;
+		   	} else {
+                $botConfiguration['no_transfer_no_operators'] = 0;
 		   	}
 
 		   	if ( $form->hasValidData( 'off_op_work_hours' ) && $form->off_op_work_hours == true) {

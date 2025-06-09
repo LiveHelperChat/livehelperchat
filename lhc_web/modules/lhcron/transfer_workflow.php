@@ -56,8 +56,26 @@ if (erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_val
                 }
 
                 if ($canExecuteWorkflow == true) {
-                    erLhcoreClassChatWorkflow::transferWorkflow($chat, array('offline_operators' => isset($offlineDepartmentOperators)));
-                    echo "executing department transfer workflow for - ", $chat->id, "\n";
+                    // Check if destination department has online operators if option is enabled
+                    
+                    $skipTransferNoOperators = false;
+                    if ($chat->department !== false && $chat->department->department_transfer_id > 0) {
+                        if (isset($chat->department->bot_configuration_array['no_transfer_no_operators']) && $chat->department->bot_configuration_array['no_transfer_no_operators'] == 1) {
+                            if (!isset($isOnlineCache[$chat->department->department_transfer_id])) {
+                                $isOnlineCache[$chat->department->department_transfer_id] = erLhcoreClassChat::isOnline($chat->department->department_transfer_id, false, array('exclude_bot' => true, 'include_users' => true, 'exclude_online_hours' => true));
+                            }
+                            if ($isOnlineCache[$chat->department->department_transfer_id] === false) {
+                                $skipTransferNoOperators = true;
+                                echo "Skipping transfer to department {$chat->department->department_transfer_id} - no online operators\n";
+                            }
+                        }
+                    }
+                    
+                    if (!$skipTransferNoOperators) {
+                        erLhcoreClassChatWorkflow::transferWorkflow($chat, array('offline_operators' => isset($offlineDepartmentOperators)));
+                        echo "executing department transfer workflow for - ", $chat->id, "\n";
+                    }
+
                 } else {
                     echo "Skipping transfer because dedicated department queue is full\n";
                 }

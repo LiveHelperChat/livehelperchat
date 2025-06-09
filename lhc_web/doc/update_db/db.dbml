@@ -1,0 +1,3253 @@
+Table "lhc_mailconv_conversation" {
+  "id" bigint(20) [pk, not null, increment, note: 'Conversation ID']
+  "dep_id" int(11) [not null, note: 'Department ID']
+  "user_id" int(11) [not null, note: 'User ID']
+  "status" int(11) [not null, note: 'Conversation status']
+  "subject" text [not null, note: 'Conversation subject']
+  "body" longtext [not null, note: 'Conversation body']
+  "ctime" int(11) [not null, note: 'Creation time']
+  "priority" int(11) [not null, default: 0, note: 'Conversation priority']
+  "priority_asc" int(11) [not null, default: 0, note: 'Conversation priority ascending']
+  "from_name" varchar(250) [not null, note: 'Sender name']
+  "from_address" varchar(250) [not null, note: 'Sender address']
+  "from_address_clean" varchar(250) [not null, default: '', note: 'Cleaned sender address']
+  "lang" varchar(5) [not null, note: 'Language']
+  "phone" varchar(16) [not null, note: 'Phone number']
+  "last_message_id" bigint(20) [not null, note: 'Last message ID']
+  "message_id" bigint(20) [not null, note: 'Message ID']
+  "udate" bigint(20) [not null, note: 'Update date']
+  "date" varchar(250) [not null, note: 'Date']
+  "mailbox_id" bigint(20) [not null, note: 'Mailbox ID']
+  "opened_at" bigint(20) [not null, default: 0, note: 'Time conversation was opened']
+  "total_messages" int(11) [not null, note: 'Total messages in conversation']
+  "match_rule_id" int(11) [not null, note: 'Match rule ID']
+  "cls_time" int(11) [not null, note: 'Close time']
+  "pnd_time" int(11) [not null, note: 'Pending time']
+  "wait_time" int(11) [not null, note: 'Wait time']
+  "accept_time" int(11) [not null, note: 'Accept time']
+  "response_time" int(11) [not null, note: 'Response time']
+  "interaction_time" int(11) [not null, note: 'Interaction time']
+  "lr_time" int(11) [not null, note: 'Last reply time']
+  "tslasign" int(11) [not null, note: 'Time of last assignment']
+  "start_type" tinyint(1) [not null, default: 0, note: 'Start type']
+  "transfer_uid" int(11) [not null, note: 'Transfer user ID']
+  "remarks" text [not null, note: 'Conversation remarks']
+  "conv_duration" int(11) [not null, default: 0, note: 'Conversation duration']
+  "mail_variables" longtext [not null, note: 'Mail variables']
+  "has_attachment" tinyint(1) [not null, default: 0, note: 'Has attachments']
+  "pending_sync" tinyint(1) [not null, default: 0, note: 'Pending sync']
+  "follow_up_id" bigint(20) [not null, default: 0, note: 'Follow up ID']
+  "undelivered" tinyint(1) [not null, default: 0, note: 'Undelivered status']
+
+  Indexes {
+    lang [name: "lang"]
+    from_address [name: "from_address"]
+    from_address_clean [name: "from_address_clean"]
+    mailbox_id [name: "mailbox_id"]
+    dep_id [name: "dep_id"]
+    (mailbox_id, status, udate) [name: "mailbox_id_status_udate"]
+    (status, priority) [name: "status_priority"]
+    (status, priority_asc) [name: "status_priority_asc"]
+    has_attachment [name: "has_attachment"]
+    udate [name: "udate"]
+    (user_id, status) [name: "user_id_status"]
+    (status, dep_id) [name: "status_dep_id"]
+    undelivered [name: "undelivered"]
+    phone [name: "phone"]
+  }
+}
+
+Table "lhc_mailconv_delete_filter" {
+  "id" int(11) [pk, not null, increment]
+  "updated_at" bigint(20) [not null]
+  "created_at" bigint(20) [not null]
+  "user_id" bigint(20) [not null]
+  "archive_id" int(11) [not null, default: 0]
+  "status" tinyint(1) [not null, default: 0]
+  "last_id" bigint(20) [not null, default: 0]
+  "started_at" bigint(20) [not null, default: 0]
+  "finished_at" bigint(20) [not null, default: 0]
+  "processed_records" bigint(20) [not null, default: 0]
+  "delete_policy" tinyint(1) [not null, default: 0]
+  "filter" longtext [not null]
+  "filter_input" longtext [not null]
+
+  Indexes {
+    status [name: "status"]
+  }
+}
+
+Table "lhc_mailconv_delete_item" {
+  "id" bigint(20) [pk, not null, increment]
+  "conversation_id" bigint(20) [not null]
+  "filter_id" bigint(20) [not null]
+  "status" tinyint(1) [not null, default: 0]
+
+  Indexes {
+    (filter_id, status) [name: "filter_id_status"]
+    status [name: "status"]
+  }
+}
+
+Table "lhc_mailconv_file" {
+  "id" bigint(20) [pk, not null, increment]
+  "message_id" bigint(20) [not null]
+  "size" int(11) [not null]
+  "name" varchar(250) [not null]
+  "description" varchar(250) [not null]
+  "extension" varchar(10) [not null]
+  "type" varchar(250) [not null]
+  "attachment_id" varchar(250) [not null]
+  "file_path" varchar(250) [not null]
+  "file_name" varchar(250) [not null]
+  "content_id" varchar(250) [not null]
+  "disposition" varchar(250) [not null]
+  "conversation_id" bigint(20) [not null]
+
+  Indexes {
+    message_id [name: "message_id"]
+    conversation_id [name: "conversation_id"]
+  }
+}
+
+Table "lhc_mailconv_mailbox" {
+  "id" int(11) [pk, not null, increment]
+  "mail" varchar(250) [not null]
+  "username" varchar(250) [not null]
+  "password" varchar(250) [not null]
+  "host" varchar(250) [not null]
+  "active" tinyint(1) [not null, default: 1]
+  "port" int(11) [not null]
+  "workflow_options" longtext [not null]
+  "imap" varchar(250) [not null]
+  "last_sync_log" longtext [not null]
+  "sync_started" bigint(20) [not null]
+  "last_sync_time" bigint(20) [not null]
+  "user_id" bigint(20) [not null, default: 0]
+  "mailbox_sync" text [not null]
+  "sync_status" int(11) [not null]
+  "sync_interval" int(11) [not null]
+  "signature" text [not null]
+  "signature_under" tinyint(1) [not null, default: 0]
+  "name" varchar(250) [not null]
+  "import_since" int(11) [not null, default: 0]
+  "dep_id" int(11) [not null, default: 0]
+  "delete_mode" tinyint(1) [not null, default: 0]
+  "reopen_timeout" int(11) [not null, default: 4]
+  "failed" tinyint(1) [not null, default: 0]
+  "uuid_status" text [not null]
+  "create_a_copy" tinyint(1) [not null, default: 0]
+  "import_priority" int(11) [not null, default: 0]
+  "assign_parent_user" tinyint(1) [not null, default: 0]
+  "mail_smtp" varchar(250) [not null]
+  "name_smtp" varchar(250) [not null]
+  "username_smtp" varchar(250) [not null]
+  "password_smtp" varchar(250) [not null]
+  "no_pswd_smtp" tinyint(1) [not null, default: 0]
+  "auth_method" tinyint(1) [not null, default: 0]
+  "reopen_reset" tinyint(1) [not null, default: 0]
+  "delete_on_archive" tinyint(1) [not null, default: 0]
+  "delete_policy" tinyint(1) [not null, default: 0]
+  "last_process_time" bigint(20) [not null, default: 0]
+
+  Indexes {
+    active [name: "active"]
+  }
+}
+
+Table "lhc_mailconv_mailing_campaign" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "user_id" bigint(20) [not null]
+  "status" tinyint(1) [not null, default: 0]
+  "starts_at" bigint(20) [not null]
+  "enabled" tinyint(1) [not null, default: 0]
+  "mailbox_id" bigint(20) [not null]
+  "body" longtext [not null]
+  "body_alt" longtext [not null]
+  "subject" text [not null]
+  "as_active" tinyint(1) [not null, default: 0]
+  "reply_email" varchar(250) [not null]
+  "reply_name" varchar(250) [not null]
+  "owner_logic" tinyint(1) [not null, default: 0]
+  "owner_user_id" bigint(20) [not null, default: 0]
+
+  Indexes {
+    (status, enabled, starts_at) [name: "status_enabled_starts_at"]
+    enabled [name: "enabled"]
+  }
+}
+
+Table "lhc_mailconv_mailing_campaign_recipient" {
+  "id" bigint(20) [pk, not null, increment]
+  "campaign_id" bigint(20) [not null]
+  "recipient_id" bigint(20) [not null]
+  "type" tinyint(1) [not null, default: 0]
+  "email" varchar(50) [not null]
+  "mailbox" varchar(50) [not null]
+  "status" tinyint(1) [not null, default: 0]
+  "opened_at" bigint(20) [not null, default: 0]
+  "send_at" bigint(20) [not null]
+  "message_id" bigint(20) [not null, default: 0]
+  "conversation_id" bigint(20) [not null, default: 0]
+  "name" varchar(100) [not null]
+  "attr_str_1" varchar(100) [not null]
+  "attr_str_2" varchar(100) [not null]
+  "attr_str_3" varchar(100) [not null]
+  "attr_str_4" varchar(100) [not null]
+  "attr_str_5" varchar(100) [not null]
+  "attr_str_6" varchar(100) [not null]
+  "log" text [not null]
+
+  Indexes {
+    message_id [name: "message_id"]
+    (campaign_id, status) [name: "campaign_id_status"]
+    (campaign_id, email) [name: "campaign_id_email"]
+  }
+}
+
+Table "lhc_mailconv_mailing_list" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "user_id" bigint(20) [not null, default: 0]
+
+  Indexes {
+    user_id [name: "user_id"]
+  }
+}
+
+Table "lhc_mailconv_mailing_list_recipient" {
+  "id" bigint(20) [pk, not null, increment]
+  "mailing_list_id" bigint(20) [not null]
+  "mailing_recipient_id" bigint(20) [not null]
+
+  Indexes {
+    mailing_list_id [name: "mailing_list_id"]
+    mailing_recipient_id [name: "mailing_recipient_id"]
+  }
+}
+
+Table "lhc_mailconv_match_rule" {
+  "id" int(11) [pk, not null, increment]
+  "dep_id" int(11) [not null]
+  "conditions" text [not null]
+  "active" tinyint(1) [not null, default: 1]
+  "mailbox_id" text [not null]
+  "from_name" text [not null]
+  "from_mail" text [not null]
+  "subject_contains" text [not null]
+  "priority" int(11) [not null]
+  "priority_rule" int(11) [not null]
+  "options" text [not null]
+  "name" varchar(50) [not null]
+
+  Indexes {
+    (active, priority) [name: "active_priority"]
+  }
+}
+
+Table "lhc_mailconv_msg" {
+  "id" bigint(20) [pk, not null, increment]
+  "status" int(11) [not null]
+  "opened_at" bigint(20) [not null, default: 0]
+  "conversation_id" bigint(20) [not null]
+  "conversation_id_old" bigint(20) [not null, default: 0]
+  "message_hash" varchar(40) [not null]
+  "message_id" varchar(250) [not null]
+  "in_reply_to" varchar(250) [not null]
+  "lang" varchar(5) [not null]
+  "subject" text [not null]
+  "body" longtext [not null]
+  "alt_body" longtext [not null]
+  "references" text [not null]
+  "ctime" int(11) [not null]
+  "udate" int(11) [not null]
+  "date" text [not null]
+  "flagged" int(11) [not null]
+  "recent" int(11) [not null]
+  "msgno" bigint(20) [not null]
+  "uid" bigint(20) [not null]
+  "size" int(11) [not null]
+  "from_host" varchar(250) [not null]
+  "from_name" varchar(250) [not null]
+  "from_address" varchar(250) [not null]
+  "sender_host" varchar(250) [not null]
+  "sender_name" varchar(250) [not null]
+  "sender_address" varchar(250) [not null]
+  "to_data" text [not null]
+  "reply_to_data" text [not null]
+  "mailbox_id" bigint(20) [not null]
+  "response_time" bigint(20) [not null]
+  "cls_time" bigint(20) [not null]
+  "priority" int(11) [not null, default: 0]
+  "is_external" tinyint(1) [not null, default: 0]
+  "wait_time" bigint(20) [not null]
+  "accept_time" bigint(20) [not null]
+  "interaction_time" bigint(20) [not null]
+  "user_id" bigint(20) [not null]
+  "conv_user_id" bigint(20) [not null, default: 0]
+  "lr_time" bigint(20) [not null]
+  "response_type" int(11) [not null]
+  "bcc_data" text [not null]
+  "cc_data" text [not null]
+  "dep_id" int(11) [not null]
+  "mb_folder" varchar(200) [not null]
+  "conv_duration" int(11) [not null, default: 0]
+  "has_attachment" tinyint(1) [not null, default: 0]
+  "undelivered" tinyint(1) [not null, default: 0]
+  "rfc822_body" longtext [not null]
+  "delivery_status" text [not null]
+
+  Indexes {
+    message_hash [name: "message_hash"]
+    lang [name: "lang"]
+    message_id [name: "message_id"]
+    response_type [name: "response_type"]
+    user_id [name: "user_id"]
+    conversation_id [name: "conversation_id"]
+    conversation_id_old [name: "conversation_id_old"]
+    mailbox_id [name: "mailbox_id"]
+    dep_id [name: "dep_id"]
+    has_attachment [name: "has_attachment"]
+    udate [name: "udate"]
+  }
+}
+
+Table "lhc_mailconv_msg_internal" {
+  "id" bigint(20) [pk, not null, increment]
+  "msg" longtext [not null]
+  "time" bigint(20) [not null]
+  "chat_id" bigint(20) [not null, default: 0]
+  "user_id" bigint(20) [not null, default: 0]
+  "name_support" varchar(100) [not null]
+  "meta_msg" longtext [not null]
+
+  Indexes {
+    (chat_id, id) [name: "chat_id_id"]
+    user_id [name: "user_id"]
+  }
+}
+
+Table "lhc_mailconv_msg_open" {
+  "id" bigint(20) [pk, not null, increment]
+  "opened_at" bigint(20) [not null]
+  "hash" varchar(40) [not null]
+
+  Indexes {
+    hash [name: "hash"]
+  }
+}
+
+Table "lhc_mailconv_msg_subject" {
+  "id" bigint(20) [pk, not null, increment]
+  "subject_id" int(11) [not null]
+  "message_id" bigint(20) [not null]
+  "conversation_id" bigint(20) [not null]
+
+  Indexes {
+    message_id [name: "message_id"]
+  }
+}
+
+Table "lhc_mailconv_oauth_ms" {
+  "id" bigint(20) [pk, not null, increment]
+  "mailbox_id" bigint(20) [not null]
+  "oauth_uid" varchar(50) [not null]
+  "name" varchar(200) [not null]
+  "email" varchar(200) [not null]
+  "surname" varchar(200) [not null]
+  "display_name" varchar(200) [not null]
+  "txtSessionKey" varchar(255) [not null]
+  "txtCodeVerifier" varchar(255) [not null]
+  "dtExpires" bigint(20) [not null]
+  "txtRefreshToken" text [not null]
+  "txtToken" text [not null]
+  "txtIDToken" text [not null]
+  "completed" tinyint(1) [not null]
+
+  Indexes {
+    oauth_uid [name: "oauth_uid"]
+    (mailbox_id, completed) [name: "user_id_completed"]
+  }
+}
+
+Table "lhc_mailconv_personal_mailbox_group" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(250) [not null]
+  "mails" longtext [not null]
+  "active" tinyint(1) [not null]
+
+  Indexes {
+    active [name: "active"]
+  }
+}
+
+Table "lhc_mailconv_recipient" {
+  "id" bigint(20) [pk, not null, increment]
+  "data" text [not null]
+  "disabled" tinyint(1) [not null, default: 0]
+  "email" varchar(50) [not null]
+  "mailbox" varchar(50) [not null]
+  "name" varchar(100) [not null]
+  "attr_str_1" varchar(200) [not null]
+  "attr_str_2" varchar(200) [not null]
+  "attr_str_3" varchar(200) [not null]
+  "attr_str_4" varchar(200) [not null]
+  "attr_str_5" varchar(200) [not null]
+  "attr_str_6" varchar(200) [not null]
+
+  Indexes {
+    disabled [name: "disabled"]
+    email [name: "email"]
+  }
+}
+
+Table "lhc_mailconv_remarks" {
+  "id" bigint(20) [pk, not null, increment]
+  "email" varchar(250) [not null]
+  "remarks" longtext [not null]
+
+  Indexes {
+    email [name: "email"]
+  }
+}
+
+Table "lhc_mailconv_response_template" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(250) [not null]
+  "template" text [not null]
+  "dep_id" int(11) [not null, default: 0]
+  "template_plain" text [not null]
+  "unique_id" varchar(20) [not null]
+  "disabled" tinyint(1) [not null, default: 0]
+
+  Indexes {
+    unique_id [name: "unique_id"]
+    disabled [name: "disabled"]
+    dep_id [name: "dep_id"]
+  }
+}
+
+Table "lhc_mailconv_response_template_dep" {
+  "id" bigint(20) [pk, not null, increment]
+  "template_id" bigint(20) [not null]
+  "dep_id" int(11) [not null]
+
+  Indexes {
+    template_id [name: "template_id"]
+    dep_id [name: "dep_id"]
+  }
+}
+
+Table "lhc_mailconv_response_template_subject" {
+  "id" bigint(20) [pk, not null, increment]
+  "template_id" bigint(20) [not null]
+  "subject_id" bigint(20) [not null]
+
+  Indexes {
+    template_id [name: "template_id"]
+  }
+}
+
+Table "lhc_mailconv_sent_copy" {
+  "id" bigint(20) [pk, not null, increment]
+  "mailbox_id" bigint(20) [not null]
+  "status" tinyint(1) [not null, default: 0]
+  "body" longblob [not null]
+
+  Indexes {
+    status [name: "status"]
+  }
+}
+
+Table "lh_abstract_auto_responder" {
+  "id" int(11) [pk, not null, increment]
+  "siteaccess" varchar(3) [not null]
+  "wait_message" text [not null]
+  "wait_timeout" int(11) [not null]
+  "position" int(11) [not null]
+  "timeout_message" text [not null]
+  "bot_configuration" text [not null]
+  "name" varchar(50) [not null]
+  "operator" varchar(50) [not null]
+  "dep_id" int(11) [not null]
+  "user_id" int(11) [not null]
+  "only_proactive" int(11) [not null]
+  "repeat_number" int(11) [not null, default: 1]
+  "survey_timeout" int(11) [not null, default: 0]
+  "survey_id" int(11) [not null, default: 0]
+  "disabled" tinyint(1) [not null, default: 0]
+  "wait_timeout_hold_1" int(11) [not null]
+  "wait_timeout_hold_2" int(11) [not null]
+  "wait_timeout_hold_3" int(11) [not null]
+  "wait_timeout_hold_4" int(11) [not null]
+  "wait_timeout_hold_5" int(11) [not null]
+  "timeout_hold_message_1" text [not null]
+  "timeout_hold_message_2" text [not null]
+  "timeout_hold_message_3" text [not null]
+  "timeout_hold_message_4" text [not null]
+  "timeout_hold_message_5" text [not null]
+  "wait_timeout_hold" text [not null]
+  "wait_timeout_2" int(11) [not null]
+  "timeout_message_2" text [not null]
+  "wait_timeout_3" int(11) [not null]
+  "timeout_message_3" text [not null]
+  "wait_timeout_4" int(11) [not null]
+  "timeout_message_4" text [not null]
+  "wait_timeout_5" int(11) [not null]
+  "timeout_message_5" text [not null]
+  "wait_timeout_reply_1" int(11) [not null]
+  "timeout_reply_message_1" text [not null]
+  "wait_timeout_reply_2" int(11) [not null]
+  "timeout_reply_message_2" text [not null]
+  "wait_timeout_reply_3" int(11) [not null]
+  "timeout_reply_message_3" text [not null]
+  "wait_timeout_reply_4" int(11) [not null]
+  "timeout_reply_message_4" text [not null]
+  "wait_timeout_reply_5" int(11) [not null]
+  "timeout_reply_message_5" text [not null]
+  "languages" text [not null]
+  "ignore_pa_chat" int(11) [not null]
+
+  Indexes {
+    (siteaccess, position) [name: "siteaccess_position"]
+    disabled [name: "disabled"]
+  }
+}
+
+Table "lh_abstract_auto_responder_chat" {
+  "id" int(11) [pk, not null, increment]
+  "chat_id" int(11) [not null]
+  "auto_responder_id" int(11) [not null]
+  "wait_timeout_send" int(11) [not null]
+  "pending_send_status" int(11) [not null]
+  "active_send_status" int(11) [not null]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+  }
+}
+
+Table "lh_abstract_auto_responder_dep" {
+  "id" bigint(20) [pk, not null, increment]
+  "autoresponder_id" int(11) [not null]
+  "dep_id" int(11) [not null]
+
+  Indexes {
+    autoresponder_id [name: "autoresponder_id"]
+    dep_id [name: "dep_id"]
+  }
+}
+
+Table "lh_abstract_browse_offer_invitation" {
+  "id" int(11) [pk, not null, increment]
+  "siteaccess" varchar(10) [not null]
+  "time_on_site" int(11) [not null]
+  "content" longtext [not null]
+  "callback_content" longtext [not null]
+  "lhc_iframe_content" tinyint(4) [not null]
+  "custom_iframe_url" varchar(250) [not null]
+  "name" varchar(250) [not null]
+  "identifier" varchar(50) [not null]
+  "executed_times" int(11) [not null]
+  "url" varchar(250) [not null]
+  "active" int(11) [not null]
+  "has_url" int(11) [not null]
+  "is_wildcard" int(11) [not null]
+  "referrer" varchar(250) [not null]
+  "priority" varchar(250) [not null]
+  "hash" varchar(40) [not null]
+  "width" int(11) [not null]
+  "height" int(11) [not null]
+  "unit" varchar(10) [not null]
+
+  Indexes {
+    active [name: "active"]
+    identifier [name: "identifier"]
+  }
+}
+
+Table "lh_abstract_chat_alert_icon" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "identifier" varchar(50) [not null]
+}
+
+Table "lh_abstract_chat_column" {
+  "id" int(11) [pk, not null, increment]
+  "column_name" varchar(255) [not null]
+  "variable" varchar(255) [not null]
+  "position" int(11) [not null]
+  "enabled" tinyint(1) [not null]
+  "conditions" text [not null]
+  "column_icon" varchar(255) [not null]
+  "column_identifier" varchar(255) [not null]
+  "chat_enabled" tinyint(1) [not null]
+  "online_enabled" tinyint(1) [not null]
+  "icon_mode" tinyint(1) [not null, default: 0]
+  "has_popup" tinyint(1) [not null, default: 0]
+  "popup_content" longtext [not null]
+  "sort_column" varchar(200) [not null]
+  "sort_enabled" tinyint(1) [not null, default: 0]
+  "chat_window_enabled" tinyint(1) [not null, default: 0]
+  "chat_list_enabled" tinyint(1) [not null, default: 0]
+  "mail_list_enabled" tinyint(1) [not null, default: 0]
+  "mail_enabled" tinyint(1) [not null, default: 0]
+
+  Indexes {
+    enabled [name: "enabled"]
+    online_enabled [name: "online_enabled"]
+    chat_enabled [name: "chat_enabled"]
+    chat_window_enabled [name: "chat_window_enabled"]
+  }
+}
+
+Table "lh_abstract_chat_priority" {
+  "id" int(11) [pk, not null, increment]
+  "value" text [not null]
+  "role_destination" varchar(50) [not null]
+  "present_role_is" varchar(50) [not null]
+  "dep_id" int(11) [not null]
+  "dest_dep_id" int(11) [not null, default: 0]
+  "sort_priority" int(11) [not null, default: 0]
+  "priority" int(11) [not null]
+
+  Indexes {
+    dep_id [name: "dep_id"]
+  }
+}
+
+Table "lh_abstract_chat_variable" {
+  "id" int(11) [pk, not null, increment]
+  "content_field" varchar(50) [not null]
+  "var_name" varchar(255) [not null]
+  "var_identifier" varchar(255) [not null]
+  "inv" tinyint(1) [not null]
+  "old_js_id" varchar(50) [not null]
+  "change_message" varchar(250) [not null]
+  "type" tinyint(1) [not null]
+  "case_insensitive" tinyint(1) [not null, DEFAULT: 0]
+  "persistent" tinyint(1) [not null]
+  "js_variable" varchar(255) [not null]
+  "dep_id" int(11) [not null]
+  "try_decrypt" tinyint(1) [not NULL, DEFAULT: 0]
+
+  Indexes {
+    dep_id [name: "dep_id"]
+  }
+}
+
+Table "lh_abstract_email_template" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(250) [not null]
+  "from_name" varchar(150) [not null]
+  "from_name_ac" tinyint(4) [not null]
+  "from_email" varchar(150) [not null]
+  "from_email_ac" tinyint(4) [not null]
+  "user_mail_as_sender" tinyint(4) [not null]
+  "use_chat_locale" tinyint(1) [not null, default: 0]
+  "only_recipient" tinyint(1) [not null, default: 0]
+  "content" text [not null]
+  "translations" longtext [not null]
+  "subject" varchar(250) [not null]
+  "bcc_recipients" varchar(200) [not null]
+  "subject_ac" tinyint(4) [not null]
+  "reply_to" varchar(150) [not null]
+  "reply_to_ac" tinyint(4) [not null]
+  "recipient" varchar(150) [not null]
+}
+
+Table "lh_abstract_form" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(100) [not null]
+  "content" longtext [not null]
+  "configuration" longtext [not null]
+  "recipient" varchar(250) [not null]
+  "active" int(11) [not null]
+  "name_attr" varchar(250) [not null]
+  "intro_attr" varchar(250) [not null]
+  "xls_columns" text [not null]
+  "pagelayout" varchar(200) [not null]
+  "post_content" text [not null]
+}
+
+Table "lh_abstract_form_collected" {
+  "id" int(11) [pk, not null, increment]
+  "form_id" int(11) [not null]
+  "ctime" int(11) [not null]
+  "ip" varchar(250) [not null]
+  "identifier" varchar(250) [not null]
+  "chat_id" bigint(20) [not null]
+  "content" longtext [not null]
+  "custom_fields" longtext [not null]
+
+  Indexes {
+    form_id [name: "form_id"]
+  }
+}
+
+Table "lh_abstract_msg_protection" {
+  "id" int(11) [pk, not null, increment]
+  "pattern" text [not null]
+  "enabled" int(11) [not null, default: 1]
+  "remove" int(11) [not null, default: 0]
+  "v_warning" text [not null]
+
+  Indexes {
+    enabled [name: "enabled"]
+  }
+}
+
+Table "lh_abstract_proactive_chat_campaign" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "text" text [not null]
+}
+
+Table "lh_abstract_proactive_chat_campaign_conv" {
+  "id" bigint(20) [pk, not null, increment]
+  "device_type" tinyint(11) [not null]
+  "invitation_type" tinyint(1) [not null]
+  "invitation_status" tinyint(1) [not null]
+  "chat_id" bigint(20) [not null]
+  "campaign_id" int(11) [not null]
+  "invitation_id" int(11) [not null]
+  "department_id" int(11) [not null]
+  "ctime" int(11) [not null]
+  "con_time" int(11) [not null]
+  "vid_id" bigint(20) [default: NULL]
+  "variation_id" bigint(20) [not null, default: 0]
+  "conv_int_expires" bigint(20) [not null, default: 0]
+  "conv_int_time" bigint(20) [not null, default: 0]
+  "conv_event" varchar(20) [not null]
+  "unique_id" varchar(20) [not null]
+
+  Indexes {
+    campaign_id [name: "campaign_id"]
+    invitation_status [name: "invitation_status"]
+    ctime [name: "ctime"]
+    (invitation_id, variation_id) [name: "invitation_id_variation_id"]
+    unique_id [name: "unique_id"]
+    conv_int_time [name: "conv_int_time"]
+    (conv_event, vid_id) [name: "conv_event_vid_id"]
+  }
+}
+
+Table "lh_abstract_proactive_chat_event" {
+  "id" int(11) [pk, not null, increment]
+  "vid_id" int(11) [not null]
+  "ev_id" int(11) [not null]
+  "ts" int(11) [not null]
+  "val" varchar(50) [not null]
+
+  Indexes {
+    (vid_id, ev_id, val, ts) [name: "vid_id_ev_id_val_ts"]
+    (vid_id, ev_id, ts) [name: "vid_id_ev_id_ts"]
+  }
+}
+
+Table "lh_abstract_proactive_chat_invitation" {
+  "id" int(11) [pk, not null, increment]
+  "siteaccess" varchar(10) [not null]
+  "time_on_site" int(11) [not null]
+  "pageviews" int(11) [not null]
+  "message" text [not null]
+  "message_returning" text [not null]
+  "executed_times" int(11) [not null]
+  "dep_id" int(11) [not null]
+  "hide_after_ntimes" int(11) [not null]
+  "show_on_mobile" int(11) [not null]
+  "delay" int(11) [not null]
+  "delay_init" int(11) [not null]
+  "show_instant" int(11) [not null]
+  "autoresponder_id" int(11) [not null]
+  "disabled" int(11) [not null]
+  "inject_only_html" tinyint(1) [not null]
+  "name" varchar(50) [not null]
+  "operator_ids" varchar(100) [not null]
+  "message_returning_nick" varchar(250) [not null]
+  "referrer" varchar(250) [not null]
+  "show_random_operator" int(11) [not null]
+  "operator_name" varchar(100) [not null]
+  "campaign_id" int(11) [not null]
+  "position" int(11) [not null]
+  "event_invitation" int(11) [not null]
+  "dynamic_invitation" int(11) [not null]
+  "bot_id" int(11) [not null]
+  "trigger_id" int(11) [not null]
+  "bot_offline" tinyint(1) [not null]
+  "identifier" varchar(50) [not null]
+  "tag" varchar(50) [not null]
+  "requires_email" int(11) [not null]
+  "iddle_for" int(11) [not null]
+  "event_type" int(11) [not null]
+  "parent_id" int(11) [not null, default: 0]
+  "requires_username" int(11) [not null]
+  "requires_phone" int(11) [not null]
+  "design_data" longtext [not null]
+  "active_from" bigint(20) [not null, default: 0]
+  "active_to" bigint(20) [not null, default: 0]
+  "repetitiveness" tinyint(1) [not null, default: 0]
+  "days_activity" text [not null]
+  "url_present" varchar(100) [not null]
+
+  Indexes {
+    (time_on_site, pageviews, siteaccess, identifier, position) [name: "time_on_site_pageviews_siteaccess_position"]
+    identifier [name: "identifier"]
+    dynamic_invitation [name: "dynamic_invitation"]
+    tag [name: "tag"]
+    parent_id [name: "parent_id"]
+    show_on_mobile [name: "show_on_mobile"]
+    dep_id [name: "dep_id"]
+  }
+}
+
+Table "lh_abstract_proactive_chat_invitation_dep" {
+  "id" bigint(20) [pk, not null, increment]
+  "invitation_id" int(11) [not null]
+  "dep_id" int(11) [not null]
+
+  Indexes {
+    invitation_id [name: "invitation_id"]
+    dep_id [name: "dep_id"]
+  }
+}
+
+Table "lh_abstract_proactive_chat_invitation_event" {
+  "id" int(11) [pk, not null, increment]
+  "invitation_id" int(11) [not null]
+  "event_id" int(11) [not null]
+  "min_number" int(11) [not null]
+  "during_seconds" int(11) [not null]
+
+  Indexes {
+    invitation_id [name: "invitation_id"]
+    event_id [name: "event_id"]
+  }
+}
+
+Table "lh_abstract_proactive_chat_variables" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "identifier" varchar(50) [not null]
+  "store_timeout" int(11) [not null]
+  "filter_val" int(11) [not null, default: 0]
+
+  Indexes {
+    identifier [name: "identifier"]
+  }
+}
+
+Table "lh_abstract_product" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(250) [not null]
+  "disabled" int(11) [not null]
+  "priority" int(11) [not null]
+  "departament_id" int(11) [not null]
+
+  Indexes {
+    departament_id [name: "departament_id"]
+  }
+}
+
+Table "lh_abstract_product_departament" {
+  "id" int(11) [pk, not null, increment]
+  "product_id" int(11) [not null]
+  "departament_id" int(11) [not null]
+
+  Indexes {
+    departament_id [name: "departament_id"]
+  }
+}
+
+Table "lh_abstract_rest_api_key" {
+  "id" int(11) [pk, not null, increment]
+  "api_key" varchar(50) [not null]
+  "user_id" int(11) [not null, default: 0]
+  "active" int(11) [not null, default: 0]
+  "ip_restrictions" varchar(250) [not null]
+
+  Indexes {
+    api_key [name: "api_key"]
+    user_id [name: "user_id"]
+  }
+}
+
+Table "lh_abstract_rest_api_key_remote" {
+  "id" int(11) [pk, not null, increment]
+  "api_key" varchar(50) [not null]
+  "username" varchar(50) [not null]
+  "name" varchar(50) [not null]
+  "host" varchar(250) [not null]
+  "active" tinyint(1) [not null, default: 0]
+  "position" int(11) [not null, default: 0]
+
+  Indexes {
+    active [name: "active"]
+  }
+}
+
+Table "lh_abstract_saved_report" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(100) [not null]
+  "description" text [not null]
+  "params" longtext [not null]
+  "recurring_options" longtext [not null]
+  "send_log" longtext [not null]
+  "user_id" bigint(20) [not null]
+  "position" int(11) [not null]
+  "days" int(11) [not null]
+  "date_type" varchar(10) [not null]
+  "days_end" int(11) [not null]
+  "updated_at" bigint(20) [not null]
+
+  Indexes {
+    user_id [name: "user_id"]
+  }
+}
+
+Table "lh_abstract_saved_search" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(100) [not null]
+  "params" longtext [not null]
+  "user_id" bigint(20) [not null]
+  "position" int(11) [not null]
+  "scope" varchar(50) [not null]
+  "days" int(11) [not null]
+  "updated_at" bigint(20) [not null]
+  "requested_at" bigint(20) [not null]
+  "total_records" bigint(20) [not null]
+  "passive" tinyint(1) [not null, default: 0]
+  "description" text [not null]
+  "status" tinyint(1) [not null, default: 0]
+  "sharer_user_id" bigint(20) [not null]
+
+  Indexes {
+    scope [name: "scope"]
+    updated_at [name: "updated_at"]
+    requested_at [name: "requested_at"]
+    (user_id, status) [name: "user_id_status"]
+  }
+}
+
+Table "lh_abstract_stats" {
+  "id" bigint(20) [pk, not null, increment]
+  "type" int(11) [not null]
+  "lupdate" bigint(20) [not null]
+  "object_id" bigint(20) [not null]
+  "stats" longtext [not null]
+
+  Indexes {
+    (type, object_id) [name: "type_object_id"]
+  }
+}
+
+Table "lh_abstract_subject" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(100) [not null]
+  "internal" tinyint(1) [not null, default: 0]
+  "internal_type" varchar(20) [not null]
+  "color" varchar(100) [not null]
+  "pinned" tinyint(1) [not null, default: 0]
+  "widgets" int(11) [not null, default: 0]
+
+  Indexes {
+    internal [name: "internal"]
+    internal_type [name: "internal_type"]
+    widgets [name: "widgets"]
+  }
+}
+
+Table "lh_abstract_subject_chat" {
+  "id" bigint(20) [pk, not null, increment]
+  "subject_id" int(11) [not null]
+  "chat_id" bigint(20) [not null]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+  }
+}
+
+Table "lh_abstract_subject_dep" {
+  "id" int(11) [pk, not null, increment]
+  "dep_id" int(11) [not null]
+  "subject_id" int(11) [not null]
+
+  Indexes {
+    subject_id [name: "subject_id"]
+  }
+}
+
+Table "lh_abstract_survey" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(250) [not null]
+  "feedback_text" text [not null]
+  "max_stars_1_title" varchar(250) [not null]
+  "max_stars_1_pos" int(11) [not null]
+  "max_stars_2_title" varchar(250) [not null]
+  "max_stars_2_pos" int(11) [not null]
+  "max_stars_2" int(11) [not null]
+  "max_stars_3_title" varchar(250) [not null]
+  "max_stars_3_pos" int(11) [not null]
+  "max_stars_3" int(11) [not null]
+  "max_stars_4_title" varchar(250) [not null]
+  "max_stars_4_pos" int(11) [not null]
+  "max_stars_4" int(11) [not null]
+  "max_stars_5_title" varchar(250) [not null]
+  "max_stars_5_pos" int(11) [not null]
+  "max_stars_5" int(11) [not null]
+  "question_options_1" varchar(250) [not null]
+  "question_options_1_items" text [not null]
+  "question_options_1_pos" int(11) [not null]
+  "question_options_2" varchar(250) [not null]
+  "question_options_2_items" text [not null]
+  "question_options_2_pos" int(11) [not null]
+  "question_options_3" varchar(250) [not null]
+  "question_options_3_items" text [not null]
+  "question_options_3_pos" int(11) [not null]
+  "question_options_4" varchar(250) [not null]
+  "question_options_4_items" text [not null]
+  "question_options_4_pos" int(11) [not null]
+  "question_options_5" varchar(250) [not null]
+  "question_options_5_items" text [not null]
+  "question_options_5_pos" int(11) [not null]
+  "question_plain_1" text [not null]
+  "question_plain_1_pos" int(11) [not null]
+  "question_plain_2" text [not null]
+  "question_plain_2_pos" int(11) [not null]
+  "question_plain_3" text [not null]
+  "question_plain_3_pos" int(11) [not null]
+  "question_plain_4" text [not null]
+  "question_plain_4_pos" int(11) [not null]
+  "question_plain_5" text [not null]
+  "question_plain_5_pos" int(11) [not null]
+  "max_stars_1_enabled" int(11) [not null]
+  "max_stars_2_enabled" int(11) [not null]
+  "max_stars_3_enabled" int(11) [not null]
+  "max_stars_4_enabled" int(11) [not null]
+  "max_stars_5_enabled" int(11) [not null]
+  "question_options_1_enabled" int(11) [not null]
+  "question_options_2_enabled" int(11) [not null]
+  "question_options_3_enabled" int(11) [not null]
+  "question_options_4_enabled" int(11) [not null]
+  "question_options_5_enabled" int(11) [not null]
+  "question_plain_1_enabled" int(11) [not null]
+  "question_plain_2_enabled" int(11) [not null]
+  "question_plain_3_enabled" int(11) [not null]
+  "question_plain_4_enabled" int(11) [not null]
+  "question_plain_5_enabled" int(11) [not null]
+  "max_stars_1" int(11) [not null]
+  "max_stars_1_req" int(11) [not null]
+  "max_stars_2_req" int(11) [not null]
+  "max_stars_3_req" int(11) [not null]
+  "max_stars_4_req" int(11) [not null]
+  "max_stars_5_req" int(11) [not null]
+  "question_options_1_req" int(11) [not null]
+  "question_options_2_req" int(11) [not null]
+  "question_options_3_req" int(11) [not null]
+  "question_options_4_req" int(11) [not null]
+  "question_options_5_req" int(11) [not null]
+  "question_plain_1_req" int(11) [not null]
+  "question_plain_2_req" int(11) [not null]
+  "question_plain_3_req" int(11) [not null]
+  "question_plain_4_req" int(11) [not null]
+  "question_plain_5_req" int(11) [not null]
+  "configuration" longtext [not null]
+  "identifier" varchar(50) [not null]
+
+  Indexes {
+    identifier [name: "identifier"]
+  }
+}
+
+Table "lh_abstract_survey_item" {
+  "id" bigint(20) [pk, not null, increment]
+  "survey_id" int(11) [not null]
+  "status" int(11) [not null, default: 0]
+  "chat_id" int(11) [not null]
+  "user_id" int(11) [not null]
+  "ftime" int(11) [not null]
+  "dep_id" int(11) [not null]
+  "max_stars_1" int(11) [not null]
+  "max_stars_2" int(11) [not null]
+  "max_stars_3" int(11) [not null]
+  "max_stars_4" int(11) [not null]
+  "max_stars_5" int(11) [not null]
+  "question_options_1" int(11) [not null]
+  "question_options_2" int(11) [not null]
+  "question_options_3" int(11) [not null]
+  "question_options_4" int(11) [not null]
+  "question_options_5" int(11) [not null]
+  "question_plain_1" text [not null]
+  "question_plain_2" text [not null]
+  "question_plain_3" text [not null]
+  "question_plain_4" text [not null]
+  "question_plain_5" text [not null]
+  "online_user_id" bigint(20) [not null]
+
+  Indexes {
+    online_user_id [name: "online_user_id"]
+    survey_id [name: "survey_id"]
+    chat_id [name: "chat_id"]
+    user_id [name: "user_id"]
+    dep_id [name: "dep_id"]
+    ftime [name: "ftime"]
+    max_stars_1 [name: "max_stars_1"]
+    max_stars_2 [name: "max_stars_2"]
+    max_stars_3 [name: "max_stars_3"]
+    max_stars_4 [name: "max_stars_4"]
+    max_stars_5 [name: "max_stars_5"]
+    question_options_1 [name: "question_options_1"]
+    question_options_2 [name: "question_options_2"]
+    question_options_3 [name: "question_options_3"]
+    question_options_4 [name: "question_options_4"]
+    question_options_5 [name: "question_options_5"]
+  }
+}
+
+Table "lh_abstract_widget_theme" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(250) [not null]
+  "name_company" text [not null]
+  "onl_bcolor" varchar(10) [not null]
+  "bor_bcolor" varchar(10) [not null, default: 'e3e3e3']
+  "text_color" varchar(10) [not null]
+  "online_image" varchar(250) [not null]
+  "online_image_path" varchar(250) [not null]
+  "offline_image" varchar(250) [not null]
+  "offline_image_path" varchar(250) [not null]
+  "logo_image" varchar(250) [not null]
+  "logo_image_path" varchar(250) [not null]
+  "need_help_image" varchar(250) [not null]
+  "header_background" varchar(10) [not null]
+  "need_help_tcolor" varchar(10) [not null]
+  "need_help_bcolor" varchar(10) [not null]
+  "need_help_border" varchar(10) [not null]
+  "need_help_close_bg" varchar(10) [not null]
+  "need_help_hover_bg" varchar(10) [not null]
+  "need_help_close_hover_bg" varchar(10) [not null]
+  "need_help_image_path" varchar(250) [not null]
+  "custom_status_css" text [not null]
+  "custom_container_css" text [not null]
+  "custom_widget_css" text [not null]
+  "need_help_header" text [not null]
+  "need_help_text" text [not null]
+  "online_text" text [not null]
+  "offline_text" text [not null]
+  "widget_border_color" varchar(10) [not null]
+  "copyright_image" varchar(250) [not null]
+  "copyright_image_path" varchar(250) [not null]
+  "widget_copyright_url" text [not null]
+  "show_copyright" int(11) [not null, default: 1]
+  "explain_text" text [not null]
+  "intro_operator_text" text [not null]
+  "operator_image" varchar(250) [not null]
+  "operator_image_path" varchar(250) [not null]
+  "minimize_image" varchar(250) [not null]
+  "minimize_image_path" varchar(250) [not null]
+  "restore_image" varchar(250) [not null]
+  "restore_image_path" varchar(250) [not null]
+  "close_image" varchar(250) [not null]
+  "close_image_path" varchar(250) [not null]
+  "popup_image" varchar(250) [not null]
+  "popup_image_path" varchar(250) [not null]
+  "hide_close" int(11) [not null, default: 0]
+  "hide_popup" int(11) [not null, default: 0]
+  "header_height" int(11) [not null, default: 0]
+  "header_padding" int(11) [not null, default: 0]
+  "widget_border_width" int(11) [not null, default: 0]
+  "support_joined" text [not null]
+  "support_closed" text [not null]
+  "pending_join" text [not null]
+  "noonline_operators" text [not null]
+  "noonline_operators_offline" text [not null]
+  "show_need_help" int(11) [not null, default: 1]
+  "show_need_help_timeout" int(11) [not null, default: 24]
+  "show_voting" tinyint(1) [not null, default: 1]
+  "department_title" text [not null]
+  "department_select" varchar(250) [not null]
+  "buble_visitor_background" varchar(250) [not null]
+  "buble_visitor_title_color" varchar(250) [not null]
+  "buble_visitor_text_color" varchar(250) [not null]
+  "buble_operator_background" varchar(250) [not null]
+  "buble_operator_title_color" varchar(250) [not null]
+  "buble_operator_text_color" varchar(250) [not null]
+  "custom_popup_css" text [not null]
+  "hide_ts" tinyint(1) [not null, default: 0]
+  "hide_op_ts" tinyint(1) [not null, default: 0]
+  "widget_response_width" int(11) [not null, default: 0]
+  "show_need_help_delay" int(11) [not null, default: 0]
+  "show_status_delay" int(11) [not null, default: 0]
+  "modern_look" tinyint(1) [not null, default: 0]
+  "bot_status_text" text [not null]
+  "bot_configuration" longtext [not null]
+  "notification_configuration" longtext [not null]
+  "pending_join_queue" text [not null]
+  "modified" int(11) [not null]
+  "widget_show_leave_form" tinyint(1) [not null]
+  "enable_widget_embed_override" tinyint(1) [not null]
+  "widget_popheight" int(11) [not null]
+  "widget_popwidth" int(11) [not null]
+  "widget_survey" int(11) [not null]
+  "widget_position" varchar(50) [not null]
+  "widget_pright" int(11) [not null]
+  "widget_pbottom" int(11) [not null]
+  "alias" varchar(50) [not null]
+
+  Indexes {
+    alias [name: "alias"]
+  }
+}
+
+Table "lh_admin_theme" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(100) [not null]
+  "static_content" longtext [not null]
+  "static_js_content" longtext [not null]
+  "static_css_content" longtext [not null]
+  "css_attributes" longtext [not null]
+  "header_content" text [not null]
+  "user_id" int(11) [not null]
+  "header_css" text [not null]
+
+  Indexes {
+    user_id [name: "user_id"]
+  }
+}
+
+Table "lh_audits" {
+  "id" bigint(20) [pk, not null, increment]
+  "category" varchar(255) [not null]
+  "file" varchar(255) [default: NULL]
+  "object_id" bigint(20) [default: 0]
+  "line" bigint(20) [default: NULL]
+  "message" longtext [not null]
+  "severity" varchar(255) [not null]
+  "source" varchar(255) [not null]
+  "user_id" bigint(20) [not null, note: 'User ID']
+  "time" timestamp [not null, default: `current_timestamp()`]
+
+  Indexes {
+    object_id [name: "object_id"]
+    time [name: "time"]
+    source [name: "source"]
+    category [name: "category"]
+    user_id [name: "user_id"]
+  }
+}
+
+Table "lh_bot_condition" {
+  "id" int(11) [pk, not null, increment]
+  "configuration" longtext [not null]
+  "name" varchar(50) [not null]
+  "identifier" varchar(50) [not null]
+
+  Indexes {
+    identifier [name: "identifier"]
+  }
+}
+
+Table "lh_brand" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(100) [not null]
+}
+
+Table "lh_brand_member" {
+  "id" bigint(20) [pk, not null, increment]
+  "dep_id" bigint(20) [not null]
+  "brand_id" bigint(20) [not null]
+  "role" varchar(100) [not null]
+
+  Indexes {
+    dep_id [name: "dep_id"]
+    (brand_id, role) [name: "brand_id_role"]
+  }
+}
+
+Table "lh_canned_msg" {
+  "id" int(11) [pk, not null, increment]
+  "msg" longtext [not null]
+  "fallback_msg" text [not null]
+  "title" varchar(250) [not null]
+  "explain" varchar(250) [not null]
+  "languages" text [not null]
+  "additional_data" text [not null]
+  "position" int(11) [not null]
+  "department_id" int(11) [not null]
+  "user_id" int(11) [not null]
+  "delay" int(11) [not null]
+  "auto_send" tinyint(1) [not null]
+  "html_snippet" longtext [not null]
+  "attr_int_1" int(11) [not null]
+  "attr_int_2" int(11) [not null]
+  "attr_int_3" int(11) [not null]
+  "disabled" tinyint(1) [default: 0]
+  "unique_id" varchar(20) [not null]
+  "updated_at" int(11) [not null, default: 0]
+  "created_at" int(11) [not null, default: 0]
+  "active_from" int(11) [not null, default: 0]
+  "active_to" int(11) [not null, default: 0]
+  "repetitiveness" int(11) [not null, default: 0]
+  "days_activity" text [not null]
+  "delete_on_exp" tinyint(1) [not null, default: 0]
+
+  Indexes {
+    department_id [name: "department_id"]
+    disabled [name: "disabled"]
+    attr_int_1 [name: "attr_int_1"]
+    attr_int_2 [name: "attr_int_2"]
+    attr_int_3 [name: "attr_int_3"]
+    delete_on_exp [name: "delete_on_exp"]
+    (position, title) [name: "position_title_v2"]
+    user_id [name: "user_id"]
+    unique_id [name: "unique_id"]
+    repetitiveness [name: "repetitiveness"]
+  }
+}
+
+Table "lh_canned_msg_dep" {
+  "id" bigint(20) [pk, not null, increment]
+  "canned_id" int(11) [not null]
+  "dep_id" int(11) [not null]
+
+  Indexes {
+    canned_id [name: "canned_id"]
+    dep_id [name: "dep_id"]
+  }
+}
+
+Table "lh_canned_msg_replace" {
+  "id" int(11) [pk, not null, increment]
+  "identifier" varchar(50) [not null]
+  "default" text [not null]
+  "conditions" longtext [not null]
+  "active_from" int(11) [not null, default: 0]
+  "active_to" int(11) [not null, default: 0]
+  "repetitiveness" int(11) [not null, default: 0]
+  "days_activity" text [not null]
+  "time_zone" varchar(100) [not null]
+
+  Indexes {
+    identifier [name: "identifier"]
+  }
+}
+
+Table "lh_canned_msg_subject" {
+  "id" int(11) [pk, not null, increment]
+  "canned_id" int(11) [not null]
+  "subject_id" int(11) [not null]
+
+  Indexes {
+    canned_id [name: "canned_id"]
+  }
+}
+
+Table "lh_canned_msg_tag" {
+  "id" int(11) [pk, not null, increment]
+  "tag" varchar(40) [not null]
+
+  Indexes {
+    tag [name: "tag"]
+  }
+}
+
+Table "lh_canned_msg_tag_link" {
+  "id" int(11) [pk, not null, increment]
+  "tag_id" int(11) [not null]
+  "canned_id" int(11) [not null]
+
+  Indexes {
+    canned_id [name: "canned_id"]
+    tag_id [name: "tag_id"]
+  }
+}
+
+Table "lh_canned_msg_use" {
+  "id" bigint(20) [pk, not null, increment]
+  "canned_id" int(11) [not null]
+  "chat_id" bigint(20) [not null]
+  "ctime" bigint(20) [not null]
+  "user_id" bigint(20) [not null]
+
+  Indexes {
+    ctime [name: "ctime"]
+    chat_id [name: "chat_id"]
+    canned_id [name: "canned_id"]
+  }
+}
+
+Table "lh_chat" {
+  "id" bigint(20) [pk, not null, increment, note: 'Unque Chat ID']
+  "nick" varchar(100) [not null, note: 'Visitor nick', default: 'Visitor']
+  "status" int(11) [not null, default: 0, note: 'const STATUS_PENDING_CHAT = 0; const STATUS_ACTIVE_CHAT = 1; const STATUS_CLOSED_CHAT = 2; const STATUS_CHATBOX_CHAT = 3; const STATUS_OPERATORS_CHAT = 4; const STATUS_BOT_CHAT = 5;']
+  "status_sub" int(11) [not null, default: 0, note: 'const STATUS_SUB_DEFAULT = 0; const STATUS_SUB_OWNER_CHANGED = 1; const STATUS_SUB_CONTACT_FORM = 2; const STATUS_SUB_USER_CLOSED_CHAT = 3; const STATUS_SUB_START_ON_KEY_UP = 4; const STATUS_SUB_SURVEY_SHOW = 5; const STATUS_SUB_SURVEY_COLLECTED = 6; const STATUS_SUB_OFFLINE_REQUEST = 7; const STATUS_SUB_ON_HOLD = 8;']
+  "status_sub_sub" int(11) [not null, default: 0, note: 'const STATUS_SUB_SUB_DEFAULT = 0; const STATUS_SUB_SUB_TRANSFERED = 1; const STATUS_SUB_SUB_CLOSED = 2; // Chat was previously closed, but became pending again.']
+  "time" int(11) [not null, note: 'Chat creation time in unix timestamp']
+  "user_id" int(11) [not null, note: 'To what operator chat is assigned']
+  "hash" varchar(40) [not null, note: 'Security hash. Used to check that visitor has access to chat.']
+  "referrer" text [not null, note: 'Referrer page. From what page customer come to website.']
+  "session_referrer" text [not null]
+  "chat_variables" text [not null]
+  "remarks" text [not null]
+  "ip" varchar(100) [not null, note: 'Visitor IP']
+  "dep_id" int(11) [not null, note: 'To what department chat belongs to']
+  "invitation_id" int(11) [not null]
+  "sender_user_id" int(11) [not null, note: 'What operator (id) transferred chat']
+  "product_id" int(11) [not null]
+  "pnd_time" int(11) [not null, default: 0]
+  "cls_time" int(11) [not null, default: 0]
+  "usaccept" int(11) [not null, default: 0]
+  "user_status" int(11) [not null, default: 0, note: 'const USER_STATUS_JOINED_CHAT = 0; const USER_STATUS_CLOSED_CHAT = 1; const USER_STATUS_PENDING_REOPEN = 2;']
+  "user_closed_ts" int(11) [not null, default: 0]
+  "support_informed" int(11) [not null, default: 0]
+  "unread_messages_informed" int(11) [not null, default: 0]
+  "reinform_timeout" int(11) [not null, default: 0]
+  "last_op_msg_time" int(11) [not null, default: 0]
+  "has_unread_op_messages" int(11) [not null, default: 0]
+  "unread_op_messages_informed" int(11) [not null, default: 0]
+  "email" varchar(100) [not null, note: 'Customer e-mail']
+  "country_code" varchar(100) [not null, note: 'Two letter country code']
+  "country_name" varchar(100) [not null, note: 'Full country name']
+  "unanswered_chat" int(11) [not null]
+  "cls_us" tinyint(1) [not null, default: 0, note: 'User status on chat close event. 0 - undetermined, 1 - visitor was online, 2 - visitor was offline']
+  "anonymized" tinyint(1) [not null]
+  "user_typing" int(11) [not null, note: 'Holds timestamp then visitor started typing. Is updated constantly while visitor is typing.']
+  "gbot_id" int(11) [not null, default: 0]
+  "user_typing_txt" varchar(200) [not null, note: 'Visitor typing text']
+  "operator_typing" int(11) [not null]
+  "operator_typing_id" int(11) [not null]
+  "phone" varchar(100) [not null, note: 'Customer phone']
+  "has_unread_messages" int(11) [not null]
+  "last_user_msg_time" int(11) [not null, note: 'Time of of last visitor message']
+  "fbst" tinyint(1) [not null]
+  "online_user_id" int(11) [not null]
+  "auto_responder_id" int(11) [not null]
+  "last_msg_id" int(11) [not null]
+  "lsync" int(11) [not null]
+  "transfer_uid" int(11) [not null]
+  "additional_data" text [not null]
+  "user_tz_identifier" varchar(50) [not null]
+  "lat" varchar(10) [not null]
+  "lon" varchar(10) [not null]
+  "city" varchar(100) [not null]
+  "operation" text [not null]
+  "operation_admin" varchar(200) [not null]
+  "status_sub_arg" varchar(200) [not null, note: 'Custom arguments for sub status']
+  "uagent" varchar(250) [not null]
+  "chat_locale" varchar(10) [not null]
+  "chat_locale_to" varchar(10) [not null]
+  "mail_send" int(11) [not null]
+  "screenshot_id" int(11) [not null]
+  "wait_time" int(11) [not null]
+  "chat_duration" int(11) [not null]
+  "tslasign" int(11) [not null]
+  "priority" int(11) [not null]
+  "chat_initiator" int(11) [not null]
+  "transfer_timeout_ts" int(11) [not null]
+  "transfer_timeout_ac" int(11) [not null]
+  "transfer_if_na" int(11) [not null]
+  "na_cb_executed" int(11) [not null]
+  "device_type" int(11) [not null]
+  "nc_cb_executed" tinyint(1) [not null]
+  "iwh_id" int(11) [not null, default: 0]
+  "theme_id" int(11) [not null, default: 0]
+  "frt" int(11) [not null, default: 0, note: 'First time response delay. How long agent took to write first message after chat acceptance.']
+  "aart" int(11) [not null, default: 0, note: 'Average agent response time. Average how long agents took to write response to visitor messages.']
+  "mart" int(11) [not null, default: 0, note: 'Max agent response time. How long agent took to write response to visitor messages.']
+
+  Indexes {
+    (status, user_id) [name: "status_user_id"]
+    unanswered_chat [name: "unanswered_chat"]
+    online_user_id [name: "online_user_id"]
+    dep_id [name: "dep_id"]
+    time [name: "time"]
+    product_id [name: "product_id"]
+    (has_unread_op_messages, unread_op_messages_informed) [name: "unread_operator"]
+    (user_id, sender_user_id) [name: "user_id_sender_user_id"]
+    sender_user_id [name: "sender_user_id"]
+    anonymized [name: "anonymized"]
+    has_unread_messages [name: "has_unread_messages"]
+    status [name: "status"]
+    nick [name: "nick"]
+    iwh_id [name: "iwh_id"]
+    theme_id [name: "theme_id"]
+    email [name: "email"]
+    phone [name: "phone"]
+    (dep_id, status) [name: "dep_id_status"]
+  }
+}
+
+
+Table "lh_chatbox" {
+  "id" int(11) [pk, not null, increment]
+  "identifier" varchar(50) [not null]
+  "name" varchar(100) [not null]
+  "chat_id" int(11) [not null]
+  "active" int(11) [not null]
+
+  Indexes {
+    identifier [name: "identifier"]
+  }
+}
+
+Table "lh_chat_accept" {
+  "id" int(11) [pk, not null, increment]
+  "chat_id" bigint(20) [not null]
+  "hash" varchar(50) [not null]
+  "ctime" int(11) [not null]
+  "wused" int(11) [not null]
+
+  Indexes {
+    hash [name: "hash"]
+  }
+}
+
+Table "lh_chat_action" {
+  "id" bigint(20) [pk, not null, increment]
+  "chat_id" bigint(20) [not null]
+  "action" varchar(50) [not null]
+  "body" longtext [not null]
+  "created_at" bigint(20) [not null]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+  }
+}
+
+Table "lh_chat_archive_range" {
+  "id" int(11) [pk, not null, increment]
+  "range_from" bigint(20) [not null]
+  "range_to" bigint(20) [not null]
+  "older_than" int(11) [not null]
+  "last_id" bigint(20) [not null]
+  "first_id" bigint(20) [not null]
+  "year_month" int(11) [not null]
+}
+
+Table "lh_chat_blocked_user" {
+  "id" bigint(20) [pk, not null, increment]
+  "ip" varchar(100) [not null]
+  "user_id" bigint(20) [not null]
+  "datets" bigint(20) [not null]
+  "chat_id" bigint(20) [not null]
+  "dep_id" bigint(20) [not null]
+  "nick" varchar(50) [not null]
+  "btype" tinyint(1) [not null, default: 0]
+  "expires" bigint(20) [not null, default: 0]
+  "online_user_id" bigint(20) [not null, default: 0]
+
+  Indexes {
+    ip [name: "ip"]
+    nick [name: "nick"]
+    online_user_id [name: "online_user_id"]
+  }
+}
+
+Table "lh_chat_config" {
+  "identifier" varchar(50) [pk, not null]
+  "value" text [not null]
+  "type" tinyint(1) [not null, default: 0]
+  "explain" varchar(250) [not null]
+  "hidden" int(11) [not null, default: 0]
+}
+
+Table "lh_chat_event_track" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "data" longtext [not null]
+  "department_id" int(11) [not null]
+
+  Indexes {
+    department_id [name: "department_id"]
+  }
+}
+
+Table "lh_chat_file" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(255) [not null]
+  "upload_name" varchar(255) [not null]
+  "size" int(11) [not null]
+  "type" varchar(255) [not null]
+  "file_path" varchar(255) [not null]
+  "extension" varchar(255) [not null]
+  "chat_id" bigint(20) [not null]
+  "persistent" int(11) [not null]
+  "online_user_id" int(11) [not null]
+  "user_id" int(11) [not null]
+  "date" int(11) [not null]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+    online_user_id [name: "online_user_id"]
+    user_id [name: "user_id"]
+  }
+}
+
+Table "lh_chat_incoming" {
+  "id" bigint(20) [pk, not null, increment]
+  "chat_id" bigint(20) [not null]
+  "utime" bigint(20) [not null]
+  "incoming_id" int(11) [not null]
+  "payload" longtext [not null]
+  "chat_external_id" varchar(100) [not null]
+
+  Indexes {
+    (incoming_id, chat_external_id) [unique, name: "incoming_ext_id_uniq"]
+    chat_id [name: "chat_id"]
+  }
+}
+
+Table "lh_chat_online_user" {
+  "id" bigint(20) [pk, not null, increment]
+  "vid" varchar(50) [not null]
+  "ip" varchar(50) [not null]
+  "current_page" text [not null]
+  "page_title" varchar(250) [not null]
+  "referrer" text [not null]
+  "chat_id" bigint(20) [not null]
+  "invitation_seen_count" int(11) [not null]
+  "invitation_id" int(11) [not null]
+  "last_visit" int(11) [not null]
+  "first_visit" int(11) [not null]
+  "total_visits" int(11) [not null]
+  "pages_count" int(11) [not null]
+  "tt_pages_count" int(11) [not null]
+  "invitation_count" int(11) [not null]
+  "last_check_time" int(11) [not null]
+  "dep_id" int(11) [not null]
+  "user_agent" text [not null]
+  "notes" varchar(250) [not null]
+  "user_country_code" varchar(50) [not null]
+  "user_country_name" varchar(50) [not null]
+  "visitor_tz" varchar(50) [not null]
+  "operator_message" text [not null]
+  "operator_user_proactive" varchar(100) [not null]
+  "operator_user_id" int(11) [not null]
+  "conversion_id" int(11) [not null]
+  "message_seen" int(11) [not null]
+  "message_seen_ts" int(11) [not null]
+  "user_active" int(11) [not null]
+  "lat" varchar(10) [not null]
+  "lon" varchar(10) [not null]
+  "city" varchar(100) [not null]
+  "reopen_chat" int(11) [not null]
+  "time_on_site" int(11) [not null]
+  "tt_time_on_site" int(11) [not null]
+  "requires_email" int(11) [not null]
+  "requires_username" int(11) [not null]
+  "requires_phone" int(11) [not null]
+  "screenshot_id" int(11) [not null]
+  "identifier" varchar(50) [not null]
+  "operation" text [not null]
+  "online_attr_system" text [not null]
+  "operation_chat" text [not null]
+  "online_attr" text [not null]
+  "device_type" tinyint(1) [not null, default: 0]
+  "chat_time" bigint(20) [not null, default: 0]
+  "last_visit_prev" bigint(20) [not null, default: 0]
+
+  Indexes {
+    vid [name: "vid"]
+    dep_id [name: "dep_id"]
+    first_visit [name: "first_visit"]
+    (last_visit, dep_id) [name: "last_visit_dep_id"]
+  }
+}
+
+Table "lh_chat_online_user_footprint" {
+  "id" bigint(20) [pk, not null, increment]
+  "chat_id" bigint(20) [not null]
+  "online_user_id" int(11) [not null]
+  "page" varchar(2083) [not null]
+  "vtime" int(11) [not null]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+    online_user_id [name: "online_user_id"]
+  }
+}
+
+Table "lh_chat_online_user_footprint_update" {
+  "online_user_id" bigint(20) [not null]
+  "command" varchar(20) [not null]
+  "args" varchar(250) [not null]
+  "ctime" int(11) [not null]
+
+  Indexes {
+    online_user_id [name: "online_user_id"]
+  }
+}
+
+Table "lh_chat_paid" {
+  "id" int(11) [pk, not null, increment]
+  "hash" varchar(250) [not null]
+  "chat_id" int(11) [not null]
+
+  Indexes {
+    hash [name: "hash"]
+    chat_id [name: "chat_id"]
+  }
+}
+
+Table "lh_chat_participant" {
+  "id" bigint(20) [pk, not null, increment]
+  "chat_id" bigint(20) [not null]
+  "user_id" bigint(20) [not null]
+  "duration" int(11) [not null]
+  "time" bigint(20) [not null]
+  "dep_id" bigint(20) [not null]
+  "frt" int(11) [not null, default: 0]
+  "aart" int(11) [not null, default: 0]
+  "mart" int(11) [not null, default: 0]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+    time [name: "time"]
+    user_id [name: "user_id"]
+  }
+}
+
+Table "lh_chat_start_settings" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "data" longtext [not null]
+  "dep_ids" text [not null]
+  "department_id" int(11) [not null]
+
+  Indexes {
+    department_id [name: "department_id"]
+  }
+}
+
+Table "lh_chat_voice_video" {
+  "id" bigint(20) [pk, not null, increment]
+  "chat_id" bigint(20) [not null]
+  "user_id" bigint(20) [not null]
+  "op_status" tinyint(4) [not null]
+  "vi_status" tinyint(4) [not null]
+  "voice" tinyint(4) [not null]
+  "video" tinyint(4) [not null]
+  "screen_share" tinyint(4) [not null]
+  "status" tinyint(4) [not null]
+  "ctime" int(11) [not null]
+  "token" varchar(200) [not null]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+  }
+}
+
+Table "lh_cobrowse" {
+  "id" int(11) [pk, not null, increment]
+  "chat_id" int(11) [not null]
+  "online_user_id" int(11) [not null]
+  "mtime" int(11) [not null]
+  "url" varchar(250) [not null]
+  "initialize" longtext [not null]
+  "modifications" longtext [not null]
+  "finished" tinyint(1) [not null]
+  "w" int(11) [not null]
+  "wh" int(11) [not null]
+  "x" int(11) [not null]
+  "y" int(11) [not null]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+    online_user_id [name: "online_user_id"]
+  }
+}
+
+Table "lh_departament" {
+  "id" int(11) [pk, not null, increment, note: 'Department ID']
+  "name" varchar(100) [not null, note: 'Department name']
+  "email" varchar(100) [not null, note: 'Department e-mail']
+  "xmpp_recipients" text [not null, note: 'XMPP recipients']
+  "xmpp_group_recipients" text [not null, note: 'XMPP group recipients']
+  "priority" int(11) [not null, note: 'Department priority']
+  "sort_priority" int(11) [not null, note: 'Department sort priority']
+  "department_transfer_id" int(11) [not null, note: 'Department transfer ID']
+  "transfer_timeout" int(11) [not null, note: 'Transfer timeout']
+  "exclude_inactive_chats" int(11) [not null, note: 'Exclude inactive chats']
+  "delay_before_assign" int(11) [not null, note: 'Delay before assign']
+  "max_ac_dep_chats" int(11) [not null, note: 'Max active department chats']
+  "assign_same_language" int(11) [not null, note: 'Assign same language']
+  "archive" tinyint(1) [not null, default: 0, note: 'Archive status']
+  "max_load" int(11) [not null, default: 0, note: 'Max load']
+  "max_load_h" int(11) [not null, default: 0, note: 'Max load hours']
+  "max_active_mails" int(11) [not null, default: 0, note: 'Max active e-mails']
+  "active_mail_balancing" tinyint(1) [not null, note: 'Active mail balancing']
+  "max_ac_dep_mails" int(11) [not null, note: 'Max active department e-mails']
+  "max_timeout_seconds_mail" int(11) [not null, note: 'Max timeout seconds mail']
+  "delay_before_assign_mail" int(11) [not null, note: 'Delay before assign mail']
+  "disabled" int(11) [not null, note: 'Disabled status']
+  "hidden" int(11) [not null, note: 'Hidden status']
+  "delay_lm" int(11) [not null, note: 'Delay LM']
+  "max_active_chats" int(11) [not null, note: 'Max active chats']
+  "max_timeout_seconds" int(11) [not null, note: 'Max timeout seconds']
+  "identifier" varchar(2083) [not null, note: 'Department identifier']
+  "mod_start_hour" int(4) [not null, default: `-1`, note: 'Monday start hour']
+  "mod_end_hour" int(4) [not null, default: `-1`, note: 'Monday end hour']
+  "tud_start_hour" int(4) [not null, default: `-1`, note: 'Tuesday start hour']
+  "tud_end_hour" int(4) [not null, default: `-1`, note: 'Tuesday end hour']
+  "wed_start_hour" int(4) [not null, default: `-1`, note: 'Wednesday start hour']
+  "wed_end_hour" int(4) [not null, default: `-1`, note: 'Wednesday end hour']
+  "thd_start_hour" int(4) [not null, default: `-1`, note: 'Thursday start hour']
+  "thd_end_hour" int(4) [not null, default: `-1`, note: 'Thursday end hour']
+  "frd_start_hour" int(4) [not null, default: `-1`, note: 'Friday start hour']
+  "frd_end_hour" int(4) [not null, default: `-1`, note: 'Friday end hour']
+  "sad_start_hour" int(4) [not null, default: `-1`, note: 'Saturday start hour']
+  "sad_end_hour" int(4) [not null, default: `-1`, note: 'Saturday end hour']
+  "sud_start_hour" int(4) [not null, default: `-1`, note: 'Sunday start hour']
+  "sud_end_hour" int(4) [not null, default: `-1`, note: 'Sunday end hour']
+  "nc_cb_execute" tinyint(1) [not null, note: 'NC CB execute']
+  "na_cb_execute" tinyint(1) [not null, note: 'NA CB execute']
+  "inform_unread" tinyint(1) [not null, note: 'Inform unread']
+  "active_balancing" tinyint(1) [not null, note: 'Active balancing']
+  "visible_if_online" tinyint(1) [not null, note: 'Visible if online']
+  "inform_close" int(11) [not null, note: 'Inform close']
+  "inform_unread_delay" int(11) [not null, note: 'Inform unread delay']
+  "inform_options" varchar(250) [not null, note: 'Inform options']
+  "online_hours_active" tinyint(1) [not null, note: 'Online hours active']
+  "inform_delay" int(11) [not null, note: 'Inform delay']
+  "attr_int_1" int(11) [not null, default: 0, note: 'Attribute integer 1']
+  "attr_int_2" int(11) [not null, default: 0, note: 'Attribute integer 2']
+  "attr_int_3" int(11) [not null, default: 0, note: 'Attribute integer 3']
+  "pending_max" int(11) [not null, note: 'Pending max']
+  "pending_group_max" int(11) [not null, note: 'Pending group max']
+  "active_chats_counter" int(11) [not null, default: 0, note: 'Active chats counter']
+  "inactive_chats_cnt" int(11) [not null, default: 0, note: 'Inactive chats count']
+  "pending_chats_counter" int(11) [not null, default: 0, note: 'Pending chats counter']
+  "bot_chats_counter" int(11) [not null, default: 0, note: 'Bot chats counter']
+  "inop_chats_cnt" int(11) [not null, default: 0, note: 'In operator chats count']
+  "acop_chats_cnt" int(11) [not null, default: 0, note: 'Active operator chats count']
+  "inform_close_all" int(11) [not null, default: 0, note: 'Inform close all']
+  "inform_close_all_email" varchar(250) [not null, default: '0', note: 'Inform close all e-mail']
+  "alias" varchar(50) [not null, note: 'Department alias']
+  "product_configuration" longtext [not null, note: 'Product configuration']
+  "bot_configuration" text [not null, note: 'Bot configuration']
+  "ignore_op_status" tinyint(1) [not null, default: 0, note: 'Ignore operator status']
+  "dep_offline" tinyint(1) [not null, default: 0, note: 'Department offline']
+
+  Indexes {
+    identifier [name: "identifier_2", note: 'Identifier index']
+    archive [name: "archive", note: 'Archive index']
+    alias [name: "alias", note: 'Alias index']
+    attr_int_1 [name: "attr_int_1", note: 'Attribute integer 1 index']
+    attr_int_2 [name: "attr_int_2", note: 'Attribute integer 2 index']
+    attr_int_3 [name: "attr_int_3", note: 'Attribute integer 3 index']
+    active_chats_counter [name: "active_chats_counter", note: 'Active chats counter index']
+    pending_chats_counter [name: "pending_chats_counter", note: 'Pending chats counter index']
+    bot_chats_counter [name: "bot_chats_counter", note: 'Bot chats counter index']
+    (disabled, hidden) [name: "disabled_hidden", note: 'Disabled and hidden index']
+    dep_offline [name: "dep_offline", note: 'Department offline index']
+    (sort_priority, name) [name: "sort_priority_name", note: 'Sort priority and name index']
+    (online_hours_active, mod_start_hour, mod_end_hour) [name: "active_mod", note: 'Active and Monday hours index']
+    (online_hours_active, tud_start_hour, tud_end_hour) [name: "active_tud", note: 'Active and Tuesday hours index']
+    (online_hours_active, wed_start_hour, wed_end_hour) [name: "active_wed", note: 'Active and Wednesday hours index']
+    (online_hours_active, thd_start_hour, thd_end_hour) [name: "active_thd", note: 'Active and Thursday hours index']
+    (online_hours_active, frd_start_hour, frd_end_hour) [name: "active_frd", note: 'Active and Friday hours index']
+    (online_hours_active, sad_start_hour, sad_end_hour) [name: "active_sad", note: 'Active and Saturday hours index']
+    (online_hours_active, sud_start_hour, sud_end_hour) [name: "active_sud", note: 'Active and Sunday hours index']
+    ignore_op_status [name: "ignore_op_status", note: 'Ignore operator status index']
+  }
+}
+
+Table "lh_departament_availability" {
+  "id" bigint(20) [pk, not null, increment]
+  "dep_id" int(11) [not null]
+  "hour" int(11) [not null]
+  "hourminute" int(4) [not null]
+  "minute" int(11) [not null]
+  "time" int(11) [not null]
+  "ymdhi" bigint(20) [not null]
+  "ymd" int(11) [not null]
+  "status" int(11) [not null]
+
+  Indexes {
+    ymdhi [name: "ymdhi"]
+    dep_id [name: "dep_id"]
+    hourminute [name: "hourminute"]
+    time [name: "time"]
+  }
+}
+
+Table "lh_departament_custom_work_hours" {
+  "id" int(11) [pk, not null, increment]
+  "dep_id" int(11) [not null]
+  "date_from" int(11) [not null]
+  "date_to" int(11) [not null]
+  "start_hour" int(11) [not null]
+  "end_hour" int(11) [not null]
+  "repetitiveness" tinyint(1) [not null, default: 0]
+
+  Indexes {
+    dep_id [name: "dep_id"]
+    repetitiveness [name: "repetitiveness"]
+    date_from [name: "date_from"]
+    (date_from, date_to, dep_id) [name: "search_active"]
+  }
+}
+
+Table "lh_departament_group" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "achats_cnt" int(11) [not null, default: 0]
+  "inachats_cnt" int(11) [not null, default: 0]
+  "pchats_cnt" int(11) [not null, default: 0]
+  "max_load" int(11) [not null, default: 0]
+  "max_load_h" int(11) [not null, default: 0]
+  "bchats_cnt" int(11) [not null, default: 0]
+  "inopchats_cnt" int(11) [not null, default: 0]
+  "acopchats_cnt" int(11) [not null, default: 0]
+}
+
+Table "lh_departament_group_member" {
+  "id" int(11) [pk, not null, increment]
+  "dep_id" int(11) [not null]
+  "dep_group_id" int(11) [not null]
+
+  Indexes {
+    dep_group_id [name: "dep_group_id"]
+  }
+}
+
+Table "lh_departament_group_user" {
+  "id" int(11) [pk, not null, increment]
+  "dep_group_id" int(11) [not null]
+  "user_id" int(11) [not null]
+  "read_only" tinyint(1) [not null, default: 0]
+  "exc_indv_autoasign" tinyint(1) [not null, default: 0]
+  "assign_priority" int(11) [not null, default: 0]
+  "chat_min_priority" int(11) [not null, default: 0]
+  "chat_max_priority" int(11) [not null, default: 0]
+
+  Indexes {
+    dep_group_id [name: "dep_group_id"]
+    user_id [name: "user_id"]
+  }
+}
+
+Table "lh_departament_limit_group" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "pending_max" int(11) [not null]
+}
+
+Table "lh_departament_limit_group_member" {
+  "id" int(11) [pk, not null, increment]
+  "dep_id" int(11) [not null]
+  "dep_limit_group_id" int(11) [not null]
+
+  Indexes {
+    dep_limit_group_id [name: "dep_limit_group_id"]
+  }
+}
+
+Table "lh_faq" {
+  "id" int(11) [pk, not null, increment]
+  "question" varchar(250) [not null]
+  "answer" text [not null]
+  "url" varchar(250) [not null]
+  "email" varchar(50) [not null]
+  "identifier" varchar(10) [not null]
+  "active" int(11) [not null]
+  "has_url" tinyint(1) [not null]
+  "is_wildcard" tinyint(1) [not null]
+
+  Indexes {
+    active [name: "active"]
+    (active, url) [name: "active_url_2"]
+    has_url [name: "has_url"]
+    identifier [name: "identifier"]
+    is_wildcard [name: "is_wildcard"]
+  }
+}
+
+Table "lh_forgotpasswordhash" {
+  "id" int(11) [pk, not null, increment]
+  "user_id" int(11) [not null]
+  "hash" varchar(40) [not null]
+  "created" int(11) [not null]
+}
+
+Table "lh_generic_bot_bot" {
+  "id" bigint(20) [pk, not null, increment]
+  "configuration" longtext [not null]
+  "avatar" varchar(150) [not null]
+  "filename" varchar(250) [not null]
+  "filepath" varchar(250) [not null]
+  "name" varchar(100) [not null]
+  "nick" varchar(100) [not null]
+  "attr_str_1" varchar(100) [not null]
+  "attr_str_2" varchar(100) [not null]
+  "attr_str_3" varchar(100) [not null]
+}
+
+Table "lh_generic_bot_chat_event" {
+  "id" bigint(20) [pk, not null, increment]
+  "chat_id" bigint(20) [not null]
+  "counter" int(11) [not null]
+  "content" longtext [not null]
+  "ctime" int(11) [not null]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+  }
+}
+
+Table "lh_generic_bot_chat_workflow" {
+  "id" bigint(20) [pk, not null, increment]
+  "chat_id" bigint(20) [not null]
+  "trigger_id" bigint(20) [not null]
+  "time" int(11) [not null]
+  "identifier" varchar(100) [not null]
+  "status" int(11) [not null]
+  "collected_data" text [default: NULL]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+  }
+}
+
+Table "lh_generic_bot_command" {
+  "id" int(11) [pk, not null, increment]
+  "command" varchar(50) [not null]
+  "sub_command" varchar(100) [not null]
+  "enabled_display" tinyint(1) [not null, default: 0]
+  "info_msg" varchar(100) [not null]
+  "name" varchar(50) [not null]
+  "bot_id" int(11) [not null]
+  "trigger_id" int(11) [not null]
+  "dep_id" int(11) [not null]
+  "fields" text [not null]
+  "shortcut_1" varchar(10) [not null]
+  "shortcut_2" varchar(10) [not null]
+  "position" int(11) [not null, default: 1000]
+
+  Indexes {
+    dep_id [name: "dep_id"]
+    command [name: "command"]
+  }
+}
+
+Table "lh_generic_bot_exception" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(100) [not null]
+  "priority" int(11) [not null]
+  "active" tinyint(1) [not null]
+}
+
+Table "lh_generic_bot_exception_message" {
+  "id" bigint(20) [pk, not null, increment]
+  "code" varchar(20) [not null]
+  "exception_group_id" int(11) [not null]
+  "priority" int(11) [not null]
+  "active" tinyint(1) [not null]
+  "message" text [not null]
+
+  Indexes {
+    code [name: "code"]
+    exception_group_id [name: "exception_group_id"]
+  }
+}
+
+Table "lh_generic_bot_group" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(100) [not null]
+  "is_collapsed" int(11) [not null, default: 0]
+  "pos" int(11) [not null, default: 0]
+  "bot_id" bigint(20) [not null]
+
+  Indexes {
+    bot_id [name: "bot_id"]
+  }
+}
+
+Table "lh_generic_bot_payload" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(100) [not null]
+  "payload" varchar(100) [not null]
+  "bot_id" int(11) [not null]
+  "trigger_id" int(11) [not null]
+
+  Indexes {
+    bot_id [name: "bot_id"]
+    trigger_id [name: "trigger_id"]
+  }
+}
+
+Table "lh_generic_bot_pending_event" {
+  "id" bigint(20) [pk, not null, increment]
+  "chat_id" bigint(20) [not null]
+  "trigger_id" int(11) [not null]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+  }
+}
+
+Table "lh_generic_bot_repeat_restrict" {
+  "id" bigint(20) [pk, not null, increment]
+  "chat_id" bigint(20) [not null]
+  "trigger_id" bigint(20) [default: NULL]
+  "identifier" varchar(20) [default: NULL]
+  "counter" int(11) [default: 0]
+
+  Indexes {
+    (chat_id, trigger_id) [name: "chat_id_trigger_id"]
+  }
+}
+
+Table "lh_generic_bot_rest_api" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "description" varchar(250) [default: NULL]
+  "configuration" longtext [not null]
+}
+
+Table "lh_generic_bot_rest_api_cache" {
+  "hash" varchar(32) [not null]
+  "rest_api_id" bigint(20) [not null]
+  "response" text [not null]
+  "ctime" bigint(20) [not null]
+
+  Indexes {
+    (rest_api_id, hash) [unique, name: "rest_api_id_hash"]
+  }
+}
+
+Table "lh_generic_bot_trigger" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(100) [not null]
+  "actions" longtext [not null]
+  "group_id" bigint(20) [not null]
+  "bot_id" int(11) [not null]
+  "default" int(11) [not null]
+  "default_unknown" int(11) [not null]
+  "as_argument" int(11) [not null, default: 0]
+  "in_progress" int(11) [not null, default: 0]
+  "default_unknown_btn" int(11) [not null, default: 0]
+  "default_always" int(11) [not null]
+  "pos" int(11) [not null, default: 0]
+
+  Indexes {
+    bot_id [name: "bot_id"]
+    default_unknown [name: "default_unknown"]
+    in_progress [name: "in_progress"]
+    default_unknown_btn [name: "default_unknown_btn"]
+    default_always [name: "default_always"]
+    group_id [name: "group_id"]
+  }
+}
+
+Table "lh_generic_bot_trigger_event" {
+  "id" bigint(20) [pk, not null, increment]
+  "pattern" text [not null]
+  "pattern_exc" text [not null]
+  "configuration" longtext [not null]
+  "trigger_id" bigint(20) [not null]
+  "bot_id" int(11) [not null]
+  "skip" tinyint(1) [not null, default: 0]
+  "on_start_type" tinyint(1) [not null]
+  "priority" int(11) [not null]
+  "type" int(11) [not null]
+
+  Indexes {
+    pattern [name: "pattern_v2"]
+    type [name: "type"]
+    on_start_type [name: "on_start_type"]
+    trigger_id [name: "trigger_id"]
+  }
+}
+
+Table "lh_generic_bot_trigger_event_template" {
+  "id" bigint(20) [pk, not null, increment]
+  "configuration" longtext [not null]
+  "name" varchar(100) [not null]
+}
+
+Table "lh_generic_bot_trigger_template" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(100) [not null]
+  "actions" longtext [not null]
+}
+
+Table "lh_generic_bot_tr_group" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(100) [not null]
+  "bot_lang" varchar(10) [not null]
+  "use_translation_service" tinyint(1) [not null, default: 0]
+  "filename" varchar(250) [not null]
+  "filepath" varchar(250) [not null]
+  "configuration" longtext [not null]
+  "nick" varchar(100) [not null]
+}
+
+Table "lh_generic_bot_tr_item" {
+  "id" int(11) [pk, not null, increment]
+  "group_id" int(11) [not null]
+  "auto_translate" tinyint(1) [not null, default: 0]
+  "identifier" varchar(50) [not null]
+  "translation" text [not null]
+
+  Indexes {
+    identifier [name: "identifier"]
+    group_id [name: "group_id"]
+  }
+}
+
+Table "lh_group" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "disabled" tinyint(1) [not null]
+  "required" tinyint(1) [not null, default: 0]
+
+  Indexes {
+    disabled [name: "disabled"]
+  }
+}
+
+Table "lh_grouprole" {
+  "id" int(11) [pk, not null, increment]
+  "group_id" int(11) [not null]
+  "role_id" int(11) [not null]
+
+  Indexes {
+    (role_id, group_id) [name: "group_id"]
+    group_id [name: "group_id_primary"]
+  }
+}
+
+Table "lh_groupuser" {
+  "id" int(11) [pk, not null, increment]
+  "group_id" int(11) [not null]
+  "user_id" int(11) [not null]
+
+  Indexes {
+    group_id [name: "group_id"]
+    user_id [name: "user_id"]
+    (group_id, user_id) [name: "group_id_2"]
+  }
+}
+
+Table "lh_group_chat" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "status" int(11) [not null]
+  "time" int(11) [not null]
+  "user_id" int(11) [not null]
+  "chat_id" bigint(20) [not null, default: 0]
+  "last_msg_op_id" bigint(20) [not null]
+  "last_msg" varchar(200) [not null]
+  "last_user_msg_time" int(11) [not null]
+  "last_msg_id" bigint(20) [not null]
+  "type" tinyint(1) [not null, default: 0]
+  "tm" int(11) [not null]
+
+  Indexes {
+    user_id [name: "user_id"]
+    chat_id [name: "chat_id"]
+    type [name: "type"]
+  }
+}
+
+Table "lh_group_chat_member" {
+  "id" bigint(20) [pk, not null, increment]
+  "user_id" bigint(20) [not null]
+  "group_id" bigint(20) [not null]
+  "last_activity" int(11) [not null]
+  "last_msg_id" bigint(20) [not null, default: 0]
+  "type" tinyint(1) [not null, default: 0]
+  "jtime" int(11) [not null]
+
+  Indexes {
+    group_id [name: "group_id"]
+    user_id [name: "user_id"]
+    type [name: "type"]
+  }
+}
+
+Table "lh_group_msg" {
+  "id" bigint(20) [pk, not null, increment]
+  "msg" longtext [not null]
+  "time" int(11) [not null]
+  "chat_id" int(11) [not null, default: 0]
+  "user_id" int(11) [not null, default: 0]
+  "name_support" varchar(100) [not null]
+  "meta_msg" longtext [not null]
+
+  Indexes {
+    (chat_id, id) [name: "chat_id_id"]
+    user_id [name: "user_id"]
+  }
+}
+
+Table "lh_group_object" {
+  "id" bigint(20) [pk, not null, increment]
+  "object_id" bigint(20) [not null]
+  "group_id" bigint(20) [not null]
+  "type" bigint(20) [not null]
+
+  Indexes {
+    (object_id, type) [name: "object_id_type"]
+    group_id [name: "group_id"]
+  }
+}
+
+Table "lh_group_work" {
+  "id" int(11) [pk, not null, increment]
+  "group_id" int(11) [not null]
+  "group_work_id" int(11) [not null]
+
+  Indexes {
+    group_id [name: "group_id"]
+  }
+}
+
+Table "lh_incoming_webhook" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "identifier" varchar(50) [not null]
+  "disabled" tinyint(1) [not null]
+  "configuration" longtext [not null]
+  "dep_id" int(11) [not null]
+  "scope" varchar(50) [not null]
+  "icon" varchar(50) [not null]
+  "icon_color" varchar(50) [not null]
+  "log_incoming" tinyint(1) [not null]
+  "log_failed_parse" tinyint(1) [not null]
+
+  Indexes {
+    (identifier, disabled) [name: "identifier"]
+  }
+}
+
+Table "lh_mail_archive_range" {
+  "id" int(11) [pk, not null, increment]
+  "range_from" bigint(20) [not null]
+  "range_to" bigint(20) [not null]
+  "older_than" int(11) [not null]
+  "last_id" bigint(20) [not null]
+  "first_id" bigint(20) [not null]
+  "year_month" int(11) [not null]
+  "type" tinyint(1) [not null]
+  "name" varchar(50) [not null]
+}
+
+Table "lh_mail_continuous_event" {
+  "webhook_id" bigint(20) [not null]
+  "message_id" bigint(20) [not null]
+  "created_at" bigint(20) [not null]
+
+  Indexes {
+    (webhook_id, message_id) [unique, name: "webhook_id_message_id"]
+    created_at [name: "created_at"]
+  }
+}
+
+Table "lh_msg" {
+  "id" bigint(20) [pk, not null, increment]
+  "msg" longtext [not null]
+  "meta_msg" longtext [not null]
+  "time" int(11) [not null]
+  "chat_id" int(11) [not null, default: 0]
+  "user_id" int(11) [not null, default: 0]
+  "del_st" tinyint(1) [not null, default: 0]
+  "name_support" varchar(100) [not null]
+
+  Indexes {
+    (chat_id, id) [name: "chat_id_id"]
+    user_id [name: "user_id"]
+  }
+}
+
+Table "lh_notification_subscriber" {
+  "id" bigint(20) [pk, not null, increment]
+  "chat_id" bigint(20) [not null]
+  "online_user_id" bigint(20) [not null]
+  "dep_id" int(11) [not null]
+  "theme_id" int(11) [not null]
+  "ctime" int(11) [not null]
+  "utime" int(11) [not null]
+  "status" int(11) [not null]
+  "params" text [not null]
+  "device_type" tinyint(1) [not null]
+  "subscriber_hash" varchar(50) [not null]
+  "uagent" varchar(250) [not null]
+  "ip" varchar(250) [not null]
+  "last_error" text [not null]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+    dep_id [name: "dep_id"]
+    online_user_id [name: "online_user_id"]
+    subscriber_hash [name: "subscriber_hash"]
+  }
+}
+
+Table "lh_question" {
+  "id" int(11) [pk, not null, increment]
+  "question" varchar(250) [not null]
+  "location" varchar(250) [not null]
+  "active" int(11) [not null]
+  "priority" int(11) [not null]
+  "is_voting" int(11) [not null]
+  "question_intro" text [not null]
+  "revote" int(11) [not null, default: 0]
+
+  Indexes {
+    priority [name: "priority"]
+    (active, priority) [name: "active_priority"]
+  }
+}
+
+Table "lh_question_answer" {
+  "id" int(11) [pk, not null, increment]
+  "ip" bigint(20) [not null]
+  "question_id" int(11) [not null]
+  "answer" text [not null]
+  "ctime" int(11) [not null]
+
+  Indexes {
+    ip [name: "ip"]
+    question_id [name: "question_id"]
+  }
+}
+
+Table "lh_question_option" {
+  "id" int(11) [pk, not null, increment]
+  "question_id" int(11) [not null]
+  "option_name" varchar(250) [not null]
+  "priority" tinyint(4) [not null]
+
+  Indexes {
+    question_id [name: "question_id"]
+  }
+}
+
+Table "lh_question_option_answer" {
+  "id" int(11) [pk, not null, increment]
+  "question_id" int(11) [not null]
+  "option_id" int(11) [not null]
+  "ctime" int(11) [not null]
+  "ip" bigint(20) [not null]
+
+  Indexes {
+    question_id [name: "question_id"]
+    ip [name: "ip"]
+  }
+}
+
+Table lh_notification_op_subscriber {
+  id bigint [pk, increment, not null,  note: 'Primary key identifier']
+  user_id bigint [not null, note: 'Foreign key to the user table (assuming)'] // Assuming user_id relates to a users table
+  device_type tinyint [not null, note: 'Type of device (e.g., 1=iOS, 2=Android)']
+  ctime bigint [not null, note: 'Creation timestamp (Unix epoch)']
+  utime bigint [not null, note: 'Last update timestamp (Unix epoch)']
+  status tinyint [not null, note: 'Subscription status (e.g., 1=active, 0=inactive)']
+  achat tinyint [not null,  note: 'Admin chat notification enabled (boolean-like)']
+  pchat tinyint [not null,  note: 'Private chat notification enabled (boolean-like)']
+  params text [not null, note: 'Additional parameters (e.g., device token) stored as JSON or serialized string']
+  last_error text [not null, note: 'Stores the last error message, if any']
+  subscriber_hash varchar(50) [not null, note: 'Unique hash for the subscriber']
+
+  // Define indexes
+  Indexes {
+    status
+    user_id
+    subscriber_hash
+  }
+
+  // Add table-level notes for MySQL specific settings
+  Note: 'Engine: InnoDB, Default Charset: utf8mb4, Collate: utf8mb4_unicode_ci'
+}
+
+
+Table "lh_role" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(50) [not null]
+}
+
+Table "lh_rolefunction" {
+  "id" int(11) [pk, not null, increment]
+  "role_id" int(11) [not null]
+  "module" varchar(100) [not null]
+  "function" varchar(100) [not null]
+  "limitation" text [not null]
+  "type" tinyint(1) [not null, default: 0]
+
+  Indexes {
+    role_id [name: "role_id"]
+  }
+}
+
+Table "lh_speech_chat_language" {
+  "id" int(11) [pk, not null, increment]
+  "chat_id" int(11) [not null]
+  "language_id" int(11) [not null]
+  "dialect" varchar(50) [not null]
+
+  Indexes {
+    chat_id [name: "chat_id"]
+  }
+}
+
+Table "lh_speech_language" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(100) [not null]
+  "siteaccess" varchar(3) [not null, default: '']
+}
+
+Table "lh_speech_language_dialect" {
+  "id" int(11) [pk, not null, increment]
+  "language_id" int(11) [not null]
+  "lang_name" varchar(100) [not null]
+  "lang_code" varchar(100) [not null]
+  "short_code" varchar(4) [not null, default: '']
+
+  Indexes {
+    language_id [name: "language_id"]
+    short_code [name: "short_code"]
+    lang_code [name: "lang_code"]
+  }
+}
+
+Table "lh_speech_user_language" {
+  "id" bigint(20) [pk, not null, increment]
+  "user_id" bigint(20) [not null]
+  "language" varchar(20) [not null]
+
+  Indexes {
+    (user_id, language) [name: "user_id_language"]
+  }
+}
+
+Table "lh_transfer" {
+  "id" int(11) [pk, not null, increment]
+  "chat_id" int(11) [not null]
+  "dep_id" int(11) [not null]
+  "transfer_user_id" int(11) [not null]
+  "from_dep_id" int(11) [not null]
+  "ctime" int(11) [not null]
+  "transfer_scope" int(11) [not null, default: 0]
+  "transfer_to_user_id" int(11) [not null]
+
+  Indexes {
+    dep_id [name: "dep_id"]
+    (transfer_user_id, dep_id) [name: "transfer_user_id_dep_id"]
+    transfer_to_user_id [name: "transfer_to_user_id"]
+    (chat_id,transfer_scope) [name: "chat_id_transfer"]
+  }
+}
+
+Table "lh_userdep" {
+  "id" int(11) [pk, not null, increment]
+  "user_id" int(11) [not null]
+  "dep_id" int(11) [not null]
+  "last_activity" int(11) [not null]
+  "lastd_activity" int(11) [not null, default: 0]
+  "exclude_autoasign" tinyint(1) [not null, default: 0]
+  "exc_indv_autoasign" tinyint(1) [not null, default: 0]
+  "hide_online" int(11) [not null]
+  "last_accepted" int(11) [not null, default: 0]
+  "active_chats" int(11) [not null, default: 0]
+  "pending_chats" int(11) [not null, default: 0]
+  "inactive_chats" int(11) [not null, default: 0]
+  "max_chats" int(11) [not null, default: 0]
+  "type" int(11) [not null, default: 0]
+  "ro" tinyint(1) [not null, default: 0]
+  "hide_online_ts" int(11) [not null, default: 0]
+  "dep_group_id" int(11) [not null, default: 0]
+  "always_on" tinyint(1) [not null, default: 0]
+  "exclude_autoasign_mails" tinyint(1) [not null, default: 0]
+  "active_mails" int(11) [not null, default: 0]
+  "pending_mails" int(11) [not null, default: 0]
+  "max_mails" int(11) [not null, default: 0]
+  "last_accepted_mail" int(11) [not null, default: 0]
+  "assign_priority" int(11) [not null, default: 0]
+  "chat_max_priority" int(11) [not null, default: 0]
+  "chat_min_priority" int(11) [not null, default: 0]
+
+  Indexes {
+    (last_activity, hide_online, dep_id) [name: "last_activity_hide_online_dep_id"]
+    dep_id [name: "dep_id"]
+    (user_id, type) [name: "user_id_type"]
+    (last_activity, user_id, dep_id, always_on) [name: "online_op_widget"]
+    (dep_id, last_activity, user_id) [name: "online_op_widget_2"]
+    (user_id, active_chats) [name: "online_op_widget_3"]
+  }
+}
+
+Table "lh_userdep_alias" {
+  "id" bigint(20) [pk, not null, increment]
+  "dep_id" bigint(20) [not null]
+  "dep_group_id" bigint(20) [not null]
+  "user_id" bigint(20) [not null]
+  "nick" varchar(50) [not null]
+  "filepath" varchar(200) [not null]
+  "filename" varchar(200) [not null]
+  "avatar" varchar(150) [not null]
+
+  Indexes {
+    (dep_id, user_id) [name: "dep_id_user_id"]
+    (dep_group_id, user_id) [name: "dep_group_id_user_id"]
+  }
+}
+
+Table "lh_users" {
+  "id" int(11) [pk, not null, increment]
+  "username" varchar(80) [not null]
+  "password" varchar(200) [not null]
+  "email" varchar(100) [not null]
+  "time_zone" varchar(100) [not null]
+  "name" varchar(100) [not null]
+  "surname" varchar(100) [not null]
+  "filepath" varchar(200) [not null]
+  "filename" varchar(200) [not null]
+  "job_title" varchar(100) [not null]
+  "departments_ids" text [not null]
+  "chat_nickname" varchar(100) [not null]
+  "xmpp_username" varchar(200) [not null]
+  "session_id" varchar(40) [not null]
+  "avatar" varchar(150) [not null]
+  "operation_admin" text [not null]
+  "skype" varchar(50) [not null]
+  "exclude_autoasign" tinyint(1) [not null]
+  "disabled" tinyint(4) [not null]
+  "hide_online" tinyint(1) [not null]
+  "all_departments" tinyint(1) [not null]
+  "invisible_mode" tinyint(1) [not null]
+  "inactive_mode" tinyint(1) [not null]
+  "rec_per_req" tinyint(1) [not null]
+  "auto_accept" tinyint(1) [not null]
+  "max_active_chats" int(11) [not null]
+  "cache_version" int(11) [not null, default: 0]
+  "pswd_updated" int(11) [not null]
+  "attr_int_1" int(11) [not null]
+  "attr_int_2" int(11) [not null]
+  "attr_int_3" int(11) [not null]
+  "force_logout" tinyint(1) [not null, default: 0]
+  "llogin" bigint(20) [not null, default: 0]
+  "always_on" tinyint(1) [not null, default: 0]
+  "exclude_autoasign_mails" tinyint(1) [not null, default: 0]
+  "max_active_mails" int(11) [not null, default: 0]
+
+  Indexes {
+    hide_online [name: "hide_online"]
+    rec_per_req [name: "rec_per_req"]
+    disabled [name: "disabled"]
+    email [name: "email"]
+    xmpp_username [name: "xmpp_username"]
+    username [name: "username"]
+  }
+}
+
+Table lh_userdep_disabled {
+  id bigint [pk, increment, not null, note: 'unsigned']
+  user_id int [not null]
+  dep_id int [not null]
+  last_activity bigint [not null, note: 'unsigned']
+  hide_online int [not null]
+  last_accepted bigint [not null, default: 0, note: 'unsigned']
+  active_chats int [not null, default: 0]
+  type int [not null, default: 0]
+  dep_group_id int [not null, default: 0]
+  hide_online_ts bigint [not null, default: 0, note: 'unsigned']
+  pending_chats int [not null, default: 0]
+  inactive_chats int [not null, default: 0]
+  max_chats int [not null, default: 0]
+  exclude_autoasign boolean [not null, default: false]
+  ro boolean [not null, default: false]
+  always_on boolean [not null, default: false]
+  lastd_activity bigint [not null, default: 0, note: 'unsigned']
+  exc_indv_autoasign boolean [not null, default: false]
+  exclude_autoasign_mails boolean [not null, default: false]
+  active_mails int [not null, default: 0]
+  pending_mails int [not null, default: 0]
+  max_mails int [not null, default: 0]
+  last_accepted_mail bigint [not null, default: 0, note: 'unsigned']
+  assign_priority int [not null, default: 0]
+  chat_max_priority int [not null, default: 0]
+  chat_min_priority int [not null, default: 0]
+
+  Indexes {
+    (dep_id) [name: 'dep_id']
+    (user_id, type) [name: 'user_id_type']
+    (last_activity, hide_online, dep_id) [name: 'last_activity_hide_online_dep_id']
+    (dep_id, last_activity, user_id) [name: 'online_op_widget_2']
+    (user_id, active_chats) [name: 'online_op_widget_3']
+  }
+}
+
+Table lh_departament_group_user_disabled {
+  id int [pk, increment, not null]
+  dep_group_id int [not null]
+  user_id int [not null]
+  read_only boolean [not null, default: false, note: 'unsigned']
+  exc_indv_autoasign boolean [not null, default: false, note: 'unsigned']
+  assign_priority int [not null, default: 0]
+  chat_min_priority int [not null, default: 0]
+  chat_max_priority int [not null, default: 0]
+
+  Indexes {
+    (dep_group_id) [name: 'dep_group_id']
+    (user_id) [name: 'user_id']
+  }
+}
+
+Table "lh_users_login" {
+  "id" bigint(20) [pk, not null, increment]
+  "user_id" bigint(20) [not null]
+  "type" int(11) [not null]
+  "ctime" bigint(20) [not null]
+  "status" int(11) [not null]
+  "ip" varchar(100) [not null]
+  "msg" varchar(250) [not null]
+
+  Indexes {
+    (user_id, type) [name: "user_id_type"]
+  }
+}
+
+Table "lh_users_online_session" {
+  "id" bigint(20) [pk, not null, increment]
+  "user_id" int(11) [not null]
+  "time" int(11) [not null]
+  "duration" int(11) [not null]
+  "lactivity" int(11) [not null]
+  "type" tinyint(1) [not null, default: 0]
+
+  Indexes {
+    (user_id, lactivity) [name: "user_id_lactivity"]
+    lactivity [name: "lactivity"]
+  }
+}
+
+Table "lh_users_remember" {
+  "id" int(11) [pk, not null, increment]
+  "user_id" int(11) [not null]
+  "mtime" int(11) [not null]
+}
+
+Table "lh_users_session" {
+  "id" int(11) [pk, not null, increment]
+  "token" varchar(40) [not null]
+  "device_type" int(11) [not null]
+  "device_token" varchar(255) [not null]
+  "user_id" int(11) [not null]
+  "created_on" int(11) [not null]
+  "updated_on" int(11) [not null]
+  "expires_on" int(11) [not null]
+  "notifications_status" int(11) [not null, default: 1]
+  "error" int(11) [not null, default: 0]
+  "last_error" text [not null]
+
+  Indexes {
+    token [name: "token"]
+    (device_token, device_type) [name: "device_token_device_type_v2"]
+    error [name: "error"]
+  }
+}
+
+Table "lh_users_setting" {
+  "id" int(11) [pk, not null, increment]
+  "user_id" int(11) [not null]
+  "identifier" varchar(50) [not null]
+  "value" text [not null]
+
+  Indexes {
+    (user_id, identifier) [name: "user_id"]
+  }
+}
+
+Table "lh_users_setting_option" {
+  "identifier" varchar(50) [pk, not null]
+  "class" varchar(50) [not null]
+  "attribute" varchar(40) [not null]
+}
+
+Table "lh_webhook" {
+  "id" int(11) [pk, not null, increment]
+  "name" varchar(50) [not null]
+  "event" varchar(50) [not null]
+  "bot_id_alt" int(11) [not null, default: 0]
+  "trigger_id_alt" int(11) [not null, default: 0]
+  "bot_id" int(11) [not null]
+  "trigger_id" int(11) [not null]
+  "disabled" tinyint(1) [not null]
+  "status" longtext [not null]
+  "configuration" longtext [not null]
+  "type" tinyint(1) [not null, default: 0]
+  "delay" int(11) [not null, default: 0]
+
+  Indexes {
+    (event, disabled) [name: "event_disabled"]
+  }
+}
+
+// Bot tables
+
+// lh_generic_bot_trigger
+Ref: "lh_generic_bot_bot"."id" < "lh_generic_bot_trigger"."bot_id"
+Ref: "lh_generic_bot_group"."id" < "lh_generic_bot_trigger"."group_id"
+
+// lh_generic_bot_tr_item
+Ref: "lh_generic_bot_tr_group"."id" < "lh_generic_bot_tr_item"."group_id"
+
+// lh_generic_bot_trigger_event
+Ref: "lh_generic_bot_trigger"."id" < "lh_generic_bot_trigger_event"."trigger_id"
+Ref: "lh_generic_bot_bot"."id" < "lh_generic_bot_trigger_event"."bot_id"
+
+// lh_generic_bot_rest_api_cache
+Ref: "lh_generic_bot_rest_api"."id" < "lh_generic_bot_rest_api_cache"."rest_api_id"
+
+// lh_generic_bot_repeat_restrict
+Ref: "lh_chat"."id" < "lh_generic_bot_repeat_restrict"."chat_id"
+Ref: "lh_generic_bot_trigger"."id" < "lh_generic_bot_repeat_restrict"."trigger_id"
+
+// lh_generic_bot_pending_event
+Ref: "lh_chat"."id" < "lh_generic_bot_pending_event"."chat_id"
+Ref: "lh_generic_bot_trigger"."id" < "lh_generic_bot_pending_event"."trigger_id"
+
+// lh_generic_bot_payload
+Ref: "lh_generic_bot_bot"."id" < "lh_generic_bot_payload"."bot_id"
+Ref: "lh_generic_bot_trigger"."id" < "lh_generic_bot_payload"."trigger_id"
+
+// lh_generic_bot_group
+Ref: "lh_generic_bot_bot"."id" < "lh_generic_bot_group"."bot_id"
+
+// lh_generic_bot_exception_message
+Ref: "lh_generic_bot_exception"."id" < "lh_generic_bot_exception_message"."exception_group_id"
+
+// lh_generic_bot_command
+Ref: "lh_generic_bot_bot"."id" < "lh_generic_bot_command"."bot_id"
+Ref: "lh_generic_bot_trigger"."id" < "lh_generic_bot_command"."trigger_id"
+Ref: "lh_departament"."id" < "lh_generic_bot_command"."dep_id"
+
+// lh_generic_bot_chat_workflow
+Ref: "lh_chat"."id" < "lh_generic_bot_chat_workflow"."chat_id"
+Ref: "lh_generic_bot_trigger"."id" < "lh_generic_bot_chat_workflow"."trigger_id"
+
+// lh_generic_bot_chat_event
+Ref: "lh_chat"."id" < "lh_generic_bot_chat_event"."chat_id"
+
+// lh_forgotpasswordhash
+Ref: "lh_users"."id" < "lh_forgotpasswordhash"."user_id"
+
+// lh_chat
+Ref: "lh_departament"."id" < "lh_chat"."dep_id"
+Ref: "lh_users"."id" < "lh_chat"."user_id"
+Ref: "lh_generic_bot_bot"."id" < "lh_chat"."gbot_id"
+Ref: "lh_abstract_widget_theme"."id" < "lh_chat"."theme_id"
+Ref: "lh_incoming_webhook"."id" < "lh_chat"."iwh_id"
+Ref: "lh_abstract_proactive_chat_invitation"."id" < "lh_chat"."invitation_id"
+Ref: "lh_abstract_auto_responder_chat"."id" < "lh_chat"."auto_responder_id"
+Ref: "lh_users"."id" < "lh_chat"."sender_user_id"
+Ref: "lh_abstract_product"."id" < "lh_chat"."product_id"
+Ref: "lh_users"."id" < "lh_chat"."transfer_uid"
+Ref: "lh_chat_file"."id" < "lh_chat"."screenshot_id"
+Ref: "lh_users"."id" < "lh_chat"."operator_typing_id"
+Ref: "lh_chat_online_user"."id" < "lh_chat"."online_user_id"
+Ref: "lh_msg"."id" < "lh_chat"."last_msg_id"
+
+// lh_msg
+Ref: "lh_chat"."id" < "lh_msg"."chat_id"
+Ref: "lh_users"."id" < "lh_msg"."user_id"
+
+// lh_webhook
+Ref: "lh_generic_bot_bot"."id" < "lh_webhook"."bot_id"
+Ref: "lh_generic_bot_trigger"."id" < "lh_webhook"."trigger_id"
+Ref: "lh_generic_bot_bot"."id" < "lh_webhook"."bot_id_alt"
+Ref: "lh_generic_bot_trigger"."id" < "lh_webhook"."trigger_id_alt"
+
+// lh_users_setting
+Ref: "lh_users"."id" < "lh_users_setting"."user_id"
+
+// lh_users_session
+Ref: "lh_users"."id" < "lh_users_session"."user_id"
+
+// lh_users_remember
+Ref: "lh_users"."id" < "lh_users_remember"."user_id"
+
+// lh_users_online_session
+Ref: "lh_users"."id" < "lh_users_online_session"."user_id"
+
+// lh_users_login
+Ref: "lh_users"."id" < "lh_users_login"."user_id"
+
+// lh_userdep_alias
+Ref: "lh_departament"."id" < "lh_userdep_alias"."dep_id"
+Ref: "lh_departament_group"."id" < "lh_userdep_alias"."dep_group_id"
+Ref: "lh_users"."id" < "lh_userdep_alias"."user_id"
+
+// lh_userdep
+Ref: "lh_users"."id" < "lh_userdep"."user_id"
+Ref: "lh_departament"."id" < "lh_userdep"."dep_id"
+Ref: "lh_departament_group"."id" < "lh_userdep"."dep_group_id"
+
+// lh_userdep_disabled
+Ref: "lh_users"."id" < "lh_userdep_disabled"."user_id"
+Ref: "lh_departament"."id" < "lh_userdep_disabled"."dep_id"
+Ref: "lh_departament_group"."id" < "lh_userdep_disabled"."dep_group_id"
+
+// lh_transfer
+
+// Can be either chat or conversations depending on `transfer_scope` attribute
+Ref: "lh_chat"."id" < "lh_transfer"."chat_id"
+Ref: "lhc_mailconv_conversation"."id" < "lh_transfer"."chat_id"
+
+Ref: "lh_departament"."id" < "lh_transfer"."dep_id"
+Ref: "lh_users"."id" < "lh_transfer"."transfer_user_id"
+Ref: "lh_departament"."id" < "lh_transfer"."from_dep_id"
+Ref: "lh_users"."id" < "lh_transfer"."transfer_to_user_id"
+
+// lh_speech_user_language
+Ref: "lh_users"."id" < "lh_speech_user_language"."user_id"
+
+// lh_speech_language_dialect
+Ref: "lh_speech_language"."id" < "lh_speech_language_dialect"."language_id"
+
+// lh_speech_chat_language
+Ref: "lh_chat"."id" < "lh_speech_chat_language"."chat_id"
+Ref: "lh_speech_language"."id" < "lh_speech_chat_language"."language_id"
+
+// lh_question_option_answer
+Ref: "lh_chat"."id" < "lh_question_option_answer"."question_id"
+Ref: "lh_question_option"."id" < "lh_question_option_answer"."option_id"
+
+// lh_question_option
+Ref: "lh_question"."id" < "lh_question_option"."question_id"
+
+// lh_question_answer
+Ref: "lh_question"."id" < "lh_question_answer"."question_id"
+
+// lh_notification_subscriber
+Ref: "lh_chat_online_user"."id" < "lh_notification_subscriber"."online_user_id"
+Ref: "lh_chat"."id" < "lh_notification_subscriber"."chat_id"
+Ref: "lh_departament"."id" < "lh_notification_subscriber"."dep_id"
+Ref: "lh_abstract_widget_theme"."id" < "lh_notification_subscriber"."theme_id"
+
+// lh_mail_continuous_event
+Ref: "lh_webhook"."id" < "lh_mail_continuous_event"."webhook_id"
+Ref: "lhc_mailconv_msg"."id" < "lh_mail_continuous_event"."message_id"
+
+// lh_mail_archive_range
+Ref: "lhc_mailconv_conversation"."id" < "lh_mail_archive_range"."last_id"
+Ref: "lhc_mailconv_conversation"."id" < "lh_mail_archive_range"."first_id"
+
+// lh_incoming_webhook
+Ref: "lh_departament"."id" < "lh_incoming_webhook"."dep_id"
+
+// lh_group_work With what groups a group memeber can work with
+Ref: "lh_group"."id" < "lh_group_work"."group_id"
+Ref: "lh_group"."id" < "lh_group_work"."group_work_id"
+
+// lh_group_object
+Ref: "lh_group"."id" < "lh_group_object"."group_id"
+
+// lh_group_msg
+Ref: "lh_group_chat"."id" < "lh_group_msg"."chat_id"
+Ref: "lh_users"."id" < "lh_group_msg"."user_id"
+
+// lh_group_chat
+Ref: "lh_users"."id" < "lh_group_chat"."user_id"
+Ref: "lh_group_msg"."id" < "lh_group_chat"."last_msg_op_id"
+Ref: "lh_group_msg"."id" < "lh_group_chat"."last_msg_id"
+Ref: "lh_chat"."id" < "lh_group_chat"."chat_id"
+
+// lh_group_chat_member
+Ref: "lh_users"."id" < "lh_group_chat_member"."user_id"
+Ref: "lh_group_chat"."id" < "lh_group_chat_member"."group_id"
+Ref: "lh_group_msg"."id" < "lh_group_chat_member"."last_msg_id"
+
+// lh_rolefunction
+Ref: "lh_role"."id" < "lh_rolefunction"."role_id"
+
+// lh_groupuser
+Ref: "lh_group"."id" < "lh_groupuser"."group_id"
+Ref: "lh_users"."id" < "lh_groupuser"."user_id"
+
+// lh_audits
+Ref: "lh_users"."id" < "lh_audits"."user_id"
+
+// lh_grouprole
+Ref: "lh_group"."id" < "lh_grouprole"."group_id"
+Ref: "lh_role"."id" < "lh_grouprole"."role_id"
+
+Ref: "lh_abstract_proactive_chat_invitation"."id" < "lh_chat_online_user"."invitation_id"
+
+
+// lh_departament_limit_group_member
+Ref: "lh_departament"."id" < "lh_departament_limit_group_member"."dep_id"
+Ref: "lh_departament_limit_group"."id" < "lh_departament_limit_group_member"."dep_limit_group_id"
+
+// lh_departament_group_user
+Ref: "lh_departament_group"."id" < "lh_departament_group_user"."dep_group_id"
+Ref: "lh_users"."id" < "lh_departament_group_user"."user_id"
+
+// lh_departament_group_user_disabled
+Ref: "lh_departament_group"."id" < "lh_departament_group_user_disabled"."dep_group_id"
+Ref: "lh_users"."id" < "lh_departament_group_user_disabled"."user_id"
+
+// lh_departament_group_member
+Ref: "lh_departament_group"."id" < "lh_departament_group_member"."dep_group_id"
+Ref: "lh_departament"."id" < "lh_departament_group_member"."dep_id"
+
+// lh_departament_custom_work_hours
+Ref: "lh_departament"."id" < "lh_departament_custom_work_hours"."dep_id"
+
+// lh_departament_availability
+Ref: "lh_departament"."id" < "lh_departament_availability"."dep_id"
+
+// lh_cobrowse
+Ref: "lh_chat"."id" < "lh_cobrowse"."chat_id"
+
+// lh_chat_voice_video
+Ref: "lh_chat"."id" < "lh_chat_voice_video"."chat_id"
+Ref: "lh_users"."id" < "lh_chat_voice_video"."user_id"
+
+// lh_chat_start_settings
+Ref: "lh_departament"."id" < "lh_chat_start_settings"."department_id"
+
+// lh_chat_participant
+Ref: "lh_departament"."id" < "lh_chat_participant"."dep_id"
+Ref: "lh_chat"."id" < "lh_chat_participant"."chat_id"
+Ref: "lh_users"."id" < "lh_chat_participant"."user_id"
+
+// lh_chat_paid
+Ref: "lh_chat"."id" < "lh_chat_paid"."chat_id"
+
+// lh_chat_online_user_footprint_update
+Ref: "lh_chat_online_user"."id" < "lh_chat_online_user_footprint_update"."online_user_id"
+
+// lh_chat_online_user_footprint
+Ref: "lh_chat"."id" < "lh_chat_online_user_footprint"."chat_id"
+Ref: "lh_chat_online_user"."id" < "lh_chat_online_user_footprint"."online_user_id"
+
+// lh_chat_incoming
+Ref: "lh_chat"."id" < "lh_chat_incoming"."chat_id"
+Ref: "lh_incoming_webhook"."id" < "lh_chat_incoming"."incoming_id"
+
+// lh_chat_file
+Ref: "lh_chat"."id" < "lh_chat_file"."chat_id"
+Ref: "lh_users"."id" < "lh_chat_file"."user_id"
+Ref: "lh_chat_online_user"."id" < "lh_chat_file"."online_user_id"
+
+// lh_chat_event_track
+Ref: "lh_departament"."id" < "lh_chat_event_track"."department_id"
+
+// lh_chat_blocked_user
+Ref: "lh_chat"."id" < "lh_chat_blocked_user"."chat_id"
+Ref: "lh_users"."id" < "lh_chat_blocked_user"."user_id"
+Ref: "lh_chat_online_user"."id" < "lh_chat_blocked_user"."online_user_id"
+Ref: "lh_departament"."id" < "lh_chat_blocked_user"."dep_id"
+
+// lh_chat_archive_range
+Ref: "lh_chat"."id" < "lh_chat_archive_range"."last_id"
+Ref: "lh_chat"."id" < "lh_chat_archive_range"."first_id"
+
+// lh_chat_action
+Ref: "lh_chat"."id" < "lh_chat_action"."chat_id"
+
+// lh_chat_accept
+Ref: "lh_chat"."id" < "lh_chat_accept"."chat_id"
+
+// lh_chatbox
+Ref: "lh_chat"."id" < "lh_chatbox"."chat_id"
+
+// lh_canned_msg_use
+Ref: "lh_canned_msg"."id" < "lh_canned_msg_use"."canned_id"
+Ref: "lh_chat"."id" < "lh_canned_msg_use"."chat_id"
+Ref: "lh_users"."id" < "lh_canned_msg_use"."user_id"
+
+// lh_canned_msg_tag_link
+Ref: "lh_canned_msg"."id" < "lh_canned_msg_tag_link"."canned_id"
+Ref: "lh_canned_msg_tag"."id" < "lh_canned_msg_tag_link"."tag_id"
+
+// lh_canned_msg_subject
+Ref: "lh_canned_msg"."id" < "lh_canned_msg_subject"."canned_id"
+Ref: "lh_abstract_subject"."id" < "lh_canned_msg_subject"."subject_id"
+
+// lh_canned_msg_dep
+Ref: "lh_canned_msg"."id" < "lh_canned_msg_dep"."canned_id"
+Ref: "lh_departament"."id" < "lh_canned_msg_dep"."dep_id"
+
+// lh_canned_msg
+Ref: "lh_departament"."id" < "lh_canned_msg"."department_id"
+Ref: "lh_users"."id" < "lh_canned_msg"."user_id"
+
+// lh_brand_member
+Ref: "lh_departament"."id" < "lh_brand_member"."dep_id"
+Ref: "lh_brand"."id" < "lh_brand_member"."brand_id"
+
+// lh_admin_theme
+Ref: "lh_users"."id" < "lh_admin_theme"."user_id"
+
+// lh_abstract_survey_item
+Ref: "lh_abstract_survey"."id" < "lh_abstract_survey_item"."survey_id"
+Ref: "lh_chat"."id" < "lh_abstract_survey_item"."chat_id"
+Ref: "lh_users"."id" < "lh_abstract_survey_item"."user_id"
+Ref: "lh_departament"."id" < "lh_abstract_survey_item"."dep_id"
+Ref: "lh_chat_online_user"."id" < "lh_abstract_survey_item"."online_user_id"
+
+// lh_abstract_subject_dep
+Ref: "lh_departament"."id" < "lh_abstract_subject_dep"."dep_id"
+Ref: "lh_abstract_subject"."id" < "lh_abstract_subject_dep"."subject_id"
+
+// lh_abstract_subject_chat
+Ref: "lh_chat"."id" < "lh_abstract_subject_chat"."chat_id"
+Ref: "lh_abstract_subject"."id" < "lh_abstract_subject_chat"."subject_id"
+
+// lh_abstract_saved_search
+Ref: "lh_users"."id" < "lh_abstract_saved_search"."user_id"
+Ref: "lh_users"."id" < "lh_abstract_saved_search"."sharer_user_id"
+
+// lh_abstract_saved_report
+Ref: "lh_users"."id" < "lh_abstract_saved_report"."user_id"
+
+// lh_abstract_rest_api_key
+Ref: "lh_users"."id" < "lh_abstract_rest_api_key"."user_id"
+
+// lh_abstract_product_departament
+Ref: "lh_abstract_product"."id" < "lh_abstract_product_departament"."product_id"
+Ref: "lh_departament"."id" < "lh_abstract_product_departament"."departament_id"
+
+// lh_abstract_proactive_chat_invitation_event
+Ref: "lh_abstract_proactive_chat_invitation"."id" < "lh_abstract_proactive_chat_invitation_event"."invitation_id"
+Ref: "lh_abstract_proactive_chat_event"."id" < "lh_abstract_proactive_chat_invitation_event"."event_id"
+
+// lh_abstract_proactive_chat_invitation_dep
+Ref: "lh_abstract_proactive_chat_invitation"."id" < "lh_abstract_proactive_chat_invitation_dep"."invitation_id"
+Ref: "lh_departament"."id" < "lh_abstract_proactive_chat_invitation_dep"."dep_id"
+
+// lh_abstract_proactive_chat_invitation
+Ref: "lh_departament"."id" < "lh_abstract_proactive_chat_invitation"."dep_id"
+Ref: "lh_abstract_auto_responder"."id" < "lh_abstract_proactive_chat_invitation"."autoresponder_id"
+Ref: "lh_abstract_proactive_chat_campaign"."id" < "lh_abstract_proactive_chat_invitation"."campaign_id"
+Ref: "lh_generic_bot_bot"."id" < "lh_abstract_proactive_chat_invitation"."bot_id"
+Ref: "lh_generic_bot_trigger"."id" < "lh_abstract_proactive_chat_invitation"."trigger_id"
+Ref: "lh_abstract_proactive_chat_invitation"."id" < "lh_abstract_proactive_chat_invitation"."parent_id"
+
+// lh_abstract_proactive_chat_event
+Ref: "lh_chat_online_user"."id" < "lh_abstract_proactive_chat_event"."vid_id"
+// About this relation not sure
+Ref: "lh_abstract_proactive_chat_event"."id" < "lh_abstract_proactive_chat_event"."ev_id"
+
+// lh_abstract_proactive_chat_campaign_conv
+Ref: "lh_abstract_proactive_chat_campaign"."id" < "lh_abstract_proactive_chat_campaign_conv"."campaign_id"
+Ref: "lh_abstract_proactive_chat_invitation"."id" < "lh_abstract_proactive_chat_campaign_conv"."invitation_id"
+Ref: "lh_departament"."id" < "lh_abstract_proactive_chat_campaign_conv"."department_id"
+Ref: "lh_chat_online_user"."id" < "lh_abstract_proactive_chat_campaign_conv"."vid_id"
+Ref: "lh_abstract_proactive_chat_invitation"."id" < "lh_abstract_proactive_chat_campaign_conv"."variation_id"
+
+// lh_abstract_form_collected
+Ref: "lh_abstract_form"."id" < "lh_abstract_form_collected"."form_id"
+Ref: "lh_chat"."id" < "lh_abstract_form_collected"."chat_id"
+
+// lh_abstract_chat_variable
+Ref: "lh_departament"."id" < "lh_abstract_chat_variable"."dep_id"
+
+// lh_abstract_chat_priority
+Ref: "lh_departament"."id" < "lh_abstract_chat_priority"."dep_id"
+Ref: "lh_departament"."id" < "lh_abstract_chat_priority"."dest_dep_id"
+
+// lh_abstract_auto_responder_dep
+Ref: "lh_abstract_auto_responder"."id" < "lh_abstract_auto_responder_dep"."autoresponder_id"
+Ref: "lh_departament"."id" < "lh_abstract_auto_responder_dep"."dep_id"
+
+// lh_abstract_auto_responder_chat
+Ref: "lh_chat"."id" < "lh_abstract_auto_responder_chat"."chat_id"
+Ref: "lh_abstract_auto_responder"."id" < "lh_abstract_auto_responder_chat"."auto_responder_id"
+
+// lh_abstract_auto_responder
+Ref: "lh_departament"."id" < "lh_abstract_auto_responder"."dep_id"
+Ref: "lh_users"."id" < "lh_abstract_auto_responder"."user_id"
+Ref: "lh_abstract_survey"."id" < "lh_abstract_auto_responder"."survey_id"
+
+// lhc_mailconv_sent_copy
+Ref: "lhc_mailconv_mailbox"."id" < "lhc_mailconv_sent_copy"."mailbox_id"
+
+// lhc_mailconv_response_template_subject
+Ref: "lhc_mailconv_response_template"."id" < "lhc_mailconv_response_template_subject"."template_id"
+Ref: "lh_abstract_subject"."id" < "lhc_mailconv_response_template_subject"."subject_id"
+
+// lhc_mailconv_response_template_dep
+Ref: "lhc_mailconv_response_template"."id" < "lhc_mailconv_response_template_dep"."template_id"
+Ref: "lh_departament"."id" < "lhc_mailconv_response_template_dep"."dep_id"
+
+// lhc_mailconv_response_template
+Ref: "lh_departament"."id" < "lhc_mailconv_response_template"."dep_id"
+
+// lhc_mailconv_oauth_ms
+Ref: "lhc_mailconv_mailbox"."id" < "lhc_mailconv_oauth_ms"."mailbox_id"
+
+// lhc_mailconv_msg_subject
+Ref: "lh_abstract_subject"."id" < "lhc_mailconv_msg_subject"."subject_id"
+Ref: "lhc_mailconv_msg"."id" < "lhc_mailconv_msg_subject"."message_id"
+Ref: "lhc_mailconv_conversation"."id" < "lhc_mailconv_msg_subject"."conversation_id"
+
+// lhc_mailconv_msg_open
+Ref: "lhc_mailconv_msg"."message_hash" < "lhc_mailconv_msg_open"."hash"
+
+// lhc_mailconv_msg_internal
+Ref: "lhc_mailconv_conversation"."id" < "lhc_mailconv_msg_internal"."chat_id"
+Ref: "lh_users"."id" < "lhc_mailconv_msg_internal"."user_id"
+
+// lhc_mailconv_msg
+Ref: "lhc_mailconv_conversation"."id" < "lhc_mailconv_msg"."conversation_id"
+Ref: "lhc_mailconv_mailbox"."id" < "lhc_mailconv_msg"."mailbox_id"
+Ref: "lh_users"."id" < "lhc_mailconv_msg"."user_id"
+Ref: "lh_departament"."id" < "lhc_mailconv_msg"."dep_id"
+Ref: "lhc_mailconv_conversation"."id" < "lhc_mailconv_msg"."conversation_id_old"
+Ref: "lh_users"."id" < "lhc_mailconv_msg"."conv_user_id"
+
+// lhc_mailconv_match_rule
+Ref: "lh_departament"."id" < "lhc_mailconv_match_rule"."dep_id"
+Ref: "lhc_mailconv_mailbox"."id" < "lhc_mailconv_match_rule"."mailbox_id"
+
+// lhc_mailconv_mailing_list_recipient
+Ref: "lhc_mailconv_mailing_list"."id" < "lhc_mailconv_mailing_list_recipient"."mailing_list_id"
+Ref: "lhc_mailconv_recipient"."id" < "lhc_mailconv_mailing_list_recipient"."mailing_recipient_id"
+
+// lhc_mailconv_mailing_list
+Ref: "lh_users"."id" < "lhc_mailconv_mailing_list"."user_id"
+
+// lhc_mailconv_mailing_campaign_recipient
+Ref: "lhc_mailconv_mailing_campaign"."id" < "lhc_mailconv_mailing_campaign_recipient"."campaign_id"
+Ref: "lhc_mailconv_recipient"."id" < "lhc_mailconv_mailing_campaign_recipient"."recipient_id"
+Ref: "lhc_mailconv_msg"."id" < "lhc_mailconv_mailing_campaign_recipient"."message_id"
+Ref: "lhc_mailconv_conversation"."id" < "lhc_mailconv_mailing_campaign_recipient"."conversation_id"
+
+// lhc_mailconv_mailing_campaign
+Ref: "lh_users"."id" < "lhc_mailconv_mailing_campaign"."user_id"
+Ref: "lhc_mailconv_mailbox"."id" < "lhc_mailconv_mailing_campaign"."mailbox_id"
+Ref: "lh_users"."id" < "lhc_mailconv_mailing_campaign"."owner_user_id"
+
+// lhc_mailconv_mailbox
+Ref: "lh_users"."id" < "lhc_mailconv_mailbox"."user_id"
+Ref: "lh_departament"."id" < "lhc_mailconv_mailbox"."dep_id"
+
+// Operator subscriber
+Ref: "lh_users"."id" < "lh_notification_op_subscriber"."user_id"
+
+// lhc_mailconv_file
+Ref: "lhc_mailconv_msg"."id" < "lhc_mailconv_file"."message_id"
+Ref: "lhc_mailconv_conversation"."id" < "lhc_mailconv_file"."conversation_id"
+
+// lhc_mailconv_delete_item
+Ref: "lhc_mailconv_conversation"."id" < "lhc_mailconv_delete_item"."conversation_id"
+Ref: "lhc_mailconv_delete_filter"."id" < "lhc_mailconv_delete_item"."filter_id"
+
+// lhc_mailconv_conversation
+Ref: "lh_departament"."id" < "lhc_mailconv_conversation"."dep_id"
+Ref: "lh_users"."id" < "lhc_mailconv_conversation"."user_id"
+Ref: "lhc_mailconv_msg"."id" < "lhc_mailconv_conversation"."last_message_id"
+Ref: "lhc_mailconv_msg"."id" < "lhc_mailconv_conversation"."message_id"
+Ref: "lhc_mailconv_mailbox"."id" < "lhc_mailconv_conversation"."mailbox_id"
+Ref: "lhc_mailconv_match_rule"."id" < "lhc_mailconv_conversation"."match_rule_id"
+Ref: "lhc_mailconv_conversation"."id" < "lhc_mailconv_conversation"."follow_up_id"
+
+tablegroup chat [color: #d35400] {
+  lh_chat
+  lh_msg
+}

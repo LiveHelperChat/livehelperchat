@@ -1,0 +1,14 @@
+{
+    "dbml.completion.schemaPath": "lhc_web/doc/update_db/db.dbml",
+    "github.copilot.chat.codeGeneration.instructions": [
+        {
+            "file": "lhc_web/doc/update_db/db.dbml",
+            "type": "dbml"
+        }
+    ],
+    "github.copilot.chat.commitMessageGeneration.instructions": [
+        {
+            "text": "Commit message should outline all changes and reasons why those changes were done. Use a lot of emoji."
+        }
+    ]
+}
