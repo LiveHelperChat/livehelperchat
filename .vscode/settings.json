@@ -4,6 +4,10 @@
         {
             "file": "lhc_web/doc/update_db/db.dbml",
             "type": "dbml"
+        },
+      {
+            "file": "lhc_web/lib/core/lhcore/lhdbtrait.php",
+            "type": "php"
         }
     ],
     "github.copilot.chat.commitMessageGeneration.instructions": [
