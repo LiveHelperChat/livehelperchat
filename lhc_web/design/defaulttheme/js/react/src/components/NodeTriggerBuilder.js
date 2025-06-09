@@ -87,7 +87,7 @@ class NodeTriggerBuilder extends Component {
     }
 
     handleContentChange(obj) {
-        this.setState({dataChanged : true});
+        this.setState({dataChanged : true, sourceCopied: false});
         this.props.dispatch({'type' : 'HANDLE_CONTENT_CHANGE','payload' : obj});
     }
 
@@ -133,12 +133,19 @@ class NodeTriggerBuilder extends Component {
 
     viewCode() {
         this.setState({viewCode : !this.state.viewCode});
-    }
-
+    }    
+    
     viewUseCases() {
         this.setState({viewUseCases : !this.state.viewUseCases});
         if (this.state.viewUseCases == false) {
             this.props.dispatch(loadUseCases(this.props.currenttrigger.get('currenttrigger')));
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        // Hide use cases when trigger changes
+        if (prevProps.currenttrigger.getIn(['currenttrigger', 'id']) !== this.props.currenttrigger.getIn(['currenttrigger', 'id'])) {
+            this.setState({viewUseCases: false, viewCode: false, sourceCopied: false});
         }
     }
 
