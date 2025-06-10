@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
 gutil    = require('gulp-util'),
-uglify   = require('gulp-uglify-es').default,
+uglify   = require('gulp-terser'),
 concat   = require('gulp-concat'),
 watch 	 = require('gulp-watch'),
 webpack = require('webpack'),
@@ -141,7 +141,7 @@ gulp.task('js-lh-plugin', function() {
 var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('js-static', function() {
-    var stylePath = ['design/defaulttheme/js/js_static/*'];
+    var stylePath = ['design/defaulttheme/js/js_static/*.js'];
     return gulp.src(stylePath)
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(uglify())
