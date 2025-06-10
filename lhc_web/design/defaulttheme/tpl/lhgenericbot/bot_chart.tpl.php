@@ -27,7 +27,7 @@ function generateMermaidFromUseCases($botId) {
 
         foreach ($triggers as $trigger) {
             $triggerNode = 'T' . $trigger->id;
-            $triggerName = htmlspecialchars(trim($trigger->name));
+            $triggerName = htmlspecialchars(preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($trigger->name)));
             $triggerName = strlen($triggerName) > 50 ? substr($triggerName, 0, 50) . '...' : $triggerName;
             
             if (!isset($addedNodes[$triggerNode])) {
@@ -53,7 +53,7 @@ function generateMermaidFromUseCases($botId) {
                         if (!isset($addedNodes['T' . $referencedTriggerId])) {
                             $referencedTrigger = erLhcoreClassModelGenericBotTrigger::fetch($referencedTriggerId);
                             if ($referencedTrigger instanceof erLhcoreClassModelGenericBotTrigger && $referencedTrigger->bot_id == $botId) {
-                                $referencedTriggerName = htmlspecialchars(trim($referencedTrigger->name));
+                                $referencedTriggerName = htmlspecialchars(preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($referencedTrigger->name)));
                                 $referencedTriggerName = strlen($referencedTriggerName) > 50 ? substr($referencedTriggerName, 0, 50) . '...' : $referencedTriggerName;
                                 $nextTriggerNode = 'T' . $referencedTriggerId;
                                 $mermaidLines[] = "    {$nextTriggerNode}[\"⚡{$referencedTriggerName}\"]";
@@ -101,6 +101,142 @@ function generateMermaidFromUseCases($botId) {
                     }                    
                 }
             }
+
+            // Check for webhooks that reference this trigger
+            $webhooks = erLhcoreClassModelChatWebhook::getList(array(
+                'filterlor' => array(
+                    'trigger_id' => array($trigger->id),
+                    'trigger_id_alt' => array($trigger->id)
+                ),
+                'limit' => false
+            ));
+
+            foreach ($webhooks as $webhook) {
+                $webhookName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($webhook->name));
+                if (!empty($webhook->event)) {
+                    $webhookName .= ' [' . preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($webhook->event)) . ']';
+                }
+                $webhookName = strlen($webhookName) > 40 ? substr($webhookName, 0, 40) . '...' : $webhookName;
+                $webhookName = htmlspecialchars($webhookName);
+                $webhookNode = 'W' . $webhook->id;
+                
+                if (!isset($addedNodes[$webhookNode])) {
+                    $mermaidLines[] = "    {$webhookNode}[\"🔗 {$webhookName}\"]";
+                    $addedNodes[$webhookNode] = true;
+                }
+                
+                // Connect webhook to trigger based on which field references it
+                if ($webhook->trigger_id == $trigger->id) {
+                    $connections[] = "    {$webhookNode} --> {$triggerNode}";
+                }
+                if ($webhook->trigger_id_alt == $trigger->id) {
+                    $connections[] = "    {$webhookNode} -.-> {$triggerNode}";
+                }
+            }
+
+            // Check for widget themes that reference this trigger in bot_configuration
+            $widgetThemes = erLhAbstractModelWidgetTheme::getList(array(
+                'filterlike' => array('bot_configuration' => '"trigger_id":"' . $trigger->id . '"'),
+                'limit' => false
+            ));
+
+            foreach ($widgetThemes as $theme) {
+                $themeName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($theme->name));
+                $themeName = strlen($themeName) > 40 ? substr($themeName, 0, 40) . '...' : $themeName;
+                $themeName = htmlspecialchars($themeName);
+                $themeNode = 'TH' . $theme->id;
+                
+                if (!isset($addedNodes[$themeNode])) {
+                    $mermaidLines[] = "    {$themeNode}[\"🎨 {$themeName}\"]";
+                    $addedNodes[$themeNode] = true;
+                }
+                
+                $connections[] = "    {$themeNode} --> {$triggerNode}";
+            }
+
+            // Check for proactive chat invitations that reference this trigger
+            $proactiveInvitations = erLhAbstractModelProactiveChatInvitation::getList(array(
+                'filter' => array('trigger_id' => $trigger->id),
+                'limit' => false
+            ));
+
+            foreach ($proactiveInvitations as $invitation) {
+                $invitationName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($invitation->name));
+                $invitationName = strlen($invitationName) > 40 ? substr($invitationName, 0, 40) . '...' : $invitationName;
+                $invitationName = htmlspecialchars($invitationName);
+                $invitationNode = 'PI' . $invitation->id;
+                
+                if (!isset($addedNodes[$invitationNode])) {
+                    $mermaidLines[] = "    {$invitationNode}[\"💬 {$invitationName}\"]";
+                    $addedNodes[$invitationNode] = true;
+                }
+                
+                $connections[] = "    {$invitationNode} --> {$triggerNode}";
+            }
+
+            // Check for bot commands that reference this trigger
+            $botCommands = erLhcoreClassModelGenericBotCommand::getList(array(
+                'filter' => array('trigger_id' => $trigger->id),
+                'limit' => false
+            ));
+
+            foreach ($botCommands as $command) {
+                $commandName = trim($command->name);
+                if (empty($commandName)) {
+                    $commandName = trim($command->command);
+                }
+                $commandName = preg_replace('/[^_a-zA-Z0-9\s]/', '', $commandName);
+                $commandName = strlen($commandName) > 40 ? substr($commandName, 0, 40) . '...' : $commandName;
+                $commandName = htmlspecialchars($commandName);
+                $commandNode = 'CMD' . $command->id;
+                
+                if (!isset($addedNodes[$commandNode])) {
+                    $mermaidLines[] = "    {$commandNode}[\"⌨️ {$commandName}\"]";
+                    $addedNodes[$commandNode] = true;
+                }
+                
+                $connections[] = "    {$commandNode} --> {$triggerNode}";
+            }
+
+            // Check for auto responders that reference this trigger in bot_configuration
+            $autoResponders = erLhAbstractModelAutoResponder::getList(array(
+                'filterlike' => array('bot_configuration' => 'trigger_id":' . $trigger->id  ),
+                'limit' => false
+            ));
+
+            foreach ($autoResponders as $autoResponder) {
+                $responderName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($autoResponder->name));
+                $responderName = strlen($responderName) > 40 ? substr($responderName, 0, 40) . '...' : $responderName;
+                $responderName = htmlspecialchars($responderName);
+                $responderNode = 'AR' . $autoResponder->id;
+                
+                if (!isset($addedNodes[$responderNode])) {
+                    $mermaidLines[] = "    {$responderNode}[\"🤖 {$responderName}\"]";
+                    $addedNodes[$responderNode] = true;
+                }
+                
+                $connections[] = "    {$responderNode} --> {$triggerNode}";
+            }
+        }
+        
+        // Check for departments that reference this bot (not specific triggers)
+        $departments = erLhcoreClassModelDepartament::getList(array(
+            'filterlike' => array('bot_configuration' => '"bot_id":' . $botId . ''),
+            'limit' => false
+        ));
+
+        foreach ($departments as $department) {
+            $departmentName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($department->name));
+            $departmentName = strlen($departmentName) > 40 ? substr($departmentName, 0, 40) . '...' : $departmentName;
+            $departmentName = htmlspecialchars($departmentName);
+            $departmentNode = 'DEP' . $department->id;
+            
+            if (!isset($addedNodes[$departmentNode])) {
+                $mermaidLines[] = "    {$departmentNode}[\" 🏢 {$departmentName}\"]";
+                $addedNodes[$departmentNode] = true;
+            }
+            
+            $connections[] = "    {$departmentNode} --> Start";
         }
         
         $mermaidLines = array_merge($mermaidLines, array_unique($connections));
@@ -109,6 +245,12 @@ function generateMermaidFromUseCases($botId) {
         $mermaidLines[] = '    classDef firstLevelNode fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#0d47a1';
         $mermaidLines[] = '    classDef secondLevelNode fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#4a148c';
         $mermaidLines[] = '    classDef patternNode fill:#fff3e0,stroke:#ff9800,stroke-width:2px,color:#e65100';
+        $mermaidLines[] = '    classDef webhookNode fill:#e8f5e8,stroke:#4caf50,stroke-width:2px,color:#2e7d32';
+        $mermaidLines[] = '    classDef themeNode fill:#fce4ec,stroke:#e91e63,stroke-width:2px,color:#ad1457';
+        $mermaidLines[] = '    classDef invitationNode fill:#fff8e1,stroke:#ff8f00,stroke-width:2px,color:#e65100';
+        $mermaidLines[] = '    classDef commandNode fill:#f1f8e9,stroke:#689f38,stroke-width:2px,color:#33691e';
+        $mermaidLines[] = '    classDef autoResponderNode fill:#fafafa,stroke:#616161,stroke-width:2px,color:#212121';
+        $mermaidLines[] = '    classDef departmentNode fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px,color:#6a1b99';
         $mermaidLines[] = '    class Start startNode';
         
         // Apply first level styling to first level triggers
@@ -121,10 +263,22 @@ function generateMermaidFromUseCases($botId) {
             $mermaidLines[] = "    class {$triggerNode} secondLevelNode";
         }
         
-        // Apply pattern styling to all pattern nodes
+        // Apply styling to all nodes by type
         foreach ($addedNodes as $nodeId => $added) {
             if (strpos($nodeId, 'P') === 0 && $nodeId !== 'Start') {
                 $mermaidLines[] = "    class {$nodeId} patternNode";
+            } elseif (strpos($nodeId, 'W') === 0) {
+                $mermaidLines[] = "    class {$nodeId} webhookNode";
+            } elseif (strpos($nodeId, 'TH') === 0) {
+                $mermaidLines[] = "    class {$nodeId} themeNode";
+            } elseif (strpos($nodeId, 'PI') === 0) {
+                $mermaidLines[] = "    class {$nodeId} invitationNode";
+            } elseif (strpos($nodeId, 'CMD') === 0) {
+                $mermaidLines[] = "    class {$nodeId} commandNode";
+            } elseif (strpos($nodeId, 'AR') === 0) {
+                $mermaidLines[] = "    class {$nodeId} autoResponderNode";
+            } elseif (strpos($nodeId, 'DEP') === 0) {
+                $mermaidLines[] = "    class {$nodeId} departmentNode";
             }
         }
         
@@ -263,10 +417,40 @@ $modalBodyClass = 'p-1'
                     const nodeId = node.id || `node-${index}`;
                     // Check if this is a trigger node (contains 'T' followed by number)
                     const triggerMatch = nodeId.match(/T(\d+)/);
+                    // Check if this is a webhook node (contains 'W' followed by number)
+                    const webhookMatch = nodeId.match(/W(\d+)/);
+                    // Check if this is a theme node (contains 'TH' followed by number)
+                    const themeMatch = nodeId.match(/TH(\d+)/);
+                    // Check if this is a proactive invitation node (contains 'PI' followed by number)
+                    const invitationMatch = nodeId.match(/PI(\d+)/);
+                    // Check if this is a command node (contains 'CMD' followed by number)
+                    const commandMatch = nodeId.match(/CMD(\d+)/);
+                    // Check if this is an auto responder node (contains 'AR' followed by number)
+                    const autoResponderMatch = nodeId.match(/AR(\d+)/);
+                    // Check if this is a department node (contains 'DEP' followed by number)
+                    const departmentMatch = nodeId.match(/DEP(\d+)/);
 
                     if (triggerMatch) {
                         const triggerId = triggerMatch[1];
                         document.location = WWW_DIR_JAVASCRIPT + `genericbot/bot/<?php echo $bot->id; ?>#!#/trigger-${triggerId}`;
+                    } else if (webhookMatch) {
+                        const webhookId = webhookMatch[1];
+                        window.open(WWW_DIR_JAVASCRIPT + `webhooks/edit/${webhookId}`, '_blank');
+                    } else if (themeMatch) {
+                        const themeId = themeMatch[1];
+                        window.open(WWW_DIR_JAVASCRIPT + `abstract/edit/WidgetTheme/${themeId}`, '_blank');
+                    } else if (invitationMatch) {
+                        const invitationId = invitationMatch[1];
+                        window.open(WWW_DIR_JAVASCRIPT + `abstract/edit/ProactiveChatInvitation/${invitationId}`, '_blank');
+                    } else if (commandMatch) {
+                        const commandId = commandMatch[1];
+                        window.open(WWW_DIR_JAVASCRIPT + `genericbot/editcommand/${commandId}`, '_blank');
+                    } else if (autoResponderMatch) {
+                        const autoResponderId = autoResponderMatch[1];
+                        window.open(WWW_DIR_JAVASCRIPT + `abstract/edit/AutoResponder/${autoResponderId}`, '_blank');
+                    } else if (departmentMatch) {
+                        const departmentId = departmentMatch[1];
+                        window.open(WWW_DIR_JAVASCRIPT + `department/edit/${departmentId}`, '_blank');
                     }
                 });
             }
