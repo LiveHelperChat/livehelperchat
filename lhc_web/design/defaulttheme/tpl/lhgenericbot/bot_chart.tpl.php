@@ -92,7 +92,7 @@ function generateMermaidFromUseCases($botId) {
                     if (!empty($pattern)) {
                         $patternText = substr($pattern, 0, $limitString);
                         $patternText = preg_replace('/[^_a-zA-Z0-9\s]/', '', $patternText);
-                        $patternNode = 'P' . md5($pattern);
+                        $patternNode = 'TE' . $trigger->id . '_' . $event->id;
                         
                         if (!isset($addedNodes[$patternNode])) {
                             $mermaidLines[] = "    {$patternNode}(\"🔑{$patternText}\")";
@@ -266,7 +266,7 @@ function generateMermaidFromUseCases($botId) {
         
         // Apply styling to all nodes by type
         foreach ($addedNodes as $nodeId => $added) {
-            if (strpos($nodeId, 'P') === 0 && $nodeId !== 'Start') {
+            if (strpos($nodeId, 'TE') === 0) {
                 $mermaidLines[] = "    class {$nodeId} patternNode";
             } elseif (strpos($nodeId, 'W') === 0) {
                 $mermaidLines[] = "    class {$nodeId} webhookNode";
@@ -418,6 +418,8 @@ $modalBodyClass = 'p-1'
                     const nodeId = node.id || `node-${index}`;
                     // Check if this is a trigger node (contains 'T' followed by number)
                     const triggerMatch = nodeId.match(/T(\d+)/);
+                    // Check if this is a trigger event node (contains 'TE' followed by trigger_id_event_id)
+                    const triggerEventMatch = nodeId.match(/TE(\d+)_\d+/);
                     // Check if this is a webhook node (contains 'W' followed by number)
                     const webhookMatch = nodeId.match(/W(\d+)/);
                     // Check if this is a theme node (contains 'TH' followed by number)
@@ -433,6 +435,10 @@ $modalBodyClass = 'p-1'
 
                     if (triggerMatch) {
                         const triggerId = triggerMatch[1];
+                        document.location = WWW_DIR_JAVASCRIPT + `genericbot/bot/<?php echo $bot->id; ?>#!#/trigger-${triggerId}`;
+                    } else if (triggerEventMatch) {
+                        // For trigger event nodes, extract the trigger ID directly from the node ID
+                        const triggerId = triggerEventMatch[1];
                         document.location = WWW_DIR_JAVASCRIPT + `genericbot/bot/<?php echo $bot->id; ?>#!#/trigger-${triggerId}`;
                     } else if (webhookMatch) {
                         const webhookId = webhookMatch[1];
