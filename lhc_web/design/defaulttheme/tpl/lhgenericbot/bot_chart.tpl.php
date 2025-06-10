@@ -241,7 +241,39 @@ function generateMermaidFromUseCases($botId) {
             $connections[] = "    {$departmentNode} --> Start";
         }
         
-        $mermaidLines = array_merge($mermaidLines, array_unique($connections));
+        // Optimize connections by grouping multiple targets from same source
+        $optimizedConnections = array();
+        $connectionMap = array();
+        
+        // Parse connections and group by source
+        foreach (array_unique($connections) as $connection) {
+            if (preg_match('/^\s*(\w+)\s+(-->|-.->)\s+(\w+)$/', trim($connection), $matches)) {
+                $source = $matches[1];
+                $arrow = $matches[2];
+                $target = $matches[3];
+                
+                if (!isset($connectionMap[$source])) {
+                    $connectionMap[$source] = array();
+                }
+                if (!isset($connectionMap[$source][$arrow])) {
+                    $connectionMap[$source][$arrow] = array();
+                }
+                $connectionMap[$source][$arrow][] = $target;
+            }
+        }
+        
+        // Generate optimized connection strings
+        foreach ($connectionMap as $source => $arrowTypes) {
+            foreach ($arrowTypes as $arrow => $targets) {
+                if (count($targets) > 1) {
+                    $optimizedConnections[] = "    {$source} {$arrow} " . implode(' & ', $targets);
+                } else {
+                    $optimizedConnections[] = "    {$source} {$arrow} {$targets[0]}";
+                }
+            }
+        }
+        
+        $mermaidLines = array_merge($mermaidLines, $optimizedConnections);
         $mermaidLines[] = '';
         $mermaidLines[] = '    classDef startNode fill:#e8f5e8,stroke:#4caf50,stroke-width:3px';
         $mermaidLines[] = '    classDef firstLevelNode fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#0d47a1';
