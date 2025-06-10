@@ -3,8 +3,7 @@ gutil    = require('gulp-util'),
 terser   = require('gulp-terser'),
 concat   = require('gulp-concat'),
 webpack = require('webpack'),
-webpackConfig = require('./webpack.config.js'),
-bower = require('gulp-bower');
+webpackConfig = require('./webpack.config.js');
 var babel = require('gulp-babel');
 var newer        = require('gulp-newer');
 var eslint       = require('gulp-eslint');
@@ -189,50 +188,12 @@ gulp.task('js-lh-npm', function(done) {
 	        gutil.log("[webpack]", stats.toString({
 	            // output options
 	        }));	            	
-	 });
-	 done();
+	 });	 done();
 });
-
-gulp.task('bower', function() {
-	return bower()
-	.pipe(gulp.dest("./bower_components"));
-});
-
-gulp.task('bower-move-bootstrap',gulp.series('bower', function() {
-	gulp.src('./bower_components/bootstrap/dist/js/!**.*').pipe(gulp.dest('./design/defaulttheme/vendor/bootstrap/js'));
-	gulp.src('./bower_components/bootstrap/dist/fonts/!**.*').pipe(gulp.dest('./design/defaulttheme/vendor/bootstrap/fonts'));
-	gulp.src('./bower_components/bootstrap/dist/css/bootstrap.min.css').pipe(gulp.dest('./design/defaulttheme/vendor/bootstrap/css'));
-}));
-
-gulp.task('bower-move-bootstrap-font',gulp.series('bower', function() {
-	gulp.src('./bower_components/bootstrap/dist/fonts/!**.*').pipe(gulp.dest('./design/defaulttheme/fonts'));
-}));
-
-gulp.task('bower-move-material-font',gulp.series('bower', function() {
-	gulp.src('./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.eot').pipe(gulp.dest('./design/defaulttheme/fonts'));
-	gulp.src('./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.ttf').pipe(gulp.dest('./design/defaulttheme/fonts'));
-	gulp.src('./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff').pipe(gulp.dest('./design/defaulttheme/fonts'));
-	gulp.src('./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff2').pipe(gulp.dest('./design/defaulttheme/fonts'));
-}));
-
-gulp.task('bower-move-jquery',gulp.series('bower', function() {
-	gulp.src('./bower_components/jquery/dist/!**.*').pipe(gulp.dest('./design/defaulttheme/vendor/jquery'));
-}));
-
-gulp.task('bower-move-metismenu',gulp.series('bower', function() {
-	gulp.src('./bower_components/metisMenu/dist/!**.*').pipe(gulp.dest('./design/defaulttheme/vendor/metisMenu'));
-}));
-
-gulp.task('bower-setup',gulp.series('bower-move-bootstrap','bower-move-jquery','bower-move-bootstrap-font','bower-move-metismenu','bower-move-material-font', function() {
-	
-}));
 
 gulp.task('js-cobrowse',gulp.series('js-cobrowse-operator','js-cobrowse-visitor', function() {
 
 }));
-
-//bower setup
-gulp.task('bower-setup');
 
 gulp.task('default', gulp.series('js-lh-notifications','js-lh-dashboard','js-cobrowse-operator','js-cobrowse-visitor','js-modal-ext','js-angular-main','js-main-fileupload','js-datepicker','js-colorpicker','js-lhc-speak-js','js-lh','js-lh-legacy','js-lh-plugin','js-lh-canned','js-angular-checkmodel','js-angular-online','js-lh-npm'));
 
