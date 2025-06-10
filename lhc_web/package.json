@@ -22,11 +22,9 @@
     "gulp-concat": "^2.6.1",
     "gulp-eslint": "^6.0.0",
     "gulp-newer": "^1.4.0",
-    "gulp-react": "^4.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser": "^2.1.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-watch": "^4.2.4",
     "jsx-loader": "^0.9.0",
     "requirejs-babel-jsx": "^1.0.0",
     "style-loader": "~1.2.1",
@@ -41,6 +39,7 @@
   },
   "dependencies": {
     "babel-loader": "^8.2.3",
+    "gulp-util": "^3.0.8",
     "socket.io": "^4.8.0",
     "vmsg": "^0.3.6",
     "webpack": "^5.65.0"

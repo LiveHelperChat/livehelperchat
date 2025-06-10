@@ -2,7 +2,6 @@ var gulp = require('gulp'),
 gutil    = require('gulp-util'),
 uglify   = require('gulp-terser'),
 concat   = require('gulp-concat'),
-watch 	 = require('gulp-watch'),
 webpack = require('webpack'),
 webpackConfig = require('./webpack.config.js'),
 bower = require('gulp-bower');
@@ -238,9 +237,3 @@ gulp.task('bower-setup');
 gulp.task('default', gulp.series('js-lh-notifications','js-lh-dashboard','js-cobrowse-operator','js-cobrowse-visitor','js-modal-ext','js-angular-main','js-main-fileupload','js-datepicker','js-colorpicker','js-lhc-speak-js','js-lh','js-lh-legacy','js-lh-plugin','js-lh-canned','js-angular-checkmodel','js-angular-online','js-lh-npm'));
 
 gulp.task('webpack', gulp.series('js-lh-npm'));
-
-gulp.task('watch', function () {
-	gulp.watch('design/defaulttheme/js/cobrowse/*.js', ['js-cobrowse-visitor','js-cobrowse-operator']);	
-	gulp.watch('design/defaulttheme/js/lh.js', ['js-lh']);
-	gulp.watch(['design/defaulttheme/js/lh/lh.js','design/defaulttheme/js/lh/lh-modules/*.js'], ['js-lh-npm']);
-});
