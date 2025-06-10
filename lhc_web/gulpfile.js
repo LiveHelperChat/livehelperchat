@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
 gutil    = require('gulp-util'),
-uglify   = require('gulp-terser'),
+terser   = require('gulp-terser'),
 concat   = require('gulp-concat'),
 webpack = require('webpack'),
 webpackConfig = require('./webpack.config.js'),
@@ -18,7 +18,7 @@ gulp.task('js-hotkeys', function() {
 
 	return gulp.src(stylePath)
 		.pipe(concat('jquery.hotkeys.min.js'))
-		.pipe(uglify())
+		.pipe(terser())
 		.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -30,7 +30,7 @@ gulp.task('js-cobrowse-operator', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('cobrowse.operator.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js/cobrowse/compiled'));
 });
 
@@ -41,7 +41,7 @@ gulp.task('js-cobrowse-visitor', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('cobrowse.visitor.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js/cobrowse/compiled'));
 });
 
@@ -50,7 +50,7 @@ gulp.task('js-angular-main', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('angular.lhc.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -58,7 +58,7 @@ gulp.task('js-modal-ext', function() {
 	var stylePath = ['design/defaulttheme/js/modal.ext.js'];
 	return gulp.src(stylePath)
 	.pipe(concat('modal.ext.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -68,7 +68,7 @@ gulp.task('js-angular-online', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('angular.lhc.online.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -77,7 +77,7 @@ gulp.task('js-angular-checkmodel', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('checklist-model.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -90,7 +90,7 @@ gulp.task('js-main-fileupload', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('jquery.fileupload.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js/fileupload'));
 });
 
@@ -99,7 +99,7 @@ gulp.task('js-datepicker', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('datepicker.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -108,7 +108,7 @@ gulp.task('js-lhc-speak-js', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('lhc.speak.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -117,7 +117,7 @@ gulp.task('js-lh', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('lh.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -125,7 +125,7 @@ gulp.task('js-lh-legacy', function() {
 	var stylePath = ['design/defaulttheme/js/lh.legacy.js'];
 	return gulp.src(stylePath)
 	.pipe(concat('lh.legacy.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -133,7 +133,7 @@ gulp.task('js-lh-plugin', function() {
 	var stylePath = ['design/defaulttheme/js/lhc.dropdown.plugin.js'];
 	return gulp.src(stylePath)
 	.pipe(concat('lhc.dropdown.plugin.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -143,7 +143,7 @@ gulp.task('js-static', function() {
     var stylePath = ['design/defaulttheme/js/js_static/*.js'];
     return gulp.src(stylePath)
         .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(uglify())
+        .pipe(terser())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('design/defaulttheme/js/js_static'));
 });
@@ -153,7 +153,7 @@ gulp.task('js-lh-canned', function() {
 	
 	return gulp.src(stylePath)
 	.pipe(concat('lh.cannedmsg.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -161,7 +161,7 @@ gulp.task('js-lh-notifications', function() {
 	var stylePath = ['design/defaulttheme/js/lhc.notifications.js'];
 	return gulp.src(stylePath)
 	.pipe(concat('lhc.notifications.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -169,7 +169,7 @@ gulp.task('js-lh-dashboard', function() {
 	var stylePath = ['design/defaulttheme/js/lhc.dashboard.js'];	
 	return gulp.src(stylePath)
 	.pipe(concat('lhc.dashboard.min.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
@@ -179,7 +179,7 @@ gulp.task('js-colorpicker', function() {
     .pipe(babel({
             presets: ['@babel/preset-env']
         }))
-	.pipe(uglify({mangle: false, ecma: 5}))
+	.pipe(terser({mangle: false, ecma: 5}))
 	.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
