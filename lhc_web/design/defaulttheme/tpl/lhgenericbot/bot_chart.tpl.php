@@ -1,6 +1,7 @@
 <?php
 function generateMermaidFromUseCases($botId) {
     $limitString = 100;
+    $allowedCharsPattern = '/[^_a-zA-Z0-9\s\.]/'; // Pattern for allowed characters in node names
     try {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
         if (!($bot instanceof erLhcoreClassModelGenericBotBot)) {
@@ -28,7 +29,7 @@ function generateMermaidFromUseCases($botId) {
 
         foreach ($triggers as $trigger) {
             $triggerNode = 'T' . $trigger->id;
-            $triggerName = htmlspecialchars(preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($trigger->name)));
+            $triggerName = htmlspecialchars(preg_replace($allowedCharsPattern, '', trim($trigger->name)));
             $triggerName = strlen($triggerName) > $limitString ? substr($triggerName, 0, $limitString) . '...' : $triggerName;
             
             if (!isset($addedNodes[$triggerNode])) {
@@ -54,7 +55,7 @@ function generateMermaidFromUseCases($botId) {
                         if (!isset($addedNodes['T' . $referencedTriggerId])) {
                             $referencedTrigger = erLhcoreClassModelGenericBotTrigger::fetch($referencedTriggerId);
                             if ($referencedTrigger instanceof erLhcoreClassModelGenericBotTrigger && $referencedTrigger->bot_id == $botId) {
-                                $referencedTriggerName = htmlspecialchars(preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($referencedTrigger->name)));
+                                $referencedTriggerName = htmlspecialchars(preg_replace($allowedCharsPattern, '', trim($referencedTrigger->name)));
                                 $referencedTriggerName = strlen($referencedTriggerName) > $limitString ? substr($referencedTriggerName, 0, $limitString) . '...' : $referencedTriggerName;
                                 $nextTriggerNode = 'T' . $referencedTriggerId;
                                 $mermaidLines[] = "    {$nextTriggerNode}[\"⚡{$referencedTriggerName}\"]";
@@ -91,7 +92,7 @@ function generateMermaidFromUseCases($botId) {
                     $pattern = trim($event->pattern);
                     if (!empty($pattern)) {
                         $patternText = substr($pattern, 0, $limitString);
-                        $patternText = preg_replace('/[^_a-zA-Z0-9\s]/', '', $patternText);
+                        $patternText = preg_replace($allowedCharsPattern, '', $patternText);
                         $patternNode = 'TE' . $trigger->id . '_' . $event->id;
                         
                         if (!isset($addedNodes[$patternNode])) {
@@ -113,9 +114,9 @@ function generateMermaidFromUseCases($botId) {
             ));
 
             foreach ($webhooks as $webhook) {
-                $webhookName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($webhook->name));
+                $webhookName = preg_replace($allowedCharsPattern, '', trim($webhook->name));
                 if (!empty($webhook->event)) {
-                    $webhookName .= ' [' . preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($webhook->event)) . ']';
+                    $webhookName .= ' [' . preg_replace($allowedCharsPattern, '', trim($webhook->event)) . ']';
                 }
                 $webhookName = strlen($webhookName) > $limitString ? substr($webhookName, 0, $limitString) . '...' : $webhookName;
                 $webhookName = htmlspecialchars($webhookName);
@@ -142,7 +143,7 @@ function generateMermaidFromUseCases($botId) {
             ));
 
             foreach ($widgetThemes as $theme) {
-                $themeName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($theme->name));
+                $themeName = preg_replace($allowedCharsPattern, '', trim($theme->name));
                 $themeName = strlen($themeName) > $limitString ? substr($themeName, 0, $limitString) . '...' : $themeName;
                 $themeName = htmlspecialchars($themeName);
                 $themeNode = 'TH' . $theme->id;
@@ -162,7 +163,7 @@ function generateMermaidFromUseCases($botId) {
             ));
 
             foreach ($proactiveInvitations as $invitation) {
-                $invitationName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($invitation->name));
+                $invitationName = preg_replace($allowedCharsPattern, '', trim($invitation->name));
                 $invitationName = strlen($invitationName) > $limitString ? substr($invitationName, 0, $limitString) . '...' : $invitationName;
                 $invitationName = htmlspecialchars($invitationName);
                 $invitationNode = 'PI' . $invitation->id;
@@ -186,7 +187,7 @@ function generateMermaidFromUseCases($botId) {
                 if (empty($commandName)) {
                     $commandName = trim($command->command);
                 }
-                $commandName = preg_replace('/[^_a-zA-Z0-9\s]/', '', $commandName);
+                $commandName = preg_replace('/[^_a-zA-Z0-9\s\.]/', '', $commandName);
                 $commandName = strlen($commandName) > $limitString ? substr($commandName, 0, $limitString) . '...' : $commandName;
                 $commandName = htmlspecialchars($commandName);
                 $commandNode = 'CMD' . $command->id;
@@ -206,7 +207,7 @@ function generateMermaidFromUseCases($botId) {
             ));
 
             foreach ($autoResponders as $autoResponder) {
-                $responderName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($autoResponder->name));
+                $responderName = preg_replace($allowedCharsPattern, '', trim($autoResponder->name));
                 $responderName = strlen($responderName) > $limitString ? substr($responderName, 0, $limitString) . '...' : $responderName;
                 $responderName = htmlspecialchars($responderName);
                 $responderNode = 'AR' . $autoResponder->id;
@@ -227,7 +228,7 @@ function generateMermaidFromUseCases($botId) {
         ));
 
         foreach ($departments as $department) {
-            $departmentName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($department->name));
+            $departmentName = preg_replace($allowedCharsPattern, '', trim($department->name));
             $departmentName = strlen($departmentName) > $limitString ? substr($departmentName, 0, $limitString) . '...' : $departmentName;
             $departmentName = htmlspecialchars($departmentName);
             $departmentNode = 'DEP' . $department->id;
