@@ -1,5 +1,6 @@
 <?php
 function generateMermaidFromUseCases($botId) {
+    $limitString = 100;
     try {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);
         if (!($bot instanceof erLhcoreClassModelGenericBotBot)) {
@@ -28,7 +29,7 @@ function generateMermaidFromUseCases($botId) {
         foreach ($triggers as $trigger) {
             $triggerNode = 'T' . $trigger->id;
             $triggerName = htmlspecialchars(preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($trigger->name)));
-            $triggerName = strlen($triggerName) > 50 ? substr($triggerName, 0, 50) . '...' : $triggerName;
+            $triggerName = strlen($triggerName) > $limitString ? substr($triggerName, 0, $limitString) . '...' : $triggerName;
             
             if (!isset($addedNodes[$triggerNode])) {
                 if ($trigger->default == 1) {
@@ -54,7 +55,7 @@ function generateMermaidFromUseCases($botId) {
                             $referencedTrigger = erLhcoreClassModelGenericBotTrigger::fetch($referencedTriggerId);
                             if ($referencedTrigger instanceof erLhcoreClassModelGenericBotTrigger && $referencedTrigger->bot_id == $botId) {
                                 $referencedTriggerName = htmlspecialchars(preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($referencedTrigger->name)));
-                                $referencedTriggerName = strlen($referencedTriggerName) > 50 ? substr($referencedTriggerName, 0, 50) . '...' : $referencedTriggerName;
+                                $referencedTriggerName = strlen($referencedTriggerName) > $limitString ? substr($referencedTriggerName, 0, $limitString) . '...' : $referencedTriggerName;
                                 $nextTriggerNode = 'T' . $referencedTriggerId;
                                 $mermaidLines[] = "    {$nextTriggerNode}[\"⚡{$referencedTriggerName}\"]";
                                 $addedNodes[$nextTriggerNode] = true;
@@ -89,7 +90,7 @@ function generateMermaidFromUseCases($botId) {
                 if (!empty($event->pattern)) {
                     $pattern = trim($event->pattern);
                     if (!empty($pattern)) {
-                        $patternText = substr($pattern, 0, 50);
+                        $patternText = substr($pattern, 0, $limitString);
                         $patternText = preg_replace('/[^_a-zA-Z0-9\s]/', '', $patternText);
                         $patternNode = 'P' . md5($pattern);
                         
@@ -116,7 +117,7 @@ function generateMermaidFromUseCases($botId) {
                 if (!empty($webhook->event)) {
                     $webhookName .= ' [' . preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($webhook->event)) . ']';
                 }
-                $webhookName = strlen($webhookName) > 40 ? substr($webhookName, 0, 40) . '...' : $webhookName;
+                $webhookName = strlen($webhookName) > $limitString ? substr($webhookName, 0, $limitString) . '...' : $webhookName;
                 $webhookName = htmlspecialchars($webhookName);
                 $webhookNode = 'W' . $webhook->id;
                 
@@ -142,7 +143,7 @@ function generateMermaidFromUseCases($botId) {
 
             foreach ($widgetThemes as $theme) {
                 $themeName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($theme->name));
-                $themeName = strlen($themeName) > 40 ? substr($themeName, 0, 40) . '...' : $themeName;
+                $themeName = strlen($themeName) > $limitString ? substr($themeName, 0, $limitString) . '...' : $themeName;
                 $themeName = htmlspecialchars($themeName);
                 $themeNode = 'TH' . $theme->id;
                 
@@ -162,7 +163,7 @@ function generateMermaidFromUseCases($botId) {
 
             foreach ($proactiveInvitations as $invitation) {
                 $invitationName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($invitation->name));
-                $invitationName = strlen($invitationName) > 40 ? substr($invitationName, 0, 40) . '...' : $invitationName;
+                $invitationName = strlen($invitationName) > $limitString ? substr($invitationName, 0, $limitString) . '...' : $invitationName;
                 $invitationName = htmlspecialchars($invitationName);
                 $invitationNode = 'PI' . $invitation->id;
                 
@@ -186,7 +187,7 @@ function generateMermaidFromUseCases($botId) {
                     $commandName = trim($command->command);
                 }
                 $commandName = preg_replace('/[^_a-zA-Z0-9\s]/', '', $commandName);
-                $commandName = strlen($commandName) > 40 ? substr($commandName, 0, 40) . '...' : $commandName;
+                $commandName = strlen($commandName) > $limitString ? substr($commandName, 0, $limitString) . '...' : $commandName;
                 $commandName = htmlspecialchars($commandName);
                 $commandNode = 'CMD' . $command->id;
                 
@@ -206,7 +207,7 @@ function generateMermaidFromUseCases($botId) {
 
             foreach ($autoResponders as $autoResponder) {
                 $responderName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($autoResponder->name));
-                $responderName = strlen($responderName) > 40 ? substr($responderName, 0, 40) . '...' : $responderName;
+                $responderName = strlen($responderName) > $limitString ? substr($responderName, 0, $limitString) . '...' : $responderName;
                 $responderName = htmlspecialchars($responderName);
                 $responderNode = 'AR' . $autoResponder->id;
                 
@@ -227,7 +228,7 @@ function generateMermaidFromUseCases($botId) {
 
         foreach ($departments as $department) {
             $departmentName = preg_replace('/[^_a-zA-Z0-9\s]/', '', trim($department->name));
-            $departmentName = strlen($departmentName) > 40 ? substr($departmentName, 0, 40) . '...' : $departmentName;
+            $departmentName = strlen($departmentName) > $limitString ? substr($departmentName, 0, $limitString) . '...' : $departmentName;
             $departmentName = htmlspecialchars($departmentName);
             $departmentNode = 'DEP' . $department->id;
             
