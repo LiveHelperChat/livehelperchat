@@ -55,10 +55,6 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 use: 'babel-loader',
                 include: /node_modules\/socketcluster-client/
-            },
-            {
-                test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
             }
         ]
     },
