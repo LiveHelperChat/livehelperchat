@@ -209,7 +209,7 @@ const MailChatReply = props => {
                     }}
                     id={"reply-to-mce-"+props.message.id}
                     init={{
-                        cache_suffix: "?v=1.0",
+                        cache_suffix: "?v=2.0",
                         height: 320,
                         automatic_uploads: props.moptions.files_enabled,
                         file_picker_types: 'image',
