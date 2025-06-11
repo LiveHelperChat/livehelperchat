@@ -9,7 +9,7 @@
     "gulp-newer": "^1.4.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser": "^2.1.0",
-    "gulp-util": "^3.0.8",
+    "plugin-error": "^2.0.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "vmsg": "^0.3.6",

@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-gutil    = require('gulp-util'),
+PluginError = require('plugin-error'),
 terser   = require('gulp-terser'),
 concat   = require('gulp-concat'),
 webpack = require('webpack'),
@@ -184,8 +184,8 @@ gulp.task('js-colorpicker', function() {
 
 gulp.task('js-lh-npm', function(done) {
 	 webpack(webpackConfig, function(err, stats) {
-	        if(err) throw new gutil.PluginError("webpack", err);
-	        gutil.log("[webpack]", stats.toString({
+	        if(err) throw new PluginError("webpack", err);
+	        console.log("[webpack]", stats.toString({
 	            // output options
 	        }));	            	
 	 });	 done();
