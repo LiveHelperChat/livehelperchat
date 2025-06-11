@@ -52,6 +52,7 @@
         tinymce.init({
             selector: '#response-template',
             height: 320,
+            cache_suffix: "?v=<?php echo (int)erConfigClassLhConfig::getInstance()->getSetting('site', 'static_version', false);?>",
             automatic_uploads: true,
             file_picker_types: 'image',
             images_upload_url: '<?php echo erLhcoreClassDesign::baseurl('mailconv/uploadimage')?>/(csrf)/'+confLH.csrf_token,

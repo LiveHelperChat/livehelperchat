@@ -37,7 +37,7 @@
     $(document).ready(function(){
         tinymce.init({
             selector: '#response-template',
-            cache_suffix: "?v=1.0",
+            cache_suffix: "?v=<?php echo (int)erConfigClassLhConfig::getInstance()->getSetting('site', 'static_version', false);?>",
             height: <?php if (isset($tinyMceOptions['height'])) : ?><?php echo $tinyMceOptions['height']?><?php else : ?>320<?php endif;?>,
             automatic_uploads: true,
             file_picker_types: 'image',

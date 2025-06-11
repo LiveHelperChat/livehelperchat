@@ -214,6 +214,7 @@ try {
                 'mce_plugins' => $mcePlugins,
                 'mce_toolbar' => $mceToolbar,
                 'mail_links' => [],
+                'cache_version_plugin' => (int)erConfigClassLhConfig::getInstance()->getSetting('site', 'static_version', false),
                 'tiny_mce_path' => erLhcoreClassDesign::designJSStatic('js/tinymce/js/tinymce/tinymce.min.js')
             ]
         );
