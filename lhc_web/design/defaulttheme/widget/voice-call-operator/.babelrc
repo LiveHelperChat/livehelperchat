@@ -9,20 +9,15 @@
     ]
   ],
   "plugins": [
-    [
-      "@babel/plugin-proposal-decorators", {
-      "legacy": true
-    } ],
-    "@babel/plugin-proposal-class-properties",
     "@babel/plugin-transform-runtime",
+    "@babel/plugin-syntax-dynamic-import",
     [
-      "module-resolver",
+      "@babel/plugin-proposal-decorators",
       {
-        "root": ["./src"],
-        "alias": {
-          "@images": "./assets/images"
-        }
+        "legacy": true
       }
-    ]
+    ],
+    "@babel/plugin-transform-class-properties",
+    "@babel/plugin-transform-object-rest-spread"
   ]
 }
