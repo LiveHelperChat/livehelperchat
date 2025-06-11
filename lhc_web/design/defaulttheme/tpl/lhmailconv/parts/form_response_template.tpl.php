@@ -65,7 +65,7 @@
                 'advlist autolink lists link image charmap print preview anchor image lhfiles',
                 'searchreplace visualblocks code fullscreen',
                 'media table paste help',
-                'print preview importcss searchreplace autolink save directionality visualblocks visualchars fullscreen media template codesample charmap pagebreak nonbreaking anchor toc advlist lists wordcount textpattern noneditable help charmap emoticons'
+                'print preview importcss searchreplace autolink save directionality visualblocks visualchars fullscreen media template codesample charmap pagebreak nonbreaking anchor advlist lists wordcount textpattern noneditable help charmap emoticons'
             ],
             toolbar_mode: 'wrap',
             toolbar:
