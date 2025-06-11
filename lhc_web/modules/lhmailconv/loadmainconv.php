@@ -214,7 +214,7 @@ try {
                 'mce_plugins' => $mcePlugins,
                 'mce_toolbar' => $mceToolbar,
                 'mail_links' => [],
-                'tiny_mce_path' => erLhcoreClassDesign::design('js/tinymce/js/tinymce/tinymce.min.js')
+                'tiny_mce_path' => erLhcoreClassDesign::designJSStatic('js/tinymce/js/tinymce/tinymce.min.js')
             ]
         );
 
