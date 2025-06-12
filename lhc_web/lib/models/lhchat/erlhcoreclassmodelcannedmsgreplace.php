@@ -146,7 +146,6 @@ class erLhcoreClassModelCannedMsgReplace
 
                 foreach ($condition['conditions'] as $indexCondition => $conditionItem) {
                     $subItems[] = $indexCondition;
-                    $allItems[] = $indexCondition;
                     if (isset($conditionItem['logic']) && $conditionItem['logic'] == 'or') {
                         $nextConditionChild = true;
                     } else {
@@ -165,6 +164,10 @@ class erLhcoreClassModelCannedMsgReplace
                 foreach ($groupedConditions as $groupedConditionItems) {
                     $isValidSubItem = false;
                     foreach ($groupedConditionItems as $groupedConditionItem) {
+                        if (!isset($conditionItems[$groupedConditionItem])) {
+                            continue;
+                        }
+                        
                         $conditionsCurrent = $conditionItems[$groupedConditionItem];
 
                         $conditionItemValid = false;

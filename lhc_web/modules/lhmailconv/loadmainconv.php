@@ -221,7 +221,7 @@ try {
 
         if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
             foreach ($editorOptions['messages'] as $indexMessage => $messageItem) {
-                if ($messageItem->response_type !== erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
+                if (!isset($messageItem->response_type) || $messageItem->response_type !== erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
                     $editorOptions['messages'][$indexMessage]->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($editorOptions['messages'][$indexMessage]->from_address);
                 }
             }

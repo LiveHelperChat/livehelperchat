@@ -79,7 +79,7 @@
                                 <a class="user-select-none mail-link" title="<?php echo htmlspecialchars($item->subject_front)?>" href="#/chat-id-mc<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?>&nbsp;<small><?php echo $item->total_messages?></small></a>
 
                                 <?php if (is_array($item->subjects)) : $subjectPresent = [];?>
-                                    <?php foreach ($item->subjects as $subject) : if (!in_array($subject->id, $subjectPresent)) : $subjectPresent[] = $subject->id;?>
+                                    <?php foreach ($item->subjects as $subject) : if (is_object($subject) && !in_array($subject->id, $subjectPresent)) : $subjectPresent[] = $subject->id;?>
                                         <span class="badge bg-info mx-1" ng-non-bindable <?php if ($subject->color != '') : ?>style="background-color:#<?php echo htmlspecialchars($subject->color)?>!important;" <?php endif;?> ><?php echo htmlspecialchars($subject)?></span>
                                     <?php endif; endforeach; ?>
                                 <?php endif; ?>

@@ -76,7 +76,7 @@ try {
         }
 
         if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
-            if ($message->response_type !== erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
+            if (!isset($message->response_type) || $message->response_type !== erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
                 $message->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($message->from_address);
             }
         }
