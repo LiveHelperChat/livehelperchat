@@ -80,7 +80,7 @@
     "michelf/php-markdown": "^2.0",
     "minishlink/web-push": "^7.0",
     "php-imap/php-imap": "dev-master#cd135a699972a202c6c94344ccf9ab255d651ef7",
-    "slim/slim": "^3.12.4",
+    "slim/slim": "^4.14.0",
     "sonata-project/google-authenticator": "^3.0@dev",
     "symfony/event-dispatcher": "^7.1",
     "tgallice/fb-messenger-sdk": "dev-master#a0d103f38473891432965c0f5b38b142b5dbfc3c",
