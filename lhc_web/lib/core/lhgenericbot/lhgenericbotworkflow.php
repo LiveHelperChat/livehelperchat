@@ -2674,6 +2674,13 @@ class erLhcoreClassGenericBotWorkflow {
                         $jsonProcess = true;
                     }
 
+                    $jsonOutputPrevious = $jsonOutput;
+                    $jsonOutput = str_replace('__direct','', $jsonOutput);
+                    $directValue = false;
+                    if ($jsonOutput != $jsonOutputPrevious) {
+                        $directValue = true;
+                    }
+
                     // Perhaps it want format output to date
                     $dateFormat = explode('__datef__', $jsonOutput);
                     $jsonOutput = $dateFormat[0];
@@ -2705,7 +2712,7 @@ class erLhcoreClassGenericBotWorkflow {
                     }
 
                     $message = str_replace($elementValue,  $valueAttribute['found'] == true ? ((isset($params['as_json']) && $params['as_json'] == true) ?
-                        ($jsonProcess ? json_encode(json_encode($valueAttribute['value'])) : json_encode($valueAttribute['value'])) :
+                        ($jsonProcess ? json_encode(json_encode($valueAttribute['value'])) : ($directValue === true ? $valueAttribute['value'] : json_encode($valueAttribute['value']))) :
                         ($urlEncodeOutput === true ? rawurlencode($valueAttribute['value']) : (
                             $escapeProcess === true ? htmlspecialchars($valueAttribute['value']) : $valueAttribute['value']
                         ))
