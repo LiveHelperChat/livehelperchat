@@ -79,7 +79,7 @@
     "longman/telegram-bot": "dev-master#e80416306f6cd054fd6b5e3a947528e18bdbf518",
     "michelf/php-markdown": "^2.0",
     "minishlink/web-push": "^7.0",
-    "php-imap/php-imap": "dev-master#cd135a699972a202c6c94344ccf9ab255d651ef7",
+    "php-imap/php-imap": "dev-master#5c4f558ec8d82b273ca5d975c4cfc9aee50b6609",
     "slim/slim": "^4.14.0",
     "sonata-project/google-authenticator": "^3.0@dev",
     "symfony/event-dispatcher": "^7.1",
