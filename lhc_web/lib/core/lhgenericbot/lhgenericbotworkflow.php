@@ -2716,7 +2716,7 @@ class erLhcoreClassGenericBotWorkflow {
                         ($urlEncodeOutput === true ? rawurlencode($valueAttribute['value']) : (
                             $escapeProcess === true ? htmlspecialchars($valueAttribute['value']) : $valueAttribute['value']
                         ))
-                    ) : (isset($params['as_json']) && $params['as_json'] == true ? ($jsonProcess ? json_encode("null") : "null") : ''), $message);
+                    ) : (isset($params['as_json']) && $params['as_json'] == true ? ($jsonProcess ? ($directValue === true ? '' : json_encode("null")) : "null") : ''), $message);
                 }
             }
         }
