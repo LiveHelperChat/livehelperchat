@@ -2707,8 +2707,13 @@ class erLhcoreClassGenericBotWorkflow {
                         $valueAttribute['value'] = date($dateFormat[1], $valueAttribute['value']);
                     }
 
-                    if (isset($notEmpty[1]) && $valueAttribute['found'] === true && !empty($valueAttribute['value'])) {
+                    if (!empty($notEmpty[1]) && $valueAttribute['found'] === true && !empty($valueAttribute['value'])) {
                         $valueAttribute['value'] = $notEmpty[1];
+                    }
+
+                    // Print nothing if var does not exists
+                    if (count($notEmpty) === 2 && $valueAttribute['found'] === false && empty($notEmpty[1])) {
+                        $directValue = true;
                     }
 
                     $message = str_replace($elementValue,  $valueAttribute['found'] == true ? ((isset($params['as_json']) && $params['as_json'] == true) ?
@@ -2716,7 +2721,7 @@ class erLhcoreClassGenericBotWorkflow {
                         ($urlEncodeOutput === true ? rawurlencode($valueAttribute['value']) : (
                             $escapeProcess === true ? htmlspecialchars($valueAttribute['value']) : $valueAttribute['value']
                         ))
-                    ) : (isset($params['as_json']) && $params['as_json'] == true ? ($jsonProcess ? ($directValue === true ? '' : json_encode("null")) : "null") : ''), $message);
+                    ) : (isset($params['as_json']) && $params['as_json'] == true ? ($jsonProcess ? json_encode("null") : ($directValue === true ? '' : "null")) : ''), $message);
                 }
             }
         }
