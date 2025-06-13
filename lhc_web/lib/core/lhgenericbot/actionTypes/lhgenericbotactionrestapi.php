@@ -1292,6 +1292,9 @@ class erLhcoreClassGenericBotActionRestapi
                 $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
                 $trimmed_data = trim($data);
 
+                $chunkStarted = false;
+                $executedTriggers = [];
+
                 if (!empty($trimmed_data)) {
                     $streamContent = ['content' => '','content_2' => '','content_3' => '','content_4' => '','content_5' => '','content_6' => ''];
                     foreach (explode("\n",$trimmed_data) as $line) {
@@ -1314,14 +1317,21 @@ class erLhcoreClassGenericBotActionRestapi
                                 $streamBuffer .= $line;
                             }
 
+                            if ($chunkStarted === false) {
+                                $chunkStarted = true;
+                                $logChunk = '[STREAM START]';
+                            } else {
+                                $logChunk = '';
+                            }
+
                             json_decode($streamBuffer);
                             if (json_last_error() != JSON_ERROR_NONE) {
                                 if ($logRequest === true && $line != "") {
-                                    $streamLines[] = self::getCurrentTimeWithMilliseconds(). ' [INVALID JSON] - [' . $streamEvent . '] - ' . $streamBuffer;
+                                    $streamLines[] = self::getCurrentTimeWithMilliseconds() . ' ' . $logChunk . ' [INVALID JSON] - [' . $streamEvent . '] - ' . $streamBuffer;
                                 }
                                 continue;
                             } elseif ($logRequest === true && $line != "") {
-                                $streamLines[] = self::getCurrentTimeWithMilliseconds().' [VALID JSON] - [' . $streamEvent . '] - ' . $streamBuffer;
+                                $streamLines[] = self::getCurrentTimeWithMilliseconds() . ' ' . $logChunk . ' [VALID JSON] - [' . $streamEvent . '] - ' . $streamBuffer;
                             }
 
                             $responseStream = self::parseContentOutput([
@@ -1335,6 +1345,45 @@ class erLhcoreClassGenericBotActionRestapi
                                 'paramsRequest' => null,
                                 'stream_event' => $streamEvent
                             ]);
+
+                            if (isset($responseStream['content']) && $responseStream['content'] != '' && isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1 &&
+                                isset($responseStream['stream_execute_trigger']) && $responseStream['stream_execute_trigger'] == true &&
+                                !(isset($responseStream['final_match']) && $responseStream['final_match'] == true) &&
+                                isset($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']]) && is_numeric($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']])
+                            ) {
+                                $executedTriggers[] = $responseStream['id'];
+
+                                $argsDefault = array(
+                                    'replace_array' => array(
+                                        '{content_1}' => $responseStream['content'],
+                                        '{content_2}' => $responseStream['content_2'],
+                                        '{content_3}' => $responseStream['content_3'],
+                                        '{content_4}' => $responseStream['content_4'],
+                                        '{content_5}' => $responseStream['content_5'],
+                                        '{content_6}' => $responseStream['content_6'],
+                                        '{content_1_json}' => json_encode($responseStream['content']),
+                                        '{content_2_json}' => json_encode($responseStream['content_2']),
+                                        '{content_3_json}' => json_encode($responseStream['content_3']),
+                                        '{content_4_json}' => json_encode($responseStream['content_4']),
+                                        '{content_5_json}' => json_encode($responseStream['content_5']),
+                                        '{content_6_json}' => json_encode($responseStream['content_6']),
+                                        '{http_code}' => $responseStream['http_code'],
+                                        '{http_error}' => $responseStream['http_error'],
+                                        '{content_raw}' => $responseStream['content_raw'],
+                                        '{http_data}' => $responseStream['http_data']
+                                    )
+                                );
+
+                                $trigger = erLhcoreClassModelGenericBotTrigger::fetch($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']]);
+
+                                erLhcoreClassGenericBotWorkflow::processTrigger($paramsCustomer['chat'], $trigger, true, array('args' => $argsDefault));
+
+                                if ($logRequest === true) {
+                                    $streamLines[] = self::getCurrentTimeWithMilliseconds().' [trigger exec] - [' . $trigger->name . '] [' . $trigger->id . ']';
+                                }
+
+                                continue;
+                            }
 
                             if (isset($responseStream['final_match']) && $responseStream['final_match'] == true && $lockMatchedOutput !== true) {
                                 $responseContent = $responseStream;
@@ -1435,7 +1484,7 @@ class erLhcoreClassGenericBotActionRestapi
 
                         if (isset($responseStream['stream_execute_trigger']) && $responseStream['stream_execute_trigger'] == true) {
 
-                            if (isset($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']]) && is_numeric($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']])) {
+                            if (!in_array($responseStream['id'],$executedTriggers) && isset($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']]) && is_numeric($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']])) {
                                 $argsDefault = array(
                                       'replace_array' => array(
                                         '{content_1}' => $responseStream['content'],
