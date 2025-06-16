@@ -1,6 +1,13 @@
-<?php if ($chat->user_id == erLhcoreClassUser::instance()->getUserID() || erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowcloseremote')) : ?>
-<div class="col-6 pb-1">
-    <a class="text-muted" id="chat-close-action-<?php echo $chat->id?>" data-status="<?php echo $chat->status;?>" data-loading="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Closing...')?>" onclick="lhinst.closeActiveChatDialog(<?php echo $chat->id?>,$('#tabs'),true)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close chat')?>">
-        <span class="material-icons">close</span><span data-original="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close chat')?>" class="close-text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close chat')?></span></a>
-</div>
-<?php endif;?>
+<?php if (isset($canEditChat) && $canEditChat == true && ($chat->user_id == erLhcoreClassUser::instance()->getUserID() || erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowcloseremote'))) : ?>
+    <button type="button" class="btn btn-xs text-muted fs14" id="chat-close-action-<?php echo $chat->id?>" data-status="<?php echo $chat->status;?>" data-loading="<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Exiting chat')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Closing...')?><?php endif;?>" onclick="<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>lhinst.removeDialogTab(<?php echo $chat->id?>,$('#tabs'),true)<?php else : ?>lhinst.closeActiveChatDialog(<?php echo $chat->id?>,$('#tabs'),true)<?php endif; ?>" title="<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat was already closed')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close chat')?><?php endif;?>"><span class="material-icons fs14">close</span><span data-original="<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Exit chat')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close chat')?><?php endif;?>" class="close-text">
+            <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
+                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Exit chat')?>
+            <?php else : ?>
+                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Close chat')?>
+            <?php endif; ?>
+        </span></button>
+<?php else : ?>
+    <button type="button" class="btn btn-xs text-muted fs14" id="chat-close-action-<?php echo $chat->id?>" data-status="<?php echo $chat->status;?>" data-loading="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Exiting chat')?>" onclick="lhinst.removeDialogTab(<?php echo $chat->id?>,$('#tabs'),true)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Exit chat')?>"><span class="material-icons fs14">close</span><span data-original="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Exit chat')?>" class="close-text">
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Exit chat')?>
+    </span></button>
+<?php endif; ?>
