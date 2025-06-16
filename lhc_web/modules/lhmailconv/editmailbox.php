@@ -56,6 +56,32 @@ if (isset($Params['user_parameters_unordered']['action']) && $Params['user_param
     $tab = 'tab_mailbox';
 }
 
+if (isset($Params['user_parameters_unordered']['action']) && $Params['user_parameters_unordered']['action'] == 'delete_folder') {
+    
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        echo json_encode(['error' => 'Invalid CSRF token']);
+        exit;
+    }
+
+    $folderPath = $_POST['folder_path'];
+    $mailBoxes = $item->mailbox_sync_array;
+    
+    foreach ($mailBoxes as $index => $mailBox) {
+        if ($mailBox['path'] == $folderPath) {
+            unset($mailBoxes[$index]);
+            break;
+        }
+    }
+    
+    $mailBoxes = array_values($mailBoxes);
+    $item->mailbox_sync_array = $mailBoxes;
+    $item->mailbox_sync = json_encode($item->mailbox_sync_array);
+    $item->saveThis();
+    
+    echo json_encode(['success' => true]);
+    exit;
+}
+
 if (isset($_POST['Save_mailbox'])) {
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {

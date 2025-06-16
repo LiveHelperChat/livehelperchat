@@ -38,35 +38,72 @@
             <hr>
 
             <div class="row">
-                <div class="col-4">
+                <div class="col-3">
                     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/mailconvmb','Choose what mailbox you want to sync');?></h5>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/mailconvmb','Choose where deleted e-mails should be moved');?></h5>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/mailconvmb','Choose a send folder');?></h5>
+                </div>
+                <div class="col-3">
+                    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/mailconvmb','Delete folder');?></h5>
                 </div>
             </div>
             <?php foreach ($item->mailbox_sync_array as $mailbox) : ?>
-            <div class="row">
-                <div class="col-4">
+            <div class="row mailbox-row" data-path="<?php echo htmlspecialchars($mailbox['path'])?>">
+                <div class="col-3">
                     <div class="form-group">
                         <label><input type="checkbox" value="<?php echo htmlspecialchars($mailbox['path'])?>" <?php if ($mailbox['sync'] == true) : ?>checked="checked"<?php endif; ?> name="Mailbox[]"> <?php echo htmlspecialchars($mailbox['path'])?></label>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <div class="form-group">
                         <label><input type="radio" value="<?php echo htmlspecialchars($mailbox['path'])?>" <?php if (isset($mailbox['sync_deleted']) && $mailbox['sync_deleted'] == true) : ?>checked="checked"<?php endif; ?> name="MailboxDeleted"> <?php echo htmlspecialchars($mailbox['path'])?></label>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <div class="form-group">
                         <label><input type="radio" value="<?php echo htmlspecialchars($mailbox['path'])?>" <?php if (isset($mailbox['send_folder']) && $mailbox['send_folder'] == true) : ?>checked="checked"<?php endif; ?> name="MailboxSend"> <?php echo htmlspecialchars($mailbox['path'])?></label>
                     </div>
                 </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-sm btn-danger delete-folder-btn" data-path="<?php echo htmlspecialchars($mailbox['path'])?>">
+                            <i class="material-icons me-0">delete</i>
+                        </button>
+                    </div>
+                </div>
             </div>
             <?php endforeach; ?>
+
+            <script>
+            $(document).ready(function() {
+                $('.delete-folder-btn').on('click', function(e) {
+                    e.preventDefault();
+                     var folderPath = $(this).data('path');
+                     lhc.revealModal({'url': WWW_DIR_JAVASCRIPT + 'system/confirmdialog', 
+                        'backdrop':true,
+                        'hidecallback' : function(){
+                            inst.removeClass('csfr-post-executed');
+                        },
+                        'showcallback' : function(){
+                        $('#confirm-button-action').click(function() {
+                            $.post( WWW_DIR_JAVASCRIPT + 'mailconv/editmailbox/<?php echo $item->id?>/(action)/delete_folder',{
+                                folder_path: folderPath
+                            }, function(){
+                                $('.mailbox-row[data-path="' + folderPath + '"]').remove();
+                                $('#myModal').modal('hide');
+                            }).fail(function(){
+                                document.location.reload();
+                            });
+
+                        });
+                    }});
+                });
+            });
+            </script>
 
             <div class="btn-group" role="group" aria-label="...">
                 <input type="submit" class="btn btn-secondary" name="Save_mailbox" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
