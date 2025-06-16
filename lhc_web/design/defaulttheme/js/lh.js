@@ -1332,6 +1332,10 @@ function lh(){
 
             $('#myModal').modal('hide');
 
+            if (hidetab == true && that.closeWindowOnChatCloseDelete == true) {
+                window.close();
+            }
+
         }).fail(function(jqXHR, textStatus, errorThrown) {
             ee.emitEvent('angularSyncDisabled', [false]);
             alert('There was an error processing your request: ' + '[' + jqXHR.status + '] [' + jqXHR.statusText + '] [' + jqXHR.responseText + '] ' + errorThrown);
@@ -1358,11 +1362,6 @@ function lh(){
             setTimeout(function() {
                 window.location.hash =  location;
             },500);
-
-            if (that.closeWindowOnChatCloseDelete == true)
-            {
-                window.close();
-            }
         };
 
         if (LHCCallbacks.chatClosedCallback) {
