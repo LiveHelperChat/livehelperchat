@@ -23,6 +23,11 @@
         <input type="number" min="1" max="10" title="min 1, max 10" placeholder="min 1, max 10" class="form-control" name="top_n_match" value="<?php isset($sc_options['top_n_match']) ? print $sc_options['top_n_match'] : print 1; ?>" />
     </div>
 
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Maximum number of canned messages to show by default')?></label>
+        <input type="number" min="50" max="5000" title="min 50, max 5000" placeholder="min 50, max 5000" class="form-control" name="max_result" value="<?php isset($sc_options['max_result']) ? print $sc_options['max_result'] : print 50; ?>" />
+    </div>
+
     <input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
 </form>

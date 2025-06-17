@@ -347,8 +347,10 @@ class erLhcoreClassModelCannedMsg
             )";
 
 	        $q->where($filter);
-	       
-	        $q->limit(50, 0);
+
+            $settingsCannedSuggester = erLhcoreClassModelChatConfig::fetch('canned_suggester_settings')->data;
+
+	        $q->limit($settingsCannedSuggester['max_result'] ?? 50, 0);
 	        $q->orderBy('position ASC, title ASC');
 	        $items = $session->find($q);
         }

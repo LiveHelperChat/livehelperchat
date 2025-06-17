@@ -21,6 +21,9 @@ if (isset($_POST['StoreOptions']) ) {
         ),
         'top_n_match' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1,'max_range' => 5)
+        ),
+        'max_result' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 50, 'max_range' => 5000)
         )
     );
 
@@ -37,6 +40,12 @@ if (isset($_POST['StoreOptions']) ) {
         $data['min_percentage'] = $form->min_percentage;
     } else {
         $data['min_percentage'] = 0;
+    }
+
+    if ($form->hasValidData( 'max_result' )) {
+        $data['max_result'] = $form->max_result;
+    } else {
+        $data['max_result'] = 50;
     }
 
     if ($form->hasValidData( 'top_n_match' )) {
