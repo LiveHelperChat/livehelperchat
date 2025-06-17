@@ -111,9 +111,6 @@ class erLhcoreClassModelChatOnlineUser
                 if (isset($this->online_attr_system_array['username']) && $this->online_attr_system_array['username'] != ''){
                     $this->nick = $this->online_attr_system_array['username'];
                     $this->has_nick = true;
-                } else if (isset($this->online_attr_array['lhc.nick']['value']) && $this->online_attr_array['lhc.nick']['value'] != '') {
-                    $this->nick = $this->online_attr_array['lhc.nick']['value'];
-                    $this->has_nick = true;
                 } elseif (isset($this->online_attr_array['username']) && $this->online_attr_array['username'] != ''){
                     $this->nick = $this->online_attr_array['username'];
                     $this->has_nick = true;

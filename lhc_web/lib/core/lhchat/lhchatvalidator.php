@@ -1010,20 +1010,11 @@ class erLhcoreClassChatValidator {
 
             if (isset($onlineAttr[$jsVar->var_identifier]) && $jsVar->persistent == 0 && !in_array($jsVar->var_identifier,$variableSet)) {
                 unset($onlineAttr[$jsVar->var_identifier]);
-
-                if ($jsVar->var_identifier == 'lhc.nick' && isset($onlineAttrSystem['username'])) {
-                    unset($onlineAttrSystem['username']);
-                    if (isset($onlineAttrSystem['username_secure'])) {
-                        unset($onlineAttrSystem['username_secure']);
-                    }
-                    $visitor->online_attr_system = json_encode($onlineAttrSystem);
-                    $visitor->online_attr_system_array = $onlineAttrSystem;
-                }
-
             }
 
             // Remove variables which should not be kept
-            if (isset($onlineAttrSystem[$jsVar->var_identifier]) && $jsVar->inv == 1 && $jsVar->persistent == 0 && !in_array($jsVar->var_identifier,$variableSet)) {
+            if (((isset($onlineAttrSystem[$jsVar->var_identifier]) && $jsVar->inv == 1) || $jsVar->var_identifier == 'lhc.nick') && $jsVar->persistent == 0 && !in_array($jsVar->var_identifier,$variableSet)) {
+
                 unset($onlineAttrSystem[$jsVar->var_identifier]);
 
                 if (isset($onlineAttrSystem[$jsVar->var_identifier . '_secure'])) {unset($onlineAttrSystem[ $jsVar->var_identifier . '_secure']);};
@@ -1036,6 +1027,8 @@ class erLhcoreClassChatValidator {
                 $visitor->online_attr_system = json_encode($onlineAttrSystem);
                 $visitor->online_attr_system_array = $onlineAttrSystem;
             }
+
+
 
             $val = null;
 
@@ -1085,29 +1078,32 @@ class erLhcoreClassChatValidator {
                     }
                 }
 
-                if ($decryptFailed === false) {
-                    if ($jsVar->var_identifier == 'lhc.nick' && $val != '') {
+                if ($decryptFailed === false && !empty($val)) {
+                    if ($jsVar->var_identifier == 'lhc.nick') {
+
                         $onlineAttrSystem['username'] = $val;
                         if ($secure === true) {
                             $onlineAttrSystem['username_secure'] = true;
                         } elseif (isset($onlineAttrSystem['username_secure'])) {
                             unset($onlineAttrSystem['username_secure']);
                         }
+
                         $visitor->online_attr_system = json_encode($onlineAttrSystem);
                         $visitor->online_attr_system_array = $onlineAttrSystem;
-                    }
 
-                    if ($jsVar->inv == 1) {
-                        if ($val !== '') {
-                            $onlineAttrSystem[$jsVar->var_identifier] = $val;
-                            if ($secure === true) {
-                                $onlineAttrSystem[$jsVar->var_identifier . '_secure'] = true;
-                            } elseif (isset($onlineAttrSystem[$jsVar->var_identifier . '_secure'])) {
-                                unset($onlineAttrSystem[$jsVar->var_identifier . '_secure']);
-                            }
-                            $visitor->online_attr_system = json_encode($onlineAttrSystem);
-                            $visitor->online_attr_system_array = $onlineAttrSystem;
+                        if (isset($onlineAttr[$jsVar->var_identifier])) {
+                            unset($onlineAttr[$jsVar->var_identifier]);
                         }
+
+                    } else if ($jsVar->inv == 1) {
+                        $onlineAttrSystem[$jsVar->var_identifier] = $val;
+                        if ($secure === true) {
+                            $onlineAttrSystem[$jsVar->var_identifier . '_secure'] = true;
+                        } elseif (isset($onlineAttrSystem[$jsVar->var_identifier . '_secure'])) {
+                            unset($onlineAttrSystem[$jsVar->var_identifier . '_secure']);
+                        }
+                        $visitor->online_attr_system = json_encode($onlineAttrSystem);
+                        $visitor->online_attr_system_array = $onlineAttrSystem;
                     } else {
                         $onlineAttr[$jsVar->var_identifier] =  array('h' => false, 'secure' => $secure, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                     }
