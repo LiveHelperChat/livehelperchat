@@ -767,13 +767,22 @@
         {#if track_is_online}<a class="material-icons" on:click={(e) => setSort('last_check_time')} title={$t('widget_options.status_on_site')}>access_time</a>{/if}
         <a href="#" on:click={(e) => setSort('current_page')} >{$t('widget_options.page')}</a> | <a href="#" on:click={(e) => setSort('referrer')}>{$t('widget_options.came_from')}</a> | <span title={$t('widget_options.only_connected')} on:click={(e) => ee.emitEvent('svelteOnlineUserSetting',['showConnected'])} class="material-icons action-image">{lhcLogic.online_connected ? 'flash_on' : 'flash_off'}</span>
 
+
         <div class="float-end expand-actions">
+
+            {#if !lhcLogic.hide_action_buttons}
+            <a title={$t($lhcList.suspend_widgets.indexOf('onlineusers') === -1 ? "widget.pause_widget" : "widget.resume_widget")} on:click={(e) => lhcServices.suspendSync(lhcList,'onlineusers')} class="ms-0 me-1 text-muted material-icons">{$lhcList.suspend_widgets.indexOf('onlineusers') === -1 ? 'pause' : 'play_arrow'}</a>
+            {/if}
+
             <a on:click={(e) => lhcServices.changeWidgetHeight(lhcList,'onlineusers',true)} class="text-muted disable-select">
                 <i title={$t("widget.more_rows")}  class="material-icons">expand</i>
             </a>
+
             <a on:click={(e) => lhcServices.changeWidgetHeight(lhcList,'onlineusers',false)} class="text-muted disable-select">
                 <i title={$t("widget.less_rows")} class="material-icons">compress</i>
             </a>
+
+
         </div>
 
     </th>
