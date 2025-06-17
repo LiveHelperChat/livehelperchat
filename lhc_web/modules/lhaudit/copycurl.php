@@ -195,7 +195,7 @@ function constructCurlCommandFromJson(string $jsonInput): string
         convertEmptyArraysToObjectsRecursive($bodyData, '', $arrayPaths);
 
         // Re-encode the (potentially modified) body data to a JSON string.
-        $bodyJson = json_encode($bodyData);
+        $bodyJson = json_encode($bodyData, JSON_PRETTY_PRINT);
         if (json_last_error() !== JSON_ERROR_NONE) {
             return "Error: Could not encode modified body to JSON. " . json_last_error_msg();
         }
