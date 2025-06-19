@@ -42,7 +42,7 @@
         <td><?php echo htmlspecialchars($optionsItem->option_name)?></td>
         <td><?php echo $optionsItem->priority?></td>
         <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('questionary/edit')?>/<?php echo $question->id?>/(option_id)/<?php echo $optionsItem->id?>/(tab)/voting"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit');?></a></td>
-        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('questionary/deleteoption')?>/<?php echo $optionsItem->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Delete');?></a></td>
+        <td nowrap><a class="btn btn-danger btn-xs csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('questionary/deleteoption')?>/<?php echo $optionsItem->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Delete');?></a></td>
 </tr>
 <?php endforeach;?>
 </table>

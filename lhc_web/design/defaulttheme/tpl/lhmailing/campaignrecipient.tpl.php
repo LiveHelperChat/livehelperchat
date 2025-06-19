@@ -31,7 +31,7 @@
                         <small class="pl-2 text-muted"><span class="material-icons">mail_outline</span><?php echo htmlspecialchars($item->mailbox_front)?></small>
                     <?php endif; ?>
 
-                    <a class="csfr-required text-muted border rounded px-1" href="<?php echo erLhcoreClassDesign::baseurl('mailing/sendtestemail')?>/<?php echo $item->id?>" onclick="return confirm('Are you sure?')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send test e-mail');?></a>
+                    <a class="csfr-post csfr-required text-muted border rounded px-1" href="<?php echo erLhcoreClassDesign::baseurl('mailing/sendtestemail')?>/<?php echo $item->id?>" data-trans="delete_confirm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send test e-mail');?></a>
                 </td>
                 <td>
                     <?php if ($item->send_at > 0) : ?><?php echo $item->send_at_front?><?php endif;?>
@@ -65,7 +65,7 @@
                     <?php endif; ?>
                 </td>
                 <td>
-                    <a class="text-danger csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deletecampaignrecipient')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
+                    <a class="text-danger csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deletecampaignrecipient')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
                 </td>
             </tr>
         <?php endforeach; ?>

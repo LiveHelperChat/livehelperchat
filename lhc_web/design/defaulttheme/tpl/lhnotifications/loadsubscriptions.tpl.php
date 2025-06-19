@@ -29,8 +29,8 @@
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notification/list','In-Active');?>
                 <?php endif; ?>
             </td>
-            <td><a class="btn btn-info btn-xs csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('notifications/sendtest')?>/<?php echo $notificationSubscriber->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Test');?></a></td>
-            <td><a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('notifications/opdeletesubscribermy')?>/<?php echo $notificationSubscriber->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a></td>
+            <td><a class="btn btn-info btn-xs csfr-post csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('notifications/sendtest')?>/<?php echo $notificationSubscriber->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Test');?></a></td>
+            <td><a class="btn btn-danger btn-xs csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('notifications/opdeletesubscribermy')?>/<?php echo $notificationSubscriber->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a></td>
         </tr>
     <?php endforeach; ?>
 </table>

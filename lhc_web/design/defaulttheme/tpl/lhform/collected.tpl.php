@@ -51,7 +51,7 @@
 				
 	        </div>
         </td>
-        <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('form/collected')?>/<?php echo $form->id?>/(action)/delete/(id)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Delete');?></a></td>
+        <td nowrap><a data-trans="delete_confirm" class="csfr-post csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('form/collected')?>/<?php echo $form->id?>/(action)/delete/(id)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Delete');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>

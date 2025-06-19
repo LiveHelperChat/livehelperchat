@@ -50,7 +50,7 @@
                 <?php echo htmlspecialchars($item->attr_str_6)?>
             </td>
             <td>
-                <a class="csfr-required text-danger" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deleterecipient')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
+                <a class="csfr-post csfr-required text-danger" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deleterecipient')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
             </td>
         </tr>
     <?php endforeach;endif; ?>

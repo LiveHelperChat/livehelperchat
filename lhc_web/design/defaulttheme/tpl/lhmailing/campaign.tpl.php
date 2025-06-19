@@ -33,7 +33,7 @@
                     <a class="<?php if ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED) : ?>text-muted<?php endif;?>" href="<?php echo erLhcoreClassDesign::baseurl('mailing/campaignrecipient')?>/(campaign)/<?php echo $item->id?>" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','List of recipients');?></a>
                 </td>
                 <td>
-                    <a class="text-danger csfr-post csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deletecampaign')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
+                    <a class="text-danger csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deletecampaign')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
                 </td>
             </tr>
         <?php endforeach; ?>

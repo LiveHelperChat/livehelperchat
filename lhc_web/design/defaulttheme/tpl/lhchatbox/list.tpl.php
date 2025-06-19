@@ -22,7 +22,7 @@
 	       <?php echo $chat->id;?>. <?php echo htmlspecialchars($chat->nick);?> <?php echo is_object($chat->chat) ? date(erLhcoreClassModule::$dateDateHourFormat,$chat->chat->time) : '';?>
         </td>
         <td class="small-1" nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chatbox/edit')?>/<?php echo $chat->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td>
-        <td class="small-1" nowrap><a class="csfr-required btn btn-danger btn-xs" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('chatbox/delete')?>/<?php echo $chat->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
+        <td class="small-1" nowrap><a class="csfr-post csfr-required btn btn-danger btn-xs" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('chatbox/delete')?>/<?php echo $chat->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
     </tr>
     <?php endforeach; ?>
 </table>

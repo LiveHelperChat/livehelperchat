@@ -102,7 +102,7 @@
                 </td>
                 <?php if ($can_delete === true) : ?>
                     <td ng-non-bindable>
-                        <a class="text-danger csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/deleteconversation')?>/<?php echo $item->id?>" ><i class="material-icons me-0">&#xE872;</i></a>
+                        <a class="text-danger csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/deleteconversation')?>/<?php echo $item->id?>" ><i class="material-icons me-0">&#xE872;</i></a>
                     </td>
                 <?php endif; ?>
             </tr>

@@ -45,7 +45,7 @@
     	<?php endif;?>
         <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhsurvey','delete_collected')) : ?>
         <td>
-            <a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('survey/collected')?>/<?php echo $item->survey_id;?>/(action)/delete/(id)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete');?></a>
+            <a class="csfr-post csfr-required btn btn-danger btn-xs" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('survey/collected')?>/<?php echo $item->survey_id;?>/(action)/delete/(id)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete');?></a>
         </td>
         <?php endif;?>
     </tr>
