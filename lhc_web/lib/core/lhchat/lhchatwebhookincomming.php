@@ -1933,7 +1933,14 @@ class erLhcoreClassChatWebhookIncoming {
                     if ($msg->id > 0) {
                         erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg, 'ignore_default' => $ignore_default));
                     } else {
-                        erLhcoreClassChatValidator::setBot($chat, array('ignore_default' => $ignore_default));
+
+                        $argsBots = array('ignore_default' => $ignore_default);
+
+                        if ($ignore_default === false && isset($buttonPayload)) {
+                            $argsBots['msg_text'] = $buttonPayload;
+                        }
+
+                        erLhcoreClassChatValidator::setBot($chat, $argsBots);
                     }
 
                     $db->commit();
