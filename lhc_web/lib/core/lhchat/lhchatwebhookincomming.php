@@ -1504,7 +1504,7 @@ class erLhcoreClassChatWebhookIncoming {
                                     $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => $filterButtonEvent));
 
                                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                                        erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array('args' => array('msg_text' => $buttonPayload)));
+                                        erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('msg_text' => $buttonPayload)));
                                     }
 
                                 } else {
