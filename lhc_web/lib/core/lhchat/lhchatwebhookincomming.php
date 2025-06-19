@@ -1481,6 +1481,8 @@ class erLhcoreClassChatWebhookIncoming {
                             ));
                         } else {
 
+                            $msg_last_id = $chat->last_msg_id;
+
                             $event = erLhcoreClassGenericBotWorkflow::findEvent($buttonPayload, $chat->gbot_id, 0, array(), array('dep_id' => $chat->dep_id));
 
                             if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)){
@@ -1512,7 +1514,7 @@ class erLhcoreClassChatWebhookIncoming {
                                 }
                             }
 
-                            self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id : $chat->last_msg_id), 'init' => true));
+                            self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id : $msg_last_id), 'init' => true));
                         }
                     }
 
