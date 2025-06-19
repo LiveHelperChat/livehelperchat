@@ -32,7 +32,7 @@
             </td>
             <td nowrap ng-non-bindable><a class="btn btn-secondary csfr-required btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('cannedmsg/clonereplace')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('cannedmsg/deletereplace','Clone');?></a></td>
             <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('cannedmsg/editreplace')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit');?></a></td>
-            <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('cannedmsg/deletereplace')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete');?></a></td>
+            <td nowrap><a class="btn btn-danger btn-xs csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('cannedmsg/deletereplace')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete');?></a></td>
         </tr>
     <?php endforeach; ?>
 </table>

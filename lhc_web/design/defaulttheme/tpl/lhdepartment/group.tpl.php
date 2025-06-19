@@ -74,7 +74,7 @@
 
         <td nowrap>
             <?php if ($assignedOperator == 0) : ?>
-                <a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('gallery/album_list_admin','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('department/deletegroup')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a>
+                <a class="btn btn-danger btn-xs csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('department/deletegroup')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a>
             <?php else : ?>
                 <button class="btn btn-danger btn-xs" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Disabled because there is assigned operators to it!');?>" disabled ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></button>
             <?php endif; ?>

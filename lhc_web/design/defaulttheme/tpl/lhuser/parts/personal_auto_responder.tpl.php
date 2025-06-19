@@ -28,7 +28,7 @@ if ($pages->items_total > 0) {
             <td><?php echo nl2br(htmlspecialchars($autoResponderMessage->name))?></td>
             <td><?php echo nl2br(htmlspecialchars((string)$autoResponderMessage->list_department))?></td>
             <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(msg)/<?php echo $autoResponderMessage->id?>/(tab)/autoresponder"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit message');?></a></td>
-            <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(action)/delete/(tab)/autoresponder/(msg)/<?php echo $autoResponderMessage->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete message');?></a></td>
+            <td nowrap><a class="btn btn-danger btn-xs csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(action)/delete/(tab)/autoresponder/(msg)/<?php echo $autoResponderMessage->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete message');?></a></td>
         </tr>
     <?php endforeach; ?>
 </table>

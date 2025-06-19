@@ -19,7 +19,7 @@
         <td><?php echo htmlspecialchars($departament['name'])?></td>
         <?php if ($canEdit) : ?><td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Edit');?></a></td><?php endif;?>
         <?php if ($canEdit) : ?><td nowrap><a class="btn btn-secondary btn-xs csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('permission/clonerole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Clone');?></a></td><?php endif;?>
-        <?php if ($canDelete) : ?><td nowrap><?php if ($departament['id'] != 1 && erLhcoreClassRole::canDeleteRole($departament['id']) === true) : ?><a class="csfr-required btn btn-danger btn-xs" onclick="return confirm('Are you sure?')" href="<?php echo erLhcoreClassDesign::baseurl('permission/deleterole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Delete a role');?></a><?php endif;?></td><?php endif;?>
+        <?php if ($canDelete) : ?><td nowrap><?php if ($departament['id'] != 1 && erLhcoreClassRole::canDeleteRole($departament['id']) === true) : ?><a class="btn btn-danger btn-xs csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('permission/deleterole')?>/<?php echo $departament['id']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Delete a role');?></a><?php endif;?></td><?php endif;?>
     </tr>
 <?php endforeach; ?>
 </table>

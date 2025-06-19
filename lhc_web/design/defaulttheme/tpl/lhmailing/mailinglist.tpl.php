@@ -22,7 +22,7 @@
                     <?php echo htmlspecialchars($item->user instanceof erLhcoreClassModelUser ? $item->user : ''); ?>
                 </td>
                 <td>
-                    <a class="text-danger csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deletemailinglist')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
+                    <a class="text-danger csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deletemailinglist')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
                 </td>
             </tr>
         <?php endforeach; ?>
