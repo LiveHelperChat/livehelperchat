@@ -245,6 +245,7 @@ class erLhcoreClassGenericBotActionConditions {
                 // We want to log this always
                 if (isset($action['content']['attr_options']['log_matched']) && $action['content']['attr_options']['log_matched'] === true) {
                     try {
+                        erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = $params;
                         erLhcoreClassGenericBotWorkflow::logAudit($chat, true);
                     } catch (Exception $e) { // In case log message is to big
                         erLhcoreClassLog::write($e->getMessage(),
@@ -274,6 +275,7 @@ class erLhcoreClassGenericBotActionConditions {
 
                 if (isset($action['content']['attr_options']['log_un_matched']) && $action['content']['attr_options']['log_un_matched'] === true) {
                     try {
+                        erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = $params;
                         erLhcoreClassGenericBotWorkflow::logAudit($chat, true);
                     } catch (Exception $e) { // In case log message is to big
                         erLhcoreClassLog::write($e->getMessage(),
