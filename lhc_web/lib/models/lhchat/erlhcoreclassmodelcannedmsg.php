@@ -184,7 +184,9 @@ class erLhcoreClassModelCannedMsg
         if (isset($this->department_ids) && !empty($this->department_ids)) {
            $values = [];
            foreach ($this->department_ids as $department_id) {
-               $values[] = "(" . $this->id . "," . $department_id . ")";
+               if (is_numeric($department_id)) {
+                   $values[] = "(" . $this->id . "," . $department_id . ")";
+               }
            }
            if (!empty($values)) {
                $db->query('INSERT INTO `lh_canned_msg_dep` (`canned_id`,`dep_id`) VALUES ' . implode(',',$values));
