@@ -260,12 +260,6 @@ if (trim($form->msg) != '')
                             $Chat->chat_variables = json_encode($chatVariables);
                         }
 
-                        if (isset($chat->chat_variables_array['bot_lock_msg'])) {
-                            $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','We are still working on your previous request!');
-                            echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));
-                            exit;
-                        }
-
                         // User status in event of chat acceptance
                         $Chat->usaccept = $userData->hide_online;
                         $Chat->operation_admin .= "lhinst.updateVoteStatus(".$Chat->id.");";

@@ -43,7 +43,7 @@ try {
 
         $chat->status_sub = 0;
         $chat->last_op_msg_time = time();
-        $chat->last_user_msg_time = time()-1;
+        $chat->last_user_msg_time = time()-2;
 
         if (isset($_POST['op']) && $_POST['op'] == 'usr') {
             $chat->updateThis(array('update' => array('status_sub','last_op_msg_time','last_user_msg_time','chat_variables')));

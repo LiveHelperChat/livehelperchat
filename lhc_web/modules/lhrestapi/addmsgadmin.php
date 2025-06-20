@@ -134,24 +134,10 @@ try {
                         }
                     }
 
-
                     if ($form->hasValidData('operator_name') && $form->operator_name != '') {
                         $msg->name_support = $form->operator_name;
                     } elseif ($form->sender == 'bot') {
-
-                        $chatVariables = $Chat->chat_variables_array;
-
-                        $nameSupport = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-
-                        if ($Chat->gbot_id > 0) {
-                            $bot = erLhcoreClassModelGenericBotBot::fetch($Chat->gbot_id);
-                            if ($bot instanceof erLhcoreClassModelGenericBotBot && $bot->nick != '') {
-                                $nameSupport = $bot->nick;
-                            }
-                        }
-
-                        $msg->name_support = $nameSupport;
-
+                        $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($Chat);
                     } else {
                         $msg->name_support = $userData->name_support;
                     }
@@ -160,96 +146,137 @@ try {
                         erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
                     }
 
-                    \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat));
+                    // We want alias only if it's not a bot message
+                    if ($msg->user_id != -2) {
+                        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat));
+                    }
+
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg,'chat' => & $Chat));
 
                     erLhcoreClassChat::getSession()->save($msg);
 
+                    $whisper = false;
+
                     // Set last message ID
                     if ($Chat->last_msg_id < $msg->id) {
 
-                        $statusSub = '';
-                        if ($Chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $messageUserId !== -1) {
-                            $statusSub = ',status_sub = 0, last_user_msg_time = ' . (time() - 1);
-                            $tpl = erLhcoreClassTemplate::getInstance('lhchat/lists/assistance_message.tpl.php');
-                            $tpl->set('msg', array('msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Hold removed!'), 'time' => time()));
-                            $returnBody .= $tpl->fetch();
-                            $customArgs['hold_removed'] = true;
+                            $updateFields = array();
 
-                            if ($Chat->auto_responder !== false) {
-                                $Chat->auto_responder->active_send_status = 0;
-                                $Chat->auto_responder->saveThis();
+                            if (!$whisper && $Chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $messageUserId !== -2 && $messageUserId !== -1 && !isset($Chat->chat_variables_array['lhc_hldu'])) {
+                                $updateFields[] = 'status_sub';
+                                $updateFields[] = 'last_user_msg_time';
+                                $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
+                                $tpl = erLhcoreClassTemplate::getInstance('lhchat/lists/assistance_message.tpl.php');
+                                $tpl->set('msg', array('msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Hold removed!'), 'time' => time()));
+                                $returnBody .= $tpl->fetch();
+                                $customArgs['hold_removed'] = true;
+
+                                if ($Chat->auto_responder !== false) {
+                                    $Chat->auto_responder->active_send_status = 0;
+                                    $Chat->auto_responder->saveThis();
+                                }
                             }
-                        }
 
-                        // Reset active counter if operator send new message and it's sync request and there was new message from operator
-                        if ($Chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $Chat->auto_responder !== false) {
-                            if ($Chat->auto_responder->active_send_status != 0) {
-                                $Chat->auto_responder->active_send_status = 0;
-                                $Chat->auto_responder->saveThis();
+                            // Reset active counter if operator send new message and it's sync request and there was new message from operator
+                            if (!$whisper && $messageUserId !== -2 && $Chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $Chat->auto_responder !== false) {
+                                if ($Chat->auto_responder->active_send_status != 0) {
+                                    $Chat->auto_responder->active_send_status = 0;
+                                    $Chat->auto_responder->saveThis();
+                                }
                             }
-                        }
 
-                        $stmt = $db->prepare('UPDATE lh_chat SET status = :status, wait_time = :wait_time, user_status = :user_status, last_msg_id = :last_msg_id, last_op_msg_time = :last_op_msg_time, has_unread_op_messages = :has_unread_op_messages, unread_op_messages_informed = :unread_op_messages_informed' . $statusSub . ' WHERE id = :id');
-                        $stmt->bindValue(':id',$Chat->id,PDO::PARAM_INT);
-                        $stmt->bindValue(':last_msg_id',$msg->id,PDO::PARAM_INT);
-                        $stmt->bindValue(':last_op_msg_time',time(),PDO::PARAM_INT);
-                        $stmt->bindValue(':has_unread_op_messages',1,PDO::PARAM_INT);
-                        $stmt->bindValue(':unread_op_messages_informed',0,PDO::PARAM_INT);
-
-                        if ($userData->invisible_mode == 0 && $messageUserId > 0) { // Change status only if it's not internal command
-                            if ($Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
-                                $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
-                                $Chat->user_id = $messageUserId;
+                            if (!$whisper) {
+                                $Chat->last_op_msg_time = time();
+                                $updateFields[] = 'last_op_msg_time';
                             }
-                        }
 
-                        // Chat can be reopened only if user did not ended chat explictly
-                        if ($Chat->user_status == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT && $Chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
-                            $Chat->user_status = erLhcoreClassModelChat::USER_STATUS_PENDING_REOPEN;
-                            if ( ($onlineuser = $Chat->online_user) !== false) {
-                                $onlineuser->reopen_chat = 1;
-                                $onlineuser->saveThis();
+                            $Chat->last_msg_id = $msg->id;
+                            $updateFields[] = 'last_msg_id';
+
+                            if (!$whisper && $Chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+                                $Chat->has_unread_op_messages = 1;
+                                $updateFields[] = 'has_unread_op_messages';
+                                if ($Chat->status_sub_sub == erLhcoreClassModelChat::STATUS_SUB_SUB_MSG_DELIVERED) {
+                                    $Chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_DEFAULT;
+                                    $updateFields[] = 'status_sub_sub';
+                                }
                             }
-                        }
 
-                        if ($Chat->wait_time == 0) {
-                            $Chat->wait_time = time() - ($Chat->pnd_time > 0 ? $Chat->pnd_time : $Chat->time);
-                        }
+                            if (!$whisper && $Chat->unread_op_messages_informed != 0) {
+                                $Chat->unread_op_messages_informed = 0;
+                                $updateFields[] = 'unread_op_messages_informed';
+                            }
 
-                        $stmt->bindValue(':user_status',$Chat->user_status,PDO::PARAM_INT);
-                        $stmt->bindValue(':status',$Chat->status,PDO::PARAM_INT);
-                        $stmt->bindValue(':wait_time',$Chat->wait_time,PDO::PARAM_INT);
-                        $stmt->execute();
+                            if (!$whisper && $userData->invisible_mode == 0 && $messageUserId > 0) { // Change status only if it's not internal command
+                                if ($Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+                                    $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
+                                    $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+                                    $Chat->user_id = $messageUserId;
+                                    $updateFields[] = 'status';
+                                    $updateFields[] = 'status_sub';
+                                    $updateFields[] = 'user_id';
+                                }
+                            }
+
+                            // Chat can be reopened only if user did not ended chat explictly
+                            if (!$whisper && $Chat->user_status == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT && $Chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
+                                $Chat->user_status = erLhcoreClassModelChat::USER_STATUS_PENDING_REOPEN;
+                                $updateFields[] = 'user_status';
+                                if ( ($onlineuser = $Chat->online_user) !== false) {
+                                    $onlineuser->reopen_chat = 1;
+                                    $onlineuser->saveThis();
+                                }
+                            }
+
+                            if (!$whisper && $Chat->wait_time == 0 && $messageUserId > 0) {
+                                $Chat->wait_time = time() - ($Chat->pnd_time > 0 ? $Chat->pnd_time : $Chat->time);
+                                $updateFields[] = 'wait_time';
+                            }
+
+                            $Chat->updateThis(array('update' => $updateFields));
                     }
-
-
 
                     // If chat is in bot mode and operators writes a message, accept a chat as operator.
                     if ($form->sender == 'operator' && $Chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $messageUserId != -1) {
 
-                        if ($userData->invisible_mode == 0 && erLhcoreClassRestAPIHandler::hasAccessToWrite($Chat)) {
-                            $Chat->refreshThis();
-                            $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
+                        if (!$whisper && $Chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $messageUserId != -1) {
 
-                            $Chat->wait_time = 1; // Chat was in bot mode so wait time has to bet 1 second to be minimal
-                            $Chat->user_id = $userData->id;
+                            if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($Chat)) {
+                                $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 
-                            // User status in event of chat acceptance
-                            $Chat->usaccept = $userData->hide_online;
-                            $Chat->saveThis();
+                                $Chat->pnd_time = time() - 2;
+                                $Chat->wait_time = 1;
 
-                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $Chat, 'user_data' => $userData));
+                                $Chat->user_id = $messageUserId;
 
-                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.accept',array('chat' => & $Chat, 'user_data' => $userData));
-                            erLhcoreClassChat::updateActiveChats($Chat->user_id);
+                                // If operator takes over and task is not finished we want to unlock text field for visitor
+                                if (isset($Chat->chat_variables_array['bot_lock_msg'])) {
+                                    $chatVariables = $Chat->chat_variables_array;
+                                    unset($chatVariables['bot_lock_msg']);
+                                    $Chat->chat_variables_array = $chatVariables;
+                                    $Chat->chat_variables = json_encode($chatVariables);
+                                }
 
-                            if ($Chat->department !== false) {
-                                erLhcoreClassChat::updateDepartmentStats($Chat->department);
+                                // User status in event of chat acceptance
+                                $Chat->usaccept = $userData->hide_online;
+                                $Chat->operation_admin .= "lhinst.updateVoteStatus(".$Chat->id.");";
+                                $Chat->saveThis();
+
+                                // If chat is transferred to pending state we don't want to process any old events
+                                erLhcoreClassGenericBotWorkflow::removePreviousEvents($Chat->id);
+
+                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $Chat, 'user_data' => $userData));
+
+                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.accept',array('chat' => & $Chat, 'user_data' => $userData));
+                                erLhcoreClassChat::updateActiveChats($Chat->user_id);
+
+                                if ($Chat->department !== false) {
+                                    erLhcoreClassChat::updateDepartmentStats($Chat->department);
+                                }
+
+                                $options = $Chat->department->inform_options_array;
+                                erLhcoreClassChatWorkflow::chatAcceptedWorkflow(array('department' => $Chat->department, 'options' => $options),$Chat);
                             }
-
-                            $options = $Chat->department->inform_options_array;
-                            erLhcoreClassChatWorkflow::chatAcceptedWorkflow(array('department' => $Chat->department, 'options' => $options),$Chat);
                         }
                     }
                 }
