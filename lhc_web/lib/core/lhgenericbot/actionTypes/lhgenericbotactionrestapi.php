@@ -2140,6 +2140,7 @@ class erLhcoreClassGenericBotActionRestapi
                     $content = '';
 
                     $counter = 0;
+                    $userMessageStarted = false;
 
                     foreach ($messages as $message) {
 
@@ -2154,6 +2155,13 @@ class erLhcoreClassGenericBotActionRestapi
                             $foreachCycleParse = trim(str_replace(['{end_separator}','{/end_separator}'],'', $foreachCycleParse));
                         } else {
                             $foreachCycleParse = preg_replace('/\{end_separator\}(.*?)\{\/end_separator\}/ms','', $foreachCycleParse);
+                        }
+
+                        if ($userMessageStarted === false && $message->user_id != 0) {
+                            $totalElements--;
+                            continue;
+                        } else if ($userMessageStarted === false && $message->user_id == 0) {
+                            $userMessageStarted = true;
                         }
 
                         if ($message->user_id == -1 && isset($message->meta_msg_array['content']['attr_options']['as_json']) && $message->meta_msg_array['content']['attr_options']['as_json'] == true) {
