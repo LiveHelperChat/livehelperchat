@@ -2,13 +2,8 @@
 
 class erLhcoreClassMailconvParser {
 
-    public static function getMailBox($mailbox) {
-
-        if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
-            \LiveHelperChat\mailConv\OAuth\OAuth::setupFolder($mailbox);
-            return;
-        }
-
+    public static function getRawConnection($mailbox)
+    {
         $mail_con = imap_open($mailbox->imap, $mailbox->username,  $mailbox->password);
 
         if ($mail_con === false) {
@@ -16,6 +11,18 @@ class erLhcoreClassMailconvParser {
                 erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'Connection could not be established. Please check your logins.') . ' ' . imap_last_error()
             );
         }
+
+        return $mail_con;
+    }
+
+    public static function getMailBox($mailbox) {
+
+        if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+            \LiveHelperChat\mailConv\OAuth\OAuth::setupFolder($mailbox);
+            return;
+        }
+
+        $mail_con = self::getRawConnection($mailbox);
 
         $mailboxList = imap_list($mail_con, $mailbox->imap, '*');
 

@@ -6,6 +6,46 @@ $item =  erLhcoreClassModelMailconvMailbox::fetch($Params['user_parameters']['id
 
 $tab = '';
 
+if (isset($Params['user_parameters_unordered']['action']) && $Params['user_parameters_unordered']['action'] == 'test_imap') {
+    try {
+        erLhcoreClassMailconvParser::getRawConnection($item);
+        echo '✔️ '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Connection established to IMAP server.');
+        exit;
+    } catch (Exception $e) {
+        echo '❌ ' . htmlspecialchars($e->getMessage());
+        exit;
+    }
+}
+
+if (isset($Params['user_parameters_unordered']['action']) && $Params['user_parameters_unordered']['action'] == 'test_smtp') {
+    try {
+
+        $mailReply = new PHPMailer(true);
+        $mailReply->CharSet = "UTF-8";
+        $mailReply->Subject = 'Test SMTP';
+
+        // Set a 10-second timeout
+        $mailReply->Timeout = 10;
+
+        // Enable verbose debug output to see connection status
+        $mailReply->SMTPDebug = 2;
+
+        erLhcoreClassMailconvValidator::setSendParameters($item, $mailReply);
+
+        if ($mailReply->smtpConnect()) {
+            // Close the connection
+            $mailReply->smtpClose();
+        }
+
+        echo '✔️ '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Connection to SMTP server was successful'),'</br>';
+        exit;
+
+    } catch (Exception $e) {
+        echo '❌ ' . htmlspecialchars($e->getMessage());
+        exit;
+    }
+}
+
 if (isset($Params['user_parameters_unordered']['action']) && $Params['user_parameters_unordered']['action'] == 'sync') {
 
     $cfg = erConfigClassLhConfig::getInstance();

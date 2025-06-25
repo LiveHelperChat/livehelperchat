@@ -29,7 +29,26 @@
                 <input type="submit" class="btn btn-secondary" name="Save_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
                 <input type="submit" class="btn btn-secondary" name="Update_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
                 <input type="submit" class="btn btn-secondary" name="Cancel_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
-            </div>
+            </div><?php if ($item->id > 0) : ?>
+                <input type="button" id="test-settings" data-starting="🛠️ <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Starting...');?>" class="btn btn-outline-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Make sure you saved settings first');?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Test settings');?>"/>
+                <div id="test-settings-output" class="my-2 fs14 text-muted"></div>
+
+            <script>
+                $(document).ready(function() {
+                    $('#test-settings').on('click', function(e) {
+                        e.preventDefault();
+                        $('#test-settings-output').text($('#test-settings').attr('data-starting'));
+                        $.post( WWW_DIR_JAVASCRIPT + 'mailconv/editmailbox/<?php echo $item->id?>/(action)/test_imap',function(data){
+                            $('#test-settings-output').text(data);
+                            $.post( WWW_DIR_JAVASCRIPT + 'mailconv/editmailbox/<?php echo $item->id?>/(action)/test_smtp',function(data){
+                                $('#test-settings-output').html(data);
+                            });
+                        });
+                    });
+                });
+            </script>
+            <?php endif; ?>
+
         </div>
 
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_mailbox') : ?>active<?php endif;?>" id="mailbox">
