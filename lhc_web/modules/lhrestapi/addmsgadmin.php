@@ -1,7 +1,5 @@
 <?php
 
-erLhcoreClassLog::write(print_r($_POST,true));
-
 try {
     erLhcoreClassRestAPIHandler::validateRequest();
 
