@@ -38,6 +38,9 @@ try {
         );
 
         if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+            if ($conv->from_address == $conv->from_name) {
+                $conv->from_name = \LiveHelperChat\Helpers\Anonymizer::maskEmail($conv->from_name);
+            }
             $conv->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($conv->from_address);
         }
 

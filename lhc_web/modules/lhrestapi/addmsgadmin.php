@@ -1,5 +1,7 @@
 <?php
 
+erLhcoreClassLog::write(print_r($_POST,true));
+
 try {
     erLhcoreClassRestAPIHandler::validateRequest();
 
@@ -25,6 +27,9 @@ try {
         ),
         'sender' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'status' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
         )
     );
 
@@ -301,7 +306,29 @@ try {
                     }
                 }
 
-                echo erLhcoreClassChat::safe_json_encode(array('error' => false, 'r' => $returnBody, 'msg' => $msg->getState())+ $customArgs);
+                // Chat status change part
+                $validStatus = array(
+                    erLhcoreClassModelChat::STATUS_PENDING_CHAT,
+                    erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
+                    erLhcoreClassModelChat::STATUS_CLOSED_CHAT,
+                    erLhcoreClassModelChat::STATUS_CHATBOX_CHAT,
+                    erLhcoreClassModelChat::STATUS_OPERATORS_CHAT,
+                    erLhcoreClassModelChat::STATUS_BOT_CHAT,
+                );
+
+                if ($form->hasValidData('status') && in_array($form->status, $validStatus)) {
+
+                    erLhcoreClassChatHelper::changeStatus(array(
+                        'user' => $userData,
+                        'chat' => $Chat,
+                        'status' => $form->status,
+                        'allow_close_remote' => erLhcoreClassRestAPIHandler::hasAccessTo('lhchat', 'allowcloseremote')
+                    ));
+
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $Chat, 'user_data' => $userData));
+                }
+
+                echo erLhcoreClassChat::safe_json_encode(array('error' => false, 'r' => $returnBody, 'msg' => $msg->getState()) + $customArgs);
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg,'chat' => & $Chat));
 

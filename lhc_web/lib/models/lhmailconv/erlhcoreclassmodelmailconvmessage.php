@@ -320,6 +320,9 @@ class erLhcoreClassModelMailconvMessage
                                     $mail = \LiveHelperChat\Helpers\Anonymizer::maskEmail($mail);
                                 }
                             } elseif ($varObj == 'reply_to_data') {
+                                if ($mail == $mailTitle) {
+                                    $mailTitle = \LiveHelperChat\Helpers\Anonymizer::maskEmail($mailTitle);
+                                }
                                 $mail = \LiveHelperChat\Helpers\Anonymizer::maskEmail($mail);
                             }
                         }
@@ -338,6 +341,10 @@ class erLhcoreClassModelMailconvMessage
 
     public function setSensitive($sensitive) {
         $this->sensitive = $sensitive;
+
+        if ($this->response_type !== self::RESPONSE_INTERNAL && $this->from_name == $this->from_address) {
+            $this->from_name = \LiveHelperChat\Helpers\Anonymizer::maskEmail($this->from_name);
+        }
     }
 
     const STATUS_PENDING = 0;

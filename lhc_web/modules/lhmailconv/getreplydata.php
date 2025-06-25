@@ -30,6 +30,10 @@ try {
         $replyRecipientsMapped = [];
         $isSelfReply = false;
 
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+            $message->setSensitive(true);
+        }
+
         foreach ($message->reply_to_data_keyed as $replyEmail => $name) {
 
             if ($replyEmail ==  $conv->mailbox->mail){
@@ -37,6 +41,9 @@ try {
             }
 
             if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email') && $message->response_type != erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
+                if ($name == $replyEmail) {
+                    $name = \LiveHelperChat\Helpers\Anonymizer::maskEmail($name);
+                }
                 $replyRecipients[\LiveHelperChat\Helpers\Anonymizer::maskEmail($replyEmail)] = $name;
             } else {
                 $replyRecipients[$replyEmail] = $name;

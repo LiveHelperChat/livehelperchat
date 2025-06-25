@@ -1331,6 +1331,13 @@
             "type": "integer"
           },
           {
+            "name": "status",
+            "in": "formData",
+            "description": "Change chat status independently who is a sender.",
+            "required": false,
+            "type": "integer"
+          },
+          {
             "name": "msg",
             "in": "formData",
             "description": "Message",
