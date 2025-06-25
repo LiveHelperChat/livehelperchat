@@ -85,7 +85,7 @@
                                 <?php endif; ?>
 
                             </td>
-                            <td ng-non-bindable><?php echo htmlspecialchars($item->from_name)?> &lt;<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) : ?><?php echo htmlspecialchars($item->from_address)?><?php else : ?><?php echo htmlspecialchars(\LiveHelperChat\Helpers\Anonymizer::maskEmail($item->from_address))?><?php endif;?>&gt;</td>
+                            <td ng-non-bindable><?php echo htmlspecialchars($item->from_name == $item->from_address && !erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email') ? \LiveHelperChat\Helpers\Anonymizer::maskEmail($item->from_name) : $item->from_name )?> &lt;<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) : ?><?php echo htmlspecialchars($item->from_address)?><?php else : ?><?php echo htmlspecialchars(\LiveHelperChat\Helpers\Anonymizer::maskEmail($item->from_address))?><?php endif;?>&gt;</td>
                             <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/additional_chat_column_row.tpl.php'));?>
                             <td><?php echo htmlspecialchars($item->priority)?></td>
                             <td ng-non-bindable><?php echo htmlspecialchars($item->user)?></td>
