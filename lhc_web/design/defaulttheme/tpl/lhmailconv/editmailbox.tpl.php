@@ -30,7 +30,7 @@
                 <input type="submit" class="btn btn-secondary" name="Update_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
                 <input type="submit" class="btn btn-secondary" name="Cancel_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
             </div><?php if ($item->id > 0) : ?>
-                <input type="button" id="test-settings" data-starting="🛠️ <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Starting...');?>" class="btn btn-outline-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Make sure you saved settings first');?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Test settings');?>"/>
+                <input type="button" id="test-settings" data-starting="🛠️ <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Starting...');?>" class="ms-2 btn btn-outline-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Make sure you saved settings first');?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Test settings');?>"/>
                 <div id="test-settings-output" class="my-2 fs14 text-muted"></div>
 
             <script>
