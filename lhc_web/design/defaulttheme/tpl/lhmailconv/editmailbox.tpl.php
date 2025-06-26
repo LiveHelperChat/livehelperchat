@@ -39,9 +39,9 @@
                         e.preventDefault();
                         $('#test-settings-output').text($('#test-settings').attr('data-starting'));
                         $.post( WWW_DIR_JAVASCRIPT + 'mailconv/editmailbox/<?php echo $item->id?>/(action)/test_imap',function(data){
-                            $('#test-settings-output').text(data);
+                            $('#test-settings-output').html(data + "</br>");
                             $.post( WWW_DIR_JAVASCRIPT + 'mailconv/editmailbox/<?php echo $item->id?>/(action)/test_smtp',function(data){
-                                $('#test-settings-output').html(data);
+                                $('#test-settings-output').append(data);
                             });
                         });
                     });
