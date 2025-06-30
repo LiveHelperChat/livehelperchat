@@ -381,19 +381,19 @@ class erLhcoreClassModule{
             $instance = erLhcoreClassSystem::instance();
             $cacheKey = md5(self::$currentModuleName.'_'.self::$currentView.'_'.$instance->WWWDirLang.'_'.$instance->Language);
 
-            if ( ($cacheModules = self::$cacheInstance->restore('moduleCache_'.self::$currentModuleName.'_version_'.self::$cacheVersionSite)) !== false && key_exists($cacheKey,$cacheModules))
+            if ( ($cacheModules = self::$cacheInstance->restore('moduleCache_'.self::$currentModuleName.'_version_'.self::$cacheVersionSite)) !== false && is_array($cacheModules) && key_exists($cacheKey,$cacheModules))
             {
             	return $cacheModules[$cacheKey];
             }
 
             $cacheWriter = new erLhcoreClassCacheStorage('cache/cacheconfig/');
-            if (($cacheModules = $cacheWriter->restore('moduleCache_'.self::$currentModuleName)) == false)
+            if (($cacheModules = $cacheWriter->restore('moduleCache_'.self::$currentModuleName)) === false || !is_array($cacheModules))
             {
             	$cacheWriter->store('moduleCache_'.self::$currentModuleName,array());
             	$cacheModules = array();
             }
 
-            if (key_exists($cacheKey,$cacheModules))
+            if (is_array($cacheModules) && key_exists($cacheKey,$cacheModules))
             {
                     self::$cacheInstance->store('moduleCache_'.self::$currentModuleName.'_version_'.self::$cacheVersionSite,$cacheModules);
             		return $cacheModules[$cacheKey];
