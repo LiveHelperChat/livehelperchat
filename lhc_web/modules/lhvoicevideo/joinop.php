@@ -46,7 +46,7 @@ if (is_numeric($Params['user_parameters']['id']))
             // Inform operator that visitor want's a voice call
             $userData = $currentUser->getUserData();
 
-            // Inform visitor that he want's to start a voice chat
+            // Inform visitor that they want to start a voice chat
             if ($vvcall->vi_status == erLhcoreClassModelChatVoiceVideo::STATUS_VI_PENDING) {
                 $msg = new erLhcoreClassModelmsg();
                 $msg->user_id = $currentUser->getUserID();

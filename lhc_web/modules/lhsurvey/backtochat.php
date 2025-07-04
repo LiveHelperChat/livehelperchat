@@ -31,7 +31,7 @@ try {
 
             $msgAppend = '';
 
-            // If filled change status to temp, so next time user goes to survey form he can continue to fill it.
+            // If filled change status to temp, so next time user goes to survey form they can continue to fill it.
             if ($surveyItem->is_filled == true) {
                 $surveyItem->status = erLhAbstractModelSurveyItem::STATUS_TEMP;
                 $surveyItem->saveOrUpdate();
@@ -46,7 +46,7 @@ try {
             $chat->last_user_msg_time = $msg->time = time();
 
             // Now we change responses to visitor not replying
-            // As he should inform operator that he has completed a survey.
+            // As they should inform operator that they have completed a survey.
             $chat->last_op_msg_time = $chat->last_user_msg_time + 1;
 
             erLhcoreClassChat::getSession()->save($msg);

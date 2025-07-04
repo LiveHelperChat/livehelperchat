@@ -73,7 +73,7 @@ $ViewList['newlanguage'] = array (
 $FunctionList = array();
 $FunctionList['use'] = array('explain' => 'Allow operator to use speech recognition module');
 $FunctionList['manage'] = array('explain' => 'Allow user to set application default speech recognition language');
-$FunctionList['changedefaultlanguage'] = array('explain' => 'Allow user to change his personal speech recognition language');
+$FunctionList['changedefaultlanguage'] = array('explain' => 'Allow user to change their personal speech recognition language');
 $FunctionList['change_chat_recognition'] = array('explain' => 'Allow operator to change chat recognition language');
 
 ?>

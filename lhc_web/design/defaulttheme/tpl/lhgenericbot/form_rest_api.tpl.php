@@ -18,7 +18,7 @@
 </div>
 
 <div class="form-group">
-    <label><input type="checkbox" ng-model="lhcrestapi.log_system" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Log all request and their responses as system messages.');?></label>
+    <label><input type="checkbox" ng-model="lhcrestapi.log_system" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Log all requests and their responses as system messages.');?></label>
 </div>
 
 <div class="form-group" ng-show="lhcrestapi.log_audit || lhcrestapi.log_system">

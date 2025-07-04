@@ -666,7 +666,7 @@
       <translation>Altre condizioni</translation>
     </message>
     <message>
-      <source>If visitor arrived to website today, and he was on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
+      <source>If visitor arrived to website today, and they were on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
       <translation>Se il visitatore arriva oggi al sito web e ieri era sul sito. Questo valore tiene conto dell&apos;ultima volta che il visitatore è stato visto sul sito web ieri.</translation>
     </message>
     <message>
@@ -1827,7 +1827,7 @@ CSS pagina personalizzata (solo nuovo widget)</translation>
       <translation>Non consentire al visitatore di modificare il messaggio precedente premendo la freccia su</translation>
     </message>
     <message>
-      <source>Before closing chat ask user does he really want to to close chat</source>
+      <source>Before closing chat ask user if they really want to to close chat</source>
       <translation>Prima di chiudere la chat chiedere al visitatore se vuole davvero uscire dalla chat</translation>
     </message>
     <message>
@@ -2052,7 +2052,7 @@ Messaggi in stile bolla</translation>
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
-      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
+      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message they will get.</source>
       <translation>Se il dipartimento è online e il visitatore avvia una chat e sta aspettando che alcuni accettino la chat, questo sarà il messaggio iniziale che riceverà.</translation>
     </message>
     <message>
@@ -8155,7 +8155,7 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/onlineusers</name>
     <message>
-      <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
+      <source>Your request takes to long. Please contact your administrator and send them url from your browser.</source>
       <translation>La richiesta richiede troppo tempo. Contattare l&apos;amministratore e inviargli l&apos;URL dal browser.</translation>
     </message>
     <message>
@@ -12478,7 +12478,7 @@ Icona colonna, testo icone materiale</translation>
       <translation>Attendere finché l&apos;operatore non consente di partecipare alla chiamata.</translation>
     </message>
     <message>
-      <source>Visitor is waiting for someone to let him in!</source>
+      <source>Visitor is waiting for someone to let them in!</source>
       <translation>Il visitatore sta aspettando che qualcuno lo faccia entrare!</translation>
     </message>
     <message>
@@ -13087,7 +13087,7 @@ Icona colonna, testo icone materiale</translation>
       <translation>In questo momento non sono presenti membri dello staff di supporto, ma potete lasciare i vostri messaggi</translation>
     </message>
     <message>
-      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
+      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
       <translation>In attesa di un membro dello staff di supporto, potete scrivere le vostre domande, non appena un membro del personale di supporto conferma questa chat riceverà i tuoi messaggi.</translation>
     </message>
     <message>
@@ -14175,7 +14175,7 @@ Icona colonna, testo icone materiale</translation>
       <translation>Mostra la notifica solo se l&apos;utente è un proprietario in attesa della chat</translation>
     </message>
     <message>
-      <source>User will stop receive notifications for pending chats if he is not an owner</source>
+      <source>User will stop receive notifications for pending chats if they are not an owner</source>
       <translation>L&apos;utente non riceverà più notifiche per le chat in sospeso se non è un proprietario.</translation>
     </message>
     <message>
@@ -14183,11 +14183,11 @@ Icona colonna, testo icone materiale</translation>
       <translation>Mostra notifiche se l&apos;utente è offline</translation>
     </message>
     <message>
-      <source>User will not receive notifications if he is not online</source>
+      <source>User will not receive notifications if they are not online</source>
       <translation>L&apos;utente non riceverà le notifiche se non è in linea.</translation>
     </message>
     <message>
-      <source>User will receive alert notification if chat is transferred directly to him. He will be able to accept it directly from alert.</source>
+      <source>User will receive alert notification if chat is transferred directly to him. They will be able to accept it directly from alert.</source>
       <translation>L&apos;utente riceverà una notifica di avviso se la chat viene trasferita direttamente a lui. Potrà accettarla direttamente dall&apos;avviso.</translation>
     </message>
     <message>
@@ -14195,7 +14195,7 @@ Icona colonna, testo icone materiale</translation>
       <translation>Il monitoraggio delle attività è impostato a livello globale. Le impostazioni dell&apos;utente saranno ignorate. Il valore di timeout sarà comunque preso dalle impostazioni dell&apos;account.</translation>
     </message>
     <message>
-      <source>Change user online/offline status based on his activity</source>
+      <source>Change user online/offline status based on their activity</source>
       <translation>Cambiare lo stato online/offline dell&apos;utente in base alla sua attività</translation>
     </message>
     <message>
@@ -17373,7 +17373,7 @@ Icona colonna, testo icone materiale</translation>
       <translation>Registra tutte le richieste e le relative risposte nel registro di audit.</translation>
     </message>
     <message>
-      <source>Log all request and their responses as system messages.</source>
+      <source>Log all requests and their responses as system messages.</source>
       <translation>Registra tutte le richieste e le relative risposte come messaggi di sistema.</translation>
     </message>
     <message>
@@ -18177,7 +18177,7 @@ Icona colonna, testo icone materiale</translation>
       <translation>Disabilita la possibilità di diventare proprietario automaticamente sull&apos;evento di apertura della conversazione</translation>
     </message>
     <message>
-      <source>Operator will become an owner if he clicks reply button.</source>
+      <source>Operator will become an owner if they click reply button.</source>
       <translation>L&apos;operatore diventa proprietario se fa clic sul pulsante di risposta.</translation>
     </message>
     <message>
@@ -20673,7 +20673,7 @@ Icona colonna, testo icone materiale</translation>
       <translation>Aggiornata</translation>
     </message>
     <message>
-      <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
+      <source>If there are no options to choose from, the user will be shown a text field where they will be able to enter their own answer.</source>
       <translation>Se non ci sono opzioni tra cui scegliere, all&apos;utente verrà mostrato un campo di testo in cui sarà possibile inserire la propria risposta.</translation>
     </message>
     <message>
@@ -23849,7 +23849,7 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/voteaction</name>
     <message>
-      <source>User has updated his profile information</source>
+      <source>User has updated their profile information</source>
       <translation>L&apos;utente ha aggiornato le proprie informazioni del profilo</translation>
     </message>
     <message>
@@ -23932,7 +23932,7 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/updatemsguser</name>
     <message>
-      <source>User has edited his last message</source>
+      <source>User has edited their last message</source>
       <translation>L&apos;utente ha modificato il suo ultimo messaggio</translation>
     </message>
   </context>

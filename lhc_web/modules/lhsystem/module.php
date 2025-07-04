@@ -112,7 +112,7 @@ $FunctionList['expirecache'] = array('explain' => 'Allow user to clear cache');
 $FunctionList['generatejs'] = array('explain' => 'Allow user to access HTML generation');
 $FunctionList['configuresmtp'] = array('explain' => 'Allow user to configure SMTP');
 $FunctionList['configurelanguages'] = array('explain' => 'Allow user to configure languages');
-$FunctionList['changelanguage'] = array('explain' => 'Allow user to change his languages');
+$FunctionList['changelanguage'] = array('explain' => 'Allow user to change their languages');
 $FunctionList['timezone'] = array('explain' => 'Allow user to change global time zone');
 $FunctionList['performupdate'] = array('explain' => 'Allow user to update Live Helper Chat');
 $FunctionList['changetemplates'] = array('explain' => 'Allow user to change e-mail templates');

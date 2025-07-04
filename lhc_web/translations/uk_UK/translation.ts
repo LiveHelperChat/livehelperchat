@@ -666,7 +666,7 @@
       <translation>Інші умови</translation>
     </message>
     <message>
-      <source>If visitor arrived to website today, and he was on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
+      <source>If visitor arrived to website today, and they were on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
       <translation>Якщо відвідувач зайшов на сайт сьогодні, а він був на сайті вчора. Це значення зберігається, коли відвідувача востаннє бачили на веб-сайті вчора.</translation>
     </message>
     <message>
@@ -1826,7 +1826,7 @@
       <translation>Не дозволяти відвідувачеві редагувати попереднє повідомлення, натискаючи стрілку вгору</translation>
     </message>
     <message>
-      <source>Before closing chat ask user does he really want to to close chat</source>
+      <source>Before closing chat ask user if they really want to to close chat</source>
       <translation>Перед закриттям чату запитайте користувача, чи дійсно він хоче закрити чат</translation>
     </message>
     <message>
@@ -2049,7 +2049,7 @@
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
-      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
+      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message they will get.</source>
       <translation>Якщо відділ онлайн і відвідувач починає чат і чекає, поки хтось прийме чат. Це буде початкове повідомлення, яке він отримає.</translation>
     </message>
     <message>
@@ -8149,7 +8149,7 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
-      <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
+      <source>Your request takes to long. Please contact your administrator and send them url from your browser.</source>
       <translation>Ваш запит триває довго. Будь ласка, зверніться до свого адміністратора та надішліть йому URL-адресу зі свого браузера.</translation>
     </message>
     <message>
@@ -12472,7 +12472,7 @@
       <translation>Будь ласка, зачекайте, поки оператор дозволить вам приєднатися до дзвінка</translation>
     </message>
     <message>
-      <source>Visitor is waiting for someone to let him in!</source>
+      <source>Visitor is waiting for someone to let them in!</source>
       <translation>Відвідувач чекає, поки його хтось впустить!</translation>
     </message>
     <message>
@@ -13081,7 +13081,7 @@
       <translation>Наразі немає працівників служби підтримки онлайн, але ви можете залишити ваші повідомлення</translation>
     </message>
     <message>
-      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
+      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
       <translation>Очікується приєднання оператора. Ви можете писати ваші запитання. Щойно оператор приєднається, він отримає ваші повідомлення</translation>
     </message>
     <message>
@@ -14169,7 +14169,7 @@
       <translation>Показувати сповіщення, лише якщо користувач є власником, який очікує на розмову</translation>
     </message>
     <message>
-      <source>User will stop receive notifications for pending chats if he is not an owner</source>
+      <source>User will stop receive notifications for pending chats if they are not an owner</source>
       <translation>Користувач перестане отримувати сповіщення про незавершені чати, якщо він не є власником</translation>
     </message>
     <message>
@@ -14177,11 +14177,11 @@
       <translation>Показувати сповіщення, якщо користувач не в мережі</translation>
     </message>
     <message>
-      <source>User will not receive notifications if he is not online</source>
+      <source>User will not receive notifications if they are not online</source>
       <translation>Користувач не отримуватиме сповіщення, якщо він не в мережі</translation>
     </message>
     <message>
-      <source>User will receive alert notification if chat is transferred directly to him. He will be able to accept it directly from alert.</source>
+      <source>User will receive alert notification if chat is transferred directly to him. They will be able to accept it directly from alert.</source>
       <translation>Користувач отримає сповіщення, якщо чат буде передано безпосередньо йому. Він зможе прийняти це безпосередньо з оповіщення.</translation>
     </message>
     <message>
@@ -14189,7 +14189,7 @@
       <translation>Відстеження активності налаштовано на глобальному рівні. Налаштування користувача буде проігноровано. Значення часу очікування все одно буде взято з налаштувань облікового запису.</translation>
     </message>
     <message>
-      <source>Change user online/offline status based on his activity</source>
+      <source>Change user online/offline status based on their activity</source>
       <translation>Змініть статус користувача онлайн/офлайн залежно від його активності</translation>
     </message>
     <message>
@@ -17367,7 +17367,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Log all request and their responses as system messages.</source>
+      <source>Log all requests and their responses as system messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18171,7 +18171,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator will become an owner if he clicks reply button.</source>
+      <source>Operator will become an owner if they click reply button.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -20667,7 +20667,7 @@
       <translation>Оновлено</translation>
     </message>
     <message>
-      <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
+      <source>If there are no options to choose from, the user will be shown a text field where they will be able to enter their own answer.</source>
       <translation>Якщо варіантів для вибору немає, користувачеві буде показано текстове поле, де він зможе ввести власну відповідь.</translation>
     </message>
     <message>
@@ -23843,7 +23843,7 @@
   <context>
     <name>chat/voteaction</name>
     <message>
-      <source>User has updated his profile information</source>
+      <source>User has updated their profile information</source>
       <translation>Користувач оновив інформацію свого профілю</translation>
     </message>
     <message>
@@ -23926,7 +23926,7 @@
   <context>
     <name>chat/updatemsguser</name>
     <message>
-      <source>User has edited his last message</source>
+      <source>User has edited their last message</source>
       <translation>Користувач відредагував своє останнє повідомлення</translation>
     </message>
   </context>

@@ -4195,7 +4195,7 @@
         },
         "usaccept": {
           "type": "integer",
-          "description": "Operator status while he was accepting chat",
+          "description": "Operator status while they were accepting chat",
           "example": null
         },
         "chat_locale": {
@@ -4623,7 +4623,7 @@
             "type": "boolean",
             "default": false,
             "required": false,
-            "description": "Operator will be seen as always online. Even if he is logged out. Usefull in combination with telegram extension."
+            "description": "Operator will be seen as always online. Even if they are logged out. Usefull in combination with telegram extension."
      },
      "departments": {
        "type": "array",

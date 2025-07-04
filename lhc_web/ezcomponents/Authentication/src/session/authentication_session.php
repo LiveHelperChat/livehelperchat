@@ -58,7 +58,7 @@
  * }
  * else
  * {
- *     // authentication succeeded, so allow the user to see his content
+ *     // authentication succeeded, so allow the user to see their content
  * }
  * </code>
  *
@@ -177,7 +177,7 @@ class ezcAuthenticationSession
      *
      * if ( $authenticated )
      * {
-     *     // the authentication succeeded and the user can see his content
+     *     // the authentication succeeded and the user can see their content
      * }
      * else
      * {
