@@ -666,7 +666,7 @@
       <translation>Andere Bedingungen</translation>
     </message>
     <message>
-      <source>If visitor arrived to website today, and he was on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
+      <source>If visitor arrived to website today, and they were on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
       <translation>Wenn der Besucher heute auf die Website kommt und gestern auf der Website war. Dieser Wert gilt für das letzte Mal, als der Besucher gestern auf der Website gesehen wurde.</translation>
     </message>
     <message>
@@ -1826,7 +1826,7 @@
       <translation>Dem Besucher nicht erlauben, die vorherige Nachricht durch Drücken des Pfeils nach oben zu bearbeiten</translation>
     </message>
     <message>
-      <source>Before closing chat ask user does he really want to to close chat</source>
+      <source>Before closing chat ask user if they really want to to close chat</source>
       <translation>Vor dem Schließen des Chats den Benutzer fragen, ob er den Chat wirklich schließen will</translation>
     </message>
     <message>
@@ -2049,7 +2049,7 @@
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
-      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
+      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message they will get.</source>
       <translation>Wenn die Abteilung online ist und der Besucher einen Chat startet und darauf wartet, dass jemand den Chat akzeptiert. Dies ist die erste Nachricht, die er erhält.</translation>
     </message>
     <message>
@@ -8149,7 +8149,7 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
-      <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
+      <source>Your request takes to long. Please contact your administrator and send them url from your browser.</source>
       <translation>Ihre Anfrage dauert zu lange. Bitte kontaktieren Sie Ihren Administrator und senden Sie ihm die URL von Ihrem Browser.</translation>
     </message>
     <message>
@@ -12472,7 +12472,7 @@
       <translation>Bitte warten Sie, bis der Operator Sie dem Anruf beitreten lässt</translation>
     </message>
     <message>
-      <source>Visitor is waiting for someone to let him in!</source>
+      <source>Visitor is waiting for someone to let them in!</source>
       <translation>Der Besucher wartet darauf, dass ihn jemand hereinlässt!</translation>
     </message>
     <message>
@@ -13081,7 +13081,7 @@
       <translation>Derzeit ist die Live Hilfe leider nicht besetzt, aber Sie können eine Nachricht hinterlassen.</translation>
     </message>
     <message>
-      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
+      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
       <translation>Während Sie auf eine Antwort warten, können Sie bereits weitere Fragen stellen.</translation>
     </message>
     <message>
@@ -14169,7 +14169,7 @@
       <translation>Benachrichtigung nur anzeigen, wenn der Benutzer ein Eigentümer ist und der Chat noch läuft</translation>
     </message>
     <message>
-      <source>User will stop receive notifications for pending chats if he is not an owner</source>
+      <source>User will stop receive notifications for pending chats if they are not an owner</source>
       <translation>Der Benutzer erhält keine Benachrichtigungen mehr für ausstehende Chats, wenn er nicht der Besitzer ist</translation>
     </message>
     <message>
@@ -14177,11 +14177,11 @@
       <translation>Benachrichtigungen anzeigen, wenn der Benutzer offline ist</translation>
     </message>
     <message>
-      <source>User will not receive notifications if he is not online</source>
+      <source>User will not receive notifications if they are not online</source>
       <translation>Der Benutzer erhält keine Benachrichtigungen, wenn er nicht online ist</translation>
     </message>
     <message>
-      <source>User will receive alert notification if chat is transferred directly to him. He will be able to accept it directly from alert.</source>
+      <source>User will receive alert notification if chat is transferred directly to him. They will be able to accept it directly from alert.</source>
       <translation>Der Benutzer erhält eine Benachrichtigung, wenn der Chat direkt an ihn weitergeleitet wird. Er kann sie direkt aus der Benachrichtigung heraus annehmen.</translation>
     </message>
     <message>
@@ -14189,7 +14189,7 @@
       <translation>Die Aktivitätsverfolgung wird auf globaler Ebene eingestellt. Die Benutzereinstellungen werden ignoriert. Der Zeitüberschreitungswert wird weiterhin aus den Kontoeinstellungen übernommen.</translation>
     </message>
     <message>
-      <source>Change user online/offline status based on his activity</source>
+      <source>Change user online/offline status based on their activity</source>
       <translation>Ändern Sie den Online-/Offline-Status des Benutzers je nach seiner Aktivität</translation>
     </message>
     <message>
@@ -17367,7 +17367,7 @@
       <translation>Protokollieren Sie alle Anfragen und ihre Antworten im Audit-Protokoll.</translation>
     </message>
     <message>
-      <source>Log all request and their responses as system messages.</source>
+      <source>Log all requests and their responses as system messages.</source>
       <translation>Protokollieren Sie alle Anfragen und ihre Antworten als Systemmeldungen.</translation>
     </message>
     <message>
@@ -18171,7 +18171,7 @@
       <translation>Deaktivieren Sie die automatische Eigentümerschaft beim Öffnen einer Unterhaltung</translation>
     </message>
     <message>
-      <source>Operator will become an owner if he clicks reply button.</source>
+      <source>Operator will become an owner if they click reply button.</source>
       <translation>Der Betreiber wird zum Eigentümer, wenn er auf die Schaltfläche &quot;Antworten&quot; klickt.</translation>
     </message>
     <message>
@@ -20667,7 +20667,7 @@
       <translation>Aktualisiert</translation>
     </message>
     <message>
-      <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
+      <source>If there are no options to choose from, the user will be shown a text field where they will be able to enter their own answer.</source>
       <translation>Wenn keine Optionen zur Auswahl stehen, wird dem Besucher ein Textfeld angezeigt, in das er seine eigene Antwort eingeben kann.</translation>
     </message>
     <message>
@@ -23843,7 +23843,7 @@
   <context>
     <name>chat/voteaction</name>
     <message>
-      <source>User has updated his profile information</source>
+      <source>User has updated their profile information</source>
       <translation>Benutzer hat seine Profilinformationen aktulisiert</translation>
     </message>
     <message>
@@ -23926,7 +23926,7 @@
   <context>
     <name>chat/updatemsguser</name>
     <message>
-      <source>User has edited his last message</source>
+      <source>User has edited their last message</source>
       <translation>Der Besucher hat seine letzte Nachricht editiert</translation>
     </message>
   </context>

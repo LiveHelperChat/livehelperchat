@@ -47,7 +47,7 @@ class erLhcoreClassGroupUser{
        }
 
        // User should be able to see users from
-       // He is a member of group
+       // They are a member of group
        $user = erLhcoreClassModelUser::fetch($userID);
 
        $groups = erLhcoreClassGroupRole::getGroupsAccessedByUser($user)['groups'];

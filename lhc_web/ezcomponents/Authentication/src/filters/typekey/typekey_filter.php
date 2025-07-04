@@ -27,7 +27,7 @@
  *        It is found at https://www.typekey.com/t/typekey/prefs.
  *        This value is also used as a session key, so it must be passed to the
  *        page performing the TypeKey authentication via the _return URL.
- *  - _return = the URL where to return after user logs in with his TypeKey
+ *  - _return = the URL where to return after user logs in with their TypeKey
  *              username and password. The URL can contain query arguments, such
  *              as the value t which can be used as a session key.
  *
@@ -46,7 +46,7 @@
  * of the 5 lines from "Your Weblog Preferences", otherwise TypeKey will
  * not accept the login request.
  *
- * The link returned by TypeKey after user logs in with his TypeKey username
+ * The link returned by TypeKey after user logs in with their TypeKey username
  * and password looks like this:
  *  - http://example.com/typekey.php?
  *       ts=1177319974&email=5098f1e87a608675ded4d933f31899cae6b4f968&
@@ -116,7 +116,7 @@
  * }
  * else
  * {
- *     // authentication succeeded, so allow the user to see his content
+ *     // authentication succeeded, so allow the user to see their content
  *     echo "<b>Logged-in</b>";
  * }
  * ?>
@@ -171,7 +171,7 @@
  * </code>
  *
  * The $data array contains name (TypeKey username), nick (TypeKey display name)
- * and optionally email (if the user allowed the sharing of his email address
+ * and optionally email (if the user allowed the sharing of their email address
  * in the TypeKey profile page; otherwise it is not set).
  * <code>
  * array( 'name' => array( 'john' ),
@@ -210,7 +210,7 @@ class ezcAuthenticationTypekeyFilter extends ezcAuthenticationFilter implements 
      * Holds the extra data fetched during the authentication process.
      *
      * Contains name (TypeKey username), nick (TypeKey display name) and
-     * optionally email (if the user allowed the sharing of his email address
+     * optionally email (if the user allowed the sharing of their email address
      * in the TypeKey profile page; otherwise it is not set).
      *
      * Usually it has this structure:
@@ -467,7 +467,7 @@ class ezcAuthenticationTypekeyFilter extends ezcAuthenticationFilter implements 
      * The TypeKey extra data is an array containing the values for name (the
      * TypeKey username), nick (the TypeKey display name) and email (the email
      * address of the user, fetched only if the initial request to the TypeKey
-     * server contains need_email, and the user allowed the sharing of his email
+     * server contains need_email, and the user allowed the sharing of their email
      * address).
      *
      * Example of returned array:

@@ -38,7 +38,7 @@ interface ezcConsoleDialog
 
     /**
      * Returns if the dialog retrieved a valid result.
-     * Typically a dialog is displayed in a loop until he received a valid
+     * Typically a dialog is displayed in a loop until they received a valid
      * result. What a valid result is, is determined by the dialog itself.
      * 
      * @return bool If a valid result was retrieved.

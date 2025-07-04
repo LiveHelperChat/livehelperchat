@@ -21,7 +21,7 @@
  *       - if Yadis fails then discover by parsing the HTML page source at URL
  *  3. (Optional) OpenID associate request - for the so-called 'smart' (stateful) mode.
  *  4. OpenID checkid_setup request. This step redirects the browser to the OpenID
- *     provider discovered in step 2. After user enters his OpenID username and
+ *     provider discovered in step 2. After user enters their OpenID username and
  *     password at this page and accepts the originating site, the browser is
  *     redirected back to the originating site. The return URL can be changed
  *     with the OpenID option returnUrl (see {@link ezcAuthenticationOpenidOptions}).
@@ -38,8 +38,8 @@
  *     user can be authenticated on the spot, with no redirection. If the user
  *     cannot be authenticated, the provider sends back a setup URL, which the
  *     application can use in a pop-up window or iframe to display to the user
- *     so that he can authenticate himself to the OpenID provider. After user
- *     enters his OpenID username and password at this page and accepts the
+ *     so that they can authenticate himself to the OpenID provider. After user
+ *     enters their OpenID username and password at this page and accepts the
  *     originating site, the pop-up window or iframe is redirected to the
  *     return URL value (which should be a different page than the page which
  *     opens the pop-up window). The return URL page will then inform the
@@ -63,7 +63,7 @@
  *    with the main page.
  *  - in the pop-up/iframe the setup URL will load, which basically depends on
  *    the OpenID provider how it is handled by the user. After the user enters
- *    his credentials on the setup URL page, he will be redirected to the return URL,
+ *    their credentials on the setup URL page, they will be redirected to the return URL,
  *    which should detect this, and which should inform the main page that the
  *    user was authenticated to the OpenID provider.
  *
@@ -204,7 +204,7 @@
  *    be zero-padded (eg. 02 for February). If the user does not want to
  *    reveal any particular component of this value, it should be zero
  *    (eg. "1980-00-00" if the user is born in 1980 but does not want to
- *    specify his month and day of birth)
+ *    specify their month and day of birth)
  *  - gender - the user's gender, "M" for male, "F" for female
  *  - postcode - the user's postal code
  *  - country - the user's country as an ISO3166 string, (eg. "US")
@@ -866,7 +866,7 @@ class ezcAuthenticationOpenidFilter extends ezcAuthenticationFilter implements e
             }
         }
 
-        // Normally the user should not see the following error because he was redirected
+        // Normally the user should not see the following error because they were redirected
         throw new ezcAuthenticationOpenidRedirectException( $redirect );
     }
 
@@ -1200,7 +1200,7 @@ class ezcAuthenticationOpenidFilter extends ezcAuthenticationFilter implements e
      *    be zero-padded (eg. 02 for February). If the user does not want to
      *    reveal any particular component of this value, it should be zero
      *    (eg. "1980-00-00" if the user is born in 1980 but does not want to
-     *    specify his month and day of birth)
+     *    specify their month and day of birth)
      *  - gender - the user's gender, "M" for male, "F" for female
      *  - postcode - the user's postal code
      *  - country - the user's country as an ISO3166 string, (eg. "US")

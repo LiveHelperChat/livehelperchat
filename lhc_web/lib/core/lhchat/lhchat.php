@@ -1323,7 +1323,7 @@ class erLhcoreClassChat {
        $limitationSQL = '';
 
        if (!erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowtransfertoanyuser')){
-	       // User can see online only his department users
+	       // User can see online only their department's users
 	       $limitation = self::getDepartmentLimitation('lh_userdep', array('explicit' => true));
 
 	       // Does not have any assigned department

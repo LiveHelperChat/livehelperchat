@@ -1985,7 +1985,7 @@ class erLhcoreClassChatValidator {
     }
     
     /**
-     * If user was redirected to contact form and he changed some default attributes we change then in intial chat
+     * If user was redirected to contact form and they changed some default attributes we change then in intial chat
      * */
     public static function updateInitialChatAttributes(erLhcoreClassModelChat & $prefillChat, erLhcoreClassModelChat $currentChat) {
     	$attributesPrefill = array(

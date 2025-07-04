@@ -234,7 +234,7 @@ $ViewList['surveychat'] = array(
 
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');
-$FunctionList['use_direct_logins'] = array('explain' => 'Allow operator use api directly with his username and password');
+$FunctionList['use_direct_logins'] = array('explain' => 'Allow operator use api directly with their username and password');
 
 // Objects API
 $FunctionList['object_api'] = array('explain' => 'Allow operator to user objects api');

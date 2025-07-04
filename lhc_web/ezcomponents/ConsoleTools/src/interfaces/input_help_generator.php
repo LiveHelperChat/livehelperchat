@@ -62,7 +62,7 @@ interface ezcConsoleInputHelpGenerator
      * The returned array is used by {@link ezcConsoleInput} for different 
      * purposes.
      * For example, the user can retrieve it raw through the
-     * {@link ezcConsoleInput::getHelp()} method, he can generate a help
+     * {@link ezcConsoleInput::getHelp()} method, they can generate a help
      * {@link ezcConsoleTable} through {@link ezcConsoleInput::getHelpTable()} 
      * are can generate a printable help text through {@link 
      * ezcConsoleInput::getHelpText()}.

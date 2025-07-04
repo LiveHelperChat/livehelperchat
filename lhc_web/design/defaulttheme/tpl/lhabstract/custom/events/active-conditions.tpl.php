@@ -133,7 +133,7 @@
         <option value="57600" <?php if (isset($object->{$fields['last_visit_prev']['main_attr']}['last_visit_prev']) && $object->{$fields['last_visit_prev']['main_attr']}['last_visit_prev'] == 57600) : ?>selected="selected"<?php endif;?> >16 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hours');?></option>
         <option value="86400" <?php if (isset($object->{$fields['last_visit_prev']['main_attr']}['last_visit_prev']) && $object->{$fields['last_visit_prev']['main_attr']}['last_visit_prev'] == 86400) : ?>selected="selected"<?php endif;?> >1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','day');?></option>
     </select>
-    <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','If visitor arrived to website today, and he was on website yesterday. This value holds last time visitor was seen on website yesterday.')?></i></small></p>
+    <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','If visitor arrived to website today, and they were on website yesterday. This value holds last time visitor was seen on website yesterday.')?></i></small></p>
 </div>
 
 <div class="form-group">

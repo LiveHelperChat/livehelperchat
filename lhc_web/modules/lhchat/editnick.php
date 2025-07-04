@@ -19,7 +19,7 @@ try {
                 $tpl->set('updated',true);
                 
                 $chat->user_typing = time();
-                $chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voteaction','User has updated his profile information');
+                $chat->user_typing_txt = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voteaction','User has updated their profile information');
                 $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
                 
                 $nickChanged = true;                

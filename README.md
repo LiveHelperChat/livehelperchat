@@ -195,7 +195,7 @@ A few main features:
  * Option to send messges to anonymous site visitors,
  * Canned messages
  * Informing then operator or user is typing.
- * Option to see what user is typing before he sends a message
+ * Option to see what user is typing before they send a message
  * Canned messages for desktop client
  * Voting module
  * FAQ module

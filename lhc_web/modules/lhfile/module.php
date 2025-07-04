@@ -117,7 +117,7 @@ $FunctionList['use_operator'] = array('explain' => 'Allow operators to send file
 $FunctionList['upload_new_file'] = array('explain' => 'Allow operator to upload new file');
 $FunctionList['file_list'] = array('explain' => 'Allow operators to list all uploaded files');
 $FunctionList['file_delete'] = array('explain' => 'Allow operators to delete all files');
-$FunctionList['file_delete_chat'] = array('explain' => 'Allow operators to delete his chat files');
+$FunctionList['file_delete_chat'] = array('explain' => 'Allow operators to delete their chat files');
 
 
 ?>

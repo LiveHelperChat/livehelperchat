@@ -250,7 +250,7 @@ class erLhcoreClassChatMail {
     	
     	if ($sendMail->recipient != '') { // Perhaps template has default recipient
     		$emailRecipient = explode(',',$sendMail->recipient);
-    	} else { // Lets find first user and send him an e-mail
+    	} else { // Lets find first user and send them an e-mail
     		$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
     		$user = array_pop($list);
     		$emailRecipient = array($user->email);
@@ -370,7 +370,7 @@ class erLhcoreClassChatMail {
     		$emailRecipient = explode(',',$chat->department->email);
     	} elseif ($sendMail->recipient != '') { // Perhaps template has default recipient
     		$emailRecipient = explode(',',$sendMail->recipient);
-    	} else { // Lets find first user and send him an e-mail
+    	} else { // Lets find first user and send them an e-mail
     		$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
     		$user = array_pop($list);
     		$emailRecipient = array($user->email);
@@ -458,7 +458,7 @@ class erLhcoreClassChatMail {
     		$emailRecipient = explode(',',$chat->department->email);
     	} elseif ($sendMail->recipient != '') { // Perhaps template has default recipient
     		$emailRecipient = explode(',',$sendMail->recipient);
-    	} else { // Lets find first user and send him an e-mail
+    	} else { // Lets find first user and send them an e-mail
     		$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
     		$user = array_pop($list);
     		$emailRecipient = array($user->email);
@@ -767,7 +767,7 @@ class erLhcoreClassChatMail {
     		$emailRecipient = explode(',',$sendMail->recipient);    		
     	} elseif ($chat->department !== false && $chat->department->email != '' && $chat->department->inform_close == 1) {    			
     		$emailRecipient = explode(',',$chat->department->email);    		
-    	} elseif (empty($emailRecipientAll)) { // Lets find first user and send him an e-mail
+    	} elseif (empty($emailRecipientAll)) { // Lets find first user and send them an e-mail
     		$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
     		$user = array_pop($list);
     		$emailRecipient = array($user->email);
@@ -918,7 +918,7 @@ class erLhcoreClassChatMail {
             $emailRecipient = explode(',',$sendMail->recipient);
         }
 
-        if (empty($emailRecipient)) { // Lets find first user and send him an e-mail
+        if (empty($emailRecipient)) { // Lets find first user and send them an e-mail
             $list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
             $user = array_pop($list);
             $emailRecipient = array($user->email);

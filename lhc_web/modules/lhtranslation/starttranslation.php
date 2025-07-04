@@ -17,7 +17,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     }
 
     if (empty($errors)) {
-        // User clicked button second time, and languages matches, that means he just stopped translation
+        // User clicked button second time, and languages matches, that means they just stopped translation
 
         if ((!isset($_POST['live_translations']) || $_POST['live_translations'] == 'false') && isset($chat->chat_variables_array['lhc_live_trans']) && $chat->chat_variables_array['lhc_live_trans'] === true) {
             $chatVariablesArray = $chat->chat_variables_array;

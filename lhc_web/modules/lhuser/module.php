@@ -208,14 +208,14 @@ $FunctionList['deletegroup'] = array('explain' => 'Allow user to delete group');
 $FunctionList['createuser'] = array('explain' => 'Allow user to create another user');
 $FunctionList['deleteuser'] = array('explain' => 'Allow user to delete another user');
 $FunctionList['edituser'] = array('explain' => 'Allow user to edit another user');
-$FunctionList['editusergroupall'] = array('explain' => 'Allow user to edit another user groups even he is not a member of it.');
+$FunctionList['editusergroupall'] = array('explain' => 'Allow user to edit other user groups even if they are not a member of it.');
 $FunctionList['grouplist'] = array('explain' => 'Allow user to list group');
 $FunctionList['userlist'] = array('explain' => 'Allow user to list users');
-$FunctionList['selfedit'] = array('explain' => 'Allow user to edit his own data');
+$FunctionList['selfedit'] = array('explain' => 'Allow user to edit their own data');
 
 
 // All department option
-$FunctionList['self_all_departments'] = array('explain' => 'Allow user to assign himself to all departments option');
+$FunctionList['self_all_departments'] = array('explain' => 'Allow user to assign themself to all departments option');
 $FunctionList['edit_all_departments'] = array('explain' => 'Allow user to assign other users to all departments option');
 
 // Edit mode user
@@ -229,38 +229,38 @@ $FunctionList['see_user_assigned_departments'] = array('explain' => 'Allow user 
 $FunctionList['see_user_assigned_departments_groups'] = array('explain' => 'Allow user to see to other user assigned departments groups');
 
 // Self account
-$FunctionList['see_assigned_departments'] = array('explain' => 'Allow user to see departments assigned to him');
-$FunctionList['see_assigned_departments_groups'] = array('explain' => 'Allow user to see departments groups assigned to him');
-$FunctionList['editdepartaments'] = array('explain' => 'Allow user to edit his own responsible departments/departments groups');
+$FunctionList['see_assigned_departments'] = array('explain' => 'Allow user to see departments assigned to them');
+$FunctionList['see_assigned_departments_groups'] = array('explain' => 'Allow user to see departments groups assigned to them');
+$FunctionList['editdepartaments'] = array('explain' => 'Allow user to edit their own responsible departments/departments groups');
 
 
-$FunctionList['userlistonline'] = array('explain' => 'Allow user to see logged operators list, only from his department');
-$FunctionList['userlistonlineall'] = array('explain' => 'Allow user to see logged operators list, not only from his department');
-$FunctionList['changeonlinestatus'] = array('explain' => 'Allow user to change his online status');
-$FunctionList['changeskypenick'] = array('explain' => 'Allow user to change/enter his skype nick');
+$FunctionList['userlistonline'] = array('explain' => 'Allow user to see logged operators list, only from their department');
+$FunctionList['userlistonlineall'] = array('explain' => 'Allow user to see logged operators list, not only from their department');
+$FunctionList['changeonlinestatus'] = array('explain' => 'Allow user to change their online status');
+$FunctionList['changeskypenick'] = array('explain' => 'Allow user to change/enter their skype nick');
 $FunctionList['personalcannedmsg'] = array('explain' => 'Allow user to have personal canned messages');
 $FunctionList['personalautoresponder'] = array('explain' => 'Allow user to have personal auto responder messages');
-$FunctionList['changevisibility'] = array('explain' => 'Allow user to change his visibility mode');
-$FunctionList['change_visibility_list'] = array('explain' => 'Allow user to choose what list should be visible by him, pending/active/unread/closed');
-$FunctionList['allowtochoosependingmode'] = array('explain' => 'Allow user to choose what pending chats he can see, only assigned to him or all.');
-$FunctionList['receivepermissionrequest'] = array('explain' => 'Allow user to choose should he receive other operators permissions requests');
+$FunctionList['changevisibility'] = array('explain' => 'Allow user to change their visibility mode');
+$FunctionList['change_visibility_list'] = array('explain' => 'Allow user to choose what list should be visible to them, pending/active/unread/closed');
+$FunctionList['allowtochoosependingmode'] = array('explain' => 'Allow user to choose what pending chats they can see, only assigned to them or all.');
+$FunctionList['receivepermissionrequest'] = array('explain' => 'Allow user to choose should if they should receive other operator\'s permission requests');
 $FunctionList['userautologin'] = array('explain' => 'Allow user to use autologin');
 $FunctionList['userautologinconfig'] = array('explain' => 'Allow user to configure autologin');
 $FunctionList['canseedepartmentstats'] = array('explain' => 'Allow user to see departments statistic');
-$FunctionList['canseealldepartmentstats'] = array('explain' => 'Allow user to see all departments statistic, not only from his departments');
+$FunctionList['canseealldepartmentstats'] = array('explain' => 'Allow user to see all departments statistic, not only from their departments');
 $FunctionList['import'] = array('explain' => 'Allow user to import users');
 $FunctionList['loginas'] = array('explain' => 'Allow user to login as other user');
 $FunctionList['passwordsecurity'] = array('explain' => 'Allow user to set password security requirements');
-$FunctionList['see_all'] = array('explain' => 'Allow user see all users/groups not only from his group/groups');
-$FunctionList['see_all_group_users'] = array('explain' => 'Allow user see all group users he belongs to.');
+$FunctionList['see_all'] = array('explain' => 'Allow user see all users/groups not only from their group/groups');
+$FunctionList['see_all_group_users'] = array('explain' => 'Allow user see all group users they belongs to.'); // should this be "user groups" rather than "group users"?
 $FunctionList['changealwaysonline'] = array('explain' => 'Allow user to change always online mode');
 $FunctionList['setopstatus'] = array('explain' => 'Allow user to change other user online status from online operators widget');
-$FunctionList['change_chat_nickname'] = array('explain' => 'Allow user to change his own chat nickname');
-$FunctionList['changephoto'] = array('explain' => 'Allow user to change his own photo/avatar');
-$FunctionList['change_job_title'] = array('explain' => 'Allow user to change his own job title');
-$FunctionList['change_core_attributes'] = array('explain' => 'Allow user to change his own username/password/e-mail/XMPP Usernautoame');
-$FunctionList['change_name_surname'] = array('explain' => 'Allow user to change his own name/surname');
-$FunctionList['change_password'] = array('explain' => 'Allow user to change his password');
+$FunctionList['change_chat_nickname'] = array('explain' => 'Allow user to change their own chat nickname');
+$FunctionList['changephoto'] = array('explain' => 'Allow user to change their own photo/avatar');
+$FunctionList['change_job_title'] = array('explain' => 'Allow user to change their own job title');
+$FunctionList['change_core_attributes'] = array('explain' => 'Allow user to change their own username/password/e-mail/XMPP Usernautoame');
+$FunctionList['change_name_surname'] = array('explain' => 'Allow user to change their own name/surname');
+$FunctionList['change_password'] = array('explain' => 'Allow user to change their password');
 $FunctionList['pswdsecurity'] = array('explain' => 'Allow user to manage password requirements');
 $FunctionList['largeactivitytimeout'] = array('explain' => 'Allow user to choose a large inactivity timeout');
 

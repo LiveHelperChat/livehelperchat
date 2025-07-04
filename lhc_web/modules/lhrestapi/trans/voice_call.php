@@ -21,7 +21,7 @@ echo json_encode(array(
         "wait_let_in" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Please wait untill operator let's you in"),
         "me_audio" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Me"),
         "wait_join_long" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Please wait untill operator let's you join the call"),
-        "visitor_waiting_in" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Visitor is waiting for someone to let him in!"),
+        "visitor_waiting_in" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Visitor is waiting for someone to let them in!"),
         "pending_visitor_join" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Pending visitor to join the call!"),
         "visitor_joined" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Visitor has joined the call!"),
         "audio_call" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Operator"),

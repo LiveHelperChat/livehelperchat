@@ -666,7 +666,7 @@
       <translation>További feltételek</translation>
     </message>
     <message>
-      <source>If visitor arrived to website today, and he was on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
+      <source>If visitor arrived to website today, and they were on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
       <translation>Ha a felhasználó a mai napon érkezik az oldalra, de már tegnap is meglátogatta azt, ez az érték a tegnapi utolsó elérhetőségének időpontját mutatja</translation>
     </message>
     <message>
@@ -1826,7 +1826,7 @@
       <translation>A látogató ne szerkeszthesse az előző üzenetet a felfelé nyíl megnyomásával</translation>
     </message>
     <message>
-      <source>Before closing chat ask user does he really want to to close chat</source>
+      <source>Before closing chat ask user if they really want to to close chat</source>
       <translation>Egy beszélgetés bezárása előtt tegyünk fel kérdést a felhasználónak, hogy valóban be akarja-e zárni a beszélgetést</translation>
     </message>
     <message>
@@ -2049,7 +2049,7 @@
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
-      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
+      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message they will get.</source>
       <translation>Kezdőüzenet, amelyet a látogató akkor kap, ha egy online részlegen belül indít új beszélgetést, és ez elfogadásra vár</translation>
     </message>
     <message>
@@ -8149,7 +8149,7 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
-      <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
+      <source>Your request takes to long. Please contact your administrator and send them url from your browser.</source>
       <translation>A kérése feldolgozása túl sokáig tart. Kérjük, lépjen kapcsolatba az adminisztrátorral, és küldje el neki az URL-címet a böngészőjéből</translation>
     </message>
     <message>
@@ -12472,7 +12472,7 @@
       <translation>Kérjük, várjon, amíg az operátor lehetővé nem teszi, hogy csatlakozzon a híváshoz</translation>
     </message>
     <message>
-      <source>Visitor is waiting for someone to let him in!</source>
+      <source>Visitor is waiting for someone to let them in!</source>
       <translation>A látogató arra vár, hogy valaki beengedje!</translation>
     </message>
     <message>
@@ -13081,7 +13081,7 @@
       <translation>Jelenleg nincs elérhető munkatársunk – javasoljuk, hagyjon üzenetet</translation>
     </message>
     <message>
-      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
+      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
       <translation>Amíg munkatársunk csatlakozik a beszélgetéshez, addig felteheti kérdéseit, így miután kollégánk megerősítette a beszélgetést, meg fogja kapni az Ön üzeneteit</translation>
     </message>
     <message>
@@ -14169,7 +14169,7 @@
       <translation>Csak akkor jelenjen meg értesítés, ha a felhasználó egy folyamatban lévő beszélgetés tulajdonosa</translation>
     </message>
     <message>
-      <source>User will stop receive notifications for pending chats if he is not an owner</source>
+      <source>User will stop receive notifications for pending chats if they are not an owner</source>
       <translation>Ha nem tulajdonos, a felhasználó nem kap értesítést a függőben lévő beszélgetésekről</translation>
     </message>
     <message>
@@ -14177,11 +14177,11 @@
       <translation>Értesítések megjelenítése, ha a felhasználó offline</translation>
     </message>
     <message>
-      <source>User will not receive notifications if he is not online</source>
+      <source>User will not receive notifications if they are not online</source>
       <translation>Ha a felhasználó online, nem kap értesítéseket</translation>
     </message>
     <message>
-      <source>User will receive alert notification if chat is transferred directly to him. He will be able to accept it directly from alert.</source>
+      <source>User will receive alert notification if chat is transferred directly to him. They will be able to accept it directly from alert.</source>
       <translation>A rendszer értesíti a felhasználót, ha egy beszélgetés közvetlenül hozzá kerül. Ezt közvetlenül az értesítésből tudja elfogadni</translation>
     </message>
     <message>
@@ -14189,7 +14189,7 @@
       <translation>A tevékenységkövetés globálisan van beállítva. A felhasználói beállításokat a rendszer figyelmen kívül hagyja. A lejárati idő értékét továbbra is a fiók beállításaiból vesszük</translation>
     </message>
     <message>
-      <source>Change user online/offline status based on his activity</source>
+      <source>Change user online/offline status based on their activity</source>
       <translation>A felhasználó online/offline állapotának módosítása az aktivitása alapján</translation>
     </message>
     <message>
@@ -17367,7 +17367,7 @@
       <translation>Az összes kérés és azok válaszainak naplózása az Auditnaplóba</translation>
     </message>
     <message>
-      <source>Log all request and their responses as system messages.</source>
+      <source>Log all requests and their responses as system messages.</source>
       <translation>Az összes kérés és azok válaszainak naplózása rendszerüzenetként</translation>
     </message>
     <message>
@@ -18171,7 +18171,7 @@
       <translation>Az automatikus tulajdonossá válás letiltása a beszélgetések megnyitásakor</translation>
     </message>
     <message>
-      <source>Operator will become an owner if he clicks reply button.</source>
+      <source>Operator will become an owner if they click reply button.</source>
       <translation>Az operátor tulajdonossá válik, ha a válasz gombra kattint</translation>
     </message>
     <message>
@@ -20667,7 +20667,7 @@
       <translation>Frissítve</translation>
     </message>
     <message>
-      <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
+      <source>If there are no options to choose from, the user will be shown a text field where they will be able to enter their own answer.</source>
       <translation>Ha nincs választási lehetőség, a felhasználó számára egy szöveges mező jelenik meg, ahol saját választ tud megadni</translation>
     </message>
     <message>
@@ -23843,7 +23843,7 @@
   <context>
     <name>chat/voteaction</name>
     <message>
-      <source>User has updated his profile information</source>
+      <source>User has updated their profile information</source>
       <translation>A felhasználó frissítette profiladatait</translation>
     </message>
     <message>
@@ -23926,7 +23926,7 @@
   <context>
     <name>chat/updatemsguser</name>
     <message>
-      <source>User has edited his last message</source>
+      <source>User has edited their last message</source>
       <translation>A felhasználó szerkesztette az utolsó üzenetét</translation>
     </message>
   </context>

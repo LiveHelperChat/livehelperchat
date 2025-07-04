@@ -436,7 +436,7 @@ execute doc/update_db/update_304.sql for update
 3. Mail delete scheduler. Usefull in case you want to delete hundreds of thousands of emails.
 4. Widget images now has a size defined which avoids flickering while images are loading in the widget or in Live Helper Chat back office.
 5. Telegram extension now supports commands from operator who is using telegram as a support client.
-6. There is new permission to allow operator edit only last his message or all his messages per chat. By default he will be able to edit only last his message.
+6. There is new permission to allow operator edit only their last message or all their messages per chat. By default they will be able to edit only their last message.
 7. Proactive invitation now has URL filter and activity period.
 8. Search in some pages were broken if # was used as search argument.
 9. Now you can set Time Zone for the database. Usefull in case you want to set everywhere same time zone to avoid any issues.
@@ -483,7 +483,7 @@ execute doc/update_db/update_299.sql for update
 1. Avoid flicker once chat is started for a new widget.
 2. Option to show clicked button name instantly in messages area. `Widget container -> Print button as a message as soon visitor clicks a button.`
 3. Incoming webhook `chat_external_id` field is now 100 chars instead of 50
-4. We will show visitor message as soon he clicks send.
+4. We will show visitor message as soon they click send.
 5. 8.2 php support, if you notice some errors let me know.
 6. Voice messages max length option from files configuration was ignored.
 7. Chrome 116v workaround for chrome bug.  Changes I did https://github.com/LiveHelperChat/livehelperchat/commit/b3649c5e936d4be08d1e004d8537ed47cd029aba chrome bug report. https://bugs.chromium.org/p/chromium/issues/detail?id=1473754 it should be fixed in 117v chrome release.
@@ -645,7 +645,7 @@ execute doc/update_db/update_281.sql for update
 
 1. Bot messages can be automatically translated using Translation services.
 2. Passed additional chat variables will prefill nick, email, phone.
-3. Visitor now can switch his language in the widget.
+3. Visitor now can switch their language in the widget.
 4. Alert message will be shown if department groups permission is misconfiguration. Operator can edit them, but can't read.
 5. Option to clone replaceable variable.
 6. Now as admin I can edit more fields of the operator.
@@ -661,7 +661,7 @@ execute doc/update_db/update_279.sql for update
 
 4.06v
 
-Now there is an option to assign operator to department/department group and at the same time exclude him from auto assignment workflow.
+Now there is an option to assign operator to department/department group and at the same time exclude them from auto assignment workflow.
 
 E.g You have operators who works only with VIP department, but when they don't have much to do they want to accept chats manually from lower level departments. With that option you can do that.
 
@@ -751,7 +751,7 @@ execute doc/update_db/update_270.sql for update
 2. Security fixes. Update highly recommended.
 3. Improvements to dashboard request frequency.
 4. Edge case widget hide/show scenario fixes. Was not possible to close proactive invitation if status widget was acting as close button.
-5. Operator will be in text grey (online operators widget) if he can't write to any department assigned.
+5. Operator will be in text grey (online operators widget) if they can't write to any department assigned.
 6. Visitor hold option. You can pause auto responder for the `visitor not replying` if you know that visitor will take time looking for an info.
 7. Delete action should wait until request is done.
 8. Mobile app supports live online/offline status monitoring.
@@ -1206,8 +1206,8 @@ execute doc/update_db/update_230.sql for update
 4. You can have notifications for active chats which get's alert icon assigned
 5. You can now manual init widget JS and all it's dependencies https://doc.livehelperchat.com/docs/javascript-arguments/
 6. Notifications won't be shown if you have many pending chats and change sort
-7. If storing message fails we should show visitor what happened. So he can try again
-8. We should also keep his last message attempt
+7. If storing message fails we should show visitor what happened. So they can try again
+8. We should also keep their last message attempt
 9. Reduced number of renders checks in widget
 10. Translations performance/cache improvements
 11. You can override now also english translations - https://doc.livehelperchat.com/docs/language/#how-to-override-default-translations
@@ -1279,7 +1279,7 @@ execute doc/update_db/update_224.sql for update
 
 1. Login history.
 1.2 You can force user to reset password on first login.
-1.3 You can limit how many attempts operator has before his account is disabled.
+1.3 You can limit how many attempts operator has before their account is disabled.
 2. Dark theme improvements.
 3. You can set chat subject directly from bot. "Update current chat" -> "Set subject" command.
 4. "Alert icon" response type. It will allow to add custom icon to a bot chat list. So you can quickly take over bot chat.
@@ -1422,7 +1422,7 @@ php cron.php -s site_admin -c cron/util/migrate_gbot_id -p 0
 3.36v
 
 1. "Always online" operator mode. Usefull if you are using telegram and are using Auto assignment workflow.
-2. Auto responder has option to send notice to visitor if operator is speaking his language.
+2. Auto responder has option to send notice to visitor if operator is speaking their language.
 
 execute doc/update_db/update_210.sql for update
 
@@ -1763,7 +1763,7 @@ php cron.php -s site_admin -c cron/workflow
 6. Allow to see generated bot syntax from bot builder interface
 7. Option to have auto uppercase sentences in operator interface.
 8. Rest api enhancements
-9. Option to set how long chat can be opened after he was closed.
+9. Option to set how long chat can be opened after it was closed.
 10. Show correct online status on widget minimization.
 
 execute doc/update_db/update_175.sql for update
@@ -1849,7 +1849,7 @@ execute doc/update_db/update_167.sql for update
 
 1. Modern look for widget.
 2. If you had a theme for old style status widget it will still work. In theme there is option to choose what style widget to have. Old style or modern style.
-3. Option to set required groups. So then operator is setuping new user he will have to choose one of required groups.
+3. Option to set required groups. So when operator is setting up new user they will have to choose one of required groups.
 
 execute doc/update_db/update_166.sql for update
 
@@ -1965,7 +1965,7 @@ execute doc/update_db/update_154.sql for update
 
 1. Option to set delay, between new chat can be assigned to operator since last assignment.
 2. Option to have auto chat acceptance. If chat is automatically assigned it's possible now that new chat will be opened automatically to operator.
-3. Option to exclude operator from participating in auto assign workflow, even if he is online.
+3. Option to exclude operator from participating in auto assign workflow, even if they are online.
 4. Option to ignore inactive chat's in auto assign workflow.
 
 execute doc/update_db/update_153.sql for update
@@ -2054,7 +2054,7 @@ execute doc/update_db/update_142.sql for update
 
 2.67v
 
-1. Chat's will track in what state operator was while he was accepting chat. This will be used in Agents statistic.
+1. Chats will track in what state operator was while they were accepting chat. This will be used in Agents statistic.
 2. If widget is closed in one tab it will be closed in another one also.
 
 execute doc/update_db/update_141.sql for update
@@ -2108,7 +2108,7 @@ No database updates this time.
 
 2.59v
 
-1. During group editing you can choose with what groups members of this group can work with.  That means if operator is assigned to Operators group he will be able to work with only with groups defined in the list or the one he is assigned to.
+1. During group editing you can choose with what groups members of this group can work with.  That means if operator is assigned to Operators group they will be able to work with only with groups defined in the list or the one they are assigned to.
 
 execute doc/update_db/update_134.sql for update
 
@@ -2222,7 +2222,7 @@ execute doc/update_db/update_122.sql for update
 2.46v
 
 1. Option to disable iframes rendering. It just increases security in some cases.
-2. href links in co-browsing will be replaced with javascript:void(0), so in order operator to click invalid link he will have to type it manually.
+2. href links in co-browsing will be replaced with javascript:void(0), so in order operator to click invalid link they will have to type it manually.
 
 execute doc/update_db/update_121.sql for update
 
@@ -2302,7 +2302,7 @@ execute doc/update_db/update_113.sql for update
 
 2.37v
 
-1. User can drag and sort frontpage widgets as he wants. Widgets order and what widgets user can see are based on user individually.
+1. User can drag and sort frontpage widgets as they like. Widgets order and what widgets user can see are based on user individually.
 2. Canned messages are sorted by position and title now.
 3. Other small UX updates.
 
@@ -2525,7 +2525,7 @@ execute doc/update_db/update_97.sql for update
 Co-Browsing enhancement release part 2
 1. Select box change will be synced to user browser also.
 2. If your site is using jQuery JS library highligh elements selection will be more precise. 99.99% of accuracy. 
-3. User actions on forms will be synced to operator browser. That means while user is filling a form you will see what fields he fills instantly, 
+3. User actions on forms will be synced to operator browser. That means while user is filling a form you will see what fields they fill instantly, 
 what checkboxes checks and so on. This feature requires jQuery JS library on remote site.
 4. You can choose to execute or not javascript on Operator Co-Browsing window. Option available in Co-Browsing options.
 
@@ -2540,7 +2540,7 @@ Co-Browsing enhancement release
 3. At top bar there is now network icon. If you click it you can navigate user preciselly to URL you want. You can navigate user to another url also from chat window. There is new icon for that
 4. You can fill some of the forms fields by holding CTRL+Left mouse click. As field becames with blue shadow you can fill text fields on visitor browser directly. Fill forms for users :)
 5. NodeJs server for Co-Browsing was updated.
-6. You can can allow user to see your mouse pointer on his screen.
+6. You can can allow user to see your mouse pointer on their screen.
 7. You can force user browser to scroll to highlighted element by checking checkbox at top.
 8. Operator Co-Browser window will represent exact view of user browser. This is required to match mouse positions.
 
@@ -2588,7 +2588,7 @@ This release is maintenence release with few enhancements
 Also new variable in template can be used {url_view} it will be link to filled form view instead of download link.
 https://github.com/LiveHelperChat/livehelperchat/issues/563
 2. Chat window in browsing information tab will show is user on page still or not. Option "Track is user still on site, chat status checks also has to be enabled" has to be enabled.
-3. Different message will be shown then user starts chat from chat popup instead of chat widget. Like then user navigates to another window from widget it's shown URL to which he navigated. Then user decides to open popup for chat it will be different message.
+3. Different message will be shown then user starts chat from chat popup instead of chat widget. Like then user navigates to another window from widget it's shown URL to which they navigated. Then user decides to open popup for chat it will be different message.
 4. Invitation to chat will also pay attention to additional fields attributes. https://github.com/LiveHelperChat/livehelperchat/issues/540
 5. Proactive messages retargeting. In returning message field you can enter {nick}, if we will find a previous chat associated with this online user, nick from previous chat will be used if not proactive invitation nick field value will be used. 
 https://github.com/LiveHelperChat/livehelperchat/issues/544
@@ -2652,7 +2652,7 @@ execute doc/update_db/update_90.sql for update
 2.10v
 
 1. Now then you are genrating code for multiple departments, or just standard code without any department. 
-If user chooses offline department for him is suggested go to leave a message form. This can be turned on or off in chat configuration. 
+If user chooses offline department it is suggested to leave a message form. This can be turned on or off in chat configuration. 
 https://github.com/LiveHelperChat/livehelperchat/issues/477
 2. On devices, with lower screen width than 1024, clicking on widget will open new window.
 3. Default line height was set for widgets to have same appearance across all sites.
@@ -2883,7 +2883,7 @@ Features
 2. Option to assign pro active invitations to particular users. Just enter users id's separated by comma. Perhaps in some far feature i will add more user friendly assigment workflow, or someone will suport it :)
 3. {name},{department},{country},{city} variables in subject for mail "Support request from user"
 4. Disabled department widget won't be shown. Option to show widget but then in content will be written "Department is disabled"
-5. Invisible mode. This allows to open chat without influencing chat status. To operator has to be assigned "Users, groups management" => "Allow user to change his visibility mode"
+5. Invisible mode. This allows to open chat without influencing chat status. To operator has to be assigned "Users, groups management" => "Allow user to change their visibility mode"
 6. Option to change chat status. To operator has to be assigned "Chat" => "Allow user to change chat status" permission.
 
 execute doc/update_db/update_72.sql for update
@@ -3200,7 +3200,7 @@ Features
 4. User also has a field xmpp username, if this field is different then user account e-mail during link clicking this field will be matched to department xmpp recipient and user will be authorised instantly.
 So full flexibility to have different e-mail for system itself and different account for XMPP service providers.
 5. You can now set how long chat accept link is valid. This can be found in chat configuration section.
-6. Upon chat accept link click if link is invalid, user will be redirected to login page and if he is using remember me functionality he will be logged automatically and will see chat window instantly.
+6. Upon chat accept link click if link is invalid, user will be redirected to login page and if they are using remember me functionality they will be logged automatically and will see chat window instantly.
 7. Accept link generation supports now http and https.
 8. Option remove index.php from URL's
 
@@ -3239,7 +3239,7 @@ For this to work app has to be installed on root folder, it can be either domain
 
 Features
 1. Skype call field in user attributes
-2. Online operators listing will show only his department operators.
+2. Online operators listing will show only their department operators.
 3. In order to see all operators to operators role has to be assigned "user" => "userlistonlineall" permission
 
 Changes
@@ -3344,12 +3344,12 @@ create directory var/storage make sure that php can write to it. just chmod 664 
 1.60v
 
 Features
-1. Option fo user to change language in back office. Just for him alone. Usefull if back office is used by people who speaks different languages.
+1. Option fo user to change language in back office. Just for them alone. Usefull if back office is used by people who speaks different languages.
 2. Chatbox now supports predefined nick and option to disable nick.
 
 Improvements, Bugfixes
 1. Few PHP calls were not compiled. So a little bit more performance gain.
-2. Seems if user disabled chat sound, he could not start chat next time. Not sure still.
+2. Seems if user disabled chat sound, they could not start chat next time. Not sure still.
 3. Various other small improvements.
 
 No database update this time.
@@ -3434,7 +3434,7 @@ execute doc/update_db/update_37.sql
 
 Features
 
-1. Option for user to send chat transcript to his e-mail.
+1. Option for user to send chat transcript to their e-mail.
 2. User options as dropdown menu.
 3. User status icon in tab.
 
@@ -3449,7 +3449,7 @@ a. Auto responder in proactive chat invitations.
 b. Independent responder.
 
 This allow you to have the following workflow.
-1. Then users starts chat. He receives preconfigured message. E.g. "one moment please..."
+1. Then users starts chat. They receive preconfigured message. E.g. "one moment please..."
 2. If the agent doesn’t accept within a time period (e.g. 1 minute) to user is send message. "we are currenty busy with another patient right now, can you leave your name and email and we will follow up"
 
 execute doc/update_db/update_35.sql
@@ -3502,7 +3502,7 @@ execute doc/update_db/update_33.sql
 9. Department chosing box will show status of department is it online or offline. First will be shown online departments.
 10. Now Surname is optional field, so you can have only name filled.
 11. Print option for user and admin.
-12. Now you can see what user is typing before he sends message to operator.
+12. Now you can see what user is typing before they send message to operator.
 
 execute doc/update_db/update_32.sql
 
@@ -3666,7 +3666,7 @@ All this was done without any performance loss when the cache is enabled.
 New features:
 1. Option to configure SMTP settings for mail
 2. Chrome desktop notifications
-3. Allow user to change his online or offline status
+3. Allow user to change their online or offline status
 
 execute doc/update_db/update_24.sql
 

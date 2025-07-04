@@ -127,7 +127,7 @@
 
             <?php if ($context == 'personalmailbox') : ?>
                 <ul>
-                    <li>Once you setup personal mailbox group each time mail comes to any of the defined mailbox conversation mailbox will be changed to the operator mailbox if he has one defined in mailbox groups.</li>
+                    <li>Once you setup personal mailbox group each time mail comes to any of the defined mailbox conversation mailbox will be changed to the operator mailbox if they have one defined in mailbox groups.</li>
                     <li>Example. Mailbox group consists of these combinations
                         <ul>
                             <li>Mailbox group consist of <b>a@example.com</b> who belongs to operator <b>A</b></li>

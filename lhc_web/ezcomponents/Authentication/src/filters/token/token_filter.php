@@ -18,7 +18,7 @@
  *
  * The following example shows how to create a CAPTCHA test. The example is
  * divided into 2 parts: the initial request (where the user sees the CAPTCHA
- * image and enters the characters he sees in a form) and the follow-up
+ * image and enters the characters they see in the form) and the follow-up
  * request (after the user submits the form).
  * - on the initial request:
  * <code>
@@ -57,7 +57,7 @@
  * }
  * else
  * {
- *     // CAPTCHA was correct, so let the user send his spam or whatever
+ *     // CAPTCHA was correct, so let the user send their spam or whatever
  * }
  * </code>
  *

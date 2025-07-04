@@ -7,12 +7,12 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label><input type="checkbox" name="ownntfonly" value="on" <?php erLhcoreClassModelUserSetting::getSetting('ownntfonly',0, $user->id) == 1 ? print 'checked="checked"' : '' ?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Show notification only if user is an owner pending chat')?></label>
-                        <br/><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','User will stop receive notifications for pending chats if he is not an owner')?></i></small>
+                        <br/><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','User will stop receive notifications for pending chats if they are not an owner')?></i></small>
                     </div>
 
                     <div class="form-group">
                         <label><input type="checkbox" name="sn_off" value="on" <?php erLhcoreClassModelUserSetting::getSetting('sn_off',1, $user->id) == 1 ? print 'checked="checked"' : '' ?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Show notifications if user is offline')?></label>
-                        <br/><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','User will not receive notifications if he is not online')?></i></small>
+                        <br/><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','User will not receive notifications if they are not online')?></i></small>
                     </div>
 
                     <div class="form-group">
@@ -21,7 +21,7 @@
 
                     <div class="form-group">
                         <label><input type="checkbox" name="show_alert_transfer" value="on" <?php erLhcoreClassModelUserSetting::getSetting('show_alert_transfer',1, $user->id) == 1 ? print 'checked="checked"' : '' ?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Show alerts for transferred chats')?></label>
-                        <br/><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','User will receive alert notification if chat is transferred directly to him. He will be able to accept it directly from alert.')?></i></small>
+                        <br/><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','User will receive alert notification if chat is transferred directly to him. They will be able to accept it directly from alert.')?></i></small>
                     </div>
 
                     <div class="form-group">
@@ -37,7 +37,7 @@
                     <?php endif; ?>
 
                     <div class="form-group">
-                        <label><input type="checkbox" name="trackactivity" value="on" <?php erLhcoreClassModelUserSetting::getSetting('trackactivity',0, $user->id) == 1 ? print 'checked="checked"' : '' ?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Change user online/offline status based on his activity')?></label>
+                        <label><input type="checkbox" name="trackactivity" value="on" <?php erLhcoreClassModelUserSetting::getSetting('trackactivity',0, $user->id) == 1 ? print 'checked="checked"' : '' ?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Change user online/offline status based on their activity')?></label>
                         <br/><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','After certain period of time if no actions are detected user will be marked as offline automatically')?></i></small>
                     </div>
 

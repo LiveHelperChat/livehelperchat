@@ -85,7 +85,7 @@
                 <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
                 <?php echo erLhcoreClassAbstract::renderInput('wait_message', $fields['wait_message'], $object)?>
             </div>
-            <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.')?></small></p>
+            <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message they will get.')?></small></p>
         </div>
         <div role="tabpanel" class="tab-pane" id="main-offline-content">
             <div class="form-group">

@@ -77,7 +77,7 @@ $FunctionList['edit'] = array('explain' => 'Access to edit role');
 $FunctionList['delete'] = array('explain' => 'Access to delete role');
 $FunctionList['list'] = array('explain' => 'Access to list roles');
 $FunctionList['new'] = array('explain' => 'Access to create new role');
-$FunctionList['see_permissions'] = array('explain' => 'Allow operator to see his permissions');
+$FunctionList['see_permissions'] = array('explain' => 'Allow operator to see their permissions');
 $FunctionList['see_permissions_users'] = array('explain' => 'Allow operator to see all users permissions');
 $FunctionList['explorer'] = array('explain' => 'Permissions explorer');
 

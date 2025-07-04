@@ -57,7 +57,7 @@ class erLhcoreClassGenericBotActionActions {
             }
         }
 
-        // Within next user message we will validate his username or anything else
+        // Within next user message we will validate their username or anything else
         if ((isset($action['content']['event_background']) && $action['content']['event_background'] == true) || (isset($action['content']['event_background_inst']) && $action['content']['event_background_inst'])) {
 
             if (isset($action['content']['event_arg_match']) && isset($params['replace_array'])) {

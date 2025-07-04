@@ -7,7 +7,7 @@
     <div class="tab-content ps-2">
         <div role="tabpanel" class="tab-pane active" id="chats">
             
-            <?php if (isset($takes_to_long)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Your request takes to long. Please contact your administrator and send him url from your browser.');?>
+            <?php if (isset($takes_to_long)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Your request takes to long. Please contact your administrator and send them url from your browser.');?>
                 <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_info.tpl.php')); ?>
             <?php endif; ?>
 

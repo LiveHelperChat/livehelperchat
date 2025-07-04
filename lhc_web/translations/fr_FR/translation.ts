@@ -666,7 +666,7 @@
       <translation>Autres conditions</translation>
     </message>
     <message>
-      <source>If visitor arrived to website today, and he was on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
+      <source>If visitor arrived to website today, and they were on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
       <translation>Si un visiteur arrive sur le site aujourd&apos;hui et qu&apos;il était déjà sur le site hier, cette valeur correspond à la dernière fois que le visiteur a été vu sur le site hier. Cette valeur correspond à la dernière fois que le visiteur a été vu sur le site web hier.</translation>
     </message>
     <message>
@@ -1826,7 +1826,7 @@
       <translation>Ne pas permettre au visiteur de modifier le message précédent en appuyant sur la flèche vers le haut.</translation>
     </message>
     <message>
-      <source>Before closing chat ask user does he really want to to close chat</source>
+      <source>Before closing chat ask user if they really want to to close chat</source>
       <translation>Avant de fermer le chat, demandez à l&apos;utilisateur s&apos;il veut vraiment fermer le chat.</translation>
     </message>
     <message>
@@ -2049,7 +2049,7 @@
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
-      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
+      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message they will get.</source>
       <translation>Si un département est en ligne et qu&apos;un visiteur entame une discussion et attend que quelqu&apos;un accepte la discussion, ce sera le message initial qu&apos;il recevra. Ce sera le premier message qu&apos;il recevra.</translation>
     </message>
     <message>
@@ -8149,7 +8149,7 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
-      <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
+      <source>Your request takes to long. Please contact your administrator and send them url from your browser.</source>
       <translation>Votre demande est trop longue. Veuillez contacter votre administrateur et lui envoyer l&apos;url depuis votre navigateur.</translation>
     </message>
     <message>
@@ -12472,7 +12472,7 @@
       <translation>Veuillez patienter jusqu&apos;à ce que l&apos;opérateur vous permette de rejoindre l&apos;appel.</translation>
     </message>
     <message>
-      <source>Visitor is waiting for someone to let him in!</source>
+      <source>Visitor is waiting for someone to let them in!</source>
       <translation>Le visiteur attend que quelqu&apos;un le laisse entrer !</translation>
     </message>
     <message>
@@ -13081,7 +13081,7 @@
       <translation>Pour l&apos;instant, aucun opérateur n&apos;est connecté, mais vous pouvez laisser vos messages</translation>
     </message>
     <message>
-      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
+      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
       <translation>En attendant d&apos;être mis en rapport avec un opérateur, vous pouvez écrire vos questions et dès qu&apos;un opérateur rejoindra ce chat, il verra vos messages</translation>
     </message>
     <message>
@@ -14169,7 +14169,7 @@
       <translation>Afficher une notification uniquement si l&apos;utilisateur est un propriétaire en attente de chat</translation>
     </message>
     <message>
-      <source>User will stop receive notifications for pending chats if he is not an owner</source>
+      <source>User will stop receive notifications for pending chats if they are not an owner</source>
       <translation>L&apos;utilisateur ne recevra plus de notifications pour les chats en attente s&apos;il n&apos;est pas propriétaire.</translation>
     </message>
     <message>
@@ -14177,11 +14177,11 @@
       <translation>Afficher des notifications si l&apos;utilisateur est hors ligne</translation>
     </message>
     <message>
-      <source>User will not receive notifications if he is not online</source>
+      <source>User will not receive notifications if they are not online</source>
       <translation>L&apos;utilisateur ne recevra pas de notifications s&apos;il n&apos;est pas en ligne</translation>
     </message>
     <message>
-      <source>User will receive alert notification if chat is transferred directly to him. He will be able to accept it directly from alert.</source>
+      <source>User will receive alert notification if chat is transferred directly to him. They will be able to accept it directly from alert.</source>
       <translation>L&apos;utilisateur recevra une notification d&apos;alerte si le chat lui est transféré directement. Il pourra l&apos;accepter directement à partir de l&apos;alerte.</translation>
     </message>
     <message>
@@ -14189,7 +14189,7 @@
       <translation>Le suivi des activités est défini au niveau global. Les paramètres de l&apos;utilisateur sont ignorés. La valeur du délai d&apos;attente est toujours prise en compte dans les paramètres du compte.</translation>
     </message>
     <message>
-      <source>Change user online/offline status based on his activity</source>
+      <source>Change user online/offline status based on their activity</source>
       <translation>Modifier le statut en ligne/hors ligne de l&apos;utilisateur en fonction de son activité</translation>
     </message>
     <message>
@@ -17367,7 +17367,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Log all request and their responses as system messages.</source>
+      <source>Log all requests and their responses as system messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18171,7 +18171,7 @@
       <translation>Désactiver le fait de devenir propriétaire automatiquement lors de l&apos;ouverture d&apos;une conversation</translation>
     </message>
     <message>
-      <source>Operator will become an owner if he clicks reply button.</source>
+      <source>Operator will become an owner if they click reply button.</source>
       <translation>L&apos;opérateur deviendra propriétaire s&apos;il clique sur le bouton de réponse.</translation>
     </message>
     <message>
@@ -20667,7 +20667,7 @@
       <translation>Mis à jour</translation>
     </message>
     <message>
-      <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
+      <source>If there are no options to choose from, the user will be shown a text field where they will be able to enter their own answer.</source>
       <translation>S&apos;il n&apos;y a aucune option disponible, l&apos;utilisateur pourra saisir sa propre réponse dans un champ texte.</translation>
     </message>
     <message>
@@ -23843,7 +23843,7 @@
   <context>
     <name>chat/voteaction</name>
     <message>
-      <source>User has updated his profile information</source>
+      <source>User has updated their profile information</source>
       <translation>L&apos;utilisateur a mis à jour les informations de son profil</translation>
     </message>
     <message>
@@ -23926,7 +23926,7 @@
   <context>
     <name>chat/updatemsguser</name>
     <message>
-      <source>User has edited his last message</source>
+      <source>User has edited their last message</source>
       <translation>L&apos;utilisateur a édité son dernier message</translation>
     </message>
   </context>

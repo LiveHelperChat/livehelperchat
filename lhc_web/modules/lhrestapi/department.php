@@ -73,7 +73,7 @@ try
         if ($dep->can_delete = true) {
             $dep->removeThis();
         } else {
-            throw new Exception('You can not delete department because he has a chats!');
+            throw new Exception('You can not delete department because they have chats!');
         }
 
         erLhcoreClassRestAPIHandler::outputResponse(array('error' => false,'result' => true));

@@ -76,11 +76,11 @@ class NodeTriggerActionSurvey extends Component {
                     <div className="col-6">
                         <div className="form-group">
                             <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['survey_options','unique_vote'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','survey_options','unique_vote'])} /> Visitor can fill a survey once per selected period.</label>
-                            <p className="small text-muted">If unchecked we will not check has he filled this survey or not and will always show a survey.</p>
+                            <p className="small text-muted">If unchecked we will not check if they have filled this survey or not and will always show a survey.</p>
                         </div>
                     </div>
                     <div className="col-6">
-                        <label>Choose after how long visitor can fill a survey he has already filled some time ago</label>
+                        <label>Choose after how long a visitor can fill in a survey they have previously completed</label>
                         <select className="form-control form-control-sm" defaultValue={this.props.action.getIn(['content','expires_vote'])} onChange={(e) => this.onchangeAttr({'path' : ['expires_vote'], 'value' : e.target.value})}>
                             <option value="0">Never</option>
                             <option value="1">After 1 day</option>
@@ -99,7 +99,7 @@ class NodeTriggerActionSurvey extends Component {
                     </div>
                     <div className="col-12">
                         <div className="form-group">
-                            <label>If visitor has already filled survey(s) or there is no more surveys to send, send him this message instead.</label>
+                            <label>If visitor has already filled survey(s) or there is no more surveys to send, send them this message instead.</label>
                             <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['payload'],'value':e})} payload={this.props.action.getIn(['content','payload'])} />
                         </div>
                     </div>
