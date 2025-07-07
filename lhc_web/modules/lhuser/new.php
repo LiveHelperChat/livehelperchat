@@ -30,6 +30,13 @@ $userParams = array(
     'trackactivity' => 0,
     'trackactivitytimeout' => -1,
 
+    // Lists defaults
+    'enable_pending_list' => 1,
+    'enable_active_list' => 1,
+    'enable_unread_list' => 0,
+    'enable_mchats_list' => 1,
+    'enable_bot_list' => 1,
+
     // Groups
     'groups_can_edit' => ($groups_can_edit === true ? true : $groups_can_edit['groups'])
 );
@@ -94,6 +101,12 @@ if (isset($_POST['Update_account']) || isset($_POST['Update_account_edit']))
             erLhcoreClassModelUserSetting::setSetting('trackactivitytimeout', $userParams['trackactivitytimeout'], $UserData->id);
             erLhcoreClassModelUserSetting::setSetting('show_alert_transfer', $userParams['show_alert_transfer'], $UserData->id);
             erLhcoreClassModelUserSetting::setSetting('chat_text_rows', $userParams['chat_text_rows'], $UserData->id);
+
+            erLhcoreClassModelUserSetting::setSetting('enable_pending_list', $userParams['enable_pending_list'], $UserData->id);
+            erLhcoreClassModelUserSetting::setSetting('enable_active_list', $userParams['enable_active_list'], $UserData->id);
+            erLhcoreClassModelUserSetting::setSetting('enable_unread_list', $userParams['enable_unread_list'], $UserData->id);
+            erLhcoreClassModelUserSetting::setSetting('enable_mchats_list', $userParams['enable_mchats_list'], $UserData->id);
+            erLhcoreClassModelUserSetting::setSetting('enable_bot_list', $userParams['enable_bot_list'], $UserData->id);
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_created',array('userData' => & $UserData, 'password' => $UserData->password_front));
 

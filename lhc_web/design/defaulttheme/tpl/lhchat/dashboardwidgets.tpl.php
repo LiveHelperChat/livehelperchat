@@ -37,7 +37,8 @@
                     </div>
                     <?php foreach ($widgets as $widget => $title) : ?>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="WidgetsUser[]" value="<?php echo $widget?>" <?php if (in_array($widget, $user_widgets)) : ?>checked="checked"<?php endif;?>> <?php echo $title?></label>
+                            <label><input type="checkbox" name="WidgetsUser[]" value="<?php echo $widget?>" <?php if (in_array($widget, $user_widgets)) : ?>checked="checked"<?php endif;?>>&nbsp;<?php echo $title?></label>
+
                         </div>
                     <?php endforeach;?>
                 </div>

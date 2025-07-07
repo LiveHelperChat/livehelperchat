@@ -31,6 +31,24 @@ if ($groups_can_edit !== true) {
     $userDataGroupsRead = erLhcoreClassGroupRole::getGroupsAccessedByUser($UserData)['read'];
 }
 
+if (isset($_POST['UpdateTabsSettings_account']) && $can_edit_groups === true) {
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('user/edit', '/'.$UserData->id);
+        exit;
+    }
+
+    $validateVisibilityListData = erLhcoreClassUserValidator::validateVisibilityList();
+
+    erLhcoreClassModelUserSetting::setSetting('enable_pending_list', $validateVisibilityListData['enable_pending_list'] , $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('enable_active_list', $validateVisibilityListData['enable_active_list'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('enable_unread_list', $validateVisibilityListData['enable_unread_list'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('enable_mchats_list', $validateVisibilityListData['enable_mchats_list'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('enable_bot_list', $validateVisibilityListData['enable_bot_list'], $UserData->id);
+
+    $tpl->set('updated',true);
+    $tpl->set('tab','tab_settings');
+}
+
 if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_edit_groups === true) {
 	
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -148,7 +166,7 @@ if (isset($_POST['UpdateNotifications_account']) && $can_edit_groups === true) {
     erLhcoreClassModelUserSetting::setSetting('trackactivitytimeout', $validateNotificationsData['trackactivitytimeout'], $UserData->id);
     erLhcoreClassModelUserSetting::setSetting('show_alert_transfer', $validateNotificationsData['show_alert_transfer'], $UserData->id);
 
-    $tpl->set('account_updated','done');
+    $tpl->set('updated',true);
     $tpl->set('tab','tab_notifications');
 }
 

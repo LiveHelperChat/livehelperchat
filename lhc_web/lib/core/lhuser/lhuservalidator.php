@@ -696,6 +696,9 @@ class erLhcoreClassUserValidator {
             $params = array_merge($params,$paramsNotifications);
 		}
 
+        $validateVisibilityListData = erLhcoreClassUserValidator::validateVisibilityList();
+        $params = array_merge($params,$validateVisibilityListData);
+
         $userData->auto_accept = $params['auto_accept'];
         $userData->max_active_chats = $params['max_chats'];
         $userData->max_active_mails = $params['max_mails'];
