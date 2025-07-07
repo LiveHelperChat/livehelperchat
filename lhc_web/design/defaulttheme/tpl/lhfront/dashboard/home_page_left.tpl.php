@@ -31,26 +31,39 @@
                         </a>
                     </li>
                     <?php if ($basicChatEnabled == true) : ?>
+
+                        <?php  if ($mchatsTabEnabled == true) : ?>
                         <li role="presentation" class="nav-item">
                             <a class="nav-link" title="<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/titles/my_chats.tpl.php'));?>" href="#sub-tabs-my-assigned" aria-controls="sub-tabs-my-assigned" role="tab" data-bs-toggle="tab" aria-selected="true">
                                 <i class="material-icons chat-active">account_box</i><span class="text-muted fs11 fw-bold"><lhc-chats-counter type="my_chats"></lhc-chats-counter></span>
                             </a>
                         </li>
+                        <?php endif; ?>
+
+                        <?php  if ($pendingTabEnabled == true) : ?>
                         <li role="presentation" class="nav-item">
                             <a class="nav-link" href="#sub-tabs-pending" title="<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/titles/pending_chats.tpl.php'));?>" aria-controls="sub-tabs-pending" role="tab" data-bs-toggle="tab" aria-selected="true">
                                 <i class="material-icons chat-pending">chat</i><span class="text-muted fs11 fw-bold"><lhc-chats-counter></lhc-chats-counter></span>
                             </a>
                         </li>
+                        <?php endif; ?>
+
+                        <?php  if ($activeTabEnabled == true) : ?>
                         <li role="presentation" class="nav-item">
                             <a class="nav-link" href="#sub-tabs-active" title="<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/active_chats.tpl.php'));?>" aria-controls="sub-tabs-active" role="tab" data-bs-toggle="tab" aria-selected="true">
                                 <i class="material-icons chat-active">chat</i><span class="text-muted fs11 fw-bold"><lhc-chats-counter type="active_chats"></lhc-chats-counter></span>
                             </a>
                         </li>
+                        <?php endif; ?>
+
+                        <?php  if ($botTabEnabled == true) : ?>
                         <li role="presentation" class="nav-item">
                             <a class="nav-link" href="#sub-tabs-bot" title="<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/bot_chats.tpl.php'));?>" aria-controls="sub-tabs-bot" role="tab" data-bs-toggle="tab" aria-selected="true">
                                 <i class="material-icons chat-active">android</i><span class="text-muted fs11 fw-bold"><lhc-chats-counter type="bot_chats"></lhc-chats-counter></span>
                             </a>
                         </li>
+                        <?php endif; ?>
+
                     <?php endif;?>
                 </ul>
             <?php endif; ?>
@@ -82,21 +95,28 @@
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/my_chats_panel.tpl.php'));?>
                     </div>
 
-                    <div role="tabpanel" class="tab-pane" id="sub-tabs-pending">
-                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
-                        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/pending_panel.tpl.php'));?>
-                    </div>
+                    <?php  if ($pendingTabEnabled == true) : ?>
+                        <div role="tabpanel" class="tab-pane" id="sub-tabs-pending">
+                            <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
+                            <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/pending_panel.tpl.php'));?>
+                        </div>
+                    <?php endif; ?>
 
+                    <?php  if ($activeTabEnabled == true) : ?>
                     <div role="tabpanel" class="tab-pane" id="sub-tabs-active">
                         <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/active_panel.tpl.php'));?>
                     </div>
+                    <?php endif; ?>
 
-                    <div role="tabpanel" class="tab-pane" id="sub-tabs-bot">
-                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
-                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bot_chats.tpl.php'));?>
-                        <?php unset($rightPanelMode); unset($hideCardHeader);unset($customCardNoCollapse);unset($customCardNoId); ?>
-                    </div>
+                    <?php  if ($botTabEnabled == true) : ?>
+                        <div role="tabpanel" class="tab-pane" id="sub-tabs-bot">
+                            <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
+                            <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bot_chats.tpl.php'));?>
+                            <?php unset($rightPanelMode); unset($hideCardHeader);unset($customCardNoCollapse);unset($customCardNoId); ?>
+                        </div>
+                    <?php endif; ?>
+
                 <?php endif; ?>
             </div>
         </div>

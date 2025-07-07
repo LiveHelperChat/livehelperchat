@@ -29,11 +29,27 @@ if ($notif_icons === null) {
 }
 
 $supportedWidgets = array();
-$supportedWidgets['online_operators'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online operators');
-$supportedWidgets['active_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Active chats');
-$supportedWidgets['online_visitors'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online visitors');
-$supportedWidgets['departments_stats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Departments stats');
-$supportedWidgets['pending_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Pending chats');
+
+if (erLhcoreClassModelChatConfig::fetch('list_online_operators')->current_value == 1 && erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'userlistonline')) {
+    $supportedWidgets['online_operators'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Online operators');
+}
+
+if (erLhcoreClassModelUserSetting::getSetting('enable_active_list', 1)){
+    $supportedWidgets['active_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Active chats');
+}
+
+if (erLhcoreClassUser::instance()->hasAccessTo('lhchat', 'use_onlineusers')) {
+    $supportedWidgets['online_visitors'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Online visitors');
+}
+
+if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'canseedepartmentstats')){
+    $supportedWidgets['departments_stats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Departments stats');
+}
+
+if (erLhcoreClassModelUserSetting::getSetting('enable_pending_list', 1)){
+    $supportedWidgets['pending_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Pending chats');
+}
+
 $supportedWidgets['transfered_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Transfered chats');
 
 if (erLhcoreClassUser::instance()->hasAccessTo('lhchat', 'subject_chats')) {
@@ -48,9 +64,13 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1)
     $supportedWidgets['unread_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Unread chats');
 }
 
-$supportedWidgets['my_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','My active and pending chats');
-$supportedWidgets['bot_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Bot chats');
+if (erLhcoreClassModelUserSetting::getSetting('enable_mchats_list', 1)){
+    $supportedWidgets['my_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','My active and pending chats');
+}
 
+if (erLhcoreClassModelUserSetting::getSetting('enable_bot_list',1)){
+    $supportedWidgets['bot_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Bot chats');
+}
 
 if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_admin')) {
     $supportedWidgets['my_mails'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','My active and new mails');

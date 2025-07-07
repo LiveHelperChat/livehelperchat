@@ -51,13 +51,6 @@ $ReturnMessages = array();
 
 $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
 $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list',1);
-
-if (erLhcoreClassModelChatConfig::fetchCache('list_closed')->current_value == 1) {
-    $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
-} else {
-    $closedTabEnabled = 0;
-}
-
 $botTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_bot_list',1);
 
 if (erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1) {
@@ -492,57 +485,6 @@ if ($myChatsEnabled == true) {
     $timeLog['my_chats'] = $ReturnMessages['my_chats']['tt'];
 
     $chatsList[] = & $ReturnMessages['my_chats']['list'];
-}
-
-if ($closedTabEnabled == true) {
-    $startTimeRequestItem = microtime();
-    $limitList = is_numeric($Params['user_parameters_unordered']['limitc']) ? (int)$Params['user_parameters_unordered']['limitc'] : 10;
-
-    $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
-
-    if (is_array($Params['user_parameters_unordered']['closedd']) && !empty($Params['user_parameters_unordered']['closedd'])) {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['closedd']);
-        $filter['filterin']['dep_id'] = $Params['user_parameters_unordered']['closedd'];
-    }
-
-    if (is_array($Params['user_parameters_unordered']['closeddprod']) && !empty($Params['user_parameters_unordered']['closeddprod'])) {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['closeddprod']);
-        $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['closeddprod'];
-    }
-
-    if (is_array($Params['user_parameters_unordered']['cdgroups']) && !empty($Params['user_parameters_unordered']['cdgroups'])) {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['cdgroups']);
-        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['cdgroups']);
-        if (!empty($depIds)) {
-            $filter['filterin']['dep_id'] = isset($filter['filterin']['dep_id']) ? array_merge($filter['filterin']['dep_id'],$depIds) : $depIds;
-        }
-    }
-
-    $sortArray = array(
-        'id_asc' => 'id ASC',
-        'id_dsc' => 'id DESC',
-        'cst_asc' => 'cls_time ASC',
-        'cst_dsc' => 'cls_time DESC',
-
-    );
-
-    if (!empty($Params['user_parameters_unordered']['clcs']) && key_exists($Params['user_parameters_unordered']['clcs'], $sortArray)) {
-        $filter['sort'] = $sortArray[$Params['user_parameters_unordered']['clcs']];
-    }
-
-	/**
-	 * Closed chats
-	 * */
-	$chats = erLhcoreClassChat::getClosedChats($limitList,0,$filter);
-
-	$chatsListAll = $chatsListAll+$chats;
-
-	erLhcoreClassChat::prefillGetAttributes($chats,array('user_status_front','cls_time_front', 'time_created_front','department_name','plain_user_name','product_name'),array('iwh','product_id','product','department','time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array','last_op_msg_time','pnd_time'),array('additional_columns' => $columnsAdditional));
-	$ReturnMessages['closed_chats'] = array('list' => array_values($chats),'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
-	
-	$chatsList[] = & $ReturnMessages['closed_chats']['list'];
-
-    $timeLog['closed_chats'] = $ReturnMessages['closed_chats']['tt'];
 }
 
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['bot_chats'], $Params['user_parameters_unordered']['w']) && $botTabEnabled == true) {

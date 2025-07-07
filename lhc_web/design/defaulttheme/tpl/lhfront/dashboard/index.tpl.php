@@ -59,7 +59,9 @@ $columnSize = 12 / $columnsTotal;
 
                 <?php elseif ($wiget == 'bot_chats') : $idPanelElementSet = true;?>
 
-                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bot_chats.tpl.php'));?>
+                    <?php if ($botTabEnabled == true) : ?>
+                            <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bot_chats.tpl.php'));?>
+                    <?php endif;?>
 
                 <?php elseif ($wiget == 'subject_chats' && $currentUser->hasAccessTo('lhchat', 'subject_chats') == true) : ?>
 
