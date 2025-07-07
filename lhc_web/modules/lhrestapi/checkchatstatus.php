@@ -169,7 +169,7 @@ try {
 			if ($theme !== false && $theme->pending_join != '') {
 				$status = $theme->pending_join;
 			} else {
-				$status = erTranslationClassLhTranslation::getInstance ()->getTranslation ( 'chat/checkchatstatus', 'Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages' );
+				$status = erTranslationClassLhTranslation::getInstance ()->getTranslation ( 'chat/checkchatstatus', 'Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages' );
 			}
 		}
 	} else {

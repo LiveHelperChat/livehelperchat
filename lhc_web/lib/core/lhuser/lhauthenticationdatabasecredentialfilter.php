@@ -39,7 +39,7 @@
  * }
  * else
  * {
- *     // authentication succeeded, so allow the user to see his content
+ *     // authentication succeeded, so allow the user to see their content
  * }
  * </code>
  *

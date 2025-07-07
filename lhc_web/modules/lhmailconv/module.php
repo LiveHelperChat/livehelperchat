@@ -392,7 +392,7 @@ $FunctionList['include_images'] = array('explain' => 'Allow operator include ima
 $FunctionList['closerelated'] = array('explain' => 'Allow operator to close related e-mail tickets based on e-mail');
 $FunctionList['use_pmailsw'] = array('explain' => 'Allow operator to use pending mails widget.');
 $FunctionList['list_all_mails'] = array('explain' => 'Allow operator to list all mails independently of operator and status.');
-$FunctionList['list_my_mails'] = array('explain' => 'Allow operator to list mails he is owner');
+$FunctionList['list_my_mails'] = array('explain' => 'Allow operator to list mails they are owner of');
 $FunctionList['list_pending_mails'] = array('explain' => 'Allow operator to list mails without an owner and in status pending.');
 $FunctionList['mail_see_unhidden_email'] = array('explain' => 'Allow operator to see full e-mail address.');
 $FunctionList['phone_see_unhidden'] = array('explain' => 'Allow operator to see full phone number.');

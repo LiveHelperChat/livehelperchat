@@ -1433,7 +1433,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                             } else if (key == 'support_chats') {
                                 if (tabs.length > 0 && confLH.auto_join_private  == 1) {
                                     item.list.forEach(function (chat) {
-                                        // Operator does not have this chat in his account yet
+                                        // Operator does not have this chat in their account yet
                                         if (document.getElementById('chat-tab-li-'+chat.chat_id) === null) {
                                             lhinst.addOpenTrace('support_chat');
                                             _that.startChatByID(chat.chat_id, true);

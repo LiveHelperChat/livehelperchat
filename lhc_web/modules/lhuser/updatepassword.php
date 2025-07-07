@@ -58,7 +58,7 @@ if ($ts > time()) {
 
                     erLhcoreClassUser::getSession()->update($user);
                                         
-                    // Login user instantly as during password change he verified his logins
+                    // Login user instantly as during password change they verified their logins
                     erLhcoreClassUser::instance()->setLoggedUser($user->id);
 
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.2fa_intercept', array('current_user' => erLhcoreClassUser::instance()));

@@ -42,7 +42,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 		    		    	
 		    	$chat->operation_admin .= "lhinst.updateMessageRowAdmin({$chat->id},{$msg->id});\n";
 		    	$chat->user_typing = time();
-		    	$chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/updatemsguser','User has edited his last message'),ENT_QUOTES);
+		    	$chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/updatemsguser','User has edited their last message'),ENT_QUOTES);
 		    			    			    	
 		    	$chat->updateThis(array('update' => array('operation_admin','user_typing','user_typing_txt')));
 		    	

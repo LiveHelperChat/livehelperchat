@@ -2203,7 +2203,7 @@ class erLhcoreClassChatStatistic {
                 $userChatsParticipantStats = erLhcoreClassChatStatistic::numberOfChatsDialogsByUserParticipant(30,$filter);
                 $numberOfChatsParticipant = empty($userChatsParticipantStats) ? $numberOfChatsParticipant = "0" : $userChatsParticipantStats[0]['number_of_chats'];
 
-                // Just chat's then operator accepted chat and he was online
+                // Just chat's then operator accepted chat and they were online
                 $filterOnline = $filter;
                 $filterOnline['filter']['usaccept'] = 0;
                 $userChatsStatsOnline = erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterOnline);

@@ -11,7 +11,7 @@ try {
 
     if ($groupChat->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT) {
 
-        // User tries to join private chat, but he is not a member of it.
+        // User tries to join private chat, but they are not a member of it.
         // Throw an exception
         if (erLhcoreClassModelGroupChatMember::getCount(array('filter' => array('group_id' => $groupChat->id, 'user_id' => $currentUser->getUserID()))) == 0){
             throw new Exception('You are not a member of this private group!');

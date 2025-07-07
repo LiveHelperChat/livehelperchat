@@ -90,7 +90,7 @@ class erLhcoreClassModelChat {
        		
                'tslasign'    			=> $this->tslasign,
            
-               // Operator status while he was accepting chat
+               // Operator status while they were accepting chat
                'usaccept'    			=> $this->usaccept,
            
                // Visitor language

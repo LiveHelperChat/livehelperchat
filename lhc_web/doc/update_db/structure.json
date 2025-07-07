@@ -10089,7 +10089,7 @@
         "identifier": "inform_unread_message",
         "value": "0",
         "type": "0",
-        "explain": "Inform visitor if he has unread messages",
+        "explain": "Inform visitor if they have unread messages",
         "hidden": "0"
       },
       {

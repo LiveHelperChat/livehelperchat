@@ -666,7 +666,7 @@
       <translation>Ostatní podmínky</translation>
     </message>
     <message>
-      <source>If visitor arrived to website today, and he was on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
+      <source>If visitor arrived to website today, and they were on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
       <translation>Pokud návštěvník přišel na webové stránky dnes a byl na nich včera. Tato hodnota odpovídá poslednímu času, kdy byl návštěvník včera viděn na webových stránkách.</translation>
     </message>
     <message>
@@ -1826,7 +1826,7 @@
       <translation>Neumožnit návštevníkovi editaci předchozích zpráv stiskem šipky nahoru</translation>
     </message>
     <message>
-      <source>Before closing chat ask user does he really want to to close chat</source>
+      <source>Before closing chat ask user if they really want to to close chat</source>
       <translation>Před zavřením chatu se zeptejte uživatele, zda opravdu chce zavřít chat.</translation>
     </message>
     <message>
@@ -2049,7 +2049,7 @@
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
-      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
+      <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message they will get.</source>
       <translation>Pokud je oddělení online a návštěvník zahájí chat a čeká, až někdo chat přijme. Toto bude úvodní zpráva, kterou dostane.</translation>
     </message>
     <message>
@@ -8149,7 +8149,7 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
-      <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
+      <source>Your request takes to long. Please contact your administrator and send them url from your browser.</source>
       <translation>Váš požadavek trvá příliš dlouho. Kontaktujte prosím svého správce a pošlete mu url adresu z prohlížeče.</translation>
     </message>
     <message>
@@ -12472,7 +12472,7 @@
       <translation>Vyčkejte prosím, dokud vás operátor nepustí do hovoru.</translation>
     </message>
     <message>
-      <source>Visitor is waiting for someone to let him in!</source>
+      <source>Visitor is waiting for someone to let them in!</source>
       <translation>Návštěvník čeká, až ho někdo pustí dovnitř!</translation>
     </message>
     <message>
@@ -13081,7 +13081,7 @@
       <translation>V současnou chvíli není dostupný žádný z našich operátorů. Můžete nám zanechat zprávu.</translation>
     </message>
     <message>
-      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, he will get your messages</source>
+      <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
       <translation>Čekáme na připojení člena týmu podpory, můžete napsat své otázky a jakmile člen týmu podpory potvrdí tento rozhovor, zprávy mu budou doručeny</translation>
     </message>
     <message>
@@ -14169,7 +14169,7 @@
       <translation>Zobrazení oznámení pouze v případě, že uživatel je vlastníkem čekajícího chatu</translation>
     </message>
     <message>
-      <source>User will stop receive notifications for pending chats if he is not an owner</source>
+      <source>User will stop receive notifications for pending chats if they are not an owner</source>
       <translation>Uživatel přestane dostávat oznámení o čekajících chatech, pokud není jejich vlastníkem.</translation>
     </message>
     <message>
@@ -14177,11 +14177,11 @@
       <translation>Zobrazení oznámení, pokud je uživatel offline</translation>
     </message>
     <message>
-      <source>User will not receive notifications if he is not online</source>
+      <source>User will not receive notifications if they are not online</source>
       <translation>Uživatel nebude dostávat oznámení, pokud není online.</translation>
     </message>
     <message>
-      <source>User will receive alert notification if chat is transferred directly to him. He will be able to accept it directly from alert.</source>
+      <source>User will receive alert notification if chat is transferred directly to him. They will be able to accept it directly from alert.</source>
       <translation>Uživatel obdrží upozornění, pokud je chat převeden přímo na něj. Bude jej moci přijmout přímo z upozornění.</translation>
     </message>
     <message>
@@ -14189,7 +14189,7 @@
       <translation>Sledování aktivit je nastaveno na globální úrovni. Uživatelská nastavení budou ignorována. Hodnota časového limitu bude stále přebírána z nastavení účtu.</translation>
     </message>
     <message>
-      <source>Change user online/offline status based on his activity</source>
+      <source>Change user online/offline status based on their activity</source>
       <translation>Změna stavu uživatele online/offline na základě jeho aktivity</translation>
     </message>
     <message>
@@ -17367,7 +17367,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Log all request and their responses as system messages.</source>
+      <source>Log all requests and their responses as system messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18171,7 +18171,7 @@
       <translation>Zakázat automatické stávání se vlastníkem při události otevření konverzace</translation>
     </message>
     <message>
-      <source>Operator will become an owner if he clicks reply button.</source>
+      <source>Operator will become an owner if they click reply button.</source>
       <translation>Provozovatel se stane vlastníkem, pokud klikne na tlačítko odpovědět.</translation>
     </message>
     <message>
@@ -20667,7 +20667,7 @@
       <translation>Aktualizováno</translation>
     </message>
     <message>
-      <source>If there are no options to choose from, the user will be shown a text field where he will be able to enter his own answer.</source>
+      <source>If there are no options to choose from, the user will be shown a text field where they will be able to enter their own answer.</source>
       <translation>Nejsou-li k dispozici žádné možnosti volby, uživateli bude zobrazeno textové pole pro vložení vlastní otázky.</translation>
     </message>
     <message>
@@ -23843,7 +23843,7 @@
   <context>
     <name>chat/voteaction</name>
     <message>
-      <source>User has updated his profile information</source>
+      <source>User has updated their profile information</source>
       <translation>Uživatel aktualizoval své osobní informace</translation>
     </message>
     <message>
@@ -23926,7 +23926,7 @@
   <context>
     <name>chat/updatemsguser</name>
     <message>
-      <source>User has edited his last message</source>
+      <source>User has edited their last message</source>
       <translation>Uživatel upravil svou poslední zprávu</translation>
     </message>
   </context>

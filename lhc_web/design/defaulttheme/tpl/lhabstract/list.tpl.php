@@ -22,7 +22,7 @@
     } ?>
 <?php endif;?>
 
-<?php if (isset($takes_to_long)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Your request takes to long. Please contact your administrator and send him url from your browser.') .' '. htmlspecialchars($takes_to_long);?>
+<?php if (isset($takes_to_long)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Your request takes to long. Please contact your administrator and send them url from your browser.') .' '. htmlspecialchars($takes_to_long);?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_info.tpl.php')); ?>
 <?php endif; ?>
 
@@ -57,7 +57,7 @@
             try {
                 $items = call_user_func($object_class . '::getList',$paramsFilter);
             } catch (Exception $e) {
-                $executionError = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) === true ? $e->getMessage() : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Your request takes to long. Please contact your administrator and send him url from your browser.');
+                $executionError = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) === true ? $e->getMessage() : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Your request takes to long. Please contact your administrator and send them url from your browser.');
                 $items = [];
             }
 		}

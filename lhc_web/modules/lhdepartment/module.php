@@ -100,7 +100,7 @@ $FunctionList['list'] = array('explain' => 'Access to list departments');
 $FunctionList['create'] = array('explain' => 'Permission to create a new department');
 $FunctionList['edit'] = array('explain' => 'Permission to edit department');
 $FunctionList['delete'] = array('explain' => 'Permission to delete department');
-$FunctionList['see_all'] = array('explain' => 'Allow user to see all departments. Even if he does not have permission to see chats.');
+$FunctionList['see_all'] = array('explain' => 'Allow user to see all departments. Even if they do not have permission to see chats.');
 $FunctionList['actworkflow'] = array('explain' => 'Allow user to change transfer workflow');
 $FunctionList['actautoassignment'] = array('explain' => 'Allow user to change auto assignment');
 $FunctionList['manageall'] = array('explain' => 'Allow user to manage all departments, not only assigned to him');

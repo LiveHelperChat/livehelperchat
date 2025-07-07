@@ -202,7 +202,7 @@ class Google_HttpRequest {
   }
 
   /**
-   * @param string $method Set he HTTP Method and normalize
+   * @param string $method Set the HTTP Method and normalize
    * it to upper-case, as required by HTTP.
    *
    */
