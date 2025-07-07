@@ -171,31 +171,27 @@ class erLhcoreClassLHCBotWorker
                     if (isset($response['id'])) {
                         if (isset($action['content']['rest_api_method_output'][$response['id']]) && is_numeric($action['content']['rest_api_method_output'][$response['id']])) {
                             $argsDefault = array(
-                                'args' => array(
-                                    'status' => 'continue_all',
-                                    'meta_msg' => $response['meta'],
-                                    'replace_array' => array(
-                                        '{content_1}' => $response['content'],
-                                        '{content_2}' => $response['content_2'],
-                                        '{content_3}' => $response['content_3'],
-                                        '{content_4}' => $response['content_4'],
-                                        '{content_5}' => $response['content_5'],
-                                        '{content_6}' => $response['content_6'],
-                                        '{content_1_json}' => json_encode($response['content']),
-                                        '{content_2_json}' => json_encode($response['content_2']),
-                                        '{content_3_json}' => json_encode($response['content_3']),
-                                        '{content_4_json}' => json_encode($response['content_4']),
-                                        '{content_5_json}' => json_encode($response['content_5']),
-                                        '{content_6_json}' => json_encode($response['content_6']),
-                                        '{http_code}' => $response['http_code'],
-                                        '{http_error}' => $response['http_error'],
-                                        '{content_raw}' => $response['content_raw'],
-                                        '{http_data}' => $response['http_data']
-                                    ),
-                                    'trigger_id' => $action['content']['rest_api_method_output'][$response['id']],
-                                    'trigger_action_id' => (isset($action['content']['rest_api_method_output'][$response['id'] . '_action_id']) ? $action['content']['rest_api_method_output'][$response['id'] . '_action_id'] : null)
-                                )
-                            );
+                                'args' =>
+                                    array(
+                                        'meta_msg' => $response['meta'],
+                                        'replace_array' => array(
+                                            '{content_1}' => $response['content'],
+                                            '{content_2}' => $response['content_2'],
+                                            '{content_3}' => $response['content_3'],
+                                            '{content_4}' => $response['content_4'],
+                                            '{content_5}' => $response['content_5'],
+                                            '{content_6}' => $response['content_6'],
+                                            '{content_1_json}' => json_encode($response['content']),
+                                            '{content_2_json}' => json_encode($response['content_2']),
+                                            '{content_3_json}' => json_encode($response['content_3']),
+                                            '{content_4_json}' => json_encode($response['content_4']),
+                                            '{content_5_json}' => json_encode($response['content_5']),
+                                            '{content_6_json}' => json_encode($response['content_6']),
+                                            '{http_code}' => $response['http_code'],
+                                            '{http_error}' => $response['http_error'],
+                                            '{content_raw}' => $response['content_raw'],
+                                            '{http_data}' => $response['http_data']
+                                        )));
 
                             if (isset($params['msg'])) {
                                 $argsDefault['args']['msg'] = $params['msg'];
@@ -236,7 +232,6 @@ class erLhcoreClassLHCBotWorker
 
                         $argsDefault = array(
                             'args' => array(
-                                'status' => 'continue_all',
                                 'meta_msg' => $response['meta'],
                                 'replace_array' => array(
                                     '{content_1}' => $response['content'],
@@ -256,9 +251,9 @@ class erLhcoreClassLHCBotWorker
                                     '{content_raw}' => $response['content_raw'],
                                     '{http_data}' => $response['http_data']
                                 ),
-                                'trigger_id' => $action['content']['rest_api_method_output']['default_trigger'],
-                                'trigger_action_id' => (isset($action['content']['rest_api_method_output']['default_trigger_action_id']) ? $action['content']['rest_api_method_output']['default_trigger_action_id'] : null)
-                            )
+                            ),
+                            'trigger_id' => $action['content']['rest_api_method_output']['default_trigger'],
+                            'trigger_action_id' => (isset($action['content']['rest_api_method_output']['default_trigger_action_id']) ? $action['content']['rest_api_method_output']['default_trigger_action_id'] : null)
                         );
 
                         if (isset($params['msg'])) {
