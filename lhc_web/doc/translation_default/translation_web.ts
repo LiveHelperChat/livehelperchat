@@ -539,6 +539,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Starting...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make sure you saved settings first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save &amp; Assign recipients</source>
       <translation type="unfinished"/>
     </message>
@@ -1860,7 +1876,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Before closing chat ask user do they really want to to close chat</source>
+      <source>Before closing chat ask user if they really want to to close chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2826,6 +2842,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make sure to save priority rule first.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check against chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Field</source>
       <translation type="unfinished"/>
     </message>
@@ -2838,7 +2866,63 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Make sure to save condition first.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Investigate places where this variable is used</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use cases</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If no conditions are defined, it is considered as invalid.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Investigate places where this condition is used</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Investigate places where this translation is used</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Individualization item</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Replaceable variable </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail response template</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto responder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Webhook</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3022,6 +3106,10 @@
     </message>
     <message>
       <source>Top n matches tags should be considered as valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum number of canned messages to show by default</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3729,6 +3817,10 @@
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not transfer to destination department if it has no online operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7538,10 +7630,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>We are still working on your previous request!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please enter a message, max characters</source>
       <translation type="unfinished"/>
     </message>
@@ -7667,6 +7755,10 @@
     </message>
     <message>
       <source>Provided survey does not exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We are still working on your previous request!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8560,10 +8652,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Are you sure?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Clear list</source>
       <translation type="unfinished"/>
     </message>
@@ -9279,6 +9367,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bot preview</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Dispatch event</source>
       <translation type="unfinished"/>
     </message>
@@ -9342,11 +9434,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Exiting chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Closing...</source>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat was already closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Close chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exit chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10130,13 +10234,6 @@
     <name>cannedmsg/deletereplace</name>
     <message>
       <source>Clone</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>kernel/message</name>
-    <message>
-      <source>Are you sure?</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -11966,6 +12063,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Stop updating widget content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Resume updating widget content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search for department</source>
       <translation type="unfinished"/>
     </message>
@@ -13125,6 +13230,10 @@
     </message>
     <message>
       <source>Online settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Manual offline mode</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14536,7 +14645,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>User will not receive notifications if the are not online</source>
+      <source>User will not receive notifications if they are not online</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14557,6 +14666,10 @@
     </message>
     <message>
       <source>Select after how long of inactivity user will be marked as offline automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User will stop receiving notifications for pending chats if they are not an owner</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -16389,6 +16502,13 @@
     </message>
   </context>
   <context>
+    <name>kernel/message</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chatbox/configuration</name>
     <message>
       <source>Chatbox</source>
@@ -16484,13 +16604,6 @@
     </message>
     <message>
       <source>Chatbox</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>kernel/messages</name>
-    <message>
-      <source>Are you sure?</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -16688,10 +16801,6 @@
     </message>
     <message>
       <source>Brand</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Are you sure?</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17054,13 +17163,6 @@
     </message>
     <message>
       <source>Do not show survey if chat is ended in a bot status</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>gallery/album_list_admin</name>
-    <message>
-      <source>Are you sure?</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -17511,6 +17613,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>BB code as a file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>BB code as an image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File updated</source>
       <translation type="unfinished"/>
     </message>
@@ -17652,6 +17762,41 @@
     </message>
     <message>
       <source>Collected information</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/bot</name>
+    <message>
+      <source>Zoom controls</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reset Zoom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Zoom Out</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Zoom In</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reload Chart</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot not found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No triggers found for this bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat Start</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -18584,7 +18729,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator will become an owner if they click reply button.</source>
+      <source>Operator will become an owner if they click the reply button.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18964,6 +19109,14 @@
     </message>
     <message>
       <source>has closed a conversation from a list.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Connection established to IMAP server.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Connection to SMTP server was successful</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19395,6 +19548,10 @@
     </message>
     <message>
       <source>Choose a send folder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete folder</source>
       <translation type="unfinished"/>
     </message>
   </context>
