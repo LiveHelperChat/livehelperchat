@@ -225,6 +225,7 @@ const chatWidgetReducer = (state = initialState, action) => {
 
                 return state.set('processStatus', 2).
                 set('isChatting',true).
+                set('shown',true).
                 set('chatData',fromJS(action.data.chatData)).
                 setIn(['chatLiveData','lfmsgid'],action.data.chatLiveData.message_id_first).
                 set('validationErrors',fromJS({}));
