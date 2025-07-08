@@ -111,7 +111,7 @@ class erLhcoreClassGenericBotActionConditions {
                             $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array_merge($params, array('chat' => $chat)), str_replace(array('{args.', '{', '}'), '', $condition['content']['attr']), '.');
                             $attr = $valueAttribute['found'] ? $valueAttribute['value'] : '';
                         } elseif ($paramsConditions[0] == '{condition') {
-                            $attr = erLhcoreClassGenericBotWorkflow::translateMessage($condition['content']['attr'], array('chat' => $chat, 'args' => ['chat' => $chat]));
+                            $attr = erLhcoreClassGenericBotWorkflow::translateMessage($condition['content']['attr'], array('rule_value' => $condition['content']['val'], 'chat' => $chat, 'args' => ['chat' => $chat]));
                         } else {
                             $attrData = erLhcoreClassGenericBotActionRestapi::extractAttribute($chatVariables, $condition['content']['attr']);
                             $attr = $attrData['found'] ? $attrData['value'] : '';
