@@ -905,8 +905,6 @@ class erLhcoreClassGenericBotActionRestapi
             $replaceVariablesJSON[$keyDynamic] = json_encode($valueDynamic);
         }
 
-        $replaceVariablesJSON['__lhc_bracket__'] = '{{';
-
         // Keep body only if specific variable is not empty
         if (isset($methodSettings['body_raw'])) {
             $matchesExtension = [];
@@ -1101,6 +1099,7 @@ class erLhcoreClassGenericBotActionRestapi
                 $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray),  $methodSettings['body_raw_file']);
                 $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $bodyPOST);
                 $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
+                $bodyPOST = str_replace('__lhc_bracket__','{{',$bodyPOST);
 
                 $paramsPOST = json_decode($bodyPOST,true);
 
@@ -1150,9 +1149,7 @@ class erLhcoreClassGenericBotActionRestapi
             $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray), $bodyPOST);
             $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $bodyPOST);
             $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
-
-            /*print_r($bodyPOST);
-            exit;*/
+            $bodyPOST = str_replace('__lhc_bracket__','{{',$bodyPOST);
 
             curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
 

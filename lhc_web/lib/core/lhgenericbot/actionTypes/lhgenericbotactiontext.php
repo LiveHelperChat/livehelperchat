@@ -247,15 +247,17 @@ class erLhcoreClassGenericBotActionText {
             $msg->msg = $messageToProcess;
         }
 
-
         if (isset($params['auto_responder']) && $params['auto_responder'] === true) {
             $metaMessage['content']['auto_responder'] = true;
         }
 
-        $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->msg, array('as_json' => (isset($action['content']['attr_options']['json_replace_all']) && $action['content']['attr_options']['json_replace_all'] === true), 'chat' => $chat, 'args' => $params));
+        if (!isset($action['content']['attr_options']['no_reparse']) || $action['content']['attr_options']['no_reparse'] !== true) {
+            $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->msg, array('as_json' => (isset($action['content']['attr_options']['json_replace_all']) && $action['content']['attr_options']['json_replace_all'] === true), 'chat' => $chat, 'args' => $params));
+        }
+
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : (isset($params['meta_msg']) && !empty($params['meta_msg']) ? json_encode($params['meta_msg']) : '');
 
-        if (!empty($msg->meta_msg)){
+        if (!empty($msg->meta_msg) && (!isset($action['content']['attr_options']['no_reparse']) || $action['content']['attr_options']['no_reparse'] !== true)) {
             $msg->meta_msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->meta_msg, array('chat' => $chat, 'args' => $params));
         }
 
@@ -272,7 +274,6 @@ class erLhcoreClassGenericBotActionText {
                 }
             }
         }
-
 
         $msg->chat_id = $chat->id;
 
