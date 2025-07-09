@@ -24,6 +24,8 @@
 				<?php elseif ($chat->user_status == 0) : ?>
 				<?php include(erLhcoreClassDesign::designtpl('lhchat/userjoined.tpl.php')); ?>
 				<?php endif;?>
+
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/bellow_messages_multiinclude.tpl.php')); ?>
 			</div>
 
             <div class="position-absolute btn-bottom-scroll fade-in-fast d-none" id="scroll-button-admin-<?php echo $chat->id?>">
