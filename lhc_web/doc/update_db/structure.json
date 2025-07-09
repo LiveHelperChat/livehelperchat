@@ -6454,6 +6454,14 @@
         "extra": ""
       },
       {
+        "field": "skip_bot",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "role_destination",
         "type": "varchar(50)",
         "null": "NO",

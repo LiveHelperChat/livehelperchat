@@ -25,6 +25,7 @@ class erLhAbstractModelChatPriority
             'dest_dep_id' => $this->dest_dep_id,
             'role_destination' => $this->role_destination,
             'present_role_is' => $this->present_role_is,
+            'skip_bot' => $this->skip_bot,
         );
 
         return $stateArray;
@@ -133,6 +134,7 @@ class erLhAbstractModelChatPriority
     public $value = '';
 
     public $dep_id = 0;
+    public $skip_bot = 0;
 
     public $dest_dep_id = 0;
     public $role_destination = '';

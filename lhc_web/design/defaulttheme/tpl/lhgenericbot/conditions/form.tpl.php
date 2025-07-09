@@ -25,13 +25,12 @@
             <input type="button" ng-click="pchat.addFilter()" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Add condition');?>">
             <?php if (is_numeric($item->id)) : ?>
                 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhgenericbot','test_pattern')) : ?>
-                <input type="text" class="form-control form-control-sm" id="test-chat-id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="">
+                <input type="text" class="form-control form-control-sm" id="test-chat-id" name="chat_id_test" value="<?php isset($_POST['chat_id_test']) ? print (int)$_POST['chat_id_test'] : '';?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="">
                 <button type="button" id="check-against-chat" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save condition first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Check against chat');?></button>
                 <?php endif; ?>
                 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhgenericbot','use_cases')) : ?>
                 <button type="button" id="btn-use-cases" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Investigate places where this condition is used');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Use cases');?></button>
                 <?php endif; ?>
-                <div id="output-test" class="ps-1 pt-1"></div>
             <?php endif; ?>
         </div>
     </div>
@@ -40,7 +39,7 @@
         <script>
             $('#check-against-chat').click(function(){
                 $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-chat-id').val(), {'condition_id' : <?php echo $item->id?>}, function(data){
-                    $('#output-test').html(data);
+                    $('#output-test').html('<pre class="fs11">'+data+'</pre>');
                 });
             });
             $('#btn-use-cases').click(function(){
@@ -48,10 +47,6 @@
             });
         </script>
     <?php endif; ?>
-
-
-
-
 
     <div class="row" ng-show="pchat.value.length > 0">
         <div class="col-11">
@@ -74,10 +69,10 @@
             <div class="row">
                 <div class="col-11">
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-5" ng-show="filter.comparator != 'start_or'">
                             <input class="form-control form-control-sm" ng-model="filter.field" name="field[{{$index}}]" type="text" value="" placeholder="field">
                         </div>
-                        <div class="col-2">
+                        <div class="col-{{filter.comparator == 'start_or' ? '2  offset-md-5' : '2'}}">
                             <select class="form-control form-control-sm" name="comparator[{{$index}}]" ng-model="filter.comparator">
                                 <option value="&gt;">&gt;</option>
                                 <option value="&lt;">&lt;</option>
@@ -88,9 +83,12 @@
                                 <option value="like"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text like')?></option>
                                 <option value="notlike"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text not like')?></option>
                                 <option value="contains"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Contains')?></option>
+                                <option value="start_or"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Start of OR')?></option>
+                                <option value="in_list"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','In list, items separated by ||')?></option>
+                                <option value="in_list_lowercase"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','In list (lowercase before comparison), items separated by ||')?></option>
                             </select>
                         </div>
-                        <div class="col-5">
+                        <div class="col-5" ng-show="filter.comparator != 'start_or'">
                             <input class="form-control form-control-sm" ng-model="filter.value" name="value[{{$index}}]" type="text" value="" placeholder="value">
                         </div>
                     </div>
@@ -101,6 +99,8 @@
             </div>
         </div>
     </div>
-
-
 </div>
+
+<?php if (is_numeric($item->id)) : ?>
+    <div id="output-test" class="ps-1 pt-1"></div>
+<?php endif; ?>

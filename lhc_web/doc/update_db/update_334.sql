@@ -1,0 +1,1 @@
+ALTER TABLE `lh_abstract_chat_priority` ADD `skip_bot` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';

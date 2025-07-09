@@ -60,6 +60,14 @@ return array(
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
+    'skip_bot' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Skip bot and set chat to pending status'),
+        'required' => false,
+        'hidden' => true,
+        'hide_optional' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
+    ),
     'sort_priority' => array(
         'type' => 'text',
         'placeholder' => 'If multiple priority rules will be found for the same department. The higher number will be executed first.',

@@ -38,6 +38,7 @@ class erLhcoreClassGenericBotActionConditions {
                 $groups[] = $currentGroup;
             }
 
+
             $overallConditionsMet = false;
             // Evaluate each group: if at least one group meets all conditions, then overall is met.
             foreach ($groups as $groupConditions) {
@@ -144,7 +145,7 @@ class erLhcoreClassGenericBotActionConditions {
                         $attr = str_replace(array_keys($replaceArray), array_values($replaceArray), $attr);
                         $valAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $valAttr);
 
-                        if (!in_array($condition['content']['comp'], ['like', 'notlike', 'contains'])) {
+                        if (!in_array($condition['content']['comp'], ['like', 'notlike', 'contains', 'in_list', 'in_list_lowercase'])) {
                             $attr = preg_replace('/\s+/', '', $attr);
                             $valAttr = preg_replace('/\s+/', '', $valAttr);
                         }
@@ -224,11 +225,19 @@ class erLhcoreClassGenericBotActionConditions {
                             $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
+                        } else if ($condition['content']['comp'] == 'in_list' && !in_array($attr,explode('||',$valAttr))) {
+                            $conditionsDebug[] = 'INVALID';
+                            $conditionsMet = false;
+                            break;
+                        } else if ($condition['content']['comp'] == 'in_list_lowercase' && !in_array(strtolower($attr),explode('||',strtolower($valAttr)))) {
+                            $conditionsDebug[] = 'INVALID';
+                            $conditionsMet = false;
+                            break;
                         }
                     }
                     $conditionsDebug[] = 'VALID';
-                }
 
+                }
                 erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = $conditionsDebug;
 
                 if ($conditionsMet) {

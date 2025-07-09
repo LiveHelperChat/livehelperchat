@@ -1,8 +1,18 @@
 <?php $fields = $object->getFields();?>
 
-<div class="form-group">
-    <label><?php echo $fields['dep_id']['trans'];?></label>
-    <?php echo erLhcoreClassAbstract::renderInput('dep_id', $fields['dep_id'], $object)?>
+
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['dep_id']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('dep_id', $fields['dep_id'], $object)?>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('skip_bot', $fields['skip_bot'], $object)?> <?php echo $fields['skip_bot']['trans'];?></label>
+        </div>
+    </div>
 </div>
 
 <div class="row">
@@ -69,18 +79,18 @@
         <div class="input-group input-group-sm">
             <button type="button" ng-click="pchat.addFilter()" class="btn btn-secondary text-nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Add condition');?></button>
             <?php if (is_numeric($object->id)) : ?>
-            <input type="text" class="form-control form-control-sm" id="test-chat-id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="">
+            <input type="text" class="form-control form-control-sm" id="test-chat-id" name="chat_id_test" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="<?php isset($_POST['chat_id_test']) ? print (int)$_POST['chat_id_test'] : '';?>">
             <button type="button" id="check-against-chat" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save priority rule first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Check against chat');?></button>
-            <div id="output-test" class="ps-1"></div>
             <?php endif; ?>
         </div>
     </div>
+
 
     <?php if (is_numeric($object->id)) : ?>
     <script>
         $('#check-against-chat').click(function(){
             $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-chat-id').val(), {'priority_id' : <?php echo $object->id?>, 'check_priority':true }, function(data){
-                $('#output-test').html(data);
+                $('#output-test').html('<pre class="fs11">'+data+'</pre>');
             });
         });
     </script>
@@ -118,6 +128,11 @@
                                 <option value="&lt;=">&lt;=</option>
                                 <option value="=">=</option>
                                 <option value="!=">!=</option>
+                                <option value="like"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text like')?></option>
+                                <option value="notlike"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text not like')?></option>
+                                <option value="contains"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Contains')?></option>
+                                <option value="in_list"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','In list, items separated by ||')?></option>
+                                <option value="in_list_lowercase"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','In list items (lowercase before comparison), items separated by ||')?></option>
                             </select>
                         </div>
                         <div class="col-5">
@@ -132,7 +147,6 @@
         </div>
     </div>
 
-
 </div>
 
 <div class="btn-group btn-group-sm" role="group" aria-label="...">
@@ -140,3 +154,7 @@
     <input type="submit" class="btn btn-secondary" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
     <input type="submit" class="btn btn-secondary" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
 </div>
+
+<?php if (is_numeric($object->id)) : ?>
+    <div id="output-test" class="ps-1 mt-2"></div>
+<?php endif; ?>
