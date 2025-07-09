@@ -141,23 +141,26 @@ function reducer(state, action) {
         }
 
         case 'refocus': {
-            var foundIndex = state.mails.findIndex(x => x.active == true);
-            if (foundIndex !== -1) {
-                state.mails[foundIndex].active = false;
-            }
-            var foundIndex = state.chats.findIndex(x => x.active == true);
-            if (foundIndex !== -1) {
-                if (action.id == state.chats[foundIndex].id) {
-                    return state;
+            // Unselect all active mails
+            state.mails.forEach((mail, index) => {
+                if (mail.active) {
+                    state.mails[index].active = false;
                 }
-                state.chats[foundIndex].active = false;
-            }
+            });
+            
+            // Unselect all active chats except the target one
+            state.chats.forEach((chat, index) => {
+                if (chat.active && chat.id != action.id) {
+                    state.chats[index].active = false;
+                }
+            });
 
-            var foundIndex = state.chats.findIndex(x => x.id == action.id);
-            if (foundIndex !== -1) {
-                state.chats[foundIndex].active = true;
-                state.chats[foundIndex].mn = 0;
-                state.chats[foundIndex].support_chat = false;
+            // Activate the target chat
+            var targetChatIndex = state.chats.findIndex(x => x.id == action.id);
+            if (targetChatIndex !== -1) {
+                state.chats[targetChatIndex].active = true;
+                state.chats[targetChatIndex].mn = 0;
+                state.chats[targetChatIndex].support_chat = false;
             }
 
             return { ...state}
