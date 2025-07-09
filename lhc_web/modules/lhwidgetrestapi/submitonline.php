@@ -22,6 +22,7 @@ $inputData->validate_start_chat = $inputData->validate_start_chat = isset($reque
 $inputData->priority = (isset($requestPayload['fields']['priority']) && is_numeric($requestPayload['fields']['priority'])) ? (int)$requestPayload['fields']['priority'] : false;
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
 $inputData->vid = isset($requestPayload['vid']) && $requestPayload['vid'] != '' ? (string)$requestPayload['vid'] : '';
+$inputData->skip_bot = false;
 
 if (isset($requestPayload['fields']['DepartamentID']) && !empty($requestPayload['fields']['DepartamentID'])) {
     $Params['user_parameters_unordered']['department'] = [$requestPayload['fields']['DepartamentID']];
@@ -461,7 +462,8 @@ if (empty($Errors)) {
         if (
             !(isset($requestPayload['ignore_bot']) && $requestPayload['ignore_bot'] == true) &&
             !(isset($additionalParams['payload_data']['ignore_bot']) && $additionalParams['payload_data']['ignore_bot'] == true) &&
-            !(isset($ignoreBot) && $ignoreBot == true)
+            !(isset($ignoreBot) && $ignoreBot == true) &&
+            $inputData->skip_bot === false
         ) {
             // Set bot workflow if required
             erLhcoreClassChatValidator::setBot($chat, $paramsExecution);

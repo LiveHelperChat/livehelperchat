@@ -1281,10 +1281,12 @@ class erLhcoreClassChatWebhookIncoming {
                             }
                         }
 
-                        if ($msg->msg != '') {
-                            erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg));
-                        } else {
-                            erLhcoreClassChatValidator::setBot($chat, array('ignore_default' => ($typeMessage == 'button')));
+                        if ($priority === false || $priority['skip_bot'] !== true) {
+                            if ($msg->msg != '') {
+                                erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg));
+                            } else {
+                                erLhcoreClassChatValidator::setBot($chat, array('ignore_default' => ($typeMessage == 'button')));
+                            }
                         }
                     }
 

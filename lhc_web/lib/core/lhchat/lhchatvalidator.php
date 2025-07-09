@@ -953,6 +953,10 @@ class erLhcoreClassChatValidator {
             $chat->department = $department = erLhcoreClassModelDepartament::fetch($chat->dep_id);
         }
 
+        if ($priority !== false && $priority['skip_bot'] === true) {
+            $inputForm->skip_bot = true;
+        }
+
         if ($department !== false && $department->department_transfer_id > 0) {
             if (
                 !(isset($department->bot_configuration_array['off_if_online']) && $department->bot_configuration_array['off_if_online'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === true) &&
@@ -1584,6 +1588,29 @@ class erLhcoreClassChatValidator {
                     } else if ($rule['comparator'] == '<=' && ($valueToCompare <= $rule['value']) == false) {
                         $ruleMatched = false;
                         break;
+                    } else if ($rule['comparator'] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                            'pattern' => $rule['value'],
+                            'msg' => $valueToCompare,
+                            'words_typo' => 0,
+                        ))['found'] == false) {
+                        $ruleMatched = false;
+                        break;
+                    } else if ($rule['comparator'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                            'pattern' => $rule['value'],
+                            'msg' => $valueToCompare,
+                            'words_typo' => 0,
+                        ))['found'] == true) {
+                        $ruleMatched = false;
+                        break;
+                    } else if ($rule['comparator'] == 'contains' && strrpos($valueToCompare, $rule['value']) === false) {
+                        $ruleMatched = false;
+                        break;
+                    } else if ($rule['comparator'] == 'in_list' && !in_array($valueToCompare, explode('||', $rule['value']))) {
+                        $ruleMatched = false;
+                        break;
+                    } else if ($rule['comparator'] == 'in_list_lowercase' && !in_array(strtolower($valueToCompare), explode('||', strtolower($rule['value'])))) {
+                        $ruleMatched = false;
+                        break;
                     }
                 } else {
                     $ruleMatched = false;
@@ -1600,27 +1627,27 @@ class erLhcoreClassChatValidator {
 
                     if ($canChangeDepartment === false) {
                         self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
-                        return array('priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
+                        return array('priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id, 'skip_bot' => $priorityRule->skip_bot === 1);
                     }
 
                     if (!empty($priorityRule->role_destination)) {
                         $presentRole = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['dep_id' => $chat->dep_id]]);
                         if (!is_object($presentRole)) {
                             self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
-                            return array('priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
+                            return array('priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id, 'skip_bot' => $priorityRule->skip_bot === 1);
                         }
 
                         $destinationBrandMember = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['brand_id' => $presentRole->brand_id, 'role' => $priorityRule->role_destination]]);
 
                         if (!is_object($destinationBrandMember)) {
-                            self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
-                            return array('priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
+                            self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id, 'skip_bot' => $priorityRule->skip_bot === 1);
+                            return array('priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id, 'skip_bot' => $priorityRule->skip_bot === 1);
                         }
-                        self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $destinationBrandMember->dep_id);
-                        return array('priority' => $priorityRule->priority, 'dep_id' => $destinationBrandMember->dep_id);
+                        self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $destinationBrandMember->dep_id, 'skip_bot' => $priorityRule->skip_bot === 1);
+                        return array('priority' => $priorityRule->priority, 'dep_id' => $destinationBrandMember->dep_id, 'skip_bot' => $priorityRule->skip_bot === 1);
                     } else {
-                        self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $priorityRule->dest_dep_id);
-                        return array('priority' => $priorityRule->priority, 'dep_id' => $priorityRule->dest_dep_id);
+                        self::$routingActions[$prefixLog.'priority_chosen'][] = array('rule_id' => $priorityRule->id, 'priority' => $priorityRule->priority, 'dep_id' => $priorityRule->dest_dep_id, 'skip_bot' => $priorityRule->skip_bot === 1);
+                        return array('priority' => $priorityRule->priority, 'dep_id' => $priorityRule->dest_dep_id, 'skip_bot' => $priorityRule->skip_bot === 1);
                     }
 
                 } else {

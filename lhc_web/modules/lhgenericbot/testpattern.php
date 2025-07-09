@@ -79,7 +79,22 @@ if (isset($_POST['mail'])){
     if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($chat)) {
 
         if (isset($_POST['priority_id'])) {
-            $response = json_encode(erLhcoreClassChatValidator::getPriorityByAdditionalData($chat, array('priority_id' => $_POST['priority_id'], 'detailed' => true, 'log_if_needed' => true)),true);
+
+            $dataTest = erLhcoreClassChatValidator::getPriorityByAdditionalData($chat, array('priority_id' => $_POST['priority_id'], 'detailed' => true, 'log_if_needed' => true));
+
+            if (isset(erLhcoreClassChatValidator::$routingActions['chat_chat'])){
+                unset(erLhcoreClassChatValidator::$routingActions['chat_chat']);
+            }
+
+            if ($dataTest !== false) {
+                $response = '✔️' . "\n" . json_encode($dataTest, JSON_PRETTY_PRINT) . "\n" . json_encode(erLhcoreClassChatValidator::$routingActions, JSON_PRETTY_PRINT);
+            } else {
+                $response = '❌️' . "\n" . json_encode(erLhcoreClassChatValidator::$routingActions, JSON_PRETTY_PRINT);
+            }
+
+            echo htmlspecialchars($response);
+            exit;
+
         } elseif (isset($_POST['replaceable_id'])) {
             $replaceable = erLhcoreClassModelCannedMsgReplace::fetch($_POST['replaceable_id']);
             $response = $replaceable->getValueReplace(['chat' => $chat, 'user' => $chat->user]);
@@ -89,6 +104,10 @@ if (isset($_POST['mail'])){
         } elseif (isset($_POST['condition_id'])) {
             $conditionToValidate = \LiveHelperChat\Models\Bot\Condition::fetch($_POST['condition_id']);
             $response = $conditionToValidate->isValid(['chat' => $chat]) === true ? '✔️' : '❌';
+            $response .= "\n".json_encode(erLhcoreClassGenericBotWorkflow::$triggerNameDebug, JSON_PRETTY_PRINT);
+            echo htmlspecialchars($response);
+            exit;
+
         } elseif (isset($_POST['extract_action'])) {
             $patterns = [];
             foreach ($chat->getState() as $stateKey => $stateAttr) {
