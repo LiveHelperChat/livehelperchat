@@ -48,7 +48,7 @@ function reducer(state, action) {
                     state.chats.unshift(action.value);
                 }
             } else {
-                state.chats[foundIndex].active = true;
+                state.chats[foundIndex].active = action.value.active;
                 state.chats[foundIndex].mn = 0;
                 state.chats[foundIndex].support_chat = false;
             }
@@ -375,7 +375,7 @@ const DashboardChatTabs = props => {
                 type: 'add_mail',
                 value: {
                     "id" : chatId.replace('mc',''),
-                    active: true
+                    active: (typeof params !== 'undefined' && params.focus === true)
                 }
             });
 
@@ -588,7 +588,6 @@ const DashboardChatTabs = props => {
             ee.removeListener('nodeJsVisitorStatus', nodeJsVisitorStatus);
             ee.removeListener('activateNextTab', activateNextTab);
             ee.removeListener('updateChatTab',updateChatTab);
-
             ee.removeListener('unloadMailChat', removeMailTab);
             ee.removeListener('mailChatTabLoaded', addMailTab);
             ee.removeListener('mailChatTabClicked', mailTabClicked);
