@@ -10,6 +10,7 @@ if (is_array($id)) {
 
 $response = array();
 $scope = 'chats';
+$chats = [];
 
 if (!empty($id)) {
 
@@ -120,7 +121,7 @@ if (is_array($id)) {
     }
 }
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.front_tabs',array('scope' => $scope, 'items' => & $response));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.front_tabs',array('scope' => $scope, 'items' => & $response, 'objects' => $chats));
 
 echo json_encode($response);
 
