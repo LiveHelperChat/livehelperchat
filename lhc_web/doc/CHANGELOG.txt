@@ -1,6 +1,39 @@
 4.66v
 
+1. IMAP and SMTP connection testing features in mailbox settings. You can now test your mail configuration directly from the interface.
+2. Enhanced mailbox management with delete folder functionality for better organization.
+3. Bot chart generation using Mermaid diagrams for visual workflow representation of bot flows.
+4. New configuration option for departments: "Do not transfer to destination department if it has no online operators" to improve chat transfer handling.
+5. Enhanced user settings management and dashboard tab management with improved visibility options.
+6. Conditions support for replaceable variables, allowing more dynamic content generation.
+7. Option to investigate use cases of various objects for better debugging and analysis.
+8. Priority rule testing - you can now test priority rules directly from the interface.
+9. Enhanced bot message handling and trigger management with better control options.
+10. Direct magic attribute support in bot text fields with new `direct_` prefix option.
+11. Enhanced REST API trigger execution logging and handling for better debugging.
+12. Option to suspend/resume online visitors updating in main window for performance control.
+13. Canned messages now have max result configuration for display optimization.
+14. Enhanced email anonymization features and chat status improvements.
+15. n8n integration support for workflow automation.
+16. Improved quote handling in messages - quotes will be preserved as plain text.
+17. Enhanced access control for displaying user attributes in online user info.
+18. Better handling of chat continuation and message rendering.
+19. Updated dependencies including TinyMCE, Svelte, and other packages for security and performance.
+20. Switch to new modal confirm windows replacing browser native confirms.
+21. Enhanced character validation and node identifiers in bot chart generation.
+22. Improved debug output with better state attribute handling and clarity.
+23. Enhanced bot trigger builder functionality with better workflow management.
+24. Fixed chat closing in popup scenarios that sometimes triggered false alerts.
+25. Better handling of button payload text values as default triggers.
+26. Enhanced message processing with improved direct value handling.
+27. Various fixes for online operator department conditions and user management.
+28. Pronoun inclusivity improvements changing he/him/his references to they/them.
+29. Enhanced template compilation with preserved newline characters.
+30. Better background worker exception handling.
+31. Enhanced department query to include online hours check for better availability management.
+32. React app version updates and chat widget reducer state management improvements.
 
+execute doc/update_db/update_334.sql for update
 
 4.65v
 
