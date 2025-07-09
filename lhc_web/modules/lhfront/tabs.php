@@ -22,6 +22,7 @@ if (!empty($id)) {
 
     foreach ($chats as $chat) {
         $item = array(
+           /* 'add_attr' => ['snapshot' => '#cecece'],*/
             'id' => $chat->id,
             'nick' => $chat->nick,
             'cs' => $chat->status,
@@ -116,6 +117,8 @@ if (is_array($id)) {
         }
     }
 }
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.front_tabs',array('items' => & $response));
 
 echo json_encode($response);
 
