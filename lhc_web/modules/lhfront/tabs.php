@@ -9,6 +9,7 @@ if (is_array($id)) {
 }
 
 $response = array();
+$scope = 'chats';
 
 if (!empty($id)) {
 
@@ -72,6 +73,7 @@ if (!empty($id)) {
 $id = $Params['user_parameters_unordered']['idmail'];
 
 if (is_array($id)) {
+    $scope = 'mails';
     erLhcoreClassChat::validateFilterIn($id);
 
     if (!empty($id)) {
@@ -118,7 +120,7 @@ if (is_array($id)) {
     }
 }
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.front_tabs',array('items' => & $response));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.front_tabs',array('scope' => $scope, 'items' => & $response));
 
 echo json_encode($response);
 
