@@ -11,6 +11,11 @@ assignees: ''
 A clear and concise description of what the bug is.
 
 **Have you tried to reproduce on official demo? We can't help if we can't reproduce...**
+https://livehelperchat.com/order/now
+https://livehelperchat.com/demo-12c.html
+
+**Have you tried to debug and get debug information**?
+https://doc.livehelperchat.com/docs/debug
 
 **To Reproduce**
 Steps to reproduce the behavior:
