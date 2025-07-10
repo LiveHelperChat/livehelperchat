@@ -149,7 +149,7 @@ class erLhcoreClassGenericBotActionRestapi
                                 'http_error' => $response['http_error'],
                                 'msg_id' => (isset($params['msg']) && is_object($params['msg'])) ? $params['msg']->id : 0,
                                 'msg_text' => '-',
-                            ], JSON_PRETTY_PRINT),
+                            ], JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR),
                             ezcLog::SUCCESS_AUDIT,
                             array(
                                 'source' => 'Bot',
@@ -177,7 +177,7 @@ class erLhcoreClassGenericBotActionRestapi
                                 'http_error' => $response['http_error'],
                                 'msg_id' =>  (isset($params['msg']) && is_object($params['msg'])) ?  $params['msg']->id : 0,
                                 'msg_text' => '-',
-                            ],JSON_PRETTY_PRINT)]]]);
+                            ],JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
                         $msgLog->msg = '(polling conditions failed) [' . $restAPI->name . '] ' . '[i]'.(isset($method['name']) ? $method['name'] : 'unknown_name').'[/i]';
                         $msgLog->saveThis();
                     }
@@ -1195,7 +1195,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'stream_lines' => '',
                         'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
                         'msg_text' => $msg_text,
-                    ], JSON_PRETTY_PRINT),
+                    ], JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR),
                     ezcLog::SUCCESS_AUDIT,
                     array(
                         'source' => 'Bot',
@@ -1226,7 +1226,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'stream_lines' => '',
                         'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                         'msg_text' => $msg_text,
-                    ],JSON_PRETTY_PRINT)]]]);
+                    ],JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
                 $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
                 $msgLog->saveThis();
             }
@@ -1630,7 +1630,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'stream_lines' => $streamLines,
                         'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
                         'msg_text' => $msg_text,
-                    ], JSON_PRETTY_PRINT),
+                    ], JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR),
                     ezcLog::SUCCESS_AUDIT,
                     array(
                         'source' => 'Bot',
@@ -1663,7 +1663,7 @@ class erLhcoreClassGenericBotActionRestapi
                     'stream_lines' => $streamLines,
                     'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                     'msg_text' => $msg_text,
-                ],JSON_PRETTY_PRINT)]]]);
+                ],JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
                 $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
                 $msgLog->saveThis();
             }
