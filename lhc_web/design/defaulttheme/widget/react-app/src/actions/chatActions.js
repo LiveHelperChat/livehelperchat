@@ -293,16 +293,39 @@ export function getCaptcha(dispatch, form, obj, getState) {
         dispatch({type: "captcha", data: {'hash' : response.data.result, 'ts' : timestamp}});
 
         // Update submit object instantly
-        obj.fields['captcha_' + response.data.result] = timestamp;
-        obj.fields['tscaptcha'] = timestamp;
+        if (obj instanceof FormData) {
+            // Get the current document content
+            const currentDoc = JSON.parse(obj.get('document'));
 
-        // We auto resubmit only one time
-        if (!obj.fields['tscaptcha_resubmit']) {
-            obj.fields['tscaptcha_resubmit'] = 1;
-            form(obj)(dispatch, getState);
+            // Modify the document content
+            currentDoc.fields['captcha_' + response.data.result] = timestamp
+            currentDoc.fields['tscaptcha' ] = timestamp
+
+            // We auto resubmit only one time
+            if (!currentDoc.fields['tscaptcha_resubmit']) {
+                currentDoc.fields['tscaptcha_resubmit'] = 1;
+                // Put the modified content back
+                obj.set('document', JSON.stringify(currentDoc));
+                form(obj)(dispatch, getState);
+            } else {
+                delete currentDoc.fields['tscaptcha_resubmit'];
+                // Put the modified content back
+                obj.set('document', JSON.stringify(currentDoc));
+            }
+
         } else {
-            delete obj.fields['tscaptcha_resubmit'];
+            obj.fields['captcha_' + response.data.result] = timestamp;
+            obj.fields['tscaptcha'] = timestamp;
+
+            // We auto resubmit only one time
+            if (!obj.fields['tscaptcha_resubmit']) {
+                obj.fields['tscaptcha_resubmit'] = 1;
+                form(obj)(dispatch, getState);
+            } else {
+                delete obj.fields['tscaptcha_resubmit'];
+            }
         }
+
 
     });
 }
@@ -345,9 +368,8 @@ export function submitOnlineForm(obj) {
 export function submitOfflineForm(obj) {
     return function(dispatch, getState) {
         dispatch({type: "OFFLINE_SUBMITTING"});
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitoffline", obj, {withCredentials: true, headers: { 'Content-Type': typeof obj === 'object' ? 'multipart/form-data' : 'application/x-www-form-urlencoded'}})
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitoffline", (obj instanceof FormData ? obj : JSON.stringify(obj)) , {withCredentials: true, headers: { 'Content-Type': obj instanceof FormData ? 'multipart/form-data' : 'application/x-www-form-urlencoded'}})
         .then((response) => {
-
             // If validation contains invalid captcha update it instantly
             if (response.data.success === false && response.data.errors.captcha) {
                 getCaptcha(dispatch, submitOfflineForm, obj, getState);
@@ -355,7 +377,6 @@ export function submitOfflineForm(obj) {
                     return;
                 }
             }
-
             dispatch({type: "OFFLINE_SUBMITTED", data: response.data})
         })
         .catch((err) => {
