@@ -137,11 +137,6 @@ class erLhcoreClassGenericBotActionCommand {
                 }
             }
 
-            //print_r($variablesAppend);
-            // Update evening and morning phone to +3706545478
-
-
-
         } elseif ($action['content']['command'] == 'transfertobot') {
             $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
             $chat->last_op_msg_time = time();

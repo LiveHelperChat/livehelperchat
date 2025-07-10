@@ -137,6 +137,10 @@ class NodeTriggerActionConditions extends Component {
                             <p><small>By default if conditions are met we execute trigger and stop any futher responses execution.</small></p>
                         </div>
                         <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','compare_live'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','compare_live'])} /> Take lhc.* attributes value directly from database.</label>
+                            <p><small>Usefull in case some other process might have updated comparable variable already. E.g Chat status was update to pending while Rest APi call was going.</small></p>
+                        </div>
+                        <div className="form-group">
                             <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','log_matched'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','log_matched'])} /> Log detailed information in the log if conditions match</label>
                         </div>
                         <div className="form-group">

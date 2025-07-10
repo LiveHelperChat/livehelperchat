@@ -61,7 +61,19 @@ class erLhcoreClassGenericBotActionConditions {
                         $paramsConditions = explode('.', $condition['content']['attr']);
 
                         if ($paramsConditions[0] == 'lhc') {
+
+                            if (
+                                isset($action['content']['attr_options']['compare_live']) && $action['content']['attr_options']['compare_live'] === true &&
+                                in_array($paramsConditions[1],array_keys($chat->getState()))
+                            ) {
+                                $db = ezcDbInstance::get();
+                                $db->beginTransaction();
+                                $chat->syncAndLock('`' . $paramsConditions[1] . '`');
+                                $db->commit();
+                            }
+
                             $attr = $chat->{$paramsConditions[1]};
+
                         } elseif (in_array($paramsConditions[0], ['chat_files','operator_files','user_files'])) {
 
                             $multiAttr = [];
