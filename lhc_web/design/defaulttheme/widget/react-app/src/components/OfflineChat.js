@@ -115,7 +115,7 @@ class OfflineChat extends Component {
             formData.append('document', JSON.stringify(submitData));
         }
 
-        this.props.dispatch(submitOfflineForm(hasFile ? formData : submitData));
+        this.props.dispatch(submitOfflineForm(hasFile ? formData : JSON.stringify(submitData)));
         event.preventDefault();
     }
 

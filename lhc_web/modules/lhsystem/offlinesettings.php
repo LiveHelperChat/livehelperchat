@@ -13,6 +13,9 @@ if ( isset($_POST['saveSettings']) ) {
         ),
         'closeOffline' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'do_not_send' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
 
@@ -30,6 +33,12 @@ if ( isset($_POST['saveSettings']) ) {
         $data['do_not_save_offline'] = 1;
     } else {
         $data['do_not_save_offline'] = 0;
+    }
+
+    if ( $form->hasValidData( 'do_not_send' ) && $form->do_not_send == true) {
+        $data['do_not_send'] = 1;
+    } else {
+        $data['do_not_send'] = 0;
     }
 
     if ( $form->hasValidData( 'closeOffline' ) && $form->closeOffline == true) {

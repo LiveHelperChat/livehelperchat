@@ -121,7 +121,13 @@ if (empty($Errors)) {
 
     if (!isset($attributePresend['status']) || $attributePresend['status'] !== erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
         try {
-            erLhcoreClassChatMail::sendMailRequest($inputData, $chat, array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
+            $offlineData = erLhcoreClassModelChatConfig::fetch('offline_settings');
+            $data = (array)$offlineData->data;
+
+            if (!isset($data['do_not_send']) || $data['do_not_send'] == 0) {
+                erLhcoreClassChatMail::sendMailRequest($inputData, $chat, array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
+            }
+
         } catch (Exception $e) {
             $optionsJson = JSON_FORCE_OBJECT;
             $outputResponse = array(

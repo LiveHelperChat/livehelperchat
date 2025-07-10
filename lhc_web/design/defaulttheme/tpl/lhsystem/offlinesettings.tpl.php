@@ -16,6 +16,11 @@
         <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("system/offlinesettings","Then offline chat is registered it's status will be changed to closed chat.");?></i></small></p>
     </div>
 
+    <div class="form-group">
+        <label><input type="checkbox" name="do_not_send" <?php if (isset($settings['do_not_send']) && $settings['do_not_send'] == true) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','Do not send e-mail');?></label>
+        <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("system/offlinesettings","Make sure you have NOT checked 'Do not save offline chats' option above");?></i></small></p>
+    </div>
+
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <input type="submit" class="btn btn-secondary" name="saveSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update'); ?>" />

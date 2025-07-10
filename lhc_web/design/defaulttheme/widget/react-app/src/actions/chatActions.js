@@ -345,7 +345,7 @@ export function submitOnlineForm(obj) {
 export function submitOfflineForm(obj) {
     return function(dispatch, getState) {
         dispatch({type: "OFFLINE_SUBMITTING"});
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitoffline", JSON.stringify(obj), {headers: { 'Content-Type': 'multipart/form-data'}})
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitoffline", obj, {headers: { 'Content-Type': typeof obj === 'object' ? 'multipart/form-data' : 'application/x-www-form-urlencoded'}})
         .then((response) => {
 
             // If validation contains invalid captcha update it instantly
