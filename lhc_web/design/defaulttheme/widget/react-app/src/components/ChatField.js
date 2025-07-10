@@ -86,11 +86,13 @@ class ChatField extends Component {
 
             if (this.props.attrPrefill.attr_prefill) {
                 this.props.attrPrefill.attr_prefill.forEach((item) => {
-                    let string = this.props.field.get('identifier');
-                    if (item[string[0].toUpperCase() + string.slice(1)]) {
-                        // Hide only valid prefilled fields
-                        if (this.props.field.has('hide_prefilled') && this.props.field.get('hide_prefilled') == true && this.props.isInvalid === false) {
-                            this.setState({'hiddenIfPrefilled':true});
+                    if (this.props.field.has('identifier')){
+                        let string = this.props.field.get('identifier');
+                        if (item[string[0].toUpperCase() + string.slice(1)]) {
+                            // Hide only valid prefilled fields
+                            if (this.props.field.has('hide_prefilled') && this.props.field.get('hide_prefilled') == true && this.props.isInvalid === false) {
+                                this.setState({'hiddenIfPrefilled':true});
+                            }
                         }
                     }
                 })
