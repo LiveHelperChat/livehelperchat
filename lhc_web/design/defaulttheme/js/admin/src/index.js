@@ -34,9 +34,9 @@ ee.addListener('groupChatTabLoaded',(chatId) => {
 })
 
 ee.addListener('mailChatTabLoaded',(chatId, modeChat, disableRemember, keyword) => {
-    modeChat = (typeof modeChat != 'undefined' ? modeChat : '');
-    disableRemember = (typeof disableRemember != 'undefined' ? disableRemember : false);
-    keyword = (typeof keyword != 'undefined' ? keyword : []);
+    modeChat = (typeof modeChat === 'string' ? modeChat : '');
+    disableRemember = (typeof disableRemember === 'boolean' ? disableRemember : false);
+    keyword = (typeof keyword !== 'undefined' ? keyword : []);
     let scope = 'chat-id-' + modeChat + chatId;
     var el = document.getElementById(scope);
     if (el !== null) {

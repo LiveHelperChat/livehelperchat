@@ -61,7 +61,7 @@ function reducer(state, action) {
             if (foundIndex === -1) {
                 state.mails.unshift(action.value);
             } else {
-                state.mails[foundIndex].active = true;
+                state.mails[foundIndex].active = action.value.active;
             }
             return { ...state}
         }
@@ -120,17 +120,17 @@ function reducer(state, action) {
         }
 
         case 'refocus_mail': {
-            var foundIndex = state.chats.findIndex(x => x.active == true);
-            if (foundIndex !== -1) {
-                state.chats[foundIndex].active = false;
-            }
-            var foundIndex = state.mails.findIndex(x => x.active == true);
-            if (foundIndex !== -1) {
-                if (action.id == state.mails[foundIndex].id) {
-                    return state;
+            state.chats.forEach((chat, index) => {
+                if (chat.active) {
+                    state.chats[index].active = false;
                 }
-                state.mails[foundIndex].active = false;
-            }
+            });
+
+            state.mails.forEach((mail, index) => {
+                if (mail.active && mail.id != action.id) {
+                    state.mails[index].active = false;
+                }
+            });
 
             var foundIndex = state.mails.findIndex(x => x.id == action.id);
             if (foundIndex !== -1) {
@@ -297,27 +297,6 @@ const DashboardChatTabs = props => {
         }
 
         function addTab(chatId, params) {
-            if (params.focus) {
-
-                dispatch({
-                    type: 'attr_remove',
-                    id: true,
-                    attr: 'active',
-                    value: {
-                        "active" : false
-                    }
-                });
-
-                dispatch({
-                    type: 'attr_remove_mail',
-                    id: true,
-                    attr: 'active',
-                    value: {
-                        "active" : false
-                    }
-                });
-            }
-
             dispatch({
                 type: 'add',
                 static_order: props.static_order,
@@ -326,6 +305,12 @@ const DashboardChatTabs = props => {
                     active: params.focus
                 }
             });
+
+            params.focus === true && dispatch({
+                type: 'refocus',
+                id: chatId
+            });
+
             loadChatTabIntro([chatId]);
         }
 
@@ -353,33 +338,25 @@ const DashboardChatTabs = props => {
         }
 
         function addMailTab(chatId, params) {
-            dispatch({
-                type: 'attr_remove_mail',
-                id: true,
-                attr: 'active',
-                value: {
-                    "active" : false
-                }
-            });
 
-            dispatch({
-                type: 'attr_remove',
-                id: true,
-                attr: 'active',
-                value: {
-                    "active" : false
-                }
-            });
+            var chatIdMail = chatId.replace('mc','');
+            var el = document.getElementById('chat-tab-link-mc'+chatIdMail);
+            var activeMail = ((typeof params === 'object' && params.background !== true) || (el !== null && el.classList.contains('active')));
 
             dispatch({
                 type: 'add_mail',
                 value: {
-                    "id" : chatId.replace('mc',''),
-                    active: (typeof params !== 'undefined' && params.focus === true)
+                    "id" : chatIdMail,
+                    active: activeMail
                 }
             });
 
-            loadMailTabIntro([chatId.replace('mc','')]);
+            activeMail === true && dispatch({
+                type: 'refocus_mail',
+                id: chatIdMail
+            });
+
+            loadMailTabIntro([chatIdMail]);
         }
 
         function removeTab(chatId) {
@@ -397,7 +374,6 @@ const DashboardChatTabs = props => {
         }
 
         function tabClicked(chatId) {
-
             if (typeof chatId == 'string' && chatId.indexOf('mc') !== -1) {
                 mailTabClicked(chatId.replace('mc',''));
                 return;
@@ -505,12 +481,12 @@ const DashboardChatTabs = props => {
         ee.addListener('unloadMailChat',removeMailTab)
         ee.addListener('mailChatTabLoaded',addMailTab)
         ee.addListener('mailChatTabClicked',mailTabClicked)
-        ee.addListener('mailChatContentLoaded',mailContentLoaded)
+        //ee.addListener('mailChatContentLoaded',mailContentLoaded)
 
         if (localStorage) {
             var achat_id = localStorage.getItem('achat_id');
             if (achat_id !== null && achat_id !== '') {
-                var ids = achat_id.split(',').map(Number);
+                let ids = achat_id.split(',').map(Number);
 
                 if (props.static_order == true) {
                     ids.sort(function(a, b){return a - b});
@@ -545,7 +521,7 @@ const DashboardChatTabs = props => {
             var achat_id = localStorage.getItem('machat_id');
 
             if (achat_id !== null && achat_id !== '') {
-                var ids = achat_id.split(',');
+                let ids = achat_id.split(',');
                 var entries = [];
                 ids.forEach((id) => {
                    var el = document.getElementById('chat-tab-link-mc'+id);

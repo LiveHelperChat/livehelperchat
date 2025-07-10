@@ -919,7 +919,7 @@ function lh(){
             tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane" id="chat-id-'+chat_id+'"></div>');
         }
 
-        ee.emitEvent('mailChatTabLoaded', [chat_id]);
+        ee.emitEvent('mailChatTabLoaded', [chat_id, {'background' : background}]); 
 
         $('#chat-tab-link-'+chat_id).click(function() {
             ee.emitEvent('mailChatTabClicked', [chat_id.replace('mc','')]);
