@@ -38,18 +38,33 @@ class ChatStatus extends PureComponent {
         }
     }
 
-    checkSwitchButtom(){
-        if (this.props.chat_ui.has('switch_to_human') && this.props.vtm && this.props.vtm >= this.props.chat_ui.get('switch_to_human')) {
-            axios.get(window.lhcChat['base_url'] + "restapi/isonlinechat/" + this.props.chat.get('id')+ '?exclude_bot=true').then((response) => {
-                if (response.data.isonline){
-                    var transferButton = document.getElementById('transfer-to-human-btn');
-                    if (transferButton !== null) {
-                        transferButton.classList.remove('hide');
-                    }
-                }
-            });
+    checkSwitchButtom() {
+        if (!this.props.chat_ui.has('switch_to_human')) {
+            return;
+        }
+
+        const shouldShowButton =
+            this.props.vtm &&
+            this.props.vtm >= this.props.chat_ui.get('switch_to_human') &&
+            this.props.survey_mode === false;
+
+        const toggleTransferButton = (show) => {
+            const transferButton = document.getElementById('transfer-to-human-btn');
+            if (transferButton) {
+                transferButton.classList[show ? 'remove' : 'add']('hide');
+            }
+        };
+
+        if (shouldShowButton) {
+            axios.get(`${window.lhcChat['base_url']}restapi/isonlinechat/${this.props.chat.get('id')}?exclude_bot=true`)
+                .then(response => {
+                    toggleTransferButton(response.data.isonline);
+                })
+        } else {
+            toggleTransferButton(false);
         }
     }
+
 
     componentDidMount() {
         this.checkSwitchButtom();
