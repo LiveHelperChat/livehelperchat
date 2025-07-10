@@ -1,6 +1,7 @@
 <?php
 
-erLhcoreClassRestAPIHandler::setHeaders();
+erLhcoreClassRestAPIHandler::setHeaders('Content-Type: application/json', (isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : (isset($requestPayload['host']) && $requestPayload['host'] != '' ? $requestPayload['host'] : "*")));
+
 erTranslationClassLhTranslation::$htmlEscape = false;
 
 if (isset($_POST['document'])) {
