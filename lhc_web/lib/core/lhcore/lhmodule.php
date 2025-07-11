@@ -313,9 +313,9 @@ class erLhcoreClassModule{
             erLhcoreClassLog::write('Unexpected warning, the message was : ' . $errstr . ' in ' . $errfile . ' on line ' . $errline);
         }
 
-        if ($errno == E_NOTICE || $errno == E_STRICT) {
+        //if ($errno == E_NOTICE || $errno == E_STRICT) {
             // erLhcoreClassLog::write('Unexpected notice, the message was : ' . $errstr . ' in ' . $errfile . ' on line ' . $errline);
-        }
+        //}
         
         return false;
     }
