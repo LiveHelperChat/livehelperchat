@@ -333,10 +333,6 @@ const DashboardChatTabs = props => {
             }
         }
 
-        function mailContentLoaded(chatId) {
-            addMailTab(chatId);
-        }
-
         function addMailTab(chatId, params) {
 
             var chatIdMail = chatId.replace('mc','');
@@ -481,7 +477,6 @@ const DashboardChatTabs = props => {
         ee.addListener('unloadMailChat',removeMailTab)
         ee.addListener('mailChatTabLoaded',addMailTab)
         ee.addListener('mailChatTabClicked',mailTabClicked)
-        //ee.addListener('mailChatContentLoaded',mailContentLoaded)
 
         if (localStorage) {
             var achat_id = localStorage.getItem('achat_id');
@@ -567,7 +562,6 @@ const DashboardChatTabs = props => {
             ee.removeListener('unloadMailChat', removeMailTab);
             ee.removeListener('mailChatTabLoaded', addMailTab);
             ee.removeListener('mailChatTabClicked', mailTabClicked);
-            ee.removeListener('mailChatContentLoaded', mailContentLoaded);
         };
 
     },[]);

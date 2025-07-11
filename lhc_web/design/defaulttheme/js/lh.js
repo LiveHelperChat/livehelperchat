@@ -1049,10 +1049,18 @@ function lh(){
                             inst.removeClass('csfr-post-executed');
                         },
                         'showcallback' : function(){
-                        $('#confirm-button-action').click(function() {
-                            $.post(inst.attr('href'), function(){
-                                document.location.reload();
-                            }).fail(function(){
+                        $('#confirm-button-action').click(function(event) {
+                            $.post(inst.attr('href'), function(data) {
+                                if (inst.attr('data-ajax-confirm') === 'true') {
+                                    if (typeof data.error !== 'undefined' && data.error == false) {
+                                        document.location.reload();
+                                    } else {
+                                        $('#confirm-dialog-content').html(data.result);
+                                    }
+                                } else {
+                                    document.location.reload();
+                                }
+                            }).fail(function(e){
                                 document.location.reload();
                             });
                         });

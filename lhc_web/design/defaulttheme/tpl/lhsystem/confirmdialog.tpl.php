@@ -17,6 +17,7 @@ $appendPrintExportURL = '';
 <div class="modal-body<?php (isset($modalBodyClass)) ? print ' '.$modalBodyClass : ''?>">
     <div class="modal-body">
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Are you sure?')?></h5>
+        <div id="confirm-dialog-content"></div>
     </div>
     <div class="modal-footer ps-0 pe-0 ms-0 me-0">
         <div class="row w-100 ps-0 pe-0 ms-0 me-0">
