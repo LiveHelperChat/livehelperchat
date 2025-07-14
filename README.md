@@ -15,6 +15,12 @@ It's an open-source powered application that brings simplicity and usability int
 * Chat (Discord) https://discord.gg/YsZXQVh
 * [Laravel version of Live Helper Chat](https://github.com/LiveHelperChat/livehelperchat_laravel)
 
+## Donate
+
+ * Using Github Sponsors https://github.com/sponsors/LiveHelperChat
+ * Bitcoin - `bc1quwysx4fswn95z6hegxa80wz87wh64cezjc8yfk` 
+ * USDT (Ethereum network) - `0x45b92C4aa29EFD3252fD04fcDDe3e6Ef8b399D75`
+
 ## Quick install guide
 
 ### By cloning repository
