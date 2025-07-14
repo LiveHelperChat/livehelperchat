@@ -14,3 +14,6 @@ export { default as LHCWidget } from './Widgets/LHCWidget.svelte';
 
 /* Chat send message area */
 export { default as LHCEditor } from './LHCEditor/LHCEditor.svelte';
+
+/* Image with verifiction flow */
+export { default as LHCImage } from './LHCChat/Image.svelte';

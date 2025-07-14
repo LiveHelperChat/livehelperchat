@@ -794,6 +794,14 @@ class erLhcoreClassBBCodePlain
                 if (is_object($file)) {
                     // Check that user has permission to see the chat. Let say if user purposely types file bbcode
                     if ($hash == $file->security_hash) {
+
+                        $URLHash = '';
+                        if ($file->chat_id > 0 && !isset($paramsMessage['operator_render'])) {
+                            $tsHash = time();
+                            $temporaryHash = sha1($file->id . '_' . $file->hash . '_' . $tsHash . '_' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+                            $URLHash = "/(vhash)/{$temporaryHash}/(vts)/{$tsHash}";
+                        }
+
                         $fileExtension = strtolower($file->extension);
                         if (in_array($fileExtension,['jfif','jpg','jpeg','png','gif'])){
 
@@ -811,17 +819,17 @@ class erLhcoreClassBBCodePlain
                                 }
                             } else {
                                 $prepend = '';
-                                $append = self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}";
+                                $append = self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}";
                             }
 
                             return $prepend . $append;
                         }
 
                         if ($fileExtension == 'mp3' || $fileExtension == 'wav' || $fileExtension == 'ogg') {
-                            return self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}";
+                            return self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}";
                         }
 
-                        return self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash} {$file->upload_name}" . ' [' . $file->extension . ']';
+                        return self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash} {$file->upload_name}" . ' [' . $file->extension . ']';
                     }
                 }
 

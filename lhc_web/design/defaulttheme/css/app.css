@@ -2543,3 +2543,28 @@ html {
 .pt-1p5{
     padding-top: .375rem!important;
 }
+
+.protected-image {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.protected-image:hover {
+    opacity: 1;
+}
+
+.clickable-reveal::after {
+    content: attr(aria-label);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1;
+}

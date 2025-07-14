@@ -72,6 +72,11 @@
                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Chat related file can be downloaded by operator'); ?></h6>
                 <label class="d-block"><input type="radio" name="chat_file_policy_o" <?php if (!isset($file_data['chat_file_policy_o']) || $file_data['chat_file_policy_o'] == 0) : ?>checked="checked"<?php endif;?> value="0"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Always (default)'); ?></label>
                 <label class="d-block"><input type="radio" name="chat_file_policy_o" <?php if (isset($file_data['chat_file_policy_o']) && $file_data['chat_file_policy_o'] == 1) : ?>checked="checked"<?php endif;?> value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Has permission to related chat'); ?></label>
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Image file by operator can be downloaded if'); ?></h6>
+                <select class="form-control form-control-sm" name="img_download_policy">
+                    <option value="0" <?php if (!isset($file_data['img_download_policy']) || $file_data['img_download_policy'] == 0) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Default, all images files will be downloaded'); ?></option>
+                    <option value="1" <?php if (isset($file_data['img_download_policy']) && $file_data['img_download_policy'] == 1) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Verified and has permission to download protected images OR has permission to download unprotected files'); ?></option>
+                </select>
             </div>
             <div class="col-md-6 mt-2">
                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Mail related file can be downloaded by operator if he'); ?></h6>

@@ -193,7 +193,15 @@ $transItems = array(
     "user_account.add_translation" => erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Add translation'),
     "user_account.search_language" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Search for language. Enter * to see all.'),
     "user_account.see_all_variations" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','See all variations'),
-    "user_account.messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages')
+    "user_account.messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages'),
+
+    // File access and protection
+    "file.verifying_image_access" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Verifying image access...'),
+    "file.image_verification_failed" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Image verification failed. Please try again later.'),
+    "file.access_denied_view_image" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Access denied to view this image'),
+    "file.checking_image_access" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Checking image access...'),
+    "file.click_to_reveal" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','🔒 Click to reveal'),
+    "file.next_attempt_in" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','next attempt in')
 
 );
 

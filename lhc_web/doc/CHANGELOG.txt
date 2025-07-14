@@ -1,3 +1,6 @@
+4.67v
+
+
 4.66v
 
 1. IMAP and SMTP connection testing features in mailbox settings. You can now test your mail configuration directly from the interface.

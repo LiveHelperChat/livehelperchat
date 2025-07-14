@@ -17,6 +17,7 @@
 <?php endif;?>
 
     <div class="msgBlock msgBlock-admin" style="height: auto;">
+        <?php $print_admin = true; ?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_obj_list_admin.tpl.php'));?>
     </div>
 </div>

@@ -28,6 +28,9 @@ class erLhcoreClassModelMailconvFile
             'content_id' => $this->content_id,
             'disposition' => $this->disposition,
             'conversation_id' => $this->conversation_id,
+            'width' => $this->width,
+            'height' => $this->height,
+            'meta_msg' => $this->meta_msg,
         );
     }
 
@@ -57,6 +60,16 @@ class erLhcoreClassModelMailconvFile
                 $this->file_path_server = $this->file_path . $this->file_name;
                 return $this->file_path_server;
 
+            case 'meta_msg_array':
+                $this->meta_msg_array = array();
+                if ($this->meta_msg != '') {
+                    $jsonData = json_decode($this->meta_msg, true);
+                    if ($jsonData !== null) {
+                        $this->meta_msg_array = $jsonData;
+                    }
+                }
+                return $this->meta_msg_array;
+
             default:
                 ;
                 break;
@@ -76,6 +89,9 @@ class erLhcoreClassModelMailconvFile
     public $content_id = '';
     public $disposition = '';
     public $conversation_id = 0;
+    public $width = 0;
+    public $height = 0;
+    public $meta_msg = '';
     public $is_archive = false;
 }
 

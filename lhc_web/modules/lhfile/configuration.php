@@ -77,6 +77,9 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'mail_file_policy' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
         ),
+        'img_download_policy' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
+        ),
     );
 
     $Errors = array();
@@ -109,7 +112,7 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['mdays_older_visitor'] = null;
     }
 
-    foreach (['chat_file_policy_v','chat_file_policy_o','mail_file_policy'] as $policy) {
+    foreach (['chat_file_policy_v','chat_file_policy_o','mail_file_policy','img_download_policy'] as $policy) {
         if ($form->hasValidData($policy)) {
             $data[$policy] = $form->{$policy};
         } else {
