@@ -1,14 +1,43 @@
 4.67v
 
-1. Add image download verification and protection features
-2. Introduced 'img_download_policy' configuration option to manage image download permissions.
-3. Enhanced file download logic in downloadfile.php to include image verification and protection checks.
-4. Added new verifyaccess.php module to handle image access verification requests.
-5. Updated database schema to include 'meta_msg', 'width', and 'height' fields in lh_chat_file and lh_mailconv_file tables.
-6. Implemented Svelte component for image handling with verification and protection features.
-7. Added translations for image access verification messages in lhcbo.php.
-8. Updated module.php to include new permissions for downloading verified and unverified files.
-9. Added sensitive information image to the default theme.
+1. Image download verification and protection features
+   - Introduced 'img_download_policy' configuration option to manage image download permissions
+   - Enhanced file download logic to include image verification and protection checks
+   - Added new verifyaccess.php module to handle image access verification requests
+   - Updated database schema to include 'meta_msg', 'width', and 'height' fields in lh_chat_file and lh_mailconv_file tables
+   - Implemented Svelte component for image handling with verification and protection features
+   - Added translations for image access verification messages
+   - Updated module.php to include new permissions for downloading verified and unverified files
+   - Added sensitive information image to the default theme
+2. Chat tabs and dashboard improvements
+   - Chat tabs React component now supports custom attributes for styling
+   - Enhanced tabs flow with better navigation and user experience
+   - Dashboard chat tabs improvements with better state management
+3. Bot and webhook enhancements
+   - Added support for overriding bot ID in webhook processing for better event handling
+   - Implemented chat file variable handling in generic bot action command for dynamic variable updates
+   - Enhanced REST API action to support chat file messages
+   - Option to sync attribute from database in bot conditions
+   - Modal window will show error message when trying to delete a bot that cannot be deleted
+4. Form and file handling improvements
+   - Fixed reCAPTCHA in offline form when file is submitted
+   - Enhanced offline forms with proper cookie handling and headers
+   - Better file upload handling with proper content headers
+   - Store partial encoded data for better file processing
+5. Chat experience enhancements
+   - Hide "Switch to Human" button when chat transitions to survey mode
+   - System message is now logged when "Switch to Human" button is clicked
+   - Custom template support for extensions below chat messages
+   - Improved image reveal logic in Svelte components for better scrolling behavior
+6. Security and compatibility
+   - Fixed deprecated PHP constant E_STRICT for better PHP 8+ compatibility
+   - Enhanced file download verification process with user data in event dispatch
+   - Improved security for image access and verification
+7. UI and UX improvements
+   - Better error handling and user feedback
+   - Enhanced modal dialogs and confirmation windows
+   - Improved responsive design elements
+   - Updated sponsors section
 
 execute doc/update_db/update_335.sql for update
 
