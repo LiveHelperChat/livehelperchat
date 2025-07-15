@@ -105,7 +105,7 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
 
 	public static function logObjectChange($params)
     {
-        $className = str_replace(array('erLhcoreClassModel','erLhAbstractModel'),'',get_class($params['object']));
+        $className = str_replace(array('erLhcoreClassModel','erLhAbstractModel'),'',get_class($params['object'])) . ($params['action_class'] ?? '');
 
         if (isset($params['check_log']) && $params['check_log'] == true) {
             $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
@@ -120,15 +120,21 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
             $className .= $params['action'];
         }
 
+        $details = array(
+            'source' => 'lhc',
+            'category' => $className,
+            'line' => __LINE__,
+            'file' => __FILE__,
+            'object_id' => $params['object']->id
+        );
+
+        if (isset($params['user_id'])) {
+            $details['user_id'] = $params['user_id'];
+        }
+
         erLhcoreClassLog::write((is_string($params['msg']) || is_numeric($params['msg']) ? $params['msg'] : json_encode($params['msg'],JSON_PRETTY_PRINT)),
             ezcLog::SUCCESS_AUDIT,
-            array(
-                'source' => 'lhc',
-                'category' => $className,
-                'line' => __LINE__,
-                'file' => __FILE__,
-                'object_id' => $params['object']->id
-            )
+            $details
         );
     }
 }

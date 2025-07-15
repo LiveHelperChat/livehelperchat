@@ -29,6 +29,7 @@ try {
                 $response['verified'] = true;
                 if ($metaData['verified']['success'] == true) {
                     if (isset($metaData['verified']['sensitive']) && $metaData['verified']['sensitive'] == true) {
+
                         if (isset($metaData['verified']['protection_image'])) {
                             $response['protection_image'] = erLhcoreClassDesign::design($metaData['verified']['protection_image']);
                         } elseif (isset($metaData['verified']['protection_html'])) {
@@ -36,6 +37,13 @@ try {
                         } else {
                             $response['protection_image'] = erLhcoreClassDesign::design('images/general/sensitive-information.jpg');
                         }
+
+                        if (isset($metaData['verified']['btn_title'])) {
+                            $response['btn_title'] = $metaData['verified']['btn_title'];
+                        } else {
+                            $response['btn_title'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Sensitive Information');
+                        }
+
                     }
                 } else {
                     $response['error_msg'] = $metaData['verified']['msg'];

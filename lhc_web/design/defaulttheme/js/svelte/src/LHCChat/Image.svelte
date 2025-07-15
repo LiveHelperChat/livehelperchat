@@ -35,6 +35,7 @@
     let isProtected = false;
     let imageRevealed = false;
     let imageTitle = '';
+    let buttonTitle = '';
 
     let countdownSeconds = 0;
     
@@ -71,7 +72,7 @@
         setTimeout(() => {
             const imgElement = document.querySelector(`#img-reveal-holder-${file_id}`);
             if (imgElement) {
-                imgElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                imgElement.scrollIntoView({ behavior: 'smooth' });
             }
         }, 100);
     }
@@ -142,6 +143,7 @@
                             isProtected = true;
                             imageRevealed = false;
                             imageSrc = protectionType;
+                            buttonTitle = data.btn_title;
                         } else if (data.protection_html) {
                             protectionHtml = data.protection_html;
                             isProtected = true;
@@ -226,6 +228,7 @@
                 on:click={handleImageClick}
                 tabindex="0"
                 role="button"
+                aria-label-title={buttonTitle}
                 aria-label={$t('file.click_to_reveal')}
             >
                 <img 

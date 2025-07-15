@@ -30,12 +30,17 @@ try {
 
             $validRequest = false;
 
-            if (!isset($fileData['chat_file_policy_v']) || $fileData['chat_file_policy_v'] == 0) {
-                $validRequest = true;
+            if ((!isset($fileData['chat_file_policy_v']) || $fileData['chat_file_policy_v'] == 0) && isset($Params['user_parameters_unordered']['vhash']) && isset($Params['user_parameters_unordered']['vts'])) {
+                $vhash = $Params['user_parameters_unordered']['vhash'];
+                $vts = (int)$Params['user_parameters_unordered']['vts'];
+                $expectedHash = sha1($file->id . '_' . $file->hash . '_' . $vts . '_' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+                if ($vhash === $expectedHash && $vts > (time() - 300)) { // Give 5 minutes to download a file
+                    $validRequest = true;
+                }
             }
 
             // Will match visitors
-            if ( $validRequest === false && isset($fileData['chat_file_policy_v']) && $fileData['chat_file_policy_v'] == 1 &&
+            if ($validRequest === false && isset($fileData['chat_file_policy_v']) && $fileData['chat_file_policy_v'] == 1 &&
                 is_object($chat) &&
                 (
                     in_array($chat->status,[erLhcoreClassModelChat::STATUS_PENDING_CHAT,erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT]) ||
@@ -92,7 +97,15 @@ try {
                                         $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
                                     } else {
                                         $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.download_verified', array('chat' => $chat, 'user' => erLhcoreClassUser::instance()->getUserData(true), 'chat_file' => $file));
-                                        // Verified file download request
+                                        erLhcoreClassLog::logObjectChange(array(
+                                            'object' => $chat,
+                                            'action_class' => 'FileReveal',
+                                            'user_id' => erLhcoreClassUser::instance()->getUserID(),
+                                            'msg' => array(
+                                                'file_id' => $file->id,
+                                                'name_official' => erLhcoreClassUser::instance()->getUserData(true)->name_official
+                                            )
+                                        ));
                                     }
                                 }
                             } else {
