@@ -15,22 +15,22 @@
     <div class="row">
         <div class="col-6">
             <div class="form-group">
-                <label><input type="checkbox" name="ActiveFileUploadUser" value="on" <?php isset($file_data['active_user_upload']) && ($file_data['active_user_upload'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Files upload for users is active'); ?></label>
+                <label><input type="checkbox" name="ActiveFileUploadUser" value="on" <?php isset($file_data['active_user_upload']) && ($file_data['active_user_upload'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Files upload for users is active'); ?></label>
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
-                <label><input type="checkbox" name="AllowOnlyOneFileUpload" value="on" <?php isset($file_data['one_file_upload']) && ($file_data['one_file_upload'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Allow visitor to choose only one file for the upload'); ?></label>
+                <label><input type="checkbox" name="AllowOnlyOneFileUpload" value="on" <?php isset($file_data['one_file_upload']) && ($file_data['one_file_upload'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Allow visitor to choose only one file for the upload'); ?></label>
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
-                <label><input type="checkbox" name="ActiveFileUploadAdmin" value="on" <?php isset($file_data['active_admin_upload']) && ($file_data['active_admin_upload'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Files upload for operators is active'); ?></label>
+                <label><input type="checkbox" name="ActiveFileUploadAdmin" value="on" <?php isset($file_data['active_admin_upload']) && ($file_data['active_admin_upload'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Files upload for operators is active'); ?></label>
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
-                <label><input type="checkbox" name="removeMetaTag" value="on" <?php isset($file_data['remove_meta']) && ($file_data['remove_meta'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Remove meta information from images'); ?></label>
+                <label><input type="checkbox" name="removeMetaTag" value="on" <?php isset($file_data['remove_meta']) && ($file_data['remove_meta'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Remove meta information from images'); ?></label>
             </div>
         </div>
     </div>
@@ -72,7 +72,7 @@
                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Chat related file can be downloaded by operator'); ?></h6>
                 <label class="d-block"><input type="radio" name="chat_file_policy_o" <?php if (!isset($file_data['chat_file_policy_o']) || $file_data['chat_file_policy_o'] == 0) : ?>checked="checked"<?php endif;?> value="0"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Always (default)'); ?></label>
                 <label class="d-block"><input type="radio" name="chat_file_policy_o" <?php if (isset($file_data['chat_file_policy_o']) && $file_data['chat_file_policy_o'] == 1) : ?>checked="checked"<?php endif;?> value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Has permission to related chat'); ?></label>
-                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Image file by operator can be downloaded if'); ?></h6>
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Image file by operator can be downloaded if'); ?> <a target="_blank" href="https://doc.livehelperchat.com/docs/bot/image-file-verification-flow"><span class="material-icons">help</span></a></h6>
                 <select class="form-control form-control-sm" name="img_download_policy">
                     <option value="0" <?php if (!isset($file_data['img_download_policy']) || $file_data['img_download_policy'] == 0) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Default, all images files will be downloaded'); ?></option>
                     <option value="1" <?php if (isset($file_data['img_download_policy']) && $file_data['img_download_policy'] == 1) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Verified and has permission to download protected images OR has permission to download unprotected files'); ?></option>
@@ -91,7 +91,7 @@
     <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','ClamAV antivirus configuration'); ?></h3>
 
     <div class="form-group">
-        <label><input type="checkbox" name="AntivirusFileScanEnabled" value="on" <?php isset($file_data['clamav_enabled']) && ($file_data['clamav_enabled'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Uploaded files from visitors are scanned'); ?></label>
+        <label><input type="checkbox" name="AntivirusFileScanEnabled" value="on" <?php isset($file_data['clamav_enabled']) && ($file_data['clamav_enabled'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Uploaded files from visitors are scanned'); ?></label>
     </div>
 
     <div class="row form-group">
@@ -113,7 +113,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="soundMessages" value="on" <?php isset($file_data['sound_messages']) && ($file_data['sound_messages'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Voice messages for visitors is active'); ?>
+                    <input type="checkbox" name="soundMessages" value="on" <?php isset($file_data['sound_messages']) && ($file_data['sound_messages'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Voice messages for visitors is active'); ?>
                 </label>
             </div>
         </div>
@@ -121,7 +121,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="soundMessagesOp" value="on" <?php isset($file_data['sound_messages_op']) && ($file_data['sound_messages_op'] == true) ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Voice messages for operators is active'); ?>
+                    <input type="checkbox" name="soundMessagesOp" value="on" <?php isset($file_data['sound_messages_op']) && ($file_data['sound_messages_op'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Voice messages for operators is active'); ?>
                 </label>
             </div>
         </div>
@@ -141,13 +141,13 @@
     <div class="row">
         <div class="col-4">
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Delete files'); ?></p>
-            <label><input type="checkbox" name="typeDelete[]" <?php if (isset($file_data['mtype_delete']) && in_array('visitors',$file_data['mtype_delete'])) : ?>checked="checked"<?php endif;?> value="visitors">Visitors</label><br/>
-            <label><input type="checkbox" name="typeDelete[]" <?php if (isset($file_data['mtype_delete']) && in_array('operators',$file_data['mtype_delete'])) : ?>checked="checked"<?php endif;?> value="operators">Operators</label>
+            <label><input type="checkbox" name="typeDelete[]" <?php if (isset($file_data['mtype_delete']) && in_array('visitors',$file_data['mtype_delete'])) : ?>checked="checked"<?php endif;?> value="visitors"> Visitors</label><br/>
+            <label><input type="checkbox" name="typeDelete[]" <?php if (isset($file_data['mtype_delete']) && in_array('operators',$file_data['mtype_delete'])) : ?>checked="checked"<?php endif;?> value="operators"> Operators</label>
         </div>
         <div class="col-4">
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','if file is (OR)'); ?></p>
-            <label><input type="checkbox" name="typeChatDelete[]" <?php if (isset($file_data['mtype_cdelete']) && in_array('unassigned',$file_data['mtype_cdelete'])) : ?>checked="checked"<?php endif;?> value="unassigned">Unassigned to chat</label><br/>
-            <label><input type="checkbox" name="typeChatDelete[]" <?php if (isset($file_data['mtype_cdelete']) && in_array('assigned',$file_data['mtype_cdelete'])) : ?>checked="checked"<?php endif;?> value="assigned">Assigned to chat</label><br/>
+            <label><input type="checkbox" name="typeChatDelete[]" <?php if (isset($file_data['mtype_cdelete']) && in_array('unassigned',$file_data['mtype_cdelete'])) : ?>checked="checked"<?php endif;?> value="unassigned"> Unassigned to chat</label><br/>
+            <label><input type="checkbox" name="typeChatDelete[]" <?php if (isset($file_data['mtype_cdelete']) && in_array('assigned',$file_data['mtype_cdelete'])) : ?>checked="checked"<?php endif;?> value="assigned"> Assigned to chat</label><br/>
         </div>
         <div class="col-4">
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','And operator file is older than n days'); ?></p>
