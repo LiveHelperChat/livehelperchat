@@ -921,15 +921,30 @@ class erLhcoreClassBBCode
                             }
 
                             $imageSizeAttr = '';
-                            if (in_array($fileExtension,['jpg','jpeg','png'])) {
-                                list($width, $height) = getimagesize($file->file_path_server);
+                            $requireVerification = true;
+                            if (in_array($fileExtension,['jfif','jpg','jpeg','png'])) {
+                                $width = $file->width > 0 ? $file->width : 0;
+                                $height = $file->height > 0 ? $file->height : 0;
+
+                                if ($width == 0 || $height == 0) {
+                                    list($width, $height) = getimagesize($file->file_path_server);
+                                }
+
                                 if ($width > 0 && $height > 0 && $width < 10000 && $height < 10000) {
                                     $imageSizeAttr = ' width="'.(int)$width.'" height="'.(int)$height.'" ';
                                 }
+
+
+                                if (isset($paramsMessage['img_verify_min_dim'])) {
+                                    $minDim = (int)$paramsMessage['img_verify_min_dim'];
+                                    if ($width < $minDim && $height < $minDim) {
+                                        $requireVerification = false;
+                                    }
+                                }
                             }
 
-                            if ((!isset($paramsMessage['print_admin']) || $paramsMessage['print_admin'] === false) && isset($paramsMessage['download_policy']) && $paramsMessage['download_policy'] !== 0 && isset($paramsMessage['operator_render']) && $paramsMessage['operator_render'] === true && isset($paramsMessage['sender']) && $paramsMessage['sender'] === 0) {
-                                return "<lhc-image download_policy={$paramsMessage['download_policy']} {$imageSizeAttr} id=\"{$file->id}\" hash=\"{$hash}\" title=\"".htmlspecialchars($file->upload_name)."\" disable_zoom=\"".($disableZoom ? 'true' : 'false')."\"></lhc-image>";
+                            if ($requireVerification == true && (!isset($paramsMessage['print_admin']) || $paramsMessage['print_admin'] === false) && isset($paramsMessage['download_policy']) && $paramsMessage['download_policy'] !== 0 && isset($paramsMessage['operator_render']) && $paramsMessage['operator_render'] === true && isset($paramsMessage['sender']) && $paramsMessage['sender'] === 0) {
+                                return "<lhc-image download_policy={$paramsMessage['download_policy']} {$imageSizeAttr} file_id=\"{$file->id}\" hash=\"{$hash}\" title=\"".htmlspecialchars($file->upload_name)."\" disable_zoom=\"".($disableZoom ? 'true' : 'false')."\"></lhc-image>";
                             } else {
                                 if (isset($displayType) && $displayType == 'rawimg') {
                                     return '<img onclick="lhinst.zoomImage(this)" '.$imageSizeAttr.' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';

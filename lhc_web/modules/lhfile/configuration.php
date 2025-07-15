@@ -80,6 +80,9 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'img_download_policy' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
         ),
+        'img_verify_min_dim' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 10, 'max_range' => 10000)
+        ),
     );
 
     $Errors = array();
@@ -106,6 +109,12 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['mdays_older'] = null;
     }
 
+    if ($form->hasValidData('img_verify_min_dim')) {
+        $data['img_verify_min_dim'] = $form->img_verify_min_dim;
+    } else {
+        $data['img_verify_min_dim'] = 100;
+    }
+    
     if ($form->hasValidData('mdays_older_visitor')) {
         $data['mdays_older_visitor'] = $form->mdays_older_visitor;
     } else {

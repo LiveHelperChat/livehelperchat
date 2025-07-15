@@ -67,39 +67,43 @@ try {
 
             $denyImage = 'design/defaulttheme/images/general/denied.png';
 
-            if ($operatorRequest === true && in_array($file->extension,['jpg','jpeg','png']) && $file->user_id == 0) {
+            if ($operatorRequest === true && in_array($file->extension,['jfif','jpg','jpeg','png']) && $file->user_id == 0) {
                 if (isset($fileData['img_download_policy']) && $fileData['img_download_policy'] == 1) {
+                    
+                    $minDim = isset($fileData['img_verify_min_dim']) ? (int)$fileData['img_verify_min_dim'] : 100;
 
-                    if (erLhcoreClassUser::instance()->hasAccessTo('lhfile','download_unverified')) {
-                        $download_policy = 0;
-                    } elseif (erLhcoreClassUser::instance()->hasAccessTo('lhfile','download_verified')) {
-                        $download_policy = 1;
-                    } else {
-                        $download_policy = 2;
-                    }
-
-                    $metaData = $file->meta_msg_array;
-
-                    if (isset($metaData['verified'])) {
-                        $response['verified'] = true;
-                        if ($metaData['verified']['success'] == true) {
-                            if (isset($metaData['verified']['sensitive']) && $metaData['verified']['sensitive'] == true) {
-                                if ($download_policy == 2) {
-                                    $validRequest = false;
-                                    $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
-                                } else {
-                                    $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.download_verified', array('chat' => $chat, 'chat_file' => $file));
-                                    // Verified file download request
-                                }
-                             }
+                    if ($file->width > $minDim || $file->height > $minDim ) {
+                       if (erLhcoreClassUser::instance()->hasAccessTo('lhfile','download_unverified')) {
+                            $download_policy = 0;
+                        } elseif (erLhcoreClassUser::instance()->hasAccessTo('lhfile','download_verified')) {
+                            $download_policy = 1;
                         } else {
-                           $validRequest = false;
-                           $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
+                            $download_policy = 2;
                         }
-                    } else {
-                        $validRequest = false;
-                        $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
-                    }
+
+                        $metaData = $file->meta_msg_array;
+
+                        if (isset($metaData['verified'])) {
+                            $response['verified'] = true;
+                            if ($metaData['verified']['success'] == true) {
+                                if (isset($metaData['verified']['sensitive']) && $metaData['verified']['sensitive'] == true) {
+                                    if ($download_policy == 2) {
+                                        $validRequest = false;
+                                        $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
+                                    } else {
+                                        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.download_verified', array('chat' => $chat, 'chat_file' => $file));
+                                        // Verified file download request
+                                    }
+                                }
+                            } else {
+                            $validRequest = false;
+                            $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
+                            }
+                        } else {
+                            $validRequest = false;
+                            $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
+                        }
+                    }                   
                 } 
             }
 

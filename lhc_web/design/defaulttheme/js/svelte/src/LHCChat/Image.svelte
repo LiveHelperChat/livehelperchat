@@ -15,7 +15,7 @@
     import { onMount } from 'svelte';
     import { t } from "../i18n/i18n.js";
     export let host;
-    export let id;
+    export let file_id;
     export let hash;
     export let title = '';
     export let width = '';
@@ -38,13 +38,10 @@
 
     let countdownSeconds = 0;
     
-    // Reactive statement for download URL
-    $: downloadUrl = window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + id + '/' + hash + '/(inline)/true';
-    
     const maxVerificationAttempts = 4;
 
     onMount(() => {
-        if (id && hash) {
+        if (file_id && hash) {
             imageTitle = title || '';
             
             // Check download policy (convert to number for comparison)
@@ -52,7 +49,7 @@
             if (policyValue === 0) {
                 // No verification needed - show image immediately
                 canShowImage = true;
-                imageSrc = window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + id + '/' + hash;
+                imageSrc = window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + file_id + '/' + hash;
             } else if (policyValue === 1) {
                 // Image needs verification - start verification process
                 canShowImage = false;
@@ -72,7 +69,14 @@
     function revealImage() {
         if (isProtected && !imageRevealed) {
             imageRevealed = true;
-            imageSrc = window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + id + '/' + hash;
+            imageSrc = window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + file_id + '/' + hash;
+            // Scroll to the revealed image
+            setTimeout(() => {
+                const imgElement = document.querySelector(`#img-file-${file_id}`);
+                if (imgElement) {
+                    imgElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 100);
         }
     }
 
@@ -81,17 +85,10 @@
             revealImage();
         } else if (disable_zoom !== 'true' && window.lhinst && window.lhinst.zoomImage) {
             // Use the global lhinst.zoomImage function when the image is not disabled for zoom
-            const imgElement = document.querySelector(`#img-file-${id}`);
+            const imgElement = document.querySelector(`#img-file-${file_id}`);
             if (imgElement) {
                 window.lhinst.zoomImage(imgElement);
             }
-        }
-    }
-
-    function handleKeyDown(event) {
-        if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            handleImageClick();
         }
     }
 
@@ -110,7 +107,7 @@
         verificationAttempts++;
         
         // Make verification request
-        fetch(window.WWW_DIR_JAVASCRIPT + 'file/verifyaccess/' + id + '/' + hash, {
+        fetch(window.WWW_DIR_JAVASCRIPT + 'file/verifyaccess/' + file_id + '/' + hash, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -148,10 +145,10 @@
                             imageSrc = ''; // No image source for HTML protection
                         } else if (data.sensitive === false) {
                             // Not sensitive, show image directly
-                            imageSrc = window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + id + '/' + hash;
+                            imageSrc = window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + file_id + '/' + hash;
                         } else {
                             // Default case - show image
-                            imageSrc = window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + id + '/' + hash;
+                            imageSrc = window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + file_id + '/' + hash;
                         }
                     }
                 }
@@ -175,7 +172,7 @@
     }
 
     function scheduleNextVerification() {
-        const delaySeconds = 3;
+        const delaySeconds = 4;
         countdownSeconds = delaySeconds;
         
         verificationMessage = `${$t('file.verifying_image_access')} (${verificationAttempts}/${maxVerificationAttempts})`;
@@ -211,7 +208,6 @@
             <div
                 class="action-image protected-html"
                 on:click={handleImageClick}
-                on:keydown={handleKeyDown}
                 tabindex="0"
                 role="button"
                 aria-label={$t('file.click_to_reveal')}
@@ -222,13 +218,12 @@
             <div
                 class="action-image protected-image clickable-reveal"
                 on:click={handleImageClick}
-                on:keydown={handleKeyDown}
                 tabindex="0"
                 role="button"
                 aria-label={$t('file.click_to_reveal')}
             >
                 <img 
-                    id="img-file-{id}" 
+                    id="img-file-{file_id}"
                     src={imageSrc} 
                     alt={imageTitle} 
                     title={imageTitle}
@@ -243,12 +238,11 @@
             <div
                 class="action-image"
                 on:click={handleImageClick}
-                on:keydown={handleKeyDown}
                 tabindex="0"
                 role="button"
             >
                 <img 
-                    id="img-file-{id}" 
+                    id="img-file-{file_id}"
                     src={imageSrc} 
                     alt={imageTitle} 
                     title={imageTitle}
@@ -261,7 +255,7 @@
                 class="hidden-download" 
                 target="_blank" 
                 rel="noreferrer" 
-                href={downloadUrl}
+                href={window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + file_id + '/' + hash + '/(inline)/true'}
             ></a>
         </div>
     {/if}

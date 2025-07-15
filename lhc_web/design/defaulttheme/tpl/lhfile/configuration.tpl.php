@@ -77,6 +77,8 @@
                     <option value="0" <?php if (!isset($file_data['img_download_policy']) || $file_data['img_download_policy'] == 0) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Default, all images files will be downloaded'); ?></option>
                     <option value="1" <?php if (isset($file_data['img_download_policy']) && $file_data['img_download_policy'] == 1) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Verified and has permission to download protected images OR has permission to download unprotected files'); ?></option>
                 </select>
+                <label class="d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Minimum image width or height to require verification'); ?></label>   
+                <input type="number" class="form-control" placeholder="100" name="img_verify_min_dim" value="<?php isset($file_data['img_verify_min_dim']) && (int)$file_data['img_verify_min_dim'] > 100 ? print (int)$file_data['img_verify_min_dim'] : '' ?>" />
             </div>
             <div class="col-md-6 mt-2">
                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Mail related file can be downloaded by operator if he'); ?></h6>

@@ -1,5 +1,16 @@
 4.67v
 
+1. Add image download verification and protection features
+2. Introduced 'img_download_policy' configuration option to manage image download permissions.
+3. Enhanced file download logic in downloadfile.php to include image verification and protection checks.
+4. Added new verifyaccess.php module to handle image access verification requests.
+5. Updated database schema to include 'meta_msg', 'width', and 'height' fields in lh_chat_file and lh_mailconv_file tables.
+6. Implemented Svelte component for image handling with verification and protection features.
+7. Added translations for image access verification messages in lhcbo.php.
+8. Updated module.php to include new permissions for downloading verified and unverified files.
+9. Added sensitive information image to the default theme.
+
+execute doc/update_db/update_335.sql for update
 
 4.66v
 

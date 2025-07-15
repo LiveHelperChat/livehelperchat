@@ -779,7 +779,7 @@ class erLhcoreClassBBCodePlain
         }
     }
 
-    public static function _make_url_file($matches)
+    public static function _make_url_file($matches, $paramsMessage  = [])
     {
 
         if (isset($matches[1])){
@@ -1040,9 +1040,10 @@ class erLhcoreClassBBCodePlain
         // Youtube block
         $ret = preg_replace_callback('#\[youtube\](.*?)\[/youtube\]#is', 'erLhcoreClassBBCodePlain::_make_youtube_block', $ret);
 
-
         // File block
-        $ret = preg_replace_callback('#\[file="?(.*?)"?\]#is', 'erLhcoreClassBBCodePlain::_make_url_file', $ret);
+        $ret = preg_replace_callback('#\[file="?(.*?)"?\]#is', function($matches) use ($paramsMessage) {
+            return self::_make_url_file($matches, $paramsMessage);
+        }, $ret);
 
         // Survey
         $ret = preg_replace_callback('#\[survey="?(.*?)"?\]#is', 'erLhcoreClassBBCodePlain::_make_url_survey', $ret);
