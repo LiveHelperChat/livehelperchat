@@ -30,7 +30,7 @@ try {
                 if ($metaData['verified']['success'] == true) {
                     if (isset($metaData['verified']['sensitive']) && $metaData['verified']['sensitive'] == true) {
                         if (isset($metaData['verified']['protection_image'])) {
-                            $response['protection_image'] = $metaData['verified']['protection_image'];
+                            $response['protection_image'] = erLhcoreClassDesign::design($metaData['verified']['protection_image']);
                         } elseif (isset($metaData['verified']['protection_html'])) {
                             $response['protection_html'] = $metaData['verified']['protection_html'];
                         } else {

@@ -937,14 +937,19 @@ class erLhcoreClassBBCode
 
                                 if (isset($paramsMessage['img_verify_min_dim'])) {
                                     $minDim = (int)$paramsMessage['img_verify_min_dim'];
-                                    if ($width < $minDim && $height < $minDim) {
+                                    $metaMsgArray = $file->meta_msg_array;
+
+                                    if (
+                                        ($width < $minDim && $height < $minDim) ||
+                                        (isset($metaMsgArray['verified']['success']) && $metaMsgArray['verified']['success'] === true && (!isset($metaMsgArray['verified']['sensitive']) || $metaMsgArray['verified']['sensitive'] === false))
+                                    ) {
                                         $requireVerification = false;
                                     }
                                 }
                             }
 
                             if ($requireVerification == true && (!isset($paramsMessage['print_admin']) || $paramsMessage['print_admin'] === false) && isset($paramsMessage['download_policy']) && $paramsMessage['download_policy'] !== 0 && isset($paramsMessage['operator_render']) && $paramsMessage['operator_render'] === true && isset($paramsMessage['sender']) && $paramsMessage['sender'] === 0) {
-                                return "<lhc-image download_policy={$paramsMessage['download_policy']} {$imageSizeAttr} file_id=\"{$file->id}\" hash=\"{$hash}\" title=\"".htmlspecialchars($file->upload_name)."\" disable_zoom=\"".($disableZoom ? 'true' : 'false')."\"></lhc-image>";
+                                return "<lhc-image download_policy={$paramsMessage['download_policy']} {$imageSizeAttr} file_id=\"{$file->id}\" id=\"img-reveal-holder-{$file->id}\" hash=\"{$hash}\" title=\"".htmlspecialchars($file->upload_name)."\" disable_zoom=\"".($disableZoom ? 'true' : 'false')."\"></lhc-image>";
                             } else {
                                 if (isset($displayType) && $displayType == 'rawimg') {
                                     return '<img onclick="lhinst.zoomImage(this)" '.$imageSizeAttr.' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';

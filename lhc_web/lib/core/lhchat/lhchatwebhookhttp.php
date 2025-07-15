@@ -36,6 +36,8 @@ class erLhcoreClassChatWebhookHttp {
 
                         $paramsExecution = ['msg_last_id' => $params['chat']->last_msg_id];
 
+                        $params['override_gbot_id'] = $trigger->bot_id;
+
                         erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, true, array('args' => $params));
 
                         if (!isset($params['no_auto_events']) || $params['no_auto_events'] === false) {
@@ -55,6 +57,8 @@ class erLhcoreClassChatWebhookHttp {
                         // $params['chat'] = erLhcoreClassModelChat::fetchAndLock($params['chat']->id);
 
                         $paramsExecution = ['msg_last_id' => $params['chat']->last_msg_id];
+
+                        $params['override_gbot_id'] = $trigger->bot_id;
 
                         erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, true, array('args' => $params));
 

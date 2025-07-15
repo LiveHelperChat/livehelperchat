@@ -91,17 +91,21 @@ try {
                                         $validRequest = false;
                                         $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
                                     } else {
-                                        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.download_verified', array('chat' => $chat, 'chat_file' => $file));
+                                        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.download_verified', array('chat' => $chat, 'user' => erLhcoreClassUser::instance()->getUserData(true), 'chat_file' => $file));
                                         // Verified file download request
                                     }
                                 }
                             } else {
-                            $validRequest = false;
-                            $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
+                                if ($download_policy !== 0) {
+                                    $validRequest = false;
+                                    $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
+                                }
                             }
                         } else {
-                            $validRequest = false;
-                            $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
+                            if ($download_policy !== 0) {
+                                $validRequest = false;
+                                $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
+                            }
                         }
                     }                   
                 } 

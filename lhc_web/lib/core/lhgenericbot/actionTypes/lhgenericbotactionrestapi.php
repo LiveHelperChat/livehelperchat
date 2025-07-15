@@ -416,6 +416,8 @@ class erLhcoreClassGenericBotActionRestapi
             }
         } elseif (isset($paramsCustomer['params']['msg_text'])) {
             $msg_text = $paramsCustomer['params']['msg_text'];
+        } elseif (isset($paramsCustomer['params']['chat_file'])) {
+            $msg_text = '[file=' . $paramsCustomer['params']['chat_file']->id . '_'.$paramsCustomer['params']['chat_file']->security_hash.']';
         }
 
         // Allow extensions to preparse send message

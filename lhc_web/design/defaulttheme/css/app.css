@@ -2568,3 +2568,8 @@ html {
     white-space: nowrap;
     z-index: 1;
 }
+
+lhc-image{
+    min-height: 36px;
+    display: inline-block;
+}

@@ -124,7 +124,7 @@ $FunctionList['file_list'] = array('explain' => 'Allow operators to list all upl
 $FunctionList['file_delete'] = array('explain' => 'Allow operators to delete all files');
 $FunctionList['file_delete_chat'] = array('explain' => 'Allow operators to delete their chat files');
 $FunctionList['download_unverified'] = array('explain' => 'Allow operators to download unverified files');
-$FunctionList['download_verified'] = array('explain' => 'Allow operators to download verified, but protected files');
+$FunctionList['download_verified'] = array('explain' => 'Allow operators to download verified, but sensitive files');
 $FunctionList['use_operator'] = array('explain' => 'Allow to verify access to files');
 
 ?>

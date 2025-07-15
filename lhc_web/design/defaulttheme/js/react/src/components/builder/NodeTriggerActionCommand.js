@@ -70,6 +70,7 @@ class NodeTriggerActionCommand extends Component {
                                     <option value="transfertobot">Transfer chat to bot</option>
                                     <option value="closechat">Close chat</option>
                                     <option value="chatvariable">Set chat variable [not visible by operator]</option>
+                                    <option value="chatfilevariable">Set file variable [not visible by operator]</option>
                                     <option value="chatattribute">Set chat additional attribute [visible by operator]</option>
                                     <option value="dispatchevent">Dispatch Event</option>
                                     <option value="setchatattribute">Update main chat attribute</option>
@@ -153,6 +154,17 @@ class NodeTriggerActionCommand extends Component {
                         <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['update_right_column'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','update_right_column'])} /> Update right column information</label>
                     </div>
 
+                    <div className="form-group">
+                        <label>Set chat variables in JSON format.</label>
+                        <input className="form-control form-control-sm" type="text" placeholder="{&quot;bot_touched&quot;:true}" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                    </div>
+                </div>}
+
+                {this.props.action.getIn(['content','command']) == 'chatfilevariable' &&
+                <div>
+                    <div className="form-group">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['update_if_empty'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','update_if_empty'])} /> Update only if empty</label>
+                    </div>
                     <div className="form-group">
                         <label>Set chat variables in JSON format.</label>
                         <input className="form-control form-control-sm" type="text" placeholder="{&quot;bot_touched&quot;:true}" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />

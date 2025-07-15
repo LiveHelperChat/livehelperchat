@@ -66,17 +66,21 @@
         };
     });
 
+    function scrolltToImage(){
+        // Scroll to the revealed image
+        setTimeout(() => {
+            const imgElement = document.querySelector(`#img-reveal-holder-${file_id}`);
+            if (imgElement) {
+                imgElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 100);
+    }
+
     function revealImage() {
         if (isProtected && !imageRevealed) {
             imageRevealed = true;
             imageSrc = window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + file_id + '/' + hash;
-            // Scroll to the revealed image
-            setTimeout(() => {
-                const imgElement = document.querySelector(`#img-file-${file_id}`);
-                if (imgElement) {
-                    imgElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }, 100);
+            scrolltToImage();
         }
     }
 
@@ -143,13 +147,15 @@
                             isProtected = true;
                             imageRevealed = false;
                             imageSrc = ''; // No image source for HTML protection
-                        } else if (data.sensitive === false) {
-                            // Not sensitive, show image directly
-                            imageSrc = window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + file_id + '/' + hash;
                         } else {
-                            // Default case - show image
                             imageSrc = window.WWW_DIR_JAVASCRIPT + 'file/downloadfile/' + file_id + '/' + hash;
                         }
+
+                        // We do not want to scroll on first response as it means we already had this data.
+                        if (verificationAttempts > 1) {
+                            scrolltToImage();
+                        }
+
                     }
                 }
             } else {

@@ -133,6 +133,8 @@ class erLhcoreClassChatWebhookResque {
                 $setLastMessage = true;
             }
 
+            $params['override_gbot_id'] = $trigger->bot_id;
+
             erLhcoreClassGenericBotWorkflow::$auditCategory = 'bot_webhook';
 
             if (erLhcoreClassChatWebhookHttp::isValidConditions($webhook, $params['chat']) === true) {
