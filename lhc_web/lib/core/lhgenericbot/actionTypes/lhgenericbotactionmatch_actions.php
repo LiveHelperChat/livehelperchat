@@ -68,16 +68,18 @@ class erLhcoreClassGenericBotActionMatch_actions {
                 $filter = array('filter' => array('on_start_type' => $action['content']['on_start_type']));
             }
 
-            $event = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($payload, $chat->gbot_id, $filter, array('dep_id' => $chat->dep_id));
+            $gbot_id = isset($params['override_gbot_id']) ? $params['override_gbot_id'] : $chat->gbot_id;
+
+            $event = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($payload, $gbot_id, $filter, array('dep_id' => $chat->dep_id));
 
             if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
-                $event = erLhcoreClassGenericBotWorkflow::findEvent($payload, $chat->gbot_id, 0, $filter, array('dep_id' => $chat->dep_id));
+                $event = erLhcoreClassGenericBotWorkflow::findEvent($payload, $gbot_id, 0, $filter, array('dep_id' => $chat->dep_id));
             }
 
             if (isset($action['content']['check_visitor_msg']) && $action['content']['check_visitor_msg'] == true && isset($action['content']['check_visitor_first']) && $action['content']['check_visitor_first'] == true) {
-                $eventVisitor = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($payloadVisitor, $chat->gbot_id, $filter, array('dep_id' => $chat->dep_id));
+                $eventVisitor = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($payloadVisitor, $gbot_id, $filter, array('dep_id' => $chat->dep_id));
                 if (!($eventVisitor instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
-                    $eventVisitor = erLhcoreClassGenericBotWorkflow::findEvent($payloadVisitor, $chat->gbot_id, 0, $filter, array('dep_id' => $chat->dep_id));
+                    $eventVisitor = erLhcoreClassGenericBotWorkflow::findEvent($payloadVisitor, $gbot_id, 0, $filter, array('dep_id' => $chat->dep_id));
                 }
 
                 if ($eventVisitor instanceof erLhcoreClassModelGenericBotTriggerEvent) {
@@ -85,9 +87,9 @@ class erLhcoreClassGenericBotActionMatch_actions {
                 }
 
             } else if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent) && isset($action['content']['check_visitor_msg']) && $action['content']['check_visitor_msg'] == true) {
-                $event = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($payloadVisitor, $chat->gbot_id, $filter, array('dep_id' => $chat->dep_id));
+                $event = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($payloadVisitor, $gbot_id, $filter, array('dep_id' => $chat->dep_id));
                 if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
-                    $event = erLhcoreClassGenericBotWorkflow::findEvent($payloadVisitor, $chat->gbot_id, 0, $filter, array('dep_id' => $chat->dep_id));
+                    $event = erLhcoreClassGenericBotWorkflow::findEvent($payloadVisitor, $gbot_id, 0, $filter, array('dep_id' => $chat->dep_id));
                 }
             }
 

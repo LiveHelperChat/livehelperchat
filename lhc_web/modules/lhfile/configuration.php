@@ -77,6 +77,12 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'mail_file_policy' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
         ),
+        'img_download_policy' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
+        ),
+        'img_verify_min_dim' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 10, 'max_range' => 10000)
+        ),
     );
 
     $Errors = array();
@@ -103,13 +109,19 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['mdays_older'] = null;
     }
 
+    if ($form->hasValidData('img_verify_min_dim')) {
+        $data['img_verify_min_dim'] = $form->img_verify_min_dim;
+    } else {
+        $data['img_verify_min_dim'] = 100;
+    }
+    
     if ($form->hasValidData('mdays_older_visitor')) {
         $data['mdays_older_visitor'] = $form->mdays_older_visitor;
     } else {
         $data['mdays_older_visitor'] = null;
     }
 
-    foreach (['chat_file_policy_v','chat_file_policy_o','mail_file_policy'] as $policy) {
+    foreach (['chat_file_policy_v','chat_file_policy_o','mail_file_policy','img_download_policy'] as $policy) {
         if ($form->hasValidData($policy)) {
             $data[$policy] = $form->{$policy};
         } else {

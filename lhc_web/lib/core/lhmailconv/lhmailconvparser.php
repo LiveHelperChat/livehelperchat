@@ -1228,6 +1228,15 @@ class erLhcoreClassMailconvParser {
 
             $mailAttatchement->file_name = $fileName;
             $mailAttatchement->file_path = $dir;
+
+            if (in_array($mailAttatchement->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                $imageSize = getimagesize($mailAttatchement->file_path_server);
+                if ($imageSize !== false && ($imageSize[0] > 10 || $imageSize[1] > 10)) {
+                    $mailAttatchement->width = (int)$imageSize[0];
+                    $mailAttatchement->height = (int)$imageSize[1];
+                }
+            }
+
             $mailAttatchement->saveThis();
         }
 

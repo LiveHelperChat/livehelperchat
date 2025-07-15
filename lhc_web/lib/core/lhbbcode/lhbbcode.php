@@ -866,9 +866,8 @@ class erLhcoreClassBBCode
        return  $url;
    }
 
-   public static function _make_url_file($matches)
+   public static function _make_url_file($matches, $paramsMessage  = [])
    {
-
    		if (isset($matches[1])){
    		    $mainData = explode(' ',$matches[1]);
    		    $parts = explode('_',$mainData[0]);
@@ -879,6 +878,14 @@ class erLhcoreClassBBCode
    				$file = erLhcoreClassModelChatFile::fetch($fileID);
 
    				if (is_object($file)) {
+
+                    $URLHash = '';
+                    if ($file->chat_id > 0 && !isset($paramsMessage['operator_render'])) {
+                        $tsHash = time();
+                        $temporaryHash = sha1($file->id . '_' . $file->hash . '_' . $tsHash . '_' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+                        $URLHash = "/(vhash)/{$temporaryHash}/(vts)/{$tsHash}";
+                    }
+
                     // Check that user has permission to see the chat. Let say if user purposely types file bbcode
                     $disableZoom = false;
                     if ($hash == $file->security_hash) {
@@ -891,12 +898,12 @@ class erLhcoreClassBBCode
                                 $subpartParts = explode('=',$mainData[1]);
                                 if ($subpartParts[0] == 'link' || $subpartParts[0] == 'linkdirect') {
                                     if (!isset($subpartParts[1])) {
-                                        $prepend = '<a class="link" rel="noreferrer" target="_blank" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}/(inline)/true\">";
+                                        $prepend = '<a class="link" rel="noreferrer" target="_blank" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}/(inline)/true{$URLHash}\">";
                                         $append = '</a>';
                                         $disableZoom = true;
 
                                         if ($subpartParts[0] == 'linkdirect') {
-                                            return"<a href=\"" . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>";
+                                            return"<a href=\"" . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>";
                                         }
 
                                     } else {
@@ -910,32 +917,56 @@ class erLhcoreClassBBCode
                                 }
                             } else {
                                 $prepend = '<div class="position-relative">';
-                                $append = '<a class="hidden-download" target="_blank" rel="noreferrer" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'/(inline)/true"></a></div>';
+                                $append = '<a class="hidden-download" target="_blank" rel="noreferrer" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}".'/(inline)/true"></a></div>';
                             }
 
                             $imageSizeAttr = '';
-                            if (in_array($fileExtension,['jpg','jpeg','png'])) {
-                                list($width, $height) = getimagesize($file->file_path_server);
+                            $requireVerification = true;
+                            if (in_array($fileExtension,['jfif','jpg','jpeg','png'])) {
+                                $width = $file->width > 0 ? $file->width : 0;
+                                $height = $file->height > 0 ? $file->height : 0;
+
+                                if ($width == 0 || $height == 0) {
+                                    list($width, $height) = getimagesize($file->file_path_server);
+                                }
+
                                 if ($width > 0 && $height > 0 && $width < 10000 && $height < 10000) {
                                     $imageSizeAttr = ' width="'.(int)$width.'" height="'.(int)$height.'" ';
                                 }
+
+
+                                if (isset($paramsMessage['img_verify_min_dim'])) {
+                                    $minDim = (int)$paramsMessage['img_verify_min_dim'];
+                                    $metaMsgArray = $file->meta_msg_array;
+
+                                    if (
+                                        ($width < $minDim && $height < $minDim) ||
+                                        (isset($metaMsgArray['verified']['success']) && $metaMsgArray['verified']['success'] === true && (!isset($metaMsgArray['verified']['sensitive']) || $metaMsgArray['verified']['sensitive'] === false))
+                                    ) {
+                                        $requireVerification = false;
+                                    }
+                                }
                             }
 
-                            if (isset($displayType) && $displayType == 'rawimg') {
-                                return '<img onclick="lhinst.zoomImage(this)" '.$imageSizeAttr.' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
+                            if ($requireVerification == true && (!isset($paramsMessage['print_admin']) || $paramsMessage['print_admin'] === false) && isset($paramsMessage['download_policy']) && $paramsMessage['download_policy'] !== 0 && isset($paramsMessage['operator_render']) && $paramsMessage['operator_render'] === true && isset($paramsMessage['sender']) && $paramsMessage['sender'] === 0) {
+                                return "<lhc-image download_policy={$paramsMessage['download_policy']} {$imageSizeAttr} file_id=\"{$file->id}\" id=\"img-reveal-holder-{$file->id}\" hash=\"{$hash}\" title=\"".htmlspecialchars($file->upload_name)."\" disable_zoom=\"".($disableZoom ? 'true' : 'false')."\"></lhc-image>";
                             } else {
-                                return $prepend . '<img ' . ($disableZoom === false ? 'onclick="lhinst.zoomImage(this)"' : '') . $imageSizeAttr . ' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
+                                if (isset($displayType) && $displayType == 'rawimg') {
+                                    return '<img onclick="lhinst.zoomImage(this)" '.$imageSizeAttr.' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
+                                } else {
+                                    return $prepend . '<img ' . ($disableZoom === false ? 'onclick="lhinst.zoomImage(this)"' : '') . $imageSizeAttr . ' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
+                                }
                             }
                         }
 
                         $audio = '';
                         if (in_array($fileExtension,['mp3','wav','ogg','oga','m4a'])) {
-                            return '<a rel="noreferrer" class="hidden-download audio-download" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'"></a><audio preload="none" style="width: 230px" controls><source src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" type="' . $file->type . '"></audio>';
+                            return '<a rel="noreferrer" class="hidden-download audio-download" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}".'"></a><audio preload="none" style="width: 230px" controls><source src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" type="' . $file->type . '"></audio>';
                         } elseif (in_array($fileExtension,['mp4','avi','mov','ogg','3gpp'])) {
-                            $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="embed-responsive-item" controls><source src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '"></video></div>';
+                            $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="embed-responsive-item" controls><source src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}" . '"></video></div>';
                         }
 
-                        return "<a href=\"" . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>" . $audio;
+                        return "<a href=\"" . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>" . $audio;
                     }
                 }
 
@@ -1329,8 +1360,9 @@ class erLhcoreClassBBCode
         }
 
         if (self::isBBCodeTagSupported('[file]',$paramsMessage)) {
-            // File block
-            $ret = preg_replace_callback('#\[file="?(.*?)"?\]#is', 'erLhcoreClassBBCode::_make_url_file', $ret);
+            $ret = preg_replace_callback('#\[file="?(.*?)"?\]#is', function($matches) use ($paramsMessage) {
+                return self::_make_url_file($matches, $paramsMessage);
+            }, $ret);
         }
 
         if (self::isBBCodeTagSupported('[survey]',$paramsMessage)) {

@@ -5,6 +5,22 @@
     $lastOperatorId = false;
     $lastOperatorNick = '';
     $seeOpName = erLhcoreClassUser::instance()->hasAccessTo('lhchat','see_operator_name');
+    $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
+    $download_policy = 0;
+
+    if (isset($fileData['img_download_policy']) && $fileData['img_download_policy'] == 1) {
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhfile','download_unverified')) {
+            $download_policy = 0;
+        } elseif (erLhcoreClassUser::instance()->hasAccessTo('lhfile','download_verified')) {
+            $download_policy = 1;
+        } else {
+            $download_policy = 2;
+        }
+
+    } else {
+        $download_policy = 0;
+    }
+
 
     foreach ($messages as $msg) :
     
@@ -52,7 +68,7 @@ if ($msg['user_id'] == -1) : ?>
             <div class="badge bg-light text-dark"><?php echo erLhcoreClassChat::formatSeconds(time() - $msg['time']);?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','ago at')?> <?php echo erLhcoreClassChat::formatDate($msg['time']);?></div>
         <?php endif; ?>
         <?php if ($msg['msg'] != '') : ?>
-            <div class="text-muted"><?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true); ?>
+            <div class="text-muted"><?php $msgBody = $msg['msg']; $paramsMessageRender = array('img_verify_min_dim' => (isset($data['img_verify_min_dim']) ? $data['img_verify_min_dim'] : 100), 'print_admin' => (isset($print_admin) && $print_admin === true), 'download_policy' => $download_policy, 'operator_render' => true, 'sender' => $msg['user_id'], 'html_as_text' => true); ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?></div>
         <?php endif; ?>
 
@@ -68,7 +84,7 @@ if ($msg['user_id'] == -1) : ?>
     <?php if ($msg['user_id'] != 0) : ?><span class="msg-date msg-date-op"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span><br/><?php endif;?>
     <?php if ($msg['user_id'] == 0) : ?><span class="msg-date msg-date-vi"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span><br/><?php endif;?>
 
-        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true, 'see_sensitive_information' => (isset($see_sensitive_information) ? $see_sensitive_information : false));?>
+        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('img_verify_min_dim' => (isset($data['img_verify_min_dim']) ? $data['img_verify_min_dim'] : 100), 'print_admin' => (isset($print_admin) && $print_admin === true), 'download_policy' => $download_policy, 'operator_render' => true, 'sender' => $msg['user_id'], 'html_as_text' => true, 'see_sensitive_information' => (isset($see_sensitive_information) ? $see_sensitive_information : false));?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
 
         <?php if (isset($metaMessageData)) : ?>

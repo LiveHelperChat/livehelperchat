@@ -1477,7 +1477,8 @@ class erLhcoreClassChat {
        $stmt->execute();
        $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-       $plain = erLhcoreClassBBCodePlain::make_clickable(implode($implode, array_reverse($rows)), array('sender' => 0));
+       $plain = erLhcoreClassBBCodePlain::make_clickable(implode($implode, array_reverse($rows)), array('download_policy' => 0, 'operator_render' => true, 'sender' => 0));
+
        $text = mb_substr($plain,-200);
        
        return $text;

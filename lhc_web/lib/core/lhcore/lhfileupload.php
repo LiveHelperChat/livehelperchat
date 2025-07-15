@@ -120,6 +120,15 @@ class erLhcoreClassFileUpload extends UploadHandler
                 }
             }
 
+            // Set resolution instantly
+            if (in_array($fileUpload->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                $imageSize = getimagesize($fileUpload->file_path_server);
+                if ($imageSize !== false && ($imageSize[0] > 10 || $imageSize[1] > 10)) {
+                    $fileUpload->width = (int)$imageSize[0];
+                    $fileUpload->height = (int)$imageSize[1];
+                }
+            }
+
             $fileUpload->saveThis();
 
             $file->id = $fileUpload->id;

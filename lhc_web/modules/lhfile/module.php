@@ -44,7 +44,12 @@ $ViewList['useronlinefileslist'] = array(
 
 $ViewList['downloadfile'] = array(
 		'params' => array('file_id','hash'),
-		'uparams' => array('inline'),
+		'uparams' => array('inline','vhash','vts'),
+);
+
+$ViewList['verifyaccess'] = array(
+		'params' => array('file_id','hash'),
+		'functions' => array( 'use_operator' )
 );
 
 $ViewList['uploadfileadmin'] = array(
@@ -118,6 +123,8 @@ $FunctionList['upload_new_file'] = array('explain' => 'Allow operator to upload 
 $FunctionList['file_list'] = array('explain' => 'Allow operators to list all uploaded files');
 $FunctionList['file_delete'] = array('explain' => 'Allow operators to delete all files');
 $FunctionList['file_delete_chat'] = array('explain' => 'Allow operators to delete their chat files');
-
+$FunctionList['download_unverified'] = array('explain' => 'Allow operators to download unverified files');
+$FunctionList['download_verified'] = array('explain' => 'Allow operators to download verified, but sensitive files');
+$FunctionList['use_operator'] = array('explain' => 'Allow to verify access to files');
 
 ?>
