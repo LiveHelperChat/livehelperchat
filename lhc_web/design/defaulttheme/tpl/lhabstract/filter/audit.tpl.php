@@ -147,6 +147,7 @@
             <option value="extract_department">Invalid department argument</option>
             <option value="text_msg">Text message, logged from bot</option>
             <option value="rest_api">Rest API calls</option>
+            <option value="rest_api_code">Rest API calls with code filter</option>
             <option value="Role">Role changes</option>
             <option value="Group">Group changes</option>
             <option value="routing_priority">Routing Priority</option>

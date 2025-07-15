@@ -1636,7 +1636,7 @@ class erLhcoreClassGenericBotActionRestapi
                     ezcLog::SUCCESS_AUDIT,
                     array(
                         'source' => 'Bot',
-                        'category' => 'rest_api',
+                        'category' => 'rest_api' . (!empty($code) ? '_code' : ''),
                         'line' => __LINE__,
                         'file' => __FILE__,
                         'object_id' => (isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat']) ? $paramsCustomer['chat']->id : 0)
