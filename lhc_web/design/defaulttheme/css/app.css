@@ -2554,35 +2554,30 @@ html {
     opacity: 1;
 }
 
-.clickable-reveal::before {
-    content: attr(aria-label-title);
+.clickable-reveal::before,
+.clickable-reveal::after {
     position: absolute;
-    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 5px 10px;
     border-radius: 3px;
-    font-size: 16px;
     white-space: nowrap;
-    font-weight: bold;
     z-index: 1;
+}
+
+.clickable-reveal::before {
+    content: attr(aria-label-title);
+    top: 30%;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .clickable-reveal::after {
     content: attr(aria-label);
-    position: absolute;
     top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 3px;
     font-size: 12px;
-    white-space: nowrap;
-    z-index: 1;
 }
 
 lhc-image{
