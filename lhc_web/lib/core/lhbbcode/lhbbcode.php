@@ -1229,15 +1229,15 @@ class erLhcoreClassBBCode
 
     public static function obfuscateLinks($text, $whitelist, $placeholder)
     {
-        // Match both full URLs and bare domains with optional paths
-        $regex = '/((https?:\/\/)?[\w.-]+\.[a-z]{2,}(\/\S*)?)/i';
+        // Only match URLs with protocols (http/https/ftp) or www prefix
+        $regex = '/\b(?:https?:\/\/[\w.-]+(?:\/\S*)?|ftp:\/\/[\w.-]+(?:\/\S*)?|www\.[\w.-]+\.[a-z]{2,}(?:\/\S*)?)\b/i';
 
         return preg_replace_callback($regex, function ($matches) use ($whitelist, $placeholder) {
             $original = $matches[0];
             $url = $original;
 
             // Extract domain for whitelist check
-            preg_match('/(?:https?:\/\/)?([\w.-]+\.[a-z]{2,})/i', $url, $domainMatch);
+            preg_match('/(?:https?:\/\/|ftp:\/\/)?(?:www\.)?([\w.-]+\.[a-z]{2,}|\d+\.\d+\.\d+\.\d+)/i', $url, $domainMatch);
             $domain = strtolower($domainMatch[1] ?? '');
 
             // Check if the domain is in the whitelist
@@ -1258,6 +1258,8 @@ class erLhcoreClassBBCode
                 $url = 'https[:]//' . substr($url, 8);
             } elseif (stripos($url, 'http://') === 0) {
                 $url = 'http[:]//' . substr($url, 7);
+            } elseif (stripos($url, 'ftp://') === 0) {
+                $url = 'ftp[:]//' . substr($url, 6);
             }
 
             // Replace dots in the domain and full string with [.]
