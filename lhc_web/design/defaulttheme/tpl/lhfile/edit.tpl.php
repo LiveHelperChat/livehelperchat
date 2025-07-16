@@ -24,6 +24,12 @@
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
             <input type="submit" class="btn btn-secondary" name="UploadFileAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Update');?>" />
+
+            <?php if ($item->meta_msg != '') : ?>
+                <h6 class="mt-4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Meta data');?></h6>
+                <pre class="fs11"><?php echo htmlspecialchars(json_encode($item->meta_msg_array,JSON_PRETTY_PRINT))?></pre>
+            <?php endif; ?>
+
         </form>
     </div>
     <div class="col-md-6">

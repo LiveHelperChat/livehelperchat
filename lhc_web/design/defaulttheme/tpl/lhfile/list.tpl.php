@@ -5,6 +5,7 @@
 <table class="table table-sm" cellpadding="0" cellspacing="0" ng-non-bindable>
 <thead>
 <tr>
+    <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','ID');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','User');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Chat');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Persistent');?></th>
@@ -17,6 +18,7 @@
 </thead>
 <?php foreach ($items as $file) : ?>
     <tr>
+        <td><?php echo $file->id?></td>
         <td>
             <?php if ($file->user_id > 0) : ?>
 

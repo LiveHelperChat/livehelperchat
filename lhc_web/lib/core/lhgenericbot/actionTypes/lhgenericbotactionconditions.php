@@ -120,6 +120,10 @@ class erLhcoreClassGenericBotActionConditions {
                             $attr = str_replace(['{validation_event__', '}'], '', $condition['content']['attr']);
                             $result = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_event_handler', array_merge($params, array('render' => $attr, 'chat' => $chat)));
                             $attr = isset($result['validation_result']) ? $result['validation_result'] : '';
+                        } elseif ($paramsConditions[0] == 'media_type') {
+                            // Continue tomorrow
+                            //$attr = 'jpg';
+                            //print_r($params);
                         } elseif (strpos($condition['content']['attr'], '{args.') !== false) {
                             $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array_merge($params, array('chat' => $chat)), str_replace(array('{args.', '{', '}'), '', $condition['content']['attr']), '.');
                             $attr = $valueAttribute['found'] ? $valueAttribute['value'] : '';
