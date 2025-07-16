@@ -15,6 +15,7 @@
     window.botRestAPIAuditLog = <?php isset($item->configuration_array['log_audit']) && $item->configuration_array['log_audit'] == true ? print 'true' : print 'false'?>;
     window.botRestAPISystemLog = <?php isset($item->configuration_array['log_system']) && $item->configuration_array['log_system'] == true ? print 'true' : print 'false'?>;
     window.botRestAPICode = <?php isset($item->configuration_array['log_code']) ?  print json_encode($item->configuration_array['log_code'],JSON_HEX_APOS) : print "\"\""?>;
+    window.botRestAPIsr_body =  <?php isset($item->configuration_array['sr_body']) && $item->configuration_array['sr_body'] == true ? print 'true' : print 'false'?>;
 </script>
 
 <form action="" method="post" autocomplete="new-password" enctype="multipart/form-data" ng-controller="BotRestAPIParameters as lhcrestapi" ng-init='lhcrestapi.initParams();'>

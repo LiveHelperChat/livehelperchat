@@ -1602,7 +1602,12 @@ class erLhcoreClassGenericBotActionRestapi
             if (isset($paramsRequestDebug['body'])) {
                 $contentDebugBody = json_decode(str_replace(["\n","\r\n"],"",$paramsRequestDebug['body']),true);
                 if (is_array($contentDebugBody)) {
-                    $paramsRequestDebug['body'] = $contentDebugBody;
+                    if (isset($paramsCustomer['rest_api']->configuration_array['sr_body']) && $paramsCustomer['rest_api']->configuration_array['sr_body'] == true) {
+                        $paramsRequestDebug['body'] = 'SKIPPED';
+                    } else {
+                        $paramsRequestDebug['body'] = $contentDebugBody;
+                    }
+
                 }
             }
 

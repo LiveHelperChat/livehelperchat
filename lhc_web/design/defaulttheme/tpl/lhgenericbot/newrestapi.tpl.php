@@ -8,6 +8,10 @@
     var rest_api_parameters = <?php isset($item->configuration_array['parameters']) ? print json_encode($item->configuration_array['parameters'],JSON_HEX_APOS) : print "[]"?>;
     var botRestAPIHost = <?php isset($item->configuration_array['host']) ? print json_encode($item->configuration_array['host'], JSON_HEX_APOS) : print "\"\""?>;
     var botRestAPIECache = <?php isset($item->configuration_array['ecache']) && $item->configuration_array['ecache'] == true ? print 'true' : print 'false'?>;
+    var botRestAPIAuditLog = <?php isset($item->configuration_array['log_audit']) && $item->configuration_array['log_audit'] == true ? print 'true' : print 'false'?>;
+    var botRestAPISystemLog = <?php isset($item->configuration_array['log_system']) && $item->configuration_array['log_system'] == true ? print 'true' : print 'false'?>;
+    var botRestAPICode = <?php isset($item->configuration_array['log_code']) ?  print json_encode($item->configuration_array['log_code'],JSON_HEX_APOS) : print "\"\""?>;
+    var botRestAPIsr_body =  <?php isset($item->configuration_array['sr_body']) && $item->configuration_array['sr_body'] == true ? print 'true' : print 'false'?>;
 </script>
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('genericbot/newrestapi')?>" method="post" ng-controller="BotRestAPIParameters as lhcrestapi" ng-init='lhcrestapi.initParams();'>

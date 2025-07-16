@@ -21,9 +21,18 @@
     <label><input type="checkbox" ng-model="lhcrestapi.log_system" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Log all requests and their responses as system messages.');?></label>
 </div>
 
-<div class="form-group" ng-show="lhcrestapi.log_audit || lhcrestapi.log_system">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Ignore request with these http statuses. Separate multiple by comma.');?></label>
-    <input type="text" class="form-control" name="log_code"  ng-model="lhcrestapi.log_code" value="" placeholder="200" />
+<div class="row" ng-show="lhcrestapi.log_audit || lhcrestapi.log_system">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Ignore request with these http statuses. Separate multiple by comma.');?></label>
+            <input type="text" class="form-control form-control-sm" name="log_code"  ng-model="lhcrestapi.log_code" value="" placeholder="200" />
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group pt-4">
+            <label><input type="checkbox" ng-model="lhcrestapi.sr_body" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Skip request body. Only response will be logged.');?></label>
+        </div>
+    </div>
 </div>
 
 <div class="form-group">
