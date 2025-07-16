@@ -35,7 +35,7 @@ try {
                         } elseif (isset($metaData['verified']['protection_html'])) {
                             $response['protection_html'] = $metaData['verified']['protection_html'];
                         } else {
-                            $response['protection_image'] = erLhcoreClassDesign::design('images/general/sensitive-information.jpg');
+                            $response['protection_image'] = erLhcoreClassDesign::design('images/general/sensitive-information.png');
                         }
 
                         if (isset($metaData['verified']['btn_title'])) {

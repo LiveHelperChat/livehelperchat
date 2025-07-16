@@ -2554,31 +2554,37 @@ html {
     opacity: 1;
 }
 
-.clickable-reveal::before,
 .clickable-reveal::after {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
+    background-color: #979797;
     color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 1;
+    content: attr(aria-label);
+    top: 80%;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.clickable-reveal::before{
+    content: attr(aria-label-title);
+    top: 15%;
+    font-size: 28px;
+    font-weight: bolder;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #232529;
     padding: 5px 10px;
     border-radius: 3px;
     white-space: nowrap;
     z-index: 1;
 }
 
-.clickable-reveal::before {
-    content: attr(aria-label-title);
-    top: 30%;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.clickable-reveal::after {
-    content: attr(aria-label);
-    top: 70%;
-    font-size: 12px;
-}
 
 lhc-image{
     min-height: 40px;

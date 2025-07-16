@@ -94,7 +94,7 @@ try {
                                 if (isset($metaData['verified']['sensitive']) && $metaData['verified']['sensitive'] == true) {
                                     if ($download_policy == 2) {
                                         $validRequest = false;
-                                        $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
+                                        $denyImage = 'design/defaulttheme/images/general/sensitive-information.png';
                                     } else {
                                         $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.download_verified', array('chat' => $chat, 'user' => erLhcoreClassUser::instance()->getUserData(true), 'chat_file' => $file));
                                         erLhcoreClassLog::logObjectChange(array(
@@ -111,13 +111,13 @@ try {
                             } else {
                                 if ($download_policy !== 0) {
                                     $validRequest = false;
-                                    $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
+                                    $denyImage = 'design/defaulttheme/images/general/sensitive-information.png';
                                 }
                             }
                         } else {
                             if ($download_policy !== 0) {
                                 $validRequest = false;
-                                $denyImage = 'design/defaulttheme/images/general/sensitive-information.jpg';
+                                $denyImage = 'design/defaulttheme/images/general/sensitive-information.png';
                             }
                         }
                     }                   

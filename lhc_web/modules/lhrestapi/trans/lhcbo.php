@@ -200,7 +200,7 @@ $transItems = array(
     "file.image_verification_failed" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Image verification failed. Please try again later.'),
     "file.access_denied_view_image" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Access denied to view this image'),
     "file.checking_image_access" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Checking image access...'),
-    "file.click_to_reveal" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','🔒 Click to reveal'),
+    "file.click_to_reveal" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Click to reveal'),
     "file.next_attempt_in" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','next attempt in')
 
 );
