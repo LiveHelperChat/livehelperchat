@@ -22,7 +22,8 @@ if ( isset($_POST['StoreOptions']) ) {
 
     $definition = array(
         'enabled_visitor' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'string', null,FILTER_REQUIRE_ARRAY),
-        'enabled_operator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'string', null,FILTER_REQUIRE_ARRAY)
+        'enabled_operator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'string', null,FILTER_REQUIRE_ARRAY),
+        'url_whitelist' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'),
     );
 
     $form = new ezcInputForm( INPUT_POST, $definition );
@@ -38,6 +39,12 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['dio'] = $form->enabled_operator;
     } else {
         $data['dio'] = [];
+    }
+
+    if ($form->hasValidData('url_whitelist')) {
+        $data['url_whitelist'] = $form->url_whitelist;
+    } else {
+        $data['url_whitelist'] = '';
     }
 
     $bbcodeOptions->explain = '';

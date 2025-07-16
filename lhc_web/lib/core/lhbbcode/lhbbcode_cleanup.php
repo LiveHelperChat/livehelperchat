@@ -1002,6 +1002,11 @@ class erLhcoreClassBBCodePlain
             $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret);
         }
 
+        if (($whiteList = erLhcoreClassBBCode::isBBCodeTagSupported('white_list',$paramsMessage)) !== false) {
+            $whiteListParams = explode('||', $whiteList);
+            $ret = erLhcoreClassBBCode::obfuscateLinks($ret, explode(',', $whiteListParams[0]), $whiteListParams[1] ?? '{url}');
+        }
+
         $ret = preg_replace_callback('#\[dateformat=([A-Za-z0-9:,\/.\-\s]{1,60})\](.*?)\[/dateformat\]#is', 'erLhcoreClassBBCode::_date_format', $ret);
 
         // Make base URL

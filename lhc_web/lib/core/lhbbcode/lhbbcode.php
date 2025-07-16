@@ -1212,12 +1212,61 @@ class erLhcoreClassBBCode
            }
        }
 
+       if ($bbcode == 'white_list' && ((isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) || (isset($paramsMessage['user_id_raw']) && $paramsMessage['user_id_raw'] == 0))){
+           if (!empty($dataBBCode['url_whitelist'])) {
+               return $dataBBCode['url_whitelist'];
+           } else {
+               return false;
+           }
+       }
+
        if ((isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) || (isset($paramsMessage['user_id_raw']) && $paramsMessage['user_id_raw'] == 0) ) {
            return !in_array($bbcode,$dataBBCode['div']);
        } else {
            return !in_array($bbcode,$dataBBCode['dio']);
        }
    }
+
+    public static function obfuscateLinks($text, $whitelist, $placeholder)
+    {
+        // Match both full URLs and bare domains with optional paths
+        $regex = '/((https?:\/\/)?[\w.-]+\.[a-z]{2,}(\/\S*)?)/i';
+
+        return preg_replace_callback($regex, function ($matches) use ($whitelist, $placeholder) {
+            $original = $matches[0];
+            $url = $original;
+
+            // Extract domain for whitelist check
+            preg_match('/(?:https?:\/\/)?([\w.-]+\.[a-z]{2,})/i', $url, $domainMatch);
+            $domain = strtolower($domainMatch[1] ?? '');
+
+            // Check if the domain is in the whitelist
+            foreach ($whitelist as $allowed) {
+                $allowed = strtolower(trim($allowed));
+                if (empty($allowed)) {
+                    continue;
+                }
+                
+                // Check if domain exactly matches or is a subdomain of the allowed domain
+                if ($domain === $allowed || str_ends_with($domain, '.' . $allowed)) {
+                    return $original; // Leave it untouched
+                }
+            }
+
+            // Replace protocol
+            if (stripos($url, 'https://') === 0) {
+                $url = 'https[:]//' . substr($url, 8);
+            } elseif (stripos($url, 'http://') === 0) {
+                $url = 'http[:]//' . substr($url, 7);
+            }
+
+            // Replace dots in the domain and full string with [.]
+            $url = preg_replace('/\./', '[.]', $url);
+
+            return str_replace('{url}',$url, $placeholder);
+
+        }, $text);
+    }
 
    // Converts bbcode and general links to hmtl code
    public static function make_clickable($ret, $paramsMessage = array()) {
@@ -1265,6 +1314,11 @@ class erLhcoreClassBBCode
 
         if (self::isBBCodeTagSupported('[loc]',$paramsMessage)) {
             $ret = preg_replace_callback('/\[loc\](.*?)\[\/loc\]/ms', "erLhcoreClassBBCode::_make_embed_map", $ret);
+        }
+
+        if (($whiteList = self::isBBCodeTagSupported('white_list',$paramsMessage)) !== false) {
+            $whiteListParams = explode('||', $whiteList);
+            $ret = self::obfuscateLinks($ret, explode(',', $whiteListParams[0]), $whiteListParams[1] ?? '{url}');
         }
 
         if (self::isBBCodeTagSupported('[url]',$paramsMessage)) {
