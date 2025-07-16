@@ -57,6 +57,10 @@ class erLhcoreClassModelmsg
                 return $this->meta_msg_array;
                 break;
 
+            case 'file':
+                return \LiveHelperChat\Helpers\Chat\Message::extractFile($this->msg);
+
+
             default:
                 break;
         }

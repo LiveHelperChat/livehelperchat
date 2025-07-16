@@ -1212,8 +1212,8 @@ class erLhcoreClassBBCode
            }
        }
 
-       if ($bbcode == 'white_list' && ((isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) || (isset($paramsMessage['user_id_raw']) && $paramsMessage['user_id_raw'] == 0))){
-           if (!empty($dataBBCode['url_whitelist'])) {
+       if ($bbcode == 'white_list') {
+           if (((isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) || (isset($paramsMessage['user_id_raw']) && $paramsMessage['user_id_raw'] == 0)) && !empty($dataBBCode['url_whitelist'])) {
                return $dataBBCode['url_whitelist'];
            } else {
                return false;

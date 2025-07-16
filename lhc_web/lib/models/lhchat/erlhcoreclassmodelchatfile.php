@@ -111,6 +111,9 @@ class erLhcoreClassModelChatFile
                 }
                 return $this->meta_msg_array;
 
+            case 'file_body':
+                return 'data:'.$this->type.';base64,'.base64_encode(file_get_contents($this->file_path_server));
+
             default:
                 ;
                 break;
