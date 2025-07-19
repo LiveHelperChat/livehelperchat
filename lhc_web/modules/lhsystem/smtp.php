@@ -49,15 +49,18 @@ if ( isset($_POST['StoreMailSettings']) || isset($_POST['StoreMailSettingsTest']
     $smtpData->value = serialize($data);
     $smtpData->saveThis();
 
-    if (isset($_POST['StoreMailSettingsTest'])){
-        try {
-            erLhcoreClassChatMail::sendTestMail($currentUser->getUserData());
-        } catch (Exception $e) {
-            $tpl->set('errors',array($e->getMessage()));
+    if (isset($_POST['StoreMailSettingsTest'])) {
+        $output = erLhcoreClassChatMail::sendTestMail($currentUser->getUserData());
+        if ($output['error'] !== false) {
+            $tpl->set('errors',array($output['error']->getMessage()));
         }
     }
     
     $tpl->set('updated','done');
+
+    if (isset($_POST['StoreMailSettingsTest'])) {
+        $tpl->set('content_connection', isset($output['debug']) ? $output['debug'] : '');
+    }
 }
 
 if ( isset($_POST['StoreSMTPSettings']) || isset($_POST['StoreSMTPSettingsTest']) ) {
@@ -132,15 +135,18 @@ if ( isset($_POST['StoreSMTPSettings']) || isset($_POST['StoreSMTPSettingsTest']
 	$smtpData->value = serialize($data);
 	$smtpData->saveThis();
 
-	if (isset($_POST['StoreSMTPSettingsTest'])){
-		try {
-			erLhcoreClassChatMail::sendTestMail($currentUser->getUserData());
-		} catch (Exception $e) {
-			$tpl->set('errors',array($e->getMessage()));
-		}
+	if (isset($_POST['StoreSMTPSettingsTest'])) {
+        $output = erLhcoreClassChatMail::sendTestMail($currentUser->getUserData());
+        if ($output['error'] !== false) {
+            $tpl->set('errors',array($output['error']->getMessage()));
+        }
 	}
 
 	$tpl->set('updated','done');
+
+    if (isset($_POST['StoreSMTPSettingsTest'])) {
+        $tpl->set('content_connection', isset($output['debug']) ? $output['debug'] : '');
+    }
 }
 
 $tpl->set('smtp_data',$data);

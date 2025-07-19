@@ -69,13 +69,28 @@ class erLhcoreClassChatMail {
 		$mail->AddAddress( $userData->email );
 
 		self::setupSMTP($mail);
-		
+
+        // Set a 10-second timeout
+        $mail->Timeout = 10;
+
+        // Enable verbose debug output and capture debug messages
+        $mail->SMTPDebug = 2;
+        $debugOutput = '';
+        $mail->Debugoutput = function($str, $level) use (&$debugOutput) {
+            $debugOutput .= htmlentities(
+                preg_replace('/[\r\n]+/', '', $str),
+                ENT_QUOTES,
+                'UTF-8'
+            ). "<br>\n";
+        };
+
 		try {
-			return $mail->Send();
+			$result = $mail->Send();			
+			return ['error' => false, 'output' => $result, 'debug' => $debugOutput];
 		} catch (Exception $e) {
-			throw $e;
+			return ['error' => $e, 'debug' => $debugOutput];
 		}
-		$mail->ClearAddresses();
+
 	}
 
 	// Prepare template variables

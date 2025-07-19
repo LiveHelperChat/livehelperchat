@@ -8,8 +8,6 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-
-      
 <form action="" method="post" autocomplete="new-password" ng-non-bindable>
 
 	<div role="tabpanel">
@@ -74,3 +72,7 @@
 		</div>
 	</div>
 </form>
+
+<?php if (isset($content_connection)) : ?>
+    <div class="my-2 fs14 text-muted"><?php echo $content_connection?></div>
+<?php endif; ?>
