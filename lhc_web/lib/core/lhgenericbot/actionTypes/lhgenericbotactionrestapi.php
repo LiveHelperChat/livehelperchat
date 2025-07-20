@@ -444,7 +444,14 @@ class erLhcoreClassGenericBotActionRestapi
                 $file = erLhcoreClassModelChatFile::fetch($fileID);
                 if (is_object($file) && $hash == $file->security_hash) {
 
-                    $url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}";;
+                    $URLHash = '';
+                    if ($file->chat_id > 0) {
+                        $tsHash = time();
+                        $temporaryHash = sha1($file->id . '_' . $file->hash . '_' . $tsHash . '_' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+                        $URLHash = "/(vhash)/{$temporaryHash}/(vts)/{$tsHash}";
+                    }
+
+                    $url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}";
 
                     $media[] = array(
                         'id' => $file->id,
@@ -648,7 +655,15 @@ class erLhcoreClassGenericBotActionRestapi
 
                     $file_size = $mediaFile->size;
                     $file_mime = $mediaFile->type;
-                    $file_url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
+
+                    $URLHash = '';
+                    if ($mediaFile->chat_id > 0) {
+                        $tsHash = time();
+                        $temporaryHash = sha1($mediaFile->id . '_' . $mediaFile->hash . '_' . $tsHash . '_' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+                        $URLHash = "/(vhash)/{$temporaryHash}/(vts)/{$tsHash}";
+                    }
+
+                    $file_url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}{$URLHash}";
                 } else {
                     $file_size = $file->size;
                     $file_mime = $file->type;
@@ -2371,7 +2386,15 @@ class erLhcoreClassGenericBotActionRestapi
                          try {
                              $file = erLhcoreClassModelChatFile::fetch($fileID);
                              if (is_object($file) && $hash == $file->security_hash) {
-                                 $url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}";;
+
+                                 $URLHash = '';
+                                 if ($file->chat_id > 0) {
+                                     $tsHash = time();
+                                     $temporaryHash = sha1($file->id . '_' . $file->hash . '_' . $tsHash . '_' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+                                     $URLHash = "/(vhash)/{$temporaryHash}/(vts)/{$tsHash}";
+                                 }
+
+                                 $url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}";
                                  $media[] = array(
                                      'id' => $file->id,
                                      'size' => $file->size,
