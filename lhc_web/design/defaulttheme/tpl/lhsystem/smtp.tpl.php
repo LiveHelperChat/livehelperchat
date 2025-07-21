@@ -10,19 +10,21 @@
 
 <form action="" method="post" autocomplete="new-password" ng-non-bindable>
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 	<div role="tabpanel">
 
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="nav-item"><a class="active nav-link" href="#mailsettings" aria-controls="mailsettings" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Mail settings');?></a></li>
-			<li role="presentation" class="nav-item"><a class="nav-link" href="#SMTP" aria-controls="SMTP" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','SMTP');?></a></li>
+			<li role="presentation" class="nav-item"><a class="<?php echo (isset($tab) && $tab == 'mailsettings') ? 'active ' : ''; ?>nav-link" href="#mailsettings" aria-controls="mailsettings" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Mail settings');?></a></li>
+			<li role="presentation" class="nav-item"><a class="<?php echo (isset($tab) && $tab == 'SMTP') ? 'active ' : ''; ?>nav-link" href="#SMTP" aria-controls="SMTP" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','SMTP');?></a></li>
 		</ul>
 
 
       
 		<!-- Tab panes -->
 		<div class="tab-content">
-			<div role="tabpanel" class="tab-pane active" id="mailsettings">
+			<div role="tabpanel" class="tab-pane <?php echo (isset($tab) && $tab == 'mailsettings') ? 'active' : ''; ?>" id="mailsettings">
 				<div class="form-group">
 					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Sender address');?></label> <input type="text" class="form-control" name="sender" value="<?php (isset($smtp_data['sender']) && $smtp_data['sender'] != '') ? print htmlspecialchars($smtp_data['sender']) : print '' ?>" />
 				</div>
@@ -40,7 +42,7 @@
 				</div>
 			</div>
 
-			<div role="tabpanel" class="tab-pane" id="SMTP">
+			<div role="tabpanel" class="tab-pane <?php echo (isset($tab) && $tab == 'SMTP') ? 'active' : ''; ?>" id="SMTP">
 				<label><input type="checkbox" name="use_smtp" value="1" <?php isset($smtp_data['use_smtp']) && ($smtp_data['use_smtp'] == '1') ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','SMTP enabled'); ?></label>
 
 				<div class="form-group">
@@ -62,8 +64,6 @@
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Bind IP, multiple IP can be separated by comma. Random IP will be chosen.');?></label> <input type="text" class="form-control" name="bindip" value="<?php (isset($smtp_data['bindip']) && $smtp_data['bindip'] != '') ? print htmlspecialchars($smtp_data['bindip']) : print '' ?>" />
                 </div>
-
-                <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
             
                 <div class="btn-group" role="group" aria-label="...">
 					<input type="submit" class="btn btn-secondary" name="StoreSMTPSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" /> <input type="submit" class="btn btn-secondary" name="StoreSMTPSettingsTest" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Test'); ?>" />
