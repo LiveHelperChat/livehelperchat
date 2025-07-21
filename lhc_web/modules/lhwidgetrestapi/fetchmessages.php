@@ -105,13 +105,13 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
                         $operatorId = null;
                         $unreadSince = null;
 
-				        foreach ($Messages as $msg) {
+				        foreach ($Messages as $indexMessage => $msg) {
 
                             if (($firstOperatorMessageId == 0 || (isset($requestPayload['lmgsid']) && (int)$requestPayload['lmgsid'] == 0 && isset($requestPayload['new_chat']) && $requestPayload['new_chat'] == false)) && ($msg['user_id'] > 0 || $msg['user_id'] == -2) && strpos($content,'id="msg-'.$msg['id'].'"') !== false) {
                                 $firstOperatorMessageId = $msg['id'];
                             }
 
-				        	if ($msg['user_id'] > 0 || $msg['user_id'] == -2 && $userOwner === true) {
+				        	if ($indexMessage === 0 && ($msg['user_id'] > 0 || $msg['user_id'] == -2 && $userOwner === true)) {
 				        		$userOwner = false;
 				        	}
 
