@@ -754,10 +754,8 @@ class OnlineChat extends Component {
         helperFunctions.setSessionStorage('_ttxt','');
 
         // Because message was added we want to reset scroll action, as visitor does not care about it
-        if (this.state.scrollButton !== false) {
-            this.setState({scrollButton: false, otm: 0, hasNew: false, newId: 0});
-            this.props.dispatch({'type' : 'UPDATE_LIVE_DATA', 'data' : {'attr': 'lfmsgid', 'val': 0}});
-        }
+        this.setState({scrollButton: false, otm: 0, hasNew: false, newId: 0});
+        this.props.dispatch({'type' : 'UPDATE_LIVE_DATA', 'data' : {'attr': 'lfmsgid', 'val': 0}});
 
         this.props.dispatch(addMessage({
             'id': this.props.chatwidget.getIn(['chatData','id']),
