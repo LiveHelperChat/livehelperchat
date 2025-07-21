@@ -2195,6 +2195,26 @@ class erLhcoreClassGenericBotActionRestapi
                                 }
                             }
                             $counter++;
+
+                            // add parsing for [chatfilebody=2011_a70588f4754bbff64ce3a741bb18fbe3]
+                            $matches = array();
+                            preg_match_all('/\[chatfilebody="?(.*?)"?\]/', $message->msg, $matches);
+
+                            foreach ($matches[1] as $index => $body) {
+                                $parts = explode('_', $body);
+                                $fileID = $parts[0];
+                                $hash = $parts[1];
+                                try {
+                                    $file = erLhcoreClassModelChatFile::fetch($fileID);
+                                    if (is_object($file) && $hash == $file->security_hash) {
+                                        $fileBody = 'data:'.$file->type.';base64,'.base64_encode(file_get_contents($file->file_path_server));
+                                        $message->msg = str_replace($matches[0][$index], $fileBody, $message->msg);
+                                    }
+                                } catch (Exception $e) {
+                                    // Handle file not found or invalid hash
+                                }
+                            }
+
                             $content .= $message->msg;
                             continue;
                         }

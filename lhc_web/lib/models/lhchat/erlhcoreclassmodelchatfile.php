@@ -114,6 +114,9 @@ class erLhcoreClassModelChatFile
             case 'file_body':
                 return 'data:'.$this->type.';base64,'.base64_encode(file_get_contents($this->file_path_server));
 
+            case 'file_body_embed':
+                return '[chatfilebody='.$this->id . '_' . $this->security_hash . ']';
+
             default:
                 ;
                 break;
