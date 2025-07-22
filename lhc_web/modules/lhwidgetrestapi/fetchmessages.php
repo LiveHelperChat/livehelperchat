@@ -303,6 +303,7 @@ if ($operatorTotalMessages > 0) {
 }
 
 $responseArray['message_id'] = (int)$LastMessageID;
+$responseArray['f_msg_id'] = (isset($requestPayload['lmgsid']) ? (int)$requestPayload['lmgsid'] : 0);
 
 if (isset($requestPayload['lfmsgid']) && (int)$requestPayload['lfmsgid'] > 0) {
     $responseArray['message_id_first'] = max($firstVisitorMessageId,$requestPayload['lfmsgid']); // We want to scroll to first visitor message

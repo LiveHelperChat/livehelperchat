@@ -372,6 +372,12 @@ const chatWidgetReducer = (state = initialState, action) => {
             }
 
             if (action.data.messages !== '') {
+
+                // Make sure fetched data is always new
+                if (action.data.f_msg_id < state.getIn(['chatLiveData','lmsgid'])) {
+                    return state;
+                }
+
                 state = state.updateIn(['chatLiveData','messages'],list => list.push({
                     'lmsop': state.getIn(['chatLiveData','msop']),
                     'msop': action.data.msop,
