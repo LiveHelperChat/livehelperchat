@@ -43,6 +43,7 @@
         array('class' => 'erLhcoreClassModelRole' ,'name' => 'Role changes'),
         array('class' => 'erLhcoreClassModelGroup' ,'name' => 'Group changes'),
         array('class' => 'erLhcoreClassModelChatFileReveal' ,'name' => 'Chat file reveal'),
+        array('class' => 'MailconvMessageFileReveal' ,'name' => 'Mail message file reveal'),
     );
     ?>
 

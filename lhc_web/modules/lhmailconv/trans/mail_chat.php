@@ -101,6 +101,18 @@ echo json_encode(array(
         'uploading' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Uploading'),
         'choose_uploaded' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Choose file from uploaded files'),
         'drop_here' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Drop your files here or choose a new file')
+    ],
+    "image" => [
+        'verifying_access' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Verifying image access...'),
+        'checking_access' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Checking image access...'),
+        'verification_failed' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Image verification failed'),
+        'access_denied' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Access denied to view image'),
+        'next_attempt_in' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Next attempt in'),
+        'seconds' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','s.'),
+        'image_not_available' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Image not available'),
+        'click_to_reveal' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Click to reveal'),
+        'loading' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Loading...'),
+        'click_to_download' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Ready to download'),
     ]
 ));
 

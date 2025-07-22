@@ -67,6 +67,11 @@ $ViewList['inlinedownload'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['verifyaccess'] = array(
+    'params' => array('id','id_conv'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['previewmail'] = array(
     'params' => array('id'),
     'functions' => array( 'use_admin' )
@@ -403,6 +408,8 @@ $FunctionList['send_as_forward'] = array('explain' => 'Allow operator to forward
 $FunctionList['can_download'] = array('explain' => 'Allow operator to download raw mail message.');
 $FunctionList['export_variables'] = array('explain' => 'Allow operator export mail variable.');
 $FunctionList['open_all'] = array('explain' => 'Allow operator to open all pending mails, not only assigned to him');
-$FunctionList['open_unassigned_mail'] = array('explain' => 'Allow operator to open unassigned pending mail')
+$FunctionList['open_unassigned_mail'] = array('explain' => 'Allow operator to open unassigned pending mail');
+$FunctionList['download_unverified'] = array('explain' => 'Allow operators to download unverified files');
+$FunctionList['download_verified'] = array('explain' => 'Allow operators to download verified, but sensitive files');
 
 ?>

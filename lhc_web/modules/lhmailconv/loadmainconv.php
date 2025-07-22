@@ -194,6 +194,18 @@ try {
             }
         }
 
+        if (isset($data['mail_img_download_policy']) && $data['mail_img_download_policy'] == 1) {
+            if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','download_unverified')) {
+                $download_policy = 0;
+            } elseif (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','download_verified')) {
+                $download_policy = 1;
+            } else {
+                $download_policy = 2;
+            }
+        } else {
+            $download_policy = 0;
+        }           
+
         $editorOptions = array(
             'conv' => $conv,
             'customer_remarks' => $remarks,
@@ -208,6 +220,7 @@ try {
                 'can_close' => ($is_archive === false && $canWrite),
                 'can_forward' => $currentUser->hasAccessTo('lhmailconv', 'send_as_forward'),
                 'can_change_mailbox' => $currentUser->hasAccessTo('lhmailconv', 'change_mailbox'),
+                'download_policy' => $download_policy,
                 'fop_op' => $data['ft_op'],
                 'fop_size' => $data['fs_max'] * 1024,
                 'files_enabled' => $currentUser->hasAccessTo('lhmailconv', 'allow_attach_files'),
