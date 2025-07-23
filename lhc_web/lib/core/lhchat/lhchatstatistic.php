@@ -1728,6 +1728,16 @@ class erLhcoreClassChatStatistic {
             }
         }
 
+        if (isset($filterParams['filter']['filterin'][$table . '.dep_id']) && isset($filterParams['filter']['filterin']['dep_id'])) {
+            // Merge the two dep_id filters
+            $filterParams['filter']['filterin'][$table . '.dep_id'] = array_unique(array_merge(
+                $filterParams['filter']['filterin'][$table . '.dep_id'],
+                $filterParams['filter']['filterin']['dep_id']
+            ));
+            // Remove the generic dep_id filter since it's now combined with the table-specific one
+            unset($filterParams['filter']['filterin']['dep_id']);
+        }
+
     }
     
     public static function getRatingByUser($days = 30, $filter = array()) 
