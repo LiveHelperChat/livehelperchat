@@ -261,7 +261,7 @@ class erLhcoreClassGenericBotActionConditions {
                             $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
-                        } else if ($condition['content']['comp'] == 'contains' && !((isset($multiAttr) && !empty(array_intersect($multiAttr, explode(',', $valAttr)))) || (!isset($multiAttr) && strrpos($attr, $valAttr) !== false))) {
+                        } else if ($condition['content']['comp'] == 'contains' && !((isset($multiAttr) && !empty(array_intersect($multiAttr, explode(',', trim($valAttr))))) || (!isset($multiAttr) && strrpos(trim($attr), trim($valAttr)) !== false))) {
                             $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
@@ -273,11 +273,11 @@ class erLhcoreClassGenericBotActionConditions {
                             $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
-                        } else if ($condition['content']['comp'] == 'in_list' && !in_array($attr,explode('||',$valAttr))) {
+                        } else if ($condition['content']['comp'] == 'in_list' && !in_array(trim($attr),explode('||',trim($valAttr)))) {
                             $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;
-                        } else if ($condition['content']['comp'] == 'in_list_lowercase' && !in_array(strtolower($attr),explode('||',strtolower($valAttr)))) {
+                        } else if ($condition['content']['comp'] == 'in_list_lowercase' && !in_array(strtolower(trim($attr)),explode('||',strtolower(trim($valAttr))))) {
                             $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;

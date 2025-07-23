@@ -1602,13 +1602,13 @@ class erLhcoreClassChatValidator {
                         ))['found'] == true) {
                         $ruleMatched = false;
                         break;
-                    } else if ($rule['comparator'] == 'contains' && strrpos($valueToCompare, $rule['value']) === false) {
+                    } else if ($rule['comparator'] == 'contains' && strrpos(trim($valueToCompare), trim($rule['value'])) === false) {
                         $ruleMatched = false;
                         break;
-                    } else if ($rule['comparator'] == 'in_list' && !in_array($valueToCompare, explode('||', $rule['value']))) {
+                    } else if ($rule['comparator'] == 'in_list' && !in_array(trim($valueToCompare), explode('||', trim($rule['value'])))) {
                         $ruleMatched = false;
                         break;
-                    } else if ($rule['comparator'] == 'in_list_lowercase' && !in_array(strtolower($valueToCompare), explode('||', strtolower($rule['value'])))) {
+                    } else if ($rule['comparator'] == 'in_list_lowercase' && !in_array(strtolower(trim($valueToCompare)), explode('||', strtolower(trim($rule['value']))))) {
                         $ruleMatched = false;
                         break;
                     }
