@@ -53,32 +53,29 @@ try {
    // $metaData['verified']['sensitive'] = true;
     //$metaData['verified']['btn_title'] = "btn title";
 
-    if (isset($metaData['verified'])) {
-        
-        if (isset($metaData['verified']['success']) || isset($metaData['verified']['msg'])) {
+    if (isset($metaData['verified']) && (isset($metaData['verified']['success']) || isset($metaData['verified']['msg']))) {
 
-            $response['verified'] = true;
+        $response['verified'] = true;
 
-            if (isset($metaData['verified']['success']) && $metaData['verified']['success'] == true) {
-                if (isset($metaData['verified']['sensitive']) && $metaData['verified']['sensitive'] == true) {
-                    if (isset($metaData['verified']['protection_image'])) {
-                        $response['protection_image'] = erLhcoreClassDesign::design($metaData['verified']['protection_image']);
-                    } elseif (isset($metaData['verified']['protection_html'])) {
-                        $response['protection_html'] = $metaData['verified']['protection_html'];
-                    } else {
-                        $response['protection_image'] = erLhcoreClassDesign::design('images/general/sensitive-information.png');
-                    }
-
-                    if (isset($metaData['verified']['btn_title'])) {
-                        $response['btn_title'] = $metaData['verified']['btn_title'];
-                    } else {
-                        $response['btn_title'] = erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/conversation','Sensitive Information');
-                    }
+        if (isset($metaData['verified']['success']) && $metaData['verified']['success'] == true) {
+            if (isset($metaData['verified']['sensitive']) && $metaData['verified']['sensitive'] == true) {
+                if (isset($metaData['verified']['protection_image'])) {
+                    $response['protection_image'] = erLhcoreClassDesign::design($metaData['verified']['protection_image']);
+                } elseif (isset($metaData['verified']['protection_html'])) {
+                    $response['protection_html'] = $metaData['verified']['protection_html'];
+                } else {
+                    $response['protection_image'] = erLhcoreClassDesign::design('images/general/sensitive-information.png');
                 }
-            } else {
-                $response['error_msg'] = $metaData['verified']['msg'];
+
+                if (isset($metaData['verified']['btn_title'])) {
+                    $response['btn_title'] = $metaData['verified']['btn_title'];
+                } else {
+                    $response['btn_title'] = erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/conversation','Sensitive Information');
+                }
             }
-        } 
+        } else {
+            $response['error_msg'] = $metaData['verified']['msg'];
+        }
 
     } elseif (!isset($metaData['verified']['started']) || (time() - $metaData['verified']['started']) > 60) {
 
@@ -117,6 +114,7 @@ try {
             $file->saveThis();
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.file.verify_start', array('mail' => $mail, 'chat_file' => $file));
+            
         } else {
             $response['verified'] = true;    
         }
