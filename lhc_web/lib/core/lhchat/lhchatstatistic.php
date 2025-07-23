@@ -2086,6 +2086,8 @@ class erLhcoreClassChatStatistic {
             }
         }
 
+        $depIdsDepartments = [];
+
         if (isset($filtergte['filterin']['department_group_ids'])) {
             
             $depGroup = $filtergte['filterin']['department_group_ids'];
@@ -2094,81 +2096,32 @@ class erLhcoreClassChatStatistic {
             $db = ezcDbInstance::get();
             $stmt = $db->prepare('SELECT user_id FROM lh_userdep WHERE dep_id IN (select dep_id FROM lh_departament_group_member WHERE dep_group_id IN (' . implode(',',$depGroup) . '))');
             $stmt->execute();
-            $userIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            $userIdGroupDep = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
             $stmt = $db->prepare('select dep_id FROM lh_departament_group_member WHERE dep_group_id IN (' . implode(',',$depGroup) . ')');
             $stmt->execute();
-            $depIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
-            
-            if (!empty($depIds)) {
-                $filter['filterin']['dep_id'] = $depIds;            
-            } else {
-                $filter['filterin']['dep_id'] = array(-1);
-            }
-            
-            if (empty($userIds)) {
-                $userIds = array(-1);
-            }
-
-            if (!empty($userIdGroupDep)) {
-                $userIdGroupDep = array_unique(array_intersect($userIdGroupDep, $userIds));
-            } else {
-                $userIdGroupDep = $userIds;
-            }
-
-            if (!empty($userIdGroup)) {
-                $userIdGroup = array_unique(array_intersect($userIdGroup,$userIds));
-
-                if (empty($userIdGroup)) {
-                    $userIdGroup = array(-1);
-                }
-                
-            } else {
-                $userIdGroup = $userIds;
-            }            
+            $depIdsDepartments = $stmt->fetchAll(PDO::FETCH_COLUMN);
         }
         
         if (isset($filtergte['filterin']['department_ids'])) {
 
-            $depIDs = $filtergte['filterin']['department_ids'];
-            if (isset($filter['filterin']['dep_id']) && !in_array(-1,$filter['filterin']['dep_id'])){
-
-                $combinedDepartment = array_unique(array_intersect($filtergte['filterin']['department_ids'], $filter['filterin']['dep_id']));
-
-                if (!empty($combinedDepartment)) {
-                    $filter['filterin']['dep_id'] = $combinedDepartment;
-                } else {
-                    $filter['filterin']['dep_id'] = array(-1);
-                }
-
-            } elseif (!isset($filter['filterin']['dep_id'])) {
-                $filter['filterin']['dep_id'] = $depIDs;
-            }
+            $depIdsDepartments = array_unique(array_merge($filtergte['filterin']['department_ids'],$depIdsDepartments));
             unset($filtergte['filterin']['department_ids']);
 
             $db = ezcDbInstance::get();
-            $stmt = $db->prepare('SELECT user_id FROM lh_userdep WHERE dep_id IN ('. implode(',',$depIDs).')');
+            $stmt = $db->prepare('SELECT user_id FROM lh_userdep WHERE dep_id IN ('. implode(',',$depIdsDepartments).')');
             $stmt->execute();
-            $userIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            $userIdGroupDep = array_unique(array_merge($stmt->fetchAll(PDO::FETCH_COLUMN),$userIdGroupDep));
+        }
 
-            if (!empty($userIdGroupDep)) {
-                $userIdGroupDep = array_unique(array_intersect($userIdGroupDep, $userIds));
-            } else {
-                $userIdGroupDep = $userIds;
-            }
+        if (!empty($depIdsDepartments)) {
+            $filter['filterin']['dep_id'] = $depIdsDepartments;
+        }
 
-            if (!empty($userIds)) {
-                if (!empty($userIdGroup)) {
-                    $userIdGroup = array_unique(array_intersect($userIdGroup,$userIds));
-                    
-                    if (empty($userIdGroup)) {
-                        $userIdGroup = array(-1);
-                    }
-                    
-                } else {
-                    $userIdGroup = $userIds;
-                }
-            }
+        if (!empty($userIdGroupDep) && !empty($userIdGroup)) {
+            $userIdGroup = array_unique(array_intersect($userIdGroup, $userIdGroupDep));
+        } else {
+            $userIdGroup = $userIdGroupDep;
         }
 
         if (!empty($userIdGroup)) {
