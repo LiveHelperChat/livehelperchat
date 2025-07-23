@@ -69,6 +69,7 @@ class erLhcoreClassUpdate
     		foreach ($archives as $archive) {
     		    $archive->setTables();
     		    $definition['tables'][\LiveHelperChat\Models\mailConv\Archive\Range::$archiveConversationTable] = $definition['tables']['lhc_mailconv_conversation'];
+    		    $definition['tables'][\LiveHelperChat\Models\mailConv\Archive\Range::$archiveConversationFileTable] = $definition['tables']['lhc_mailconv_file'];
     		}
 		}
 
