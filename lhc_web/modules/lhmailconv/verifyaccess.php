@@ -40,19 +40,6 @@ try {
 
     $response = array('verified' => false);
    
-    // Verification failed example
-    //$metaData['verified']['success'] = false; // For testing purposes, remove this line in production
-    //$metaData['verified']['msg'] = "Error sampel message"; // For testing purposes, remove this line in production
-
-
-    // Success non sensitive
-    //$metaData['verified']['success'] = true; // For testing purposes, remove this line in production
-
-    // Success sensitive
-    //$metaData['verified']['success'] = true;
-   // $metaData['verified']['sensitive'] = true;
-    //$metaData['verified']['btn_title'] = "btn title";
-
     if (isset($metaData['verified']) && (isset($metaData['verified']['success']) || isset($metaData['verified']['msg']))) {
 
         $response['verified'] = true;
