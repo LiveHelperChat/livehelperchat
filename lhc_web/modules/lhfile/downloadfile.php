@@ -100,6 +100,7 @@ try {
                                         erLhcoreClassLog::logObjectChange(array(
                                             'object' => $chat,
                                             'action_class' => 'FileReveal',
+                                            'check_log' => true,
                                             'user_id' => erLhcoreClassUser::instance()->getUserID(),
                                             'msg' => array(
                                                 'file_id' => $file->id,

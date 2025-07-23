@@ -408,6 +408,9 @@ class erLhcoreClassGenericBotActionRestapi
     {
         $msg_text = '';
 
+        $media = array();
+        $files = array();
+
         if (isset($paramsCustomer['params']['msg'])) {
             if (is_object($paramsCustomer['params']['msg'])) {
                 $msg_text = $paramsCustomer['params']['msg']->msg;
@@ -416,6 +419,15 @@ class erLhcoreClassGenericBotActionRestapi
             }
         } elseif (isset($paramsCustomer['params']['msg_text'])) {
             $msg_text = $paramsCustomer['params']['msg_text'];
+        } elseif (isset($paramsCustomer['params']['chat_file']) && $paramsCustomer['params']['chat_file'] instanceof erLhcoreClassModelMailconvFile) {
+            $media[] = array(
+                'id' => $paramsCustomer['params']['chat_file']->id,
+                'size' => $paramsCustomer['params']['chat_file']->size,
+                'upload_name' => $paramsCustomer['params']['chat_file']->name,
+                'type' => $paramsCustomer['params']['chat_file']->type,
+                'extension' => $paramsCustomer['params']['chat_file']->extension
+            );
+            $files[] = $paramsCustomer['params']['chat_file'];
         } elseif (isset($paramsCustomer['params']['chat_file'])) {
             $msg_text = '[file=' . $paramsCustomer['params']['chat_file']->id . '_'.$paramsCustomer['params']['chat_file']->security_hash.']';
         }
@@ -432,9 +444,6 @@ class erLhcoreClassGenericBotActionRestapi
         // We have to extract attached files and send them separately
         $matches = array();
         preg_match_all('/\[file="?(.*?)"?\]/', $msg_text_cleaned_files, $matches);
-
-        $media = array();
-        $files = array();
 
         foreach ($matches[1] as $index => $body) {
             $parts = explode('_', $body);
@@ -1626,7 +1635,11 @@ class erLhcoreClassGenericBotActionRestapi
                 }
             }
 
-            $code = explode(',',str_replace(' ','',isset($paramsCustomer['rest_api']->configuration_array['log_code']) ? $paramsCustomer['rest_api']->configuration_array['log_code'] : ''));
+            $code = [];
+
+            if (isset($paramsCustomer['rest_api']->configuration_array['log_code']) && !empty($paramsCustomer['rest_api']->configuration_array['log_code'])) {
+                $code = explode(',',str_replace(' ','',$paramsCustomer['rest_api']->configuration_array['log_code']));
+            }
 
             $validCode = true;
 
@@ -1664,7 +1677,7 @@ class erLhcoreClassGenericBotActionRestapi
                 );
             }
 
-            if ($validCode === true && isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'] && isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat'])) {
+            if ($validCode === true && isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'] && isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat']) && $paramsCustomer['chat'] instanceof erLhcoreClassModelChat) {
                 $msgLog = new erLhcoreClassModelmsg();
                 $msgLog->user_id = -1;
                 $msgLog->chat_id = $paramsCustomer['chat']->id;

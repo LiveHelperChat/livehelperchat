@@ -67,9 +67,9 @@
                 <label class="d-block"><input type="radio" name="chat_file_policy_v" <?php if (!isset($file_data['chat_file_policy_v']) || $file_data['chat_file_policy_v'] == 0) : ?>checked="checked"<?php endif;?> value="0"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Always (default)'); ?></label>
                 <label class="d-block"><input type="radio" name="chat_file_policy_v" <?php if (isset($file_data['chat_file_policy_v']) && $file_data['chat_file_policy_v'] == 1) : ?>checked="checked"<?php endif;?> value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','If chat is in pending/active/bot status'); ?></label>
                 <span class="text-muted d-block fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','For 10 minutes after chat being closed visitor will be able to download a files'); ?></span>
-            </div>
-            <div class="col-6 mt-2">
-                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Chat related file can be downloaded by operator'); ?></h6>
+
+
+                <h6 class="mt-4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Chat related file can be downloaded by operator'); ?></h6>
                 <label class="d-block"><input type="radio" name="chat_file_policy_o" <?php if (!isset($file_data['chat_file_policy_o']) || $file_data['chat_file_policy_o'] == 0) : ?>checked="checked"<?php endif;?> value="0"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Always (default)'); ?></label>
                 <label class="d-block"><input type="radio" name="chat_file_policy_o" <?php if (isset($file_data['chat_file_policy_o']) && $file_data['chat_file_policy_o'] == 1) : ?>checked="checked"<?php endif;?> value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Has permission to related chat'); ?></label>
                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Image file by operator can be downloaded if'); ?> <a target="_blank" href="https://doc.livehelperchat.com/docs/bot/image-file-verification-flow"><span class="material-icons">help</span></a></h6>
@@ -77,18 +77,30 @@
                     <option value="0" <?php if (!isset($file_data['img_download_policy']) || $file_data['img_download_policy'] == 0) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Default, all images files will be downloaded'); ?></option>
                     <option value="1" <?php if (isset($file_data['img_download_policy']) && $file_data['img_download_policy'] == 1) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Verified and has permission to download protected images OR has permission to download unprotected files'); ?></option>
                 </select>
-                <label class="d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Minimum image width or height to require verification'); ?></label>   
-                <input type="number" class="form-control" min="100" placeholder="100" name="img_verify_min_dim" value="<?php isset($file_data['img_verify_min_dim']) && (int)$file_data['img_verify_min_dim'] > 100 ? print (int)$file_data['img_verify_min_dim'] : '' ?>" />
+                <label class="d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Minimum image width or height to require verification'); ?></label>
+                <input type="number" class="form-control" min="10" placeholder="100" name="img_verify_min_dim" value="<?php isset($file_data['img_verify_min_dim']) && (int)$file_data['img_verify_min_dim'] > 10 ? print (int)$file_data['img_verify_min_dim'] : '' ?>" />
+
+
             </div>
-            <div class="col-md-6 mt-2">
+            <div class="col-6 mt-2">
                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Mail related file can be downloaded by operator if he'); ?></h6>
                 <label class="d-block"><input type="radio" name="mail_file_policy" <?php if (!isset($file_data['mail_file_policy']) || $file_data['mail_file_policy'] == 0) : ?>checked="checked"<?php endif;?> value="0" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Has permission to use mail module (default)'); ?></label>
                 <label class="d-block"><input type="radio" name="mail_file_policy" <?php if (isset($file_data['mail_file_policy']) && $file_data['mail_file_policy'] == 1) : ?>checked="checked"<?php endif;?> value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Has permission to use mail module and access mail.'); ?></label>
+
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Image file by operator can be downloaded if'); ?> <a target="_blank" href="https://doc.livehelperchat.com/docs/bot/image-file-verification-flow"><span class="material-icons">help</span></a></h6>
+                <select class="form-control form-control-sm" name="mail_img_download_policy">
+                    <option value="0" <?php if (!isset($file_data['mail_img_download_policy']) || $file_data['mail_img_download_policy'] == 0) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Default, all images files will be downloaded'); ?></option>
+                    <option value="1" <?php if (isset($file_data['mail_img_download_policy']) && $file_data['mail_img_download_policy'] == 1) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Verified and has permission to download protected images OR has permission to download unprotected files'); ?></option>
+                </select>
+                <label class="d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Minimum image width or height to require verification'); ?></label>
+                <input type="number" class="form-control" min="10" placeholder="100" name="mail_img_verify_min_dim" value="<?php isset($file_data['mail_img_verify_min_dim']) && (int)$file_data['mail_img_verify_min_dim'] > 10 ? print (int)$file_data['mail_img_verify_min_dim'] : '' ?>" />
+
             </div>
+
         </div>
     </div>
 
-    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','ClamAV antivirus configuration'); ?></h3>
+    <h3 class="mt-4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','ClamAV antivirus configuration'); ?></h3>
 
     <div class="form-group">
         <label><input type="checkbox" name="AntivirusFileScanEnabled" value="on" <?php isset($file_data['clamav_enabled']) && ($file_data['clamav_enabled'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Uploaded files from visitors are scanned'); ?></label>

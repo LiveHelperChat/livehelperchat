@@ -2,6 +2,8 @@ import parse, { domToReact } from 'html-react-parser';
 import React, { useState } from "react";
 import MailChatQuote from "./MailChatQuote";
 import MailChatReply from "./MailChatReply";
+import MailChatImage from "./MailChatImage";
+import MailChatAttachment from "./MailChatAttachment";
 import {useTranslation} from 'react-i18next';
 import axios from "axios";
 
@@ -211,6 +213,22 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                         delete domNode.attribs.class;
                     }
 
+                    if (domNode.name && domNode.name === 'img') {
+                        if (domNode.attribs.style) {
+                            domNode.attribs.style = getStyleObjectFromString(domNode.attribs.style);
+                        }
+                        
+                        return <MailChatImage 
+                            download_policy={moptions.download_policy}
+                            src={domNode.attribs.src}
+                            alt={domNode.attribs.alt}
+                            title={domNode.attribs.title}
+                            className={domNode.attribs.className}
+                            style={domNode.attribs.style}
+                            {...domNode.attribs}
+                        />;
+                    }
+
                     if (domNode.name && domNode.name === 'blockquote') {
                         if (domNode.attribs.style) {
                             domNode.attribs.style = getStyleObjectFromString(domNode.attribs.style);
@@ -224,8 +242,19 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
     </div>}
 
         {expandBody && message.attachments && message.attachments.length > 0 &&
-            <div className="pb-2 col-12">{message.attachments.map((file) => (
-                <a className="btn btn-sm btn-outline-info me-1" href={file.download_url} title={file.description}>{file.name}</a>
+            <div className="pb-2 col-12">
+                {message.attachments.map((file) => (
+                
+                <MailChatAttachment
+                    key={file.id}
+                    id={file.id}
+                    name={file.name}
+                    description={file.description}
+                    download_url={file.download_url}
+                    is_image={file.is_image}
+                    download_policy={moptions.download_policy}
+                />
+
             ))}</div>
         }
 
