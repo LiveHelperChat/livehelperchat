@@ -80,9 +80,11 @@ try {
                                 erLhcoreClassLog::logObjectChange(array(
                                     'check_log' => true,
                                     'object' => $mail,
+                                    'object_id' => $mail->conversation_id,
                                     'action_class' => 'FileReveal',
                                     'user_id' => erLhcoreClassUser::instance()->getUserID(),
                                     'msg' => array(
+                                        'message_id' => $mail->id,
                                         'file_id' => $file->id,
                                         'name_official' => erLhcoreClassUser::instance()->getUserData(true)->name_official
                                     )

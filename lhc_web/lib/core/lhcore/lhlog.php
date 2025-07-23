@@ -124,7 +124,7 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
             'category' => $className,
             'line' => __LINE__,
             'file' => __FILE__,
-            'object_id' => $params['object']->id
+            'object_id' => (isset($params['object_id']) ? $params['object_id'] : $params['object']->id)
         );
 
         if (isset($params['user_id'])) {
