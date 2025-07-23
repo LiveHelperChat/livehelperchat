@@ -152,6 +152,7 @@
             <option value="Group">Group changes</option>
             <option value="routing_priority">Routing Priority</option>
             <option value="ChatFileReveal">Sensitive chat file reveal</option>
+            <option value="MailconvMessageFileReveal">Sensitive mail file reveal</option>
             <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/audit/category_list_multiinclude.tpl.php'));?>
         </datalist>
     </div>

@@ -110,7 +110,6 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
         if (isset($params['check_log']) && $params['check_log'] == true) {
             $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
             $data = (array)$auditOptions->data;
-
             if (!(isset($data['log_objects']) && is_array($data['log_objects']) && in_array($className,$data['log_objects']))){
                 return;
             }
