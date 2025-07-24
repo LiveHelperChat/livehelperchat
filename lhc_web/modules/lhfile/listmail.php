@@ -12,6 +12,22 @@ if (isset($_GET['doSearch'])) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+// If filtering by conversation_id, fetch message IDs and use them instead
+if (isset($filterParams['filter']['filter']['conversation_id'])) {
+    $conversationId = $filterParams['filter']['filter']['conversation_id'];
+    $messages = erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $conversationId], 'select_columns' => ['id']]);
+    $messageIds = array_column($messages, 'id');
+
+    unset($filterParams['filter']['filter']['conversation_id']);
+
+    if (!empty($messageIds)) {
+        $filterParams['filter']['filterin']['message_id'] = $messageIds;
+    } else {
+        // No messages found, ensure no results
+        $filterParams['filter']['filter']['message_id'] = -1;
+    }
+}
+
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('file/listmail').$append;
 $pages->items_total = erLhcoreClassModelMailconvFile::getCount($filterParams['filter']);
