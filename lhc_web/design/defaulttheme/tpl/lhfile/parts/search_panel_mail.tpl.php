@@ -37,26 +37,4 @@
         </div>
     </div>
 
-    <?php if (isset($fileSearchOptions['ajax']) && $fileSearchOptions['ajax'] === true) : ?>
-        <input type="hidden" name="ajax_search" value="1">
-    <script>
-        (function() {
-            $('#mailfile-search-form').on('submit',function () {
-                var form = $(this);
-                $.get(form.attr('action'),form.serialize(), function(data) {
-                    $('#mailfile-search-content').html(data);
-                });
-
-                return false;
-            });
-            var timeout = null;
-            $('#mailfile_name,#mailfile_id,#mailfile_conversation_id,#mailfile_message_id').keyup(function() {
-                clearTimeout(timeout);
-                timeout = setTimeout(function(){
-                    $('#mailfile-search-form').submit();
-                },200);
-            });
-        })();
-    </script>
-    <?php endif; ?>
 </form>
