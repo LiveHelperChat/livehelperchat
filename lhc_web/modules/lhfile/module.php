@@ -100,6 +100,11 @@ $ViewList['listmail'] = array(
     'functions' => array( 'file_list_mail' )
 );
 
+$ViewList['editmail'] = array(
+    'params' => array('file_id'),
+    'functions' => array( 'file_list_mail' )
+);
+
 $ViewList['delete'] = array(
 		'params' => array('file_id'),
 		'uparams' => array('csfr'),
