@@ -45,6 +45,18 @@
                 <?php foreach (erLhcoreClassModelMailconvMessage::getList(array('ignore_fields' => ['body','alt_body'],'filter' => array('conversation_id' => $chat->id))) as $message) : ?>
                     <pre class="fs11"><?php echo htmlspecialchars(json_encode($message->getState(),JSON_PRETTY_PRINT)); ?></pre>
                 <?php endforeach;?>
+
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Files');?></h6>
+                <?php foreach (erLhcoreClassModelMailconvMessage::getList(array('ignore_fields' => ['body','alt_body'],'filter' => array('conversation_id' => $chat->id))) as $message) : ?>
+                    <?php $files = erLhcoreClassModelMailconvFile::getList(['filter' => ['message_id' => $message->id]]); ?>
+                    <?php if (!empty($files)) : ?>
+                        <h6 class="fs12">Message ID: <?php echo htmlspecialchars($message->id); ?></h6>
+                        <?php foreach ($files as $file) : ?>
+                            <pre class="fs11"><?php echo htmlspecialchars(json_encode($file->getState(),JSON_PRETTY_PRINT)); ?></pre>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                <?php endforeach;?>
+
             </div>
             <?php endif; ?>
             <?php if ($chat->is_archive === false && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_op_actions')) : ?>
