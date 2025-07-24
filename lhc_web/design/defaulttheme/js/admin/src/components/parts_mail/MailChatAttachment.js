@@ -53,7 +53,7 @@ const MailChatAttachment = ({
 
                 // Check download policy (convert to number for comparison)
                 const policyValue = parseInt(download_policy, 10);
-                if (policyValue === 0) {
+                if (policyValue === 0 || !is_image) {
                     // No verification needed - allow download immediately
                     setCanDownload(true);
                     setFinalDownloadUrl(download_url);
