@@ -49,7 +49,7 @@ $ViewList['downloadfile'] = array(
 
 $ViewList['verifyaccess'] = array(
 		'params' => array('file_id','hash'),
-		'functions' => array( 'use_operator' )
+		'functions' => array( 'verify_file' )
 );
 
 $ViewList['uploadfileadmin'] = array(
@@ -125,6 +125,6 @@ $FunctionList['file_delete'] = array('explain' => 'Allow operators to delete all
 $FunctionList['file_delete_chat'] = array('explain' => 'Allow operators to delete their chat files');
 $FunctionList['download_unverified'] = array('explain' => 'Allow operators to download unverified files');
 $FunctionList['download_verified'] = array('explain' => 'Allow operators to download verified, but sensitive files');
-$FunctionList['use_operator'] = array('explain' => 'Allow to verify access to files');
+$FunctionList['verify_file'] = array('explain' => 'Allow to verify access to files');
 
 ?>
