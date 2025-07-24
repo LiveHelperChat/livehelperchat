@@ -7,7 +7,11 @@
         <?php endif; ?>
 
         <?php if ($currentUser->hasAccessTo('lhfile','file_list')) : ?>
-        <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of files');?></a></li>
+        <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of chat files');?></a></li>
+        <?php endif; ?>
+
+        <?php if ($currentUser->hasAccessTo('lhfile','file_list_mail')) : ?>
+        <li><a href="<?php echo erLhcoreClassDesign::baseurl('file/listmail')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of mail files');?></a></li>
         <?php endif; ?>
 </ul>
 <?php endif; ?>

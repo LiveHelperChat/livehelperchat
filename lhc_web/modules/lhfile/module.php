@@ -94,6 +94,17 @@ $ViewList['list'] = array(
 		'functions' => array( 'file_list' )
 );
 
+$ViewList['listmail'] = array(
+    'params' => array(),
+    'uparams' => array('user_id', 'visitor', 'persistent','upload_name'),
+    'functions' => array( 'file_list_mail' )
+);
+
+$ViewList['editmail'] = array(
+    'params' => array('file_id'),
+    'functions' => array( 'file_list_mail' )
+);
+
 $ViewList['delete'] = array(
 		'params' => array('file_id'),
 		'uparams' => array('csfr'),
@@ -126,5 +137,6 @@ $FunctionList['file_delete_chat'] = array('explain' => 'Allow operators to delet
 $FunctionList['download_unverified'] = array('explain' => 'Allow operators to download unverified files');
 $FunctionList['download_verified'] = array('explain' => 'Allow operators to download verified, but sensitive files');
 $FunctionList['verify_file'] = array('explain' => 'Allow to verify access to files');
+$FunctionList['file_list_mail'] = array('explain' => 'Allow to list mail messages files');
 
 ?>
