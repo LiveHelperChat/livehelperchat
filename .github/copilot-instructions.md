@@ -23,6 +23,10 @@
 * `lhc_web/settings` - Contains application settings files
 * `lhc_web/translations ` - Contains application translations
 
+# Database structure you can find in
+
+lhc_web/doc/update_db/structure.json
+
 # MVC Pattern workflow
 
 ## Where are models defined?
