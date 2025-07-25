@@ -636,7 +636,7 @@ class erLhcoreClassModule{
 
         self::$cacheInstance = CSCacheAPC::getMem();
         self::$cacheVersionSite = self::$cacheInstance->getCacheVersion('site_version');
-        self::$defaultTimeZone = $cfg->getSetting('site', 'time_zone', false);
+        self::$defaultTimeZoneSystem = self::$defaultTimeZone = $cfg->getSetting('site', 'time_zone', false);
         self::$dateFormat = $cfg->getSetting('site', 'date_format', false);
         self::$dateHourFormat = $cfg->getSetting('site', 'date_hour_format', false);
         self::$dateDateHourFormat = $cfg->getSetting('site', 'date_date_hour_format', false);
@@ -715,6 +715,7 @@ class erLhcoreClassModule{
     public static $cacheDbVariables = true;    
     
     public static $defaultTimeZone = NULL;
+    public static $defaultTimeZoneSystem = NULL;
     public static $dateFormat = NULL;
     public static $dateHourFormat = NULL;
     public static $dateDateHourFormat = NULL;
