@@ -1579,7 +1579,7 @@ try {
                 ('preload_iframes','0','0','Preload widget. It will avoid loading delay after clicking widget','0'),
                 ('product_show_departament','0','0','Enable products show by departments', '1'),
                 ('paidchat_data','','0','Paid chat configuration','1'),
-                ('version_updates',	'335',	0,	'',	1),
+                ('version_updates',	'337',	0,	'',	1),
                 ('del_on_close_no_msg','0','0','Delete chat on close if there are no messages from the visitor','0'),
                 ('mheight_op','200','0','Messages box height for operator','0'),
                 ('listd_op','10','0','Default number of online operators to show','0'),

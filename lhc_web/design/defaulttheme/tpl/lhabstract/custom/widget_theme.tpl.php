@@ -858,6 +858,9 @@
                     <?php $translatableItem = array('identifier' => 'placeholder_message'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
+                    <?php $translatableItem = array('identifier' => 'placeholder_file_message'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
                     <?php $translatableItem = array('identifier' => 'bot_status_text'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
                     

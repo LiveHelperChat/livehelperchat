@@ -47,7 +47,9 @@ $translations = array(
         "drop_files" => erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Drop your files here.'),
         "type_here" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your message...'),
         "enter_email" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendchat', 'Enter your e-mail'),
-        "typing" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','is typing now...')
+        "typing" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','is typing now...'),
+        'files_attached' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Question about your files'),
+        'remove_file' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Remove file'),
     ],
     "start_chat" => [
         "thank_you_for_feedback" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Thank you for your feedback...'),

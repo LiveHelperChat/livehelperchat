@@ -12,8 +12,7 @@ class ChatFileUploader extends PureComponent {
         files: [],
         uploading: false,
         uploadProgress: {},
-        successfullUploaded: false,
-        previewFiles: []
+        successfullUploaded: false
     };
 
     constructor(props) {
@@ -134,10 +133,6 @@ class ChatFileUploader extends PureComponent {
                         if (file.type.startsWith('image/')) {
                             fileData.previewUrl = URL.createObjectURL(file);
                         }
-
-                        this.setState(prevState => ({
-                            previewFiles: [...prevState.previewFiles, fileData]
-                        }));
 
                         if (this.props.onFilePreview) {
                             this.props.onFilePreview(fileData);

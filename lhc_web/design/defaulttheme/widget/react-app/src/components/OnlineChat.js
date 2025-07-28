@@ -22,6 +22,7 @@ const VoiceMessage = React.lazy(() => import('./VoiceMessage'));
 const MailModal = React.lazy(() => import('./MailModal'));
 const FontSizeModal = React.lazy(() => import('./FontSizeModal'));
 const CustomHTML = React.lazy(() => import('./CustomHTML'));
+const FilePreview = React.lazy(() => import('./FilePreview'));
 
 @connect((store) => {
     return {
@@ -1011,6 +1012,8 @@ class OnlineChat extends Component {
                 placeholder = t('chat.drop_files');
             } else if (this.props.chatwidget.getIn(['chatLiveData','closed'])) {
                 placeholder = t('chat.chat_closed');
+            } else if (this.state.previewFiles.length > 0) {
+                placeholder = this.props.chatwidget.hasIn(['chat_ui','placeholder_file_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_file_message']) : t('chat.files_attached');
             } else {
                 placeholder = this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here');
             }
@@ -1203,38 +1206,13 @@ class OnlineChat extends Component {
                                 <React.Fragment>
                                     {/* File Preview Section */}
                                     {this.state.previewFiles.length > 0 && (
-                                        <div className="file-preview-container p-2 border-bottom position-absolute w-100" style={{bottom: '100%', left: 0, zIndex: 10}}>
-                                            <div className="d-flex flex-wrap gap-2">
-                                                {this.state.previewFiles.map((file, index) => (
-                                                    <div key={file.id || index} className="file-preview-item position-relative">
-                                                        {file.previewUrl && file.type && file.type.startsWith('image/') ? (
-                                                            <div className="position-relative">
-                                                                <img src={file.previewUrl} alt={file.name} className="file-preview-image border rounded" style={{width: '60px', height: '60px', objectFit: 'cover'}} />
-                                                                <button
-                                                                    type="button"
-                                                                    className="position-absolute top-0 end-0 btn btn-danger btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                                    onClick={() => this.removeFilePreview(file.id)}
-                                                                    title="Remove file"
-                                                                    style={{width: '20px', height: '20px', fontSize: '0.7rem', transform: 'translate(50%, -50%)'}}
-                                                                >×</button>
-                                                            </div>
-                                                        ) : (
-                                                            <div className="position-relative d-flex align-items-center bg-light border rounded p-2">
-                                                                <i className="material-icons me-2 text-muted">&#xf10e;</i>
-                                                                <span className="small text-truncate" style={{maxWidth: '80px'}}>{file.name}</span>
-                                                                <button
-                                                                    type="button"
-                                                                    className="position-absolute top-0 end-0 btn btn-danger btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                                    onClick={() => this.removeFilePreview(file.id)}
-                                                                    title="Remove file"
-                                                                    style={{width: '20px', height: '20px', fontSize: '0.7rem', transform: 'translate(50%, -50%)'}}
-                                                                >×</button>
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
+                                        <Suspense fallback="...">
+                                            <FilePreview 
+                                                previewFiles={this.state.previewFiles}
+                                                onRemoveFile={this.removeFilePreview}
+                                                t={t}
+                                            />
+                                        </Suspense>
                                     )}
 
                                     <SharedTextarea
