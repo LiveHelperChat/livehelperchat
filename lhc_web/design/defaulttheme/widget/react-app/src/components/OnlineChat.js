@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import parse from 'html-react-parser';
-import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping, minimizeWidget, setSiteAccess, updateMessage, cancelPresurvey} from "../actions/chatActions"
+import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping, minimizeWidget, setSiteAccess, updateMessage, cancelPresurvey, removeFilePreview} from "../actions/chatActions"
 import { STATUS_CLOSED_CHAT, STATUS_BOT_CHAT, STATUS_SUB_SURVEY_SHOW, STATUS_SUB_USER_CLOSED_CHAT } from "../constants/chat-status";
 import ChatMessage from './ChatMessage';
 import ChatModal from './ChatModal';
@@ -922,7 +922,15 @@ class OnlineChat extends Component {
                     previewFiles: [fileData]
                 };
             }
-            // Otherwise, add to existing files
+            // Otherwise, add to existing files but limit to 4 files maximum
+            if (prevState.previewFiles.length >= 4) {
+                // Remove the oldest file (first in array) and add the new one
+                const oldestFile = prevState.previewFiles[0];
+                this.handleFileRemoval(oldestFile);
+                return {
+                    previewFiles: [...prevState.previewFiles.slice(1), fileData]
+                };
+            }
             return {
                 previewFiles: [...prevState.previewFiles, fileData]
             };
@@ -930,22 +938,23 @@ class OnlineChat extends Component {
     }
 
     handleFileRemoval(file) {
-        // Implement file removal logic here
-        // This could include:
-        // - Making API call to remove temporary file from server
-        // - Cleanup of blob URLs or other resources
-        // - Any other cleanup needed for the file
-        
+        // Clean up blob URLs to prevent memory leaks
         if (file.previewUrl && file.previewUrl.startsWith('blob:')) {
-            // Clean up blob URLs to prevent memory leaks
             URL.revokeObjectURL(file.previewUrl);
         }
-
-        console.log(`Removing file preview: ${file.name} (${file.id})`);
         
-        // Add any additional file cleanup logic here
-        // For example, if you need to make an API call to remove the file:
-        // fetch('/api/remove-temp-file', { method: 'POST', body: JSON.stringify({fileId: file.id}) });
+        // If file has been uploaded to server (has security_hash), remove it from server
+        if (file.security_hash && file.security_hash !== 'preview') {
+            this.props.dispatch(removeFilePreview({
+                'file_id': file.id,
+                'security_hash': file.security_hash
+            })).then(() => {
+                
+            }).catch((error) => {
+                console.warn('Failed to remove file from server:', error);
+                // Continue with local removal even if server removal fails
+            });
+        }
     }
 
     removeFilePreview(fileId) {
@@ -1251,12 +1260,12 @@ class OnlineChat extends Component {
 
                                     {this.state.voiceMode === true && <Suspense fallback="..."><VoiceMessage onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} maxSeconds={this.props.chatwidget.getIn(['chat_ui','voice_message'])} cancel={this.cancelVoiceRecording} /></Suspense>}
 
-                                    {(!this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) || this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size == 0) && !this.props.chatwidget.getIn(['chatLiveData','lock_send']) && this.props.chatwidget.hasIn(['chat_ui','voice_message']) && typeof window.Audio !== "undefined" && this.state.value.length == 0 && this.state.voiceMode === false && <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.startVoiceRecording() : '' }} onClick={this.startVoiceRecording} title={t('button.record_voice')}>
+                                    {(!this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) || this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size == 0) && !this.props.chatwidget.getIn(['chatLiveData','lock_send']) && this.props.chatwidget.hasIn(['chat_ui','voice_message']) && typeof window.Audio !== "undefined" && (this.state.value.length == 0 && this.state.previewFiles.length == 0) && this.state.voiceMode === false && <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.startVoiceRecording() : '' }} onClick={this.startVoiceRecording} title={t('button.record_voice')}>
                                        <i className="record-icon material-icons text-muted settings me-0">&#xf10b;</i>
                                     </a>}
 
-                                    {(!this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) || this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size == 0) && !this.props.chatwidget.getIn(['chatLiveData','lock_send']) && (!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || !(typeof window.Audio !== "undefined") || (this.state.value.length > 0 && this.state.voiceMode === false)) && <a tabIndex="0" onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); this.sendMessage();}}} onClick={this.sendMessage} title={t('button.send_msg')}>
-                                       <i className={"send-icon material-icons settings me-0" + (this.state.value.length == 0 ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
+                                    {(!this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) || this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size == 0) && !this.props.chatwidget.getIn(['chatLiveData','lock_send']) && (!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || !(typeof window.Audio !== "undefined") || ( (this.state.value.length > 0 || this.state.previewFiles.length > 0) && this.state.voiceMode === false)) && <a tabIndex="0" onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); this.sendMessage();}}} onClick={this.sendMessage} title={t('button.send_msg')}>
+                                       <i className={"send-icon material-icons settings me-0" + (this.state.value.length == 0 && this.state.previewFiles.length == 0 && this.state.voiceMode === false ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
                                     </a>}
 
                                     {(this.props.chatwidget.getIn(['chatLiveData','lock_send']) || (this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) && this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size > 0)) && <i className="in-progress-icon material-icons text-muted settings me-0">&#xf113;</i>}

@@ -42,6 +42,11 @@ $ViewList['useronlinefileslist'] = array(
 		'functions' => array( )
 );
 
+$ViewList['removepreview'] = array(
+		'params' => array(),
+		'uparams' => array(),
+);
+
 $ViewList['downloadfile'] = array(
 		'params' => array('file_id','hash'),
 		'uparams' => array('inline','vhash','vts'),

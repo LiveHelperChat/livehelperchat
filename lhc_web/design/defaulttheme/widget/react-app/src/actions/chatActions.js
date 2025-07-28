@@ -850,6 +850,27 @@ export function userTyping(status, msg) {
     }
 }
 
+export function removeFilePreview(obj) {
+    return function(dispatch, getState) {
+        const state = getState();
+        
+        return axios.post(window.lhcChat['base_url'] + "file/removepreview", JSON.stringify({
+            'file_id': obj.file_id,
+            'security_hash': obj.security_hash,
+            'chat_id': state.chatwidget.getIn(['chatData','id']),
+            'hash': state.chatwidget.getIn(['chatData','hash'])
+        }), defaultHeaders)
+        .then((response) => {
+            // File successfully removed from server
+            return response.data;
+        })
+        .catch((err) => {
+            console.log('Error removing file preview:', err);
+            throw err;
+        });
+    }
+}
+
 export function submitInlineSurvey(obj) {
     return axios.post(window.lhcChat['base_url'] + "survey/fillinline",  JSON.stringify(obj), defaultHeaders);
 }
