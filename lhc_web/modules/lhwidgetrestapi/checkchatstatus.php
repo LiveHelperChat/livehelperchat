@@ -67,8 +67,8 @@ try {
     			$delay = time()-$department->delay_lm;
     			if ($department->delay_lm > 0 && $chat->pnd_time < $delay) {
     				$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? 'chat/chatwidget' : 'chat/startchat';
-    				$ru = $baseURL.'/(department)/'.$department->id.'/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash . (isset($Params['user_parameters']['theme']) && is_numeric($Params['user_parameters']['theme']) ? '/(theme)/'.$Params['user_parameters']['theme'] : '');
-    				
+    				$ru = $baseURL.'/(department)/' . ($department->alias != '' ? $department->alias : $department->id) . '/(offline)/truedd/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash . (isset($Params['user_parameters']['theme']) && is_numeric($Params['user_parameters']['theme']) ? '/(theme)/'.$Params['user_parameters']['theme'] : '');
+
     				$msg = new erLhcoreClassModelmsg();
     				$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Visitor has been redirected to contact form');
     				$msg->chat_id = $chat->id;
@@ -124,7 +124,7 @@ try {
 	    	$department = $chat->department;
 	    	if ($department !== false) {
 	    		$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? 'chat/chatwidget' : 'chat/startchat';
-	    		$ru = $baseURL.'/(department)/'.$department->id.'/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash . (isset($Params['user_parameters']['theme']) && is_numeric($Params['user_parameters']['theme']) ? '/(theme)/'.$Params['user_parameters']['theme'] : '');
+	    		$ru = $baseURL.'/(department)/' . ($department->alias != '' ? $department->alias : $department->id) . '/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash . (isset($Params['user_parameters']['theme']) && is_numeric($Params['user_parameters']['theme']) ? '/(theme)/'.$Params['user_parameters']['theme'] : '');
 
 	    		$msg = new erLhcoreClassModelmsg();
 	    		$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Visitor has been redirected to contact form');
@@ -140,7 +140,6 @@ try {
             $responseArray['deleted'] = true;
         }
 
-        
         
 	    $tpl->set('chat', $chat);
     } else {

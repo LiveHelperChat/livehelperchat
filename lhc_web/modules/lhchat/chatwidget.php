@@ -164,11 +164,9 @@ $inputData->phone = '';
 $inputData->product_id = '';
 
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
-    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
-    $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
-	$inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
+    $inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
 } else {
-	$inputData->departament_id = 0;
+    $inputData->departament_id = 0;
 }
 
 if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && ($startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("((`dep_ids` != '' AND JSON_CONTAINS(`dep_ids`,'" . (int)$inputData->departament_id . "','$')) OR department_id = " . (int)$inputData->departament_id . ")" )))) !== false) {
