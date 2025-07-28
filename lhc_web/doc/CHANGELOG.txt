@@ -1,6 +1,67 @@
 4.68v
 
+1. Mail module enhancements
+   - Added comprehensive mail file management system with listing, viewing, and searching functionalities
+   - Enhanced mail image verification flow with protection mechanisms and sensitive content handling
+   - New components: MailChatAttachment and MailChatImage for better mail attachment handling
+   - Mail files archive tables now maintain consistent structure
+   - Improved file details display in mail history
+   - Better handling of mail file verification and download permissions
 
+2. User management improvements
+   - Added job title field to user department alias functionality
+   - Enhanced user department attributes with additional customization options
+   - Improved validation and structure for user department relationships
+
+3. BBCode and URL handling enhancements
+   - Added URL whitelist functionality for BBCode configuration to control link visibility
+   - Enhanced URL obfuscation in BBCode parser with whitelist support
+   - Improved BBCode URL handling and file extraction in messages
+   - Added Message class for better file extraction functionality
+   - Enhanced security and user control over link visibility
+
+4. File and image handling improvements
+   - New permission system for file verification with granular access control
+   - Allow non-image files to download with proper verification
+   - Enhanced file reveal functionality and logging capabilities
+   - Improved image attributes display in file edit window
+   - Better styling for reveal image actions
+
+5. Mail search and performance optimizations
+   - Enhanced mail search using message_id for improved performance
+   - Better handling of mail file operations and verification flow
+   - Optimized database queries for mail-related operations
+
+6. System configuration enhancements
+   - Added default system time zone variable for better timezone handling
+   - Option to see SMTP debug information for troubleshooting
+   - Enhanced SMTP settings form and tab navigation
+   - Improved audit configuration and logging capabilities
+
+7. Security and data handling
+   - Fixed JSON export formatting with Unicode support and pretty printing (#2283)
+   - Enhanced security for file downloads and verification
+   - Better handling of sensitive information in mail attachments
+   - Improved agent name escaping in various contexts
+
+8. Performance and stability improvements
+   - Combined department and department group results for better consistency
+   - Merged department ID filters for improved data consistency in statistics retrieval
+   - Enhanced message handling logic in fetch operations
+   - React app version updates and script reference adjustments
+   - Better content fetching and caching mechanisms
+
+9. UI and UX improvements
+   - Enhanced file body parsing and embed functionality for chat files
+   - Improved styling and visual feedback for various components
+   - Better handling of verification states and user interactions
+   - Enhanced modal windows and form interactions
+
+10. Developer and debugging improvements
+    - Option to skip request body in logging for performance
+    - Enhanced debugging capabilities with better logging options
+    - Improved database structure documentation and references
+    - Better error handling and validation throughout the system
 
 execute doc/update_db/update_336.sql for update
 
