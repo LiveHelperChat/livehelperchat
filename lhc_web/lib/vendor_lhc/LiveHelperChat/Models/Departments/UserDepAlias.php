@@ -155,12 +155,12 @@ class UserDepAlias {
                     }
                 }
 
-                if ($alias->job_title != '') {
-                    $params['user']->job_title = $alias->job_title;
-                }
-
                 if (in_array($params['scope'],['typing','msg','canned_replace','as_string'])) {
                     return; // We are interested only in nick
+                }
+
+                if ($alias->job_title != '') {
+                    $params['user']->job_title = $alias->job_title;
                 }
 
                 $hasAliasPhoto = false;
