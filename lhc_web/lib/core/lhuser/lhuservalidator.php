@@ -72,6 +72,9 @@ class erLhcoreClassUserValidator {
             'alias_nick' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'alias_job_title' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'avataralias_dep' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -89,6 +92,10 @@ class erLhcoreClassUserValidator {
 
         if ( $form->hasValidData( 'avataralias_dep' )) {
             $userDepAlias->avatar = $form->avataralias_dep;
+        }
+
+        if ( $form->hasValidData( 'alias_job_title' )) {
+            $userDepAlias->job_title = $form->alias_job_title;
         }
 
         if ( $form->hasValidData( 'alias_photo_delete' ) && $form->alias_photo_delete == true) {

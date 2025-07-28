@@ -92,26 +92,41 @@ class erLhcoreClassGenericBotActionConditions {
 
                         } elseif ($paramsConditions[0] == 'siteaccess') {
                             $attr = erLhcoreClassSystem::instance()->SiteAccess;
-                        } elseif ($paramsConditions[0] == 'online_department_hours') {
-                            $attr = erLhcoreClassChat::isOnline($chat->dep_id, false, array(
+                        } elseif (str_starts_with($paramsConditions[0],'online_department_hours')) {
+
+                            $depId = self::getDepId($chat, $paramsConditions[0]);
+
+                            $attr = erLhcoreClassChat::isOnline($depId, false, array(
                                 'exclude_bot' => true,
                                 'exclude_online_hours' => false,
                                 'ignore_user_status' => true
                             )) ? 1 : 0;
+
                             $valAttr = (int)$valAttr;
-                        } elseif ($paramsConditions[0] == 'online_department') {
-                            $attr = erLhcoreClassChat::isOnline($chat->dep_id, false, array(
+
+                        } elseif (str_starts_with($paramsConditions[0],'online_department')) {
+
+                            $depId = self::getDepId($chat, $paramsConditions[0]);
+
+                            $attr = erLhcoreClassChat::isOnline($depId, false, array(
                                 'exclude_bot' => true,
                                 'exclude_online_hours' => false
                             )) ? 1 : 0;
+
                             $valAttr = (int)$valAttr;
-                        } elseif ($paramsConditions[0] == 'online_op_department') {
-                            $attr = erLhcoreClassChat::isOnline($chat->dep_id, false, array(
+
+                        } elseif (str_starts_with($paramsConditions[0],'online_op_department')) {
+
+                            $depId = self::getDepId($chat, $paramsConditions[0]);
+
+                            $attr = erLhcoreClassChat::isOnline($depId, false, array(
                                 'exclude_bot' => true,
                                 'exclude_online_hours' => true,
                                 'include_users' => true
                             )) ? 1 : 0;
+
                             $valAttr = (int)$valAttr;
+
                         } elseif (isset($chatVariables[$condition['content']['attr']])) {
                             $attr = $chatVariables[$condition['content']['attr']];
                         } elseif (isset($chatAttributesFrontend[$condition['content']['attr']])) {
@@ -362,6 +377,27 @@ class erLhcoreClassGenericBotActionConditions {
                 }
             }
         }
+    }
+
+    /**
+     * @param $chat
+     * @param $paramsConditions
+     * @return mixed|string|string[]
+     */
+    public static function getDepId($chat, $paramsConditions): mixed
+    {
+        $depId = $chat->dep_id;
+        $depIds = explode('__', $paramsConditions);
+        if (isset($depIds[1])) {
+            $depIds = explode(',', $depIds[1]);
+            erLhcoreClassChat::validateFilterIn($depIds);
+            if (count($depIds) == 1) {
+                $depId = $depIds[0];
+            } else {
+                $depId = $depIds;
+            }
+        }
+        return $depId;
     }
 }
 ?>

@@ -26,7 +26,8 @@ class UserDepAlias {
             'nick' => $this->nick,
             'filepath' => $this->filepath,
             'filename' => $this->filename,
-            'avatar' => $this->avatar
+            'avatar' => $this->avatar,
+            'job_title' => $this->job_title
         );
 
         return $stateArray;
@@ -154,6 +155,10 @@ class UserDepAlias {
                     }
                 }
 
+                if ($alias->job_title != '') {
+                    $params['user']->job_title = $alias->job_title;
+                }
+
                 if (in_array($params['scope'],['typing','msg','canned_replace','as_string'])) {
                     return; // We are interested only in nick
                 }
@@ -185,5 +190,6 @@ class UserDepAlias {
     public $filepath = '';
     public $filename = '';
     public $avatar = '';
+    public $job_title = '';
 
 }

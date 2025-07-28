@@ -40,7 +40,12 @@
         <img width="60" height="60" id="<?php isset($avatarOptions['field_prefix']) ? print $avatarOptions['field_prefix'] : ''?>avatar_string_img" src="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($avatarOptions['avatar'])?>" alt="" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Click to set avatar');?>" />
     </div>
 
-    <div class="col-12">
+    <div class="col-6">
+        <label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Alias job title')?></label>
+        <input type="text" class="form-control form-control-sm" maxlength="50" name="alias_job_title" value="<?php echo htmlspecialchars($userDepAlias->job_title)?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Job title alias')?>" />
+    </div>
+
+    <div class="col-6">
         <label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Photo alias')?> <input type="file" accept="image/png, image/jpeg" name="alias_photo" /></label>
         <?php if ($userDepAlias->has_photo) : ?>
             <div class="pt-1">

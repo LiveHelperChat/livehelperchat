@@ -1192,6 +1192,7 @@ try {
                                     `filepath` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
                                     `filename` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
                                     `avatar` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `job_title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
                                     PRIMARY KEY (`id`),
                                     KEY `dep_id_user_id` (`dep_id`,`user_id`),
                                     KEY `dep_group_id_user_id` (`dep_group_id`,`user_id`)

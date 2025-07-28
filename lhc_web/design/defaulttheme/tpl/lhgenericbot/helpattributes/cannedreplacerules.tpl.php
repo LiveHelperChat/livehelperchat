@@ -12,6 +12,7 @@
         <li><strong>{args.chat.user.name_support}</strong> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Operator nick');?> </li>
         <li><strong>{args.chat.online_user.previous_chat.chat_variables_array.vip}</strong> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Previous chat additional chat variable');?> </li>
         <li><strong>{args.msg.msg} OR {args.chat.last_message}</strong> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Visitor message content');?> </li>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Check conditions for bot')?> <a href="https://doc.livehelperchat.com/docs/bot/check-conditions"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'additional information');?></a></li>
         <?php if (isset($_GET['canned'])) : ?>
             <li><strong>{nick}</strong> = <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Visitor nick');?></li>
             <li><strong>{email}</strong> = <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Visitor e-mail');?></li>

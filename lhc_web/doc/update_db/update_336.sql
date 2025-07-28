@@ -1,0 +1,1 @@
+ALTER TABLE `lh_userdep_alias` ADD `job_title` varchar(100) NOT NULL, COMMENT='';

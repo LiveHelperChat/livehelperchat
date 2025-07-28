@@ -16,7 +16,7 @@ foreach (['dep_id','dep_group_id','user_id'] as $posAttr) {
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 }
 
-foreach (['nick','filepath','filename','avatar'] as $posAttr) {
+foreach (['nick','filepath','filename','avatar','job_title'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;
