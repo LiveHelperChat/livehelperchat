@@ -34,8 +34,6 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/video.tpl.php'));?>
         <?php elseif ($type == 'button_message') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/button_message.tpl.php'));?>
-        <?php elseif ($type == 'attachements') : ?>
-            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/attachements.tpl.php'));?>
         <?php elseif ($type == 'chat_operation') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/chat_operation.tpl.php'));?>
         <?php elseif ($type == 'text_conditional') : ?>
