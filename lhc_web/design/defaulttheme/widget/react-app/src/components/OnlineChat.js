@@ -912,9 +912,7 @@ class OnlineChat extends Component {
     onFilePreview(fileData) {
         this.setState(prevState => {
             // If one_file_upload is enabled, replace existing files instead of adding
-            if (this.props.chatwidget.getIn(['chat_ui', 'file_options']) && 
-                this.props.chatwidget.getIn(['chat_ui', 'file_options']).has('one_file_upload') &&
-                this.props.chatwidget.getIn(['chat_ui', 'file_options']).get('one_file_upload')) {
+            if (this.props.chatwidget.getIn(['chat_ui', 'file_options', 'one_file_upload']) === true) {
                 // Remove existing files first
                 prevState.previewFiles.forEach(file => {
                     this.handleFileRemoval(file);
