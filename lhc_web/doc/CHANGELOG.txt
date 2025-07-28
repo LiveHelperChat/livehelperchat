@@ -1,3 +1,7 @@
+4.69v
+
+execute doc/update_db/update_337.sql for update
+
 4.68v
 
 1. Mail module enhancements

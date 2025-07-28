@@ -35,6 +35,7 @@ try {
 }
 
 $processAttachements = true;
+$filesTemporary = [];
 
 if (isset($payload['attachments']) && is_array($payload['attachments']) && (!isset($payload['msg']) || trim($payload['msg']) == '')) {
     $processAttachements = false;
@@ -43,6 +44,7 @@ if (isset($payload['attachments']) && is_array($payload['attachments']) && (!iss
             $file = erLhcoreClassModelChatFile::fetch($attachment['id']);
             if ($file instanceof erLhcoreClassModelChatFile && $file->security_hash === $attachment['security_hash'] && $file->chat_id > 0 && $file->chat_id === (int)$payload['id']) {
                 $payload['msg'] .= '[file=' . $file->id . '_' . $file->security_hash . ']' . "\n";
+                $filesTemporary []= $file;
             }
         }
     }
@@ -113,6 +115,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
                                 'id' => $file->id,
                                 'security_hash' => $file->security_hash
                             );
+                            $filesTemporary []= $file;
                         }
                     }
                 }
@@ -126,6 +129,11 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
 
             erLhcoreClassChat::getSession()->save($msg);
      
+            foreach ($filesTemporary as $file) {
+                $file->tmp = 0;
+                $file->updateThis(array('update' => array('tmp')));
+            }
+
             if (!isset($msg)) {
                 $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.$minLengthMessage;
                 echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));

@@ -909,15 +909,55 @@ class OnlineChat extends Component {
     }
 
     onFilePreview(fileData) {
-        this.setState(prevState => ({
-            previewFiles: [...prevState.previewFiles, fileData]
-        }));
+        this.setState(prevState => {
+            // If one_file_upload is enabled, replace existing files instead of adding
+            if (this.props.chatwidget.getIn(['chat_ui', 'file_options']) && 
+                this.props.chatwidget.getIn(['chat_ui', 'file_options']).has('one_file_upload') &&
+                this.props.chatwidget.getIn(['chat_ui', 'file_options']).get('one_file_upload')) {
+                // Remove existing files first
+                prevState.previewFiles.forEach(file => {
+                    this.handleFileRemoval(file);
+                });
+                return {
+                    previewFiles: [fileData]
+                };
+            }
+            // Otherwise, add to existing files
+            return {
+                previewFiles: [...prevState.previewFiles, fileData]
+            };
+        });
+    }
+
+    handleFileRemoval(file) {
+        // Implement file removal logic here
+        // This could include:
+        // - Making API call to remove temporary file from server
+        // - Cleanup of blob URLs or other resources
+        // - Any other cleanup needed for the file
+        
+        if (file.previewUrl && file.previewUrl.startsWith('blob:')) {
+            // Clean up blob URLs to prevent memory leaks
+            URL.revokeObjectURL(file.previewUrl);
+        }
+
+        console.log(`Removing file preview: ${file.name} (${file.id})`);
+        
+        // Add any additional file cleanup logic here
+        // For example, if you need to make an API call to remove the file:
+        // fetch('/api/remove-temp-file', { method: 'POST', body: JSON.stringify({fileId: file.id}) });
     }
 
     removeFilePreview(fileId) {
-        this.setState(prevState => ({
-            previewFiles: prevState.previewFiles.filter(file => file.id !== fileId)
-        }));
+        this.setState(prevState => {
+            const fileToRemove = prevState.previewFiles.find(file => file.id === fileId);
+            if (fileToRemove) {
+                this.handleFileRemoval(fileToRemove);
+            }
+            return {
+                previewFiles: prevState.previewFiles.filter(file => file.id !== fileId)
+            };
+        });
     }
 
     render() {

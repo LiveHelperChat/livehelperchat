@@ -47,7 +47,14 @@
         <?php endif;?>
         </td>
         <td><?php $file->persistent == 1 ? print 'Y' : print 'N'?></td>
-        <td><a href="<?php echo erLhcoreClassDesign::baseurl('file/downloadfile')?>/<?php echo $file->id?>/<?php echo $file->security_hash?>" class="link" target="_blank"><?php echo htmlspecialchars($file->upload_name)?></a></td>
+        <td>
+            
+        <?php if ($file->tmp == 1) : ?>
+            <span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Temporary file, it will be removed after chat is closed');?>">pending</span>
+        <?php endif; ?>
+
+        <a href="<?php echo erLhcoreClassDesign::baseurl('file/downloadfile')?>/<?php echo $file->id?>/<?php echo $file->security_hash?>" class="link" target="_blank"><?php echo htmlspecialchars($file->upload_name)?></a>
+    </td>
         <td nowrap><?php echo htmlspecialchars(round($file->size/1024,2))?> Kb.</td>
         <td nowrap><?php echo htmlspecialchars($file->extension)?></td>
         <td nowrap><?php echo htmlspecialchars($file->date_front)?></td>

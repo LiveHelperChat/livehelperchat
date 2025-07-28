@@ -1087,6 +1087,7 @@ try {
                `meta_msg` longtext NOT NULL,
                `width` int(11) unsigned NOT NULL DEFAULT '0',
                `height` int(11) unsigned NOT NULL DEFAULT '0',
+               `tmp` tinyint(1) unsigned NOT NULL DEFAULT '0',
         	   PRIMARY KEY (`id`),
         	   KEY `chat_id` (`chat_id`),
         	   KEY `online_user_id` (`online_user_id`),
