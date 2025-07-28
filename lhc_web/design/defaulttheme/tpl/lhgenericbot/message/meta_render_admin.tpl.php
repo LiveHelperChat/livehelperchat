@@ -20,6 +20,8 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/msg_notice_admin.tpl.php'));?>
         <?php elseif ($type == 'chat_operation') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/chat_operation_admin.tpl.php'));?>
+        <?php elseif ($type == 'attachements') : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/attachements_admin.tpl.php'));?>
         <?php else : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/meta_admin_multiinclude.tpl.php'));?>
         <?php endif; ?>

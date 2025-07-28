@@ -50,6 +50,10 @@ try {
                 $outputResponse['chat_ui']['file_options']['one_file_upload'] = true;
             }
 
+            if (isset($fileData['file_preview']) && $fileData['file_preview'] == true) {
+                $outputResponse['chat_ui']['file_options']['file_preview'] = true;
+            }
+
         } else {
             $outputResponse['chat_ui_remove'][] = ['chat_ui','file'];
             $outputResponse['chat_ui_remove'][] = ['chat_ui','file_options'];

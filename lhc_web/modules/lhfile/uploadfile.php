@@ -80,6 +80,7 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
                     'max_file_size' => $data['fs_max'] * 1024,
                     'accept_file_types_lhc' => '/\.(' . $data['ft_us'] . ')$/i',
                     'chat' => $chat,
+                    'file_preview' => (isset($data['file_preview']) && $data['file_preview'] == true),
                     'download_via_php' => true,
                     'upload_dir' => $path));
 
@@ -111,7 +112,11 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
                 $chat->user_typing = time();
                 $chat->updateThis(array('update' => array('user_typing_txt','user_typing')));
 
-                echo json_encode(array('error' => 'false'));
+                echo json_encode(array(
+                    'error' => 'false',
+                    'file_id' => $upload_handler->uploadedFile->id,
+                    'security_hash' => $upload_handler->uploadedFile->security_hash,
+            ));
             } else {
                 echo json_encode(array('error' => 'true', 'error_msg' => implode(PHP_EOL, $errors)));
             }

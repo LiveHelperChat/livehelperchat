@@ -38,6 +38,9 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'ActiveFileUploadAdmin' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'file_preview' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
         'AntivirusFileScanEnabled' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
@@ -145,6 +148,12 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['active_user_upload'] = true;
     } else {
         $data['active_user_upload'] = false;
+    }
+
+    if ($form->hasValidData('file_preview') && $form->file_preview == true) {
+        $data['file_preview'] = true;
+    } else {
+        $data['file_preview'] = false;
     }
 
     if ($form->hasValidData('MaximumResolution')) {

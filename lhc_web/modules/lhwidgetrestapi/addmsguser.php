@@ -34,6 +34,20 @@ try {
     );
 }
 
+$processAttachements = true;
+
+if (isset($payload['attachments']) && is_array($payload['attachments']) && (!isset($payload['msg']) || trim($payload['msg']) == '')) {
+    $processAttachements = false;
+    foreach ($payload['attachments'] as $attachment) {
+        if (isset($attachment['id']) && isset($attachment['security_hash'])) {
+            $file = erLhcoreClassModelChatFile::fetch($attachment['id']);
+            if ($file instanceof erLhcoreClassModelChatFile && $file->security_hash === $attachment['security_hash'] && $file->chat_id > 0 && $file->chat_id === (int)$payload['id']) {
+                $payload['msg'] .= '[file=' . $file->id . '_' . $file->security_hash . ']' . "\n";
+            }
+        }
+    }
+    $payload['msg'] = trim($payload['msg']);
+}
 
 if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[[msgitm]]', '',$payload['msg'])) != '' && mb_strlen($payload['msg']) <= $minLengthMessage)
 {
@@ -77,29 +91,41 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
         if ($chat->hash === $payload['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) // Allow add messages only if chat is active
         {
             $msgText = preg_replace('/\[html\](.*?)\[\/html\]/ms','',$payload['msg']);
+   
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = trim($msgText);
+            $msg->chat_id = $payload['id'];
+            $msg->user_id = 0;
+            $msg->time = time();
 
-            $messagesToStore = explode('[[msgitm]]', trim($msgText));
+            if ($chat->chat_locale != '' && $chat->chat_locale_to != '' && isset($chat->chat_variables_array['lhc_live_trans']) && $chat->chat_variables_array['lhc_live_trans'] === true) {
+                erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
+            }
 
-            foreach ($messagesToStore as $messageText)
-            {
-                if (trim($messageText) != '')
-                {
-                    $msg = new erLhcoreClassModelmsg();
-                    $msg->msg = trim($messageText);
-                    $msg->chat_id = $payload['id'];
-                    $msg->user_id = 0;
-                    $msg->time = time();
+            $meta_msg = [];
 
-                    if ($chat->chat_locale != '' && $chat->chat_locale_to != '' && isset($chat->chat_variables_array['lhc_live_trans']) && $chat->chat_variables_array['lhc_live_trans'] === true) {
-                        erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
+            if ($processAttachements === true) {
+                 foreach ($payload['attachments'] as $attachment) {
+                    if (isset($attachment['id']) && isset($attachment['security_hash'])) {
+                        $file = erLhcoreClassModelChatFile::fetch($attachment['id']);
+                        if ($file instanceof erLhcoreClassModelChatFile && $file->security_hash === $attachment['security_hash'] && $file->chat_id > 0 && $file->chat_id === $chat->id) {
+                            $meta_msg['content']['attachements'][] = array(
+                                'id' => $file->id,
+                                'security_hash' => $file->security_hash
+                            );
+                        }
                     }
-
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_user_saved',array('msg' => & $msg,'chat' => & $chat));
-
-                    erLhcoreClassChat::getSession()->save($msg);
                 }
             }
 
+            if (!empty($meta_msg)) {
+                $msg->meta_msg = json_encode($meta_msg);
+            }
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_user_saved',array('msg' => & $msg,'chat' => & $chat));
+
+            erLhcoreClassChat::getSession()->save($msg);
+     
             if (!isset($msg)) {
                 $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.$minLengthMessage;
                 echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));
@@ -165,9 +191,6 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
             if ($chat->has_unread_messages == 1 && $last_user_msg_time < (time() - 5)) {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.unread_chat',array('chat' => & $chat));
             }
-
-            // Assign to last message all the texts
-            $msg->msg = trim(implode("\n", $messagesToStore));
 
         } else {
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You cannot send messages to this chat. Chat has been closed.'), 100);

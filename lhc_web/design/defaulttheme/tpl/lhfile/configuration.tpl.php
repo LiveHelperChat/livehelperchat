@@ -25,6 +25,11 @@
         </div>
         <div class="col-6">
             <div class="form-group">
+                <label><input type="checkbox" name="file_preview" value="on" <?php isset($file_data['file_preview']) && ($file_data['file_preview'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show file preview before uploading file'); ?></label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
                 <label><input type="checkbox" name="ActiveFileUploadAdmin" value="on" <?php isset($file_data['active_admin_upload']) && ($file_data['active_admin_upload'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Files upload for operators is active'); ?></label>
             </div>
         </div>

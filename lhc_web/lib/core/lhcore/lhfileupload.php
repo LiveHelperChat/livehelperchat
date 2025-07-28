@@ -137,34 +137,36 @@ class erLhcoreClassFileUpload extends UploadHandler
                 // Chat assign
                 $chat = $this->options['chat'];
 
-                // Format message
-                $msg = new erLhcoreClassModelmsg();
-                $msg->msg = '[file=' . $file->id . '_' . $fileUpload->security_hash . ']';
-                $msg->chat_id = $chat->id;
-                $msg->user_id = isset($this->options['user_id']) ? $this->options['user_id'] : 0;
+                // Format message only if preview is not enabled
+                if (!isset($this->options['file_preview']) || $this->options['file_preview'] != true) {
+                    $msg = new erLhcoreClassModelmsg();
+                    $msg->msg = '[file=' . $file->id . '_' . $fileUpload->security_hash . ']';
+                    $msg->chat_id = $chat->id;
+                    $msg->user_id = isset($this->options['user_id']) ? $this->options['user_id'] : 0;
 
-                // We save instantly as message only visitors files
-                if ($msg->user_id == 0 || (isset($this->options['as_form']) && $this->options['as_form'] == true)) {
+                    // We save instantly as message only visitors files
+                    if ($msg->user_id == 0 || (isset($this->options['as_form']) && $this->options['as_form'] == true)) {
 
-                    $chat->last_user_msg_time = $msg->time = time();
+                        $chat->last_user_msg_time = $msg->time = time();
 
-                    erLhcoreClassChat::getSession()->save($msg);
+                        erLhcoreClassChat::getSession()->save($msg);
 
-                    // Set last message ID
-                    if ($chat->last_msg_id < $msg->id) {
-                        $chat->last_msg_id = $msg->id;
-                    }
-
-                    if ($msg->user_id == 0) {
-                        if ($chat->gbot_id > 0 && (!isset($chat->chat_variables_array['gbot_disabled']) || $chat->chat_variables_array['gbot_disabled'] == 0)) {
-                            erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
+                        // Set last message ID
+                        if ($chat->last_msg_id < $msg->id) {
+                            $chat->last_msg_id = $msg->id;
                         }
-                        $chat->has_unread_messages = 1;
+
+                        if ($msg->user_id == 0) {
+                            if ($chat->gbot_id > 0 && (!isset($chat->chat_variables_array['gbot_disabled']) || $chat->chat_variables_array['gbot_disabled'] == 0)) {
+                                erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
+                            }
+                            $chat->has_unread_messages = 1;
+                        }
+
+                        $chat->updateThis(array('update' => array('last_user_msg_time','last_msg_id','has_unread_messages')));
+
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('file' => $fileUpload, 'msg' => & $msg, 'chat' => & $chat));
                     }
-
-                    $chat->updateThis(array('update' => array('last_user_msg_time','last_msg_id','has_unread_messages')));
-
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('file' => $fileUpload, 'msg' => & $msg, 'chat' => & $chat));
                 }
             }
 

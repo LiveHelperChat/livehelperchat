@@ -51,7 +51,8 @@ class OnlineChat extends Component {
         fontSize: 100,
         reactToMsgId: 0,
         otm: 0, // New operator messages
-        messages_ui: true // Is visitor in messages UI, in case extension has overlay and messages was received
+        messages_ui: true, // Is visitor in messages UI, in case extension has overlay and messages was received
+        previewFiles: [] // File previews before sending
     };
 
     constructor(props) {
@@ -91,6 +92,8 @@ class OnlineChat extends Component {
         this.changeFontAction = this.changeFontAction.bind(this);
         this.setLanguageAction = this.setLanguageAction.bind(this);
         this.changeLanguage = this.changeLanguage.bind(this);
+        this.onFilePreview = this.onFilePreview.bind(this);
+        this.removeFilePreview = this.removeFilePreview.bind(this);
 
         // Messages Area
         this.messagesAreaRef = React.createRef();
@@ -747,7 +750,7 @@ class OnlineChat extends Component {
 
     sendMessage() {
 
-        if (this.state.value.length == 0) {
+        if (this.state.value.length == 0 && this.state.previewFiles.length == 0) {
             return;
         }
 
@@ -757,16 +760,24 @@ class OnlineChat extends Component {
         this.setState({scrollButton: false, otm: 0, hasNew: false, newId: 0});
         this.props.dispatch({'type' : 'UPDATE_LIVE_DATA', 'data' : {'attr': 'lfmsgid', 'val': 0}});
 
+        // Add file BBCode for each preview file
+        let attachments = this.state.previewFiles.map(file => { 
+            return {
+                'id': file.id,
+                'security_hash': file.security_hash || 'preview'}
+            });
+ 
         this.props.dispatch(addMessage({
             'id': this.props.chatwidget.getIn(['chatData','id']),
             'hash' : this.props.chatwidget.getIn(['chatData','hash']),
             'msg' : this.state.value,
             'mn' : this.props.chatwidget.hasIn(['chat_ui','mn']),
             'theme' : this.props.chatwidget.get('theme'),
-            'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid'])
+            'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid']),
+            'attachments': attachments
         }));
 
-        this.setState({value: '', errorMode : false});
+        this.setState({value: '', errorMode : false, previewFiles: []});
         this.currentMessageTyping = '';
         this.focusMessage();
         this.doScrollBottom();
@@ -895,6 +906,18 @@ class OnlineChat extends Component {
     insertText = (text) => {
         var caretPos = this.textMessageRef.current.selectionStart;
         this.setState({value: (this.state.value.substring(0, caretPos) + text + this.state.value.substring(caretPos))});
+    }
+
+    onFilePreview(fileData) {
+        this.setState(prevState => ({
+            previewFiles: [...prevState.previewFiles, fileData]
+        }));
+    }
+
+    removeFilePreview(fileId) {
+        this.setState(prevState => ({
+            previewFiles: prevState.previewFiles.filter(file => file.id !== fileId)
+        }));
     }
 
     render() {
@@ -1108,8 +1131,8 @@ class OnlineChat extends Component {
                                         <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.toggleSound() : '' }} onClick={this.toggleSound} title={t('chat.option_sound')}><i className={"material-icons chat-setting-item text-muted "+(this.props.chatwidget.getIn(['usersettings','soundOn']) === true ? 'sound-on-ico' : 'sound-off-ico')}>{this.props.chatwidget.getIn(['usersettings','soundOn']) === true ? <React.Fragment>&#xf102;</React.Fragment> : <React.Fragment>&#xf101;</React.Fragment>}</i></a>
                                         {this.props.chatwidget.hasIn(['chat_ui','print']) && <a tabIndex="0" target="_blank" href={this.props.chatwidget.get('base_url') + "chat/printchat/" +this.props.chatwidget.getIn(['chatData','id']) + "/" + this.props.chatwidget.getIn(['chatData','hash'])} title={t('button.print')}><i className="material-icons chat-setting-item text-muted print-ico">&#xf10c;</i></a>}
                                         {this.props.chatwidget.hasIn(['chat_ui','dwntxt']) && <a tabIndex="0" target="_blank" href={this.props.chatwidget.get('base_url') + "chat/downloadtxt/" +this.props.chatwidget.getIn(['chatData','id']) + "/" + this.props.chatwidget.getIn(['chatData','hash'])} title={t('button.dwntxt')}><i className="material-icons chat-setting-item text-muted download-ico">&#xf119;</i></a>}
-                                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','file']) && <ChatFileUploader fileOptions={this.props.chatwidget.getIn(['chat_ui','file_options'])} onDrag={this.dragging} dropArea={this.textMessageRef} onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} link={true}/>}
-                                        
+                                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','file']) && <ChatFileUploader fileOptions={this.props.chatwidget.getIn(['chat_ui','file_options'])} onDrag={this.dragging} dropArea={this.textMessageRef} onCompletion={this.updateMessages} onFilePreview={this.onFilePreview} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} link={true}/>}
+
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.getIn(['chatLiveData','status']) == 1 && this.props.chatwidget.hasIn(['chat_ui','voice']) && this.props.chatwidget.getIn(['chat_ui','voice']) === true && <a tabIndex="0" onClick={this.voiceCall} title={t('button.voice')}><i className="material-icons chat-setting-item text-muted voice-ico">&#xf117;</i></a>}
                                         
                                         
@@ -1128,35 +1151,57 @@ class OnlineChat extends Component {
                             {(!this.props.chatwidget.getIn(['chatLiveData','closed'])
                                     || !this.props.chatwidget.hasIn(['chat_ui','survey_id'])) &&
 
-                                <SharedTextarea
-                                    text={!this.props.chatwidget.getIn(['chatLiveData','closed']) ? this.state.value : ''}
-                                    textMaxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])}
-                                    onTextTouchStart={this.scrollBottom}
-                                    onTextKeyUp={this.keyUp}
-                                    onTextChange={this.handleChange}
-                                    onTextKeyDown={this.enterKeyDown}
-                                    textReadOnly={this.props.chatwidget.getIn(['chatLiveData','closed']) || this.props.chatwidget.get('network_down')}
-                                    onTextFocus={(e) => {this.setState({'reactToMsgId' : 0})}}
-                                    classNameText={"ps-0 no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/taw))) ? 'msg-two-line' : 'msg-one-line')}
-                                    textPlaceholder={placeholder}
-                                    textareaRef={this.props.textMessageRef}
-                                />
+                                <React.Fragment>
+                                    {/* File Preview Section */}
+                                    {this.state.previewFiles.length > 0 && (
+                                        <div className="file-preview-container p-2 border-bottom position-absolute w-100" style={{bottom: '100%', left: 0, zIndex: 10}}>
+                                            <div className="d-flex flex-wrap gap-2">
+                                                {this.state.previewFiles.map((file, index) => (
+                                                    <div key={file.id || index} className="file-preview-item position-relative">
+                                                        {file.previewUrl && file.type && file.type.startsWith('image/') ? (
+                                                            <div className="position-relative">
+                                                                <img src={file.previewUrl} alt={file.name} className="file-preview-image border rounded" style={{width: '60px', height: '60px', objectFit: 'cover'}} />
+                                                                <button
+                                                                    type="button"
+                                                                    className="position-absolute top-0 end-0 btn btn-danger btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                                                    onClick={() => this.removeFilePreview(file.id)}
+                                                                    title="Remove file"
+                                                                    style={{width: '20px', height: '20px', fontSize: '0.7rem', transform: 'translate(50%, -50%)'}}
+                                                                >×</button>
+                                                            </div>
+                                                        ) : (
+                                                            <div className="position-relative d-flex align-items-center bg-light border rounded p-2">
+                                                                <i className="material-icons me-2 text-muted">&#xf10e;</i>
+                                                                <span className="small text-truncate" style={{maxWidth: '80px'}}>{file.name}</span>
+                                                                <button
+                                                                    type="button"
+                                                                    className="position-absolute top-0 end-0 btn btn-danger btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                                                    onClick={() => this.removeFilePreview(file.id)}
+                                                                    title="Remove file"
+                                                                    style={{width: '20px', height: '20px', fontSize: '0.7rem', transform: 'translate(50%, -50%)'}}
+                                                                >×</button>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
 
-                                /*<textarea
-                                onFocus={(e) => {this.setState({'reactToMsgId' : 0})}}+
-                                onTouchStart={this.scrollBottom}+
-                                maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])}+
-                                onKeyUp={this.keyUp}+
-                                readOnly={this.props.chatwidget.getIn(['chatLiveData','closed']) || this.props.chatwidget.get('network_down')}+
-                                id="CSChatMessage"+
-                                placeholder={placeholder}+
-                                onKeyDown={this.enterKeyDown}+
-                                value={!this.props.chatwidget.getIn(['chatLiveData','closed']) ? this.state.value : ''}+
-                                onChange={this.handleChange}+
-                                ref={this.textMessageRef}+
-                                rows="1"
-                                className={"ps-0 no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6))) ? 'msg-two-line' : 'msg-one-line')}
-                                />*/
+                                    <SharedTextarea
+                                        text={!this.props.chatwidget.getIn(['chatLiveData','closed']) ? this.state.value : ''}
+                                        textMaxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])}
+                                        onTextTouchStart={this.scrollBottom}
+                                        onTextKeyUp={this.keyUp}
+                                        onTextChange={this.handleChange}
+                                        onTextKeyDown={this.enterKeyDown}
+                                        textReadOnly={this.props.chatwidget.getIn(['chatLiveData','closed']) || this.props.chatwidget.get('network_down')}
+                                        onTextFocus={(e) => {this.setState({'reactToMsgId' : 0})}}
+                                        classNameText={"ps-0 no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/taw))) ? 'msg-two-line' : 'msg-one-line')}
+                                        textPlaceholder={placeholder}
+                                        textareaRef={this.props.textMessageRef}
+                                    />
+                                </React.Fragment>
                             }
                         </div>
 

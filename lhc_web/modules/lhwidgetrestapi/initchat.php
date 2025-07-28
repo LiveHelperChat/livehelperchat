@@ -347,6 +347,10 @@ try {
             if (isset($fileData['one_file_upload']) && $fileData['one_file_upload'] == true) {
                 $outputResponse['chat_ui']['file_options']['one_file_upload'] = true;
             }
+
+            if (isset($fileData['file_preview']) && $fileData['file_preview'] == true) {
+                $outputResponse['chat_ui']['file_options']['file_preview'] = true;
+            }
         }
 
         if (isset($chatVariables['lhc_ds'])) {
