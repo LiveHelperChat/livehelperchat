@@ -16,7 +16,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $exportData = $restAPI->getState();
     unset($exportData['id']);
     header('Content-Disposition: attachment; filename="rest-api-'.$restAPI->id.'.json"');
-    header('Content-Type: application/json');
+    header('Content-Type: application/json; charset=utf-8');
     echo json_encode($exportData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     exit;
 }

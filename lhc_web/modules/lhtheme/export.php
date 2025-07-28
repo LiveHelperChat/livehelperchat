@@ -91,7 +91,7 @@ if ($theme->popup_image_url != ''){
 }
 
 header('Content-Disposition: attachment; filename="lhc-theme-'.$theme->id.'.json"');
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
 echo json_encode($exportData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
 exit;
