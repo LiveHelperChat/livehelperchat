@@ -55,6 +55,9 @@
                                 <?php if ($userDepAlias->nick != '') : ?>
                                     <span class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Alias nick')?>"><span class="material-icons">supervisor_account</span><?php echo htmlspecialchars($userDepAlias->nick);?></span>
                                 <?php endif; ?>
+                                <?php if ($userDepAlias->job_title != '') : ?>
+                                    <span class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Job title alias')?>"><span class="material-icons">badge</span><?php echo htmlspecialchars($userDepAlias->job_title);?></span>
+                                <?php endif; ?>
                                 <?php if ($userDepAlias->avatar != '') : ?>
                                     <span class="bg-light border p-1 d-inline-block rounded">
                                         <img title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Avatar')?>" width="25" height="25" src="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($userDepAlias->avatar)?>" alt="" title="Click to set avatar">
