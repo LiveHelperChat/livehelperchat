@@ -12,7 +12,7 @@ const FilePreview = ({ previewFiles, onRemoveFile, t }) => {
                     <div key={file.id || index} className="file-preview-item position-relative">
                         {file.previewUrl && file.type && file.type.startsWith('image/') ? (
                             <div className="position-relative">
-                                <img src={file.previewUrl} alt={file.name} className="file-preview-image border rounded" style={{width: '60px', height: '60px', objectFit: 'cover'}} />
+                                <img src={file.previewUrl} alt={file.name} className="file-preview-image border rounded" style={{width: '80px', height: '80px', objectFit: 'cover'}} />
                                 <button
                                     type="button"
                                     className="position-absolute top-0 end-0 btn btn-danger btn-sm rounded-circle d-flex align-items-center justify-content-center"
