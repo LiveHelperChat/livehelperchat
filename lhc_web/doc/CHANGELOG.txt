@@ -1,5 +1,7 @@
 4.69v
 
+1. Image/File preview before sending it to operator. This will allow in the future to implement properly OpenAI Responses API for images.
+
 execute doc/update_db/update_337.sql for update
 
 4.68v
