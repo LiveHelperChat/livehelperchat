@@ -48,7 +48,7 @@ foreach ($groups as $group) {
 
 header('Content-Disposition: attachment; filename="lhc-bot-group-'.$group->id.'.json"');
 header('Content-Type: application/json');
-echo json_encode($exportData);
+echo json_encode($exportData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
 exit;
 ?>
