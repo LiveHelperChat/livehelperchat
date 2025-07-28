@@ -18,7 +18,7 @@ class erLhcoreClassGenericBotValidator {
 
     public static function validateTriggerSave(& $data) {
         $trigger = erLhcoreClassModelGenericBotTrigger::fetch($data['id']);
-        $trigger->actions = json_encode($data['actions']);
+        $trigger->actions = json_encode($data['actions'], JSON_UNESCAPED_UNICODE);
         $trigger->name = $data['name'];
         $trigger->saveThis();
 
@@ -53,7 +53,7 @@ class erLhcoreClassGenericBotValidator {
             $trigger = new erLhcoreClassModelGenericBotTriggerEventTemplate();
         }
 
-        $trigger->configuration = json_encode($data['actions']);
+        $trigger->configuration = json_encode($data['actions'], JSON_UNESCAPED_UNICODE);
         $trigger->name = $data['name'];
         $trigger->saveThis();
     }
@@ -66,7 +66,7 @@ class erLhcoreClassGenericBotValidator {
             $trigger = new erLhcoreClassModelGenericBotTriggerTemplate();
         }
 
-        $trigger->actions = json_encode($data['actions']);
+        $trigger->actions = json_encode($data['actions'], JSON_UNESCAPED_UNICODE);
 
         $matches = [];
         preg_match_all('/"_id":"([A-Za-z_\-0-9]+)"/s',$trigger->actions,$matches);
@@ -88,7 +88,7 @@ class erLhcoreClassGenericBotValidator {
         $triggerEvent->pattern = $data['pattern'];
         $triggerEvent->pattern_exc = $data['pattern_exc'];
         $triggerEvent->configuration_array = is_array($data['configuration_array']) ? $data['configuration_array'] : new stdClass();
-        $triggerEvent->configuration = json_encode($triggerEvent->configuration_array);
+        $triggerEvent->configuration = json_encode($triggerEvent->configuration_array, JSON_UNESCAPED_UNICODE);
         $triggerEvent->on_start_type = (int)$data['on_start_type'];
         $triggerEvent->priority = (int)$data['priority'];
         $triggerEvent->skip = (int)$data['skip'];
