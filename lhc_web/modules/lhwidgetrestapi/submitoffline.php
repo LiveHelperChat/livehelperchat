@@ -15,7 +15,7 @@ $Params['user_parameters_unordered']['department'] = isset($requestPayload['depa
 $chat = new erLhcoreClassModelChat();
 
 $inputData = new stdClass();
-$inputData->chatprefill = null;
+$inputData->chatprefill = false;
 $inputData->email = '';
 $inputData->username = '';
 $inputData->phone = '';
