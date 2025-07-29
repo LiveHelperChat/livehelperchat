@@ -61,13 +61,15 @@ class ChatField extends Component {
     componentDidMount() {
         if (this.props.field.get('type') == 'checkbox' && this.props.field.get('default') == true) {
             this.props.onChangeContent({id : this.props.field.get('name'), value : true});
-        } else if (this.props.field.get('type') == 'dropdown') {
+        } else if (this.props.field.get('type') == 'dropdown' || this.props.field.get('type') == 'text') {
             this.props.onChangeContent({id : this.props.field.get('name'), value : this.props.defaultValueField});
-            this.props.field.get('options').map((dep) => {
-                if (dep.get('value') == this.props.defaultValueField && dep.get('dep_id')) {
-                    this.props.onChangeContent({set_default: true, id : 'DepartamentID', subject_id: (dep.has('subject_id') ? dep.get('subject_id') : null), value : dep.get('dep_id')});
-                }
-            });
+            if (this.props.field.get('type') == 'dropdown') {
+                this.props.field.get('options').map((dep) => {
+                    if (dep.get('value') == this.props.defaultValueField && dep.get('dep_id')) {
+                        this.props.onChangeContent({set_default: true, id : 'DepartamentID', subject_id: (dep.has('subject_id') ? dep.get('subject_id') : null), value : dep.get('dep_id')});
+                    }
+                });
+            }
         }
 
         if (this.props.attrPrefill) {

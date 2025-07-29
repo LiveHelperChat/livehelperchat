@@ -40,6 +40,8 @@ class OfflineChat extends Component {
             'trigger_id' : this.props.chatwidget.get('trigger_id'),
             'online' : 0,
             'dep_default' : (dep_default || this.props.chatwidget.get('departmentDefault') || 0),
+            'chat_id' : this.props.chatwidget.hasIn(['chatData','id']) ? this.props.chatwidget.getIn(['chatData','id']) : null,
+            'chat_hash' : this.props.chatwidget.hasIn(['chatData','hash']) ? this.props.chatwidget.getIn(['chatData','hash']) : null
         }));
     }
 
@@ -110,6 +112,11 @@ class OfflineChat extends Component {
             'vid' : this.props.chatwidget.get('vid'),
             'fields' : fields
         };
+
+        if (this.props.chatwidget.hasIn(['chatData','id']) && this.props.chatwidget.hasIn(['chatData','hash'])) {
+            submitData['chat_id'] = this.props.chatwidget.getIn(['chatData','id']);
+            submitData['chat_hash'] = this.props.chatwidget.getIn(['chatData','hash']);
+        }
 
         if (hasFile) {
             formData.append('document', JSON.stringify(submitData));
@@ -204,7 +211,7 @@ class OfflineChat extends Component {
             var mappedFieldsCustom = "";
         }
 
-        if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {
+        if (this.props.chatwidget.get('processStatusOffline') == 0 || this.props.chatwidget.get('processStatusOffline') == 1) {
             return (
                   <div id="id-container-fluid">
                     {this.props.chatwidget.get('leave_message') && (this.props.chatwidget.hasIn(['chat_ui','pre_chat_html']) || (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '')) && <div className="py-2 px-3 offline-intro-operator" dangerouslySetInnerHTML={{__html:(this.props.chatwidget.hasIn(['chat_ui','pre_chat_html']) ? this.props.chatwidget.getIn(['chat_ui','pre_chat_html']) : '') + (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) ? this.props.chatwidget.getIn(['chat_ui','operator_profile']) : '')}}></div>}
@@ -226,8 +233,8 @@ class OfflineChat extends Component {
                             </div>
                             {(!this.props.chatwidget.hasIn(['chat_ui','hstr_btn']) || mappedFieldsCustom !== "" || mappedFields !== "") && <div className="row">
                                 <div className="col-12 pb-2">
-                                    <button type="submit" disabled={this.props.chatwidget.get('processStatus') == 1} className="btn btn-secondary btn-sm">{this.props.chatwidget.get('processStatus') == 1 && <i className="material-icons">&#xf113;</i>}{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('start_chat.leave_a_message')}</button>
-                                    {this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === true && <button type="button" onClick={this.goToChat} className="float-end btn btn-sm btn-link text-muted">&laquo; {t('button.back_to_chat')}</button>}
+                                    <button type="submit" disabled={this.props.chatwidget.get('processStatusOffline') == 1} className="btn btn-secondary btn-sm">{this.props.chatwidget.get('processStatusOffline') == 1 && <i className="material-icons">&#xf113;</i>}{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('start_chat.leave_a_message')}</button>
+                                    {this.props.chatwidget.get('isChatting') !== true && this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === true && <button type="button" onClick={this.goToChat} className="float-end btn btn-sm btn-link text-muted">&laquo; {t('button.back_to_chat')}</button>}
                                 </div>
                             </div>}
                         </form>
@@ -236,7 +243,7 @@ class OfflineChat extends Component {
 
                   </div>
             )
-        } else if (this.props.chatwidget.get('processStatus') == 2) {
+        } else if (this.props.chatwidget.get('processStatusOffline') == 2) {
             return (
                 <div id="id-container-fluid">
 

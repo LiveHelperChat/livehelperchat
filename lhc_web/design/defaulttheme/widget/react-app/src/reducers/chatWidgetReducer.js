@@ -33,6 +33,7 @@ const initialState = fromJS({
     chat_ui : {}, // Settings from themes, UI
     chat_ui_state : {'confirm_close': 0, 'show_survey' : 0, 'pre_survey_done' : 0}, // Settings from themes, UI we store our present state here
     processStatus : 0,
+    processStatusOffline : 0,
     chatData : {}, // Stores only chat id and hash
     chatLiveData : {'msg_to_store':[] ,'lock_send' : false, 'lmsop':0, 'vtm':0,'otm':0, 'msop':0, 'uid' : 0, 'error' : '','lfmsgid':0, 'lmsgid' : 0, 'operator' : '', 'messages' : [], 'closed' : false, 'ott' : '', 'status_sub' : 0, 'status' : 0}, // Stores live chat data
     chatStatusData : {},
@@ -94,6 +95,7 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case 'vars_encrypted':
         case 'processStatus':
+        case 'processStatusOffline':
         case 'operator':
         case 'leave_message':
         case 'phash':
@@ -155,8 +157,10 @@ const chatWidgetReducer = (state = initialState, action) => {
         case ENDED_CHAT : {
             return state.set('shown',false)
                 .set('processStatus', 0)
+                .set('processStatusOffline', 0)
                 .set('isChatting',false)
                 .set('newChat',true)
+                .set('isOfflineMode',false)
                 .set('proactive',fromJS({'pending' : false, 'has' : false, data : {}}))
                 .set('chatData',fromJS({}))
                 .removeIn(['chat_ui','survey_id'])
@@ -237,9 +241,9 @@ const chatWidgetReducer = (state = initialState, action) => {
         case 'OFFLINE_SUBMITTED' : {
             if (action.data.success === true) {
                 helperFunctions.sendMessageParent('offlineMessage',[]);
-                return state.set('processStatus', 2).set('validationErrors',fromJS({}));
+                return state.set('processStatusOffline', 2).set('validationErrors',fromJS({}));
             } else {
-                return state.set('validationErrors',fromJS(action.data.errors)).set('processStatus',0);
+                return state.set('validationErrors',fromJS(action.data.errors)).set('processStatusOffline',0);
             }
         }
 
@@ -256,7 +260,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'OFFLINE_SUBMITTING' : {
-            return state.set('processStatus', 1);
+            return state.set('processStatusOffline', 1);
         }
 
         case 'CHAT_SET_VID' : {
@@ -414,6 +418,10 @@ const chatWidgetReducer = (state = initialState, action) => {
 
             if (action.data.extension) {
                 state = state.set('extension',state.get('extension').merge(fromJS(action.data.extension)));
+            }
+
+            if (action.data.offline_mode) {
+                state = state.set('isOfflineMode',true);
             }
 
             return state.set('chatStatusData',fromJS(action.data))

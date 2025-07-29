@@ -4,10 +4,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -612,6 +608,10 @@
     </message>
     <message>
       <source>Proceed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set default</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2939,6 +2939,437 @@
     </message>
     <message>
       <source>Webhook</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/restapi</name>
+    <message>
+      <source>Text like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text not like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Contains</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In list, items separated by ||</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In list items (lowercase before comparison), items separated by ||</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start of OR</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In list (lowercase before comparison), items separated by ||</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Description</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log all request and their responses in audit log.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log all requests and their responses as system messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ignore request with these http statuses. Separate multiple by comma.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skip request body. Only response will be logged.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable cache</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clear cache</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will cache unique request and responses to speed up processing.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explore</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>possible chat attributes directly.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name of the request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tab position</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Method</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sub URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum execution time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Params</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authorization</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Headers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Body</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User parameters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Output parsing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remote Message ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Polling</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Streaming</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can put visitor message as placeholder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add param</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can always just define custom header if you do not find authorisation method here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Authorization method</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skip</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>API Key Location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Header</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Query Params</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only if these conditions are met we will send Rest API request. Usefull in webhook cases.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add condition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for presence of variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Request Body</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>none</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>raw (Use this to send JSON Body)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>form-data (Use this to send post parameters)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>x-www-form-urlencoded (Use this to send post parameters encoded in URL)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for word syntax if only one word is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sub URL for file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you are sending file you can have a different body content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Convert to multipart/form-data if one of those API is used. Post the file using multipart/form-data in the usual way that files are uploaded via the browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can define additional parameters user can enter in bot trigger directly.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Query</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Body Post Param</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Body Param</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name visible in trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location/Key</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Either key which will be used for replacement</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can define response conditions to which you will be able to add corresponding triggers.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add combination</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Output</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Expected output definition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority, output combinations with highers priority will be checked first.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTTP status code E.g 200,301,500</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTTP status code 200,301</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 1. Available as {content_1} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>response:msg you can leave an empty if you want forward whole response or enter __all__.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 2. Available as {content_2} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 3. Available as {content_3} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 4. Available as {content_4} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 5. Available as {content_5} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location 6. Available as {content_6} in messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta msg location. If you support Live Helper Chat JSON syntax you can set location of this response.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preg replace rules to apply extracted content.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can apply preg replace rules to extracted content. One rule per row. Format example: ^.{5,}+$==&gt;Replace with content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This event will be dispatched and extension can listen to it. E.g you want additionally log response data.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If required you can also have condition to check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response Location. It will also fail if attribute is not found.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>response:msg you can leave an empty if you want forward whole response.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Response comparison</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not empty</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Comparison value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Value to compare</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Streaming options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Output is matched only if event is this type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Content of response is streamed to visitor.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stream content to visitor as HTML.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save stream without streaming it to visitor.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No other stream event can be parsed after this type is matched.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute trigger on matched content. Stream will continue afterwards.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If matched use response as final response.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you want to add custom data within each send message to its meta_data attribute you can provide response path here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Repeat request n times if conditions is not met (polling)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Making n seconds delay between each request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This is a streaming request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Streaming event type field</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -7858,7 +8289,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>⏎ or additional information</source>
+      <source>Send files or enter additional information</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9410,10 +9841,6 @@
   <context>
     <name>chat/adminchat</name>
     <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Strike</source>
       <translation type="unfinished"/>
     </message>
@@ -10940,10 +11367,6 @@
   </context>
   <context>
     <name>user/account</name>
-    <message>
-      <source>Closed chats list enabled</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Canned messages</source>
       <translation type="unfinished"/>
@@ -13637,7 +14060,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Question about your files</source>
+      <source>⏎ or additional information</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17642,7 +18065,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Image file by operator can be downloaded if</source>
+      <source>The image file can be downloaded by operator if</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18003,437 +18426,6 @@
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>genericbot/restapi</name>
-    <message>
-      <source>Text like</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Text not like</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Contains</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>In list, items separated by ||</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>In list items (lowercase before comparison), items separated by ||</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Start of OR</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>In list (lowercase before comparison), items separated by ||</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Description</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Host</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Log all request and their responses in audit log.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Log all requests and their responses as system messages.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Ignore request with these http statuses. Separate multiple by comma.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Skip request body. Only response will be logged.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable cache</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Clear cache</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>We will cache unique request and responses to speed up processing.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add request</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Explore</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>possible chat attributes directly.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Request</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name of the request</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tab position</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Method</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sub URL</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Maximum execution time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Params</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Authorization</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Headers</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Body</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User parameters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Output parsing</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Conditions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Remote Message ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Polling</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Streaming</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You can put visitor message as placeholder</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add param</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You can always just define custom header if you do not find authorisation method here.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Authorization method</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Skip</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>API Key Location</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Header</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Query Params</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Only if these conditions are met we will send Rest API request. Usefull in webhook cases.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add condition</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Check for presence of variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Request Body</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>none</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>raw (Use this to send JSON Body)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>form-data (Use this to send post parameters)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>x-www-form-urlencoded (Use this to send post parameters encoded in URL)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Check for word syntax if only one word is send.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sub URL for file</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>If you are sending file you can have a different body content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Convert to multipart/form-data if one of those API is used. Post the file using multipart/form-data in the usual way that files are uploaded via the browser.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You can define additional parameters user can enter in bot trigger directly.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Location</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Query</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Body Post Param</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Body Param</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name visible in trigger</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Location/Key</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Either key which will be used for replacement</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You can define response conditions to which you will be able to add corresponding triggers.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add combination</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Output</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Expected output definition</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority, output combinations with highers priority will be checked first.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>HTTP status code E.g 200,301,500</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>HTTP status code 200,301</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Response Location 1. Available as {content_1} in messages.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>response:msg you can leave an empty if you want forward whole response or enter __all__.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Response Location 2. Available as {content_2} in messages.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Response Location 3. Available as {content_3} in messages.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Response Location 4. Available as {content_4} in messages.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Response Location 5. Available as {content_5} in messages.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Response Location 6. Available as {content_6} in messages.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Meta msg location. If you support Live Helper Chat JSON syntax you can set location of this response.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Preg replace rules to apply extracted content.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You can apply preg replace rules to extracted content. One rule per row. Format example: ^.{5,}+$==&gt;Replace with content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Custom event</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This event will be dispatched and extension can listen to it. E.g you want additionally log response data.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>If required you can also have condition to check</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Response Location. It will also fail if attribute is not found.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>response:msg you can leave an empty if you want forward whole response.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Response comparison</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not empty</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Comparison value</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Value to compare</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Streaming options</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Output is matched only if event is this type</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Content of response is streamed to visitor.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Stream content to visitor as HTML.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Save stream without streaming it to visitor.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>No other stream event can be parsed after this type is matched.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Execute trigger on matched content. Stream will continue afterwards.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>If matched use response as final response.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>If you want to add custom data within each send message to its meta_data attribute you can provide response path here</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Repeat request n times if conditions is not met (polling)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Making n seconds delay between each request</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This is a streaming request</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Streaming event type field</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -22423,6 +22415,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Offline message which will be saved within a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Enable</source>
       <translation type="unfinished"/>
     </message>
@@ -25026,6 +25022,13 @@
     </message>
   </context>
   <context>
+    <name>mailconv/conversation</name>
+    <message>
+      <source>Sensitive Information</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>mobile/sessions</name>
     <message>
       <source>Sessions</source>
@@ -25040,35 +25043,6 @@
     </message>
     <message>
       <source>You are a chat owner</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>statistic/onlinehours</name>
-    <message>
-      <source>Online Hours</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/backtochat</name>
-    <message>
-      <source>Visitor has been redirected back to chat!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>twilio/sendmessage</name>
-    <message>
-      <source>Please enter chatId!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a message!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a webhook!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -25124,6 +25098,35 @@
     </message>
   </context>
   <context>
+    <name>statistic/onlinehours</name>
+    <message>
+      <source>Online Hours</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/backtochat</name>
+    <message>
+      <source>Visitor has been redirected back to chat!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>twilio/sendmessage</name>
+    <message>
+      <source>Please enter chatId!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a webhook!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/notifications</name>
     <message>
       <source>Subscribing...</source>
@@ -25138,13 +25141,6 @@
     </message>
     <message>
       <source>Deny screen share</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>mailconv/conversation</name>
-    <message>
-      <source>Sensitive Information</source>
       <translation type="unfinished"/>
     </message>
   </context>

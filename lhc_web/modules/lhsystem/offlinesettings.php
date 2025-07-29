@@ -16,6 +16,9 @@ if ( isset($_POST['saveSettings']) ) {
         ),
         'do_not_send' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'offline_message' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )
     );
 
@@ -33,6 +36,12 @@ if ( isset($_POST['saveSettings']) ) {
         $data['do_not_save_offline'] = 1;
     } else {
         $data['do_not_save_offline'] = 0;
+    }
+
+    if ( $form->hasValidData( 'offline_message' )) {
+        $data['offline_message'] = $form->offline_message;
+    } else {
+        $data['offline_message'] = '';
     }
 
     if ( $form->hasValidData( 'do_not_send' ) && $form->do_not_send == true) {

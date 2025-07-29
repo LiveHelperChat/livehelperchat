@@ -14,7 +14,6 @@ $Params['user_parameters'] = $requestPayload;
 $activated = 'false';
 $result = 'false';
 $ott = '';
-$ru = '';
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/checkchatstatus.tpl.php');
 $tpl->set('theme',false);
@@ -67,8 +66,7 @@ try {
     			$delay = time()-$department->delay_lm;
     			if ($department->delay_lm > 0 && $chat->pnd_time < $delay) {
     				$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? 'chat/chatwidget' : 'chat/startchat';
-    				$ru = $baseURL.'/(department)/' . ($department->alias != '' ? $department->alias : $department->id) . '/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash . (isset($Params['user_parameters']['theme']) && is_numeric($Params['user_parameters']['theme']) ? '/(theme)/'.$Params['user_parameters']['theme'] : '');
-
+                    $responseArray['offline_mode'] = true;
     				$msg = new erLhcoreClassModelmsg();
     				$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Visitor has been redirected to contact form');
     				$msg->chat_id = $chat->id;
@@ -124,7 +122,7 @@ try {
 	    	$department = $chat->department;
 	    	if ($department !== false) {
 	    		$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? 'chat/chatwidget' : 'chat/startchat';
-	    		$ru = $baseURL.'/(department)/' . ($department->alias != '' ? $department->alias : $department->id) . '/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash . (isset($Params['user_parameters']['theme']) && is_numeric($Params['user_parameters']['theme']) ? '/(theme)/'.$Params['user_parameters']['theme'] : '');
+                $responseArray['offline_mode'] = true;
 
 	    		$msg = new erLhcoreClassModelmsg();
 	    		$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Visitor has been redirected to contact form');
@@ -159,7 +157,6 @@ try {
 }
 
 $responseArray['error'] = 'false';
-$responseArray['ru'] = $ru;
 $responseArray['ott'] = $ott;
 $responseArray['result'] = trim($tpl->fetch());
 $responseArray['activated'] = $activated;
