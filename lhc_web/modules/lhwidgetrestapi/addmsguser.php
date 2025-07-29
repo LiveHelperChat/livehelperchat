@@ -220,7 +220,13 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
             fastcgi_finish_request();
         }
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',array('chat' => & $chat, 'msg' => & $msg));
+        $eventArgs = array('chat' => & $chat, 'msg' => & $msg);
+
+        if (!empty($filesTemporary)) {
+            $eventArgs['files'] = $filesTemporary;
+        }
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',$eventArgs);
         exit;
 
     } catch (Exception $e) {
