@@ -61,6 +61,11 @@
                 <?php endif; ?>
 
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row_nick.tpl.php'));?>
+
+                <?php if (isset($metaMessageData)) : ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/meta_render_top.tpl.php'));?>
+                <?php endif; ?>
+
                 <?php if ($msg['msg'] != '') : ?>
 
                     <?php $msgBody = $msg['msg']; $paramsMessageRender = array('msg_id' => $msg['id'], 'render_html' => true, 'user_id_raw' => $msg['user_id']);?>

@@ -142,9 +142,17 @@ class erLhcoreClassChatHelper
         $stmt = $q->prepare();
         $stmt->execute();
 
-
         // Close by support chat
         erLhcoreClassModelGroupChat::closeByChatId($chatId);
+
+        // Remove temporary chat files
+        foreach (erLhcoreClassModelChatFile::getList(['filter' => [
+            'tmp' => 1, 
+            'user_id' => 0, 
+            'chat_id' => $chatId]]) as $file) {
+            $file->removeThis();
+        }
+     
     }
 
     public static function closeChat($params)

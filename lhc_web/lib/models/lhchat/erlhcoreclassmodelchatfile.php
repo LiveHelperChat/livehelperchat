@@ -32,6 +32,7 @@ class erLhcoreClassModelChatFile
             'width' => $this->width,
             'height' => $this->height,
             'meta_msg' => $this->meta_msg,
+            'tmp' => $this->tmp,
         );
     }
 
@@ -137,6 +138,7 @@ class erLhcoreClassModelChatFile
     public $persistent = 0;
     public $width = 0;
     public $height = 0;
+    public $tmp = 0;
     public $meta_msg = '';
 
 }

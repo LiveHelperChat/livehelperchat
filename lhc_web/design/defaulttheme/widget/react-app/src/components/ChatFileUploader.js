@@ -117,7 +117,29 @@ class ChatFileUploader extends PureComponent {
                     }
                 } else {
                     this.props.progress(t('file.completed'));
-                    this.props.onCompletion();
+
+                    // If file preview is enabled, add to preview files instead of completing immediately
+                    if (this.props.fileOptions.has('file_preview') && this.props.fileOptions.get('file_preview')) {
+                        const fileData = {
+                            id: status.file_id || Date.now(), // Use server file ID if available
+                            security_hash: status.security_hash || '',
+                            name: file.name,
+                            size: file.size,
+                            type: file.type,
+                            originalFile: file
+                        };
+
+                        // Add preview URL for images
+                        if (file.type.startsWith('image/')) {
+                            fileData.previewUrl = URL.createObjectURL(file);
+                        }
+
+                        if (this.props.onFilePreview) {
+                            this.props.onFilePreview(fileData);
+                        }
+                    } else {
+                        this.props.onCompletion();
+                    }
                 }
                 resolve(req);
             }

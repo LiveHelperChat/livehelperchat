@@ -483,6 +483,7 @@ class erLhAbstractModelWidgetTheme {
             'thank_feedback',
             'blocked_visitor',
             'placeholder_message',
+			'placeholder_file_message',
             'need_help_html',
             'chat_unavailable',
             'custom_op_name',

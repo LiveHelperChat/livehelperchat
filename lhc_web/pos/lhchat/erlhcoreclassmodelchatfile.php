@@ -16,7 +16,7 @@ foreach (['name','upload_name','type','file_path','extension','meta_msg'] as $po
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-foreach (['size','chat_id','online_user_id','user_id','date','persistent','width','height'] as $posAttr) {
+foreach (['size','chat_id','online_user_id','user_id','date','persistent','width','height','tmp'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

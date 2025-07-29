@@ -1,3 +1,50 @@
+4.69v
+
+1. File and Image Preview System Enhancement
+   - Implemented comprehensive file and image preview functionality before sending to operator
+   - Added temporary file handling with new `tmp` field in `lh_chat_file` table
+   - Enhanced widget React components to support file preview with better user experience
+   - File attachments are now rendered at the top of messages for better visibility
+   - Improved file upload workflow with progress indicators and preview capabilities
+   - This enhancement prepares the foundation for future OpenAI Responses API for images implementation
+
+2. Widget and Chat Interface Improvements
+   - Enhanced attachment rendering system with dedicated top-level templates
+   - Improved AI-generated content checks and validation
+   - Better file uploader component with enhanced preview functionality
+   - Optimized widget React components for better performance and user experience
+   - Enhanced chat file handling with improved meta message rendering
+
+3. Department and Chat Management Enhancements
+   - Added support for using department alias when provided in chat widget and status checks
+   - Improved department handling logic for better chat routing
+   - Enhanced chat widget functionality with streamlined department selection
+
+4. Export and Data Handling Improvements
+   - Fixed JSON export formatting with proper UTF-8 charset headers for Unicode support and pretty printing (#2283)
+   - Enhanced bot export functionality with correct content-type headers
+   - Improved REST API export with proper encoding
+   - Better theme export handling with Unicode support
+
+5. File Configuration and Management
+   - Added new file configuration options for better file handling control
+   - Enhanced file upload settings with improved validation and processing
+   - Better integration between file upload API and widget components
+   - Improved file metadata handling and storage
+
+6. Technical Infrastructure Improvements
+   - Updated database structure with new temporary file handling capabilities
+   - Enhanced widget REST API endpoints for better file and chat management
+   - Improved translation support and internationalization
+
+7. User Experience Enhancements
+   - Streamlined file attachment workflow with instant preview
+   - Better visual feedback for file operations
+   - Enhanced message rendering with improved attachment display
+   - Optimized loading and rendering performance for file-heavy conversations
+
+execute doc/update_db/update_337.sql for update
+
 4.68v
 
 1. Mail module enhancements

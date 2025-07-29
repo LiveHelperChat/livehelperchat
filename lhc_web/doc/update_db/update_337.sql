@@ -1,0 +1,1 @@
+ALTER TABLE `lh_chat_file` ADD `tmp` tinyint(1) NOT NULL DEFAULT '0', COMMENT='';

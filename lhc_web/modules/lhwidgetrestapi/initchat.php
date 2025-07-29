@@ -122,7 +122,7 @@ try {
 
                 $theme->translate();
 
-                foreach (array('placeholder_message','cnew_msgh','cnew_msg','cscroll_btn','cnew_msgm','min_text','popup_text','end_chat_text','fheight_text_class','fheight_text_col') as $attrTranslate) {
+                foreach (array('placeholder_file_message','placeholder_message','cnew_msgh','cnew_msg','cscroll_btn','cnew_msgm','min_text','popup_text','end_chat_text','fheight_text_class','fheight_text_col') as $attrTranslate) {
                     if (isset($theme->bot_configuration_array[$attrTranslate]) && !empty($theme->bot_configuration_array[$attrTranslate])) {
                         $outputResponse['chat_ui'][$attrTranslate] = $theme->bot_configuration_array[$attrTranslate];
                     }
@@ -346,6 +346,10 @@ try {
             
             if (isset($fileData['one_file_upload']) && $fileData['one_file_upload'] == true) {
                 $outputResponse['chat_ui']['file_options']['one_file_upload'] = true;
+            }
+
+            if (isset($fileData['file_preview']) && $fileData['file_preview'] == true) {
+                $outputResponse['chat_ui']['file_options']['file_preview'] = true;
             }
         }
 

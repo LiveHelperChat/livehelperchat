@@ -4,6 +4,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -536,6 +540,10 @@
     </message>
     <message>
       <source>Delete department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Back</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1864,6 +1872,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Placeholder for message text if files are attached</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Main operator title, {nick}, {name}, {surname}</source>
       <translation type="unfinished"/>
     </message>
@@ -2456,6 +2468,10 @@
     </message>
     <message>
       <source>Set chat priority to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skip bot and set chat to pending status</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5485,6 +5501,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Conversation ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose Rest API</source>
       <translation type="unfinished"/>
     </message>
@@ -5534,10 +5558,6 @@
     </message>
     <message>
       <source>Include messages content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Conversation ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7838,6 +7858,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>⏎ or additional information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Thank you for your feedback...</source>
       <translation type="unfinished"/>
     </message>
@@ -8848,6 +8876,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Show file preview before uploading file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Files upload for operators is active</source>
       <translation type="unfinished"/>
     </message>
@@ -9378,6 +9410,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Strike</source>
       <translation type="unfinished"/>
     </message>
@@ -9638,7 +9674,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Department</source>
+      <source>Department ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10055,6 +10091,10 @@
     </message>
     <message>
       <source>Field is required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sensitive Information</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10901,6 +10941,10 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Closed chats list enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Canned messages</source>
       <translation type="unfinished"/>
     </message>
@@ -11121,10 +11165,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Closed chats list enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>My pending and active chats list enabled</source>
       <translation type="unfinished"/>
     </message>
@@ -11237,6 +11277,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Job title alias</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Avatar</source>
       <translation type="unfinished"/>
     </message>
@@ -11326,6 +11370,10 @@
     </message>
     <message>
       <source>Click to set avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Alias job title</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13589,6 +13637,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Question about your files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>{nick}</source>
       <translation type="unfinished"/>
     </message>
@@ -14105,6 +14157,10 @@
       <source>Messages</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Files</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>system/configuration</name>
@@ -14150,6 +14206,10 @@
     </message>
     <message>
       <source>Brands</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Mail file details</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14309,7 +14369,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>List of files</source>
+      <source>List of chat files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of mail files</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14674,6 +14738,10 @@
     </message>
     <message>
       <source>File configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of files</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17435,6 +17503,46 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disposition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attachment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dimensions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File path</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User</source>
       <translation type="unfinished"/>
     </message>
@@ -17447,10 +17555,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Extension</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Date</source>
       <translation type="unfinished"/>
     </message>
@@ -17459,11 +17563,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Temporary file, it will be removed after chat is closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete the file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has metadata</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Details</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of mail files</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -17519,6 +17639,22 @@
     </message>
     <message>
       <source>Has permission to related chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Image file by operator can be downloaded if</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default, all images files will be downloaded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Verified and has permission to download protected images OR has permission to download unprotected files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum image width or height to require verification</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17610,6 +17746,10 @@
     </message>
     <message>
       <source>Update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta data</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17881,6 +18021,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>In list, items separated by ||</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In list items (lowercase before comparison), items separated by ||</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start of OR</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In list (lowercase before comparison), items separated by ||</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -17902,6 +18058,10 @@
     </message>
     <message>
       <source>Ignore request with these http statuses. Separate multiple by comma.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skip request body. Only response will be logged.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18297,6 +18457,14 @@
     </message>
     <message>
       <source>Visitor message content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check conditions for bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>additional information</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19509,6 +19677,46 @@
     </message>
     <message>
       <source>Drop your files here or choose a new file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Verifying image access...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Checking image access...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Image verification failed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Access denied to view image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Next attempt in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>s.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Image not available</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to reveal</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Loading...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ready to download</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -21859,6 +22067,10 @@
       <source>Disable for operator messages</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>White list domains separated by comma, use at the end ||{url} as placeholder:</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>users/autologin</name>
@@ -22191,6 +22403,10 @@
       <source>Then offline chat is registered it's status will be changed to closed chat.</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Make sure you have NOT checked 'Do not save offline chats' option above</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>system/timezone</name>
@@ -22200,6 +22416,10 @@
     </message>
     <message>
       <source>Automatically change offline chat status to closed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not send e-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -24620,6 +24840,10 @@
   <context>
     <name>chat/transferuser</name>
     <message>
+      <source>Visitor requested to speak with a human agent by clicking Switch To Human button</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has changed department to</source>
       <translation type="unfinished"/>
     </message>
@@ -24851,6 +25075,30 @@
   <context>
     <name>chat/file</name>
     <message>
+      <source>Verifying image access...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Image verification failed. Please try again later.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Access denied to view this image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Checking image access...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to reveal</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>next attempt in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Uploading</source>
       <translation type="unfinished"/>
     </message>
@@ -24890,6 +25138,13 @@
     </message>
     <message>
       <source>Deny screen share</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>mailconv/conversation</name>
+    <message>
+      <source>Sensitive Information</source>
       <translation type="unfinished"/>
     </message>
   </context>
