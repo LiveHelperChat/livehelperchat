@@ -22,8 +22,14 @@
     </div>
 
     <div class="form-group">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','Offline message');?></label>
-        <textarea rows="5" class="form-control form-control-sm" name="offline_message"><?php echo isset($settings['offline_message']) ? htmlspecialchars($settings['offline_message']) : ''?></textarea>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','Offline message which will be saved within a chat');?> <button type="button" class="btn btn-xs btn-outline-secondary mb-1" onclick="document.querySelector('textarea[name=&quot;offline_message&quot;]').value = '[b]Visitor query[/b]:\n{args.question}\n\n[b]Phone[/b]: {args.chat.phone}\n[b]E-mail[/b]: {args.chat.email}\n[b]Nick[/b]: {args.chat.nick}\n[b]Additional data[/b]: {args.chat.additional_data}'"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Set default');?></button></label>
+        <textarea rows="5" class="form-control form-control-sm" name="offline_message"><?php echo isset($settings['offline_message']) ? htmlspecialchars($settings['offline_message']) : '[b]Visitor query[/b]:
+{args.question}
+
+[b]Phone[/b]: {args.chat.phone}
+[b]E-mail[/b]: {args.chat.email}
+[b]Nick[/b]: {args.chat.nick}
+[b]Additional data[/b]: {args.chat.additional_data}'; ?></textarea>
     </div>
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

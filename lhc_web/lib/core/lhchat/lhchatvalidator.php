@@ -2142,7 +2142,13 @@ class erLhcoreClassChatValidator {
 
         if (!isset($data['do_not_save_offline']) || $data['do_not_save_offline'] == 0)
         {
-            $additionalMessage = isset($data['offline_message']) && !empty($data['offline_message']) ? $data['offline_message'] : '';
+            $additionalMessage = isset($data['offline_message']) && !empty($data['offline_message']) ? $data['offline_message'] : '[b]Visitor query[/b]:
+{args.question}
+
+[b]Phone[/b]: {args.chat.phone}
+[b]E-mail[/b]: {args.chat.email}
+[b]Nick[/b]: {args.chat.nick}
+[b]Additional data[/b]: {args.chat.additional_data}';
             $additionalMessage = erLhcoreClassGenericBotWorkflow::translateMessage($additionalMessage, array('chat' => $params['chat'], 'args' => $params));
 
             // Save as offline request
