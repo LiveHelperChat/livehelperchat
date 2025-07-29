@@ -51,7 +51,7 @@ if (isset($payload['attachments']) && is_array($payload['attachments']) && (!iss
     $payload['msg'] = trim($payload['msg']);
 }
 
-if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[[msgitm]]', '',$payload['msg'])) != '' && mb_strlen($payload['msg']) <= $minLengthMessage)
+if (isset($payload['msg']) && trim($payload['msg']) != '' && mb_strlen($payload['msg']) <= $minLengthMessage)
 {
     try {
         $db = ezcDbInstance::get();
