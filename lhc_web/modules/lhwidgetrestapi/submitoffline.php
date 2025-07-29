@@ -25,8 +25,6 @@ if (isset($requestPayload['chat_id']) && isset($requestPayload['chat_hash'])) {
     $chatPrefill = erLhcoreClassModelChat::fetch((int)$requestPayload['chat_id']);
     if ($chatPrefill instanceof erLhcoreClassModelChat && $chatPrefill->hash === $requestPayload['chat_hash']) {
         $inputData->chatprefill = $chatPrefill;
-    } else {
-        unset($chatPrefill);
     }
 }
 
