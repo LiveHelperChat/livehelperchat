@@ -7858,7 +7858,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Question about your files</source>
+      <source>⏎ or additional information</source>
       <translation type="unfinished"/>
     </message>
     <message>
