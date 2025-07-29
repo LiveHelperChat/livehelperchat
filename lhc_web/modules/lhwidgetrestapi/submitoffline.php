@@ -15,11 +15,21 @@ $Params['user_parameters_unordered']['department'] = isset($requestPayload['depa
 $chat = new erLhcoreClassModelChat();
 
 $inputData = new stdClass();
-$inputData->chatprefill = '';
+$inputData->chatprefill = null;
 $inputData->email = '';
 $inputData->username = '';
 $inputData->phone = '';
 $inputData->product_id = '';
+
+if (isset($requestPayload['chat_id']) && isset($requestPayload['chat_hash'])) {
+    $chatPrefill = erLhcoreClassModelChat::fetch((int)$requestPayload['chat_id']);
+    if ($chatPrefill instanceof erLhcoreClassModelChat && $chatPrefill->hash === $requestPayload['chat_hash']) {
+        $inputData->chatprefill = $chatPrefill;
+    } else {
+        unset($chatPrefill);
+    }
+}
+
 $inputData->validate_start_chat = $inputData->validate_start_chat = isset($requestPayload['mode']) && $requestPayload['mode'] == 'popup' ? true : false;
 $inputData->ignore_captcha = true;
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
@@ -152,7 +162,7 @@ if (empty($Errors)) {
         $db = ezcDbInstance::get();
         $db->beginTransaction();
 
-        $requestSaved = erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'input_data' => $inputData, 'question' => (isset($inputData->question) ? $inputData->question : '')));
+        $requestSaved = erLhcoreClassChatValidator::saveOfflineRequest(array('chatprefill' => (isset($chatPrefill) ? $chatPrefill : false), 'chat' => & $chat, 'input_data' => $inputData, 'question' => (isset($inputData->question) ? $inputData->question : '')));
 
         // Assign chat to user
         if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && is_numeric($chat->id)) {
@@ -169,6 +179,11 @@ if (empty($Errors)) {
                 $chat->online_user_id = $userInstance->id;
                 $chat->saveThis();
             }
+        }
+
+        if (isset($chatPrefill)) {
+            $chatPrefill->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
+            $chatPrefill->updateThis(['update' => ['status_sub']]);
         }
 
         $db->commit();

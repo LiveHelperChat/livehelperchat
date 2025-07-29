@@ -244,6 +244,13 @@ $fields = array();
 
 if ($Params['user_parameters_unordered']['online'] == '0')
 {
+    if (isset($requestPayload['chat_id']) && isset($requestPayload['chat_hash']) && $requestPayload['chat_id'] > 0) {
+        $chatPrefill = erLhcoreClassModelChat::fetch((int)$requestPayload['chat_id']);
+        if (!($chatPrefill instanceof erLhcoreClassModelChat) || ($chatPrefill->hash !== $requestPayload['chat_hash'])) {
+            unset($chatPrefill);
+        }
+    }
+
     if (
         (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_name_visible_in_page_widget']) && $start_data_fields['offline_name_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_name_visible_in_popup']) && $start_data_fields['offline_name_visible_in_popup'] == true)
@@ -264,7 +271,8 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'name' => 'Username',
             'identifier' => 'username',
             'priority' => (isset($start_data_fields['offline_name_priority']) && is_numeric($start_data_fields['offline_name_priority']) ? (int)$start_data_fields['offline_name_priority'] : 0),
-            'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name')
+            'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name'),
+            'value' => (isset($chatPrefill) ? $chatPrefill->nick : '')
         );
 
     }
@@ -290,6 +298,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'name' => 'Email',
             'identifier' => 'email',
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your email address'),
+            'value' => (isset($chatPrefill) ? $chatPrefill->email : '')
         );
     }
 
@@ -314,6 +323,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'priority' => (isset($start_data_fields['offline_phone_priority']) && is_numeric($start_data_fields['offline_phone_priority']) ? (int)$start_data_fields['offline_phone_priority'] : 0),
             'identifier' => 'phone',
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone'),
+            'value' => (isset($chatPrefill) ? $chatPrefill->phone : '')
         );
     }
 

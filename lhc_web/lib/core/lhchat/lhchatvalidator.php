@@ -2142,6 +2142,9 @@ class erLhcoreClassChatValidator {
 
         if (!isset($data['do_not_save_offline']) || $data['do_not_save_offline'] == 0)
         {
+            $additionalMessage = isset($data['offline_message']) && !empty($data['offline_message']) ? $data['offline_message'] : '';
+            $additionalMessage = erLhcoreClassGenericBotWorkflow::translateMessage($additionalMessage, array('chat' => $params['chat'], 'args' => $params));
+
             // Save as offline request
             if (isset($params['chatprefill']) && $params['chatprefill'] instanceof erLhcoreClassModelChat) {
                 // We do not want to store offline request as a new chat.
@@ -2170,9 +2173,9 @@ class erLhcoreClassChatValidator {
             if ( $params['question'] != '' ) {
                 // Store question as message
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = trim($params['question']);
+                $msg->msg = $additionalMessage;
                 $msg->chat_id = $params['chat']->id;
-                $msg->user_id = 0;
+                $msg->user_id = -1;
                 $msg->time = time();
                 erLhcoreClassChat::getSession()->save($msg);
 

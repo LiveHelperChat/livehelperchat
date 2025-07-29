@@ -63,6 +63,13 @@ class BodyChat extends Component {
             params = {};
         }
 
+        // Contact form was filled from live chat
+        if (this.props.chatwidget.get('isChatting') === true && this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === true && this.props.chatwidget.getIn(['chat_ui','survey_id'])) {
+            this.props.dispatch({type: "attr_set", attr: ['isOfflineMode'], data: false});
+            this.props.dispatch({type: "attr_set", attr: ['chatLiveData','status_sub'], data: STATUS_SUB_SURVEY_SHOW});
+            return;
+        }
+
         let surveyMode = false;
         let navigateToSurvey = false;
         let tipMode = false;
@@ -177,7 +184,7 @@ class BodyChat extends Component {
             className += " mh-100";
         }
 
-        if (this.props.chatwidget.get('isChatting') === true) {
+        if (this.props.chatwidget.get('isChatting') === true && this.props.chatwidget.get('isOfflineMode') === false) {
             className += " online-chat online-chat-status-" + this.props.chatwidget.getIn(['chatLiveData','status']);
             if (this.props.chatwidget.getIn(['onlineData','fetched']) === false && this.props.chatwidget.get('initLoaded') === false) {
                 className += " hide";

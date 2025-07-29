@@ -21,6 +21,11 @@
         <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("system/offlinesettings","Make sure you have NOT checked 'Do not save offline chats' option above");?></i></small></p>
     </div>
 
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','Offline message');?></label>
+        <textarea rows="5" class="form-control form-control-sm" name="offline_message"><?php echo isset($settings['offline_message']) ? htmlspecialchars($settings['offline_message']) : ''?></textarea>
+    </div>
+
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <input type="submit" class="btn btn-secondary" name="saveSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update'); ?>" />
