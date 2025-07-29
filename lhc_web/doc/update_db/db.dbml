@@ -103,7 +103,9 @@ Table "lhc_mailconv_file" {
   "content_id" varchar(250) [not null]
   "disposition" varchar(250) [not null]
   "conversation_id" bigint(20) [not null]
-
+  "width" int(11) [not null, default: 0, note: 'unsigned']
+  "height" int(11) [not null, default: 0, note: 'unsigned']
+  "meta_msg" longtext [not null]
   Indexes {
     message_id [name: "message_id"]
     conversation_id [name: "conversation_id"]
@@ -611,7 +613,7 @@ Table "lh_abstract_chat_priority" {
   "dest_dep_id" int(11) [not null, default: 0]
   "sort_priority" int(11) [not null, default: 0]
   "priority" int(11) [not null]
-
+  "skip_bot" tinyint(1) [not null, default: 0]
   Indexes {
     dep_id [name: "dep_id"]
   }
@@ -1575,7 +1577,10 @@ Table "lh_chat_file" {
   "online_user_id" int(11) [not null]
   "user_id" int(11) [not null]
   "date" int(11) [not null]
-
+  "width" int(11) [not null, default: 0, note: 'unsigned']
+  "height" int(11) [not null, default: 0, note: 'unsigned']
+  "tmp" tinyint(1) [not null, default: 0, note: 'unsigned']
+  "meta_msg" longtext [not null]
   Indexes {
     chat_id [name: "chat_id"]
     online_user_id [name: "online_user_id"]
@@ -2587,7 +2592,7 @@ Table "lh_userdep_alias" {
   "filepath" varchar(200) [not null]
   "filename" varchar(200) [not null]
   "avatar" varchar(150) [not null]
-
+  "job_title" varchar(150) [not null]
   Indexes {
     (dep_id, user_id) [name: "dep_id_user_id"]
     (dep_group_id, user_id) [name: "dep_group_id_user_id"]
