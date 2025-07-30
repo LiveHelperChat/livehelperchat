@@ -934,6 +934,7 @@ class OnlineChat extends Component {
                 previewFiles: [...prevState.previewFiles, fileData]
             };
         });
+        this.scrollBottom();
     }
 
     handleFileRemoval(file) {
@@ -966,6 +967,7 @@ class OnlineChat extends Component {
                 previewFiles: prevState.previewFiles.filter(file => file.id !== fileId)
             };
         });
+        this.scrollBottom();
     }
 
     render() {
@@ -1166,6 +1168,17 @@ class OnlineChat extends Component {
                         {this.state.scrollButton && <div className="position-absolute btn-bottom-scroll fade-in" id="id-btn-bottom-scroll"><button type="button" onClick={this.scrollToMessage} className="btn btn-sm btn-secondary">{(this.state.hasNew && this.state.otm > 0 && <div><i className="material-icons">&#xf11a;</i>{this.state.otm} {(this.state.otm == 1 ? (this.props.chatwidget.getIn(['chat_ui','cnew_msg']) || t('button.new_msg')) : (this.props.chatwidget.getIn(['chat_ui','cnew_msgm']) || t('button.new_msgm')))}</div>) || (this.props.chatwidget.getIn(['chat_ui','cscroll_btn']) || t('button.scroll_bottom'))}</button></div>}
                     </div>
 
+                    {/* File Preview Section */}
+                    {this.state.previewFiles.length > 0 && (
+                        <Suspense fallback="">
+                            <FilePreview
+                                previewFiles={this.state.previewFiles}
+                                onRemoveFile={this.removeFilePreview}
+                                t={t}
+                            />
+                        </Suspense>
+                    )}
+
                     <div className={(this.props.chatwidget.get('msgLoaded') === false || this.state.enabledEditor === false ? 'd-none ' : 'd-flex ') + "flex-row border-top position-relative message-send-area"} >
                         {(this.props.chatwidget.getIn(['chatLiveData','ott']) || (this.props.chatwidget.getIn(['chatLiveData','error']) && this.props.chatwidget.getIn(['chatLiveData','error']) != 'SEND_CONNECTION') || this.props.chatwidget.get('network_down')) && <div id="id-operator-typing" className="bg-white ps-1">{this.props.chatwidget.getIn(['chatLiveData','error']) ? (this.props.chatwidget.getIn(['chatLiveData','error']).indexOf('SEND_') === -1 ? this.props.chatwidget.getIn(['chatLiveData','error']) : t('online_chat.'+this.props.chatwidget.getIn(['chatLiveData','error']).toLowerCase())) : (this.props.chatwidget.get('network_down') ? t('online_chat.send_connection') : this.props.chatwidget.getIn(['chatLiveData','ott']))}</div>}
 
@@ -1202,17 +1215,6 @@ class OnlineChat extends Component {
                                     || !this.props.chatwidget.hasIn(['chat_ui','survey_id'])) &&
 
                                 <React.Fragment>
-                                    {/* File Preview Section */}
-                                    {this.state.previewFiles.length > 0 && (
-                                        <Suspense fallback="...">
-                                            <FilePreview 
-                                                previewFiles={this.state.previewFiles}
-                                                onRemoveFile={this.removeFilePreview}
-                                                t={t}
-                                            />
-                                        </Suspense>
-                                    )}
-
                                     <SharedTextarea
                                         text={!this.props.chatwidget.getIn(['chatLiveData','closed']) ? this.state.value : ''}
                                         textMaxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])}
