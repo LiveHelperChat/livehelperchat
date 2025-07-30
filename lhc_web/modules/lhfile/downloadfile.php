@@ -30,7 +30,11 @@ try {
 
             $validRequest = false;
 
-            if ((!isset($fileData['chat_file_policy_v']) || $fileData['chat_file_policy_v'] == 0) && isset($Params['user_parameters_unordered']['vhash']) && isset($Params['user_parameters_unordered']['vts'])) {
+            if (isset($fileData['chat_file_policy_v']) && $fileData['chat_file_policy_v'] == 2) {
+                $validRequest = true;
+            }
+
+            if ($validRequest === false && (!isset($fileData['chat_file_policy_v']) || $fileData['chat_file_policy_v'] == 0) && isset($Params['user_parameters_unordered']['vhash']) && isset($Params['user_parameters_unordered']['vts'])) {
                 $vhash = $Params['user_parameters_unordered']['vhash'];
                 $vts = (int)$Params['user_parameters_unordered']['vts'];
                 $expectedHash = sha1($file->id . '_' . $file->hash . '_' . $vts . '_' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));

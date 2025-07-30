@@ -72,7 +72,7 @@ if (isset($_POST['StoreFileConfiguration'])) {
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
         'chat_file_policy_v' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 2)
         ),
         'chat_file_policy_o' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
