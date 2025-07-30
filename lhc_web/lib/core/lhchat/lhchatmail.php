@@ -372,6 +372,7 @@ class erLhcoreClassChatMail {
 
         // Translate fancy parameters
         $params['chat'] = $chat;
+        $params['input_data'] = $inputData;
         $mail->Body = erLhcoreClassGenericBotWorkflow::translateMessage($mail->Body, array('chat' => $chat, 'args' => $params));
 
     	/*
