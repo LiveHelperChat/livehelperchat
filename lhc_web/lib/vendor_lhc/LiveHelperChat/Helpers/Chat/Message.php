@@ -4,7 +4,40 @@ namespace LiveHelperChat\Helpers\Chat;
 
 class Message
 {
-    public static function extractFile($msg_text) {
+    public static function extractFile($msgObject) {
+        // Support both message object and string for backward compatibility
+        if (is_string($msgObject)) {
+            $msg_text = $msgObject;
+            $meta_msg = '';
+        } elseif (is_object($msgObject)) {
+            $msg_text = isset($msgObject->msg) ? $msgObject->msg : '';
+            $meta_msg = isset($msgObject->meta_msg) ? $msgObject->meta_msg : '';
+        } else {
+            return null;
+        }
+        
+        // First check for attachments in meta_msg
+        if (!empty($meta_msg)) {
+            $metaData = json_decode($meta_msg, true);
+            if (isset($metaData['content']['attachements']) && is_array($metaData['content']['attachements']) && !empty($metaData['content']['attachements'])) {
+                $firstAttachment = $metaData['content']['attachements'][0];
+                if (isset($firstAttachment['id']) && isset($firstAttachment['security_hash'])) {
+                    try {
+                        $file = \erLhcoreClassModelChatFile::fetch($firstAttachment['id']);
+                        if (is_object($file) && $firstAttachment['security_hash'] == $file->security_hash) {
+                            return array(
+                                'file' => $file,
+                                'type' => 'meta_msg'
+                            );
+                        }
+                    } catch (Exception $e) {
+                        // File not found or invalid, continue to check message content
+                    }
+                }
+            }
+        }
+        
+        // Fallback to checking message content if no valid attachment found in meta_msg
         if (empty($msg_text)) {
             return null;
         }
@@ -31,7 +64,10 @@ class Message
         try {
             $file = \erLhcoreClassModelChatFile::fetch($fileID);
             if (is_object($file) && $hash == $file->security_hash) {
-                return $file;
+                return array(
+                    'file' => $file,
+                    'type' => 'inline'
+                );
             }
         } catch (Exception $e) {
             // File not found or invalid

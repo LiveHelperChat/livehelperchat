@@ -138,7 +138,7 @@ class erLhcoreClassFileUpload extends UploadHandler
                 $chat = $this->options['chat'];
 
                 // Format message only if preview is not enabled
-                if (!isset($this->options['file_preview']) || $this->options['file_preview'] != true) {
+                if (!isset($this->options['file_preview']) || $this->options['file_preview'] != true || $fileUpload->extension == 'mp3') {
                     $msg = new erLhcoreClassModelmsg();
                     $msg->msg = '[file=' . $file->id . '_' . $fileUpload->security_hash . ']';
                     $msg->chat_id = $chat->id;

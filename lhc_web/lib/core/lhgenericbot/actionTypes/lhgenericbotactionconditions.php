@@ -139,33 +139,22 @@ class erLhcoreClassGenericBotActionConditions {
                             $attr = '';
                             
                             if (isset($params['msg']) && is_object($params['msg'])) {
-                                $msg_text = $params['msg']->msg;
+                                $fileData = \LiveHelperChat\Helpers\Chat\Message::extractFile($params['msg']);
                                 
-                                // Extract file from message content like [file=1999_718792694da94d3018e51319471c09b5]
-                                $matches = array();
-                                preg_match_all('/\[file="?(.*?)"?\]/', $msg_text, $matches);
-                                
-                                if (!empty($matches[1])) {
-                                    // Check if the file attachment is the sole content of the message
-                                    $filePattern = '/\[file="?' . preg_quote($matches[1][0], '/') . '"?\]/';
-                                    $msgWithoutFile = preg_replace($filePattern, '', $msg_text);
-                                    $msgWithoutFile = trim($msgWithoutFile);
+                                if ($fileData !== null) {
+                                    $file = $fileData['file'];
+                                    $extractionType = $fileData['type'];
                                     
-                                    // Only use file extension as attribute if message contains only the file
-                                    if (empty($msgWithoutFile)) {
-                                        $body = $matches[1][0]; // Get first file
-                                        $parts = explode('_', $body);
-                                        $fileID = $parts[0];
-                                        $hash = $parts[1];
+                                    if ($extractionType === 'meta_msg') {
+                                        // Always consider messages with meta_msg attachments as media type
+                                        $attr = $file->extension;
+                                    } else {
+                                        // For inline file attachments, check if message contains only the file
+                                        $msgWithoutFile = trim(str_replace('[file=' . $file->id . '_' . $file->security_hash . ']', '', $params['msg']->msg));
                                         
-                                        try {
-                                            $file = erLhcoreClassModelChatFile::fetch($fileID);
-                                            if (is_object($file) && $hash == $file->security_hash) {
-                                                $attr = $file->extension;
-                                            }
-                                        } catch (Exception $e) {
-                                            // File not found or invalid
-                                            $attr = '';
+                                        // Only use file extension as attribute if message contains only the file
+                                        if (empty($msgWithoutFile)) {
+                                            $attr = $file->extension;
                                         }
                                     }
                                 }

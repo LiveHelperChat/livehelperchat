@@ -58,7 +58,13 @@ class erLhcoreClassModelmsg
                 break;
 
             case 'file':
-                return \LiveHelperChat\Helpers\Chat\Message::extractFile($this->msg);
+                $fileData = \LiveHelperChat\Helpers\Chat\Message::extractFile($this);
+                // Maintain backward compatibility by returning just the file object
+                return $fileData ? $fileData['file'] : null;
+
+            case 'file_data':
+                // New property that returns the full array with file and type
+                return \LiveHelperChat\Helpers\Chat\Message::extractFile($this);
 
 
             default:

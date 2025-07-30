@@ -2240,6 +2240,15 @@ class erLhcoreClassGenericBotActionRestapi
                             }
                         }
 
+                        if (str_contains($foreachCycleParse, '{skip_media_msg}')) {
+                            $foreachCycleParse = str_replace('{skip_media_msg}','', $foreachCycleParse);
+                            $messageCleanedUp = preg_replace('#\[file="?(.*?)"?\]#is', '', $message->msg);
+                            if ($messageCleanedUp == '' || isset($message->meta_msg_array['content']['attachements'])) {
+                                $totalElements--;
+                                continue;
+                            }
+                        }
+
                         if ($message->user_id == -1) {
                             $totalElements--;
                             continue;
