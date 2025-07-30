@@ -586,6 +586,11 @@ class OnlineChat extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
 
+        // Scroll to the bottom if file preview was attached
+        if (prevState.previewFiles.length != this.state.previewFiles.length){
+            this.scrollBottom(false, false);
+        }
+
         // Update untill we are sure that messages can be shown
         if (
             this.state.showMessages === false ||
@@ -934,7 +939,6 @@ class OnlineChat extends Component {
                 previewFiles: [...prevState.previewFiles, fileData]
             };
         });
-        this.scrollBottom();
     }
 
     handleFileRemoval(file) {
@@ -967,7 +971,6 @@ class OnlineChat extends Component {
                 previewFiles: prevState.previewFiles.filter(file => file.id !== fileId)
             };
         });
-        this.scrollBottom();
     }
 
     render() {

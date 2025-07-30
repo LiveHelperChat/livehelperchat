@@ -6,7 +6,7 @@ const FilePreview = ({ previewFiles, onRemoveFile, t }) => {
     }
 
     return (
-        <div className="file-preview-container border-top p-2 w-100" style={{bottom: '100%', left: 0, zIndex: 10}}>
+        <div className="border-top p-2 w-100 file-preview-container" style={{bottom: '100%', left: 0, zIndex: 10}}>
             <div className="d-flex flex-wrap gap-2">
                 {previewFiles.map((file, index) => (
                     <div key={file.id || index} className="file-preview-item position-relative">
