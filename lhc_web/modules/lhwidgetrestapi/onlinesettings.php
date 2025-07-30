@@ -251,6 +251,31 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         }
     }
 
+    function getValueFromPrefillOrLocation(erLhcoreClassModelChat $chatPrefill,  string $attribute,  array $startDataFields, string $conditionKey, ?string $attrLocation = null) {
+        $value = $chatPrefill->{$attribute};
+
+        $validCondition = true;
+
+        if (isset($startDataFields[$conditionKey]) && !empty($startDataFields[$conditionKey])) {
+            foreach (\LiveHelperChat\Models\Bot\Condition::getList(['filter' => ['identifier' => $startDataFields[$conditionKey]]]) as $condition) {
+                if ($condition->isValid(['chat' => $chatPrefill]) === false) {
+                    $validCondition = false;
+                    break;
+                }
+            };
+        }
+
+        if (!$validCondition) {
+            return '';
+        }
+
+        if (isset($startDataFields[$attrLocation]) && !empty($startDataFields[$attrLocation])) {
+                $value = erLhcoreClassGenericBotWorkflow::translateMessage($startDataFields[$attrLocation], array('chat' => $chatPrefill, 'args' => ['chat' => $chatPrefill]));
+        }
+
+        return $value;
+    }
+    
     if (
         (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_name_visible_in_page_widget']) && $start_data_fields['offline_name_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_name_visible_in_popup']) && $start_data_fields['offline_name_visible_in_popup'] == true)
@@ -259,6 +284,11 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         $label = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');
         if (isset($theme->bot_configuration_array['formf_name']) && $theme->bot_configuration_array['formf_name'] != '') {
             $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_name']));
+        }
+
+        $value = '';
+        if (isset($chatPrefill)) {
+            $value = getValueFromPrefillOrLocation($chatPrefill, 'nick', $startDataFields, 'off_name_cond', 'off_name_location');
         }
 
         $fields[] = array(
@@ -272,9 +302,8 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'identifier' => 'username',
             'priority' => (isset($start_data_fields['offline_name_priority']) && is_numeric($start_data_fields['offline_name_priority']) ? (int)$start_data_fields['offline_name_priority'] : 0),
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name'),
-            'value' => (isset($chatPrefill) ? $chatPrefill->nick : '')
+            'value' => $value
         );
-
     }
 
     if (
@@ -285,6 +314,11 @@ if ($Params['user_parameters_unordered']['online'] == '0')
 
         if (isset($theme->bot_configuration_array['formf_email']) && $theme->bot_configuration_array['formf_email'] != '') {
             $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_email']));
+        }
+
+        $value = '';
+        if (isset($chatPrefill)) {
+            $value = getValueFromPrefillOrLocation($chatPrefill, 'email', $startDataFields, 'off_email_cond');
         }
 
         $fields[] = array(
@@ -298,7 +332,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'name' => 'Email',
             'identifier' => 'email',
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your email address'),
-            'value' => (isset($chatPrefill) ? $chatPrefill->email : '')
+            'value' => $value
         );
     }
 
@@ -312,6 +346,11 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_phone']));
         }
 
+        $value = '';
+        if (isset($chatPrefill)) {
+            $value = getValueFromPrefillOrLocation($chatPrefill, 'phone', $startDataFields, 'off_phone_cond');
+        }
+
         $fields[] = array(
             'type' => (isset($start_data_fields['offline_phone_hidden']) && $start_data_fields['offline_phone_hidden'] == true ? 'hidden' : 'text'),
             'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['offline_phone_width'] > 0 ? (int)$start_data_fields['offline_phone_width'] : 6),
@@ -323,7 +362,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'priority' => (isset($start_data_fields['offline_phone_priority']) && is_numeric($start_data_fields['offline_phone_priority']) ? (int)$start_data_fields['offline_phone_priority'] : 0),
             'identifier' => 'phone',
             'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone'),
-            'value' => (isset($chatPrefill) ? $chatPrefill->phone : '')
+            'value' => $value
         );
     }
 

@@ -560,6 +560,19 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'EmailRequireOption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	        ),
+            'off_name_location' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+	        ),
+            'off_name_cond' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+	        ),
+            'off_email_cond' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+	        ),
+            'off_phone_cond' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+	        ),
+
 
 	        // Message options
 	        'MessageVisibleInPopup' => new ezcInputFormDefinitionElement(
@@ -839,6 +852,17 @@ class erLhcoreClassAdminChatValidatorHelper {
 
         if ( $form->hasValidData( 'pre_conditions' )) {
             $data['pre_conditions'] = $form->pre_conditions;
+        }
+
+        foreach ([
+            'off_name_location' => 'off_name_location',
+            'off_name_cond' => 'off_name_cond',
+            'off_email_cond' => 'off_email_cond',
+            'off_phone_cond' => 'off_phone_cond',
+                     ] as $inputField => $storeName) {
+            if ( $form->hasValidData( $inputField )) {
+                $data[$storeName] = $form->{$inputField};
+            }
         }
 
         if ( $form->hasValidData( 'OnlineNamePriority' )) {

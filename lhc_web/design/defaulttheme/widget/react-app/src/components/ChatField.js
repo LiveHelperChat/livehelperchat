@@ -63,6 +63,11 @@ class ChatField extends Component {
             this.props.onChangeContent({id : this.props.field.get('name'), value : true});
         } else if (this.props.field.get('type') == 'dropdown' || this.props.field.get('type') == 'text') {
             this.props.onChangeContent({id : this.props.field.get('name'), value : this.props.defaultValueField});
+
+            if (this.props.field.has('hide_prefilled') && this.props.field.get('hide_prefilled') == true && this.props.isInvalid === false && this.props.field.get('value')) {
+                this.setState({'hiddenIfPrefilled':true});
+            }
+
             if (this.props.field.get('type') == 'dropdown') {
                 this.props.field.get('options').map((dep) => {
                     if (dep.get('value') == this.props.defaultValueField && dep.get('dep_id')) {
