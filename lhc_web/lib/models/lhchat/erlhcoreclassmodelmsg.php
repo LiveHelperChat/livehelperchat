@@ -43,7 +43,6 @@ class erLhcoreClassModelmsg
                     $this->time_front = date(erLhcoreClassModule::$dateDateHourFormat, $this->time);
                 }
                 return $this->time_front;
-                break;
 
             case 'meta_msg_array':
                 $this->meta_msg_array = array();
@@ -55,17 +54,19 @@ class erLhcoreClassModelmsg
                     }
                 }
                 return $this->meta_msg_array;
-                break;
+
+            case 'msg_plain':
+                $this->msg_plain = trim(preg_replace('/\[file="?(.*?)"?\]/', '', $this->msg));
+                return $this->msg_plain;
 
             case 'file':
-                $fileData = \LiveHelperChat\Helpers\Chat\Message::extractFile($this);
-                // Maintain backward compatibility by returning just the file object
-                return $fileData ? $fileData['file'] : null;
+                $fileData = $this->file_data;
+                $this->file = $fileData ? $fileData['file'] : null;
+                return $this->file;
 
             case 'file_data':
-                // New property that returns the full array with file and type
-                return \LiveHelperChat\Helpers\Chat\Message::extractFile($this);
-
+                $this->file_data = \LiveHelperChat\Helpers\Chat\Message::extractFile($this);
+                return $this->file_data;
 
             default:
                 break;

@@ -128,10 +128,20 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && mb_strlen($payload[
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_user_saved',array('msg' => & $msg,'chat' => & $chat));
 
             erLhcoreClassChat::getSession()->save($msg);
-     
-            foreach ($filesTemporary as $file) {
-                $file->tmp = 0;
-                $file->updateThis(array('update' => array('tmp')));
+
+            if (!empty($filesTemporary)) {
+                $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
+                foreach ($filesTemporary as $file) {
+
+                    $file->tmp = 0;
+                    $file->updateThis(array('update' => array('tmp')));
+
+                    if (isset($fileData['img_download_policy']) && $fileData['img_download_policy'] == 1 &&
+                        in_array($file->extension, array('jfif','jpg', 'jpeg', 'png', 'gif')) &&
+                        $file->width > (isset($fileData['img_verify_min_dim']) ? $fileData['img_verify_min_dim'] : 100) || $file->height > (isset($fileData['img_verify_min_dim']) ? $fileData['img_verify_min_dim'] : 100)) {
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.verify_img_file', array('chat'=> $chat, 'chat_file' => $file));
+                    }
+                }
             }
 
             if (!isset($msg)) {
