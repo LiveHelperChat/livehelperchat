@@ -1325,7 +1325,8 @@ class erLhcoreClassBBCode
 
         if (self::isBBCodeTagSupported('[url]',$paramsMessage)) {
             // Convert markdown links to bbcode
-            $pattern = '/\[(.*?)\]\((.*?)\)/';
+            //$pattern = '/\[(.*?)\]\((.*?)\)/';
+            $pattern = '/\[([^\[\]]*?)\]\(([^)]+)\)/';
             preg_match_all($pattern, $ret, $matches, PREG_SET_ORDER);
             foreach ($matches as $match) {
                 $ret = str_replace($match[0], '[url="' . $match[2] . '"]' . $match[1] . '[/url]', $ret);
