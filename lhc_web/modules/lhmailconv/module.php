@@ -316,13 +316,13 @@ $ViewList['responsetemplates'] = array(
 $ViewList['subject'] = array(
     'params' => array('id'),
     'uparams' => array('subject','status'),
-    'functions' => array( 'use' ),
+    'functions' => array( 'use_admin' ),
 );
 
 $ViewList['addsubjectbytemplate'] = array(
     'params' => array('message_id', 'template_id'),
     'uparams' => array(),
-    'functions' => array( 'use' ),
+    'functions' => array( 'use_admin' ),
 );
 
 $ViewList['apiresponsetemplates'] = array(
