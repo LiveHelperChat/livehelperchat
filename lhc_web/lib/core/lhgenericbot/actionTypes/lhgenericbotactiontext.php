@@ -52,6 +52,20 @@ class erLhcoreClassGenericBotActionText {
             $metaMessage['content']['reactions']['content'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['reactions'], array('chat' => $chat, 'args' => $params));
         }
 
+        if (!empty($action['content']['attached_file'])) {
+            $file = \LiveHelperChat\Helpers\Chat\Message::extractFile(erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['attached_file'], array('chat' => $chat, 'args' => $params)));
+            if (isset($file['file'])) {
+                $metaMessage['content']['attachements'][] = array(
+                    'id' => $file['file']->id,
+                    'security_hash' => $file['file']->security_hash
+                );
+                if ($file['file']->tmp == 1) {
+                    $file['file']->tmp = 0;
+                    $file['file']->updateThis(['update' => ['tmp']]);
+                }
+            }
+        }
+
         if (isset($action['content']['quick_replies']) && !empty($action['content']['quick_replies']))
         {
 

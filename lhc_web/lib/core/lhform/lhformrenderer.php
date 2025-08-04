@@ -830,6 +830,7 @@ class erLhcoreClassFormRenderer {
 
                         $upload_handler = new erLhcoreClassFileUpload(array(
                             'antivirus' => $clamav,
+                            'file_preview' => (isset($params['definition']['file_preview']) && $params['definition']['file_preview'] == 'true' ? true : false),
                             'param_name' => $params['definition']['name'],
                             'user_id' => -1,    // Save as system message
                             'as_form' => true,    // Indicate it's a form upload
@@ -840,6 +841,15 @@ class erLhcoreClassFormRenderer {
                             'upload_dir' => $path));
 
                         if ($upload_handler->uploadedFile instanceof erLhcoreClassModelChatFile) {
+
+                            if (isset($params['definition']['chat_file_attr']) && !empty($params['definition']['chat_file_attr']) ) {
+                                $chatVariablesArray = $chat->chat_variables_array;
+                                $chatVariablesArray[$params['definition']['chat_file_attr']] = '[file='.$upload_handler->uploadedFile->id.'_'.$upload_handler->uploadedFile->security_hash.']';
+                                $chat->chat_variables_array = $chatVariablesArray;
+                                $chat->chat_variables = json_encode($chatVariablesArray);
+                                $chat->updateThis(['update' => ['chat_variables']]);
+                            }
+
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_store', array('chat_file' => $upload_handler->uploadedFile));
                             $chat->user_typing_txt = '100%';
                         }
