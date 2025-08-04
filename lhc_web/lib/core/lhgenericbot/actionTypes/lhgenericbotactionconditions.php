@@ -90,6 +90,16 @@ class erLhcoreClassGenericBotActionConditions {
                             }
                             $attr = implode(',', $multiAttr);
 
+                        } elseif ($paramsConditions[0] == 'custom_schedule') {
+
+                            $attr = \LiveHelperChat\Helpers\Bot\ActionConditions::checkCustomSchedule($valAttr) ? 1 : 0;
+
+                            if ($condition['content']['comp'] == 'eq') {
+                                $valAttr = 1;
+                            } else {
+                                $valAttr = 0;
+                            }
+
                         } elseif ($paramsConditions[0] == 'siteaccess') {
                             $attr = erLhcoreClassSystem::instance()->SiteAccess;
                         } elseif (str_starts_with($paramsConditions[0],'online_department_hours')) {
@@ -388,5 +398,6 @@ class erLhcoreClassGenericBotActionConditions {
         }
         return $depId;
     }
+
 }
 ?>
