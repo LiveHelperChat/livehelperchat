@@ -631,6 +631,10 @@ class erLhcoreClassGenericBotWorkflow {
                         }
 
                         $args['args']['msg_text'] = $payload;
+                        
+                        if (isset($params['msg']) && is_object($params['msg'])) {
+                            $args['args']['msg'] = $params['msg'];
+                        }
 
                         $responseTrigger = null;
 
