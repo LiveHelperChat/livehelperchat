@@ -60,6 +60,23 @@
           }
         }
       }
+    },
+    {
+      "type":"package",
+      "package": {
+        "name": "longman/telegram-bot",
+        "version":"master",
+        "source": {
+          "url": "https://github.com/LiveHelperChat/telegram-core.git",
+          "type": "git",
+          "reference":"develop"
+        },
+        "autoload": {
+          "psr-4": {
+            "Longman\\TelegramBot\\": "src"
+          }
+        }
+      }
     }
   ],
   "minimum-stability": "stable",
@@ -76,7 +93,7 @@
     "facebook/graph-sdk": "*",
     "giggsey/libphonenumber-for-php": "^8.12.44",
     "league/oauth2-server": "^8.3",
-    "longman/telegram-bot": "dev-master#e80416306f6cd054fd6b5e3a947528e18bdbf518",
+    "longman/telegram-bot": "dev-master#79e5e3abc82d130aa791bd767bd0980f7b85067c",
     "michelf/php-markdown": "^2.0",
     "minishlink/web-push": "^7.0",
     "php-imap/php-imap": "dev-master#5c4f558ec8d82b273ca5d975c4cfc9aee50b6609",
