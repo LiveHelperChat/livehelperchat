@@ -123,6 +123,13 @@ if (isset($_POST['AddBlockEmail']))
 	}
 }
 
+if (isset($_GET['doTest'])) {
+    $chat = erLhcoreClassModelChat::fetch($_GET['chat_id']);
+    if (is_object($chat)) {
+        $tpl->set('is_blocked',erLhcoreClassModelChatBlockedUser::isBlocked(array('return_block' => true, 'online_user_id' => $chat->online_user_id, 'country_code' => $chat->country_code, 'ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $chat->nick, 'email' => $chat->email)));
+    }
+}
+
 if (isset($_GET['doSearch'])) {
     $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'block_search','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     $filterParams['is_search'] = true;

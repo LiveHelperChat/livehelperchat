@@ -98,8 +98,8 @@ class erLhcoreClassModelChatBlockedUser
                 '(
                         ' . ($prefixBlock != '' ?
                         '(`ip` = ' . $db->quote($params['ip']) .' AND btype IN (0,3,4)) OR 
-                        (`nick` = ' . $db->quote($params['nick']) . ' AND btype IN (1,3)) OR 
-                        (`nick` = ' . $db->quote($params['nick']) . ' AND `dep_id` = ' . $db->quote($params['dep_id']) . ' AND btype IN (2,4))' : '') . $emailBlock . '
+                        (`nick` = ' . $db->quote(trim($params['nick'])) . ' AND btype IN (1,3)) OR 
+                        (`nick` = ' . $db->quote(trim($params['nick'])) . ' AND `dep_id` = ' . $db->quote($params['dep_id']) . ' AND btype IN (2,4))' : '') . $emailBlock . '
                     ) AND (expires = 0 OR expires > ' . time() . ')'
             )
         );

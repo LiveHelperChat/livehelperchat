@@ -25,13 +25,24 @@
                 </div>
                 <div class="col-2">
                     <input type="submit" class="btn btn-sm btn-secondary w-100" name="doSearch" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Search');?>" />
+                </div>
+            </div>
+            <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+            <div class="row pt-2">
+                <div class="col">
+                    <input type="text" class="form-control form-control-sm" name="chat_id" value="<?php echo htmlspecialchars($_GET['chat_id'] ?? '');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Chat ID to test');?>" />
+                </div>
+                <div class="col">
+                    <input type="submit" class="btn btn-sm btn-secondary w-100" name="doTest" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Test');?>" />
+                </div>
+                <div class="col-2">
                     <?php if (isset($enabled_log)) : ?>
                         <a target="_blank" class="text-muted d-block pt-1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block history');?>" href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Audit/(category)/block/(source)/lhc"><span class="material-icons">history</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block history');?></a>
                     <?php endif; ?>
                 </div>
             </div>
-            <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
         </form>
+
     </div>
     <div class="col-6">
         <form class="mb-2" action="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>"  method="post">
@@ -87,6 +98,9 @@
     });
 </script>
 
+<?php if (isset($is_blocked))  : ?>
+<pre><?php echo htmlspecialchars(json_encode($is_blocked,JSON_PRETTY_PRINT));?></pre>
+<?php endif; ?>
 
 
 <?php if (!empty($items)) : ?>
