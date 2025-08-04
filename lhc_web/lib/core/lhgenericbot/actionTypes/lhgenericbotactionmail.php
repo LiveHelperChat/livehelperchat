@@ -50,6 +50,10 @@ class erLhcoreClassGenericBotActionMail {
 
             $mail->Body = erLhcoreClassGenericBotWorkflow::translateMessage($bodyText, array('chat' => $chat, 'args' => $params));
 
+            if (isset($action['content']['mail_options']['parse_bbcode']) && $action['content']['mail_options']['parse_bbcode'] === true) {
+                $mail->Body = erLhcoreClassBBCodePlain::make_clickable($mail->Body, array('sender' => 0, 'clean_event' => true));
+            }
+
             if (isset($action['content']['mail_options']['do_not_import']) && $action['content']['mail_options']['do_not_import'] == true) {
                 $mail->addCustomHeader('X-LHC-IGN', 1);
             }

@@ -147,7 +147,6 @@ class erLhcoreClassGenericBotActionConditions {
                             $attr = isset($result['validation_result']) ? $result['validation_result'] : '';
                         } elseif ($paramsConditions[0] == 'media_type') {
                             $attr = '';
-                            
                             if (isset($params['msg']) && is_object($params['msg'])) {
                                 $fileData = \LiveHelperChat\Helpers\Chat\Message::extractFile($params['msg']);
                                 

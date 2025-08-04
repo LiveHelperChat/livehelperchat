@@ -2249,7 +2249,7 @@ class erLhcoreClassGenericBotActionRestapi
                             }
                         }
 
-                        if ($message->user_id == -1) {
+                        if ($message->user_id == -1 && !(isset($message->meta_msg_array['content']['attr_options']['process_as_visitor']) && $message->meta_msg_array['content']['attr_options']['process_as_visitor'] === true)) {
                             $totalElements--;
                             continue;
                         }

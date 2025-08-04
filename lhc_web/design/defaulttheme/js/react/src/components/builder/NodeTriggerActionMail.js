@@ -122,6 +122,12 @@ class NodeTriggerActionMail extends Component {
                         </div>
                     </div>
 
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['mail_options','parse_bbcode'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','mail_options','parse_bbcode'])} /> Parse BBCode message to plain text.</label>
+                         </div>
+                    </div>
+
                     <div className="col-12">
                         <div className="form-group">
                             <label>Mail body</label>
