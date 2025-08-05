@@ -50,6 +50,30 @@ class erLhcoreClassGenericBotActionMail {
 
             $mail->Body = erLhcoreClassGenericBotWorkflow::translateMessage($bodyText, array('chat' => $chat, 'args' => $params));
 
+            if (isset($action['content']['mail_options']['attach_files']) && $action['content']['mail_options']['attach_files'] === true) {
+                // Split message by [file= and loop through elements
+                $messageParts = explode('[file=', $mail->Body);
+                
+                if (count($messageParts) > 1) {
+                    // Skip first part as it doesn't contain file reference
+                    for ($i = 1; $i < count($messageParts); $i++) {
+                        // Create a mock message object and let extractFile method do the parsing
+                        $mockMessage = new stdClass();
+                        $mockMessage->msg = '[file=' . $messageParts[$i];
+                        $mockMessage->meta_msg = '';
+                        
+                        // Use LiveHelperChat\Helpers\Chat\Message::extractFile to get file data
+                        $fileData = \LiveHelperChat\Helpers\Chat\Message::extractFile($mockMessage);
+                        
+                        if ($fileData !== null && isset($fileData['file']) && $fileData['file'] instanceof erLhcoreClassModelChatFile) {
+                            $file = $fileData['file'];
+                            // Attach file to mail
+                            $mail->AddAttachment($file->file_path_server, $file->upload_name);
+                        }
+                    }
+                }
+            }
+
             if (isset($action['content']['mail_options']['parse_bbcode']) && $action['content']['mail_options']['parse_bbcode'] === true) {
                 $mail->Body = erLhcoreClassBBCodePlain::make_clickable($mail->Body, array('sender' => 0, 'clean_event' => true));
             }
