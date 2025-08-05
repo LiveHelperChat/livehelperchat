@@ -66,6 +66,8 @@ class NodeActionConditionItem extends Component {
                             <option value="start_or">Start of OR</option>
                             <option value="in_list">In list, items separated by ||</option>
                             <option value="in_list_lowercase">In list (lowercase before comparison), items separated by ||</option>
+                            <option value="not_in_list">Not in list, items separated by ||</option>
+                            <option value="not_in_list_lowercase">Not in list (lowercase before comparison), items separated by ||</option>
                         </select>
                     </div>
                 </div>

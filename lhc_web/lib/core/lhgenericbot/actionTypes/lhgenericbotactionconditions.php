@@ -206,7 +206,7 @@ class erLhcoreClassGenericBotActionConditions {
                         $attr = str_replace(array_keys($replaceArray), array_values($replaceArray), $attr);
                         $valAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $valAttr);
 
-                        if (!in_array($condition['content']['comp'], ['like', 'notlike', 'contains', 'in_list', 'in_list_lowercase'])) {
+                        if (!in_array($condition['content']['comp'], ['like', 'notlike', 'contains', 'in_list', 'in_list_lowercase', 'not_in_list', 'not_in_list_lowercase'])) {
                             $attr = preg_replace('/\s+/', '', $attr);
                             $valAttr = preg_replace('/\s+/', '', $valAttr);
                         }
@@ -291,6 +291,14 @@ class erLhcoreClassGenericBotActionConditions {
                             $conditionsMet = false;
                             break;
                         } else if ($condition['content']['comp'] == 'in_list_lowercase' && !in_array(strtolower(trim($attr)),explode('||',strtolower(trim($valAttr))))) {
+                            $conditionsDebug[] = 'INVALID';
+                            $conditionsMet = false;
+                            break;
+                        } else if ($condition['content']['comp'] == 'not_in_list' && in_array(trim($attr),explode('||',trim($valAttr)))) {
+                            $conditionsDebug[] = 'INVALID';
+                            $conditionsMet = false;
+                            break;
+                        } else if ($condition['content']['comp'] == 'not_in_list_lowercase' && in_array(strtolower(trim($attr)),explode('||',strtolower(trim($valAttr))))) {
                             $conditionsDebug[] = 'INVALID';
                             $conditionsMet = false;
                             break;

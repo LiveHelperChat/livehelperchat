@@ -51,6 +51,8 @@ class Condition {
             'contains' => 'contains',
             'in_list' => 'in_list',
             'in_list_lowercase' => 'in_list_lowercase',
+            'not_in_list' => 'not_in_list',
+            'not_in_list_lowercase' => 'not_in_list_lowercase',
             'start_or' => 'start_or'
         ];
 

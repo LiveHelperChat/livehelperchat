@@ -86,6 +86,8 @@
                                 <option value="start_or"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Start of OR')?></option>
                                 <option value="in_list"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','In list, items separated by ||')?></option>
                                 <option value="in_list_lowercase"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','In list (lowercase before comparison), items separated by ||')?></option>
+                                <option value="not_in_list"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Not in list, items separated by ||')?></option>
+                                <option value="not_in_list_lowercase"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Not in list (lowercase before comparison), items separated by ||')?></option>
                             </select>
                         </div>
                         <div class="col-5" ng-show="filter.comparator != 'start_or'">
