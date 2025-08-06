@@ -422,7 +422,7 @@ class erLhcoreClassFormRenderer {
     		
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
 
-    		if ($form->hasValidData( $params['name'] ) && isset($params['required']) && $params['required'] == 'required') {
+    		if (!$form->hasValidData( $params['name'] ) && isset($params['required']) && $params['required'] == 'required') {
                 $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
                 $isInvalid = true;
                 if (isset($params['error_style']) && $params['error_style'] == 'field') {
