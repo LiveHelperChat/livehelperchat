@@ -345,10 +345,18 @@ class erLhcoreClassGenericBotActionConditions {
                     $pendingAction->trigger_id = $action['content']['attr_options']['callback_reschedule'];
                     $pendingAction->saveThis();
                 }
+
+                // If customer chosen none trigger but want's to continue
+                if (isset($action['content']['attr_options']['continue_all']) && $action['content']['attr_options']['continue_all'] == true &&
+                    (!isset($action['content']['attr_options']['callback_match']) || !is_numeric($action['content']['attr_options']['callback_match']))) {
+                    return;
+                }
+
                 return array(
                     'status' => (isset($action['content']['attr_options']['continue_all']) && $action['content']['attr_options']['continue_all'] == true ? 'continue_all' : 'stop'),
                     'trigger_id' => (isset($action['content']['attr_options']['callback_match']) && is_numeric($action['content']['attr_options']['callback_match']) ? $action['content']['attr_options']['callback_match'] : null)
                 );
+
             } else {
 
                 if (isset($action['content']['attr_options']['log_un_matched']) && $action['content']['attr_options']['log_un_matched'] === true) {

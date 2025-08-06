@@ -941,6 +941,15 @@ class erLhcoreClassGenericBotActionCommand {
 
             $payloadProcessed = erLhcoreClassGenericBotWorkflow::translateMessage($payloadProcessed, array('chat' => $chat, 'args' => $params));
 
+            // Assign subject by internal type
+            if (!is_numeric($payloadProcessed) && !empty($payloadProcessed)) {
+                $subject = erLhAbstractModelSubject::findOne(['filter' => ['internal_type' => $payloadProcessed]]);
+                if (!($subject instanceof erLhAbstractModelSubject)) {
+                    return;
+                }
+                $payloadProcessed = $subject->id;
+            }
+
             $remove = isset($action['content']['remove_subject']) && $action['content']['remove_subject'] == true;
 
             // Mail module support

@@ -45,7 +45,6 @@ return array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/chatsubject','Internal type'),
         'required' => false,
-        'hidden' => true,
         'placeholder' => 'custom_string',
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
