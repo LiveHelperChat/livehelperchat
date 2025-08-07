@@ -124,10 +124,15 @@ class erLhcoreClassGenericBotActionRestapi
                     isset($method['polling_n_delay']) && (int)$method['polling_n_delay'] >= 1 && $method['polling_n_delay'] <= 10
                 ) {
                     for ($i = 0; $i < (int)$method['polling_n_times']; $i++) {
-                        sleep($method['polling_n_delay']);
+                        
+                        // If we have polling_no_delay_first set to true we do not delay first request
+                        if ($i > 0 || !isset($method['polling_no_delay_first']) || $method['polling_no_delay_first'] != 1) {
+                             sleep($method['polling_n_delay']);
+                        }
+
                         $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
-                        // Request succeeded we can exit a loop
-                        if (isset($response['conditions_met']) && $response['conditions_met'] == true) {
+                        // Request succeeded we can exit a loop if it's not a failed request
+                        if (isset($response['conditions_met']) && $response['conditions_met'] == true && $response['as_failed_request'] == false) {
                             break;
                         }
                     }
@@ -136,11 +141,11 @@ class erLhcoreClassGenericBotActionRestapi
                 }
 
                 // Log if polling conditions fails
-                if (isset($method['polling_n_times']) && (int)$method['polling_n_times'] >= 1 && $method['polling_n_times'] <= 10 && isset($response['conditions_met']) && $response['conditions_met'] !== true) {
+                if (isset($method['polling_n_times']) && (int)$method['polling_n_times'] >= 1 && $method['polling_n_times'] <= 10 && ((isset($response['conditions_met']) && $response['conditions_met'] !== true) || (isset($response['as_failed_request']) && $response['as_failed_request'] == true))) {
                     if (isset($restAPI->configuration_array['log_audit']) && $restAPI->configuration_array['log_audit']) {
                         erLhcoreClassLog::write(
                             json_encode([
-                                'name' => '(polling conditions failed) [' . $restAPI->name . '] ' . (isset($method['name']) ? $method['name'] : 'unknwon_name'),
+                                'name' => '(polling conditions failed) [' . $restAPI->name . '] [' . $i . '] tries' . (isset($method['name']) ? $method['name'] : 'unknwon_name'),
                                 'http_code' => (isset($response['http_code']) ? $response['http_code'] : 'unknown'),
                                 'method' => (isset($method['method']) ? $method['method'] : 'unknwon'),
                                 'request_type' => (isset($method['body_request_type']) ? $method['body_request_type'] : ''),
@@ -178,7 +183,7 @@ class erLhcoreClassGenericBotActionRestapi
                                 'msg_id' =>  (isset($params['msg']) && is_object($params['msg'])) ?  $params['msg']->id : 0,
                                 'msg_text' => '-',
                             ],JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
-                        $msgLog->msg = '(polling conditions failed) [' . $restAPI->name . '] ' . '[i]'.(isset($method['name']) ? $method['name'] : 'unknown_name').'[/i]';
+                        $msgLog->msg = '(polling conditions failed) [' . $restAPI->name . ']  [' . $i . ' tries] [i]'.(isset($method['name']) ? $method['name'] : 'unknown_name').'[/i]';
                         $msgLog->saveThis();
                     }
                 }
@@ -1914,7 +1919,8 @@ class erLhcoreClassGenericBotActionRestapi
                         'final_match_stream' => (isset($outputCombination['final_match_stream']) && $outputCombination['final_match_stream'] == true),
                         'stream_as_html' => (isset($outputCombination['stream_as_html']) && $outputCombination['stream_as_html'] == true),
                         'stream_execute_trigger' => (isset($outputCombination['stream_execute_trigger']) && $outputCombination['stream_execute_trigger'] == true),
-                        'stream_final' => (isset($outputCombination['stream_final']) && $outputCombination['stream_final'] == true)
+                        'stream_final' => (isset($outputCombination['stream_final']) && $outputCombination['stream_final'] == true),
+                        'as_failed_request' => (isset($outputCombination['as_failed_request']) && $outputCombination['as_failed_request'] == true)
                     );
 
                     if (isset($outputCombination['success_preg_replace']) && $outputCombination['success_preg_replace'] != '') {

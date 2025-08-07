@@ -398,6 +398,7 @@
                     <div class="tab-content" ng-show="param.output.length > 0">
                         <div role="tabpanel" class="tab-pane {{$index == 0 ? 'active' : ''}}" id="output-combination-{{$parent.$index}}-{{$index}}" ng-repeat="paramOutput in param.output">
                             <div class="mt-2">
+                                
                                 <h5>
                                     <button type="button" class="btn btn-danger btn-xs" ng-click="lhcrestapi.deleteParam(param.output,paramOutput)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Delete')?></button> 
                                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Expected output definition')?>
@@ -579,6 +580,11 @@
                                         <div class="ps-2"><label class="d-block"><input ng-disabled="!paramOutput.stream_final" type="checkbox" ng-model="paramOutput.final_match_stream" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','No other stream event can be parsed after this type is matched.');?></label></div>
                                     </div>
                                 </div>
+
+                                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Retry');?></h6>
+                                <label class="d-block"><input type="checkbox" ng-model="paramOutput.as_failed_request" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If request output is matched we should retry based on polling rules.');?></label>
+
+
                             </div>
                         </div>
                     </div>
@@ -592,12 +598,15 @@
                 <div role="tabpanel" class="tab-pane" id="polling-{{$index}}">
                     <div class="row">
                         <div class="col-6">
-                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Repeat request n times if conditions is not met (polling)');?></label>
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Repeat request n times if conditions are not met (polling)');?></label>
                             <input type="number" class="form-control form-control-sm" ng-model="param.polling_n_times" placeholder="0" min="0" max="10" />
                         </div>
                         <div class="col-6">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Making n seconds delay between each request');?></label>
                             <input type="number" class="form-control form-control-sm" ng-model="param.polling_n_delay" placeholder="1" min="1" max="5" />
+                        </div>
+                        <div class="col-6">
+                            <label class="d-block"><input type="checkbox" ng-model="param.polling_no_delay_first" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Do not delay first polling request');?></label>
                         </div>
                     </div>
                 </div>
