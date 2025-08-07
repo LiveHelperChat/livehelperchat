@@ -889,6 +889,7 @@ class erLhcoreClassGenericBotWorkflow {
                                                             array (
                                                                 'name' => (($eventData['content']['cancel_button'] && $eventData['content']['cancel_button'] != '') ? $eventData['content']['cancel_button'] : 'Cancel?'),
                                                                 'payload' => 'cancel_workflow',
+                                                                'no_name' => true
                                                             ),
                                                     )
                                             ),
