@@ -135,6 +135,14 @@ setTimeout(function() {
                 } echo htmlspecialchars(json_encode($chatVariables,JSON_PRETTY_PRINT));
             ?></pre>
 
+            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Files');?></h6>
+            <?php $files = erLhcoreClassModelChatFile::getList(['filter' => ['chat_id' => $chat->id]]); ?>
+            <?php if (!empty($files)) : ?>
+                <?php foreach ($files as $file) : ?>
+                    <pre class="fs11"><?php echo htmlspecialchars(json_encode($file->getState(),JSON_PRETTY_PRINT)); ?></pre>
+                <?php endforeach; ?>
+            <?php endif; ?>    
+
             <?php
             $debugString = ' ((' . $chat->lsync .'[lsync] < (' . $chat->pnd_time .'[pnd_time]+' . $chat->wait_time . '[wait_time]) &&' . $chat->wait_time .'[wait_time]> 1) || (' . $chat->lsync . '[lsync] >  (' . $chat->pnd_time . '[pnd_time]+' . $chat->wait_time . '[wait_time]) && ' . $chat->wait_time. '[wait_time] > 1 && ' . $chat->user_id . '[user_id] == 0) | Visitor left before chat was accepted';
             $patterns['abnd'] = '{debug.abnd} = ' . (($chat->lsync < ($chat->pnd_time + $chat->wait_time) && $chat->wait_time > 1) || ($chat->lsync > ($chat->pnd_time + $chat->wait_time) && $chat->wait_time > 1 && $chat->user_id == 0) ? 1 : 0) . $debugString;

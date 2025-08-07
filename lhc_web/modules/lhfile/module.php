@@ -94,9 +94,12 @@ $ViewList['attatchfilemail'] = array(
 );
 
 $ViewList['list'] = array(
-		'params' => array(),
-		'uparams' => array('user_id', 'visitor', 'persistent','upload_name'),
-		'functions' => array( 'file_list' )
+        'params' => array(),
+        'uparams' => array('chat_id', 'user_ids', 'user_id', 'visitor', 'persistent', 'upload_name'),
+        'functions' => array( 'file_list' ),
+        'multiple_arguments' => array(
+            'user_ids'
+        )
 );
 
 $ViewList['listmail'] = array(

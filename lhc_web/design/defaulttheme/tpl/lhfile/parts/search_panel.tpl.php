@@ -5,26 +5,32 @@
     <div class="row">
         <div class="col-6">
             <div class="row">
-                <div class="col-4">
+                <div class="col-3">
                     <div class="form-group">
-                        <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                            'input_name'     => 'user_id',
-                            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
-                            'selected_id'    => $input->user_id,
-                            'css_class' => 'form-control',
-                            'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('sort' => '`name` ASC','limit' => false)),
-                            'list_function'  => 'erLhcoreClassModelUser::getUserList'
-                        )); ?>
+                        <input type="text" id="chat_id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chat id')?>" class="form-control form-control-sm" name="chat_id" value="<?php echo htmlspecialchars((string)$input->chat_id)?>" />
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
+                    <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/user_title.tpl.php')); ?>
+                    <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                        'input_name'     => 'user_ids[]',
+                        'optional_field' => $userTitle['user_select'],
+                        'selected_id'    => $input->user_ids,
+                        'css_class'      => 'form-control',
+                        'display_name'   => 'name_official',
+                        'ajax'           => 'users',
+                        'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('sort' => '`name` ASC', 'limit' => 50)),
+                        'list_function'  => 'erLhcoreClassModelUser::getUserList',
+                    )); ?>
+                </div>
+                <div class="col-3">
                     <div class="form-group">
-                        <input type="text" id="file_upload_name" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','File name')?>" class="form-control" name="upload_name" value="<?php echo htmlspecialchars($input->upload_name)?>" />
+                        <input type="text" id="file_upload_name" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','File name')?>" class="form-control form-control-sm" name="upload_name" value="<?php echo htmlspecialchars($input->upload_name)?>" />
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <div class="form-group">
-                        <input type="text" id="file_id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','File id')?>" class="form-control" name="file_id" value="<?php echo htmlspecialchars((string)$input->file_id)?>" />
+                        <input type="text" id="file_id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','File id')?>" class="form-control form-control-sm" name="file_id" value="<?php echo htmlspecialchars((string)$input->file_id)?>" />
                     </div>
                 </div>
             </div>
@@ -45,22 +51,39 @@
                     return false;
                 });
                 var timeout = null;
-                $('#file_upload_name,#file_id').keyup(function() {
+                $('#file_upload_name,#file_id,#chat_id').keyup(function() {
                     clearTimeout(timeout);
                     timeout = setTimeout(function(){
                         $('#file-search-form').submit();
                         return false;
                     },300);
                 });
-                $('#id_user_id,#file_visitor,#file_persistent').change(function() {
+                $(document).on('change', '#id_user_id,#file_visitor,#file_persistent', function() {
                     $('#file-search-form').submit();
+                });
+                $('.btn-block-department').makeDropdown({
+                    "on_select" : function() {
+                        $('#file-search-form').submit();
+                    } ,
+                    "on_delete" : function() {
+                        $('#file-search-form').submit();
+                    }
                 });
             })();
         </script>
         <?php else : ?>
-        <div class="col-6">
-            <input type="submit" name="doSearch" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
-        </div>
+            <script>
+                $(function() {
+                    $('.btn-block-department').makeDropdown();
+                });
+            </script>
         <?php endif; ?>
+
+        <div class="col-6">
+            <input type="submit" name="doSearch" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+        </div>
+
+        
+
     </div>
 </form>
