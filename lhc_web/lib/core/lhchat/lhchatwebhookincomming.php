@@ -2303,6 +2303,11 @@ class erLhcoreClassChatWebhookIncoming {
             $partsExtension = explode('.',strtok($url, '?'));
             $file_extension = array_pop($partsExtension);
 
+            // We want to validate is extension valid one from our defined one
+            if (self::getExtensionByMime($file_extension, true) === false) {
+                $file_extension = 'bin';
+            }
+
         } else {
             $mediaContent = $url['body'];
             $file_extension = isset($url['ext']) ? (string)$url['ext'] : '';
@@ -2425,7 +2430,7 @@ class erLhcoreClassChatWebhookIncoming {
         if ($getMime == false) {
             return array_search($mimeType,$mime_types);
         } else {
-            return $mime_types[$mimeType];
+            return $mime_types[$mimeType] ?? false;
         }
     }
 
