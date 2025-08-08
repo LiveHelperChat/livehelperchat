@@ -1,8 +1,56 @@
 4.70v
 
-// TODO: Generate change log
+1. REST API and Bot Enhancements
+   - Added retry options for REST API calls with configurable retry attempts and delays
+   - Enhanced bot trigger validation to ensure buttons are correctly assigned to triggers
+   - Improved trigger argument importing to support all available trigger arguments
+   - Enhanced bot condition support with new "Not in list" condition type for more flexible logic flows
+   - Better error handling and continuation logic when customers don't set matching triggers
 
+2. File Management and Search Improvements
+   - Enhanced file search functionality with new chat ID and user ID filters
+   - Added display of attached files in chat modification view for better file visibility
+   - Improved file search panel UI with better styling and user experience
+   - Enhanced JavaScript for dynamic form submission on input changes
+   - Implemented indefinite file download capability for better file access management
 
+3. Forms and Offline Chat Integration
+   - Major offline form tight integration (#2286) with React Component migration
+   - Enhanced offline form to use React Components instead of legacy offline form system
+   - Added conditions for offline form prefilling fields from previous chat sessions
+   - Improved form error rendering for number field types
+   - Better handling of input_data passing to offline templates
+   - Enhanced forms integration with edge case scenario updates
+
+4. Chat and Message Handling Improvements
+   - Added support for image requests with visitor messages
+   - Improved file attachment flow to prevent message overlapping during file uploads
+   - Enhanced scroll positioning for file preview functionality
+   - Better handling of visitor message display and file attachment rendering
+   - Improved message object passing for enhanced chat functionality
+
+5. Security and Permissions
+   - Fixed permission handling issues (#2288, #2291)
+   - Enhanced file verification events for attachment flows
+   - Better access control and security validations throughout the system
+
+6. UI and User Experience Enhancements
+   - Enhanced file list module to support new search parameters
+   - Improved styling of input fields for better user experience
+   - Better JavaScript handling for dynamic form interactions
+   - Enhanced chat modification interface with file display capabilities
+
+7. System and Internal Improvements
+   - Increased length of internal type fields for better data handling
+   - Updated database structure with new field length requirements
+   - Enhanced schedule checks with new ActionConditions class
+   - Better chat blocking tests and validation logic
+
+8. Technical Infrastructure
+   - Updated widget React components for better offline form handling
+   - Enhanced translation system and updated translation files
+
+execute doc/update_db/update_338.sql for update
 
 4.69v
 
