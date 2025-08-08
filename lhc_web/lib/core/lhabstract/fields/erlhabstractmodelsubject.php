@@ -43,6 +43,7 @@ return array(
         )),
     'internal_type' => array(
         'type' => 'text',
+        'maxlength' => 50,
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/chatsubject','Internal type'),
         'required' => false,
         'placeholder' => 'custom_string',

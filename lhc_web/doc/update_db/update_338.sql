@@ -1,0 +1,1 @@
+ALTER TABLE `lh_abstract_subject` CHANGE `internal_type` `internal_type` varchar(50) NOT NULL DEFAULT '';
