@@ -1562,6 +1562,15 @@ class erLhcoreClassChatWebhookIncoming {
                         'webhook_msg' => $payloadMessage
                     ));
 
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser_webhook', array(
+                        'chat' => & $chat,
+                        'msg' => $msg,
+                        'source' => 'webhook',
+                        'webhook' => & $incomingWebhook,
+                        'webhook_data' => $payloadAll,
+                        'webhook_msg' => $payloadMessage
+                    ));
+
                     // If operator has closed a chat we need force back office sync
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.nodjshelper_notify_delay', array(
                         'chat' => & $chat,
