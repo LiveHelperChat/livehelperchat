@@ -2430,7 +2430,7 @@ class erLhcoreClassChatWebhookIncoming {
         if ($getMime == false) {
             return array_search($mimeType,$mime_types);
         } else {
-            return $mime_types[$mimeType] ?? false;
+            return $mime_types[$mimeType] ?? null;
         }
     }
 
