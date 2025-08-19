@@ -47,6 +47,15 @@
         <textarea rows="5" class="form-control" id="id_forward_to_tmp" name="forward_to_tmp"><?php isset($mc_options['forward_to_tmp']) ? print htmlspecialchars($mc_options['forward_to_tmp']) : ''?></textarea>
     </div>
 
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Download view mode')?></label>
+        <select class="form-control" name="download_view_mode">
+            <option value="0" <?php if (!isset($mc_options['download_view_mode']) || $mc_options['download_view_mode'] == 0) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Default (download file)')?></option>
+            <option value="1" <?php if (isset($mc_options['download_view_mode']) && $mc_options['download_view_mode'] == 1) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','View in new tab')?></option>
+            <option value="2" <?php if (isset($mc_options['download_view_mode']) && $mc_options['download_view_mode'] == 2) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Modal')?></option>
+        </select>
+    </div>
+
     <input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
     <script>

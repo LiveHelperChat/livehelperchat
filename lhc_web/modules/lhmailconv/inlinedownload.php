@@ -14,7 +14,11 @@ try {
     }
 
     if ($file->disposition != 'INLINE') {
-        header('Content-Disposition: attachment; filename="'.$file->name.'"');
+        $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
+        $mcOptionsData = (array)$mcOptions->data;
+        if (isset($mcOptionsData['download_view_mode']) && $mcOptionsData['download_view_mode'] != 1) {
+            header('Content-Disposition: attachment; filename="'.$file->name.'"');
+        }
     }
 
     $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;

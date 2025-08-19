@@ -33,6 +33,9 @@ if ( isset($_POST['StoreOptions']) ) {
         ),
         'skip_images' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'download_view_mode' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0, 'max_range' => 2]
         )
     );
 
@@ -43,6 +46,12 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['mce_plugins'] = $form->mce_plugins ;
     } else {
         $data['mce_toolbar'] = '';
+    }
+
+    if ($form->hasValidData( 'download_view_mode' )) {
+        $data['download_view_mode'] = $form->download_view_mode ;
+    } else {
+        $data['download_view_mode'] = 0;
     }
 
     if ( $form->hasValidData( 'reply_to_tmp' )) {
