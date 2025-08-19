@@ -71,12 +71,12 @@
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Allowed extensions for all operators')?></label>
                     <input type="text" class="form-control" name="allowed_extensions_public" value="<?php isset($mc_options['allowed_extensions_public']) ? print htmlspecialchars($mc_options['allowed_extensions_public']) : ''?>" placeholder="jpg|jpeg|png|gif|pdf|doc|docx"/>
-                    <small class="form-text text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Comma separated list of file extensions that can be downloaded by all operators without special permissions')?></small>
+                    <small class="form-text text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Pipe separated list of file extensions that can be downloaded by all operators without special permissions')?></small>
                 </div>
                 <div class="form-group">
                     <label class="pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Restricted extensions (require special permission)')?> <span class="badge bg-info">lhmailconv,download_restricted</span></label>
                     <input type="text" class="form-control" name="allowed_extensions_restricted" value="<?php isset($mc_options['allowed_extensions_restricted']) ? print htmlspecialchars($mc_options['allowed_extensions_restricted']) : ''?>" placeholder="zip|rar|exe|bat|sh"/>
-                    <small class="form-text text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Comma separated list of file extensions that can only be downloaded by operators with special permissions')?></small>
+                    <small class="form-text text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Pipe separated list of file extensions that can only be downloaded by operators with special permissions')?></small>
                 </div>
             </div>
         </div>
