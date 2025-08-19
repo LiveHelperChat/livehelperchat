@@ -74,7 +74,7 @@
                     <small class="form-text text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Comma separated list of file extensions that can be downloaded by all operators without special permissions')?></small>
                 </div>
                 <div class="form-group">
-                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Restricted extensions (require special permission)')?></label>
+                    <label class="pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Restricted extensions (require special permission)')?> <span class="badge bg-info">lhmailconv,download_restricted</span></label>
                     <input type="text" class="form-control" name="allowed_extensions_restricted" value="<?php isset($mc_options['allowed_extensions_restricted']) ? print htmlspecialchars($mc_options['allowed_extensions_restricted']) : ''?>" placeholder="zip|rar|exe|bat|sh"/>
                     <small class="form-text text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Comma separated list of file extensions that can only be downloaded by operators with special permissions')?></small>
                 </div>
