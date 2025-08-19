@@ -130,10 +130,17 @@ try {
 
         $requestPayload = json_decode(file_get_contents('php://input'),true);
 
-
         foreach ($messages as $indexMessage => $messageItem) {
             if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
                 $messages[$indexMessage]->setSensitive(true);
+            }
+
+            if (isset($mcOptionsData['file_download_mode']) && $mcOptionsData['file_download_mode'] == 1 && $messageItem->response_type !== erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
+                $messages[$indexMessage]->setAttachementsRestrictions([
+                    'allowed_extensions_public' => $mcOptionsData['allowed_extensions_public'],
+                    'allowed_extensions_restricted' => $mcOptionsData['allowed_extensions_restricted'],
+                    'download_restricted' => erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','download_restricted')
+                ]);
             }
 
             if (isset($requestPayload['keyword']) && !empty($requestPayload['keyword']) && is_array($requestPayload['keyword'])) {

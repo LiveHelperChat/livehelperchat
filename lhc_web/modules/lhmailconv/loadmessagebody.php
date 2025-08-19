@@ -61,6 +61,17 @@ try {
             $message->setSensitive(true);
         }
 
+        $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
+        $mcOptionsData = (array)$mcOptions->data;
+
+        if (isset($mcOptionsData['file_download_mode']) && $mcOptionsData['file_download_mode'] == 1 && $message->response_type !== erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
+            $message->setAttachementsRestrictions([
+                'allowed_extensions_public' => $mcOptionsData['allowed_extensions_public'],
+                'allowed_extensions_restricted' => $mcOptionsData['allowed_extensions_restricted'],
+                'download_restricted' => erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','download_restricted')
+            ]);
+        }
+
         erLhcoreClassChat::prefillGetAttributesObject($message,
             erLhcoreClassMailconv::$messagesAttributes,
             erLhcoreClassMailconv::$messagesAttributesRemove
@@ -93,6 +104,8 @@ try {
             }
         }
 
+
+        
 
         $returnAttributes['message'] = $message;
 

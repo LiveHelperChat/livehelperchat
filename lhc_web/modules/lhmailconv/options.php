@@ -36,6 +36,18 @@ if ( isset($_POST['StoreOptions']) ) {
         ),
         'download_view_mode' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0, 'max_range' => 2]
+        ),
+        'file_download_mode' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0, 'max_range' => 1]
+        ),
+        'allowed_extensions_public' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'allowed_extensions_restricted' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'restricted_message' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )
     );
 
@@ -87,6 +99,24 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['image_skipped_text'] = $form->image_skipped_text;
     } else {
         $data['image_skipped_text'] = '[img]';
+    }
+
+    if ($form->hasValidData( 'file_download_mode' )) {
+        $data['file_download_mode'] = $form->file_download_mode ;
+    } else {
+        $data['file_download_mode'] = 0;
+    }
+
+    if ($form->hasValidData( 'allowed_extensions_public' )) {
+        $data['allowed_extensions_public'] = $form->allowed_extensions_public ;
+    } else {
+        $data['allowed_extensions_public'] = '';
+    }
+
+    if ($form->hasValidData( 'allowed_extensions_restricted' )) {
+        $data['allowed_extensions_restricted'] = $form->allowed_extensions_restricted ;
+    } else {
+        $data['allowed_extensions_restricted'] = '';
     }
 
     $mcOptions->explain = '';

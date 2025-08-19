@@ -411,5 +411,6 @@ $FunctionList['open_all'] = array('explain' => 'Allow operator to open all pendi
 $FunctionList['open_unassigned_mail'] = array('explain' => 'Allow operator to open unassigned pending mail');
 $FunctionList['download_unverified'] = array('explain' => 'Allow operators to download unverified files');
 $FunctionList['download_verified'] = array('explain' => 'Allow operators to download verified, but sensitive files');
+$FunctionList['download_restricted'] = array('explain' => 'Allow operators to download restricted file types');
 
 ?>

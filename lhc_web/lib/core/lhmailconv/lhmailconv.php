@@ -42,7 +42,7 @@ class erLhcoreClassMailconv {
         'sender_address', // After sensitive information
         'sender_host', // After sensitive information
         'sender_name', // After sensitive information
-
+        'filesResctrictions'
     ];
 
     public static $messagesAttributesLoaded = [
@@ -78,6 +78,7 @@ class erLhcoreClassMailconv {
         'sender_name', // After sensitive information
         'body',
         'alt_body',
+        'filesResctrictions'
     ];
 
     public static $conversationAttributesRemove = [

@@ -253,6 +253,8 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                     download_url={file.download_url}
                     is_image={file.is_image}
                     download_policy={moptions.download_policy}
+                    restricted_file={file.restricted_file}
+                    restricted_reason={file.restricted_reason}
                 />
 
             ))}</div>

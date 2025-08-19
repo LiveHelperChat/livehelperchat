@@ -8,6 +8,8 @@ const MailChatAttachment = ({
     download_url,
     is_image = false,
     download_policy = 0,
+    restricted_file = false,
+    restricted_reason = 0,
     ...props 
 }) => {
     const [verificationStatus, setVerificationStatus] = useState('idle'); // idle, verifying, verified, failed, denied
@@ -25,6 +27,18 @@ const MailChatAttachment = ({
 
     const countdownInterval = useRef(null);
     const maxVerificationAttempts = 4;
+
+    // Convert numeric restriction reason to user-friendly message
+    const getRestrictionMessage = (reason) => {
+        switch (parseInt(reason, 10)) {
+            case 1:
+                return t('file.no_permission_download');
+            case 2:
+                return t('file.extension_not_allowed');
+            default:
+                return t('file.access_restricted');
+        }
+    };
 
     // Extract file_id and conversation_id from URL structure like mailconv/inlinedownload/<file_id>/<conversation_id>
     const extractIdsFromUrl = (url) => {
@@ -44,6 +58,14 @@ const MailChatAttachment = ({
 
     useEffect(() => {
         if (download_url) {
+            // Check if file is restricted first
+            if (restricted_file) {
+                setCanDownload(false);
+                setVerificationStatus('denied');
+                setVerificationMessage(getRestrictionMessage(restricted_reason));
+                return;
+            }
+
             // Extract file_id and conversation_id from download_url
             const { fileId, convId } = extractIdsFromUrl(download_url);
 
@@ -74,7 +96,7 @@ const MailChatAttachment = ({
         return () => {
             clearCountdown();
         };
-    }, [download_policy, download_url]);
+    }, [download_policy, download_url, restricted_file, restricted_reason]);
 
     const clearCountdown = () => {
         if (countdownInterval.current) {
@@ -86,6 +108,11 @@ const MailChatAttachment = ({
 
     const handleButtonClick = (e) => {
         e.preventDefault();
+        
+        // Check if file is restricted
+        if (restricted_file) {
+            return; // Do nothing for restricted files
+        }
         
         // If it's not an image or verification is not needed, proceed with download
         if (!is_image || verificationStatus === 'verified') {
@@ -206,6 +233,10 @@ const MailChatAttachment = ({
     };
 
     const getButtonIcon = () => {
+        if (restricted_file) {
+            return 'lock';
+        }
+        
         if (!is_image) {
             return 'attach_file';
         }
@@ -227,6 +258,10 @@ const MailChatAttachment = ({
     const getButtonClass = () => {
         let baseClass = 'btn btn-sm me-1';
         
+        if (restricted_file) {
+            return baseClass + ' btn-secondary';
+        }
+        
         if (!is_image || verificationStatus === 'verified') {
             return baseClass + ' btn-outline-info';
         }
@@ -244,6 +279,10 @@ const MailChatAttachment = ({
     };
 
     const getButtonTitle = () => {
+        if (restricted_file) {
+            return getRestrictionMessage(restricted_reason);
+        }
+        
         if (!is_image) {
             return description || name;
         }
@@ -263,6 +302,10 @@ const MailChatAttachment = ({
     };
 
     const getButtonText = () => {
+        if (restricted_file) {
+            return `${name} - 🔒 ` + getRestrictionMessage(restricted_reason);
+        }
+        
         if (verificationStatus === 'verifying' && countdownSeconds > 0) {
             return `${name} (${countdownSeconds}s)`;
         }
@@ -283,7 +326,8 @@ const MailChatAttachment = ({
     };
 
     const isDisabled = () => {
-        return (is_image && verificationStatus === 'verifying') || 
+        return restricted_file ||
+               (is_image && verificationStatus === 'verifying') || 
                (is_image && verificationStatus === 'denied') ||
                (is_image && verificationStatus === 'failed');
     };

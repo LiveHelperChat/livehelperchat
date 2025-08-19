@@ -239,13 +239,42 @@ class erLhcoreClassModelMailconvMessage
                 foreach ($this->files as $file) {
                     if (strtolower($file->disposition) == 'attachment' || (strtolower($file->disposition) == 'inline' && ($file->content_id == '' || strpos($this->body,'cid:' . $file->content_id) === false))) {
                         if ($file->content_id == '' || !in_array($file->extension,['jpg','jpeg','png','bmp','gif']) || strpos($this->body,'cid:' . $file->content_id) === false) {
+
+                            // Determine if file is restricted based on filesResctrictions logic
+                            $restricted_file = false;
+                            $restricted_reason = 0;
+                            if (!empty($this->filesResctrictions)) {
+                                $fileExtension = strtolower($file->extension);
+                                
+                                // If file extension is in allowed_extensions_public, it should always be downloadable
+                                if (in_array($fileExtension, $this->filesResctrictions['allowed_extensions_public'])) {
+                                    $restricted_file = false;
+                                }
+                                // Else if file extension is in allowed_extensions_restricted, check if user has download_restricted permission
+                                elseif (in_array($fileExtension, $this->filesResctrictions['allowed_extensions_restricted'])) {
+                                    $restricted_file = !(isset($this->filesResctrictions['download_restricted']) && $this->filesResctrictions['download_restricted'] === true);
+                                    if ($restricted_file) {
+                                        $restricted_reason = 1; // Restricted due to download_restricted permission
+                                    }
+                                }
+                                // Else file is denied to be downloaded
+                                else {
+                                    $restricted_file = true;
+                                    $restricted_reason = 2; // Restricted due to file extension not allowed
+                                }
+                            }
+
                             $this->attachments[] = [
                                 'id' => $file->id,
                                 'name' => $file->name,
                                 'description' => $file->description,
                                 'download_url' => erLhcoreClassDesign::baseurl('mailconv/inlinedownload') . '/' . $file->id . '/' . $this->conversation_id,
-                                'is_image' => in_array($file->extension,['jpg','jpeg','png','bmp','gif'])
+                                'is_image' => in_array($file->extension,['jpg','jpeg','png','bmp','gif']),
+                                'restricted_file' => $restricted_file,
+                                'restricted_reason' => $restricted_reason
                             ];
+
+
                         }
                     }
                 }
@@ -348,6 +377,25 @@ class erLhcoreClassModelMailconvMessage
         }
     }
 
+    public function setAttachementsRestrictions($filesResctrictions = []){
+
+        $this->filesResctrictions['download_restricted'] = $filesResctrictions['download_restricted'];
+
+        if (isset($filesResctrictions['allowed_extensions_public']) && $filesResctrictions['allowed_extensions_public'] != '') {
+            $this->filesResctrictions['allowed_extensions_public'] = explode('|', $filesResctrictions['allowed_extensions_public']);
+        } else {
+            $this->filesResctrictions['allowed_extensions_public'] = [];
+        }
+
+        if (isset($filesResctrictions['allowed_extensions_restricted']) && $filesResctrictions['allowed_extensions_restricted'] != '') {
+            $this->filesResctrictions['allowed_extensions_restricted'] = explode('|', $filesResctrictions['allowed_extensions_restricted']);
+        } else {
+            $this->filesResctrictions['allowed_extensions_restricted'] = [];
+        }
+
+        return $this->filesResctrictions;
+    }
+
     const STATUS_PENDING = 0;
     const STATUS_ACTIVE = 1;
     const STATUS_RESPONDED = 2;
@@ -436,6 +484,7 @@ class erLhcoreClassModelMailconvMessage
     public $opened_at  = 0;
     public $is_archive = false;
     public $ignore_imap = false;
+    public $filesResctrictions = [];
 }
 
 ?>

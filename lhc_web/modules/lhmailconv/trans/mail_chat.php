@@ -100,7 +100,9 @@ echo json_encode(array(
         'to_big_file' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','File to big'),
         'uploading' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Uploading'),
         'choose_uploaded' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Choose file from uploaded files'),
-        'drop_here' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Drop your files here or choose a new file')
+        'drop_here' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Drop your files here or choose a new file'),
+        'extension_not_allowed' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','This type of files are not allowed to be downloaded!'),
+        'no_permission_download' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','You do not have permission to download that type of files!'),
     ],
     "image" => [
         'verifying_access' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Verifying image access...'),

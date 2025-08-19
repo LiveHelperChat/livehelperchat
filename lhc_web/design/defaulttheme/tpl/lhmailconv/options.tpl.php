@@ -56,6 +56,34 @@
         </select>
     </div>
 
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','File download restrictions')?></label>
+        <select class="form-control" name="file_download_mode" id="file_download_mode">
+            <option value="0" <?php if (!isset($mc_options['file_download_mode']) || $mc_options['file_download_mode'] == 0) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Allow to download all files')?></option>
+            <option value="1" <?php if (isset($mc_options['file_download_mode']) && $mc_options['file_download_mode'] == 1) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Restrict file downloads by extension')?></option>
+        </select>
+    </div>
+
+    <div class="form-group" id="extension_settings" style="<?php echo (!isset($mc_options['file_download_mode']) || $mc_options['file_download_mode'] == 0) ? 'display:none;' : ''; ?>">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','File extension settings')?></h5>
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Allowed extensions for all operators')?></label>
+                    <input type="text" class="form-control" name="allowed_extensions_public" value="<?php isset($mc_options['allowed_extensions_public']) ? print htmlspecialchars($mc_options['allowed_extensions_public']) : ''?>" placeholder="jpg|jpeg|png|gif|pdf|doc|docx"/>
+                    <small class="form-text text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Comma separated list of file extensions that can be downloaded by all operators without special permissions')?></small>
+                </div>
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Restricted extensions (require special permission)')?></label>
+                    <input type="text" class="form-control" name="allowed_extensions_restricted" value="<?php isset($mc_options['allowed_extensions_restricted']) ? print htmlspecialchars($mc_options['allowed_extensions_restricted']) : ''?>" placeholder="zip|rar|exe|bat|sh"/>
+                    <small class="form-text text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Comma separated list of file extensions that can only be downloaded by operators with special permissions')?></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
     <input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
     <script>
@@ -79,6 +107,15 @@
                         "{args.msg.cc_data_front__not_empty__Cc: }{args.msg.cc_data_front}{args.msg.cc_data_front__not_empty__<br/>}",
                         "{args.msg.bcc_data_front__not_empty__Bcc: }{args.msg.bcc_data_front}{args.msg.bcc_data_front__not_empty__<br/>}"
                         ])); ?>);
+            });
+            
+            // Toggle extension settings visibility
+            $('#file_download_mode').change(function(){
+                if ($(this).val() == '1') {
+                    $('#extension_settings').show();
+                } else {
+                    $('#extension_settings').hide();
+                }
             });
         });
     </script>

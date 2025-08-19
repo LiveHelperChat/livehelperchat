@@ -23,6 +23,44 @@ try {
 
     $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
 
+    $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
+    $mcOptionsData = (array)$mcOptions->data;
+
+    $restrictedFile = false;
+    $restrictedReason = '';
+    
+    // Check if file extension restrictions are configured
+    if ( isset($mcOptionsData['file_download_mode']) && $mcOptionsData['file_download_mode'] == 1 && (isset($mcOptionsData['allowed_extensions_public']) || isset($mcOptionsData['allowed_extensions_restricted']))) {
+        $allowedExtensionsPublic = isset($mcOptionsData['allowed_extensions_public']) ? explode('|', strtolower($mcOptionsData['allowed_extensions_public'])) : array();
+        $allowedExtensionsRestricted = isset($mcOptionsData['allowed_extensions_restricted']) ? explode('|', strtolower($mcOptionsData['allowed_extensions_restricted'])) : array();
+        
+        $fileExtension = strtolower($file->extension);
+        
+        // Check if user has download_restricted permission
+        $hasRestrictedAccess = erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','download_restricted');
+        
+        // If file extension is not in public allowed extensions
+        if (empty($allowedExtensionsPublic) || (!empty($allowedExtensionsPublic) && !in_array($fileExtension, $allowedExtensionsPublic))) {
+            // Check if it's in restricted extensions and user has permission
+            if (!empty($allowedExtensionsRestricted) && in_array($fileExtension, $allowedExtensionsRestricted)) {
+                if (!$hasRestrictedAccess) {
+                    $restrictedFile = true;
+                    $restrictedReason = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','You do not have permission to download that type of files!');
+                }
+            } else {
+                // File extension is not allowed at all
+                $restrictedFile = true;
+                $restrictedReason = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','This type of files are not allowed to be downloaded!');
+            }
+        }
+        
+        // If file is restricted, deny access
+        if ($restrictedFile) {
+            header('HTTP/1.1 403 Forbidden');           
+            die($restrictedReason);
+        }
+    }
+
     $validRequest = true;
 
     if (
