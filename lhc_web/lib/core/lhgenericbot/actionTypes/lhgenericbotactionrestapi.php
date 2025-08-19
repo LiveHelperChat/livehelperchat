@@ -53,6 +53,10 @@ class erLhcoreClassGenericBotActionRestapi
                     }
                 }
 
+                if ($method === false) {
+                    return;
+                }
+
                 // Callback should be executed as background task
                 if (
                     (
