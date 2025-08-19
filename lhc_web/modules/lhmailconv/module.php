@@ -67,6 +67,11 @@ $ViewList['inlinedownload'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['inlinedownloadmodal'] = array(
+    'params' => array('id','id_conv'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['verifyaccess'] = array(
     'params' => array('id','id_conv'),
     'functions' => array( 'use_admin' )

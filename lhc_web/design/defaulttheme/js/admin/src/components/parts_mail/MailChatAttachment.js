@@ -10,7 +10,8 @@ const MailChatAttachment = ({
     download_policy = 0,
     restricted_file = false,
     restricted_reason = 0,
-    ...props 
+    download_modal = false,
+    ...props
 }) => {
     const [verificationStatus, setVerificationStatus] = useState('idle'); // idle, verifying, verified, failed, denied
     const [verificationMessage, setVerificationMessage] = useState('');
@@ -117,7 +118,14 @@ const MailChatAttachment = ({
         // If it's not an image or verification is not needed, proceed with download
         if (!is_image || verificationStatus === 'verified') {
             if (canDownload && finalDownloadUrl) {
-                window.open(finalDownloadUrl, '_blank');
+                if (download_modal && is_image) {
+                    lhc.revealModal({
+                        'title' : t('file.preview'),
+                        'url': finalDownloadUrl.replace('mailconv/inlinedownload/','mailconv/inlinedownloadmodal/')
+                    });
+                } else {
+                    window.open(finalDownloadUrl, '_blank');
+                }
             }
             return;
         }
@@ -179,6 +187,7 @@ const MailChatAttachment = ({
                         setVerificationStatus('verified');
                         setCanDownload(true);
                         setFinalDownloadUrl(window.WWW_DIR_JAVASCRIPT + 'mailconv/inlinedownload/' + fileId + '/' + convId);
+
                         setVerificationMessage('');
                         clearCountdown();
                         

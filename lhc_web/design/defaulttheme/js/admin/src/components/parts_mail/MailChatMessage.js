@@ -255,6 +255,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                     download_policy={moptions.download_policy}
                     restricted_file={file.restricted_file}
                     restricted_reason={file.restricted_reason}
+                    download_modal={moptions.download_modal}
                 />
 
             ))}</div>

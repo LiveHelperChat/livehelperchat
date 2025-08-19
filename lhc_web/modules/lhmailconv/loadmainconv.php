@@ -228,6 +228,7 @@ try {
                 'can_forward' => $currentUser->hasAccessTo('lhmailconv', 'send_as_forward'),
                 'can_change_mailbox' => $currentUser->hasAccessTo('lhmailconv', 'change_mailbox'),
                 'download_policy' => $download_policy,
+                'download_modal' => (isset($mcOptionsData['download_view_mode']) && $mcOptionsData['download_view_mode'] == 2),
                 'fop_op' => $data['ft_op'],
                 'fop_size' => $data['fs_max'] * 1024,
                 'files_enabled' => $currentUser->hasAccessTo('lhmailconv', 'allow_attach_files'),
