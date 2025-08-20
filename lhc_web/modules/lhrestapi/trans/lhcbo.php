@@ -201,8 +201,8 @@ $transItems = array(
     "file.access_denied_view_image" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Access denied to view this image'),
     "file.checking_image_access" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Checking image access...'),
     "file.click_to_reveal" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Click to reveal'),
-    "file.next_attempt_in" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','next attempt in')
-
+    "file.next_attempt_in" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','next attempt in'),
+    "file.reverify_image" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Reverify')
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.trans_lhcbo', array(

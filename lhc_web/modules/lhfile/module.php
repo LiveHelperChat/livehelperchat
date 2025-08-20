@@ -54,7 +54,8 @@ $ViewList['downloadfile'] = array(
 
 $ViewList['verifyaccess'] = array(
 		'params' => array('file_id','hash'),
-		'functions' => array( 'verify_file' )
+		'uparams' => array('reverify'),
+		'functions' => array('verify_file')
 );
 
 $ViewList['uploadfileadmin'] = array(

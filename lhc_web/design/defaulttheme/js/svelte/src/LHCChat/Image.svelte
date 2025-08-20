@@ -208,6 +208,33 @@
         requestVerification();
     }
 
+    function requestReverification() {
+        verificationMessage = $t('file.requesting_reverification');
+        
+        // Make reverification request
+        fetch(window.WWW_DIR_JAVASCRIPT + 'file/verifyaccess/' + file_id + '/' + hash + '/(reverify)/true', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Reset verification attempts and start checking again
+            verificationAttempts = 0;
+            verificationMessage = $t('file.verifying_image_access');
+            
+            // Start verification process again
+            setTimeout(() => {
+                requestVerification();
+            }, 1000); // Small delay before starting verification
+        })
+        .catch(error => {
+            console.error('Reverification request failed:', error);
+            verificationMessage = $t('file.reverification_failed');
+        });
+    }
+
 </script>
 
 {#if canShowImage && (imageSrc || protectionHtml)}
@@ -276,6 +303,12 @@
             <span class="text-secondary">
                 ({$t('file.next_attempt_in')} {countdownSeconds} s.)
             </span>
+       {:else if verificationAttempts >= maxVerificationAttempts}
+            <button 
+                class="btn btn-secondary btn-xs"
+                on:click={requestReverification}>
+                {$t('file.reverify_image')}
+            </button>
         {/if}
     </div>
 {/if}

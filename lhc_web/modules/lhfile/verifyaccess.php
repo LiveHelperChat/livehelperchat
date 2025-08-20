@@ -7,6 +7,12 @@ try {
 
 	if ( $hash == $file->security_hash ) {
 
+        if (isset($Params['user_parameters_unordered']['reverify']) && $Params['user_parameters_unordered']['reverify'] == 'true') {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.verify_img_file', array('chat'=> $file->chat, 'chat_file' => $file));
+            echo json_encode(array('rescheduled' => true));
+            exit;
+        }
+
         $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
 
         $response = array('verified' => false);

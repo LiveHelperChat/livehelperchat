@@ -2364,9 +2364,31 @@ class erLhcoreClassChatWebhookIncoming {
             }
 
             $fileUpload->type = $mimeType !== false ? $mimeType : 'application/octet-stream';
+
+            // Set resolution instantly
+            if (in_array($fileUpload->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                $imageSize = getimagesize($fileUpload->file_path_server);
+                if ($imageSize !== false && ($imageSize[0] > 10 || $imageSize[1] > 10)) {
+                    $fileUpload->width = (int)$imageSize[0];
+                    $fileUpload->height = (int)$imageSize[1];
+                }
+            }
+
             $fileUpload->saveThis();
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_store', array('chat_file' => $fileUpload));
+
+            $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
+            $data = (array)$fileData->data;
+
+            // Dispatch event only if minimum image width or height is set and file is an image
+            if (
+                isset($data['img_download_policy']) && $data['img_download_policy'] == 1 &&
+                in_array($fileUpload->extension, array('jfif','jpg', 'jpeg', 'png', 'gif')) &&
+                ($fileUpload->width > (isset($data['img_verify_min_dim']) ? $data['img_verify_min_dim'] : 100) || $fileUpload->height > (isset($data['img_verify_min_dim']) ? $data['img_verify_min_dim'] : 100))
+            ) {
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.verify_img_file', array('chat'=> $chat, 'chat_file' => $fileUpload));
+            }
 
             return '[file='.$fileUpload->id.'_'.md5($fileUpload->name.'_'.$chat->id).']';
         } else {
