@@ -89,6 +89,14 @@
 
             </div>
             <div class="col-6 mt-2">
+
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Maximum image resolution for e-mails'); ?></h6>
+
+                <div class="pb-2">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Maximum mail message image resolution. Images will be resized to fit within a square of this many pixels.'); ?></label>
+                    <input type="number" class="form-control" placeholder="1024" name="MaximumResolutionMail" value="<?php isset($file_data['max_res_mail']) && (int)$file_data['max_res_mail'] > 10 ? print (int)$file_data['max_res_mail'] : '' ?>" />
+                </div>
+
                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Mail related file can be downloaded by operator if he'); ?></h6>
                 <label class="d-block"><input type="radio" name="mail_file_policy" <?php if (!isset($file_data['mail_file_policy']) || $file_data['mail_file_policy'] == 0) : ?>checked="checked"<?php endif;?> value="0" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Has permission to use mail module (default)'); ?></label>
                 <label class="d-block"><input type="radio" name="mail_file_policy" <?php if (isset($file_data['mail_file_policy']) && $file_data['mail_file_policy'] == 1) : ?>checked="checked"<?php endif;?> value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Has permission to use mail module and access mail.'); ?></label>

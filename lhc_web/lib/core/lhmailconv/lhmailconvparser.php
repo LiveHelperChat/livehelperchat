@@ -1125,6 +1125,10 @@ class erLhcoreClassMailconvParser {
 
         $dispositions = [];
 
+        $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
+        $data = (array)$fileData->data;
+        $maxRes = ($data['max_res_mail'] ?? 0);
+
         foreach ($mail->getAttachments() as $attachmentRaw) {
 
             if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
@@ -1228,6 +1232,39 @@ class erLhcoreClassMailconvParser {
 
             $mailAttatchement->file_name = $fileName;
             $mailAttatchement->file_path = $dir;
+
+            if ($maxRes > 0 && in_array($mailAttatchement->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                $imageSize = getimagesize($mailAttatchement->file_path_server);
+                if ($imageSize !== false && ($imageSize[0] > $maxRes || $imageSize[1] > $maxRes)) {
+                    $conversionSettings[] = new ezcImageHandlerSettings( 'gd','erLhcoreClassGalleryGDHandler' );
+                    $converter = new ezcImageConverter(
+                        new ezcImageConverterSettings(
+                            $conversionSettings
+                        )
+                    );
+                    $converter->createTransformation(
+                        'fitimage',
+                        array(
+                            new ezcImageFilter(
+                                'scale',
+                                array(
+                                    'width'     => $maxRes,
+                                    'height'    => $maxRes
+                                )
+                            ),
+                        ),
+                        array(
+                            'image/jpeg'
+                        ),
+                        new ezcImageSaveOptions(array('quality' => (int)95))
+                    );
+                    $converter->transform('fitimage', $mailAttatchement->file_path_server, $mailAttatchement->file_path_server);
+                    $mailAttatchement->size = filesize($mailAttatchement->file_path_server);
+                    $mailAttatchement->type = 'image/jpeg';
+                    $mailAttatchement->extension = 'jpg';
+                    chmod($mailAttatchement->file_path_server, 0644);
+                }
+            }
 
             if (in_array($mailAttatchement->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
                 $imageSize = getimagesize($mailAttatchement->file_path_server);

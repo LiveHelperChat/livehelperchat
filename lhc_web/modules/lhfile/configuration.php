@@ -56,6 +56,9 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'MaximumResolution' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
         ),
+        'MaximumResolutionMail' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+        ),
         'mdays_older_visitor' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
         ),
@@ -160,6 +163,12 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['max_res'] = $form->MaximumResolution;
     } else {
         $data['max_res'] = '';
+    }
+    
+    if ($form->hasValidData('MaximumResolutionMail')) {
+        $data['max_res_mail'] = $form->MaximumResolutionMail;
+    } else {
+        $data['max_res_mail'] = '';
     }
 
     if ($form->hasValidData('ActiveFileUploadAdmin') && $form->ActiveFileUploadAdmin == true) {
