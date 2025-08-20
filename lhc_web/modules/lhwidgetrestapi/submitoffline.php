@@ -147,10 +147,6 @@ if (empty($Errors)) {
         }
     }
 
-    if (isset($chatPrefill) && ($chatPrefill instanceof erLhcoreClassModelChat)) {
-        erLhcoreClassChatValidator::updateInitialChatAttributes($chatPrefill, $chat);
-    }
-
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request', array(
         'input_data' => $inputData,
         'chat' => $chat,

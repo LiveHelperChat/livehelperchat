@@ -352,10 +352,6 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
    		       erLhcoreClassChatMail::sendMailRequest($inputData,$chat,array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
    		    }
 
-   			if (isset($chatPrefill) && ($chatPrefill instanceof erLhcoreClassModelChat)) {
-   				erLhcoreClassChatValidator::updateInitialChatAttributes($chatPrefill, $chat);
-   			}
-
    			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request',array(
    			'input_data' => $inputData,
    			'chat' => $chat,

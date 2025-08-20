@@ -2010,30 +2010,7 @@ class erLhcoreClassChatValidator {
         
         return $valueStore;
     }
-    
-    /**
-     * If user was redirected to contact form and they changed some default attributes we change then in intial chat
-     * */
-    public static function updateInitialChatAttributes(erLhcoreClassModelChat & $prefillChat, erLhcoreClassModelChat $currentChat) {
-    	$attributesPrefill = array(
-    		'nick',
-    		'email',
-    		'phone'
-    	);
-    	
-    	$attrChanged = false;
-    	foreach ($attributesPrefill as $attr) {
-    		if ($prefillChat->$attr == '' && $currentChat->$attr != '') {
-    			$prefillChat->$attr = $currentChat->$attr;
-    			$attrChanged = true;
-    		}
-    	}
-    	
-    	if ($attrChanged) {
-    		$prefillChat->saveThis();
-    	}
-    }
-    
+
     public static function validateNickChange(& $chat)
     {
         $definition = array(
@@ -2142,6 +2119,7 @@ class erLhcoreClassChatValidator {
 
         if (!isset($data['do_not_save_offline']) || $data['do_not_save_offline'] == 0)
         {
+
             $additionalMessage = isset($data['offline_message']) && !empty($data['offline_message']) ? $data['offline_message'] : '[b]Visitor query[/b]:
 {args.question}
 
