@@ -84,7 +84,7 @@ try {
 
     $denyImage = 'design/defaulttheme/images/general/denied.png';
 
-    if (in_array($file->extension,['jfif','jpg','jpeg','png'])) {
+    if (in_array($file->extension,['jfif','jpg','jpeg','png']) && file_exists($file->file_path_server)) {
         if (isset($fileData['mail_img_download_policy']) && $fileData['mail_img_download_policy'] === 1) {
             
             $minDim = isset($fileData['mail_img_verify_min_dim']) ? (int)$fileData['mail_img_verify_min_dim'] : 100;
@@ -274,7 +274,7 @@ try {
                             "file could not be stored - ".$file->id,
                             \ezcLog::SUCCESS_AUDIT,
                             array(
-                                'source' => 'mailconv',
+                                'source' => 'lhc',
                                 'category' => 'mailconv',
                                 'line' => __LINE__,
                                 'file' => __FILE__,
@@ -294,6 +294,17 @@ try {
     }
 
 } catch (Exception $e) {
+    \erLhcoreClassLog::write(
+        $e->getMessage(),
+        \ezcLog::SUCCESS_AUDIT,
+        array(
+            'source' => 'lhc',
+            'category' => 'mail_import_failure',
+            'line' => __LINE__,
+            'file' => __FILE__,
+            'object_id' => $file->id
+        )
+    );
     http_response_code(404);
     exit;
 }
