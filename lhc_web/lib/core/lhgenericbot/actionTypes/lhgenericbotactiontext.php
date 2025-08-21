@@ -209,25 +209,25 @@ class erLhcoreClassGenericBotActionText {
                         if (str_contains($messageToProcess, 'raw_'.$keyReplace) !== false) {
                             $replacement = str_replace('\\\/','\/',erLhcoreClassGenericBotActionRestapi::trimOnce(json_encode($valueReplace)));
                             $messageToProcess = @str_replace('raw_'.$keyReplace, "[[PLACEHOLDER_{$nextPlaceholderId}]]", $messageToProcess);
-                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = str_replace('{','{ ', $replacement);
+                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = isset($action['content']['attr_options']['no_reparse']) && $action['content']['attr_options']['no_reparse'] === true ? $replacement : str_replace('{','{ ', $replacement);
                             $nextPlaceholderId++;
                         }
                         if (str_contains($messageToProcess, 'rawjson_'.$keyReplace) !== false) {
                             $replacement = str_replace('\\\/','\/',erLhcoreClassGenericBotActionRestapi::trimOnce(json_encode(json_encode($valueReplace))));
                             $messageToProcess = @str_replace('rawjson_'.$keyReplace, "[[PLACEHOLDER_{$nextPlaceholderId}]]", $messageToProcess);
-                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = str_replace('{','{ ', $replacement);
+                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = isset($action['content']['attr_options']['no_reparse']) && $action['content']['attr_options']['no_reparse'] === true ? $replacement : str_replace('{','{ ', $replacement);
                             $nextPlaceholderId++;
                         }
                         if (str_contains($messageToProcess, 'json_'.$keyReplace) !== false) {
                             $replacement = json_encode(json_encode($valueReplace));
                             $messageToProcess = @str_replace('json_'.$keyReplace, "[[PLACEHOLDER_{$nextPlaceholderId}]]", $messageToProcess);
-                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = str_replace('{','{ ', $replacement);
+                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = isset($action['content']['attr_options']['no_reparse']) && $action['content']['attr_options']['no_reparse'] === true ? $replacement : str_replace('{','{ ', $replacement);
                             $nextPlaceholderId++;
                         }
                         if (str_contains($messageToProcess, 'direct_'.$keyReplace) !== false) {
                             $replacement = $valueReplace;
                             $messageToProcess = @str_replace('direct_'.$keyReplace, "[[PLACEHOLDER_{$nextPlaceholderId}]]", $messageToProcess);
-                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = str_replace('{','{ ', $replacement);
+                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = isset($action['content']['attr_options']['no_reparse']) && $action['content']['attr_options']['no_reparse'] === true ? $replacement : str_replace('{','{ ', $replacement);
                             $nextPlaceholderId++;
                         }
                         if (!str_contains($messageToProcess, 'raw_'.$keyReplace) &&
@@ -236,7 +236,7 @@ class erLhcoreClassGenericBotActionText {
                             !str_contains($messageToProcess, 'direct_'.$keyReplace)) {
                             $replacement = json_encode($valueReplace);
                             $messageToProcess = @str_replace($keyReplace, "[[PLACEHOLDER_{$nextPlaceholderId}]]", $messageToProcess);
-                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = str_replace('{','{ ', $replacement);
+                            $replacedSegments["[[PLACEHOLDER_{$nextPlaceholderId}]]"] = isset($action['content']['attr_options']['no_reparse']) && $action['content']['attr_options']['no_reparse'] === true ? $replacement : str_replace('{','{ ', $replacement);
                             $nextPlaceholderId++;
                         }
                     } else {
