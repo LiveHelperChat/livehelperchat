@@ -17,7 +17,11 @@ try {
         $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
         $mcOptionsData = (array)$mcOptions->data;
         if (!isset($mcOptionsData['download_view_mode']) || $mcOptionsData['download_view_mode'] == 0) {
-            header('Content-Disposition: attachment; filename="'.$file->name.'"');
+            if ($file->extension === 'jpg' && !str_ends_with($file->name, '.jpg')) {
+                header('Content-Disposition: attachment; filename="'.$file->name . '.jpg' .'"');
+            } else {
+                header('Content-Disposition: attachment; filename="'.$file->name.'"');
+            }
         }
     }
 
