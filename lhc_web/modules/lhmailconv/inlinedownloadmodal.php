@@ -13,6 +13,7 @@ if (!($file instanceof \erLhcoreClassModelMailconvFile)) {
 
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/inlinedownloadmodal.tpl.php');
 $tpl->set('params', $Params['user_parameters']);
+$tpl->set('file_exists', file_exists($file->file_path_server));
 
 echo $tpl->fetch();
 exit;

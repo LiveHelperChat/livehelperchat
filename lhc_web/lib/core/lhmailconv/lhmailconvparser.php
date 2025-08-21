@@ -1129,6 +1129,10 @@ class erLhcoreClassMailconvParser {
         $data = (array)$fileData->data;
         $maxRes = ($data['max_res_mail'] ?? 0);
 
+        $attachmentRecords = [];
+        $attachmentData = [];
+
+        // First loop: Save all attachment records without saving files
         foreach ($mail->getAttachments() as $attachmentRaw) {
 
             if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
@@ -1198,83 +1202,133 @@ class erLhcoreClassMailconvParser {
                 $dispositions[] = strtolower($mailAttatchement->disposition);
             }
 
-            if ($mailbox->auth_method != erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
-                $fileBody = $attachment->getContents();
-            }
+            // Store attachment record and data for file processing
+            $attachmentRecords[] = $mailAttatchement;
+            $attachmentData[] = [
+                'attachment' => $attachment,
+                'attachmentRaw' => $attachmentRaw,
+                'fileBody' => ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) ? $fileBody : null
+            ];
+        }
 
-            $dir = 'var/tmpfiles/';
-            $fileName = md5($mailAttatchement->id . '_' . $mailAttatchement->name . '_' . $mailAttatchement->attachment_id);
+        // Second loop: Save files to the attachment records
+        foreach ($attachmentRecords as $index => $mailAttatchement) {
+            try {
+                $attachmentInfo = $attachmentData[$index];
+                $attachment = $attachmentInfo['attachment'];
+                $attachmentRaw = $attachmentInfo['attachmentRaw'];
 
-            $cfg = erConfigClassLhConfig::getInstance();
+                if ($mailbox->auth_method != erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                    $fileBody = $attachment->getContents();
+                } else {
+                    $fileBody = $attachmentInfo['fileBody'];
+                }
 
-            $defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
-            $defaultUser = $cfg->getSetting( 'site', 'default_user', false );
+                $dir = 'var/tmpfiles/';
+                $fileName = md5($mailAttatchement->id . '_' . $mailAttatchement->name . '_' . $mailAttatchement->attachment_id);
 
-            erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
+                $cfg = erConfigClassLhConfig::getInstance();
 
-            $localFile = $dir . $fileName;
-            file_put_contents($localFile, $fileBody);
+                $defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
+                $defaultUser = $cfg->getSetting( 'site', 'default_user', false );
 
-            $dir = 'var/storagemail/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $mailAttatchement->id . '/';
+                erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
 
-            erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
+                $localFile = $dir . $fileName;
+                file_put_contents($localFile, $fileBody);
 
-            rename($localFile, $dir . $fileName);
-            chmod($dir . $fileName, 0644);
+                $dir = 'var/storagemail/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $mailAttatchement->id . '/';
 
-            if ($defaultUser != '') {;
-                chown($dir, $defaultUser);
-            }
+                erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
 
-            if ($defaultGroup != '') {
-                chgrp($dir, $defaultGroup);
-            }
+                rename($localFile, $dir . $fileName);
+                chmod($dir . $fileName, 0644);
 
-            $mailAttatchement->file_name = $fileName;
-            $mailAttatchement->file_path = $dir;
+                if ($defaultUser != '') {
+                    chown($dir . $fileName, $defaultUser);
+                }
 
-            if ($maxRes > 0 && in_array($mailAttatchement->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
-                $imageSize = getimagesize($mailAttatchement->file_path_server);
-                if ($imageSize !== false && ($imageSize[0] > $maxRes || $imageSize[1] > $maxRes)) {
-                    $conversionSettings[] = new ezcImageHandlerSettings( 'gd','erLhcoreClassGalleryGDHandler' );
-                    $converter = new ezcImageConverter(
-                        new ezcImageConverterSettings(
-                            $conversionSettings
+                if ($defaultGroup != '') {
+                    chgrp($dir . $fileName, $defaultGroup);
+                }
+
+                $mailAttatchement->file_name = $fileName;
+                $mailAttatchement->file_path = $dir;
+
+                if ($maxRes > 0 && in_array($mailAttatchement->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                    $imageSize = getimagesize($mailAttatchement->file_path_server);
+                    if ($imageSize !== false && ($imageSize[0] > $maxRes || $imageSize[1] > $maxRes)) {
+                        $conversionSettings[] = new ezcImageHandlerSettings( 'gd','erLhcoreClassGalleryGDHandler' );
+                        $converter = new ezcImageConverter(
+                            new ezcImageConverterSettings(
+                                $conversionSettings
+                            )
+                        );
+                        $converter->createTransformation(
+                            'fitimage',
+                            array(
+                                new ezcImageFilter(
+                                    'scale',
+                                    array(
+                                        'width'     => $maxRes,
+                                        'height'    => $maxRes
+                                    )
+                                ),
+                            ),
+                            array(
+                                'image/jpeg'
+                            ),
+                            new ezcImageSaveOptions(array('quality' => (int)95))
+                        );
+                        $converter->transform('fitimage', $mailAttatchement->file_path_server, $mailAttatchement->file_path_server);
+                        $mailAttatchement->size = filesize($mailAttatchement->file_path_server);
+                        $mailAttatchement->type = 'image/jpeg';
+                        $mailAttatchement->extension = 'jpg';
+
+                        chmod($mailAttatchement->file_path_server, 0644);
+
+                        if ($defaultUser != '') {;
+                            chown($mailAttatchement->file_path_server, $defaultUser);
+                        }
+
+                        if ($defaultGroup != '') {
+                            chgrp($mailAttatchement->file_path_server, $defaultGroup);
+                        }
+                    }
+                }
+
+                if (in_array($mailAttatchement->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                    $imageSize = getimagesize($mailAttatchement->file_path_server);
+                    if ($imageSize !== false && ($imageSize[0] > 10 || $imageSize[1] > 10)) {
+                        $mailAttatchement->width = (int)$imageSize[0];
+                        $mailAttatchement->height = (int)$imageSize[1];
+                    }
+                }
+
+                $mailAttatchement->saveThis();
+
+            } catch (Exception $e) {
+                // Log the error but continue processing other attachments
+                // The attachment record is already saved, just without the file
+                $initialError = "Failed to save attachment record for ID {$mailAttatchement->id}: " . $e->getMessage();
+
+                try {
+                    self::fetchFile($mailAttatchement, $maxRes);
+                } catch (Exception $e) {
+                    // If we cannot save the attachment record, log the error
+                    \erLhcoreClassLog::write(
+                        $initialError . " | Retry failed to save attachment record for ID {$mailAttatchement->id}: " . $e->getMessage(),
+                        \ezcLog::SUCCESS_AUDIT,
+                        array(
+                            'source' => 'lhc',
+                            'category' => 'mail_import_failure',
+                            'line' => __LINE__,
+                            'file' => __FILE__,
+                            'object_id' => $mailAttatchement->id
                         )
                     );
-                    $converter->createTransformation(
-                        'fitimage',
-                        array(
-                            new ezcImageFilter(
-                                'scale',
-                                array(
-                                    'width'     => $maxRes,
-                                    'height'    => $maxRes
-                                )
-                            ),
-                        ),
-                        array(
-                            'image/jpeg'
-                        ),
-                        new ezcImageSaveOptions(array('quality' => (int)95))
-                    );
-                    $converter->transform('fitimage', $mailAttatchement->file_path_server, $mailAttatchement->file_path_server);
-                    $mailAttatchement->size = filesize($mailAttatchement->file_path_server);
-                    $mailAttatchement->type = 'image/jpeg';
-                    $mailAttatchement->extension = 'jpg';
-                    chmod($mailAttatchement->file_path_server, 0644);
                 }
             }
-
-            if (in_array($mailAttatchement->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
-                $imageSize = getimagesize($mailAttatchement->file_path_server);
-                if ($imageSize !== false && ($imageSize[0] > 10 || $imageSize[1] > 10)) {
-                    $mailAttatchement->width = (int)$imageSize[0];
-                    $mailAttatchement->height = (int)$imageSize[1];
-                }
-            }
-
-            $mailAttatchement->saveThis();
         }
 
         if (in_array('attachment',$dispositions) && in_array('inline',$dispositions)) {
@@ -1658,6 +1712,163 @@ class erLhcoreClassMailconvParser {
                         'object_id' => 0
                     )
                 );
+            }
+        }
+    }
+
+    public static function fetchFile($file, $maxRes = 0)
+    {
+        if ($file->is_archive === false){
+            $mail = erLhcoreClassModelMailconvMessage::fetch($file->message_id);
+        } else {
+            $mail = \LiveHelperChat\Models\mailConv\Archive\Message::fetch($file->message_id);
+        }
+
+        $mailbox = $mail->mailbox;
+
+        if ($mailbox->auth_method != erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+            $mailboxHandler = new PhpImap\Mailbox(
+                $mailbox->imap, // IMAP server incl. flags and optional mailbox folder
+                $mailbox->username, // Username for the before configured mailbox
+                $mailbox->password, // Password for the before configured username
+                false
+            );
+
+            $mail = $mailboxHandler->getMail($mail->uid, false);
+        } else {
+            $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
+            $mailboxFolderOAuth = $mailboxHandler->getFolderByPath($mail->mb_folder);
+
+            $messagesCollection = $mailboxFolderOAuth->search()->whereUid($mail->uid)->get();
+
+            if ($messagesCollection->total() == 1) {
+                $mail = $messagesCollection->shift();
+            }
+        }
+
+        if ($mail->hasAttachments() == true) {
+            foreach ($mail->getAttachments() as $attachment) {
+                if ((int)$attachment->sizeInBytes == 0) {
+                    continue;
+                }
+
+                if (
+                    $file->name == $attachment->name &&
+                    $file->content_id == (string)$attachment->contentId &&
+                    $file->size <= (int)$attachment->sizeInBytes
+                ) {
+
+                    if ($mailbox->auth_method != erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                        $fileBody = $attachment->getContents();
+                    } else {
+                        $fileBody = $attachment->getContent();
+                    }
+
+                    // Try to save file again
+                    $cfg = erConfigClassLhConfig::getInstance();
+
+                    $defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
+                    $defaultUser = $cfg->getSetting( 'site', 'default_user', false );
+                    
+                    $dir = 'var/tmpfiles/';
+                    $fileName = md5($file->id . '_' . $file->name . '_' . $file->attachment_id);
+
+                    $cfg = erConfigClassLhConfig::getInstance();
+
+                    $defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
+                    $defaultUser = $cfg->getSetting( 'site', 'default_user', false );
+
+                    erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
+
+                    $localFile = $dir . $fileName;
+                    file_put_contents($localFile, $fileBody);
+
+                    $dir = 'var/storagemail/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $file->id . '/';
+
+                    erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
+
+                    rename($localFile, $dir . $fileName);
+                    chmod($dir . $fileName, 0644);
+
+                    if ($defaultUser != '') {;
+                        chown($dir. $fileName, $defaultUser);
+                    }
+
+                    if ($defaultGroup != '') {
+                        chgrp($dir. $fileName, $defaultGroup);
+                    }
+
+                    $file->file_name = $fileName;
+                    $file->file_path = $dir;
+                    $file->file_path_server = $file->file_path . $file->file_name;
+
+                    if ($maxRes > 0 && in_array($file->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                        $imageSize = getimagesize($file->file_path_server);
+                        if ($imageSize !== false && ($imageSize[0] > $maxRes || $imageSize[1] > $maxRes)) {
+                            $conversionSettings[] = new ezcImageHandlerSettings( 'gd','erLhcoreClassGalleryGDHandler' );
+                            $converter = new ezcImageConverter(
+                                new ezcImageConverterSettings(
+                                    $conversionSettings
+                                )
+                            );
+                            $converter->createTransformation(
+                                'fitimage',
+                                array(
+                                    new ezcImageFilter(
+                                        'scale',
+                                        array(
+                                            'width'     => $maxRes,
+                                            'height'    => $maxRes
+                                        )
+                                    ),
+                                ),
+                                array(
+                                    'image/jpeg'
+                                ),
+                                new ezcImageSaveOptions(array('quality' => (int)95))
+                            );
+                            $converter->transform('fitimage', $file->file_path_server, $file->file_path_server);
+                            $file->size = filesize($file->file_path_server);
+                            $file->type = 'image/jpeg';
+                            $file->extension = 'jpg';
+                            chmod($file->file_path_server, 0644);
+
+                            if ($defaultUser != '') {;
+                                chown($file->file_path_server, $defaultUser);
+                            }
+
+                            if ($defaultGroup != '') {
+                                chgrp($file->file_path_server, $defaultGroup);
+                            }
+
+                        }
+                    }
+
+                    if (in_array($file->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                        $imageSize = getimagesize($file->file_path_server);
+                        if ($imageSize !== false && ($imageSize[0] > 10 || $imageSize[1] > 10)) {
+                            $file->width = (int)$imageSize[0];
+                            $file->height = (int)$imageSize[1];
+                        }
+                    }
+
+                    $file->updateThis(['update' => ['file_name','file_path','size','type','extension','width','height']]);
+
+                    // Log error for investigation
+                    if (!file_exists($file->file_path_server)) {
+                        \erLhcoreClassLog::write(
+                            "file could not be stored - ".$file->id,
+                            \ezcLog::SUCCESS_AUDIT,
+                            array(
+                                'source' => 'lhc',
+                                'category' => 'mailconv',
+                                'line' => __LINE__,
+                                'file' => __FILE__,
+                                'object_id' => $file->id
+                            )
+                        );
+                    }
+                }
             }
         }
     }

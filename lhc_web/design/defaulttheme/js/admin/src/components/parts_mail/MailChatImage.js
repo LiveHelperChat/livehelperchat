@@ -230,7 +230,7 @@ const MailChatImage = ({
         return (
             <div className="mail-image-verification text-muted p-2 fs14 border rounded d-inline-block bg-light">
                 <i className="material-icons text-warning">info</i>
-                <span className="ms-1">{verificationMessage}</span>
+                <span className="ms-1">{countdownSeconds == 0 && verificationAttempts <= 1 ? t('image.downloading') : verificationMessage}</span>
                 {countdownSeconds > 0 && (
                     <span className="text-secondary ms-1">
                         ({t('image.next_attempt_in')} {countdownSeconds} {t('image.seconds')})

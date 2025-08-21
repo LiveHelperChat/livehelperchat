@@ -14,6 +14,10 @@ try {
    
     $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
 
+    if (!file_exists($file->file_path_server)) {
+        erLhcoreClassMailconvParser::fetchFile($file, ($fileData['max_res_mail'] ?? 0));
+    }
+
     $validRequest = true;
 
     if ($file->is_archive === false) {

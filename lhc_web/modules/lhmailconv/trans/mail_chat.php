@@ -115,6 +115,7 @@ echo json_encode(array(
         'click_to_reveal' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Click to reveal'),
         'loading' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Loading...'),
         'click_to_download' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Ready to download'),
+        'downloading' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Downloading...'),
     ]
 ));
 

@@ -314,10 +314,15 @@ const MailChatAttachment = ({
         if (restricted_file) {
             return `${name} - 🔒 ` + getRestrictionMessage(restricted_reason);
         }
-        
+
+        if (verificationStatus === 'verifying' && verificationAttempts <= 1 && countdownSeconds === 0) {
+            return `${name} ${t('image.downloading')}`;
+        }
+
         if (verificationStatus === 'verifying' && countdownSeconds > 0) {
             return `${name} (${countdownSeconds}s)`;
         }
+
         if (is_image && verificationStatus === 'verified') {
             if (isSensitiveImage && buttonTitle) {
                 return `${name} - 🔒 ${buttonTitle}`;
