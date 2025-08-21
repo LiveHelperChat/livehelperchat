@@ -82,6 +82,11 @@ $q->deleteFrom( 'lh_notification_op_subscriber' )->where( $q->expr->eq( 'user_id
 $stmt = $q->prepare();
 $stmt->execute();
 
+// Reports
+$q = ezcDbInstance::get()->createDeleteQuery();
+$q->deleteFrom( 'lh_abstract_saved_report' )->where( $q->expr->eq( 'user_id', $Params['user_parameters']['user_id'] ) );
+$stmt = $q->prepare();
+$stmt->execute();
 
 foreach (\LiveHelperChat\Models\Departments\UserDepAlias::getList(['filter' => ['user_id' => (int)$Params['user_parameters']['user_id']]]) as $item) {
     $item->removeThis();

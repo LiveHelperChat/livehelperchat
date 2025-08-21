@@ -233,6 +233,10 @@ class ReportValidator {
 
         $user = $report->user;
 
+        if (!is_object($user)) {
+            $report->removeThis();
+        }
+
         $cfg = \erConfigClassLhConfig::getInstance();
 
         if ($user->time_zone != '') {
