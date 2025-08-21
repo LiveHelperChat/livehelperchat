@@ -513,6 +513,10 @@
 						</div>*/ ?>
 
                         <div class="form-group">
+                            <label><?php echo erLhcoreClassAbstract::renderInput('lazy_load', $fields['lazy_load'], $object)?> <?php echo $fields['lazy_load']['trans'];?></label>
+                        </div>
+
+                        <div class="form-group">
                             <label><?php echo erLhcoreClassAbstract::renderInput('close_in_status', $fields['close_in_status'], $object)?> <?php echo $fields['close_in_status']['trans'];?></label>
                         </div>
 

@@ -258,6 +258,10 @@ if (isset($outputResponse['theme'])) {
             $outputResponse['chat_ui']['wwidth'] = (int)$theme->bot_configuration_array['wwidth'];
         }
 
+        if (isset($theme->bot_configuration_array['lazy_load']) && $theme->bot_configuration_array['lazy_load'] == true) {
+            $outputResponse['ll'] = true;
+        }
+
         if ($theme->show_status_delay > 0) {
             $outputResponse['chat_ui']['status_delay'] = (int)$theme->show_status_delay * 1000;
         }
