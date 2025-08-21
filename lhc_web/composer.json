@@ -96,7 +96,7 @@
     "longman/telegram-bot": "dev-master#79e5e3abc82d130aa791bd767bd0980f7b85067c",
     "michelf/php-markdown": "^2.0",
     "minishlink/web-push": "^7.0",
-    "php-imap/php-imap": "dev-master#5c4f558ec8d82b273ca5d975c4cfc9aee50b6609",
+    "php-imap/php-imap": "dev-master#6b9a4647777387ecba4f8e32dd7fd31d0a6456a0",
     "slim/slim": "^4.14.0",
     "sonata-project/google-authenticator": "^3.0@dev",
     "symfony/event-dispatcher": "^7.1",

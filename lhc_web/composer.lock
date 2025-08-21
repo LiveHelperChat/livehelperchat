@@ -2969,7 +2969,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/remdex/php-imap.git",
-                "reference": "5c4f558ec8d82b273ca5d975c4cfc9aee50b6609"
+                "reference": "6b9a4647777387ecba4f8e32dd7fd31d0a6456a0"
             },
             "type": "library",
             "autoload": {
