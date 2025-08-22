@@ -13,6 +13,7 @@ const MailChatImage = ({
     ...props 
 }) => {
     const [imageError, setImageError] = useState(false);
+    const [errorMode, setErrorMode] = useState(false);
     const [imageLoading, setImageLoading] = useState(true);
     const [canShowImage, setCanShowImage] = useState(false);
     const [imageSrc, setImageSrc] = useState('');
@@ -144,11 +145,13 @@ const MailChatImage = ({
                 if (data.error_msg) {
                     setVerificationMessage(data.error_msg);
                     clearCountdown();
+                    setErrorMode(true);
                 } else {
                     if (policyValue === 2 && (data.protection_image || data.protection_html)) {
                         // Policy 2 with sensitive image - show access denied
                         setVerificationMessage(t('image.access_denied'));
                         clearCountdown();
+                        setErrorMode(true);
                     } else {
                         // Verification successful - check protection status
                         setCanShowImage(true);
@@ -186,6 +189,7 @@ const MailChatImage = ({
                 scheduleNextVerification(newAttempts, fileId, convId);
             } else {
                 setVerificationMessage(t('image.verification_failed'));
+                setErrorMode(true);
             }
         });
     };
@@ -230,7 +234,9 @@ const MailChatImage = ({
         return (
             <div className="mail-image-verification text-muted p-2 fs14 border rounded d-inline-block bg-light">
                 <i className="material-icons text-warning">info</i>
-                <span className="ms-1">{countdownSeconds == 0 && verificationAttempts <= 1 ? t('image.downloading') : verificationMessage}</span>
+
+                <span className="ms-1">{countdownSeconds == 0 && verificationAttempts <= 1 && errorMode === false ? t('image.downloading') : verificationMessage}</span>
+
                 {countdownSeconds > 0 && (
                     <span className="text-secondary ms-1">
                         ({t('image.next_attempt_in')} {countdownSeconds} {t('image.seconds')})
