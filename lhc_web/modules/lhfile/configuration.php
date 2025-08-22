@@ -23,6 +23,9 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'ClamAVSocketPath' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
+        'mail_img_verify_skip' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
         'ClamAVSocketLength' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int'
         ),
@@ -163,6 +166,12 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['max_res'] = $form->MaximumResolution;
     } else {
         $data['max_res'] = '';
+    }
+
+    if ($form->hasValidData('mail_img_verify_skip')) {
+        $data['mail_img_verify_skip'] = $form->mail_img_verify_skip;
+    } else {
+        $data['mail_img_verify_skip'] = '';
     }
     
     if ($form->hasValidData('MaximumResolutionMail')) {

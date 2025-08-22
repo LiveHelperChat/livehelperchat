@@ -93,7 +93,7 @@ try {
 
     $denyImage = 'design/defaulttheme/images/general/denied.png';
 
-    if (in_array($file->extension,['jfif','jpg','jpeg','png']) && file_exists($file->file_path_server)) {
+    if (in_array($file->extension,['jfif','jpg','jpeg','png']) && file_exists($file->file_path_server) && (!isset($fileData['mail_img_verify_skip']) || !in_array($file->extension, explode('|',$fileData['mail_img_verify_skip'])))) {
         if (isset($fileData['mail_img_download_policy']) && $fileData['mail_img_download_policy'] === 1) {
             
             $minDim = isset($fileData['mail_img_verify_min_dim']) ? (int)$fileData['mail_img_verify_min_dim'] : 100;
@@ -119,7 +119,7 @@ try {
 
                 if (isset($metaData['verified'])) {
                     $response['verified'] = true;
-                    if ($metaData['verified']['success'] == true) {
+                    if (isset($metaData['verified']['success']) && $metaData['verified']['success'] == true) {
                         if (isset($metaData['verified']['sensitive']) && $metaData['verified']['sensitive'] == true) {
                             if ($download_policy == 2) {
                                 $validRequest = false;

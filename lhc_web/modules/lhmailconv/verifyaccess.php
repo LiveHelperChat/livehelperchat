@@ -18,6 +18,11 @@ try {
         erLhcoreClassMailconvParser::fetchFile($file, ($fileData['max_res_mail'] ?? 0));
     }
 
+    if (isset($fileData['mail_img_verify_skip']) && in_array($file->extension, explode('|',$fileData['mail_img_verify_skip']))) {
+        echo json_encode(['verified' => true]);
+        exit;
+    }
+
     $validRequest = true;
 
     if ($file->is_archive === false) {

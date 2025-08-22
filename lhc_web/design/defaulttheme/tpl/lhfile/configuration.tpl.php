@@ -106,6 +106,10 @@
                     <option value="0" <?php if (!isset($file_data['mail_img_download_policy']) || $file_data['mail_img_download_policy'] == 0) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Default, all images files will be downloaded'); ?></option>
                     <option value="1" <?php if (isset($file_data['mail_img_download_policy']) && $file_data['mail_img_download_policy'] == 1) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Verified and has permission to download protected images OR has permission to download unprotected files'); ?></option>
                 </select>
+
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','By-pass those type of images files from verification'); ?></label>
+                <input type="text" class="form-control" placeholder="heic|webp" name="mail_img_verify_skip" value="<?php isset($file_data['mail_img_verify_skip']) ? print htmlspecialchars($file_data['mail_img_verify_skip']) : ''?>" />
+
                 <label class="d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Minimum image width or height to require verification'); ?></label>
                 <input type="number" class="form-control" min="10" placeholder="100" name="mail_img_verify_min_dim" value="<?php isset($file_data['mail_img_verify_min_dim']) && (int)$file_data['mail_img_verify_min_dim'] > 10 ? print (int)$file_data['mail_img_verify_min_dim'] : '' ?>" />
 
