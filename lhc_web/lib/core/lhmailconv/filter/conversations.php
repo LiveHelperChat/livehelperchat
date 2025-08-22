@@ -41,6 +41,19 @@ $fieldsSearch['conversation_id'] = array (
     )
 );
 
+$fieldsSearch['search_id'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'multiple_id' => true,
+    'requires_positive' => true,
+    'filter_type' => 'none',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1, 'max_range' => 2)
+    )
+);
+
 $fieldsSearch['ids'] = array (
     'type' => 'text',
     'trans' => 'id',

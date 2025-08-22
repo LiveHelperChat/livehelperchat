@@ -98,9 +98,16 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.list_filter'
 
 // Merged id's support
 if (isset($filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`'])) {
-    $idsRelated = array_unique(erLhcoreClassModelMailconvMessage::getCount(['filter' => ['conversation_id_old' => $filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`']]], '', false, 'conversation_id', false, true, true));
-    if (!empty($idsRelated)) {
-        $filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`'] = array_merge($filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`'],$idsRelated);
+    if (is_numeric($filterParams['input_form']->search_id) && $filterParams['input_form']->search_id == 2) {
+        // We cannot use merged id's in this mode as message can be from different conversation.
+        unset($filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`']);
+        $filterParams['filter']['innerjoin']['lhc_mailconv_msg'] = array('`lhc_mailconv_msg`.`conversation_id`','`lhc_mailconv_conversation` . `id`');
+        $filterParams['filter']['filterin']['`lhc_mailconv_msg`.`id`'] = $filterParams['input_form']->conversation_id;
+    } else {
+        $idsRelated = array_unique(erLhcoreClassModelMailconvMessage::getCount(['filter' => ['conversation_id_old' => $filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`']]], '', false, 'conversation_id', false, true, true));
+        if (!empty($idsRelated)) {
+            $filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`'] = array_merge($filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`'],$idsRelated);
+        }
     }
 }
 

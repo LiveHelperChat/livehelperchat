@@ -5,11 +5,23 @@
     <div class="row">
         <div class="col-md-1">
             <div class="form-group">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Conversation ID');?></label>
-                <input type="text" class="form-control form-control-sm" placeholder="<?php echo htmlspecialchars("<id>[,<id>]");?>" name="conversation_id" value="<?php echo htmlspecialchars($input->conversation_id)?>" />
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','ID');?></label>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control form-control-sm" placeholder="<?php echo htmlspecialchars("<id>[,<id>]");?>" name="conversation_id" value="<?php echo htmlspecialchars($input->conversation_id)?>" />
+                    <button class="btn dropdown-toggle btn-outline-secondary border-secondary-control" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="material-icons">settings</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <label class="dropdown-item mb-0 ps-2">
+                            <input type="radio" <?php if (!isset($input->search_id) || $input->search_id == 1) : ?>checked="checked"<?php endif; ?> name="search_id" value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Conversation');?>
+                        </label>
+                        <label class="dropdown-item mb-0 ps-2">
+                            <input type="radio" <?php if (isset($input->search_id) && $input->search_id == 2) : ?>checked="checked"<?php endif; ?> name="search_id" value="2"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Message');?>
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
-
         <div class="col-md-1">
             <div class="form-group">
                 <label><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/email_title.tpl.php')); ?></label>
