@@ -40,7 +40,7 @@ class erLhcoreClassChatWebhookHttp {
 
                         erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, true, array('args' => $params));
 
-                        if (!isset($params['no_auto_events']) || $params['no_auto_events'] === false) {
+                        if ((!isset($params['no_auto_events']) || $params['no_auto_events'] === false) && $params['chat'] instanceof erLhcoreClassModelChat) {
                             erLhcoreClassChatWebhookContinuous::dispatchEvents($params['chat'], $paramsExecution);
                         }
 
@@ -62,7 +62,7 @@ class erLhcoreClassChatWebhookHttp {
 
                         erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, true, array('args' => $params));
 
-                        if (!isset($params['no_auto_events']) || $params['no_auto_events'] === false) {
+                        if ((!isset($params['no_auto_events']) || $params['no_auto_events'] === false) && $params['chat'] instanceof erLhcoreClassModelChat) {
                             erLhcoreClassChatWebhookContinuous::dispatchEvents($params['chat'], $paramsExecution);
                         }
 

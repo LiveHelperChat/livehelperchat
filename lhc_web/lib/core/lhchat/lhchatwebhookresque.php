@@ -129,8 +129,11 @@ class erLhcoreClassChatWebhookResque {
                 $params['chat']->last_message = $params['msg'];
             }
 
+            $paramsExecution = [];
+
             if (isset($params['chat']) && $params['chat'] instanceof erLhcoreClassModelChat && $params['chat']->id > 0) {
                 $setLastMessage = true;
+                $paramsExecution = ['msg_last_id' => $params['chat']->last_msg_id];
             }
 
             $params['override_gbot_id'] = $trigger->bot_id;
@@ -153,6 +156,10 @@ class erLhcoreClassChatWebhookResque {
                     'msg' => $lastMessage,
                     'source' => 'webhook_worker'
                 ));
+            }
+
+            if ($setLastMessage === true && (!isset($params['no_auto_events']) || $params['no_auto_events'] === false)) {
+                erLhcoreClassChatWebhookContinuous::dispatchEvents($params['chat'], $paramsExecution);
             }
         }
     }
