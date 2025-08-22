@@ -93,7 +93,7 @@ try {
 
     $denyImage = 'design/defaulttheme/images/general/denied.png';
 
-    if (in_array($file->extension,['jfif','jpg','jpeg','png']) && file_exists($file->file_path_server) && (!isset($fileData['mail_img_verify_skip']) || !in_array($file->extension, explode('|',$fileData['mail_img_verify_skip'])))) {
+    if (in_array($file->extension,['png','bmp','gif','jfif','jpg','jpeg']) && file_exists($file->file_path_server) && (!isset($fileData['mail_img_verify_skip']) || !in_array($file->extension, explode('|',$fileData['mail_img_verify_skip'])))) {
         if (isset($fileData['mail_img_download_policy']) && $fileData['mail_img_download_policy'] === 1) {
             
             $minDim = isset($fileData['mail_img_verify_min_dim']) ? (int)$fileData['mail_img_verify_min_dim'] : 100;

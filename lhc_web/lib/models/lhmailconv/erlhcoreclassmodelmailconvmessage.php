@@ -269,7 +269,7 @@ class erLhcoreClassModelMailconvMessage
                                 'name' => $file->name,
                                 'description' => $file->description,
                                 'download_url' => erLhcoreClassDesign::baseurl('mailconv/inlinedownload') . '/' . $file->id . '/' . $this->conversation_id,
-                                'is_image' => in_array($file->extension,['jpg','jpeg','png','bmp','gif']),
+                                'is_image' => in_array($file->extension,['png','bmp','gif','jfif','jpg','jpeg']),
                                 'restricted_file' => $restricted_file,
                                 'restricted_reason' => $restricted_reason
                             ];

@@ -1255,7 +1255,7 @@ class erLhcoreClassMailconvParser {
                 $mailAttatchement->file_name = $fileName;
                 $mailAttatchement->file_path = $dir;
 
-                if ($maxRes > 0 && in_array($mailAttatchement->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                if ($maxRes > 0 && in_array($mailAttatchement->extension, array('png','bmp','gif','jfif','jpg','jpeg'))) {
                     $imageSize = getimagesize($mailAttatchement->file_path_server);
                     if ($imageSize !== false && ($imageSize[0] > $maxRes || $imageSize[1] > $maxRes)) {
                         $conversionSettings[] = new ezcImageHandlerSettings( 'gd','erLhcoreClassGalleryGDHandler' );
@@ -1297,7 +1297,7 @@ class erLhcoreClassMailconvParser {
                     }
                 }
 
-                if (in_array($mailAttatchement->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                if (in_array($mailAttatchement->extension, array('png','bmp','gif','jfif','jpg','jpeg'))) {
                     $imageSize = getimagesize($mailAttatchement->file_path_server);
                     if ($imageSize !== false && ($imageSize[0] > 10 || $imageSize[1] > 10)) {
                         $mailAttatchement->width = (int)$imageSize[0];
@@ -1802,7 +1802,7 @@ class erLhcoreClassMailconvParser {
                     $file->file_path = $dir;
                     $file->file_path_server = $file->file_path . $file->file_name;
 
-                    if ($maxRes > 0 && in_array($file->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                    if ($maxRes > 0 && in_array($file->extension, array('png','bmp','gif','jfif','jpg','jpeg'))) {
                         $imageSize = getimagesize($file->file_path_server);
                         if ($imageSize !== false && ($imageSize[0] > $maxRes || $imageSize[1] > $maxRes)) {
                             $conversionSettings[] = new ezcImageHandlerSettings( 'gd','erLhcoreClassGalleryGDHandler' );
@@ -1844,7 +1844,7 @@ class erLhcoreClassMailconvParser {
                         }
                     }
 
-                    if (in_array($file->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
+                    if (in_array($file->extension, array('png','bmp','gif','jfif','jpg','jpeg'))) {
                         $imageSize = getimagesize($file->file_path_server);
                         if ($imageSize !== false && ($imageSize[0] > 10 || $imageSize[1] > 10)) {
                             $file->width = (int)$imageSize[0];

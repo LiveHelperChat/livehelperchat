@@ -102,6 +102,10 @@ const MailChatImage = ({
         }
     };
 
+    const downloadDirectly = () => {
+        window.open(window.WWW_DIR_JAVASCRIPT + 'mailconv/inlinedownload/' + extractedFileId + '/' + extractedConvId, '_blank');
+    };
+
     const handleImageClick = () => {
         if (isProtected && !imageRevealed) {
             revealImage();
@@ -250,7 +254,7 @@ const MailChatImage = ({
         return (
             <div className="mail-image-error d-inline-block border rounded p-2 text-muted">
                 <i className="material-icons">broken_image</i>
-                <span className="ms-1">{t('image.image_not_available')}</span>
+                <span className="ms-1">{t('image.image_not_available')} <button type="button" onClick={downloadDirectly} className="btn btn-xs btn-secondary">{t('image.download')})</button></span>
                 {alt && <div className="small">{alt}</div>}
             </div>
         );
