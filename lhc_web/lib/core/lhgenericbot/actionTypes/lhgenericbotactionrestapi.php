@@ -891,12 +891,28 @@ class erLhcoreClassGenericBotActionRestapi
 
         $replaceVariables = array_merge($replaceVariables, $dynamicParamsVariables);
 
-
-
         foreach ($replaceVariables as $keyVariable => $variableValue) {
             if (is_array($variableValue) || is_object($variableValue)) {
                 $replaceVariables[$keyVariable] = json_encode($variableValue);
             }
+        }
+
+        if (!empty($methodSettings['check_not_empty']) && empty($replaceVariables[$methodSettings['check_not_empty']])) {
+            return array(
+                'content' => 'Empty variable'. $methodSettings['check_not_empty'],
+                'http_code' => 200,
+                'http_data' => '',
+                'content_2' => '',
+                'content_3' =>  '',
+                'content_4' => '',
+                'content_5' =>  '',
+                'content_6' => '',
+                'http_error' => '',
+                'content_raw' => '',
+                'params_request' => '',
+                'meta' => '',
+                'id' => 0
+            );
         }
 
         $replaceVariablesJSON = array(

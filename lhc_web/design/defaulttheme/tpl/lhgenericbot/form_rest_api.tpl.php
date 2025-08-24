@@ -283,6 +283,11 @@
                         <p><small><i>You have to have <span class="badge bg-secondary">aspel</span> php extension installed. Also appropriate dictionary is required.</i></small></p>
                     </label>
 
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Do not send request if this variable is empty');?></label>
+                        <input type="text" class="form-control form-control-sm" ng-model="param.check_not_empty" value="" />
+                    </div>
+
                     <div ng-if="param.body_request_type == 'raw'">
                         <div class="form-group">
                             <label>Request Body</label>
