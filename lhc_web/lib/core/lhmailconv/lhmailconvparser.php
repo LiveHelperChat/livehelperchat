@@ -2,6 +2,8 @@
 
 class erLhcoreClassMailconvParser {
 
+    const IMAGE_EXTENSIONS = ['png','bmp','gif','jfif','jpg','jpeg','webp','heic'];
+
     public static function getRawConnection($mailbox)
     {
         $mail_con = imap_open($mailbox->imap, $mailbox->username,  $mailbox->password);
@@ -1194,7 +1196,15 @@ class erLhcoreClassMailconvParser {
             $mailAttatchement->name = mb_substr((string)$attachment->name,-250);
             $mailAttatchement->description = (string)$attachment->description;
             $mailAttatchement->extension = mb_substr((string)strtolower($attachment->subtype),0,10);
-            $mailAttatchement->type = (string)$attachment->mime;
+            $mailAttatchement->type = trim(explode(';',(string)$attachment->mime)[0]);
+
+            if ($mailAttatchement->extension == 'octet-stre') {
+                $extension = erLhcoreClassChatWebhookIncoming::getExtensionByMime($mailAttatchement->type);
+                if (!empty($extension)) {
+                    $mailAttatchement->extension = $extension;
+                }
+            }
+
             $mailAttatchement->conversation_id = $message->conversation_id;
             $mailAttatchement->saveThis();
 
@@ -1255,8 +1265,12 @@ class erLhcoreClassMailconvParser {
                 $mailAttatchement->file_name = $fileName;
                 $mailAttatchement->file_path = $dir;
 
-                if ($maxRes > 0 && in_array($mailAttatchement->extension, array('png','bmp','gif','jfif','jpg','jpeg'))) {
-                    $imageSize = getimagesize($mailAttatchement->file_path_server);
+                if ($maxRes > 0 && in_array($mailAttatchement->extension, self::IMAGE_EXTENSIONS)) {
+                    if ($mailAttatchement->extension == 'heic') {
+                        $imageSize = self::convertHeicToJpeg($mailAttatchement);
+                    } else {
+                        $imageSize = getimagesize($mailAttatchement->file_path_server);
+                    }
                     if ($imageSize !== false && ($imageSize[0] > $maxRes || $imageSize[1] > $maxRes)) {
                         $conversionSettings[] = new ezcImageHandlerSettings( 'gd','erLhcoreClassGalleryGDHandler' );
                         $converter = new ezcImageConverter(
@@ -1285,6 +1299,13 @@ class erLhcoreClassMailconvParser {
                         $mailAttatchement->type = 'image/jpeg';
                         $mailAttatchement->extension = 'jpg';
 
+                        $imageSize = getimagesize($mailAttatchement->file_path_server);
+
+                        if ($imageSize !== false) {
+                            $mailAttatchement->width = (int)$imageSize[0];
+                            $mailAttatchement->height = (int)$imageSize[1];
+                        }
+
                         chmod($mailAttatchement->file_path_server, 0644);
 
                         if ($defaultUser != '') {;
@@ -1297,8 +1318,13 @@ class erLhcoreClassMailconvParser {
                     }
                 }
 
-                if (in_array($mailAttatchement->extension, array('png','bmp','gif','jfif','jpg','jpeg'))) {
-                    $imageSize = getimagesize($mailAttatchement->file_path_server);
+                if ($mailAttatchement->width == 0 && in_array($mailAttatchement->extension, self::IMAGE_EXTENSIONS)) {
+                    if ($mailAttatchement->extension == 'heic') {
+                        $imageSize = self::convertHeicToJpeg($mailAttatchement);
+                    } else {
+                        $imageSize = getimagesize($mailAttatchement->file_path_server);
+                    }
+
                     if ($imageSize !== false && ($imageSize[0] > 10 || $imageSize[1] > 10)) {
                         $mailAttatchement->width = (int)$imageSize[0];
                         $mailAttatchement->height = (int)$imageSize[1];
@@ -1649,6 +1675,43 @@ class erLhcoreClassMailconvParser {
         return preg_replace('/<img src="http(s?):\/\/([A-Za-z0-9\.\-]{6,})\/mailconv\/tpx\/([A-Za-z0-9]{20,})" \/>/is','',$body);
     }
 
+    /**
+     * Converts HEIC files to JPEG format using ImageMagick
+     * @param object $fileObject File object with file_path_server property and methods to update attributes
+     * @return array|false Returns image size array [width, height] on success, false on failure
+     */
+    public static function convertHeicToJpeg($fileObject)
+    {
+        if ($fileObject->extension !== 'heic') {
+            return false;
+        }
+
+        $imageSize = false;
+        
+        if (class_exists('Imagick')) {
+            try {
+                $img = new Imagick($fileObject->file_path_server);
+                $imageSize = [$img->getImageWidth(), $img->getImageHeight()];
+                $img->setImageFormat('jpeg');
+                $img->writeImage($fileObject->file_path_server);
+                $img->clear();
+                if (method_exists($img, 'destroy')) {
+                    $img->destroy();
+                }
+
+                // Update attributes after conversion to jpg
+                $fileObject->type = 'image/jpeg';
+                $fileObject->extension = 'jpg';
+                $fileObject->size = filesize($fileObject->file_path_server);
+
+            } catch (Exception $e) {
+                $imageSize = false;
+            }
+        }
+
+        return $imageSize;
+    }
+
     public static function purgeMessage($message, $isArchive = false)
     {
         static $cacheConnection = [];
@@ -1764,12 +1827,6 @@ class erLhcoreClassMailconvParser {
                         $fileBody = $attachment->getContent();
                     }
 
-                    // Try to save file again
-                    $cfg = erConfigClassLhConfig::getInstance();
-
-                    $defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
-                    $defaultUser = $cfg->getSetting( 'site', 'default_user', false );
-                    
                     $dir = 'var/tmpfiles/';
                     $fileName = md5($file->id . '_' . $file->name . '_' . $file->attachment_id);
 
@@ -1802,8 +1859,13 @@ class erLhcoreClassMailconvParser {
                     $file->file_path = $dir;
                     $file->file_path_server = $file->file_path . $file->file_name;
 
-                    if ($maxRes > 0 && in_array($file->extension, array('png','bmp','gif','jfif','jpg','jpeg'))) {
-                        $imageSize = getimagesize($file->file_path_server);
+                    if ($maxRes > 0 && in_array($file->extension, self::IMAGE_EXTENSIONS)) {
+                        if ($file->extension == 'heic') {
+                            $imageSize = self::convertHeicToJpeg($file);
+                        } else {
+                            $imageSize = getimagesize($file->file_path_server);
+                        }
+
                         if ($imageSize !== false && ($imageSize[0] > $maxRes || $imageSize[1] > $maxRes)) {
                             $conversionSettings[] = new ezcImageHandlerSettings( 'gd','erLhcoreClassGalleryGDHandler' );
                             $converter = new ezcImageConverter(
@@ -1831,6 +1893,14 @@ class erLhcoreClassMailconvParser {
                             $file->size = filesize($file->file_path_server);
                             $file->type = 'image/jpeg';
                             $file->extension = 'jpg';
+
+                            $imageSize = getimagesize($file->file_path_server);
+
+                            if ($imageSize !== false) {
+                                $file->width = (int)$imageSize[0];
+                                $file->height = (int)$imageSize[1];
+                            }
+
                             chmod($file->file_path_server, 0644);
 
                             if ($defaultUser != '') {;
@@ -1844,8 +1914,12 @@ class erLhcoreClassMailconvParser {
                         }
                     }
 
-                    if (in_array($file->extension, array('png','bmp','gif','jfif','jpg','jpeg'))) {
-                        $imageSize = getimagesize($file->file_path_server);
+                    if ($file->width == 0 && in_array($file->extension, self::IMAGE_EXTENSIONS)) {
+                        if ($file->extension == 'heic') {
+                            $imageSize = self::convertHeicToJpeg($file);
+                        } else {
+                            $imageSize = getimagesize($file->file_path_server);
+                        }
                         if ($imageSize !== false && ($imageSize[0] > 10 || $imageSize[1] > 10)) {
                             $file->width = (int)$imageSize[0];
                             $file->height = (int)$imageSize[1];

@@ -93,7 +93,7 @@ try {
 
     $denyImage = 'design/defaulttheme/images/general/denied.png';
 
-    if (in_array($file->extension,['png','bmp','gif','jfif','jpg','jpeg']) && file_exists($file->file_path_server) && (!isset($fileData['mail_img_verify_skip']) || !in_array($file->extension, explode('|',$fileData['mail_img_verify_skip'])))) {
+    if (in_array($file->extension, erLhcoreClassMailconvParser::IMAGE_EXTENSIONS) && file_exists($file->file_path_server) && (!isset($fileData['mail_img_verify_skip']) || !in_array($file->extension, explode('|',$fileData['mail_img_verify_skip'])))) {
         if (isset($fileData['mail_img_download_policy']) && $fileData['mail_img_download_policy'] === 1) {
             
             $minDim = isset($fileData['mail_img_verify_min_dim']) ? (int)$fileData['mail_img_verify_min_dim'] : 100;
@@ -159,7 +159,7 @@ try {
     }
 
     if ($validRequest === false) {
-        if (in_array($file->extension,['jpg','jpeg','png','jfif'])) {
+        if (in_array($file->extension, erLhcoreClassMailconvParser::IMAGE_EXTENSIONS)) {
             header('Content-type: image/png; charset=binary');
             echo file_get_contents($denyImage);
             exit;

@@ -23,6 +23,16 @@ try {
         exit;
     }
 
+    if ($file->extension === 'heic') {
+        $imageSize = erLhcoreClassMailconvParser::convertHeicToJpeg($file);
+        
+        if ($imageSize !== false) {
+            $file->width = (int)$imageSize[0];
+            $file->height = (int)$imageSize[1];
+            $file->saveThis();
+        }
+    }
+
     $validRequest = true;
 
     if ($file->is_archive === false) {

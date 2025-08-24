@@ -238,7 +238,7 @@ class erLhcoreClassModelMailconvMessage
                 $this->attachments = [];
                 foreach ($this->files as $file) {
                     if (strtolower($file->disposition) == 'attachment' || (strtolower($file->disposition) == 'inline' && ($file->content_id == '' || strpos($this->body,'cid:' . $file->content_id) === false))) {
-                        if ($file->content_id == '' || !in_array($file->extension,['jpg','jpeg','png','bmp','gif']) || strpos($this->body,'cid:' . $file->content_id) === false) {
+                        if ($file->content_id == '' || !in_array($file->extension,erLhcoreClassMailconvParser::IMAGE_EXTENSIONS) || strpos($this->body,'cid:' . $file->content_id) === false) {
 
                             // Determine if file is restricted based on filesResctrictions logic
                             $restricted_file = false;
@@ -264,12 +264,20 @@ class erLhcoreClassModelMailconvMessage
                                 }
                             }
 
+                            if ($file->extension == 'octet-stre') {
+                                $extension = erLhcoreClassChatWebhookIncoming::getExtensionByMime(trim(explode(';',$file->type)[0]));
+                                if (!empty($extension)) {
+                                    $file->extension = $extension;
+                                    $file->updateThis(['update' => ['extension']]);
+                                }
+                            }
+
                             $this->attachments[] = [
                                 'id' => $file->id,
                                 'name' => $file->name,
                                 'description' => $file->description,
                                 'download_url' => erLhcoreClassDesign::baseurl('mailconv/inlinedownload') . '/' . $file->id . '/' . $this->conversation_id,
-                                'is_image' => in_array($file->extension,['png','bmp','gif','jfif','jpg','jpeg']),
+                                'is_image' => in_array($file->extension, erLhcoreClassMailconvParser::IMAGE_EXTENSIONS),
                                 'restricted_file' => $restricted_file,
                                 'restricted_reason' => $restricted_reason
                             ];
