@@ -2424,6 +2424,7 @@ class erLhcoreClassChatWebhookIncoming {
             'svg' => 'image/svg+xml',
             'svgz' => 'image/svg+xml',
             'webp' => 'image/webp',
+            'heic' => 'image/heic',
 
             // archives
             'zip' => 'application/zip',

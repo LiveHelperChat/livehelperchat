@@ -195,7 +195,7 @@ class erLhcoreClassFileUpload extends UploadHandler
             $pathCurrent .= $path . '/';
             if (!is_dir($pathCurrent)) {
                 mkdir($pathCurrent, 0755);
-                if ($chown == true) {
+                if ($chown == true && !empty($wwwUser) && !empty($wwwUserGroup)) {
                     chown($pathCurrent, $wwwUser);
                     chgrp($pathCurrent, $wwwUserGroup);
                 }
