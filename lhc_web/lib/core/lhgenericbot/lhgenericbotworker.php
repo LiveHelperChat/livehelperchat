@@ -212,7 +212,7 @@ class erLhcoreClassLHCBotWorker
                             $msgLast = erLhcoreClassModelmsg::fetch($msgId);
 
                             if ($msgLast instanceof erLhcoreClassModelmsg) {
-                                erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true]);
+                                erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true, 'sub_source' => 'rest_api_worker']);
                             }
 
                             if (class_exists('erLhcoreClassNodeJSRedis')) {
@@ -280,7 +280,7 @@ class erLhcoreClassLHCBotWorker
                         $msgLast = erLhcoreClassModelmsg::fetch($msgId);
 
                         if ($msgLast instanceof erLhcoreClassModelmsg) {
-                            erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true]);
+                            erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true, 'sub_source' => 'rest_api_worker']);
                         }
 
                         $chatVariables = $chat->chat_variables_array;
@@ -330,7 +330,7 @@ class erLhcoreClassLHCBotWorker
                         $msgLast = erLhcoreClassModelmsg::fetch($msgId);
 
                         if ($msgLast instanceof erLhcoreClassModelmsg) {
-                            erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true]);
+                            erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true, 'sub_source' => 'rest_api_worker']);
                         }
 
                         if (class_exists('erLhcoreClassNodeJSRedis')) {

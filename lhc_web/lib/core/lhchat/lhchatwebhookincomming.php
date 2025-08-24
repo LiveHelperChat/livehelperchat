@@ -2257,6 +2257,7 @@ class erLhcoreClassChatWebhookIncoming {
                     'chat' => & $chat,
                     'msg' => $botMessage,
                     'source'=> 'webhook',
+                    'sub_source' => (isset($params['sub_source']) ? $params['sub_source'] : ''),
                     'no_auto_events' => true    // Some triggers updates last message and webhooks them self sends this event, we want to avoid that
                 ));
             }
