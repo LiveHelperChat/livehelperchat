@@ -161,7 +161,7 @@ try {
         <td><?php echo htmlspecialchars((string)$row['time'])?></td>
         <td><?php echo htmlspecialchars((string)$row['state'])?></td>
         <td><?php echo htmlspecialchars((string)$row['info'])?></td>
-        <td><?php echo htmlspecialchars((string)$row['progress'])?></td>
+        <td><?php echo htmlspecialchars(isset($row['progress']) ? (string)$row['progress'] : '');?></td>
         <td><a class="btn btn-danger btn-xs csfr-required csfr-post" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('audit/configuration')?>/(action)/kill/(id)/<?php echo htmlspecialchars($row['id'])?>">Kill</a></td>
     </tr>
     <?php endforeach; ?>
