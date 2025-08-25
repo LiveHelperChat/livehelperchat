@@ -117,6 +117,7 @@ echo json_encode(array(
         'click_to_download' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Ready to download'),
         'downloading' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Downloading...'),
         'download' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Download'),
+        'not_found' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Error: File not found/attached'),
     ]
 ));
 

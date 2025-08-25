@@ -16,6 +16,7 @@ const MailChatImage = ({
     const [errorMode, setErrorMode] = useState(false);
     const [imageLoading, setImageLoading] = useState(true);
     const [canShowImage, setCanShowImage] = useState(false);
+    const [fileNotFound, setFileNotFound] = useState(false);
     const [imageSrc, setImageSrc] = useState('');
     const [verificationMessage, setVerificationMessage] = useState('');
     const [verificationAttempts, setVerificationAttempts] = useState(0);
@@ -80,6 +81,8 @@ const MailChatImage = ({
                 setCanShowImage(true);
                 setImageSrc(src);
             }
+        } else {
+            setFileNotFound(true);
         }
 
         return () => {
@@ -350,13 +353,19 @@ const MailChatImage = ({
                 {...props}
             />*/
 
+    if (fileNotFound) {
+        return (<div className="mail-image-verification text-muted mt-1 p-2 fs14 border rounded d-inline-block bg-light">
+            <i className="material-icons text-danger">info</i>{alt} [{t('image.not_found')}]
+        </div>);
+    }
+
     // Fallback to regular image rendering
     return (
         <div className="mail-image-container d-inline-block position-relative">
             {imageLoading && (
-                <div className="mail-image-loading position-absolute d-flex align-items-center justify-content-center w-100 h-100">
+                <div className="mail-image-loading position-absolute d-flex align-items-center justify-content-center ms-2 w-100 h-100">
                     <div className="spinner-border spinner-border-sm text-muted" role="status">
-                        <span className="visually-hidden">{t('image.loading')}</span>
+                        &nbsp;&nbsp;&nbsp;
                     </div>
                 </div>
             )}
