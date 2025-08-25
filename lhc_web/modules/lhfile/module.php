@@ -105,7 +105,7 @@ $ViewList['list'] = array(
 
 $ViewList['listmail'] = array(
     'params' => array(),
-    'uparams' => array('user_id', 'visitor', 'persistent','upload_name'),
+    'uparams' => array('conversation_id', 'message_id', 'user_id', 'visitor', 'persistent','upload_name'),
     'functions' => array( 'file_list_mail' )
 );
 
