@@ -181,6 +181,7 @@
             <button type="submit" class="btn btn-sm btn-primary" name="doSearch"><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?></button>
             <button type="button" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="btn btn-outline-secondary btn-sm" name="debugChat"><span class="material-icons">code</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Debug chat attributes');?></button>
             <button type="submit" class="btn btn-outline-secondary btn-sm" name="doExport"><span class="material-icons">file_download</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export');?></button>
+            <a class="btn btn-outline-danger csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Audit/(action)/truncate"><i class="material-icons me-0">delete_forever</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Truncate');?></a>
         </div>
     </div>
 </div>

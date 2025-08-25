@@ -51,6 +51,11 @@ if (isset($_GET['doExport']) && method_exists($objectData,'doExport')) {
     $objectData->doExport($filterParamsCount);
 }
 
+if ($Params['user_parameters_unordered']['action'] === 'truncate' && method_exists($objectData,'doTruncate') && $currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+    $objectData->doTruncate();
+    exit;
+}
+
 $rowsNumber = null;
 
 $db = ezcDbInstance::get();

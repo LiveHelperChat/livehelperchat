@@ -69,6 +69,17 @@ class erLhAbstractModelAudit
         exit;
     }
 
+    public function doTruncate()
+    {
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhsystem', 'auditlog')) {
+            throw new Exception('You do not have permission to truncate audit log');
+        }
+
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('TRUNCATE TABLE ' . self::$dbTable);
+        $stmt->execute();        
+    }
+
     public function getModuleTranslations()
     {
         /**
