@@ -284,7 +284,7 @@
                     </label>
 
                     <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Do not send request if this variable is empty');?></label>
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Do not send a request if this variable is empty');?> <a href="https://doc.livehelperchat.com/docs/bot/rest-api#do-not-send-a-request-if-this-variable-is-empty" target="_blank"><i class="material-icons">help</i></a></label>
                         <input type="text" class="form-control form-control-sm" ng-model="param.check_not_empty" value="" />
                     </div>
 
