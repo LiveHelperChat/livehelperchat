@@ -127,7 +127,7 @@ $ViewList['list'] = array(
 
 $ViewList['listrestapi'] = array(
     'params' => array(),
-    'uparams' => array(),
+    'uparams' => array('name'),
     'functions' => array( 'use' )
 );
 
