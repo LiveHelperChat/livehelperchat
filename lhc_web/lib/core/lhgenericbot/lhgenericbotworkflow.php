@@ -1880,13 +1880,13 @@ class erLhcoreClassGenericBotWorkflow {
     {
         if (isset($metaData['content']['quick_replies'])) {
             foreach ($metaData['content']['quick_replies'] as $reply) {
-                if ($reply['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || md5($reply['content']['name']) == $paramsExecution['payload_hash'])) {
+                if ($reply['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || str_starts_with(md5($reply['content']['name']), $paramsExecution['payload_hash']))) {
                     return $returnAll == false ? $reply['content']['name'] : $reply['content'];
                 }
             }
         } elseif (isset($metaData['content']['buttons_generic'])) {
             foreach ($metaData['content']['buttons_generic'] as $reply) {
-                if ($reply['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || md5($reply['content']['name']) == $paramsExecution['payload_hash'])) {
+                if ($reply['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || str_starts_with(md5($reply['content']['name']), $paramsExecution['payload_hash']))) {
                     return $returnAll == false ? $reply['content']['name'] : $reply['content'];
                 }
             }
@@ -1895,7 +1895,7 @@ class erLhcoreClassGenericBotWorkflow {
             foreach ($metaData['content']['list']['items'] as $item) {
                 if (isset($item['buttons'])){
                     foreach ($item['buttons'] as $reply){
-                        if ($reply['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || md5($reply['content']['name']) == $paramsExecution['payload_hash'])) {
+                        if ($reply['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || str_starts_with(md5($reply['content']['name']), $paramsExecution['payload_hash']))) {
                             return $returnAll == false ? $reply['content']['name'] : $reply['content'];
                         }
                     }
@@ -1904,7 +1904,7 @@ class erLhcoreClassGenericBotWorkflow {
 
             if (isset($metaData['content']['list']['list_quick_replies'])) {
                 foreach ($metaData['content']['list']['list_quick_replies'] as $item) {
-                    if ($item['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || md5($item['content']['name']) == $paramsExecution['payload_hash'])) {
+                    if ($item['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || str_starts_with(md5($item['content']['name']), $paramsExecution['payload_hash']))) {
                         return $returnAll == false ? $item['content']['name'] : $item['content'];
                     }
                 }
@@ -1914,7 +1914,7 @@ class erLhcoreClassGenericBotWorkflow {
             foreach ($metaData['content']['generic']['items'] as $item) {
                 if (isset($item['buttons'])) {
                     foreach ($item['buttons'] as $reply) {
-                        if ($reply['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || md5($reply['content']['name']) == $paramsExecution['payload_hash'])) {
+                        if ($reply['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || str_starts_with(md5($reply['content']['name']), $paramsExecution['payload_hash']))) {
                             return $returnAll == false ? $reply['content']['name'] : $reply['content'];
                         }
                     }
