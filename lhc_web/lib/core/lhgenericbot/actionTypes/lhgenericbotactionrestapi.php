@@ -90,7 +90,13 @@ class erLhcoreClassGenericBotActionRestapi
                     if ((!isset($params['do_not_save']) || $params['do_not_save'] == false)) {
                         $event->saveThis();
                         $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
-                        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_api_queue', 'erLhcoreClassLHCBotWorker', array('inst_id' => $inst_id, 'action' => 'rest_api', 'event_id' => $event->id));
+                        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_api_queue', 'erLhcoreClassLHCBotWorker', array(
+                            'msg_id' => (isset($params['msg']) && is_object($params['msg']) ? $params['msg']->id : 0),
+                            'inst_id' => $inst_id,
+                            'chat_id' => $chat->id,
+                            'action' => 'rest_api',
+                            'event_id' => $event->id)
+                        );
                         return ;
                     }
                 }

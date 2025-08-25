@@ -40,7 +40,7 @@ class erLhcoreClassLHCBotWorker
             $event = erLhcoreClassModelGenericBotChatEvent::fetch($eventId, false);
 
             if (!($event instanceof erLhcoreClassModelGenericBotChatEvent)) {
-                erLhcoreClassLog::write('',
+                erLhcoreClassLog::write(json_encode($this->args, JSON_PRETTY_PRINT),
                     ezcLog::SUCCESS_AUDIT,
                     array(
                         'source' => 'Bot',
@@ -50,7 +50,6 @@ class erLhcoreClassLHCBotWorker
                         'object_id' => $this->args['event_id']
                     )
                 );
-
                 return;
             }
         }
