@@ -562,7 +562,7 @@ class erLhcoreClassGenericBotWorkflow {
         try {
 
             // Cancel workflow
-            if ($payload == 'cancel_workflow') {
+            if ($payload == 'cancel_wf') {
 
                 $chatEvent->removeThis();
 
@@ -888,7 +888,7 @@ class erLhcoreClassGenericBotWorkflow {
                                                         'content' =>
                                                             array (
                                                                 'name' => (($eventData['content']['cancel_button'] && $eventData['content']['cancel_button'] != '') ? $eventData['content']['cancel_button'] : 'Cancel?'),
-                                                                'payload' => 'cancel_workflow',
+                                                                'payload' => 'cancel_wf',
                                                                 'no_name' => true
                                                             ),
                                                     )
@@ -1141,7 +1141,7 @@ class erLhcoreClassGenericBotWorkflow {
                 $payload =  $params['payload'];
             }
 
-            if ($payload == 'cancel_workflow') {
+            if ($payload == 'cancel_wf') {
                 $workflow->status = erLhcoreClassModelGenericBotChatWorkflow::STATUS_CANCELED;
             }
 
