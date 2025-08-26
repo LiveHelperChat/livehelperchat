@@ -76,108 +76,118 @@ class Range
         $firstChatID = 0;
         $lastChatID = 0;
 
+        $db = \ezcDbInstance::get();
+
         foreach ($list as $item) {
+            try {
 
-            if ($firstChatID == 0) {
-                $firstChatID = $item->id;
-            }
+                $db->beginTransaction();
 
-            $archive = new Conversation();
-            $archive->setState(get_object_vars($item));
-            $archive->saveThis();
-
-            $messages = \erLhcoreClassModelMailconvMessage::getList(array('limit' => 1000, 'filter' => array('conversation_id' => $item->id)));
-            $messagesArchived += count($messages);
-
-            foreach ($messages as $msg) {
-                $msgArchive = new Message();
-                $msgArchive->setState(get_object_vars($msg));
-                $msgArchive->saveThis();
-
-                if (!(isset($executionParams['ignore_imap']) && $executionParams['ignore_imap'] === true)) {
-                    \erLhcoreClassMailconvParser::purgeMessage($msg, true);
+                if ($firstChatID == 0) {
+                    $firstChatID = $item->id;
                 }
-            }
 
-            $lastChatID = $item->id;
+                $archive = new Conversation();
+                $archive->setState(get_object_vars($item));
+                $archive->saveThis();
 
-            if ($lastChatID > $this->last_id) {
-                $this->last_id = $lastChatID;
-            }
+                $messages = \erLhcoreClassModelMailconvMessage::getList(array('limit' => 1000, 'filter' => array('conversation_id' => $item->id)));
+                $messagesArchived += count($messages);
 
-            if (!empty($messages)) {
-                // Files
-                $files = \erLhcoreClassModelMailconvFile::getList(array('limit' => 1000, 'filterin' => array('message_id' => array_keys($messages))));
-                foreach ($files as $file) {
-                    $fileArchive = new File();
-                    $fileArchive->setState(get_object_vars($file));
-                    $fileArchive->saveThis();
+                foreach ($messages as $msg) {
+                    $msgArchive = new Message();
+                    $msgArchive->setState(get_object_vars($msg));
+                    $msgArchive->saveThis();
+
+                    if (!(isset($executionParams['ignore_imap']) && $executionParams['ignore_imap'] === true)) {
+                        \erLhcoreClassMailconvParser::purgeMessage($msg, true);
+                    }
                 }
-            }
 
-            // Messages Subjects
-            $msgSubjects = \erLhcoreClassModelMailconvMessageSubject::getList(array('limit' => 1000, 'filter' => array('conversation_id' => $item->id)));
-            foreach ($msgSubjects as $msgSubject) {
-                $msgSubjectArchive = new MessageSubject();
-                $msgSubjectArchive->setState(get_object_vars($msgSubject));
-                $msgSubjectArchive->saveThis();
-            }
+                $lastChatID = $item->id;
 
-            // Messages Internal
-            $msgInternals = \erLhcoreClassModelMailconvMessageInternal::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
-            foreach ($msgInternals as $msgInternal) {
-                $msgInternalArchive = new MessageInternal();
-                $msgInternalArchive->setState(get_object_vars($msgInternal));
-                $msgInternalArchive->saveThis();
-            }
+                if ($lastChatID > $this->last_id) {
+                    $this->last_id = $lastChatID;
+                }
 
-            $db = \ezcDbInstance::get();
+                if (!empty($messages)) {
+                    // Files
+                    $files = \erLhcoreClassModelMailconvFile::getList(array('limit' => 1000, 'filterin' => array('message_id' => array_keys($messages))));
+                    foreach ($files as $file) {
+                        $fileArchive = new File();
+                        $fileArchive->setState(get_object_vars($file));
+                        $fileArchive->saveThis();
+                    }
+                }
 
-            // Messages
-            $q = $db->createDeleteQuery();
-            $q->deleteFrom( 'lhc_mailconv_msg' )->where( $q->expr->eq( 'conversation_id', $item->id ) );
-            $stmt = $q->prepare();
-            $stmt->execute();
+                // Messages Subjects
+                $msgSubjects = \erLhcoreClassModelMailconvMessageSubject::getList(array('limit' => 1000, 'filter' => array('conversation_id' => $item->id)));
+                foreach ($msgSubjects as $msgSubject) {
+                    $msgSubjectArchive = new MessageSubject();
+                    $msgSubjectArchive->setState(get_object_vars($msgSubject));
+                    $msgSubjectArchive->saveThis();
+                }
 
-            // Files
-            foreach ($messages as $message) {
+                // Messages Internal
+                $msgInternals = \erLhcoreClassModelMailconvMessageInternal::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
+                foreach ($msgInternals as $msgInternal) {
+                    $msgInternalArchive = new MessageInternal();
+                    $msgInternalArchive->setState(get_object_vars($msgInternal));
+                    $msgInternalArchive->saveThis();
+                }
+
+
+                // Messages
                 $q = $db->createDeleteQuery();
-                $q->deleteFrom( 'lhc_mailconv_file' )->where( $q->expr->eq( 'message_id', $message->id ) );
+                $q->deleteFrom('lhc_mailconv_msg')->where($q->expr->eq('conversation_id', $item->id));
                 $stmt = $q->prepare();
                 $stmt->execute();
 
-                // If it's backup archive dispatch event for messages being removed
-                // This way elasticSEarch will remove relevant record also
-                if ($this->type == self::ARCHIVE_TYPE_BACKUP) {
-                    $message->afterRemove();
+                // Files
+                foreach ($messages as $message) {
+                    $q = $db->createDeleteQuery();
+                    $q->deleteFrom('lhc_mailconv_file')->where($q->expr->eq('message_id', $message->id));
+                    $stmt = $q->prepare();
+                    $stmt->execute();
+
+                    // If it's backup archive dispatch event for messages being removed
+                    // This way elasticSEarch will remove relevant record also
+                    if ($this->type == self::ARCHIVE_TYPE_BACKUP) {
+                        $message->afterRemove();
+                    }
                 }
+
+                // Messages Subjects
+                $q = $db->createDeleteQuery();
+                $q->deleteFrom('lhc_mailconv_msg_subject')->where($q->expr->eq('conversation_id', $item->id));
+                $stmt = $q->prepare();
+                $stmt->execute();
+
+                // Messages Internal
+                $q = $db->createDeleteQuery();
+                $q->deleteFrom('lhc_mailconv_msg_internal')->where($q->expr->eq('chat_id', $item->id));
+                $stmt = $q->prepare();
+                $stmt->execute();
+
+                // Transfer table
+                $q = $db->createDeleteQuery();
+                $q->deleteFrom('lh_transfer')->where($q->expr->eq('chat_id', $item->id), $q->expr->eq('transfer_scope', 1));
+                $stmt = $q->prepare();
+                $stmt->execute();
+
+                // Dispatch event if chat is archived
+                \erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.archived', array('mail' => & $item, 'archive' => $this));
+
+                \erLhcoreClassMailconv::getSession()->delete($item);
+
+                $item->afterRemove();
+
+                $db->commit();
+
+            } catch (Exception $e) {
+                $db->rollback();
+                throw $e;
             }
-
-            // Messages Subjects
-            $q = $db->createDeleteQuery();
-            $q->deleteFrom( 'lhc_mailconv_msg_subject' )->where( $q->expr->eq( 'conversation_id', $item->id ) );
-            $stmt = $q->prepare();
-            $stmt->execute();
-
-            // Messages Internal
-            $q = $db->createDeleteQuery();
-            $q->deleteFrom( 'lhc_mailconv_msg_internal' )->where( $q->expr->eq( 'chat_id', $item->id ) );
-            $stmt = $q->prepare();
-            $stmt->execute();
-
-            // Transfer table
-            $q = $db->createDeleteQuery();
-            $q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'chat_id', $item->id ), $q->expr->eq( 'transfer_scope', 1 ) );
-            $stmt = $q->prepare();
-            $stmt->execute();
-
-            // Dispatch event if chat is archived
-            \erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.archived',array('mail' => & $item, 'archive' => $this));
-
-            \erLhcoreClassMailconv::getSession()->delete($item);
-
-            $item->afterRemove();
-
         }
 
         $this->updateFirstId();

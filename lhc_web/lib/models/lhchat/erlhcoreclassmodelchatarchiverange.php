@@ -69,134 +69,144 @@ class erLhcoreClassModelChatArchiveRange
         $firstChatID = 0;
         $lastChatID = 0;
 
+        $db = ezcDbInstance::get();
+
         foreach ($list as $item) {
+            try {
 
-            if ($firstChatID == 0) {
-                $firstChatID = $item->id;
-            }
+                $db->beginTransaction();
 
-            $archive = new erLhcoreClassModelChatArchive();
-            $archive->setState(get_object_vars($item));
-            $archive->saveThis();
-
-            $messages = erLhcoreClassModelmsg::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
-            $messagesArchived += count($messages);
-
-            foreach ($messages as $msg) {
-                if ($msg->meta_msg != '' && str_contains($msg->meta_msg, '"debug":true')) { // Ignore debug messages
-                    continue;
+                if ($firstChatID == 0) {
+                    $firstChatID = $item->id;
                 }
 
-                $msgArchive = new erLhcoreClassModelChatArchiveMsg();
-                $msgArchive->setState(get_object_vars($msg));
-                $msgArchive->saveThis();
-            }
+                $archive = new erLhcoreClassModelChatArchive();
+                $archive->setState(get_object_vars($item));
+                $archive->saveThis();
 
-            $chatActions = erLhcoreClassModelChatAction::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
-            foreach ($chatActions as $msg) {
-                $msgArchive = new erLhcoreClassModelChatArchiveAction();
-                $msgArchive->setState(get_object_vars($msg));
-                $msgArchive->saveThis();
-            }
+                $messages = erLhcoreClassModelmsg::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
+                $messagesArchived += count($messages);
 
-            $chatParticipants = \LiveHelperChat\Models\LHCAbstract\ChatParticipant::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
-            foreach ($chatParticipants as $chatParticipant) {
-                $participantArchive = new erLhcoreClassModelChatArchiveParticipant();
-                $participantArchive->setState(get_object_vars($chatParticipant));
-                $participantArchive->saveThis();
-            }
+                foreach ($messages as $msg) {
+                    if ($msg->meta_msg != '' && str_contains($msg->meta_msg, '"debug":true')) { // Ignore debug messages
+                        continue;
+                    }
 
-            $chatSubjects = erLhAbstractModelSubjectChat::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
-            foreach ($chatSubjects as $chatSubject) {
-                $subjectChatArchive = new erLhAbstractModelChatArchiveSubject();
-                $subjectChatArchive->setState(get_object_vars($chatSubject));
-                $subjectChatArchive->saveThis();
-            }
-
-            $supportChat = erLhcoreClassModelGroupChat::findOne(array('filter' => array('chat_id' => $item->id)));
-
-            if ($supportChat instanceof erLhcoreClassModelGroupChat) {
-                $supportChatArchive = new erLhcoreClassModelGroupChatArchive();
-                $supportChatArchive->setState(get_object_vars($supportChat));
-                $supportChatArchive->saveThis();
-
-                $members = erLhcoreClassModelGroupChatMember::getList(array('filter' => array('group_id' => $supportChat->id)));
-                foreach ($members as $member) {
-                    $memberArchive = new erLhcoreClassModelGroupChatMemberArchive();
-                    $memberArchive->setState(get_object_vars($member));
-                    $memberArchive->saveThis();
+                    $msgArchive = new erLhcoreClassModelChatArchiveMsg();
+                    $msgArchive->setState(get_object_vars($msg));
+                    $msgArchive->saveThis();
                 }
 
-                $messagesSupport = erLhcoreClassModelGroupMsg::getList(array('limit' => 1000, 'filter' => array('chat_id' => $supportChat->id)));
-                foreach ($messagesSupport as $msgSupport) {
-                    $msgSupportArchive = new erLhcoreClassModelGroupMsgArchive();
-                    $msgSupportArchive->setState(get_object_vars($msgSupport));
-                    $msgSupportArchive->saveThis();
+                $chatActions = erLhcoreClassModelChatAction::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
+                foreach ($chatActions as $msg) {
+                    $msgArchive = new erLhcoreClassModelChatArchiveAction();
+                    $msgArchive->setState(get_object_vars($msg));
+                    $msgArchive->saveThis();
                 }
 
-                // Delete group chat record
-                $supportChat->removeThis();
+                $chatParticipants = \LiveHelperChat\Models\LHCAbstract\ChatParticipant::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
+                foreach ($chatParticipants as $chatParticipant) {
+                    $participantArchive = new erLhcoreClassModelChatArchiveParticipant();
+                    $participantArchive->setState(get_object_vars($chatParticipant));
+                    $participantArchive->saveThis();
+                }
+
+                $chatSubjects = erLhAbstractModelSubjectChat::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
+                foreach ($chatSubjects as $chatSubject) {
+                    $subjectChatArchive = new erLhAbstractModelChatArchiveSubject();
+                    $subjectChatArchive->setState(get_object_vars($chatSubject));
+                    $subjectChatArchive->saveThis();
+                }
+
+                $supportChat = erLhcoreClassModelGroupChat::findOne(array('filter' => array('chat_id' => $item->id)));
+
+                if ($supportChat instanceof erLhcoreClassModelGroupChat) {
+                    $supportChatArchive = new erLhcoreClassModelGroupChatArchive();
+                    $supportChatArchive->setState(get_object_vars($supportChat));
+                    $supportChatArchive->saveThis();
+
+                    $members = erLhcoreClassModelGroupChatMember::getList(array('filter' => array('group_id' => $supportChat->id)));
+                    foreach ($members as $member) {
+                        $memberArchive = new erLhcoreClassModelGroupChatMemberArchive();
+                        $memberArchive->setState(get_object_vars($member));
+                        $memberArchive->saveThis();
+                    }
+
+                    $messagesSupport = erLhcoreClassModelGroupMsg::getList(array('limit' => 1000, 'filter' => array('chat_id' => $supportChat->id)));
+                    foreach ($messagesSupport as $msgSupport) {
+                        $msgSupportArchive = new erLhcoreClassModelGroupMsgArchive();
+                        $msgSupportArchive->setState(get_object_vars($msgSupport));
+                        $msgSupportArchive->saveThis();
+                    }
+
+                    // Delete group chat record
+                    $supportChat->removeThis();
+                }
+
+                $lastChatID = $item->id;
+
+                if ($lastChatID > $this->last_id) {
+                    $this->last_id = $lastChatID;
+                }
+
+                // Participants
+                $q = $db->createDeleteQuery();
+                $q->deleteFrom( 'lh_chat_participant' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+                $stmt = $q->prepare();
+                $stmt->execute();
+
+                // Messages
+                $q = $db->createDeleteQuery();
+                $q->deleteFrom( 'lh_msg' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+                $stmt = $q->prepare();
+                $stmt->execute();
+
+                // Transfered chats
+                $q = $db->createDeleteQuery();
+                $q->deleteFrom( 'lh_transfer' )->where(
+                    $q->expr->eq( 'chat_id', $item->id ),
+                    $q->expr->eq( 'transfer_scope', 0 )
+                );
+                $stmt = $q->prepare();
+                $stmt->execute();
+
+                // Delete screen sharing
+                $q = $db->createDeleteQuery();
+                $q->deleteFrom( 'lh_cobrowse' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+                $stmt = $q->prepare();
+                $stmt->execute();
+
+                // Delete auto responder
+                $q = $db->createDeleteQuery();
+                $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+                $stmt = $q->prepare();
+                $stmt->execute();
+
+                // Chat actions
+                $q = $db->createDeleteQuery();
+                $q->deleteFrom( 'lh_chat_action' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+                $stmt = $q->prepare();
+                $stmt->execute();
+
+                // Chat subject
+                $q = $db->createDeleteQuery();
+                $q->deleteFrom( 'lh_abstract_subject_chat' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+                $stmt = $q->prepare();
+                $stmt->execute();
+
+                // Dispatch event if chat is archived
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.archived',array('chat' => & $item, 'archive' => $this));
+
+                erLhcoreClassChat::getSession()->delete($item);
+
+                $item->afterRemove();
+
+                $db->commit();
+
+            } catch (Exception $e) {
+                $db->rollback();
+                throw $e;
             }
-
-            $lastChatID = $item->id;
-
-            if ($lastChatID > $this->last_id) {
-                $this->last_id = $lastChatID;
-            }
-
-            $db = ezcDbInstance::get();
-
-            // Participants
-            $q = $db->createDeleteQuery();
-            $q->deleteFrom( 'lh_chat_participant' )->where( $q->expr->eq( 'chat_id', $item->id ) );
-            $stmt = $q->prepare();
-            $stmt->execute();
-
-            // Messages
-            $q = $db->createDeleteQuery();
-            $q->deleteFrom( 'lh_msg' )->where( $q->expr->eq( 'chat_id', $item->id ) );
-            $stmt = $q->prepare();
-            $stmt->execute();
-
-            // Transfered chats
-            $q = $db->createDeleteQuery();
-            $q->deleteFrom( 'lh_transfer' )->where(
-                $q->expr->eq( 'chat_id', $item->id ),
-                $q->expr->eq( 'transfer_scope', 0 )
-            );
-            $stmt = $q->prepare();
-            $stmt->execute();
-
-            // Delete screen sharing
-            $q = $db->createDeleteQuery();
-            $q->deleteFrom( 'lh_cobrowse' )->where( $q->expr->eq( 'chat_id', $item->id ) );
-            $stmt = $q->prepare();
-            $stmt->execute();
-
-            // Delete auto responder
-            $q = $db->createDeleteQuery();
-            $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $item->id ) );
-            $stmt = $q->prepare();
-            $stmt->execute();
-
-            // Chat actions
-            $q = $db->createDeleteQuery();
-            $q->deleteFrom( 'lh_chat_action' )->where( $q->expr->eq( 'chat_id', $item->id ) );
-            $stmt = $q->prepare();
-            $stmt->execute();
-
-            // Chat subject
-            $q = $db->createDeleteQuery();
-            $q->deleteFrom( 'lh_abstract_subject_chat' )->where( $q->expr->eq( 'chat_id', $item->id ) );
-            $stmt = $q->prepare();
-            $stmt->execute();
-
-            // Dispatch event if chat is archived
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.archived',array('chat' => & $item, 'archive' => $this));
-
-            erLhcoreClassChat::getSession()->delete($item);
-
-            $item->afterRemove();
         }
 
         $this->updateFirstId();
