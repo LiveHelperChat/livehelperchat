@@ -19,6 +19,7 @@ class ChatFileUploader extends PureComponent {
         super(props);
 
         this.fileInputRef = React.createRef();
+        this.progressTimeoutRef = React.createRef();
 
         // UI Actions
         this.openFileDialog = this.openFileDialog.bind(this);
@@ -140,6 +141,9 @@ class ChatFileUploader extends PureComponent {
                     } else {
                         this.props.onCompletion();
                     }
+                    this.progressTimeoutRef.current = setTimeout(() => {
+                        this.props.progress('');
+                    },500);
                 }
                 resolve(req);
             }
@@ -189,6 +193,9 @@ class ChatFileUploader extends PureComponent {
     }
 
     componentWillUnmount() {
+        if (this.progressTimeoutRef.current) {
+            clearTimeout(this.progressTimeoutRef.current);
+        }
         if (this.props.dropArea.current) {
             this.props.dropArea.current.ondragover = null;
             this.props.dropArea.current.ondragleave = null;
