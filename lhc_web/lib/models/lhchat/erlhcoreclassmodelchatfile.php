@@ -118,6 +118,9 @@ class erLhcoreClassModelChatFile
             case 'file_body_embed':
                 return '[chatfilebody='.$this->id . '_' . $this->security_hash . ']';
 
+            case 'file_body_embed_raw':
+                return '[chatfilebodyraw='.$this->id . '_' . $this->security_hash . ']';
+
             default:
                 ;
                 break;
