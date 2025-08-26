@@ -103,10 +103,10 @@ class erLhAbstractModelChatPriority
             case 'value_frontend':
                 $items = array();
                 foreach ($this->value_array as $item) {
-                    $items[] = $item['field'] . ' '. $item['comparator'] . ' ' .  $item['value'];
+                    $items[] = $item['field'] . ' '. $item['comparator'] . ' ' .  erLhcoreClassDesign::shrt($item['value'],50);
                 }
 
-                $this->value_frontend = implode(', ', $items);
+                $this->value_frontend = implode(' ➜ ', $items);
                 return $this->value_frontend;
                 break;
 

@@ -64,7 +64,6 @@ return array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Skip bot and set chat to pending status'),
         'required' => false,
-        'hidden' => true,
         'hide_optional' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
     ),
