@@ -1117,6 +1117,11 @@ class erLhcoreClassChatWorkflow {
                             $meta_msg_array['content']['assign_action']['sac'] = $successActiveChats;
                             $meta_msg_array['content']['assign_action']['sla'] = $successLastAccepted;
                             $meta_msg_array['content']['assign_action']['next_op'] = $nextOperator;
+
+                            $trace = debug_backtrace(2,1)[0];
+                            $meta_msg_array['content']['assign_action']['file'] = basename($trace['file']);
+                            $meta_msg_array['content']['assign_action']['line'] = $trace['line'];
+
                             $msg->meta_msg = json_encode($meta_msg_array);
                             $msg->updateThis(['update' => ['meta_msg']]);
                         }

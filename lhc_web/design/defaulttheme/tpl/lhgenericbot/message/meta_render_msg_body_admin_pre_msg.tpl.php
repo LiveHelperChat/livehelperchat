@@ -18,6 +18,8 @@
                     erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Inactive chats') . ' - ' . $metaMessage['inactive_chats'],
                     erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Active chats update') . ' - ' . ($metaMessage['sac'] ? 'Y' : 'N'),
                     erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Last assigned update') . ' - ' . ($metaMessage['sla'] ? 'Y' : 'N'),
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'File') . ' - ' . ($metaMessage['file'] ? $metaMessage['file'] : '-'),
+                    erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history', 'Line') . ' - ' . ($metaMessage['line'] ? $metaMessage['line'] : '-')
                 ];
                 if (isset($metaMessage['next_op']) && $metaMessage['next_op'] !== false) {
                     $partsInfo[] = '========';
