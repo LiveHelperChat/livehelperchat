@@ -479,6 +479,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Block IP</source>
       <translation type="unfinished"/>
     </message>
@@ -559,6 +563,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Loading...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save &amp; Assign recipients</source>
       <translation type="unfinished"/>
     </message>
@@ -612,10 +624,6 @@
     </message>
     <message>
       <source>Set default</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Test</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1401,6 +1409,10 @@
     </message>
     <message>
       <source>Hide need help widget for mobile devices.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2973,6 +2985,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Not in list, items separated by ||</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not in list (lowercase before comparison), items separated by ||</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -3158,6 +3178,10 @@
     </message>
     <message>
       <source>Check for word syntax if only one word is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not send a request if this variable is empty</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3353,15 +3377,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Retry</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If request output is matched we should retry based on polling rules.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If you want to add custom data within each send message to its meta_data attribute you can provide response path here</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Repeat request n times if conditions is not met (polling)</source>
+      <source>Repeat request n times if conditions are not met (polling)</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Making n seconds delay between each request</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not delay first polling request</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4969,6 +5005,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Field custom location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Field can be prefilled if this condition is met</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Allow to attach a file</source>
       <translation type="unfinished"/>
     </message>
@@ -5277,6 +5321,10 @@
     </message>
     <message>
       <source>Export</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Truncate</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5916,6 +5964,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat id</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>File name</source>
       <translation type="unfinished"/>
     </message>
@@ -5989,6 +6041,14 @@
     </message>
     <message>
       <source>Include messages content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversation</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9834,6 +9894,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Downloading image...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unable to display image. Click below to download the file.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Dispatch event</source>
       <translation type="unfinished"/>
     </message>
@@ -11206,6 +11274,10 @@
     </message>
     <message>
       <source>Block ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID to test</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14561,6 +14633,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Duration calculation log</source>
       <translation type="unfinished"/>
     </message>
@@ -14578,10 +14654,6 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Files</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -18045,7 +18117,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Always (default)</source>
+      <source>Always (default), generated link is valid for 5 minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Link is valid indefinitely</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18058,6 +18134,10 @@
     </message>
     <message>
       <source>Chat related file can be downloaded by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Always (default)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18081,6 +18161,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Maximum image resolution for e-mails</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum mail message image resolution. Images will be resized to fit within a square of this many pixels.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Mail related file can be downloaded by operator if he</source>
       <translation type="unfinished"/>
     </message>
@@ -18090,6 +18178,10 @@
     </message>
     <message>
       <source>Has permission to use mail module and access mail.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>By-pass those type of images files from verification</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18917,6 +19009,54 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Download view mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default (download file)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View in new tab</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Modal</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File download restrictions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow to download all files</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Restrict file downloads by extension</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File extension settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allowed extensions for all operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pipe separated list of file extensions that can be downloaded by all operators without special permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Restricted extensions (require special permission)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pipe separated list of file extensions that can only be downloaded by operators with special permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Mail general options</source>
       <translation type="unfinished"/>
     </message>
@@ -19336,6 +19476,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You do not have permission to download that type of files!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This type of files are not allowed to be downloaded!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has accepted a mail by opening it.</source>
       <translation type="unfinished"/>
     </message>
@@ -19709,6 +19857,18 @@
     </message>
     <message>
       <source>Ready to download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Downloading...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Error: File not found/attached</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -25070,6 +25230,10 @@
     </message>
     <message>
       <source>next attempt in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reverify</source>
       <translation type="unfinished"/>
     </message>
     <message>
