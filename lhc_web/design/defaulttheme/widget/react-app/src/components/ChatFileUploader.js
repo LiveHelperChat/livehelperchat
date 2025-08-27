@@ -169,6 +169,8 @@ class ChatFileUploader extends PureComponent {
         const files = evt.target.files;
         const array = this.fileListToArray(files);
         this.onFilesAdded(array);
+        // Clear the input value so the same file can be selected again
+        evt.target.value = '';
     }
 
     onDragOver(event) {
