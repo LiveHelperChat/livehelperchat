@@ -234,7 +234,32 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                             domNode.attribs.style = getStyleObjectFromString(domNode.attribs.style);
                         }
 
-                        return <blockquote {...domNode.attribs}><MailChatQuote>{domToReact(domNode.children)}</MailChatQuote></blockquote>
+                        return <blockquote {...domNode.attribs}><MailChatQuote>{domToReact(domNode.children, {
+                            replace: domNode => {
+                                if (domNode.attribs) {
+                                    if (domNode.attribs.class) {
+                                        domNode.attribs.className = domNode.attribs.class;
+                                        delete domNode.attribs.class;
+                                    }
+
+                                    if (domNode.name && domNode.name === 'img') {
+                                        if (domNode.attribs.style) {
+                                            domNode.attribs.style = getStyleObjectFromString(domNode.attribs.style);
+                                        }
+                                        
+                                        return <MailChatImage 
+                                            download_policy={moptions.download_policy}
+                                            src={domNode.attribs.src}
+                                            alt={domNode.attribs.alt}
+                                            title={domNode.attribs.title}
+                                            className={domNode.attribs.className}
+                                            style={domNode.attribs.style}
+                                            {...domNode.attribs}
+                                        />;
+                                    }
+                                }
+                            }
+                        })}</MailChatQuote></blockquote>
                     }
                 }
             }
