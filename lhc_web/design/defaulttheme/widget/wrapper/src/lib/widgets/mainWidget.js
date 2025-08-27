@@ -111,7 +111,12 @@ export class mainWidget{
     makeContent() {
         this.cont.bodyId = 'chat-widget';
 
-        this.cont.tmpl = '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 fade-in ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + (this.attributes.fscreen ? ' lhc-fscreen' : '') + (this.attributes.position_placement == 'full_height_left' || this.attributes.position_placement == 'full_height_right' ? ' lhc-full-height' : '')+'"></div>';
+        this.cont.tmpl = '<div id="lhc-spinner-overlay">' +
+                '<div class="lhc-spinner">' +
+                    '<div class="lhc-spinner-circle"></div>' +
+                '</div>' +
+            '</div>' +
+            '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 fade-in ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + (this.attributes.fscreen ? ' lhc-fscreen' : '') + (this.attributes.position_placement == 'full_height_left' || this.attributes.position_placement == 'full_height_right' ? ' lhc-full-height' : '')+'"></div>';
 
         if (this.cont.constructUIIframe('', this.attributes.staticJS['dir'], this.attributes.staticJS['cl'], this.attributes.hhtml, !this.attributes.viewport_enabled) === null) {
             this.isLoaded = true;
@@ -294,9 +299,15 @@ export class mainWidget{
 
         if (this.widget_rendered === false) {
             var eldoc = null;
+            var spinnerOverlay = null;
             if (this.cont.elmDomDoc && (eldoc = this.cont.elmDomDoc.getElementById('root')) && eldoc) {
                 eldoc.classList.add('lhc-widget-loaded');
                 this.widget_rendered = true;
+            }
+            
+            // Hide spinner overlay
+            if (this.cont.elmDomDoc && (spinnerOverlay = this.cont.elmDomDoc.getElementById('lhc-spinner-overlay'))) {
+                spinnerOverlay.remove();
             }
         }
 
@@ -315,6 +326,8 @@ export class mainWidget{
             this.cont.elmDom.style.cssText += this.attributes.cont_ss;
         }
     }
+
+    
 
     showInvitation() {
         this.is_invitation = true;

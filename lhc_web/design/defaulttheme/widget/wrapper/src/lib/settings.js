@@ -5,6 +5,6 @@ settings.ResetStyle = "html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,bloc
     "        max-height: 100% !important;\n" +
     "        width: 100% !important;\n" +
     "        min-width: 100% !important;\n" +
-    "        max-width: 100% !important;}body{display: flex;flex-direction: column;background:transparent;font:13px Helvetica,Arial,sans-serif;position:relative}.clear{clear:both}.clearfix:after{content:'';display:block;height:0;clear:both;visibility:hidden}";
+    "        max-width: 100% !important;}body{display: flex;flex-direction: column;background:transparent;font:13px Helvetica,Arial,sans-serif;position:relative}.clear{clear:both}.clearfix:after{content:'';display:block;height:0;clear:both;visibility:hidden}*,::after,::before{box-sizing: border-box;}";
 
 export {settings};
