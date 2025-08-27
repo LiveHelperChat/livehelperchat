@@ -80,6 +80,7 @@ class erLhcoreClassGenericBotActionRestapi
                                 'replace_array' => (isset($params['replace_array']) ? $params['replace_array'] : array()),
                                 'action' => $action,
                                 'msg_id' => (isset($params['msg']) && is_object($params['msg']) ? $params['msg']->id : 0),
+                                'file_id' => (isset($params['chat_file']) && is_object($params['chat_file']) ? $params['chat_file']->id : 0),
                                 'msg_text' => (isset($params['msg_text']) ? $params['msg_text'] : ''),
                                 'event' => (isset($action['content']['event']) ? $action['content']['event'] : null),
                             )

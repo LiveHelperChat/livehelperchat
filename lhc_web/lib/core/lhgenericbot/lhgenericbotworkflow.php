@@ -194,7 +194,7 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         // Try to find current callback handler just
-        $chatEvent = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
+        $chatEvent = erLhcoreClassModelGenericBotChatEvent::findOne(array('sort' => '`id` ASC', 'filter' => array('chat_id' => $chat->id)));
         if ($chatEvent instanceof erLhcoreClassModelGenericBotChatEvent) {
             self::$currentEvent = $chatEvent;
             self::processEvent($chatEvent, $chat, array('msg' => $msg));

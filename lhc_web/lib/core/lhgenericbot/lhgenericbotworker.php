@@ -81,6 +81,8 @@ class erLhcoreClassLHCBotWorker
 
                     if ($msgId > 0) {
                         $params['msg'] = erLhcoreClassModelmsg::fetch($msgId);
+                    } elseif ($contentArray[0]['content']['file_id'] > 0) {
+                        $params['chat_file'] = erLhcoreClassModelChatFile::fetch($contentArray[0]['content']['file_id']);
                     } else {
                         $params['msg_text'] = $contentArray[0]['content']['msg_text'];
                         $msgId = $chat->last_msg_id;
@@ -194,6 +196,8 @@ class erLhcoreClassLHCBotWorker
 
                             if (isset($params['msg'])) {
                                 $argsDefault['args']['msg'] = $params['msg'];
+                            } elseif (isset($params['chat_file'])) {
+                                $argsDefault['args']['chat_file'] = $params['chat_file'];
                             } else {
                                 $argsDefault['args']['msg_text'] = $contentArray[0]['content']['msg_text'];
                             }
@@ -208,10 +212,12 @@ class erLhcoreClassLHCBotWorker
 
                             self::processTrigger($chat, $action['content']['rest_api_method_output'][$response['id']], $argsDefault);
 
-                            $msgLast = erLhcoreClassModelmsg::fetch($msgId);
+                            if ($msgId > 0) {
+                                $msgLast = erLhcoreClassModelmsg::fetch($msgId);
 
-                            if ($msgLast instanceof erLhcoreClassModelmsg) {
-                                erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true, 'sub_source' => 'rest_api_worker']);
+                                if ($msgLast instanceof erLhcoreClassModelmsg) {
+                                    erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true, 'sub_source' => 'rest_api_worker']);
+                                }
                             }
 
                             if (class_exists('erLhcoreClassNodeJSRedis')) {
