@@ -2694,17 +2694,27 @@ class erLhcoreClassGenericBotWorkflow {
                     $notEmpty = explode('__not_empty__', $jsonOutput);
                     $jsonOutput = $notEmpty[0];
 
+                    // Not empty operator
+                    $isEmpty = explode('__is_empty__', $jsonOutput);
+                    $jsonOutput = $isEmpty[0];
+
                     // Multiple vars check
                     $varsCheck = explode('__or__', $jsonOutput);
                     $valueAttribute = ['found' => false, 'value' => ''];
 
                     // Loop through all possible OR conditions until we find one that works
                     foreach ($varsCheck as $varToCheck) {
-                        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $varToCheck, '.');
-
-                        // If we found a valid value, break the loop
-                        if ($valueAttribute['found'] === true && !empty($valueAttribute['value'])) {
+                        if (str_starts_with($varToCheck,'string__')) {
+                            $valueAttribute['found'] = true;
+                            $valueAttribute['value'] = explode('string__',$varToCheck)[1];
                             break;
+                        } else {
+                            $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $varToCheck, '.');
+
+                            // If we found a valid value, break the loop
+                            if ($valueAttribute['found'] === true && !empty($valueAttribute['value'])) {
+                                break;
+                            }
                         }
                     }
 
@@ -2714,6 +2724,11 @@ class erLhcoreClassGenericBotWorkflow {
 
                     if (!empty($notEmpty[1]) && $valueAttribute['found'] === true && !empty($valueAttribute['value'])) {
                         $valueAttribute['value'] = $notEmpty[1];
+                    }
+
+                    if (!empty($isEmpty[1]) && ($valueAttribute['found'] === false || empty($valueAttribute['value']))) {
+                        $valueAttribute['value'] = $isEmpty[1];
+                        $valueAttribute['found'] = true;
                     }
 
                     // Print nothing if var does not exists
