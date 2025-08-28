@@ -21,14 +21,14 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3">
         <div class="form-group" ng-non-bindable>
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Identifier');?></label>
             <input type="text" class="form-control form-control-sm" name="identifier" value="<?php echo htmlspecialchars($item->identifier);?>" />
         </div>
     </div>
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhgenericbot','use_cases') && is_numeric($item->id)) : ?>
-    <div class="col-md-6">
+    <div class="col-md-3">
         <button type="button" id="btn-use-cases" class="mt-4 btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Investigate places where this translation is used');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Use cases');?></button>
     </div>
     <script>
@@ -37,9 +37,24 @@
         });
     </script>
     <?php endif; ?>
+    <div class="col-md-3">
+        <input type="number" class="form-control form-control-sm mt-4" name="lhc-test-chat-id" id="test-chat-id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="<?php isset($_POST['lhc-test-chat-id']) ? print (int)$_POST['lhc-test-chat-id'] : ''?>" />
+        <div id="output-test" class="ps-1 pt-1"></div>
+    </div>
+    <div class="col-md-3">
+        <button type="button" id="check-against-chat" class="btn btn-sm btn-secondary mt-4" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save condition first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Check against chat');?></button>
+    </div>
 </div>
 
-
+<?php if (is_numeric($item->id)) : ?>
+    <script>
+        $('#check-against-chat').click(function(){
+            $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-chat-id').val(), {'translation_id' : <?php echo $item->id?>}, function(data){
+                $('#output-test').html(data);
+            });
+        });
+    </script>
+<?php endif; ?>
 
 <div class="form-group">
     <label><input type="checkbox" name="auto_translate" <?php $item->auto_translate == 1 ? print 'checked="checked"' : ''?> value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','If translation is not found use translation service')?></label>

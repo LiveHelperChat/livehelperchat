@@ -95,6 +95,11 @@ if (isset($_POST['mail'])){
             echo htmlspecialchars($response);
             exit;
 
+        } elseif (isset($_POST['translation_id'])) {
+            $trItem = erLhcoreClassModelGenericBotTrItem::fetch($_POST['translation_id']);
+            $response = erLhcoreClassGenericBotWorkflow::translateMessage('{' . $trItem->identifier . '__Not found}', array('chat' => $chat, 'args' => ['chat' => $chat]));
+            echo htmlspecialchars($response);
+            exit;
         } elseif (isset($_POST['replaceable_id'])) {
             $replaceable = erLhcoreClassModelCannedMsgReplace::fetch($_POST['replaceable_id']);
             $response = $replaceable->getValueReplace(['chat' => $chat, 'user' => $chat->user]);
