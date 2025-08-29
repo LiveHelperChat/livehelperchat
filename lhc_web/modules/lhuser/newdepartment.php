@@ -217,7 +217,7 @@ if ($user instanceof erLhcoreClassModelUser) {
 
             $prevDepIds = $user->departments_ids;
             $user->departments_ids = implode(',', erLhcoreClassModelUserDep::getCount(['filter' => ['user_id' => $user->id]],'count','dep_id','dep_id',false, true, true) );
-            $user->updateThis(['update' => ['departments_ids']]);
+            $user->updateThis(['update' => ['departments_ids','cache_version']]);
             $firstAlias = null;
 
             if ($Params['user_parameters_unordered']['mode'] == 'group') {

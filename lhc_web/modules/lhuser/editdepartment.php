@@ -151,7 +151,7 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
 
         $prevDepIds = $user->departments_ids;
         $user->departments_ids = implode(',', erLhcoreClassModelUserDep::getCount(['filter' => ['user_id' => $user->id]],'count','dep_id','dep_id',false, true, true) );
-        $user->updateThis(['update' => ['departments_ids']]);
+        $user->updateThis(['update' => ['departments_ids','cache_version']]);
 
         erLhcoreClassLog::logObjectChange(array(
             'object' => $user,

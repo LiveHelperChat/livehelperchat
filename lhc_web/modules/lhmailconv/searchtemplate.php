@@ -28,6 +28,19 @@ if ($keyword != '') {
 
 $filter[] = $q->expr->eq('disabled', 0);
 
+$limitation = erLhcoreClassChat::getDepartmentLimitation('lhc_mailconv_response_template_dep', ['check_list_scope' => 'mails']);
+
+if ($limitation !== false) {
+    if ($limitation !== true) {
+        $filter[] = $q->expr->lOr(
+            $q->expr->eq('dep_id', $q->bindValue(0)),
+            'id IN (SELECT template_id FROM lhc_mailconv_response_template_dep WHERE ' . $limitation . ')'
+        );
+    }
+} else {
+    $filter[] = '1 = -1';
+}
+
 if (count($filter) > 0) {
     $q->where($filter);
 }
