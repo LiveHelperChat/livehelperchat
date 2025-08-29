@@ -13,7 +13,7 @@ class erLhcoreClassGenericBotActionCommand {
         if (!isset($params['first_trigger'])) {
             $params['first_trigger'] = $params['current_trigger'];
         }
-        
+
         if ($action['content']['command'] == 'stopchat') {
 
             $filterOnline = array(
@@ -66,35 +66,55 @@ class erLhcoreClassGenericBotActionCommand {
 
             } else if ($isOnline == true) {
 
-                $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
-                $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
-                $chat->pnd_time = time()/* + 3*/;
+                $db = ezcDbInstance::get();
 
-                if (isset($filterOnline['user_id'])) {
-                    $chat->user_id = (int)$filterOnline['user_id'];
-                    $chat->tslasign = time();
+                try {
+                    $db->beginTransaction();
+                    $chat->syncAndLock();
+
+                    $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+                    $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
+                    $chat->pnd_time = time();
+
+                    if (isset($filterOnline['user_id'])) {
+                        $chat->user_id = (int)$filterOnline['user_id'];
+                        $chat->tslasign = time();
+                    }
+
+                    if ($chat->transfer_if_na == 1) {
+                        $chat->transfer_timeout_ts = time();
+                    }
+
+                    // We do not have to set this
+                    // Because it triggers auto responder of not replying
+                    // Since 4.29 it will not trigger as we have a check for that now
+                    $chat->last_op_msg_time = time();
+                    $chat->updateThis(['update' => [
+                        'last_op_msg_time',
+                        'transfer_timeout_ts',
+                        'tslasign',
+                        'user_id',
+                        'pnd_time',
+                        'status_sub_sub',
+                        'status'
+                    ]]);
+
+                    // We have to reset auto responder
+                    if ($chat->auto_responder instanceof erLhAbstractModelAutoResponderChat) {
+                        $chat->auto_responder->wait_timeout_send = 0;
+                        $chat->auto_responder->pending_send_status = 0;
+                        $chat->auto_responder->active_send_status = 0;
+                        $chat->auto_responder->updateThis();
+                    }
+
+                    // If chat is transferred to pending state we don't want to process any old events
+                    erLhcoreClassGenericBotWorkflow::removePreviousEvents($chat->id);
+
+                    $db->commit();
+                } catch (\Exception $e) {
+                    $db->rollback();
+                    throw $e;
                 }
-
-                if ($chat->transfer_if_na == 1) {
-                    $chat->transfer_timeout_ts = time();
-                }
-
-                // We do not have to set this
-                // Because it triggers auto responder of not replying
-                // Since 4.29 it will not trigger as we have a check for that now
-                $chat->last_op_msg_time = time();
-                $chat->updateThis();
-
-                // We have to reset auto responder
-                if ($chat->auto_responder instanceof erLhAbstractModelAutoResponderChat) {
-                    $chat->auto_responder->wait_timeout_send = 0;
-                    $chat->auto_responder->pending_send_status = 0;
-                    $chat->auto_responder->active_send_status = 0;
-                    $chat->auto_responder->updateThis();
-                }
-
-                // If chat is transferred to pending state we don't want to process any old events
-                erLhcoreClassGenericBotWorkflow::removePreviousEvents($chat->id);
 
                 // Because we want that mobile app would receive notification
                 // By default these listeners are not set if visitors sends a message and chat is not active
@@ -227,7 +247,7 @@ class erLhcoreClassGenericBotActionCommand {
             }
 
         } elseif ($action['content']['command'] == 'chatattribute') {
-            
+
             $variablesArray = (array)$chat->additional_data_array;
 
             $variablesAppend = json_decode($action['content']['payload'],true);
@@ -767,44 +787,67 @@ class erLhcoreClassGenericBotActionCommand {
                     return ;
                 }
 
-                $chat->{$action['content']['payload']} = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
-
                 $updateDepartmentStats = false;
 
-                if ($eventArgs['attr'] == 'dep_id' && $eventArgs['old'] != $action['content']['payload_arg']) {
-                    erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+                $db = ezcDbInstance::get();
 
-                    $department = erLhcoreClassModelDepartament::fetch($chat->dep_id);
+                try {
+                    $db->beginTransaction();
 
-                    if ($department instanceof erLhcoreClassModelDepartament) {
-                        if ($department->department_transfer_id > 0) {
-                            $chat->transfer_if_na = 1;
-                            $chat->transfer_timeout_ts = time();
-                            $chat->transfer_timeout_ac = $department->transfer_timeout;
+                    $chat->syncAndLock();
+
+                    $chat->{$action['content']['payload']} = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
+
+                    if ($eventArgs['attr'] == 'dep_id' && $eventArgs['old'] != $action['content']['payload_arg']) {
+                        erLhAbstractModelAutoResponder::updateAutoResponder($chat);
+
+                        $department = erLhcoreClassModelDepartament::fetch($chat->dep_id);
+
+                        if ($department instanceof erLhcoreClassModelDepartament) {
+                            if ($department->department_transfer_id > 0) {
+                                $chat->transfer_if_na = 1;
+                                $chat->transfer_timeout_ts = time();
+                                $chat->transfer_timeout_ac = $department->transfer_timeout;
+                            }
+
+                            if ($department->inform_unread == 1) {
+                                $chat->reinform_timeout = $department->inform_unread_delay;
+                            }
+
+                            if ($department->priority > $chat->priority) {
+                                $chat->priority = $department->priority;
+                            }
+
+                            $updateDepartmentStats = true;
+
                         }
-
-                        if ($department->inform_unread == 1) {
-                            $chat->reinform_timeout = $department->inform_unread_delay;
-                        }
-
-                        if ($department->priority > $chat->priority) {
-                            $chat->priority = $department->priority;
-                        }
-
-                        $updateDepartmentStats = true;
-
                     }
-                }
 
-                if ($eventArgs['attr'] == 'status' && $eventArgs['old'] != $action['content']['payload_arg']) {
-                    $chat->pnd_time = time();
-                }
+                    if ($eventArgs['attr'] == 'status' && $eventArgs['old'] != $action['content']['payload_arg']) {
+                        $chat->pnd_time = time();
+                    }
 
-                if ($eventArgs['attr'] == 'user_id' && $eventArgs['old'] != $action['content']['payload_arg']) {
-                    $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
-                }
+                    if ($eventArgs['attr'] == 'user_id' && $eventArgs['old'] != $action['content']['payload_arg']) {
+                        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+                    }
 
-                $chat->saveThis();
+                    $chat->updateThis(['update' => [
+                        'auto_responder_id',
+                        $action['content']['payload'],
+                        'status_sub',
+                        'pnd_time',
+                        'priority',
+                        'reinform_timeout',
+                        'transfer_timeout_ac',
+                        'transfer_timeout_ts',
+                        'transfer_if_na',
+                    ]]);
+
+                    $db->commit();
+                } catch (Exception $e) {
+                    $db->rollback();
+                    throw $e;
+                }
 
                 if ($updateDepartmentStats == true) {
                     erLhcoreClassChat::updateDepartmentStats($department);
@@ -930,7 +973,7 @@ class erLhcoreClassGenericBotActionCommand {
             $q->deleteFrom( 'lh_generic_bot_pending_event' )->where( $q->expr->eq( 'chat_id', $chat->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
-            
+
         } elseif ($action['content']['command'] == 'setsubject') {
 
             $payloadProcessed = $action['content']['payload'];
