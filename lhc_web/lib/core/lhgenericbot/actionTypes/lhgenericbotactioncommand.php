@@ -936,7 +936,13 @@ class erLhcoreClassGenericBotActionCommand {
             $payloadProcessed = $action['content']['payload'];
 
             if (isset($params['replace_array']) && is_array($params['replace_array'])) {
-                $payloadProcessed = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$payloadProcessed);
+                foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                    if (is_object($valueReplace) || is_array($valueReplace)) {
+                        $payloadProcessed = @str_replace($keyReplace,json_encode($valueReplace),$payloadProcessed);
+                    } else {
+                        $payloadProcessed = @str_replace($keyReplace,$valueReplace,$payloadProcessed);
+                    }
+                }
             }
 
             $payloadProcessed = erLhcoreClassGenericBotWorkflow::translateMessage($payloadProcessed, array('chat' => $chat, 'args' => $params));
