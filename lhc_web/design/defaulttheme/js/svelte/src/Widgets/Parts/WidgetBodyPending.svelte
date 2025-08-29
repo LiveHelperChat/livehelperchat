@@ -611,16 +611,12 @@
 
                     {/if}
 
-                    {#if chat.can_edit_chat && type == 'pending_chats'}
-                        <div class="abbr-list" title="{chat.wait_time_pending}">{chat.wait_time_pending}</div>
-                    {/if}
-
-                    {#if type == 'my_mails' || type == 'pending_mails'}
-                        <div class="abbr-list" title="{chat.wait_time_pending}">{chat.wait_time_pending}</div>
+                    {#if (chat.can_edit_chat && type == 'pending_chats') || type == 'my_mails' || type == 'pending_mails'}
+                        <div class="abbr-list" title="{chat.wait_time_pending || '00 s.'}">{chat.wait_time_pending || '00 s.'}</div>
                     {/if}
 
                     {#if type == 'active_mails'}
-                        <div class="abbr-list" title="{chat.pnd_time_front}">{chat.pnd_time_front}</div>
+                        <div class="abbr-list" title="{chat.pnd_time_front}">{chat.pnd_time_front || '00 s.'}</div>
                     {/if}
 
                     {#if type == 'alarm_mails'}
