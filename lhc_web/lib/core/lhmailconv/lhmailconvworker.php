@@ -20,6 +20,10 @@ class erLhcoreClassMailConvWorker {
         $mailboxId = $this->args['mailbox_id'];
         $mailbox = erLhcoreClassModelMailconvMailbox::fetch($mailboxId);
 
+        if (!is_object($mailbox)) {
+            return;
+        }
+
         $params = array();
 
         // Mailbox
