@@ -70,7 +70,7 @@ class erLhcoreClassGenericBotActionCommand {
 
                 try {
                     $db->beginTransaction();
-                    $chat->syncAndLock();
+                    $chat->syncAndLock('`id`');
 
                     $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
                     $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
@@ -401,7 +401,7 @@ class erLhcoreClassGenericBotActionCommand {
             try {
 
                 $db->beginTransaction();
-                $chat->syncAndLock();
+                $chat->syncAndLock('`chat_variables`');
 
                 $variablesArray = [];
 
@@ -718,7 +718,7 @@ class erLhcoreClassGenericBotActionCommand {
             try {
                 $db->beginTransaction();
 
-                $chat->syncAndLock('chat_variables');
+                $chat->syncAndLock('`chat_variables`');
                 unset($chat->chat_variables_array);
 
                 $variablesArray = (array)$chat->chat_variables_array;
@@ -794,7 +794,7 @@ class erLhcoreClassGenericBotActionCommand {
                 try {
                     $db->beginTransaction();
 
-                    $chat->syncAndLock();
+                    $chat->syncAndLock('`id`');
 
                     $chat->{$action['content']['payload']} = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
 
