@@ -68,11 +68,14 @@ try {
 
         $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
         $mcOptionsData = (array)$mcOptions->data;
+        $prepend = '';
 
-        if (!empty($mcOptionsData['reply_to_tmp'])) {
-            $prepend = erLhcoreClassGenericBotWorkflow::translateMessage($mcOptionsData['reply_to_tmp'], array('chat' => $message, 'args' => ['chat' => $message, 'msg' => $message]));
-        } else {
-            $prepend = '<p>' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','On') . ' ' . date('Y-m-d H:i',$message->udate).', '. ($message->from_name != '' ? $message->from_name : $message->from_address) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','wrote') . ':</p>';
+        if (!(isset($mcOptionsData['no_quote_mail']) && $mcOptionsData['no_quote_mail'] == 1)) {
+            if (!empty($mcOptionsData['reply_to_tmp'])) {
+                $prepend = erLhcoreClassGenericBotWorkflow::translateMessage($mcOptionsData['reply_to_tmp'], array('chat' => $message, 'args' => ['chat' => $message, 'msg' => $message]));
+            } else {
+                $prepend = '<p>' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','On') . ' ' . date('Y-m-d H:i',$message->udate).', '. ($message->from_name != '' ? $message->from_name : $message->from_address) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','wrote') . ':</p>';
+            }
         }
 
         if ($Params['user_parameters']['mode'] == 'forward' && $currentUser->hasAccessTo('lhmailconv', 'send_as_forward')) {

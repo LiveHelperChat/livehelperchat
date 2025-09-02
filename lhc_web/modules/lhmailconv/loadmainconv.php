@@ -218,6 +218,7 @@ try {
             'customer_remarks' => $remarks,
             'messages' => array_values($messages),
             'moptions' => [
+                'no_quote_mail' => (isset($mcOptionsData['no_quote_mail']) && $mcOptionsData['no_quote_mail'] == 1),
                 'is_archive' => $is_archive,
                 'is_blocked' => erLhcoreClassModelChatBlockedUser::isBlocked(array('email_conv' => $conv->from_address)),
                 'lang_dir' => erLhcoreClassDesign::design('images/flags'),

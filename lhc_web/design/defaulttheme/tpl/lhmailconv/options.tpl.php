@@ -21,15 +21,21 @@
     <div class="form-group">
         <label>
             <input type="checkbox" name="disable_auto_owner" value="on" <?php if (isset($mc_options['disable_auto_owner']) && ($mc_options['disable_auto_owner'] == true)) : ?>checked="checked"<?php endif;?> />
-            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Disable becoming owner automatically on conversation open event')?>
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Disable becoming owner automatically on conversation open event')?></label>
         <p class="mb-0"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Operator will become an owner if they click the reply button.')?></small></p>
     </div>
     
     <div class="form-group">
         <label>
             <input type="checkbox" name="skip_images" value="on" <?php if (isset($mc_options['skip_images']) && ($mc_options['skip_images'] == true)) : ?>checked="checked"<?php endif;?> />
-            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Skip directly included images while replying to e-mail')?>
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Skip directly included images while replying to e-mail')?></label>
         <p class="mb-0"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Image will be replaced with Image skipped text')?></small></p>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <input type="checkbox" name="no_quote_mail" value="on" <?php if (isset($mc_options['no_quote_mail']) && ($mc_options['no_quote_mail'] == true)) : ?>checked="checked"<?php endif;?> />
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Do not quote original e-mail while responding to a ticket')?></label>
     </div>
 
     <div class="form-group">
