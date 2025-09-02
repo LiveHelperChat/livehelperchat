@@ -80,7 +80,7 @@
 
                                 <a href="#/chat-id-<?php echo $chat->id?>" <?php if ($chat->nc != '') : ?>style="color: <?php echo htmlspecialchars($chat->nc)?>"<?php endif;?> class="chat-link"><span <?php if ($chat->nb == 1) : ?>class="fw-bold"<?php endif;?> ><?php echo htmlspecialchars($chat->nick);?></span>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <span><?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></span></a>
 
-                    	      <?php if ($chat->has_unread_messages == 1) : ?>
+                    	      <?php if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time > 0) : ?>
                     	      <?php
                     	      $diff = time()-$chat->last_user_msg_time;
                     	      $hours = floor($diff/3600);
