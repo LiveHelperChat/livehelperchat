@@ -53,7 +53,7 @@ class erLhcoreClassGenericBotActionRepeat_restrict {
                 return null;
             }
 
-            if (is_numeric($action['content']['alternative_callback']) && $action['content']['alternative_callback'] > 0) {
+            if (isset($action['content']['alternative_callback']) && is_numeric($action['content']['alternative_callback']) && $action['content']['alternative_callback'] > 0) {
                 return array(
                     'status' => ((isset($action['content']['continue_all']) && $action['content']['continue_all'] == true) ? 'continue_all' : 'stop'),
                     'trigger_id' => $action['content']['alternative_callback']

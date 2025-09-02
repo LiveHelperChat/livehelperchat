@@ -19,12 +19,18 @@ class erLhcoreClassChatStatsResque {
 
         if ($this->args['type'] == 'dep') {
             $dep = erLhcoreClassModelDepartament::fetch($this->args['id']);
-            self::updateStats($dep);
+            if (is_object($dep)) {
+                self::updateStats($dep);
+            }
         }
     }
 
     public static function updateStats($dep)
     {
+        if (!is_object($dep)) {
+            return;
+        }
+
         self::updateDepartmentStats($dep);
 
         // Update departments groups statistic
