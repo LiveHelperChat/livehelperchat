@@ -154,7 +154,7 @@ if (is_numeric($filterParams['input_form']->is_external)) {
     $filterParams['filter']['filterin']['`lhc_mailconv_msg`.`is_external`'] = $filterParams['input_form']->is_external;
 }
 
-if (in_array($Params['user_parameters_unordered']['export'], array(1))) {
+if (in_array($Params['user_parameters_unordered']['export'], array(1)) && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','export_mails')) {
     if (ezcInputForm::hasPostData()) {
         session_write_close();
         if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions') && count($filterParams['filter']) > 1) { // One element is always a sort. We want at-least one real filter.

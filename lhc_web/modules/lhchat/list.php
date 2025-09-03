@@ -133,7 +133,7 @@ if ($Params['user_parameters_unordered']['print'] == 1) {
 	return;
 }
 
-if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 1) {
+if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 1 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','export_chats')) {
     if (ezcInputForm::hasPostData()) {
         session_write_close();
         if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions') && count($filterParams['filter']) > 1) { // One element is always a sort. We want at-least one real filter.
