@@ -156,27 +156,46 @@ class erLhcoreClassModelUserDep
         }
     }
 
+    /**
+     * Get online operators with optimized database filtering
+     * 
+     * @param object $currentUser Current user instance
+     * @param bool $canListOnlineUsersAll Whether user can list all users
+     * @param array $params Additional query parameters  
+     * @param int $limit Results limit
+     * @param int $onlineTimeout Timeout for considering user online (seconds)
+     * @param array $paramsExecution Execution parameters (dashboard flag, etc.)
+     * @return array List of online operators
+     */
     public static function getOnlineOperators($currentUser, $canListOnlineUsersAll = false, $params = array(), $limit = 10, $onlineTimeout = 120, $paramsExecution = array())
     {
         $userData = $currentUser->getUserData(true);
         $filter = array();
 
         if ($userData->all_departments == 0 && $canListOnlineUsersAll == false) {
-            $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID(), $userData->cache_version);
-
-            if (count($userDepartaments) == 0) return array();
-
-            $index = array_search(-1, $userDepartaments);
-            if ($index !== false) {
-                unset($userDepartaments[$index]);
-            }
-
-            if (count($userDepartaments) == 0) return array();
-
+            // Optimized: Use EXISTS subquery instead of separate query + IN clause
+            // This is more efficient than fetching department IDs and using IN clause
+            $currentUserId = (int)$currentUser->getUserID();
+            
             if (isset($paramsExecution['dashboard']) && $paramsExecution['dashboard'] === true) {
-                $filter['customfilter'][] = '(dep_id IN (' . implode(',', $userDepartaments) . '))';
+                // For dashboard: only show users from same departments
+                $filter['customfilter'][] = 'EXISTS (
+                    SELECT 1 FROM `lh_userdep` AS `current_user_deps` 
+                    WHERE `current_user_deps`.`user_id` = ' . $currentUserId . ' 
+                    AND `current_user_deps`.`dep_id` = `lh_userdep`.`dep_id` 
+                    AND `current_user_deps`.`dep_id` != -1
+                )';
             } else {
-                $filter['customfilter'][] = '(dep_id IN (' . implode(',', $userDepartaments) . ') OR user_id = ' . $currentUser->getUserID() . ')';
+                // For non-dashboard: include current user OR users from same departments
+                $filter['customfilter'][] = '(
+                    `lh_userdep`.`user_id` = ' . $currentUserId . ' 
+                    OR EXISTS (
+                        SELECT 1 FROM `lh_userdep` AS `current_user_deps` 
+                        WHERE `current_user_deps`.`user_id` = ' . $currentUserId . ' 
+                        AND `current_user_deps`.`dep_id` = `lh_userdep`.`dep_id` 
+                        AND `current_user_deps`.`dep_id` != -1
+                    )
+                )';
             }
         };
 
@@ -221,7 +240,16 @@ class erLhcoreClassModelUserDep
 
         $list = self::getList($filter);
 
-        if (isset($userDepartaments)) {
+        // If user has department restrictions, we need to get their departments for the filter
+        if ($userData->all_departments == 0 && $canListOnlineUsersAll == false) {
+            $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID(), $userData->cache_version);
+            
+            // Remove special "all departments" marker if present
+            $index = array_search(-1, $userDepartaments);
+            if ($index !== false) {
+                unset($userDepartaments[$index]);
+            }
+            
             $userDepartaments[] = 0;
             foreach ($list as & $listItem) {
                 $listItem->dep_id_filter = $userDepartaments;
@@ -229,7 +257,7 @@ class erLhcoreClassModelUserDep
         }
 
         return $list;
-    }
+    }    
 
     public $id = null;
     public $user_id = 0;
