@@ -202,7 +202,6 @@ class erLhcoreClassModelUserDep
 
         $filter['select_columns'] = '
          max(`lh_userdep`.`id`) as `id`, 
-        max(`ro`) as `ro`,
         max(`max_chats`) as `max_chats`,
         max(`max_mails`) as `max_mails`,
         max(`dep_id`) as `dep_id`,
