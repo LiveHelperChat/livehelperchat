@@ -41,7 +41,7 @@ class erLhcoreClassChatEventDispatcher {
 
            $cfg = erConfigClassLhConfig::getInstance();
 
-           $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false );
+           $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false);
 
            // Web hooks disabled
            if ($webhooksEnabled === false) {
@@ -50,11 +50,12 @@ class erLhcoreClassChatEventDispatcher {
            }
 
            $worker = $cfg->getSetting( 'webhooks', 'worker' );
+           $singleEvent = $cfg->getSetting( 'webhooks', 'single_event', false);
 
            $className = 'erLhcoreClassChatWebhook' .ucfirst($worker);
            if (class_exists($className)) {
                $worker = new $className;
-               $worker->processEvent($event, $param);
+               $worker->processEvent($event, $param, $singleEvent);
            }
        }
    }

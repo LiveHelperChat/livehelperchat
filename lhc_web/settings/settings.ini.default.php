@@ -86,6 +86,7 @@ return array (
                 array(
                     'enabled' => false,
                     'worker' => 'http',
+                    'single_event' => false
                 ),
             'chat' => array(
                 'online_timeout' => 300,

@@ -2,7 +2,7 @@
 
 class erLhcoreClassChatWebhookHttp {
 
-    public function processEvent($event, $params) {
+    public function processEvent($event, $params, $single_event = false) {
 
         try {
             $webhooks = erLhcoreClassModelChatWebhook::getList(array('filter' => array('event' => $event, 'disabled' => 0)));

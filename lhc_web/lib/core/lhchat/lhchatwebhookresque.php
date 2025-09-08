@@ -2,7 +2,7 @@
 #[\AllowDynamicProperties]
 class erLhcoreClassChatWebhookResque {
 
-    public function processEvent($event, $params) {
+    public function processEvent($event, $params, $single_event = false) {
         $db = ezcDbInstance::get();
 
         try {
@@ -20,14 +20,14 @@ class erLhcoreClassChatWebhookResque {
                     $worker = new erLhcoreClassChatWebhookHttp();
                     $worker->processEvent($event, $params);
                 } else if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
-                        $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
-                        if (erLhcoreClassSystem::instance()->backgroundMode === true) {
-                            $worker = new erLhcoreClassChatWebhookResque();
-                            $worker->args = array('inst_id' => $inst_id, 'hook_id' => $hookId, 'params_raw' => $params);
-                            $worker->perform();
-                        } else {
-                            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_webhook', 'erLhcoreClassChatWebhookResque', array('inst_id' => $inst_id, 'hook_id' => $hookId, 'params' => base64_encode(gzdeflate(serialize($params)))));
-                        }
+                    $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+                    if ($single_event === true && erLhcoreClassSystem::instance()->backgroundMode === true) {
+                        $worker = new erLhcoreClassChatWebhookResque();
+                        $worker->args = array('inst_id' => $inst_id, 'hook_id' => $hookId, 'params_raw' => $params);
+                        $worker->perform();
+                    } else {
+                        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_webhook', 'erLhcoreClassChatWebhookResque', array('inst_id' => $inst_id, 'hook_id' => $hookId, 'params' => base64_encode(gzdeflate(serialize($params)))));
+                    }
                 }
             }
         }
@@ -151,7 +151,7 @@ class erLhcoreClassChatWebhookResque {
             erLhcoreClassGenericBotWorkflow::$auditCategory = 'bot_webhook';
 
             if (erLhcoreClassChatWebhookHttp::isValidConditions($webhook, $params['chat']) === true) {
-                    erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('set_last_msg_id' => $setLastMessage, 'args' => $params));
+                erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('set_last_msg_id' => $setLastMessage, 'args' => $params));
             } elseif ($webhook->trigger_id_alt > 0) {
                 $trigger = erLhcoreClassModelGenericBotTrigger::fetch($webhook->trigger_id_alt);
                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
