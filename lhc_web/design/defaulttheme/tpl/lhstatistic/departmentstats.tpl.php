@@ -436,7 +436,7 @@ $modalBodyClass = 'p-1'
                             'disable_cache' => true,
                             'exclude_bot' => true,
                             'include_users' => true,
-                        ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?>
+                        ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?><span class="badge bg-secondary ms-1">online_department</span>
                     </li>
                     <li>
                         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Status if bot and online hours were ignored (default check for `Stop chat and transfer to human` trigger action with `Ignore department online hours` option checked)');?>
@@ -447,7 +447,7 @@ $modalBodyClass = 'p-1'
                             'exclude_bot' => true,
                             'include_users' => true,
                             'exclude_online_hours' => true
-                        ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?>
+                        ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?><span class="badge bg-secondary ms-1">online_op_department</span>
                     </li>
                     <li>
                         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Status if bot and operators status would be excluded. Only online hours would be checked');?>
@@ -457,7 +457,7 @@ $modalBodyClass = 'p-1'
                             'disable_cache' => true,
                             'exclude_bot' => true,
                             'ignore_user_status' => true
-                        ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?>
+                        ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?><span class="badge bg-secondary ms-1">online_department_hours</span>
                     </li>
                 </ul>
             </div>
