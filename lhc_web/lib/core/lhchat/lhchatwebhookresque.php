@@ -124,7 +124,7 @@ class erLhcoreClassChatWebhookResque {
                 $params['chat'] = new erLhcoreClassModelChat();
                 $params['chat']->id = -1;
             } else {
-                $params['chat'] = erLhcoreClassModelChat::fetch($params['chat']->id);
+                $params['chat'] = erLhcoreClassModelChat::fetch($params['chat']->id, false);
 
                 // Chat by ID not found
                 if (!is_object($params['chat'])) {
