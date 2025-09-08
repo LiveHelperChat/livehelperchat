@@ -8,6 +8,12 @@
             </div>
         </div>
         <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Event');?></label>
+                <input type="text" class="form-control form-control-sm" name="event" value="<?php echo htmlspecialchars((string)$input->event)?>" />
+            </div>
+        </div>
+        <div class="col-md-2">
             <div class="form-group mt-4">
                 <label>
                     <input type="checkbox" name="enabled" value="on" <?php if (isset($input->enabled) && $input->enabled == true) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Only enabled');?>

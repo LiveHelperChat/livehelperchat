@@ -14,6 +14,18 @@ $fieldsSearch['name'] = array (
     )
 );
 
+$fieldsSearch['event'] = array (
+    'type' => 'text',
+    'trans' => 'Event',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'like',
+    'filter_table_field' => 'event',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldsSearch['enabled'] = array (
     'type' => 'boolean',
     'trans' => 'groupby',

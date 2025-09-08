@@ -6,7 +6,7 @@ $ViewList = array();
 
 $ViewList['configuration'] = array(
     'params' => array(),
-    'uparams' => array('name','enabled'),
+    'uparams' => array('name','enabled','event'),
     'functions' => array( 'configuration' )
 );
 
