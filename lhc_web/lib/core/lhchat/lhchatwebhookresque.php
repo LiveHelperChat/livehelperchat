@@ -16,12 +16,18 @@ class erLhcoreClassChatWebhookResque {
 
         if (!empty($hooks)) {
             foreach ($hooks as $hookId) {
-                if ((isset($params['wh_worker']) && $params['wh_worker'] == 'http') /*|| erLhcoreClassSystem::instance()->backgroundMode === true*/) {
+                if ((isset($params['wh_worker']) && $params['wh_worker'] == 'http')) {
                     $worker = new erLhcoreClassChatWebhookHttp();
                     $worker->processEvent($event, $params);
                 } else if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
-                     $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
-                     erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_webhook', 'erLhcoreClassChatWebhookResque', array('inst_id' => $inst_id, 'hook_id' => $hookId, 'params' => base64_encode(gzdeflate(serialize($params)))));
+                        $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+                        if (erLhcoreClassSystem::instance()->backgroundMode === true) {
+                            $worker = new erLhcoreClassChatWebhookResque();
+                            $worker->args = array('inst_id' => $inst_id, 'hook_id' => $hookId, 'params_raw' => $params);
+                            $worker->perform();
+                        } else {
+                            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_webhook', 'erLhcoreClassChatWebhookResque', array('inst_id' => $inst_id, 'hook_id' => $hookId, 'params' => base64_encode(gzdeflate(serialize($params)))));
+                        }
                 }
             }
         }
@@ -83,7 +89,11 @@ class erLhcoreClassChatWebhookResque {
 
         $triggerId = $webhook->trigger_id;
 
-        $params = unserialize(gzinflate(base64_decode($this->args['params'])));
+        if (isset($this->args['params_raw'])) {
+            $params = $this->args['params_raw'];
+        } else {
+            $params = unserialize(gzinflate(base64_decode($this->args['params'])));
+        }
 
         // Webhook delay support
         if (isset($params['msg']) && isset($params['msg']->meta_msg)) {
@@ -141,24 +151,15 @@ class erLhcoreClassChatWebhookResque {
             erLhcoreClassGenericBotWorkflow::$auditCategory = 'bot_webhook';
 
             if (erLhcoreClassChatWebhookHttp::isValidConditions($webhook, $params['chat']) === true) {
-                $lastMessage = erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('set_last_msg_id' => $setLastMessage, 'args' => $params));
+                    erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('set_last_msg_id' => $setLastMessage, 'args' => $params));
             } elseif ($webhook->trigger_id_alt > 0) {
                 $trigger = erLhcoreClassModelGenericBotTrigger::fetch($webhook->trigger_id_alt);
                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                    $lastMessage = erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('set_last_msg_id' => $setLastMessage, 'args' => $params));
+                    erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('set_last_msg_id' => $setLastMessage, 'args' => $params));
                 }
             }
 
-            // For NodeJS to inform operators about new message
-            if ($setLastMessage === true && isset($lastMessage) && $lastMessage instanceof erLhcoreClassModelmsg && $lastMessage->id > 0) {
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_added_passive', array(
-                    'chat' => & $params['chat'],
-                    'msg' => $lastMessage,
-                    'source' => 'webhook_worker'
-                ));
-            }
-
-            if ($setLastMessage === true && (!isset($params['no_auto_events']) || $params['no_auto_events'] === false)) {
+            if ($setLastMessage === true && (!isset($params['no_auto_events']) || $params['no_auto_events'] === false) && $params['chat']->last_msg_id > $paramsExecution['msg_last_id']) {
                 erLhcoreClassChatWebhookContinuous::dispatchEvents($params['chat'], $paramsExecution);
             }
         }
