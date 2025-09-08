@@ -16,7 +16,7 @@ class erLhcoreClassChatWebhookResque {
 
         if (!empty($hooks)) {
             foreach ($hooks as $hookId) {
-                if (isset($params['wh_worker']) && $params['wh_worker'] == 'http') {
+                if ((isset($params['wh_worker']) && $params['wh_worker'] == 'http') || erLhcoreClassSystem::instance()->backgroundMode === true) {
                     $worker = new erLhcoreClassChatWebhookHttp();
                     $worker->processEvent($event, $params);
                 } else if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
