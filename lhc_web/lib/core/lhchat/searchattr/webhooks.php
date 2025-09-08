@@ -14,6 +14,18 @@ $fieldsSearch['name'] = array (
     )
 );
 
+$fieldsSearch['enabled'] = array (
+    'type' => 'boolean',
+    'trans' => 'groupby',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'manual',
+    'filter_table_field' => ['filter' => ['disabled' => 0]],
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
 $fieldSortAttr = array (
     'field'      => false,
     'default'    => false,

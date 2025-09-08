@@ -1,3 +1,5 @@
+<?php include(erLhcoreClassDesign::designtpl('lhwebhooks/search_panel.tpl.php')); ?>
+
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Webhooks list')?></h1>
 
 <?php
