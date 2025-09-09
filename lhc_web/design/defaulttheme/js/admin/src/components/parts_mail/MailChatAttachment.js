@@ -27,7 +27,7 @@ const MailChatAttachment = ({
     const { t, i18n } = useTranslation('mail_chat');
 
     const countdownInterval = useRef(null);
-    const maxVerificationAttempts = 4;
+    const maxVerificationAttempts = 8;
 
     // Convert numeric restriction reason to user-friendly message
     const getRestrictionMessage = (reason) => {

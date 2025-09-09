@@ -33,7 +33,7 @@ const MailChatImage = ({
     const { t, i18n } = useTranslation('mail_chat');
 
     const countdownInterval = useRef(null);
-    const maxVerificationAttempts = 4;
+    const maxVerificationAttempts = 8;
 
     // Extract file_id and conversation_id from URL structure like mailconv/inlinedownload/<file_id>/<conversation_id>
     const extractIdsFromUrl = (url) => {
