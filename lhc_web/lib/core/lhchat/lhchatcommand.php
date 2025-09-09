@@ -133,8 +133,17 @@ class erLhcoreClassChatCommand
                         'caller_user_class' => get_class($params['user']));
 
                     foreach (explode('--arg',$commandData['argument']) as $indexArgument => $argumentValue) {
-                        $argumentsTrigger['replace_array']['{arg_'.($indexArgument + 1).'}'] = trim($argumentValue); // For direct replacement
-                        $argumentsTrigger['arg_'.($indexArgument + 1)] = trim($argumentValue);                       // For {args.arg_3} to work
+
+                        $paramsArg = explode('|||',trim($argumentValue));
+
+                        $argumentsTrigger['replace_array']['{arg_'.($indexArgument + 1).'}'] = $paramsArg[0]; // For direct replacement
+                        $argumentsTrigger['arg_'.($indexArgument + 1)] = $paramsArg[0];                       // For {args.arg_3} to work
+
+                        // Title replacement
+                        if (isset($paramsArg[1]) && !empty($argumentsTrigger['arg_'.($indexArgument + 1)])) {
+                            $argumentsTrigger['replace_array']['{arg_'.($indexArgument + 1).'_title}'] = $paramsArg[1]; // For direct replacement
+                            $argumentsTrigger['arg_'.($indexArgument + 1).'_title'] = $paramsArg[1];
+                        }
                     }
 
                     $responseData['last_message'] = erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $argumentsTrigger));

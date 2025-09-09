@@ -34,7 +34,14 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
         }
 
         if (empty($Errors)) {
-            $tpl->set('commandExecution', '!' . $command->command . ' ' . implode(' --arg ',$commandArguments));
+
+            $commandArgumentsWithNames = $commandArguments;
+
+            foreach ($command->fields_array as $fieldIndex => $field) {
+                $commandArgumentsWithNames['field_' . $fieldIndex] .= '|||' . $field['name'];
+            }
+
+            $tpl->set('commandExecution', '!' . $command->command . ' ' . implode(' --arg ',$commandArgumentsWithNames));
         } else {
             $tpl->set('errors', $Errors);
         }
