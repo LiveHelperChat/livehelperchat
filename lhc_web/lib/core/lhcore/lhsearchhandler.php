@@ -637,6 +637,22 @@ class erLhcoreClassSearchHandler
             }
             
             return true;
+
+        } elseif (isset($_FILES[$fileName])) {
+            $phpFileUploadErrors = array(
+                //0 => 'There is no error, the file uploaded with success',
+                1 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'File too big!'),// 'The uploaded file exceeds the upload_max_filesize directive in php.ini',
+                2 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'File too big!'), //'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
+                3 => 'The uploaded file was only partially uploaded',
+                /*4 => 'No file was uploaded',*/
+                6 => 'Missing a temporary folder',
+                7 => 'Failed to write file to disk.',
+                8 => 'A PHP extension stopped the file upload.',
+            );
+            
+            if (isset($phpFileUploadErrors[$_FILES[$fileName]["error"]])) {
+                self::$lastError = $phpFileUploadErrors[$_FILES[$fileName]["error"]];
+            }
         }
         
         return false;
