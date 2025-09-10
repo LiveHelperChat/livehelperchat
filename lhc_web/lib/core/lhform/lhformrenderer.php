@@ -719,16 +719,20 @@ class erLhcoreClassFormRenderer {
     public static function renderInputTypeFile($params) {
 
     	$downloadLink = '';
+
+        $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
+        $data = (array)$fileData->data;
+
+        // Is file uses different method to check is valid file
+        $data['ft_us'] = str_replace('jpe?g','jpg|jpeg',$data['ft_us']);
+        
     	if (ezcInputForm::hasPostData()) {
-
-            $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
-            $data = (array)$fileData->data;
-
-            // Is file uses different method to check is valid file
-            $data['ft_us'] = str_replace('jpe?g','jpg|jpeg',$data['ft_us']);
-
 	    	if (!erLhcoreClassSearchHandler::isFile($params['name'], explode('|',$data['ft_us']), $data['fs_max'] * 1024) && (isset($params['required']) && $params['required'] == 'required')) {
-	    		self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+                if (!empty(erLhcoreClassSearchHandler::$lastError)) {
+                    self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']) . ' ' . erLhcoreClassSearchHandler::$lastError;
+                } else {
+                    self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+                }
 	    	} elseif (erLhcoreClassSearchHandler::isFile($params['name'], explode('|',$data['ft_us']), $data['fs_max'] * 1024)) {
 	    		self::$collectedInfo[$params['name']] = array('definition' => $params, 'value' => $_FILES[$params['name']]);
 	    	}
@@ -740,7 +744,12 @@ class erLhcoreClassFormRenderer {
     		}
     	}
     	
-    	return "{$downloadLink}<input type=\"file\" name=\"{$params['name']}\" />";
+    	$acceptTypes = '';
+        if (isset($data['ft_us']) && $data['ft_us'] != '') {
+            $acceptTypes = '.' . str_replace('|', ',.', $data['ft_us']);
+        }
+
+    	return "{$downloadLink}<input type=\"file\" accept=\"{$acceptTypes}\" name=\"{$params['name']}\" />";
     }
 
     public static function storeCollectedInformation($form, $collectedInformation, $customFields = [], $chat = null) {

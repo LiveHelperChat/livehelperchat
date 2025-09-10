@@ -25,7 +25,7 @@ if (!empty($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form method="post" enctype="multipart/form-data" action="<?php if (isset($action_url)) : ?><?php echo $action_url?><?php else : ?><?php echo erLhcoreClassDesign::baseurl('form/fill')?><?php endif;?>/<?php echo $form->id?>">
+<form method="post" class="form-submit-<?php echo $form->id?>" enctype="multipart/form-data" action="<?php if (isset($action_url)) : ?><?php echo $action_url?><?php else : ?><?php echo erLhcoreClassDesign::baseurl('form/fill')?><?php endif;?>/<?php echo $form->id?>">
 	<?php echo $content?>
 
     <?php if (isset($jsVars)) : foreach ($jsVars as $index => $item) : ?>
@@ -50,9 +50,40 @@ if (!empty($errors)) : ?>
 
     <?php if (strpos($content,'name="SubmitForm"') === false) : ?>
         <div>
-            <input type="submit" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','Submit');?>" name="SubmitForm" />
+            <button type="submit" class="btn btn-secondary btn-sm" name="SubmitForm">
+                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','Submit');?>
+            </button>
         </div>
     <?php endif; ?>
 </form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.form-submit-<?php echo $form->id?>');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            // Find all submit buttons in the form
+            const submitButtons = form.querySelectorAll('button[type="submit"]');
+            
+            submitButtons.forEach(function(button) {
+                // Store original innerHTML
+                const originalInnerHTML = button.innerHTML;
+                const originalText = button.textContent;
+                
+                // Disable the button
+                button.disabled = true;
+                
+                // Add spinner while keeping original text
+                const spinner = document.createElement('span');
+                spinner.className = 'spinner-border spinner-border-sm me-2';
+                spinner.setAttribute('role', 'status');
+                spinner.setAttribute('aria-hidden', 'true');
+                
+                button.innerHTML = spinner.outerHTML + originalText;
+            });
+        });
+    }
+});
+</script>
 
 <?php endif; ?>
