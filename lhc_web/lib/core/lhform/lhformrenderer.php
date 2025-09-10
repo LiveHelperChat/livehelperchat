@@ -841,6 +841,7 @@ class erLhcoreClassFormRenderer {
                             'antivirus' => $clamav,
                             'file_preview' => (isset($params['definition']['file_preview']) && $params['definition']['file_preview'] == 'true' ? true : false),
                             'param_name' => $params['definition']['name'],
+                            'max_res' => ($data['max_res'] ?? 0),
                             'user_id' => -1,    // Save as system message
                             'as_form' => true,    // Indicate it's a form upload
                             'max_file_size' => $data['fs_max'] * 1024,
