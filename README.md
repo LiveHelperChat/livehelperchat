@@ -18,8 +18,10 @@ It's an open-source powered application that brings simplicity and usability int
 ## Donate
 
  * Using Github Sponsors https://github.com/sponsors/LiveHelperChat
- * Bitcoin - `bc1quwysx4fswn95z6hegxa80wz87wh64cezjc8yfk` 
+ * Bitcoin - `bc1qlzn4qdxnl50gmzcherlp4rzql4uwn7ddpvwnp9`
  * USDT (Ethereum network) - `0x45b92C4aa29EFD3252fD04fcDDe3e6Ef8b399D75`
+ * Paypal - https://paypal.me/LiveHelperChat
+ * Bank Wire - IBAN: LT967044000941610547, Bank SWIFT code: CBVI LT 2X
 
 ## Quick install guide
 
