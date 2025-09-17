@@ -39,7 +39,14 @@ if (is_array($Params['user_parameters_unordered']['department']) && count($Param
         $inputData->departament_id = -1;
     }
 } else {
-    $inputData->departament_id = 0;
+    $filter = array('filter' => array('disabled' => 0, 'hidden' => 0));
+    $filter['sort'] = 'sort_priority ASC, name ASC';
+    $departmentStartChat = erLhcoreClassModelDepartament::findOne($filter);
+    if (is_object($departmentStartChat)) {
+        $inputData->departament_id = $departmentStartChat->id;
+    } else {
+        $inputData->departament_id = 0;
+    }
 }
 
 if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && ($startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("((`dep_ids` != '' AND JSON_CONTAINS(`dep_ids`,'" . (int)$inputData->departament_id . "','$')) OR department_id = " . (int)$inputData->departament_id . ")" )))) !== false) {

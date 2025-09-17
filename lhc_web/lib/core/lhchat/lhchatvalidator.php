@@ -544,13 +544,13 @@ class erLhcoreClassChatValidator {
                 }
                 
             } elseif ($chat->dep_id == 0 || erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chat->dep_id,'disabled' => 0))) == 0) {
-                
+
                 // Perhaps extension overrides default department?
                 $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_department', array('input_form' => $inputForm));
                 
                 // There was no callbacks or file not found etc, we try to download from standard location
                 if ($response === false) {
-                	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1, 'sort' => 'hidden ASC, priority ASC', 'filter' => array('disabled' => 0)));
+                	$departments = erLhcoreClassModelDepartament::getList(array('limit' => 1, 'sort' => 'hidden ASC, sort_priority ASC, name ASC', 'filter' => array('alias' => '', 'disabled' => 0)));
                 	if (!empty($departments) ) {
         	        	$department = array_shift($departments);
         	        	$chat->dep_id = $department->id;
