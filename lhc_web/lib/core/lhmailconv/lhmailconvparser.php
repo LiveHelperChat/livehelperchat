@@ -1203,6 +1203,12 @@ class erLhcoreClassMailconvParser {
                 if (!empty($extension)) {
                     $mailAttatchement->extension = $extension;
                 }
+            } else {
+                // Visitor sent a file with incorrect extension in file name by our detection
+                $extension = erLhcoreClassChatWebhookIncoming::getExtensionByMime($mailAttatchement->type);
+                if (!empty($extension) && $mailAttatchement->extension != $extension && in_array($extension,self::IMAGE_EXTENSIONS)) {
+                    $mailAttatchement->extension = $extension;
+                }
             }
 
             $mailAttatchement->conversation_id = $message->conversation_id;
