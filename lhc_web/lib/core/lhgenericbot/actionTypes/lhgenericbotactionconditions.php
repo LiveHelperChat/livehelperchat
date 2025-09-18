@@ -107,6 +107,7 @@ class erLhcoreClassGenericBotActionConditions {
                             $depId = self::getDepId($chat, $paramsConditions[0]);
 
                             $attr = erLhcoreClassChat::isOnline($depId, false, array(
+                                'disable_cache' => true,
                                 'exclude_bot' => true,
                                 'exclude_online_hours' => false,
                                 'ignore_user_status' => true
@@ -119,6 +120,7 @@ class erLhcoreClassGenericBotActionConditions {
                             $depId = self::getDepId($chat, $paramsConditions[0]);
 
                             $attr = erLhcoreClassChat::isOnline($depId, false, array(
+                                'disable_cache' => true,
                                 'exclude_bot' => true,
                                 'exclude_online_hours' => false
                             )) ? 1 : 0;
@@ -130,6 +132,7 @@ class erLhcoreClassGenericBotActionConditions {
                             $depId = self::getDepId($chat, $paramsConditions[0]);
 
                             $attr = erLhcoreClassChat::isOnline($depId, false, array(
+                                'disable_cache' => true,
                                 'exclude_bot' => true,
                                 'exclude_online_hours' => true,
                                 'include_users' => true
