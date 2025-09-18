@@ -151,6 +151,20 @@ class erLhcoreClassGenericBotActionRestapi
                     $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
                 }
 
+                // Perhaps request took long time and we should not proceed any trigger in that scenario
+                if (isset($action['content']['attr_options']['continue_bot']) && $action['content']['attr_options']['continue_bot'] === true
+                ) {
+                    $db = ezcDbInstance::get();
+                    $db->beginTransaction();
+                    $chat->syncAndLock('`status`');
+                    $db->commit();
+
+                    // Chat was modified, ignore response and just leave as it was
+                    if ($chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+                        return;
+                    }
+                }
+
                 // Log if polling conditions fails
                 if (isset($method['polling_n_times']) && (int)$method['polling_n_times'] >= 1 && $method['polling_n_times'] <= 10 && ((isset($response['conditions_met']) && $response['conditions_met'] !== true) || (isset($response['as_failed_request']) && $response['as_failed_request'] == true))) {
                     if (isset($restAPI->configuration_array['log_audit']) && $restAPI->configuration_array['log_audit']) {

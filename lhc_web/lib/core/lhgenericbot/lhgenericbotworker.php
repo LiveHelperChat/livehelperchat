@@ -167,6 +167,21 @@ class erLhcoreClassLHCBotWorker
 
                     $event->removeThis();
 
+
+                    // Perhaps request took long time and we should not proceed any trigger in that scenario
+                    if (isset($action['content']['attr_options']['continue_bot']) && $action['content']['attr_options']['continue_bot'] === true
+                    ) {
+                        $db = ezcDbInstance::get();
+                        $db->beginTransaction();
+                        $chat->syncAndLock('`status`');
+                        $db->commit();
+
+                        // Chat was modified, ignore response and just leave as it was
+                        if ($chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+                            return;
+                        }
+                    }
+
                     // We have found exact matching response type
                     // Let's check has user checked any trigger to execute.
                     if (isset($response['id'])) {

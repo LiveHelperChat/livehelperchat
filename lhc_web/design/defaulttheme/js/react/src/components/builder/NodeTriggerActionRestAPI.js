@@ -208,6 +208,9 @@ class NodeTriggerActionRestAPI extends Component {
                     <div className="col-6">
                         <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','on_next_msg'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','on_next_msg'])} /> Process on next visitor message</label>
                     </div>
+                    <div className="col-6">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','continue_bot'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','continue_bot'])} /> Parse response only if chat is still in bot status</label>
+                    </div>
                 </div>
 
 
