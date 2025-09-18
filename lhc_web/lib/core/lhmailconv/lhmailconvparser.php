@@ -1195,20 +1195,12 @@ class erLhcoreClassMailconvParser {
             $mailAttatchement->size = (int)$attachment->sizeInBytes;
             $mailAttatchement->name = mb_substr((string)$attachment->name,-250);
             $mailAttatchement->description = (string)$attachment->description;
-            $mailAttatchement->extension = mb_substr((string)strtolower($attachment->subtype),0,10);
+            $mailAttatchement->extension = mb_substr((string)strtolower(pathinfo($attachment->name, PATHINFO_EXTENSION) ?: $attachment->subtype),0,10);
             $mailAttatchement->type = trim(explode(';',(string)$attachment->mime)[0]);
 
-            if ($mailAttatchement->extension == 'octet-stre') {
-                $extension = erLhcoreClassChatWebhookIncoming::getExtensionByMime($mailAttatchement->type);
-                if (!empty($extension)) {
-                    $mailAttatchement->extension = $extension;
-                }
-            } else {
-                // Visitor sent a file with incorrect extension in file name by our detection
-                $extension = erLhcoreClassChatWebhookIncoming::getExtensionByMime($mailAttatchement->type);
-                if (!empty($extension) && $mailAttatchement->extension != $extension && in_array($extension,self::IMAGE_EXTENSIONS)) {
-                    $mailAttatchement->extension = $extension;
-                }
+            $extension = erLhcoreClassChatWebhookIncoming::getExtensionByMime($mailAttatchement->type);
+            if (!empty($extension)) {
+                $mailAttatchement->extension = $extension;
             }
 
             $mailAttatchement->conversation_id = $message->conversation_id;
