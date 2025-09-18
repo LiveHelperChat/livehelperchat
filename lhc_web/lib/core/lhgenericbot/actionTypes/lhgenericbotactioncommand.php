@@ -17,6 +17,7 @@ class erLhcoreClassGenericBotActionCommand {
         if ($action['content']['command'] == 'stopchat') {
 
             $filterOnline = array(
+                'disable_cache' => true,
                 'exclude_bot' => true,
                 'include_users' => true,
                 'exclude_online_hours' => (isset($action['content']['payload_ignore_dep_hours']) && $action['content']['payload_ignore_dep_hours'] == true),
