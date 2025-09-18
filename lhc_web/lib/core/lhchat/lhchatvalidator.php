@@ -2128,11 +2128,13 @@ class erLhcoreClassChatValidator {
 [b]Nick[/b]: {args.chat.nick}
 [b]Additional data[/b]: {args.chat.additional_data}';
             $additionalMessage = erLhcoreClassGenericBotWorkflow::translateMessage($additionalMessage, array('chat' => $params['chat'], 'args' => $params));
+            $prependMessage = '';
 
             // Save as offline request
             if (isset($params['chatprefill']) && $params['chatprefill'] instanceof erLhcoreClassModelChat) {
                 // We do not want to store offline request as a new chat.
                 $params['chat'] = $params['chatprefill'];
+                $prependMessage = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Based on current chat.');
             }  else {
                 $params['chat']->time = $params['chat']->pnd_time = time();
                 $params['chat']->lsync = time();
@@ -2165,7 +2167,7 @@ class erLhcoreClassChatValidator {
 
                 // Store indication it's an offline message
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Offline request message was saved');
+                $msg->msg = trim(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Offline request message was saved.') . ' ' . $prependMessage);
                 $msg->chat_id = $params['chat']->id;
                 $msg->user_id = -1;
                 $msg->time = time();

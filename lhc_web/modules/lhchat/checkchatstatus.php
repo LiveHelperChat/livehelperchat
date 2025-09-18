@@ -75,7 +75,7 @@ try {
     				$ru = $baseURL.'/(department)/'.$department->id.'/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash;
     				
     				$msg = new erLhcoreClassModelmsg();
-    				$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Visitor has been redirected to contact form');
+    				$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Visitor has been redirected to contact form [because of chat pending time]');
     				$msg->chat_id = $chat->id;
     				$msg->user_id = -1;
     				$msg->time = time();    				
@@ -132,7 +132,7 @@ try {
 	    		$ru = $baseURL.'/(department)/'.$department->id.'/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash;
 
 	    		$msg = new erLhcoreClassModelmsg();
-	    		$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Visitor has been redirected to contact form');
+	    		$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Visitor has been redirected to contact form [because of chat status]');
 	    		$msg->chat_id = $chat->id;
 	    		$msg->user_id = -1;
 	    		$msg->time = time();
