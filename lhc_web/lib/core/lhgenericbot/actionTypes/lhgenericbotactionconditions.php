@@ -164,8 +164,15 @@ class erLhcoreClassGenericBotActionConditions {
                                         // For inline file attachments, check if message contains only the file
                                         $msgWithoutFile = trim(str_replace('[file=' . $file->id . '_' . $file->security_hash . ']', '', $params['msg']->msg));
                                         
-                                        // Only use file extension as attribute if message contains only the file
-                                        if (empty($msgWithoutFile)) {
+                                        // Count total number of files in the message
+                                        $matches = array();
+                                        preg_match_all('/\[file="?(.*?)"?\]/', $params['msg']->msg, $matches);
+                                        $totalFiles = count($matches[1]);
+                                        
+                                        // Consider it a media type if:
+                                        // 1. Message contains only the file (empty msgWithoutFile), OR
+                                        // 2. Message has exactly one file attachment
+                                        if (empty($msgWithoutFile) || $totalFiles === 1) {
                                             $attr = $file->extension;
                                         }
                                     }

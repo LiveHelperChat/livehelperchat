@@ -708,7 +708,7 @@ class erLhcoreClassBBCode
         }
 
         $hash = md5(trim($matches[2] . (isset($matches[1]) ? $matches[1] : '')));
-        self::$plainHash['embedimg'.$hash] = "<div class=\"img_embed\">{$prepend}<img title=\"\" onclick='lhinst.zoomImage(this)' class='action-image img-fluid img-remote' src=\"".$url."\" alt=\"\" />{$append}</div>";
+        self::$plainHash['embedimg'.$hash] = "<div class=\"img_embed\">{$prepend}<img title=\"\" onclick='lhinst.zoomImage(this)' class='action-image img-fluid img-remote msg-body-embed' src=\"".$url."\" alt=\"\" />{$append}</div>";
 
         return 'embedimg'.$hash;
    }
@@ -952,9 +952,9 @@ class erLhcoreClassBBCode
                                 return "<lhc-image download_policy={$paramsMessage['download_policy']} {$imageSizeAttr} file_id=\"{$file->id}\" id=\"img-reveal-holder-{$file->id}\" hash=\"{$hash}\" title=\"".htmlspecialchars($file->upload_name)."\" disable_zoom=\"".($disableZoom ? 'true' : 'false')."\"></lhc-image>";
                             } else {
                                 if (isset($displayType) && $displayType == 'rawimg') {
-                                    return '<img onclick="lhinst.zoomImage(this)" '.$imageSizeAttr.' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
+                                    return '<img onclick="lhinst.zoomImage(this)" '.$imageSizeAttr.' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid msg-body-embed" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
                                 } else {
-                                    return $prepend . '<img ' . ($disableZoom === false ? 'onclick="lhinst.zoomImage(this)"' : '') . $imageSizeAttr . ' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
+                                    return $prepend . '<img ' . ($disableZoom === false ? 'onclick="lhinst.zoomImage(this)"' : '') . $imageSizeAttr . ' id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid msg-body-embed" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}{$URLHash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
                                 }
                             }
                         }

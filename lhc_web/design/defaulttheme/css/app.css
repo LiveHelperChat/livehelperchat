@@ -692,13 +692,14 @@ div.message-row.response div.msg-body a.link{
 	background:none!important;
 }
 
+div.message-row img.msg-body-embed,
 .msg-body-media img {
 	border-radius:10px;
 	transition: 1s;
     max-height: 250px!important;
     max-width: 450px!important;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
 }
 
 .msg-body-media {
