@@ -1057,6 +1057,9 @@ function lh(){
                                     } else {
                                         $('#confirm-dialog-content').html(data.result);
                                     }
+                                } else if (inst.attr('data-ajax-remove')) {
+                                    $('#'+inst.attr('data-ajax-remove')).fadeOut();
+                                    $('#myModal').modal('hide');
                                 } else {
                                     document.location.reload();
                                 }

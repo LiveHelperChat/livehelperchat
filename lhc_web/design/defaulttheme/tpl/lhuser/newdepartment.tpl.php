@@ -8,7 +8,10 @@
 
 <?php if (isset($updated) && $updated == true) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Updated'); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
-    <script>$.get('<?php echo erLhcoreClassDesign::baseurl('user/userdepartments')?>/<?php echo $user->id?>',function(data){$('#departments').html(data);})</script>
+    <script>$.get('<?php echo erLhcoreClassDesign::baseurl('user/userdepartments')?>/<?php echo $user->id?>',function(data){
+        $('#departments').html(data);
+        lhinst.protectCSFR();
+    })</script>
 <?php endif; ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
