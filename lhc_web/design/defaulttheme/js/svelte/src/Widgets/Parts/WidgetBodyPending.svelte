@@ -461,9 +461,9 @@
                         {/if}
 
                         {#if permissions.indexOf('lhuser_setopstatus') !== -1}
-                            <i class="material-icons me-0 action-image" on:click={(e) => lhcServices.openModal('user/setopstatus/'+chat.user_id)} title={$t("widget.change_op_status")} >{chat.hide_online == 1 ? 'flash_off' : 'flash_on'}</i>
+                            <i class="material-icons me-0 action-image" class:text-success={chat.hide_online != 1} class:text-danger={chat.hide_online == 1} on:click={(e) => lhcServices.openModal('user/setopstatus/'+chat.user_id)} title={$t("widget.change_op_status")} >{chat.hide_online == 1 ? 'flash_off' : 'flash_on'}</i>
                         {:else}
-                            <i class="material-icons me-0 ">{chat.hide_online == 1 ? 'flash_off' : 'flash_on'}</i>
+                            <i class="material-icons me-0" class:text-success={chat.hide_online != 1} class:text-danger={chat.hide_online == 1}>{chat.hide_online == 1 ? 'flash_off' : 'flash_on'}</i>
                         {/if}
 
                         {#if permissions.indexOf('lhstatistic_userstats') !== -1}
