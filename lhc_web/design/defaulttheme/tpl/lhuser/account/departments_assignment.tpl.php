@@ -71,7 +71,7 @@
                             <?php endif; ?>
                          
                                 <?php if ($canEditDepartment == true) : ?>
-                                    <label class="badge form-check-label d-inline-flex align-items-center">
+                                    <label class="badge form-check-label d-inline-flex align-items-center user-select-none">
                                         <input type="checkbox" class="form-check-input dep-readonly-toggle me-1" 
                                                data-user-id="<?php echo $user->id?>" 
                                                data-dep-id="<?php echo $departament->id?>" 
@@ -166,7 +166,7 @@
 
                     
                         <?php if ($canEditDepartment == true) : ?>
-                            <label class="badge form-check-label d-inline-flex align-items-center">
+                            <label class="badge form-check-label d-inline-flex align-items-center user-select-none">
                                 <input type="checkbox" class="form-check-input dep-readonly-toggle me-1" 
                                        data-user-id="<?php echo $user->id?>" 
                                        data-dep-id="<?php echo $departamentGroup->id?>" 
@@ -213,6 +213,12 @@
 $(document).ready(function() {
     $('.dep-readonly-toggle').on('change', function() {
         var checkbox = $(this);
+        
+        // Prevent multiple simultaneous requests
+        if (checkbox.prop('disabled')) {
+            return false;
+        }
+        
         var userId = checkbox.data('user-id');
         var depId = checkbox.data('dep-id');
         var mode = checkbox.data('mode');
@@ -231,7 +237,7 @@ $(document).ready(function() {
             url += '/(editor)/self';
         }
         
-        // Disable checkbox during request
+        // Immediately disable checkbox to prevent multiple clicks
         checkbox.prop('disabled', true);
         
         $.postJSON(url, function (response) {
@@ -242,11 +248,13 @@ $(document).ready(function() {
                 textSpan.text(originalText + ' ✓');
                 setTimeout(function() {
                     textSpan.text(originalText);
-                }, 1000);
+                    // Re-enable checkbox only after tick is gone
+                    checkbox.prop('disabled', false);
+                }, 500);
             } else {
                 checkbox.prop('checked', !isChecked);
+                checkbox.prop('disabled', false);
             }
-            checkbox.prop('disabled', false);
         }).fail(function(jqXHR, textStatus, errorThrown) {
             checkbox.prop('checked', !isChecked);
             checkbox.prop('disabled', false);
