@@ -5,6 +5,7 @@ $tpl = erLhcoreClassTemplate::getInstance('lhgenericbot/usecases.tpl.php');
 $db = ezcDbInstance::get();
 
 $search = '';
+$conditionIdentifier = '';
 
 if ($Params['user_parameters']['type'] == 'replace') {
     $replace = erLhcoreClassModelCannedMsgReplace::fetch((int)$Params['user_parameters']['id']);
@@ -12,6 +13,7 @@ if ($Params['user_parameters']['type'] == 'replace') {
 } else if ($Params['user_parameters']['type'] == 'condition') {
     $conditions = \LiveHelperChat\Models\Bot\Condition::fetch((int)$Params['user_parameters']['id']);
     $search = '{condition.' . $conditions->identifier . '}';
+    $conditionIdentifier = $conditions->identifier;
 } else if ($Params['user_parameters']['type'] == 'tritem') {
     $translation = erLhcoreClassModelGenericBotTrItem::fetch((int)$Params['user_parameters']['id']);
     $search = '{' . $translation->identifier . '__';
@@ -19,7 +21,7 @@ if ($Params['user_parameters']['type'] == 'replace') {
 
 $customSQL = 'SELECT id, \'translation\' AS \'type\' FROM `lh_generic_bot_tr_item` WHERE `translation` LIKE ' . $db->quote('%' . $search . '%') . ' OR `identifier` LIKE ' . $db->quote('%' . $search . '%') . '
 UNION 
-SELECT id, \'trigger\' AS \'type\' FROM `lh_generic_bot_trigger` WHERE `name` LIKE ' . $db->quote('%' . $search . '%') . ' OR `actions` LIKE ' . $db->quote('%' . $search . '%') . '
+SELECT id, \'trigger\' AS \'type\' FROM `lh_generic_bot_trigger` WHERE `name` LIKE ' . $db->quote('%' . $search . '%') . ' OR `actions` LIKE ' . $db->quote('%' . $search . '%') . (!empty($conditionIdentifier) ? ' OR `actions` LIKE ' . $db->quote('%"trigger_condition":"' . $conditionIdentifier . '"%') . ' OR `actions` LIKE ' . $db->quote('%"trigger_condition":"-' . $conditionIdentifier . '"%') : '') . '
 UNION
 SELECT id, \'priority\' AS \'type\' FROM `lh_abstract_chat_priority` WHERE `value` LIKE ' . $db->quote('%' . $search . '%') . ' OR `role_destination` LIKE ' . $db->quote('%' . $search . '%') . ' OR `present_role_is` LIKE ' . $db->quote('%' . $search . '%') . '
 UNION
