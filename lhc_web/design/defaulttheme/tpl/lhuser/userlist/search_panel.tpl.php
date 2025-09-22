@@ -73,11 +73,10 @@
                 )); ?>
             </div>
         </div>
-        <div class="col-12">
-            <div class="row">
-                <div class="col-md-2">
+
+                <div class="col-md-1">
                     <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Login date range from');?></label>
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Login from');?></label>
                         <div class="row">
                             <div class="col-md-12">
                                 <input type="text" autocomplete="off" class="form-control form-control-sm" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
@@ -110,9 +109,9 @@
                     </div>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Login date range to');?></label>
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Login till');?></label>
                         <div class="row">
                             <div class="col-md-12">
                                 <input type="text" autocomplete="off" class="form-control form-control-sm" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
@@ -144,8 +143,36 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
+                        <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                            'input_name'     => 'department_ids[]',
+                            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+                            'selected_id'    => $input->department_ids,
+                            'ajax'           => 'deps',
+                            'css_class'      => 'form-control',
+                            'display_name'   => 'name',
+                            'list_function_params' => array_merge(['sort' => '`name` ASC', 'limit' => 50],erLhcoreClassUserDep::conditionalDepartmentFilter()),
+                            'list_function'  => 'erLhcoreClassModelDepartament::getList'
+                        )); ?>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
+                        <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                            'input_name'     => 'department_group_ids[]',
+                            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department group'),
+                            'selected_id'    => $input->department_group_ids,
+                            'css_class'      => 'form-control',
+                            'display_name'   => 'name',
+                            'list_function_params' => array_merge(['sort' => '`name` ASC', 'limit' => false],erLhcoreClassUserDep::conditionalDepartmentGroupFilter()),
+                            'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
+                        )); ?>
+                    </div>
+                </div>
 
         
     </div>

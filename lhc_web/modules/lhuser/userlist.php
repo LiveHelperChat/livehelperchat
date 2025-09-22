@@ -12,7 +12,23 @@ if (isset($_GET['doSearch'])) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
-erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lh_users', 'id');
+erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lh_users', 'id', ['group_id','group_ids']);
+
+$customFiltersDep = [];
+
+if (isset($filterParams['input']->department_group_ids) &&  is_array($filterParams['input']->department_group_ids) && !empty($filterParams['input']->department_group_ids)) {
+    erLhcoreClassChat::validateFilterIn($filterParams['input']->department_group_ids);
+    $customFiltersDep[] = '`lh_users`.`id` IN (SELECT `user_id` FROM `lh_userdep` WHERE `dep_id` IN (SELECT `dep_id` FROM `lh_departament_group_member` WHERE `dep_group_id` IN (' . implode(',',$filterParams['input']->department_group_ids) . ')))';
+}
+
+if (isset($filterParams['input']->department_ids) &&  is_array($filterParams['input']->department_ids) && !empty($filterParams['input']->department_ids)) {
+    erLhcoreClassChat::validateFilterIn($filterParams['input']->department_ids);
+    $customFiltersDep[] = '`lh_users`.`id` IN (SELECT user_id FROM lh_userdep WHERE dep_id IN (' . implode(',',$filterParams['input']->department_ids) . '))';
+}
+
+if (!empty($customFiltersDep)) {
+    $filterParams['filter']['customfilter'][] = '('.implode(' OR ',$customFiltersDep).')';
+}
 
 /*if (isset($filterParams['filter']['filtergte']['`p1`.`ctime`']) || isset($filterParams['filter']['filterlte']['`p1`.`ctime`'])) {
     $filterParams['filter']['innerjoin'] = array('lh_users_login as p1' => array('`p1`.`user_id`', '`lh_users`.`id`'));

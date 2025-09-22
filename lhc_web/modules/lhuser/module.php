@@ -66,9 +66,9 @@ $ViewList['avatarbuilder'] = array(
 
 $ViewList['userlist'] = array(
     'params' => array(),
-    'uparams' => array('email' , 'name' , 'username' , 'surname', 'group_ids', 'disabled', 'export','timefrom','timeto','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
+    'uparams' => array('email' , 'name' , 'username' , 'surname', 'group_ids', 'disabled', 'export','timefrom','timeto','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes','department_ids','department_group_ids'),
     'functions' => array( 'userlist' ),
-    'multiple_arguments' => array('group_ids')
+    'multiple_arguments' => array('group_ids','department_ids','department_group_ids')
 );
 
 $ViewList['grouplist'] = array(
