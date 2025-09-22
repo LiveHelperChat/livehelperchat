@@ -140,6 +140,45 @@ if ($Params['user_parameters_unordered']['mode'] == 'group') {
 
 if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep instanceof erLhcoreClassModelDepartament || $dep instanceof erLhcoreClassModelDepartamentGroup))
 {
+    if ($Params['user_parameters_unordered']['action'] == 'toggle_readonly') {
+
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            echo json_encode(array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token')));
+            exit;
+        }
+
+        if (!$userDep) {
+            echo json_encode(array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Error occurred')));
+            exit;
+        }
+
+        $depData = $userDep->getState();
+        
+        // Toggle read_only status
+        if (get_class($userDep) == 'erLhcoreClassModelUserDep') {
+            $userDep->ro = $userDep->ro == 1 ? 0 : 1;
+            $userDep->updateThis(['update' => ['ro']]);
+        } else {
+            $userDep->read_only = $userDep->read_only == 1 ? 0 : 1;
+            $userDep->updateThis(['update' => ['read_only']]);
+        }
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $user,
+            'msg' => array(
+                'action' => 'account_data_dep_readonly_toggle',
+                'class' => get_class($userDep),
+                'object_id' => (get_class($userDep) == 'erLhcoreClassModelUserDep' ? $userDep->dep_id : $userDep->dep_group_id),
+                'prev' => $depData,
+                'new' => $userDep->getState(),
+                'user_id' => $currentUser->getUserID()
+            )
+        ));
+
+        echo json_encode(array('error' => false, 'read_only' => (get_class($userDep) == 'erLhcoreClassModelUserDep' ? $userDep->ro : $userDep->read_only)));
+        exit;
+    }
+
     if ($Params['user_parameters_unordered']['action'] == 'remove') {
 
         if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {

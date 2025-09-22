@@ -31,7 +31,7 @@
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Individual departments')?>
 
             <?php if ($departmentEditParams['individual']['edit_all'] || $departmentEditParams['individual']['edit_personal']) : ?>
-            <a class="btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/newdepartment/<?php echo $user->id?><?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>'})"><span class="material-icons fs11 me-0">add</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a>
+            <a class="ms-1 btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/newdepartment/<?php echo $user->id?><?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>'})"><span class="material-icons fs11 me-0">add</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a>
             <?php endif; ?>
 
         </h5>
@@ -45,7 +45,7 @@
 
                         <hr class="pb-1 mb-0 mt-1 border-top">
 
-                        <label class="fw-bold <?php if ($canEditDepartment != true) : ?>text-muted<?php endif; ?>" ng-non-bindable>
+                        <div class="fw-bold <?php if ($canEditDepartment != true) : ?>text-muted<?php endif; ?>" ng-non-bindable>
 
                             <span <?php if ($canEditDepartment == true) : ?>onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + '/user/editdepartment/<?php echo $user->id?>/<?php echo $departament->id?><?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Edit')?>" <?php endif;?> class="material-icons <?php if ($canEditDepartment != true) : ?>text-muted<?php else : ?>action-image<?php endif; ?>"><?php if ($canEditDepartment != true) : ?>edit_off<?php else : ?>edit<?php endif; ?></span>
                             <?php echo htmlspecialchars($departament->name)?>
@@ -69,10 +69,24 @@
                                     </span>
                                 <?php endif;?>
                             <?php endif; ?>
+                         
+                                <?php if ($canEditDepartment == true) : ?>
+                                    <label class="badge form-check-label d-inline-flex align-items-center">
+                                        <input type="checkbox" class="form-check-input dep-readonly-toggle me-1" 
+                                               data-user-id="<?php echo $user->id?>" 
+                                               data-dep-id="<?php echo $departament->id?>" 
+                                               data-mode="individual"
+                                               <?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>data-self-edit="true"<?php endif; ?>
+                                               <?php if (in_array($departament->id,$userDepartamentsRead)) : ?>checked="checked"<?php endif; ?> 
+                                               title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>">
+                                        <span class="text-muted fs12"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?></span>
+                                    </label>
+                                <?php else : ?>
+                                    <?php if (in_array($departament->id,$userDepartamentsRead)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>">visibility</span><?php endif; ?>
+                                <?php endif; ?>
 
-                            <?php if (in_array($departament->id,$userDepartamentsRead)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>">visibility</span><?php endif; ?>
-
-                            <?php if (in_array($departament->id,$userDepartamentsAutoExc)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?>">group_off</span><?php endif; ?>
+                                <?php if (in_array($departament->id,$userDepartamentsAutoExc)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?>">group_off</span><?php endif; ?>
+                          
 
                             <span class="badge bg-secondary<?php if (!isset($departmentEditParams['individual']['all_dep'][$departament->id]['assign_priority']) || $departmentEditParams['individual']['all_dep'][$departament->id]['assign_priority'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assignment priority, optional, default - 0')?>">
                                 <span class="material-icons">transfer_within_a_station</span><?php if (isset($departmentEditParams['individual']['all_dep'][$departament->id])) : ?><?php echo $departmentEditParams['individual']['all_dep'][$departament->id]['assign_priority']?><?php else : ?>0<?php endif;?>
@@ -88,7 +102,7 @@
 
                             <?php if ($canEditDepartment == true) : ?><a data-ajax-remove="dep-indv-id-<?php echo $departament->id?>" href="<?php echo erLhcoreClassDesign::baseurl('user/editdepartment')?>/<?php echo $user->id?>/<?php echo $departament->id?>/(action)/remove<?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove')?>" data-trans="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Are you sure you want to remove this department assignment?')?>" class="material-icons action-image text-danger csfr-required csfr-post">delete</a><?php endif; ?>
 
-                        </label>
+                            </div>
                 </div>
                 <?php endif; ?>
 
@@ -115,7 +129,7 @@
             <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Departments groups')?>
 
                 <?php if ( $departmentEditParams['groups']['edit_all'] || $departmentEditParams['groups']['edit_personal']) : ?>
-                <a class="btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/newdepartment/<?php echo $user->id?>/(mode)/group<?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>'})"><span class="material-icons fs11 me-0">add</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a></h5>
+                <a class="ms-1 btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/newdepartment/<?php echo $user->id?>/(mode)/group<?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>'})"><span class="material-icons fs11 me-0">add</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a></h5>
                 <?php endif; ?>
 
             <div class="row">
@@ -127,8 +141,7 @@
             <div class="col-12" id="depgroup-indv-id-<?php echo $departamentGroup->id?>">
 
                 <hr class="pb-1 mb-0 mt-1 border-top">
-
-                <label class="fw-bold <?php if ($canEditDepartment != true) : ?>text-muted<?php endif; ?>" ng-non-bindable>
+                <div class="fw-bold <?php if ($canEditDepartment != true) : ?>text-muted<?php endif; ?>" ng-non-bindable>
 
                     <span <?php if ($canEditDepartment == true) : ?>onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + '/user/editdepartment/<?php echo $user->id?>/<?php echo $departamentGroup->id?>/(mode)/group<?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Edit')?>" <?php endif;?> class="material-icons <?php if ($canEditDepartment != true) : ?>text-muted<?php else : ?>action-image<?php endif; ?>"><?php if ($canEditDepartment != true) : ?>edit_off<?php else : ?>edit<?php endif; ?></span>
 
@@ -151,9 +164,24 @@
                         <?php endif;?>
                     <?php endif; ?>
 
-                    <?php if (in_array($departamentGroup->id,$userDepartamentsGroupRead)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>">visibility</span><?php endif; ?>
+                    
+                        <?php if ($canEditDepartment == true) : ?>
+                            <label class="badge form-check-label d-inline-flex align-items-center">
+                                <input type="checkbox" class="form-check-input dep-readonly-toggle me-1" 
+                                       data-user-id="<?php echo $user->id?>" 
+                                       data-dep-id="<?php echo $departamentGroup->id?>" 
+                                       data-mode="group"
+                                       <?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>data-self-edit="true"<?php endif; ?>
+                                       <?php if (in_array($departamentGroup->id,$userDepartamentsGroupRead)) : ?>checked="checked"<?php endif; ?> 
+                                       title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>">
+                                <span class="text-muted fs12"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?></span>
+                            </label>
+                        <?php else : ?>
+                            <?php if (in_array($departamentGroup->id,$userDepartamentsGroupRead)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>">visibility</span><?php endif; ?>
+                        <?php endif; ?>
 
-                    <?php if (in_array($departamentGroup->id,$userDepartamentsGroupAutoExc)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?>">group_off</span><?php endif; ?>
+                        <?php if (in_array($departamentGroup->id,$userDepartamentsGroupAutoExc)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?>">group_off</span><?php endif; ?>
+                    
 
                     <span class="badge bg-secondary<?php if (!isset($departmentEditParams['groups']['all_group'][$departamentGroup->id]['assign_priority']) || $departmentEditParams['groups']['all_group'][$departamentGroup->id]['assign_priority'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assignment priority, optional, default - 0')?>">
                         <span class="material-icons">transfer_within_a_station</span><?php if (isset($departmentEditParams['groups']['all_group'][$departamentGroup->id]['assign_priority'])) : ?><?php echo $departmentEditParams['groups']['all_group'][$departamentGroup->id]['assign_priority']?><?php else : ?>0<?php endif;?>
@@ -169,7 +197,7 @@
 
                     <?php if ($canEditDepartment == true) : ?><a data-ajax-remove="depgroup-indv-id-<?php echo $departamentGroup->id?>" href="<?php echo erLhcoreClassDesign::baseurl('user/editdepartment')?>/<?php echo $user->id?>/<?php echo $departamentGroup->id?>/(action)/remove/(mode)/group<?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove')?>" data-trans="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Are you sure you want to remove this department group assignment?')?>" class="material-icons action-image text-danger csfr-required csfr-post">delete</a><?php endif; ?>
 
-                </label>
+                    </div>
             </div>
 
                 <?php endif; endif; endforeach;?>
@@ -180,3 +208,50 @@
     <?php endif;?>
   
 </div>
+
+<script>
+$(document).ready(function() {
+    $('.dep-readonly-toggle').on('change', function() {
+        var checkbox = $(this);
+        var userId = checkbox.data('user-id');
+        var depId = checkbox.data('dep-id');
+        var mode = checkbox.data('mode');
+        var selfEdit = checkbox.data('self-edit') === true;
+        var isChecked = checkbox.is(':checked');
+        var textSpan = checkbox.next('span.text-muted');
+        var originalText = textSpan.text();
+        
+        // Build URL
+        var url = WWW_DIR_JAVASCRIPT + 'user/editdepartment/' + userId + '/' + depId + '/(action)/toggle_readonly';
+        if (mode === 'group') {
+            url += '/(mode)/group';
+        }
+
+        if (selfEdit) {
+            url += '/(editor)/self';
+        }
+        
+        // Disable checkbox during request
+        checkbox.prop('disabled', true);
+        
+        $.postJSON(url, function (response) {
+            if (response.error === false) {
+                checkbox.prop('checked', response.read_only == 1);
+                
+                // Add checkmark to indicate successful update and revert after 1 second
+                textSpan.text(originalText + ' ✓');
+                setTimeout(function() {
+                    textSpan.text(originalText);
+                }, 1000);
+            } else {
+                checkbox.prop('checked', !isChecked);
+            }
+            checkbox.prop('disabled', false);
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            checkbox.prop('checked', !isChecked);
+            checkbox.prop('disabled', false);
+        });
+
+    });
+});
+</script>
