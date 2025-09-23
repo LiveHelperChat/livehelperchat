@@ -28,6 +28,9 @@ try {
         ),
         'status' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        ),
+        'no_event' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
 
@@ -328,7 +331,9 @@ try {
 
                 echo erLhcoreClassChat::safe_json_encode(array('error' => false, 'r' => $returnBody, 'msg' => $msg->getState()) + $customArgs);
 
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg,'chat' => & $Chat));
+                if (!$form->hasValidData('no_event') || $form->no_event === false) {
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $Chat));
+                }
 
             } else {
                 throw new Exception('You cannot read this chat!');
