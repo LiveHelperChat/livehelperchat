@@ -161,6 +161,10 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
         } else {
             $userDep->read_only = $userDep->read_only == 1 ? 0 : 1;
             $userDep->updateThis(['update' => ['read_only']]);
+
+            if ($dep instanceof erLhcoreClassModelDepartamentGroup) {
+                $userDep->afterSave();
+            }
         }
 
         erLhcoreClassLog::logObjectChange(array(
