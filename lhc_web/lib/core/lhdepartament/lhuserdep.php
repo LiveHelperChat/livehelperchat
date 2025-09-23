@@ -43,13 +43,19 @@ class erLhcoreClassUserDep
 
         $idArray = array();
         $idArrayRo = array();
-
+        $idArrayWrite = array();
+        
         foreach ($rows as $row) {
             $idArray[] = $row['dep_id'];
             if ($row['ro'] == 1) {
                 $idArrayRo[] = $row['dep_id'];
+            } else {
+                $idArrayWrite[] = $row['dep_id'];
             }
         }
+
+        // Remove write departments from read only
+        $idArrayRo = array_diff($idArrayRo, $idArrayWrite);
 
         $GLOBALS['lhCacheUserDepartaments_' . $userID . '_' . $cacheVersion] = $idArray;
         $_SESSION['lhCacheUserDepartaments_' . $userID . '_' . $cacheVersion] = $idArray;
