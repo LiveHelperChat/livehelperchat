@@ -155,6 +155,10 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
         $depData = $userDep->getState();
         
         // Toggle read_only status
+
+        $db = ezcDbInstance::get();
+        $db->beginTransaction();
+
         if (get_class($userDep) == 'erLhcoreClassModelUserDep') {
             $userDep->ro = $userDep->ro == 1 ? 0 : 1;
             $userDep->updateThis(['update' => ['ro']]);
@@ -166,6 +170,8 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
                 $userDep->afterSave();
             }
         }
+
+        $db->commit();
 
         erLhcoreClassLog::logObjectChange(array(
             'object' => $user,
@@ -189,12 +195,17 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
             $response = array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token'));
         }
 
+        $db = ezcDbInstance::get();
+        $db->beginTransaction();
+
         $userDep->removeThis();
         $userDepAlias->id > 0 && $userDepAlias->removeThis();
 
         $prevDepIds = $user->departments_ids;
         $user->departments_ids = implode(',', erLhcoreClassModelUserDep::getCount(['filter' => ['user_id' => $user->id]],'count','dep_id','dep_id',false, true, true) );
         $user->updateThis(['update' => ['departments_ids','cache_version']]);
+
+        $db->commit();
 
         erLhcoreClassLog::logObjectChange(array(
             'object' => $user,
