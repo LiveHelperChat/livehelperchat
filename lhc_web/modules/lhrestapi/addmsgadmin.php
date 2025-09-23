@@ -40,7 +40,7 @@ try {
         try {
             $db->beginTransaction();
 
-            $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $form->chat_id);
+            $Chat = erLhcoreClassModelChat::fetchAndLock($form->chat_id);
 
             if (!($Chat instanceof erLhcoreClassModelChat)) {
                 throw new Exception('Chat could not be found!');
