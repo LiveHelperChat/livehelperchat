@@ -171,6 +171,7 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
             }
         }
 
+        $user->updateThis(['update' => ['cache_version']]);
         $db->commit();
 
         erLhcoreClassLog::logObjectChange(array(
