@@ -687,7 +687,10 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
         $depIds = array_merge($depIds, $Params['user_parameters_unordered']['operatord']);
     }
     
+    
     if (!empty($depIds)) {
+        // replace in array $depIds -1 value with -2
+        $depIds = array_map(function($val) { return $val == -1 ? -2 : $val; }, $depIds);
         $filter['customfilter'][] = '(dep_id = 0 OR dep_id IN ('.implode(",", $depIds).'))';
     }
 
