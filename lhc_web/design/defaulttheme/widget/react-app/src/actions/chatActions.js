@@ -789,7 +789,7 @@ export function addMessage(obj, ignoreAdd) {
             .catch((error) => {
                 if (isNetworkError(error)) {
                     dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: "SEND_CONNECTION", "msg" : obj.msg}});
-                    dispatch({type: "NO_CONNECTION", data: true});
+                    dispatch({type: "NO_CONNECTION_HARD", data: true});
                 } else {
                     syncStatus.error_counter++;
 

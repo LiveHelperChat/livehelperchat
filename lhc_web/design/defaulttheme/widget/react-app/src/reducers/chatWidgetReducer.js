@@ -16,6 +16,7 @@ const initialState = fromJS({
     pvhash: null,
     phash: null,
     network_down: false,
+    network_failure_count: 0,
     leave_message: true,
     mode: 'widget',
     overrides: [], // we store here extensions flags. Like do we override typing monitoring so we send every request
@@ -172,7 +173,9 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('chatEnded',true)
                 .set('initClose',false)
                 .set('msgLoaded',false)
-                .set('initLoaded',false);
+                .set('initLoaded',false)
+                .set('network_down', false)
+                .set('network_failure_count', 0);
         }
 
         case 'chat_status_changed':
@@ -411,6 +414,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('msgLoaded', true)
                 .setIn(['chatLiveData','lock_send'], action.data.lock_send ? true : false)
                 .set('network_down', false)
+                .set('network_failure_count', 0)
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true)
         }
 
@@ -431,6 +435,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .setIn(['chatLiveData','ru'], action.data.ru ? action.data.ru : null)
                 .set('chat_ui',state.get('chat_ui').merge(fromJS(action.data.chat_ui)))
                 .set('network_down', false)
+                .set('network_failure_count', 0)
                 .setIn(['chatLiveData','status_sub'], action.data.status_sub);
         }
 
@@ -464,8 +469,24 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .setIn(['chatLiveData','msg_to_store'], fromJS([]));
         }
 
+        case 'NO_CONNECTION_HARD':
         case 'NO_CONNECTION': {
-            return state.set('network_down', action.data);
+            if (action.type === 'NO_CONNECTION_HARD') {
+                return state.set('network_down', action.data);
+            }
+            
+            if (action.type === 'NO_CONNECTION') {
+                const currentFailureCount = state.get('network_failure_count');
+                const newFailureCount = currentFailureCount + 1;
+                
+                // Set network_down to true only after 2 consecutive failures
+                if (newFailureCount >= 2) {
+                    return state.set('network_down', true)
+                                .set('network_failure_count', newFailureCount);
+                } else {
+                    return state.set('network_failure_count', newFailureCount);
+                }
+            }
         }
 
         default:
