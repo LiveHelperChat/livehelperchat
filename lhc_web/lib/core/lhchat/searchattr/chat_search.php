@@ -330,7 +330,7 @@ $fieldsSearch['priority_from'] = array (
     'trans' => 'id',
     'required' => false,
     'valid_if_filled' => false,
-    'filter_type' => 'filtergt',
+    'filter_type' => 'filtergte',
     'filter_table_field' => 'priority',
     'validation_definition' => new ezcInputFormDefinitionElement (
         ezcInputFormDefinitionElement::OPTIONAL, 'int'
