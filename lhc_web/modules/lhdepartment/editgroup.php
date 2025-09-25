@@ -32,6 +32,13 @@ if ($Params['user_parameters_unordered']['action'] == 'operators') {
     exit;
 }
 
+if ($Params['user_parameters_unordered']['action'] == 'depgroupstats') {
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhdepartment/depgroupstats.tpl.php');
+    $tpl->set('department_group', $Departament_group);
+    echo $tpl->fetch();
+    exit;
+}
+
 if ($Params['user_parameters_unordered']['action'] == 'updatestats') {
     erLhcoreClassChatStatsResque::updateDepartmentGroupStats($Departament_group);
     erLhcoreClassModule::redirect('department/group');

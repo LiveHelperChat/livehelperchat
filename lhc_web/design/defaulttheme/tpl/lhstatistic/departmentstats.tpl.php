@@ -12,6 +12,7 @@ $modalBodyClass = 'p-1'
             <li role="presentation" class="nav-item"><a href="#dep-chats-users" class="nav-link" aria-controls="dep-chats-users" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats operators');?></a></li>
             <?php if (isset($department)) : ?>
             <li role="presentation" class="nav-item"><a href="#online-status" class="nav-link" aria-controls="online-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online status');?></a></li>
+            <li role="presentation" class="nav-item"><a href="#depgroups-stat" class="nav-link" aria-controls="depgroups-stat" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Department groups');?></a></li>
             <?php endif; ?>
         </ul>
         <div class="tab-content">
@@ -391,6 +392,77 @@ $modalBodyClass = 'p-1'
 
             </div>
             <?php if (isset($department)) : ?>
+                
+            <div role="tabpanel" class="tab-pane" id="depgroups-stat">
+                <?php
+                // Get department group memberships for this department
+                $departmentGroupMemberships = erLhcoreClassModelDepartamentGroupMember::getList(array(
+                    'limit' => false,
+                    'filter' => array('dep_id' => $department->id),
+                    'sort' => false
+                ));
+
+                $departmentGroups = array();
+                if (!empty($departmentGroupMemberships)) {
+                    $groupIds = array();
+                    foreach ($departmentGroupMemberships as $membership) {
+                        $groupIds[] = $membership->dep_group_id;
+                    }
+                    
+                    if (!empty($groupIds)) {
+                        $departmentGroups = erLhcoreClassModelDepartamentGroup::getList(array(
+                            'limit' => false,
+                            'filter' => array('id' => $groupIds),
+                            'sort' => 'name ASC'
+                        ));
+                    }
+                }
+                ?>
+                     
+                <?php if (empty($departmentGroups)) : ?>
+                    <div class="alert alert-info">
+                        <i class="material-icons">info</i>
+                        <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Information');?></strong>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','This department is not assigned to any department groups.')?>
+                    </div>
+                <?php else : ?>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped w-100">
+                            <thead>
+                                <tr>
+                                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Department Group')?></th>
+                                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Active chats')?></th>
+                                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Pending chats')?></th>
+                                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Bot chats')?></th>
+                                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Inactive chats')?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($departmentGroups as $depGroup) : ?>
+                                <tr>
+                                    <td>
+                                        <?php echo htmlspecialchars($depGroup->name)?><?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment', 'managegroups')) : ?><a class="ms-1" href="<?php echo erLhcoreClassDesign::baseurl('department/editgroup')?>/<?php echo $depGroup->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Edit group')?>"><i class="material-icons">edit</i></a><?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-success"><?php echo (int)$depGroup->achats_cnt?></span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-warning"><?php echo (int)$depGroup->pchats_cnt?></span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-info"><?php echo (int)$depGroup->bchats_cnt?></span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-secondary"><?php echo (int)$depGroup->inachats_cnt?></span>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                <?php endif; ?>
+            </div>
+
             <div role="tabpanel" class="tab-pane" id="online-status">
                 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online settings');?></h5>
                 <ul>
