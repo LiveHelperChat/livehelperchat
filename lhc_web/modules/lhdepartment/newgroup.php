@@ -18,16 +18,27 @@ if (isset($_POST['Save_departament']))
 
     if (count($Errors) == 0)
     {
-        $Departament_group->saveThis();
-        
-        erLhcoreClassDepartament::validateDepartmentGroupDepartments($Departament_group);
+        $db = ezcDbInstance::get();
+        $db->beginTransaction();
 
-        erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
+        try {
 
-        erLhcoreClassChatStatsResque::updateDepartmentGroupStats($Departament_group);
+            $Departament_group->saveThis();
 
-        erLhcoreClassModule::redirect('department/group');
-        exit ;
+            erLhcoreClassDepartament::validateDepartmentGroupDepartments($Departament_group);
+
+            erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
+
+            erLhcoreClassChatStatsResque::updateDepartmentGroupStats($Departament_group);
+
+            $db->commit();
+
+            erLhcoreClassModule::redirect('department/group');
+            exit ;
+        } catch (Exception $e) {
+            $db->rollback();
+            $tpl->set('errors',[$e->getMessage()]);
+        }
 
     } else {
         $tpl->set('errors',$Errors);
