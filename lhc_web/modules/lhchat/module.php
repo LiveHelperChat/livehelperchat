@@ -310,6 +310,8 @@ $ViewList['list'] = array(
         'mart_till',
         'aart_till',
         'aart_from',
+        'priority_from',
+        'priority_till',
         'ipp'
         ),
     'functions' => array( 'use' ),

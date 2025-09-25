@@ -325,6 +325,30 @@ $fieldsSearch['wait_time_till'] = array (
     )
 );
 
+$fieldsSearch['priority_from'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filtergt',
+    'filter_table_field' => 'priority',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['priority_till'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterlte',
+    'filter_table_field' => 'priority',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
 $fieldsSearch['frt_from'] = array (
     'type' => 'text',
     'trans' => 'id',

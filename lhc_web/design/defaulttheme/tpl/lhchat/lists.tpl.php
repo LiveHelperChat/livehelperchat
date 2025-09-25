@@ -93,6 +93,10 @@
                                         <span class="badge bg-info mx-1" <?php if ($subject->color != '') : ?>style="background-color:#<?php echo htmlspecialchars($subject->color)?>!important;" <?php endif;?>><?php echo htmlspecialchars($subject)?></span>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
+
+
+                                <?php if ($chat->priority > 0) : ?><span class="badge text-bg-light text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists','Priority');?>"><span class="material-icons">label</span><?php echo $chat->priority?></span><?php endif; ?>
+
                             </td>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/additional_chat_column_row.tpl.php'));?>
                             <td nowrap>
