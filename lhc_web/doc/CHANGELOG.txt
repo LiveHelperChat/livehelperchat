@@ -1,3 +1,86 @@
+4.71v
+
+1. Department Management and User Administration
+   - Enhanced department group statistics modal for better oversight of group performance
+   - Implemented read-only status toggle for department assignments with visual feedback
+   - Added confirmation modal for assigned department edits to prevent accidental changes
+   - Improved user department management with transaction handling for data integrity
+   - Added utility to cleanup orphan departments and maintain database consistency
+   - Enhanced department assignment UI with better UX and simultaneous request prevention
+   - Added filtering for users by assigned departments for improved navigation
+   - Implemented department limitation handling and cache version updates on changes
+   - Added red/green color indicators for operator online status visibility
+
+2. Bot System and Webhook Improvements
+   - Enhanced bot conditions handling with condition identifiers for better query filtering
+   - Updated trigger link display to show bot name alongside trigger name for clarity
+   - Disabled cache for bot actions and conditions to ensure real-time updates
+   - Added 'single_event' support to webhook functionality for better event handling
+   - Implemented webhook search panel with filtering capabilities for easier management
+   - Added event field to webhook search panel and configuration options
+   - Enhanced bot trigger validation with improved button assignment verification
+   - Added support for conditional text generation in bot responses
+   - Implemented 'sub_source' parameter to sendBotResponse for better tracking
+   - Added option to check chat status after REST API calls
+
+3. File Management and Image Processing
+   - Added HEIC image conversion support in verifyaccess.php for modern image formats
+   - Implemented file download restrictions and settings to mail conversation module
+   - Enhanced image verification process with re-verification features
+   - Added modal display for attached image files with better user experience
+   - Implemented resize support for form files to optimize storage and performance
+   - Added option to download files inline with modal interface
+   - Enhanced file extension detection and validation for security
+   - Added fallback options when browser cannot render images
+   - Implemented option to ignore specific image files during verification
+   - Added resize functionality for large mail message screenshots
+
+4. Chat System and Message Handling
+   - Added system message indicating when chat was accepted by operator
+   - Enhanced image handling and conditions in the chat system
+   - Implemented separate events for messages added via incoming webhooks
+   - Added loading spinner overlay to main widget for better user feedback
+   - Enhanced form submission experience with spinner on submit button
+   - Added option to inherit start chat form settings for consistency
+   - Improved message handling with better error display and validation
+   - Enhanced chat search capabilities with message ID search functionality
+   - Added support for raw file embed syntax in chat messages
+   - Implemented conditional text generation for dynamic responses
+
+5. Security and Performance Improvements
+   - Implemented strict locking mechanisms for critical operations
+   - Added transaction handling for operator transfers and chat attribute updates
+   - Enhanced permission checking in export functions for better security
+   - Implemented proper transaction handling for icon operations
+   - Added cache clearing mechanisms for improved performance
+   - Enhanced error handling for failed file downloads and operations
+   - Implemented audit log truncation option from back office
+   - Added better logging for auto assignment operations and error tracking
+   - Enhanced REST API with option to skip empty body requests
+
+6. User Interface and Experience Enhancements
+   - Enhanced department assignment functionality with improved UI feedback
+   - Added 'user-select-none' class to labels for better user experience
+   - Implemented lazy load option for widget theme optimization
+   - Added argument titles to command execution for better clarity
+   - Enhanced form styling with improved input field appearance
+   - Added link to documentation for better user guidance
+   - Updated React app version with enhanced network failure handling
+   - Improved checkbox re-enabling logic after request completion
+   - Added nowrap styling for department group lists for better display
+
+7. System Maintenance and Bug Fixes
+   - Fixed issue #2298, #2304, #2305, #2306 addressing various system bugs
+   - Updated dependencies and php-imap reference for security and compatibility
+   - Enhanced error handling for non-existing users in reports
+   - Fixed replacement process and edge case scenarios
+   - Improved file type validation and extension setting for known formats
+   - Fixed undefined display issues in pending wait time calculations
+   - Enhanced aggregation queries by removing duplicates for better performance
+   - Updated default translations for better internationalization support
+
+execute doc/update_db/update_339.sql for update
+
 4.70v
 
 1. REST API and Bot Enhancements

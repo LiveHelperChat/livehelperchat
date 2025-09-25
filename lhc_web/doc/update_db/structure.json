@@ -11865,6 +11865,12 @@
       },
       "old" : ["device_token_device_type"]
     },
+    "lh_departament_group_member" : {
+      "new" : {
+        "dep_group_id_dep_id" : "DELETE t1 FROM `lh_departament_group_member` t1 INNER JOIN `lh_departament_group_member` t2 ON t1.`dep_group_id` = t2.`dep_group_id` AND t1.`dep_id` = t2.`dep_id` WHERE t1.id > t2.id; ALTER TABLE `lh_departament_group_member` ADD UNIQUE `dep_group_id_dep_id` (`dep_group_id`, `dep_id`);"
+      },
+      "old" : ["dep_group_id"]
+    },
     "lh_chat_blocked_user" : {
       "new" : {
         "nick" : "ALTER TABLE `lh_chat_blocked_user` ADD INDEX `nick` (`nick`);",
@@ -12262,7 +12268,7 @@
     "lh_abstract_rest_api_key": "CREATE TABLE `lh_abstract_rest_api_key` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `api_key` varchar(50) NOT NULL,  `user_id` int(11) NOT NULL,  `active` int(11) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`),  KEY `user_id` (`user_id`),  KEY `api_key_active` (`api_key`,`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_abstract_rest_api_key_remote": "CREATE TABLE `lh_abstract_rest_api_key_remote` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `api_key` varchar(50) NOT NULL, `username` varchar(50) NOT NULL, `name` varchar(50) NOT NULL,  `host` varchar(250) NOT NULL, `active` tinyint(1) NOT NULL DEFAULT '0', `position` int(11) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`), KEY `active` (`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_departament_group_user": "CREATE TABLE `lh_departament_group_user` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `dep_group_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  `read_only` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `exc_indv_autoasign` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `assign_priority` int(11) unsigned NOT NULL DEFAULT 0,\n  `chat_min_priority` int(11) unsigned NOT NULL DEFAULT 0,\n  `chat_max_priority` int(11) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `dep_group_id` (`dep_group_id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=382 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci\n",
-    "lh_departament_group_member": "CREATE TABLE `lh_departament_group_member` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_id` int(11) NOT NULL,  `dep_group_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_group_id` (`dep_group_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lh_departament_group_member": "CREATE TABLE `lh_departament_group_member` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_id` int(11) NOT NULL,  `dep_group_id` int(11) NOT NULL,  PRIMARY KEY (`id`), UNIQUE KEY `dep_group_id_dep_id` (`dep_group_id`,`dep_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_departament_limit_group_member": "CREATE TABLE `lh_departament_limit_group_member` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `dep_id` int(11) NOT NULL,  `dep_limit_group_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `dep_limit_group_id` (`dep_limit_group_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_departament_group": "CREATE TABLE `lh_departament_group` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_departament_limit_group": "CREATE TABLE `lh_departament_limit_group` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(50) NOT NULL,`pending_max` int(11) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",

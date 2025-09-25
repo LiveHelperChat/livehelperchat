@@ -55,16 +55,27 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 	$Errors = erLhcoreClassDepartament::validateDepartmentGroup($Departament_group);
 	
     if (count($Errors) == 0)
-    {    	
-        $Departament_group->updateThis();
+    {
+        $db = ezcDbInstance::get();
+        $db->beginTransaction();
 
-        erLhcoreClassDepartament::validateDepartmentGroupDepartments($Departament_group);
+        try {
+            $Departament_group->updateThis();
+            $Departament_group->syncAndLock('`id`');
 
-        erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
+            erLhcoreClassDepartament::validateDepartmentGroupDepartments($Departament_group);
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('department.edit_department_group',array('department_group' => & $Departament_group));
+            erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 
-        erLhcoreClassChatStatsResque::updateDepartmentGroupStats($Departament_group);
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('department.edit_department_group',array('department_group' => & $Departament_group));
+
+            erLhcoreClassChatStatsResque::updateDepartmentGroupStats($Departament_group);
+
+            $db->commit();
+        } catch (Exception $e) {
+            $db->rollback();
+            $tpl->set('errors',[$e->getMessage()]);
+        }
 
         if (isset($_POST['Save_departament'])) {
             erLhcoreClassModule::redirect('department/group');

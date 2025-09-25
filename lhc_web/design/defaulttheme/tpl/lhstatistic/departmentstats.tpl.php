@@ -402,24 +402,9 @@ $modalBodyClass = 'p-1'
                     'sort' => false
                 ));
 
-                $departmentGroups = array();
-                if (!empty($departmentGroupMemberships)) {
-                    $groupIds = array();
-                    foreach ($departmentGroupMemberships as $membership) {
-                        $groupIds[] = $membership->dep_group_id;
-                    }
-                    
-                    if (!empty($groupIds)) {
-                        $departmentGroups = erLhcoreClassModelDepartamentGroup::getList(array(
-                            'limit' => false,
-                            'filter' => array('id' => $groupIds),
-                            'sort' => 'name ASC'
-                        ));
-                    }
-                }
                 ?>
                      
-                <?php if (empty($departmentGroups)) : ?>
+                <?php if (empty($departmentGroupMemberships)) : ?>
                     <div class="alert alert-info">
                         <i class="material-icons">info</i>
                         <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Information');?></strong>
@@ -438,22 +423,22 @@ $modalBodyClass = 'p-1'
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($departmentGroups as $depGroup) : ?>
+                                <?php foreach ($departmentGroupMemberships as $depGroupmember) : $depGroup = erLhcoreClassModelDepartamentGroup::fetch($depGroupmember->dep_group_id);?>
                                 <tr>
                                     <td>
-                                        <?php echo htmlspecialchars($depGroup->name)?><?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment', 'managegroups')) : ?><a class="ms-1" href="<?php echo erLhcoreClassDesign::baseurl('department/editgroup')?>/<?php echo $depGroup->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Edit group')?>"><i class="material-icons">edit</i></a><?php endif; ?>
+                                        <?php echo htmlspecialchars($depGroup?->name); ?><?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment', 'managegroups')) : ?><a class="ms-1" href="<?php echo erLhcoreClassDesign::baseurl('department/editgroup')?>/<?php echo $depGroup?->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Edit group')?>"><i class="material-icons">edit</i></a><?php endif; ?>
                                     </td>
                                     <td>
-                                        <span class="badge bg-success"><?php echo (int)$depGroup->achats_cnt?></span>
+                                        <span class="badge bg-success"><?php echo (int)$depGroup?->achats_cnt?></span>
                                     </td>
                                     <td>
-                                        <span class="badge bg-warning"><?php echo (int)$depGroup->pchats_cnt?></span>
+                                        <span class="badge bg-warning"><?php echo (int)$depGroup?->pchats_cnt?></span>
                                     </td>
                                     <td>
-                                        <span class="badge bg-info"><?php echo (int)$depGroup->bchats_cnt?></span>
+                                        <span class="badge bg-info"><?php echo (int)$depGroup?->bchats_cnt?></span>
                                     </td>
                                     <td>
-                                        <span class="badge bg-secondary"><?php echo (int)$depGroup->inachats_cnt?></span>
+                                        <span class="badge bg-secondary"><?php echo (int)$depGroup?->inachats_cnt?></span>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

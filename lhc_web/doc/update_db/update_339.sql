@@ -1,0 +1,3 @@
+DELETE t1 FROM `lh_departament_group_member` t1 INNER JOIN `lh_departament_group_member` t2 ON t1.`dep_group_id` = t2.`dep_group_id` AND t1.`dep_id` = t2.`dep_id` WHERE t1.id > t2.id;
+DELETE t1 FROM `lh_userdep` t1 INNER JOIN `lh_userdep` t2  ON t1.`user_id` = t2.`user_id` AND t1.`dep_id` = t2.`dep_id` AND t1.`dep_group_id` = t2.`dep_group_id` AND t1.`type` = t2.`type` WHERE t1.id > t2.id AND t1.type = 1;
+ALTER TABLE `lh_departament_group_member` ADD UNIQUE `dep_group_id_dep_id` (`dep_group_id`, `dep_id`);

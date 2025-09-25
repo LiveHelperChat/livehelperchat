@@ -1909,7 +1909,7 @@ try {
                   `dep_id` int(11) NOT NULL,
                   `dep_group_id` int(11) NOT NULL,
                   PRIMARY KEY (`id`),
-                  KEY `dep_group_id` (`dep_group_id`)
+                  UNIQUE KEY `dep_group_id_dep_id` (`dep_group_id`,`dep_id`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_generic_bot_rest_api` (`id` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(50) NOT NULL, `description` varchar(250), `configuration` longtext NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
