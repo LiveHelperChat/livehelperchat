@@ -95,7 +95,7 @@
                                 <?php endif; ?>
 
 
-                                <?php if ($chat->priority > 0) : ?><span class="badge text-bg-light text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists','Priority');?>"><span class="material-icons">label</span><?php echo $chat->priority?></span><?php endif; ?>
+                                <?php if ($chat->priority > 0) : ?><span class="text-muted fs11" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists','Priority');?>"><span class="material-icons me-0">label</span><?php echo $chat->priority?></span><?php endif; ?>
 
                             </td>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/additional_chat_column_row.tpl.php'));?>
