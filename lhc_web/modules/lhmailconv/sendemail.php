@@ -76,7 +76,7 @@ if (ezcInputForm::hasPostData()) {
             $response['errors'][] = $e->getMessage();
         }
 
-        if ($response['send'] == true) {
+        if ($response['send'] === true) {
             $tpl->set('updated',true);
             $tpl->set('outcome',$response);
             $tpl->set('item',$item);

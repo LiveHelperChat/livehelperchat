@@ -25,7 +25,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 
     <?php if (isset($outcome['copy'])) : ?>
-        <?php if ($outcome['copy']['success'] == false) : ?>
+        <?php if ($outcome['copy']['success'] === false) : ?>
             <?php $errors = [$outcome['copy']['reason']]; ?>
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
         <?php endif; ?>
@@ -49,7 +49,7 @@
                 var counter = 0;
                 var scheduled = 0;
                 var interval = setInterval(function () {
-                $.postJSON(WWW_DIR_JAVASCRIPT + 'mailconv/geticketbymessageid/',{'scheduled': scheduled, 'counter': counter, 'mailbox_id': <?php echo $item->mailbox_id?>, 'message_id': <?php echo json_encode($outcome['copy']['message_id'])?>}, function (data) {
+                $.postJSON(WWW_DIR_JAVASCRIPT + 'mailconv/geticketbymessageid/',{'copy_id' : <?php echo json_encode($outcome['copy']['copy_id'] ?: 0)?>, 'scheduled': scheduled, 'counter': counter, 'mailbox_id': <?php echo $item->mailbox_id?>, 'message_id': <?php echo json_encode($outcome['copy']['message_id'])?>}, function (data) {
                     if (data.found == true) {
                         $('#ticket-progress').html(data.conversation);
                         clearInterval(interval);

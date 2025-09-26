@@ -54,6 +54,19 @@ $fieldsSearch['search_id'] = array (
     )
 );
 
+$fieldsSearch['message_id'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'multiple_id' => true,
+    'requires_positive' => true,
+    'filter_type' => 'none',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+    )
+);
+
 $fieldsSearch['ids'] = array (
     'type' => 'text',
     'trans' => 'id',

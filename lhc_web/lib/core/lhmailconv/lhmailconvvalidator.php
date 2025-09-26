@@ -962,7 +962,7 @@ class erLhcoreClassMailconvValidator {
             $inst_id = class_exists('\erLhcoreClassInstance') ? \erLhcoreClassInstance::$instanceChat->id : 0;
             erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array('inst_id' => $inst_id));
 
-            return ['success' => true, 'message_id' => $mail->getLastMessageID()];
+            return ['success' => true, 'message_id' => $mail->getLastMessageID(), 'copy_id' => $copyRecord->id];
         }
 
         if ($mailbox->auth_method == \erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {

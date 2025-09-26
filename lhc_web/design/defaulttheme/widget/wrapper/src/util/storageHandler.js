@@ -99,11 +99,17 @@ export class storageHandler {
                 // Delete with current host domain
                 document.cookie = reset + "; domain=." + host;
                 
-                // If host contains subdomain, also try parent domain
+                // Try parent domains by removing subdomains from the beginning
                 let hostParts = host.split('.');
                 if (hostParts.length > 2) {
-                    let parentDomain = hostParts.slice(-2).join('.');
-                    document.cookie = reset + "; domain=." + parentDomain;
+                    // Start from index 1 and try each parent domain level
+                    for (let i = 1; i < hostParts.length - 1; i++) {
+                        let parentDomain = hostParts.slice(i).join('.');
+                        // Only try domains that have at least one dot (avoid TLD-only attempts)
+                        if (parentDomain.includes('.')) {
+                            document.cookie = reset + "; domain=." + parentDomain;
+                        }
+                    }
                 }
             }
         }

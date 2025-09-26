@@ -154,6 +154,13 @@ if (is_numeric($filterParams['input_form']->is_external)) {
     $filterParams['filter']['filterin']['`lhc_mailconv_msg`.`is_external`'] = $filterParams['input_form']->is_external;
 }
 
+if (!empty($filterParams['input_form']->message_id)) {
+    $message = erLhcoreClassModelMailconvMessage::findOne(array('filter' => array('message_id' => $filterParams['input_form']->message_id, 'mailbox_id' => $filterParams['input_form']->mailbox_ids ?: 0)));
+    if (is_object($message) && $message instanceof erLhcoreClassModelMailconvMessage) {
+        $filterParams['filter']['filter']['id'] = $message->conversation_id;
+    }
+}
+
 if (in_array($Params['user_parameters_unordered']['export'], array(1)) && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','export_mails')) {
     if (ezcInputForm::hasPostData()) {
         session_write_close();

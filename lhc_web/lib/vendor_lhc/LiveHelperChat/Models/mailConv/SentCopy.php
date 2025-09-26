@@ -33,8 +33,11 @@ class SentCopy {
         return $this->mailbox_id;
     }
 
+    const STATUS_PENDING = 0;
+    const STATUS_IN_PROGRESS = 1;
+
     public $id = null;
     public $mailbox_id = null;
-    public $status = 0;
+    public $status = self::STATUS_PENDING;
     public $body = '';
 }
