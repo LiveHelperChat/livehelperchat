@@ -765,7 +765,7 @@
         <a class="material-icons" on:click={(e) => setSort('time_on_site')} title={$t('widget_options.time_on_site_shrt')}>access_time</a>
         <a class="material-icons" on:click={(e) => setSort('visitor_tz_time')} title={$t('widget_options.vis_local_time')}>access_time</a>
         {#if track_is_online}<a class="material-icons" on:click={(e) => setSort('last_check_time')} title={$t('widget_options.status_on_site')}>access_time</a>{/if}
-        <a href="#" on:click={(e) => setSort('current_page')} >{$t('widget_options.page')}</a> | <a href="#" on:click={(e) => setSort('referrer')}>{$t('widget_options.came_from')}</a> | <span title={$t('widget_options.only_connected')} on:click={(e) => ee.emitEvent('svelteOnlineUserSetting',['showConnected'])} class="material-icons action-image">{lhcLogic.online_connected ? 'flash_on' : 'flash_off'}</span>
+        <a href="#" on:click={(e) => setSort('current_page')} >{$t('widget_options.page')}</a> | <a href="#" on:click={(e) => setSort('referrer')}>{$t('widget_options.came_from')}</a>{#if online_check} | <span title={$t('widget_options.only_connected')} on:click={(e) => ee.emitEvent('svelteOnlineUserSetting',['showConnected'])} class="material-icons action-image">{lhcLogic.online_connected ? 'flash_on' : 'flash_off'}</span>{/if}
 
 
         <div class="float-end expand-actions">
