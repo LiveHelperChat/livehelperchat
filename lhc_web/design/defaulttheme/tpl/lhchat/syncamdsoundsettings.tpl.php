@@ -11,7 +11,7 @@
 <form action="" method="post" ng-non-bindable>
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','How many seconds for a user to be considered as being online');?></label>
-    <input type="text" name="OnlineTimeout" class="form-control" value="<?php echo htmlspecialchars(isset($sound_data['online_timeout']) ? $sound_data['online_timeout'] : '')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
+    <input type="number" min="60" name="OnlineTimeout" class="form-control" value="<?php echo htmlspecialchars(isset($sound_data['online_timeout']) ? $sound_data['online_timeout'] : '')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
 </div>
 
 <div class="form-group">
