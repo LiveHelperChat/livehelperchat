@@ -7,7 +7,9 @@ if ($Params['user_parameters_unordered']['action'] == 'reset') {
         exit;
     }
 
-    erLhcoreClassModelUserSetting::setSetting('dw_filters', '{}', false, true);
+    erLhcoreClassModelUserSetting::setSetting('dw_filters', '{}' );
+    erLhcoreClassModelUserSetting::setSetting('online_connected', '0');
+    
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit;
 }
