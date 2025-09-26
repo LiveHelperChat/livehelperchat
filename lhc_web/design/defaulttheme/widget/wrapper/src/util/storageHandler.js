@@ -88,12 +88,23 @@ export class storageHandler {
         }
 
         // Reset duplicate cookies
-        if (k.length == 2) {
+        if (k.length >= 2) {
             let host = (window.location.hostname || document.location.host),
             reset = baseCookie + "0;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+            
+            // Always try to delete without domain first
+            document.cookie = reset;
+            
             if (host) {
-                document.cookie = reset;
+                // Delete with current host domain
                 document.cookie = reset + "; domain=." + host;
+                
+                // If host contains subdomain, also try parent domain
+                let hostParts = host.split('.');
+                if (hostParts.length > 2) {
+                    let parentDomain = hostParts.slice(-2).join('.');
+                    document.cookie = reset + "; domain=." + parentDomain;
+                }
             }
         }
 
