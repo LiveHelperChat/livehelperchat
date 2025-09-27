@@ -247,7 +247,7 @@ try {
 
                         if (!$whisper && $Chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $messageUserId != -1) {
 
-                            if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($Chat)) {
+                            if ($userData->invisible_mode == 0 && erLhcoreClassRestAPIHandler::hasAccessToWrite($Chat)) {
                                 $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 
                                 $Chat->pnd_time = time() - 2;
