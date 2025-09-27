@@ -343,7 +343,7 @@ try {
 
         } catch (Exception $e) {
             http_response_code(400);
-            echo erLhcoreClassRestAPIHandler::outputResponse(array(
+            erLhcoreClassRestAPIHandler::outputResponse(array(
                 'error' => true,
                 'r' => $e->getMessage()
             ));
@@ -352,14 +352,14 @@ try {
 
     } else {
         http_response_code(400);
-        echo erLhcoreClassRestAPIHandler::outputResponse(array(
+        erLhcoreClassRestAPIHandler::outputResponse(array(
             'error' => true,
             'r' => "Please enter a message!"
         ));
     }
 } catch (Exception $e) {
     http_response_code(400);
-    echo erLhcoreClassRestAPIHandler::outputResponse(array(
+    erLhcoreClassRestAPIHandler::outputResponse(array(
         'error' => true,
         'r' => $e->getMessage()
     ));
