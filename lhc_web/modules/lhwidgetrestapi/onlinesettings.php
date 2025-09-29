@@ -75,6 +75,17 @@ if (isset($requestPayload['theme']) && !empty($requestPayload['theme'])) {
 // Departments
 $disabled_department = false;
 
+// If visitor is redirected from chat we want to keep same department for offline form
+if ($Params['user_parameters_unordered']['online'] == '0') {
+    if (isset($requestPayload['chat_id']) && isset($requestPayload['chat_hash']) && $requestPayload['chat_id'] > 0) {
+        $chatPrefill = erLhcoreClassModelChat::fetch((int)$requestPayload['chat_id']);
+        if ($chatPrefill instanceof erLhcoreClassModelChat && $chatPrefill->hash === $requestPayload['chat_hash']) {
+            $Params['user_parameters_unordered']['department'] = [$chatPrefill->department?->alias ?: $chatPrefill->dep_id];
+            $Params['user_parameters_unordered']['dep_default'] = $chatPrefill->department?->alias ?: $chatPrefill->dep_id;
+        }
+    }
+}
+
 if (is_array($Params['user_parameters_unordered']['department']) && !empty($Params['user_parameters_unordered']['department'])) {
     $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department'],true, $Params['user_parameters_unordered']);
     $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
@@ -128,6 +139,7 @@ if (is_array($Params['user_parameters_unordered']['department']) && !empty($Para
     }
 }
 
+
 $departament_id_array = array();
 
 if (is_array($Params['user_parameters_unordered']['department'])) {
@@ -138,6 +150,12 @@ if (is_array($Params['user_parameters_unordered']['department'])) {
 if (!(is_numeric($departament_id) && $departament_id > 0)) {
     if (isset($Params['user_parameters_unordered']['dep_default']) && is_numeric($Params['user_parameters_unordered']['dep_default']) && $Params['user_parameters_unordered']['dep_default'] > 0) {
         $department_id_form = (int)$Params['user_parameters_unordered']['dep_default'];
+    } elseif ($Params['user_parameters_unordered']['dep_default'] && !empty($Params['user_parameters_unordered']['dep_default'])) {
+        $parametersDepartmentDefault = erLhcoreClassChat::extractDepartment([$Params['user_parameters_unordered']['dep_default']],true, $Params['user_parameters_unordered']);
+        $department_id_form = $parametersDepartmentDefault['system'][0] ?? 0;
+        if ($department_id_form !== 0) {
+            $department_id_form_alias =  $parametersDepartmentDefault['argument'][0];
+        }
     } else {
         $filter = array('filter' => array('disabled' => 0, 'hidden' => 0));
         if (!empty($departament_id_array)) {
@@ -147,6 +165,7 @@ if (!(is_numeric($departament_id) && $departament_id > 0)) {
         $departmentStartChat = erLhcoreClassModelDepartament::findOne($filter);
         if (is_object($departmentStartChat)) {
             $department_id_form = $departmentStartChat->id;
+            $department_id_form_alias = $departmentStartChat->alias ?: $department_id_form;
         } else {
             $department_id_form = 0;
         }
@@ -244,13 +263,6 @@ $fields = array();
 
 if ($Params['user_parameters_unordered']['online'] == '0')
 {
-    if (isset($requestPayload['chat_id']) && isset($requestPayload['chat_hash']) && $requestPayload['chat_id'] > 0) {
-        $chatPrefill = erLhcoreClassModelChat::fetch((int)$requestPayload['chat_id']);
-        if (!($chatPrefill instanceof erLhcoreClassModelChat) || ($chatPrefill->hash !== $requestPayload['chat_hash'])) {
-            unset($chatPrefill);
-        }
-    }
-
     function getValueFromPrefillOrLocation(erLhcoreClassModelChat $chatPrefill,  string $attribute,  array $startDataFields, string $conditionKey, ?string $attrLocation = null) {
         $value = $chatPrefill->{$attribute};
 
@@ -1190,7 +1202,7 @@ if ($outputResponse['disabled'] === true) {
 
 $outputResponse['department'] = $departmentsOptions;
 
-$outputResponse['dep_forms'] = $department_id_form;
+$outputResponse['dep_forms'] = $department_id_form_alias ?? $department_id_form;
 
 if (isset($parametersDepartment['system']) && !empty($parametersDepartment['system'])) {
     foreach ($parametersDepartment['system'] as $systemDepartmentIndex => $systemDepartmentId) {
