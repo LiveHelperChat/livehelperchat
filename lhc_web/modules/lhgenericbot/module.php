@@ -43,7 +43,7 @@ $ViewList['triggersearch'] = array(
 
 $ViewList['usecases'] = array(
     'params' => array('type','id'),
-    'uparams' => array(),
+    'uparams' => array('arg1','arg2'),
     'functions' => array( 'use_cases' )
 );
 

@@ -209,6 +209,7 @@ class NodeTriggerActionText extends Component {
                     </div>
 
                     <a title="Need help?" className="float-end" onClick={(e) => this.showHelp('text')}><i className="material-icons me-0">help</i></a>
+                    <a title="Test output" className="float-end" onClick={(e) => this.props.showExperiment({action_id : this.props.action.getIn(['_id'])})}><i className="material-icons me-0">experiment</i></a>
 
                     <div className="form-group">
                         <label>Enter text</label>

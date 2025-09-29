@@ -1,25 +1,56 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance('lhgenericbot/usecases.tpl.php');
+if ($Params['user_parameters']['type'] == 'trigger') {
 
-$db = ezcDbInstance::get();
 
-$search = '';
-$conditionIdentifier = '';
+    if (isset($_POST['chat_id'])){
 
-if ($Params['user_parameters']['type'] == 'replace') {
-    $replace = erLhcoreClassModelCannedMsgReplace::fetch((int)$Params['user_parameters']['id']);
-    $search = '{' . $replace->identifier . '}';
-} else if ($Params['user_parameters']['type'] == 'condition') {
-    $conditions = \LiveHelperChat\Models\Bot\Condition::fetch((int)$Params['user_parameters']['id']);
-    $search = '{condition.' . $conditions->identifier . '}';
-    $conditionIdentifier = $conditions->identifier;
-} else if ($Params['user_parameters']['type'] == 'tritem') {
-    $translation = erLhcoreClassModelGenericBotTrItem::fetch((int)$Params['user_parameters']['id']);
-    $search = '{' . $translation->identifier . '__';
-}
+        $trigger = erLhcoreClassModelGenericBotTrigger::fetch($Params['user_parameters']['id']);
+        $actionID = $Params['user_parameters_unordered']['arg1'];
 
-$customSQL = 'SELECT id, \'translation\' AS \'type\' FROM `lh_generic_bot_tr_item` WHERE `translation` LIKE ' . $db->quote('%' . $search . '%') . ' OR `identifier` LIKE ' . $db->quote('%' . $search . '%') . '
+        foreach ($trigger->actions_front as $action) {
+            if ($action['_id'] == $actionID) {
+                $actionToExecute = $action;
+                break;
+            }
+        }
+
+        if ($actionToExecute) {
+            $chat = erLhcoreClassModelChat::fetch($_POST['chat_id']);
+            $msg = erLhcoreClassGenericBotActionText::process($chat, $actionToExecute, $trigger, ['do_not_save' => true]);
+            echo json_encode(array('output' => htmlspecialchars($msg->msg)));
+            exit;
+        }
+
+    } else {
+        $tpl = erLhcoreClassTemplate::getInstance('lhgenericbot/usecasestrigger.tpl.php');
+        $tpl->set('trigger_id', (int)$Params['user_parameters']['id']);
+        $tpl->set('action_id', $Params['user_parameters_unordered']['arg1']);
+        echo $tpl->fetch();
+    }
+    
+
+} else {
+
+    $tpl = erLhcoreClassTemplate::getInstance('lhgenericbot/usecases.tpl.php');
+    $db = ezcDbInstance::get();
+
+    $search = '';
+    $conditionIdentifier = '';
+
+    if ($Params['user_parameters']['type'] == 'replace') {
+        $replace = erLhcoreClassModelCannedMsgReplace::fetch((int)$Params['user_parameters']['id']);
+        $search = '{' . $replace->identifier . '}';
+    } else if ($Params['user_parameters']['type'] == 'condition') {
+        $conditions = \LiveHelperChat\Models\Bot\Condition::fetch((int)$Params['user_parameters']['id']);
+        $search = '{condition.' . $conditions->identifier . '}';
+        $conditionIdentifier = $conditions->identifier;
+    } else if ($Params['user_parameters']['type'] == 'tritem') {
+        $translation = erLhcoreClassModelGenericBotTrItem::fetch((int)$Params['user_parameters']['id']);
+        $search = '{' . $translation->identifier . '__';
+    }
+
+    $customSQL = 'SELECT id, \'translation\' AS \'type\' FROM `lh_generic_bot_tr_item` WHERE `translation` LIKE ' . $db->quote('%' . $search . '%') . ' OR `identifier` LIKE ' . $db->quote('%' . $search . '%') . '
 UNION 
 SELECT id, \'trigger\' AS \'type\' FROM `lh_generic_bot_trigger` WHERE `name` LIKE ' . $db->quote('%' . $search . '%') . ' OR `actions` LIKE ' . $db->quote('%' . $search . '%') . (!empty($conditionIdentifier) ? ' OR `actions` LIKE ' . $db->quote('%"trigger_condition":"' . $conditionIdentifier . '"%') . ' OR `actions` LIKE ' . $db->quote('%"trigger_condition":"-' . $conditionIdentifier . '"%') : '') . '
 UNION
@@ -37,14 +68,16 @@ SELECT id, \'webhook\' AS \'type\' FROM `lh_webhook` WHERE `name` LIKE ' . $db->
 UNION
 SELECT id, \'auto_responder\' AS \'type\' FROM `lh_abstract_auto_responder` WHERE `wait_message` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_message` LIKE ' . $db->quote('%' . $search . '%') . ' OR `bot_configuration` LIKE ' . $db->quote('%' . $search . '%') . ' OR `name` LIKE ' . $db->quote('%' . $search . '%') . ' OR `operator` LIKE ' . $db->quote('%' . $search . '%') . ' OR `siteaccess` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_message_2` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_message_3` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_message_4` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_message_5` LIKE ' . $db->quote('%' . $search . '%') . ' OR `wait_timeout_hold` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_hold_message_1` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_hold_message_2` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_hold_message_3` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_hold_message_4` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_hold_message_5` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_reply_message_1` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_reply_message_2` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_reply_message_3` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_reply_message_4` LIKE ' . $db->quote('%' . $search . '%') . ' OR `timeout_reply_message_5` LIKE ' . $db->quote('%' . $search . '%') . ' OR `languages` LIKE ' . $db->quote('%' . $search . '%') . '
 UNION
-SELECT id, \'proactive_invitation\' AS \'type\' FROM `lh_abstract_proactive_chat_invitation` WHERE `message` LIKE ' . $db->quote('%' . $search . '%') . ' OR `message_returning` LIKE ' . $db->quote('%' . $search . '%') . ' OR `name` LIKE ' . $db->quote('%' . $search . '%') . ' OR `design_data` LIKE ' . $db->quote('%' . $search . '%'); 
+SELECT id, \'proactive_invitation\' AS \'type\' FROM `lh_abstract_proactive_chat_invitation` WHERE `message` LIKE ' . $db->quote('%' . $search . '%') . ' OR `message_returning` LIKE ' . $db->quote('%' . $search . '%') . ' OR `name` LIKE ' . $db->quote('%' . $search . '%') . ' OR `design_data` LIKE ' . $db->quote('%' . $search . '%');
 
-$items = $db->query($customSQL)->fetchAll(PDO::FETCH_ASSOC);
+    $items = $db->query($customSQL)->fetchAll(PDO::FETCH_ASSOC);
 
-$tpl->set('items', $items);
-$tpl->set('search', $search);
+    $tpl->set('items', $items);
+    $tpl->set('search', $search);
 
-echo $tpl->fetch();
+    echo $tpl->fetch();
+}
+
 exit;
 
 ?>

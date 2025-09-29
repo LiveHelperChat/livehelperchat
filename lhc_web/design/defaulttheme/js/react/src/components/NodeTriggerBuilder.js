@@ -58,6 +58,7 @@ class NodeTriggerBuilder extends Component {
         this.viewCode = this.viewCode.bind(this);
         this.viewUseCases = this.viewUseCases.bind(this);
         this.navigateToTrigger = this.navigateToTrigger.bind(this);
+        this.showExperiment = this.showExperiment.bind(this);
 
 
         this.upField = this.upField.bind(this);
@@ -196,6 +197,9 @@ class NodeTriggerBuilder extends Component {
             alert('Please enter trigger body!');
         }
     }
+    showExperiment(params) {
+        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/usecases/trigger/' + this.props.currenttrigger.get('currenttrigger').get('id') + '/(arg1)/' + params['action_id']});
+    }
 
     render() {
 
@@ -205,7 +209,7 @@ class NodeTriggerBuilder extends Component {
             actions = this.props.currenttrigger.get('currenttrigger').get('actions').map((action, index) => {
                 let key = index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')+'-'+action.get('_id') + '-' + this.state.templateName;
                 if (action.get('type') == 'text') {
-                    return <NodeTriggerActionText upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} addSubelement={this.addSubelement} deleteSubelement={this.deleteSubelement} key={key} id={index} removeAction={this.removeAction} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
+                    return <NodeTriggerActionText showExperiment={this.showExperiment} upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} addSubelement={this.addSubelement} deleteSubelement={this.deleteSubelement} key={key} id={index} removeAction={this.removeAction} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'list') {
                     return <NodeTriggerActionList upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} moveDownSubelement={this.moveDownSubelement} moveUpSubelement={this.moveUpSubelement} addSubelement={this.addSubelement} removeQuickReply={this.removeQuickReply} addQuickReply={this.addQuickReply} deleteSubelement={this.deleteSubelement} key={key} id={index} removeAction={this.removeAction} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} />
                 } else if (action.get('type') == 'generic') {
