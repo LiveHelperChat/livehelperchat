@@ -165,26 +165,26 @@
                         <?php if ($can_delete === true) : ?>
                             <button type="button" name="doDelete" onclick="lhc.confirmDelete($(this))" disabled id="delete-selected-btn" class="btn btn-danger" value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?> (<span id="delete-selected">0</span>)</button>
 
-                        <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
-                            <button type="button" onclick="return lhc.revealModal({'title' : 'Delete all', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/4?<?php echo $appendPrintExportURL?>'})" class="btn btn-danger btn-sm"><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete all items')?> (<?php echo $pages->items_total?>)</button>
-                        <?php endif; ?>
+                            <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
+                                <button type="button" onclick="return lhc.revealModal({'title' : 'Delete all', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/4?<?php echo $appendPrintExportURL?>'})" class="btn btn-danger btn-sm"><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete all items')?> (<?php echo $pages->items_total?>)</button>
+                            <?php endif; ?>
 
-                        <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
-                            <button type="button" class="btn btn-danger" id="delete-archive-btn" disabled onclick="return lhc.revealModal({'title' : 'Delete and archive selected', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/5'+getCheckedElements()+'?<?php echo $appendPrintExportURL?>'})" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Delete and archive selected');?> (<span id="delete-archive">0</span>)</button>
-                            <button type="button" class="btn btn-danger" onclick="return lhc.revealModal({'title' : 'Delete all archive', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/5?<?php echo $appendPrintExportURL?>'})" ><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete and archive all')?> (<?php echo $pages->items_total?>)</button>
-                            <script>
-                                function getCheckedElements(){
-                                    var choices = [];
-                                    var els = document.getElementsByName('ConversationID[]');
-                                    for (var i=0;i<els.length;i++){
-                                        if ( els[i].checked ) {
-                                            choices.push(els[i].value);
+                            <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
+                                <button type="button" class="btn btn-danger" id="delete-archive-btn" disabled onclick="return lhc.revealModal({'title' : 'Delete and archive selected', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/5'+getCheckedElements()+'?<?php echo $appendPrintExportURL?>'})" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Delete and archive selected');?> (<span id="delete-archive">0</span>)</button>
+                                <button type="button" class="btn btn-danger" onclick="return lhc.revealModal({'title' : 'Delete all archive', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/5?<?php echo $appendPrintExportURL?>'})" ><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete and archive all')?> (<?php echo $pages->items_total?>)</button>
+                                <script>
+                                    function getCheckedElements(){
+                                        var choices = [];
+                                        var els = document.getElementsByName('ConversationID[]');
+                                        for (var i=0;i<els.length;i++){
+                                            if ( els[i].checked ) {
+                                                choices.push(els[i].value);
+                                            }
                                         }
+                                        return choices.length > 0 ? '/(ids)/'+choices.join('/') : '';
                                     }
-                                    return choices.length > 0 ? '/(ids)/'+choices.join('/') : '';
-                                }
-                            </script>
-                        <?php endif; ?>
+                                </script>
+                            <?php endif; ?>
 
                         <?php endif; ?>
                     </div>
