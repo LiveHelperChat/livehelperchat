@@ -31,6 +31,12 @@ try {
         ),
         'no_event' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'subjects_ids' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'canned_id' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
         )
     );
 
@@ -54,13 +60,23 @@ try {
             if ( erLhcoreClassRestAPIHandler::hasAccessToWrite($Chat) )
             {
                 $userData = erLhcoreClassRestAPIHandler::getUser();
+                $lastMessageId = $Chat->last_msg_id;
+                $messagesProcessed = array();
+                $whisper = false;
 
                 if ($form->sender == 'system') {
                     $messageUserId = -1;
-                } else if ($form->sender != 'bot') {
+                } else if ($form->sender == 'whisper' || $form->sender != 'bot') {
                     $messageUserId = $userData->id;
+                    if ($form->sender == 'whisper') {
+                        $whisper = true;
+                    }
                 } else {
                     $messageUserId = -2;
+                }
+
+                if ($whisper && !erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','whispermode')) {
+                    throw new Exception('You do not have permission. `lhchat`, `whispermode` is required.');
                 }
 
                 if ($form->hasValidData('user_id')) {
@@ -78,7 +94,7 @@ try {
                 $customArgs = array();
                 $msg = new erLhcoreClassModelmsg();
 
-                if (strpos($msgText, '!') === 0) {
+                if (!$whisper && strpos($msgText, '!') === 0) {
                     $statusCommand = erLhcoreClassChatCommand::processCommand(array('user' => $userData, 'msg' => $msgText, 'chat' => & $Chat));
                     if ($statusCommand['processed'] === true) {
                         $messageUserId = -1; // Message was processed set as internal message
@@ -87,8 +103,30 @@ try {
 
                         $msgText = trim('[b]'.$userData->name_support.'[/b]: '.$rawMessage .' '. ($statusCommand['process_status'] != '' ? '|| '.$statusCommand['process_status'] : ''));
 
+                        $botMessages = erLhcoreClassModelmsg::getList(array(
+                            'filterin' => array('user_id' => array(($Chat->user_id > 0 ? $Chat->user_id : -2), -2)),
+                            'filter' => array('chat_id' => $Chat->id),
+                            'filtergt' => array('id' => $lastMessageId)
+                        ));
+
+                        foreach ($botMessages as $botMessage) {
+                            $messagesProcessed[] = $botMessage->id;
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
+                                'chat' => & $Chat,
+                                'msg' => $botMessage,
+                                'no_auto_events' => true
+                            ));
+                        }
+
                         if (isset($statusCommand['ignore']) && $statusCommand['ignore'] == true) {
                             $ignoreMessage = true;
+                            if (isset($statusCommand['last_message'])) {
+                                $lastBotMessage = $statusCommand['last_message'];
+                                if (is_object($lastBotMessage)) {
+                                    $Chat->last_msg_id = $lastBotMessage->id;
+                                    $Chat->updateThis(array('update' => array('last_msg_id')));
+                                }
+                            }
                         }
 
                         if (isset($statusCommand['info'])) {
@@ -108,6 +146,7 @@ try {
                     $msg->chat_id = $Chat->id;
                     $msg->user_id = $messageUserId;
                     $msg->time = time();
+                    $msg->del_st = erLhcoreClassModelmsg::STATUS_SENT;
 
                     if (strpos($msg->msg,'[html]') !== false && !erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','htmlbbcodeenabled')) {
                         $msg->msg = '[html] is disabled for you!';
@@ -148,27 +187,34 @@ try {
                         $msg->name_support = $userData->name_support;
                     }
 
-                    if ($messageUserId != -1 && $Chat->chat_locale != '' && $Chat->chat_locale_to != '') {
+                    if ($messageUserId != -1 && $Chat->chat_locale != '' && $Chat->chat_locale_to != '' && isset($Chat->chat_variables_array['lhc_live_trans']) && $Chat->chat_variables_array['lhc_live_trans'] === true) {
                         erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
                     }
 
-                    // We want alias only if it's not a bot message
+                     // We want alias only if it's not a bot message
                     if ($msg->user_id != -2) {
                         \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat));
                     }
 
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg,'chat' => & $Chat));
 
-                    erLhcoreClassChat::getSession()->save($msg);
+                    if ($whisper) {
+                        $metaExisting = $msg->meta_msg != '' ? json_decode($msg->meta_msg, true) : array();
+                        if (!is_array($metaExisting)) {
+                            $metaExisting = array();
+                        }
+                        $metaExisting['content']['whisper'] = true;
+                        $msg->meta_msg = json_encode($metaExisting);
+                    }
 
-                    $whisper = false;
+                    erLhcoreClassChat::getSession()->save($msg);
 
                     // Set last message ID
                     if ($Chat->last_msg_id < $msg->id) {
 
                             $updateFields = array();
 
-                            if (!$whisper && $Chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $messageUserId !== -2 && $messageUserId !== -1 && !isset($Chat->chat_variables_array['lhc_hldu'])) {
+                            if (!$whisper && $Chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $messageUserId !== -1 && !isset($Chat->chat_variables_array['lhc_hldu'])) {
                                 $updateFields[] = 'status_sub';
                                 $updateFields[] = 'last_user_msg_time';
                                 $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
@@ -215,6 +261,29 @@ try {
 
                             if (!$whisper && $userData->invisible_mode == 0 && $messageUserId > 0) { // Change status only if it's not internal command
                                 if ($Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+
+                                    $acceptMsg = new erLhcoreClassModelmsg();
+                                    $acceptMsg->name_support = $userData->name_support;
+                                    $previousUserId = $Chat->user_id;
+
+                                    \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $acceptMsg, 'chat' => & $Chat, 'user_id' => $userData->id));
+                                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $acceptMsg, 'chat' => & $Chat, 'user_id' => $userData->id));
+
+                                    $acceptMsg->msg = (string)$acceptMsg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has accepted the pending chat by sending a message!');
+                                    $acceptMsg->chat_id = $Chat->id;
+                                    $acceptMsg->user_id = -1;
+                                    $acceptMsg->time = time();
+                                    $acceptMsg->meta_msg_array = array('content' => array('accept_action' => array('puser_id' => $previousUserId, 'ol' => array('op_pnd_msg'), 'user_id' => $userData->id, 'name_support' => $acceptMsg->name_support)));
+                                    $acceptMsg->meta_msg = json_encode($acceptMsg->meta_msg_array);
+                                    erLhcoreClassChat::getSession()->save($acceptMsg);
+
+                                    $Chat->last_msg_id = $acceptMsg->id;
+                                    $messagesProcessed[] = $acceptMsg->id;
+
+                                    if (!$form->hasValidData('no_event') || $form->no_event === false) {
+                                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $acceptMsg, 'chat' => & $Chat));
+                                    }
+
                                     $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
                                     $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
                                     $Chat->user_id = $messageUserId;
@@ -243,17 +312,66 @@ try {
                     }
 
                     // If chat is in bot mode and operators writes a message, accept a chat as operator.
+                    if (!$whisper && $form->hasValidData('subjects_ids') && trim($form->subjects_ids) != '') {
+                        $subjectsIds = explode(',', $form->subjects_ids);
+                        $subjectsIds = array_map('intval', array_filter(array_map('trim', $subjectsIds), 'strlen'));
+                        erLhcoreClassChat::validateFilterIn($subjectsIds);
+
+                        $presentSubjects = erLhAbstractModelSubjectChat::getList(array(
+                            'filterin' => array('subject_id' => $subjectsIds),
+                            'filter' => array('chat_id' => $Chat->id)
+                        ));
+
+                        $presentSubjectsIds = array();
+                        foreach ($presentSubjects as $presentSubject) {
+                            $presentSubjectsIds[] = (int)$presentSubject->subject_id;
+                        }
+
+                        foreach (array_diff($subjectsIds, $presentSubjectsIds) as $subjectIdToSave) {
+                            $subjectChat = new erLhAbstractModelSubjectChat();
+                            $subjectChat->chat_id = $Chat->id;
+                            $subjectChat->subject_id = (int)$subjectIdToSave;
+                            $subjectChat->saveThis();
+                        }
+                    }
+
+                    if (!$whisper && $form->hasValidData('canned_id') && @erLhcoreClassModelChatConfig::fetch('statistic_options')->data['canned_stats'] == 1) {
+                        erLhcoreClassModelCannedMsgUse::logUse(array(
+                            'canned_id' => (int)$form->canned_id,
+                            'chat_id'   => $Chat->id,
+                            'ctime'     => time(),
+                            'user_id'   => $userData->id,
+                        ));
+                    }
+
+                    // If chat is in bot mode and operators writes a message, accept a chat as operator.
                     if ($form->sender == 'operator' && $Chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $messageUserId != -1) {
 
                         if (!$whisper && $Chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $messageUserId != -1) {
 
                             if ($userData->invisible_mode == 0 && erLhcoreClassRestAPIHandler::hasAccessToWrite($Chat)) {
+                                $acceptBotMsg = new erLhcoreClassModelmsg();
+                                $acceptBotMsg->name_support = $userData->name_support;
+                                $previousUserId = $Chat->user_id;
+
+                                \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $acceptBotMsg, 'chat' => & $Chat, 'user_id' => $userData->id));
+                                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $acceptBotMsg, 'chat' => & $Chat, 'user_id' => $userData->id));
+
+                                $acceptBotMsg->msg = (string)$acceptBotMsg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has accepted the bot chat by sending a message!');
+                                $acceptBotMsg->chat_id = $Chat->id;
+                                $acceptBotMsg->user_id = -1;
+                                $acceptBotMsg->time = time();
+                                $acceptBotMsg->meta_msg_array = array('content' => array('accept_action' => array('puser_id' => $previousUserId, 'ol' => array('op_bot_msg'), 'user_id' => $userData->id, 'name_support' => $acceptBotMsg->name_support)));
+                                $acceptBotMsg->meta_msg = json_encode($acceptBotMsg->meta_msg_array);
+                                erLhcoreClassChat::getSession()->save($acceptBotMsg);
+
                                 $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 
                                 $Chat->pnd_time = time() - 2;
                                 $Chat->wait_time = 1;
 
-                                $Chat->user_id = $messageUserId;
+                                $Chat->user_id = $userData->id;
+                                $Chat->last_msg_id = $acceptBotMsg->id;
 
                                 // If operator takes over and task is not finished we want to unlock text field for visitor
                                 if (isset($Chat->chat_variables_array['bot_lock_msg'])) {
@@ -267,6 +385,12 @@ try {
                                 $Chat->usaccept = $userData->hide_online;
                                 $Chat->operation_admin .= "lhinst.updateVoteStatus(".$Chat->id.");";
                                 $Chat->saveThis();
+
+                                $messagesProcessed[] = $acceptBotMsg->id;
+
+                                if (!$form->hasValidData('no_event') || $form->no_event === false) {
+                                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $acceptBotMsg, 'chat' => & $Chat));
+                                }
 
                                 // If chat is transferred to pending state we don't want to process any old events
                                 erLhcoreClassGenericBotWorkflow::removePreviousEvents($Chat->id);
@@ -329,9 +453,13 @@ try {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $Chat, 'user_data' => $userData));
                 }
 
-                echo erLhcoreClassChat::safe_json_encode(array('error' => false, 'r' => $returnBody, 'msg' => $msg->getState()) + $customArgs);
+                echo erLhcoreClassChat::safe_json_encode(array('error' => false, 'r' => $returnBody, 'msg' => ($ignoreMessage === false ? $msg->getState() : null)) + $customArgs);
 
-                if (!$form->hasValidData('no_event') || $form->no_event === false) {
+                if ($ignoreMessage === false) {
+                    $Chat->last_message = $msg;
+                }
+
+                if ($ignoreMessage === false && (!$form->hasValidData('no_event') || $form->no_event === false) && (!isset($msg->id) || !in_array($msg->id, $messagesProcessed))) {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $Chat));
                 }
 

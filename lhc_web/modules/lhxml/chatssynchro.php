@@ -58,6 +58,10 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
                                 $msg['msg'] = erLhcoreClassBBCodePlain::make_clickable($msg['msg'], array('sender' => $msg['user_id']));
                             }
 
+                            if (str_contains($msg['meta_msg'],'whisper')){
+                                $msg['msg'] = '<div style="color: grey"><strong>🤫 ' .erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Whisper message!') . ' 🤫</strong><br></div>' . $msg['msg'];
+                            }
+
                             $chatsMessages[$msgID][] = $msg;
                         }
                     }

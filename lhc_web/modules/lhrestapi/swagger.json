@@ -1353,7 +1353,8 @@
             "enum": [
               "operator",
               "bot",
-              "system"
+              "system",
+              "whisper"
             ]
           },
           {
