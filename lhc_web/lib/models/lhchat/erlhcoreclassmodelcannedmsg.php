@@ -403,67 +403,20 @@ class erLhcoreClassModelCannedMsg
         
         $grouped = array();
 
-        $replaceCustomArgs = [];
         foreach ($items as $item) {
             // Set proper message by language
             $item->setMessageByChatLocale($chat->chat_locale);
-
-            foreach (['msg','fallback_msg'] as $metaMsg) {
-                $matchesMessage = [];
-                preg_match_all('/\{[A-Za-z0-9\_]+\}/is',$item->{$metaMsg}, $matchesMessage);
-                if (isset($matchesMessage[0]) && !empty($matchesMessage[0])) {
-                    foreach ($matchesMessage[0] as $replaceItem) {
-                        if (key_exists($replaceItem,$replaceArray) == false) {
-                            $replaceCustomArgs[] = $replaceItem;
-                        }
-                    }
-                }
-            }
-        }
-
-        $replaceCustomArgs = array_unique($replaceCustomArgs);
-
-        if (!empty($replaceCustomArgs)) {
-
-            $identifiers = [];
-            $identifiersApplied = [];
-            foreach ($replaceCustomArgs as $replaceArg) {
-                $identifiers[] = str_replace(['{','}'],'', $replaceArg);
-            }
-
-            $replaceRules = erLhcoreClassModelCannedMsgReplace::getList(array(
-                'sort' => 'repetitiveness DESC', // Default translation will be the last one if more than one same identifier is found
-                'limit' => false,
-                'filterin' => array('identifier' => $identifiers))
-            );
-
-            foreach ($replaceRules as $replaceRule) {
-                if ($replaceRule->is_active && !in_array($replaceRule->identifier,$identifiersApplied)) {
-                    $replaceArray['{' . $replaceRule->identifier . '}'] = $replaceRule->getValueReplace(['chat' => $chat, 'user' => $user]);
-                    $identifiersApplied[] = $replaceRule->identifier;
-                }
-            }
         }
 
         foreach ($items as $item) {
 
             // Set replace data
             $item->setReplaceData($replaceArray);
-
-
-            if (strpos($item->msg, '{args.') !== false) {
-                $matchesValues = array();
-                preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $item->msg, $matchesValues);
-                if (!empty($matchesValues[0])) {
-                    foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('user' => $user, 'chat' => $chat), $matchesValues[1][$indexElement], '.');
-                        $item->msg = str_replace($elementValue, $valueAttribute['found'] == true ? $valueAttribute['value'] : '', $item->msg);
-                    }
-                }
-            }
+            $item->msg = trim(erLhcoreClassGenericBotWorkflow::translateMessage($item->msg, array('chat' => $chat, 'user' => $user, 'args' => ['chat' => $chat, 'user' => $user])));
+            $item->fallback_msg = trim(erLhcoreClassGenericBotWorkflow::translateMessage($item->fallback_msg, array('chat' => $chat, 'user' => $user, 'args' => ['chat' => $chat, 'user' => $user])));
 
             $type = $item->department_id > 0 ? 0 : ($item->user_id > 0 ? 1 : 2);
-            $id = $item->department_id > 0 ? $item->department_id : ($item->user_id > 0 ? $item->user_id : 0);
+            $id = $item->department_id > 0 ? $item->department_id : (max($item->user_id, 0));
             
             $grouped[$type . '_' . $id][] = $item;
         }
