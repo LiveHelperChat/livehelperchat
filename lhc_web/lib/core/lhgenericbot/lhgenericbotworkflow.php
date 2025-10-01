@@ -2641,7 +2641,7 @@ class erLhcoreClassGenericBotWorkflow {
                 }
             }
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.replace_message_bot', array('msg' => & $message, 'chat' => & $params['chat']));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.replace_message_bot', array('scope' => ($params['scope'] ?? 'bot'),'msg' => & $message, 'chat' => & $params['chat']));
 
             if (isset($params['as_json']) && $params['as_json'] == true) {
                 foreach ($replaceArray as $indexReplace => $replaceValue) {

@@ -412,8 +412,8 @@ class erLhcoreClassModelCannedMsg
 
             // Set replace data
             $item->setReplaceData($replaceArray);
-            $item->msg = trim(erLhcoreClassGenericBotWorkflow::translateMessage($item->msg, array('chat' => $chat, 'user' => $user, 'args' => ['chat' => $chat, 'user' => $user])));
-            $item->fallback_msg = trim(erLhcoreClassGenericBotWorkflow::translateMessage($item->fallback_msg, array('chat' => $chat, 'user' => $user, 'args' => ['chat' => $chat, 'user' => $user])));
+            $item->msg = trim(erLhcoreClassGenericBotWorkflow::translateMessage($item->msg, array('scope' => 'canned', 'chat' => $chat, 'user' => $user, 'args' => ['chat' => $chat, 'user' => $user])));
+            $item->fallback_msg = trim(erLhcoreClassGenericBotWorkflow::translateMessage($item->fallback_msg, array('scope' => 'canned', 'chat' => $chat, 'user' => $user, 'args' => ['chat' => $chat, 'user' => $user])));
 
             $type = $item->department_id > 0 ? 0 : ($item->user_id > 0 ? 1 : 2);
             $id = $item->department_id > 0 ? $item->department_id : (max($item->user_id, 0));
