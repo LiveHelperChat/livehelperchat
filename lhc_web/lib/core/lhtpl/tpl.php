@@ -346,7 +346,7 @@ class erLhcoreClassTemplate {
                     $valueReplace = $valueConfig;
                 }
 
-                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+                $contentFile = str_replace($Matches[0][$key],(string)$valueReplace,$contentFile);
             }
 
 			// Compile config settings, direct output
@@ -355,7 +355,6 @@ class erLhcoreClassTemplate {
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{
 			    $valueConfig = erConfigClassLhConfig::getInstance()->getSetting($Matches[2][$key],$Matches[5][$key]);
-			    $valueReplace = '';
 
 			    if (is_bool($valueConfig)){
 			        $valueReplace = $valueConfig == false ? 'false' : 'true';
@@ -376,7 +375,6 @@ class erLhcoreClassTemplate {
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{
 			    $valueConfig = erConfigClassLhConfig::getInstance()->getSetting($Matches[2][$key],$Matches[5][$key]);
-			    $valueReplace = '';
 
 			    if (is_bool($valueConfig)){
 			        $valueReplace = $valueConfig == false ? 'false' : 'true';
@@ -397,7 +395,6 @@ class erLhcoreClassTemplate {
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{
 			    $valueConfig = erConfigClassLhConfig::getInstance()->getOverrideValue($Matches[2][$key],$Matches[5][$key]);
-			    $valueReplace = '';
 
 			    if (is_bool($valueConfig)){
 			        $valueReplace = $valueConfig == false ? 'false' : 'true';
@@ -418,7 +415,6 @@ class erLhcoreClassTemplate {
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{
 				$valueConfig = erConfigClassLhConfig::getInstance()->getOverrideValue($Matches[2][$key],$Matches[5][$key]);
-				$valueReplace = '';
 
 				if (is_bool($valueConfig)){
 					$valueReplace = $valueConfig == false ? 'false' : 'true';
@@ -439,7 +435,6 @@ class erLhcoreClassTemplate {
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{
 			    $valueConfig = erConfigClassLhConfig::getInstance()->getDirLanguage($Matches[2][$key]);
-			    $valueReplace = '';
 
 			    if (is_bool($valueConfig)){
 			        $valueReplace = $valueConfig == false ? 'false' : 'true';
@@ -457,8 +452,6 @@ class erLhcoreClassTemplate {
 			// Compile config settings
 			$Matches = array();
 			preg_match_all('/erConfigClassLhConfig::getInstance\(\)->getDirLanguage\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)/i',$contentFile,$Matches);
-
-
 
 			foreach ($Matches[1] as $key => $var)
 			{
@@ -486,7 +479,7 @@ class erLhcoreClassTemplate {
 	            foreach ($Matches[1] as $key => $UrlAddress)
 	            {
 	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;             
-	                $contentFile = str_replace($Matches[0][$key],$valueConfig,$contentFile);
+	                $contentFile = str_replace($Matches[0][$key],(string)$valueConfig,$contentFile);
 	            }			
             
 				// Compile config settings in php scripts
@@ -496,7 +489,7 @@ class erLhcoreClassTemplate {
 	            {
 	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
 	                $valueReplace = '';
-	                $valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
+	                $valueReplace = '\''.str_replace("'","\'",(string)$valueConfig).'\'';
 	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
 	            }
             	            
@@ -518,7 +511,7 @@ class erLhcoreClassTemplate {
 	            	
 	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data[$Matches[4][$key]];
 	                $valueReplace = '';
-	                $valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
+	                $valueReplace = '\''.str_replace("'","\'",(string)$valueConfig).'\'';
 	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
 	            }
 			}
