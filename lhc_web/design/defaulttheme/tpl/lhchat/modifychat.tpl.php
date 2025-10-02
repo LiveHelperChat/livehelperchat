@@ -164,8 +164,11 @@ setTimeout(function() {
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Agents response times calculation log');?></h6>
             <pre class="fs11"><?php print_r($mainStats);?></pre>
 
-            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Auto responder');?></h6>
+            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Chat auto responder');?></h6>
             <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->auto_responder, JSON_PRETTY_PRINT));?></pre>
+             
+            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Auto responder object');?></h6>
+            <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->auto_responder?->auto_responder, JSON_PRETTY_PRINT));?></pre>
 
         </div>
     <?php endif; ?>
