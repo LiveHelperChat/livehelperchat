@@ -191,6 +191,13 @@ class erLhcoreClassGenericBotActionRestapi
                         );
                     }
                     if (isset($restAPI->configuration_array['log_system']) && $restAPI->configuration_array['log_system'] && isset($chat) && is_object($chat)) {
+
+                        if (isset($response['params_request']['headers']) && is_array($response['params_request']['headers'])) {
+                            foreach ($response['params_request']['headers'] as $keyHeader => $valueHeader) {
+                                $response['params_request']['headers'][$keyHeader] = erLhcoreClassDesign::shrt((string)$valueHeader,5);
+                            }
+                        }
+
                         $msgLog = new erLhcoreClassModelmsg();
                         $msgLog->user_id = -1;
                         $msgLog->chat_id = $chat->id;
