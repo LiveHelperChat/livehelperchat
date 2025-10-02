@@ -14,6 +14,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
         $filter['filternot']['user_id'] = -2;
     }
 
+    $filter['filternotlikefields'][] = ['meta_msg' => '"debug":true'];
+
     $messages = erLhcoreClassModelmsg::getList($filter);
 
     erLhcoreClassChat::setTimeZoneByChat($chat);
