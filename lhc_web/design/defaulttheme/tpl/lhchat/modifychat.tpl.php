@@ -135,9 +135,9 @@ setTimeout(function() {
                 } echo htmlspecialchars(json_encode($chatVariables,JSON_PRETTY_PRINT));
             ?></pre>
 
-            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Files');?></h6>
             <?php $files = erLhcoreClassModelChatFile::getList(['filter' => ['chat_id' => $chat->id]]); ?>
             <?php if (!empty($files)) : ?>
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Files');?></h6>
                 <?php foreach ($files as $file) : ?>
                     <pre class="fs11"><?php echo htmlspecialchars(json_encode($file->getState(),JSON_PRETTY_PRINT)); ?></pre>
                 <?php endforeach; ?>
@@ -157,13 +157,15 @@ setTimeout(function() {
                 <li><?php echo htmlspecialchars($patterns['drpd'])?></li>
             </ul>
 
-
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Duration calculation log');?></h6>
             <?php $logDuration = []; $mainStats = []; \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, false, $logDuration, $mainStats);?>
             <pre class="fs11"><?php print_r($logDuration);?></pre>
 
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Agents response times calculation log');?></h6>
             <pre class="fs11"><?php print_r($mainStats);?></pre>
+
+            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Auto responder');?></h6>
+            <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->auto_responder, JSON_PRETTY_PRINT));?></pre>
 
         </div>
     <?php endif; ?>

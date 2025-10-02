@@ -520,10 +520,10 @@ Table "lh_abstract_auto_responder" {
 Table "lh_abstract_auto_responder_chat" {
   "id" int(11) [pk, not null, increment]
   "chat_id" int(11) [not null]
-  "auto_responder_id" int(11) [not null]
-  "wait_timeout_send" int(11) [not null]
-  "pending_send_status" int(11) [not null]
-  "active_send_status" int(11) [not null]
+  "auto_responder_id" int(11) [not null, note: 'Assigned auto responder']
+  "wait_timeout_send" int(11) [not null, note : 'Was initial pending operator message send']
+  "pending_send_status" int(11) [not null, note : 'Was pending operator message send. From 2 - 5 counter']
+  "active_send_status" int(11) [not null, note : 'Used as counter tracking for operator/visitor not replying.']
 
   Indexes {
     chat_id [name: "chat_id"]
@@ -948,7 +948,7 @@ Table "lh_abstract_subject" {
   "id" int(11) [pk, not null, increment]
   "name" varchar(100) [not null]
   "internal" tinyint(1) [not null, default: 0]
-  "internal_type" varchar(20) [not null]
+  "internal_type" varchar(50) [not null]
   "color" varchar(100) [not null]
   "pinned" tinyint(1) [not null, default: 0]
   "widgets" int(11) [not null, default: 0]
