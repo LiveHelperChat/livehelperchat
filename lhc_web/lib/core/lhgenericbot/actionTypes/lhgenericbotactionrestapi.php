@@ -194,7 +194,7 @@ class erLhcoreClassGenericBotActionRestapi
 
                         if (isset($response['params_request']['headers']) && is_array($response['params_request']['headers'])) {
                             foreach ($response['params_request']['headers'] as $keyHeader => $valueHeader) {
-                                $response['params_request']['headers'][$keyHeader] = erLhcoreClassDesign::shrt((string)$valueHeader,5);
+                                $response['params_request']['headers'][$keyHeader] = erLhcoreClassDesign::shrt((string)$valueHeader,15);
                             }
                         }
 
@@ -1731,6 +1731,13 @@ class erLhcoreClassGenericBotActionRestapi
             }
 
             if ($validCode === true && isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'] && isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat']) && $paramsCustomer['chat'] instanceof erLhcoreClassModelChat) {
+
+                if (isset($paramsRequestDebug['headers']) && is_array($paramsRequestDebug['headers'])) {
+                    foreach ($paramsRequestDebug['headers'] as $keyHeader => $valueHeader) {
+                        $paramsRequestDebug['headers'][$keyHeader] = erLhcoreClassDesign::shrt((string)$valueHeader,15);
+                    }
+                }
+
                 $msgLog = new erLhcoreClassModelmsg();
                 $msgLog->user_id = -1;
                 $msgLog->chat_id = $paramsCustomer['chat']->id;
