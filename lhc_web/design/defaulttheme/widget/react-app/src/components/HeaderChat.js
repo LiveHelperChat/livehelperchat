@@ -61,9 +61,11 @@ class HeaderChat extends Component {
 
                 position = position == 'left'  ? 'start' : (position == 'right' ? 'end' : position);
                 if (btn.get('btn') == 'min' && closeInst) {
+                    const minText = this.props.chatwidget.getIn(['chat_ui','min_text']) || t('button.minimize');
                     iconsNumber++;
-                    return <a key={btn.get('pos')+index} tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.closeWidget() : '' }} className={"minimize-icon header-link float-"+position} title={this.props.chatwidget.getIn(['chat_ui','min_text']) || t('button.minimize')} onClick={this.closeWidget}>
+                    return <a key={btn.get('pos')+index} tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.closeWidget() : '' }} className={"minimize-icon header-link float-"+position} title={minText} onClick={this.closeWidget}>
                         {(this.props.chatwidget.hasIn(['chat_ui','img_icon_min']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_min'])} alt="" />) || <i className="material-icons">&#xf11c;</i>}
+                        {btn.get('print') && <span className="end-chat-text">{minText}</span>}
                     </a>;
                 } else if (btn.get('btn') == 'popup' && hasPopup) {
                     iconsNumber++;
