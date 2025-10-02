@@ -166,7 +166,7 @@ setTimeout(function() {
 
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Chat auto responder');?></h6>
             <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->auto_responder, JSON_PRETTY_PRINT));?></pre>
-             
+
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Auto responder object');?></h6>
             <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->auto_responder?->auto_responder, JSON_PRETTY_PRINT));?></pre>
 
