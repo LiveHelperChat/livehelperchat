@@ -80,6 +80,7 @@ class NodeTriggerActionMatchActions extends Component {
                         <div className="form-group">
                             <label>For what start chat actions to search</label>
                             <select className="form-control form-control-sm" defaultValue={this.props.action.getIn(['content','on_start_type'])} onChange={(e) => this.onchangeAttr({'path' : ['on_start_type'], 'value' : e.target.value})}>
+                                <option value="">Choose</option>
                                 <option value="0">Do not check on chat start</option>
                                 <option value="1">Instant execution (Executes and continues workflow)</option>
                                 <option value="2">Instant execution and block (executes and blocks further triggers execution)</option>

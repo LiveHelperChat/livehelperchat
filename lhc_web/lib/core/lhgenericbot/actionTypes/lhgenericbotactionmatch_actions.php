@@ -10,7 +10,7 @@ class erLhcoreClassGenericBotActionMatch_actions {
             $params['first_trigger'] = $params['current_trigger'];
         }
         
-        if (isset($action['content']['on_start_type']) && is_numeric($action['content']['on_start_type']) && $action['content']['on_start_type'] > 0) {
+        if (isset($action['content']['on_start_type']) && is_numeric($action['content']['on_start_type']) && $action['content']['on_start_type'] >= 0) {
 
             if (isset($action['content']['event_background']) && $action['content']['event_background'] == true) {
                 $event = new erLhcoreClassModelGenericBotChatEvent();
@@ -121,7 +121,7 @@ class erLhcoreClassGenericBotActionMatch_actions {
                             usleep(500);
                         }
                     }
-                } elseif (isset($action['content']['on_start_type']) && $action['content']['on_start_type'] == 5) {
+                } elseif (isset($action['content']['on_start_type']) && ($action['content']['on_start_type'] == 5 || $action['content']['on_start_type'] == 0)) {
                     return array(
                         'status' => 'continue_all',
                         'trigger_id' => $event->trigger_id
