@@ -208,6 +208,7 @@ $proactiveAttr = array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Assign to shown operator'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'page_based_inv' => array(
@@ -222,6 +223,7 @@ $proactiveAttr = array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Do not show invitation after it was closed in the same session.'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'show_next_inv' => array(
@@ -229,6 +231,7 @@ $proactiveAttr = array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Show next matching invitation if URL changes and present invitation was closed'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'use_default_autoresponder' => array(
@@ -236,6 +239,7 @@ $proactiveAttr = array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Use default auto responder if available'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'show_everytime' => array(
@@ -250,6 +254,7 @@ $proactiveAttr = array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Show invitation next time even if a customer started a chat'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'lock_department' => array(
@@ -257,6 +262,7 @@ $proactiveAttr = array(
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Lock department. The department will be the one that was set when the invitation was issued.'),
         'required' => false,
+        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'requires_phone' => array(
@@ -398,7 +404,6 @@ $proactiveAttr = array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'This is dynamic invitation'),
         'required' => false,
-        'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
     ),
     'event_type' => array(
