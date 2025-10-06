@@ -95,6 +95,7 @@ if ($dynamic == true && $userInstance->message_seen == 0 && ($userInstance->oper
             if (in_array($dynamicInvitation->id, $dynamicProcessed)) {
                 continue; // Skip if particular invitation was already shown
             }
+
             $outputResponse['dynamic'][] = array(
                 'id' => $dynamicInvitation->id,
                 'type' => $dynamicInvitation->event_type,

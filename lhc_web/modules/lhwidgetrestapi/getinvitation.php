@@ -197,6 +197,12 @@ if ($outputResponse['invitation_id'] > 0) {
             $outputResponse['play_sound'] = false;
         }
 
+        if ($invitation->dynamic_invitation == 1) {
+            if (isset($invitation->design_data_array['show_everytime']) && $invitation->design_data_array['show_everytime'] == true){
+                $outputResponse['qinv'] = false;
+            }
+        }
+
         // Replace images
         if (strpos($outputResponse['message'],'{proactive_img_') !== false) {
             $replaceStyleArray = [];

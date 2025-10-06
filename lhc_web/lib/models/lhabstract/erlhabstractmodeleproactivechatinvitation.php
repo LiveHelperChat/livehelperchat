@@ -326,6 +326,12 @@ class erLhAbstractModelProactiveChatInvitation {
             $appendDevice = 'AND show_on_mobile IN ' . $devicesFilter[$item->device_type];
         }
 
+        $onlineAttrSystem = $item->online_attr_system_array;
+
+        if (isset($onlineAttrSystem['session_inv']) && !empty($onlineAttrSystem['session_inv'])) {
+            $appendDevice .= ' AND id NOT IN (' . implode(',', $onlineAttrSystem['session_inv']) . ') ';
+        }
+
 	    $q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
@@ -341,9 +347,42 @@ class erLhAbstractModelProactiveChatInvitation {
 	    ->orderBy('position ASC, RAND()')
 	    ->limit( 10 );
 
-	    $messagesToUser = $session->find( $q );
-	    
-	    return $messagesToUser;
+        $messagesToUserRaw = $session->find( $q );
+
+
+        foreach ($messagesToUserRaw as $messageToUser) {
+
+            $conditionsValid = true;
+
+            if ($messageToUser->url_present != '') {
+                $urlOptions = explode(',',$messageToUser->url_present);
+                $currentPage = ltrim($item->current_page,'/');
+                $validURL = false;
+
+                foreach ($urlOptions as $urlOption) {
+                    if (substr($urlOption,-1) == '*') {
+                        if (strpos($currentPage,rtrim($urlOption,'*')) === 0) {
+                            $validURL = true;
+                        }
+                    } elseif ($currentPage == $urlOption) {
+                        $validURL = true;
+                    }
+                }
+
+                if ($validURL === false) {
+                    $conditionsValid = false;
+                }
+            }
+
+            if ($conditionsValid === true) {
+                $messagesToUser[] = $messageToUser;
+            } else if (isset($params['debug'])) {
+                $debugData['conditions_not_valid'][$messageToUser->id] = $messageToUser;
+            }
+        }
+
+        return $messagesToUser;
+
 	}
 	
 	public static function setInvitation(erLhcoreClassModelChatOnlineUser & $item, $invitationId) {
