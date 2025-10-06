@@ -47,16 +47,6 @@ if (erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value 
                     unset($onlineAttributes['qinv']); // Next time show normal invitation
                 }
             } else {
-
-                if ($userInstance->invitation->dynamic_invitation == 1 && isset($userInstance->invitation->design_data_array['do_not_show_session']) && $userInstance->invitation->design_data_array['do_not_show_session']) {
-                    if (!isset($onlineAttributes['session_inv'])) {
-                        $onlineAttributes['session_inv'] = [];
-                    }
-                    if (!in_array($userInstance->invitation_id,$onlineAttributes['session_inv'])) {
-                        $onlineAttributes['session_inv'][] =$userInstance->invitation_id;
-                    }
-                }
-
                 $onlineAttributes['qinv'] = 1; // Next time show quite invitation
             }
         } else {
@@ -66,6 +56,15 @@ if (erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value 
 
             if (isset($onlineAttributes['qinv'])) {
                 unset($onlineAttributes['qinv']); // Next time show normal invitation
+            }
+        }
+
+        if ($userInstance->invitation->dynamic_invitation == 1 && isset($userInstance->invitation->design_data_array['do_not_show_session']) && $userInstance->invitation->design_data_array['do_not_show_session']) {
+            if (!isset($onlineAttributes['session_inv'])) {
+                $onlineAttributes['session_inv'] = [];
+            }
+            if (!in_array($userInstance->invitation_id,$onlineAttributes['session_inv'])) {
+                $onlineAttributes['session_inv'][] =$userInstance->invitation_id;
             }
         }
 
