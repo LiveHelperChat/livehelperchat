@@ -1103,6 +1103,11 @@ class erLhcoreClassGenericBotActionRestapi
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_USERAGENT, 'curl/7.29.0');
 
+        // Force cURL to use HTTP/1.1 instead of HTTP/2 to bypass the protocol error
+        if (isset($methodSettings['http_protocol']) && !empty($methodSettings['http_protocol'])) {
+            curl_setopt($ch, CURLOPT_HTTP_VERSION, (int)$methodSettings['http_protocol']);
+        }
+
         if (isset($methodSettings['method']) && ($methodSettings['method'] == 'PUT' || $methodSettings['method'] == 'DELETE')) {
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $methodSettings['method']);
         }

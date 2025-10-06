@@ -156,7 +156,7 @@ if (empty($Errors)) {
         $db = ezcDbInstance::get();
         $db->beginTransaction();
 
-        $requestSaved = erLhcoreClassChatValidator::saveOfflineRequest(array('chatprefill' => (isset($chatPrefill) ? $chatPrefill : false), 'chat' => & $chat, 'input_data' => $inputData, 'question' => (isset($inputData->question) ? $inputData->question : '')));
+        $requestSaved = erLhcoreClassChatValidator::saveOfflineRequest(array('chatprefill' => (isset($chatPrefill) ? $chatPrefill : false), 'chat' => & $chat, 'input_data' => $inputData, 'question' => ($inputData->question ?? '')));
 
         // Assign chat to user
         if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && is_numeric($chat->id)) {
@@ -186,7 +186,8 @@ if (empty($Errors)) {
         // Same as start chat workflow
         if ($requestSaved === true) {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request_saved', array(
-                'chat' =>  & $chat
+                'chat' =>  & $chat,
+                'question' => ($inputData->question ?? '')
             ));
         }
 

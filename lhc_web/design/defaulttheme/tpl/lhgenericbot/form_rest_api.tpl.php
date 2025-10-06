@@ -82,17 +82,29 @@
                     </div>
                 </div>
                 <div class="col-6">
-
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Method');?></label>
-                        <select class="form-control form-control-sm" name="method" ng-model="param.method">
-                            <option value="GET">GET</option>
-                            <option value="POST">POST</option>
-                            <option value="PUT">PUT</option>
-                            <option value="DELETE">DELETE</option>
-                        </select>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Method');?></label>
+                                <select class="form-control form-control-sm" name="method" ng-model="param.method">
+                                    <option value="GET">GET</option>
+                                    <option value="POST">POST</option>
+                                    <option value="PUT">PUT</option>
+                                    <option value="DELETE">DELETE</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Protocol');?></label>
+                                <select class="form-control form-control-sm" name="method" ng-model="param.http_protocol">
+                                    <option value="">Auto</option>
+                                    <option value="2">CURL_HTTP_VERSION_1_1</option>
+                                    <option value="3">CURL_HTTP_VERSION_2_0</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
                 <div class="col-6">
                     <div class="form-group">
