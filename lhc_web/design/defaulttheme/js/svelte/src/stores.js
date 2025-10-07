@@ -1,6 +1,7 @@
 import { writable } from 'svelte/store';
 
 export const lhcList = writable({
+    optionsPanels: {},
     onlineusers : {"list" : []},
     onlineusersGrouped : [],
     onlineusers_tt : 0,

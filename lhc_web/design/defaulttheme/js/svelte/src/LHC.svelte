@@ -182,6 +182,18 @@
         });
     });
 
+    ee.addListener('svelteOptionsPanelLoaded',function (listId) {
+        if (typeof $lhcList['optionsPanels'][listId] !== 'undefined') {
+            const panel = $lhcList['optionsPanels'][listId];
+            if (panel.custom_filters && Array.isArray(panel.custom_filters)) {
+                panel.custom_filters.forEach(function(custom_filter) {
+                    const fieldKey = listId + '_' + custom_filter['field'];
+                    $lhcList[fieldKey] = lhcServices.restoreLocalSetting(fieldKey, 'false', false) != 'false';
+                });
+            }
+        }
+    });
+
     ee.addListener('svelteResetTimeoutActivity',function () {
         resetTimeoutActivity();
     });
@@ -422,6 +434,23 @@
                 storeLocalSetting(listId + '_hide_dgroup', true);
             } else {
                 removeLocalSetting(listId + '_hide_dgroup');
+            }
+        }
+
+        if (typeof $lhcList['optionsPanels'][listId] !== 'undefined') {
+            const panel = $lhcList['optionsPanels'][listId];
+            if (panel.custom_filters && Array.isArray(panel.custom_filters)) {
+                panel.custom_filters.forEach(function(custom_filter) {
+                    const fieldKey = listId + '_' + custom_filter['field'];
+                    
+                    if (typeof $lhcList[fieldKey] !== 'undefined') {
+                        if ($lhcList[fieldKey] === true) {
+                            storeLocalSetting(fieldKey, true);
+                        } else {
+                            removeLocalSetting(fieldKey);
+                        }
+                    }
+                });
             }
         }
 
@@ -1325,6 +1354,23 @@
 
         if (typeof $lhcList.toggleWidgetData['onop_sort'] !== 'undefined' && $lhcList.toggleWidgetData['onop_sort'] !== '') {
             filter += '/(onop)/'+$lhcList.toggleWidgetData['onop_sort'];
+        }
+
+        if (typeof $lhcList['optionsPanels'] !== 'undefined') {
+            for (const [panelId, panel] of Object.entries($lhcList['optionsPanels'])) {
+                if (panel.custom_filters && Array.isArray(panel.custom_filters)) {
+                    panel.custom_filters.forEach(function(custom_filter) {
+                        const fieldKey = panelId + '_' + custom_filter['field'];
+                        const storedValue = lhcServices.restoreLocalSetting(fieldKey, 'false', false);
+                        $lhcList[fieldKey] = storedValue != 'false';
+                        
+                        // Add to URL filter if the custom filter is enabled
+                        if ($lhcList[fieldKey] === true) {
+                            filter += '/(' + custom_filter['field'] + ')/1';
+                        }
+                    });
+                }
+            }
         }
 
         // What subelements of widgets should be hidden

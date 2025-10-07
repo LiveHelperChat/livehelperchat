@@ -261,6 +261,7 @@ $ViewList['delete'] = array(
 $ViewList['syncadmininterface'] = array(
     'params' => array(),
     'uparams' => array(
+        'on_opf',
         'mmd',
         'mmdgroups',
         'limitmm',

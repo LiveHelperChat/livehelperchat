@@ -1,5 +1,6 @@
 <svelte:options customElement={{tag: 'lhc-widget', shadow: 'none'}}/>
 <script>
+    import { onMount } from 'svelte';
     import { lhcList } from '../stores.js';
     import { t } from "../i18n/i18n.js";
     import lhcServices from '../lib/Services.js';
@@ -72,6 +73,11 @@
 
     lhcServices.getToggleWidget(lhcList, expand_identifier);
     lhcServices.getToggleWidgetSort(lhcList, sort_identifier, default_sort);
+
+    onMount(async() => {
+        $lhcList['optionsPanels'][_optionsPanel['panelid']] = _optionsPanel;
+        ee.emitEvent('svelteOptionsPanelLoaded',[_optionsPanel['panelid']]);
+    });
 
 </script>
 

@@ -9,7 +9,21 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'setopstatus')){
 if (erLhcoreClassUser::instance()->hasAccessTo('lhgroupchat', 'use')){
     $permissionsWidget[] = 'lhgroupchat_use';
 }
-$optionsPanel = array('panelid' => 'operatord', 'limitid' => 'limito', 'disable_product' => true, 'userid' => 'oopu');
+$optionsPanel = array(
+    'panelid' => 'operatord',
+    'limitid' => 'limito',
+    'disable_product' => true,
+    'userid' => 'oopu',
+    'custom_filters' => [
+            [
+                    'field' => 'on_opf',
+                    'type'  => 'checkbox',
+                    'label' => htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Chat ready')),
+                    'title' => htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Show only operators that are online')),
+                    'icon' => 'flash_on',
+            ]
+    ]
+);
 ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/online_operators_panel_multiinclude.tpl.php')); ?>
