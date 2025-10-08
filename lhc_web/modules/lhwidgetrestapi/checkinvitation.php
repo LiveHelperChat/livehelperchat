@@ -115,7 +115,7 @@ if (isset($reopen_chat)) {
         (
             $userInstance->has_message_from_operator == true ||
 
-            ($appendInvitation = ($userInstance->invitation instanceof erLhAbstractModelProactiveChatInvitation && ($userInstance->message_seen == 0 || isset($userInstance->invitation->design_data_array['keep_after_close']) && $userInstance->invitation->design_data_array['keep_after_close'] == 1) /*&& isset($userInstance->invitation->design_data_array['append_bot']) && $userInstance->invitation->design_data_array['append_bot'] == 1 && $userInstance->invitation->bot_id > 0 && $userInstance->invitation->trigger_id > 0)*/)) == true
+            ($appendInvitation = ($userInstance->invitation instanceof erLhAbstractModelProactiveChatInvitation && ($userInstance->message_seen == 0 || isset($userInstance->invitation->design_data_array['keep_after_close']) && $userInstance->invitation->design_data_array['keep_after_close'] == 1) && isset($userInstance->invitation->design_data_array['append_bot']) && $userInstance->invitation->design_data_array['append_bot'] == 1 && $userInstance->invitation->bot_id > 0 && $userInstance->invitation->trigger_id > 0)) == true
         ) &&
         (!isset($dynamicEveryTime) || $dynamicEveryTime == false)
 ) {
