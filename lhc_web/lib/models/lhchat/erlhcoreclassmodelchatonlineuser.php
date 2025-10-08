@@ -993,9 +993,6 @@ class erLhcoreClassModelChatOnlineUser
                     $item->message_seen = 1;
                     $item->message_seen_ts = time();
                     $item->operator_message = '';
-                    $item->operator_user_id = 0;
-                    $item->invitation_id = 0;
-                    $item->invitation_seen_count = 0;
                 }
             }
 
