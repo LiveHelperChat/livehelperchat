@@ -815,6 +815,8 @@ class erLhAbstractModelProactiveChatInvitation {
                     }
                 }
 
+                $isNewInvitation = $item->invitation_id != $message->id;
+
                 // Variation message either original either some child
                 // We should always find one even yourself
                 $messageContent = erLhAbstractModelProactiveChatInvitation::findOne(['sort' => 'rand()', 'filter' => ['disabled' => 0], 'filterlor' => ['parent_id' => [$message->id], 'id' => [$message->id]]]);
@@ -884,7 +886,7 @@ class erLhAbstractModelProactiveChatInvitation {
                     $item->online_attr_system_array = $onlineAttrSystem;
                 }
 
-                if (isset($onlineAttrSystem['qinv']) && isset($messageContent->design_data_array['full_on_invitation']) && $messageContent->design_data_array['full_on_invitation'] == true) {
+                if ($isNewInvitation == true && isset($onlineAttrSystem['qinv']) && isset($messageContent->design_data_array['full_on_invitation']) && $messageContent->design_data_array['full_on_invitation'] == true) {
                     unset($onlineAttrSystem['qinv']);
                     $item->online_attr_system = json_encode($onlineAttrSystem);
                     $item->online_attr_system_array = $onlineAttrSystem;

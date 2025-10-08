@@ -992,6 +992,8 @@ class erLhcoreClassModelChatOnlineUser
                 if ($item->has_message_from_operator == true && $item->invitation !== false && $item->invitation->hide_after_ntimes > 0 && $item->invitation_seen_count > $item->invitation->hide_after_ntimes) {
                     $item->message_seen = 1;
                     $item->message_seen_ts = time();
+                    $item->invitation_id = 0;
+                    $item->invitation_seen_count = 0;
                     $item->operator_message = '';
                 }
             }
