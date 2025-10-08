@@ -809,6 +809,7 @@ class erLhcoreClassModelChatOnlineUser
                         $item->last_visit = time();
                         $item->pages_count = 0;
                         $item->invitation_id = 0;
+                        $item->invitation_seen_count = 0;
 
                         // Reset chat_id only if chat is not active or pending
                         if ($item->chat_id > 0) {
