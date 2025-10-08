@@ -990,14 +990,12 @@ class erLhcoreClassModelChatOnlineUser
 
                 // Hide invitation message after n times if required
                 if ($item->has_message_from_operator == true && $item->invitation !== false && $item->invitation->hide_after_ntimes > 0 && $item->invitation_seen_count > $item->invitation->hide_after_ntimes) {
-                    if (isset($item->invitation->design_data_array['show_everytime']) && $item->invitation->design_data_array['show_everytime'] == true) {
-                        $item->operator_message = '';
-                        $item->message_seen = 0;
-                        $item->message_seen_ts = 0;
-                    } else {
-                        $item->message_seen = 1;
-                        $item->message_seen_ts = time();
-                    }
+                    $item->message_seen = 1;
+                    $item->message_seen_ts = time();
+                    $item->operator_message = '';
+                    $item->operator_user_id = 0;
+                    $item->invitation_id = 0;
+                    $item->invitation_seen_count = 0;
                 }
             }
 
