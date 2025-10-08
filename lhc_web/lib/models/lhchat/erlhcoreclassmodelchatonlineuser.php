@@ -183,7 +183,9 @@ class erLhcoreClassModelChatOnlineUser
                     $this->message_seen = 1;
                     $this->message_seen_ts = time();
                     $this->operator_message = '';
-                    $this->updateThis(['update' => ['online_attr_system','message_seen','message_seen_ts','operator_message']]);
+                    $this->invitation_id = 0;
+                    $this->invitation_seen_count = 0;
+                    $this->updateThis(['update' => ['invitation_seen_count','invitation_id','online_attr_system','message_seen','message_seen_ts','operator_message']]);
                 }
 
                 return $hasInvitation;
