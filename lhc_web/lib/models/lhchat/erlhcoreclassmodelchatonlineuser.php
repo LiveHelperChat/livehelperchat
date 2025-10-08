@@ -808,6 +808,11 @@ class erLhcoreClassModelChatOnlineUser
                         $item->last_visit_prev = $item->last_visit;
                         $item->last_visit = time();
                         $item->pages_count = 0;
+
+                        if ($item->invitation_id > 0) {
+                            $item->operator_message = '';
+                        }
+                        
                         $item->invitation_id = 0;
                         $item->invitation_seen_count = 0;
 
