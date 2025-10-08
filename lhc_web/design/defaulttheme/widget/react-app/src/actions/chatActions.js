@@ -180,6 +180,7 @@ export function initProactive(data) {
             } else {
                 dispatch({type: "PROACTIVE", data: response.data})
             }
+            helperFunctions.sendMessageParent('widgetRendered',[]);
         });
     }
 }

@@ -786,8 +786,9 @@ class erLhcoreClassModelChatOnlineUser
                         $item->message_seen_ts = 0;
                         $item->operator_message = '';
                         $item->operator_user_id = 0;
+                        $item->invitation_id = 0;
+                        $item->invitation_seen_count = 0;
                     }
-
 
                     // Visit duration less than 30m. Same as google analytics
                     // See: https://support.google.com/analytics/answer/2731565?hl=en

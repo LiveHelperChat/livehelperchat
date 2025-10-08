@@ -87,6 +87,11 @@
             <label><?php echo $fields['expires_after']['trans'];?></label>
             <select class="form-control form-control-sm" name="AbstractInput_expires_after">
                 <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Permanent (visitor has to close invitation)');?></option>
+
+                <?php for ($sec = 5; $sec <= 55; $sec += 5) : ?>
+                    <option value="<?php echo $sec; ?>" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == $sec) : ?>selected="selected"<?php endif;?> ><?php echo $sec . ' ' ;?><?php echo  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','seconds');?></option>
+                <?php endfor; ?>
+
                 <option value="60" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 60) : ?>selected="selected"<?php endif;?> >1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','minute');?></option>
                 <option value="300" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 300) : ?>selected="selected"<?php endif;?> >5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','minutes');?></option>
                 <option value="600" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 600) : ?>selected="selected"<?php endif;?> >10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','minutes');?></option>

@@ -43,7 +43,9 @@ if (erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value 
                 ||
                 (isset($userInstance->invitation->design_data_array['full_on_invitation']) && $userInstance->invitation->design_data_array['full_on_invitation'] == true)
             ) {
-                if (isset($onlineAttributes['qinv'])) {
+                if (isset($userInstance->invitation->design_data_array['full_quiet']) && $userInstance->invitation->design_data_array['full_quiet'] == true) {
+                    $onlineAttributes['qinv'] = 1; // Next time show quite invitation
+                } elseif (isset($onlineAttributes['qinv'])) {
                     unset($onlineAttributes['qinv']); // Next time show normal invitation
                 }
             } else {
@@ -53,13 +55,12 @@ if (erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value 
             $userInstance->message_seen = 1;
             $userInstance->message_seen_ts = time();
 
-
             if (isset($onlineAttributes['qinv'])) {
                 unset($onlineAttributes['qinv']); // Next time show normal invitation
             }
         }
 
-        if ($userInstance->invitation->dynamic_invitation == 1 && isset($userInstance->invitation->design_data_array['do_not_show_session']) && $userInstance->invitation->design_data_array['do_not_show_session']) {
+        if ($userInstance->invitation !== false && $userInstance->invitation->dynamic_invitation == 1 && isset($userInstance->invitation->design_data_array['do_not_show_session']) && $userInstance->invitation->design_data_array['do_not_show_session']) {
             if (!isset($onlineAttributes['session_inv'])) {
                 $onlineAttributes['session_inv'] = [];
             }

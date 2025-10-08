@@ -461,6 +461,14 @@ $proactiveAttr = array(
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
+    'full_quiet' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'design_data_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'If show widget invitation was shown and closed, next time show it minimized.'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
     'close_above_msg' => array(
         'type' => 'checkbox',
         'main_attr' => 'design_data_array',
