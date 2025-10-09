@@ -91,14 +91,6 @@
             </div>
             <div class="col-6">
                 <div class="form-group">
-                    <label><?php echo erLhcoreClassAbstract::renderInput('do_not_show_session', $fields['do_not_show_session'], $object)?> <?php echo $fields['do_not_show_session']['trans'];?></label>
-                    <div class="text-muted fs12">
-                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'If URL condition is met or dynamic invitation is triggered, the invitation will be shown only once per visitor session. If the visitor closes the invitation it will not be shown again during the same session.')?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="form-group">
                     <label><?php echo erLhcoreClassAbstract::renderInput('show_next_inv', $fields['show_next_inv'], $object)?> <?php echo $fields['show_next_inv']['trans'];?></label>
                     <div class="text-muted fs12">
                         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'By default, if an invitation was not closed by the visitor, the next invitation will be shown when the visitor navigates to a different page. If the visitor closed the invitation, it will not be shown on the next page. Enabling this option will display the invitation on the next page even if the previous one was closed by the visitor.')?>
@@ -112,6 +104,13 @@
 <div class="form-group">
     <label><?php echo $fields['hide_after_ntimes']['trans'];?></label>
     <?php echo erLhcoreClassAbstract::renderInput('hide_after_ntimes', $fields['hide_after_ntimes'], $object)?>
+</div>
+
+<div class="form-group">
+    <label><?php echo erLhcoreClassAbstract::renderInput('do_not_show_session', $fields['do_not_show_session'], $object)?> <?php echo $fields['do_not_show_session']['trans'];?></label>
+    <div class="text-muted fs12">
+        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Invitation will be shown only once per visitor session. If the visitor closes the invitation it will not be shown again during the same session.')?>
+    </div>
 </div>
 
 <div class="row">

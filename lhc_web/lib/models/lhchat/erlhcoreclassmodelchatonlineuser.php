@@ -178,6 +178,16 @@ class erLhcoreClassModelChatOnlineUser
                     $hasInvitation = false;
                     $onlineAttrSystem = $this->online_attr_system_array;
                     unset($onlineAttrSystem['lhcinv_exp']);
+
+                    if ($this->invitation !== false && isset($this->invitation->design_data_array['do_not_show_session']) && $this->invitation->design_data_array['do_not_show_session'] == true) {
+                        if (!isset($onlineAttrSystem['session_inv'])) {
+                            $onlineAttrSystem['session_inv'] = [];
+                        }
+                        if (!in_array($this->invitation_id,$onlineAttrSystem['session_inv'])) {
+                            $onlineAttrSystem['session_inv'][] = $this->invitation_id;
+                        }
+                    }
+
                     $this->online_attr_system_array = $onlineAttrSystem;
                     $this->online_attr_system = json_encode($onlineAttrSystem);
                     $this->message_seen = 1;
@@ -1001,9 +1011,22 @@ class erLhcoreClassModelChatOnlineUser
                 if ($item->has_message_from_operator == true && $item->invitation !== false && $item->invitation->hide_after_ntimes > 0 && $item->invitation_seen_count > $item->invitation->hide_after_ntimes) {
                     $item->message_seen = 1;
                     $item->message_seen_ts = time();
-                    $item->invitation_id = 0;
                     $item->invitation_seen_count = 0;
                     $item->operator_message = '';
+
+                    if (isset($item->invitation->design_data_array['do_not_show_session']) && $item->invitation->design_data_array['do_not_show_session'] == true) {
+                        $onlineAttrSystem = $item->online_attr_system_array;
+                        if (!isset($onlineAttrSystem['session_inv'])) {
+                            $onlineAttrSystem['session_inv'] = [];
+                        }
+                        if (!in_array($item->invitation_id,$onlineAttrSystem['session_inv'])) {
+                            $onlineAttrSystem['session_inv'][] = $item->invitation_id;
+                            $item->online_attr_system = json_encode($onlineAttrSystem);
+                            $item->online_attr_system_array = $onlineAttrSystem;
+                        }
+                    }
+
+                    $item->invitation_id = 0;
                 }
             }
 
