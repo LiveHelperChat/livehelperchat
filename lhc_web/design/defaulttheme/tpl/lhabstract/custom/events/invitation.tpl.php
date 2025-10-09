@@ -72,8 +72,41 @@
 </div>
 
 <div class="form-group">
-<label><?php echo $fields['url_present']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('url_present', $fields['url_present'], $object)?>
+    <label class="form-label fw-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'URL Matching conditions')?></label>
+    <div class="border rounded p-3 bg-light">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erLhcoreClassAbstract::renderInput('page_based_inv', $fields['page_based_inv'], $object)?> <?php echo $fields['page_based_inv']['trans'];?></label>
+                    <div class="text-muted fs12">
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'This option has to be activated for URL invitations to start working.')?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo $fields['url_present']['trans'];?></label>
+                    <?php echo erLhcoreClassAbstract::renderInput('url_present', $fields['url_present'], $object)?>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erLhcoreClassAbstract::renderInput('do_not_show_session', $fields['do_not_show_session'], $object)?> <?php echo $fields['do_not_show_session']['trans'];?></label>
+                    <div class="text-muted fs12">
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'If URL condition is met or dynamic invitation is triggered, the invitation will be shown only once per visitor session. If the visitor closes the invitation it will not be shown again during the same session.')?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erLhcoreClassAbstract::renderInput('show_next_inv', $fields['show_next_inv'], $object)?> <?php echo $fields['show_next_inv']['trans'];?></label>
+                    <div class="text-muted fs12">
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'By default, if an invitation was not closed by the visitor, the next invitation will be shown when the visitor navigates to a different page. If the visitor closed the invitation, it will not be shown on the next page. Enabling this option will display the invitation on the next page even if the previous one was closed by the visitor.')?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="form-group">
@@ -125,27 +158,36 @@
     </div>
 </div>
 
-<div class="form-group">		
-<label><?php echo erLhcoreClassAbstract::renderInput('requires_email', $fields['requires_email'], $object)?> <?php echo $fields['requires_email']['trans'];?></label>
-</div>
-
-<div class="form-group">		
-<label><?php echo erLhcoreClassAbstract::renderInput('requires_username', $fields['requires_username'], $object)?> <?php echo $fields['requires_username']['trans'];?></label>
-</div>
-
-<div class="form-group">		
-<label><?php echo erLhcoreClassAbstract::renderInput('requires_phone', $fields['requires_phone'], $object)?> <?php echo $fields['requires_phone']['trans'];?></label>
+<div class="row">
+    <div class="col-4">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('requires_email', $fields['requires_email'], $object)?> <?php echo $fields['requires_email']['trans'];?></label>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('requires_username', $fields['requires_username'], $object)?> <?php echo $fields['requires_username']['trans'];?></label>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('requires_phone', $fields['requires_phone'], $object)?> <?php echo $fields['requires_phone']['trans'];?></label>
+        </div>
+    </div>
 </div>
 
 <div class="form-group">
-<label><?php echo $fields['show_on_mobile']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('show_on_mobile', $fields['show_on_mobile'], $object)?>
+    <label><?php echo $fields['show_on_mobile']['trans'];?></label>
+    <?php echo erLhcoreClassAbstract::renderInput('show_on_mobile', $fields['show_on_mobile'], $object)?>
 </div>
 
 <div class="row">
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erLhcoreClassAbstract::renderInput('show_everytime', $fields['show_everytime'], $object)?> <?php echo $fields['show_everytime']['trans'];?></label>
+            <div class="text-muted fs12">
+                By default, if an invitation is closed by the visitor, on next page it won't be shown. Enabling this option will force the invitation to be remembered in the widget content untill it expires or numbers of shows is reached.
+            </div>
         </div>
     </div>
     <div class="col-6">
@@ -168,21 +210,7 @@
             <label><?php echo erLhcoreClassAbstract::renderInput('assign_to_randomop', $fields['assign_to_randomop'], $object)?> <?php echo $fields['assign_to_randomop']['trans'];?></label>
         </div>
     </div>
-    <div class="col-6">
-        <div class="form-group">
-            <label><?php echo erLhcoreClassAbstract::renderInput('page_based_inv', $fields['page_based_inv'], $object)?> <?php echo $fields['page_based_inv']['trans'];?></label>
-        </div>
-    </div>
-    <div class="col-6">
-        <div class="form-group">
-            <label><?php echo erLhcoreClassAbstract::renderInput('show_next_inv', $fields['show_next_inv'], $object)?> <?php echo $fields['show_next_inv']['trans'];?></label>
-        </div>
-    </div>
-    <div class="col-6">
-        <div class="form-group">
-            <label><?php echo erLhcoreClassAbstract::renderInput('do_not_show_session', $fields['do_not_show_session'], $object)?> <?php echo $fields['do_not_show_session']['trans'];?></label>
-        </div>
-    </div>
+    
 </div>
 
 <div class="form-group">		
