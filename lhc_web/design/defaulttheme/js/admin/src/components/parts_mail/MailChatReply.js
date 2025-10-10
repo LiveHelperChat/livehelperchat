@@ -10,6 +10,7 @@ const MailChatReply = props => {
 
     const [replyMode, setReplyMode] = useState(false);
     const [forwardMode, setForwardMode] = useState(false);
+    const [keepQuote, setKeepQuote] = useState(true);
     const [replyContent, setReplyContent] = useState(null);
     const [replyIntro, setReplyIntro] = useState(null);
     const [replySignature, setReplySignature] = useState(null);
@@ -141,6 +142,7 @@ const MailChatReply = props => {
                 setRecipients(result.data.recipients);
                 setUnderReplySignature(result.data.signature_under);
                 setIsSelfReply(result.data.is_self_reply);
+                setKeepQuote(result.data.keep_quote);
 
                 if (result.data.user_id > 0) {
                     props.verifyOwner(result.data.user_id);
@@ -203,7 +205,7 @@ const MailChatReply = props => {
 
                 <Editor
                     tinymceScriptSrc={props.moptions.tiny_mce_path}
-                    initialValue={"<p></p>" + replyIntro + (!props.moptions.no_quote_mail && props.message.body_front ? ("<blockquote>" + (props.moptions.skip_images == true ? props.message.body_front.replace(/\<img([^>]*)\ssrc=('|")([^>]*)\2\s([^>]*)\/\>/gi, props.moptions.image_skipped_text ) : props.message.body_front) + "</blockquote>") : "") + (underReplySignature == false ? replySignature : "")}
+                    initialValue={"<p></p>" + replyIntro + (keepQuote && props.message.body_front ? ("<blockquote>" + (props.moptions.skip_images == true ? props.message.body_front.replace(/\<img([^>]*)\ssrc=('|")([^>]*)\2\s([^>]*)\/\>/gi, props.moptions.image_skipped_text ) : props.message.body_front) + "</blockquote>") : "") + (underReplySignature == false ? replySignature : "")}
                     onInit={() => {
                         tinyMCE.get("reply-to-mce-"+props.message.id).focus();
                     }}

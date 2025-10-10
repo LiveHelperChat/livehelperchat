@@ -69,8 +69,9 @@ try {
         $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
         $mcOptionsData = (array)$mcOptions->data;
         $prepend = '';
+        $keepQuote = !(isset($mcOptionsData['no_quote_mail']) && $mcOptionsData['no_quote_mail'] == 1) || ($Params['user_parameters']['mode'] == 'forward' && isset($mcOptionsData['keep_forward_quote']) && $mcOptionsData['keep_forward_quote'] == 1);
 
-        if (!(isset($mcOptionsData['no_quote_mail']) && $mcOptionsData['no_quote_mail'] == 1)) {
+        if ($keepQuote === true) {
             if (!empty($mcOptionsData['reply_to_tmp'])) {
                 $prepend = erLhcoreClassGenericBotWorkflow::translateMessage($mcOptionsData['reply_to_tmp'], array('chat' => $message, 'args' => ['chat' => $message, 'msg' => $message]));
             } else {
@@ -190,6 +191,7 @@ try {
             'is_self_reply' => $isSelfReply,
             'signature' => (!empty($signature) ? '<div class="gmail_signature">' . $signature . '</div>' : ''),
             'signature_under' => ($conv->mailbox->signature_under == 1),
+            'keep_quote' => $keepQuote,
             'recipients' => [
             'to' => $message->to_data_array,
             'reply' => $replyRecipientsMapped,

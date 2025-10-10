@@ -37,6 +37,9 @@ if ( isset($_POST['StoreOptions']) ) {
         'no_quote_mail' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'keep_forward_quote' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
         'download_view_mode' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0, 'max_range' => 2]
         ),
@@ -97,6 +100,12 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['no_quote_mail'] = 1 ;
     } else {
         $data['no_quote_mail'] = 0;
+    }
+    
+    if ($form->hasValidData( 'keep_forward_quote' ) && $form->keep_forward_quote == true) {
+        $data['keep_forward_quote'] = 1 ;
+    } else {
+        $data['keep_forward_quote'] = 0;
     }
 
     if ($form->hasValidData( 'skip_images' ) && $form->skip_images == true) {

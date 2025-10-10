@@ -37,6 +37,11 @@
             <input type="checkbox" name="no_quote_mail" value="on" <?php if (isset($mc_options['no_quote_mail']) && ($mc_options['no_quote_mail'] == true)) : ?>checked="checked"<?php endif;?> />
             <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Do not quote original e-mail while responding to a ticket')?></label>
     </div>
+    <div class="form-group ps-4">
+        <label>
+            <input type="checkbox" name="keep_forward_quote" value="on" <?php if (isset($mc_options['keep_forward_quote']) && ($mc_options['keep_forward_quote'] == true)) : ?>checked="checked"<?php endif;?> />
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Preserve the quote if the message is an e-mail forward')?></label>
+    </div>
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Skipped image replacement text. You can use emoji also e.g')?> &#128444;&#65039;&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Copy')?>&nbsp;<span class="badge bg-secondary"><?php echo htmlspecialchars('&#128444;&#65039;')?></span></label>
