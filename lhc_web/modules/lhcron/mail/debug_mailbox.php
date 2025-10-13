@@ -41,8 +41,6 @@ try {
     exit;
 }
 
-exit;
-
 // Reset attributes for sync always to work
 $mailbox->last_process_time = 0;
 $mailbox->sync_started = 0;
