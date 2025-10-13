@@ -6,7 +6,18 @@ class erLhcoreClassMailconvParser {
 
     public static function getRawConnection($mailbox)
     {
-        $mail_con = imap_open($mailbox->imap, $mailbox->username,  $mailbox->password);
+
+        // Set all relevant IMAP timeouts to 10 seconds
+        // 1. Connection timeout (for imap_open)
+        imap_timeout(IMAP_OPENTIMEOUT, 10);
+        // 2. Read timeout (for reading data from the server)
+        imap_timeout(IMAP_READTIMEOUT, 10);
+        // 3. Write timeout (for sending data to the server)
+        imap_timeout(IMAP_WRITETIMEOUT, 10);
+        // Close timeout.
+        imap_timeout(IMAP_CLOSETIMEOUT, 10);
+
+        $mail_con = imap_open($mailbox->imap, $mailbox->username,  $mailbox->password,0,1);
 
         if ($mail_con === false) {
             throw new Exception(
