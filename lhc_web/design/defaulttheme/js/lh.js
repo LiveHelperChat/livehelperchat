@@ -51,7 +51,7 @@ function lh(){
     this.wwwDir = WWW_DIR_JAVASCRIPT;
     this.addmsgurl = "chat/addmsgadmin/";
 
-    this.syncadmin = "chat/syncadmin/";
+    this.syncadmin = "chat/syncadmin";
     this.closechatadmin = "chat/closechatadmin/";
     this.deletechatadmin = "chat/deletechatadmin/";
 
