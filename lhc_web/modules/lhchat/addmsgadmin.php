@@ -184,22 +184,22 @@ if (trim($form->msg) != '')
     	        	if (!$whisper && $userData->invisible_mode == 0 && $messageUserId > 0) { // Change status only if it's not internal command
     		        	if ($Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
 
-                            $msg = new erLhcoreClassModelmsg();
-                            $msg->name_support = $userData->name_support;
+                            $msgSystem = new erLhcoreClassModelmsg();
+                            $msgSystem->name_support = $userData->name_support;
                             $previousUserId = $Chat->user_id;
 
-                            \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat, 'user_id' => $userData->id));
-                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $userData->id));
+                            \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msgSystem, 'chat' => & $Chat, 'user_id' => $userData->id));
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msgSystem, 'chat' => & $Chat, 'user_id' => $userData->id));
 
-                            $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has accepted the pending chat by sending a message!');
-                            $msg->chat_id = $Chat->id;
-                            $msg->user_id = -1;
-                            $msg->time = time();
-                            $msg->meta_msg_array = ['content' => ['accept_action' => ['puser_id' => $previousUserId, 'ol' => ['op_pnd_msg'], 'user_id' => $userData->id, 'name_support' => $msg->name_support]]];
-                            $msg->meta_msg = json_encode($msg->meta_msg_array);
-                            erLhcoreClassChat::getSession()->save($msg);
+                            $msgSystem->msg = (string)$msgSystem->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has accepted the pending chat by sending a message!');
+                            $msgSystem->chat_id = $Chat->id;
+                            $msgSystem->user_id = -1;
+                            $msgSystem->time = time();
+                            $msgSystem->meta_msg_array = ['content' => ['accept_action' => ['puser_id' => $previousUserId, 'ol' => ['op_pnd_msg'], 'user_id' => $userData->id, 'name_support' => $msgSystem->name_support]]];
+                            $msgSystem->meta_msg = json_encode($msgSystem->meta_msg_array);
+                            erLhcoreClassChat::getSession()->save($msgSystem);
 
-                            $Chat->last_msg_id = $msg->id;
+                            $Chat->last_msg_id = $msgSystem->id;
     		        		$Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
                             $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
     		        		$Chat->user_id = $messageUserId;
@@ -263,26 +263,26 @@ if (trim($form->msg) != '')
 
                     if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($Chat)) {
 
-                        $msg = new erLhcoreClassModelmsg();
-                        $msg->name_support = $userData->name_support;
+                        $msgSystem = new erLhcoreClassModelmsg();
+                        $msgSystem->name_support = $userData->name_support;
                         $previousUserId = $Chat->user_id;
 
-                        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat, 'user_id' => $userData->id));
-                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $userData->id));
+                        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msgSystem, 'chat' => & $Chat, 'user_id' => $userData->id));
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msgSystem, 'chat' => & $Chat, 'user_id' => $userData->id));
 
-                        $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has accepted the bot chat by sending a message!');
-                        $msg->chat_id = $Chat->id;
-                        $msg->user_id = -1;
-                        $msg->time = time();
-                        $msg->meta_msg_array = ['content' => ['accept_action' => ['puser_id' => $previousUserId, 'ol' => ['op_bot_msg'], 'user_id' => $userData->id, 'name_support' => $msg->name_support]]];
-                        $msg->meta_msg = json_encode($msg->meta_msg_array);
-                        erLhcoreClassChat::getSession()->save($msg);
+                        $msgSystem->msg = (string)$msgSystem->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has accepted the bot chat by sending a message!');
+                        $msgSystem->chat_id = $Chat->id;
+                        $msgSystem->user_id = -1;
+                        $msgSystem->time = time();
+                        $msgSystem->meta_msg_array = ['content' => ['accept_action' => ['puser_id' => $previousUserId, 'ol' => ['op_bot_msg'], 'user_id' => $userData->id, 'name_support' => $msgSystem->name_support]]];
+                        $msgSystem->meta_msg = json_encode($msgSystem->meta_msg_array);
+                        erLhcoreClassChat::getSession()->save($msgSystem);
 
                         $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
                         $Chat->pnd_time = time() - 2;
                         $Chat->wait_time = 1;
                         $Chat->user_id = $currentUser->getUserID();
-                        $Chat->last_msg_id = $msg->id;
+                        $Chat->last_msg_id = $msgSystem->id;
 
                         // If operator takes over and task is not finished we want to unlock text field for visitor
                         if (isset($Chat->chat_variables_array['bot_lock_msg'])) {
