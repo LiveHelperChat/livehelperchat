@@ -1,6 +1,58 @@
 <?php
 
-if (isset($_POST['mail'])){
+if (isset($_POST['msg'])) {
+
+    $response = "";
+
+    $msg = erLhcoreClassModelmsg::fetch($Params['user_parameters']['id']);
+
+    if ($msg instanceof erLhcoreClassModelmsg) {
+        if (isset($_POST['extract_action'])) {
+            $patterns = [];
+            
+            // Basic state attributes
+            foreach ($msg->getState() as $stateKey => $stateAttr) {
+                $patterns[] = '{args.msg.' . $stateKey .'} = ' . $stateAttr;
+            }
+
+            // Dynamic attributes from __get method
+            foreach (['time_front', 'meta_msg_array', 'msg_dynamic_array', 'msg_plain', 'file', 'file_data'] as $dynamicAttr) {
+                if (is_object($msg->{$dynamicAttr})) {
+                    foreach ($msg->{$dynamicAttr}->getState() as $stateKey => $stateAttr) {
+                        $patterns[] = '{args.msg.' . $dynamicAttr .'.' . $stateKey .'} = ' . ((is_array($stateAttr) || is_object($stateAttr)) ? json_encode($stateAttr) : $stateAttr);
+                    }
+                } elseif (is_array($msg->{$dynamicAttr})) {
+                    foreach ($msg->{$dynamicAttr} as $stateKey => $stateAttr) {
+                        $patterns[] = '{args.msg.' . $dynamicAttr .'.' . $stateKey .'} = ' . ((is_array($stateAttr) || is_object($stateAttr)) ? json_encode($stateAttr) : $stateAttr);
+                    }
+                } elseif (is_string($msg->{$dynamicAttr}) || is_numeric($msg->{$dynamicAttr}) || is_bool($msg->{$dynamicAttr})) {
+                    $patterns[] = '{args.msg.' . $dynamicAttr .'} = ' . ((is_array($msg->{$dynamicAttr}) || is_object($msg->{$dynamicAttr})) ? json_encode($msg->{$dynamicAttr}) : $msg->{$dynamicAttr});
+                }
+            }
+
+            $response = implode("\n", $patterns);
+
+        } elseif (isset($_POST['text_pattern'])) {
+
+            if ($_POST['test_pattern'][0] === "{") {
+                $attribute = erLhcoreClassGenericBotWorkflow::translateMessage($_POST['test_pattern'], array('as_json' => true, 'msg' => $msg, 'args' => ['msg' => $msg]));
+            } else {
+                $attribute = $_POST['test_pattern'];
+            }
+
+            $response = var_export(erLhcoreClassChatValidator::conditionsMatches([['field' => $attribute, 'comparator' => $_POST['comparator'], 'value' => $_POST['text_pattern']]],[]), true);
+
+        } else {
+            $response = erLhcoreClassGenericBotWorkflow::translateMessage($_POST['test_pattern'], array('as_json' => true, 'msg' => $msg, 'args' => ['msg' => $msg]));
+            if (strpos($response,'{') === 0) {
+                $response = json_encode(json_decode($response,true), JSON_PRETTY_PRINT);
+            }
+        }
+    } else {
+        $response = erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Message does not exist or you do not have permission to access it!');
+    }
+
+} else if (isset($_POST['mail'])){
     $response = "";
 
     $chat = erLhcoreClassModelMailconvMessage::fetch($Params['user_parameters']['id']);
@@ -156,8 +208,10 @@ if (isset($_POST['mail'])){
                     }
                     if (isset($subAttributes[$dynamicAttr])){
                         foreach ($subAttributes[$dynamicAttr] as $subStateAttr) {
-                            foreach ($chat->{$dynamicAttr}->{$subStateAttr} as $stateSubKey => $subStateAttrVal) {
-                                $patterns[] = '{args.chat.' . $dynamicAttr .'.' . $subStateAttr . '.' . $stateSubKey . '} = ' . ((is_array($subStateAttrVal) || is_object($subStateAttrVal)) ? json_encode($subStateAttrVal) : $subStateAttrVal);
+                            if (is_array($chat?->{$dynamicAttr}?->{$subStateAttr}) || is_object($chat?->{$dynamicAttr}?->{$subStateAttr})) {
+                                foreach ($chat->{$dynamicAttr}->{$subStateAttr} as $stateSubKey => $subStateAttrVal) {
+                                    $patterns[] = '{args.chat.' . $dynamicAttr .'.' . $subStateAttr . '.' . $stateSubKey . '} = ' . ((is_array($subStateAttrVal) || is_object($subStateAttrVal)) ? json_encode($subStateAttrVal) : $subStateAttrVal);
+                                }
                             }
                         }
                     }
