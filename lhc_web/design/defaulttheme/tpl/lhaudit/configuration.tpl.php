@@ -37,6 +37,7 @@
     <?php $objectsLog = array(
         array('class' => 'AutoResponder' ,'name' => 'Auto Responder'),
         array('class' => 'CannedMsg' ,'name' => 'Canned Message'),
+        array('class' => 'CannedMsgReplace' ,'name' => 'Replaceable variable'),
         array('class' => 'Subject' ,'name' => 'Subject'),
         array('class' => 'Departament' ,'name' => 'Department'),
         array('class' => 'ChatConfig' ,'name' => 'Chat configuration'),

@@ -16,11 +16,25 @@ if (isset($_POST['Save_action']) || isset($_POST['Update_action']))
         exit;
     }
     
+    $previousState = $item->getState();
+
     $Errors = erLhcoreClassAdminChatValidatorHelper::validateReplaceVariable($item);
 
     if (count($Errors) == 0)
     {
         $item->saveThis();
+
+        $currentState = $item->getState();
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $item,
+            'check_log' => true,
+            'msg' => array(
+                'prev' => $previousState,
+                'curr' => $currentState,
+                'user_id' => $currentUser->getUserID()
+            )
+        ));
 
         if (isset($_POST['Update_action'])) {
             erLhcoreClassModule::redirect('cannedmsg/editreplace','/' . $item->id);

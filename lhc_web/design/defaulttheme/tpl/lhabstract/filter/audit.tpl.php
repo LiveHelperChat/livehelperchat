@@ -139,6 +139,7 @@
             <option value="AutoResponder">AutoResponder</option>
             <option value="AutoResponderDelete">AutoResponderDelete</option>
             <option value="CannedMsg">CannedMsg</option>
+            <option value="CannedMsgReplace">CannedMsgReplace - replaceable variables</option>
             <option value="CannedMsgDelete">CannedMsgDelete</option>
             <option value="ChatConfig">ChatConfig</option>
             <option value="mail_import_failure">Mail import failure</option>
