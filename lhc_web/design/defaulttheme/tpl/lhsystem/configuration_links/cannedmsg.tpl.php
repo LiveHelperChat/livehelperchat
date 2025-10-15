@@ -9,7 +9,7 @@
 <?php endif; ?>
 
 <?php if ($currentUser->hasAccessTo('lhcannedmsg','use_replace')) : ?>
-    <li><a href="<?php echo erLhcoreClassDesign::baseurl('cannedmsg/listreplace')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Canned replaceable variables');?></a></li>
+    <li><a href="<?php echo erLhcoreClassDesign::baseurl('cannedmsg/listreplace')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Replaceable variables');?></a></li>
 <?php endif; ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/cannedmsg_append.tpl.php'));?>
