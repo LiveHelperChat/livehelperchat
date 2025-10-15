@@ -9,6 +9,8 @@ $modalBodyClass = 'p-1'
 
     <?php if ($object->category == 'rest_api' &&  ($debugData = json_decode($object->message,true)) && isset($debugData['params_request'])) : ?>
         <button class="btn btn-xs btn-outline-secondary" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('audit/copycurl')?>/<?php print $object->id?>/audit'});"  type="button">Copy as CURL</button>
+    <?php elseif ($debugData = json_decode($object->message,true)) : ?>
+        <button class="btn btn-xs btn-outline-secondary" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('audit/copycurl')?>/<?php print $object->id?>/audit?json_view=1'});"  type="button">JSON View</button>
     <?php endif; ?>
 
     <?php foreach ($object->getFields() as $fieldName => $attr) : ?>

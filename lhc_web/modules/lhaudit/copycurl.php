@@ -225,14 +225,22 @@ if (isset($debugData['params_request'])) {
     $debugData = json_encode($debugData);
 } else {
     if ($msg instanceof erLhAbstractModelAudit) {
-        $debugData = $msg->meta_msg_array['content']['html']['content'];
+        if (isset($msg->meta_msg_array['content']['html']['content'])) {
+            $debugData = $msg->meta_msg_array['content']['html']['content'];
+        } else {
+            $debugData = $msg->message;
+        }
     } else {
         $debugData = $msg->message;
     }
 
 }
 
-$tpl->set('command',constructCurlCommandFromJson($debugData));
+$tpl->set('json_data',$debugData);
+
+if (!isset($_GET['json_view'])) {
+    $tpl->set('command',constructCurlCommandFromJson($debugData));
+}
 
 echo $tpl->fetch();
 exit;
