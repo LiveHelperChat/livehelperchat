@@ -119,6 +119,7 @@
         
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase().trim();
+            const searchTermNoSpaces = searchTerm.replace(/\s+/g, '');
             const configLinks = document.querySelectorAll('#system-tabs .tab-content a');
             const configListItems = document.querySelectorAll('#system-tabs .tab-content li');
             const tabPanes = document.querySelectorAll('#system-tabs .tab-content .tab-pane');
@@ -141,7 +142,8 @@
                 const matchingHeadings = [];
                 document.querySelectorAll('#system-tabs .tab-content h5').forEach(header => {
                     const headerText = header.textContent.toLowerCase();
-                    if (headerText.includes(searchTerm)) {
+                    const headerTextNoSpaces = headerText.replace(/\s+/g, '');
+                    if (headerText.includes(searchTerm) || headerTextNoSpaces.includes(searchTermNoSpaces)) {
                         matchingHeadings.push(header);
                     }
                 });
@@ -160,6 +162,9 @@
                 // Filter remaining links
                 configLinks.forEach(link => {
                     const linkText = link.textContent.toLowerCase();
+                    const linkTextNoSpaces = linkText.replace(/\s+/g, '');
+                    const linkUrl = link.getAttribute('href') ? link.getAttribute('href').toLowerCase() : '';
+                    const linkUrlNoSpaces = linkUrl.replace(/\s+/g, '');
                     const listItem = link.closest('li');
 
                     if (listItem) {
@@ -174,7 +179,8 @@
                         }
 
                         if (!underMatchingHeading) {
-                            if (linkText.includes(searchTerm)) {
+                            if (linkText.includes(searchTerm) || linkTextNoSpaces.includes(searchTermNoSpaces) ||
+                                linkUrl.includes(searchTerm) || linkUrlNoSpaces.includes(searchTermNoSpaces)) {
                                 listItem.style.display = '';
                             } else {
                                 listItem.style.display = 'none';
