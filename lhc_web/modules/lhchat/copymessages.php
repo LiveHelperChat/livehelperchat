@@ -31,7 +31,11 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
         $tplPlain->set('remove_whisper', true);
     }
 
-    if (isset($_GET['system']) || isset($_GET['meta']) || isset($_GET['user_data']) ) {
+    if (isset($_GET['no_parse']) && $_GET['no_parse'] == 'true') {
+        $tplPlain->set('no_bb_code', true);
+    }
+
+    if (isset($_GET['system']) || isset($_GET['meta']) || isset($_GET['user_data']) || isset($_GET['no_parse']) ) {
         echo json_encode(array('result' => $tplPlain->fetch()));
         exit;
     }

@@ -103,4 +103,4 @@ foreach ($messages as $msg ) :
         continue;
     }
 
-    ?><?php if (!isset($remove_meta) || $remove_meta == false ){ echo $nick;}?><?php echo trim(erLhcoreClassBBCodePlain::make_clickable($msg->msg, array('sender' => $msg->user_id)). ($metaRenderedAppend != "" ? ($msg->msg != '' ? $separatorMessage : '') . (isset($render_as_html) && $render_as_html == true ? preg_replace("/((<br \/>)|(<br\/>)|(<br>)|(<br >))+$/","", $metaRenderedAppend) : $metaRenderedAppend) : "")),$separatorMessage?><?php endforeach; ?>
+    ?><?php if (!isset($remove_meta) || $remove_meta == false ){ echo $nick;}?><?php echo trim((isset($no_bb_code) && $no_bb_code === true ? $msg->msg : erLhcoreClassBBCodePlain::make_clickable($msg->msg, array('sender' => $msg->user_id))). ($metaRenderedAppend != "" ? ($msg->msg != '' ? $separatorMessage : '') . (isset($render_as_html) && $render_as_html == true ? preg_replace("/((<br \/>)|(<br\/>)|(<br>)|(<br >))+$/","", $metaRenderedAppend) : $metaRenderedAppend) : "")),$separatorMessage?><?php endforeach; ?>
