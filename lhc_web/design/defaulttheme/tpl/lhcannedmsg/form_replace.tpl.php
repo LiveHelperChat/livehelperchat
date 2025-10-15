@@ -83,7 +83,7 @@
         <div role="tabpanel" class="tab-pane active" id="default">
             <div class="form-group" ng-non-bindable>
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Default value');?></label>
-                <textarea rows="5" ng-trim="false" class="form-control form-control-sm" name="default"><?php echo htmlspecialchars($item->default);?></textarea>
+                <textarea rows="15" ng-trim="false" class="form-control form-control-sm" name="default"><?php echo htmlspecialchars($item->default);?></textarea>
             </div>
         </div>
         <div ng-repeat="combination in crc.combinations track by $index" role="tabpanel" class="tab-pane" id="cmb-{{$index}}">
@@ -95,7 +95,7 @@
 
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Value');?></label>
-                <textarea rows="5" ng-trim="false" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Put a custom value here');?>" ng-model="combination.value" class="form-control form-control-sm"></textarea>
+                <textarea rows="15" ng-trim="false" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Put a custom value here');?>" ng-model="combination.value" class="form-control form-control-sm"></textarea>
             </div>
 
             <div class="form-group">
