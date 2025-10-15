@@ -55,6 +55,12 @@ class erLhcoreClassModelmsg
                 }
                 return $this->meta_msg_array;
 
+            case 'msg_dynamic_array':
+                $msg_dynamic_array = [];
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.dynamic_array_msg', array('msg' => $this, 'dynamic_array' => & $msg_dynamic_array));
+                $this->msg_dynamic_array = $msg_dynamic_array;
+                return $this->msg_dynamic_array;
+
             case 'msg_plain':
                 $this->msg_plain = trim(preg_replace('/\[file="?(.*?)"?\]/', '', $this->msg));
                 return $this->msg_plain;
