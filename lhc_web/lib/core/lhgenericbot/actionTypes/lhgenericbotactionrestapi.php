@@ -448,7 +448,9 @@ class erLhcoreClassGenericBotActionRestapi
         $media = array();
         $files = array();
 
-        if (isset($paramsCustomer['params']['msg'])) {
+        if (isset($paramsCustomer['params']['msg_text_direct'])) {
+            $msg_text = $paramsCustomer['params']['msg_text_direct'];
+        } elseif (isset($paramsCustomer['params']['msg'])) {
             if (is_object($paramsCustomer['params']['msg'])) {
                 $msg_text = $paramsCustomer['params']['msg']->msg;
             } else {
@@ -467,6 +469,27 @@ class erLhcoreClassGenericBotActionRestapi
             $files[] = $paramsCustomer['params']['chat_file'];
         } elseif (isset($paramsCustomer['params']['chat_file'])) {
             $msg_text = '[file=' . $paramsCustomer['params']['chat_file']->id . '_'.$paramsCustomer['params']['chat_file']->security_hash.']';
+        }
+  
+        if (isset($methodSettings['split_into_parts']) && $methodSettings['split_into_parts'] == true){
+            // If there is only one message, then we just proceed as usual
+            $messagesToProcess = preg_split('/(\[file="?(?:.*?)"?\]|\[img\](?:.*?)\[\/img\])/ms', $msg_text, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+
+            // If message contains mixed content (text + files/images/quotes), process each part separately
+            if (count($messagesToProcess) > 1 && !isset($paramsCustomer['params']['msg_text_direct'])) {
+                $results = array();
+                foreach ($messagesToProcess as $messagePart) {
+                    $messagePart = trim($messagePart);
+                    if (!empty($messagePart)) {
+                        $paramsCustomerPart = $paramsCustomer;
+                        $paramsCustomerPart['params']['msg_text'] = $messagePart;
+                        $paramsCustomerPart['params']['msg_text_direct'] = $messagePart;
+                        $results[] = self::makeRequest($host, $methodSettings, $paramsCustomerPart);
+                    }
+                }
+                // Return the last result (or could be modified to merge results)
+                return end($results);
+            }
         }
 
         // Allow extensions to preparse send message

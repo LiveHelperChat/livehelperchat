@@ -118,6 +118,11 @@
                         <input type="number" max="360" min="1" class="form-control form-control-sm" ng-model="param.max_execution_time" placeholder="10" value="" />
                     </div>
                 </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><input type="checkbox" value="on" ng-model="param.split_into_parts">&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Split message into separate Rest API calls if message contains text and files at the same time.')?></label>
+                    </div>
+                </div>
             </div>
             <ul class="nav nav-tabs  nav-tabs-bold mb-2" role="tablist" >
                 <li role="presentation" class="nav-item"><a class="nav-link active" href="#params-rest-{{$index}}" aria-controls="params" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Params');?></a></li>
