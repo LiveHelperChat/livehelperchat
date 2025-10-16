@@ -567,7 +567,7 @@
 
 <div contenteditable="true"
      id={"editor-"+record_id}
-     class={"lhc-editor form-control form-control-sm form-send-textarea form-group"+(whisper === "1" ? ' bg-light' : '')+(warning_area === true ? ' form-control-warning' : '')+(hideSuggester ? ' hide-suggester' : '')}
+     class={"lhc-editor form-control form-control-sm form-send-textarea "+(whisper === "1" ? ' bg-light' : '')+(warning_area === true ? ' form-control-warning' : '')+(hideSuggester ? ' hide-suggester' : '')}
      placeholder={placeholder}
      on:paste={(e) => {
          if (readonly) {

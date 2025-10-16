@@ -2154,7 +2154,7 @@ html {
 ::-webkit-scrollbar-thumb:active{background-color:#888}
 
 .canned-message-holder{
-    min-height:32px
+    min-height:34px
 }
 
 .chat-main-right-column{

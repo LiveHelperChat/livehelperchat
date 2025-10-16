@@ -2203,15 +2203,15 @@ function lh(){
 	        	        {
 	        	            if (data.result != 'false')
 	        	            {
-	        	            	var playSound = false
+                                var playSound = false
 
-	        	                $.each(data.result,function(i,item) {
+                                $.each(data.result,function(i,item) {
 
-	        	                	  var messageBlock = $('#messagesBlock-'+item.chat_id);
-	        	                	  var scrollHeight = messageBlock.prop("scrollHeight");
-	        	                	  var isAtTheBottom = Math.abs((scrollHeight - messageBlock.prop("scrollTop")) - messageBlock.prop("clientHeight"));
+                                    var messageBlock = $('#messagesBlock-'+item.chat_id);
+                                    var scrollHeight = messageBlock.prop("scrollHeight");
+                                    var isAtTheBottom = Math.abs((scrollHeight - messageBlock.prop("scrollTop")) - messageBlock.prop("clientHeight"));
 
-	        	                	  messageBlock.find('.pending-storage').slice(0, item.mn).remove();
+                                    messageBlock.find('.pending-storage').slice(0, item.mn).remove();
 
 
                                     var mainElement = $('#chat-tab-link-'+item.chat_id);
@@ -2241,39 +2241,39 @@ function lh(){
                                     messageBlock.append(item.content);
                                     messageBlock.find('.pending-storage').appendTo(messageBlock);
 
-	        	                	  lhinst.addQuateHandler(item.chat_id);
+                                    lhinst.addQuateHandler(item.chat_id);
 
-	        	                	  if (isAtTheBottom < 20) {
-	        	                		  messageBlock.scrollTop(scrollHeight);
-	        	                	  }
+                                    if (item.msfrom > 0) {
+                                        if ($('#msg-'+item.msfrom).attr('data-op-id') != item.msop) {
+                                            $('#msg-'+item.msfrom).next().addClass('operator-changes');
+                                        }
+                                    }
 
-	        		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);
+                                    if (isAtTheBottom < 20) {
+                                        messageBlock.scrollTop(scrollHeight);
+                                    }
 
-	        		                  if (playSound == false && data.uw == 'false' && (typeof item.ignore === 'undefined' || typeof item.ignore === false))
-                                      {
-                                          playSound = true;
-                                      }
+                                    lhinst.updateChatLastMessageID(item.chat_id,item.message_id);
 
-                                      if (data.uw == 'false') {
-                                          ee.emitEvent('angularActionHappened',[{'type':'user_wrote','chat_id': item.chat_id, 'msg' : item.msg, 'nick': item.nck}]);
-                                      }
+                                    if (playSound == false && data.uw == 'false' && (typeof item.ignore === 'undefined' || typeof item.ignore === false))
+                                    {
+                                        playSound = true;
+                                    }
 
-	        		                  if ( confLH.new_message_browser_notification == 1 && data.uw == 'false' && (typeof item.ignore === 'undefined' || typeof item.ignore === false)) {
-	        		                	  lhinst.showNewMessageNotification(item.chat_id,item.msg,item.nck);
-	  	                			  };
+                                    if (data.uw == 'false') {
+                                        ee.emitEvent('angularActionHappened',[{'type':'user_wrote','chat_id': item.chat_id, 'msg' : item.msg, 'nick': item.nck}]);
+                                    }
 
-	  	                			  if (item.msfrom > 0) {
-	  	                				if ($('#msg-'+item.msfrom).attr('data-op-id') != item.msop) {
-	  	                					$('#msg-'+item.msfrom).next().addClass('operator-changes');
-	  	                				}
-	  	                			  }
+                                    if ( confLH.new_message_browser_notification == 1 && data.uw == 'false' && (typeof item.ignore === 'undefined' || typeof item.ignore === false)) {
+                                        lhinst.showNewMessageNotification(item.chat_id,item.msg,item.nck);
+                                    };
 
-	  	                			  ee.emitEvent('eventSyncAdmin', [item,i]);
-	                            });
+                                    ee.emitEvent('eventSyncAdmin', [item,i]);
+                                });
 
-	                            if ( confLH.new_message_sound_admin_enabled == 1  && data.uw == 'false' && playSound == true) {
-	                            	lhinst.playNewMessageSound();
-	                            };
+                                if ( confLH.new_message_sound_admin_enabled == 1  && data.uw == 'false' && playSound == true) {
+                                    lhinst.playNewMessageSound();
+                                };
 
 	        	            };
 
