@@ -1405,6 +1405,63 @@ class erLhcoreClassChat {
        return $rows;
    }
 
+   /**
+    * Fetch pending messages for multiple chats at once
+    * Returns array indexed by chat_id containing arrays of messages
+    *
+    * @param array $chatMessagePairs Array of ['chat_id' => message_id] pairs
+    * @param bool $excludeSystem Exclude system messages
+    * @return array Array indexed by chat_id containing message arrays
+    * */
+   public static function getPendingMessagesBulk($chatMessagePairs)
+   {
+       if (empty($chatMessagePairs)) {
+           return array();
+       }
+
+       $db = ezcDbInstance::get();
+       
+       // Build OR conditions for all chat/message pairs
+       $orConditions = array();
+       $bindValues = array();
+       $bindIndex = 0;
+       
+       foreach ($chatMessagePairs as $chat_id => $message_id) {
+           $chatParam = ':chat_id_' . $bindIndex;
+           $msgParam = ':message_id_' . $bindIndex;
+           
+           $orConditions[] = "(chat_id = {$chatParam} AND id > {$msgParam})";
+           $bindValues[$chatParam] = array('value' => (int)$chat_id, 'type' => PDO::PARAM_INT);
+           $bindValues[$msgParam] = array('value' => (int)$message_id, 'type' => PDO::PARAM_INT);
+           
+           $bindIndex++;
+       }
+       
+       $whereClause = '(' . implode(' OR ', $orConditions) . ')';
+       
+       $sql = 'SELECT * FROM lh_msg WHERE ' . $whereClause . ' ORDER BY id ASC';
+       $stmt = $db->prepare($sql);
+       
+       foreach ($bindValues as $param => $data) {
+           $stmt->bindValue($param, $data['value'], $data['type']);
+       }
+       
+       $stmt->setFetchMode(PDO::FETCH_ASSOC);
+       $stmt->execute();
+       $rows = $stmt->fetchAll();
+       
+       // Group messages by chat_id
+       $messagesByChat = array();
+       foreach ($rows as $row) {
+           $chat_id = $row['chat_id'];
+           if (!isset($messagesByChat[$chat_id])) {
+               $messagesByChat[$chat_id] = array();
+           }
+           $messagesByChat[$chat_id][] = $row;
+       }
+       
+       return $messagesByChat;
+   }
 
    /**
     * All messages, which should get administrator/user for chatbox

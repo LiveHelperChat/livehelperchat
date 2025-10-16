@@ -37,14 +37,51 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 
         $icons_additional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_identifier','enabled'), 'sort' => false, 'filter' => array('icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1)));
         $see_sensitive_information = $currentUser->hasAccessTo('lhchat','see_sensitive_information');
-            
+
+        // Preload chats - extract chat IDs and fetch all at once
+        $chatIds = [];
+        $chatMessageIds = [];
         foreach ($_POST['chats'] as $chat_id_list)
         {
             list($chat_id, $MessageID ) = explode(',',$chat_id_list);
             $chat_id = (int)$chat_id;
             $MessageID = (int)$MessageID;
+            $chatIds[] = $chat_id;
+            $chatMessageIds[$chat_id] = $MessageID;
+        }
 
-            $Chat = erLhcoreClassModelChat::fetch($chat_id);
+        // Fetch all chats at once
+        if (empty($chatIds)) {
+            throw new Exception('No valid chats provided');
+        }
+
+        $chats = erLhcoreClassModelChat::getList(array('limit' => false, 'sort' => false, 'filterin' => array('id' => $chatIds)));
+
+        $chatsById = [];
+        foreach ($chats as $chat) {
+            $chatsById[$chat->id] = $chat;
+        }
+
+        // Prepare bulk message fetch for chats that need messages
+        $chatMessagePairs = [];
+        foreach ($chatIds as $chat_id) {
+            $MessageID = $chatMessageIds[$chat_id];
+            if (isset($chatsById[$chat_id])) {
+                $Chat = $chatsById[$chat_id];
+                if ($Chat->last_msg_id > (int)$MessageID) {
+                    $chatMessagePairs[$chat_id] = $MessageID;
+                }
+            }
+        }
+
+        // Fetch all pending messages at once for all chats
+        $messagesByChat = erLhcoreClassChat::getPendingMessagesBulk($chatMessagePairs);
+
+        foreach ($chatIds as $chat_id)
+        {
+            $MessageID = $chatMessageIds[$chat_id];
+
+            $Chat = isset($chatsById[$chat_id]) ? $chatsById[$chat_id] : null;
 
             if (!($Chat instanceof erLhcoreClassModelChat)) {
                 $chatsGone[] = $chat_id;
@@ -57,7 +94,10 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
             {
                 $hasAccessToReadArray[$chat_id] = true;
 
-                if ( ($Chat->last_msg_id > (int)$MessageID) && count($Messages = erLhcoreClassChat::getPendingMessages($chat_id,$MessageID)) > 0)
+                // Use pre-fetched messages instead of fetching individually
+                $Messages = isset($messagesByChat[$chat_id]) ? $messagesByChat[$chat_id] : array();
+                
+                if (!empty($Messages))
                 {
                     // If chat had flag that it contains unread messages set to 0
                     if ($Chat->has_unread_messages == 1 || $Chat->unread_messages_informed == 1) {
