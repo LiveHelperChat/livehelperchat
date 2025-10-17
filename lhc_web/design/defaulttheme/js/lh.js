@@ -310,6 +310,7 @@ function lh(){
                         ($('#CSChatMessage-'+e.data.chat_id).attr('edit-vis') === "true" && parseInt($(this).attr('data-op-id')) === 0)
                     )
              ) && canEdit;
+            var chatId = parseInt($(this).attr('data-chat-id') ?? e.data.chat_id);
 
             var canRemove = (parseInt($(this).attr('data-op-id')) === 0 && $('#CSChatMessage-'+e.data.chat_id).attr('remove-msg-vi') === "true") || ((parseInt($(this).attr('data-op-id')) === -2 || parseInt($(this).attr('data-op-id')) > 0) && $('#CSChatMessage-'+e.data.chat_id).attr('remove-msg-op') === "true");
 
@@ -321,7 +322,7 @@ function lh(){
                 container:'#chat-id-'+e.data.chat_id,
                 template : '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
                 content:function(){
-                    return (canEdit ? ('<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>'+confLH.transLation.quote+'</a><br/>') : '') + (canRemove ? '<a href="#" id="remove-popover-'+e.data.chat_id+'" ><i class="material-icons">delete</i>'+confLH.transLation.remove+'</a><br/>' : '') + (isOwner ? '<a href="#" id="edit-popover-'+e.data.chat_id+'" ><i class="material-icons">edit</i>'+confLH.transLation.edit+'</a><br/>' : '') + '<a href="#" id="ask-help-popover-'+e.data.chat_id+'" ><i class="material-icons">supervisor_account</i>'+confLH.transLation.ask_help+'</a>' + (hasSelection ? '<br/><a href="#" id="copy-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a>' : '') + (!hasSelection ? '<br/><a href="#" id="copy-all-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a><br/><a href="#" id="copy-group-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy_group+'</a>' : '')+(!hasSelection ? '<br/><a href="#" id="translate-msg-'+e.data.chat_id+'" ><i class="material-icons">language</i>'+confLH.transLation.translate+'</a>' : '');
+                    return (canEdit ? ('<a href="#" id="copy-popover-'+e.data.chat_id+'" ><i class="material-icons">&#xE244;</i>'+confLH.transLation.quote+'</a><br/>') : '') + (canRemove ? '<a href="#" id="remove-popover-'+e.data.chat_id+'" ><i class="material-icons">delete</i>'+confLH.transLation.remove+'</a><br/>' : '') + (chatId == e.data.chat_id && isOwner ? '<a href="#" id="edit-popover-'+e.data.chat_id+'" ><i class="material-icons">edit</i>'+confLH.transLation.edit+'</a><br/>' : '') + '<a href="#" id="ask-help-popover-'+e.data.chat_id+'" ><i class="material-icons">supervisor_account</i>'+confLH.transLation.ask_help+'</a>' + (hasSelection ? '<br/><a href="#" id="copy-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a>' : '') + (!hasSelection ? '<br/><a href="#" id="copy-all-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy+' (Ctrl+C)</a><br/><a href="#" id="copy-group-text-popover-'+e.data.chat_id+'" ><i class="material-icons">content_copy</i>'+confLH.transLation.copy_group+'</a>' : '')+(chatId == e.data.chat_id && !hasSelection ? '<br/><a href="#" id="translate-msg-'+e.data.chat_id+'" ><i class="material-icons">language</i>'+confLH.transLation.translate+'</a>' : '');
                 }
             }
             
@@ -345,7 +346,7 @@ function lh(){
             $('#remove-popover-'+e.data.chat_id).click(function(event){
                 event.stopPropagation();
                 event.preventDefault();
-                $.postJSON(e.data.that.wwwDir + 'chat/deletemsg/' + e.data.chat_id + '/' + msgId, function(data){
+                $.postJSON(e.data.that.wwwDir + 'chat/deletemsg/' + chatId + '/' + msgId, function(data){
                     if (data.error == 'f') {
                         e.data.that.hidePopover();
                         $('#msg-'+msgId).remove();
@@ -2109,6 +2110,8 @@ function lh(){
                     var currentScroll = msg.scrollTop();
 
                     msg.prepend(data.result);
+
+                    lhinst.addQuateHandler(inst.attr('chat-original-id'));
 
                     var newScrollHeight = msg[0].scrollHeight;
                     var scrollDiff = newScrollHeight - scrollHeight;
