@@ -489,8 +489,7 @@ class erLhcoreClassMailconvParser {
 
                             $message->sender_host = $head->sender->first()->host;
                             $message->sender_name = mb_substr($head->sender->first()->personal,0,250);
-                            $message->sender_address = $head->sender->first()->mail;
-
+                            $message->sender_address = mb_substr($head->sender->first()->mail,0,250);
                         } else {
                             $message->from_host = (string)$head->fromHost;
                             $message->from_name = mb_substr(erLhcoreClassMailconvEncoding::toUTF8((string)$head->fromName),0,250);
@@ -498,7 +497,7 @@ class erLhcoreClassMailconvParser {
 
                             $message->sender_host = (string)$head->senderHost;
                             $message->sender_name = mb_substr(erLhcoreClassMailconvEncoding::toUTF8((string)$head->senderName),0,250);
-                            $message->sender_address = (string)$head->senderAddress;
+                            $message->sender_address =  mb_substr((string)$head->senderAddress,0,250);
                         }
 
                         $message->mailbox_id = $mailbox->id;
@@ -1553,7 +1552,7 @@ class erLhcoreClassMailconvParser {
 
             $message->sender_host = $head->sender->first()->host;
             $message->sender_name =  mb_substr($head->sender->first()->personal,0,250);
-            $message->sender_address = $head->sender->first()->mail;
+            $message->sender_address = mb_substr($head->sender->first()->mail,0,250);
 
             $attributeToUse = 'raw';
         } else {
@@ -1563,7 +1562,7 @@ class erLhcoreClassMailconvParser {
 
             $message->sender_host = (string)$head->senderHost;
             $message->sender_name = mb_substr(erLhcoreClassMailconvEncoding::toUTF8((string)$head->senderName),0,250);
-            $message->sender_address = $head->senderAddress;
+            $message->sender_address = mb_substr($head->senderAddress,0,250);
         }
 
         $message->mailbox_id = $mailbox->id;
