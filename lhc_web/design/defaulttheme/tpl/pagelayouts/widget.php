@@ -18,9 +18,7 @@
     <?php endif; ?>
 
 <?php if (isset($Result['theme']) && $Result['theme']->custom_widget_css != '') : ?>
-<style type="text/css">
-<?php echo $Result['theme']->custom_widget_css?>
-</style>
+    <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/themeneedhelp')?>/<?php echo htmlspecialchars($Result['theme']->alias ?: $Result['theme']->id)?>/(m)/survey?v=<?php echo $Result['theme']->modified?>" />
 <?php endif;?>
 
 </head>
