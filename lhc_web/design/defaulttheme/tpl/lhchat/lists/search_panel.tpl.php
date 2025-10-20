@@ -380,7 +380,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Subject')?></label>
+                        <label><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/subject_title.tpl.php')); ?></label>
                         <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
                             'input_name'     => 'subject_id[]',
                             'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select subject'),
