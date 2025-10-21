@@ -9,7 +9,7 @@
             <?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fill.tpl.php'));?>
 
             <div class="row mt-2">
-                <div class="col">
+                <div class="col ps-2">
                 <?php if ($survey_item->is_filled == true && ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED)))) : ?>
                     <input type="button" class="btn btn-sm w-100 btn-primary mb-1" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
                 <?php endif;?>
