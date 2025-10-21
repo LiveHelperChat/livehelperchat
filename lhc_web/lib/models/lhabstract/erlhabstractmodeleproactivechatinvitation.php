@@ -295,6 +295,8 @@ class erLhAbstractModelProactiveChatInvitation {
 
 	public static function processProActiveInvitationDynamic(erLhcoreClassModelChatOnlineUser & $item, $params = array())
 	{
+        $messagesToUser = [];
+
 	    $referrer = self::getHost($item->referrer);
 	    
 	    $session = erLhcoreClassAbstract::getSession();
@@ -348,7 +350,6 @@ class erLhAbstractModelProactiveChatInvitation {
 	    ->limit( 10 );
 
         $messagesToUserRaw = $session->find( $q );
-
 
         foreach ($messagesToUserRaw as $messageToUser) {
 

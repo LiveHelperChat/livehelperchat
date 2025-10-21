@@ -129,7 +129,7 @@ $ViewList['themepage'] = array(
 
 $ViewList['themeneedhelp'] = array(
     'params' => array('theme'),
-    'uparams' => array('m')
+    'uparams' => array()
 );
 
 $ViewList['theme'] = array(

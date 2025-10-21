@@ -27,10 +27,10 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/survey/custom_multiinclude.tpl.php'));?>
 
-<?php $translatableItem = array('identifier' => 'feedback_text'); ?>
+<?php $translatableItem = array('identifier' => 'survey_title'); ?>
 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-<?php $translatableItem = array('identifier' => 'survey_title'); ?>
+<?php $translatableItem = array('identifier' => 'feedback_text'); ?>
 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
 <div class="form-group">

@@ -474,6 +474,8 @@ class erLhAbstractModelWidgetTheme {
             'custom_html_widget_bot',
             'custom_html_bot',
             'custom_html_widget',
+            'survey_title',
+            'survey_feedback',
             'custom_html',
             'after_chat_status',
             'intro_message',

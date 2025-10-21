@@ -36,6 +36,10 @@ try {
         $chat = erLhcoreClassModelChat::fetch($Params['user_parameters_unordered']['chatid']);
     }
 
+    if (!isset($chat) || !is_object($chat)) {
+        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.'),100);
+    }
+
     erLhcoreClassChat::setTimeZoneByChat($chat);
 
     $chatVariables = $chat->chat_variables_array;
@@ -85,5 +89,6 @@ try {
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'userchat';
 $Result['show_switch_language'] = true;
+$Result['scope'] = 'survey';
 
 ?>

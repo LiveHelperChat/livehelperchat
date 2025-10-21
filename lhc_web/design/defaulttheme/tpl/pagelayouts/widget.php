@@ -17,8 +17,12 @@
         <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/widget.css;css/widget_override.css');?>" />
     <?php endif; ?>
 
-<?php if (isset($Result['theme']) && $Result['theme']->custom_widget_css != '') : ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/themeneedhelp')?>/<?php echo htmlspecialchars($Result['theme']->alias ?: $Result['theme']->id)?>/(m)/survey?v=<?php echo $Result['theme']->modified?>" />
+<?php if (isset($Result['scope']) && $Result['scope'] === 'survey') : ?>
+    <?php if (isset($Result['theme']) && !empty($Result['theme']->bot_configuration_array['custom_survey_css'])) : ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('survey/themesurvey')?>/<?php echo htmlspecialchars($Result['theme']->alias ?: $Result['theme']->id)?>?v=<?php echo $Result['theme']->modified?>" />
+    <?php endif;?>
+<?php elseif (isset($Result['theme']) && $Result['theme']->custom_widget_css != '') : ?>
+    <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/themeneedhelp')?>/<?php echo htmlspecialchars($Result['theme']->alias ?: $Result['theme']->id)?>?v=<?php echo $Result['theme']->modified?>" />
 <?php endif;?>
 
 </head>
