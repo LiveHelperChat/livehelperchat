@@ -568,6 +568,30 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+                'survey_title' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'ace_editor' => 'html',
+                        'main_attr' => 'bot_configuration_array',
+                        'translatable' => true,
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Survey title content, {survey_title} - survey title'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+                'survey_feedback' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'ace_editor' => 'html',
+                        'main_attr' => 'bot_configuration_array',
+                        'translatable' => true,
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Survey feedback content, {survey_feedback} - survey feedback'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
                 'custom_html_widget' => array(
    						'type' => 'textarea',
    						'height' => '50px',
@@ -580,6 +604,17 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+                    'custom_survey_css' => array(
+                        'type' => 'textarea',
+                        'height' => '50px',
+                        'ace_editor' => 'css',
+                        'main_attr' => 'bot_configuration_array',
+                        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom survey page CSS'),
+                        'required' => false,
+                        'hidden' => true,
+                        'validation_definition' => new ezcInputFormDefinitionElement(
+                            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                        )),
                     'custom_page_css' => array(
    						'type' => 'textarea',
    						'height' => '50px',

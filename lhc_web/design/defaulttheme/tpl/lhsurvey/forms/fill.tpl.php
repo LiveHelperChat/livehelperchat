@@ -103,10 +103,14 @@
 
 <?php else : ?>
 <div class="mb-3" ng-non-bindable>
-    <?php if ($survey->feedback_text != '') : ?>
-        <?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars(erLhcoreClassGenericBotWorkflow::translateMessage($survey->feedback_text, array('chat' => $chat, 'args' => ['chat' => $chat])))); ?>
+    <?php if (isset($theme) && is_object($theme) && !empty($theme->bot_configuration_array['survey_feedback'])) : ?>
+        <?php echo str_replace('{survey_feedback}',($survey->feedback_text != '' ? erLhcoreClassBBCode::make_clickable(htmlspecialchars(erLhcoreClassGenericBotWorkflow::translateMessage($survey->feedback_text, array('chat' => $chat, 'args' => ['chat' => $chat])))) : erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Thank you for your feedback!')), erLhcoreClassBBCodePlain::make_clickable($theme->bot_configuration_array['survey_feedback'], array('sender' => 0, 'clean_event' => true)));?>
     <?php else : ?>
-         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Thank you for your feedback!')?>
+        <?php if ($survey->feedback_text != '') : ?>
+            <?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars(erLhcoreClassGenericBotWorkflow::translateMessage($survey->feedback_text, array('chat' => $chat, 'args' => ['chat' => $chat])))); ?>
+        <?php else : ?>
+             <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Thank you for your feedback!')?>
+        <?php endif; ?>
     <?php endif; ?>
 </div>
 <?php endif; ?>

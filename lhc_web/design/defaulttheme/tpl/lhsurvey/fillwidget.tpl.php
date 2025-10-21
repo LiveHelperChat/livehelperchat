@@ -1,5 +1,5 @@
 <div class="fill-survey-container px-2">
-    <?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/parts/header.tpl.php'));?>
+    <?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/parts/header_widget.tpl.php'));?>
     <div class="fill-survey-form">
         <form action="" method="post">
             <?php if (isset($errors)) : ?>

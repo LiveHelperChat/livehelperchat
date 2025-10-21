@@ -24,6 +24,7 @@
         		<li role="presentation" class="nav-item"><a class="nav-link" href="#custombot" aria-controls="custombot" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom bot style');?></a></li>
         		<li role="presentation" class="nav-item"><a class="nav-link" href="#customnotification" aria-controls="customnotification" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notification');?></a></li>
         		<li role="presentation" class="nav-item"><a class="nav-link" href="#reactions" aria-controls="reactions" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Reactions');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#survey" aria-controls="survey" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Survey');?></a></li>
                 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/custom_tab_multiinclude.tpl.php'));?>
         	</ul>
         
@@ -1048,14 +1049,24 @@
                             </div>
                         </div>
                     </div>
-
                     <?php
                         // If checked always visible toolbar it will be at the bottom as is now
                         // If not checked always visible it will be at the right side of the message
                         // If modal window content is filled additional icon will be shown
                     ?>
+                </div>
 
+                <div role="tabpanel" class="tab-pane" id="survey">
+                    <?php $translatableItem = array('identifier' => 'survey_title'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
+                    <?php $translatableItem = array('identifier' => 'survey_feedback'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <div class="form-group">
+                        <label><?php echo $fields['custom_survey_css']['trans'];?></label>
+                        <?php echo erLhcoreClassAbstract::renderInput('custom_survey_css', $fields['custom_survey_css'], $object)?>
+                    </div>
                 </div>
 
                 <div role="tabpanel" class="tab-pane" id="customcontent">
