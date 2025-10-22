@@ -7,6 +7,10 @@ if ($dashboardOrder === null) {
 	$dashboardOrder = json_decode(erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value,true);
 }
 
+if (!is_array($dashboardOrder)){
+    $dashboardOrder = json_decode('[["online_operators","departments_stats","online_visitors"],["group_chats","my_chats","pending_chats","transfered_chats"],["active_chats","bot_chats"]]',true);
+}
+
 $widgetsUser = array();
 foreach ($dashboardOrder as $widgetsColumn) {
     foreach ($widgetsColumn as $widget) {
