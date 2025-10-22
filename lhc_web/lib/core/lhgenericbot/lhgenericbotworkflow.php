@@ -2505,6 +2505,19 @@ class erLhcoreClassGenericBotWorkflow {
             }
         }
 
+        if (strpos($message, '{rnumber_') !== false) {
+            $matchesCycle = array();
+            preg_match_all('/{rnumber_([0-9]+)(?:_([0-9]+))?}/is', $message, $matchesCycle);
+            if (isset($matchesCycle[0]) && is_array($matchesCycle[0])) {
+                foreach ($matchesCycle[0] as $foreachCounter => $foreachCycle) {
+                    $min = isset($matchesCycle[2][$foreachCounter]) && !empty($matchesCycle[2][$foreachCounter]) ? (int)$matchesCycle[1][$foreachCounter] : 1;
+                    $max = isset($matchesCycle[2][$foreachCounter]) && !empty($matchesCycle[2][$foreachCounter]) ? (int)$matchesCycle[2][$foreachCounter] : (int)$matchesCycle[1][$foreachCounter];
+                    $randomNumber = mt_rand($min, $max);
+                    $message = str_replace($foreachCycle, $randomNumber, $message);
+                }
+            }
+        }
+
         if (strpos($message,'{random_') !== false) {
             $matchesCycle = array();
             preg_match_all('/{random_([0-9]+)}/is', $message, $matchesCycle);
