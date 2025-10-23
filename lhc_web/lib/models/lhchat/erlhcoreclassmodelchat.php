@@ -297,6 +297,9 @@ class erLhcoreClassModelChat {
        	case 'user_name':
        			return $this->user_name = (string)$this->user;
 
+       	case 'theme':
+       			return $this->theme = erLhAbstractModelWidgetTheme::fetch($this->theme_id);
+
        	case 'plain_user_name':
        	        $this->plain_user_name = false;
        	        

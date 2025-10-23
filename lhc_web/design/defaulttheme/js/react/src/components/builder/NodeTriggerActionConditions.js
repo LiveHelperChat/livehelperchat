@@ -60,6 +60,32 @@ class NodeTriggerActionConditions extends Component {
             });
         }
 
+        const hasCallbackMatch = this.props.action.getIn(['content','attr_options','callback_match']);
+        const hasCallbackUnmatch = this.props.action.getIn(['content','attr_options','callback_unmatch']);
+        const hasConditions = this.props.action.hasIn(['content','conditions']) && this.props.action.getIn(['content','conditions']).size > 0;
+        const continueAllEnabled = this.props.action.getIn(['content','attr_options','continue_all']);
+        const noticeParts = [];
+
+        if (!continueAllEnabled) {
+            if (hasConditions) {
+                noticeParts.push('Once these conditions pass, execution stops unless "Continue responses" is enabled.');
+            }
+            if (hasCallbackMatch && hasCallbackUnmatch) {
+                noticeParts.push('Match and unmatch callbacks run before processing stops. No further triggers will be processed.');
+            } else {
+                if (hasCallbackMatch) {
+                    noticeParts.push('Match callback runs before processing stops. No further triggers will be processed.');
+                }
+                if (hasCallbackUnmatch) {
+                    noticeParts.push('Unmatch callback runs before processing stops. No further triggers will be processed.');
+                } else {
+                    noticeParts.push('If conditions are not met, we will continue processing further triggers.');
+                }
+            }               
+        }
+
+        const continueNoticeMessage = noticeParts.length > 0 ? noticeParts : null;
+
         return (
             <div>
                 <div className="d-flex flex-row">
@@ -147,7 +173,20 @@ class NodeTriggerActionConditions extends Component {
                             <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','log_un_matched'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','log_un_matched'])} /> Log detailed information in the log if conditions does not match</label>
                         </div>
                     </div>
+                    <div className="col-12">
+                        <div></div>
+                    </div>
                 </div>
+                {continueNoticeMessage && (
+                    <div className="alert alert-warning mt-2 mb-2">
+                        <strong>Notice:</strong>
+                        <ul className="mb-0 mt-1">
+                            {continueNoticeMessage.map((notice, index) => (
+                                <li key={index}><small>{notice}</small></li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
                 <hr className="hr-big" />
             </div>
         );
