@@ -221,18 +221,23 @@ class erLhcoreClassGenericBotActionConditions {
                             $valAttr = preg_replace('/\s+/', '', $valAttr);
                         }
 
-                        $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $attr);
-                        $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valAttr);
-
-                        if ($conditionAttrMath != '' && $conditionAttrMath === $attr) {
-                            try {
-                                eval('$attr = ' . $conditionAttrMath . ";");
-                            } catch (ParseError $e) { }
-                        }
-                        if ($valueAttrMath != '' && $valueAttrMath === $valAttr) {
-                            try {
-                                eval('$valAttr = ' . $valueAttrMath . ";");
-                            } catch (ParseError $e) { }
+                        if (!in_array($condition['content']['comp'], ['like', 'notlike', 'contains', 'in_list', 'in_list_lowercase', 'not_in_list', 'not_in_list_lowercase'])) {
+                            if (isset($condition['content']['attr_math']) && $condition['content']['attr_math'] === true) {
+                                $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $attr);
+                                if ($conditionAttrMath != '' && $conditionAttrMath === $attr) {
+                                    try {
+                                        eval('$attr = ' . $conditionAttrMath . ";");
+                                    } catch (ParseError | DivisionByZeroError $e) { }
+                                }
+                            }
+                            if (isset($condition['content']['val_math']) && $condition['content']['val_math'] === true) {
+                                $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valAttr);
+                                if ($valueAttrMath != '' && $valueAttrMath === $valAttr) {
+                                    try {
+                                        eval('$valAttr = ' . $valueAttrMath . ";");
+                                    } catch (ParseError | DivisionByZeroError $e) { }
+                                }
+                            }
                         }
 
                         if (in_array($condition['content']['comp'], ['lt', 'lte', 'gt', 'gte'])) {

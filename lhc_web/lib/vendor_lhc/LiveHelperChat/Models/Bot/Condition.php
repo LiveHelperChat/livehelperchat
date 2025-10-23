@@ -60,8 +60,10 @@ class Condition {
             $conditionsRefactored[] = [
                 'content' => [
                     'attr' => $condition['field'],
+                    'attr_math' => $condition['field_math'] ?? false,
                     'comp' => $comparatorMatching[$condition['comparator']],
-                    'val' => $condition['value']
+                    'val' => $condition['value'],
+                    'val_math' => $condition['value_math'] ?? false
                 ]
             ];
         }

@@ -2761,7 +2761,7 @@ class erLhcoreClassChatValidator {
                         // Evaluate if there is mathematical rules
                         try {
                             eval('$conditionAttr = ' . $conditionAttrMath . ";");
-                        } catch (ParseError $e) {
+                        } catch (ParseError | DivisionByZeroError $e) {
                             // Do nothing
                         }
                     }
@@ -2770,7 +2770,7 @@ class erLhcoreClassChatValidator {
                         // Evaluate if there is mathematical rules
                         try {
                             eval('$valueAttr = ' . $valueAttrMath . ";");
-                        } catch (ParseError $e) {
+                        } catch (ParseError | DivisionByZeroError $e) {
                             // Do nothing
                         }
                     }

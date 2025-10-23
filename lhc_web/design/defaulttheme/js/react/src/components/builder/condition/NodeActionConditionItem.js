@@ -45,6 +45,7 @@ class NodeActionConditionItem extends Component {
                     {this.props.action.getIn(['content','comp']) !== "start_or" && <div className="form-group">
                         <label>Attribute <a href="#" onClick={(e) => {lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'}); return false;}} className="material-icons text-muted">help</a></label>
                         <input type="text" placeholder="yes, thanks" className="form-control form-control-sm" onChange={(e) => this.onAttrChange(e.target.value)} defaultValue={this.props.action.getIn(['content','attr'])} />
+                        <label><input type="checkbox" onChange={(e) => this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content', 'attr_math'], value :  e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_math'])} /> Parse for mathematical outcome</label>
                     </div>}
                 </div>
                 <div className="col-2">
@@ -76,6 +77,7 @@ class NodeActionConditionItem extends Component {
                         <div className="form-group">
                             <label>Value</label>
                             <input type="text" placeholder="" className="form-control form-control-sm" onChange={(e) => this.onValChange(e.target.value)} defaultValue={this.props.action.getIn(['content','val'])} />
+                            <label><input type="checkbox" onChange={(e) => this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content', 'val_math'], value :  e.target.checked})} defaultChecked={this.props.action.getIn(['content','val_math'])} /> Parse for mathematical outcome</label>
                         </div>}
                 </div>
                 <div className="col-2">

@@ -71,6 +71,7 @@
                     <div class="row">
                         <div class="col-5" ng-show="filter.comparator != 'start_or'">
                             <input class="form-control form-control-sm" ng-model="filter.field" name="field[{{$index}}]" type="text" value="" placeholder="field">
+                            <label><input type="checkbox" ng-model="filter.field_math" name="field_math[{{$index}}]" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Parse for mathematical outcome');?></label>
                         </div>
                         <div class="col-{{filter.comparator == 'start_or' ? '2  offset-md-5' : '2'}}">
                             <select class="form-control form-control-sm" name="comparator[{{$index}}]" ng-model="filter.comparator">
@@ -92,6 +93,7 @@
                         </div>
                         <div class="col-5" ng-show="filter.comparator != 'start_or'">
                             <input class="form-control form-control-sm" ng-model="filter.value" name="value[{{$index}}]" type="text" value="" placeholder="value">
+                            <label><input type="checkbox" ng-model="filter.value_math" name="value_math[{{$index}}]" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Parse for mathematical outcome');?></label>
                         </div>
                     </div>
                 </div>

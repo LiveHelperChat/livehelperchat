@@ -8,7 +8,9 @@ lhcAppControllers.controller('LHCPriorityCtrl',['$scope','$window', function($sc
         var item = {
             "field": "",
             "comparator": "=",
-            "value": ""
+            "value": "",
+            "field_math": false,
+            "value_math": false
         };
         that.value.push(item);
     }
