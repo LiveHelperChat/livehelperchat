@@ -2081,8 +2081,16 @@ class erLhcoreClassChatStatistic {
 
             if (!empty($userIds)) {
                 $userIdFilter = $userIdGroup = $userIds;
+                if (isset($filterUsers['filterin']['id']) && !empty($filterUsers['filterin']['id'])) {
+                    $filterUsers['filterin']['id'] = array_unique(array_intersect($userIdFilter, $filterUsers['filterin']['id']));
+                    if (empty($filterUsers['filterin']['id'])) {
+                        $filterUsers['filterin']['id'] = [-1];
+                    }
+                } else {
+                    $filterUsers['filterin']['id'] = $userIdFilter;
+                }
             } else {
-                $userIdGroup = array(-1);
+                $filterUsers['filterin']['id'] = $userIdGroup = [-1];
             }
         }
 
@@ -2120,6 +2128,9 @@ class erLhcoreClassChatStatistic {
 
         if (!empty($userIdGroupDep) && !empty($userIdGroup)) {
             $userIdGroup = array_unique(array_intersect($userIdGroup, $userIdGroupDep));
+            if (empty($userIdGroup)) {
+                $userIdGroup = [-1];
+            }
         } else {
             $userIdGroup = $userIdGroupDep;
         }
@@ -2127,6 +2138,9 @@ class erLhcoreClassChatStatistic {
         if (!empty($userIdGroup)) {
             if (isset($filterUsers['filterin']['id']) && !empty($filterUsers['filterin']['id'])) {
                 $filterUsers['filterin']['id'] = array_unique(array_intersect($userIdGroup, $filterUsers['filterin']['id']));
+                if (empty($filterUsers['filterin']['id'])) {
+                    $filterUsers['filterin']['id'] = [-1];
+                }
             } else {
                 $filterUsers['filterin']['id'] = $userIdGroup;
             }
