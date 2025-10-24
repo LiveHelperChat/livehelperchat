@@ -141,7 +141,7 @@ class erLhcoreClassTranslate
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
                         
-                        if ($msg->user_id == 0) {
+                        if ($msg->user_id == 0 || $msg->user_id == -2) {
                             $msgTranslated = erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
                         } else { // Operator message
                             $msgTranslated = erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
@@ -191,7 +191,7 @@ class erLhcoreClassTranslate
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
                         
-                        if ($msg->user_id == 0) {
+                        if ($msg->user_id == 0 || $msg->user_id == -2) {
                             $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
                         } else { // Operator message
                             $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
@@ -251,7 +251,7 @@ class erLhcoreClassTranslate
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
 
-                        if ($msg->user_id == 0) {
+                        if ($msg->user_id == 0 || $msg->user_id == -2) {
                             $msgTranslated = erLhcoreClassTranslateAWS::translate([
                                 'aws_region' => $translationData['aws_region'],
                                 'aws_access_key' => (isset($translationData['aws_access_key']) ? $translationData['aws_access_key'] : ''),
@@ -319,7 +319,7 @@ class erLhcoreClassTranslate
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
                         
-                        if ($msg->user_id == 0) {
+                        if ($msg->user_id == 0 || $msg->user_id == -2) {
                             $msgTranslated = erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
                         } else { // Operator message
                             $msgTranslated = erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
@@ -378,7 +378,7 @@ class erLhcoreClassTranslate
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
                         
-                        if ($msg->user_id == 0) {
+                        if ($msg->user_id == 0 || $msg->user_id == -2) {
                             $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
                         } else { // Operator message
                             $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
