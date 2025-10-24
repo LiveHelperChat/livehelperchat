@@ -43,7 +43,9 @@ echo json_encode(array(
         "block" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Block sender'),
         "is_blocked" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Sender is blocked!'),
         "rsp_type" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Response type'),
-        "message_id" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Message ID')
+        "message_id" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Message ID'),
+        'copied' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Copied to clipboard'),
+        'copy_email' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Copy e-mail')
     ],
     "status" => [
         "pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','New'),

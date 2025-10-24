@@ -525,7 +525,7 @@ const MailChat = props => {
                                     <tr>
                                         <td>{t('mail.sender')}</td>
                                         <td>
-                                            {state.conv.lang && state.moptions.lang_dir && <img src={state.moptions.lang_dir + '/' + state.conv.lang + '.png'}/>} {state.conv.from_name} &lt;{state.conv.from_address}&gt; <span className={"action-image" + (state.moptions.is_blocked ? " text-danger fw-bold" : "")} onClick={() => showModal({url: "mailconv/blocksender/" + props.chatId})}><span className="material-icons">block</span>{state.moptions.is_blocked ? t('mail.is_blocked') : t('mail.block')}</span>
+                                            {state.conv.lang && state.moptions.lang_dir && <img src={state.moptions.lang_dir + '/' + state.conv.lang + '.png'}/>} {state.conv.from_name} &lt;{state.conv.from_address}&gt;<button data-bs-title={t('mail.copied')} class="ms-0 btn btn-xs btn-link text-muted py-0" data-copy={state.conv.from_address} title={t('mail.copy_email')} onClick={(e) => lhinst.copyContent($(e.currentTarget))} type="button"><i class="material-icons me-0">content_copy</i></button><span className="text-muted">|</span> <span className={"action-image" + (state.moptions.is_blocked ? " text-danger fw-bold" : "")} onClick={() => showModal({url: "mailconv/blocksender/" + props.chatId})}><span className="material-icons">block</span>{state.moptions.is_blocked ? t('mail.is_blocked') : t('mail.block')}</span>
                                         </td>
                                     </tr>
                                     {(state.conv.phone || state.conv.phone_front) && <tr>
