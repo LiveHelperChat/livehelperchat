@@ -136,7 +136,7 @@ class erLhcoreClassTranslate
                 
                 foreach ($msgs as $msg) {
                     
-                    if ($msg->user_id != - 1) {
+                    if ($msg->user_id != - 1 && !empty($msg->msg)) {
                         // Visitor message
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
@@ -186,7 +186,7 @@ class erLhcoreClassTranslate
                 $length = 0;
                 
                 foreach ($msgs as $msg) {
-                    if ($msg->user_id != - 1) {
+                    if ($msg->user_id != - 1 && !empty($msg->msg)) {
                         // Visitor message
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
@@ -246,7 +246,7 @@ class erLhcoreClassTranslate
                 $length = 0;
 
                 foreach ($msgs as $msg) {
-                    if ($msg->user_id != - 1) {
+                    if ($msg->user_id != - 1 && !empty($msg->msg)) {
                         // Visitor message
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
@@ -314,7 +314,7 @@ class erLhcoreClassTranslate
                 $length = 0;
                 
                 foreach ($msgs as $msg) {
-                    if ($msg->user_id != - 1) {
+                    if ($msg->user_id != - 1 && !empty($msg->msg)) {
                         // Visitor message
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
@@ -373,7 +373,7 @@ class erLhcoreClassTranslate
                 
                 foreach ($msgs as $msg) {
                     
-                    if ($msg->user_id != - 1) {
+                    if ($msg->user_id != - 1 && !empty($msg->msg)) {
                         // Visitor message
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
@@ -977,7 +977,11 @@ class erLhcoreClassTranslate
     public static function translateChatMsgOperator(erLhcoreClassModelChat $chat, erLhcoreClassModelmsg & $msg)
     {
         try {
-            
+
+            if (empty($msg->msg)) {
+                return;
+            }
+
             // Remove old Translation
             $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
             
@@ -1022,7 +1026,11 @@ class erLhcoreClassTranslate
     public static function translateChatMsgVisitor(erLhcoreClassModelChat $chat, erLhcoreClassModelmsg & $msg)
     {
         try {
-            
+
+            if (empty($msg->msg)) {
+                return;
+            }
+
             // Remove old Translation
             $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
             
