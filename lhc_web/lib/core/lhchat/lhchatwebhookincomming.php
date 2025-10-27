@@ -1834,7 +1834,7 @@ class erLhcoreClassChatWebhookIncoming {
                     }
 
                     if ($eChat->chat_external_id == '') {
-                        throw new Exception('ChatId attribute could not be found!');
+                        throw new Exception('ChatId attribute could not be found! Make sure you defined correct Chat ID field location.');
                     }
 
                     if (isset($conditions['chat_id_preg_rule']) && $conditions['chat_id_preg_rule'] != '') {
