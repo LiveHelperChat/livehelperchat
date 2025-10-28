@@ -34,7 +34,7 @@ if ($notif_icons === null) {
 
 $supportedWidgets = array();
 
-if (erLhcoreClassModelChatConfig::fetch('list_online_operators')->current_value == 1 && erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'userlistonline')) {
+if (erLhcoreClassModelChatConfig::fetch('list_online_operators')->current_value == 1 && (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'userlistonline') || erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'userlistonlineall'))) {
     $supportedWidgets['online_operators'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Online operators');
 }
 
