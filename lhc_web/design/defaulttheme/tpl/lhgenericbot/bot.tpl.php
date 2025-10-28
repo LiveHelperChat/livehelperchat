@@ -1,1 +1,1 @@
-<div id="root" data-bot-id="<?php echo $bot->id?>"></div>
+<div id="root" class="lhc-core-module" data-bot-id="<?php echo $bot->id?>"></div>
