@@ -94,7 +94,9 @@ class erLhcoreClassLHCBotWorker
 
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_before_request', array(
                         'restapi' => & $restAPI,
-                        'chat' => $chat
+                        'chat' => $chat,
+                        'params' => $params,
+                        'method' => & $method
                     ));
 
                     $params['chat'] = $chat;
