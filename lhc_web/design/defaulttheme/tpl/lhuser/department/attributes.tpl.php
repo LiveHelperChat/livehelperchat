@@ -2,15 +2,15 @@
 <label class="pl-4"><span class="material-icons">mode_edit</span><input type="radio" <?php if (($userDep instanceof erLhcoreClassModelUserDep && $userDep->ro == 0) || ($userDep instanceof erLhcoreClassModelDepartamentGroupUser && $userDep->read_only == 0)) : ?>checked="checked"<?php endif; ?> name="ro" value="0">&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assign as operator')?></label>
 
 <div class="pt-3">
-<label><span class="material-icons">assignment_ind</span><input type="checkbox" name="exc_indv_autoasign" value="on" <?php echo $userDep->exc_indv_autoasign == 1 ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?></label>
+<label><input type="checkbox" name="exc_indv_autoasign" value="on" <?php echo $userDep->exc_indv_autoasign == 1 ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?></label>
 </div>
 
-<label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assignment priority, optional, default - 0')?></label>
+<label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Operator assignment priority, optional, default - 0')?></label>
 <input type="text" class="form-control form-control-sm" name="assign_priority" value="<?php echo $userDep->assign_priority?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Agents with higher assignment priority will be assigned first to chat')?>" />
 
-<div class="row pb-2">
+<div class="row pb-1">
     <div class="col-12 fs13 text-muted pb-1">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min and Max chat priority for chat being assigned by my assign priority')?></label>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min and Max chat priority for chat being assigned by department priority assignment flow')?></label>
     </div>
     <div class="col-6">
         <input name="chat_min_priority" value="<?php echo $userDep->chat_min_priority?>" type="text" class="form-control form-control-sm" />
@@ -18,6 +18,11 @@
     <div class="col-6">
         <input name="chat_max_priority" value="<?php echo $userDep->chat_max_priority?>" type="text" class="form-control form-control-sm" />
     </div>
+</div>
+
+<div class="pt-1">
+    <label><input type="checkbox" name="only_priority" value="on" <?php echo $userDep->only_priority == 1 ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Participate only in department priority assignment queue')?></label>
+    <p class="text-muted fs13 fst-italic"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Agent will not participate in regular auto assignment flow. Only department priority assignment chats will be assigned.')?></p>
 </div>
 
 <div class="row pb-2">

@@ -145,10 +145,16 @@ try {
 
         if (!(isset($_GET['modal']) && $_GET['modal'] === 'true')) {
             header('Content-type: '.$file->type);
-
             if (!isset($Params['user_parameters_unordered']['inline']) || $Params['user_parameters_unordered']['inline'] != 'true') {
                 // Download with file name
                 header('Content-Disposition: attachment; filename="'.$file->id.'-'.pathinfo($file->upload_name, PATHINFO_FILENAME).'.'.$file->extension.'"');
+                header('X-Content-Type-Options: nosniff');
+                header('Referrer-Policy: no-referrer');
+                if ($file->chat_id > 0) {
+                    header("Cache-Control: private, max-age=3600");
+                } else {
+                    header("Cache-Control: public, max-age=86400");
+                }
             }
         }
 

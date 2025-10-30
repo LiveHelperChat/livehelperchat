@@ -98,6 +98,9 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'mail_img_verify_min_dim' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 10, 'max_range' => 10000)
         ),
+        'CheckSuspiciousPDF' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
     );
 
     $Errors = array();
@@ -196,6 +199,12 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['remove_meta'] = true;
     } else {
         $data['remove_meta'] = false;
+    }
+
+    if ($form->hasValidData('CheckSuspiciousPDF') && $form->CheckSuspiciousPDF == true) {
+        $data['check_suspicious_pdf'] = true;
+    } else {
+        $data['check_suspicious_pdf'] = false;
     }
 
     if ($form->hasValidData('AntivirusFileScanEnabled') && $form->AntivirusFileScanEnabled == true) {

@@ -89,10 +89,12 @@
                     <input type="text" class="form-control" name="allowed_extensions_restricted" value="<?php isset($mc_options['allowed_extensions_restricted']) ? print htmlspecialchars($mc_options['allowed_extensions_restricted']) : ''?>" placeholder="zip|rar|exe|bat|sh"/>
                     <small class="form-text text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Pipe separated list of file extensions that can only be downloaded by operators with special permissions')?></small>
                 </div>
+                 <div class="form-group">
+                    <label><input type="checkbox" name="check_suspicious_pdf" value="on" <?php if (isset($mc_options['check_suspicious_pdf']) && ($mc_options['check_suspicious_pdf'] == true)) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Check for suspicious PDF files content')?></label>
+                </div>
             </div>
         </div>
     </div>
-
     
 
     <input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />

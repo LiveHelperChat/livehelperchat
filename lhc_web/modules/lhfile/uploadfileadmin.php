@@ -18,6 +18,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhf
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfileadmin.file_path', array('path' => & $path, 'storage_id' => $chat->id));
 
         $upload_handler = new erLhcoreClassFileUpload(array(
+            'check_suspicious_pdf' => (isset($data['check_suspicious_pdf']) ? $data['check_suspicious_pdf'] : false),
             'remove_meta' => (isset($data['remove_meta']) ? $data['remove_meta'] : false),
             'name_support' => $userData->name_support,
             'user_id' => $currentUser->getUserID(),

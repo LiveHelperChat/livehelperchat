@@ -237,6 +237,9 @@ class erLhcoreClassDepartament{
                 'assign_by_priority_chat' => new ezcInputFormDefinitionElement(
                     ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
                 ),
+                'only_priority' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                ),
                 'min_agent_priority' => new ezcInputFormDefinitionElement(
                     ezcInputFormDefinitionElement::OPTIONAL, 'int'
                 ),
@@ -398,6 +401,12 @@ class erLhcoreClassDepartament{
                 $botConfiguration['assign_by_priority_chat'] = 1;
             } else {
                 $botConfiguration['assign_by_priority_chat'] = 0;
+            }
+
+            if ( $form->hasValidData( 'only_priority' ) && $form->only_priority == true ) {
+                $botConfiguration['only_priority'] = 1;
+            } else {
+                $botConfiguration['only_priority'] = 0;
             }
 
             if ( $form->hasValidData( 'min_agent_priority' ) ) {

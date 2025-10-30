@@ -41,6 +41,7 @@ class erLhcoreClassModelUserDep
             'assign_priority' => $this->assign_priority,
             'chat_min_priority' => $this->chat_min_priority,
             'chat_max_priority' => $this->chat_max_priority,
+            'only_priority' => $this->only_priority,
 
         );
     }
@@ -257,6 +258,7 @@ class erLhcoreClassModelUserDep
     public $assign_priority = 0;
     public $chat_min_priority = 0;
     public $chat_max_priority = 0;
+    public $only_priority = 0;
     public $dep_id_filter = [];
 
 }

@@ -464,6 +464,10 @@
                                     <label><input type="checkbox" name="assign_by_priority_chat" value="on" <?php if (isset($departament->bot_configuration_array['assign_by_priority_chat']) && $departament->bot_configuration_array['assign_by_priority_chat'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Assign chat by operator priority also');?></label>
                                     <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','This has higher priority than assign chats to lower number of chats having operators');?></i></small></p>
                                 </div>
+                                <div class="form-group">
+                                    <label><input type="checkbox" name="only_priority" value="on" <?php if (isset($departament->bot_configuration_array['only_priority']) && $departament->bot_configuration_array['only_priority'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Assign only priority operators');?></label>
+                                    <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','By default we assign priority chats to all operators which match priority queues options. This options forces for operator have chosen to participate only in department priority queue.');?></i></small></p>
+                                </div>
                                 <div class="row">
                                     <div class="col-4">
                                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum agent assignment priority');?></label>

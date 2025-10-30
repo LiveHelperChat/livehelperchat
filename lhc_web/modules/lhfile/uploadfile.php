@@ -73,6 +73,7 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
                 }
 
                 $upload_handler = new erLhcoreClassFileUpload(array(
+                    'check_suspicious_pdf' => (isset($data['check_suspicious_pdf']) ? $data['check_suspicious_pdf'] : false),
                     'remove_meta' => (isset($data['remove_meta']) ? $data['remove_meta'] : false),
                     'max_res' => ($data['max_res'] ?? 0),
                     'antivirus' => $clamav,

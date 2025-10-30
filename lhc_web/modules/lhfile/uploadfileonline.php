@@ -31,6 +31,7 @@ if ($online_user !== false && isset($online_user->online_attr_system_array['isha
     }
 
     $upload_handler = new erLhcoreClassFileUpload(array(
+        'check_suspicious_pdf' => (isset($data['check_suspicious_pdf']) ? $data['check_suspicious_pdf'] : false),
         'remove_meta' => (isset($data['remove_meta']) ? $data['remove_meta'] : false),
         'antivirus' => $clamav,
         'user_id' => 0,

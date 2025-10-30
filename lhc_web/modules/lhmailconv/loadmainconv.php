@@ -139,6 +139,7 @@ try {
                 $messages[$indexMessage]->setAttachementsRestrictions([
                     'allowed_extensions_public' => $mcOptionsData['allowed_extensions_public'],
                     'allowed_extensions_restricted' => $mcOptionsData['allowed_extensions_restricted'],
+                    'check_suspicious_pdf' => $mcOptionsData['check_suspicious_pdf'] ?: false,
                     'download_restricted' => erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','download_restricted')
                 ]);
             }

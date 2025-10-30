@@ -38,6 +38,11 @@
                 <label><input type="checkbox" name="removeMetaTag" value="on" <?php isset($file_data['remove_meta']) && ($file_data['remove_meta'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Remove meta information from images'); ?></label>
             </div>
         </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label><input type="checkbox" name="CheckSuspiciousPDF" value="on" <?php isset($file_data['check_suspicious_pdf']) && ($file_data['check_suspicious_pdf'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Check for suspicious PDF files content'); ?></label>
+            </div>
+        </div>
     </div>
 
 <div class="row form-group">

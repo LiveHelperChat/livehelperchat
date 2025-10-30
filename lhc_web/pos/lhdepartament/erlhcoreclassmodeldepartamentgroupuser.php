@@ -12,7 +12,8 @@ $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersist
 foreach ([
              'dep_group_id','user_id',
              'read_only','exc_indv_autoasign',
-             'assign_priority','chat_min_priority','chat_max_priority'
+             'assign_priority','chat_min_priority','chat_max_priority',
+             'only_priority'
          ] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
