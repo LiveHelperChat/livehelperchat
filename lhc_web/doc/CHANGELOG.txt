@@ -45,6 +45,7 @@
    - Added support for debugging specific messages
    - Improved IMAP connection testing with shorter timeouts
    - Enhanced header value handling and exclusion of debug messages from system logs
+   - PDF Checking for suspicious content
 
 6. Survey and Widget Enhancements
    - Implemented survey styling through widget themes for better customization
@@ -60,6 +61,7 @@
    - Enhanced UI with various fixes and spacing adjustments
    - Improved online dashboard tab persistence as default view
    - Added reset functionality for online visitors filter on widget filters reset action
+   - PDF Checking for suspicious content
 
 8. User Interface and Experience
    - Implemented editor options for better content management
