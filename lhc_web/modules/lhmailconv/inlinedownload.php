@@ -60,7 +60,12 @@ try {
                 $restrictedReason = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','This type of files are not allowed to be downloaded!');
             }
         }
-        
+
+        if ($restrictedFile == false && isset($mcOptionsData['check_suspicious_pdf']) && $mcOptionsData['check_suspicious_pdf'] == 1 && $fileExtension == 'pdf' && !\LiveHelperChat\mailConv\helpers\ValidationHelper::isValidPDF($file->file_path_server) && !$hasRestrictedAccess) {
+                $restrictedFile = true;
+                $restrictedReason = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','PDF file contains suspicious content and cannot be downloaded!');
+        }
+
         // If file is restricted, deny access
         if ($restrictedFile) {
             header('HTTP/1.1 403 Forbidden');           

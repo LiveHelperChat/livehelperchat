@@ -272,6 +272,11 @@ class erLhcoreClassModelMailconvMessage
                                 }
                             }
 
+                            if (isset($this->filesResctrictions['check_suspicious_pdf']) && $this->filesResctrictions['check_suspicious_pdf'] == 1 && $restricted_file == false && $file->extension == 'pdf' && !\LiveHelperChat\mailConv\helpers\ValidationHelper::isValidPDF($file->file_path_server) && !(isset($this->filesResctrictions['download_restricted']) && $this->filesResctrictions['download_restricted'] === true)) {
+                                 $restricted_reason = 1;
+                                 $restricted_file = true;
+                            }
+
                             $this->attachments[] = [
                                 'id' => $file->id,
                                 'name' => $file->name,
@@ -399,6 +404,12 @@ class erLhcoreClassModelMailconvMessage
             $this->filesResctrictions['allowed_extensions_restricted'] = explode('|', $filesResctrictions['allowed_extensions_restricted']);
         } else {
             $this->filesResctrictions['allowed_extensions_restricted'] = [];
+        }
+
+        if (isset($filesResctrictions['check_suspicious_pdf'])) {
+            $this->filesResctrictions['check_suspicious_pdf'] = $filesResctrictions['check_suspicious_pdf'];
+        } else {
+            $this->filesResctrictions['check_suspicious_pdf'] = false;
         }
 
         return $this->filesResctrictions;

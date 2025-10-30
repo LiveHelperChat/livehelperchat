@@ -40,6 +40,9 @@ if ( isset($_POST['StoreOptions']) ) {
         'keep_forward_quote' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'check_suspicious_pdf' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
         'download_view_mode' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0, 'max_range' => 2]
         ),
@@ -125,6 +128,12 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['file_download_mode'] = 0;
     }
 
+    if ($form->hasValidData( 'check_suspicious_pdf' )) {
+        $data['check_suspicious_pdf'] = $form->check_suspicious_pdf;
+    } else {
+        $data['check_suspicious_pdf'] = 0;
+    }
+    
     if ($form->hasValidData( 'allowed_extensions_public' )) {
         $data['allowed_extensions_public'] = $form->allowed_extensions_public ;
     } else {
