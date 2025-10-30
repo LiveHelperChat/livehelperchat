@@ -912,7 +912,7 @@ class erLhcoreClassChatWorkflow {
                             $sort = 'assign_priority DESC, '.$sort;
                         }
 
-                        $sql = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND user_id != :user_id {$appendSQL} ORDER BY {$sort} LIMIT 3";
+                        $sql = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM `lh_userdep` WHERE `last_accepted` < :last_accepted AND `ro` = 0 AND `hide_online` = 0 AND `dep_id` = :dep_id AND `only_priority` = 0 AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `user_id` != :user_id {$appendSQL} ORDER BY {$sort} LIMIT 3";
 
                         self::$lastSuccess = $sql;
                         $paramsFilterLog = [];
@@ -921,8 +921,8 @@ class erLhcoreClassChatWorkflow {
                         $byPriority = false;
 
                         // Priority assignment workflow
-                        if (isset($botConfiguration['assign_by_priority_chat']) &&
-                            $botConfiguration['assign_by_priority_chat'] == '1'&&
+                        if (isset($botConfiguration['active_prioritized_assignment']) &&
+                            $botConfiguration['active_prioritized_assignment'] == '1' &&
                             !(isset($botConfiguration['min_chat_priority']) && (int)$botConfiguration['min_chat_priority'] != 0 && (int)$chat->priority < (int)$botConfiguration['min_chat_priority']) &&
                             !(isset($botConfiguration['max_chat_priority']) && (int)$botConfiguration['max_chat_priority'] != 0 && (int)$chat->priority > (int)$botConfiguration['max_chat_priority'])
                         ) {
@@ -940,6 +940,10 @@ class erLhcoreClassChatWorkflow {
 
                             if (isset($botConfiguration['min_agent_priority']) && (int)$botConfiguration['min_agent_priority'] != 0) {
                                 $appendSQLPriority .= ' AND assign_priority >= ' . (int)$botConfiguration['min_agent_priority'];
+                            }
+
+                            if (isset($botConfiguration['only_priority']) && (int)$botConfiguration['only_priority'] == 1) {
+                                $appendSQLPriority .= ' AND `only_priority` = 1';
                             }
 
                             $appendSQLPriority .= ' AND (chat_max_priority = 0 OR chat_max_priority >= ' . (int)$chat->priority .') AND (chat_min_priority = 0 OR chat_min_priority <= ' . (int)$chat->priority .')';
@@ -981,7 +985,7 @@ class erLhcoreClassChatWorkflow {
                         // Try to assign to operator speaking same language first
                         if ($tryDefault == true && $department->assign_same_language == 1 && $chat->chat_locale != '') {
 
-                            $sqlLanguages =  "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep INNER JOIN lh_speech_user_language ON `lh_speech_user_language`.`user_id` = `lh_userdep`.`user_id` WHERE last_accepted < :last_accepted AND ro = 0 AND hide_online = 0 AND dep_id = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id AND `lh_speech_user_language`.`language` = :chatlanguage {$appendSQL} ORDER BY {$sort} LIMIT 3";
+                            $sqlLanguages =  "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep INNER JOIN lh_speech_user_language ON `lh_speech_user_language`.`user_id` = `lh_userdep`.`user_id` WHERE `last_accepted` < :last_accepted AND `ro` = 0 AND `only_priority` = 0 AND `hide_online` = 0 AND `dep_id` = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id AND `lh_speech_user_language`.`language` = :chatlanguage {$appendSQL} ORDER BY {$sort} LIMIT 3";
 
                             self::$lastSuccess = $sqlLanguages;
 
