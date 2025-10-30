@@ -32,7 +32,9 @@ class UploadHandler
         'max_width' => 'Image exceeds maximum width',
         'min_width' => 'Image requires a minimum width',
         'max_height' => 'Image exceeds maximum height',
-        'min_height' => 'Image requires a minimum height'
+        'min_height' => 'Image requires a minimum height',
+        'invalid_pdf' => 'Invalid PDF file',
+        'dangerous_pdf' => 'PDF file contains potentially dangerous content'
     );
 
     protected $image_objects = array();
@@ -342,6 +344,56 @@ class UploadHandler
         return $this->fix_integer_overflow($val);
     }
 
+    /**
+     * Validate PDF file by checking magic bytes and MIME type
+     * 
+     * @param string $file_path Path to the uploaded file
+     * @return string|bool Returns true if valid, error code string if invalid
+     */
+    protected function validate_pdf($file_path) {
+        // Check if file exists and is readable
+        if (!is_file($file_path) || !is_readable($file_path)) {
+            return 'invalid_pdf';
+        }
+
+        // Check magic bytes - PDF files must start with '%PDF-'
+        $fh = fopen($file_path, 'rb');
+        if ($fh === false) {
+            return 'invalid_pdf';
+        }
+        $magic = fread($fh, 5);
+        fclose($fh);
+        
+        if ($magic !== '%PDF-') {
+            return 'invalid_pdf';
+        }
+
+        // Check MIME type using finfo
+        if (class_exists('finfo')) {
+            $finfo = new finfo(FILEINFO_MIME_TYPE);
+            $mime = $finfo->file($file_path);
+            
+            // Accept both standard PDF MIME types
+            if ($mime !== 'application/pdf' && $mime !== 'application/x-pdf') {
+                return 'invalid_pdf';
+            }
+        }
+
+        if ($this->options['check_suspicious_pdf']) {
+            // lightweight token scan for suspicious PDF objects
+            $contents = file_get_contents($file_path, false, null, 0, 2000000); // read up to first 2MB
+            $dangerTokens = ['/JavaScript', '/JS', '/OpenAction', '/AA', '/AcroForm', '/Launch', '/EmbeddedFile', '/RichMedia'];
+            foreach ($dangerTokens as $t) {
+                if (stripos($contents, $t) !== false) {
+                    return 'dangerous_pdf';
+                    break;
+                }
+            }
+        }
+
+        return true;
+    }
+
     protected function validate($uploaded_file, $file, $error, $index) {
         if ($error) {
             $file->error = $this->get_error_message($error);
@@ -386,9 +438,11 @@ class UploadHandler
         $max_height = @$this->options['max_height'];
         $min_width = @$this->options['min_width'];
         $min_height = @$this->options['min_height'];
+
         if (($max_width || $max_height || $min_width || $min_height)) {
             list($img_width, $img_height) = $this->get_image_size($uploaded_file);
         }
+
         if (!empty($img_width)) {
             if ($max_width && $img_width > $max_width) {
                 $file->error = $this->get_error_message('max_width');
@@ -407,6 +461,17 @@ class UploadHandler
                 return false;
             }
         }
+
+        // Validate PDF files
+        if ($file->type === 'application/pdf' || $file->type === 'application/x-pdf') {
+            $pdf_validation_result = $this->validate_pdf($uploaded_file);
+            if ($pdf_validation_result !== true) {
+                // $pdf_validation_result contains the error code ('invalid_pdf' or 'dangerous_pdf')
+                $file->error = $this->get_error_message($pdf_validation_result);
+                return false;
+            }
+        }
+        
         return true;
     }
 

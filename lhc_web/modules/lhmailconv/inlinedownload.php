@@ -169,6 +169,9 @@ try {
     header('Content-type: '.$file->type);
 
     if (file_exists($file->file_path_server)) {
+        header('X-Content-Type-Options: nosniff');
+        header('Referrer-Policy: no-referrer');
+        header("Cache-Control: private, max-age=3600");
         echo file_get_contents($file->file_path_server);
     } else {
         echo file_get_contents('design/defaulttheme/images/general/denied.png');
