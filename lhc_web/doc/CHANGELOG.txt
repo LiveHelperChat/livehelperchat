@@ -1,3 +1,95 @@
+4.72v
+
+1. Operator Assignment and Priority Management
+   - Added 'only_priority' feature for operator assignment allowing operators to receive only chats with specific priority levels
+   - Enhanced chat priority search functionality in the back office
+   - Improved UX for priority display with better visual indicators
+   - Added priority filtering to chat search panel
+   - Refactored department group saving process with transactions for improved error handling and data integrity
+
+2. Proactive Invitations System Enhancements
+   - Implemented per-session invitation support for all invitation types
+   - Enhanced dynamic invitation logic with better state management
+   - Improved invitation expiration handling with proper cleanup of invitation_id
+   - Added automatic invitation reset for returning visitors
+   - Enhanced invitation seen count tracking for better analytics
+   - Updated UX for invitation management with better visual feedback
+   - Implemented operator message reset when invitation is assigned
+   - Added filtering for online operators by their status
+
+3. Bot System and Conditions
+   - Added support for mathematical parsing in bot conditions for complex logic evaluation
+   - Implemented {rnumber} variable support for random number generation
+   - Enhanced NodeTriggerActionConditions with execution notices and theme fetching
+   - Added debugging capabilities for specific trigger output
+   - Improved bot message translation handling to assume visitor language
+   - Added CSS class support for bot holder elements
+   - Enhanced match event handling in bot workflows
+   - Added presence checking for variables before processing
+
+4. Canned Messages and Variables
+   - Implemented replaceable variable option to canned messages with change logging
+   - Added default replaceable variable method for consistent variable handling
+   - Enhanced variable replacement process with better error handling
+   - Added support for context-aware variable replacement
+
+5. Mail Conversation System Improvements
+   - Enhanced mail conversation handling and storage management
+   - Added option to include mail body in forward e-mail while skipping in reply
+   - Implemented copy e-mail function for easier message handling
+   - Added option to copy raw message body for debugging
+   - Implemented sender address length limitation for better database handling
+   - Enhanced search functionality with improved filters
+   - Added JSON view for better debugging of mail conversations
+   - Implemented option to split messages into separate API calls for mixed content handling
+   - Added support for debugging specific messages
+   - Improved IMAP connection testing with shorter timeouts
+   - Enhanced header value handling and exclusion of debug messages from system logs
+
+6. Survey and Widget Enhancements
+   - Implemented survey styling through widget themes for better customization
+   - Enabled CSS cache for survey to improve loading performance
+   - Updated widget version to 263 with enhanced cookie handling
+   - Added support for subject filter override in surveys
+   - Implemented subject title override capability
+
+7. Chat System Improvements
+   - Added bulk fetching for pending messages in chat sync for better performance
+   - Implemented whisper message support for private operator notes
+   - Added context menu support for previous messages
+   - Enhanced UI with various fixes and spacing adjustments
+   - Improved online dashboard tab persistence as default view
+   - Added reset functionality for online visitors filter on widget filters reset action
+
+8. User Interface and Experience
+   - Implemented editor options for better content management
+   - Enhanced form height for improved usability
+   - Added minimize text printing functionality
+   - Improved spacing and layout adjustments throughout the interface
+   - Enhanced auto responder debugging with better object visibility
+
+9. REST API and Protocol Management
+   - Added REST API protocol choosing option for flexible integration
+   - Enhanced header value handling and skip functionality
+   - Improved error messaging with more precise error descriptions
+
+10. System Configuration and Permissions
+    - Added missing permissions for various operations
+    - Enhanced permission checking throughout the system
+    - Implemented database version limit validation (minimum 60)
+    - Updated database version tracking
+
+11. Bug Fixes and Improvements
+    - Fixed issue #2321 related to system functionality
+    - Addressed discussion #2320 with appropriate fixes
+    - Improved invitation logic with multiple fixes
+    - Enhanced variable presence checking before processing
+    - Fixed translation issues for empty messages
+    - Corrected method echo behavior in debug output
+    - Various UX fixes and improvements throughout the application
+
+execute doc/update_db/update_340.sql for update
+
 4.71v
 
 1. Department Management and User Administration
