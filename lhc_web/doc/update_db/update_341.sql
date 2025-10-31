@@ -1,0 +1,2 @@
+ALTER TABLE `lh_userdep_disabled` ADD `only_priority` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';
+ALTER TABLE `lh_departament_group_user_disabled` ADD `only_priority` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';

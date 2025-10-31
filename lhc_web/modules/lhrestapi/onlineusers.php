@@ -29,7 +29,7 @@ try
     $filter['sort'] = 'active_chats DESC, `lh_userdep`.`hide_online` ASC';
     $filter['group'] = 'user_id';
     $filter = array_merge_recursive($filter, $params);
-    $filter['ignore_fields'] = array('chat_max_priority','chat_min_priority','assign_priority', 'max_mails','last_accepted_mail','exc_indv_autoasign','exclude_autoasign_mails','active_mails','pending_mails','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
+    $filter['ignore_fields'] = array('only_priority','chat_max_priority','chat_min_priority','assign_priority', 'max_mails','last_accepted_mail','exc_indv_autoasign','exclude_autoasign_mails','active_mails','pending_mails','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
 
     $filter['select_columns'] = '
          max(`lh_userdep`.`id`) as `id`, 
