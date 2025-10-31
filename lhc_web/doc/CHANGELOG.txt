@@ -1,3 +1,9 @@
+4.73v
+
+1. Only priority field was missed for grouping operation and disabled user flow.
+
+execute doc/update_db/update_340.sql for update
+
 4.72v
 
 1. Operator Assignment and Priority Management
