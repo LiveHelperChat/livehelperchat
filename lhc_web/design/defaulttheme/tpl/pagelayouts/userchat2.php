@@ -80,7 +80,7 @@
             <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/userchat/before_content.tpl.php'));?>
 <?php endif; ?>
 
-<div id="root" class="container-fluid d-flex flex-column flex-grow-1 overflow-auto"></div>
+<div id="root" class="container-fluid d-flex flex-column flex-grow-1"></div>
 <?php echo $Result['content']?>
 
 <?php if (isset($Result['modal_start']) && $Result['modal_start'] == true) : ?>
