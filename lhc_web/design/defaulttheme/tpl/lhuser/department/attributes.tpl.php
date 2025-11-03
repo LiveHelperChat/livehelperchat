@@ -5,7 +5,7 @@
 <label><input type="checkbox" name="exc_indv_autoasign" value="on" <?php echo $userDep->exc_indv_autoasign == 1 ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?></label>
 </div>
 
-<label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Operator assignment priority, optional, default - 0')?></label>
+<label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Operator assignment priority, optional, default - 0. Inclusive.')?></label>
 <input type="text" class="form-control form-control-sm" name="assign_priority" value="<?php echo $userDep->assign_priority?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Agents with higher assignment priority will be assigned first to chat')?>" />
 
 <div class="row pb-1">
