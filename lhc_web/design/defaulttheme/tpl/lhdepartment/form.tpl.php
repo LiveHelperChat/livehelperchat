@@ -470,16 +470,16 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-4">
-                                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum agent assignment priority');?></label>
+                                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum agent assignment priority. Inclusive.');?></label>
                                         <input type="text" class="form-control form-control-sm" name="min_agent_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['min_agent_priority']) ? $departament->bot_configuration_array['min_agent_priority'] : '0');?>" />
                                     </div>
                                     <div class="col-4">
-                                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum chat priority for it being processed with prioritized assignment workflow');?></label>
-                                        <input type="text" class="form-control form-control-sm" name="min_chat_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['min_chat_priority']) ? $departament->bot_configuration_array['min_chat_priority'] : '0');?>" />
+                                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum chat priority for it being processed with prioritized assignment workflow. Inclusive.');?></label>
+                                        <input type="number" class="form-control form-control-sm" name="min_chat_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['min_chat_priority']) ? $departament->bot_configuration_array['min_chat_priority'] : '0');?>" />
                                     </div>
                                     <div class="col-4">
-                                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum chat priority for it being processed with prioritized assignment workflow');?></label>
-                                        <input type="text" class="form-control form-control-sm" name="max_chat_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['max_chat_priority']) ? $departament->bot_configuration_array['max_chat_priority'] : '0');?>" />
+                                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum chat priority for it being processed with prioritized assignment workflow. Inclusive.');?></label>
+                                        <input type="number" class="form-control form-control-sm" name="max_chat_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['max_chat_priority']) ? $departament->bot_configuration_array['max_chat_priority'] : '0');?>" />
                                     </div>
                                 </div>
                             </div>

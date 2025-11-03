@@ -10,7 +10,7 @@
 
 <div class="row pb-1">
     <div class="col-12 fs13 text-muted pb-1">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min and Max chat priority for chat being assigned by department priority assignment flow')?></label>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min and Max chat priority for chat being assigned by department priority assignment flow. Inclusive.')?></label>
     </div>
     <div class="col-6">
         <input name="chat_min_priority" value="<?php echo $userDep->chat_min_priority?>" type="text" class="form-control form-control-sm" />
