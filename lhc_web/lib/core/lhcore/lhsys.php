@@ -410,7 +410,7 @@ class erLhcoreClassSystem{
         }
 
         // normalize slash use and url decode url if needed
-        if ( $requestUri === '/' || $requestUri === '' )
+        if ( $requestUri === '/' || $requestUri === '' || is_null($requestUri) )
         {
             $requestUri = '';
         }
