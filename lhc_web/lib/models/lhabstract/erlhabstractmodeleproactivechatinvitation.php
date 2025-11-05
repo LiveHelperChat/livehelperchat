@@ -275,11 +275,27 @@ class erLhAbstractModelProactiveChatInvitation {
             $appendTag = 'AND (tag = \'\')';
         }
 
+        $dayShort = array(
+            1 => 'mod',
+            2 => 'tud',
+            3 => 'wed',
+            4 => 'thd',
+            5 => 'frd',
+            6 => 'sad',
+            7 => 'sud'
+        );
+
         $q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
 				' . $appendTag . '
 				AND (`lh_abstract_proactive_chat_invitation`.`id` IN (SELECT `invitation_id` FROM `lh_abstract_proactive_chat_invitation_dep` WHERE `dep_id` = ' . (int)$item->dep_id . ') OR `dep_id` = ' . (int)$item->dep_id . ' OR `dep_id` = 0)
+				AND '."(
+                    repetitiveness = 0 OR 
+                    (repetitiveness = 1 AND days_activity != '' AND JSON_EXTRACT(days_activity,'$.".$dayShort[date('N')].".start') <= " . date('Hi') . " AND JSON_EXTRACT(days_activity,'$.".$dayShort[date('N')].".end') >= " . date('Hi') . " ) OR
+                    (repetitiveness = 2 AND active_from <= " . time() . " AND (active_to = 0 OR active_to >= " . time() . ")) OR
+                    (repetitiveness = 3 AND FROM_UNIXTIME(active_from,'%m%d%H%i') <= " . date('mdHi') . " AND FROM_UNIXTIME(active_to,'%m%d%H%i') >= " . date('mdHi') . ")
+                )". '
 	            AND `inject_only_html` = 1
 	            AND `disabled` = 0
 	            AND `parent_id` = 0
@@ -334,12 +350,28 @@ class erLhAbstractModelProactiveChatInvitation {
             $appendDevice .= ' AND id NOT IN (' . implode(',', $onlineAttrSystem['session_inv']) . ') ';
         }
 
+        $dayShort = array(
+            1 => 'mod',
+            2 => 'tud',
+            3 => 'wed',
+            4 => 'thd',
+            5 => 'frd',
+            6 => 'sad',
+            7 => 'sud'
+        );
+
 	    $q->where( $q->expr->lte( 'time_on_site', $q->bindValue( $item->time_on_site ) ).' AND '.$q->expr->lte( 'pageviews', $q->bindValue( $item->pages_count ) ).'
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
 				' . $appendTag . '
 				' . $appendDevice . '
 				AND (`lh_abstract_proactive_chat_invitation`.`id` IN (SELECT `invitation_id` FROM `lh_abstract_proactive_chat_invitation_dep` WHERE `dep_id` = ' . (int)$item->dep_id . ') OR `dep_id` = ' . (int)$item->dep_id . ' OR `dep_id` = 0)
+				AND '."(
+                    repetitiveness = 0 OR 
+                    (repetitiveness = 1 AND days_activity != '' AND JSON_EXTRACT(days_activity,'$.".$dayShort[date('N')].".start') <= " . date('Hi') . " AND JSON_EXTRACT(days_activity,'$.".$dayShort[date('N')].".end') >= " . date('Hi') . " ) OR
+                    (repetitiveness = 2 AND active_from <= " . time() . " AND (active_to = 0 OR active_to >= " . time() . ")) OR
+                    (repetitiveness = 3 AND FROM_UNIXTIME(active_from,'%m%d%H%i') <= " . date('mdHi') . " AND FROM_UNIXTIME(active_to,'%m%d%H%i') >= " . date('mdHi') . ")
+                )". '
 	            AND `inject_only_html` = 0
 	            AND `dynamic_invitation` = 1
 	            AND `disabled` = 0
@@ -611,7 +643,7 @@ class erLhAbstractModelProactiveChatInvitation {
                 $filter['customfilter'][] = '(last_activity > ' . (int)(time() - 120) . ' OR always_on = 1)';
                 $filter['filterin']['dep_id'] = [$item->dep_id,0];
                 $filter['group'] = 'user_id';
-                $filter['ignore_fields'] = array('exclude_autoasign','exc_indv_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats');
+                $filter['ignore_fields'] = array('only_priority','chat_max_priority','chat_min_priority','assign_priority', 'max_mails','last_accepted_mail','exc_indv_autoasign','exclude_autoasign_mails','active_mails','pending_mails','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
                 $filter['select_columns'] = 'max(`id`) as `id`,user_id';
 
                 if (isset($optionsInvitation['op_max_chats']) && !empty($optionsInvitation['op_max_chats'])) {
