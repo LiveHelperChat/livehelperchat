@@ -329,7 +329,7 @@ class erLhcoreClassSystem{
  		$instance       = self::instance();
         $server         = $instance->Params['_SERVER'];
         $phpSelf        = $server['PHP_SELF'];
-        $requestUri     = $server['REQUEST_URI'];
+        $requestUri     = $server['REQUEST_URI'] ?? '';
         $scriptFileName = $server['SCRIPT_FILENAME'];
         $siteDir        = rtrim( str_replace( $index, '', $scriptFileName ), '\/' ) . '/';
         $wwwDir         = '';
@@ -410,7 +410,7 @@ class erLhcoreClassSystem{
         }
 
         // normalize slash use and url decode url if needed
-        if ( $requestUri === '/' || $requestUri === '' || is_null($requestUri) )
+        if ( $requestUri === '/' || $requestUri === '' )
         {
             $requestUri = '';
         }
