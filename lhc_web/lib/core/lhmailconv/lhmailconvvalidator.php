@@ -1056,6 +1056,9 @@ class erLhcoreClassMailconvValidator {
         // Reply e-mail
         if ( $form->hasValidData( 'to_data' )) {
             $item->to_data = $form->to_data;
+            if (!empty($item->to_data) && !erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','reply_to_all') && erLhcoreClassModelMailconvMailbox::getCount(['filter' => ['mail' => $item->to_data]]) == 0) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','You are not allowed to set any reply to e-mail! It has to be one of the defined mailboxes in the system.');
+            }
         } else {
             $item->to_data = '';
         }
