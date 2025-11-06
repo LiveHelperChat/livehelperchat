@@ -119,11 +119,11 @@ return array (
             ),
             'db' =>
                 array (
-                    'host' => '',
-                    'user' => '',
-                    'password' => '',
-                    'database' => '',
-                    'port' => 3306,
+                    'host' => getenv('LHC_DB_HOST') ?: '',
+                    'user' => getenv('LHC_DB_USERNAME') ?: '',
+                    'password' => getenv('LHC_DB_PASSWORD') ?: '',
+                    'database' => getenv('LHC_DB_DATABASE') ?: '',
+                    'port' => getenv('LHC_DB_PORT') ?: 3306,
                     'use_slaves' => false,
                     'tz' => '',// E.g '+02:00',
                     'db_slaves' =>
