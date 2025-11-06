@@ -1,17 +1,10 @@
 # Composer
 /lhc_web/lib/vendor/
-
-
 /composer.phar
-
-# PhpStorm
 /.idea/
-
-# VS Studio
-.vscode/*
-!.vscode/settings.json
-!.vscode/launch.json
-!.vscode/extensions.json
+/.phpunit.cache
+/.vscode
+/.zed
 
 # Firebase
 /.idx/
