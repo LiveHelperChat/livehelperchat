@@ -1,0 +1,19 @@
+name: Trigger Laravel Tests
+
+on:
+  push:
+    branches:
+      - master
+      - '*.x'
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Laravel repository tests
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.DISPATCH_TOKEN }}" \
+            https://api.github.com/repos/LiveHelperChat/livehelperchat_laravel/dispatches \
+            -d '{"event_type":"livehelperchat-push"}'
