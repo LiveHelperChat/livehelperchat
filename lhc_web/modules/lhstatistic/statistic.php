@@ -217,6 +217,7 @@ if ($tab == 'active') {
             $filterParams['filter']['filterin']['lh_chat.user_id'] = array_values(array_intersect($filterParams['filter']['filterin']['lh_chat.user_id'],$userFilterDefault['filterin']['id']));
         } else {
             $filterParams['filter']['filterin']['lh_chat.user_id'] = array_values($userFilterDefault['filterin']['id']);
+            $filterParams['filter']['filterin']['lh_chat.user_id'][] = 0;
         }
     }
 
@@ -325,6 +326,7 @@ if ($tab == 'active') {
             $filterParams['filter']['filterin']['lhc_mailconv_msg.user_id'] = array_intersect($filterParams['filter']['filterin']['lhc_mailconv_msg.user_id'],$userFilterDefault['filterin']['id']);
         } else {
             $filterParams['filter']['filterin']['lhc_mailconv_msg.user_id'] = $userFilterDefault['filterin']['id'];
+            $filterParams['filter']['filterin']['lhc_mailconv_msg.user_id'][] = 0;
         }
     }
 
@@ -451,6 +453,7 @@ if ($tab == 'active') {
             $filterParams['filter']['filterin']['lh_chat.user_id'] = array_values(array_intersect($filterParams['filter']['filterin']['lh_chat.user_id'],$userFilterDefault['filterin']['id']));
         } else {
             $filterParams['filter']['filterin']['lh_chat.user_id'] = array_values($userFilterDefault['filterin']['id']);
+            $filterParams['filter']['filterin']['lh_chat.user_id'][] = 0;
         }
     }
 
@@ -594,6 +597,7 @@ if ($tab == 'active') {
             $filter24['filterin']['lh_chat.user_id'] = array_values(array_intersect($filter24['filterin']['lh_chat.user_id'],$userFilterDefault['filterin']['id']));
         } else {
             $filter24['filterin']['lh_chat.user_id'] = array_values($userFilterDefault['filterin']['id']);
+            $filter24['filterin']['lh_chat.user_id'][] = 0;
         }
     }
 
