@@ -64,7 +64,7 @@ class BodyChat extends Component {
         }
 
         // Contact form was filled from live chat
-        if (this.props.chatwidget.get('isChatting') === true && this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === true && this.props.chatwidget.getIn(['chat_ui','survey_id'])) {
+        if ((!this.props.chatwidget.hasIn(['chatLiveData','status_sub']) || this.props.chatwidget.getIn(['chatLiveData','status_sub']) != STATUS_SUB_CONTACT_FORM) && this.props.chatwidget.get('isChatting') === true && this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === true && this.props.chatwidget.getIn(['chat_ui','survey_id'])) {
             this.props.dispatch({type: "attr_set", attr: ['isOfflineMode'], data: false});
             this.props.dispatch({type: "attr_set", attr: ['chatLiveData','status_sub'], data: STATUS_SUB_SURVEY_SHOW});
             return;
@@ -206,7 +206,7 @@ class BodyChat extends Component {
             </React.Fragment>)
         } else {
             className += " offline-chat";
-            return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat switchColumn={this.switchColumn} popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><Suspense fallback=""><OfflineChat /></Suspense></div>
+            return (<React.Fragment>{this.props.chatwidget.hasIn(['chat_ui','custom_html_header']) && <div className="lhc-custom-header-above" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header'])}}></div>}{this.props.chatwidget.get('mode') == 'widget' && <HeaderChat switchColumn={this.switchColumn} popupChat={this.popupChat} endChat={this.endChat} />}<div className={className}><Suspense fallback=""><OfflineChat endChat={this.endChat} /></Suspense></div>
                 {this.props.chatwidget.hasIn(['chat_ui','custom_html_footer']) && this.props.chatwidget.getIn(['chat_ui','custom_html_footer']) != '' && ((this.props.chatwidget.hasIn(['chat_ui','chfr']) && <div className="lhc-custom-footer-below" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_footer'])}}></div>) || (<Suspense fallback=""><div className="lhc-custom-footer-below"><CustomHTML setStateParent={(state) => this.setState(state)} attr="custom_html_footer" /></div></Suspense>))}
             </React.Fragment>)
         }
