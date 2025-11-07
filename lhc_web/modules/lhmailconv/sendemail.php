@@ -70,8 +70,22 @@ if (ezcInputForm::hasPostData()) {
                 'send_params' => & $sendParams
             ));
 
-            erLhcoreClassMailconvValidator::sendEmail($item, $response, $currentUser->getUserID(), $sendParams);
+            // Log user changes
+            $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
+            $data = (array)$auditOptions->data;
 
+            if (isset($data['log_custom_reply']) && $data['log_custom_reply'] == 1 && !empty($item->to_data) && $item->to_data != $item->mailbox_front) {
+                erLhcoreClassLog::logObjectChange(array(
+                    'object' => $item,
+                    'action' => '-newMessage',
+                    'msg' => array(
+                        'new' => $item,
+                        'user_id' => $currentUser->getUserID()
+                    )
+                ));
+            }
+
+            erLhcoreClassMailconvValidator::sendEmail($item, $response, $currentUser->getUserID(), $sendParams);
         } catch (Exception $e) {
             $response['errors'][] = $e->getMessage();
         }

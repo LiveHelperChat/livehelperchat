@@ -423,5 +423,6 @@ $FunctionList['download_unverified'] = array('explain' => 'Allow operators to do
 $FunctionList['download_verified'] = array('explain' => 'Allow operators to download verified, but sensitive files');
 $FunctionList['download_restricted'] = array('explain' => 'Allow operators to download restricted file types');
 $FunctionList['reply_to_all'] = array('explain' => 'Allow operators to set `Reply To` to any mail in new mail form. Otherwise configured mailbox will be required.');
+$FunctionList['merge_cross_departments'] = array('explain' => 'Allow operators to merge mails across different departments.');
 
 ?>

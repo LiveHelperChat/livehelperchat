@@ -35,6 +35,7 @@ if ( isset($_POST['StoreOptions']) ) {
         'log_block' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
         'log_files' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
         'log_routing' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
+        'log_custom_reply' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
         'log_objects' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
     );
 
@@ -63,6 +64,12 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['log_block'] = 1;
     } else {
         $data['log_block'] = 0;
+    }
+
+    if ( $form->hasValidData( 'log_custom_reply' )) {
+        $data['log_custom_reply'] = 1;
+    } else {
+        $data['log_custom_reply'] = 0;
     }
 
     if ( $form->hasValidData( 'log_routing' )) {

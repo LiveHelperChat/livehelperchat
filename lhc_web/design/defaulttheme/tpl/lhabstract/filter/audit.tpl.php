@@ -154,6 +154,7 @@
             <option value="routing_priority">Routing Priority</option>
             <option value="ChatFileReveal">Sensitive chat file reveal</option>
             <option value="MailconvMessageFileReveal">Sensitive mail file reveal</option>
+            <option value="MailconvMessage-newMessage">Operator send an e-mail with undefined reply to e-mail.</option>
             <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/audit/category_list_multiinclude.tpl.php'));?>
         </datalist>
     </div>

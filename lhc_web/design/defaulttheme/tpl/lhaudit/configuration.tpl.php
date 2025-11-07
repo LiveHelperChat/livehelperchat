@@ -33,6 +33,10 @@
         <label><input type="checkbox" name="log_files" <?php if (isset($audit_options['log_files']) && $audit_options['log_files'] == true) : ?>checked<?php endif;?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('audit/options','Log failed files uploads')?></label>
     </div>
 
+    <div class="form-group">
+        <label><input type="checkbox" name="log_custom_reply" <?php if (isset($audit_options['log_custom_reply']) && $audit_options['log_custom_reply'] == true) : ?>checked<?php endif;?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('audit/options','Log if operator uses not defined mailbox for reply to e-mail.')?></label>
+    </div>
+
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('audit/options','What objects changes log?')?></h5>
     <?php $objectsLog = array(
         array('class' => 'AutoResponder' ,'name' => 'Auto Responder'),
