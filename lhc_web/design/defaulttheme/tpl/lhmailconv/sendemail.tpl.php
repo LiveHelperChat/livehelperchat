@@ -109,13 +109,13 @@
         <div class="col-6 ps-0">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Reply to e-mail');?></label>
-                <input list="mailbox_list" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','If not filled we will use mailbox e-mail.');?> <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','reply_to_all')) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Only defined mailbox are allowed.');?><?php endif;?>" class="form-control form-control-sm" name="to_data" value="<?php echo htmlspecialchars($item->to_data)?>" />
+                <input autocomplete="new-password" list="mailbox_list" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','If not filled we will use mailbox e-mail.');?> <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','reply_to_all')) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Only defined mailbox are allowed.');?><?php endif;?>" class="form-control form-control-sm" name="to_data" value="<?php echo htmlspecialchars($item->to_data)?>" />
             </div>
         </div>
         <div class="col-6 pe-0">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Reply to name');?></label>
-                <input type="text" placeholder="If not filled we will use mailbox name" class="form-control form-control-sm" name="reply_to_data" value="<?php echo htmlspecialchars($item->reply_to_data)?>" />
+                <input autocomplete="new-password" type="text" placeholder="If not filled we will use mailbox name" class="form-control form-control-sm" name="reply_to_data" value="<?php echo htmlspecialchars($item->reply_to_data)?>" />
             </div>
         </div>
     </div>

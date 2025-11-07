@@ -19,10 +19,10 @@
                     $filterParams = ['sort' => 'id DESC', 'limit' => 20, 'filter' => ['from_address' => $mail->from_address]];
                     if ($limitation !== false) {
                         if ($limitation !== true) {
-                            $filterParams['filter']['customfilter'][] = $limitation;
+                            $filterParams['customfilter'][] = $limitation;
                         }
                     } else {
-                        $filterParams['filter']['customfilter'][] = '1 = -1';
+                        $filterParams['customfilter'][] = '1 = -1';
                     }
                     // Check for permission to merge_cross_departments
                     if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'merge_cross_departments')) {
