@@ -4,6 +4,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -419,6 +423,10 @@
   <context>
     <name>system/buttons</name>
     <message>
+      <source>Copy as CURL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save</source>
       <translation type="unfinished"/>
     </message>
@@ -455,10 +463,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Close</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Copied</source>
       <translation type="unfinished"/>
     </message>
@@ -467,7 +471,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Copy as CURL</source>
+      <source>Close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Debug data</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1564,7 +1572,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Survey title content, {survey_title} - survey title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey feedback content, {survey_feedback} - survey feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Custom html before start chat form fields, widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom survey page CSS</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2155,6 +2175,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>URL Matching conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This option has to be activated for URL invitations to start working.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>By default, if an invitation was not closed by the visitor, the next invitation will be shown when the visitor navigates to a different page. If the visitor closed the invitation, it will not be shown on the next page. Enabling this option will display the invitation on the next page even if the previous one was closed by the visitor.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation will be shown only once per visitor session. If the visitor closes the invitation it will not be shown again during the same session.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If chat was accepted by the same language speaking operator you can send visitor a custom message on chat accept event.</source>
       <translation type="unfinished"/>
     </message>
@@ -2719,6 +2755,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>If shown invitation was closed, next time show it minimized.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Close button above invitation</source>
       <translation type="unfinished"/>
     </message>
@@ -2914,6 +2954,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Parse for mathematical outcome</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Investigate places where this translation is used</source>
       <translation type="unfinished"/>
     </message>
@@ -2951,6 +2995,14 @@
     </message>
     <message>
       <source>Webhook</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test output</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3065,11 +3117,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Protocol</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sub URL</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Maximum execution time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Split message into separate Rest API calls if message contains text and files at the same time.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3955,6 +4015,62 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>No departments assigned to this group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Also assigned to other groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inactive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Shared</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclusive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclusive departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Shared departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Note</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Some departments in this group are also assigned to other department groups. This may affect chat routing and operator assignments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit department</source>
       <translation type="unfinished"/>
     </message>
@@ -3995,15 +4111,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Disabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Will not be visible to visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hidden</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4548,6 +4656,38 @@
     </message>
     <message>
       <source>Not presented</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This department is not assigned to any department groups.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department Group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inactive chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit group</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5248,6 +5388,14 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
+      <source>Login date range from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login date range to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select event</source>
       <translation type="unfinished"/>
     </message>
@@ -5536,6 +5684,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Select subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User group</source>
       <translation type="unfinished"/>
     </message>
@@ -5700,6 +5852,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
@@ -5841,10 +6001,6 @@
     </message>
     <message>
       <source>Choose country</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select subject</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6696,11 +6852,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Login date range from</source>
+      <source>Login from</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Login date range to</source>
+      <source>Login till</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7745,6 +7901,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>Offline request message was saved</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New</source>
       <translation type="unfinished"/>
     </message>
@@ -8057,11 +8217,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Based on current chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Offline request message was saved</source>
+      <source>Offline request message was saved.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9379,6 +9543,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Check for suspicious PDF files content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Uploaded files from visitors are scanned</source>
       <translation type="unfinished"/>
     </message>
@@ -9519,6 +9687,10 @@
     </message>
     <message>
       <source>Log failed files uploads</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log if operator uses not defined mailbox for reply to e-mail.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10329,6 +10501,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Do not parse for BBCode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Include bot messages</source>
       <translation type="unfinished"/>
     </message>
@@ -10534,6 +10710,14 @@
     </message>
     <message>
       <source>Hold removed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has accepted the pending chat by sending a message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has accepted the bot chat by sending a message!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11440,6 +11624,10 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Min and Max chat priority for chat being assigned by my assign priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Canned messages</source>
       <translation type="unfinished"/>
     </message>
@@ -11808,6 +11996,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Are you sure you want to remove this department assignment?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You have permission to edit departments group, but do not have permission to read them. Missing one of these permissions</source>
       <translation type="unfinished"/>
     </message>
@@ -11828,6 +12020,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Are you sure you want to remove this department group assignment?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Offline</source>
       <translation type="unfinished"/>
     </message>
@@ -11844,11 +12040,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Operator assignment priority, optional, default - 0. Inclusive.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Agents with higher assignment priority will be assigned first to chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Min and Max chat priority for chat being assigned by my assign priority</source>
+      <source>Min and Max chat priority for chat being assigned by department priority assignment flow. Inclusive.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Participate only in department priority assignment queue</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agent will not participate in regular auto assignment flow. Only department priority assignment chats will be assigned.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12665,6 +12873,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>See assigned departments statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Configure dashboard</source>
       <translation type="unfinished"/>
     </message>
@@ -12918,6 +13130,14 @@
     </message>
     <message>
       <source>Mails assigned to you will appear here. List includes new and active mails.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ready</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show only operators that are online</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13521,6 +13741,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Line</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Next operator ID</source>
       <translation type="unfinished"/>
     </message>
@@ -13549,6 +13777,10 @@
     </message>
     <message>
       <source>Active operator chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments of group</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13649,6 +13881,10 @@
     </message>
     <message>
       <source>Online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department groups</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14160,7 +14396,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Visitor has been redirected to contact form [because of chat pending time]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor has been redirected to contact form [because of chat status]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected to contact form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor has been redirected to contact form  [because of chat pending time]</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -14645,6 +14893,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat auto responder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto responder object</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat information was updated</source>
       <translation type="unfinished"/>
     </message>
@@ -14659,6 +14915,10 @@
   </context>
   <context>
     <name>system/configuration</name>
+    <message>
+      <source>Canned replaceable variables</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Request notification permission</source>
       <translation type="unfinished"/>
@@ -14812,7 +15072,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Canned replaceable variables</source>
+      <source>Replaceable variables</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -16716,6 +16976,10 @@
       <source>Visitor has closed the chat explicitly!</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Whisper message!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chatarchive/archive</name>
@@ -17609,6 +17873,18 @@
   <context>
     <name>chat/operatorsbalancing</name>
     <message>
+      <source>Minimum agent assignment priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum chat priority for it being processed with prioritized assignment workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum chat priority for it being processed with prioritized assignment workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active chats auto-assignment</source>
       <translation type="unfinished"/>
     </message>
@@ -17681,15 +17957,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Minimum agent assignment priority</source>
+      <source>Assign only priority operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Minimum chat priority for it being processed with prioritized assignment workflow</source>
+      <source>By default we assign priority chats to all operators which match priority queues options. This options forces for operator have chosen to participate only in department priority queue.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Maximum chat priority for it being processed with prioritized assignment workflow</source>
+      <source>Minimum agent assignment priority. Inclusive.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum chat priority for it being processed with prioritized assignment workflow. Inclusive.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum chat priority for it being processed with prioritized assignment workflow. Inclusive.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18524,6 +18808,10 @@
   <context>
     <name>genericbot/helpattributes</name>
     <message>
+      <source>Chat ID or Message ID to explore</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Page where chat started</source>
       <translation type="unfinished"/>
     </message>
@@ -18572,7 +18860,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat ID or Message ID to explore</source>
+      <source>Chat ID, Chat Message ID or Mail Message ID to explore</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18609,6 +18897,18 @@
     </message>
     <message>
       <source>Test RAW text pattern</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Extract chat message attribute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explore all possible chat message attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test chat message text pattern</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18797,6 +19097,10 @@
     </message>
     <message>
       <source>Date from and to are always inclusive.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message does not exist or you do not have permission to access it!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18993,6 +19297,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Do not quote original e-mail while responding to a ticket</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preserve the quote if the message is an e-mail forward</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skipped image replacement text. You can use emoji also e.g</source>
       <translation type="unfinished"/>
     </message>
@@ -19054,6 +19366,10 @@
     </message>
     <message>
       <source>Pipe separated list of file extensions that can only be downloaded by operators with special permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for suspicious PDF files content</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19145,6 +19461,14 @@
     </message>
     <message>
       <source>Choose destination mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Info</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Selected conversations belong to different departments.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19368,6 +19692,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You are not allowed to set any reply to e-mail! It has to be one of the defined mailboxes in the system.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter e-mail body!</source>
       <translation type="unfinished"/>
     </message>
@@ -19381,6 +19709,10 @@
     </message>
     <message>
       <source>has un-merged</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Connection established to IMAP server.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19409,10 +19741,6 @@
     </message>
     <message>
       <source>has closed a conversation from a list.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Connection established to IMAP server.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19484,11 +19812,39 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>PDF file contains suspicious content and cannot be downloaded!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has accepted a mail by opening it.</source>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Invalid merge destination!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No permission to read merge destination!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No permission to write to merge destination!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose a merge destination!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No permission to read mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No permission to write to mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No permission to merge mails across different departments!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19657,6 +20013,14 @@
     </message>
     <message>
       <source>Response type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copied to clipboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy e-mail</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -20105,6 +20469,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>If not filled we will use mailbox e-mail.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only defined mailbox are allowed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Reply to name</source>
       <translation type="unfinished"/>
     </message>
@@ -20118,6 +20490,14 @@
     </message>
     <message>
       <source>Replaceable variables?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending for copy to be created in send folder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Creating copy in send folder is in progress</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -23801,6 +24181,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Only enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose a bot</source>
       <translation type="unfinished"/>
     </message>
@@ -25305,6 +25689,20 @@
     </message>
     <message>
       <source>Deny screen share</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/lists</name>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>kernel/messages</name>
+    <message>
+      <source>Error occurred</source>
       <translation type="unfinished"/>
     </message>
   </context>
