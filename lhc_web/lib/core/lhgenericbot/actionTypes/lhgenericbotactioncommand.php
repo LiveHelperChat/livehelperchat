@@ -776,8 +776,15 @@ class erLhcoreClassGenericBotActionCommand {
         } elseif ($action['content']['command'] == 'setchatattribute') {
 
                 // Replace variables if any
-                // Todo make sure object is not used during replacement
-                $action['content']['payload_arg'] = isset($params['replace_array']) ? @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload_arg']) : $action['content']['payload_arg'];
+                if (isset($params['replace_array']) && is_array($params['replace_array'])) {
+                    foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                        if (is_object($valueReplace) || is_array($valueReplace)) {
+                            $action['content']['payload_arg'] = @str_replace($keyReplace,json_encode($valueReplace),$action['content']['payload_arg']);
+                        } else {
+                            $action['content']['payload_arg'] = @str_replace($keyReplace,$valueReplace,$action['content']['payload_arg']);
+                        }
+                    }
+                }
 
                 $eventArgs = array('old' => $chat->{$action['content']['payload']}, 'attr' => $action['content']['payload'], 'new' => $action['content']['payload_arg']);
 

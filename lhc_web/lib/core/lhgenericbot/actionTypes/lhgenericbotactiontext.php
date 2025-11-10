@@ -43,8 +43,14 @@ class erLhcoreClassGenericBotActionText {
         {
             $metaMessage['content']['html']['content'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['html'], array('chat' => $chat, 'args' => $params));
 
-            if (isset($params['replace_array'])) {
-                $metaMessage['content']['html']['content'] = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$metaMessage['content']['html']['content']);
+            if (isset($params['replace_array']) && is_array($params['replace_array'])) {
+                foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                    if (is_object($valueReplace) || is_array($valueReplace)) {
+                        $metaMessage['content']['html']['content'] = @str_replace($keyReplace,json_encode($valueReplace),$metaMessage['content']['html']['content']);
+                    } else {
+                        $metaMessage['content']['html']['content'] = @str_replace($keyReplace,$valueReplace,$metaMessage['content']['html']['content']);
+                    }
+                }
             }
         }
 
