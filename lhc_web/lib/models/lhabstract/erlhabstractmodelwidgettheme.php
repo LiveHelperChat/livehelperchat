@@ -464,6 +464,7 @@ class erLhAbstractModelWidgetTheme {
         );
 
         $translatableAttributes = array_merge(array(
+            'back_to_chat',
             'custom_start_button_offline',
             'custom_start_button_bot',
             'custom_start_button',

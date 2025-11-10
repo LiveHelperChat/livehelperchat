@@ -234,8 +234,8 @@ class OfflineChat extends Component {
                             {(!this.props.chatwidget.hasIn(['chat_ui','hstr_btn']) || mappedFieldsCustom !== "" || mappedFields !== "") && <div className="row">
                                 <div className="col-12 pb-2">
                                     <button type="submit" disabled={this.props.chatwidget.get('processStatusOffline') == 1} className="btn btn-secondary btn-sm">{this.props.chatwidget.get('processStatusOffline') == 1 && <i className="material-icons">&#xf113;</i>}{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('start_chat.leave_a_message')}</button>
-                                    {this.props.chatwidget.get('isChatting') !== true && this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === true && <button type="button" onClick={this.goToChat} className="float-end btn btn-sm btn-link text-muted">&laquo; {t('button.back_to_chat')}</button>}
-                                    {this.props.chatwidget.get('isChatting') === true && <button type="button" onClick={() => this.props.endChat({"show_start": true})} className="float-end btn btn-sm btn-link text-muted">&laquo; {t('button.back_to_chat')}</button>}
+                                    {this.props.chatwidget.get('isChatting') !== true && this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === true && <button type="button" onClick={this.goToChat} className="float-end btn btn-sm btn-link text-muted">{this.props.chatwidget.getIn(['chat_ui','back_to_chat']) || t('button.back_to_chat')}</button>}
+                                    {this.props.chatwidget.get('isChatting') === true && <button type="button" onClick={() => this.props.endChat({"show_start": true})} className="float-end btn btn-sm btn-link text-muted">{this.props.chatwidget.getIn(['chat_ui','back_to_chat']) || t('button.back_to_chat')}</button>}
                                 </div>
                             </div>}
                         </form>

@@ -1003,6 +1003,10 @@ if ($theme !== false) {
             $chat_ui['custom_start_button'] = $theme->bot_configuration_array['custom_start_button_offline'];
         }
 
+        if (isset($theme->bot_configuration_array['back_to_chat']) && $theme->bot_configuration_array['back_to_chat'] != '') {
+            $chat_ui['back_to_chat'] = $theme->bot_configuration_array['back_to_chat'];
+        }
+
         if (isset($theme->bot_configuration_array['pre_offline_chat_html']) && $theme->bot_configuration_array['pre_offline_chat_html'] != '') {
             $preChatHTML = $theme->bot_configuration_array['pre_offline_chat_html'];
         }

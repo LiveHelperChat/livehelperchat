@@ -873,6 +873,18 @@ $fields = array(
    						'required' => false,
    						'hidden' => true,
    						'main_attr' => 'bot_configuration_array',
+                        'translatable' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+                'back_to_chat' => array(
+   						'type' => 'text',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Back to chat from offline form'),
+                        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','〈 Back'),
+   						'required' => false,
+   						'hidden' => true,
+                        'translatable' => true,
+   						'main_attr' => 'bot_configuration_array',
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
