@@ -38,6 +38,10 @@
 
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/bot.tpl.php'));?>
 
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/proactive_invitation.tpl.php'));?>
+
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/auto_responder.tpl.php'));?>
+
                 <?php if (isset($canEditChat) && $canEditChat == true) : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/edit_chat.tpl.php'));?>
 
