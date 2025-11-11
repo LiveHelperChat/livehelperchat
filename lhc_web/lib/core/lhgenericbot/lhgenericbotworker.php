@@ -102,11 +102,33 @@ class erLhcoreClassLHCBotWorker
                     $params['chat'] = $chat;
 
                     if (isset($contentArray[0]['content']['replace_array']) && !empty($contentArray[0]['content']['replace_array'])) {
+
                         $params['replace_array'] = $contentArray[0]['content']['replace_array'];
+
+                        for ($i = 1; $i <= 5; $i++) {
+                            if (!empty($action['content']['attr_options']['custom_args_' . $i])) {
+                                if (isset($params['replace_array'])) {
+                                    foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                                        if (is_object($valueReplace) || is_array($valueReplace)) {
+                                            $action['content']['attr_options']['custom_args_' . $i] = @str_replace($keyReplace, json_encode($valueReplace), $action['content']['attr_options']['custom_args_' . $i]);
+                                        } else {
+                                            $action['content']['attr_options']['custom_args_' . $i] = @str_replace($keyReplace, $valueReplace, $action['content']['attr_options']['custom_args_' . $i]);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
                         foreach ($params['replace_array'] as $key => $value) {
                             $params['replace_array'][str_replace(['{','}'],'',$key)] = $value;
                             if (str_starts_with($key, '{arg_') && !isset($params[str_replace(['{','}'],'',$key)])) {
                                 $params[str_replace(['{','}'],'',$key)] = $value;
+                            }
+                        }
+
+                        for ($i = 1; $i <= 5; $i++) {
+                            if (!empty($action['content']['attr_options']['custom_args_' . $i])) {
+                                $action['content']['attr_options']['custom_args_' . $i] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['attr_options']['custom_args_' . $i], array('chat' => $chat, 'args' => $params));
                             }
                         }
                     }
