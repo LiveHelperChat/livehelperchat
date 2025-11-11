@@ -1,6 +1,74 @@
 <?php
 
-if ($Params['user_parameters']['type'] == 'trigger') {
+if ($Params['user_parameters']['type'] == 'restapi') {
+
+    $tpl = erLhcoreClassTemplate::getInstance('lhgenericbot/usecasesrestapi.tpl.php');
+
+    $restAPI = erLhcoreClassModelGenericBotRestAPI::fetch((int)$Params['user_parameters']['id']);
+    
+    if ($restAPI instanceof erLhcoreClassModelGenericBotRestAPI) {
+        $db = ezcDbInstance::get();
+        
+        // Find triggers that use this REST API
+        $stmt = $db->prepare('SELECT id, name, bot_id FROM lh_generic_bot_trigger WHERE actions LIKE :rest_api_id');
+        $stmt->bindValue(':rest_api_id', '%"rest_api":' . $restAPI->id . '%', PDO::PARAM_STR);
+        $stmt->execute();
+        $triggers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        $items = [];
+        
+        foreach ($triggers as $trigger) {
+            // Parse trigger actions to find which specific methods are being used
+            $triggerObj = erLhcoreClassModelGenericBotTrigger::fetch($trigger['id']);
+            if ($triggerObj instanceof erLhcoreClassModelGenericBotTrigger) {
+                $actions = $triggerObj->actions_front;
+                $methodsUsed = [];
+                
+                foreach ($actions as $action) {
+                    if (isset($action['content']['rest_api']) && 
+                        $action['content']['rest_api'] == $restAPI->id &&
+                        isset($action['content']['rest_api_method'])) {
+                        $methodId = $action['content']['rest_api_method'];
+                        
+                        // Find method name from configuration
+                        $methodName = 'Unknown Method';
+                        if (isset($restAPI->configuration_array['parameters'])) {
+                            foreach ($restAPI->configuration_array['parameters'] as $method) {
+                                if (isset($method['id']) && $method['id'] == $methodId) {
+                                    $methodName = isset($method['name']) ? $method['name'] : $methodId;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        if (!in_array($methodName, $methodsUsed)) {
+                            $methodsUsed[] = $methodName;
+                        }
+                    }
+                }
+                
+                if (!empty($methodsUsed)) {
+                    $items[] = [
+                        'id' => $trigger['id'],
+                        'bot_id' => $trigger['bot_id'],
+                        'name' => $trigger['name'],
+                        'type' => 'trigger',
+                        'methods' => $methodsUsed
+                    ];
+                }
+            }
+        }
+        
+        $tpl->set('items', $items);
+        $tpl->set('rest_api', $restAPI);
+    } else {
+        $tpl->set('items', []);
+        $tpl->set('rest_api', null);
+    }
+    
+    echo $tpl->fetch();
+
+} else if ($Params['user_parameters']['type'] == 'trigger') {
 
 
     if (isset($_POST['chat_id'])){

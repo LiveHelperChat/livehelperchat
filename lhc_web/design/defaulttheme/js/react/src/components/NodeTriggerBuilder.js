@@ -271,7 +271,80 @@ class NodeTriggerBuilder extends Component {
         var usecases = [];
         if (this.props.currenttrigger.get('currenttrigger').has('use_cases')) {
             usecases = this.props.currenttrigger.get('currenttrigger').get('use_cases').map((use_case, index) => {
-                return <button onClick={(e) => this.navigateToTrigger(use_case)} className="btn btn-secondary btn-xs m-1">{use_case.get('name')}</button>
+                let typeLabel = '';
+                let badgeClass = 'badge bg-secondary';
+                let clickable = false;
+                let url = '';
+                
+                switch(use_case.get('type')) {
+                    case 'trigger':
+                        typeLabel = 'Trigger';
+                        badgeClass = 'badge bg-primary';
+                        clickable = true;
+                        break;
+                    case 'webhook':
+                        typeLabel = 'Webhook';
+                        badgeClass = 'badge bg-info';
+                        clickable = true;
+                        url = use_case.get('url');
+                        break;
+                    case 'bot_command':
+                        typeLabel = 'Bot Command';
+                        badgeClass = 'badge bg-success';
+                        clickable = true;
+                        url = use_case.get('url');
+                        break;
+                    case 'auto_responder':
+                        typeLabel = 'Auto Responder';
+                        badgeClass = 'badge bg-warning text-dark';
+                        clickable = true;
+                        url = use_case.get('url');
+                        break;
+                    case 'widget_theme':
+                        typeLabel = 'Widget Theme';
+                        badgeClass = 'badge bg-danger';
+                        clickable = true;
+                        url = use_case.get('url');
+                        break;
+                    case 'proactive_invitation':
+                        typeLabel = 'Proactive Invitation';
+                        badgeClass = 'badge bg-dark';
+                        clickable = true;
+                        url = use_case.get('url');
+                        break;
+                    default:
+                        typeLabel = use_case.get('type');
+                }
+                
+                if (clickable && use_case.get('type') === 'trigger') {
+                    return (
+                        <div key={index} className="d-inline-block m-1">
+                            <button onClick={(e) => this.navigateToTrigger(use_case)} className="btn btn-secondary btn-sm">
+                                <span className={badgeClass + ' me-2'}>{typeLabel}</span>
+                                {use_case.get('name')}
+                            </button>
+                        </div>
+                    );
+                } else if (clickable && url) {
+                    return (
+                        <div key={index} className="d-inline-block m-1">
+                            <a href={WWW_DIR_JAVASCRIPT + url} target="_blank" className="btn btn-secondary btn-sm" rel="noopener noreferrer">
+                                <span className={badgeClass + ' me-2'}>{typeLabel}</span>
+                                {use_case.get('name')}
+                                <i className="material-icons ms-1" style={{fontSize: '14px', verticalAlign: 'middle'}}>open_in_new</i>
+                            </a>
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div key={index} className="d-inline-block m-1">
+                            <span className="btn btn-secondary btn-sm disabled">
+                                <span className={badgeClass + ' me-2'}>{typeLabel}</span>
+                                {use_case.get('name')}
+                            </span>
+                        </div>
+                    );
+                }
             })
         }
 
@@ -332,9 +405,14 @@ class NodeTriggerBuilder extends Component {
                         {this.state.viewUseCases == true ? (
                             <div className="form-group">
                                 {(!this.props.currenttrigger.get('currenttrigger').has('use_cases') || this.props.currenttrigger.getIn(['currenttrigger','use_cases']).size == 0) ? (
-                                    <p>No use cases were found</p>
-                                ) : ''}
-                                {usecases}
+                                    <div className="alert alert-info">
+                                        <i className="material-icons">info</i> No use cases were found. This trigger is not being used anywhere.
+                                    </div>
+                                ) : (
+                                    <div className="use-cases-list">
+                                        {usecases}
+                                    </div>
+                                )}
                             </div>
                         ) : ''}
 

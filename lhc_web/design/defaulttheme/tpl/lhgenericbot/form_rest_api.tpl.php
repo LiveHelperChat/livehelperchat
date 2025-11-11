@@ -48,7 +48,20 @@
 
 <input type="hidden" name="configuration" value="{{lhcrestapi.getJSON()}}" />
 
-<button class="btn btn-secondary btn-sm" ng-click="lhcrestapi.addParameter()" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add request');?></button>
+<div class="btn-group btn-group-sm">
+    <button class="btn btn-secondary" ng-click="lhcrestapi.addParameter()" type="button"><span class="material-icons">add</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add request');?></button>
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhgenericbot','use_cases')) : ?>
+        <button type="button" id="btn-use-cases" class="btn btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Investigate places where this Rest API is used');?>"><span class="material-icons">action_key</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Use cases');?></button>
+    <?php endif; ?>
+</div>
+
+<?php if (is_numeric($item->id)) : ?>
+    <script>
+        $('#btn-use-cases').click(function(){
+            lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/usecases/restapi/<?php echo $item->id?>'});
+        });
+    </script>
+<?php endif; ?>
 
 <span><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules?rest_api=1'});"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Explore');?></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','possible chat attributes directly.');?></span>
 

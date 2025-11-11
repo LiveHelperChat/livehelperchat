@@ -196,6 +196,7 @@ class erLhcoreClassGenericBotValidator {
     {
         $useCases = array();
 
+        // 1. Check triggers that reference this trigger
         $triggers = erLhcoreClassModelGenericBotTrigger::getList(array(["filternotlikefields" => [
             ["action" => "\"rest_api\":\"{$trigger->id}\""]
         ]
@@ -205,6 +206,80 @@ class erLhcoreClassGenericBotValidator {
             $useCases[] = array(
                 'id' => $triggerCompare->id,
                 'name' => $triggerCompare->name,
+                'type' => 'trigger'
+            );
+        }
+
+        // 2. Check webhooks that use this trigger
+        $webhooks = erLhcoreClassModelChatWebhook::getList(array(
+            'filterlor' => array(
+                'trigger_id' => array($trigger->id),
+                'trigger_id_alt' => array($trigger->id)
+            )
+        ));
+
+        foreach ($webhooks as $webhook) {
+            $useCases[] = array(
+                'id' => $webhook->id,
+                'name' => $webhook->name . ' | ' . $webhook->event,
+                'type' => 'webhook',
+                'url' => 'webhooks/edit/' . $webhook->id
+            );
+        }
+
+        // 3. Check bot commands that use this trigger
+        $commands = erLhcoreClassModelGenericBotCommand::getList(array(
+            'filter' => array('trigger_id' => $trigger->id)
+        ));
+
+        foreach ($commands as $command) {
+            $useCases[] = array(
+                'id' => $command->id,
+                'name' => $command->name . ' | ' . $command->command ,
+                'type' => 'bot_command',
+                'url' => 'genericbot/editcommand/' . $command->id
+            );
+        }
+
+        // 4. Check auto responders that reference this trigger in bot_configuration
+        $autoResponders = erLhAbstractModelAutoResponder::getList(array(
+            'filterlike' => array('bot_configuration' => 'trigger_id":' . $trigger->id)
+        ));
+
+        foreach ($autoResponders as $autoResponder) {
+            $useCases[] = array(
+                'id' => $autoResponder->id,
+                'name' => $autoResponder->name,
+                'type' => 'auto_responder',
+                'url' => 'abstract/edit/AutoResponder/' . $autoResponder->id
+            );
+        }
+
+        // 5. Check widget themes that reference this trigger in bot_configuration
+        $widgetThemes = erLhAbstractModelWidgetTheme::getList(array(
+            'filterlike' => array('bot_configuration' => '"trigger_id":"' . $trigger->id . '"')
+        ));
+
+        foreach ($widgetThemes as $widgetTheme) {
+            $useCases[] = array(
+                'id' => $widgetTheme->id,
+                'name' => $widgetTheme->name,
+                'type' => 'widget_theme',
+                'url' => 'abstract/edit/WidgetTheme/' . $widgetTheme->id
+            );
+        }
+
+        // 6. Check proactive invitations that use this trigger
+        $proactiveInvitations = erLhAbstractModelProactiveChatInvitation::getList(array(
+            'filter' => array('trigger_id' => $trigger->id)
+        ));
+
+        foreach ($proactiveInvitations as $invitation) {
+            $useCases[] = array(
+                'id' => $invitation->id,
+                'name' => $invitation->name,
+                'type' => 'proactive_invitation',
+                'url' => 'abstract/edit/ProactiveChatInvitation/' . $invitation->id
             );
         }
 
