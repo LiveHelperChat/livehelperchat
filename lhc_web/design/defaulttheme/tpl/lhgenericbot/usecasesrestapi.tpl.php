@@ -12,13 +12,13 @@
                     
                     <?php foreach ($items as $item) : ?>
                         <div class="lhc-item-list mb-2">
-                            <div class="lhc-item-list-title">
+                            <div class="lhc-item-list-title fs13">
                                 <i class="material-icons">&#xE8E7;</i>
                                 <a href="<?php echo erLhcoreClassDesign::baseurl('genericbot/bot')?>/<?php echo $item['bot_id']?>#!#<?php echo $item['id']?>" target="_blank">
-                                    <?php echo htmlspecialchars($item['name'])?>
+                                    <?php echo htmlspecialchars($item['bot_name'])?> | <?php echo htmlspecialchars($item['name'])?>
                                 </a>
                                 <?php if (!empty($item['methods'])) : ?>
-                                    <span class="text-muted small"> - <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Methods used');?>:</strong> <?php echo htmlspecialchars(implode(', ', $item['methods']))?></span>
+                                    <span class="text-muted"> - <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Methods used');?>:</strong> <?php echo htmlspecialchars(implode(', ', $item['methods']))?></span>
                                 <?php endif; ?>
                             </div>
                         </div>

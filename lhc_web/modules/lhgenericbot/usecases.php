@@ -10,8 +10,9 @@ if ($Params['user_parameters']['type'] == 'restapi') {
         $db = ezcDbInstance::get();
         
         // Find triggers that use this REST API
-        $stmt = $db->prepare('SELECT id, name, bot_id FROM lh_generic_bot_trigger WHERE actions LIKE :rest_api_id');
+        $stmt = $db->prepare('SELECT id, name, bot_id FROM lh_generic_bot_trigger WHERE actions LIKE :rest_api_id OR actions LIKE :rest_api_id_2');
         $stmt->bindValue(':rest_api_id', '%"rest_api":' . $restAPI->id . '%', PDO::PARAM_STR);
+        $stmt->bindValue(':rest_api_id_2', '%"rest_api":"' . $restAPI->id . '"%', PDO::PARAM_STR);
         $stmt->execute();
         $triggers = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
@@ -51,6 +52,7 @@ if ($Params['user_parameters']['type'] == 'restapi') {
                     $items[] = [
                         'id' => $trigger['id'],
                         'bot_id' => $trigger['bot_id'],
+                        'bot_name' => (string)erLhcoreClassModelGenericBotBot::fetch($trigger['bot_id']),
                         'name' => $trigger['name'],
                         'type' => 'trigger',
                         'methods' => $methodsUsed
