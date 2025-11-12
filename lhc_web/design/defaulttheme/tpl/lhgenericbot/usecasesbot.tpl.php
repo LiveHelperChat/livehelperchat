@@ -13,8 +13,10 @@
                         <div class="lhc-item-list mb-2">
                             <div class="lhc-item-list-title fs13">
                                <?php if ($item['type'] == 'webhook') : ?>
-                                   <i class="material-icons me-0">webhook</i> <a href="<?php echo erLhcoreClassDesign::baseurl('webhooks/edit')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars($item['item']->name . ' | ' . $item['item']->event)?></a>
+                                   <i class="material-icons me-0">webhook</i> <a href="<?php echo erLhcoreClassDesign::baseurl('webhooks/edit')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars(($item['item']->name ?: 'Webhook #' . $item['item']->id) . ($item['item']->event ? ' | ' . $item['item']->event : ''))?></a>
                                    <span class="badge bg-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Webhook');?></span>
+                                   <?php if ($item['item']->type == 1) : ?><span class="badge bg-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Continuous Chat');?></span><?php endif; ?>
+                                   <?php if ($item['item']->type == 2) : ?><span class="badge bg-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Continuous Mail');?></span><?php endif; ?>
                                <?php elseif ($item['type'] == 'auto_responder') : ?>
                                    <i class="material-icons me-0">support_agent</i> <a href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit/AutoResponder')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars($item['item']->name)?></a>
                                    <span class="badge bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Auto Responder');?></span>

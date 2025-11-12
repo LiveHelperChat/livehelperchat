@@ -40,7 +40,14 @@
 
     <?php if ($item->id > 0) : ?>
     <br>
-    <button name="ClearCacheAction" value="clear_cache" class="btn btn-xs btn-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Clear cache');?> (<?php echo erLhcoreClassModelGenericBotRestAPICache::getCount(['filter' => ['rest_api_id' => $item->id]])?>)</button>
+    <button name="ClearCacheAction" value="clear_cache" class="btn btn-xs btn-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Clear cache');?> (<?php 
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('SELECT COUNT(*) FROM (SELECT 1 FROM lh_generic_bot_rest_api_cache WHERE rest_api_id = :rest_api_id LIMIT 100) as limited_count');
+        $stmt->bindValue(':rest_api_id', $item->id, PDO::PARAM_INT);
+        $stmt->execute();
+        $cacheCount = $stmt->fetchColumn();
+        echo ($cacheCount >= 100 ? '100+' : $cacheCount);
+    ?>)</button>
     <?php endif; ?>
 
     <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','We will cache unique request and responses to speed up processing.');?></i></small></p>
