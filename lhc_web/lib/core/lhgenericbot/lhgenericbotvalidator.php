@@ -192,6 +192,88 @@ class erLhcoreClassGenericBotValidator {
         return $formatedExceptions;
     }
 
+    public static function getUseCasesBot(erLhcoreClassModelGenericBotBot $bot)
+    {
+        $useCases = array();
+
+        // 1. Check webhooks that use this bot
+        $webhooks = erLhcoreClassModelChatWebhook::getList(array(
+            'filterlor' => array(
+                'bot_id' => array($bot->id),
+                'bot_id_alt' => array($bot->id)
+            )
+        ));
+
+        foreach ($webhooks as $webhook) {
+            $useCases[] = array(
+                'type' => 'webhook',
+                'item' => $webhook
+            );
+        }
+
+        // 2. Check auto responders that reference this bot
+        $autoResponders = erLhAbstractModelAutoResponder::getList(array(
+            'filterlike' => array('bot_configuration' => '"bot_id":' . $bot->id)
+        ));
+
+        foreach ($autoResponders as $autoResponder) {
+            $useCases[] = array(
+                'type' => 'auto_responder',
+                'item' => $autoResponder
+            );
+        }
+
+        // 3. Check widget themes that reference this bot in bot_configuration
+        $widgetThemes = erLhAbstractModelWidgetTheme::getList(array(
+            'filterlike' => array('bot_configuration' => '"bot_id":"' . $bot->id . '"')
+        ));
+
+        foreach ($widgetThemes as $widgetTheme) {
+            $useCases[] = array(
+                'type' => 'widget_theme',
+                'item' => $widgetTheme
+            );
+        }
+
+        // 4. Check proactive invitations that use this bot
+        $proactiveInvitations = erLhAbstractModelProactiveChatInvitation::getList(array(
+            'filter' => array('bot_id' => $bot->id)
+        ));
+
+        foreach ($proactiveInvitations as $invitation) {
+            $useCases[] = array(
+                'type' => 'proactive_invitation',
+                'item' => $invitation
+            );
+        }
+
+        // 5. Check bot commands that belong to this bot
+        $commands = erLhcoreClassModelGenericBotCommand::getList(array(
+            'filter' => array('bot_id' => $bot->id)
+        ));
+
+        foreach ($commands as $command) {
+            $useCases[] = array(
+                'type' => 'bot_command',
+                'item' => $command
+            );
+        }
+
+        // 6. Check departments that have this bot assigned in bot_configuration
+        $departments = erLhcoreClassModelDepartament::getList(array(
+            'filterlike' => array('bot_configuration' => '"bot_id":' . $bot->id)
+        ));
+
+        foreach ($departments as $department) {
+            $useCases[] = array(
+                'type' => 'department',
+                'item' => $department
+            );
+        }
+
+        return $useCases;
+    }
+
     public static function getUseCases(erLhcoreClassModelGenericBotTrigger $trigger)
     {
         $useCases = array();

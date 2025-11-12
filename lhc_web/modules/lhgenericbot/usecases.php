@@ -70,8 +70,24 @@ if ($Params['user_parameters']['type'] == 'restapi') {
     
     echo $tpl->fetch();
 
-} else if ($Params['user_parameters']['type'] == 'trigger') {
+} else if ($Params['user_parameters']['type'] == 'bot') {
 
+    $tpl = erLhcoreClassTemplate::getInstance('lhgenericbot/usecasesbot.tpl.php');
+
+    $bot = erLhcoreClassModelGenericBotBot::fetch((int)$Params['user_parameters']['id']);
+    
+    if ($bot instanceof erLhcoreClassModelGenericBotBot) {
+        $items = erLhcoreClassGenericBotValidator::getUseCasesBot($bot);
+        $tpl->set('items', $items);
+        $tpl->set('bot', $bot);
+    } else {
+        $tpl->set('items', []);
+        $tpl->set('bot', null);
+    }
+
+    echo $tpl->fetch();
+
+} else if ($Params['user_parameters']['type'] == 'trigger') {
 
     if (isset($_POST['chat_id'])){
 
