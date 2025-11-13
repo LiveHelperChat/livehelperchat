@@ -724,35 +724,46 @@ class erLhcoreClassGenericBotActionCommand {
 
                 $variablesArray = (array)$chat->chat_variables_array;
 
-                if (isset($params['replace_array']) && is_array($params['replace_array'])) {
-                    $variablesAppend = $action['content']['payload'];
-
-                    foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
-                        if (is_object($valueReplace) || is_array($valueReplace)) {
-                            $variablesAppend = @str_replace($keyReplace,json_encode($valueReplace),$variablesAppend);
-                        } else {
-                            $variablesAppend = @str_replace($keyReplace,$valueReplace,$variablesAppend);
+                if (!empty($action['content']['payload_remove'])) {
+                    $removeVariables = array_map('trim', explode(',', $action['content']['payload_remove']));
+                    foreach ($removeVariables as $removeVar) {
+                        if (isset($variablesArray[$removeVar])) {
+                            unset($variablesArray[$removeVar]);
                         }
                     }
-
-                } else {
-                    $variablesAppend = $action['content']['payload'];
                 }
 
-                $variablesAppend = json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($variablesAppend, array('as_json' => true, 'chat' => $chat, 'args' => $params)), true);
+                if (!empty($action['content']['payload'])) {
+                    if (isset($params['replace_array']) && is_array($params['replace_array'])) {
+                        $variablesAppend = $action['content']['payload'];
 
-                if (is_array($variablesAppend)) {
-                    foreach ($variablesAppend as $key => $value) {
-
-                        // Update only if empty and this variable is not empty
-                        if (isset($action['content']['update_if_empty']) && $action['content']['update_if_empty'] == true && isset($variablesArray[$key]) && $variablesArray[$key] != '' && $variablesArray[$key] != '0') {
-                            continue;
+                        foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
+                            if (is_object($valueReplace) || is_array($valueReplace)) {
+                                $variablesAppend = @str_replace($keyReplace,json_encode($valueReplace),$variablesAppend);
+                            } else {
+                                $variablesAppend = @str_replace($keyReplace,$valueReplace,$variablesAppend);
+                            }
                         }
 
-                        if (isset($value)) {
-                            $variablesArray[$key] = $value;
-                        } elseif (isset($variablesArray[$key])) {
-                            unset($variablesArray[$key]);
+                    } else {
+                        $variablesAppend = $action['content']['payload'];
+                    }
+
+                    $variablesAppend = json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($variablesAppend, array('as_json' => true, 'chat' => $chat, 'args' => $params)), true);
+
+                    if (is_array($variablesAppend)) {
+                        foreach ($variablesAppend as $key => $value) {
+
+                            // Update only if empty and this variable is not empty
+                            if (isset($action['content']['update_if_empty']) && $action['content']['update_if_empty'] == true && isset($variablesArray[$key]) && $variablesArray[$key] != '' && $variablesArray[$key] != '0') {
+                                continue;
+                            }
+
+                            if (isset($value)) {
+                                $variablesArray[$key] = $value;
+                            } elseif (isset($variablesArray[$key])) {
+                                unset($variablesArray[$key]);
+                            }
                         }
                     }
                 }

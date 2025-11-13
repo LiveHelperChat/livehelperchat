@@ -18,7 +18,7 @@
                                     <?php echo htmlspecialchars($item['bot_name'])?> | <?php echo htmlspecialchars($item['name'])?>
                                 </a>
                                 <?php if (!empty($item['methods'])) : ?>
-                                    <span class="text-muted"> - <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Methods used');?>:</strong> <?php echo htmlspecialchars(implode(', ', $item['methods']))?></span>
+                                    <span class="text-muted"> - <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Methods used');?>:</strong>&nbsp;<?php echo htmlspecialchars(implode(', ', $item['methods']))?></span>
                                 <?php endif; ?>
                             </div>
                         </div>

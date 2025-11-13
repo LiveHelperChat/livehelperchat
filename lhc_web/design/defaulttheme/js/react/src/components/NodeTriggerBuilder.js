@@ -190,6 +190,7 @@ class NodeTriggerBuilder extends Component {
             try {
                 var object = JSON.parse(value);
                 this.props.dispatch({type: "LOAD_TEMPLATE_FULFILLED", payload: {result: object}});
+                this.setState({dataChanged : true});
             } catch (error) {
                 alert(error);
             }
