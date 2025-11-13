@@ -723,12 +723,14 @@ class erLhcoreClassGenericBotActionCommand {
                 unset($chat->chat_variables_array);
 
                 $variablesArray = (array)$chat->chat_variables_array;
+                $requiresUpdate = false;
 
                 if (!empty($action['content']['payload_remove'])) {
                     $removeVariables = array_map('trim', explode(',', $action['content']['payload_remove']));
                     foreach ($removeVariables as $removeVar) {
                         if (isset($variablesArray[$removeVar])) {
                             unset($variablesArray[$removeVar]);
+                            $requiresUpdate = true;
                         }
                     }
                 }
@@ -752,8 +754,8 @@ class erLhcoreClassGenericBotActionCommand {
                     $variablesAppend = json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($variablesAppend, array('as_json' => true, 'chat' => $chat, 'args' => $params)), true);
 
                     if (is_array($variablesAppend)) {
-                        foreach ($variablesAppend as $key => $value) {
 
+                        foreach ($variablesAppend as $key => $value) {
                             // Update only if empty and this variable is not empty
                             if (isset($action['content']['update_if_empty']) && $action['content']['update_if_empty'] == true && isset($variablesArray[$key]) && $variablesArray[$key] != '' && $variablesArray[$key] != '0') {
                                 continue;
@@ -761,8 +763,10 @@ class erLhcoreClassGenericBotActionCommand {
 
                             if (isset($value)) {
                                 $variablesArray[$key] = $value;
+                                $requiresUpdate = true;
                             } elseif (isset($variablesArray[$key])) {
                                 unset($variablesArray[$key]);
+                                $requiresUpdate = true;
                             }
                         }
                     }
@@ -773,9 +777,12 @@ class erLhcoreClassGenericBotActionCommand {
 
                 if (isset($action['content']['update_right_column']) && $action['content']['update_right_column'] == true) {
                     $chat->operation_admin .= "lhinst.updateVoteStatus(" . $chat->id . ");";
+                    $requiresUpdate = true;
                 }
 
-                $chat->updateThis(array('update' => array('operation_admin', 'chat_variables')));
+                if ($requiresUpdate === true) {
+                    $chat->updateThis(array('update' => array('operation_admin', 'chat_variables')));
+                }
 
                 $db->commit();
 
