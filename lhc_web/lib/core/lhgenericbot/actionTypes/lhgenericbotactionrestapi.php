@@ -1401,6 +1401,11 @@ class erLhcoreClassGenericBotActionRestapi
 
                 if (!empty($trimmed_data)) {
                     $streamContent = ['content' => '','content_2' => '','content_3' => '','content_4' => '','content_5' => '','content_6' => ''];
+
+                    if (empty($streamLines) && $logRequest === true) {
+                        $streamLines[] = self::getCurrentTimeWithMilliseconds() . ' [FIRST_RESPONSE] - ' . $trimmed_data;
+                    }
+
                     foreach (explode("\n",$trimmed_data) as $line) {
                         $line = trim($line);
 
