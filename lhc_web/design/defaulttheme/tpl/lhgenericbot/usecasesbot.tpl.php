@@ -18,19 +18,19 @@
                                    <?php if ($item['item']->type == 1) : ?><span class="badge bg-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Continuous Chat');?></span><?php endif; ?>
                                    <?php if ($item['item']->type == 2) : ?><span class="badge bg-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Continuous Mail');?></span><?php endif; ?>
                                <?php elseif ($item['type'] == 'auto_responder') : ?>
-                                   <i class="material-icons me-0">support_agent</i> <a href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit/AutoResponder')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars($item['item']->name)?></a>
+                                   <i class="material-icons me-0">support_agent</i> <a class="me-1" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit/AutoResponder')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars($item['item']->name)?></a>
                                    <span class="badge bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Auto Responder');?></span>
                                <?php elseif ($item['type'] == 'widget_theme') : ?>
-                                   <i class="material-icons me-0">widgets</i> <a href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit/WidgetTheme')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars($item['item']->name)?></a>
+                                   <i class="material-icons me-0">widgets</i> <a class="me-1" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit/WidgetTheme')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars($item['item']->name)?></a>
                                    <span class="badge bg-primary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Widget Theme');?></span>
                                <?php elseif ($item['type'] == 'proactive_invitation') : ?>
-                                   <i class="material-icons me-0">notifications_active</i> <a href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit/ProactiveChatInvitation')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars($item['item']->name)?></a>
+                                   <i class="material-icons me-0">notifications_active</i> <a class="me-1" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit/ProactiveChatInvitation')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars($item['item']->name)?></a>
                                    <span class="badge bg-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Proactive Invitation');?></span>
                                <?php elseif ($item['type'] == 'bot_command') : ?>
-                                   <i class="material-icons me-0">terminal</i> <a href="<?php echo erLhcoreClassDesign::baseurl('genericbot/editcommand')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars($item['item']->name . ' | ' . $item['item']->command)?></a>
+                                   <i class="material-icons me-0">terminal</i> <a class="me-1" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/editcommand')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars(($item['item']->name ?: 'Command #' . $item['item']->id) . ' | ' . $item['item']->command)?></a>
                                    <span class="badge bg-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Bot Command');?></span>
                                <?php elseif ($item['type'] == 'department') : ?>
-                                   <i class="material-icons me-0">home</i> <a href="<?php echo erLhcoreClassDesign::baseurl('departament/edit')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars($item['item']->name)?></a>
+                                   <i class="material-icons me-0">home</i> <a class="me-1" href="<?php echo erLhcoreClassDesign::baseurl('departament/edit')?>/<?php echo $item['item']->id?>" target="_blank"><?php echo htmlspecialchars($item['item']->name)?></a>
                                    <span class="badge bg-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Department');?></span>
                                <?php endif; ?>
                             </div>
