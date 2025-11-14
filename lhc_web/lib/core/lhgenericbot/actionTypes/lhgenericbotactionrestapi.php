@@ -1234,11 +1234,11 @@ class erLhcoreClassGenericBotActionRestapi
             foreach ($replaceVariablesJSON as $keyVariable => $keyValue) {
 
                 if (str_contains($bodyPOST,'sensitive_'.$keyVariable)) {
-                    $rawReplaceArray['sensitive_'.$keyVariable] = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($keyValue);
+                    $rawReplaceArray['sensitive_'.$keyVariable] = json_encode(\LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage(json_decode($keyValue)));
                 }
 
                 if (str_contains($bodyPOST,'raw_sensitive_'.$keyVariable)) {
-                    $rawReplaceArray['raw_sensitive_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce(\LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($keyValue)));
+                    $rawReplaceArray['raw_sensitive_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce(json_encode(\LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage(json_decode($keyValue)))));
                 }
 
                 if (str_contains($bodyPOST,'raw_'.$keyVariable)) {
@@ -2400,10 +2400,10 @@ class erLhcoreClassGenericBotActionRestapi
                                 $rawReplaceArray['raw_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce($keyValue));
                             }
                             if (str_contains($foreachCycleParse, 'sensitive_'.$keyVariable)) {
-                                $rawReplaceArray['sensitive_'.$keyVariable] = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($keyValue);
+                                $rawReplaceArray['sensitive_'.$keyVariable] = json_encode(\LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage(json_decode($keyValue)));
                             }
                             if (str_contains($foreachCycleParse, 'raw_sensitive_'.$keyVariable)) {
-                                $rawReplaceArray['raw_sensitive_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce(\LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($keyValue)));
+                                $rawReplaceArray['raw_sensitive_'.$keyVariable] = str_replace('\\\/','\/',self::trimOnce(json_encode(\LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage(json_decode($keyValue)))));
                             }
                         }
 
