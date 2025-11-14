@@ -54,6 +54,35 @@ class erLhcoreClassGenericBotActionActions {
 
             if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
                 erLhcoreClassChat::getSession()->save($msg);
+
+                // Keep chat locked if user want's that. In case, extensions are handling events in the background.
+                if (isset($action['content']['keep_locked']) && $action['content']['keep_locked'] === true) {
+                    $db = ezcDbInstance::get();
+                    try {
+                        $db->beginTransaction();
+                        $chat->syncAndLock('`chat_variables`');
+
+                        $variablesArray = [];
+
+                        if (!empty($chat->chat_variables)) {
+                            $variablesArray = json_decode($chat->chat_variables,true);
+                        }
+
+                        if (isset($variablesArray['bot_lock_msg'])) {
+                            $variablesArray['bot_lock_msg'] = $msg->id;
+                            $chat->chat_variables = json_encode($variablesArray);
+                            $chat->chat_variables_array = $variablesArray;
+                            $chat->updateThis(['update' => ['chat_variables']]);
+                        }
+
+                        $db->commit();
+
+                    } catch (Exception $e) {
+                        $db->rollback();
+                        throw $e;
+                    }
+                }
+
             }
         }
 

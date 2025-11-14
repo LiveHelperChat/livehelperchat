@@ -90,6 +90,9 @@ class NodeTriggerActionActions extends Component {
                         <div>
                             <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['event_background_inst'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','event_background_inst'])} /> Event is processed instantly.</label>
                         </div>
+                        <div>
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['keep_locked'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','keep_locked'])} /> Keep chat locked from visitor sending messages if it is currently locked.</label>
+                        </div>
                     </div>
                 </div>
 
