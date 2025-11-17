@@ -228,6 +228,9 @@ class erLhcoreClassSystem{
         }
     }
 
+    /**
+     * @deprecated This autoload method should not be used. Run `php composer.phar dump-autoload` instead.
+     */
     public static function autoload($className)
     {
         if (strpos($className,'LiveHelperChatExtension\\') !== false) {

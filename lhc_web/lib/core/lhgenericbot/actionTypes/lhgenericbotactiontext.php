@@ -261,7 +261,7 @@ class erLhcoreClassGenericBotActionText {
 
             // Replace all placeholders with actual content
             foreach ($replacedSegments as $placeholder => $value) {
-                $messageToProcess = str_replace($placeholder, $value, $messageToProcess);
+                $messageToProcess = str_replace($placeholder, (is_null($value) ? '' : $value), $messageToProcess);
             }
 
             $msg->msg = $messageToProcess;

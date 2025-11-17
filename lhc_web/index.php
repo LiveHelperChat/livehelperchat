@@ -30,10 +30,7 @@
 require_once 'lib/vendor/autoload.php';
 require_once "ezcomponents/Base/src/base.php"; // dependent on installation method, see below
 
-ezcBase::addClassRepository( './','./lib/autoloads');
-
 spl_autoload_register(array('ezcBase','autoload'), true, false);
-spl_autoload_register(array('erLhcoreClassSystem','autoload'), true, false);
 
 erLhcoreClassSystem::init();
 

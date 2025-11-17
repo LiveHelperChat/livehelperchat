@@ -1,3 +1,64 @@
+4.74v
+
+1. Bot System and Actions Enhancements
+   - Added option to keep chat locked from visitor via bot actions
+   - Enhanced variable replacement logic in bot actions with custom arguments handling
+   - Implemented option to remove chat_variables variable through bot commands
+   - Improved command action to update only required fields for better performance
+   - Enhanced text actions with advanced variable replacement capabilities
+   - Fixed masking message in REST API that sometimes broke JSON body structure
+   - Added logging for first response in streaming mode for REST API actions
+   - Added use cases modal and validation for bots with comprehensive documentation
+   - Improved bot name display in REST API use cases
+   - Added modal for REST API use cases with dynamic content
+
+2. Widget and Interface Improvements
+   - Added override back button option for widget offline mode
+   - Updated widget logic and survey redirect handling for offline scenarios
+   - Improved image sizing in widget interface
+   - Removed default colors from widget theme configuration
+   - Fixed scroll behavior on mobile devices in popup mode
+   - Enhanced offline chat handling with better redirect logic
+
+3. Mail Conversation System
+   - Enhanced audit logging capabilities for mail conversations
+   - Added merge conversation audit logging
+   - Improved send email audit tracking
+   - Added option to set reply-to email only to mailbox
+   - Fixed UI elements in mail conversation templates
+
+4. Proactive Invitations and Auto Responder
+   - Fixed auto responder display logic to ensure proper handling of empty values
+   - Enhanced auto responder display with improved formatting
+   - Added proactive invitation and auto responder templates to chat interface
+   - Improved webhook link formatting in bot forms
+   - Activity period now applies to all types of invitations
+   - Added explanatory text that limit numbers are inclusive
+
+5. User Interface and UX Improvements
+   - Added explanatory notices for inclusive limit numbers in department forms
+   - Enhanced chat information display with better template organization
+   - Improved spacing and layout in various templates
+   - Updated default translations with new strings
+
+6. System and Configuration
+   - Updated environment variable handling in settings
+   - Improved system variable checking in core components
+   - Fixed null handling in cronjob/test mode
+   - Updated .gitignore configuration
+   - Added GitHub workflow for triggering Laravel tests
+   - Removed editor-specific settings from repository
+
+7. Statistics and Reporting
+   - Included user with id 0 in default user filter for statistics
+   - Enhanced user filtering for edge cases
+
+8. Bug Fixes and Improvements
+   - Fixed missing column reference in user department management
+   - Fixed transfer to human action to update only relevant attributes
+   - Various UI fixes and spacing adjustments
+   - Improved template consistency across modules
+
 4.73v
 
 1. Only priority field was missed for grouping operation and disabled user flow.

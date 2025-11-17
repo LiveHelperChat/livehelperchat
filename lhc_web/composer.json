@@ -7,6 +7,8 @@
     }
   ],
   "config": {
+    "optimize-autoloader": true,
+    "classmap-authoritative": true,
     "sort-packages": true,
     "vendor-dir": "lib/vendor",
     "allow-plugins": {
@@ -26,6 +28,18 @@
     "GPL-3.0-or-later",
     "LGPL-3.0-or-later"
   ],
+  "autoload": {
+    "psr-4": {
+      "LiveHelperChat\\": "lib/vendor_lhc/LiveHelperChat/",
+      "Pachico\\": "lib/vendor_lhc/Pachico/",
+      "enshrined\\": "lib/vendor_lhc/enshrined/",
+      "LiveHelperChatExtension\\": "extension/"
+    },
+    "classmap": [
+      "lib/core",
+      "lib/models"
+    ]
+  },
   "repositories": [
     {
       "type":"package",
@@ -86,7 +100,7 @@
     "ext-json": "*",
     "aws/aws-sdk-php": "3.x",
     "colinmollenhour/credis": "~1.2",
-    "daneren2005/php-resque": "dev-master#5facd365d2e9761d95dd9ee6c63b7fafcf11955d",
+    "daneren2005/php-resque": "dev-master#db1e790c10678ee0c7c02e21864363f658d0d88a",
     "deeplcom/deepl-php": "^1.3",
     "elasticsearch/elasticsearch": "~7.0",
     "endroid/qr-code": "5.1.0",
