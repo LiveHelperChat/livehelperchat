@@ -14,6 +14,7 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat
 
 if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses))) {
 
+
     // Store system message that chat was transferred to pending state by visitor
     $msg = new erLhcoreClassModelmsg();
     $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser','Visitor requested to speak with a human agent by clicking Switch To Human button'),ENT_QUOTES);
@@ -26,7 +27,7 @@ if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status
     $chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_CLOSED; // Will be used to indicate that we have to show notification for this chat if it appears on list
     $chat->pnd_time = time();
     $chat->last_msg_id = $msg->id;
-    $chat->saveThis();
+    $chat->saveThis(['update' => ['last_msg_time', 'pnd_time', 'status_sub_sub', 'status']]);
 
     if ($chat->auto_responder instanceof erLhAbstractModelAutoResponderChat) {
         $chat->auto_responder->wait_timeout_send = 0;
