@@ -70,7 +70,21 @@
                 <div class="col-11">
                     <div class="row">
                         <div class="col-5" ng-show="filter.comparator != 'start_or'">
-                            <input class="form-control form-control-sm" ng-model="filter.field" name="field[{{$index}}]" type="text" value="" placeholder="field">
+                            <input class="form-control form-control-sm" ng-model="filter.field" name="field[{{$index}}]" type="text" value="" placeholder="field" list="field-options-{{$index}}">
+                            <datalist id="field-options-{{$index}}">
+                                <option value="lhc.id"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID or any other chat variable');?></option>
+                                <option value="lhc.status"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat Status');?></option>
+                                <option value="lhc.dep_id"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Department ID');?></option>
+                                <option value="lhc.user_id"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','User ID');?></option>
+                                <option value="lhc.email"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Email');?></option>
+                                <option value="lhc.phone"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Phone');?></option>
+                                <option value="lhc.nick"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Nickname');?></option>
+                                <option value="lhc.country_code"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Country Code');?></option>
+                                <option value="{args.chat.chat_variables_array.msg_v}"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat Variable');?></option>
+                                <option value="msg_v"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat variable accessible directly');?></option>
+                                <option value="{condition.identifier}"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Reuse existing conditions');?></option>
+                                <option value="{args.chat.id}"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID or any other chatr variable');?></option>
+                            </datalist>
                             <label><input type="checkbox" ng-model="filter.field_math" name="field_math[{{$index}}]" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Parse for mathematical outcome');?></label>
                         </div>
                         <div class="col-{{filter.comparator == 'start_or' ? '2  offset-md-5' : '2'}}">
