@@ -30,6 +30,11 @@ $ViewList['geticketbymessageid'] = array(
     'functions' => array( 'send_mail' )
 );
 
+$ViewList['getsignature'] = array(
+    'params' => array(),
+    'functions' => array( 'send_mail' )
+);
+
 $ViewList['uploadfile'] = array(
     'params' => array(),
     'uparams' => array('csrf'),

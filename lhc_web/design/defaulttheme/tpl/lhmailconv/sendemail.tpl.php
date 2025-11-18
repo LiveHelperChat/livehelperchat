@@ -73,7 +73,12 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <div class="form-group">
-        <input type="text" id="new-mailbox-id" autocomplete="new-password" value="<?php echo htmlspecialchars((string)$item->mailbox_front)?>" class="form-control form-control-sm" name="mailbox_id" list="mailbox_list">
+        <div class="input-group input-group-sm">
+            <input type="text" id="new-mailbox-id" autocomplete="new-password" value="<?php echo htmlspecialchars((string)$item->mailbox_front)?>" class="form-control form-control-sm" name="mailbox_id" list="mailbox_list">
+            <button class="btn btn-outline-secondary" type="button" id="append-signature-btn" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Append mailbox signature');?>">
+                <span class="material-icons me-0">draw</span>
+            </button>
+        </div>
         <datalist id="mailbox_list" autocomplete="new-password">
             <?php foreach (erLhcoreClassModelMailconvMailbox::getList(array('filter' => array('active' => 1))) as $mailbox) : ?>
                 <option value="<?php echo htmlspecialchars($mailbox->mail)?>"><?php echo htmlspecialchars($mailbox->name)?></option>
@@ -134,5 +139,56 @@
     </div>
 
 </form>
+
+<script>
+$(document).ready(function() {
+    $('#append-signature-btn').on('click', function() {
+        var mailboxEmail = $('#new-mailbox-id').val();
+        var $btn = $(this);
+        
+        if (!mailboxEmail) {
+            alert('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Please select a mailbox first');?>');
+            return;
+        }
+        
+        // Disable button and show loading state
+        $btn.prop('disabled', true);
+        var originalHtml = $btn.html();
+        $btn.html('<span class="material-icons lhc-spin">cached</span>');
+        
+        $.ajax({
+            url: WWW_DIR_JAVASCRIPT + 'mailconv/getsignature',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                mailbox_email: mailboxEmail,
+                csrf_token: confLH.csrf_token
+            },
+            success: function(response) {
+                if (response.error === false && response.signature) {
+                    // Get TinyMCE editor instance
+                    var editor = tinymce.get('response-template');
+                    if (editor) {
+                        // Append signature to existing content
+                        var currentContent = editor.getContent();
+                        editor.setContent(currentContent + response.signature);
+                    }
+                } else {
+                    alert(response.msg || '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Failed to fetch signature');?>');
+                }
+            },
+            error: function() {
+                alert('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Error fetching signature');?>');
+            },
+            complete: function() {
+                // Re-enable button and restore original state
+                $btn.prop('disabled', false);
+                $btn.html(originalHtml);
+            }
+        });
+    });
+});
+</script>
+
 <?php endif; ?>
 </div>
