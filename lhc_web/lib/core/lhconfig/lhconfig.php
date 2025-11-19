@@ -10,7 +10,12 @@ class erConfigClassLhConfig
 	     $this->conf = @include('settings/settings.ini.php');
 	  		     
          if ( !is_array($this->conf) ) {
-		    	$this->conf = include('settings/settings.ini.default.php');
+                if (file_exists('settings/settings.ini.default.php')) {
+                    $this->conf = include('settings/settings.ini.default.php');
+                } else {
+                    // Should never happen.
+                    die('Main configuration file not found as default one also.');
+                }
          }
     }
 
