@@ -164,7 +164,13 @@ class erLhcoreClassGenericBotActionText {
 
         if (isset($action['content']['attr_options']) && !empty($action['content']['attr_options']))
         {
-            $metaMessage['content']['attr_options'] = $action['content']['attr_options'];
+            if (!empty(array_filter($action['content']['attr_options'], function($value) {
+                return $value !== false && $value !== '' && $value !== null;
+            }))) {
+                $metaMessage['content']['attr_options'] = array_filter($action['content']['attr_options'], function($value) {
+                    return $value !== false && $value !== '' && $value !== null;
+                });
+            }
         }
 
         $action['content']['text'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('as_json' => (isset($action['content']['attr_options']['json_replace_args']) && $action['content']['attr_options']['json_replace_args'] === true), 'chat' => $chat, 'args' => $params));
@@ -344,9 +350,35 @@ class erLhcoreClassGenericBotActionText {
             }
         }
 
-        if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
-            erLhcoreClassChat::getSession()->save($msg);
-            
+        if ((!isset($params['do_not_save']) || $params['do_not_save'] == false) && (!empty($msg->msg) || !empty($msg->meta_msg))) {
+            $db = ezcDbInstance::get();
+            $db->beginTransaction();
+            try {
+                erLhcoreClassChat::getSession()->save($msg);
+
+                // Keep chat locked if user want's that. In case, extensions are handling events in the background.
+                if (isset($action['content']['attr_options']['keep_locked']) && $action['content']['attr_options']['keep_locked'] === true) {
+                    $chat->syncAndLock('`chat_variables`');
+
+                    $variablesArray = [];
+
+                    if (!empty($chat->chat_variables)) {
+                        $variablesArray = json_decode($chat->chat_variables,true);
+                    }
+
+                    if (isset($variablesArray['bot_lock_msg'])) {
+                        $variablesArray['bot_lock_msg'] = $msg->id;
+                        $chat->chat_variables = json_encode($variablesArray);
+                        $chat->chat_variables_array = $variablesArray;
+                        $chat->updateThis(['update' => ['chat_variables']]);
+                    }
+                }
+                $db->commit();
+            } catch (Exception $e) {
+                $db->rollback();
+                throw $e;
+            }
+
             if (isset($action['content']['attr_options']['process_as_visitor']) && $action['content']['attr_options']['process_as_visitor'] == true)
             {
                 erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);

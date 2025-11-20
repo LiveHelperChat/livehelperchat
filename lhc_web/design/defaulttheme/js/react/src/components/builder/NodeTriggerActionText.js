@@ -259,6 +259,9 @@ class NodeTriggerActionText extends Component {
                             <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','no_reparse'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','no_reparse'])} /> Process replaceable variables only once.</label> <i className="material-icons" title="When enabled, placeholders like {content_1} will be replaced only once. This prevents nested variables in the replaced content from being processed again, which is useful when you want to display variable syntax literally.">info</i>
                             </div>
+                            <div>
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','keep_locked'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','keep_locked'])} /> Keep chat locked from visitor sending messages if it is currently locked.</label>
+                            </div>
                         </div>
                         <div className="col-6">
                             <div role="group">
