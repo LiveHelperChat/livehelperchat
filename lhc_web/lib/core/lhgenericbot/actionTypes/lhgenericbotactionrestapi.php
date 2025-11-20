@@ -171,6 +171,8 @@ class erLhcoreClassGenericBotActionRestapi
                         erLhcoreClassLog::write(
                             json_encode([
                                 'name' => '(polling conditions failed) [' . $restAPI->name . '] [' . $i . '] tries' . (isset($method['name']) ? $method['name'] : 'unknwon_name'),
+                                'method_name' => $method['name'],
+                                'rest_api_id' => $restAPI->id,
                                 'http_code' => (isset($response['http_code']) ? $response['http_code'] : 'unknown'),
                                 'method' => (isset($method['method']) ? $method['method'] : 'unknwon'),
                                 'request_type' => (isset($method['body_request_type']) ? $method['body_request_type'] : ''),
@@ -206,6 +208,8 @@ class erLhcoreClassGenericBotActionRestapi
                             'debug' => true,
                             'content' => json_encode([
                                 'name' => '[' . $restAPI->name . '] ' . (isset($method['name']) ? $method['name'] : 'unknwon_name'),
+                                'method_name' => $method['name'],
+                                'rest_api_id' => $restAPI->id,
                                 'http_code' => (isset($response['http_code']) ? $response['http_code'] : 'unknown'),
                                 'method' => (isset($method['method']) ? $method['method'] : 'unknwon'),
                                 'request_type' => (isset($method['body_request_type']) ? $method['body_request_type'] : ''),
@@ -1292,6 +1296,8 @@ class erLhcoreClassGenericBotActionRestapi
                 erLhcoreClassLog::write(
                     json_encode([
                         'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name'),
+                        'method_name' => $methodSettings['name'],
+                        'rest_api_id' => $paramsCustomer['rest_api']->id,
                         'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                         'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknwon'),
                         'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
@@ -1323,6 +1329,8 @@ class erLhcoreClassGenericBotActionRestapi
                     'debug' => true,
                     'content' => json_encode([
                         'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name'),
+                        'method_name' => $methodSettings['name'],
+                        'rest_api_id' => $paramsCustomer['rest_api']->id,
                         'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                         'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknown'),
                         'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
@@ -1741,6 +1749,8 @@ class erLhcoreClassGenericBotActionRestapi
                         'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name'),
                         'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                         'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknwon'),
+                        'method_name' => $methodSettings['name'],
+                        'rest_api_id' => $paramsCustomer['rest_api']->id,
                         'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
                         'params_request' => $paramsRequestDebug,
                         'return_content' => is_array($contentDebug) ? $contentDebug : $content,
@@ -1779,6 +1789,8 @@ class erLhcoreClassGenericBotActionRestapi
                     'debug' => true,
                     'content' => json_encode([
                     'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name'),
+                    'method_name' => $methodSettings['name'],
+                    'rest_api_id' => $paramsCustomer['rest_api']->id,
                     'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                     'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknown'),
                     'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),

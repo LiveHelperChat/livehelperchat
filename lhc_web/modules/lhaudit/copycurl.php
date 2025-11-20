@@ -50,6 +50,11 @@ function convertEmptyArraysToObjectsRecursive(&$item, $path = '', $arrayPaths = 
             $item = new stdClass();
             return;
         }
+
+        if ($currentProperty === 'summary' && empty($item)) {
+            $item = [];
+            return;
+        }
         
         if (empty($item)) {
             // Check if this path should be an array based on property name
@@ -92,6 +97,69 @@ function constructCurlCommandFromJson(string $jsonInput): string
 {
     // Attempt to decode the JSON input into an associative array
     $data = json_decode($jsonInput, true);
+
+    if (isset($data['rest_api_id']) && isset($data['method_name'])) {
+        $restAPI = erLhcoreClassModelGenericBotRestAPI::fetch($data['rest_api_id']);
+
+        // Reconstruct headers from REST API configuration
+        if ($restAPI instanceof erLhcoreClassModelGenericBotRestAPI) {
+            $method = null;
+            foreach ($restAPI->configuration_array['parameters'] as $parameter) {
+                if ($data['method_name'] == $parameter['name']) {
+                    $method = $parameter;
+                    break;
+                }
+            }
+
+            if ($method !== null) {
+                $headers = array();
+
+                // Add custom headers from method configuration
+                if (isset($method['header']) && !empty($method['header'])) {
+                    foreach ($method['header'] as $header) {
+                        $headers[] = $header['key'] . ': ' . $header['value'];
+                    }
+                }
+
+                // Add authorization headers
+                if (isset($method['authorization'])) {
+                    if ($method['authorization'] == 'bearer' && isset($method['auth_bearer']) && $method['auth_bearer'] != '') {
+                        $headers[] = 'Authorization: Bearer ' . $method['auth_bearer'];
+                    } else if ($method['authorization'] == 'apikey') {
+                        if (isset($method['api_key_location']) && $method['api_key_location'] == 'header' && isset($method['auth_api_key_key']) && isset($method['auth_api_key_name'])) {
+                            $headers[] = $method['auth_api_key_name'] . ': ' . $method['auth_api_key_key'];
+                        }
+                    }
+                }
+
+                // Add Content-Type header based on body request type
+                if (isset($method['body_request_type'])) {
+                    if ($method['body_request_type'] == 'form-data-urlencoded') {
+                        $headers[] = 'Cache-Control: no-cache';
+                        $headers[] = 'Content-Type: application/x-www-form-urlencoded';
+                    } elseif ($method['body_request_type'] == 'raw' && isset($method['body_request_type_content'])) {
+                        if ($method['body_request_type_content'] == 'json') {
+                            $headers[] = 'Content-Type: application/json';
+                        } else if ($method['body_request_type_content'] == 'text') {
+                            $headers[] = 'Content-Type: text/plain';
+                        } else if ($method['body_request_type_content'] == 'js') {
+                            $headers[] = 'Content-Type: application/javascript';
+                        } else if ($method['body_request_type_content'] == 'appxml') {
+                            $headers[] = 'Content-Type: application/xml';
+                        } else if ($method['body_request_type_content'] == 'textxml') {
+                            $headers[] = 'Content-Type: text/xml';
+                        } else if ($method['body_request_type_content'] == 'texthtml') {
+                            $headers[] = 'Content-Type: text/html';
+                        }
+                    }
+                }
+
+                // Override the headers in the data
+                $data['params_request']['headers'] = $headers;
+            }
+        }
+    }
+
 
     // Check if JSON decoding was successful
     if (json_last_error() !== JSON_ERROR_NONE) {
@@ -150,7 +218,7 @@ function constructCurlCommandFromJson(string $jsonInput): string
                 if (!empty($path)) {
                     $pathParts = explode('.', $path);
                     $propertyName = end($pathParts);
-                    
+                                        
                     // Skip 'properties' since it should always be an object
                     if ($propertyName === 'properties') {
                         // Don't record it in arrayPaths to ensure it becomes an object
