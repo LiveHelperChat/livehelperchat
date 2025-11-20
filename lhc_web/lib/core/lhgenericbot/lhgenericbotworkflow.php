@@ -2603,6 +2603,55 @@ class erLhcoreClassGenericBotWorkflow {
                             ) {
                                 $data['replace'] = '';
                             }
+                        } else if ($partArg[0] == 'c') {
+
+                            // {cond__Condition text__c[["cashback_offered","eq","1"],["another_var","neq","0"]]}
+                            // Remove 'c' prefix and parse whole arg as JSON
+                            $argCleaned = substr($arg, 1);
+                            $conditionArgs = json_decode($argCleaned, true);
+                            
+                            if (is_array($conditionArgs)) {
+                                $conditionsRefactored = [];
+                                
+                                // Always expect array of conditions: [["var1", "eq", "val1"], ["var2", "neq", "val2"]]
+                                foreach ($conditionArgs as $singleCondition) {
+                                    if (is_array($singleCondition) && count($singleCondition) >= 3) {
+                                        $conditionsRefactored[] = [
+                                            'content' => [
+                                                'attr' => $singleCondition[0],
+                                                'attr_math' => $singleCondition[3] ?? false,
+                                                'comp' => $singleCondition[1],
+                                                'val' => $singleCondition[2],
+                                                'val_math' => $singleCondition[4] ?? false
+                                            ]
+                                        ];
+                                    }
+                                }
+
+                                if (!empty($conditionsRefactored)) {
+                                    $replaceArray = [];
+                                    if (isset($params['args']['replace_array']) && !empty($params['args']['replace_array'])){
+                                        $replaceArray['replace_array'] = $params['args']['replace_array'];
+                                    }
+
+                                    $response = erLhcoreClassGenericBotActionConditions::process(
+                                        $params['chat'],
+                                        [
+                                            'content' => [
+                                                'conditions' => $conditionsRefactored
+                                            ],
+                                            'current_trigger' => null
+                                        ],
+                                        null,
+                                        $replaceArray
+                                    );
+                                    
+                                    if (!(isset($response['status']) && $response['status'] == 'stop')) {
+                                        $data['replace'] = '';
+                                    }
+                                }
+                            }
+
                         }
                     }
                     $replaceArray[$data['search']] = $data['replace'];
