@@ -2663,7 +2663,15 @@ class erLhcoreClassGenericBotWorkflow {
                     }
                 }
 
-                $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
+                if (isset($replaceArray) && is_array($replaceArray)) {
+                    foreach ($replaceArray as $keyReplace => $valueReplace) {
+                        if (is_object($valueReplace) || is_array($valueReplace)) {
+                            $message = @str_replace($keyReplace, json_encode($valueReplace), $message);
+                        } else {
+                            $message = @str_replace($keyReplace, $valueReplace, $message);
+                        }
+                    }
+                }
             }
         }
 

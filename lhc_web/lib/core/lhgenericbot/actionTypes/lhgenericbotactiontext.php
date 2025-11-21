@@ -164,12 +164,11 @@ class erLhcoreClassGenericBotActionText {
 
         if (isset($action['content']['attr_options']) && !empty($action['content']['attr_options']))
         {
-            if (!empty(array_filter($action['content']['attr_options'], function($value) {
-                return $value !== false && $value !== '' && $value !== null;
-            }))) {
-                $metaMessage['content']['attr_options'] = array_filter($action['content']['attr_options'], function($value) {
-                    return $value !== false && $value !== '' && $value !== null;
-                });
+            $filteredAttrOptions = array_filter($action['content']['attr_options'], function($value, $key) {
+                return $key !== 'keep_locked' && $key !== 'no_reparse' &&  $value !== false && $value !== '' && $value !== null;
+            }, ARRAY_FILTER_USE_BOTH);
+            if (!empty($filteredAttrOptions)) {
+                $metaMessage['content']['attr_options'] = $filteredAttrOptions;
             }
         }
 
