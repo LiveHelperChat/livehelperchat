@@ -1202,6 +1202,10 @@ class erLhcoreClassChatWebhookIncoming {
                     $msg->chat_id = $chat->id;
                     $msg->user_id = $sender;
 
+                    if ($msg->user_id == -2) {
+                        $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','External operator. Account owner.');
+                    }
+
                     $timeValue = self::extractAttribute('time', $conditions, $payloadMessage, time());
                     $msg->time = is_numeric($timeValue) ? $timeValue : strtotime($timeValue);
 
@@ -1776,6 +1780,10 @@ class erLhcoreClassChatWebhookIncoming {
                     $msg->msg = self::extractMessageBody($msgBody, $payloadMessage);
                     $msg->chat_id = $chat->id;
                     $msg->user_id = $sender;
+
+                    if ($msg->user_id == -2) {
+                        $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','External operator. Account owner.');
+                    }
 
                     $externalMessageId = self::extractAttribute('message_id', $conditions, $payloadMessage, '');
 
