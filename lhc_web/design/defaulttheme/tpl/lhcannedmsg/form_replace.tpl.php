@@ -65,8 +65,6 @@
 
 <div ng-controller="CannedReplaceCtrl as crc" class="pb-1" ng-init='crc.setConditions()'>
 
-    {{crc.currentTabHash}}
-
     <textarea class="hide" name="conditions">{{crc.combinations | json : 0}}</textarea>
 
     <ul class="nav nav-pills" role="tablist" id="canned-main-tabs" angular-tabs-remember="true">
