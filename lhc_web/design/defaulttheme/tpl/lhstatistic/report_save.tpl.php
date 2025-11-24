@@ -190,7 +190,7 @@ $appendPrintExportURL = '';
                             <input maxlength="100" placeholder="example1@example.org,example2@example.org" class="form-control form-control-sm" type="text" ng-non-bindable name="send_to" value="<?php echo htmlspecialchars(isset($item->recurring_options_array['send_to']) ? $item->recurring_options_array['send_to'] : '')?>" />
                         </div>
                         <div role="tabepanel">
-                            <ul class="nav nav-tabs" role="tablist">
+                            <ul class="nav nav-tabs" role="tablist" data-remember="true">
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link active" data-bs-toggle="tab" href="#daily"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Daily report')?></a>
                                 </li>

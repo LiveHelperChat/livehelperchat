@@ -5,7 +5,7 @@
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','It shows only chats if they were closed. We show maximum of 10 chats in total.')?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Closed at')?> - <?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chatOriginal->cls_time);?></p>
             <?php endif; ?>
 
-            <ul class="nav nav-pills mb-3" role="tablist">
+            <ul class="nav nav-pills mb-3" role="tablist" data-remember="true">
                 <li role="presentation" class="nav-item"><a href="#chats-history" class="nav-link active" aria-controls="user-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Concurrent chats');?></a></li>
                 <li role="presentation" class="nav-item"><a href="#live-chats" class="nav-link" aria-controls="online-hours" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Active operator chats');?></a></li>
             </ul>

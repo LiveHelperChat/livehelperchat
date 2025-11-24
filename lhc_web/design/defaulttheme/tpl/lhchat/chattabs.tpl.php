@@ -13,7 +13,7 @@ $mychatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_li
 
 
 	<!-- Nav tabs -->
-	<ul class="nav nav-pills" role="tablist">
+	<ul class="nav nav-pills" role="tablist" data-remember="true">
 
         <?php $hideULSetting = true; ?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php')); ?>

@@ -1,7 +1,7 @@
 <div>
 <h1 ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/explorer','Permissions explorer');?></h1>
 
-<ul class="nav nav-tabs mb-3" role="tablist">
+<ul class="nav nav-tabs mb-3" role="tablist" data-remember="true">
     <li role="presentation" class="nav-item"><a href="#permissions-explorer" class="nav-link active" aria-controls="permissions-explorer" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Explorer');?></a></li>
     <li role="presentation" class="nav-item"><a href="#permissions-url-explorer" class="nav-link" aria-controls="permissions-url-explorer" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','URL Explorer');?></a></li>
     <li role="presentation" class="nav-item"><a href="#permissions-user-explorer" class="nav-link" aria-controls="permissions-user-explorer" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','User permissions');?></a></li>

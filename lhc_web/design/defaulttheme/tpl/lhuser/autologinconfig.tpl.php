@@ -11,7 +11,7 @@
 	<div role="tabpanel">
 
 		<!-- Nav tabs -->
-		<ul class="nav nav-tabs" role="tablist">
+		<ul class="nav nav-tabs" role="tablist" data-remember="true">
 			<li role="presentation" class="nav-item"><a class="nav-link active" href="#autologinsettings" aria-controls="autologinsettings" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Auto login settings');?></a></li>
 			<li role="presentation" class="nav-item"><a class="nav-link" href="#autologincustom" aria-controls="autologincustom" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Custom auto logins');?></a></li>
 		</ul>

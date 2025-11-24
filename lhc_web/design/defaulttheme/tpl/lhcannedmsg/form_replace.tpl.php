@@ -67,7 +67,7 @@
 
     <textarea class="hide" name="conditions">{{crc.combinations | json : 0}}</textarea>
 
-    <ul class="nav nav-pills" role="tablist" id="canned-main-tabs">
+    <ul class="nav nav-pills" role="tablist" id="canned-main-tabs" data-remember="true">
         <li role="presentation" class="nav-item" ><a class="nav-link active" href="#default" aria-controls="default" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Default');?></a></li>
         <li ng-repeat="lang in crc.combinations" class="nav-item" role="presentation">
 

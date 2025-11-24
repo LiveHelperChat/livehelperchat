@@ -5,7 +5,7 @@
 
 <div id="canned-controller">
 
-<ul class="nav nav-pills" role="tablist" id="canned-main-tabs">
+<ul class="nav nav-pills" role="tablist" id="canned-main-tabs" data-remember="true">
     <li role="presentation" class="nav-item" ><a class="nav-link active" href="#main" aria-controls="main" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Main');?></a></li>
     <li role="presentation" class="nav-item" ><a class="nav-link" href="#activity-period" aria-controls="activity-period" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Activity period');?></a></li>
     <lhc-multilanguage-tab <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?>disable_new="true"<?php endif;?> identifier="languageCanned" <?php if ($canned_message->languages != '') : ?>init_langauges="<?php echo ($canned_message->id > 0 ? $canned_message->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab>
@@ -67,7 +67,7 @@
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/after_cannedmsgform_multiinclude.tpl.php')); ?>
 
-        <ul class="nav nav-pills" role="tablist" id="canned-main-extension">
+        <ul class="nav nav-pills" role="tablist" id="canned-main-extension" data-remember="true">
             <li role="presentation" class="nav-item"><a class="active nav-link" href="#main-extension" aria-controls="main-extension" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages');?></a></li>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_tab_multiinclude.tpl.php')); ?>
         </ul>

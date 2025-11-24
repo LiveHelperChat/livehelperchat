@@ -11,7 +11,7 @@
 <div role="tabpanel" ng-non-bindable>
 
 		<!-- Nav tabs -->
-		<ul class="nav nav-tabs mb-2" role="tablist">
+		<ul class="nav nav-tabs mb-2" role="tablist" data-remember="true">
 		    <?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig_tabs/links.tpl.php'));?>
 		</ul>
 

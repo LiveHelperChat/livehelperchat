@@ -15,7 +15,7 @@
 	<div role="tabpanel">
 
 		<!-- Nav tabs -->
-		<ul class="nav nav-tabs" role="tablist">
+		<ul class="nav nav-tabs" role="tablist" data-remember="true">
 			<li role="presentation" class="nav-item"><a class="<?php echo (isset($tab) && $tab == 'mailsettings') ? 'active ' : ''; ?>nav-link" href="#mailsettings" aria-controls="mailsettings" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Mail settings');?></a></li>
 			<li role="presentation" class="nav-item"><a class="<?php echo (isset($tab) && $tab == 'SMTP') ? 'active ' : ''; ?>nav-link" href="#SMTP" aria-controls="SMTP" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','SMTP');?></a></li>
 		</ul>

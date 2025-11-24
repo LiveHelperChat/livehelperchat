@@ -14,7 +14,7 @@
 <?php endif; ?>
 
 <div class="mt-2" ng-controller="ThemeAttrTranslatableCtrl as attrTranslatable" ng-init='attrTranslatable.identifier = "<?php echo $translatableItem['identifier']?>";<?php if (isset($object->{$fields[$translatableItem['identifier']][$mainAttribute]}[$translatableItem['identifier'] . '_lang'])) : ?>attrTranslatable.setLanguage("<?php echo $translatableItem['identifier']?>");<?php endif;?>attrTranslatable.setDialects();'>
-    <ul class="nav nav-tabs" role="tablist" id="translate-tabs-<?php echo $translatableItem['identifier']?>">
+    <ul class="nav nav-tabs" role="tablist" id="translate-tabs-<?php echo $translatableItem['identifier']?>" data-remember="true">
         <li role="presentation" class="nav-item" ><a class="nav-link active" href="#main-<?php echo $translatableItem['identifier']?>" aria-controls="main-<?php echo $translatableItem['identifier']?>" role="tab" data-bs-toggle="tab" >
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Main');?>&nbsp;[<?php
                 if (!isset($languageList)) {

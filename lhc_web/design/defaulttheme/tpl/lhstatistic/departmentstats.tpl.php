@@ -6,7 +6,7 @@ $modalBodyClass = 'p-1'
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 <div class="modal-body" ng-non-bindable>
     <div class="p-2">
-        <ul class="nav nav-pills mb-3" role="tablist">
+        <ul class="nav nav-pills mb-3" role="tablist" data-remember="true">
             <li role="presentation" class="nav-item"><a href="#dep-status" class="nav-link<?php if ($tab == 'chats') : ?> active<?php endif;?>" aria-controls="dep-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats');?></a></li>
             <li role="presentation" class="nav-item"><a href="#user-status" class="nav-link<?php if ($tab == 'op') : ?> active<?php endif;?>" aria-controls="user-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operators');?></a></li>
             <li role="presentation" class="nav-item"><a href="#dep-chats-users" class="nav-link" aria-controls="dep-chats-users" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats operators');?></a></li>

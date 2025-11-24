@@ -1,6 +1,6 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Scheduled archive and deletion');?></h1>
 
-<ul class="nav nav-tabs mb-3" role="tablist">
+<ul class="nav nav-tabs mb-3" role="tablist" data-remember="true">
     <li role="presentation" class="nav-item"><a href="#standard" class="nav-link active" aria-controls="standard" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Standard');?></a></li>
     <?php include(erLhcoreClassDesign::designtpl('lhmailarchive/scheduledpurge_tab_multiinclude.tpl.php'));?>
 </ul>

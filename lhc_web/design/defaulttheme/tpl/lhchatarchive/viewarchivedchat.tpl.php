@@ -12,7 +12,7 @@
         <?php endif; ?>
     <?php endif;?>
 
-    <ul class="nav nav-pills d-none" role="tablist">
+    <ul class="nav nav-pills d-none" role="tablist" data-remember="true">
     </ul>
     <div class="tab-content ps-1">
 

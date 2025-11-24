@@ -88,7 +88,7 @@
 
 <div ng-show="show_wh_integration">
 
-<ul class="nav nav-tabs mb-3" role="tablist">
+<ul class="nav nav-tabs mb-3" role="tablist" data-remember="true">
     <li role="presentation" class="nav-item"><a href="#main_message_attributes" class="nav-link active" aria-controls="main_message_attributes" role="tab" data-bs-toggle="tab" aria-selected="false"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Main attributes')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#text_messages" aria-controls="text_messages" role="tab" data-bs-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text messages 1')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#text_messages_2" aria-controls="text_messages_2" role="tab" data-bs-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text messages 2')?></a></li>

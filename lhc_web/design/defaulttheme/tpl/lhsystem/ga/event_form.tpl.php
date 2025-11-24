@@ -41,7 +41,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
     <textarea rows="6" ng-non-bindable name="js_static" class="form-control form-control-sm"><?php isset($ga_options['js_static']) ? print htmlspecialchars($ga_options['js_static']) : print ''?></textarea>
 </div>
 
-<ul class="nav nav-tabs mb-3" role="tablist" ng-non-bindable>
+<ul class="nav nav-tabs mb-3" role="tablist" ng-non-bindable data-remember="true">
     <li role="presentation" class="nav-item"><a href="#widget" class="nav-link<?php if ($tab == '') : ?> active<?php endif;?>" aria-controls="widget" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Widget');?></a></li>
     <li role="presentation" class="nav-item"><a href="#chat" class="nav-link<?php if ($tab == 'chat') : ?> active<?php endif;?>" aria-controls="chat" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Chat');?></a></li>
     <li role="presentation" class="nav-item"><a href="#invitation" class="nav-link<?php if ($tab == 'invitation') : ?> active<?php endif;?>" aria-controls="invitation" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Invitation');?></a></li>

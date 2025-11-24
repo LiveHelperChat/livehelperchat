@@ -38,7 +38,7 @@
     <div class="col-10" id="view-content">
         <div role="tabpanel" ng-non-bindable>
 	<!-- Nav tabs -->
-	<ul class="nav nav-tabs" role="tablist">
+	<ul class="nav nav-tabs" role="tablist" data-remember="true">
 		<li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'active') : ?> active<?php endif;?>" onclick="redrawAllCharts(500)" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/active"><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_statistic.tpl.php'));?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'chatsstatistic') : ?> active<?php endif;?>" onclick="redrawAllCharts(500)" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/chatsstatistic"><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_chats_statistic.tpl.php'));?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'last24') : ?> active<?php endif;?>" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/last24" ><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_last_24_hours_statistic.tpl.php'));?></a></li>

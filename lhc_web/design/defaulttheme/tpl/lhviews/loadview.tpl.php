@@ -1,7 +1,7 @@
 <?php if ($search->scope == 'chat') : ?>
     <?php if (!$list_mode) : ?>
     <div role="tabpanel" id="tabs" ng-cloak>
-        <ul class="nav nav-pills" role="tablist">
+        <ul class="nav nav-pills" role="tablist" data-remember="true">
             <li role="presentation" class="nav-item"><a class="nav-link active" href="#chatlist" aria-controls="chatlist" ng-non-bindable role="tab" data-bs-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chat list');?>">
                     <?php echo htmlspecialchars($search->name)?> </a>
             </li>

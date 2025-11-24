@@ -12,7 +12,7 @@
 <div role="tabpanel" ng-non-bindable>
 
 	<!-- Nav tabs -->
-	<ul class="nav nav-tabs" role="tablist">
+	<ul class="nav nav-tabs" role="tablist" data-remember="true">
 		<li role="presentation" class="nav-item"><a class="active nav-link" href="#geoconfiguration" aria-controls="geoconfiguration" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link" id="map-activator" href="#mapoptions" aria-controls="mapoptions" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Map location')?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link" id="testgeo-activator" href="#testgeo" aria-controls="testgeo" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Test GEO')?></a></li>
@@ -30,7 +30,7 @@
 				<div role="tabpanel" class="<?php (!isset($geo_data['geo_detection_enabled']) || $geo_data['geo_detection_enabled'] == 0) ? print ' hide' : '' ?>" id="settings-geo">
 
 					<!-- Nav tabs -->
-					<ul class="nav nav-tabs mb-2" role="tablist">
+					<ul class="nav nav-tabs mb-2" role="tablist" data-remember="true">
 						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'freegeoip') ? print 'active' : ''?>"><a class="nav-link" href="#freegeoip" aria-controls="freegeoip" role="tab" data-bs-toggle="tab">https://ipstack.com</a></li>
 						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'mod_geoip2') ? print 'active' : ''?>"><a class="nav-link" href="#mod_geoip2" aria-controls="mod_geoip2" role="tab" data-bs-toggle="tab">mod_geoip2</a></li>
 						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'max_mind') ? print 'active' : ''?>"><a class="nav-link" href="#maxmind" aria-controls="maxmind" role="tab" data-bs-toggle="tab">MaxMind</a></li>

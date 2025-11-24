@@ -2,7 +2,7 @@
 
 <div role="tabpanel" ng-non-bindable>
 	<!-- Nav tabs -->
-	<ul class="nav nav-tabs" role="tablist">
+	<ul class="nav nav-tabs" role="tablist" data-remember="true">
 	    <li role="presentation" class="nav-item"><a class="nav-link <?php if ($tab == 'list' || $tab == '') : ?>active<?php endif;?>" href="<?php echo $append_filter?>?tab=list" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','List')?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link <?php if ($tab == 'chart') : ?>active<?php endif;?>" href="<?php echo $append_filter?>?tab=chart" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Chart')?></a></li>
 	</ul>

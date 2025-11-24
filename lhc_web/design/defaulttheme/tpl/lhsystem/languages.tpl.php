@@ -10,7 +10,7 @@
 <div role="tabpanel" ng-non-bindable>
 
 	<!-- Nav tabs -->
-	<ul class="nav nav-tabs" role="tablist">	
+	<ul class="nav nav-tabs" role="tablist" data-remember="true">	
 	    <?php if ($currentUser->hasAccessTo('lhsystem','changelanguage')) : ?>
 		<li role="presentation" class="nav-item"><a class="nav-link <?php if ($tab == '') : ?>active<?php endif;?>" href="#yourlanguage" aria-controls="yourlanguage" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Your language');?></a></li>
 		<?php endif;?>

@@ -73,7 +73,7 @@
 
 <div role="tabpanel">
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs mb-2" role="tablist">
+    <ul class="nav nav-tabs mb-2" role="tablist" data-remember="true">
         <li role="presentation" class="nav-item"><a class="nav-link active" href="#main-wait-content" aria-controls="main-wait-content" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Welcome message');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#main-offline-content" aria-controls="main-offline-content" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Offline message');?></a></li>
     </ul>
@@ -112,7 +112,7 @@
 
 <div role="tabpanel">
     	<!-- Nav tabs -->
-    	<ul class="nav nav-tabs mb-2" role="tablist" id="autoresponder-tabs">
+    	<ul class="nav nav-tabs mb-2" role="tablist" id="autoresponder-tabs" data-remember="true">
     		<li role="presentation" class="nav-item"><a class="nav-link active" href="#pending" aria-controls="pending" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Pending chat messaging');?></a></li>
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#active" aria-controls="active" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor not replying messaging');?></a></li>
     		<li role="presentation" class="nav-item"><a class="nav-link" href="#operatornotreply" aria-controls="active" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator not replying messaging');?></a></li>

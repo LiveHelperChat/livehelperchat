@@ -1,6 +1,6 @@
 <div id="tabs" role="tabpanel">
 
-    <ul class="nav nav-pills" role="tablist">
+    <ul class="nav nav-pills" role="tablist" data-remember="true">
         <li role="presentation" class="nav-item"><a class="nav-link active" href="#chats" aria-controls="chats" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Mails');?></a></li>
     </ul>
 

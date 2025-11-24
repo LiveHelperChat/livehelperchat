@@ -544,6 +544,19 @@
 
     onMount(async() => {
 
+        const rememberedTabs = jQuery('.nav-tabs[data-remember="true"], .nav-pills[data-remember="true"]');
+
+        var hash = window.location.hash;
+        if (hash && rememberedTabs.length) {
+            hash = hash.replace('#!#','#');
+            rememberedTabs.find('.nav-link[href="' + hash + '"]').tab('show');
+        }
+
+        // Update URL hash when tab is clicked without scrolling
+        rememberedTabs.find('.nav-link').on('shown.bs.tab', function (e) {
+            history.replaceState(null, null, e.target.hash);
+        });
+
         $lhcList.departmentd_hide_dep = lhcServices.restoreLocalSetting('departmentd_hide_dep','false',false) != 'false';
         $lhcList.departmentd_hide_dgroup = lhcServices.restoreLocalSetting('departmentd_hide_dgroup','false',false) != 'false';
         $lhcList.lmtoggle = lhcServices.restoreLocalSetting('lmtoggle','false',false) != 'false';

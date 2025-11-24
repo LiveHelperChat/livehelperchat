@@ -19,7 +19,7 @@
 
 <div role="tabpanel" id="system-tabs">
 
-	<ul class="nav nav-tabs mb-3" role="tablist">
+	<ul class="nav nav-tabs mb-3" role="tablist" data-remember="true" data-remember="true">
 		<li role="presentation" class="nav-item"><a href="#system" class="nav-link active" aria-controls="system" role="tab" data-bs-toggle="tab"><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></a></li>
         
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/generate_js.tpl.php'));?>
@@ -100,6 +100,3 @@
      
     </div>
 </div>
-<script>
-
-</script>

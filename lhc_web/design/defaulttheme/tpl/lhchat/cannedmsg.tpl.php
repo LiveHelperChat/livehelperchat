@@ -14,7 +14,7 @@
     </div>
 <?php endif; ?>
 
-<ul class="nav nav-tabs mb-3" role="tablist">
+<ul class="nav nav-tabs mb-3" role="tablist" data-remember="true">
     <li role="presentation" class="nav-item"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>" class="nav-link<?php if ($tab == '' || $tab == 'cannedmsg') : ?> active<?php endif;?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Canned messages');?></a></li>
     <li role="presentation" class="nav-item"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>/(tab)/statistic" class="nav-link<?php if ($tab == 'statistic') : ?> active<?php endif;?>" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Statistic');?></a></li>
 </ul>

@@ -17,7 +17,7 @@ $modalSize = 'xl';
                     <?php $itemLanguages = erLhcoreClassModelSpeechUserLanguage::getList(['filter' => ['user_id' => $user->id]]);foreach ($itemLanguages as $lang) : ?><span class="badge bg-success me-1"><?php echo htmlspecialchars($lang->language)?></span><?php endforeach; ?>
                 </div>
             </div>
-            <ul class="nav nav-pills mb-3" role="tablist">
+            <ul class="nav nav-pills mb-3" role="tablist" data-remember="true">
                 <li role="presentation" class="nav-item"><a href="#user-status" class="nav-link active" aria-controls="user-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','User stats');?></a></li>
                 <li role="presentation" class="nav-item"><a href="#online-hours" class="nav-link" aria-controls="online-hours" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online hours');?></a></li>
                 <li role="presentation" class="nav-item"><a href="#login-history" class="nav-link" aria-controls="login-history" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?></a></li>
