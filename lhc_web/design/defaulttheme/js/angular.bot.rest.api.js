@@ -7,6 +7,7 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
     this.log_code = "";
     this.sr_body = "";
     this.activeParam = "";
+    this.currentTabHash = "";
 
     var that = this;
 
@@ -71,6 +72,14 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
         this.log_system = $window['botRestAPISystemLog'];
         this.log_code = $window['botRestAPICode'];
         this.sr_body = $window['botRestAPIsr_body'];
+
+        this.currentTabHash = window.location.hash;
+        this.currentTabHash = this.currentTabHash.replace('#!#','#').replace('#','');
+
+        jQuery(document).on('shown.bs.tab', '.nav-tabs[angular-tabs-remember="true"] .nav-link, .nav-pills[angular-tabs-remember="true"] .nav-link', function (e) {
+            history.replaceState(null, null, e.target.hash);
+        });
+
     }
 
 }]);

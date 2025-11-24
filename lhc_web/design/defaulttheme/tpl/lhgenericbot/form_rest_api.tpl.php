@@ -73,7 +73,7 @@
 <span><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules?rest_api=1'});"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Explore');?></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','possible chat attributes directly.');?></span>
 
 <!-- Parameters tabs navigation -->
-<ul class="nav nav-tabs nav-tabs-bold mt-3" role="tablist" data-remember="true" ng-show="lhcrestapi.parameters.length > 0">
+<ul class="nav nav-tabs nav-tabs-bold mt-3" role="tablist" ng-show="lhcrestapi.parameters.length > 0">
     <li role="presentation" class="nav-item" ng-repeat="param in lhcrestapi.parameters | orderBy:'position' track by $index">
         <a class="nav-link" ng-class="{'active': lhcrestapi.activeParam == param.id}" href="#param-tab-{{param.id}}" ng-click="lhcrestapi.activeParam = param.id" aria-controls="param-{{param.id}}" role="tab" data-bs-toggle="tab">
             {{param.name || ('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Request'); ?> ' + ($index + 1))}}
@@ -144,7 +144,9 @@
                     </div>
                 </div>
             </div>
-            <ul class="nav nav-tabs  nav-tabs-bold mb-2" role="tablist" data-remember="true">
+
+            <?php /*
+            <ul class="nav nav-tabs nav-tabs-bold mb-2" angular-tabs-remember="true" role="tablist" >
                 <li role="presentation" class="nav-item"><a class="nav-link active" href="#params-rest-{{$index}}" aria-controls="params" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Params');?></a></li>
                 <li role="presentation" class="nav-item"><a class="nav-link" href="#authorization-rest-{{$index}}" aria-controls="authorization" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Authorization');?></a></li>
                 <li role="presentation" class="nav-item"><a class="nav-link" href="#headers-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Headers');?></a></li>
@@ -155,11 +157,24 @@
                 <li role="presentation" class="nav-item"><a class="nav-link" href="#remote-msg-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Remote Message ID');?></a></li>
                 <li role="presentation" class="nav-item"><a class="nav-link" href="#polling-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Polling');?></a></li>
                 <li role="presentation" class="nav-item"><a class="nav-link" href="#streaming-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Streaming');?></a></li>
+            </ul>*/ ?>
+
+            <ul class="nav nav-tabs nav-tabs-bold mb-2" angular-tabs-remember="true" role="tablist" >
+                <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'params-rest-'+$index || lhcrestapi.currentTabHash == ''}" href="#params-rest-{{$index}}" aria-controls="params" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Params');?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'authorization-rest-'+$index}" href="#authorization-rest-{{$index}}" aria-controls="authorization" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Authorization');?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'headers-rest-'+$index}" href="#headers-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Headers');?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'body-rest-'+$index}" href="#body-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Body');?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'userparams-rest-'+$index}" href="#userparams-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','User parameters');?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'outputrest-rest-'+$index}" href="#outputrest-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Output parsing');?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'conditions-rest-'+$index}" href="#conditions-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Conditions');?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'remote-msg-'+$index}" href="#remote-msg-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Remote Message ID');?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'polling-'+$index}" href="#polling-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Polling');?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'streaming-'+$index}" href="#streaming-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Streaming');?></a></li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="params-rest-{{$index}}">
+                <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.currentTabHash == 'params-rest-'+$index || lhcrestapi.currentTabHash == ''}" id="params-rest-{{$index}}">
                     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can put visitor message as placeholder')?>&nbsp;<a href="https://doc.livehelperchat.com/docs/bot/rest-api#replaceable-variables" target="_blank"><i class="material-icons">help</i></a></p>
 
                     <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.query)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add param')?></button>
@@ -182,7 +197,7 @@
                     </div>
 
                 </div>
-                <div role="tabpanel" class="tab-pane" id="authorization-rest-{{$index}}">
+                <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.currentTabHash == 'authorization-rest-'+$index}" id="authorization-rest-{{$index}}">
                     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can always just define custom header if you do not find authorisation method here.')?></p>
 
                     <div class="form-group">
@@ -245,7 +260,7 @@
                     </div>
 
                 </div>
-                <div role="tabpanel" class="tab-pane" id="headers-rest-{{$index}}">
+                <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.currentTabHash == 'headers-rest-'+$index}" id="headers-rest-{{$index}}">
 
                     <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.header)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add param')?></button>
 
@@ -268,7 +283,7 @@
 
 
                 </div>
-                <div role="tabpanel" class="tab-pane" id="conditions-rest-{{$index}}">
+                <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.currentTabHash == 'conditions-rest-'+$index}" id="conditions-rest-{{$index}}">
 
                     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Only if these conditions are met we will send Rest API request. Usefull in webhook cases.')?></p>
 
@@ -304,7 +319,7 @@
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="body-rest-{{$index}}">
+                <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.currentTabHash == 'body-rest-'+$index}" id="body-rest-{{$index}}">
 
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Request Body')?></label>
@@ -384,7 +399,7 @@
                     </div>
 
                 </div>
-                <div role="tabpanel" class="tab-pane" id="userparams-rest-{{$index}}">
+                <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.currentTabHash == 'userparams-rest-'+$index}" id="userparams-rest-{{$index}}">
                     <div class="form-group">
                         <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can define additional parameters user can enter in bot trigger directly.')?></p>
 
@@ -421,14 +436,14 @@
                     </div>
                 </div>
 
-                <div role="tabpanel" class="tab-pane" id="outputrest-rest-{{$index}}">
+                <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.currentTabHash == 'outputrest-rest-'+$index}" id="outputrest-rest-{{$index}}">
 
                     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can define response conditions to which you will be able to add corresponding triggers.')?> <a target="_blank" class="material-icons" href="https://doc.livehelperchat.com/docs/bot/rest-api#output-parsing">help</a> </p>
 
                     <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.output)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add combination')?></button>
 
                     <!-- Output combinations tab navigation -->
-                    <ul class="nav nav-tabs nav-tabs-bold mt-3" role="tablist" data-remember="true" ng-show="param.output.length > 0">
+                    <ul class="nav nav-tabs nav-tabs-bold mt-3" role="tablist" ng-show="param.output.length > 0">
                         <li role="presentation" class="nav-item" ng-repeat="paramOutput in param.output">
                             <a class="nav-link {{$index == 0 ? 'active' : ''}}" href="#output-combination-{{$parent.$index}}-{{$index}}" aria-controls="output-{{$index}}" role="tab" data-bs-toggle="tab">
                                 {{paramOutput.success_name || ('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Output'); ?> ' + ($index + 1))}}
@@ -632,12 +647,12 @@
                     </div>
                 </div>
 
-                <div role="tabpanel" class="tab-pane" id="remote-msg-{{$index}}">
+                <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.currentTabHash == 'remote-msg-'+$index}" id="remote-msg-{{$index}}">
                     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If you want to add custom data within each send message to its meta_data attribute you can provide response path here')?></p>
                     <input type="text" class="form-control form-control-sm" ng-model="param.remote_message_id" placeholder="messages:0:id" value="" />
                 </div>
 
-                <div role="tabpanel" class="tab-pane" id="polling-{{$index}}">
+                <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.currentTabHash == 'polling-'+$index}" id="polling-{{$index}}">
                     <div class="row">
                         <div class="col-6">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Repeat request n times if conditions are not met (polling)');?></label>
@@ -653,7 +668,7 @@
                     </div>
                 </div>
 
-                <div role="tabpanel" class="tab-pane" id="streaming-{{$index}}">
+                <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.currentTabHash == 'streaming-'+$index}" id="streaming-{{$index}}">
 
                     <label class="d-block"><input type="checkbox" value="on" ng-model="param.streaming_request"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','This is a streaming request');?></label>
 
