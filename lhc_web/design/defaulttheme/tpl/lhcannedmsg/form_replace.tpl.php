@@ -65,13 +65,15 @@
 
 <div ng-controller="CannedReplaceCtrl as crc" class="pb-1" ng-init='crc.setConditions()'>
 
+    {{crc.currentTabHash}}
+
     <textarea class="hide" name="conditions">{{crc.combinations | json : 0}}</textarea>
 
-    <ul class="nav nav-pills" role="tablist" id="canned-main-tabs" data-remember="true">
-        <li role="presentation" class="nav-item" ><a class="nav-link active" href="#default" aria-controls="default" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Default');?></a></li>
+    <ul class="nav nav-pills" role="tablist" id="canned-main-tabs" angular-tabs-remember="true">
+        <li role="presentation" class="nav-item" ><a class="nav-link" ng-class="{'active': crc.currentTabHash == '' || crc.currentTabHash == 'default'}" href="#default" aria-controls="default" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Default');?></a></li>
         <li ng-repeat="lang in crc.combinations" class="nav-item" role="presentation">
 
-            <a href="#cmb-{{$index}}" class="nav-link" aria-controls="cmb-{{$index}}" role="tab" data-bs-toggle="tab" >
+            <a href="#cmb-{{$index}}" class="nav-link" ng-class="{'active': crc.currentTabHash == 'cmb-' + $index}" aria-controls="cmb-{{$index}}" role="tab" data-bs-toggle="tab" >
                 <i class="material-icons">find_replace</i>{{lang.name || 'Nr. ' + ($index + 1)}}
                 <span ng-click="crc.deleteElement(lang, crc.combinations)" class="material-icons icon-close-chat">close</span>
             </a>
@@ -80,13 +82,13 @@
         <li role="presentation" class="nav-item" ><a class="nav-link" href="#activity-period" aria-controls="activity-period" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Activity period');?></a></li>
     </ul>
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="default">
+        <div role="tabpanel" class="tab-pane" ng-class="{'active': crc.currentTabHash == '' || crc.currentTabHash == 'default'}" id="default">
             <div class="form-group" ng-non-bindable>
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Default value');?></label>
                 <textarea rows="15" ng-trim="false" class="form-control form-control-sm" name="default"><?php echo htmlspecialchars($item->default);?></textarea>
             </div>
         </div>
-        <div ng-repeat="combination in crc.combinations track by $index" role="tabpanel" class="tab-pane" id="cmb-{{$index}}">
+        <div ng-repeat="combination in crc.combinations track by $index" role="tabpanel" class="tab-pane" ng-class="{'active': crc.currentTabHash == 'cmb-' + $index}" id="cmb-{{$index}}">
 
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Tab custom name');?></label>

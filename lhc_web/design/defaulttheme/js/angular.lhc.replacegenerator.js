@@ -2,6 +2,7 @@ lhcAppControllers.controller('CannedReplaceCtrl',['$scope','$http','$location','
 
     this.combinations = [];
     this.departments = [];
+    this.currentTabHash = '';
     var that = this;
 
     this.makeid = function(length) {
@@ -17,6 +18,14 @@ lhcAppControllers.controller('CannedReplaceCtrl',['$scope','$http','$location','
     this.setConditions = function() {
         this.combinations = $window['replaceConditions'];
         this.departments = $window['replaceDepartments'];
+
+        this.currentTabHash = window.location.hash;
+        this.currentTabHash = this.currentTabHash.replace('#!#','#').replace('#','');
+
+        jQuery(document).on('shown.bs.tab', '.nav-tabs[angular-tabs-remember="true"] .nav-link, .nav-pills[angular-tabs-remember="true"] .nav-link', function (e) {
+            history.replaceState(null, null, e.target.hash);
+        });
+
     }
 
     this.deleteElement = function (element,list) {
