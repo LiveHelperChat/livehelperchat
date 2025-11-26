@@ -178,6 +178,6 @@ class Mask
         return '<span class="badge fw-normal ' . $badgeClass . ' fs13 me-1 mb-1 pe-1 ps-1" title="'.htmlspecialchars($entityType, ENT_QUOTES, 'UTF-8').'">' 
             . '<span class="material-icons fs16 me-1">' . $icon . '</span>'
             . $label 
-            . '<span title="Redacted field: Please contact your administrator for details" class="material-icons fs16 ms-1 me-0">info</span></span>';
+            . '<span title="' . erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Redacted field: Please contact your administrator for details').'" class="material-icons fs16 ms-1 me-0">info</span></span>';
     }
 }
