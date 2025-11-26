@@ -1,6 +1,42 @@
 4.75v
 
+1. Tab Navigation and UX Improvements
+   - Added data-remember attribute to tab navigation elements across multiple templates for better state persistence
+   - Implemented Safari browser support for tab navigation
+   - Enhanced replaceable variables UI with remembered tabs functionality
 
+2. Bot System Enhancements
+   - Added 'Keep chat locked' option in bot action text to maintain chat lock from visitor messages
+   - Refactored condition handling in bot workflow to support JSON parsing for dynamic conditions
+   - Enhanced attribute filtering in bot action text with improved non-empty value processing
+   - Updated CURL building UI for better usability
+
+3. Mail Conversation System
+   - Added signature fetching functionality with AJAX endpoint for improved email handling
+   - Added button to append fetched signature to email templates
+   - Enhanced input field layout for better usability and accessibility
+
+4. Bot Conditions Form
+   - Added datalist options for filter fields in conditions form with predefined options
+   - Options include Chat ID, Status, Department ID, User ID, Email, Phone, Nickname, and Country Code
+
+5. System and Configuration
+   - Added ability to clear cache from command line
+   - Implemented opcache cache clearing functionality
+   - Added fallback if default config file is not found
+   - Inform operator when external operator is writing messages
+
+6. Performance Optimizations
+   - Various performance optimizations in core components
+   - Improved command title handling as argument
+   - Enhanced proper checking mechanisms
+
+7. Bug Fixes and Improvements
+   - Removed unnecessary variable declarations
+   - Various sync improvements
+
+
+execute doc/update_db/update_342.sql for update
 
 4.74v
 
@@ -67,7 +103,7 @@
 
 1. Only priority field was missed for grouping operation and disabled user flow.
 
-execute doc/update_db/update_340.sql for update
+execute doc/update_db/update_341.sql for update
 
 4.72v
 
