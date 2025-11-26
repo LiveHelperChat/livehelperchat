@@ -129,7 +129,7 @@ class erLhcoreClassAbstract
                 }
 
                 $selected = $selectedValue == 1 ? ' checked="checked" ' : '';
-                return '<input ng-init="abstract_checked_' . $name . '=' . ($selectedValue == 1 ? 'true' : 'false') . '" ng-model="abstract_checked_' . $name . '" type="checkbox" name="AbstractInput_' . $name . '" value="1" ' . $selected . ' />';
+                return '<input class="form-check-input" ng-init="abstract_checked_' . $name . '=' . ($selectedValue == 1 ? 'true' : 'false') . '" ng-model="abstract_checked_' . $name . '" type="checkbox" name="AbstractInput_' . $name . '" value="1" ' . $selected . ' />';
                 break;
 
             case 'imgfile':
