@@ -86,7 +86,7 @@ if (trim($form->msg) != '')
 	        if ($ignoreMessage == false) {
 
                 // Check if operator message contains sensitive information
-                if ($messageUserId > 0) {
+                if ($messageUserId > 0 && (int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1) {
                     $maskResult = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgText, [
                         'dep_id' => $Chat->dep_id,
                         'type' => \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_TO_VISITOR,
