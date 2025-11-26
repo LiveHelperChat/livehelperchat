@@ -121,10 +121,11 @@
 	<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Empty...');?></p>
 <?php endif;?>
 
-
 <?php if (!isset($hide_add)) : ?>
-
 	<a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('abstract/new')?>/<?php echo $identifier,$extension?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
-
 	<br>
 <?php endif;?>
+
+<?php if (preg_match('/^[a-z0-9-]+/i', $identifier) &&($pathDynamic = erLhcoreClassDesign::designtpldynamic('lhabstract/custom/notices/' . $identifier . '.tpl.php')) && $pathDynamic !== null ) : ?>
+	<?php include $pathDynamic;?>
+<?php endif; ?>

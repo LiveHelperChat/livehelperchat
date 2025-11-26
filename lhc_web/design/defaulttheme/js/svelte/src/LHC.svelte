@@ -549,7 +549,17 @@
         var hash = window.location.hash;
         if (hash && rememberedTabs.length) {
             hash = hash.replace('#!#','#');
-            rememberedTabs.find('.nav-link[href="' + hash + '"]').tab('show');
+            const tabLink = rememberedTabs.find('.nav-link[href="' + hash + '"]');
+            if (tabLink.length) {
+                try {
+                    // Bootstrap 5 uses native Tab API
+                   if (typeof tabLink.tab === 'function') {
+                        tabLink.tab('show');
+                   }
+                } catch (e) {
+                    console.warn('Could not activate tab:', e);
+                }
+            }
         }
 
         // Update URL hash when tab is clicked without scrolling

@@ -99,10 +99,20 @@
             lhinst.addFileUpload(window['file_upload_'+record_id]);
         }
 
+        // Scroll messages block to bottom when editor height changes
+        var resizeObserver = new ResizeObserver(function() {
+            var messagesBlock = document.getElementById('messagesBlock-'+record_id);
+            if (messagesBlock) {
+                messagesBlock.scrollTop = messagesBlock.scrollHeight;
+            }
+        });
+        resizeObserver.observe(myInput);
+
         ee.emitEvent('adminChatEditorLoaded', [record_id, myInput]);
 
         return () => {
             clearInterval(historyTimeout);
+            resizeObserver.disconnect();
             cannedMessageSuggest.unbindEvents();
         };
     });

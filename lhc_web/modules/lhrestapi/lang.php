@@ -20,9 +20,9 @@ if ($Params['user_parameters']['ns'] == 'group_chat') {
     include 'modules/lhrestapi/trans/lhcbo.php';
 } else if ($Params['user_parameters']['ns'] == 'voice_call') {
     include 'modules/lhrestapi/trans/voice_call.php';
-}
-
-if ($Params['user_parameters']['ns'] == 'mail_chat') {
+} else if ($Params['user_parameters']['ns'] == 'masking') {
+    include 'modules/lhrestapi/trans/masking.php';
+} else if ($Params['user_parameters']['ns'] == 'mail_chat') {
     include 'modules/lhmailconv/trans/mail_chat.php';
 }
 

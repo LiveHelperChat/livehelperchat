@@ -73,8 +73,18 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 				    $Messages = erLhcoreClassChat::getPendingMessages((int)$requestPayload['chat_id'], (isset($requestPayload['lmgsid']) ? (int)$requestPayload['lmgsid'] : 0), true);
 				    if (count($Messages) > 0)
 				    {
-                        if ($chat->user_id > 0 && \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::shouldMask($chat->user_id)) {
-                             \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskVisitorMessages($Messages);
+
+                        if ((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1) {
+                            $hasVisitorMessage = false;
+                            foreach ($Messages as $msg) {
+                                if ($msg['user_id'] == 0) {
+                                    $hasVisitorMessage = true;
+                                    break;
+                                }
+                            }
+                            if ($hasVisitorMessage && $chat->user_id > 0) {
+                                \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskVisitorMessages($Messages, $chat);
+                            }
                         }
 
 				        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncuser.tpl.php');

@@ -10,6 +10,11 @@ $modalBodyClass = 'p-1'
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
         <?php if (isset($updated)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Updated');?>
              <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
+            <script>
+            setTimeout(function(){
+                window.location.reload();
+            }, 2000);
+            </script>
         <?php endif; ?>
         <div class="modal-body">
             <?php if ($attribute == 'ignore_user_status') { $configExplanatory = erTranslationClassLhTranslation::getInstance()->getTranslation('lhsystem/singlesetting','This is a global setting and is set for the all departments.');} ?>

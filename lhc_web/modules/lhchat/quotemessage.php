@@ -9,7 +9,8 @@ try {
     if ( erLhcoreClassChat::hasAccessToRead($chat) )
     {
         $array = array();
-        $maskMessage = !$currentUser->hasAccessTo('lhchat','see_sensitive_information');
+        $maskMessage = (int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1 && !$currentUser->hasAccessTo('lhchat','see_sensitive_information');
+        $maskParams = array('dep_id' => $chat->dep_id);
 
         if ($Params['user_parameters_unordered']['type'] == 'group') {
 
@@ -20,7 +21,7 @@ try {
                     if ($prevMessage->user_id == $msg->user_id && trim($prevMessage->msg) != '') {
                         $msgBody = trim($prevMessage->msg);
                         if ($prevMessage->user_id == 0 && $maskMessage === true) {
-                            $msgBody = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgBody);
+                            $msgBody = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgBody, $maskParams);
                         }
                         $groupMessages[] = $msgBody;
                     }
@@ -32,7 +33,7 @@ try {
 
             $msgBody = trim($msg->msg);
             if ($msg->user_id == 0 && $maskMessage === true) {
-                $msgBody = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgBody);
+                $msgBody = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgBody, $maskParams);
             }
             $groupMessages[] = $msgBody;
 
@@ -42,7 +43,7 @@ try {
                     if ($prevMessage->user_id == $msg->user_id && trim($prevMessage->msg) != '') {
                         $msgBody = trim($prevMessage->msg);
                         if ($prevMessage->user_id == 0 && $maskMessage === true) {
-                            $msgBody = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgBody);
+                            $msgBody = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgBody, $maskParams);
                         }
                         $groupMessages[] = $msgBody;
                     }
@@ -55,7 +56,7 @@ try {
         } else {
             $array['msg'] = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
             if ($msg->user_id == 0 && $maskMessage === true) {
-                $array['msg'] = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($array['msg']);
+                $array['msg'] = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($array['msg'], $maskParams);
             }
         }
 

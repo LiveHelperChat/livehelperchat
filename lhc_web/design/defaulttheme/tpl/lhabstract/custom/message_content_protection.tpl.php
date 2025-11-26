@@ -11,32 +11,74 @@ $fields = $object->getFields();
 $object->languages_ignore; // Just to init
 ?>
 
-<div class="form-group">
-    <label><?php echo $fields['enabled']['trans'];?></label>
-    <?php echo erLhcoreClassAbstract::renderInput('enabled', $fields['enabled'], $object)?>
-</div>
-
-<?php /*
-<div class="form-group">
-    <label><?php echo $fields['remove']['trans'];?></label>
-    <?php echo erLhcoreClassAbstract::renderInput('remove', $fields['remove'], $object)?>
-</div>*/ ?>
-
-<div class="form-group">
-    <div class="pb-1">
-        <label class="pe-1"><?php echo $fields['pattern']['trans'];?></label><button class="btn btn-xs btn-secondary me-1 protect-button" data-protect="__email__|||$|||*" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Add an e-mail masking');?></button><button  data-protect="__credit_card__|||*" class="protect-button btn btn-xs btn-secondary me-1" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Add a credit card masking');?></button><button class="protect-button btn btn-xs btn-secondary me-1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Replaces all numbers in the message');?>" data-protect="(\d+)|||_" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Add a preg match sample');?></button>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['name']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
+        </div>
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('enabled', $fields['enabled'], $object)?> <?php echo $fields['enabled']['trans'];?></label>
+        </div>
     </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['rule_type']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('rule_type', $fields['rule_type'], $object)?>
+        </div>
+    </div>
+</div>
 
-    <?php echo erLhcoreClassAbstract::renderInput('pattern', $fields['pattern'], $object)?>
-    <p class="fs14"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','New rule per row.');?> <span class="badge bg-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Rule ||| Replace symbol');?></span></i></small></p>
+
+
+<div class="d-none">
+    <?php echo erLhcoreClassAbstract::renderInput('dep_ids', $fields['dep_ids'], $object)?>
 </div>
 
 <div class="form-group">
-    <div class="pb-1">
-    <label class="pe-1"><?php echo $fields['v_warning']['trans'];?></label><button class="btn btn-xs btn-secondary me-1" id="sample-button" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Sample');?></button>
-    </div>
-    <?php echo erLhcoreClassAbstract::renderInput('v_warning', $fields['v_warning'], $object)?>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','If no department is chosen this will apply to all departments');?></label>
+    <?php $selectedDeps = []; $depIds = (array)json_decode($object->dep_ids, true); if (!empty($depIds)) { erLhcoreClassChat::validateFilterIn($depIds); foreach (erLhcoreClassModelDepartament::getList(['limit' => false, 'filterin' => ['id' => $depIds]]) as $dep) { $selectedDeps[] = ['id' => $dep->id, 'name' => $dep->name]; } } ?>
+    <lhc-department-picker json_input="AbstractInput_dep_ids" input_name="department_ids[]" selected_ids='<?php echo htmlspecialchars(json_encode($selectedDeps), ENT_QUOTES, 'UTF-8'); ?>' ajax_url="chat/searchprovider/deps" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Choose department');?>"></lhc-department-picker>
 </div>
+
+<div class="accordion pb-2" id="accordionMsgProtection">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPattern">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePattern" aria-expanded="false" aria-controls="collapsePattern">
+                <?php echo $fields['pattern']['trans'];?>
+            </button>
+        </h2>
+        <div id="collapsePattern" class="accordion-collapse collapse" aria-labelledby="headingPattern" data-bs-parent="#accordionMsgProtection">
+            <div class="accordion-body">
+                <div class="form-group" ng-non-bindable>
+                    <div class="d-none">
+                        <?php echo erLhcoreClassAbstract::renderInput('pattern', $fields['pattern'], $object)?>
+                    </div>
+                    <lhc-masking-rules pii_options='<?php echo json_encode(\LiveHelperChat\Validators\Guardrails\PII::$PII_NAME_MAP); ?>' input_selector='textarea[name="AbstractInput_pattern"]'></lhc-masking-rules>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingWarning">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWarning" aria-expanded="false" aria-controls="collapseWarning">
+                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Auto reply warning to visitor/operator');?>
+            </button>
+        </h2>
+        <div id="collapseWarning" class="accordion-collapse collapse" aria-labelledby="headingWarning" data-bs-parent="#accordionMsgProtection">
+            <div class="accordion-body">
+                <div class="form-group">
+                    <div class="pb-1">
+                    <label class="pe-1"><?php echo $fields['v_warning']['trans'];?></label><button class="btn btn-xs btn-secondary me-1" id="sample-button" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Sample');?></button>
+                    </div>
+                    <?php echo erLhcoreClassAbstract::renderInput('v_warning', $fields['v_warning'], $object)?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <div class="btn-group" role="group" aria-label="...">
     <input type="submit" class="btn btn-sm btn-secondary" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
@@ -46,10 +88,6 @@ $object->languages_ignore; // Just to init
 </div>
 
 <script>
-    $('.protect-button').click(function(){
-        var txt = $("textarea[name='AbstractInput_pattern']");
-        txt.val((txt.val() != "" ? txt.val() + "\n" : '') + $(this).attr('data-protect'));
-    });
     $('#test-protect-rules').click(function(){
         lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'abstract/testmasking/','loadmethod':'post',datapost:{mask:$("textarea[name='AbstractInput_pattern']").val()}});
     });

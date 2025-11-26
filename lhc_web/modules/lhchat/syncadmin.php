@@ -36,7 +36,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
     try {
 
         $icons_additional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_identifier','enabled'), 'sort' => false, 'filter' => array('icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1)));
-        $see_sensitive_information = $currentUser->hasAccessTo('lhchat','see_sensitive_information');
+        $see_sensitive_information = !((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1) || $currentUser->hasAccessTo('lhchat','see_sensitive_information');
 
         // Preload chats - extract chat IDs and fetch all at once
         $chatIds = [];
@@ -163,7 +163,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
                 $user_typing_txt = $Chat->user_typing_txt;
 
                 if (!$see_sensitive_information && $user_typing_txt != '') {
-                    $user_typing_txt = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($user_typing_txt);
+                    $user_typing_txt = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($user_typing_txt, array('dep_id' => $Chat->dep_id));
                 }
 
                 if ($Chat->is_user_typing == true) {

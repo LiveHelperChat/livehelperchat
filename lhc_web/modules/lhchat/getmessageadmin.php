@@ -17,7 +17,7 @@ try {
                     ( array )$msg
                 ));
                 $tpl->set('chat', $Chat);
-                $tpl->set('see_sensitive_information', $currentUser->hasAccessTo('lhchat', 'see_sensitive_information'));
+                $tpl->set('see_sensitive_information',  !((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1) || $currentUser->hasAccessTo('lhchat', 'see_sensitive_information'));
 
                 echo json_encode(array(
                     'error' => 'f',

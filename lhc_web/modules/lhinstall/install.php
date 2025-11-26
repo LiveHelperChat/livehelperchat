@@ -1579,7 +1579,7 @@ try {
                 ('preload_iframes','0','0','Preload widget. It will avoid loading delay after clicking widget','0'),
                 ('product_show_departament','0','0','Enable products show by departments', '1'),
                 ('paidchat_data','','0','Paid chat configuration','1'),
-                ('version_updates',	'341',	0,	'',	1),
+                ('version_updates',	'342',	0,	'',	1),
                 ('del_on_close_no_msg','0','0','Delete chat on close if there are no messages from the visitor','0'),
                 ('mheight_op','200','0','Messages box height for operator','0'),
                 ('listd_op','10','0','Default number of online operators to show','0'),
@@ -1611,6 +1611,7 @@ try {
                 ('allow_reopen_closed','0', 0, 'Allow user to reopen closed chats?', '0'),
                 ('reopen_as_new','1', 0, 'Reopen closed chat as new? Otherwise it will be reopened as active.', '0'),
                 ('default_theme_id','0', 0, 'Default theme ID.', '1'),  
+                ('guardrails_enabled','0', 0, 'Enable guardrails for operators and visitors', '1'),
                 ('default_admin_theme_id','0', 0, 'Default admin theme ID', '1'),  
                 ('translation_data',	'a:6:{i:0;b:0;s:19:\"translation_handler\";s:4:\"bing\";s:19:\"enable_translations\";b:0;s:14:\"bing_client_id\";s:0:\"\";s:18:\"bing_client_secret\";s:0:\"\";s:14:\"google_api_key\";s:0:\"\";}',	0,	'Translation data',	1),              
                 ('disable_html5_storage','1',0,'Disable HMTL5 storage, check it if your site is switching between http and https', '0'),
@@ -2284,8 +2285,12 @@ try {
   `enabled` int(11) NOT NULL DEFAULT 1,
   `remove` int(11) NOT NULL DEFAULT 0,
   `v_warning` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rule_type` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `has_dep` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dep_ids` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `enabled` (`enabled`)
+  KEY `enabled_type` (`enabled`,`rule_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_canned_msg_replace` (

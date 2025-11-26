@@ -25,7 +25,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     $tplPlain = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
     $tplPlain->set('chat', $chat);
     $tplPlain->set('messages', $messages);
-    $tplPlain->set('see_sensitive_information', $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
+    $tplPlain->set('see_sensitive_information', !((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1) || $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
 
     if (!(isset($_GET['whisper']) && $_GET['whisper'] == 'true')) {
         $tplPlain->set('remove_whisper', true);

@@ -10,7 +10,7 @@ $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id
 if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($chat) )
 {
 	$userData = $currentUser->getUserData();
-    $see_sensitive_information = $currentUser->hasAccessTo('lhchat','see_sensitive_information');
+    $see_sensitive_information =  !((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1) || $currentUser->hasAccessTo('lhchat','see_sensitive_information');
 
 	if (($userData->invisible_mode == 0 || $chat->user_id == $userData->id) && erLhcoreClassChat::hasAccessToWrite($chat)) {
 	    try {
@@ -188,6 +188,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	    $tpl->set('chat',$chat);
             $tpl->set('canEditChat',true);
             $tpl->set('see_sensitive_information',$see_sensitive_information);
+            $tpl->set('dep_id', $chat->dep_id);
 
     	    echo $tpl->fetch();
     	        	    
@@ -206,6 +207,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 	    $tpl->set('canEditChat',erLhcoreClassChat::hasAccessToWrite($chat));
 	    $tpl->set('chat',$chat);
         $tpl->set('see_sensitive_information',$see_sensitive_information);
+        $tpl->set('dep_id', $chat->dep_id);
 	    echo $tpl->fetch();
 	}
 

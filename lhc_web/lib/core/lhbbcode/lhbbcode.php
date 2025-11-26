@@ -745,6 +745,12 @@ class erLhcoreClassBBCode
         return 'codeblock'.$hash;
    }
 
+   public static function _make_mask($matches){
+        $hash = md5(trim($matches[1]));
+        self::$plainHash['mask'.$hash] = \LiveHelperChat\Helpers\BBCode\Mask::render($matches[1]);
+        return 'mask'.$hash;
+   }
+  
    public static function _make_code_plain($matches) {
         $hash = md5(trim($matches[1]));
         self::$plainHash['code'.$hash] = '<code>' . trim($matches[1]) . '</code>';
@@ -1282,7 +1288,7 @@ class erLhcoreClassBBCode
         $makeLinksClickable = true;
 
         if (isset($paramsMessage['see_sensitive_information']) && $paramsMessage['see_sensitive_information'] === false && $paramsMessage['sender'] == 0) {
-           $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret);
+           $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret, array('dep_id' => (isset($paramsMessage['dep_id']) ? $paramsMessage['dep_id'] : 0)));
         }
 
         if (self::isBBCodeTagSupported('[code]',$paramsMessage)) {
@@ -1291,6 +1297,10 @@ class erLhcoreClassBBCode
            $ret = preg_replace_callback('/```(.*?)```/ms', "erLhcoreClassBBCode::_make_code", $ret);
            $ret = preg_replace_callback('/`(.*?)`/ms', "erLhcoreClassBBCode::_make_code_plain", $ret);
            $ret = preg_replace_callback('/\[code\](.*?)\[\/code\]/ms', "erLhcoreClassBBCode::_make_code", $ret);
+        }
+
+        if (isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) {
+            $ret = preg_replace_callback('/\[mask\](.*?)\[\/mask\]/ms', "erLhcoreClassBBCode::_make_mask", $ret);
         }
 
         if (self::isBBCodeTagSupported('[plain]',$paramsMessage)) {

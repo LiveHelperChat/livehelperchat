@@ -30,7 +30,7 @@ function serve() {
 }
 
 export default {
-	input: ['./src/main.js','./src/languages.js','./src/onlinevisitors.js'],
+	input: ['./src/main.js','./src/languages.js','./src/onlinevisitors.js','./src/masking.js','./src/departments.js'],
 	output: {
 		sourcemap: true,
 		format: 'es',
