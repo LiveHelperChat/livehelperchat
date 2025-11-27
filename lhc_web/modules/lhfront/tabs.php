@@ -23,6 +23,12 @@ if (!empty($id)) {
     }
 
     foreach ($chats as $chat) {
+        $msgVisitor = erLhcoreClassChat::getGetLastChatMessagePending($chat->id, true, 3, ' » ');
+
+        if ((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1 && !$currentUser->hasAccessTo('lhchat','see_sensitive_information')) {
+            $msgVisitor = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgVisitor, array('dep_id' => $chat->dep_id));
+        }
+
         $item = array(
            /* 'add_attr' => ['snapshot' => '#cecece'],*/
             'id' => $chat->id,
@@ -37,7 +43,7 @@ if (!empty($id)) {
             'lmsg' => erLhcoreClassChat::formatSeconds(time() - ($chat->last_user_msg_time > 0 ? $chat->last_user_msg_time : $chat->time)),
             'lmsg_id' => $chat->last_msg_id,
             'cc' => ($chat->country_code != '' ? erLhcoreClassDesign::design('images/flags') . '/' . (string)$chat->country_code . '.png' : ''),
-            'msg' => erLhcoreClassChat::getGetLastChatMessagePending($chat->id, true, 3, ' » '),
+            'msg' => $msgVisitor,
             'vwa' => ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->last_user_msg_time > ($chat->last_op_msg_time > 0 ? $chat->last_op_msg_time : $chat->pnd_time) && (time() - $chat->last_user_msg_time > (int)erLhcoreClassModelChatConfig::fetchCache('vwait_to_long')->current_value) ? erLhcoreClassChat::formatSeconds(time() - $chat->last_user_msg_time) : null)
         );
 
