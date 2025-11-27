@@ -83,7 +83,36 @@ if (trim($form->msg) != '')
 	            };
 	        }
 	        
-	        if ($ignoreMessage == false) {	        
+	        if ($ignoreMessage == false) {
+
+                // Check if operator message contains sensitive information
+                if ($messageUserId > 0 && (int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1) {
+                    $maskResult = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgText, [
+                        'dep_id' => $Chat->dep_id,
+                        'type' => \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_TO_VISITOR,
+                        'return_array' => true
+                    ]);
+                    
+                    if ($maskResult['message'] !== $msgText) {
+                        $responseMessage = preg_replace_callback('/\[mask\](.*?)\[\/mask\]/ms', function($matches){
+                            return \LiveHelperChat\Helpers\BBCode\Mask::render($matches[1]);
+                        }, htmlspecialchars($maskResult['message']));
+                        
+                        if (!empty($maskResult['warning'])) {
+                            $responseMessage = erLhcoreClassBBCode::make_clickable(htmlspecialchars($maskResult['warning'])) . $responseMessage;
+                        }
+                        
+                        echo erLhcoreClassChat::safe_json_encode(array(
+                            'error' => 'true',
+                            'safe' => true,
+                            'temporal' => true,
+                            'r' => $responseMessage
+                        ));
+                        $db->rollback();
+                        exit;
+                    }
+                }
+
     	        $msg = new erLhcoreClassModelmsg();
     	        $msg->msg = $msgText;
     	        $msg->chat_id = $Params['user_parameters']['chat_id'];

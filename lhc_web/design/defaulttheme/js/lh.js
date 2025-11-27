@@ -2757,6 +2757,9 @@ function lh(){
                     textArea.removeAttr('readonly').attr('placeholder',placeholerOriginal);
 
                     if (data.error == 'false') {
+                        
+                        $('#messagesBlock-' + chat_id + ' .temporal-msg').remove();
+
                         if (LHCCallbacks.addmsgadmin) {
                             LHCCallbacks.addmsgadmin(chat_id);
                         };
@@ -2786,14 +2789,15 @@ function lh(){
                         textArea.attr('placeholder',placeholerOriginal);
 
                         if (textArea.prop('nodeName') == 'LHC-EDITOR') {
-                            textArea[0].insertConent(pdata.msg,{"convert_bbcode" : true});
+                            textArea[0].setContent(pdata.msg,{"convert_bbcode" : true});
                         } else {
                             textArea.val((textArea.val() + ' ' + pdata.msg).trim());
                         }
 
 
                         $('.pending-storage').first().remove();
-                        var escaped = '<div style="margin:10px 10px 30px 10px;" class="alert alert-warning" role="alert">' + $("<div>").text(data.r).html() + '</div>';
+                        $('#messagesBlock-' + chat_id + ' .temporal-msg').remove();
+                        var escaped = '<div style="margin:10px 0px 30px 0px;" class="alert alert-warning' + (data.temporal ? ' temporal-msg' : '') + '" role="alert">' + (data.safe ? data.r : $("<div>").text(data.r).html()) + '</div>';
                         $('#messagesBlock-'+chat_id).append(escaped).scrollTop($("#messagesBlock-"+chat_id).prop("scrollHeight"));
                     }
 
@@ -3017,6 +3021,7 @@ function lh(){
                 while (ta.scrollHeight > ta.clientHeight && !window.opera && ta.rows < maxrows) {
                     ta.style.overflow = 'hidden';
                     ta.rows += 1;
+                    $('#messagesBlock-'+chat_id).prop('scrollTop',$('#messagesBlock-'+chat_id).prop('scrollHeight'));
                 }
                 if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';
 

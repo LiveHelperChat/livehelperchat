@@ -999,7 +999,7 @@ class erLhcoreClassBBCodePlain
         $makeLinksClickable = true;
         
         if (isset($paramsMessage['see_sensitive_information']) && $paramsMessage['see_sensitive_information'] === false && $paramsMessage['sender'] == 0) {
-            $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret);
+            $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret, array('dep_id' => (isset($paramsMessage['dep_id']) ? $paramsMessage['dep_id'] : 0)));
         }
 
         if (($whiteList = erLhcoreClassBBCode::isBBCodeTagSupported('white_list',$paramsMessage)) !== false) {

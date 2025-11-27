@@ -21,7 +21,7 @@ if ($chat instanceof erLhcoreClassModelChat)
             $tpl->set('chat_history', $result['chat']);
             $tpl->set('initial', $Params['user_parameters_unordered']['initial'] == 1);
             $tpl->set('message_start', (int)$Params['user_parameters']['message_id']);
-            $tpl->set('see_sensitive_information', $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
+            $tpl->set('see_sensitive_information',  !((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1) || $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
             
             echo json_encode(array(
                 'error' => false,

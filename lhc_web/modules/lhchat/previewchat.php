@@ -29,7 +29,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
 
     $tpl->set('keyword',$keywords);
     $tpl->set('chat',$chat);
-    $tpl->set('see_sensitive_information', $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
+    $tpl->set('see_sensitive_information', !((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1) || $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
     echo $tpl->fetch();
 
     if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions')) {

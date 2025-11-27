@@ -93,7 +93,7 @@ if ($msg['user_id'] == -1) : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/meta_render_admin_top.tpl.php'));?>
         <?php endif; ?>
 
-        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('img_verify_min_dim' => (isset($data['img_verify_min_dim']) ? $data['img_verify_min_dim'] : 100), 'print_admin' => (isset($print_admin) && $print_admin === true), 'download_policy' => $download_policy, 'operator_render' => true, 'sender' => $msg['user_id'], 'html_as_text' => true, 'see_sensitive_information' => (isset($see_sensitive_information) ? $see_sensitive_information : false));?>
+        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('img_verify_min_dim' => (isset($data['img_verify_min_dim']) ? $data['img_verify_min_dim'] : 100), 'print_admin' => (isset($print_admin) && $print_admin === true), 'download_policy' => $download_policy, 'operator_render' => true, 'sender' => $msg['user_id'], 'html_as_text' => true, 'see_sensitive_information' => (isset($see_sensitive_information) ? $see_sensitive_information : false), 'dep_id' => $chat->dep_id);?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
 
         <?php if (isset($metaMessageData)) : ?>
@@ -109,7 +109,7 @@ if ($msg['user_id'] == -1) : ?>
 <div class="message-row<?php echo $msg['user_id'] == 0 ? ' response' : ' message-admin'?>" id="msg-<?php echo $msg['id']?>" title="<?php echo erLhcoreClassChat::formatDate($msg['time']);?>">
 	<div class="msg-date"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></div>
 	<span class="usr-tit<?php echo $msg['user_id'] == 0 ? ' vis-tit' : ' op-tit'?>"><?php echo $msg['user_id'] == 0 ? htmlspecialchars($msg['name_support']) : htmlspecialchars($chat->nick) ?></span>
-    <?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true, 'see_sensitive_information' => (isset($see_sensitive_information) ? $see_sensitive_information : false)); ?>
+    <?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true, 'see_sensitive_information' => (isset($see_sensitive_information) ? $see_sensitive_information : false), 'dep_id' => $chat->dep_id); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
 </div>
 <?php endforeach; ?>

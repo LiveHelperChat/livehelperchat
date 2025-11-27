@@ -5,7 +5,7 @@ $separatorMessage = isset($render_as_html) && $render_as_html == true ? "<br />"
 foreach ($messages as $msg ) :
 
     if (isset($see_sensitive_information) && $see_sensitive_information === false) {
-        $msg->msg = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msg->msg);
+        $msg->msg = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msg->msg, array('dep_id' => (isset($chat) ? $chat->dep_id : 0)));
     }
 
     if (isset($msg->meta_msg) && $msg->meta_msg != '') {

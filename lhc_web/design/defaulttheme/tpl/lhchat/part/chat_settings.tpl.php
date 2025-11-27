@@ -4,7 +4,7 @@
 <?php if (!isset($boolValue)) : ?>
 <label><?php print erTranslationClassLhTranslation::getInstance()->getTranslation('listchatconfig',$systemconfig->explain); ?> <?php if (isset($appendAttributeIdentifier)) : ?><span class="text-muted fs12">[<?php echo $attribute;unset($appendAttributeIdentifier)?>]</span><?php endif;?></label>
 <?php else : ?>
-<label><input type="checkbox" name="<?php echo $attribute?>ValueParam" value="1" <?php if ($systemconfig->value == 1) : ?>checked="checked"<?php endif;?> /> <?php print erTranslationClassLhTranslation::getInstance()->getTranslation('listchatconfig',$systemconfig->explain); ?></label>
+<label><input type="checkbox" class="form-check-input" name="<?php echo $attribute?>ValueParam" value="1" <?php if ($systemconfig->value == 1) : ?>checked="checked"<?php endif;?> />&nbsp;<?php print erTranslationClassLhTranslation::getInstance()->getTranslation('listchatconfig',$systemconfig->explain); ?></label>
 <?php endif; ?>
 
 <?php if (isset($configExplanatory)) : ?>
