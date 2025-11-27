@@ -12,21 +12,21 @@
     let piiOptions = {};
 
     $: typeLabels = {
-        'regex': $t('masking.type_regex') || 'Regex',
-        'email': $t('masking.type_email') || 'E-mail',
-        'credit_card': $t('masking.type_credit_card') || 'Credit Card',
-        'pii': $t('masking.type_pii') || 'PII',
-        'secret_keys': $t('masking.type_secret_keys') || 'Secret Keys',
-        'urls': $t('masking.type_urls') || 'URLs'
+        'regex': $t('masking.type_regex'),
+        'email': $t('masking.type_email'),
+        'credit_card': $t('masking.type_credit_card'),
+        'pii': $t('masking.type_pii'),
+        'secret_keys': $t('masking.type_secret_keys'),
+        'urls': $t('masking.type_urls')
     };
 
     $: ruleTypes = [
-        { value: 'regex', label: $t('masking.type_regex') || 'Regex' },
-        { value: 'email', label: $t('masking.type_email') || 'E-mail' },
-        { value: 'credit_card', label: $t('masking.type_credit_card') || 'Credit Card' },
-        { value: 'pii', label: $t('masking.type_pii') || 'PII' },
-        { value: 'secret_keys', label: $t('masking.type_secret_keys') || 'Secret Keys' },
-        { value: 'urls', label: $t('masking.type_urls') || 'URLs' }
+        { value: 'regex', label: $t('masking.type_regex')},
+        { value: 'email', label: $t('masking.type_email')},
+        { value: 'credit_card', label: $t('masking.type_credit_card')},
+        { value: 'pii', label: $t('masking.type_pii')},
+        { value: 'secret_keys', label: $t('masking.type_secret_keys')},
+        { value: 'urls', label: $t('masking.type_urls')}
     ];
 
     let selectedRuleType = 'regex';
@@ -79,7 +79,8 @@
             rule.replacement = '*';
         } else if (selectedRuleType === 'regex') {
             rule.pattern = '';
-            rule.replacement = '*';
+            rule.replacement = '';
+            rule.name = '';
         } else if (selectedRuleType === 'pii') {
             rule.entities = [];
         } else if (selectedRuleType === 'secret_keys') {
@@ -177,13 +178,17 @@
                 <div>
                     {#if rule.type === 'regex'}
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
+                                <label>{$t('masking.name') || 'Name'}</label>
+                                <input type="text" class="form-control form-control-sm" value={rule.name || ''} on:change={(e) => updateRule(index, 'name', e.target.value)} placeholder={$t('masking.placeholder_name')}>
+                            </div>
+                            <div class="col-4">
                                 <label>{$t('masking.pattern')}</label>
                                 <input type="text" class="form-control form-control-sm" value={rule.pattern || ''} on:change={(e) => updateRule(index, 'pattern', e.target.value)}>
                             </div>
-                            <div class="col-6">
-                                <label>{$t('masking.replacement')}</label>
-                                <input type="text" class="form-control form-control-sm" value={rule.replacement || '*'} on:change={(e) => updateRule(index, 'replacement', e.target.value)}>
+                            <div class="col-4">
+                                <label>{$t('masking.replacement_optional') || 'Replacement (optional)'}</label>
+                                <input type="text" class="form-control form-control-sm" value={rule.replacement || ''} on:change={(e) => updateRule(index, 'replacement', e.target.value)} placeholder={$t('masking.placeholder_replacement')}>
                             </div>
                         </div>
                     {:else if rule.type === 'email'}
@@ -208,7 +213,7 @@
                         <div class="row">
                             <div class="col-12 mb-2">
                                 <label>{$t('masking.replacement_mask_hint')}</label>
-                                <input type="text" class="form-control form-control-sm" value={rule.replacement || ''} on:change={(e) => updateRule(index, 'replacement', e.target.value)} placeholder="e.g. *">
+                                <input type="text" class="form-control form-control-sm" value={rule.replacement || ''} on:change={(e) => updateRule(index, 'replacement', e.target.value)} placeholder={$t('masking.placeholder_replacement')}>
                             </div>
                             <div class="col-12">
                                 <label>{$t('masking.entities')}</label>
@@ -239,7 +244,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label>{$t('masking.replacement_mask_hint')}</label>
-                                    <input type="text" class="form-control form-control-sm" value={rule.replacement || ''} on:change={(e) => updateRule(index, 'replacement', e.target.value)} placeholder="e.g. *">
+                                    <input type="text" class="form-control form-control-sm" value={rule.replacement || ''} on:change={(e) => updateRule(index, 'replacement', e.target.value)} placeholder={$t('masking.placeholder_replacement')}>
                                 </div>
                             </div>
                         </div>
@@ -247,7 +252,7 @@
                         <div class="row">
                             <div class="col-12 mb-2">
                                 <label>{$t('masking.replacement_mask_hint')}</label>
-                                <input type="text" class="form-control form-control-sm" value={rule.replacement || ''} on:change={(e) => updateRule(index, 'replacement', e.target.value)} placeholder="e.g. *">
+                                <input type="text" class="form-control form-control-sm" value={rule.replacement || ''} on:change={(e) => updateRule(index, 'replacement', e.target.value)} placeholder={$t('masking.placeholder_replacement')}>
                             </div>
                             <div class="col-6">
                                 <div class="form-check">

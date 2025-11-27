@@ -93,6 +93,11 @@ class Mask
             return self::$ENTITY_CATEGORY_MAP[$entityType];
         }
         
+        // Handle REGEX:Name format - category is Regex
+        if (strpos($entityType, 'REGEX:') === 0) {
+            return 'Regex';
+        }
+        
         // Default to Regex for custom regex patterns
         return 'Regex';
     }
@@ -113,6 +118,11 @@ class Mask
         // For URL type
         if ($entityType === 'URL' || $entityType === 'SECRET_KEY') {
             return '';
+        }
+        
+        // Handle REGEX:Name format - return the name part after REGEX:
+        if (strpos($entityType, 'REGEX:') === 0) {
+            return substr($entityType, 6); // Return everything after 'REGEX:'
         }
         
         // For secret key types, return a formatted name

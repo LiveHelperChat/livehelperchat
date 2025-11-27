@@ -242,7 +242,27 @@ class ChatMessagesGhosting {
                         } elseif ($rule['pattern'] == '__credit_card__') {
                             $magoo->pushCreditCardMask(isset($rule['replacement']) ? $rule['replacement'] : '*');
                         } else {
-                            $magoo->pushByRegexMask($rule['pattern'], isset($rule['replacement']) ? $rule['replacement'] : '*');
+                            // If replacement is empty, use custom regex check to return [mask]REGEX:Name[/mask]
+                            if (!isset($rule['replacement']) || $rule['replacement'] === '') {
+                                if ($magoo !== null) {
+                                    $message = $magoo->getMasked($message);
+                                    $magoo = null;
+                                }
+                                $regexName = isset($rule['name']) && $rule['name'] !== '' ? $rule['name'] : 'Pattern';
+                                $result = \LiveHelperChat\Validators\Guardrails\PII::checkCustomRegex($message, [
+                                    'customRegex' => [['name' => 'REGEX:' . $regexName, 'value' => $rule['pattern']]]
+                                ]);
+                                if ($result['tripwireTriggered'] === true && isset($result['info']['maskEntities'])) {
+                                    foreach ($result['info']['maskEntities'] as $entity => $matches) {
+                                        foreach ($matches as $match) {
+                                            $message = str_replace($match, '[mask]'.$entity.'[/mask]', $message);
+                                        }
+                                    }
+                                }
+                                $magoo = new \Pachico\Magoo\Magoo();
+                            } else {
+                                $magoo->pushByRegexMask($rule['pattern'], $rule['replacement']);
+                            }
                         }
                     }
                 } else {
@@ -286,7 +306,6 @@ class ChatMessagesGhosting {
                                 if ($replacement !== null) {
                                     $message = str_replace($url, str_repeat($replacement, mb_strlen($url)), $message);
                                 } else {
-                                    //$message = str_replace($url, '[mask]URL[/mask]', $message). '  '. ($result['info']['blockedReasons'][$indexURL] ?? 'URL');
                                     $message = str_replace($url, '[mask]'.($result['info']['blockedReasons'][$indexURL] ?? 'URL').'[/mask]', $message);
                                 }
                             }

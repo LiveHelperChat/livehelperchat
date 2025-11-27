@@ -14,15 +14,21 @@ $transItems = array(
     "masking.add_rule" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Add Rule'),
     "masking.pattern" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Pattern'),
     "masking.replacement" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Replacement'),
+    "masking.replacement_optional" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Replacement (optional)'),
     "masking.replacement_domain" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Replacement Domain'),
     "masking.replacement_mask_hint" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Replacement (leave empty to use [mask] tags)'),
     "masking.entities" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Entities'),
+    "masking.name" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Name'),
 
     // Secret keys
     "masking.threshold" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Threshold'),
     "masking.threshold_strict" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Strict'),
     "masking.threshold_balanced" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Balanced'),
     "masking.threshold_permissive" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Permissive'),
+
+    // Placeholders
+    "masking.placeholder_replacement" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'e.g. * or leave empty for badge'),
+    "masking.placeholder_name" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'e.g. Phone Number'),
 
     // URLs
     "masking.block_user_info" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Block User Info'),
