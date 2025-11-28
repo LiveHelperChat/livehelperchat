@@ -96,6 +96,7 @@ lhcAppControllers.controller('StartChatFormPreconditions',['$scope','$http','$lo
             'online': [],
             'offline': [],
             'disable': [],
+            'maintenance': [],
             'offline_enabled' : false,
             'disable_enabled' : false,
             'disable_message' : ''
@@ -123,6 +124,9 @@ lhcAppControllers.controller('StartChatFormPreconditions',['$scope','$http','$lo
         }
 
 		this.addField = function(list) {
+			if (!that.conditions[list]) {
+				that.conditions[list] = [];
+			}
 			that.conditions[list].push({field:"", logic: "and", comparator : "eq"});
 		};
 
