@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 263;
+            lhc.version = 264;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -222,6 +222,7 @@
                     sbottom: (LHC_API.args.sbottom || 0),
                     wright_inv: 0,
                     wbottom: 0,
+                    wtop: 0,
                     wright: 0,
                     width: ((isMobile || attributesWidget.fscreen) ? 100 : (LHC_API.args.wwidth || 350)),
                     height: ((isMobile || attributesWidget.fscreen) ? 100 : (LHC_API.args.wheight || 520)),
@@ -471,6 +472,10 @@
 
                         if (data.chat_ui.wbottom) {
                             attributesWidget.widgetDimesions.nextProperty('wbottom', data.chat_ui.wbottom);
+                        }
+
+                        if (data.chat_ui.wtop) {
+                            attributesWidget.widgetDimesions.nextProperty('wtop', data.chat_ui.wtop);
                         }
 
                         if (data.chat_ui.sbottom) {

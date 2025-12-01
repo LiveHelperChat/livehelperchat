@@ -168,8 +168,8 @@ export class mainWidget{
                 var height = Math.max( body.scrollHeight, body.offsetHeight,
                     html.clientHeight, html.scrollHeight, html.offsetHeight, attributes.widgetDimesions.value['height'] );
 
-                if (window.innerHeight < height + 60 + (this.attributes.clinst === true ? 70 : 0)) {
-                    attributes.widgetDimesions.nextPropertySilent('height_soverride', window.innerHeight - 60 - (this.attributes.clinst === true ? 70 : 0));
+                if (window.innerHeight < height + 60 + (this.attributes.clinst === true ? 70 : 0) + attributes.widgetDimesions.valueInternal['wtop']) {
+                    attributes.widgetDimesions.nextPropertySilent('height_soverride', window.innerHeight - 60 - (this.attributes.clinst === true ? 70 : 0) - attributes.widgetDimesions.valueInternal['wtop']);
                 } else {
                     attributes.widgetDimesions.nextPropertySilent('height_soverride', null);
                 }

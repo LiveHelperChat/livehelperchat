@@ -471,6 +471,12 @@
                                     <?php echo erLhcoreClassAbstract::renderInput('wbottom', $fields['wbottom'], $object)?>
                                 </div>
                             </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['wtop']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('wtop', $fields['wtop'], $object)?>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">

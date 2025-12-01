@@ -314,6 +314,10 @@ if (isset($outputResponse['theme'])) {
             $outputResponse['chat_ui']['wbottom'] = (int)$theme->bot_configuration_array['wbottom'];
         }
 
+        if (isset($theme->bot_configuration_array['wtop']) && is_numeric($theme->bot_configuration_array['wtop'])) {
+            $outputResponse['chat_ui']['wtop'] = (int)$theme->bot_configuration_array['wtop'];
+        }
+
         $outputResponse['theme_v'] = $theme->modified;
 
         if ($theme->custom_container_css !== ''){
@@ -551,7 +555,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 263;
+$outputResponse['wv'] = 264;
  
 // React APP versions
 $outputResponse['v'] = 383;
