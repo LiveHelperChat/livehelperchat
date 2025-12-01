@@ -689,14 +689,18 @@ Table "lh_abstract_form_collected" {
 }
 
 Table "lh_abstract_msg_protection" {
-  "id" int(11) [pk, not null, increment]
+  "id" int(11) [pk, not null, increment, note: 'unsigned']
   "pattern" text [not null]
   "enabled" int(11) [not null, default: 1]
   "remove" int(11) [not null, default: 0]
   "v_warning" text [not null]
+  "rule_type" tinyint(1) [not null, default: 0, note: 'unsigned']
+  "has_dep" tinyint(1) [not null, default: 0, note: 'unsigned']
+  "name" varchar(100) [not null]
+  "dep_ids" text [not null]
 
   Indexes {
-    enabled [name: "enabled"]
+    (enabled, rule_type) [name: "enabled_type"]
   }
 }
 
@@ -2564,6 +2568,7 @@ Table "lh_userdep" {
   "hide_online_ts" int(11) [not null, default: 0]
   "dep_group_id" int(11) [not null, default: 0]
   "always_on" tinyint(1) [not null, default: 0]
+  "only_priority" tinyint(1) [not null, default: 0, note: 'unsigned']
   "exclude_autoasign_mails" tinyint(1) [not null, default: 0]
   "active_mails" int(11) [not null, default: 0]
   "pending_mails" int(11) [not null, default: 0]
@@ -2674,6 +2679,7 @@ Table lh_userdep_disabled {
   assign_priority int [not null, default: 0]
   chat_max_priority int [not null, default: 0]
   chat_min_priority int [not null, default: 0]
+  only_priority tinyint(1) [not null, default: 0, note: 'unsigned']
 
   Indexes {
     (dep_id) [name: 'dep_id']
@@ -2690,7 +2696,8 @@ Table lh_departament_group_user_disabled {
   user_id int [not null]
   read_only boolean [not null, default: false, note: 'unsigned']
   exc_indv_autoasign boolean [not null, default: false, note: 'unsigned']
-  assign_priority int [not null, default: 0]
+  only_priority tinyint(1) [not null, default: 0, note: 'unsigned']
+  assign_priority int [not null, default: 0, note: 'unsigned']
   chat_min_priority int [not null, default: 0]
   chat_max_priority int [not null, default: 0]
 
