@@ -415,17 +415,15 @@ if (($domain = erLhcoreClassModelChatConfig::fetch('track_domain')->current_valu
     $outputResponse['domain'] = $domain;
 }
 
-
-
 if ($startDataDepartment === false) {
     $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
-    $start_data_fields = $startDataFields = (array)$startData->data;
+    $startDataFields = (array)$startData->data;
 }
 
 $disableNeedHelp = false;
 
-if (isset($start_data_fields['pre_conditions']) && !empty($start_data_fields['pre_conditions'])) {
-    $preConditions = json_decode($start_data_fields['pre_conditions'], true);
+if (isset($startDataFields['pre_conditions']) && !empty($startDataFields['pre_conditions'])) {
+    $preConditions = json_decode($startDataFields['pre_conditions'], true);
     if (
         (isset($preConditions['maintenance_mode']) && $preConditions['maintenance_mode'] == 1) ||
         (isset($preConditions['online']) && !empty($preConditions['online'])) ||
