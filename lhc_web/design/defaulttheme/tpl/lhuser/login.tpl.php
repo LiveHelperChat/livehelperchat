@@ -37,17 +37,21 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-    <div class="btn-group btn-group-sm" role="group" aria-label="Login">
-        <input type="submit" class="btn btn-primary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login');?>" name="Login" />
-        <a class="btn btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('user/forgotpassword')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Password reminder')?></a>
+
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group btn-group-sm" role="group" aria-label="Login">
+            <input type="submit" class="btn btn-primary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login');?>" name="Login" />
+            <a class="btn btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('user/forgotpassword')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Password reminder')?></a>
+        </div>
+        <div class="text-muted small fs12"><em>IP: <?php echo htmlspecialchars(erLhcoreClassIPDetect::getIP());?></em></div>
     </div>
-
-
 
 
 
 <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($redirect_url);?>" />
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/recaptcha.tpl.php'));?>
+
+
 
 </form>

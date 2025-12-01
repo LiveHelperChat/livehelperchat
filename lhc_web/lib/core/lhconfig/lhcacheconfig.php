@@ -134,7 +134,11 @@ class erConfigClassLhCacheConfig
 			        @unlink($compiledTemplate);
 			    }
 			}
-						
+
+            if (function_exists('opcache_reset')) {
+                opcache_reset();
+            }
+
 			$instance = CSCacheAPC::getMem();
 			$instance->increaseImageManipulationCache();
 	

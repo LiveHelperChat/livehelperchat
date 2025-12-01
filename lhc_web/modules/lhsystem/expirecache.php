@@ -10,10 +10,6 @@ if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'
 $CacheManager = erConfigClassLhCacheConfig::getInstance();
 $CacheManager->expireCache(true);
 
-if (function_exists('opcache_reset')){
-    opcache_reset();
-}
-
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;
 

@@ -5,9 +5,4 @@
 $CacheManager = erConfigClassLhCacheConfig::getInstance();
 $CacheManager->expireCache(true);
 echo "Finished clearing cache\n";
-
-if (function_exists('opcache_reset')){
-    opcache_reset();
-}
-
 ?>
