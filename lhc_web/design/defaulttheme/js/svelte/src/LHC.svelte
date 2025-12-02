@@ -550,11 +550,17 @@
         if (hash && rememberedTabs.length) {
             hash = hash.replace('#!#','#');
             const tabLink = rememberedTabs.find('.nav-link[href="' + hash + '"]');
+
             if (tabLink.length) {
                 try {
                     // Bootstrap 5 uses native Tab API
-                    const bsTab = new bootstrap.Tab(tabLink[0]);
-                    bsTab.show();
+                   if (typeof tabLink.tab === 'function') {
+                        tabLink.tab('show');
+                   } else {
+                       const bsTab = new bootstrap.Tab(tabLink[0]);
+                       bsTab.show();
+                   }
+
                 } catch (e) {
                     console.warn('Could not activate tab:', e);
                 }
