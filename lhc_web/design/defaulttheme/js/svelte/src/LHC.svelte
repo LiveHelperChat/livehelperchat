@@ -553,9 +553,8 @@
             if (tabLink.length) {
                 try {
                     // Bootstrap 5 uses native Tab API
-                   if (typeof tabLink.tab === 'function') {
-                        tabLink.tab('show');
-                   }
+                    const bsTab = new bootstrap.Tab(tabLink[0]);
+                    bsTab.show();
                 } catch (e) {
                     console.warn('Could not activate tab:', e);
                 }
