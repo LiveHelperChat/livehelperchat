@@ -48,6 +48,7 @@ $translations = array(
         "type_here" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your message...'),
         "enter_email" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendchat', 'Enter your e-mail'),
         "typing" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','is typing now...'),
+        "msg_was_sent" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Visitor has just sent a message'),
         'files_attached' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send files or enter additional information'),
         'remove_file' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Remove file'),
     ],

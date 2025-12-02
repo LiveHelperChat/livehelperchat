@@ -103,10 +103,18 @@ class _nodeJSChat {
 
        function messageSend(data)
        {
+            const state = getState();
+            
+            let msg = data.msg;
+            
+            if (state.chatwidget.hasIn(['chat_ui','hide_typing']) && state.chatwidget.getIn(['chat_ui','hide_typing']) === true) {
+                msg = i18n.t('chat.msg_was_sent');
+            }
+
             if (params.instance_id > 0) {
-                socket.transmitPublish('chat_'+params.instance_id+'_'+chatId, {'op':'vt','msg':'✉️ ' + data.msg});
+                socket.transmitPublish('chat_'+params.instance_id+'_'+chatId, {'op':'vt','msg':'✉️ ' + msg});
             } else {
-                socket.transmitPublish('chat_'+chatId,{'op':'vt', 'msg':'✉️ ' + data.msg});
+                socket.transmitPublish('chat_'+chatId,{'op':'vt', 'msg':'✉️ ' + msg});
             }
         }
 
