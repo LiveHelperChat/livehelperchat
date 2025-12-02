@@ -156,6 +156,63 @@ class PII
         self::FI_PERSONAL_IDENTITY_CODE => '/\b\d{6}[+-A]\d{3}[A-Z0-9]\b/',
     ];
 
+    /**
+     * Check if email domain is in allow list
+     * Supports __mailbox__ keyword to allow mailbox domains from database
+     */
+    private static function isEmailDomainAllowed($email, $allowList)
+    {
+        if (empty($allowList)) {
+            return false; // No allow list means all emails are disallowed
+        }
+
+        // Extract domain from email
+        $parts = explode('@', $email);
+        if (count($parts) !== 2) {
+            return false;
+        }
+        $domain = strtolower(trim($parts[1]));
+
+        // Check if __mailbox__ is in the allow list
+        $hasMailboxKeyword = false;
+        $regularDomains = [];
+
+        foreach ($allowList as $allowedDomain) {
+            $allowedDomain = strtolower(trim($allowedDomain));
+            if ($allowedDomain === '__mailbox__') {
+                $hasMailboxKeyword = true;
+            } else {
+                $regularDomains[] = $allowedDomain;
+            }
+        }
+
+        // Check regular domains first
+        foreach ($regularDomains as $allowedDomain) {
+            if ($domain === $allowedDomain) {
+                return true;
+            }
+        }
+
+        // If __mailbox__ keyword is present, check database using LIKE condition
+        if ($hasMailboxKeyword) {
+            try {
+                $db = \ezcDbInstance::get();
+                $count = \erLhcoreClassModelMailconvMailbox::getCount([
+                    'filter' => ['active' => 1],
+                    'customfilter' => ['`mail` LIKE ' . $db->quote('%@' . $domain)]
+                ]);
+                
+                if ($count > 0) {
+                    return true;
+                }
+            } catch (\Exception $e) {
+                // Silently fail if database access fails
+            }
+        }
+
+        return false;
+    }
+
     public static function detectPii($text, $config = [])
     {
         if (empty($text)) {
@@ -168,11 +225,18 @@ class PII
         $grouped = [];
         $analyzerResults = [];
 
-        $matchAgainstPattern = function($name, $pattern) use (&$grouped, &$analyzerResults, $text) {
+        $matchAgainstPattern = function($name, $pattern) use (&$grouped, &$analyzerResults, $text, $config) {
             if (preg_match_all($pattern, $text, $matches, PREG_OFFSET_CAPTURE)) {
                 foreach ($matches[0] as $match) {
                     $entityType = $name;
                     $matchedText = $match[0];
+                    
+                    // Check email domain allow list for EMAIL_ADDRESS entity
+                    if ($entityType === self::EMAIL_ADDRESS && isset($config['emailDomainAllowList'])) {
+                        if (self::isEmailDomainAllowed($matchedText, $config['emailDomainAllowList'])) {
+                            continue; // Skip this email as it's in the allow list
+                        }
+                    }
                     
                     if (!isset($grouped[$entityType])) {
                         $grouped[$entityType] = [];

@@ -37,6 +37,7 @@ $transItems = array(
     "masking.allow_list" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Allow List (one per line). All other URLs will be blocked.'),
     "masking.deny_list" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Deny List (one per line). All other URLs will be allowed.'),
     "masking.list_exclusive_note" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Note: Only one list can be filled at a time. Allow List and Deny List are mutually exclusive.'),
+    "masking.email_domain_allow_list" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Email Domain Allow List (one per line). Use __mailbox__ to allow all mailbox domains'),
 );
 
 echo json_encode($transItems);

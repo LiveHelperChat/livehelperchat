@@ -16,7 +16,7 @@ class ChatMessagesGhosting {
 
     public static $dbSortOrder = 'DESC';
 
-    public static $dbDefaultSort = 'id DESC';
+    public static $dbDefaultSort = '`has_dep` DESC, `id` ASC';
 
     public function getState()
     {
@@ -96,9 +96,9 @@ class ChatMessagesGhosting {
                 'customfilter' => [
                     "((has_dep = 1 AND dep_ids != '' AND dep_ids != '[]' AND JSON_CONTAINS(dep_ids, '" . (int)$dep_id . "', '$')) OR has_dep = 0)"
                 ],
-                'sort' => 'has_dep DESC'
+                'sort' => '`has_dep` DESC, `id` ASC'
             ]);
-            
+
             self::$maskRulesByType[$cacheKey] = $maskRule !== false ? $maskRule : null;
         }
 
@@ -163,7 +163,7 @@ class ChatMessagesGhosting {
                 'customfilter' => [
                     "((has_dep = 1 AND dep_ids != '' AND dep_ids != '[]' AND JSON_CONTAINS(dep_ids, '" . (int)$dep_id . "', '$')) OR has_dep = 0)"
                 ],
-                'sort' => 'has_dep DESC'
+                'sort' => '`has_dep` DESC, `id` ASC'
             ]);
             
             self::$maskRulesByType[$cacheKey] = $maskRule !== false ? $maskRule : null;

@@ -83,6 +83,8 @@
             rule.name = '';
         } else if (selectedRuleType === 'pii') {
             rule.entities = [];
+            rule.emailDomainAllowList = [];
+            rule.replacement = '';
         } else if (selectedRuleType === 'secret_keys') {
             rule.threshold = 'balanced';
         } else if (selectedRuleType === 'urls') {
@@ -164,6 +166,16 @@
     function getDenyListText(rule) {
         return (rule.denyList || []).join('\n');
     }
+
+    function updateEmailDomainAllowList(index, value) {
+        rules[index].emailDomainAllowList = value.split("\n").map(s => s.trim()).filter(s => s !== '');
+        rules = [...rules];
+        updateInput();
+    }
+
+    function getEmailDomainAllowListText(rule) {
+        return (rule.emailDomainAllowList || []).join('\n');
+    }
 </script>
 
 <div id="rules-container">
@@ -211,11 +223,7 @@
                         </div>
                     {:else if rule.type === 'pii'}
                         <div class="row">
-                            <div class="col-12 mb-2">
-                                <label>{$t('masking.replacement_mask_hint')}</label>
-                                <input type="text" class="form-control form-control-sm" value={rule.replacement || ''} on:change={(e) => updateRule(index, 'replacement', e.target.value)} placeholder={$t('masking.placeholder_replacement')}>
-                            </div>
-                            <div class="col-12">
+                            <div class="col-12 pb-2">
                                 <label>{$t('masking.entities')}</label>
                                 <div class="row">
                                     {#each Object.entries(piiOptions) as [key, label]}
@@ -228,6 +236,14 @@
                                     {/each}
                                 </div>
                             </div>
+                            <div class="col-6 mb-2">
+                                <label>{$t('masking.email_domain_allow_list') || 'Email Domain Allow List (one per line). Use __mailbox__ to allow all mailbox domains'}</label>
+                                <textarea class="form-control form-control-sm" rows="3" placeholder="e.g. example.com or __mailbox__" value={getEmailDomainAllowListText(rule)} on:change={(e) => updateEmailDomainAllowList(index, e.target.value)} disabled={!rule.entities || rule.entities.indexOf('EMAIL_ADDRESS') === -1}></textarea>
+                            </div>
+                            <div class="col-6 mb-2">
+                                <label>{$t('masking.replacement_mask_hint')}</label>
+                                <input type="text" class="form-control form-control-sm" value={rule.replacement || ''} on:change={(e) => updateRule(index, 'replacement', e.target.value)} placeholder={$t('masking.placeholder_replacement')}>
+                            </div>                            
                         </div>
                     {:else if rule.type === 'secret_keys'}
                         <div class="row">
