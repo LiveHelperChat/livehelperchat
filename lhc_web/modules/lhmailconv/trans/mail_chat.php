@@ -120,6 +120,8 @@ echo json_encode(array(
         'downloading' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Downloading...'),
         'download' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Download'),
         'not_found' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Error: File not found/attached'),
+        'external_image' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Broken external image'),
+        'open_in_new_tab' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Open in new tab'),
     ]
 ));
 

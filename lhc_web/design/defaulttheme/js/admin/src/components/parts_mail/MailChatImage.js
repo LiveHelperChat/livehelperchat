@@ -234,7 +234,12 @@ const MailChatImage = ({
         setImageLoading(false);
     };
 
-    
+    // Check if the image source is an external URL (not our internal system)
+    const isExternalImage = () => {
+        if (!imageSrc) return false;
+        // Check if it's NOT our internal mailconv URL
+        return !imageSrc.includes('/mailconv/inlinedownload/');
+    };
 
     // Show verification message if image is being verified
     if (!canShowImage && verificationMessage && extractedFileId) {
@@ -254,6 +259,21 @@ const MailChatImage = ({
     }
 
     if (imageError) {
+        // If it's an external image, show a link to view it directly
+        if (isExternalImage() && (imageSrc || src)) {
+            const externalUrl = imageSrc || src;
+            return (
+                <div className="mail-image-error d-inline-block border rounded p-2 text-muted">
+                    <i className="material-icons">link_off</i>
+                    <span className="ms-1">
+                        {t('image.external_image')}: <a title={externalUrl} href={externalUrl} target="_blank" rel="noopener noreferrer" className="text-primary"><i className="material-icons">open_in_new</i>{t('image.open_in_new_tab')}</a>
+                    </span>
+                    {alt && <div className="small text-muted mt-1">{alt}</div>}
+                </div>
+            );
+        }
+        
+        // For internal images, show the download button
         return (
             <div className="mail-image-error d-inline-block border rounded p-2 text-muted">
                 <i className="material-icons">broken_image</i>
