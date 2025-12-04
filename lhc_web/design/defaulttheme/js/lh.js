@@ -592,7 +592,7 @@ function lh(){
     	};
 
     	$('#chat-tab-link-'+chat_id).click(function() {
-
+            history.pushState(null, null, '#chat-id-'+chat_id);
     	    lhinst.previous_chat_id > 0 && $('#unread-separator-'+lhinst.previous_chat_id).remove();
             lhinst.previous_chat_id = chat_id;
 
@@ -851,7 +851,7 @@ function lh(){
         var location = this.smartTabFocus(tabs, chat_id);
 
         setTimeout(function() {
-            window.location.hash = location;
+            history.replaceState(null, null, location.replace('#/','#'));
         },500);
     };
 
@@ -916,6 +916,7 @@ function lh(){
             tabs.find('> ul > #chat-tab-li-'+chat_id+' > a').addClass("active");
             tabs.find('> div.tab-content > div.active').removeClass('active');
             tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>');
+            window.location.hash = '#chat-id-'+chat_id;
         } else {
             tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane" id="chat-id-'+chat_id+'"></div>');
         }
@@ -923,6 +924,7 @@ function lh(){
         ee.emitEvent('mailChatTabLoaded', [chat_id, {'background' : background}]); 
 
         $('#chat-tab-link-'+chat_id).click(function() {
+            history.pushState(null, null, '#chat-id-'+chat_id);
             ee.emitEvent('mailChatTabClicked', [chat_id.replace('mc','')]);
         });
     };
@@ -1372,7 +1374,7 @@ function lh(){
             var location = that.smartTabFocus(tabs, chat_id);
 
             setTimeout(function() {
-                window.location.hash =  location;
+                history.replaceState(null, null, location.replace('#/','#'));
             },500);
         };
 
@@ -1475,11 +1477,9 @@ function lh(){
 	    this.removeSynchroChat(chat_id);
 
 	    if (hidetab == true) {
-
 	    	var location = this.smartTabFocus(tabs, chat_id);
-
 	    	setTimeout(function() {
-	    		window.location.hash = location;
+                history.replaceState(null, null, location.replace('#/','#'));
 	    	},500);
 
 	        if (this.closeWindowOnChatCloseDelete == true)
@@ -1526,7 +1526,7 @@ function lh(){
                         var location = that.smartTabFocus(tabs, chat_id);
 
                         setTimeout(function() {
-                            window.location.hash = location;
+                            history.replaceState(null, null, location.replace('#/','#'));
                         },500);
 
                         if (that.closeWindowOnChatCloseDelete == true)

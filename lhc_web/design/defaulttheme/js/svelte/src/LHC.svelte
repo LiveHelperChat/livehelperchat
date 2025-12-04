@@ -546,31 +546,36 @@
 
         const rememberedTabs = jQuery('.nav-tabs[data-remember="true"], .nav-pills[data-remember="true"]');
 
-        var hash = window.location.hash;
-        if (hash && rememberedTabs.length) {
-            hash = hash.replace('#!#','#');
-            const tabLink = rememberedTabs.find('.nav-link[href="' + hash + '"]');
+        const activateTabByHash = () => {
+            const hash = window.location.hash;
+            if (hash && rememberedTabs.length) {
+            const cleanHash = hash.replace('#!#','#').replace('#/','#');
+            const tabLink = rememberedTabs.find('.nav-link[href="' + cleanHash + '"]');
 
             if (tabLink.length) {
                 try {
-                    // Bootstrap 5 uses native Tab API
-                   if (typeof tabLink.tab === 'function') {
-                        tabLink.tab('show');
-                   } else {
-                       const bsTab = new bootstrap.Tab(tabLink[0]);
-                       bsTab.show();
-                   }
-
+                if (typeof tabLink.tab === 'function') {
+                    tabLink.tab('show');
+                } else {
+                    const bsTab = new bootstrap.Tab(tabLink[0]);
+                    bsTab.show();
+                }
                 } catch (e) {
-                    console.warn('Could not activate tab:', e);
+                console.warn('Could not activate tab:', e);
                 }
             }
-        }
+            }
+        };
+
+        activateTabByHash();
 
         // Update URL hash when tab is clicked without scrolling
         rememberedTabs.find('.nav-link').on('shown.bs.tab', function (e) {
             history.replaceState(null, null, e.target.hash);
         });
+
+        // Handle hash changes
+        window.addEventListener('hashchange', activateTabByHash);
 
         $lhcList.departmentd_hide_dep = lhcServices.restoreLocalSetting('departmentd_hide_dep','false',false) != 'false';
         $lhcList.departmentd_hide_dgroup = lhcServices.restoreLocalSetting('departmentd_hide_dgroup','false',false) != 'false';
@@ -626,7 +631,6 @@
                     }
                 }
             }
-
        }
 
         var elm = document.getElementById('load_chat_id');

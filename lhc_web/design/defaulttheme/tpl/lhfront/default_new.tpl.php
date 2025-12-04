@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col">
                 <div role="tabpanel" id="tabs" ng-cloak class="<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' pt-0' : ''?>">
-                    <ul translate="no" class="nav nav-pills<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' d-none' : ''?>" role="tablist">
+                    <ul translate="no" class="nav nav-pills<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' d-none' : ''?>" role="tablist" data-remember="true">
                         <?php foreach ($frontTabsOrder as $frontTab) : ?>
                             <?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?>
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users_tab.tpl.php')); ?>

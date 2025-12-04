@@ -1,7 +1,7 @@
 <div id="tabs" role="tabpanel">
 
-    <ul class="nav nav-pills" role="tablist" data-remember="true">
-        <li role="presentation" class="nav-item"><a class="nav-link active" href="#chats" aria-controls="chats" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Mails');?></a></li>
+    <ul class="nav nav-pills" role="tablist" data-remember="true" id="mailtabs">
+        <li role="presentation" class="nav-item"><a class="nav-link" href="#chats" aria-controls="chats" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Mails');?></a></li>
     </ul>
 
     <div class="tab-content ps-2">
@@ -193,5 +193,9 @@
             <?php endif; ?>
         </div>
     </div>
-
 </div>
+<script>
+    $( document ).ready(function() {
+        $('#mailtabs a:first').tab('show');
+    });
+</script>
