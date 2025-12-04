@@ -1,0 +1,292 @@
+{
+  "domains": {
+    "ui": {
+      "description": "User interface layer handling both server-side PHP templates and client-side JavaScript frameworks",
+      "patterns": ["Component-based architecture", "Template inheritance", "Reactive state management"],
+      "technologies": ["PHP templates (.tpl.php)", "React 18", "Svelte 4", "AngularJS (legacy)"],
+      "key_files": [
+        "design/defaulttheme/tpl/**/*.tpl.php",
+        "design/defaulttheme/widget/react-app/src/",
+        "design/defaulttheme/js/svelte/src/",
+        "design/defaulttheme/js/react/src/"
+      ],
+      "constraints": [
+        "Templates use raw PHP with embedded logic, no Blade/Twig templating",
+        "Template path resolution: extension themes > custom themes > default theme",
+        "React components use Redux for state, Svelte uses writable stores",
+        "Widget wrapper uses vanilla JS for iframe embedding"
+      ]
+    },
+    "routing": {
+      "description": "Custom MVC routing system with URL-to-module mapping via siteaccess patterns",
+      "patterns": ["Front Controller", "Module-based routing", "Parameter extraction"],
+      "technologies": ["PHP", "eZ Components URL handling"],
+      "key_files": [
+        "index.php",
+        "lib/core/lhcore/lhmodule.php",
+        "modules/lh*/module.php"
+      ],
+      "constraints": [
+        "URL pattern: /siteaccess/module/view/param1/param2/(uparam)/value",
+        "Each module has module.php defining $ViewList with params, uparams, functions",
+        "Functions array defines required permissions for the view",
+        "Multiple siteaccesses: site_admin (back-office), eng/lit/etc (visitor-facing)"
+      ]
+    },
+    "data-layer": {
+      "description": "Database access layer using eZ Components PersistentObject ORM with custom trait",
+      "patterns": ["Active Record", "Trait-based CRUD", "Query Builder"],
+      "technologies": ["ezcPersistentObject", "ezcDatabase", "MySQL", "PDO"],
+      "key_files": [
+        "lib/core/lhcore/lhdbtrait.php",
+        "lib/models/**/*.php",
+        "pos/**/*.php",
+        "ezcomponents/PersistentObject/"
+      ],
+      "constraints": [
+        "All models use erLhcoreClassDBTrait for CRUD operations",
+        "Models define: $dbTable, $dbTableId, $dbSessionHandler, $dbSortOrder",
+        "POS files in pos/ define field types for ORM mapping",
+        "Query parameters: filter, filterin, filterlike, filtergt, filterlt, etc.",
+        "Lifecycle hooks: beforeSave, afterSave, beforeUpdate, afterUpdate, beforeRemove, afterRemove"
+      ]
+    },
+    "auth": {
+      "description": "Authentication and authorization using session-based auth with role-based permissions",
+      "patterns": ["Session-based authentication", "Role-Based Access Control (RBAC)", "Remember-me tokens"],
+      "technologies": ["PHP Sessions", "ezcAuthenticationSession", "Custom permission system"],
+      "key_files": [
+        "lib/core/lhuser/lhuser.php",
+        "lib/models/lhuser/erlhcoreclassmodeluser.php",
+        "lib/core/lhpermission/",
+        "modules/lhuser/"
+      ],
+      "constraints": [
+        "User singleton via erLhcoreClassUser::instance()",
+        "Permission check: $currentUser->hasAccessTo('lhmodule', ['function'], true)",
+        "Roles assigned to groups, users assigned to groups",
+        "API authentication via Basic Auth or API keys (erLhAbstractModelRestAPIKey)"
+      ]
+    },
+    "state-management": {
+      "description": "Client-side state management for React and Svelte applications",
+      "patterns": ["Redux store", "Svelte writable stores", "Action creators", "Reducers"],
+      "technologies": ["Redux", "redux-thunk", "redux-promise-middleware", "Svelte stores"],
+      "key_files": [
+        "design/defaulttheme/widget/react-app/src/store/",
+        "design/defaulttheme/widget/react-app/src/reducers/",
+        "design/defaulttheme/widget/react-app/src/actions/",
+        "design/defaulttheme/js/svelte/src/stores.js"
+      ],
+      "constraints": [
+        "Widget uses single Redux store with chatWidgetReducer",
+        "Actions dispatched via thunk middleware for async operations",
+        "Svelte dashboard uses lhcList writable store for global state",
+        "State persistence via localStorage for widget resumption"
+      ]
+    },
+    "caching": {
+      "description": "Multi-level caching system for configuration, templates, and data",
+      "patterns": ["Cache versioning", "Session caching", "Memory caching"],
+      "technologies": ["CSCacheAPC", "File-based cache", "Redis/Memcached (optional)"],
+      "key_files": [
+        "lib/core/lhcore/lhsys.php",
+        "lib/core/lhconfig/lhcacheconfig.php",
+        "cache/"
+      ],
+      "constraints": [
+        "Cache accessed via CSCacheAPC::getMem() singleton",
+        "Cache versioning: increaseCacheVersion() invalidates related caches",
+        "Template compilation cached in cache/compiledtemplates/",
+        "Model-level cache clearing in clearCache() method"
+      ]
+    },
+    "events": {
+      "description": "Event-driven architecture for extensibility and webhooks",
+      "patterns": ["Observer pattern", "Event dispatcher", "Webhook integration"],
+      "technologies": ["erLhcoreClassChatEventDispatcher", "Custom webhook workers"],
+      "key_files": [
+        "lib/core/lhchat/lhchateventdispatcher.php",
+        "lib/core/lhchat/lhchatwebhook*.php",
+        "modules/lhwebhooks/"
+      ],
+      "constraints": [
+        "Dispatcher singleton: erLhcoreClassChatEventDispatcher::getInstance()",
+        "Listen: $dispatcher->listen('event.name', 'ClassName::method')",
+        "Dispatch: $dispatcher->dispatch('event.name', $params)",
+        "STOP_WORKFLOW constant stops event propagation",
+        "Global listeners set automatically for mobile notifications"
+      ]
+    },
+    "api": {
+      "description": "REST API layer for external integrations and widget communication",
+      "patterns": ["RESTful endpoints", "JSON responses", "Basic/API key authentication"],
+      "technologies": ["Slim Framework 4.14 (partial)", "Custom REST handler", "Swagger/OpenAPI"],
+      "key_files": [
+        "modules/lhrestapi/",
+        "modules/lhwidgetrestapi/",
+        "lib/core/lhrestapi/lhrestapivalidator.php"
+      ],
+      "constraints": [
+        "Headers set via erLhcoreClassRestAPIHandler::setHeaders()",
+        "Output via erLhcoreClassRestAPIHandler::outputResponse()",
+        "CORS enabled for widget cross-origin requests",
+        "API documentation at /restapi/swagger"
+      ]
+    },
+    "bot": {
+      "description": "Generic bot framework for automated chat responses and workflows",
+      "patterns": ["Trigger-based responses", "Workflow state machine", "REST API integrations"],
+      "technologies": ["PHP bot engine", "React bot builder UI"],
+      "key_files": [
+        "lib/models/lhgenericbot/",
+        "lib/core/lhgenericbot/",
+        "modules/lhgenericbot/",
+        "design/defaulttheme/js/react/src/"
+      ],
+      "constraints": [
+        "Bots have triggers with pattern matching",
+        "Actions include: text response, REST API call, transfer, collect data",
+        "Bot state stored in lh_generic_bot_chat_workflow table",
+        "Translation groups for multilingual bots"
+      ]
+    },
+    "messaging": {
+      "description": "Real-time messaging system for chat communication",
+      "patterns": ["Polling-based sync", "Message queue", "Channel integrations"],
+      "technologies": ["PHP backend", "JavaScript polling", "WebSocket (node servers)"],
+      "key_files": [
+        "lib/models/lhchat/erlhcoreclassmodelmsg.php",
+        "lib/core/lhchat/lhchat.php",
+        "modules/lhchat/",
+        "doc/node_servers/"
+      ],
+      "constraints": [
+        "Messages stored in lh_msg table with chat_id foreign key",
+        "Sync interval configurable: chat_message_sinterval",
+        "Meta messages (meta_msg) store rich content JSON",
+        "External channels: Telegram, Facebook, incoming webhooks"
+      ]
+    },
+    "mail": {
+      "description": "Email conversation management and mailbox integration",
+      "patterns": ["IMAP sync", "Conversation threading", "Template system"],
+      "technologies": ["PHP IMAP", "Microsoft OAuth", "SMTP"],
+      "key_files": [
+        "lib/models/lhmailconv/",
+        "modules/lhmailconv/",
+        "modules/lhmailconvoauth/"
+      ],
+      "constraints": [
+        "Mailboxes configured with IMAP credentials",
+        "Messages threaded by In-Reply-To and References headers",
+        "Response templates with placeholder variables",
+        "OAuth support for Microsoft 365"
+      ]
+    },
+    "config": {
+      "description": "Configuration management with INI-style settings and database overrides",
+      "patterns": ["Cascading configuration", "Environment-based settings", "Database config"],
+      "technologies": ["PHP arrays", "INI parsing", "Database storage"],
+      "key_files": [
+        "settings/settings.ini.php",
+        "settings/settings.ini.default.php",
+        "lib/core/lhconfig/",
+        "lib/models/lhchat/erlhcoreclassmodelchatconfig.php"
+      ],
+      "constraints": [
+        "Config accessed via erConfigClassLhConfig::getInstance()->getSetting('section', 'key')",
+        "settings.ini.php overrides settings.ini.default.php",
+        "Database config in lh_chat_config table with identifier key",
+        "Extension configs in extension/extname/settings/"
+      ]
+    },
+    "extensions": {
+      "description": "Extension system for modular functionality additions",
+      "patterns": ["Module override", "Template override", "Event hooks"],
+      "technologies": ["PHP", "Custom autoloading"],
+      "key_files": [
+        "extension/",
+        "lib/autoloads/lhautoload.php"
+      ],
+      "constraints": [
+        "Extensions enabled in settings.ini.php: 'extensions' => ['extname']",
+        "Extension structure mirrors main app: modules/, design/theme/tpl/",
+        "Controller override: extension/extname/modules/lhmodule/view.php",
+        "Template override: extension/extname/design/extnametheme/tpl/"
+      ]
+    }
+  },
+  "cross_cutting_concerns": {
+    "error_handling": {
+      "description": "Centralized exception handling and logging",
+      "key_files": ["lib/core/lhcore/lhmodule.php", "lib/core/lhcore/lhlog.php"],
+      "patterns": ["set_exception_handler", "set_error_handler", "erLhcoreClassLog::write()"]
+    },
+    "translations": {
+      "description": "Multi-language support with PHP array translation files",
+      "key_files": ["translations/", "lib/core/lhtranslation/"],
+      "patterns": ["erTranslationClassLhTranslation::getInstance()->getTranslation()"]
+    },
+    "validation": {
+      "description": "Input validation for forms and API requests",
+      "key_files": ["lib/core/lh*/lh*validator.php"],
+      "patterns": ["erLhcoreClassUserValidator::validateUser()"]
+    },
+    "file_storage": {
+      "description": "File upload and storage management",
+      "key_files": ["lib/core/lhfile/", "var/storage/"],
+      "patterns": ["erLhcoreClassFileUpload::moveUploadedFile()"]
+    }
+  },
+  "architectural_constraints": [
+    "No namespaces in legacy PHP code - all classes use erLhcoreClass prefix",
+    "Singleton pattern extensively used for service classes",
+    "Template variables set via $tpl->set('varname', $value)",
+    "URL generation via erLhcoreClassDesign::baseurl('module/view')",
+    "Module files return $Result array with 'content', 'pagelayout', 'path' keys",
+    "Database transactions not explicitly managed - each operation auto-commits",
+    "JavaScript build outputs to design/defaulttheme/js/compiled/",
+    "CSS processed with node-sass/gulp"
+  ],
+  "naming_conventions": {
+    "php_classes": {
+      "models": "erLhcoreClassModel{Entity} - e.g., erLhcoreClassModelChat",
+      "services": "erLhcoreClass{Service} - e.g., erLhcoreClassChat",
+      "validators": "erLhcoreClass{Entity}Validator - e.g., erLhcoreClassUserValidator",
+      "abstracts": "erLhAbstractModel{Entity} - e.g., erLhAbstractModelWidget"
+    },
+    "tables": {
+      "main": "lh_{entity} - e.g., lh_chat, lh_msg, lh_users",
+      "mail": "lhc_mailconv_{entity} - e.g., lhc_mailconv_conversation",
+      "abstract": "lh_abstract_{entity} - e.g., lh_abstract_survey"
+    },
+    "modules": "lh{modulename} - e.g., lhchat, lhuser, lhgenericbot",
+    "javascript": {
+      "react_components": "PascalCase - e.g., ChatWidget, MessageList",
+      "svelte_components": "PascalCase.svelte - e.g., LHC.svelte, LHCChat.svelte",
+      "stores": "camelCase - e.g., lhcList, chatWidgetReducer"
+    }
+  },
+  "data_flow": {
+    "visitor_chat": [
+      "1. Widget loads via JavaScript embed code",
+      "2. Widget calls /widgetrestapi/checkinvitation for proactive status",
+      "3. User submits start form → POST /widgetrestapi/submitonline",
+      "4. Chat created → erLhcoreClassModelChat::saveThis()",
+      "5. Event dispatched: chat.chat_started",
+      "6. Polling begins: /widgetrestapi/fetchmessages",
+      "7. Operator accepts: /restapi/addmsgadmin with accept action",
+      "8. Messages exchanged via polling/REST"
+    ],
+    "operator_dashboard": [
+      "1. Operator logs in → session created",
+      "2. Dashboard Svelte app loads",
+      "3. Polling: /chat/syncadmininterface returns chat lists",
+      "4. Chat opened → React/Angular chat component renders",
+      "5. Messages fetched: /chat/loadpreviousmessages",
+      "6. Operator sends message → /restapi/addmsgadmin",
+      "7. Event dispatched: chat.web_add_msg_admin"
+    ]
+  }
+}

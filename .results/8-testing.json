@@ -1,0 +1,156 @@
+{
+  "testing_overview": {
+    "description": "Live Helper Chat does not appear to have a formal automated test suite. Testing is primarily manual and integration-based.",
+    "recommended_approach": "When contributing or extending, consider implementing tests in the patterns described below."
+  },
+  "manual_testing": {
+    "widget_testing": {
+      "steps": [
+        "Load widget on test page with ?debug=1 parameter",
+        "Check browser console for JavaScript errors",
+        "Test start chat flow (online and offline modes)",
+        "Test message sending and receiving",
+        "Test proactive invitations",
+        "Test file uploads"
+      ],
+      "environments": [
+        "Desktop Chrome/Firefox/Safari/Edge",
+        "Mobile iOS Safari",
+        "Mobile Android Chrome"
+      ]
+    },
+    "admin_testing": {
+      "steps": [
+        "Login with different role permissions",
+        "Test chat acceptance workflow",
+        "Test message sending with attachments",
+        "Test chat transfer between operators",
+        "Test department switching",
+        "Verify dashboard sync updates"
+      ]
+    },
+    "bot_testing": {
+      "steps": [
+        "Test pattern matching with various inputs",
+        "Verify trigger action execution",
+        "Test REST API calls with mock endpoints",
+        "Verify variable substitution",
+        "Test transfer to human operator"
+      ]
+    }
+  },
+  "debugging_techniques": {
+    "php_debugging": {
+      "error_logging": {
+        "enable": "Set 'debug_output' => true in settings.ini.php",
+        "log_location": "PHP error log or var/log/ depending on config",
+        "custom_logging": "erLhcoreClassLog::write('Debug message')"
+      },
+      "database_queries": {
+        "method": "Enable query logging in eZ Components",
+        "alternative": "Use database profiler tools"
+      }
+    },
+    "javascript_debugging": {
+      "widget": {
+        "debug_mode": "Add ?debug=1 to widget URL",
+        "console_logging": "Built-in console.log statements in development",
+        "network_tab": "Monitor XHR requests to widgetrestapi"
+      },
+      "dashboard": {
+        "svelte_devtools": "Use Svelte DevTools browser extension",
+        "react_devtools": "For bot builder React app"
+      }
+    },
+    "event_debugging": {
+      "technique": "Add logging listener to debug events",
+      "example": "$dispatcher->listen('*', function($event, $params) {\n    erLhcoreClassLog::write('Event: ' . $event);\n});"
+    }
+  },
+  "recommended_test_patterns": {
+    "unit_tests": {
+      "framework": "PHPUnit (recommended)",
+      "structure": {
+        "location": "tests/unit/",
+        "naming": "*Test.php",
+        "example": "tests/unit/Models/ChatTest.php"
+      },
+      "example": "<?php\nuse PHPUnit\\Framework\\TestCase;\n\nclass ChatModelTest extends TestCase\n{\n    public function testChatCreation()\n    {\n        $chat = new erLhcoreClassModelChat();\n        $chat->nick = 'Test Visitor';\n        $chat->email = 'test@example.com';\n        \n        $this->assertEquals('Test Visitor', $chat->nick);\n        $this->assertEquals('test@example.com', $chat->email);\n    }\n    \n    public function testChatStatus()\n    {\n        $chat = new erLhcoreClassModelChat();\n        $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;\n        \n        $this->assertEquals(0, $chat->status);\n        $this->assertTrue($chat->isPending());\n    }\n}"
+    },
+    "integration_tests": {
+      "framework": "PHPUnit with database",
+      "considerations": [
+        "Use separate test database",
+        "Setup/teardown test data",
+        "Test full request lifecycle"
+      ],
+      "example": "<?php\nclass ChatControllerTest extends TestCase\n{\n    protected function setUp(): void\n    {\n        // Initialize test database\n        $this->initTestDatabase();\n    }\n    \n    protected function tearDown(): void\n    {\n        // Cleanup test data\n        $this->cleanupTestData();\n    }\n    \n    public function testStartChat()\n    {\n        $response = $this->post('/widgetrestapi/startchat', [\n            'nick' => 'Test User',\n            'dep_id' => 1,\n            'msg' => 'Hello'\n        ]);\n        \n        $this->assertArrayHasKey('chat_id', $response);\n        $this->assertNotEmpty($response['hash']);\n    }\n}"
+    },
+    "api_tests": {
+      "framework": "PHPUnit or Postman/Newman",
+      "test_areas": [
+        "Authentication validation",
+        "CRUD operations",
+        "Error responses",
+        "Rate limiting"
+      ],
+      "postman_collection": {
+        "description": "Consider creating Postman collection for API testing",
+        "endpoints": [
+          "POST /restapi/authenticate",
+          "GET /restapi/chats",
+          "GET /restapi/chat/{id}",
+          "POST /restapi/addmsgadmin"
+        ]
+      }
+    }
+  },
+  "quality_checks": {
+    "static_analysis": {
+      "tools": ["PHPStan", "Psalm"],
+      "config_example": "phpstan.neon configuration for level 5+ analysis"
+    },
+    "code_style": {
+      "standard": "PSR-12 (recommended)",
+      "tools": ["PHP_CodeSniffer", "PHP-CS-Fixer"]
+    },
+    "security_scanning": {
+      "tools": ["SonarQube", "Snyk"],
+      "focus_areas": [
+        "SQL injection prevention",
+        "XSS prevention",
+        "CSRF token validation",
+        "Input sanitization"
+      ]
+    }
+  },
+  "ci_cd_recommendations": {
+    "github_actions": {
+      "example_workflow": ".github/workflows/test.yml",
+      "steps": [
+        "PHP syntax check",
+        "Composer install",
+        "PHPUnit tests",
+        "Static analysis",
+        "Code style check"
+      ]
+    },
+    "pre_commit_hooks": {
+      "tools": ["husky", "lint-staged"],
+      "checks": [
+        "PHP syntax validation",
+        "JavaScript linting",
+        "Commit message format"
+      ]
+    }
+  },
+  "test_data_fixtures": {
+    "recommendation": "Create fixtures for common test scenarios",
+    "examples": {
+      "departments": "At least one active department",
+      "users": "Admin user, operator user, read-only user",
+      "chats": "Pending, active, and closed chats",
+      "bots": "Basic bot with triggers for testing"
+    }
+  }
+}

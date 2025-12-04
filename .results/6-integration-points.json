@@ -1,0 +1,192 @@
+{
+  "integrations": {
+    "external_apis": {
+      "bot_rest_api": {
+        "description": "Generic bot can call external REST APIs",
+        "configuration": {
+          "model": "erLhcoreClassModelGenericBotRestApi",
+          "table": "lh_generic_bot_rest_api"
+        },
+        "features": [
+          "GET/POST/PUT/DELETE methods",
+          "Custom headers",
+          "Variable substitution in URL/body",
+          "Response caching",
+          "Success/failure triggers"
+        ],
+        "example_use": "Fetch order status from e-commerce API based on visitor input"
+      },
+      "translation_services": {
+        "description": "Real-time message translation",
+        "providers": ["Google Translate", "DeepL", "Bing Translator"],
+        "configuration_file": "settings/settings.ini.php",
+        "features": [
+          "Automatic language detection",
+          "Bidirectional translation",
+          "Bot message translation"
+        ]
+      },
+      "speech_recognition": {
+        "description": "Voice to text conversion",
+        "providers": ["Google Speech API"],
+        "module": "lhspeech"
+      }
+    },
+    "authentication_providers": {
+      "oauth_microsoft": {
+        "description": "Microsoft OAuth for mail integration",
+        "model": "erLhcoreClassModelMailconvOauthMS",
+        "table": "lhc_mailconv_oauth_ms",
+        "use_case": "Microsoft 365 email inbox integration"
+      },
+      "ldap": {
+        "description": "LDAP authentication for operators",
+        "configuration": "settings/settings.ini.php (ldap section)"
+      },
+      "custom_auth": {
+        "description": "Custom authentication via event hooks",
+        "event": "user.before_login"
+      }
+    },
+    "messaging_channels": {
+      "incoming_webhooks": {
+        "description": "Generic webhook receiver for external channels",
+        "model": "erLhcoreClassModelIncomingWebhook",
+        "table": "lh_incoming_webhook",
+        "features": [
+          "Custom identifier per channel",
+          "Payload parsing configuration",
+          "Department routing",
+          "Bot assignment"
+        ],
+        "common_integrations": ["Facebook Messenger", "WhatsApp", "Telegram", "SMS gateways"]
+      },
+      "email_imap": {
+        "description": "Email to conversation via IMAP",
+        "model": "erLhcoreClassModelMailconvMailbox",
+        "table": "lhc_mailconv_mailbox",
+        "features": [
+          "Multiple mailbox support",
+          "Auto-sync intervals",
+          "Match rules for routing",
+          "SMTP for replies"
+        ]
+      }
+    },
+    "notifications": {
+      "push_notifications": {
+        "description": "Browser and mobile push notifications",
+        "visitor_model": "erLhcoreClassModelNotificationSubscriber",
+        "operator_model": "erLhcoreClassModelNotificationOpSubscriber",
+        "features": [
+          "Web Push API (VAPID)",
+          "Firebase Cloud Messaging",
+          "Custom notification content"
+        ]
+      },
+      "email_notifications": {
+        "description": "Email alerts for operators",
+        "template_model": "erLhAbstractModelEmailTemplate",
+        "events": [
+          "New chat assigned",
+          "Chat transferred",
+          "Unread messages"
+        ]
+      },
+      "xmpp": {
+        "description": "XMPP/Jabber notifications",
+        "configuration": "Department settings",
+        "features": [
+          "Per-department recipients",
+          "Group chat notifications"
+        ]
+      }
+    },
+    "file_storage": {
+      "local": {
+        "description": "Local filesystem storage",
+        "path": "var/storage/",
+        "configuration": "settings/settings.ini.php"
+      },
+      "s3_compatible": {
+        "description": "Amazon S3 or compatible storage",
+        "configuration": "settings/settings.ini.php (s3 section)",
+        "features": [
+          "File upload/download",
+          "CDN support",
+          "Presigned URLs"
+        ]
+      }
+    }
+  },
+  "internal_modules": {
+    "chat_to_mail": {
+      "from": "lhchat",
+      "to": "lhmailconv",
+      "mechanism": "Conversation transfer",
+      "use_case": "Convert chat to email ticket"
+    },
+    "chat_to_survey": {
+      "from": "lhchat",
+      "to": "lhsurvey",
+      "mechanism": "Auto-responder or manual trigger",
+      "use_case": "Post-chat satisfaction survey"
+    },
+    "bot_to_transfer": {
+      "from": "lhgenericbot",
+      "to": "lhchat (transfer)",
+      "mechanism": "Bot action",
+      "use_case": "Escalate from bot to human operator"
+    },
+    "proactive_to_chat": {
+      "from": "Proactive invitation",
+      "to": "lhchat",
+      "mechanism": "Visitor accepts invitation",
+      "use_case": "Convert proactive trigger to chat"
+    }
+  },
+  "event_integrations": {
+    "chat_lifecycle": {
+      "chat.chat_started": [
+        "Mobile push notifications",
+        "Email notifications",
+        "CRM webhook",
+        "Analytics tracking"
+      ],
+      "chat.chat_closed": [
+        "Survey trigger",
+        "Ticket creation",
+        "Analytics tracking"
+      ],
+      "chat.addmsguser": [
+        "Bot processing",
+        "Operator notifications",
+        "Translation service"
+      ]
+    },
+    "extension_points": {
+      "restapi.swagger": "Extend API documentation",
+      "user.before_login": "Custom authentication",
+      "chat.before_msg_admin_saved": "Message preprocessing"
+    }
+  },
+  "database_connections": {
+    "primary": {
+      "handler": "ezcDbInstance::get()",
+      "configuration": "settings/settings.ini.php (db section)",
+      "features": [
+        "Connection pooling",
+        "Read replicas (optional)"
+      ]
+    },
+    "session_handler": {
+      "model_specific": true,
+      "example": "erLhcoreClassChat::getSession()"
+    }
+  },
+  "cache_backends": {
+    "supported": ["APCu", "Memcached", "Redis", "File"],
+    "configuration": "settings/settings.ini.php (cacheEngine section)",
+    "usage": "CSCacheAPC::getMem()"
+  }
+}

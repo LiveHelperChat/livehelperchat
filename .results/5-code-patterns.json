@@ -1,0 +1,181 @@
+{
+  "patterns": {
+    "singleton": {
+      "description": "Single instance management for service classes",
+      "use_cases": ["User authentication", "Cache access", "Event dispatcher", "Database sessions"],
+      "example": {
+        "file": "lib/core/lhuser/lhuser.php",
+        "code": "class erLhcoreClassUser {\n    static function instance() {\n        if (empty($GLOBALS['LhUserInstance'])) {\n            $GLOBALS['LhUserInstance'] = new erLhcoreClassUser();\n        }\n        return $GLOBALS['LhUserInstance'];\n    }\n}"
+      },
+      "related_files": [
+        "lib/core/lhcore/lhsys.php (CSCacheAPC::getMem())",
+        "lib/core/lhchat/lhchateventdispatcher.php",
+        "lib/core/lhconfig/lhconfig.php"
+      ]
+    },
+    "active_record": {
+      "description": "Database models with built-in CRUD operations via trait",
+      "use_cases": ["All database entities", "Data persistence"],
+      "example": {
+        "file": "lib/models/lhchat/erlhcoreclassmodelchat.php",
+        "code": "class erLhcoreClassModelChat {\n    use erLhcoreClassDBTrait;\n    \n    public static $dbTable = 'lh_chat';\n    public static $dbTableId = 'id';\n    public static $dbSessionHandler = 'erLhcoreClassChat::getSession';\n    \n    public function getState() {\n        return array(\n            'id' => $this->id,\n            'nick' => $this->nick,\n            // ...\n        );\n    }\n}"
+      },
+      "related_files": [
+        "lib/core/lhcore/lhdbtrait.php",
+        "pos/**/*.php"
+      ]
+    },
+    "template_rendering": {
+      "description": "PHP template instantiation and variable binding",
+      "use_cases": ["Controller output", "Email templates", "Widget rendering"],
+      "example": {
+        "file": "modules/lhchat/single.php",
+        "code": "$tpl = erLhcoreClassTemplate::getInstance('lhchat/single.tpl.php');\n$tpl->set('chat', $chat);\n$tpl->set('messages', $messages);\n\n$Result['content'] = $tpl->fetch();\n$Result['pagelayout'] = 'pagelayouts/parts/main.php';"
+      },
+      "related_files": [
+        "lib/core/lhtpl/tpl.php",
+        "design/defaulttheme/tpl/**/*.tpl.php"
+      ]
+    },
+    "event_dispatch": {
+      "description": "Event-driven communication for extensibility",
+      "use_cases": ["Webhooks", "Extension integration", "Mobile notifications", "Logging"],
+      "example": {
+        "file": "lib/core/lhchat/lhchat.php",
+        "code": "// Dispatch event with reference parameters\nerLhcoreClassChatEventDispatcher::getInstance()->dispatch(\n    'chat.chat_started',\n    array('chat' => &$chat, 'msg' => &$msg)\n);\n\n// Listen for event\n$dispatcher->listen('chat.chat_started', 'MyClass::handler');"
+      },
+      "related_files": [
+        "lib/core/lhchat/lhchateventdispatcher.php",
+        "extension/*/bootstrap.php"
+      ]
+    },
+    "rest_api_handler": {
+      "description": "REST API endpoint pattern with authentication and JSON response",
+      "use_cases": ["External integrations", "Widget API", "Mobile app API"],
+      "example": {
+        "file": "modules/lhrestapi/chats.php",
+        "code": "erLhcoreClassRestAPIHandler::setHeaders();\n\n$userData = erLhcoreClassRestAPIHandler::validateRequest();\nif ($userData === false) {\n    echo erLhcoreClassRestAPIHandler::outputResponse(array(\n        'error' => true,\n        'message' => 'Unauthorized'\n    ));\n    exit;\n}\n\n$chats = erLhcoreClassModelChat::getList($filter);\necho erLhcoreClassRestAPIHandler::outputResponse(array(\n    'error' => false,\n    'chats' => $chats\n));"
+      },
+      "related_files": [
+        "lib/core/lhrestapi/lhrestapivalidator.php",
+        "modules/lhrestapi/*.php",
+        "modules/lhwidgetrestapi/*.php"
+      ]
+    },
+    "permission_check": {
+      "description": "Role-based access control validation",
+      "use_cases": ["Admin controllers", "API endpoints", "Feature access"],
+      "example": {
+        "file": "modules/lhchat/adminchat.php",
+        "code": "$currentUser = erLhcoreClassUser::instance();\n\n// Simple permission check\nif (!$currentUser->hasAccessTo('lhchat', 'use')) {\n    erLhcoreClassModule::redirect('user/login');\n    exit;\n}\n\n// Permission with limitation return\n$limitation = $currentUser->hasAccessTo('lhchat', array('allowcloseremote'), true);\nif ($limitation === false) {\n    // Check if user owns the chat\n    if ($chat->user_id != $currentUser->getUserID()) {\n        throw new Exception('No permission');\n    }\n}"
+      },
+      "related_files": [
+        "lib/core/lhuser/lhuser.php",
+        "modules/lh*/module.php (FunctionList)"
+      ]
+    },
+    "query_builder": {
+      "description": "Fluent query building for model lists",
+      "use_cases": ["Data listing", "Filtering", "Pagination"],
+      "example": {
+        "file": "Various controllers",
+        "code": "$chats = erLhcoreClassModelChat::getList(array(\n    'filter' => array('status' => 1),\n    'filterin' => array('dep_id' => array(1, 2, 3)),\n    'filtergt' => array('time' => $startTime),\n    'filterlike' => array('nick' => $searchTerm),\n    'customfilter' => array('(user_id = 5 OR transfer_uid = 5)'),\n    'sort' => 'priority DESC, time ASC',\n    'limit' => 50,\n    'offset' => 0\n));"
+      },
+      "related_files": [
+        "lib/core/lhcore/lhdbtrait.php"
+      ]
+    },
+    "cache_pattern": {
+      "description": "Cache-aside pattern for expensive operations",
+      "use_cases": ["Database queries", "API responses", "Configuration"],
+      "example": {
+        "file": "Various files",
+        "code": "$cache = CSCacheAPC::getMem();\n$cacheKey = 'my_data_' . $id;\n\n$data = $cache->restore($cacheKey);\nif ($data === false) {\n    $data = $this->loadExpensiveData($id);\n    $cache->store($cacheKey, $data, 300); // 5 min TTL\n}\n\nreturn $data;"
+      },
+      "related_files": [
+        "lib/core/lhcore/lhsys.php"
+      ]
+    },
+    "lifecycle_hooks": {
+      "description": "Model lifecycle callbacks for side effects",
+      "use_cases": ["Audit logging", "Cache invalidation", "Event dispatch"],
+      "example": {
+        "file": "lib/models/lhchat/erlhcoreclassmodelchat.php",
+        "code": "public function beforeSave($params = array())\n{\n    if (!$this->id) {\n        $this->time = time();\n        $this->hash = sha1(microtime() . rand());\n    }\n}\n\npublic function afterSave($params = array())\n{\n    erLhcoreClassChatEventDispatcher::getInstance()->dispatch(\n        'chat.chat_saved',\n        array('chat' => &$this)\n    );\n}\n\npublic function beforeRemove()\n{\n    // Clean up related messages\n    $db = ezcDbInstance::get();\n    $stmt = $db->prepare('DELETE FROM lh_msg WHERE chat_id = :id');\n    $stmt->execute(array(':id' => $this->id));\n}"
+      },
+      "related_files": [
+        "lib/core/lhcore/lhdbtrait.php"
+      ]
+    },
+    "redirect_pattern": {
+      "description": "HTTP redirect with optional flash messages",
+      "use_cases": ["Form submission", "Authentication", "Action completion"],
+      "example": {
+        "file": "modules/lhuser/account.php",
+        "code": "// Simple redirect\nerLhcoreClassModule::redirect('chat/list');\nexit;\n\n// Redirect with message parameter\nerLhcoreClassModule::redirect('user/account/(msg)/saved');\nexit;\n\n// Redirect with tab\nerLhcoreClassModule::redirect('user/account/(tab)/notifications');\nexit;"
+      },
+      "related_files": [
+        "lib/core/lhcore/lhmodule.php"
+      ]
+    },
+    "department_filter": {
+      "description": "Apply department-based access restrictions to queries",
+      "use_cases": ["Chat lists", "Statistics", "Reports"],
+      "example": {
+        "file": "modules/lhchat/list.php",
+        "code": "$currentUser = erLhcoreClassUser::instance();\n$departments = erLhcoreClassUserDep::getUserReadDepartments($currentUser->getUserID());\n\n$filter = array('limit' => 50);\n\n// Apply department limitation\n$limitation = erLhcoreClassChat::getDepartmentLimitation('lh_chat', $departments);\nif ($limitation !== false && $limitation !== true) {\n    $filter['customfilter'][] = $limitation;\n}\n\n$chats = erLhcoreClassModelChat::getList($filter);"
+      },
+      "related_files": [
+        "lib/core/lhchat/lhchat.php",
+        "lib/core/lhuser/lhuserdep.php"
+      ]
+    },
+    "url_generation": {
+      "description": "Generate internal URLs using design helpers",
+      "use_cases": ["Navigation links", "Form actions", "Redirects"],
+      "example": {
+        "file": "Templates and controllers",
+        "code": "// Base URL (relative)\n$url = erLhcoreClassDesign::baseurl('chat/single') . '/' . $chatId;\n// Output: /site_admin/chat/single/123\n\n// Full URL (absolute with host)\n$url = erLhcoreClassDesign::baseurldirect('chat/single/' . $chatId);\n// Output: https://example.com/site_admin/chat/single/123\n\n// With unordered parameters\n$url = erLhcoreClassDesign::baseurl('user/account') . '/(tab)/settings';"
+      },
+      "related_files": [
+        "lib/core/lhcore/lhdesign.php"
+      ]
+    }
+  },
+  "anti_patterns": {
+    "direct_globals": {
+      "description": "Direct global variable access instead of proper dependency injection",
+      "why_avoid": "Makes testing difficult, hides dependencies",
+      "alternative": "Use singleton pattern or constructor injection"
+    },
+    "raw_sql_in_controllers": {
+      "description": "Writing raw SQL queries directly in controller files",
+      "why_avoid": "SQL injection risk, hard to maintain",
+      "alternative": "Use model getList() with proper filtering"
+    },
+    "echo_in_controllers": {
+      "description": "Using echo directly in controllers instead of templates",
+      "why_avoid": "Breaks separation of concerns",
+      "alternative": "Set template variables, return $Result['content']"
+    }
+  },
+  "naming_conventions": {
+    "classes": {
+      "models": "erLhcoreClassModel{Entity}",
+      "services": "erLhcoreClass{Service}",
+      "extensions": "erLhcoreClassExt{ExtName}",
+      "abstracts": "erLhAbstractModel{Entity}"
+    },
+    "methods": {
+      "getters": "get{Property}()",
+      "setters": "set{Property}()",
+      "finders": "findOne(), fetch(), getList()",
+      "actions": "saveThis(), updateThis(), removeThis()"
+    },
+    "database": {
+      "tables": "lh_{entity}",
+      "extension_tables": "lh_ext_{ext}_{entity}",
+      "foreign_keys": "{entity}_id"
+    }
+  }
+}

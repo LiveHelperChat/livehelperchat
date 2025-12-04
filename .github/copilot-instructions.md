@@ -291,3 +291,531 @@ Create a template file with an identical path to `defaulttheme` folder.
 ### Back office related small JS apps (Canned messages suggester, Mail support, Dashboard chat tabs, Group Chats)
 
 * `lhc_web/design/defaulttheme/js/admin` - Back office chat application. Written with React
+
+# Technology Stack
+
+## Backend
+- **PHP 8.2+** - Primary backend language
+- **Custom MVC Framework** - Built on eZ Components
+- **Slim Framework 4.14** - REST API endpoints
+- **MySQL/MariaDB** - Primary database
+- **Elasticsearch 7.x** - Advanced search (optional)
+
+## Frontend
+- **React 18** - Widget, bot builder, admin components
+- **Svelte 4** - Operator dashboard
+- **Redux** - State management with redux-thunk, redux-promise-middleware
+- **AngularJS** - Legacy admin (being phased out)
+
+## Build Tools
+- **Webpack 5** - JavaScript bundling for React
+- **Rollup** - Svelte bundling
+- **Gulp 5** - Task automation
+- **Babel** - JavaScript transpilation
+
+# Core Patterns
+
+## Model Pattern (Active Record via Trait)
+
+```php
+class erLhcoreClassModelChat {
+    use erLhcoreClassDBTrait;
+    
+    public static $dbTable = 'lh_chat';
+    public static $dbTableId = 'id';
+    public static $dbSessionHandler = 'erLhcoreClassChat::getSession';
+    
+    public $id;
+    public $nick;
+    public $status;
+    // ... other properties
+    
+    public function getState() {
+        return array(
+            'id' => $this->id,
+            'nick' => $this->nick,
+            'status' => $this->status,
+            // ... map all properties
+        );
+    }
+}
+```
+
+## Controller Pattern
+
+```php
+// modules/lhchat/single.php
+$currentUser = erLhcoreClassUser::instance();
+
+// Permission check
+if (!$currentUser->hasAccessTo('lhchat', 'use')) {
+    erLhcoreClassModule::redirect('user/login');
+    exit;
+}
+
+// Fetch data
+$chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
+
+// Template rendering
+$tpl = erLhcoreClassTemplate::getInstance('lhchat/single.tpl.php');
+$tpl->set('chat', $chat);
+
+$Result['content'] = $tpl->fetch();
+$Result['pagelayout'] = 'pagelayouts/parts/main.php';
+```
+
+## Event Dispatch Pattern
+
+```php
+// Dispatch events for extensibility
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch(
+    'chat.chat_started',
+    array('chat' => &$chat, 'msg' => &$msg)
+);
+
+// Listen for events (in extension bootstrap.php)
+$dispatcher = erLhcoreClassChatEventDispatcher::getInstance();
+$dispatcher->listen('chat.chat_started', function($params) {
+    $chat = $params['chat'];
+    // Custom logic here
+});
+```
+
+## Cache Pattern
+
+```php
+$cache = CSCacheAPC::getMem();
+$cacheKey = 'my_data_' . $id;
+
+$data = $cache->restore($cacheKey);
+if ($data === false) {
+    $data = $this->loadExpensiveData($id);
+    $cache->store($cacheKey, $data, 300); // 5 min TTL
+}
+```
+
+## Permission Check Pattern
+
+```php
+$currentUser = erLhcoreClassUser::instance();
+
+// Simple check
+if (!$currentUser->hasAccessTo('lhchat', 'allowcloseremote')) {
+    throw new Exception('No permission');
+}
+
+// Check with limitation return
+$limitation = $currentUser->hasAccessTo('lhchat', array('allowcloseremote'), true);
+if ($limitation === false) {
+    // Check if user owns the resource
+    if ($chat->user_id != $currentUser->getUserID()) {
+        throw new Exception('No permission');
+    }
+}
+```
+
+## REST API Pattern
+
+```php
+// modules/lhrestapi/chats.php
+erLhcoreClassRestAPIHandler::setHeaders();
+
+$userData = erLhcoreClassRestAPIHandler::validateRequest();
+if ($userData === false) {
+    echo erLhcoreClassRestAPIHandler::outputResponse(array(
+        'error' => true,
+        'message' => 'Unauthorized'
+    ));
+    exit;
+}
+
+$chats = erLhcoreClassModelChat::getList($filter);
+echo erLhcoreClassRestAPIHandler::outputResponse(array(
+    'error' => false,
+    'chats' => $chats
+));
+```
+
+# Primary Entities
+
+## Chat (`lh_chat`)
+- Core conversation entity
+- Status: 0=Pending, 1=Active, 2=Closed, 3=Chatbox, 4=Operators, 5=Bot
+- Key fields: id, nick, status, user_id, dep_id, time, hash
+
+## Message (`lh_msg`)
+- Individual messages within chat
+- Key fields: id, msg, time, chat_id, user_id, meta_msg
+
+## User (`lh_users`)
+- Operator/admin accounts
+- Key fields: id, username, email, name, disabled, all_departments
+
+## Department (`lh_departament`)
+- Chat routing units
+- Key fields: id, name, disabled, hidden, priority, online_hours_active
+
+## Bot (`lh_generic_bot_bot`)
+- Chatbot configurations
+- Key fields: id, name, nick, configuration
+
+## Bot Trigger (`lh_generic_bot_trigger`)
+- Bot response actions
+- Key fields: id, name, actions, bot_id, default
+
+## Mail Conversation (`lhc_mailconv_conversation`)
+- Email ticket conversations
+- Key fields: id, subject, status, user_id, dep_id, mailbox_id
+
+# User ID Conventions
+- `-1` = System/Visitor message
+- `-2` = Bot message
+- `>0` = Operator user ID
+
+# Naming Conventions
+
+## Classes
+- Models: `erLhcoreClassModel{Entity}`
+- Services: `erLhcoreClass{Service}`
+- Extensions: `erLhcoreClassExt{ExtName}`
+- Abstracts: `erLhAbstractModel{Entity}`
+
+## Methods
+- Getters: `get{Property}()`
+- Finders: `findOne()`, `fetch()`, `getList()`
+- Actions: `saveThis()`, `updateThis()`, `removeThis()`
+
+## Database
+- Tables: `lh_{entity}`
+- Extension tables: `lh_ext_{ext}_{entity}`
+- Foreign keys: `{entity}_id`
+
+# URL Generation
+
+```php
+// Relative URL
+$url = erLhcoreClassDesign::baseurl('chat/single') . '/' . $chatId;
+// Output: /site_admin/chat/single/123
+
+// Absolute URL
+$url = erLhcoreClassDesign::baseurldirect('chat/single/' . $chatId);
+// Output: https://example.com/site_admin/chat/single/123
+
+// With unordered params
+$url = erLhcoreClassDesign::baseurl('user/account') . '/(tab)/settings';
+```
+
+# Common Event Names
+
+- `chat.chat_started` - New chat started
+- `chat.chat_closed` - Chat closed
+- `chat.addmsguser` - Visitor sent message
+- `chat.web_add_msg_admin` - Operator sent message
+- `chat.before_chat_started` - Before chat creation
+- `user.before_login` - Before user login
+- `chat.genericbot_chat_command_transfer` - Bot transfer triggered
+
+# Adding New Features Workflow
+
+1. **Define Model** in `lib/models/` with `erLhcoreClassDBTrait`
+2. **Create POS Definition** in `pos/` for ORM field types
+3. **Add Controller** in `modules/lh{module}/`
+4. **Create Templates** in `design/defaulttheme/tpl/`
+5. **Define Permissions** in `module.php` FunctionList
+6. **Dispatch Events** for extensibility
+
+# Adding REST API Endpoint
+
+1. Add handler in `modules/lhrestapi/`
+2. Define in `modules/lhrestapi/module.php` ViewList
+3. Validate with `erLhcoreClassRestAPIHandler`
+4. Return JSON via `outputResponse()`
+
+# Creating Extensions
+
+## Extension Directory Structure
+
+```
+extension/myext/
+├── bootstrap/
+│   └── bootstrap.php         # Main bootstrap class with event listeners
+├── classes/
+│   └── erlhcoreclassmodel*.php  # Model classes
+├── design/
+│   └── myexttheme/
+│       └── tpl/              # Template overrides
+├── doc/
+│   └── structure.json        # Database schema definition
+├── modules/
+│   └── lhmyext/
+│       ├── module.php        # Route and permission definitions
+│       └── *.php             # Controller files
+├── pos/
+│   └── lhmyext/              # POS (Persistent Object) definitions
+├── providers/                # Namespaced service classes
+├── settings/
+│   └── settings.ini.default.php  # Configuration with defaults
+└── translations/             # Language files
+```
+
+## Bootstrap Class Pattern
+
+```php
+<?php
+// extension/myext/bootstrap/bootstrap.php
+#[\AllowDynamicProperties]
+class erLhcoreClassExtensionMyext
+{
+    public function __construct() {}
+
+    public function run()
+    {
+        $dispatcher = erLhcoreClassChatEventDispatcher::getInstance();
+
+        // Register event listeners
+        $dispatcher->listen('chat.chat_started', array($this, 'onChatStarted'));
+        $dispatcher->listen('chat.addmsguser', array($this, 'onMessageReceived'));
+        $dispatcher->listen('chat.web_add_msg_admin', array($this, 'onOperatorMessage'));
+        
+        // Include extension autoload or register classes
+        include_once __DIR__ . '/../classes/autoload.php';
+    }
+
+    public function onChatStarted($params)
+    {
+        $chat = $params['chat'];
+        // Extension logic here
+    }
+
+    public static function getSession($url = false)
+    {
+        // Custom session handler for extension models
+        if (!isset($GLOBALS['ext_myext_persistent_session'])) {
+            $GLOBALS['ext_myext_persistent_session'] = new ezcPersistentSession(
+                ezcDbInstance::get(),
+                new ezcPersistentCodeManager('./extension/myext/pos')
+            );
+        }
+        return $GLOBALS['ext_myext_persistent_session'];
+    }
+}
+```
+
+## Extension Model with Custom Session Handler
+
+```php
+<?php
+// extension/myext/classes/erlhcoreclassmodelmydata.php
+class erLhcoreClassModelMyextData
+{
+    use erLhcoreClassDBTrait;
+
+    public static $dbTable = 'lhc_myext_data';
+    public static $dbTableId = 'id';
+    public static $dbSessionHandler = 'erLhcoreClassExtensionMyext::getSession';
+    public static $dbSortOrder = 'DESC';
+
+    public $id;
+    public $chat_id;
+    public $external_id;
+    public $data;
+    public $ctime;
+
+    public function getState()
+    {
+        return array(
+            'id' => $this->id,
+            'chat_id' => $this->chat_id,
+            'external_id' => $this->external_id,
+            'data' => $this->data,
+            'ctime' => $this->ctime
+        );
+    }
+}
+```
+
+## Extension Module Definition
+
+```php
+<?php
+// extension/myext/modules/lhmyext/module.php
+$Module = array('name' => 'My Extension Module');
+
+$ViewList = array();
+
+$ViewList['index'] = array(
+    'params' => array(),                    // Required ordered params from URL
+    'uparams' => array('tab'),              // Optional unordered params /(tab)/value
+    'functions' => array('use_admin')       // Required permissions
+);
+
+$ViewList['edit'] = array(
+    'params' => array('id'),                // /myext/edit/123
+    'uparams' => array(),
+    'functions' => array('use_admin')
+);
+
+$ViewList['api'] = array(
+    'params' => array('action'),
+    'uparams' => array(),
+    'functions' => array()                  // Empty = no permission check
+);
+
+// Permission definitions
+$FunctionList = array();
+$FunctionList['use_admin'] = array('explain' => 'Access extension admin');
+$FunctionList['manage_settings'] = array('explain' => 'Manage extension settings');
+```
+
+## Extension Settings with Environment Variables
+
+```php
+<?php
+// extension/myext/settings/settings.ini.default.php
+return array(
+    'myext' => array(
+        'enabled' => true,
+        'api_key' => getenv('MYEXT_API_KEY') ?: '',
+        'api_secret' => getenv('MYEXT_API_SECRET') ?: '',
+        'webhook_url' => getenv('MYEXT_WEBHOOK_URL') ?: '',
+        'debug_mode' => getenv('MYEXT_DEBUG') ?: false,
+    )
+);
+```
+
+## Database Schema Definition
+
+```json
+// extension/myext/doc/structure.json
+{
+    "lhc_myext_data": {
+        "id": "bigint(20) NOT NULL AUTO_INCREMENT",
+        "chat_id": "bigint(20) NOT NULL",
+        "external_id": "varchar(100) NOT NULL",
+        "data": "longtext NOT NULL",
+        "ctime": "int(11) NOT NULL"
+    },
+    "lhc_myext_data_index": {
+        "PRIMARY": ["id"],
+        "chat_id": ["chat_id"],
+        "external_id": ["external_id"]
+    }
+}
+```
+
+## Providers Namespace for Complex Services
+
+```php
+<?php
+// extension/myext/providers/MyService.php
+namespace LiveHelperChatExtension\myext\providers;
+
+class MyService
+{
+    private $config;
+
+    public function __construct($config)
+    {
+        $this->config = $config;
+    }
+
+    public function processWebhook($payload)
+    {
+        // Service logic
+    }
+
+    public static function getInstance()
+    {
+        static $instance = null;
+        if ($instance === null) {
+            $settings = include 'extension/myext/settings/settings.ini.php';
+            $instance = new self($settings['myext']);
+        }
+        return $instance;
+    }
+}
+```
+
+## Enabling Extensions
+
+```php
+// lhc_web/settings/settings.ini.php
+'extensions' => array('myext', 'anotherext'),
+```
+
+# Important Service Classes
+
+- `erLhcoreClassUser` - Authentication, permissions (singleton)
+- `erLhcoreClassChat` - Chat operations, session handling
+- `erLhcoreClassChatEventDispatcher` - Event system (singleton)
+- `erLhcoreClassGenericBotWorkflow` - Bot execution
+- `erLhcoreClassRestAPIHandler` - API authentication/responses
+- `CSCacheAPC` - Cache operations
+- `erLhcoreClassDesign` - URL generation, asset paths
+- `erLhcoreClassTemplate` - Template rendering
+- `erLhcoreClassModule` - Module routing, redirects
+
+# Department Access Control
+
+```php
+// Get user's accessible departments
+$departments = erLhcoreClassUserDep::getUserReadDepartments($currentUser->getUserID());
+
+// Apply department limitation to queries
+$limitation = erLhcoreClassChat::getDepartmentLimitation('lh_chat', $departments);
+if ($limitation !== false && $limitation !== true) {
+    $filter['customfilter'][] = $limitation;
+}
+```
+
+# Bot Workflow
+
+Bot triggers are processed via:
+1. `erLhcoreClassGenericBotWorkflow::process($chat, $trigger)`
+2. Actions array in trigger defines responses
+3. Events processed: `Update current chat`, `Send message`, `Collect info`, etc.
+4. Transfer to human: `chat.genericbot_chat_command_transfer` event
+
+# Mail Conversation Integration
+
+- Model: `erLhcoreClassModelMailconvConversation`
+- Messages: `erLhcoreClassModelMailconvMsg`
+- Mailbox config: `erLhcoreClassModelMailconvMailbox`
+- Sync via IMAP cron jobs
+
+# React Widget State (Redux)
+
+```javascript
+// Store structure
+{
+    chatwidget: {
+        chatData: {},        // Chat configuration
+        chatLiveData: {},    // Real-time chat state
+        onlineData: {}       // Online visitor tracking
+    }
+}
+
+// Common actions
+store.dispatch({type: 'chat/addMessage', data: message});
+store.dispatch({type: 'chatLiveData/setStatus', data: status});
+```
+
+# Svelte Dashboard
+
+```javascript
+// Store pattern
+import { writable, derived } from 'svelte/store';
+
+export const chats = writable([]);
+export const activeChat = derived(chats, $chats => 
+    $chats.find(c => c.selected)
+);
+```
+
+# Security Considerations
+
+- Use `erLhcoreClassUser::instance()->hasAccessTo()` for permissions
+- Always validate API requests with `erLhcoreClassRestAPIHandler::validateRequest()`
+- Escape output in templates with `htmlspecialchars()` or `<?php echo erLhcoreClassDesign::shrt($var,100,'',true,true); ?>`
+- Use parameterized queries via `getList()` filters
+- Never expose internal IDs without hash validation

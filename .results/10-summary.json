@@ -1,0 +1,167 @@
+{
+  "project": {
+    "name": "Live Helper Chat",
+    "repository": "https://github.com/LiveHelperChat/livehelperchat",
+    "language": "PHP 7.4+",
+    "database": "MySQL/MariaDB",
+    "type": "Customer Support/Live Chat Platform"
+  },
+  "architecture_summary": {
+    "pattern": "Custom MVC Framework",
+    "key_components": [
+      "eZ Components (Database abstraction, Persistence)",
+      "Custom template engine",
+      "Event-driven extensibility",
+      "Active Record models via trait"
+    ],
+    "frontend_stack": {
+      "widget": "React (visitor-facing chat widget)",
+      "dashboard": "Svelte (operator dashboard)",
+      "bot_builder": "React (visual bot configuration)"
+    }
+  },
+  "key_directories": {
+    "lhc_web/lib/models": "Database models (Active Record pattern)",
+    "lhc_web/lib/core": "Core service classes and business logic",
+    "lhc_web/modules": "Controllers organized by feature module",
+    "lhc_web/design/defaulttheme/tpl": "PHP templates",
+    "lhc_web/pos": "Persistent object definitions (ORM mapping)",
+    "lhc_web/extension": "Plugin/extension directory",
+    "lhc_web/settings": "Configuration files"
+  },
+  "primary_entities": {
+    "chat": {
+      "model": "erLhcoreClassModelChat",
+      "table": "lh_chat",
+      "description": "Core chat conversation entity",
+      "key_relationships": ["user", "department", "messages", "online_user", "bot"]
+    },
+    "user": {
+      "model": "erLhcoreClassModelUser",
+      "table": "lh_users",
+      "description": "Operator/admin accounts"
+    },
+    "department": {
+      "model": "erLhcoreClassModelDepartament",
+      "table": "lh_departament",
+      "description": "Chat routing departments"
+    },
+    "message": {
+      "model": "erLhcoreClassModelmsg",
+      "table": "lh_msg",
+      "description": "Individual chat messages"
+    },
+    "bot": {
+      "model": "erLhcoreClassModelGenericBotBot",
+      "table": "lh_generic_bot_bot",
+      "description": "Chatbot configurations"
+    },
+    "mail_conversation": {
+      "model": "erLhcoreClassModelMailconvConversation",
+      "table": "lhc_mailconv_conversation",
+      "description": "Email ticket conversations"
+    }
+  },
+  "common_patterns": {
+    "model_fetch": "erLhcoreClassModelChat::fetch($id)",
+    "model_list": "erLhcoreClassModelChat::getList(['filter' => [...]])",
+    "model_save": "$model->saveThis()",
+    "permission_check": "$currentUser->hasAccessTo('module', 'function')",
+    "template_render": "$tpl = erLhcoreClassTemplate::getInstance('path.tpl.php')",
+    "event_dispatch": "erLhcoreClassChatEventDispatcher::getInstance()->dispatch('event.name', [...])",
+    "cache_access": "CSCacheAPC::getMem()->store/restore()"
+  },
+  "extension_points": {
+    "events": [
+      "chat.chat_started",
+      "chat.chat_closed",
+      "chat.addmsguser",
+      "chat.web_add_msg_admin",
+      "user.before_login"
+    ],
+    "overrides": [
+      "Controller files in extension/*/modules/",
+      "Templates in extension/*/design/*/tpl/"
+    ],
+    "webhooks": [
+      "Configured via admin panel",
+      "Bot trigger execution or HTTP POST"
+    ]
+  },
+  "security_model": {
+    "authentication": "Session-based with password_hash/verify",
+    "authorization": "RBAC (Groups → Roles → Functions → Limitations)",
+    "department_access": "Per-user department assignments",
+    "api_auth": "Basic Auth with API keys"
+  },
+  "integration_capabilities": {
+    "inbound": [
+      "IMAP email integration",
+      "Generic incoming webhooks",
+      "REST API for external systems"
+    ],
+    "outbound": [
+      "Bot REST API actions",
+      "Webhook events",
+      "Push notifications",
+      "Email notifications (SMTP)"
+    ]
+  },
+  "development_workflow": {
+    "add_feature_steps": [
+      "1. Define model in lib/models/ with erLhcoreClassDBTrait",
+      "2. Create POS definition in pos/",
+      "3. Add controller in modules/lh{module}/",
+      "4. Create templates in design/defaulttheme/tpl/",
+      "5. Define permissions in module.php",
+      "6. Dispatch events for extensibility"
+    ],
+    "add_api_endpoint_steps": [
+      "1. Add handler in modules/lhrestapi/",
+      "2. Define in module.php ViewList",
+      "3. Validate with erLhcoreClassRestAPIHandler",
+      "4. Return JSON via outputResponse()"
+    ],
+    "add_extension_steps": [
+      "1. Create extension/myext/ directory",
+      "2. Add bootstrap.php for event listeners",
+      "3. Override controllers/templates as needed",
+      "4. Enable in settings.ini.php extensions array"
+    ]
+  },
+  "documentation_files": {
+    "architecture": ".results/1-architecture.md",
+    "entities": ".results/2-entities.json",
+    "modules": ".results/3-modules.json",
+    "domains": ".results/4-domains/*.md",
+    "patterns": ".results/5-code-patterns.json",
+    "integrations": ".results/6-integration-points.json",
+    "data_flows": ".results/7-data-flows.md",
+    "testing": ".results/8-testing.json",
+    "security": ".results/9-security.md"
+  },
+  "quick_reference": {
+    "url_pattern": "/site_admin/{module}/{view}/{params}",
+    "template_path": "design/{theme}/tpl/{module}/{view}.tpl.php",
+    "model_naming": "erLhcoreClassModel{Entity}",
+    "service_naming": "erLhcoreClass{Service}",
+    "table_prefix": "lh_",
+    "user_id_constants": {
+      "-1": "System/visitor",
+      "-2": "Bot",
+      ">0": "Operator ID"
+    },
+    "chat_statuses": {
+      "0": "Pending",
+      "1": "Active",
+      "2": "Closed",
+      "3": "Chatbox",
+      "4": "Operators chat",
+      "5": "Bot chat"
+    }
+  },
+  "analysis_complete": true,
+  "analysis_date": "2024-12-04",
+  "total_files_analyzed": 150,
+  "lines_of_code_estimated": "200,000+"
+}
