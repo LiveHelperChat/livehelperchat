@@ -6,26 +6,38 @@
 # DO NOT repeat surrounding code, only generate the lines nessarary to directly insert into users code.
 # Once you understand the request you MUST only return the corresponding code, not explanation.
 
+# REFERENCE DOCUMENTATION
+# For comprehensive architecture, patterns, and domain knowledge, refer to:
+# `.github/instructions/` folder which contains:
+# - 1-techstack.md - Technology stack and framework analysis
+# - 2-file-categories.md - Complete file categorization and model inventory
+# - 3-architectural-domains.json - Domain boundaries and constraints
+# - 5-code-patterns.json - Design patterns used throughout codebase
+# - 6-integration-points.json - Integration points and APIs
+# - 4-domains/*.md - Detailed domain guides (api, auth, bot, caching, config, data-layer, departments, events, extensions, routing, ui, users)
+# - 10-summary.json - Quick reference project summary
+
 # Application folders structure
 
 * `lhc_web/cache` - Stores cached files
-* `lhc_web/design` - Contains design categories
-* `lhc_web/doc` - Release documentation
-* `lhc_web/extension` - All extensions are placed here
-* `lhc_web/ezcomponents` - eZ Components core components
+* `lhc_web/design` - Contains design categories, templates, and frontend apps
+* `lhc_web/doc` - Release documentation and database schema (update_db/structure.json)
+* `lhc_web/extension` - All extensions/plugins are placed here
+* `lhc_web/ezcomponents` - eZ Components core components (database, persistence, URL handling)
 * `lhc_web/lib` - Core of the application
-* `lhc_web/autoloads` - application statically defined autoloads. Should not be used anymore to define new classes.
+  * `lib/core` - Service classes and business logic
+  * `lib/models` - Database model classes using erLhcoreClassDBTrait
+  * `lib/vendor_lhc` - Dynamically loaded models and classes
 * `lhc_web/lhcore_autoload.php` - Main application autoload file
-* `lhc_web/core` - Folder containing application logic modules
-* `lhc_web/models` - Folder containing application model classes
-* `lhc_web/modules` - Application modules are placed here
-* `lhc_web/pos` - Represents eZ Components POS, persistent object tables definitions
-* `lhc_web/settings` - Contains application settings files
-* `lhc_web/translations ` - Contains application translations
+* `lhc_web/modules` - Application modules organized by feature (lhchat, lhuser, lhdepartment, etc.)
+* `lhc_web/pos` - Persistent Object definitions (ORM field type mappings)
+* `lhc_web/settings` - Configuration files
+* `lhc_web/translations` - Application translations
 
-# Database structure you can find in
+# Database structure reference
 
-lhc_web/doc/update_db/structure.json
+See: `lhc_web/doc/update_db/structure.json` for complete database schema
+See: `.github/instructions/10-summary.json` for primary entities overview
 
 # MVC Pattern workflow
 
@@ -296,7 +308,7 @@ Create a template file with an identical path to `defaulttheme` folder.
 
 ## Backend
 - **PHP 8.2+** - Primary backend language
-- **Custom MVC Framework** - Built on eZ Components
+- **Custom MVC Framework** - Built on eZ Components (see `.github/instructions/1-techstack.md`)
 - **Slim Framework 4.14** - REST API endpoints
 - **MySQL/MariaDB** - Primary database
 - **Elasticsearch 7.x** - Advanced search (optional)
@@ -313,9 +325,26 @@ Create a template file with an identical path to `defaulttheme` folder.
 - **Gulp 5** - Task automation
 - **Babel** - JavaScript transpilation
 
+For complete technology stack analysis, see: `.github/instructions/1-techstack.md`
+
 # Core Patterns
 
 ## Model Pattern (Active Record via Trait)
+
+See detailed examples and patterns in: `.github/instructions/5-code-patterns.json`
+
+### Key Patterns Overview:
+- **Singleton** - Service instance management (User, Cache, Dispatcher, Config)
+- **Active Record** - Database models with built-in CRUD via `erLhcoreClassDBTrait`
+- **Template Rendering** - PHP-based template instantiation with variable binding
+- **Event Dispatch** - Event-driven architecture for extensibility
+- **REST API Handler** - Authentication and JSON response handling
+- **Permission Check** - Role-based access control validation
+- **Query Builder** - Fluent database query construction
+- **Cache Pattern** - Cache-aside pattern for expensive operations
+- **Lifecycle Hooks** - Model lifecycle callbacks (beforeSave, afterSave, etc.)
+
+Example Model Pattern:
 
 ```php
 class erLhcoreClassModelChat {
@@ -342,6 +371,8 @@ class erLhcoreClassModelChat {
 ```
 
 ## Controller Pattern
+
+See detailed domain guides: `.github/instructions/4-domains/`
 
 ```php
 // modules/lhchat/single.php
@@ -416,6 +447,8 @@ if ($limitation === false) {
 
 ## REST API Pattern
 
+See: `.github/instructions/4-domains/api.md` for comprehensive API documentation
+
 ```php
 // modules/lhrestapi/chats.php
 erLhcoreClassRestAPIHandler::setHeaders();
@@ -437,6 +470,8 @@ echo erLhcoreClassRestAPIHandler::outputResponse(array(
 ```
 
 # Primary Entities
+
+See: `.github/instructions/10-summary.json` for complete entity overview with relationships
 
 ## Chat (`lh_chat`)
 - Core conversation entity
@@ -524,6 +559,8 @@ $url = erLhcoreClassDesign::baseurl('user/account') . '/(tab)/settings';
 5. **Define Permissions** in `module.php` FunctionList
 6. **Dispatch Events** for extensibility
 
+See: `.github/instructions/4-domains/` for detailed guidance on each domain
+
 # Adding REST API Endpoint
 
 1. Add handler in `modules/lhrestapi/`
@@ -558,190 +595,7 @@ extension/myext/
 └── translations/             # Language files
 ```
 
-## Bootstrap Class Pattern
-
-```php
-<?php
-// extension/myext/bootstrap/bootstrap.php
-#[\AllowDynamicProperties]
-class erLhcoreClassExtensionMyext
-{
-    public function __construct() {}
-
-    public function run()
-    {
-        $dispatcher = erLhcoreClassChatEventDispatcher::getInstance();
-
-        // Register event listeners
-        $dispatcher->listen('chat.chat_started', array($this, 'onChatStarted'));
-        $dispatcher->listen('chat.addmsguser', array($this, 'onMessageReceived'));
-        $dispatcher->listen('chat.web_add_msg_admin', array($this, 'onOperatorMessage'));
-        
-        // Include extension autoload or register classes
-        include_once __DIR__ . '/../classes/autoload.php';
-    }
-
-    public function onChatStarted($params)
-    {
-        $chat = $params['chat'];
-        // Extension logic here
-    }
-
-    public static function getSession($url = false)
-    {
-        // Custom session handler for extension models
-        if (!isset($GLOBALS['ext_myext_persistent_session'])) {
-            $GLOBALS['ext_myext_persistent_session'] = new ezcPersistentSession(
-                ezcDbInstance::get(),
-                new ezcPersistentCodeManager('./extension/myext/pos')
-            );
-        }
-        return $GLOBALS['ext_myext_persistent_session'];
-    }
-}
-```
-
-## Extension Model with Custom Session Handler
-
-```php
-<?php
-// extension/myext/classes/erlhcoreclassmodelmydata.php
-class erLhcoreClassModelMyextData
-{
-    use erLhcoreClassDBTrait;
-
-    public static $dbTable = 'lhc_myext_data';
-    public static $dbTableId = 'id';
-    public static $dbSessionHandler = 'erLhcoreClassExtensionMyext::getSession';
-    public static $dbSortOrder = 'DESC';
-
-    public $id;
-    public $chat_id;
-    public $external_id;
-    public $data;
-    public $ctime;
-
-    public function getState()
-    {
-        return array(
-            'id' => $this->id,
-            'chat_id' => $this->chat_id,
-            'external_id' => $this->external_id,
-            'data' => $this->data,
-            'ctime' => $this->ctime
-        );
-    }
-}
-```
-
-## Extension Module Definition
-
-```php
-<?php
-// extension/myext/modules/lhmyext/module.php
-$Module = array('name' => 'My Extension Module');
-
-$ViewList = array();
-
-$ViewList['index'] = array(
-    'params' => array(),                    // Required ordered params from URL
-    'uparams' => array('tab'),              // Optional unordered params /(tab)/value
-    'functions' => array('use_admin')       // Required permissions
-);
-
-$ViewList['edit'] = array(
-    'params' => array('id'),                // /myext/edit/123
-    'uparams' => array(),
-    'functions' => array('use_admin')
-);
-
-$ViewList['api'] = array(
-    'params' => array('action'),
-    'uparams' => array(),
-    'functions' => array()                  // Empty = no permission check
-);
-
-// Permission definitions
-$FunctionList = array();
-$FunctionList['use_admin'] = array('explain' => 'Access extension admin');
-$FunctionList['manage_settings'] = array('explain' => 'Manage extension settings');
-```
-
-## Extension Settings with Environment Variables
-
-```php
-<?php
-// extension/myext/settings/settings.ini.default.php
-return array(
-    'myext' => array(
-        'enabled' => true,
-        'api_key' => getenv('MYEXT_API_KEY') ?: '',
-        'api_secret' => getenv('MYEXT_API_SECRET') ?: '',
-        'webhook_url' => getenv('MYEXT_WEBHOOK_URL') ?: '',
-        'debug_mode' => getenv('MYEXT_DEBUG') ?: false,
-    )
-);
-```
-
-## Database Schema Definition
-
-```json
-// extension/myext/doc/structure.json
-{
-    "lhc_myext_data": {
-        "id": "bigint(20) NOT NULL AUTO_INCREMENT",
-        "chat_id": "bigint(20) NOT NULL",
-        "external_id": "varchar(100) NOT NULL",
-        "data": "longtext NOT NULL",
-        "ctime": "int(11) NOT NULL"
-    },
-    "lhc_myext_data_index": {
-        "PRIMARY": ["id"],
-        "chat_id": ["chat_id"],
-        "external_id": ["external_id"]
-    }
-}
-```
-
-## Providers Namespace for Complex Services
-
-```php
-<?php
-// extension/myext/providers/MyService.php
-namespace LiveHelperChatExtension\myext\providers;
-
-class MyService
-{
-    private $config;
-
-    public function __construct($config)
-    {
-        $this->config = $config;
-    }
-
-    public function processWebhook($payload)
-    {
-        // Service logic
-    }
-
-    public static function getInstance()
-    {
-        static $instance = null;
-        if ($instance === null) {
-            $settings = include 'extension/myext/settings/settings.ini.php';
-            $instance = new self($settings['myext']);
-        }
-        return $instance;
-    }
-}
-```
-
-## Enabling Extensions
-
-```php
-// lhc_web/settings/settings.ini.php
-'extensions' => array('myext', 'anotherext'),
-```
+See: `.github/instructions/4-domains/extensions.md` for comprehensive extension development guide
 
 # Important Service Classes
 
@@ -754,6 +608,8 @@ class MyService
 - `erLhcoreClassDesign` - URL generation, asset paths
 - `erLhcoreClassTemplate` - Template rendering
 - `erLhcoreClassModule` - Module routing, redirects
+
+For domain-specific service classes, see: `.github/instructions/4-domains/`
 
 # Department Access Control
 
@@ -768,6 +624,8 @@ if ($limitation !== false && $limitation !== true) {
 }
 ```
 
+For detailed department structure, see: `.github/instructions/4-domains/departments.md`
+
 # Bot Workflow
 
 Bot triggers are processed via:
@@ -776,12 +634,16 @@ Bot triggers are processed via:
 3. Events processed: `Update current chat`, `Send message`, `Collect info`, etc.
 4. Transfer to human: `chat.genericbot_chat_command_transfer` event
 
+For comprehensive bot development, see: `.github/instructions/4-domains/bot.md`
+
 # Mail Conversation Integration
 
 - Model: `erLhcoreClassModelMailconvConversation`
 - Messages: `erLhcoreClassModelMailconvMsg`
 - Mailbox config: `erLhcoreClassModelMailconvMailbox`
 - Sync via IMAP cron jobs
+
+For comprehensive mail integration details, see: `.github/instructions/4-domains/data-layer.md`
 
 # React Widget State (Redux)
 
@@ -799,6 +661,8 @@ Bot triggers are processed via:
 store.dispatch({type: 'chat/addMessage', data: message});
 store.dispatch({type: 'chatLiveData/setStatus', data: status});
 ```
+
+See: `.github/instructions/4-domains/ui.md` for detailed UI architecture
 
 # Svelte Dashboard
 
@@ -819,3 +683,5 @@ export const activeChat = derived(chats, $chats =>
 - Escape output in templates with `htmlspecialchars()` or `<?php echo erLhcoreClassDesign::shrt($var,100,'',true,true); ?>`
 - Use parameterized queries via `getList()` filters
 - Never expose internal IDs without hash validation
+
+For comprehensive security guidance, see: `.github/instructions/9-security.md`
