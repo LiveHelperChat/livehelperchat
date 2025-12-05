@@ -210,7 +210,7 @@ class erLhcoreClassMailconvParser {
                 // We can survive this
                 try {
 
-                    $statsImport[] = 'START getting mailbox info - ' . date('Y-m-d H:i:s');
+                    $statsImport[] = 'START getting mailbox info - ' . date('Y-m-d H:i:s') . ' | timeouts: open=' . imap_timeout(IMAP_OPENTIMEOUT) . ', read=' . imap_timeout(IMAP_READTIMEOUT) . ', write=' . imap_timeout(IMAP_WRITETIMEOUT) . ', close=' . imap_timeout(IMAP_CLOSETIMEOUT);
 
                     if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
                         $statusMailbox = json_decode(json_encode($mailboxFolderOAuth->getStatus()),false);
@@ -979,7 +979,7 @@ class erLhcoreClassMailconvParser {
             }
         } catch (Exception $e) {
 
-            $statsImport[] = date('Y-m-d H:i:s').' | ' . $e->getMessage() . ' - ' . $e->getTraceAsString() . ' - ' . $e->getFile() . ' - ' . $e->getLine();
+            $statsImport[] = date('Y-m-d H:i:s').' | ' . ($vars['message_id'] ?? 'NO_message_id') . ' - ' . (isset($mailInfo) && isset($mailInfo->uid) ? $mailInfo->uid : 'NO_uid') . ' - ' . $e->getMessage() . ' - ' . $e->getTraceAsString() . ' - ' . $e->getFile() . ' - ' . $e->getLine();
 
             try {
                 $db->reconnect();
