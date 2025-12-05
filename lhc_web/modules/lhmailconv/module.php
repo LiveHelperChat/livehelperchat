@@ -328,6 +328,12 @@ $ViewList['responsetemplates'] = array(
     )
 );
 
+$ViewList['pendingimport'] = array(
+    'params' => array(),
+    'uparams' => array('mailbox_id','uid','status'),
+    'functions' => array( 'mailbox_manage' )
+);
+
 $ViewList['subject'] = array(
     'params' => array('id'),
     'uparams' => array('subject','status'),

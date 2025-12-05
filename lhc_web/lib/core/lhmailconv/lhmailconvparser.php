@@ -548,6 +548,9 @@ class erLhcoreClassMailconvParser {
                             }
                         }
 
+                        // Insert pending import record to track processing
+                        $pendingImport = self::createPendingImport($mailbox->id, $mailInfo->uid);
+
                         if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
 
                             if ($mailInfoRaw->hasHTMLBody()) {
@@ -571,6 +574,9 @@ class erLhcoreClassMailconvParser {
                                 $message->alt_body = erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain);
                             }
                         }
+
+                        // Remove pending import record after successful processing
+                        self::removePendingImport($pendingImport);
 
                         $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus(preg_replace('/([\w-]+:\r\n)/i','',$head->{$attributeToUse}));
 
@@ -837,6 +843,7 @@ class erLhcoreClassMailconvParser {
 
                         \LiveHelperChat\mailConv\workers\LangWorker::detectLanguage($message);
 
+
                     // It's an reply
                     } else {
 
@@ -973,13 +980,21 @@ class erLhcoreClassMailconvParser {
 
                         \LiveHelperChat\mailConv\workers\LangWorker::detectLanguage($message);
 
+                        // Remove pending import record after successful processing
+                        self::removePendingImport($pendingImport);
+
                         $statsImport[] = date('Y-m-d H:i:s').' | Importing reply - ' . $vars['message_id'] . ' - ' .  $mailInfo->uid . ' at ' . date('Y-m-d H:i:s',(int)$vars['udate']);
                    }
                 }
             }
         } catch (Exception $e) {
 
-            $statsImport[] = date('Y-m-d H:i:s').' | ' . $e->getMessage() . ' - ' . $e->getTraceAsString() . ' - ' . $e->getFile() . ' - ' . $e->getLine();
+            $statsImport[] = date('Y-m-d H:i:s').' | ' . ($vars['message_id'] ?? 'NO_message_id') . ' - ' . (isset($mailInfo) ? $mailInfo?->uid : 'NO_uid') . ' - ' . $e->getMessage() . ' - ' . $e->getTraceAsString() . ' - ' . $e->getFile() . ' - ' . $e->getLine();
+
+            // Mark pending import as failed if it exists
+            if (isset($pendingImport) && $pendingImport instanceof \LiveHelperChat\Models\mailConv\PendingImport) {
+                self::updatePendingImportStatus($pendingImport, \LiveHelperChat\Models\mailConv\PendingImport::FAILED, $e->getMessage());
+            }
 
             try {
                 $db->reconnect();
@@ -1952,6 +1967,88 @@ class erLhcoreClassMailconvParser {
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * Create a pending import record to indicate email is being processed
+     * Uses INSERT ... ON DUPLICATE KEY UPDATE for atomic operation
+     * 
+     * @param int $mailboxId - Mailbox ID
+     * @param int $uid - Email UID
+     * @return \LiveHelperChat\Models\mailConv\PendingImport|null
+     */
+    public static function createPendingImport($mailboxId, $uid)
+    {
+        $db = ezcDbInstance::get();
+        $currentTime = time();
+        $status = \LiveHelperChat\Models\mailConv\PendingImport::WORKING;
+        
+        $stmt = $db->prepare(
+            'INSERT INTO lhc_mailconv_pending_import 
+            (mailbox_id, uid, status, attempt, created_at, updated_at, last_failure) 
+            VALUES (:mailbox_id, :uid, :status, 0, :created_at, :updated_at, \'\')
+            ON DUPLICATE KEY UPDATE 
+                status = VALUES(status),
+                attempt = attempt + 1,
+                updated_at = VALUES(updated_at)'
+        );
+        
+        $stmt->bindValue(':mailbox_id', (int)$mailboxId, PDO::PARAM_INT);
+        $stmt->bindValue(':uid', (int)$uid, PDO::PARAM_INT);
+        $stmt->bindValue(':status', $status, PDO::PARAM_INT);
+        $stmt->bindValue(':created_at', $currentTime, PDO::PARAM_INT);
+        $stmt->bindValue(':updated_at', $currentTime, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        // Fetch and return the record
+        return \LiveHelperChat\Models\mailConv\PendingImport::findOne([
+            'filter' => [
+                'mailbox_id' => $mailboxId,
+                'uid' => $uid
+            ]
+        ]);
+    }
+
+    /**
+     * Update pending import record status
+     * Uses raw SQL UPDATE for better performance
+     * 
+     * @param \LiveHelperChat\Models\mailConv\PendingImport|null $pendingImport
+     * @param int $status
+     * @param string $errorMessage
+     */
+    public static function updatePendingImportStatus($pendingImport, $status, $errorMessage = '')
+    {
+        if ($pendingImport instanceof \LiveHelperChat\Models\mailConv\PendingImport) {
+            $db = ezcDbInstance::get();
+            $currentTime = time();
+            
+            $stmt = $db->prepare(
+                'UPDATE lhc_mailconv_pending_import 
+                SET status = :status, 
+                    updated_at = :updated_at, 
+                    last_failure = :last_failure 
+                WHERE id = :id'
+            );
+            
+            $stmt->bindValue(':id', $pendingImport->id, PDO::PARAM_INT);
+            $stmt->bindValue(':status', $status, PDO::PARAM_INT);
+            $stmt->bindValue(':updated_at', $currentTime, PDO::PARAM_INT);
+            $stmt->bindValue(':last_failure', $errorMessage !== '' ? $errorMessage : '', PDO::PARAM_STR);
+            $stmt->execute();
+        }
+    }
+
+    /**
+     * Remove pending import record after successful processing
+     * 
+     * @param \LiveHelperChat\Models\mailConv\PendingImport $pendingImport
+     */
+    public static function removePendingImport($pendingImport)
+    {
+        if ($pendingImport instanceof \LiveHelperChat\Models\mailConv\PendingImport) {
+            $pendingImport->removeThis();
         }
     }
 }
