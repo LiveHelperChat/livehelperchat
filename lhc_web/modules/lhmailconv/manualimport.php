@@ -45,8 +45,13 @@ if (ezcInputForm::hasPostData() && !(!isset($_POST['csfr_token']) || !erLhcoreCl
     $item->updated_at = time();
 
     // Basic validation
-    if ($item->mailbox_id == 0) $Errors[] = 'Mailbox is required';
-    if ($item->uid == 0) $Errors[] = 'UID is required';
+    if ($item->mailbox_id == 0) {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mailbox is required');
+    }
+
+    if ($item->uid == 0) {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','UID is required');
+    }
 
     if (count($Errors) == 0) {
         try {
