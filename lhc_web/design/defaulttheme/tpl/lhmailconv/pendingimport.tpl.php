@@ -49,3 +49,11 @@
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
     <?php endif;?>
 <?php endif; ?>
+
+
+<div class="alert alert-light">
+    <ul class="mb-0 pb-0">
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Pending items will be processed with');?>&nbsp;<a target="_blank" href="https://doc.livehelperchat.com/docs/mail/sample-mailbox#how-to-test-debug">debug_mailbox</a>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','cron command');?></li>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Items with Ignore status will not be imported during standard flow');?></li>
+    </ul>
+</div>
