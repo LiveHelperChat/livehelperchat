@@ -35,7 +35,7 @@ echo "Write Timeout: " . $writeTimeout . " seconds\n";
 try {
     erLhcoreClassMailconvParser::getRawConnection($mailbox);
     echo '✔️ '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Connection established to IMAP server.');
-    exit;
+    //exit;
 } catch (Exception $e) {
     echo '❌ ' . htmlspecialchars($e->getMessage());
     exit;

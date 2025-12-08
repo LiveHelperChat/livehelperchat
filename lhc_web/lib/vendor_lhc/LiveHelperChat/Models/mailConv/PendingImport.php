@@ -40,8 +40,7 @@ class PendingImport
     }
 
     CONST PENDING = 0;
-    CONST WORKING = 1;
-    CONST FAILED = 2;
+    CONST IGNORE = 1;
 
     public $id = null;
     public $mailbox_id = 0;

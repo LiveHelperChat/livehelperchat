@@ -72,6 +72,12 @@ $ViewList['inlinedownload'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['manualimport'] = array(
+    'params' => array(),
+    'uparams' => array('id', 'action', 'csfr'),
+    'functions' => array('use_admin')
+);
+
 $ViewList['inlinedownloadmodal'] = array(
     'params' => array('id','id_conv'),
     'functions' => array( 'use_admin' )
