@@ -23,7 +23,7 @@ class ChatModal extends PureComponent {
             });
 
             var container = document.getElementById('dialog-content');
-            var bsn = require("bootstrap.native/dist/components/tab-native");
+            var bsn = require("bootstrap.native/tab");
             var tabs = container.querySelectorAll('[data-bs-toggle="tab"]');
 
             if (tabs.length > 0) {

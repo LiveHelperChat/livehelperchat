@@ -12,7 +12,7 @@ class ChatStartOptions extends PureComponent {
         
         // Only initialize dropdown if multiple options are enabled
         if (enabledOptionsCount > 1) {
-            var bsn = require("bootstrap.native/dist/components/dropdown-native");
+            var bsn = require("bootstrap.native/dropdown");
             new bsn(document.getElementById('chat-dropdown-options'));
         }
     }
