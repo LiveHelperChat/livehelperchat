@@ -48,11 +48,13 @@ cd ./design/defaulttheme/js/admin && npm run build
 cd ../../../../
 
 echo "Compiling react-js"
-cd ./design/defaulttheme/widget/react-app && npm run build
+cd ./design/defaulttheme/widget/react-app && docker run --rm -v "$(pwd)":/app -w /app node:22 npm run build
+cp -v dist/*.js ../../js/widgetv2/ && cp -v dist/*.js.map ../../js/widgetv2/
 cd ../../../../
 
 echo "Compiling wrapper"
-cd ./design/defaulttheme/widget/wrapper && npm run build
+cd ./design/defaulttheme/widget/wrapper && docker run --rm -v "$(pwd)":/app -w /app node:22 npm run build
+cp -v dist/*.js ../../js/widgetv2/ && cp -v dist/*.js.map ../../js/widgetv2/
 cd ../../../../
 
 echo "Voice"
