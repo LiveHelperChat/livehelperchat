@@ -1,3 +1,44 @@
+4.76v
+
+1. Mail Conversation System Enhancements
+   - Added pending import functionality for mail import retries with automatic retry mechanism
+   - New `lhc_mailconv_pending_import` table for tracking failed mail imports
+   - Manual import interface for retrying failed email imports
+   - Improved IMAP retry logic for handling temporary failures
+
+2. Message Masking and Security
+   - Added message ghosting for sensitive information protection when guardrails are enabled
+   - Operators without permission to see full messages will not see just-sent messages
+   - Enhanced regex rules with optional name field and optional replacement variable
+   - Additional masking options for PII protection
+   - Improved guardrails validation for sensitive information
+
+3. Widget Theme Configuration
+   - Added `wtop` option for widget position from top spacing control
+   - Enhanced widget positioning options for better layout flexibility
+
+4. Tab Navigation and UX
+   - Improved tab state persistence for chats and mails
+   - Direct API implementation for remembering tab states
+   - Enhanced tab navigation across multiple interfaces
+
+5. Pre-chat Form Conditions
+   - Added conditions support for maintenance mode in pre-chat forms
+   - Enhanced validator logic for conditional maintenance mode display
+
+6. Developer Documentation
+   - Comprehensive copilot instructions reorganization
+   - Added detailed integration points documentation
+   - New data flows, testing strategies, and security model documentation
+   - Domain-specific guides for API, auth, bot, caching, config, data-layer, departments, events, extensions, routing, UI, and users
+
+7. Bug Fixes and Improvements
+   - Improved error handling for robustness and better user experience
+   - Enhanced cache management and clearing functionality
+   - Various sync and performance improvements
+
+execute doc/update_db/update_343.sql for update
+
 4.75v
 
 1. Tab Navigation and UX Improvements
