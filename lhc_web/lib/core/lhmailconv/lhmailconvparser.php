@@ -273,7 +273,30 @@ class erLhcoreClassMailconvParser {
 
                 } else {
                     // We disable server encoding because exchange servers does not support UTF-8 encoding in search.
-                    $mailsIds = $mailboxHandler->searchMailbox($since, true);
+
+                    if (isset($params['debug_sync']) && $params['debug_sync'] === true) {
+                        $pendingJobs = \LiveHelperChat\Models\mailConv\PendingImport::getList(['filterlt' => ['attempt' => 10], 'filter' => ['status' => [\LiveHelperChat\Models\mailConv\PendingImport::PENDING], 'mailbox_id' => $mailbox->id]]);
+                        if (empty($pendingJobs)) {
+                            $mailsIds = $mailboxHandler->searchMailbox($since, true);
+                        } else {
+                            $mailsIds = [];
+                            foreach($pendingJobs as $pendingJob) {
+                                $mailsIds[] = $pendingJob->uid;
+                                $pendingJob->attempt++;
+                                $pendingJob->updateThis(['update' => ['attempt']]);
+                            }
+                        }
+                    } else {
+                        $mailsIds = $mailboxHandler->searchMailbox($since, true);
+                        $ignoreMails = \LiveHelperChat\Models\mailConv\PendingImport::getList(['filter' => ['status' => [\LiveHelperChat\Models\mailConv\PendingImport::IGNORE], 'mailbox_id' => $mailbox->id]]);
+
+                        $mailsIdsIgnore = [];
+                        foreach($ignoreMails as $ignoreMail) {
+                            $mailsIdsIgnore[] = $ignoreMail->uid;
+                        }
+
+                        $mailsIds = array_diff($mailsIds, $mailsIdsIgnore);
+                    }
 
                     $statsImport[] = 'Search finished at '.date('Y-m-d H:i:s') . ' [' . count($mailsIds) .']';
 
