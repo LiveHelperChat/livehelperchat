@@ -30,6 +30,8 @@ const CannedMessages = props => {
                 });
 
             });
+        } else {
+            setCollapsed(false);
         }
     }
 
@@ -215,14 +217,23 @@ const CannedMessages = props => {
             }
         }
 
+        function chatFocused(chatId) {
+            if (props.chatId == chatId) {
+                setCollapsed(true);
+            }
+        }
+
         ee.addListener('sendCannedByMessageId',sendManualMessage)
-        
+        ee.addListener('chatAreaFocused',chatFocused);
+
+
         // Canned component was mounted event
         ee.emitEvent('chatCannedMounted', [props.chatId]);
 
         // Cleanup
         return function cleanup() {
             ee.removeListener('sendCannedByMessageId', sendManualMessage);
+            ee.removeListener('chatAreaFocused', chatFocused);
         };
 
     },[]);

@@ -536,6 +536,10 @@
         html.set(myInput.innerHTML);
     }
 
+    function handleFocus(){
+        ee.emitEvent('chatAreaFocused',[record_id]);
+    }
+
     html.subscribe((value) => {
 
         let presentValue = value.replace(/<suggester.*?>.*?<\/suggester>/g,'');
@@ -591,6 +595,7 @@
      on:keydown={disable}
      on:click={checkCursorPosition}
      on:keyup={checkCursorPosition}
+     on:focus={handleFocus}
      on:focusout={checkCursorPosition}
      bind:innerHTML={$html}
      on:input={contentChanged}

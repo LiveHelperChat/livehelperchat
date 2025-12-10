@@ -2977,6 +2977,10 @@ function lh(){
                 return false;
             });
 
+            $textarea.bind('focus', function (evt) {
+                ee.emitEvent('chatAreaFocused',[chat_id]);
+            });
+
             $textarea.bind('keyup', 'up', function (evt){
                 _that.editPrevious(chat_id);
             });
