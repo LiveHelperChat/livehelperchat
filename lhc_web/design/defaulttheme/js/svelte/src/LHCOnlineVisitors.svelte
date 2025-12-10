@@ -489,13 +489,13 @@
     <div class="p-2">
         <div class="row">
             <div class="col-3 pe-0">
-                <input class="form-control form-control-sm" onkeyup="ee.emitEvent('svelteOnlineUserSetting',['setQuery',this.value])" type="text" value="" placeholder={$t('widget_options.type_to_search')}>
+                <input class="form-control form-control-sm" on:keyup={(e) => ee.emitEvent('svelteOnlineUserSetting',['setQuery',e.currentTarget.value])} type="text" value="" placeholder={$t('widget_options.type_to_search')}>
             </div>
             <div class="col-3 pe-2">
                 <WidgetOptionsPanel lhcList={lhcList} optionsPanel={{padding_filters:0, disable_product:true, hide_department_variations:true, hide_limits:true, panelid:'department_online'}} />
             </div>
             <div class="col-3 pe-0">
-                <select class="form-control form-control-sm" onchange="ee.emitEvent('svelteOnlineUserSetting',['countryFilter',this.value])" id="svelte-countryFilter" title={$t('widget_options.select_country')}>
+                <select class="form-control form-control-sm" on:change={(e) => ee.emitEvent('svelteOnlineUserSetting',['countryFilter',e.currentTarget.value])} id="svelte-countryFilter" title={$t('widget_options.select_country')}>
                     <option value="none" selected="selected">{$t('widget_options.select_country')}</option>
                     <option value="af">Afghanistan</option>
                     <option value="ax">Åland Islands</option>
@@ -749,7 +749,7 @@
                 </select>
             </div>
             <div class="col-3">
-                <input type="text" class="form-control form-control-sm" id="svelte-time_on_siteFilter" onkeyup="ee.emitEvent('svelteOnlineUserSetting',['timeOnSiteFilter',this.value])" title={$t('widget_options.time_on_site')} placeholder={$t('widget_options.time_on_site')} value="" />
+                <input type="text" class="form-control form-control-sm" id="svelte-time_on_siteFilter" on:keyup={(e) => ee.emitEvent('svelteOnlineUserSetting',['timeOnSiteFilter',e.currentTarget.value])} title={$t('widget_options.time_on_site')} placeholder={$t('widget_options.time_on_site')} value="" />
             </div>
         </div>
     </div>
@@ -823,7 +823,7 @@
                 <td>
                     {#if ou.vid}
                         <div class="btn-group" role="group" aria-label="...">
-                            <a href="#" class={"btn btn-xs "+btnSecondaryClass} title={$t('widget.copy_nick')} onclick="lhinst.copyContent($(this))" data-success={$t('widget.copied_nick')} data-copy={ou.nick}><i class="material-icons me-0">content_copy</i></a>
+                            <a href="#" class={"btn btn-xs "+btnSecondaryClass} title={$t('widget.copy_nick')} on:click={(e) => lhinst.copyContent(e.currentTarget)} data-success={$t('widget.copied_nick')} data-copy={ou.nick}><i class="material-icons me-0">content_copy</i></a>
 
                             <a href="#" on:click={(e) => {lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/getonlineuserinfo/'+ou.id})}}  class={"btn btn-xs "+btnSecondaryClass} id="ou-face-{ou.vid}" class:icon-user-away={ou.online_status == 1} class:icon-user-online={!ou.online_status || ou.online_status == 0} ><i class="material-icons">info_outline</i>{#if lhcLogic.hide_action_buttons}{ou.lastactivity_ago} | {/if}{ou.nick}&nbsp;
                                 {#if ou.user_country_code}

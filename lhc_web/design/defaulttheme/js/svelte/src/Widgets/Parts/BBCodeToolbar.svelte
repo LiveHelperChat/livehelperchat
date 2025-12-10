@@ -2,6 +2,8 @@
     import { onMount } from 'svelte';
     import { t } from "../../i18n/i18n.js";
 
+    /* global lhinst, jQuery, ColorPicker, WWW_DIR_JAVASCRIPT, lhc */
+
     export let selector = "";
 
     function hashCode(stringToHash) {
@@ -43,13 +45,13 @@
 
 <div class="btn-toolbar pb-2">
     <div class="btn-group btn-group-sm me-2" role="group">
-        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="s" onclick="lhinst.handleBBCode(jQuery(this))" title={$t("bbcode.strike")}><strike>S</strike></button>
-        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="quote" onclick="lhinst.handleBBCode(jQuery(this))" title={$t("bbcode.quote")}>&quot;</button>
-        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="youtube" onclick="lhinst.handleBBCode(jQuery(this))" title={$t("bbcode.youtube")}><i class="material-icons me-0">ondemand_video</i></button>
-        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="html" onclick="lhinst.handleBBCode(jQuery(this))" title={$t("bbcode.html_code")}><i class="material-icons me-0">code</i></button>
-        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="b" onclick="lhinst.handleBBCode(jQuery(this))" title={$t("bbcode.bold")}><b>B</b></button>
-        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="i" onclick="lhinst.handleBBCode(jQuery(this))" title={$t("bbcode.italic")}><i>I</i></button>
-        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="u" onclick="lhinst.handleBBCode(jQuery(this))" title={$t("bbcode.underline")}><u>U</u></button>
+        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="s" onclick={(e) => lhinst.handleBBCode(jQuery(e.currentTarget))} title={$t("bbcode.strike")}><strike>S</strike></button>
+        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="quote" onclick={(e) => lhinst.handleBBCode(jQuery(e.currentTarget))} title={$t("bbcode.quote")}>&quot;</button>
+        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="youtube" onclick={(e) => lhinst.handleBBCode(jQuery(e.currentTarget))} title={$t("bbcode.youtube")}><i class="material-icons me-0">ondemand_video</i></button>
+        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="html" onclick={(e) => lhinst.handleBBCode(jQuery(e.currentTarget))} title={$t("bbcode.html_code")}><i class="material-icons me-0">code</i></button>
+        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="b" onclick={(e) => lhinst.handleBBCode(jQuery(e.currentTarget))} title={$t("bbcode.bold")}><b>B</b></button>
+        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="i" onclick={(e) => lhinst.handleBBCode(jQuery(e.currentTarget))} title={$t("bbcode.italic")}><i>I</i></button>
+        <button type="button" class="btn btn-outline-secondary" data-selector={selector} data-bbcode="u" onclick={(e) => lhinst.handleBBCode(jQuery(e.currentTarget))} title={$t("bbcode.underline")}><u>U</u></button>
     </div>
 
     <div class="btn-group btn-group-sm me-2" role="group">
@@ -59,7 +61,7 @@
             </button>
             <div class="dropdown-menu">
                 {#each Array(7) as _, index (index)}
-                    <a class="dropdown-item" href="#" data-selector={selector} onclick="return lhinst.handleBBCode($(this))" data-bbcode-end="fs" data-bbcode="fs{10+index}" style="font-size: {10+index}pt">{$t("bbcode.font_size")} {10+index}pt</a>
+                    <a class="dropdown-item" href="#" data-selector={selector} onclick={(e) => { e.preventDefault(); lhinst.handleBBCode(jQuery(e.currentTarget)); }} data-bbcode-end="fs" data-bbcode="fs{10+index}" style="font-size: {10+index}pt">{$t("bbcode.font_size")} {10+index}pt</a>
                 {/each}
             </div>
         </div>
@@ -77,17 +79,17 @@
                         </div>
                     </div>
                 <div class="pe-2 ps-2">
-                    <button class="btn btn-outline-secondary w-100 btn-xs" type="button" id="color-apply-{hashCode(selector)}" data-bbcode="color=00FF00" data-selector={selector} onclick="lhinst.handleBBCode($(this))" data-bbcode-end="color">{$t("bbcode.apply")}</button>
+                    <button class="btn btn-outline-secondary w-100 btn-xs" type="button" id="color-apply-{hashCode(selector)}" data-bbcode="color=00FF00" data-selector={selector} onclick={(e) => lhinst.handleBBCode(jQuery(e.currentTarget))} data-bbcode-end="color">{$t("bbcode.apply")}</button>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="btn-group btn-group-sm me-2" role="group">
-        <button type="button" class="btn btn-outline-secondary" data-selector={selector} on:click={(e) => {window.lhcSelector = selector; lhc.revealModal({'hidecallback' : function(){jQuery('.embed-into').removeClass('embed-into');},'showcallback' : function(){ jQuery(window.lhcSelector).addClass('embed-into');},'title' : $t("bbcode.insert_image_or_file"),'iframe':true,'height':500,'url':WWW_DIR_JAVASCRIPT +'file/attatchfileimg'})}} title={$t("bbcode.insert_image_or_file")}><i class="material-icons me-0">attach_file</i></button>
-        <button type="button" class="btn btn-outline-secondary" data-selector={selector} on:click={(e) => {window.lhcSelector = selector; lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'/chat/bbcodeinsert/0/(mode)/editor'})}}>
+        <button type="button" class="btn btn-outline-secondary" data-selector={selector} onclick={(e) => {window.lhcSelector = selector; lhc.revealModal({'hidecallback' : function(){jQuery('.embed-into').removeClass('embed-into');},'showcallback' : function(){ jQuery(window.lhcSelector).addClass('embed-into');},'title' : $t("bbcode.insert_image_or_file"),'iframe':true,'height':500,'url':WWW_DIR_JAVASCRIPT +'file/attatchfileimg'})}} title={$t("bbcode.insert_image_or_file")}><i class="material-icons me-0">attach_file</i></button>
+        <button type="button" class="btn btn-outline-secondary" data-selector={selector} onclick={(e) => {window.lhcSelector = selector; lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'/chat/bbcodeinsert/0/(mode)/editor'})}}>
             <i class="material-icons me-0">&#xE24E;</i>
         </button>
-        <button type="button" class="btn btn-outline-secondary" data-selector={selector} on:click={(e) => {return lhc.revealModal({'loadmethod':'post', 'datapost':{'msg':jQuery(selector).val()}, 'url':WWW_DIR_JAVASCRIPT +'chat/previewmessage'})}} title={$t("bbcode.preview")}><i class="material-icons me-0">visibility</i></button>
+        <button type="button" class="btn btn-outline-secondary" data-selector={selector} onclick={(e) => {return lhc.revealModal({'loadmethod':'post', 'datapost':{'msg':jQuery(selector).val()}, 'url':WWW_DIR_JAVASCRIPT +'chat/previewmessage'})}} title={$t("bbcode.preview")}><i class="material-icons me-0">visibility</i></button>
    </div>
 </div>

@@ -10,12 +10,14 @@
     let userDepartmentsGroups = $lhcList[optionsPanel['panelid'] + '_dpgroups']
     let productList = $lhcList[optionsPanel['panelid'] + '_products'];
     let departmentList = $lhcList[optionsPanel['panelid']];
+    let limitValue = $lhcList[optionsPanel['limitid']];
 
     $ : userGroups, $lhcList[optionsPanel['panelid'] + '_ugroups'] = userGroups;
     $ : userDepartmentsGroups, $lhcList[optionsPanel['panelid'] + '_dpgroups'] = userDepartmentsGroups;
     $ : userList, $lhcList[optionsPanel['userid']] = userList;
     $ : productList, $lhcList[optionsPanel['panelid'] + '_products'] = productList;
     $ : departmentList, $lhcList[optionsPanel['panelid']] = departmentList;
+    $ : limitValue, $lhcList[optionsPanel['limitid']] = limitValue;
 </script>
 
 <div class={"p-" + (optionsPanel.hasOwnProperty('padding_filters') ? optionsPanel.padding_filters : 2)}>
@@ -126,12 +128,12 @@
 
         {#if !optionsPanel.hasOwnProperty('hide_limits')}
         <div class={"col-" + (optionsPanel.hasOwnProperty('limits_width') ? optionsPanel.limits_width : 2)}>
-            <select class="form-control form-control-sm btn-light" bind:value={$lhcList[optionsPanel['limitid']]} on:change={(e) => {ee.emitEvent('svelteLimitChanged',[optionsPanel['limitid']])}} title={$t("widget_options.limit")}>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
+            <select class="form-control form-control-sm btn-light" bind:value={limitValue} on:change={(e) => {ee.emitEvent('svelteLimitChanged',[optionsPanel['limitid']])}} title={$t("widget_options.limit")}>
+                <option value="5" selected={$lhcList[optionsPanel['limitid']] == 5}>5</option>
+                <option value="10" selected={$lhcList[optionsPanel['limitid']] == 10}>10</option>
+                <option value="25" selected={$lhcList[optionsPanel['limitid']] == 25}>25</option>
+                <option value="50" selected={$lhcList[optionsPanel['limitid']] == 50}>50</option>
+                <option value="100" selected={$lhcList[optionsPanel['limitid']] == 100}>100</option>
             </select>
         </div>
         {/if}
