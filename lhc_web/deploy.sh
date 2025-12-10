@@ -44,7 +44,7 @@ rm -rf ./design/defaulttheme/js/voice/*.js.map
 rm -rf ./design/defaulttheme/js/voice/*.js
 
 echo "Compiling admin react apps"
-cd ./design/defaulttheme/js/admin && npm run build
+cd ./design/defaulttheme/js/admin && docker run --rm -v "$(pwd)":/app -w /app node:22 npm run build
 cd ../../../../
 
 echo "Compiling react-js"
