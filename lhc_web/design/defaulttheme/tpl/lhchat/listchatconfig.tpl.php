@@ -263,18 +263,22 @@
 
                 <?php $attribute = 'autoclose_activity_timeout'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+                <p class="text-info fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Closes chat if more than a defined amount of time has passed since the last visitor/operator message.')?></p>
 
                 <?php $attribute = 'autoclose_abandon_pending'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
                 <?php $attribute = 'autoclose_timeout_pending'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+                <p class="text-info fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chats that are pending and the specified amount of time has passed since the chat started. This means the chat was not accepted within this period.')?></p>
 
                 <?php $attribute = 'autoclose_timeout_active'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+                <p class="text-warning fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Close active chat if it runs longer than x minutes. This strictly limits how long an active chat can remain open.')?></p>
 
                 <?php $attribute = 'autoclose_timeout_bot'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+                <p class="text-info fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Closes chat if more than a defined amount of time has passed since the last visitor message.')?></p>
     		    
     		    <?php $attribute = 'autopurge_timeout'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
