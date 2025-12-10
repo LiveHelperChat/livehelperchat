@@ -63,7 +63,7 @@ cp -v dist/*.js ../../js/voice/ && cp -v dist/*.js.map ../../js/voice/
 cd ../../../../
 
 echo "Svelte"
-cd ./design/defaulttheme/js/svelte && npm run build
+cd ./design/defaulttheme/js/svelte && docker run --rm -v "$(pwd)":/app -w /app node:22 npm run build
 cd ../../../../
 
 echo "Generating JS/CSS files"

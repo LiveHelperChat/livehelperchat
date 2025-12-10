@@ -823,7 +823,7 @@
                 <td>
                     {#if ou.vid}
                         <div class="btn-group" role="group" aria-label="...">
-                            <a href="#" class={"btn btn-xs "+btnSecondaryClass} title={$t('widget.copy_nick')} on:click={(e) => lhinst.copyContent(e.currentTarget)} data-success={$t('widget.copied_nick')} data-copy={ou.nick}><i class="material-icons me-0">content_copy</i></a>
+                            <a href="#" class={"btn btn-xs "+btnSecondaryClass} title={$t('widget.copy_nick')} on:click={(e) => lhinst.copyContent(jQuery(e.currentTarget))} data-success={$t('widget.copied_nick')} data-copy={ou.nick}><i class="material-icons me-0">content_copy</i></a>
 
                             <a href="#" on:click={(e) => {lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/getonlineuserinfo/'+ou.id})}}  class={"btn btn-xs "+btnSecondaryClass} id="ou-face-{ou.vid}" class:icon-user-away={ou.online_status == 1} class:icon-user-online={!ou.online_status || ou.online_status == 0} ><i class="material-icons">info_outline</i>{#if lhcLogic.hide_action_buttons}{ou.lastactivity_ago} | {/if}{ou.nick}&nbsp;
                                 {#if ou.user_country_code}
