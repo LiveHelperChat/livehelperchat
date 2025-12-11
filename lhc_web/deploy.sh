@@ -21,7 +21,7 @@ rm -rf ./design/defaulttheme/js/svelte/public/build/*.js
 rm -rf ./design/defaulttheme/js/svelte/public/build/*.js.map
 
 echo "Compiling default js"
-gulp
+docker run --rm -v "$(pwd)":/app -w /app node:22 npm run build
 
 echo "Cleaning up voice/video js files"
 rm -rf ./design/defaulttheme/widget/voice-call-operator/dist/*.js
@@ -67,7 +67,46 @@ cd ./design/defaulttheme/js/svelte && docker run --rm -v "$(pwd)":/app -w /app n
 cd ../../../../
 
 echo "Generating JS/CSS files"
-php cron.php -s site_admin -c cron/util/generate_css -p 1
+PHP_CMD=""
+
+# First check default php version
+if command -v php &> /dev/null; then
+    version_id=$(php -r 'echo PHP_VERSION_ID;' 2>/dev/null)
+    if [ "$version_id" -ge 80200 ]; then
+        PHP_CMD="php"
+        echo "Using default php (version ID: $version_id)"
+    else
+        echo "Default php version is too old (version ID: $version_id), looking for alternatives..."
+    fi
+fi
+
+# If default php is not suitable, try to find alternative PHP versions (8.2 or higher)
+if [ -z "$PHP_CMD" ]; then
+    for version in php8.3 php8.2 php83 php82 php8.4 php84 php8.5 php85; do
+        if command -v $version &> /dev/null; then
+            version_id=$($version -r 'echo PHP_VERSION_ID;' 2>/dev/null)
+            if [ "$version_id" -ge 80200 ]; then
+                PHP_CMD="$version"
+                echo "Using $version (version ID: $version_id)"
+                break
+            fi
+        fi
+    done
+fi
+
+# If still no suitable PHP found, error out
+if [ -z "$PHP_CMD" ]; then
+    echo "Error: Could not find PHP 8.2 or higher. Please install PHP 8.2+ or ensure it's in your PATH."
+    echo "Tried: php, php8.3, php8.2, php83, php82"
+    exit 1
+fi
+
+$PHP_CMD cron.php -s site_admin -c cron/util/generate_css -p 1
 
 echo "Compressing JS"
-gulp js-static
+docker run --rm -v "$(pwd)":/app -w /app node:22 npm run build:static
+
+if [ -f "post_deploy.sh" ]; then
+    echo "Running post_deploy.sh"
+    ./post_deploy.sh
+fi
