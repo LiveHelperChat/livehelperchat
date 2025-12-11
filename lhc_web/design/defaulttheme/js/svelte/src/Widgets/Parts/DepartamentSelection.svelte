@@ -50,7 +50,7 @@
                                     <label><input class="me-1" checked="checked" type="radio" value="0">Any</label></li>
                                     {#each Object.entries(departaments) as [id, name]}
                                         {#if keyword == "" || name.includes(keyword)}
-                                            <li data-stoppropagation="true" class="search-option-item"><label><input class="me-1" name="selector-department_id-0" on:change={(e) => {selectDepartment(id)}} type="radio" value={id}>{name}</label>
+                                            <li data-stoppropagation="true" class="search-option-item"><label><input class="me-1" name="selector-department_id-0" on:change={(e) => {selectDepartment(id)}} type="radio" value={id}>{name}</label></li>
                                         {/if}
                                     {/each}
                                 </ul>

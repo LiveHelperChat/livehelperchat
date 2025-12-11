@@ -19,9 +19,15 @@
 
     export let show_text = false;
     export let css_class = "nav-link";
+
+    const handleKeydown = (event) => {
+        if (enable_shortcut) {
+            keydown(event);
+        }
+    }
 </script>
 
-<svelte:window on:keydown={enable_shortcut && keydown} ></svelte:window>
+<svelte:window onkeydown={handleKeydown} ></svelte:window>
 
 <a href={'#'} class={css_class} on:click={(e) => updateSettings({store: lhcList, e: e, attr: 'hideOnline', url: ('user/setoffline/' + (!$lhcList.hideOnline == true ? 'true' : 'false'))})} ><i id="online-offline-user" class={"material-icons "+($lhcList.hideOnline === true ? 'text-danger' : 'text-success')} title={$t("homepage.change_online_status")} >{$lhcList.hideOnline == true ? 'flash_off' : 'flash_on'}</i>{#if show_text}{#if $lhcList.hideOnline == true}{$t("homepage.status_offline")}{:else}{$t("homepage.status_online")}{/if}{/if}</a>
 
