@@ -150,7 +150,7 @@ class erLhcoreClassUpdate
 								$typeMatch = false;
 							}
 
-                            if (trim((string)$columnDesired['default'],"'") != trim((string)$column['default'],"'")) {
+                            if (!($columnDesired['default'] === "null" && $column['default'] === null) && trim((string)$columnDesired['default'],"'") != trim((string)$column['default'],"'")) {
 								$typeMatch = false;
 							}
 
@@ -171,7 +171,9 @@ class erLhcoreClassUpdate
 						$extra = '';
 						if ($columnDesired['extra'] == 'auto_increment') {
 						    $extra = ' AUTO_INCREMENT';
-						} elseif ($columnDesired['default'] !== null) {
+						} elseif ($columnDesired['default'] === "null") {
+                            $extra = " DEFAULT NULL";
+                        } elseif ($columnDesired['default'] !== null) {
                             $extra = " DEFAULT '{$columnDesired['default']}'";
                         }
 
@@ -189,12 +191,16 @@ class erLhcoreClassUpdate
 						$status[] = "[{$columnDesired['field']}] column was not found";
 						
 						$default = '';
-						if ($columnDesired['default'] !== null) {
+                        $isNull = false;
+						if ($columnDesired['default'] === "null") {
+                            $default = " DEFAULT NULL";
+                            $isNull = true;
+                        } else if ($columnDesired['default'] !== null) {
 							$default = " DEFAULT '{$columnDesired['default']}'";
 						}
 								
 						$tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}`
-						ADD `{$columnDesired['field']}` {$columnDesired['type']} NOT NULL{$default},
+						ADD `{$columnDesired['field']}` {$columnDesired['type']} ". ($isNull === false ? 'NOT' : '') ." NULL{$default},
 						COMMENT='';";
 
 						if (isset($columnDesired['post_query']) && !empty($columnDesired['post_query'])) {
