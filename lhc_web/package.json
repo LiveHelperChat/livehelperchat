@@ -13,7 +13,8 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "vmsg": "^0.4.0",
-    "webpack": "^5.103.0"
+    "webpack": "^5.103.0",
+    "tmp": ">=0.2.4"
   },
   "overrides": {
     "postcss": "^8.4.38"
