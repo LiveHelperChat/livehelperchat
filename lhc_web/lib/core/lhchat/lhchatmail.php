@@ -103,11 +103,7 @@ class erLhcoreClassChatMail {
 	    		    	    	
 	    	$sendMail->subject = str_replace(array('{name_surname}','{department}'),array($userData->name.' '.$userData->surname, (string)$chat->department), $sendMail->subject);
 	    	$sendMail->from_name = str_replace(array('{name_surname}','{department}'),array($userData->name.' '.$userData->surname, (string)$chat->department), $sendMail->from_name);
-	
-	    	if (empty($sendMail->from_email)) {
-	    		$sendMail->from_email = $userData->email;
-	    	}
-	
+
 	    	if (empty($sendMail->reply_to)) {
 	    		$sendMail->reply_to = $userData->email;
 	    	}
@@ -158,7 +154,7 @@ class erLhcoreClassChatMail {
         $sendMail->content = str_replace(array('{chat_link}'), array($url), $sendMail->content);
 
     	$sendMail->content = erLhcoreClassBBCode::parseForMail($sendMail->content);
-    	
+
     	if ( $form->hasValidData( 'FromEmail' ) ) {
     		$sendMail->from_email = $form->FromEmail;
     	}
@@ -179,10 +175,6 @@ class erLhcoreClassChatMail {
     		$sendMail->recipient = $form->RecipientEmail;
     	} else {
     		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Please enter recipient e-mail!');
-    	}
-
-    	if (empty($sendMail->from_email)) {
-    		$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','From e-mail is missing!');
     	}
 
     	if (empty($sendMail->reply_to)) {
