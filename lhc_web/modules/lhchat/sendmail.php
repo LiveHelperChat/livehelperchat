@@ -13,7 +13,10 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
   $mailTemplate->translate($chat->chat_locale);
 
   erLhcoreClassChatMail::prepareSendMail($mailTemplate, $chat);
-  $mailTemplate->recipient = $chat->email;
+
+  if ($mailTemplate->only_recipient != 1 || $mailTemplate->recipient == '') {
+      $mailTemplate->recipient = $chat->email;
+  }
 
   if (isset($_POST['SendMail'])) {
 
