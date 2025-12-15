@@ -274,9 +274,17 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 		$db->commit();
 
 	} catch (Exception $e) {
-	    $db->rollback();
 
-        // Store log
+        try {
+            $db->rollback();
+        } catch (Exception $e) {
+
+        }
+
+        // Store log to file log
+        erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString());
+
+        // Store log to database
         erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString(),
             ezcLog::SUCCESS_AUDIT,
             array(
@@ -290,7 +298,12 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 	}
 
 } else {
-    $db->rollback();
+    try {
+        $db->rollback();
+    } catch (Exception $e) {
+
+    }
+
     $responseArray['closed'] = true;
 }
 
