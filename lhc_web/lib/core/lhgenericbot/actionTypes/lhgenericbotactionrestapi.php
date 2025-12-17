@@ -1286,10 +1286,10 @@ class erLhcoreClassGenericBotActionRestapi
         $replaceVariablesURL = [];
 
         foreach ($replaceVariables as $keyVariable => $variableValue) {
-                $replaceVariablesURL['urlencode_' . $keyVariable] = urlencode((string)$variableValue);
+                $replaceVariablesURL['urlencode_' . $keyVariable] = rawurlencode((string)$variableValue);
         }
 
-        $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables),str_replace(array_keys($replaceVariablesURL), array_values($replaceVariablesURL), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : ''))) . (!empty($queryArgsString) ? '?'.$queryArgsString : '');
+        $url = trim(rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables),str_replace(array_keys($replaceVariablesURL), array_values($replaceVariablesURL), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : ''))) . (!empty($queryArgsString) ? '?'.$queryArgsString : ''));
 
         if (!filter_var($url, FILTER_VALIDATE_URL)) {
 
