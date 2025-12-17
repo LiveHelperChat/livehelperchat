@@ -403,6 +403,7 @@ class erLhcoreClassUser{
              }
 
         } catch (Exception $e) {
+           $db->rollback();
            try {
                erLhcoreClassLog::write(
                    json_encode([

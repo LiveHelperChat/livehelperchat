@@ -369,10 +369,14 @@ class erLhcoreClassUserDep
 
         if (!empty($ids)) {
             $db = ezcDbInstance::get();
-            $stmt = $db->prepare('UPDATE lh_userdep SET last_activity = :last_activity'. ($lda > 0 ? ', lastd_activity = :lastd_activity' : '') .' WHERE id IN (' . implode(',', $ids) . ');');
-            $stmt->bindValue(':last_activity', $lastActivity, PDO::PARAM_INT);
-            $lda > 0 && $stmt->bindValue(':lastd_activity', (int)$lda, PDO::PARAM_INT);
-            $stmt->execute();
+            try {
+                $stmt = $db->prepare('UPDATE lh_userdep SET last_activity = :last_activity'. ($lda > 0 ? ', lastd_activity = :lastd_activity' : '') .' WHERE id IN (' . implode(',', $ids) . ');');
+                $stmt->bindValue(':last_activity', $lastActivity, PDO::PARAM_INT);
+                $lda > 0 && $stmt->bindValue(':lastd_activity', (int)$lda, PDO::PARAM_INT);
+                $stmt->execute();
+            } catch (Exception $e) {
+                // We don't care about this transaction as it will retry next time.
+            }
         }
     }
 
