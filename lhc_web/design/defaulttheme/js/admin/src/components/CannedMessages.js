@@ -219,7 +219,7 @@ const CannedMessages = props => {
 
         function chatFocused(chatId) {
             if (props.chatId == chatId) {
-                setCollapsed(true);
+                //setCollapsed(true);
             }
         }
 
