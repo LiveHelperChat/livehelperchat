@@ -270,7 +270,7 @@ const GroupChat = props => {
 
             if (!props.chatPublicId){
                 var container = tabsContainer.current;
-                var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
+                var bsn = require("bootstrap.native/tab");
                 var tabs = container.querySelectorAll('[data-bs-toggle="tab"]');
 
                 if (tabs.length > 0) {
