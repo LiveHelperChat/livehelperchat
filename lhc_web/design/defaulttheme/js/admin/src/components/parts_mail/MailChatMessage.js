@@ -202,7 +202,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         </div>}
 
         {expandBody && message.body_front && !plainBody && <div className="col-12 mail-message-body pt-2 pb-2">
-         {parse(message.body_front, {
+         {parse("<div>"+message.body_front+"</div>", {
             replace: domNode => {
                 if (domNode.attribs) {
 
