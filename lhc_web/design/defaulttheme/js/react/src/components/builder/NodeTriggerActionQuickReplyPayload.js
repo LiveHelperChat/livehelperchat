@@ -69,6 +69,16 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                         )}
                     </div>
                 </div>
+        } else if (this.props.payloadType == 'bpayload') {
+            controlPayload =
+                <div className="col-12">
+                    <div className="form-group">
+                        <div className="form-group">
+                            <label>Manual payload message</label>
+                            <input className="form-control form-control-sm" onChange={this.onChange.bind(this)} defaultValue={this.props.currentPayload.get('payload')} type="text" placeholder="Manual payload message" />
+                        </div>
+                    </div>
+                </div>
         } else if (this.props.payloadType == 'url') {
             controlPayload =
                 <div className="col-12">
@@ -134,7 +144,8 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                         <select className="form-control form-control-sm" defaultValue={this.props.payloadType} onChange={this.onChangeType.bind(this)} >
                             <option value="none">No action</option>
                             <option value="url">URL</option>
-                            <option value="button">Click</option>
+                            <option value="button">Click (predefined payloads)</option>
+                            <option value="bpayload">Click (dynamic payloads)</option>
                             <option value="updatechat">Update chat</option>
                             <option value="trigger">Execute trigger</option>
                             <option value="file">File</option>

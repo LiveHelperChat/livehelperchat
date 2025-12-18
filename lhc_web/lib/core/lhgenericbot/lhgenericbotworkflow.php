@@ -1923,6 +1923,52 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
+    public static function getClickPayload($metaData, $payload, $paramsExecution = array())
+    {
+        if (isset($metaData['content']['quick_replies'])) {
+            foreach ($metaData['content']['quick_replies'] as $reply) {
+                if ((substr(md5($reply['content']['payload']),0,16) == $payload || $reply['content']['payload'] === $payload) && substr(md5($reply['content']['name']),0,16) == $paramsExecution['payload_hash']) {
+                    return $reply['content']['payload'];
+                }
+            }
+        } elseif (isset($metaData['content']['buttons_generic'])) {
+            foreach ($metaData['content']['buttons_generic'] as $reply) {
+                if ((substr(md5($reply['content']['payload']),0,16) == $payload || $reply['content']['payload'] === $payload) && substr(md5($reply['content']['name']),0,16) == $paramsExecution['payload_hash']) {
+                    return $reply['content']['payload'];
+                }
+            }
+        } elseif (isset($metaData['content']['list']['items'])) {
+            foreach ($metaData['content']['list']['items'] as $item) {
+                if (isset($item['buttons'])){
+                    foreach ($item['buttons'] as $reply){
+                        if ((substr(md5($reply['content']['payload']),0,16) == $payload || $reply['content']['payload'] === $payload) && substr(md5($reply['content']['name']),0,16) == $paramsExecution['payload_hash']) {
+                            return $reply['content']['payload'];
+                        }
+                    }
+                }
+            }
+            if (isset($metaData['content']['list']['list_quick_replies'])) {
+                foreach ($metaData['content']['list']['list_quick_replies'] as $item) {
+                    if ((substr(md5($item['content']['payload']),0,16) == $payload || $item['content']['payload'] === $payload) && substr(md5($item['content']['name']),0,16) == $paramsExecution['payload_hash']) {
+                        return $item['content']['payload'];
+                    }
+                }
+            }
+        } elseif (isset($metaData['content']['generic']['items'])) {
+            foreach ($metaData['content']['generic']['items'] as $item) {
+                if (isset($item['buttons'])) {
+                    foreach ($item['buttons'] as $reply) {
+                        if ((substr(md5($reply['content']['payload']),0,16) == $payload || $reply['content']['payload'] === $payload) && substr(md5($reply['content']['name']),0,16) == $paramsExecution['payload_hash']) {
+                            return $reply['content']['payload'];
+                        }
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
     public static function processStepEdit($chat, $messageContext, $payload, $params = array())
     {
         if (isset($chat->gbot_id)) {
@@ -2013,8 +2059,8 @@ class erLhcoreClassGenericBotWorkflow {
                 $continueExecution = true;
 
                 $payloadParams = explode('__',$payload);
-                $payload = $payloadParams[0];
                 $payloadHash = isset($payloadParams[1]) ? $payloadParams[1] : null;
+                $payload = self::getClickPayload($messageContext->meta_msg_array, $payloadParams[0], array('payload_hash' => $payloadHash));
 
                 // Try to find current workflow first
                 $workflow = erLhcoreClassModelGenericBotChatWorkflow::findOne(array('filterin' => array('status' => array(0,1)), 'filter' => array('chat_id' => $chat->id)));
@@ -2181,8 +2227,12 @@ class erLhcoreClassGenericBotWorkflow {
                 $chat->syncAndLock();
 
                 $payloadParams = explode('__',$payload);
-                $payload = $payloadParams[0];
                 $payloadHash = isset($payloadParams[1]) ? $payloadParams[1] : null;
+                $payload = self::getClickPayload($messageContext->meta_msg_array, $payloadParams[0], array('payload_hash' => $payloadHash));
+
+                if ($payload === null) {
+                    throw new Exception('Payload could not be determined!');
+                }
 
                 $continueExecution = true;
                 
