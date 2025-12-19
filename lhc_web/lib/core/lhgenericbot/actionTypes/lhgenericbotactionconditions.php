@@ -179,9 +179,11 @@ class erLhcoreClassGenericBotActionConditions {
                                 }
                             }
 
-                        } elseif (strpos($condition['content']['attr'], '{args.') !== false) {
+                        } elseif (str_starts_with($condition['content']['attr'], '{args.')) {
                             $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array_merge($params, array('chat' => $chat)), str_replace(array('{args.', '{', '}'), '', $condition['content']['attr']), '.');
                             $attr = $valueAttribute['found'] ? $valueAttribute['value'] : '';
+                        } elseif (str_starts_with($condition['content']['attr'], '{text.')) {
+                            $attr = erLhcoreClassGenericBotWorkflow::translateMessage(str_replace('{text.','{',$condition['content']['attr']), array('rule_value' => $condition['content']['val'], 'chat' => $chat, 'args' => ['chat' => $chat]));
                         } elseif ($paramsConditions[0] == '{condition') {
                             $attr = erLhcoreClassGenericBotWorkflow::translateMessage($condition['content']['attr'], array('rule_value' => $condition['content']['val'], 'chat' => $chat, 'args' => ['chat' => $chat]));
                         } else {
@@ -223,7 +225,8 @@ class erLhcoreClassGenericBotActionConditions {
 
                         if (!in_array($condition['content']['comp'], ['like', 'notlike', 'contains', 'in_list', 'in_list_lowercase', 'not_in_list', 'not_in_list_lowercase'])) {
                             if (isset($condition['content']['attr_math']) && $condition['content']['attr_math'] === true) {
-                                $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $attr);
+                                $conditionAttrMath = preg_replace("/[^%\(\)\.\*\-\/\+0-9]+/", "", $attr);
+                                var_dump($attr);
                                 if ($conditionAttrMath != '' && $conditionAttrMath === $attr) {
                                     try {
                                         eval('$attr = ' . $conditionAttrMath . ";");
@@ -231,7 +234,7 @@ class erLhcoreClassGenericBotActionConditions {
                                 }
                             }
                             if (isset($condition['content']['val_math']) && $condition['content']['val_math'] === true) {
-                                $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valAttr);
+                                $valueAttrMath = preg_replace("/[^%\(\)\.\*\-\/\+0-9]+/", "", $valAttr);
                                 if ($valueAttrMath != '' && $valueAttrMath === $valAttr) {
                                     try {
                                         eval('$valAttr = ' . $valueAttrMath . ";");

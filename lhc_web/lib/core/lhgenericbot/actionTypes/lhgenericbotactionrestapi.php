@@ -778,7 +778,7 @@ class erLhcoreClassGenericBotActionRestapi
                         }
 
                         $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
-                            json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . $quickReplyButton['content']['payload']. '__' . substr(md5($quickReplyButton['content']['name']),0,16) .'__'.$paramsCustomer['params']['msg']->id),
+                            json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . substr(md5($quickReplyButton['content']['payload']),0,16). '__' . substr(md5($quickReplyButton['content']['name']),0,16) .'__'.$paramsCustomer['params']['msg']->id),
                             json_encode($quickReplyButton['content']['name'])
                         ],$buttonContent);
                     }
@@ -825,7 +825,7 @@ class erLhcoreClassGenericBotActionRestapi
                         $templateButton = $matchCycles[1][0];
                         $templateButton = preg_replace('/\{url_btn_payload\}(.*?)\{\/url_btn_payload\}/ms','',$templateButton);
                         $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}','{trigger_btn_payload}','{/trigger_btn_payload}'],[
-                            json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . $quickReplyButton['content']['payload']. '__' . substr(md5($quickReplyButton['content']['name']),0,16) .'__'.$paramsCustomer['params']['msg']->id),
+                            json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . substr(md5($quickReplyButton['content']['payload']),0,16) . '__' . substr(md5($quickReplyButton['content']['name']),0,16) .'__'.$paramsCustomer['params']['msg']->id),
                             json_encode($quickReplyButton['content']['name']),
                             '',
                             ''
