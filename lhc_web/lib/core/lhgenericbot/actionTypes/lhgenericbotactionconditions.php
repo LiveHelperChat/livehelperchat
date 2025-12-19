@@ -226,7 +226,6 @@ class erLhcoreClassGenericBotActionConditions {
                         if (!in_array($condition['content']['comp'], ['like', 'notlike', 'contains', 'in_list', 'in_list_lowercase', 'not_in_list', 'not_in_list_lowercase'])) {
                             if (isset($condition['content']['attr_math']) && $condition['content']['attr_math'] === true) {
                                 $conditionAttrMath = preg_replace("/[^%\(\)\.\*\-\/\+0-9]+/", "", $attr);
-                                var_dump($attr);
                                 if ($conditionAttrMath != '' && $conditionAttrMath === $attr) {
                                     try {
                                         eval('$attr = ' . $conditionAttrMath . ";");
