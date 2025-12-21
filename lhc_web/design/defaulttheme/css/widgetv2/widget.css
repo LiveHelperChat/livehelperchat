@@ -182,6 +182,11 @@ div.message-row {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: #fff;
+    
+    /* FIX: Enable Flexbox to handle layout height correctly */
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
 }
 
 .lhc-full-height > .desktop-body{
@@ -207,6 +212,11 @@ div.message-row {
     padding-bottom:3px;
     padding-right:5px;
     padding-left:5px;
+    
+    /* FIX: Allow message block to shrink when input grows */
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
 }
 
 .msgBlock-inv{
@@ -222,9 +232,13 @@ div.message-row {
     min-height:200px;
 }
 
-textarea[name=ChatMessage]{
-    min-height:30px;
-    overflow:hidden;
+textarea[name=ChatMessage], textarea#CSChatMessage {
+    /* FIX: Auto-grow textarea height using modern CSS */
+    min-height: 30px !important;
+    max-height: 100px !important; /* Limit to ~4 lines */
+    height: auto !important;
+    field-sizing: content !important;
+    overflow-y: auto !important;
     resize: none;
 }
 
@@ -888,11 +902,8 @@ code {
     box-shadow: none !important;
 }
 
-textarea[name=ChatMessage] {
-    min-height: 30px;
-    overflow: hidden;
-    resize: none;
-}
+/* FIX: Textarea resizing disabled by default, handled by field-sizing above */
+/* textarea[name=ChatMessage] { ... } was modified above */
 
 #CSChatMessage{
     overflow: auto;
@@ -943,6 +954,9 @@ button.material-icons-button{
     background-color: #fff;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    
+    /* FIX: Ensure footer doesn't shrink and stays at the bottom */
+    flex: 0 0 auto !important;
 }
 
 .message-row-typing {
@@ -971,42 +985,15 @@ button.material-icons-button{
     margin:9px;
 }
 
-.fs11{
-    font-size:11px;
-}
-
-.fs12{
-    font-size:12px;
-}
-
-.fs13{
-    font-size:13px;
-}
-
-.fs14{
-    font-size:14px;
-}
-
-.fs16{
-    font-size:16px;
-}
-
-.fs17{
-    font-size:17px;
-}
-
-.fs18{
-    font-size:18px;
-}
-
-.fs19{
-    font-size:19px;
-}
-
-
-.fs25{
-    font-size:25px;
-}
+.fs11{ font-size:11px; }
+.fs12{ font-size:12px; }
+.fs13{ font-size:13px; }
+.fs14{ font-size:14px; }
+.fs16{ font-size:16px; }
+.fs17{ font-size:17px; }
+.fs18{ font-size:18px; }
+.fs19{ font-size:19px; }
+.fs25{ font-size:25px; }
 
 .pointer {
     cursor: pointer;
@@ -1056,10 +1043,6 @@ a.btn-url:visited,
 a.btn-link.visited{
     color: #818182;
 }
-
-/**
-* List style
-*/
 
 .list-group .button-item {
     padding:0;
@@ -1123,9 +1106,6 @@ a.btn-link.visited{
     background-size: cover;
 }
 
-/**
-* List generic carousel
-*/
 .generic-carousel{
     display: flex;
     flex-wrap: nowrap;
@@ -1156,12 +1136,6 @@ a.btn-link.visited{
     outline: none;
 }
 
-/* I just don't like how they look so we get rid of this animation.*/
-/*.fade-in-fast {
-    animation: fadeIn ease 0.3s;
-}.fade-in {
-    animation: fadeIn ease 1s;
-}*/
 .msg-to-store{
     opacity: 0.3;
 }
