@@ -180,6 +180,7 @@ $tpl->set('mode',$Params['user_parameters_unordered']['mode'] != '' && in_array(
 $tpl->set('sound',is_numeric($Params['user_parameters_unordered']['sound']) ? (int)$Params['user_parameters_unordered']['sound'] : (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['new_message_sound_user_enabled']);
 $tpl->set('app_scope', 'lhc');
 $tpl->set('vars_encrypted', $Params['user_parameters_unordered']['encrypted'] === 'true');
+$tpl->set('debug', isset($Params['user_parameters_unordered']['debug']) && $Params['user_parameters_unordered']['debug'] === 'true');
 
 if ($Params['user_parameters_unordered']['scope'] != ''){
     $Result['app_scope'] = strip_tags($Params['user_parameters_unordered']['scope']);

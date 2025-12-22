@@ -44,11 +44,18 @@ $ViewList['copycurl'] = array(
     'functions' => array( 'see_audit_system' ),
 );
 
+$ViewList['previewmessages'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'preview_messages' ),
+);
+
 $FunctionList['use'] = array('explain' => 'Allow operator to configure audit module');
 $FunctionList['log_preview'] = array('explain' => 'Allow operator to preview log record');
 $FunctionList['see_system'] = array('explain' => 'Allow operator to see system status');
 $FunctionList['see_audit_system'] = array('explain' => 'Allow operator to see audit system messages');
 $FunctionList['ignore_view_actions'] = array('explain' => 'Do not log view actions from operator');
 $FunctionList['see_op_actions'] = array('explain' => 'Allow operator to see other operator logged actions');
+$FunctionList['preview_messages'] = array('explain' => 'Allow operator to preview chat messages as visitor');
 
 ?>

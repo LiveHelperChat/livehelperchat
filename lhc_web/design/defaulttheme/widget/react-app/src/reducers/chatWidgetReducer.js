@@ -5,6 +5,7 @@ import { helperFunctions } from "../lib/helperFunctions";
 const initialState = fromJS({
     loadedCore: false, // Was the core loaded. IT's set after all initial attributes are loaded and app can proceed futher.
     shown: true,
+    debug: false,
     isMobile: false,
     isOnline: false,
     isChatting: false,
@@ -195,6 +196,7 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case 'department':
         case 'mode':
+        case 'debug':
         case 'product':
         case 'captcha': {
             return state.set(action.type,fromJS(action.data));

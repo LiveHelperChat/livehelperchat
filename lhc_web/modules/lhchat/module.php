@@ -556,7 +556,7 @@ $ViewList['modal'] = array (
 
 $ViewList['demo'] = array (
     'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger','encrypted'),
+    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger','encrypted','debug'),
 	'multiple_arguments' => array('department'),
     'functions' => array( 'use' ),
 );

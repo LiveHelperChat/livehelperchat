@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 265;
+            lhc.version = 266;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -214,7 +214,8 @@
                     lhc_var: (LHC_API.args.lhc_var || (typeof lhc_var !== 'undefined' ? lhc_var : null)),
                     loadcb: LHC_API.args.loadcb || null,
                     LHCChatOptions: global[scopeScript + 'ChatOptions'] || {},
-                    ignoreVars : false
+                    ignoreVars : false,
+                    debug : LHC_API.args.debug || false
                 };
 
                 attributesWidget.widgetDimesions = new BehaviorSubject({
@@ -285,7 +286,8 @@
                         'theme': attributesWidget.theme,
                         'mode': attributesWidget.mode,
                         'pos': attributesWidget.position,
-                        'off': attributesWidget.offline
+                        'off': attributesWidget.offline,
+                        'debug': attributesWidget.debug
                     };
                 }
 

@@ -2,7 +2,8 @@ body {
     background-color: transparent!important;
 }
 
-:root {
+:root,
+:host {
     --lhc-message-border-radius: 20px;
     --lhc-message-op-background: #ededed;
     --lhc-message-vi-background: #3267e4;

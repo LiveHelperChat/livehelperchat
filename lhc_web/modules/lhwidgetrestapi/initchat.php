@@ -32,7 +32,7 @@ try {
     if ($chat->hash === $requestPayload['hash'])
     {
         // User online
-        if ($chat->user_status != 0) {
+        if ($chat->user_status != 0 && (!isset($requestPayload['debug']) || $requestPayload['debug'] === false)) {
             $chat->support_informed = 1;
             $chat->user_typing = time();// Show for shorter period these status messages
             $chat->is_user_typing = 1;
@@ -297,13 +297,19 @@ try {
             $outputResponse['chat_ui']['mail'] = true;
         }
 
-        $outputResponse['status_sub'] = $chat->status_sub;
-        $outputResponse['status'] = $chat->status;
-
-        if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
-            $outputResponse['closed'] = true;
-        } else {
+        if (isset($requestPayload['debug']) && $requestPayload['debug'] === true && erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','preview_messages')) {
             $outputResponse['closed'] = false;
+            $outputResponse['status_sub'] = 0;
+            $outputResponse['status'] = $chat->user_id > 0 ? erLhcoreClassModelChat::STATUS_ACTIVE_CHAT : erLhcoreClassModelChat::STATUS_BOT_CHAT;
+        } else {
+            $outputResponse['status_sub'] = $chat->status_sub;
+            $outputResponse['status'] = $chat->status;
+
+            if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
+                $outputResponse['closed'] = true;
+            } else {
+                $outputResponse['closed'] = false;
+            }
         }
 
         if ((int)erLhcoreClassModelChatConfig::fetch('disable_print')->current_value == 0) {

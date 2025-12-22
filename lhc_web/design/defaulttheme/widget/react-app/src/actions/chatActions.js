@@ -224,6 +224,7 @@ export function storeSubscriber(payload) {
                         'hash' : state.chatwidget.getIn(['chatData','hash']),
                         'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
                         'theme' : state.chatwidget.get('theme'),
+                        'debug' : state.chatwidget.get('debug'),
                         'active_widget' : true
                     }));
                 }
@@ -754,7 +755,7 @@ export function addMessage(obj, ignoreAdd) {
 
                     syncStatus.add_msg = false;
 
-                    fetchMessages({'active_widget': true, 'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : getState().chatwidget.getIn(['chatLiveData','lmsgid']), 'hash' : obj.hash})(dispatch, getState);
+                    fetchMessages({'debug': getState().chatwidget.get('debug'), 'active_widget': true, 'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : getState().chatwidget.getIn(['chatLiveData','lmsgid']), 'hash' : obj.hash})(dispatch, getState);
 
                     if (response.data.t) {
                         helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);

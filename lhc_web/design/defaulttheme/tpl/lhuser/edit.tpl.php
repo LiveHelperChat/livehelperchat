@@ -99,16 +99,23 @@
     		</div>
 
            <div class="row">
-               <div class="col-6">
+               <div class="col-4">
                    <div class="form-group">
                        <label><input type="checkbox" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="ForceResetPassword" <?php echo isset($force_reset_password) && $force_reset_password == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Force user to change password on login')?></label>
                    </div>
                </div>
-               <div class="col-6">
+               <div class="col-4">
                    <div class="form-group">
                        <label><input type="checkbox" <?php if (isset($can_edit_groups) && $can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="force_logout" <?php echo $user->force_logout == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Force logout')?></label>
                    </div>
                </div>
+
+               <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','loginas')) : ?>
+               <div class="col-4">
+                   <a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/loginas')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Login As');?></a>
+               </div>
+               <?php endif; ?>
+
            </div>
 
     		<div class="form-group">

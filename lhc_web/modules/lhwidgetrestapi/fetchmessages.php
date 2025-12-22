@@ -45,18 +45,20 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 
 	try {
 
-		    if ($chat->auto_responder !== false) {
-		        $chat->auto_responder->chat = $chat;
-		        $chat->auto_responder->process();
-		    }
+            if (!isset($requestPayload['debug']) || $requestPayload['debug'] === false) {
+                if ($chat->auto_responder !== false) {
+                    $chat->auto_responder->chat = $chat;
+                    $chat->auto_responder->process();
+                }
 
-			if ($chat->reinform_timeout > 0 && $chat->unread_messages_informed == 0 && $chat->has_unread_messages == 1 && (time()-$chat->last_user_msg_time) > $chat->reinform_timeout) {
-				$department = $chat->department;
-				if ($department !== false) {
-					$options = $department->inform_options_array;
-					erLhcoreClassChatWorkflow::unreadInformWorkflow(array('department' => $department,'options' => $options),$chat);
-				}
-			}
+                if ($chat->reinform_timeout > 0 && $chat->unread_messages_informed == 0 && $chat->has_unread_messages == 1 && (time() - $chat->last_user_msg_time) > $chat->reinform_timeout) {
+                    $department = $chat->department;
+                    if ($department !== false) {
+                        $options = $department->inform_options_array;
+                        erLhcoreClassChatWorkflow::unreadInformWorkflow(array('department' => $department, 'options' => $options), $chat);
+                    }
+                }
+            }
 
             $validStatuses = array(
                 erLhcoreClassModelChat::STATUS_PENDING_CHAT,
@@ -67,7 +69,7 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat',array('chat' => & $chat, 'valid_statuses' => & $validStatuses));
 
             // Sync only if chat is pending or active
-			if (in_array($chat->status,$validStatuses) || ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ($chat->last_op_msg_time == 0 || $chat->last_op_msg_time > time() - (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value))) {
+			if (in_array($chat->status,$validStatuses) || (isset($requestPayload['debug']) && $requestPayload['debug'] === true && erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','preview_messages')) || ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ($chat->last_op_msg_time == 0 || $chat->last_op_msg_time > time() - (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value))) {
 				// Check for new messages only if chat last message id is greater than user last message id
 				if (!isset($requestPayload['lmgsid']) || (int)$requestPayload['lmgsid'] < $chat->last_msg_id) {
 				    $Messages = erLhcoreClassChat::getPendingMessages((int)$requestPayload['chat_id'], (isset($requestPayload['lmgsid']) ? (int)$requestPayload['lmgsid'] : 0), true);
@@ -165,109 +167,116 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 				}
 			}
 
-		    // Closed
-		    if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
-		    	$responseArray['closed'] = true;
-		    }
+            if (isset($requestPayload['debug']) && $requestPayload['debug'] === true && erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','preview_messages')) {
+                $responseArray['lock_send'] = true;
+                $responseArray['status_sub'] = 0;
+                $responseArray['status'] = $chat->user_id > 0 ? erLhcoreClassModelChat::STATUS_ACTIVE_CHAT : erLhcoreClassModelChat::STATUS_BOT_CHAT;
+            } else {
 
-		    $updateFields = array('lsync');
-		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
-		    	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
-                $updateFields[] = 'status_sub';
-		    	$saveChat = true;
-		    }
+                // Closed
+                if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
+                    $responseArray['closed'] = true;
+                }
 
-		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
-		    	$responseArray['closed'] = true;
-		    	if ($chat->status_sub_arg != '') {
-		    	    $args = json_decode($chat->status_sub_arg,true);
-		    	    $responseArray['closed_arg'] = $args;
-		    	}
-		    }
+                $updateFields = array('lsync');
+                if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
+                    $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
+                    $updateFields[] = 'status_sub';
+                    $saveChat = true;
+                }
 
-		    if ($chat->operation != '') {
-		    	$operation = explode("\n", trim($chat->operation));
-		    	$chat->operation = '';
-                $updateFields[] = 'operation';
-		    	$saveChat = true;
-		    }
-
-		    if ($chat->user_status != 0) {
-		    	$chat->user_status = 0;
-                $updateFields[] = 'user_status';
-		    	$saveChat = true;
-		    }
-
-            if (($chat->has_unread_op_messages == 1 && isset($requestPayload['active_widget']) && $requestPayload['active_widget'] === true) || (isset($requestPayload['lmgsid']) && isset($Messages) && count($Messages) > 0)) {
-                if (isset($requestPayload['active_widget']) && $requestPayload['active_widget'] === true) {
-
-                    // Sometimes lock happens. We can ignore those. As this is not a major thing.
-                    try {
-                        $db->query('UPDATE `lh_msg` SET `del_st` = 3 WHERE `chat_id` = ' . (int)$chat->id . ' AND `del_st` IN (0,1,2) AND (`user_id` > 0 OR `user_id` = -2)');
-                    } catch (Exception $e) {
-
+                if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
+                    $responseArray['closed'] = true;
+                    if ($chat->status_sub_arg != '') {
+                        $args = json_decode($chat->status_sub_arg,true);
+                        $responseArray['closed_arg'] = $args;
                     }
+                }
 
-                    $unreadSince = null;
-                    
-                    if ($chat->status_sub_sub == erLhcoreClassModelChat::STATUS_SUB_SUB_MSG_DELIVERED) {
-                        $chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_DEFAULT;
-                        $updateFields[] = 'status_sub_sub';
-                        $saveChat = true;
+                if ($chat->operation != '') {
+                    $operation = explode("\n", trim($chat->operation));
+                    $chat->operation = '';
+                    $updateFields[] = 'operation';
+                    $saveChat = true;
+                }
+
+                if ($chat->user_status != 0) {
+                    $chat->user_status = 0;
+                    $updateFields[] = 'user_status';
+                    $saveChat = true;
+                }
+
+                if (($chat->has_unread_op_messages == 1 && isset($requestPayload['active_widget']) && $requestPayload['active_widget'] === true) || (isset($requestPayload['lmgsid']) && isset($Messages) && count($Messages) > 0)) {
+                    if (isset($requestPayload['active_widget']) && $requestPayload['active_widget'] === true) {
+
+                        // Sometimes lock happens. We can ignore those. As this is not a major thing.
+                        try {
+                            $db->query('UPDATE `lh_msg` SET `del_st` = 3 WHERE `chat_id` = ' . (int)$chat->id . ' AND `del_st` IN (0,1,2) AND (`user_id` > 0 OR `user_id` = -2)');
+                        } catch (Exception $e) {
+
+                        }
+
+                        $unreadSince = null;
+
+                        if ($chat->status_sub_sub == erLhcoreClassModelChat::STATUS_SUB_SUB_MSG_DELIVERED) {
+                            $chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_DEFAULT;
+                            $updateFields[] = 'status_sub_sub';
+                            $saveChat = true;
+                        }
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_read',array('chat' => & $chat));
+                    } else {
+
+                        // Sometimes lock happens. We can ignore those. As this is not a major thing.
+                        try {
+                            $db->query('UPDATE `lh_msg` SET `del_st` = 2 WHERE `chat_id` = ' . (int)$chat->id . ' AND `del_st` IN (0,1) AND (`user_id` > 0 OR `user_id` = -2)');
+                        } catch (Exception $e) {
+
+                        }
+
+                        if ($chat->status_sub_sub == erLhcoreClassModelChat::STATUS_SUB_SUB_DEFAULT) {
+                            $chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_MSG_DELIVERED;
+                            $updateFields[] = 'status_sub_sub';
+                            $saveChat = true;
+                        }
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_delivered',array('chat' => & $chat));
                     }
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_read',array('chat' => & $chat));
-                } else {
+                }
 
-                    // Sometimes lock happens. We can ignore those. As this is not a major thing.
-                    try {
-                        $db->query('UPDATE `lh_msg` SET `del_st` = 2 WHERE `chat_id` = ' . (int)$chat->id . ' AND `del_st` IN (0,1) AND (`user_id` > 0 OR `user_id` = -2)');
-                    } catch (Exception $e) {
+                if ($chat->has_unread_op_messages == 1 && isset($requestPayload['active_widget']) && $requestPayload['active_widget'] === true)
+                {
+                    $chat->unread_op_messages_informed = 0;
+                    $chat->has_unread_op_messages = 0;
+                    $chat->unanswered_chat = 0;
+                    $updateFields[] = 'unread_op_messages_informed';
+                    $updateFields[] = 'has_unread_op_messages';
+                    $updateFields[] = 'unanswered_chat';
+                    $saveChat = true;
+                }
 
+                if (isset($responseArray['closed']) && $responseArray['closed'] == true) {
+                    $chatVariables = $chat->chat_variables_array;
+                    if (isset($chatVariables['lhc_ds']) && (int)$chatVariables['lhc_ds'] == 0) {
+                        $responseArray['disable_survey'] = true;
                     }
+                }
 
-                    if ($chat->status_sub_sub == erLhcoreClassModelChat::STATUS_SUB_SUB_DEFAULT) {
-                        $chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_MSG_DELIVERED;
-                        $updateFields[] = 'status_sub_sub';
-                        $saveChat = true;
-                    }
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_delivered',array('chat' => & $chat));
+                $lockTextArea = isset($chat->chat_variables_array['bot_lock_msg']);
+
+                if ($lockTextArea === true && isset($operatorIdLast) && ($operatorIdLast == -2 || $operatorIdLast > 0) && $chat->chat_variables_array['bot_lock_msg'] < $LastMessageID) {
+                    $lockTextArea = false;
+                    $chatVariables = $chat->chat_variables_array;
+                    unset($chatVariables['bot_lock_msg']);
+                    $chat->chat_variables_array = $chatVariables;
+                    $chat->chat_variables = json_encode($chatVariables);
+                    $updateFields[] = 'chat_variables';
+                    $saveChat = true;
+                }
+
+                if ($saveChat === true || $chat->lsync < time()-30) {
+                    $chat->lsync = time();
+                    $chat->updateThis(array('update' => $updateFields));
                 }
             }
-
-		    if ($chat->has_unread_op_messages == 1 && isset($requestPayload['active_widget']) && $requestPayload['active_widget'] === true)
-		    {
-		    	$chat->unread_op_messages_informed = 0;
-		    	$chat->has_unread_op_messages = 0;
-                $chat->unanswered_chat = 0;
-                $updateFields[] = 'unread_op_messages_informed';
-                $updateFields[] = 'has_unread_op_messages';
-                $updateFields[] = 'unanswered_chat';
-		    	$saveChat = true;
-		    }
-
-		    if (isset($responseArray['closed']) && $responseArray['closed'] == true) {
-                $chatVariables = $chat->chat_variables_array;
-                if (isset($chatVariables['lhc_ds']) && (int)$chatVariables['lhc_ds'] == 0) {
-                    $responseArray['disable_survey'] = true;
-                }
-            }
-
-            $lockTextArea = isset($chat->chat_variables_array['bot_lock_msg']);
-
-            if ($lockTextArea === true && isset($operatorIdLast) && ($operatorIdLast == -2 || $operatorIdLast > 0) && $chat->chat_variables_array['bot_lock_msg'] < $LastMessageID) {
-                $lockTextArea = false;
-                $chatVariables = $chat->chat_variables_array;
-                unset($chatVariables['bot_lock_msg']);
-                $chat->chat_variables_array = $chatVariables;
-                $chat->chat_variables = json_encode($chatVariables);
-                $updateFields[] = 'chat_variables';
-                $saveChat = true;
-            }
-
-		    if ($saveChat === true || $chat->lsync < time()-30) {
-		        $chat->lsync = time();
-		    	$chat->updateThis(array('update' => $updateFields));
-		    }
 
 		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncuser',array('chat' => & $chat, 'response' => & $responseArray));
 

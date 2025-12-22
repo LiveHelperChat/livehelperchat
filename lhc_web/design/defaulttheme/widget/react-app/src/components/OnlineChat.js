@@ -63,7 +63,8 @@ class OnlineChat extends Component {
         this.props.dispatch(initChatUI({
             'id': this.props.chatwidget.getIn(['chatData','id']),
             'hash' : this.props.chatwidget.getIn(['chatData','hash']),
-            'theme' : this.props.chatwidget.get('theme')
+            'theme' : this.props.chatwidget.get('theme'),
+            'debug' : this.props.chatwidget.get('debug')
         }));
 
         this.updateMessages();
@@ -730,6 +731,7 @@ class OnlineChat extends Component {
             'lfmsgid' : this.props.chatwidget.getIn(['chatLiveData','lfmsgid']),
             'theme' : this.props.chatwidget.get('theme'),
             'new_chat' : this.props.chatwidget.get('newChat'),
+            'debug' : this.props.chatwidget.get('debug'),
             'active_widget' : (((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || (this.props.chatwidget.get('mode') != 'widget' && document.hasFocus())) && window.lhcChat['is_focused'] == true && this.state.messages_ui !== false)
         };
 
@@ -750,7 +752,8 @@ class OnlineChat extends Component {
             'chat_id': this.props.chatwidget.getIn(['chatData','id']),
             'hash' : this.props.chatwidget.getIn(['chatData','hash']),
             'theme' : this.props.chatwidget.get('theme'),
-            'mode' : this.props.chatwidget.get('mode')
+            'mode' : this.props.chatwidget.get('mode'),
+            'debug' : this.props.chatwidget.get('debug')
         }));
     }
 

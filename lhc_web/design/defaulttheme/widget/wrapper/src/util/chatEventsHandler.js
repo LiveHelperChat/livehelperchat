@@ -48,7 +48,8 @@ class chatEventsHandler {
             'leave_message': this.attributes['leaveMessage'],
             'scope_prefix': this.attributes['prefixLowercase'],
             'position_placement': this.attributes['position_placement'],
-            'position_placement_original': this.attributes['position_placement_original']
+            'position_placement_original': this.attributes['position_placement_original'],
+            'debug': this.attributes['debug']
         };
 
         if (this.attributes['fresh'] == true) {

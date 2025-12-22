@@ -14,25 +14,68 @@
     </div>
 </div>
 
-<?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/email.tpl.php'));?>
+<div class="row">
+    <div class="col-6">
+        <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/email.tpl.php'));?>
 
-<div class="row form-group">
-    <div class="col-md-3">
-		<label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Visible only if online');?>" type="checkbox" name="VisibleIfOnline" value="1" <?php if ($departament->visible_if_online == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Visible only if online');?></label>
-	</div>
-	<div class="col-md-3">
-		<label><input type="checkbox" name="Disabled" value="1" <?php if ($departament->disabled == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Disabled');?></label>
-	</div>
-	<div class="col-md-3">
-        <label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Will not be visible to visitor');?>" type="checkbox" name="Hidden" value="1" <?php if ($departament->hidden == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hidden');?>&nbsp;<a class="live-help-tooltip" data-bs-placement="top" title="" data-bs-toggle="tooltip" data-bs-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hidden departments are not shown in department choosing dropdown. They do not participate in online status check if department is not provided.');?>"><i class="material-icons">&#xE887;</i></a></label>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Visible only if online');?>" type="checkbox" name="VisibleIfOnline" value="1" <?php if ($departament->visible_if_online == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Visible only if online');?></label>
+            </div>
+            <div class="col-md-6">
+                <label><input type="checkbox" name="Disabled" value="1" <?php if ($departament->disabled == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Disabled');?></label>
+            </div>
+            <div class="col-md-6">
+                <label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Will not be visible to visitor');?>" type="checkbox" name="Hidden" value="1" <?php if ($departament->hidden == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hidden');?>&nbsp;<a class="live-help-tooltip" data-bs-placement="top" title="" data-bs-toggle="tooltip" data-bs-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hidden departments are not shown in department choosing dropdown. They do not participate in online status check if department is not provided.');?>"><i class="material-icons">&#xE887;</i></a></label>
+            </div>
+            <div class="col-md-6">
+                <label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Offline');?>" type="checkbox" name="dep_offline" value="1" <?php if ($departament->dep_offline == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Offline');?></label>
+            </div>
+            <div class="col-md-6">
+                <label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Archived');?>" type="checkbox" name="archive" value="1" <?php if ($departament->archive == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Archived');?></label>
+            </div>
+        </div>
+
     </div>
-    <div class="col-md-3">
-        <label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Offline');?>" type="checkbox" name="dep_offline" value="1" <?php if ($departament->dep_offline == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Offline');?></label>
-    </div>
-    <div class="col-md-3">
-        <label><input title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Archived');?>" type="checkbox" name="archive" value="1" <?php if ($departament->archive == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Archived');?></label>
+    <div class="col-6">
+        <div class="alert alert-info fs12 p-2 mt-4">
+            <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Offline request recipients priority:');?></strong>
+            <ol class="mb-0 ps-3 mt-1">
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','E-mail template recipient (if filled and "Send only to recipient" is checked)');?></li>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Department e-mail (this field)');?></li>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','E-mail template recipient (if filled)');?></li>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','First system operator e-mail');?></li>
+            </ol>
+            <?php 
+            $sendMail = erLhAbstractModelEmailTemplate::fetch(2);
+            $finalRecipient = '';
+            
+            if ($sendMail->recipient != '' && $sendMail->only_recipient == 1) {
+                $finalRecipient = $sendMail->recipient;
+            } elseif ($departament->email != '') {
+                $finalRecipient = $departament->email;
+            } elseif ($sendMail->recipient != '') {
+                $finalRecipient = $sendMail->recipient;
+            } else {
+                $list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
+                $user = array_pop($list);
+                if ($user) {
+                    $finalRecipient = $user->email;
+                }
+            }
+            
+            if ($finalRecipient != '') : ?>
+                <div class="mt-2">
+                    <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Current recipient:');?></strong> 
+                    <span class="badge bg-success"><?php echo htmlspecialchars($finalRecipient);?></span>
+                </div>
+            <?php endif; ?>
+        </div>
     </div>
 </div>
+
+
+
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Maximum pending chats, if this limit is reached department becomes offline automatically');?> <i>(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Group limit')?> - <?php echo $departament->pending_group_max?>)</i></label>
@@ -90,23 +133,39 @@
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="onlinehours">
 
-                <div class="form-group">
-                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Offline mailbox');?></label>
-                    <?php
-                    echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
-                        'input_name'     => 'mailbox_id',
-                        'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb', 'Choose a related mailbox'),
-                        'selected_id'    => [isset($departament->bot_configuration_array['mailbox_id']) ? $departament->bot_configuration_array['mailbox_id'] : 0],
-                        'data_prop'      => 'data-limit="1"',
-                        'ajax'           => 'mailboxall',
-                        'css_class'      => 'form-control',
-                        'type'           => 'radio',
-                        'display_name'   => 'name',
-                        'no_selector'    => true,
-                        'list_function_params' => array('limit' => 10),
-                        'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList',
-                    )); ?>
-                    <div class="text-muted fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','We will use this mailbox to send an e-mail.');?></div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Offline mailbox');?></label>
+                            <?php
+                            echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                                'input_name'     => 'mailbox_id',
+                                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb', 'Choose a related mailbox'),
+                                'selected_id'    => [isset($departament->bot_configuration_array['mailbox_id']) ? $departament->bot_configuration_array['mailbox_id'] : 0],
+                                'data_prop'      => 'data-limit="1"',
+                                'ajax'           => 'mailboxall',
+                                'css_class'      => 'form-control',
+                                'type'           => 'radio',
+                                'display_name'   => 'name',
+                                'no_selector'    => true,
+                                'list_function_params' => array('limit' => 10),
+                                'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList',
+                            )); ?>
+                            <div class="text-muted fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','We will use this mailbox to send an e-mail.');?></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <ul>
+                            <?php if ($departament->id > 0) : ?>
+                            <li><a class="text-muted" onclick="return lhc.revealModal({'iframe':true,'height':'550px', 'title' : 'Preview','mparams':{'backdrop':false}, 'url':WWW_DIR_JAVASCRIPT +'chat/demo/(department)/<?php echo $departament->alias != '' ? htmlspecialchars($departament->alias) : $departament->id ; ?>'})">
+                                <span><i class="material-icons">info_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Preview live widget');?></span>
+                            </a></li>
+                            <?php endif; ?>
+                            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','statisticdep') && $departament->id > 0) : ?>
+                                <li><a href="#" class="text-muted" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'statistic/departmentstats/<?php echo $departament->id?>'})"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Load statistic');?>" class="me-0 material-icons text-info">donut_large</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Department statistic');?></a></li>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
                 </div>
 
 			    <label><input id="online-hours-active" type="checkbox" name="OnlineHoursActive" value="1" <?php if ($departament->online_hours_active == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours/work days logic is active');?></label>
@@ -120,6 +179,9 @@
                         <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours, 24 hours format, 1 - 24, minutes format 0 - 60');?></li>
                         <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you want that chat ignored operators online status and went online only by these defined hours can do that');?> <a href="#" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>/(action)/onlinehours'})"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','here');?></a></li>
                         <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If we find custom period for specific day it takes priority over day work hours definition');?></li>
+                        <?php if (isset($departament->bot_configuration_array['bot_id']) && $departament->bot_configuration_array['bot_id'] > 0 && (!isset($departament->bot_configuration_array['bot_foh']) || $departament->bot_configuration_array['bot_foh'] === false)) : ?>
+                            <li>⚠️&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','You assigned a bot to this department, but didn’t enable the setting that makes the bot follow the department’s online hours. This may cause the department to appear online at all times. Ensure your bot checks online hours in its logic');?>. <a href="#genericbot"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Change it');?></a></li>
+                        <?php endif; ?>
                     </ul>
 
                     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','These hours will be using');?> <b><?php erLhcoreClassModule::$defaultTimeZoneSystem != '' ? print erLhcoreClassModule::$defaultTimeZoneSystem : print date_default_timezone_get()?></b> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','time zone');?> <b>[<?php echo (new DateTime('now', new DateTimeZone(erLhcoreClassModule::$defaultTimeZoneSystem != '' ? erLhcoreClassModule::$defaultTimeZoneSystem : date_default_timezone_get())))->format('Y-m-d H:i:s') ?>]</b> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','to render widget online status');?>. <a href="<?php echo erLhcoreClassDesign::baseurl('system/timezone')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Change default time zone.');?></a></p>

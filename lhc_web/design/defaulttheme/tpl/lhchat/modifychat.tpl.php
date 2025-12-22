@@ -97,6 +97,11 @@ setTimeout(function() {
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','chatdebug')) : ?>
         <div role="tabpanel" class="tab-pane" id="chatdebug">
 
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhaudit','preview_messages')) : ?>
+                <a class="text-muted" onclick="return lhc.revealModal({'title' : 'Preview', 'mparams':{'backdrop':false},'url':WWW_DIR_JAVASCRIPT +'audit/previewmessages/<?php echo $chat->id?>'})">
+                    <span><i class="material-icons">info_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Preview chat as visitor');?></span>
+                </a>
+            <?php endif; ?>
 
             <table class="table table-sm">
                 <tr>

@@ -64,7 +64,7 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.setting
 $ignorable_ip = erLhcoreClassModelChatConfig::fetch('ignorable_ip')->current_value;
 $fullHeight = (isset($Params['user_parameters_unordered']['fullheight']) && $Params['user_parameters_unordered']['fullheight'] == 'true') ? true : false;
 
-if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
+if ((!isset($_GET['debug']) || $_GET['debug'] === 'false') && ($ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip)))) {
 
     $jsVars = array();
 
@@ -555,10 +555,10 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 265;
+$outputResponse['wv'] = 266;
  
 // React APP versions
-$outputResponse['v'] = 387;
+$outputResponse['v'] = 388;
 
 $cfg = erConfigClassLhConfig::getInstance();
 

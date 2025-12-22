@@ -34,33 +34,35 @@ try {
     
     $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
     
-    if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $Params['user_parameters']['hash'] && ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->last_op_msg_time == 0 || $chat->last_op_msg_time > time() - (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value)) {
+    if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $Params['user_parameters']['hash'] && ((isset($requestPayload['debug']) && $requestPayload['debug'] === true && erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','preview_messages')) || $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->last_op_msg_time == 0 || $chat->last_op_msg_time > time() - (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value)) {
 
-    	// Main unasnwered chats callback
-    	if ( $chat->na_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {    		
-    		$delay = time()-(erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value*60);    		
-    		if ($chat->time < $delay) {    		
-    			erLhcoreClassChatWorkflow::unansweredChatWorkflow($chat);
-    		}
-    	}
-    	
-    	if ( $chat->nc_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {      		  		
-    		$department = $chat->department;    		   		
-    		if ($department !== false) {    			
-    			$options = $department->inform_options_array;   		 				
-    			$delay = time()-$department->inform_delay;    			
-    			if ($chat->time < $delay) {
-    				erLhcoreClassChatWorkflow::newChatInformWorkflow(array('department' => $department,'options' => $options),$chat);
-    			}
-    		} else {
-    			$chat->nc_cb_executed = 1;
-    			$chat->updateThis(array('update' => array('nc_cb_executed')));
-    		}
-    	}
-    	
+        if (!isset($requestPayload['debug']) || $requestPayload['debug'] === false) {
+            // Main unasnwered chats callback
+            if ( $chat->na_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value > 0) {
+                $delay = time()-(erLhcoreClassModelChatConfig::fetch('run_unaswered_chat_workflow')->current_value*60);
+                if ($chat->time < $delay) {
+                    erLhcoreClassChatWorkflow::unansweredChatWorkflow($chat);
+                }
+            }
+
+            if ( $chat->nc_cb_executed == 0 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+                $department = $chat->department;
+                if ($department !== false) {
+                    $options = $department->inform_options_array;
+                    $delay = time()-$department->inform_delay;
+                    if ($chat->time < $delay) {
+                        erLhcoreClassChatWorkflow::newChatInformWorkflow(array('department' => $department,'options' => $options),$chat);
+                    }
+                } else {
+                    $chat->nc_cb_executed = 1;
+                    $chat->updateThis(array('update' => array('nc_cb_executed')));
+                }
+            }
+        }
+
     	$contactRedirected = false;
     	
-    	if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+    	if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && (!isset($requestPayload['debug']) || $requestPayload['debug'] === false)) {
     		$department = $chat->department;
     		if ($department !== false) {
     			$delay = time()-$department->delay_lm;
@@ -102,22 +104,30 @@ try {
 	         $tpl->set('is_proactive_based',false);
 	    }
 
-	    if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
-	       $activated = 'true';
-	       $tpl->set('is_activated',true);
-	    } else {
-	       $tpl->set('is_activated',false);
-	    }
+        if (isset($requestPayload['debug']) && $requestPayload['debug'] === true && erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','preview_messages')) {
+            $activated = 'true';
+            $tpl->set('is_activated',true);
+            $tpl->set('is_closed',false);
+            $chat->status = $chat->user_id > 0 ? erLhcoreClassModelChat::STATUS_ACTIVE_CHAT : erLhcoreClassModelChat::STATUS_BOT_CHAT;
+        } else {
+            if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
+                $activated = 'true';
+                $tpl->set('is_activated',true);
+            } else {
+                $tpl->set('is_activated',false);
+            }
 
-	    if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
-	    	$activated = 'true';
-	    	$tpl->set('is_closed',true);
-	    	$responseArray['closed'] = true;
-	    } else {
-	    	$tpl->set('is_closed',false);
-	    }
+            if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+                $activated = 'true';
+                $tpl->set('is_closed',true);
+                $responseArray['closed'] = true;
+            } else {
+                $tpl->set('is_closed',false);
+            }
+        }
+
 	    
-	    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM && $contactRedirected == false) {
+	    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM && $contactRedirected == false && (!isset($requestPayload['debug']) || $requestPayload['debug'] === false)) {
 	    	$activated = 'false';
 	    	$department = $chat->department;
 	    	if ($department !== false) {
@@ -134,11 +144,12 @@ try {
 	    	}
 	    }
 
-	    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED) {
-            $responseArray['deleted'] = true;
+        if (!isset($requestPayload['debug']) || $requestPayload['debug'] === false) {
+            if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED) {
+                $responseArray['deleted'] = true;
+            }
         }
 
-        
 	    $tpl->set('chat', $chat);
     } else {
         $responseArray['error'] = 'false';
@@ -161,8 +172,15 @@ $responseArray['ott'] = $ott;
 $responseArray['result'] = trim($tpl->fetch());
 $responseArray['activated'] = $activated;
 $responseArray['uid'] = (int)$chat->user_id;
-$responseArray['status'] = (int)$chat->status;
-$responseArray['status_sub'] = (int)$chat->status_sub;
+
+if (isset($requestPayload['debug']) && $requestPayload['debug'] === true && erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','preview_messages')) {
+    $responseArray['status'] = $chat->user_id > 0 ? erLhcoreClassModelChat::STATUS_ACTIVE_CHAT : erLhcoreClassModelChat::STATUS_BOT_CHAT;
+    $responseArray['status_sub'] = 0;
+} else {
+    $responseArray['status'] = (int)$chat->status;
+    $responseArray['status_sub'] = (int)$chat->status_sub;
+}
+
 $responseArray['chat_ui'] = ['voice' => false];
 
 if (isset($chat) && $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {

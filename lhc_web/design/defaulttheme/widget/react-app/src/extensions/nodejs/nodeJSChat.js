@@ -248,6 +248,7 @@ class _nodeJSChat {
                                         'hash' : state.chatwidget.getIn(['chatData','hash']),
                                         'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
                                         'theme' : state.chatwidget.get('theme'),
+                                        'debug' : state.chatwidget.get('debug'),
                                         'active_widget':  (((state.chatwidget.get('shown') && state.chatwidget.get('mode') == 'widget') || (state.chatwidget.get('mode') != 'widget' && document.hasFocus())) && window.lhcChat['is_focused'] == true)
                                     }));
                                 }
