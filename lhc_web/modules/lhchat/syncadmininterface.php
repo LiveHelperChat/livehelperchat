@@ -705,7 +705,7 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
         'rac_dsc' => '((active_chats + pending_chats) - inactive_chats) DESC, name ASC',
     );
 
-    if (key_exists($Params['user_parameters_unordered']['onop'], $validSort)) {
+    if (isset($Params['user_parameters_unordered']['onop']) && key_exists($Params['user_parameters_unordered']['onop'], $validSort)) {
         $filter['sort'] = $validSort[$Params['user_parameters_unordered']['onop']];
     }
 
