@@ -317,16 +317,6 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
-                    'text_area_wrap' => array(
-                        'type' => 'text',
-                        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Ratio for new row to appear'),
-                        'placeholder' => '8.6',
-                        'main_attr' => 'bot_configuration_array',
-                        'required' => false,
-                        'hidden' => true,
-                        'validation_definition' => new ezcInputFormDefinitionElement(
-                            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-                        )),
    				'online_text' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Online status text [old widget]'),

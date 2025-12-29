@@ -978,10 +978,6 @@ if ($theme !== false) {
         $chat_ui['custom_html_priority'] = 1;
     }
 
-    if (isset($theme->bot_configuration_array['text_area_wrap']) && is_numeric($theme->bot_configuration_array['text_area_wrap'])) {
-        $chat_ui['taw'] = round($theme->bot_configuration_array['text_area_wrap'],2);
-    }
-
     if (isset($theme->bot_configuration_array['proactive_once_typed']) && $theme->bot_configuration_array['proactive_once_typed'] == '1') {
         $chat_ui['proactive_once_typed'] = 1;
     }

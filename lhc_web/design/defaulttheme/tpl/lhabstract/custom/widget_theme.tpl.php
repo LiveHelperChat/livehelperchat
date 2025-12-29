@@ -420,12 +420,6 @@
                             <?php echo erLhcoreClassAbstract::renderInput('widget_border_width', $fields['widget_border_width'], $object)?>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                            <label><?php echo $fields['text_area_wrap']['trans'];?></label>
-                            <?php echo erLhcoreClassAbstract::renderInput('text_area_wrap', $fields['text_area_wrap'], $object)?>
-                            </div>
-                        </div>
                     </div>
 
                         <div class="row">
