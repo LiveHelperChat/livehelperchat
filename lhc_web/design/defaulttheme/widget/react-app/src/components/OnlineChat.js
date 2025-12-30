@@ -637,6 +637,8 @@ class OnlineChat extends Component {
                     this.setState({scrollButton: true});
                     // this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
                     messageElement.scrollIntoView();
+                } else if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true && messageElement ) {
+                    messageElement.scrollIntoView();
                 } else {
                     this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight - snapshot;
                 }
