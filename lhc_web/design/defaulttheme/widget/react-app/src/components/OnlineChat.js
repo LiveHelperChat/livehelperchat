@@ -1203,7 +1203,7 @@ class OnlineChat extends Component {
                         </div>}
 
                         <ChatOptions elementId="chat-dropdown-options">
-                            <div className="btn-group dropup disable-select ps-1 pt-2">
+                            <div className="btn-group dropup disable-select ps-1 d-flex flex-column justify-content-end align-items-stretch" id="chat-dropdown-options-wrapper">
                                 <button type="button" className="border-0 p-0 material-icons settings text-muted" id="chat-dropdown-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#xf100;</button>
                                 <div className={"dropdown-menu shadow bg-white rounded lhc-dropdown-menu ms-1 "+(window.lhcChat['staticJS']['dir'] == 'rtl' ? "dropdown-menu-end" : "")}>
                                     <div className="d-flex flex-row ps-1">
@@ -1249,9 +1249,9 @@ class OnlineChat extends Component {
                             }
                         </div>
 
-                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.get('network_down') && <div className="disable-select" id="send-button-wrapper">
+                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.get('network_down') && <div className="disable-select d-flex flex-column justify-content-end align-items-stretch" id="send-button-wrapper">
 
-                                <div className="user-chatwidget-buttons pt-2 pe-1" id="ChatSendButtonContainer">
+                                <div className="user-chatwidget-buttons pe-1" id="ChatSendButtonContainer">
 
                                     {this.state.voiceMode === true && <Suspense fallback="..."><VoiceMessage onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} maxSeconds={this.props.chatwidget.getIn(['chat_ui','voice_message'])} cancel={this.cancelVoiceRecording} /></Suspense>}
 

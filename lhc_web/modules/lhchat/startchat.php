@@ -282,7 +282,7 @@ if (empty($Params['user_parameters_unordered']['vid']) && !((isset($_GET['cd']) 
     if (isset($_COOKIE['lhc_vid']) && $_COOKIE['lhc_vid'] != 'undefined') {
         $vid = $_COOKIE['lhc_vid'];
     } else {
-        $vid = substr(sha1(mt_rand() . microtime()),0,20);
+        $vid = bin2hex(random_bytes(16));
     }
 
     setcookie("lhc_vid", $vid, time()+60*60*24*365, '/', '', erLhcoreClassSystem::$httpsMode, true);

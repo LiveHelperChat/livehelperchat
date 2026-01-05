@@ -56,7 +56,7 @@ $outputResponse = array(
         'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
     )),
     'hideOffline' => false,
-    'vid' => isset($_GET['vid']) ? $_GET['vid'] : substr(sha1(mt_rand() . microtime()),0,20)
+    'vid' => isset($_GET['vid']) ? $_GET['vid'] : bin2hex(random_bytes(16))
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.settings_department_after_verify', array('department' => & $department, 'output' => & $outputResponse));
@@ -558,7 +558,7 @@ $ts = time();
 $outputResponse['wv'] = 266;
  
 // React APP versions
-$outputResponse['v'] = 390;
+$outputResponse['v'] = 391;
 
 $cfg = erConfigClassLhConfig::getInstance();
 

@@ -579,8 +579,8 @@ class StartChat extends Component {
                                     />
 
                                 </div>
-                                <div className="disable-select" id="send-button-wrapper">
-                                    <div className="user-chatwidget-buttons pt-2" id="ChatSendButtonContainer">
+                                <div className="disable-select d-flex flex-column justify-content-end align-items-stretch" id="send-button-wrapper">
+                                    <div className="user-chatwidget-buttons" id="ChatSendButtonContainer">
                                         {this.props.chatwidget.get('processStatus') != 1 && <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.handleSubmit() : '' }} onClick={this.handleSubmit} title={t('button.start_chat')}>
                                             <i className={"send-icon material-icons settings" + (this.state.Question.length == 0 ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
                                         </a>}

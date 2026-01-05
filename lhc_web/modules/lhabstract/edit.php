@@ -26,7 +26,7 @@ if (method_exists($objectClass, 'fetch')) {
     $ObjectData = erLhcoreClassAbstract::getSession()->load($objectClass, (int)$Params['user_parameters']['object_id'] );
 }
 
-if (isset($_POST['CancelAction'])) {
+if (isset($_POST['CancelAction']) || !is_object($ObjectData)) {
     erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier'] . $extension);
     exit;
 }

@@ -25,13 +25,13 @@ class ChatStartOptions extends PureComponent {
         if (enabledOptionsCount === 1) {
             if (this.props.bbEnabled) {
                 return (
-                    <div className="disable-select ps-1 pt-2">
+                    <div className="disable-select ps-1 ps-1 d-flex flex-column justify-content-end align-items-stretch" id="chat-dropdown-options-wrapper">
                         <button onClick={(e) => this.props.toggleModal()} title={t('button.bb_code')} type="button" className="border-0 p-0 material-icons settings text-muted bbcode-ico" id="chat-dropdown-options" role="button" tabIndex="0">&#xf104;</button>
                     </div>
                 );
             } else if (this.props.langEnabled) {
                 return (
-                    <div className="disable-select ps-1 pt-2">
+                    <div className="disable-select ps-1 ps-1 d-flex flex-column justify-content-end align-items-stretch" id="chat-dropdown-options-wrapper">
                         <button onClick={(e) => this.props.changeLanguage()} title={t('button.lang')} type="button" className="border-0 p-0 material-icons settings text-muted lang-ico" id="chat-dropdown-options" role="button" tabIndex="0">&#xf11e;</button>
                     </div>
                 );
@@ -40,7 +40,7 @@ class ChatStartOptions extends PureComponent {
         
         // If multiple options or no options, show dropdown
         return (
-            <div className="btn-group dropup disable-select ps-1 pt-2">
+            <div className="btn-group dropup disable-select ps-1 d-flex flex-column justify-content-end align-items-stretch" id="chat-dropdown-options-wrapper">
                 <button type="button" className="border-0 p-0 material-icons settings text-muted" id="chat-dropdown-options" role="button" data-bs-toggle="dropdown" tabIndex="0" aria-haspopup="true" aria-expanded="false">&#xf100;</button>
                 <div className="dropdown-menu shadow bg-white lhc-dropdown-menu rounded ms-1">
                     <div className="d-flex flex-row px-1">

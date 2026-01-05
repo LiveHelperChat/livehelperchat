@@ -760,6 +760,9 @@ div.show-msg-ts-below > div.message-row:last-child .msg-date
 #chat-dropdown-options{
     color: #d3d3d3!important;
 }
+#chat-dropdown-options-wrapper{
+    padding-bottom: 5px;
+}
 
 #chat-dropdown-options[aria-expanded=true],
 #chat-dropdown-options:hover{
@@ -907,6 +910,8 @@ textarea[name=ChatMessage] {
     scroll-padding-bottom: 10px;
     max-height: 100px ; /* Limit to ~4 lines */
     field-sizing: content;
+    padding-top: 6px;
+    padding-bottom: 7px;
 }
 
 .settings {
@@ -1174,6 +1179,7 @@ a.btn-link.visited{
 
 #ChatSendButtonContainer{
     min-width: 30px;
+    padding-bottom: 8px;
 }
 
  .content-loader {
