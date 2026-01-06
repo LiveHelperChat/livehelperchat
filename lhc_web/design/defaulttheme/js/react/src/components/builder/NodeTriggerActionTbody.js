@@ -71,6 +71,19 @@ class NodeTriggerActionTbody extends Component {
                             <textarea rows="3" placeholder="Write your JSON here or use placeholder for Rest API response!" onChange={(e) => this.onchangeAttr({'path' : ['payload'], 'value' : e.target.value})}  defaultValue={this.props.action.getIn(['content','payload'])} className="form-control form-control-sm"></textarea>
                         </div>
                     </div>
+
+                    <div role="group">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','json_replace'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','json_replace'])} /> Encode arrays and objects replaceable variables as JSON.</label>
+                    </div>
+
+                    <div role="group">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','json_replace_all'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','json_replace_all'])} /> Encode all replaceable variables as JSON.</label>
+                    </div>
+
+                    <div role="group">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','no_reparse'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','no_reparse'])} /> Process replaceable variables only once.</label> <i className="material-icons" title="When enabled, placeholders like {content_1} will be replaced only once. This prevents nested variables in the replaced content from being processed again, which is useful when you want to display variable syntax literally.">info</i>
+                    </div>
+
                 </div>
 
                 <hr className="hr-big" />
