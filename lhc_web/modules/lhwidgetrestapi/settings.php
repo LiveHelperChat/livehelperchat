@@ -558,7 +558,7 @@ $ts = time();
 $outputResponse['wv'] = 266;
  
 // React APP versions
-$outputResponse['v'] = 391;
+$outputResponse['v'] = 392;
 
 $cfg = erConfigClassLhConfig::getInstance();
 
