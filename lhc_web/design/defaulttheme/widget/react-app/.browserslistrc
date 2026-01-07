@@ -1,1 +1,5 @@
-last 2 version, >1%
+chrome >= 84
+edge >= 84
+firefox >= 78
+safari >= 13.1
+> 1%

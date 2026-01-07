@@ -30,14 +30,21 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        include: /node_modules\/socketcluster-client/
+        test: /\.(js|jsx|mjs|ts|tsx)$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            configFile: path.resolve(__dirname, 'babel.config.js')
+          }
+        },
+        exclude: (modulePath) => {
+          // Always transform these packages (handle both Windows \ and Unix / paths)
+          if (/node_modules[\\/](react-redux|use-sync-external-store)/.test(modulePath)) {
+            return false;
+          }
+          // Exclude other node_modules
+          return /node_modules/.test(modulePath);
+        }
       }
     ]
   },
