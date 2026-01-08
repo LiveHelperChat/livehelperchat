@@ -180,7 +180,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         </div>}
 
         {expandBody && message.undelivered && <div className="col-12 alert alert-warning mt-2">
-            This message was undelivered. <a href={WWW_DIR_JAVASCRIPT  + "mailconv/downloadrfc822/" + message.id + "/" + message.conversation_id}>Download sent message.</a>
+            This message was undelivered. {message.rfc822_body && <a href={WWW_DIR_JAVASCRIPT  + "mailconv/downloadrfc822/" + message.id + "/" + message.conversation_id}>Download sent message.</a>}
 
             {message.delivery_status_keyed && <div className="text-danger border-bottom my-2 py-2 fs13">
                 <ul className="m-0 ps-3">
