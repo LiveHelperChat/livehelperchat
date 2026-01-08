@@ -30,9 +30,9 @@ try {
         $mcOptionsData = (array)$mcOptions->data;
 
         if ($is_archive === false) {
-            $messages = erLhcoreClassModelMailconvMessage::getList(array('sort' => 'udate ASC', 'filter' => ['conversation_id' => $conv->id]));
+            $messages = erLhcoreClassModelMailconvMessage::getList(array('ignore_fields' => ['body','alt_body'], 'sort' => 'udate ASC', 'filter' => ['conversation_id' => $conv->id]));
         } else {
-            $messages = \LiveHelperChat\Models\mailConv\Archive\Message::getList(array('sort' => 'udate ASC', 'filter' => ['conversation_id' => $conv->id]));
+            $messages = \LiveHelperChat\Models\mailConv\Archive\Message::getList(array('ignore_fields' => ['body','alt_body'], 'sort' => 'udate ASC', 'filter' => ['conversation_id' => $conv->id]));
         }
 
         $userData = $currentUser->getUserData();
@@ -109,7 +109,7 @@ try {
                     $message->status = erLhcoreClassModelMailconvMessage::STATUS_ACTIVE;
                     $message->conv_user_id = $conv->user_id;
                     $message->user_id = $conv->user_id;
-                    $message->updateThis();
+                    $message->updateThis(['update' => ['accept_time', 'wait_time', 'status', 'conv_user_id', 'user_id']]);
                     $messages[$indexMessage] = $message;
                 } else {
                     if ($message->user_id == 0) {
