@@ -121,7 +121,7 @@ class erLhcoreClassModelMailconvConversation
 
     public function beforeRemove()
     {
-        $messages = $this->is_archive === false ? erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\Message::getList(['filter' => ['conversation_id' => $this->id]]);
+        $messages = $this->is_archive === false ? erLhcoreClassModelMailconvMessage::getList(['ignore_fields' => ['body','alt_body'],'filter' => ['conversation_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\Message::getList(['ignore_fields' => ['body','alt_body'], 'filter' => ['conversation_id' => $this->id]]);
 
         foreach ($messages as $message) {
             $message->ignore_imap = $this->ignore_imap;
