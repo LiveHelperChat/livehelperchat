@@ -597,6 +597,10 @@ class erLhcoreClassMailconvParser {
 
                         $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus(preg_replace('/([\w-]+:\r\n)/i','',$head->{$attributeToUse}));
 
+                        if (isset($message->headers_raw_array['Auto_Submitted'])) {
+                            $message->undelivered = 1;
+                        }
+
                         $matchingRuleSelected = self::getMatchingRuleByMessage($message, $filteredMatchingRules);
 
                         if (!($matchingRuleSelected instanceof erLhcoreClassModelMailconvMatchRule)) {
@@ -890,6 +894,12 @@ class erLhcoreClassMailconvParser {
                         }
 
                         $message = self::importMessage($vars, $mailbox, $mailboxHandler, $conversation, $head, $mailInfoRaw);
+
+                        $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus(preg_replace('/([\w-]+:\r\n)/i','',$head->{$attributeToUse}));
+
+                        if (isset($message->headers_raw_array['Auto_Submitted'])) {
+                            $message->undelivered = 1;
+                        }
 
                         $rfc822RawBody = '';
                         
