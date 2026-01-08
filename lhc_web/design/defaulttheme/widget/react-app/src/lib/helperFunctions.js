@@ -1,4 +1,3 @@
-
 class _helperFunctions {
 
     constructor() {
@@ -33,17 +32,35 @@ class _helperFunctions {
     }
 
     sendMessageParent(key, data) {
+        var msg = this.prefix + '::' + key + '::' + JSON.stringify(data || null);
+
         if (window.opener && window.opener.closed === false) {
-            window.opener.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'*');
+            window.opener.postMessage(msg,'*');
             // Try to send postMessage to all possible parents
             if (key === 'ready_popup' && window.opener.parent && window.opener.parent.closed === false && window.opener != window.opener.parent) {
-                window.opener.parent.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'*');
+                window.opener.parent.postMessage(msg,'*');
                 if (window.opener.parent.parent && window.opener.parent.parent.closed === false && window.opener.parent.parent != window.opener.parent) {
-                    window.opener.parent.parent.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'*');
+                    window.opener.parent.parent.postMessage(msg,'*');
                 }
             }
         } else if (window.parent && window.parent.closed === false) {
-            window.parent.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'/');
+            window.parent.postMessage(msg,'/');
+        }
+
+        // Send same postMessage to all child iframes with classname `widget-child-iframes`
+        try {
+            var childIframes = document.querySelectorAll('iframe.widget-child-iframes');
+            childIframes.forEach(function(iframe) {
+                try {
+                    if (iframe && iframe.contentWindow) {
+                        iframe.contentWindow.postMessage(msg, '*');
+                    }
+                } catch (e) {
+                    // ignore per-iframe errors
+                }
+            });
+        } catch (e) {
+            // ignore query errors
         }
 
         // Send to popup event listener to track an events

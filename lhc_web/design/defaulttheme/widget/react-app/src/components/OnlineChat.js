@@ -769,7 +769,7 @@ class OnlineChat extends Component {
         helperFunctions.setSessionStorage('_ttxt','');
 
         // Because message was added we want to reset scroll action, as visitor does not care about it
-        this.setState({scrollButton: false, otm: 0, hasNew: false, newId: 0});
+        this.setState({scrollButton: false, otm: 0, hasNew: false, newId: 0, messages_ui: true});
         this.props.dispatch({'type' : 'UPDATE_LIVE_DATA', 'data' : {'attr': 'lfmsgid', 'val': 0}});
 
         // Add file BBCode for each preview file
@@ -1057,6 +1057,10 @@ class OnlineChat extends Component {
 
             if (this.props.chatwidget.get('shown') === false && this.widgetWasOpened === false) {
                 bottom_messages += " invisible";
+            }
+
+            if (this.state.messages_ui === false) {
+                bottom_messages += " d-none";
             }
 
             var message_send_style = "mx-auto w-100";

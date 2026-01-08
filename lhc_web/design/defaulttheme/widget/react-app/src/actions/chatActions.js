@@ -759,6 +759,8 @@ export function addMessage(obj, ignoreAdd) {
 
                     if (response.data.t) {
                         helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
+                    } else {
+                        helperFunctions.sendMessageParent('messageSaved',[]);
                     }
 
                     if (typeof response.data.r === 'undefined' || (response.data.error === true && response.data.system === true)) {

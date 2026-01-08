@@ -25,10 +25,21 @@ class CustomHTML extends Component {
     }
 
     handleParentMessage(e, item) {
-        if (e.data.event == item.target) {
-            let value = [];
-            value[e['data']['event']] = e['data']['value'];
-            this.setState(value);
+        if (Array.isArray(item.target) ? item.target.includes(e?.data?.event) : e?.data?.event === item.target) {
+            if (e['data']['event'] == 'element_click_by_id') {
+                const el = document.getElementById(e?.data?.value);
+                if (el) {
+                    if (typeof el.click === 'function') {
+                        el.click();
+                    } else {
+                        el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+                    }
+                }
+            } else {
+                let value = [];
+                value[e['data']['event']] = e['data']['value'];
+                this.setState(value);
+            }
         }
     }
 
