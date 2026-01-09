@@ -166,7 +166,7 @@ export class mainWidget{
                     html = this.cont.elmDomDoc.documentElement;
 
                 var height = Math.max( body.scrollHeight, body.offsetHeight,
-                    html.clientHeight, html.scrollHeight, html.offsetHeight, attributes.widgetDimesions.value['height'] );
+                    html.clientHeight, html.scrollHeight, html.offsetHeight, attributes.widgetDimesions.value['height'], attributes.widgetDimesions.value['height_override'] ? attributes.widgetDimesions.value['height_override'] : 0);
 
                 if (window.innerHeight < height + 60 + (this.attributes.clinst === true ? 70 : 0) + attributes.widgetDimesions.valueInternal['wtop']) {
                     attributes.widgetDimesions.nextPropertySilent('height_soverride', window.innerHeight - 60 - (this.attributes.clinst === true ? 70 : 0) - attributes.widgetDimesions.valueInternal['wtop']);
