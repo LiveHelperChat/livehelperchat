@@ -82,6 +82,14 @@ class erLhcoreClassGenericBotActionMail {
                 $mail->addCustomHeader('X-LHC-IGN', 1);
             }
 
+            // Add Auto-Submitted header if specified (RFC 3834)
+            if (isset($action['content']['mail_options']['auto_submitted']) && $action['content']['mail_options']['auto_submitted'] !== 'none' && !empty($action['content']['mail_options']['auto_submitted'])) {
+                $mail->addCustomHeader('Auto-Submitted', $action['content']['mail_options']['auto_submitted']);
+                
+                // Always add X-Auto-Response-Suppress for any auto-submitted emails (prevents Microsoft Exchange/Outlook auto-replies)
+                $mail->addCustomHeader('X-Auto-Response-Suppress', 'All');
+            }
+
             if (class_exists('erLhcoreClassModelMailconvMessage') && $chat instanceof erLhcoreClassModelMailconvMessage) {
                 
                 if ($chat->message_id != '') {

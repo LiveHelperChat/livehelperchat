@@ -136,7 +136,9 @@ class erLhcoreClassMailConvMailingWorker {
         }
 
         $itemRecipientData->custom_headers = [
-            'X-LHC-RCP' => $recipient->id
+            'X-LHC-RCP' => $recipient->id,
+            'Auto-Submitted' => 'auto-generated',
+            'X-Auto-Response-Suppress' => 'All'
         ];
 
         $output = [];

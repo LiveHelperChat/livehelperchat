@@ -134,6 +134,18 @@ class NodeTriggerActionMail extends Component {
                          </div>
                     </div>
 
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>Auto-Submitted Header</label>
+                            <select className="form-select form-select-sm" onChange={(e) => this.onchangeAttr({'path' : ['mail_options','auto_submitted'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','mail_options','auto_submitted']) || 'none'}>
+                                <option value="none">None</option>
+                                <option value="auto-replied">auto-replied (Vacation, OOF, Receipt)</option>
+                                <option value="auto-generated">auto-generated (Campaign, Marketing)</option>
+                            </select>
+                            <small className="form-text text-muted">Helps prevent auto-reply loops and improves deliverability (RFC 3834)</small>
+                        </div>
+                    </div>
+
                     <div className="col-12">
                         <div className="form-group">
                             <label>Mail body</label>
