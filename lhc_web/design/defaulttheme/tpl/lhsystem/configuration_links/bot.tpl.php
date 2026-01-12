@@ -1,4 +1,4 @@
-<?php if ($currentUser->hasAccessTo('lhgenericbot','use') || $currentUser->hasAccessTo('lhgenericbot','use_individualization')) : ?>
+<?php if ($currentUser->hasAccessTo('lhgenericbot','use') || $currentUser->hasAccessTo('lhgenericbot','use_individualization') || $currentUser->hasAccessTo('lhgenericbot','manage_conditions')) : ?>
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Bot');?></h5>
 <ul>
     <?php if ($currentUser->hasAccessTo('lhgenericbot','use') ) : ?>
