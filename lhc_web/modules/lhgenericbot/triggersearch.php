@@ -18,7 +18,7 @@ if (isset($_GET['include_translations'])) {
 }
 
 $triggersPayload = [];
-foreach (erLhcoreClassModelGenericBotTriggerEvent::getList(['filter' => ['bot_id' => $bot->id], 'customfilter' => ['`pattern` LIKE (' . $db->quote('%' . $_GET['keyword'] . '%') . ') OR `pattern_exc` LIKE (' . $db->quote('%' . $_GET['keyword'] . '%') . ')']]) as $triggerEvent) {
+foreach (erLhcoreClassModelGenericBotTriggerEvent::getList(['filterin' => array('bot_id' => $bot->getBotIds()), 'customfilter' => ['`pattern` LIKE (' . $db->quote('%' . $_GET['keyword'] . '%') . ') OR `pattern_exc` LIKE (' . $db->quote('%' . $_GET['keyword'] . '%') . ')']]) as $triggerEvent) {
     $triggersPayload[] = $triggerEvent->trigger_id;
 }
 
@@ -26,7 +26,7 @@ if (!empty($triggersPayload)) {
     $customSQL .= ' OR `id` IN (' . implode(', ', $triggersPayload) . ')';
 }
 
-$triggers = array_values(erLhcoreClassModelGenericBotTrigger::getList(array('sort' => '`group_id` ASC, `pos` ASC, `id` ASC', 'ignore_fields' => ['actions'], 'customfilter' => ['(' . $customSQL . ')'], 'filter' => array('bot_id' => $bot->id))));
+$triggers = array_values(erLhcoreClassModelGenericBotTrigger::getList(array('sort' => '`group_id` ASC, `pos` ASC, `id` ASC', 'ignore_fields' => ['actions'], 'customfilter' => ['(' . $customSQL . ')'], 'filterin' => array('bot_id' => $bot->getBotIds()))));
 
 foreach ($triggers as & $trigger) {
     $trigger->group_name = (string)erLhcoreClassModelGenericBotGroup::fetch($trigger->group_id)->name;
