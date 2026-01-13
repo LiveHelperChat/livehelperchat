@@ -570,7 +570,7 @@ class StartChat extends Component {
                                         text={this.props.chatwidget.get('processStatus') == 1 && this.state.hasBotData === false ? '' : this.state.Question}
                                         textMaxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])}
                                         textAutoFocus={this.props.chatwidget.get('isMobile') == false && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true}
-                                        onTextChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})}
+                                        onTextChange={(e) => {this.handleContentChange({'id' : 'Question' ,'value' : e.target.value});if (this.props.chatwidget.hasIn(['validationErrors','question'])){this.props.dispatch({'type' : 'validationErrors', data : {}});}}}
                                         onTextKeyDown={this.enterKeyDown}
                                         onTextFocus={this.moveCaretAtEnd}
                                         classNameText={classMessageInput}

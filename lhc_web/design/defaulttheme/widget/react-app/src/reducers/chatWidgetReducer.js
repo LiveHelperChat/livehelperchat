@@ -95,6 +95,7 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.removeIn(action.attr);
         }
 
+        case 'validationErrors':
         case 'vars_encrypted':
         case 'processStatus':
         case 'processStatusOffline':
