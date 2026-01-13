@@ -597,7 +597,7 @@ class erLhcoreClassMailconvParser {
 
                         $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus(preg_replace('/([\w-]+:\r\n)/i','',$head->{$attributeToUse}));
 
-                        if (isset($message->headers_raw_array['Auto_Submitted']) && $message->from_address == $mailbox->mail) {
+                        if (isset($message->headers_raw_array['Auto_Submitted']) && $message->from_address != $mailbox->mail) {
                             $message->undelivered = 1;
                         }
 
