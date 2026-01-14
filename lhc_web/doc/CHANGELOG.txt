@@ -1,9 +1,34 @@
 4.77v
 
-4.76v
+1. Features
+   - Add Auto-Submitted header to mail actions (automatic mail handling improvements).
+   - Chat messages preview modal with backend support for message previews.
+   - Chat widget updates: improved integration with third-party iframes, scroll-to-last-message on show, and refactor of widget internals.
+   - Migration and build updates: Svelte 5 migration, Node 22 (bot/node) updates, and package upgrades.
 
-1. Mail Conversation System Enhancements
-   - Added pending import functionality for mail import retries with automatic retry mechanism
+2. Fixes
+   - Do not mark our own responses as undelivered (prevents false undelivered status).
+   - Ignore auto-submitted e-mails as new to avoid duplicate imports.
+   - Fixes for issues reported (e.g. #2359, #2357) and improved error logging (#2347).
+   - Various UI/UX fixes: React parsing issue, height flickering, trigger body object support, and trimmed/encoded URLs.
+   - Mail handling: do not set custom from-email unless explicitly provided; set custom recipient handling improvements.
+
+3. Performance & Reliability
+   - Avoid loading/fetching message bodies when not required (reduce unnecessary DB/IO work).
+   - Use static version cache for assets and additional cache improvements.
+   - Check and respect rfc822 body presence before processing.
+
+4. Compatibility & UX
+   - Support for older browsers and related compatibility fallbacks.
+   - UX improvements for canned messages dropdown and related interactions.
+
+5. Chore/Dependencies
+   - Dependency and package updates across frontend and backend (React/Node/bot tooling and other packages).
+   - Miscellaneous maintenance: hashed payload handling, migration tweaks, and merge/cleanup commits.
+
+execute doc/update_db/update_344.sql for update
+
+4.76v
    - New `lhc_mailconv_pending_import` table for tracking failed mail imports
    - Manual import interface for retrying failed email imports
    - Improved IMAP retry logic for handling temporary failures
