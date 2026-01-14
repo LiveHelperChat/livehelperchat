@@ -597,8 +597,12 @@ class erLhcoreClassMailconvParser {
 
                         $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus(preg_replace('/([\w-]+:\r\n)/i','',$head->{$attributeToUse}));
 
-                        if (isset($message->headers_raw_array['Auto_Submitted']) && $message->from_address != $mailbox->mail) {
-                            $message->undelivered = 1;
+                        if (isset($message->headers_raw_array['Auto_Submitted'])) {
+                            if ($message->headers_raw_array['Auto_Submitted'] == 'auto-replied') {
+                                $message->auto_submitted = erLhcoreClassModelMailconvMessage::AUTO_SUBMITTED_REPLIED;
+                            } else if ($message->headers_raw_array['Auto_Submitted'] == 'auto-generated') {
+                                $message->auto_submitted = erLhcoreClassModelMailconvMessage::AUTO_SUBMITTED_GENERATED;
+                            }
                         }
 
                         $matchingRuleSelected = self::getMatchingRuleByMessage($message, $filteredMatchingRules);
@@ -841,7 +845,7 @@ class erLhcoreClassMailconvParser {
                             erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conversations]);
                         }
 
-                        if ($message->undelivered == 0 && $conversations->start_type == erLhcoreClassModelMailconvConversation::START_IN && $conversations->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
+                        if ($message->undelivered == 0 && $message->auto_submitted == erLhcoreClassModelMailconvMessage::AUTO_SUBMITTED_NONE && $conversations->start_type == erLhcoreClassModelMailconvConversation::START_IN && $conversations->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started',array(
                                 'mail' => & $message,
                                 'conversation' => & $conversations
@@ -897,8 +901,13 @@ class erLhcoreClassMailconvParser {
 
                         $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus(preg_replace('/([\w-]+:\r\n)/i','',$head->{$attributeToUse}));
 
-                        if (isset($message->headers_raw_array['Auto_Submitted']) && $message->is_external == 1) {
-                            $message->undelivered = 1;
+                        if (isset($message->headers_raw_array['Auto_Submitted'])) {
+                            if ($message->headers_raw_array['Auto_Submitted'] == 'auto-replied') {
+                                $message->auto_submitted = erLhcoreClassModelMailconvMessage::AUTO_SUBMITTED_REPLIED;
+                            } else if ($message->headers_raw_array['Auto_Submitted'] == 'auto-generated') {
+                                $message->auto_submitted = erLhcoreClassModelMailconvMessage::AUTO_SUBMITTED_GENERATED;
+                            }
+                            $message->updateThis(['update' => ['auto_submitted']]);
                         }
 
                         $rfc822RawBody = '';
@@ -992,7 +1001,7 @@ class erLhcoreClassMailconvParser {
                             $message->saveThis(['update' => ['accept_time','status','wait_time']]);
                         }
 
-                        if ($conversation instanceof erLhcoreClassModelMailconvConversation && $message->response_type != erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
+                        if ($conversation instanceof erLhcoreClassModelMailconvConversation && $message->auto_submitted == erLhcoreClassModelMailconvMessage::AUTO_SUBMITTED_NONE && $message->response_type != erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_reply',array(
                                 'mail' => & $message,
                                 'conversation' => & $conversation

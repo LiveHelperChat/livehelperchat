@@ -93,6 +93,9 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
             <small>&nbsp;&lt;{message.from_address}&gt;&nbsp;</small>
             {message.opened_at && <span className="material-icons text-success" title={message.opened_at_front}>visibility</span>}
             <span className={"material-icons " + (message.is_external ? 'chat-pending' : 'chat-active')} title={message.is_external ? t('msg.external_email') : t('msg.internal_email')} >{message.is_external ? 'location_away' : 'location_home'}</span>
+
+            {message.auto_submitted && <span className="material-icons" title={message.auto_submitted == 1 ? t('msg.auto_replied') : t('msg.auto_generated')} >local_shipping</span>}
+
                 <small className={!message.status || message.status == 1 ? 'chat-pending' : (message.cls_time ? 'chat-closed' : 'chat-active')}>
                 <i className="material-icons">mail_outline</i>
                 {!message.status || message.status == 1 ?  t('msg.pnd_rsp') : t('msg.rsp')}
@@ -172,6 +175,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                                 {message.cls_time && <li>{t('mail.closed_at')}: {message.cls_time_front}</li>}
                                 {message.conv_duration_front && <li>{t('mail.response_wait_time')}: {message.conv_duration_front}</li>}
                                 <li>{t('mail.message_id')}: {message.id}</li>
+                                {message.auto_submitted && <li>{message.auto_submitted == 1 ? t('msg.auto_replied') : t('msg.auto_generated')}</li>}
                             </ul>
                         </div>
                     </div>

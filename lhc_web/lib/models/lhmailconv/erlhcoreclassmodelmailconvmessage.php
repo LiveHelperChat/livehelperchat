@@ -75,6 +75,7 @@ class erLhcoreClassModelMailconvMessage
             'message_hash' => $this->message_hash,
             'opened_at' => $this->opened_at,
             'is_external' => $this->is_external,
+            'auto_submitted' => $this->auto_submitted,
         );
     }
 
@@ -493,7 +494,14 @@ class erLhcoreClassModelMailconvMessage
 
     public $response_type = self::RESPONSE_UNRESPONDED; // Normal mail based response
     public $has_attachment = self::ATTACHMENT_EMPTY;
-    
+
+
+    const AUTO_SUBMITTED_NONE = 0;
+    const AUTO_SUBMITTED_REPLIED = 1;
+    const AUTO_SUBMITTED_GENERATED = 2;
+
+    public $auto_submitted = self::AUTO_SUBMITTED_NONE;
+
     public $rfc822_body = '';
     public $delivery_status  = '';
     public $undelivered  = 0;

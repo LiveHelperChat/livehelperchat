@@ -1,0 +1,1 @@
+ALTER TABLE `lhc_mailconv_msg` ADD `auto_submitted` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';

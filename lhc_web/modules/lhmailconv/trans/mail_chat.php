@@ -56,6 +56,8 @@ echo json_encode(array(
         "unresponded_messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','There is still un-responded messages, are you sure you want to close this conversation?')
     ],
     "msg" => [
+        "auto_replied" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Auto-Replied - Automatic reply from recipient (vacation, ou-of-office, delivery receipt). Not a personal reply.'),
+        "auto_generated" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Auto-Generated - System or marketing message (campaign/courier). No personal reply expected.'),
         "reply" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Reply'),
         "forward" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Forward'),
         "download" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Download (eml)'),

@@ -9767,6 +9767,14 @@
         "extra": ""
       },
       {
+        "field": "auto_submitted",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "conv_user_id",
         "type": "bigint(20) unsigned",
         "null": "NO",
