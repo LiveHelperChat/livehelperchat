@@ -38,6 +38,7 @@ $transItems = array(
     "masking.deny_list" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Deny List (one per line). All other URLs will be allowed.'),
     "masking.list_exclusive_note" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Note: Only one list can be filled at a time. Allow List and Deny List are mutually exclusive.'),
     "masking.email_domain_allow_list" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Email Domain Allow List (one per line). Use __mailbox__ to allow all mailbox domains'),
+    "masking.phone_allow_list" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Phone Allow List (one per line). You can use wildcard at the end of phone.'),
 );
 
 echo json_encode($transItems);

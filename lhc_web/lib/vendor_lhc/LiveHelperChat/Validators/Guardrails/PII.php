@@ -213,6 +213,58 @@ class PII
         return false;
     }
 
+    /**
+     * Check if phone is in allow list
+     * Supports simple digit matching, suffix matching and wildcard '*' (matches any digits)
+     */
+    private static function isPhoneAllowed($phone, $allowList)
+    {
+        if (empty($allowList)) {
+            return false;
+        }
+
+        // Normalize digits from phone
+        $digits = preg_replace('/\D+/', '', $phone);
+        if ($digits === '') {
+            return false;
+        }
+
+        foreach ($allowList as $allowed) {
+            $allowed = trim($allowed);
+            if ($allowed === '') {
+                continue;
+            }
+
+            // Wildcard support: '*' matches any digits
+            if (strpos($allowed, '*') !== false) {
+                // Keep only digits and '*' from pattern
+                $patternDigits = preg_replace('/[^\d\*]/', '', $allowed);
+                $regex = '/^' . str_replace('*', '\\d*', $patternDigits) . '$/';
+                if (preg_match($regex, $digits)) {
+                    return true;
+                }
+                continue;
+            }
+
+            // Normalize allowed entry to digits and allow exact or suffix match
+            $allowedDigits = preg_replace('/\D+/', '', $allowed);
+            if ($allowedDigits === '') {
+                continue;
+            }
+
+            if ($digits === $allowedDigits) {
+                return true;
+            }
+
+            // Suffix match (e.g. last 7 digits)
+            if (strlen($allowedDigits) <= strlen($digits) && substr($digits, -strlen($allowedDigits)) === $allowedDigits) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static function detectPii($text, $config = [])
     {
         if (empty($text)) {
@@ -235,6 +287,13 @@ class PII
                     if ($entityType === self::EMAIL_ADDRESS && isset($config['emailDomainAllowList'])) {
                         if (self::isEmailDomainAllowed($matchedText, $config['emailDomainAllowList'])) {
                             continue; // Skip this email as it's in the allow list
+                        }
+                    }
+
+                    // Check phone allow list for PHONE_NUMBER entity
+                    if ($entityType === self::PHONE_NUMBER && isset($config['phoneAllowList'])) {
+                        if (self::isPhoneAllowed($matchedText, $config['phoneAllowList'])) {
+                            continue; // Skip this phone as it's in the allow list
                         }
                     }
                     

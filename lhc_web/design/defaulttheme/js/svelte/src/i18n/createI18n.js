@@ -13,7 +13,7 @@ export function createI18n(scope) {
         if (loaded) return;
         
         try {
-            const response = await fetch(WWW_DIR_JAVASCRIPT + "restapi/lang/" + scope + '/v14', {
+            const response = await fetch(WWW_DIR_JAVASCRIPT + "restapi/lang/" + scope + '/v15', {
                 method: "GET",
                 headers: {
                     Accept: "application/json",

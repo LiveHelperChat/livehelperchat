@@ -176,6 +176,16 @@
     function getEmailDomainAllowListText(rule) {
         return (rule.emailDomainAllowList || []).join('\n');
     }
+
+    function updatePhoneAllowList(index, value) {
+        rules[index].phoneAllowList = value.split("\n").map(s => s.trim()).filter(s => s !== '');
+        rules = [...rules];
+        updateInput();
+    }
+
+    function getPhoneAllowListText(rule) {
+        return (rule.phoneAllowList || []).join('\n');
+    }
 </script>
 
 <div id="rules-container">
@@ -237,8 +247,12 @@
                                 </div>
                             </div>
                             <div class="col-6 mb-2">
-                                <label>{$t('masking.email_domain_allow_list') || 'Email Domain Allow List (one per line). Use __mailbox__ to allow all mailbox domains'}</label>
+                                <label>{$t('masking.email_domain_allow_list')}</label>
                                 <textarea class="form-control form-control-sm" rows="3" placeholder="e.g. example.com or __mailbox__" value={getEmailDomainAllowListText(rule)} on:change={(e) => updateEmailDomainAllowList(index, e.target.value)} disabled={!rule.entities || rule.entities.indexOf('EMAIL_ADDRESS') === -1}></textarea>
+
+                                <label>{$t('masking.phone_allow_list')}</label>
+                                <textarea class="form-control form-control-sm" rows="3" placeholder="e.g. +37011111111" value={getPhoneAllowListText(rule)} on:change={(e) => updatePhoneAllowList(index, e.target.value)} disabled={!rule.entities || rule.entities.indexOf('PHONE_NUMBER') === -1}></textarea>
+
                             </div>
                             <div class="col-6 mb-2">
                                 <label>{$t('masking.replacement_mask_hint')}</label>
