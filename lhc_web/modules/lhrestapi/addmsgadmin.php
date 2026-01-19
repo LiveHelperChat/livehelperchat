@@ -455,6 +455,8 @@ try {
 
                 if ($form->hasValidData('status') && in_array($form->status, $validStatus)) {
 
+                    $previousAttributes = $Chat->getState();
+
                     erLhcoreClassChatHelper::changeStatus(array(
                         'user' => $userData,
                         'chat' => $Chat,
@@ -462,7 +464,7 @@ try {
                         'allow_close_remote' => erLhcoreClassRestAPIHandler::hasAccessTo('lhchat', 'allowcloseremote')
                     ));
 
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $Chat, 'user_data' => $userData));
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('initiator' => 'restapi', 'chat' => & $Chat, 'user_data' => $userData, 'previous_attributes' => $previousAttributes));
                 }
 
                 echo erLhcoreClassChat::safe_json_encode(array('error' => false, 'r' => $returnBody, 'msg' => ($ignoreMessage === false ? $msg->getState() : null)) + $customArgs);

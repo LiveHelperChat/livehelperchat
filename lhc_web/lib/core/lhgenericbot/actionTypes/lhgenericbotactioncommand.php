@@ -793,6 +793,8 @@ class erLhcoreClassGenericBotActionCommand {
 
         } elseif ($action['content']['command'] == 'setchatattribute') {
 
+                $previousAttributes = [];
+
                 // Replace variables if any
                 if (isset($params['replace_array']) && is_array($params['replace_array'])) {
                     foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
@@ -821,6 +823,8 @@ class erLhcoreClassGenericBotActionCommand {
                     $db->beginTransaction();
 
                     $chat->syncAndLock('`id`');
+
+                    $previousAttributes = $chat->getState();
 
                     $chat->{$action['content']['payload']} = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
 
@@ -879,7 +883,7 @@ class erLhcoreClassGenericBotActionCommand {
                     erLhcoreClassChat::updateDepartmentStats($department);
                 }
 
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed', array('chat' => & $chat));
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed', array('initiator' => 'bot', 'chat' => & $chat, 'previous_attributes' => $previousAttributes));
 
         } elseif ($action['content']['command'] == 'setdepartment') {
 

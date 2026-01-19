@@ -24,7 +24,9 @@ if (trim($form->msg) != '')
 	        	$db->rollback();
 	        	exit;
 	        }
-	
+
+            $previousAttributes = $Chat->getState();
+
 	        $userData = $currentUser->getUserData();
 		      
 	        $messageUserId = $userData->id;
@@ -329,7 +331,7 @@ if (trim($form->msg) != '')
                         // If chat is transferred to pending state we don't want to process any old events
                         erLhcoreClassGenericBotWorkflow::removePreviousEvents($Chat->id);
 
-                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $Chat, 'user' => $currentUser));
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('initiator' => 'user', 'chat' => & $Chat, 'user' => $currentUser, 'previous_attributes' => $previousAttributes));
 
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.accept',array('chat' => & $Chat, 'user' => $currentUser));
                         erLhcoreClassChat::updateActiveChats($Chat->user_id);

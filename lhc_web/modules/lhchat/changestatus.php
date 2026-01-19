@@ -29,15 +29,17 @@ if (erLhcoreClassChat::hasAccessToRead($chat)) {
             erLhcoreClassModelChat::STATUS_OPERATORS_CHAT,
             erLhcoreClassModelChat::STATUS_BOT_CHAT
         ))) {
-            
+
+            $previousAttributes = $chat->getState();
+
             erLhcoreClassChatHelper::changeStatus(array(
                 'user' => $userData,
                 'chat' => $chat,
                 'status' => $changeStatus,
                 'allow_close_remote' => $currentUser->hasAccessTo('lhchat', 'allowcloseremote')
             ));
-            
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $chat, 'user' => $currentUser));
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed', array('initiator' => 'user', 'chat' => & $chat, 'user' => $currentUser, 'previous_attributes' => $previousAttributes));
 
             header('Content-type: application/json');
             echo json_encode(array(

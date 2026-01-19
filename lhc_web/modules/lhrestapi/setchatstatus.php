@@ -33,6 +33,8 @@ try {
 
         $changeStatus = (int) $_POST['status'];
 
+        $previousAttributes = $chat->getState();
+
         erLhcoreClassChatHelper::changeStatus(array(
             'user' => $userData,
             'chat' => $chat,
@@ -40,7 +42,7 @@ try {
             'allow_close_remote' => erLhcoreClassRestAPIHandler::hasAccessTo('lhchat', 'allowcloseremote')
         ));
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $chat, 'user_data' => $userData));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('initiator' => 'restapi', 'chat' => & $chat, 'user_data' => $userData, 'previous_attributes' => $previousAttributes));
 
         echo erLhcoreClassRestAPIHandler::outputResponse(array(
             'error' => false,
