@@ -24,7 +24,7 @@ class erLhcoreClassChatWebhookHttp {
                     $params['chat']->id = -1;
                 }
 
-                if (self::isValidConditions($webhook, $params['chat']) === true) {
+                if (self::isValidConditions($webhook, $params['chat'], $params) === true) {
                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($webhook->trigger_id);
                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
 
@@ -74,7 +74,7 @@ class erLhcoreClassChatWebhookHttp {
     }
 
 
-    public static function isValidConditions($continuousHook, $chat) {
+    public static function isValidConditions($continuousHook, $chat, $params = []) {
 
         $configurationParams = $continuousHook->conditions_array;
 
@@ -175,7 +175,7 @@ class erLhcoreClassChatWebhookHttp {
                             preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $conditionAttr,$matchesValues);
                             if (!empty($matchesValues[0])) {
                                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
+                                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array_merge($params, array('chat' => $chat)), $matchesValues[1][$indexElement], '.');
                                     $conditionAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $conditionAttr);
                                 }
                             }
@@ -190,7 +190,7 @@ class erLhcoreClassChatWebhookHttp {
                             preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $valueAttr,$matchesValues);
                             if (!empty($matchesValues[0])) {
                                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
+                                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array_merge($params, array('chat' => $chat)), $matchesValues[1][$indexElement], '.');
                                     $valueAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $valueAttr);
                                 }
                             }
