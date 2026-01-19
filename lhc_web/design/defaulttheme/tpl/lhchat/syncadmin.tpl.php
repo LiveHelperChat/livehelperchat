@@ -22,6 +22,7 @@
     }
 
 
+
     foreach ($messages as $msg) :
     
         if ($lastOperatorId !== false && ($lastOperatorId != $msg['user_id'] || $lastOperatorNick != $msg['name_support'])) {
@@ -40,7 +41,11 @@
         } else if (isset($metaMessageData)) {
             unset($metaMessageData);
         }
-        
+
+        if (isset($metaMessageData['content']['debug']['content']) && !erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_audit_system')) {
+            unset($metaMessageData['content']['debug']);
+        }
+
         // We skip render only if message is empty and it's not one of the supported admin meta messages
         if (
             ($msg['msg'] == '' &&

@@ -1365,6 +1365,13 @@
             "type": "string"
           },
           {
+            "name": "debug_meta_msg",
+            "in": "formData",
+            "description": "Debug meta message.",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "operator_name",
             "in": "formData",
             "description": "Set custom operator name for a message",

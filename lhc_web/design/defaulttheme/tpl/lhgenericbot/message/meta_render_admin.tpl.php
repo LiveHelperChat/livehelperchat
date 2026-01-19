@@ -4,7 +4,7 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/text_conditional_admin.tpl.php'));?>
        <?php elseif ($type == 'survey') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/survey_admin.tpl.php'));?>
-       <?php elseif ($type == 'html') : ?>
+       <?php elseif ($type == 'html' || $type == 'debug') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/html_admin.tpl.php'));?>
         <?php elseif ($type == 'button_message') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/button_message_admin.tpl.php'));?>

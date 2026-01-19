@@ -20,6 +20,9 @@ try {
         'meta_msg' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'debug_meta_msg' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
         'operator_name' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -151,6 +154,15 @@ try {
                     if (strpos($msg->msg,'[html]') !== false && !erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','htmlbbcodeenabled')) {
                         $msg->msg = '[html] is disabled for you!';
                         $msg->user_id = -1;
+                    }
+
+                    if ($form->hasValidData('debug_meta_msg') && $form->debug_meta_msg != '' && erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','metamsgenabled')) {
+                        $metaData = json_decode($msg->meta_msg,true);
+                        if (!is_array($metaData)) {
+                            $metaData = [];
+                        }
+                        $metaData['content']['debug']['content'] = $form->debug_meta_msg;
+                        $msg->meta_msg = json_encode($metaData);
                     }
 
                     if ($form->hasValidData('meta_msg') && $form->meta_msg != '' && erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','metamsgenabled')) {

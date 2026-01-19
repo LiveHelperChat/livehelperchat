@@ -27,7 +27,7 @@
 
         </div>
     <?php else : ?>
-        <?php $msgBody = '[html]'.str_replace(["\r","\n"],["",""],$metaMessage['content']).'[/html]'; $paramsMessageRender = array('sender' => (is_object($msg) ? $msg->user_id : $msg['user_id']));?>
+        <?php $msgBody = '[html]'.str_replace(["\r","\n"],["",""],$metaMessage['content']).'[/html]'; $paramsMessageRender = array('msg_body_class' => (isset($type) && $type === 'debug' ? 'bg-transparent text-muted' : ''), 'sender' => (is_object($msg) ? $msg->user_id : $msg['user_id']));?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
     <?php endif; ?>
 
