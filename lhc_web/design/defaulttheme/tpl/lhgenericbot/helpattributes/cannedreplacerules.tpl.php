@@ -1,5 +1,6 @@
 <?php if ($context == 'cannedreplacerules') : ?>
     <ul class="mx300">
+        <li><a href="https://doc.livehelperchat.com/docs/bot/check-conditions#internal-comparison-operators" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Conditions explain');?></a> </li>
         <li><strong>{args.chat.referrer}</strong> `contains`. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Page where chat started');?></li>
         <li><strong>{args.chat.session_referrer}</strong> `contains`. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Referer from where visitor come to site.');?></li>
         <li><strong>{args.chat.chat_variables_array.&lt;variables&gt;}</strong> = <b>New</b></li>

@@ -275,6 +275,14 @@ class erLhcoreClassChatWebhookHttp {
                             $conditionItemValid = true;
                         } else if ($conditionsCurrent['condition'] == 'contains' && strrpos($conditionAttr, $valueAttr) !== false) {
                             $conditionItemValid = true;
+                        } else if ($conditionsCurrent['condition'] == 'in_list' && in_array(trim($conditionAttr),explode('||',trim($valueAttr)))) {
+                            $conditionItemValid = true;
+                        } else if ($conditionsCurrent['condition'] == 'in_list_lowercase' && in_array(strtolower(trim($conditionAttr)),explode('||',strtolower(trim($valueAttr))))) {
+                            $conditionItemValid = true;
+                        } else if ($conditionsCurrent['condition'] == 'not_in_list' && !in_array(trim($conditionAttr),explode('||',trim($valueAttr)))) {
+                            $conditionItemValid = true;
+                        } else if ($conditionsCurrent['condition'] == 'not_in_list_lowercase' && !in_array(strtolower(trim($conditionAttr)),explode('||',strtolower(trim($valueAttr))))) {
+                            $conditionItemValid = true;
                         }
                     }
 

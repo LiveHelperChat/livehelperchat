@@ -121,6 +121,10 @@
                                 <option value="like"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text like');?></option>
                                 <option value="notlike"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text not like');?></option>
                                 <option value="contains"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Contains');?></option>
+                                <option value="in_list"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','In list');?></option>
+                                <option value="in_list_lowercase"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','In list (lowercase)');?></option>
+                                <option value="not_in_list"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Not in list');?></option>
+                                <option value="not_in_list_lowercase"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Not in list (lowercase)');?></option>
                             </select>
                         </div>
                     </div>
