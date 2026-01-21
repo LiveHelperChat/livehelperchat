@@ -130,6 +130,9 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
                             if ($msg['user_id'] != $currentUser->getUserID()) {
                                 $userOwner = 'false';
                                 $msgText = $msg['msg'];
+                                if ((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1 && $see_sensitive_information === false) {
+                                    $msgText = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgText, array('dep_id' => $Chat->dep_id));
+                                }
                                 break;
                             }
                         }
