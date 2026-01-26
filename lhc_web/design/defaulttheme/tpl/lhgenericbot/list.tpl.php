@@ -5,7 +5,8 @@
 <table class="table" cellpadding="0" cellspacing="0" width="100%" ng-non-bindable>
     <thead>
     <tr>
-        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Name');?></th>
+        <th width="45%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Name');?></th>
+        <th width="45%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Short Name');?></th>
         <th width="1%">&nbsp;</th>
         <th width="1%">&nbsp;</th>
         <th width="1%">&nbsp;</th>
@@ -15,6 +16,9 @@
         <tr>
             <td>
                 <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/bot_list_item_name.tpl.php'));?>
+            </td>
+            <td>
+                <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/bot_list_item_short_name.tpl.php'));?>
             </td>
             <td nowrap>
                 <button type="button" data-attr-id="<?php echo $item->id?>" class="btn btn-secondary btn-xs btn-use-cases" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Investigate places where this bot is used');?>"><span class="material-icons fs12">action_key</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Use cases');?></button>

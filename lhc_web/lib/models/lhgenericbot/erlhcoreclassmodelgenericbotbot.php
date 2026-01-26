@@ -17,6 +17,7 @@ class erLhcoreClassModelGenericBotBot {
         $stateArray = array(
             'id' => $this->id,
             'name' => $this->name,
+            'short_name' => $this->short_name,
             'nick' => $this->nick,
             'configuration' => $this->configuration,
             'attr_str_1' => $this->attr_str_1,
@@ -141,6 +142,7 @@ class erLhcoreClassModelGenericBotBot {
 
     public $id = null;
     public $name = '';
+    public $short_name = '';
     public $nick = '';
     public $configuration = '';
     public $attr_str_1 = '';

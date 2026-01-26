@@ -149,6 +149,12 @@
             </th>
         {/if}
 
+        {#if type == 'bot_chats'}
+            <th width="25%">
+                <span title={$t("widget.bot")} class="material-icons">android</span>{$t("widget.bot")}
+            </th>
+        {/if}
+
         {#if !hide_2_column}
         <th width={column_2_width}>
 
@@ -584,6 +590,16 @@
                             {#each chat.subject_list as subjectitem}
                                 <span class="badge bg-info fs12 me-1" style:background-color|important={subjectitem.c ? '#'+subjectitem.c : null}>{subjectitem.n}</span>
                             {/each}
+                        {/if}
+                    </td>
+                {/if}
+
+                {#if type == 'bot_chats'}
+                    <td title={chat.gbot_id}>
+                        {#if chat.bot_short_name}
+                            {chat.bot_short_name}
+                        {:else}
+                            <span class="material-icons">android</span>{chat.gbot_id}
                         {/if}
                     </td>
                 {/if}

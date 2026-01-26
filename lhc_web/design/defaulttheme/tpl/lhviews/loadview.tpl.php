@@ -97,6 +97,7 @@
                                     <i class="material-icons chat-active">android</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Bot chat');?>
                                 <?php endif;?>
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/status_multiinclude.tpl.php'));?>
+                                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/short_name_bot_column.tpl.php'));?>
                             </td>
                             <td nowrap="nowrap">
                                 <?php echo $chat->start_last_action_front?>

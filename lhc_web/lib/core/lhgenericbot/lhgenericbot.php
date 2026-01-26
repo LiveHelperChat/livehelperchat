@@ -20,6 +20,9 @@ class erLhcoreClassGenericBot {
             'name' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'short_name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'nick' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -67,6 +70,12 @@ class erLhcoreClassGenericBot {
             $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter bot name!');
         } else {
             $bot->name = $form->name;
+        }
+
+        if ($form->hasValidData('short_name')) {
+            $bot->short_name = $form->short_name;
+        } else {
+            $bot->short_name = '';
         }
 
         if ( !$form->hasValidData( 'nick' ) || $form->nick == '' ) {

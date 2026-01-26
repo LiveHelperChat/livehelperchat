@@ -609,6 +609,13 @@ class erLhcoreClassModelChat {
             $this->bot = $bot;
             return $this->bot;
 
+        case 'bot_short_name':
+            $this->bot_short_name = '';
+            if (is_object($this->bot)) {
+                $this->bot_short_name = $this->bot->short_name;
+            }
+            return $this->bot_short_name;
+
        case 'incoming_chat':
            $this->incoming_chat = erLhcoreClassModelChatIncoming::findOne(array('filter' => array('chat_id' => $this->id)));
            return $this->incoming_chat;

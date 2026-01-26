@@ -561,6 +561,45 @@ $url = erLhcoreClassDesign::baseurl('user/account') . '/(tab)/settings';
 
 See: `.github/instructions/4-domains/` for detailed guidance on each domain
 
+## Adding a New Column to an Entity
+
+When adding a new column to any entity, follow this concise checklist (pending changes in the working tree usually reflect these steps):
+
+1. **POS / Schema:** Add the column to the appropriate `pos/` definition (`pos/lhabstract/...` or table-specific file) and prepare a DB migration SQL or update `lhc_web/doc/update_db/structure.json`.
+2. **Model class:** Update the model in `lhc_web/lib/models/erLhcoreClassModel{Entity}.php`:
+    - Add a public property for the new column.
+    - Include it in `getState()` so the field is persisted and restored.
+3. **Fields metadata:** Add the field definition to `lib/core/lhabstract/fields/{lowercaseclassname}.php` so `getFields()` returns correct metadata.
+4. **POS mapping & ORM:** If needed, update POS mappings under `lhc_web/pos/` to reflect the new column type and attributes.
+5. **Migrations & data:** Add any migration scripts and data backfills required to populate the column for existing records.
+6. **API / Controllers / Forms:** Expose the column in API handlers, controllers, templates and admin forms where required; add permission checks if needed.
+7. **Version definition** `lib\core\lhcore\lhupdate.php` Increase `const DB_VERSION;` and `const LHC_RELEASE;` versions.
+
+Keep changes minimal and focused — modify only the files necessary to add and expose the column.
+
+### Abstract commit / PR template for column changes
+
+Use this short template next time to describe pending changes and required follow-ups:
+
+```
+Title: "Add column `<column_name>` to `<entity>`"
+
+Summary:
+- POS/schema change: `pos/...` updated
+- Model: `lhc_web/lib/models/erLhcoreClassModel<Entity>.php` updated (property + `getState()`)
+- Fields metadata: `lib/core/lhabstract/fields/<class>.php` updated
+- Migration: SQL / data-backfill added
+- API/forms/templates: updated where applicable
+
+Checklist:
+- [ ] DB migration created
+- [ ] Model property + getState included
+- [ ] Fields metadata updated
+
+Notes: attach any special migration instructions or manual steps.
+```
+
+
 # Adding REST API Endpoint
 
 1. Add handler in `modules/lhrestapi/`

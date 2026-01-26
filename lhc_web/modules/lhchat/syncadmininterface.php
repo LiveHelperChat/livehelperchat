@@ -526,14 +526,14 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
      * Bot chats
      * */
     $chats = erLhcoreClassChat::getBotChats($limitList,0,$filter);
-
+    
     if (!empty($chats)) {
         $subjectByChat = erLhcoreClassChat::getChatSubjects($chats,4);
     }
 
     $chatsListAll = $chatsListAll+$chats;
 
-    erLhcoreClassChat::prefillGetAttributes($chats,array('pnd_rsp','last_msg_time_front','user_status_front','time_created_front','department_name','plain_user_name','product_name','msg_v','aicons','aalert'),array('iwh','product_id','product','department','pnd_time','time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
+    erLhcoreClassChat::prefillGetAttributes($chats,array('bot_short_name','pnd_rsp','last_msg_time_front','user_status_front','time_created_front','department_name','plain_user_name','product_name','msg_v','aicons','aalert'),array('bot','iwh','product_id','product','department','pnd_time','time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
 
     foreach ($chats as $index => $chat) {
         if (isset($subjectByChat[$chat->id])) {
@@ -542,9 +542,12 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
     }
 
     $ReturnMessages['bot_chats'] = array('last_id_identifier' => 'bot_chats', 'list' => array_values($chats),'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
+
     $chatsList[] = & $ReturnMessages['bot_chats']['list'];
 
     $timeLog['bot_chats'] = $ReturnMessages['bot_chats']['tt'];
+
+
 
 }
 

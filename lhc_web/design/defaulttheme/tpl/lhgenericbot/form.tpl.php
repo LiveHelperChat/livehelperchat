@@ -6,9 +6,20 @@
 
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="general">
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
-            <input maxlength="100" type="text" class="form-control" name="name"  value="<?php echo htmlspecialchars($item->name);?>" />
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
+                    <input maxlength="100" type="text" class="form-control" name="name"  value="<?php echo htmlspecialchars($item->name);?>" />
+                </div>  
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/new','Short name');?></label>
+                    <input maxlength="50" type="text" class="form-control" name="short_name"  value="<?php echo htmlspecialchars($item->short_name);?>" />
+                </div>
+            </div>
         </div>
 
         <div class="form-group">

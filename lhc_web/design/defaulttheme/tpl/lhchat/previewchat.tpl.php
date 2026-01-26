@@ -19,6 +19,10 @@
 
             <?php if ($chat->online_user_id > 0) : ?><i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor ID')?> - <?php echo $chat->online_user_id?></small><?php endif; ?>
 
+            <?php if ($chat->bot) : ?>
+                <span class="material-icons">android</span><small><?php if (!empty($chat->bot->short_name)) : ?><?php echo htmlspecialchars($chat->bot->short_name); ?><?php else : ?><?php echo htmlspecialchars($chat->gbot_id); ?><?php endif; ?></small>
+            <?php endif; ?>
+
             <?php foreach (erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $chat->id))) as $subject) :?>
                 <span class="badge bg-info fs12 me-1" <?php if ($subject->subject->color != '') : ?>style="background-color:#<?php echo htmlspecialchars($subject->subject->color)?>!important;" <?php endif;?> ><?php echo htmlspecialchars($subject->subject)?></span>
             <?php endforeach; ?>
@@ -30,7 +34,6 @@
                 <span class="text-muted fs13 ps-1">
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Use Alt+↑↓ arrows to navigate in the list.')?>
                 </span>
-
             </div>
         <?php endif; ?>
 

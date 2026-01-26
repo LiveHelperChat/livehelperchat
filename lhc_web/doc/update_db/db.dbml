@@ -1986,6 +1986,7 @@ Table "lh_generic_bot_bot" {
   "filename" varchar(250) [not null]
   "filepath" varchar(250) [not null]
   "name" varchar(100) [not null]
+  "short_name" varchar(50) [not null]
   "nick" varchar(100) [not null]
   "attr_str_1" varchar(100) [not null]
   "attr_str_2" varchar(100) [not null]

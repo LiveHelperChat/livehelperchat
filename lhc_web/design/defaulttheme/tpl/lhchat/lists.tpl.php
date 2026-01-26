@@ -108,6 +108,7 @@
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/column_value_after_department_multiinclude.tpl.php'));?>
                             <td nowrap="nowrap">
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/status_column.tpl.php'));?>
+                                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/short_name_bot_column.tpl.php'));?>
                             </td>
                             <td><?php if ($chat->fbst == 1) : ?><i class="material-icons up-voted">thumb_up</i><?php elseif ($chat->fbst == 2) : ?><i class="material-icons down-voted">thumb_down<i><?php endif;?></td>
                         </tr>
