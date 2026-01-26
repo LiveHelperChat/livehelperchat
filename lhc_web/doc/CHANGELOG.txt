@@ -1,6 +1,17 @@
 4.78v
 
+1. Notable changes since 4.77v
+   - Bot: support for bot short name.
+   - Message masking: mask last message from visitor.
+   - Webhooks/Conditions: support additional comparison variables and accept all params for condition checks.
+   - Events: included more information for main chat attributes change event.
+   - Debugging: added debug message handling inside chat messages.
+   - Guardrails: added whitelist support for phone guardrails.
+   - Misc: small typo fixes.
 
+2. Summary
+   - Improvements across bot, webhooks, and message masking to increase reliability and observability.
+   - Several small bug fixes and developer-facing debug improvements.
 
 execute doc/update_db/update_345.sql for update
 
