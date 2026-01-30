@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.0" language="sk_SK">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.0" language="ja_JP">
   <context>
     <name>listchatconfig</name>
     <message>
@@ -7,163 +7,163 @@
     </message>
     <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
-      <translation type="unfinished"/>
+      <translation>チャット 未回答の場合、オペレーターに連絡するまでにどのくらい待つべきか。</translation>
     </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
-      <translation>Koľko dní by sa po hlasovací widget nemal rozšíriť po poslednom zobrazení</translation>
+      <translation>最後の閲覧から数えて何日間、投票ウィジェットを表示しないか</translation>
     </message>
     <message>
       <source>Domains where script can be embedded. E.g example.com, google.com</source>
-      <translation type="unfinished"/>
+      <translation>スクリプトを埋め込むことができるドメイン</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
-      <translation>Použiť zabezpečené cookie, označte ak chcete vynútiť SSL všade</translation>
+      <translation>セキュアなクッキーを使用して、常時SSL接続を強制する</translation>
     </message>
     <message>
       <source>Which ip should be allowed to update DB by executing http request, separate by comma?</source>
-      <translation>Ktoré ip by mali mať možnosť aktualizovať databázu DB vykonaním požiadavky http, oddelené čiarkou?</translation>
+      <translation>HTTPリクエストを送信してデータベースを更新できるIPアドレスをカンマ区切りで入力</translation>
     </message>
     <message>
       <source>How long keep operators online sessions data? (days)</source>
-      <translation type="unfinished"/>
+      <translation>オペレーターのオンライン状態を保持する日数</translation>
     </message>
     <message>
       <source>Which ip should not be allowed to be blocked</source>
-      <translation type="unfinished"/>
+      <translation>どのIPをブロックしてはいけないか</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
-      <translation>Povoliť sledovanie návštevníkov online</translation>
+      <translation>オンライン訪問者の追跡を有効化</translation>
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation>Má sa pohyb myši sledovať ako aktivita, ak nie je zaškrtnuté iba základné udalosti budú sledované</translation>
+      <translation>マウスの動きをアクティビティとして追跡するにはチェック。チェックしない場合は、基本的なイベントのみ追跡します</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
-      <translation>Sledovať, či je používateľ stále na stránke, kontroly stavu chatu musia byť tiež povolené</translation>
+      <translation>ユーザーがサイト上にいるかどうか追跡…チャットステータスチェックが有効になっている必要があります</translation>
     </message>
     <message>
       <source>Track online visitors even if there is no online operators</source>
-      <translation>Sledovať on-line návštevníkov, aj keď nie sú on-line operátori</translation>
+      <translation>オンラインオペレータがいない場合にも訪問者を追跡</translation>
     </message>
     <message>
       <source>Track users footprint. For this also online visitors tracking should be enabled</source>
-      <translation>Sledovať pohyb (footprint) používateľov. K tomuto by malo byť povolené aj sledovanie návštevníkov online</translation>
+      <translation>ユーザーの足跡を追跡…オンライン訪問者の追跡が有効になっている必要があります</translation>
     </message>
     <message>
       <source>Set your domain to enable user tracking across different domain subdomains.</source>
-      <translation>Nastavte svoju doménu tak, aby umožňovala sledovanie používateľov v rôznych subdoménach domény.</translation>
+      <translation>別のドメイン、サブドメインのユーザーの追跡を跨って有効にするドメインを設定します。</translation>
     </message>
     <message>
       <source>Track users activity on site?</source>
-      <translation>Sledovať aktivitu používateľov na stránkach?</translation>
+      <translation>サイト上でのユーザーアクティビティをトラッキングしますか？</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
-      <translation>Koľko dní uchovávať záznamy online používateľov.</translation>
+      <translation>オンラインユーザーを何日間保持しますか？</translation>
     </message>
     <message>
       <source>How many days keep records of users footprint.</source>
-      <translation type="unfinished"/>
+      <translation>何日ユーザーの足跡記録を保存する？</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
-      <translation>Navrhnúť používateľovi, aby zanechal správu, potom si používateľ zvolí offline oddelenie</translation>
+      <translation>ユーザーがオフラインの部署を選択したとき、メッセージを残すように提案する</translation>
     </message>
     <message>
       <source>Play sound on invitation to chat.</source>
-      <translation>Prehrať zvuk pri pozvaní na rozhovor.</translation>
+      <translation>チャットへ招待された際、音楽を再生する。</translation>
     </message>
     <message>
       <source>Show users option to switch language at widget</source>
-      <translation>Zobraziť používateľom vo widgete možnosť prepnúť jazyk</translation>
+      <translation>ウィジェットで、言語切替オプションをユーザーに表示する</translation>
     </message>
     <message>
       <source>Between what languages user should be able to switch</source>
-      <translation>Medzi akými jazykmi môže používateľ prepínať</translation>
+      <translation>ユーザーが切替可能な言語</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
-      <translation>Server na ktorom beží NodeJs</translation>
+      <translation>NodeJsが稼働しているホスト</translation>
     </message>
     <message>
       <source>Location of SocketIO JS library</source>
-      <translation>Umiestnenie knižnice SocketIO JS</translation>
+      <translation>JSライブラリSocketIOの場所</translation>
     </message>
     <message>
       <source>Connect to NodeJs in https mode</source>
-      <translation>Pripojiť sa k službe NodeJs v režime https</translation>
+      <translation>NodeJsにhttpsモードで接続</translation>
     </message>
     <message>
       <source>socket.io path, optional</source>
-      <translation>Cesta k socket.io, voliteľné</translation>
+      <translation>socket.ioパス、オプション</translation>
     </message>
     <message>
       <source>NodeJS support enabled</source>
-      <translation>Podpora NodeJS je povolená</translation>
+      <translation>NodeJSサポート有効化</translation>
     </message>
     <message>
       <source>Do not ask permission for users to see their screen</source>
-      <translation>Nepýtať si povolenie od používateľov na zobrazenie ich obrazovky</translation>
+      <translation>ユーザーへスクリーンを共有する許可を尋ねない</translation>
     </message>
     <message>
       <source>Use session captcha. LHC have to be installed on the same domain or subdomain.</source>
-      <translation>Použiť captcha relácie. LHC musí byť nainštalované na rovnakej doméne alebo subdoméne.</translation>
+      <translation>セッションcaptchaを使用する。LHCは同じドメイン又はサブドメインにインストールされている必要あり</translation>
     </message>
     <message>
       <source>Should cronjob run unanswered chats workflow and execute unaswered chats callback, 0 - no, any other number bigger than 0 is a minits how long chat have to be not accepted before executing callback.</source>
-      <translation>Mal by sa spúšťať cron pre chaty bez odpovedí a spustiť callbacky na chaty bez odpovede, 0 - nie, akékoľvek iné číslo väčšie ako 0 sú minúty, ako dlho nesmie byť chat pred spustením callbacku prijatý.</translation>
+      <translation>Cronjobが未返答のチャットへのコールバックを行うかどうか…0 - 無効、0以上 - コールバックを実行するまでの分数</translation>
     </message>
     <message>
       <source>Should cronjob run departments transfer workflow, even if user leaves a chat</source>
-      <translation>Mal by sa spúšťať cronjob pre presun oddelenia, aj keď používateľ opustí chat</translation>
+      <translation>ユーザーがチャットから退出しても cronjob で部署転送ワークフローを実行するか</translation>
     </message>
     <message>
       <source>Make default pending chats order from old to new</source>
-      <translation type="unfinished"/>
+      <translation>保留中のチャットは最古から最新の順番で表す</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
-      <translation>Funkcionalita opätovného otvorenia chatu povolená</translation>
+      <translation>再オープンは、チャット機能を有効化</translation>
     </message>
     <message>
       <source>Reopen closed chat as new? Otherwise it will be reopened as active.</source>
-      <translation>Otvoriť zatvorený chat ako nový? V opačnom prípade bude otvorený ako aktívny.</translation>
+      <translation>一度閉じたチャットを新規で再開する…チェックを外すと、継続で再開されます</translation>
     </message>
     <message>
       <source>Should we remember username for the next time visitor starts a chat?</source>
-      <translation type="unfinished"/>
+      <translation>訪問者再び会話を始まる時にユーザーネームを覚える必要がありますか。</translation>
     </message>
     <message>
       <source>Should we remember E-Mail, Phone for the next time visitor starts a chat?</source>
-      <translation type="unfinished"/>
+      <translation>次にビジターがチャット 。</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
-      <translation>Ak nie je k dispozícii on-line operátor, mal by sa vykonať proces pozvania užívateľa</translation>
+      <translation>オンラインオペレータがいない場合、招待ロジックを実行する</translation>
     </message>
     <message>
       <source>Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.</source>
-      <translation>Proaktívne pozvánky chatu limitované vzhľadom k počtu čakajúcich chatov, (-1) bez limitu, (0,1,n+1) počet čakajúcich chatov môže byť pre zobrazenie pozvánky pre chat.</translation>
+      <translation>アクティブチャットの招待制限は、チャットのペンディングに基づきます、(-1)は無制限、(0,1,n+1) は、ペンディングしているチャットが招待を表示できる数字です。</translation>
     </message>
     <message>
       <source>Is pro active chat invitation active. Online users tracking also has to be enabled</source>
-      <translation>Je aktívna proaktívna pozvánka na chat. SLedovanie online užívateľov musí byť tiež povolené</translation>
+      <translation>オンラインユーザートラッキングが有効化されていると、アクティブユーザーにアクティブチャット招待をします。</translation>
     </message>
     <message>
       <source>Preload iframes. It will avoid loading delay after clicking widget</source>
-      <translation type="unfinished"/>
+      <translation>iframeのプリロード。ウィジェットをクリックした後の読み込み遅延を防ぎます。</translation>
     </message>
     <message>
       <source>How many seconds customer has to open already closed chat.</source>
-      <translation type="unfinished"/>
+      <translation>すでに閉じたチャット を何秒以内に開けなければならないか。</translation>
     </message>
     <message>
       <source>On chat close exit chat</source>
-      <translation>Pri zatvorení chatu ukončiť chat</translation>
+      <translation>チャットをクローズするとチャットを終了</translation>
     </message>
     <message>
       <source/>
@@ -171,2394 +171,2394 @@
     </message>
     <message>
       <source>Cookie should be valid only for domain where Javascript is embedded</source>
-      <translation type="unfinished"/>
+      <translation>クッキーは、Javascriptが埋め込まれているドメインでのみ有効でなければならない。</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation>Časový limit pre &apos;Potrebujete pomoc&apos;, po koľkých hodinách sa má opäť zobraziť.</translation>
+      <translation>再びツールTIPを表示した後何時間でヘルプツールTIPのタイムアウトが必要ですか？</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>Zobrazovať okno &apos;Potrebujete pomoc&apos;?</translation>
+      <translation>ヘルプツールTIPの表示が必要？</translation>
     </message>
     <message>
       <source>Minimum phone number length</source>
-      <translation>Minimálna dĺžka telefónneho čísla</translation>
+      <translation>電話番号の最小の長さ</translation>
     </message>
     <message>
       <source>Messages box height for operator</source>
-      <translation type="unfinished"/>
+      <translation>オペレーターのメッセージボックスの高さ</translation>
     </message>
     <message>
       <source>Messages box height</source>
-      <translation>Výška poľa správy</translation>
+      <translation>メッセージボックスの高さ</translation>
     </message>
     <message>
       <source>Proactive message timeout in hours. After how many hours proactive chat mesasge should be shown again.</source>
-      <translation>Časový limit pre proaktívne správy. Po koľkých hodinách sa má chat správa znovu zobraziť.</translation>
+      <translation>積極的なチャットメッセージが表示されてから何時間で積極メッセージをタイムアウトさせますか？</translation>
     </message>
     <message>
       <source>Maximum message length in characters</source>
-      <translation>Maximálnu dĺžku správy </translation>
+      <translation>最大メッセージ文字数</translation>
     </message>
     <message>
       <source>List unread chats, disabled for high performance</source>
-      <translation type="unfinished"/>
+      <translation>未読のチャットをリストアップする。</translation>
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation>Zobraziť online operátorov, 0 - nie, 1 - áno.</translation>
+      <translation>オンラインオペレータリスト、 0 - 非表示、 1 - 表示</translation>
     </message>
     <message>
       <source>List closed chats, disabled for high performance</source>
-      <translation type="unfinished"/>
+      <translation>クローズされたチャットをリストアップ。</translation>
     </message>
     <message>
       <source>Default number of online operators to show</source>
-      <translation type="unfinished"/>
+      <translation>表示するオンライン・オペレーターのデフォルト数</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
-      <translation>Informovať návšetvníkov o neprečítaných správach od operátora, hodnota v minútach. 0 - zakázané</translation>
+      <translation>訪問者にオペレータからの未読メッセージを通知します。0 - 無効</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
-      <translation>Ignorovať stav používateľov online a používať online čas oddelenia</translation>
+      <translation>ユーザーオンラインステータスとオンライン時間の部署の使用を無視</translation>
     </message>
     <message>
       <source>Do not store what visitor is typing</source>
-      <translation type="unfinished"/>
+      <translation>訪問者の入力内容を保存しない</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
-      <translation>Ktorá ip by mala byť ignorovaná v online zozname užívateľov, oddelené čiarkou</translation>
+      <translation>カンマで区切られたIPアドレスでオンラインユーザーリストを無視</translation>
     </message>
     <message>
       <source>Hide right column in frontpage</source>
-      <translation>Skryť pravý stĺpec na prvej stránke</translation>
+      <translation>フロントページで、右カラムを隠す</translation>
     </message>
     <message>
       <source>Hide disabled department widget</source>
-      <translation>Skryť widgety zakázaných oddelení</translation>
+      <translation>無効な部署ウィジェットを隠す</translation>
     </message>
     <message>
       <source>Hide close button in dropdown</source>
-      <translation>Skryť tlačidlo zatvoriť v dropdown</translation>
+      <translation>ドロップダウンで閉じるボタンを隠す</translation>
     </message>
     <message>
       <source>Home page tabs order</source>
-      <translation>Usporiadanie kariet domovskej stránky</translation>
+      <translation>ホームページタブの順序</translation>
     </message>
     <message>
       <source>Footprint updates should be processed in the background. Make sure you are running workflow background cronjob.</source>
-      <translation type="unfinished"/>
+      <translation>フットプリントの更新はバックグラウンドで処理する必要があります。ワークフローのバックグラウンドcronjobを実行していることを確認してください。</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
-      <translation>Vyžadovať e-mail návštevníka pre FAQ</translation>
+      <translation>FAQでは、訪問者メールアドレスが必須</translation>
     </message>
     <message>
       <source>Chats export secret hash</source>
-      <translation>Tajný hash pre export chatov</translation>
+      <translation>チャット出力暗号化ハッシュ</translation>
     </message>
     <message>
       <source>Please enter explicit http mode. Either http: or https:, do not forget : at the end.</source>
-      <translation>Zadajte explicitný režim http. Buď http: alebo https :, nezabudnite : na konci.</translation>
+      <translation>明示的なhttpモードで入る場合は、http:またはhttps:の : を忘れずに後ろにつけてください。</translation>
     </message>
     <message>
       <source>Encrypt also operators messages.</source>
-      <translation type="unfinished"/>
+      <translation>オペレーターのメッセージも暗号化する。</translation>
     </message>
     <message>
       <source>After how many days encrypt messaes.</source>
-      <translation type="unfinished"/>
+      <translation>何日後に暗号化されたメッセージが届く。</translation>
     </message>
     <message>
       <source>Enable status check cache using Redis. PHPResque extension is required.</source>
-      <translation type="unfinished"/>
+      <translation>Redisを使ったステータスチェックキャッシュを有効にする。PHPResque 拡張モジュールが必要です。</translation>
     </message>
     <message>
       <source>Do not track visitors IP.</source>
-      <translation type="unfinished"/>
+      <translation>訪問者のIPを追跡しない</translation>
     </message>
     <message>
       <source>Disable chat download</source>
-      <translation type="unfinished"/>
+      <translation>チャット ダウンロードを無効にする</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
-      <translation>Zakázať odoslanie prepisu chatu</translation>
+      <translation>チャットtranscriptの送信を無効</translation>
     </message>
     <message>
       <source>Disable chat print</source>
-      <translation>Zakázať tlač rozhovoru</translation>
+      <translation>チャット印刷を無効</translation>
     </message>
     <message>
       <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation>Skryť &apos;Nové Okno&apos; Vo Widget Connector</translation>
+      <translation>接続されたウィジェットの「新規ウィンドウ」オプションを隠す</translation>
     </message>
     <message>
       <source>Disable live auto assign</source>
-      <translation type="unfinished"/>
+      <translation>ライブ自動の配分を閉じる</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
-      <translation>Zakázať spustenie JS v okne kooperačného operátora</translation>
+      <translation>オペレータウィンドウの子ブラウジングでJS実行を無効</translation>
     </message>
     <message>
       <source>Disable iframes in sharing mode</source>
-      <translation>Zakázať prvky iframe v režime zdieľania</translation>
+      <translation>共有モードでは、iframeを無効</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
-      <translation>Zakázať úložisko HTML5, skontrolujte, či sa vaše stránky prepínajú medzi http a https</translation>
+      <translation>サイトがhttpとhttpsで切り替わる場合、HTML5ストレージを無効</translation>
     </message>
     <message>
       <source>How long department availability statistic should be kept? (days)</source>
-      <translation type="unfinished"/>
+      <translation>部門アベイラビリティ統計はどれくらいの期間保存されるべきか？日</translation>
     </message>
     <message>
       <source>Delete chat on close there there is no visitor messages in chat</source>
-      <translation type="unfinished"/>
+      <translation>クローズ時にチャット を削除します。チャット</translation>
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
-      <translation>Usporiadanie widgetov na hlavnej stránke domovskej stránky</translation>
+      <translation>ホームページダッシュボードウィジェット順序</translation>
     </message>
     <message>
       <source>Your site URL address</source>
-      <translation>URL adresa Vašej webstránky</translation>
+      <translation>サイトURLアドレス</translation>
     </message>
     <message>
       <source>Your company name - visible in bottom left corner</source>
-      <translation>Názov vašej spoločnosti - viditeľné v ľavom dolnom rohu</translation>
+      <translation>会社名 - 下段左コーナーに表示</translation>
     </message>
     <message>
       <source>Cleanup should should be done only using cronjob.</source>
-      <translation type="unfinished"/>
+      <translation>クリーンアップはcronjobを使ってのみ行うべきである。</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
-      <translation>Interval medzi kontrolami stavu četu v sekundách, 0 zakázaný.</translation>
+      <translation>チャットステータス確認間隔を秒で記入、0は無効</translation>
     </message>
     <message>
       <source>How long operator can wait for message from visitor before time between messages are ignored. Values in minutes.</source>
-      <translation type="unfinished"/>
+      <translation>メッセージ間の時間が無視される前に、オペレータがビジターからのメッセージを待つことができる時間。値の単位は分です。</translation>
     </message>
     <message>
       <source>How long visitor can wait for message from operator before time between messages are ignored. Values in minutes.</source>
-      <translation type="unfinished"/>
+      <translation>メッセージ間の時間が無視される前に、訪問者がオペレータからのメッセージを待つことができる時間。値の単位は分です。</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
-      <translation>Zobraziť tlačidlo BB kód</translation>
+      <translation>BBコードボタンを表示</translation>
     </message>
     <message>
       <source>Which ip should not be allowed to chat</source>
-      <translation>Ktoré IP adresy by nemali mať možnosť chatovať</translation>
+      <translation>チャットへアクセス許可するIPアドレス</translation>
     </message>
     <message>
       <source>Automatic chats purging. 0 - disabled, n &gt; 0 time in minutes before chat is automatically deleted</source>
-      <translation>Automatické čistenie rozhovorov. 0 - zakázané, n &gt; 0 času v minútach pred automatickým odstránením rozhovoru</translation>
+      <translation>自動チャットパージ。0は無効、n &gt; 0 分でチャットが自動削除される時間を指定します。</translation>
     </message>
     <message>
       <source>Automatically reopen chat on widget open</source>
-      <translation>Automaticky otvoriť rozhovor po otvorení okna widgetu</translation>
+      <translation>ウィジェットが開いた時にチャットを自動的に再オープンする</translation>
     </message>
     <message>
       <source>Automatic pending chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>保留中のチャットを自動的に閉じる。0 - 無効、n &gt; 0チャット が自動的にクローズされるまでの時間 (分)</translation>
     </message>
     <message>
       <source>Automatic bot chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>bot チャットの自動クローズ。0 - 無効、n &gt; 0チャット が自動的にクローズされるまでの時間 (分)</translation>
     </message>
     <message>
       <source>Automatic active chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>アクティブ チャットの自動クローズ。0 - 無効、n &gt; 0チャット が自動的にクローズされるまでの時間 (分)</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation>Automatické zatváranie rozhovorov. 0 - zakázané, n &gt; 0 času v minútach predtým, než sa chat automaticky zatvorí</translation>
+      <translation>自動でチャットを閉じる。0 - 無効、n &gt; 0 分で自動的に閉じる時間を指定する</translation>
     </message>
     <message>
       <source>Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n &gt; 0 time in minutes</source>
-      <translation type="unfinished"/>
+      <translation>最後の訪問者/操作者からのメッセージが渡された場合、自動的にアクティブ チャット を閉じる。0 - 無効、n &gt; 0 時間 (分)</translation>
     </message>
     <message>
       <source>Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor &lt;desktop timeout&gt;,&lt;mobile timeout&gt;.</source>
-      <translation type="unfinished"/>
+      <translation>訪問者がチャット を残した保留中のチャットを自動的に閉じる。 タイムアウト（分）、訪問者による最後のアクティビティ&lt;desktop timeout&gt; 、&lt;mobile timeout&gt; 。</translation>
     </message>
     <message>
       <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
-      <translation type="unfinished"/>
+      <translation>保留キューでn秒以上待機しているチャットは、最初に自動割り当てされます。時間 (秒)</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
-      <translation>Názov aplikácie podpory, ktorý je viditeľný v názve prehliadača.</translation>
+      <translation>サポートアプリケーション名、ブラウザタイトルに表示</translation>
     </message>
     <message>
       <source>Allow user to reopen closed chats?</source>
-      <translation>Povoliť používateľovi znovu otvoriť zatvorené rozhovory?</translation>
+      <translation>ユーザーが閉じられたチャットを再開することを許可？</translation>
     </message>
     <message>
       <source>Track all logged operators activity and ignore their individual settings.</source>
-      <translation>Sledovať všetky aktivity prihlásených operátorov a ignorovať ich individuálne nastavenia.</translation>
+      <translation>ログに記録されたすべてのオペレータの活動を追跡し、個々の設定を無視します。</translation>
     </message>
     <message>
       <source>How long operator should go offline automatically because of inactivity</source>
-      <translation>Ako dlho by operátor mal ísť automaticky offline kvôli nečinnosti</translation>
+      <translation>非アクティブのためにオペレータが自動的にオフラインになる時間</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
-      <translation>Zmeniť na Zmluvné podmienky Vašej stránky</translation>
+      <translation>サイトのサービス期間を変更</translation>
     </message>
     <message>
       <source>How many seconds chat accept link is valid. Set 0 to force login all the time manually.</source>
-      <translation>Koľko sekúnd je link na akceptovanie chatu platný. Nastavte na 0 pre vynútenie prihlásenia.</translation>
+      <translation>チャットの許可リンクの有効時間は何秒か。0に設定するといつも手動でのログインを強制します。</translation>
     </message>
   </context>
   <context>
     <name>system/buttons</name>
     <message>
       <source>Copy as CURL</source>
-      <translation type="unfinished"/>
+      <translation>CURLとしてコピー</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Uložiť</translation>
+      <translation>保存</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Aktualizovať</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Zrušiť</translation>
+      <translation>キャンセル</translation>
     </message>
     <message>
       <source>Test masking rules</source>
-      <translation type="unfinished"/>
+      <translation>マスキング・ルールのテスト</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Upraviť</translation>
+      <translation>編集</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Vymazať</translation>
+      <translation>削除</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Prázdne...</translation>
+      <translation>空です...</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Nové</translation>
+      <translation>新規</translation>
     </message>
     <message>
       <source>Reload back office for operators. Requires NodeJS</source>
-      <translation type="unfinished"/>
+      <translation>オペレータのためのリロードバックオフィス。NodeJSが必要です。</translation>
     </message>
     <message>
       <source>Copied</source>
-      <translation type="unfinished"/>
+      <translation>コピー</translation>
     </message>
     <message>
       <source>Copy</source>
-      <translation type="unfinished"/>
+      <translation>コピー</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>閉める</translation>
     </message>
     <message>
       <source>Debug data</source>
-      <translation type="unfinished"/>
+      <translation>デバッグデータ</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Aktualizované</translation>
+      <translation>更新された</translation>
     </message>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
+      <translation>検索</translation>
     </message>
     <message>
       <source>Test</source>
-      <translation>Test</translation>
+      <translation>テスト</translation>
     </message>
     <message>
       <source>Block IP</source>
-      <translation type="unfinished"/>
+      <translation>ブロックIP</translation>
     </message>
     <message>
       <source>Block e-mail</source>
-      <translation type="unfinished"/>
+      <translation>電子メールをブロックする</translation>
     </message>
     <message>
       <source>Block country</source>
-      <translation type="unfinished"/>
+      <translation>ブロック国</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation>Áno</translation>
+      <translation>はい</translation>
     </message>
     <message>
       <source>Send message to</source>
-      <translation type="unfinished"/>
+      <translation>メッセージを送る</translation>
     </message>
     <message>
       <source>visitors</source>
-      <translation type="unfinished"/>
+      <translation>入場者</translation>
     </message>
     <message>
       <source>Send the message and start a chat</source>
-      <translation type="unfinished"/>
+      <translation>メッセージを送信してチャット</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Odoslať</translation>
+      <translation>送信</translation>
     </message>
     <message>
       <source>Check all</source>
-      <translation type="unfinished"/>
+      <translation>すべてチェック</translation>
     </message>
     <message>
       <source>Save and continue</source>
-      <translation>Uložiť a pokračovať</translation>
+      <translation>保存して続ける</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation>Pokračovať</translation>
+      <translation>続ける</translation>
     </message>
     <message>
       <source>Start archiving</source>
-      <translation>Začať archiváciu</translation>
+      <translation>アーカイブ開始</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation>Späť</translation>
+      <translation>戻る</translation>
     </message>
     <message>
       <source>Save &amp; Exit</source>
-      <translation type="unfinished"/>
+      <translation>保存＆終了</translation>
     </message>
     <message>
       <source>Delete department</source>
-      <translation>Zmazať oddelenie</translation>
+      <translation>部署削除</translation>
     </message>
     <message>
       <source>Back</source>
-      <translation type="unfinished"/>
+      <translation>バック</translation>
     </message>
     <message>
       <source>Error</source>
-      <translation type="unfinished"/>
+      <translation>エラー</translation>
     </message>
     <message>
       <source>Starting...</source>
-      <translation type="unfinished"/>
+      <translation>スタート...</translation>
     </message>
     <message>
       <source>Make sure you saved settings first</source>
-      <translation type="unfinished"/>
+      <translation>最初に設定を保存したことを確認してください。</translation>
     </message>
     <message>
       <source>Test settings</source>
-      <translation type="unfinished"/>
+      <translation>テスト設定</translation>
     </message>
     <message>
       <source>Loading...</source>
-      <translation type="unfinished"/>
+      <translation>読み込み中...</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation type="unfinished"/>
+      <translation>ダウンロード</translation>
     </message>
     <message>
       <source>Save &amp; Assign recipients</source>
-      <translation type="unfinished"/>
+      <translation>受信者の保存と割り当て</translation>
     </message>
     <message>
       <source>Recipient status</source>
-      <translation type="unfinished"/>
+      <translation>受信者のステータス</translation>
     </message>
     <message>
       <source>Choose</source>
-      <translation type="unfinished"/>
+      <translation>選ぶ</translation>
     </message>
     <message>
       <source>Mail was opened</source>
-      <translation type="unfinished"/>
+      <translation>メールが開封された</translation>
     </message>
     <message>
       <source>New manual recipient</source>
-      <translation type="unfinished"/>
+      <translation>新しいマニュアルの受信者</translation>
     </message>
     <message>
       <source>Update recipients from mailing list</source>
-      <translation type="unfinished"/>
+      <translation>メーリングリストの受信者を更新する</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>輸入</translation>
     </message>
     <message>
       <source>Export</source>
-      <translation type="unfinished"/>
+      <translation>輸出</translation>
     </message>
     <message>
       <source>Send test notification</source>
-      <translation type="unfinished"/>
+      <translation>テスト通知の送信</translation>
     </message>
     <message>
       <source>Submit</source>
-      <translation>Odoslať</translation>
+      <translation>投稿する</translation>
     </message>
     <message>
       <source>Send feedback</source>
-      <translation type="unfinished"/>
+      <translation>フィードバックを送る</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>本当か？</translation>
     </message>
     <message>
       <source>Proceed</source>
-      <translation type="unfinished"/>
+      <translation>進む</translation>
     </message>
     <message>
       <source>Set default</source>
-      <translation type="unfinished"/>
+      <translation>デフォルト設定</translation>
     </message>
     <message>
       <source>Below saved data is not shown.</source>
-      <translation type="unfinished"/>
+      <translation>以下の保存データは表示されない。</translation>
     </message>
     <message>
       <source>Share</source>
-      <translation type="unfinished"/>
+      <translation>シェア</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation>Zaslať skúšobnú správu</translation>
+      <translation>テストメッセージ送信</translation>
     </message>
     <message>
       <source>Voice call</source>
-      <translation type="unfinished"/>
+      <translation>音声通話</translation>
     </message>
   </context>
   <context>
     <name>abstract/abstract_form</name>
     <message>
       <source>Updated!</source>
-      <translation>Aktualizované!</translation>
+      <translation>更新されました！</translation>
     </message>
   </context>
   <context>
     <name>chat/copyautoresponder</name>
     <message>
       <source>Copy</source>
-      <translation type="unfinished"/>
+      <translation>複写</translation>
     </message>
     <message>
       <source>Copied!</source>
-      <translation type="unfinished"/>
+      <translation>複写した</translation>
     </message>
     <message>
       <source>Please choose atleast one department!</source>
-      <translation type="unfinished"/>
+      <translation>少なくとも1つの部門を選んでください！</translation>
     </message>
   </context>
   <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Auto responders with lowest values will be applied first</source>
-      <translation type="unfinished"/>
+      <translation>オートレスポンダーのうち、値が最も小さいものが最初に適用される。</translation>
     </message>
     <message>
       <source>Welcome message</source>
-      <translation type="unfinished"/>
+      <translation>挨拶メッセージ</translation>
     </message>
     <message>
       <source>Offline message</source>
-      <translation type="unfinished"/>
+      <translation>オフラインメッセージ</translation>
     </message>
     <message>
       <source>Pending chat messaging</source>
-      <translation type="unfinished"/>
+      <translation>保留チャット メッセージング</translation>
     </message>
     <message>
       <source>Visitor not replying messaging</source>
-      <translation type="unfinished"/>
+      <translation>メッセージに返信しない訪問者</translation>
     </message>
     <message>
       <source>Operator not replying messaging</source>
-      <translation type="unfinished"/>
+      <translation>オペレーターがメッセージに返信しない</translation>
     </message>
     <message>
       <source>On-hold chat messaging</source>
-      <translation type="unfinished"/>
+      <translation>オンホールドチャット メッセージング</translation>
     </message>
     <message>
       <source>Close messaging</source>
-      <translation type="unfinished"/>
+      <translation>クローズメッセージング</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation>Prieskum</translation>
+      <translation>アンケート</translation>
     </message>
     <message>
       <source>Multi-language chat</source>
-      <translation type="unfinished"/>
+      <translation>多言語チャット</translation>
     </message>
     <message>
       <source>Invitation is active if any of these are true.</source>
-      <translation type="unfinished"/>
+      <translation>いずれかに該当する場合は、アクティブ 。</translation>
     </message>
     <message>
       <source>If operator has 3 max chats, and you enter here 2. Means proactive invitation will be active only if operator has less than 5 chats assigned to him.</source>
-      <translation type="unfinished"/>
+      <translation>オペレータの最大チャット数が 3 で、ここに 2 と入力した場合。オペレータに割り当てられたチャットが 5 未満の場合のみ、積極的な招待はアクティブ になります。</translation>
     </message>
     <message>
       <source>Other conditions</source>
-      <translation type="unfinished"/>
+      <translation>その他の条件</translation>
     </message>
     <message>
       <source>If visitor arrived to website today, and they were on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
-      <translation type="unfinished"/>
+      <translation>訪問者が今日ウェブサイトに到着し、昨日ウェブサイトにいた場合。この値は、訪問者が昨日ウェブサイト上で最後に見られた時間を保持します。</translation>
     </message>
     <message>
       <source>Attributes conditions conditions</source>
-      <translation type="unfinished"/>
+      <translation>属性 条件 条件</translation>
     </message>
     <message>
       <source>You can filter by `online_attr_system` attribute key and it&apos;s value. Multiple values can be separated by ||</source>
-      <translation type="unfinished"/>
+      <translation>online_attr_system`属性のキーとその値でフィルタリングすることができます。複数の値は || で区切ることができる。</translation>
     </message>
     <message>
       <source>Attribute key</source>
-      <translation type="unfinished"/>
+      <translation>属性キー</translation>
     </message>
     <message>
       <source>Comparison operator</source>
-      <translation type="unfinished"/>
+      <translation>比較演算子</translation>
     </message>
     <message>
       <source>Attribute value</source>
-      <translation type="unfinished"/>
+      <translation>属性値</translation>
     </message>
     <message>
       <source>For trigger being executed on chat start also it has to have `Can be passed as argument` option enabled.</source>
-      <translation type="unfinished"/>
+      <translation>チャット 開始時にトリガーを実行するには、`引数として渡せる`オプションを有効にする必要があります。</translation>
     </message>
     <message>
       <source>Search for language. Enter * to see all.</source>
-      <translation type="unfinished"/>
+      <translation>言語を検索します。すべてを表示するには*を入力してください。</translation>
     </message>
     <message>
       <source>See all variations</source>
-      <translation type="unfinished"/>
+      <translation>すべてのバリエーションを見る</translation>
     </message>
     <message>
       <source>Invitation</source>
-      <translation type="unfinished"/>
+      <translation>招待</translation>
     </message>
     <message>
       <source>Activity conditions</source>
-      <translation type="unfinished"/>
+      <translation>活動状況</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>bot</translation>
     </message>
     <message>
       <source>Dynamic</source>
-      <translation type="unfinished"/>
+      <translation>ダイナミック</translation>
     </message>
     <message>
       <source>Events</source>
-      <translation type="unfinished"/>
+      <translation>イベント</translation>
     </message>
     <message>
       <source>Design</source>
-      <translation type="unfinished"/>
+      <translation>デザイン</translation>
     </message>
     <message>
       <source>Inject HTML</source>
-      <translation type="unfinished"/>
+      <translation>HTMLを注入する</translation>
     </message>
     <message>
       <source>Conversion</source>
-      <translation type="unfinished"/>
+      <translation>コンバージョン</translation>
     </message>
     <message>
       <source>Choose what bot trigger element append after auto responder message</source>
-      <translation type="unfinished"/>
+      <translation>自動応答メッセージの後に追加するbot トリガー要素を選択します。</translation>
     </message>
     <message>
       <source>Preview</source>
-      <translation type="unfinished"/>
+      <translation>プレビュー</translation>
     </message>
     <message>
       <source>Message will be sent only if chat is in active or bot status.</source>
-      <translation type="unfinished"/>
+      <translation>メッセージは、チャット がアクティブ またはbot のステータスの場合にのみ送信される。</translation>
     </message>
     <message>
       <source>Conditions</source>
-      <translation type="unfinished"/>
+      <translation>条件</translation>
     </message>
     <message>
       <source>E.g 5, means there have to be 5 pending chats in the queue and I am 6 in the queue.</source>
-      <translation type="unfinished"/>
+      <translation>例えば、5ということは、保留中のチャットが5つあるはずで、私は6つあるということです。</translation>
     </message>
     <message>
       <source>OR</source>
-      <translation type="unfinished"/>
+      <translation>または</translation>
     </message>
     <message>
       <source>Messaging</source>
-      <translation type="unfinished"/>
+      <translation>メッセージング</translation>
     </message>
     <message>
       <source>Status widget style</source>
-      <translation>Štýl widgetu pre stav</translation>
+      <translation>ステータスのウィジェットスタイル</translation>
     </message>
     <message>
       <source>Widget container</source>
-      <translation>Widget kontajner</translation>
+      <translation>ウィジェットコンテナ</translation>
     </message>
     <message>
       <source>Messages style</source>
-      <translation>Štýl správy</translation>
+      <translation>メッセージスタイル</translation>
     </message>
     <message>
       <source>Need help widget</source>
-      <translation>Potrebujete pomoc widget</translation>
+      <translation>ヘルプウィジェット必要</translation>
     </message>
     <message>
       <source>Chat widget</source>
-      <translation>Chat widget</translation>
+      <translation>チャットウィジェット</translation>
     </message>
     <message>
       <source>Custom content</source>
-      <translation type="unfinished"/>
+      <translation>カスタムコンテンツ</translation>
     </message>
     <message>
       <source>Custom CSS</source>
-      <translation>Vlastné CSS</translation>
+      <translation>カスタムCSS</translation>
     </message>
     <message>
       <source>Custom bot style</source>
-      <translation type="unfinished"/>
+      <translation>カスタムbot スタイル</translation>
     </message>
     <message>
       <source>Notification</source>
-      <translation type="unfinished"/>
+      <translation>お知らせ</translation>
     </message>
     <message>
       <source>Reactions</source>
-      <translation type="unfinished"/>
+      <translation>反応</translation>
     </message>
     <message>
       <source>If you enter alias make sure you pass this string as argument for a theme. Otherwise argument will be ignored.</source>
-      <translation type="unfinished"/>
+      <translation>エイリアスを入力する場合は、必ずこの文字列をテーマの引数として渡してください。さもなければ、引数は無視される。</translation>
     </message>
     <message>
       <source>Online status options</source>
-      <translation type="unfinished"/>
+      <translation>オンライン・ステータス・オプション</translation>
     </message>
     <message>
       <source>Offline status options</source>
-      <translation type="unfinished"/>
+      <translation>オフライン状態オプション</translation>
     </message>
     <message>
       <source>Images</source>
-      <translation type="unfinished"/>
+      <translation>画像</translation>
     </message>
     <message>
       <source>Live preview</source>
-      <translation>Živý náhľad</translation>
+      <translation>ライブプレビュー</translation>
     </message>
     <message>
       <source>Visitor messages style</source>
-      <translation>Štýl správy návštevníka</translation>
+      <translation>訪問者メッセージスタイル</translation>
     </message>
     <message>
       <source>Operator messages style</source>
-      <translation>Štýl správ operátora</translation>
+      <translation>オペレータメッセージスタイル</translation>
     </message>
     <message>
       <source>New message separator style</source>
-      <translation type="unfinished"/>
+      <translation>新しいメッセージ区切りスタイル</translation>
     </message>
     <message>
       <source>Scroll to the bottom style</source>
-      <translation type="unfinished"/>
+      <translation>一番下のスタイルにスクロール</translation>
     </message>
     <message>
       <source>Other</source>
-      <translation type="unfinished"/>
+      <translation>その他</translation>
     </message>
     <message>
       <source>Override embed code settings</source>
-      <translation type="unfinished"/>
+      <translation>埋め込みコードの設定を上書きする</translation>
     </message>
     <message>
       <source>Build your own need help widget layout</source>
-      <translation type="unfinished"/>
+      <translation>ヘルプウィジェットのレイアウトを作成する</translation>
     </message>
     <message>
       <source>Set default HTML</source>
-      <translation type="unfinished"/>
+      <translation>デフォルトHTMLの設定</translation>
     </message>
     <message>
       <source>If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.</source>
-      <translation type="unfinished"/>
+      <translation>あなたがオタクになりたい場合は、デフォルトのテンプレートを出発点として、独自のアイキャッチャーを構築することができます。上記のウィジェットの寸法を調整することができます。また、私たちがサポートしているプレースホルダもご覧ください。</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation>Všeobecné nastavenia</translation>
+      <translation>一般設定</translation>
     </message>
     <message>
       <source>Text changes</source>
-      <translation>Zmeny textu</translation>
+      <translation>テキスト変更</translation>
     </message>
     <message>
       <source>Text content before user fields</source>
-      <translation type="unfinished"/>
+      <translation>ユーザー・フィールドの前のテキスト・コンテンツ</translation>
     </message>
     <message>
       <source>Choose manually bot ant trigger</source>
-      <translation type="unfinished"/>
+      <translation>手動bot アリのトリガーを選択</translation>
     </message>
     <message>
       <source>For it to work, trigger has to have checked</source>
-      <translation type="unfinished"/>
+      <translation>これが機能するためには、トリガーが次のことをチェックしていなければならない。</translation>
     </message>
     <message>
       <source>Can be passed as argument</source>
-      <translation type="unfinished"/>
+      <translation>引数として渡すことができる</translation>
     </message>
     <message>
       <source>Choose department to test</source>
-      <translation type="unfinished"/>
+      <translation>テストする部門を選ぶ</translation>
     </message>
     <message>
       <source>Download theme</source>
-      <translation>Stiahnuť šablónu</translation>
+      <translation>テーマダウンロード</translation>
     </message>
     <message>
       <source>Some changes might take effect after you save a widget theme!</source>
-      <translation type="unfinished"/>
+      <translation>いくつかの変更は、ウィジェットテーマを保存した後に反映されるかもしれません！</translation>
     </message>
     <message>
       <source>Clear cookies and reload</source>
-      <translation type="unfinished"/>
+      <translation>クッキーをクリアしてリロードする</translation>
     </message>
     <message>
       <source>Reload</source>
-      <translation type="unfinished"/>
+      <translation>リロード</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>デフォルト</translation>
     </message>
     <message>
       <source>Add translation</source>
-      <translation type="unfinished"/>
+      <translation>翻訳の追加</translation>
     </message>
     <message>
       <source>Requires - `Can be passed as argument` option to be checked.</source>
-      <translation type="unfinished"/>
+      <translation>Requires - `引数として渡せる` オプションをチェックする。</translation>
     </message>
     <message>
       <source>Bright message style</source>
-      <translation type="unfinished"/>
+      <translation>明るいメッセージスタイル</translation>
     </message>
     <message>
       <source>Other Operator messages style</source>
-      <translation type="unfinished"/>
+      <translation>その他のオペレーターメッセージのスタイル</translation>
     </message>
     <message>
       <source>If other operator writes a message in the chat this is how their message will look a like.</source>
-      <translation type="unfinished"/>
+      <translation>他のオペレーターがチャット にメッセージを書くと、このようになります。</translation>
     </message>
     <message>
       <source>System assistant messages style</source>
-      <translation type="unfinished"/>
+      <translation>システムアシスタントメッセージスタイル</translation>
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>一般</translation>
     </message>
     <message>
       <source>Dark message style</source>
-      <translation type="unfinished"/>
+      <translation>ダーク・メッセージ・スタイル</translation>
     </message>
     <message>
       <source>Themes which will be edited all at once.</source>
-      <translation type="unfinished"/>
+      <translation>一度に編集されるテーマ。</translation>
     </message>
     <message>
       <source>Department group departments does not have any themes assigned to them.</source>
-      <translation type="unfinished"/>
+      <translation>部門グループ部門にはテーマが割り当てられていない。</translation>
     </message>
     <message>
       <source>Bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>バブル背景色</translation>
     </message>
     <message>
       <source>Title color</source>
-      <translation type="unfinished"/>
+      <translation>タイトル色</translation>
     </message>
     <message>
       <source>Text color</source>
-      <translation>Farba textu</translation>
+      <translation>テキスト色</translation>
     </message>
     <message>
       <source>My messages bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>メッセージの泡背景色</translation>
     </message>
     <message>
       <source>Other operator bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>その他のオペレーター・バブル背景色</translation>
     </message>
     <message>
       <source>Chat background color</source>
-      <translation type="unfinished"/>
+      <translation>チャット 背景色</translation>
     </message>
     <message>
       <source>New message separator color</source>
-      <translation type="unfinished"/>
+      <translation>新しいメッセージセパレーター色</translation>
     </message>
     <message>
       <source>Time text color</source>
-      <translation type="unfinished"/>
+      <translation>タイムテキスト色</translation>
     </message>
     <message>
       <source>Title text color</source>
-      <translation type="unfinished"/>
+      <translation>タイトルテキスト色</translation>
     </message>
     <message>
       <source>Message text color</source>
-      <translation type="unfinished"/>
+      <translation>メッセージテキスト色</translation>
     </message>
     <message>
       <source>Main background color</source>
-      <translation type="unfinished"/>
+      <translation>メイン背景色</translation>
     </message>
     <message>
       <source>Link default text color</source>
-      <translation type="unfinished"/>
+      <translation>リンクのデフォルトテキスト色</translation>
     </message>
     <message>
       <source>Default text color</source>
-      <translation type="unfinished"/>
+      <translation>デフォルトテキスト色</translation>
     </message>
     <message>
       <source>Dropdown background color</source>
-      <translation type="unfinished"/>
+      <translation>ドロップダウン背景色</translation>
     </message>
     <message>
       <source>Navigation bar icons text color</source>
-      <translation type="unfinished"/>
+      <translation>ナビゲーションバーのアイコン テキスト色</translation>
     </message>
     <message>
       <source>Navigation bar icons hover text color</source>
-      <translation type="unfinished"/>
+      <translation>ナビゲーションバーのアイコンのホバーテキスト色</translation>
     </message>
     <message>
       <source>Tab border color</source>
-      <translation type="unfinished"/>
+      <translation>タブボーダー色</translation>
     </message>
     <message>
       <source>Button text color</source>
-      <translation type="unfinished"/>
+      <translation>ボタンテキスト色</translation>
     </message>
     <message>
       <source>Button background color</source>
-      <translation type="unfinished"/>
+      <translation>ボタン背景色</translation>
     </message>
     <message>
       <source>Button border color</source>
-      <translation type="unfinished"/>
+      <translation>ボタンボーダー色</translation>
     </message>
     <message>
       <source>Button active text color</source>
-      <translation type="unfinished"/>
+      <translation>ボタンアクティブ テキスト色</translation>
     </message>
     <message>
       <source>Button active background color</source>
-      <translation type="unfinished"/>
+      <translation>ボタンアクティブ 背景色</translation>
     </message>
     <message>
       <source>Button active border color</source>
-      <translation type="unfinished"/>
+      <translation>ボタンアクティブ ボーダー色</translation>
     </message>
     <message>
       <source>Dropdown hover background color</source>
-      <translation type="unfinished"/>
+      <translation>ドロップダウンのホバー背景色</translation>
     </message>
     <message>
       <source>Dropdown border color</source>
-      <translation type="unfinished"/>
+      <translation>ドロップダウンボーダー色</translation>
     </message>
     <message>
       <source>Online background color</source>
-      <translation type="unfinished"/>
+      <translation>オンライン背景色</translation>
     </message>
     <message>
       <source>Panel header background color</source>
-      <translation type="unfinished"/>
+      <translation>パネルヘッダー背景色</translation>
     </message>
     <message>
       <source>Panel header border color</source>
-      <translation type="unfinished"/>
+      <translation>パネルヘッダーボーダー色</translation>
     </message>
     <message>
       <source>Header background color</source>
-      <translation type="unfinished"/>
+      <translation>ヘッダー背景色</translation>
     </message>
     <message>
       <source>Panel background color</source>
-      <translation type="unfinished"/>
+      <translation>パネル背景色</translation>
     </message>
     <message>
       <source>Active tab background color</source>
-      <translation type="unfinished"/>
+      <translation>アクティブ タブ背景色</translation>
     </message>
     <message>
       <source>Breadcrumb background color</source>
-      <translation type="unfinished"/>
+      <translation>パンくず背景色</translation>
     </message>
     <message>
       <source>Breadcrumb border color</source>
-      <translation type="unfinished"/>
+      <translation>パンくずボーダー色</translation>
     </message>
     <message>
       <source>Menu active background color</source>
-      <translation type="unfinished"/>
+      <translation>メニューアクティブ 背景色</translation>
     </message>
     <message>
       <source>Menu text color</source>
-      <translation type="unfinished"/>
+      <translation>メニューテキスト色</translation>
     </message>
     <message>
       <source>Tab text color</source>
-      <translation type="unfinished"/>
+      <translation>タブテキスト色</translation>
     </message>
     <message>
       <source>Table border color</source>
-      <translation type="unfinished"/>
+      <translation>テーブルボーダー色</translation>
     </message>
     <message>
       <source>Navbar toggle background color</source>
-      <translation type="unfinished"/>
+      <translation>ナバー・トグル背景色</translation>
     </message>
     <message>
       <source>Navbar toggle border color</source>
-      <translation type="unfinished"/>
+      <translation>ナバー・トグルボーダー色</translation>
     </message>
     <message>
       <source>Tab active text color</source>
-      <translation type="unfinished"/>
+      <translation>タブアクティブ テキスト色</translation>
     </message>
     <message>
       <source>Header border color</source>
-      <translation type="unfinished"/>
+      <translation>ヘッダーボーダー色</translation>
     </message>
     <message>
       <source>Button border radius</source>
-      <translation type="unfinished"/>
+      <translation>ボタンのボーダー半径</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Zakázané</translation>
+      <translation>無効化</translation>
     </message>
     <message>
       <source>Choose a bot</source>
-      <translation type="unfinished"/>
+      <translation>を選択する。bot</translation>
     </message>
     <message>
       <source>Choose a trigger</source>
-      <translation type="unfinished"/>
+      <translation>トリガーを選ぶ</translation>
     </message>
     <message>
       <source>Minimum time in second how long sync has to be stopped before allowing reset auto responder</source>
-      <translation type="unfinished"/>
+      <translation>自動応答器のリセットを許可する前に同期を停止する最小時間（秒単位</translation>
     </message>
     <message>
       <source>Maximum time in seconds how long sync has to be stopped before we do not reset auto responder</source>
-      <translation type="unfinished"/>
+      <translation>同期が停止してから自動応答がリセットされるまでの最大時間(秒)</translation>
     </message>
     <message>
       <source>Disable reset auto responder if visitor was redirected to survey</source>
-      <translation type="unfinished"/>
+      <translation>訪問者がアンケートにリダイレクトされた場合、リセット自動応答を無効にする</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
+      <translation>各部門</translation>
     </message>
     <message>
       <source>Do not send messages to pending chat if chat is assigned to operator.</source>
-      <translation type="unfinished"/>
+      <translation>チャット がオペレータに割り当てられている場合、保留中のチャット にメッセージを送信しない。</translation>
     </message>
     <message>
       <source>This auto responder applies only to proactive invitations.</source>
-      <translation type="unfinished"/>
+      <translation>このオートレスポンダは、積極的な招待にのみ適用されます。</translation>
     </message>
     <message>
       <source>How many pending chats have to be in the queue (not counting started chat) for pending chat messaging to be activated.</source>
-      <translation type="unfinished"/>
+      <translation>保留中のチャット メッセージングが有効化されるには、保留中のチャットがキューに何件あるか（開始されたチャット はカウントしない）。</translation>
     </message>
     <message>
       <source>Minimum pending chats for pending messaging to be activated</source>
-      <translation type="unfinished"/>
+      <translation>保留メッセージを有効にするための最低保留チャット数</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>タイムゾーン</translation>
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
-      <translation type="unfinished"/>
+      <translation>変数が渡されない場合、以前に記録された値を保持するべきか？</translation>
     </message>
     <message>
       <source>Try to decrypt variable first</source>
-      <translation type="unfinished"/>
+      <translation>まず変数の復号化を試みる</translation>
     </message>
     <message>
       <source>Case insensitive</source>
-      <translation type="unfinished"/>
+      <translation>大文字と小文字を区別しない</translation>
     </message>
     <message>
       <source>This variable is invisible for operator and will be stored in chat_variables attribute</source>
-      <translation type="unfinished"/>
+      <translation>この変数はオペレータには不可視で、chat_variables属性に格納される。</translation>
     </message>
     <message>
       <source>Event id to receive from website for conversion to finish.</source>
-      <translation type="unfinished"/>
+      <translation>変換が完了するためにウェブサイトから受け取るイベントID。</translation>
     </message>
     <message>
       <source>E.g ordered</source>
-      <translation type="unfinished"/>
+      <translation>例：注文</translation>
     </message>
     <message>
       <source>Conversion has to happen within this period of time after invitation was send/clicked.</source>
-      <translation type="unfinished"/>
+      <translation>コンバージョンは、招待状が送信／クリックされてからこの期間内に行われなければならない。</translation>
     </message>
     <message>
       <source>Invitation expire time, after that period of time invitation will be hidden</source>
-      <translation type="unfinished"/>
+      <translation>招待の有効期限、その期間が過ぎると招待は隠される</translation>
     </message>
     <message>
       <source>Any of these operators are online. Enter operator id separated by comma. Your user id is</source>
-      <translation type="unfinished"/>
+      <translation>これらのオペレータのいずれかがオンラインである。オペレータ ID をコンマで区切って入力してください。あなたのユーザーIDは</translation>
     </message>
     <message>
       <source>Operator maximum chats limit can be exceeded by this number of chats.</source>
-      <translation type="unfinished"/>
+      <translation>オペレータの最大チャット数は、この数を超えることがあります。</translation>
     </message>
     <message>
       <source>Last time seen on website ago.</source>
-      <translation type="unfinished"/>
+      <translation>最後にウェブサイトを見たのは前。</translation>
     </message>
     <message>
       <source>Last time had chat n minutes ago.</source>
-      <translation type="unfinished"/>
+      <translation>前回はチャット n分前だった。</translation>
     </message>
     <message>
       <source>After this invitation expires or was closed, any next invitation can be shown after defined amount of time.</source>
-      <translation type="unfinished"/>
+      <translation>この招待状が期限切れになった後、または終了した後、定義された時間後に次の招待状を表示することができます。</translation>
     </message>
     <message>
       <source>Invitation message width</source>
-      <translation type="unfinished"/>
+      <translation>招待メッセージの幅</translation>
     </message>
     <message>
       <source>Invitation message placement from bottom</source>
-      <translation type="unfinished"/>
+      <translation>招待メッセージの配置（下から</translation>
     </message>
     <message>
       <source>Invitation message placement from right</source>
-      <translation type="unfinished"/>
+      <translation>右からの招待メッセージの配置</translation>
     </message>
     <message>
       <source>Mobile HTML</source>
-      <translation type="unfinished"/>
+      <translation>モバイルHTML</translation>
     </message>
     <message>
       <source>Custom on click event</source>
-      <translation type="unfinished"/>
+      <translation>クリックイベントのカスタム</translation>
     </message>
     <message>
       <source>Custom CSS, applies also to invitation bubble</source>
-      <translation type="unfinished"/>
+      <translation>カスタムCSS、招待状バブルにも適用</translation>
     </message>
     <message>
       <source>Custom image 1</source>
-      <translation type="unfinished"/>
+      <translation>カスタムイメージ1</translation>
     </message>
     <message>
       <source>Custom image 2</source>
-      <translation type="unfinished"/>
+      <translation>カスタムイメージ2</translation>
     </message>
     <message>
       <source>Custom image 3</source>
-      <translation type="unfinished"/>
+      <translation>カスタムイメージ3</translation>
     </message>
     <message>
       <source>Custom image 4</source>
-      <translation type="unfinished"/>
+      <translation>カスタムイメージ4</translation>
     </message>
     <message>
       <source>Custom image 5</source>
-      <translation type="unfinished"/>
+      <translation>カスタムイメージ5</translation>
     </message>
     <message>
       <source>Do not show default content on success form submit.</source>
-      <translation type="unfinished"/>
+      <translation>フォーム送信成功時にデフォルトのコンテンツを表示しない。</translation>
     </message>
     <message>
       <source>Color</source>
-      <translation type="unfinished"/>
+      <translation>色</translation>
     </message>
     <message>
       <source>Survey title</source>
-      <translation type="unfinished"/>
+      <translation>調査タイトル</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation type="unfinished"/>
+      <translation>簡単な評価アンケートにご協力ください</translation>
     </message>
     <message>
       <source>Disable chat preview</source>
-      <translation type="unfinished"/>
+      <translation>チャット プレビューを無効にする</translation>
     </message>
     <message>
       <source>Allow visitor return to chat even if it was closed.</source>
-      <translation type="unfinished"/>
+      <translation>チャット 、閉鎖されていたとしても、ビジターが戻ることができるようにする。</translation>
     </message>
     <message>
       <source>Disable chat download</source>
-      <translation type="unfinished"/>
+      <translation>チャット ダウンロードを無効にする</translation>
     </message>
     <message>
       <source> Required only if stars less or equal to 1 - n</source>
-      <translation type="unfinished"/>
+      <translation>星が1-n以下の場合のみ必要</translation>
     </message>
     <message>
       <source>Stars field Nr. (1-5)</source>
-      <translation type="unfinished"/>
+      <translation>星野番号 (1-5)</translation>
     </message>
     <message>
       <source>If more than one theme is passed, randomly chosen theme is fixed for selected period of time.</source>
-      <translation type="unfinished"/>
+      <translation>複数のテーマが通過した場合、ランダムに選ばれたテーマが指定された期間固定される。</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>Alias for argument. No spaces or slashes.</source>
-      <translation type="unfinished"/>
+      <translation>引数のエイリアス。スペースやスラッシュは使用しない。</translation>
     </message>
     <message>
       <source>Name of the company</source>
-      <translation>Názov spoločnosti</translation>
+      <translation>会社名</translation>
     </message>
     <message>
       <source>Chat status if customer is chatting with a bot</source>
-      <translation type="unfinished"/>
+      <translation>チャット 顧客とチャットしている場合はbot</translation>
     </message>
     <message>
       <source>Header icons order. _print is optional and indicates we should also print a text after an icon</source>
-      <translation type="unfinished"/>
+      <translation>ヘッダーアイコンの順序。printはオプションで、アイコンの後にテキストも表示することを示す。</translation>
     </message>
     <message>
       <source>Need help header text</source>
-      <translation>Potrebujete pomoc text hlavičky</translation>
+      <translation>ヘルプヘッダーテキスト必要</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation>Potrebujete pomoc časovač, po koľkých hodinách opäť zobraziť okno?</translation>
+      <translation>ツールTIP表示から何時間で、ヘルプツールTIPタイムアウトしますか？</translation>
     </message>
     <message>
       <source>After how many seconds after page load show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>ページがロードされてから何秒後にヘルプが必要なツールチップを表示しますか？</translation>
     </message>
     <message>
       <source>After how many seconds after page load show status widget</source>
-      <translation type="unfinished"/>
+      <translation>ページロード後何秒後にステータスウィジェットを表示するか</translation>
     </message>
     <message>
       <source>Need help widget width</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットの幅について</translation>
     </message>
     <message>
       <source>Need help widget height</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットの高さについて</translation>
     </message>
     <message>
       <source>Position from right</source>
-      <translation type="unfinished"/>
+      <translation>ポジションは右から</translation>
     </message>
     <message>
       <source>Position from bottom</source>
-      <translation type="unfinished"/>
+      <translation>下からの位置</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation>Zobraziť okno Potrebujete pomoc?</translation>
+      <translation>ヘルプツールTIPの表示が必要？</translation>
     </message>
     <message>
       <source>Hide need help widget for mobile devices.</source>
-      <translation type="unfinished"/>
+      <translation>モバイルデバイス用のヘルプウィジェットを隠す。</translation>
     </message>
     <message>
       <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットコンテンツの遅延ロード。ウィジェットコンテンツは、訪問者がステータスアイコンをクリックした場合にのみロードされます。</translation>
     </message>
     <message>
       <source>Print raw HTML in footer without parsing it for special functions. Makes custom HTML in footer to render faster.</source>
-      <translation type="unfinished"/>
+      <translation>特別な関数のためにパースすることなく、生のHTMLをフッターに表示します。フッターのカスタムHTMLのレンダリングを高速化します。</translation>
     </message>
     <message>
       <source>Always visible. Usefull if you make custom HTML and want that need help would be always visible.</source>
-      <translation type="unfinished"/>
+      <translation>常に見える。カスタムHTMLを作成し、ヘルプが必要な場合に便利です。</translation>
     </message>
     <message>
       <source>Hide close button</source>
-      <translation type="unfinished"/>
+      <translation>閉じるボタンを隠す</translation>
     </message>
     <message>
       <source>Message time visible for</source>
-      <translation type="unfinished"/>
+      <translation>メッセージの表示時間</translation>
     </message>
     <message>
       <source>Message time placement</source>
-      <translation type="unfinished"/>
+      <translation>メッセージの時間配置</translation>
     </message>
     <message>
       <source>Use modern look. It is used only in older widget.</source>
-      <translation type="unfinished"/>
+      <translation>モダンな外観を使用してください。これは古いウィジェットでのみ使用されます。</translation>
     </message>
     <message>
       <source>Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.</source>
-      <translation type="unfinished"/>
+      <translation>新しいウィジェットを使って、古い埋め込みコードを探してください。古い埋め込みコードを簡単に変更できない場合は、システムに新しいウィジェットを読み込ませることができます。</translation>
     </message>
     <message>
       <source>Enable drag and drop for status widget</source>
-      <translation type="unfinished"/>
+      <translation>ステータスウィジェットのドラッグ＆ドロップを有効にする</translation>
     </message>
     <message>
       <source>Animate need help position change after status widget position was changed</source>
-      <translation type="unfinished"/>
+      <translation>ステータスウィジェットの位置が変更された後に、ヘルプの位置が変更されるようにアニメートする必要があります。</translation>
     </message>
     <message>
       <source>Need help standard text</source>
-      <translation>Potrebujete pomoc štandardný text</translation>
+      <translation>ヘルプ標準テキストが必要</translation>
     </message>
     <message>
       <source>Widget border width (px)</source>
-      <translation>Šírka okrajov widgetu (px)</translation>
+      <translation>ウィジェット線幅(px)</translation>
     </message>
     <message>
       <source>Ratio for new row to appear</source>
-      <translation type="unfinished"/>
+      <translation>新しい行が表示される比率</translation>
     </message>
     <message>
       <source>Online status text [old widget]</source>
-      <translation type="unfinished"/>
+      <translation>オンライン・ステータス・テキスト [旧ウィジェット］</translation>
     </message>
     <message>
       <source>Offline status text [old widget]</source>
-      <translation type="unfinished"/>
+      <translation>オフライン・ステータス・テキスト [旧ウィジェット］</translation>
     </message>
     <message>
       <source>Operator intro text</source>
-      <translation>Uvádzací text operátora</translation>
+      <translation>オペレータイントロテキスト</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation>Máte otázku? Opýtajte sa nás!</translation>
+      <translation>質問がありますか？お気軽にお尋ねください！</translation>
     </message>
     <message>
       <source>Background color</source>
-      <translation>Farba pozadia</translation>
+      <translation>背景色</translation>
     </message>
     <message>
       <source>Status widget border color</source>
-      <translation>Farba okraju widgetu stavu</translation>
+      <translation>ステータスウィジェット線色</translation>
     </message>
     <message>
       <source>Text/Icon color</source>
-      <translation type="unfinished"/>
+      <translation>テキスト/アイコン色</translation>
     </message>
     <message>
       <source>Operator image in chat widget</source>
-      <translation>Obrázok operátora vo widgete chatu</translation>
+      <translation>チャットウィジェットでのオペレータ画像</translation>
     </message>
     <message>
       <source>Logo image, visible in popup</source>
-      <translation>Obrázok loga, viditeľný vo vyskakujúcom okne</translation>
+      <translation>ロゴ画像、ポップアップで表示</translation>
     </message>
     <message>
       <source>Logo image, visible in widget left corner, 16x16</source>
-      <translation>Logo obrázok, viditeľný v ľavom rohu widgetu, 16x16</translation>
+      <translation>ロゴ画像、ウィジェット左コーナーに16x16で表示</translation>
     </message>
     <message>
       <source>Show copyright widget logo in left corner</source>
-      <translation>Zobraziť copyright logo widgetu v ľavom rohu</translation>
+      <translation>ウィジェットロゴの左コーナーにコピーライトを表示</translation>
     </message>
     <message>
       <source>Hide widget close button</source>
-      <translation>Skryť tlačidlo na zatvorenie widgetu</translation>
+      <translation>ウィジェット閉じるボタン隠す</translation>
     </message>
     <message>
       <source>Hide popup option</source>
-      <translation>Skryť možnosť popup</translation>
+      <translation>ポップアップオプションを隠す</translation>
     </message>
     <message>
       <source>Disable sound for the visitor by default</source>
-      <translation type="unfinished"/>
+      <translation>訪問者のサウンドをデフォルトで無効にする</translation>
     </message>
     <message>
       <source>Terminate script if parent window already has live help script</source>
-      <translation type="unfinished"/>
+      <translation>親ウィンドウにすでにライブヘルプスクリプトがある場合、スクリプトを終了する</translation>
     </message>
     <message>
       <source>Terminate script in parent window if any child iframe has already live helper script</source>
-      <translation type="unfinished"/>
+      <translation>ヘルパースクリプトがすでに実行されている子 iframe がある場合、親ウィンドウのスクリプトを終了する。</translation>
     </message>
     <message>
       <source>If visitor opens a popup keep chat in the widget also</source>
-      <translation type="unfinished"/>
+      <translation>訪問者がポップアップを開いた場合、ウィジェットのチャット も維持する。</translation>
     </message>
     <message>
       <source>Header height (px)</source>
-      <translation>Výška hlavičky (px)</translation>
+      <translation>ヘッダー高さ(px)</translation>
     </message>
     <message>
       <source>Widget response layout width trigger (px)</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットレスポンスレイアウト幅トリガー(px)</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
-      <translation>Medzery v headeri (px)</translation>
+      <translation>ヘッダー余白(px)</translation>
     </message>
     <message>
       <source>Site URL</source>
-      <translation>URL adresa</translation>
+      <translation>サイトURL</translation>
     </message>
     <message>
       <source>Text above start chat form fields</source>
-      <translation>Text v okne začať chat, nad položkami formuláru</translation>
+      <translation>上記のテキストはチャットフォームフィールドを開始します</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, popup</source>
-      <translation type="unfinished"/>
+      <translation>開始前のカスタムhtmlチャット フォームフィールド、ポップアップ</translation>
     </message>
     <message>
       <source>Inject HTML on widget open</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットを開くときにHTMLを注入する</translation>
     </message>
     <message>
       <source>Header HTML. Here you can paste custom head HTML.</source>
-      <translation type="unfinished"/>
+      <translation>ヘッダーHTML。ここにカスタムヘッダHTMLを貼り付けることができます。</translation>
     </message>
     <message>
       <source>Survey title content, {survey_title} - survey title</source>
-      <translation type="unfinished"/>
+      <translation>調査タイトルの内容、{survey_title} - 調査タイトル</translation>
     </message>
     <message>
       <source>Survey feedback content, {survey_feedback} - survey feedback</source>
-      <translation type="unfinished"/>
+      <translation>アンケートのフィードバック内容、{survey_feedback} - アンケートのフィードバック</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, widget</source>
-      <translation type="unfinished"/>
+      <translation>開始前のカスタムhtmlチャット フォームフィールド、ウィジェット</translation>
     </message>
     <message>
       <source>Custom survey page CSS</source>
-      <translation type="unfinished"/>
+      <translation>カスタムアンケートページCSS</translation>
     </message>
     <message>
       <source>Custom page CSS (new widget only)</source>
-      <translation type="unfinished"/>
+      <translation>カスタムページCSS (新しいウィジェットのみ)</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, popup (bot mode)</source>
-      <translation type="unfinished"/>
+      <translation>開始前のカスタムhtmlチャット フォームフィールド、ポップアップ (bot モード)</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, widget (bot mode)</source>
-      <translation type="unfinished"/>
+      <translation>開始前のカスタムhtmlチャット フォームフィールド、ウィジェット (bot モード)</translation>
     </message>
     <message>
       <source>Custom html before standard widget header</source>
-      <translation type="unfinished"/>
+      <translation>標準ウィジェットのヘッダーの前のカスタムhtml</translation>
     </message>
     <message>
       <source>Custom html after widget content</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットコンテンツの後のカスタムhtml</translation>
     </message>
     <message>
       <source>Operator intro message. You can wrap custom HTML with [html][/html] bbcode</source>
-      <translation type="unfinished"/>
+      <translation>オペレーター紹介メッセージ。カスタムHTMLを[html][/html]bbcodeでラップすることができます。</translation>
     </message>
     <message>
       <source>Operator intro message in HTML</source>
-      <translation type="unfinished"/>
+      <translation>HTMLでのオペレータ紹介メッセージ</translation>
     </message>
     <message>
       <source>Custom html above status/profile body in online mode</source>
-      <translation type="unfinished"/>
+      <translation>オンライン・モードでのステータス/プロフィール・ボディの上のカスタムhtml</translation>
     </message>
     <message>
       <source>Custom html above status/profile body in offline mode</source>
-      <translation type="unfinished"/>
+      <translation>オフラインモードでのステータス/プロフィール本文の上のカスタムhtml</translation>
     </message>
     <message>
       <source>Custom html inside standard widget header</source>
-      <translation type="unfinished"/>
+      <translation>標準ウィジェットのヘッダー内のカスタムhtml</translation>
     </message>
     <message>
       <source>Custom html before standard widget status header</source>
-      <translation type="unfinished"/>
+      <translation>標準ウィジェットのステータスヘッダーの前のカスタムhtml</translation>
     </message>
     <message>
       <source>Custom html after chat status</source>
-      <translation type="unfinished"/>
+      <translation>チャット ステータス後のカスタムhtml</translation>
     </message>
     <message>
       <source>Start chat button text, standard chat</source>
-      <translation type="unfinished"/>
+      <translation>開始チャット ボタンのテキスト、標準チャット</translation>
     </message>
     <message>
       <source>TOS text</source>
-      <translation type="unfinished"/>
+      <translation>TOSテキスト</translation>
     </message>
     <message>
       <source>Title of the minimize icon</source>
-      <translation type="unfinished"/>
+      <translation>最小化アイコンのタイトル</translation>
     </message>
     <message>
       <source>Title of the popup icon</source>
-      <translation type="unfinished"/>
+      <translation>ポップアップアイコンのタイトル</translation>
     </message>
     <message>
       <source>Title of the end chat icon</source>
-      <translation type="unfinished"/>
+      <translation>終了のタイトルチャット アイコン</translation>
     </message>
     <message>
       <source>Switch to default widget position</source>
-      <translation type="unfinished"/>
+      <translation>デフォルトのウィジェット位置に切り替える</translation>
     </message>
     <message>
       <source>Switch to full height widget position</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットの位置をフルハイトに切り替える</translation>
     </message>
     <message>
       <source>Start chat button text, bot chat</source>
-      <translation type="unfinished"/>
+      <translation>Startチャット ボタンテキスト,bot チャット</translation>
     </message>
     <message>
       <source>Leave a message button text</source>
-      <translation type="unfinished"/>
+      <translation>メッセージを残すボタンのテキスト</translation>
     </message>
     <message>
       <source>Online image</source>
-      <translation>On-line obrázok</translation>
+      <translation>オンライン画像</translation>
     </message>
     <message>
       <source>Notification icon</source>
-      <translation type="unfinished"/>
+      <translation>通知アイコン</translation>
     </message>
     <message>
       <source>Offline image</source>
-      <translation>Off-line obrázok</translation>
+      <translation>オフライン画像</translation>
     </message>
     <message>
       <source>Widget header background color</source>
-      <translation>Farba pozadia hlavičky widgetu</translation>
+      <translation>ウィジェットヘッダ背景色</translation>
     </message>
     <message>
       <source>Widget border color</source>
-      <translation>Farba okrajov widgetu</translation>
+      <translation>ウィジェット線色</translation>
     </message>
     <message>
       <source>Custom need help HTML</source>
-      <translation type="unfinished"/>
+      <translation>カスタムヘルプ HTML</translation>
     </message>
     <message>
       <source>Need help background color</source>
-      <translation>Potrebujete pomoc farba pozadia</translation>
+      <translation>必要とされるヘルプ背景色</translation>
     </message>
     <message>
       <source>Need help hover background color</source>
-      <translation>Potrebujete pomoc farba pozadia pri hover</translation>
+      <translation>必要とされるヘルプマウスポインタが重なった際の背景色</translation>
     </message>
     <message>
       <source>Need help text color</source>
-      <translation>Potrebujete pomoc farba textu</translation>
+      <translation>必要とされるヘルプテキスト色</translation>
     </message>
     <message>
       <source>Text when user starts chat based on proactive invitation</source>
-      <translation>Text, keď používateľ začne chat na základe proaktívneho pozvania</translation>
+      <translation>積極的招待に基づくチャット開始のテキスト</translation>
     </message>
     <message>
       <source>Text when operator closes a chat</source>
-      <translation>Text keď operátor zatvorí chat</translation>
+      <translation>オペレータがチャットを閉じる時のテキスト</translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is 1 or if less than a minute wait time.</source>
-      <translation type="unfinished"/>
+      <translation>ユーザーがチャット を開始し、オペレータがチャット に参加するのを待っているときのテキスト。 キューが 1 の場合、または待ち時間が 1 分未満の場合のみ。</translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is &gt; 1. {number}, {avg_wait_time}, {avg_wait_time_live}, {avg_wait_time_live__string if more than one minute live wait time}, {avg_wait_time__string if more than one minute wait time}</source>
-      <translation type="unfinished"/>
+      <translation>ユーザがチャット を開始し、オペレータがチャット に参加するのを待っているときのテキスト。 {number}, {avg_wait_time}, {avg_wait_time_live}, {avg_wait_time_live__string if more than one minute live wait time}, {avg_wait_time__string if more than one minute wait time}.</translation>
     </message>
     <message>
       <source>Text when user starts a chat but department is offline</source>
-      <translation>Text, keď používateľ začne chat, ale oddelenie je offline</translation>
+      <translation>ユーザーがチャットを開始したが、部署がオフラインの時のテキスト</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
-      <translation>Zanechajte správu text formuláru</translation>
+      <translation>フォームテキストメッセージを残す</translation>
     </message>
     <message>
       <source>Thank you for your feedback text</source>
-      <translation type="unfinished"/>
+      <translation>ご感想文ありがとうございました。</translation>
     </message>
     <message>
       <source>Blocked visitor message</source>
-      <translation type="unfinished"/>
+      <translation>ブロックされた訪問者のメッセージ</translation>
     </message>
     <message>
       <source>Need help border color</source>
-      <translation>Potrebujete pomoc farba okraju</translation>
+      <translation>必要とされるヘルプ線色</translation>
     </message>
     <message>
       <source>Need help close text color</source>
-      <translation type="unfinished"/>
+      <translation>テキストを閉じる色</translation>
     </message>
     <message>
       <source>Need help close hover text color</source>
-      <translation type="unfinished"/>
+      <translation>ホバーテキストを閉じる色</translation>
     </message>
     <message>
       <source>Need help operator image</source>
-      <translation>Potrebujete pomoc obrázok operátora</translation>
+      <translation>必要とされるヘルプオペレータ画像</translation>
     </message>
     <message>
       <source>Status widget additional CSS, takes effect after save</source>
-      <translation>Doplnkové CSS pre widget stavu, zmena sa prejaví po uložení</translation>
+      <translation>CSSに加えるウィジェットステータス、保存後の効果を追加</translation>
     </message>
     <message>
       <source>Custom CSS only for popup</source>
-      <translation type="unfinished"/>
+      <translation>ポップアップ用のカスタムCSSのみ</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
-      <translation>Doplnkové CSS pre widget kontajneru, zmena sa prejaví po uložení</translation>
+      <translation>ウィジェットコンテナに追加するCSS、保存後の効果</translation>
     </message>
     <message>
       <source>Widget body additional CSS, takes effect after save</source>
-      <translation>Doplnkové CSS pre telo widgetu, zmena sa prejaví po uložení</translation>
+      <translation>ウィジェット本文に追加するCSS、保存後の効果</translation>
     </message>
     <message>
       <source>Minimize image</source>
-      <translation>Obrázok pre minimalizovanie</translation>
+      <translation>最小画像</translation>
     </message>
     <message>
       <source>Restore image</source>
-      <translation>Obrázok pre obnovenie</translation>
+      <translation>リストア画像</translation>
     </message>
     <message>
       <source>Close image</source>
-      <translation>Obrázok pre zatvorenie</translation>
+      <translation>閉じる画像</translation>
     </message>
     <message>
       <source>Popup image</source>
-      <translation>Obrázok pre popup</translation>
+      <translation>ポップアップ画像</translation>
     </message>
     <message>
       <source>Visitor bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>ビジターバブル背景色</translation>
     </message>
     <message>
       <source>Visitor title color</source>
-      <translation>Farba titulku návštevníka</translation>
+      <translation>訪問者タイトル色</translation>
     </message>
     <message>
       <source>Visitor text color</source>
-      <translation>Farba textu návštevníka</translation>
+      <translation>訪問者テキスト色</translation>
     </message>
     <message>
       <source>Operator bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>オペレーター・バブル背景色</translation>
     </message>
     <message>
       <source>Operator title color</source>
-      <translation>Farba titulu operátora</translation>
+      <translation>オペレータタイトル色</translation>
     </message>
     <message>
       <source>Operator text color</source>
-      <translation>Farba textu operátora</translation>
+      <translation>オペレータテキスト色</translation>
     </message>
     <message>
       <source>Show voting thumbs?</source>
-      <translation>Zobraziť palce pre hlasovanie?</translation>
+      <translation>投稿サムネイル表示</translation>
     </message>
     <message>
       <source>Use different title for the name field</source>
-      <translation type="unfinished"/>
+      <translation>名前フィールドに別のタイトルを使用する</translation>
     </message>
     <message>
       <source>Use different title for the e-mail field</source>
-      <translation type="unfinished"/>
+      <translation>電子メール・フィールドに別のタイトルを使用する</translation>
     </message>
     <message>
       <source>Use different title for the file field</source>
-      <translation type="unfinished"/>
+      <translation>ファイル・フィールドに別のタイトルを使用する</translation>
     </message>
     <message>
       <source>Use different title for the phone field</source>
-      <translation type="unfinished"/>
+      <translation>電話番号欄には別のタイトルを使用</translation>
     </message>
     <message>
       <source>Use different title for the question field</source>
-      <translation type="unfinished"/>
+      <translation>質問欄には別のタイトルを使用する</translation>
     </message>
     <message>
       <source>Use different title for department? E.g Location</source>
-      <translation>Použiť iný titulok pre oddelenie? Napr. polohu</translation>
+      <translation>部署の異なるタイトルを使用するか？例．場所</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation>Poloha</translation>
+      <translation>場所</translation>
     </message>
     <message>
       <source>Additional option before department selection</source>
-      <translation>Ďalšia možnosť pred výberom oddelenia</translation>
+      <translation>部署選択前の追加オプション</translation>
     </message>
     <message>
       <source>Choose department</source>
-      <translation>Vyberte oddelenie</translation>
+      <translation>部署選択</translation>
     </message>
     <message>
       <source>Button background hover color</source>
-      <translation type="unfinished"/>
+      <translation>ボタン背景ホバー色</translation>
     </message>
     <message>
       <source>Button top and bottom</source>
-      <translation type="unfinished"/>
+      <translation>ボタン上下</translation>
     </message>
     <message>
       <source>Button padding right and left</source>
-      <translation type="unfinished"/>
+      <translation>ボタンの左右のパディング</translation>
     </message>
     <message>
       <source>Button font size</source>
-      <translation type="unfinished"/>
+      <translation>ボタンのフォントサイズ</translation>
     </message>
     <message>
       <source>Widget height (px)</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットの高さ (px)</translation>
     </message>
     <message>
       <source>Widget width (px)</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットの幅 (px)</translation>
     </message>
     <message>
       <source>Operator avatar</source>
-      <translation type="unfinished"/>
+      <translation>オペレーターアバター</translation>
     </message>
     <message>
       <source>Need help avatar</source>
-      <translation type="unfinished"/>
+      <translation>アバター</translation>
     </message>
     <message>
       <source>Widget position from right to append</source>
-      <translation type="unfinished"/>
+      <translation>右から追加するウィジェットの位置</translation>
     </message>
     <message>
       <source>Widget position from bottom to append</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットの下から追加する位置</translation>
     </message>
     <message>
       <source>Widget position from right to append in invitation</source>
-      <translation type="unfinished"/>
+      <translation>招待状に追加するウィジェットの右からの位置</translation>
     </message>
     <message>
       <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
-      <translation type="unfinished"/>
+      <translation>ユーザーメッセージが何回表示されたら、人間ボタンに切り替わるか。</translation>
     </message>
     <message>
       <source>Placeholder for message text</source>
-      <translation type="unfinished"/>
+      <translation>メッセージテキストのプレースホルダ</translation>
     </message>
     <message>
       <source>Placeholder for message text if files are attached</source>
-      <translation type="unfinished"/>
+      <translation>ファイルが添付されている場合のメッセージテキストのプレースホルダ</translation>
     </message>
     <message>
       <source>Main operator title, {nick}, {name}, {surname}</source>
-      <translation type="unfinished"/>
+      <translation>メイン・オペレーターのタイトル,{nick},{name} 、{surname}</translation>
     </message>
     <message>
       <source>Chat is unavailable and offline form is disabled.</source>
-      <translation type="unfinished"/>
+      <translation>チャット は利用できず、オフラインフォームは無効になっている。</translation>
     </message>
     <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
-      <translation type="unfinished"/>
+      <translation>訪問者が上矢印を押して前のメッセージを編集できないようにする。</translation>
     </message>
     <message>
       <source>Before closing chat ask user if they really want to to close chat</source>
-      <translation type="unfinished"/>
+      <translation>チャット を閉じる前に、本当に閉じるかどうかをユーザーに尋ねる。チャット</translation>
     </message>
     <message>
       <source>Show start chat form instantly after operator closes a chat.</source>
-      <translation type="unfinished"/>
+      <translation>オペレータがチャット を閉じた後、即座に開始チャット フォームを表示する。</translation>
     </message>
     <message>
       <source>Show previous chat messages in chat widget.</source>
-      <translation type="unfinished"/>
+      <translation>チャット ウィジェットに以前のチャット メッセージを表示する。</translation>
     </message>
     <message>
       <source>Custom HTML has priority over invitation content in opened widget</source>
-      <translation type="unfinished"/>
+      <translation>カスタムHTMLは、開いたウィジェットの招待コンテンツよりも優先されます。</translation>
     </message>
     <message>
       <source>Show invitation content once visitor started to type</source>
-      <translation type="unfinished"/>
+      <translation>訪問者が入力を開始したら、招待コンテンツを表示する</translation>
     </message>
     <message>
       <source>Hide job title</source>
-      <translation type="unfinished"/>
+      <translation>役職名を隠す</translation>
     </message>
     <message>
       <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
-      <translation type="unfinished"/>
+      <translation>ページが更新されたらチャット を閉じる。ポップアップに埋め込みコードがある場合に便利です。</translation>
     </message>
     <message>
       <source>Do not prefill offline message with chat messages.</source>
-      <translation type="unfinished"/>
+      <translation>オフラインのメッセージをチャット のメッセージで埋めないでください。</translation>
     </message>
     <message>
       <source>Hide BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>BBコード非表示ボタン</translation>
     </message>
     <message>
       <source>Show new messages snippet widget</source>
-      <translation type="unfinished"/>
+      <translation>新着メッセージのスニペットウィジェットを表示する</translation>
     </message>
     <message>
       <source>Allow visitor to change font size</source>
-      <translation type="unfinished"/>
+      <translation>訪問者がフォントサイズを変更できるようにする</translation>
     </message>
     <message>
       <source>Use system timezone instead of a visitor. Visitor TZ will be overriden with system a system one.</source>
-      <translation type="unfinished"/>
+      <translation>ビジタータイムゾーンの代わりにシステムタイムゾーンを使用する。ビジターのTZはシステムのものに上書きされます。</translation>
     </message>
     <message>
       <source>Print button as a message as soon visitor clicks a button.</source>
-      <translation type="unfinished"/>
+      <translation>訪問者がボタンをクリックすると、すぐにメッセージとしてボタンを印刷します。</translation>
     </message>
     <message>
       <source>Open link in the same browser tab if chat is in the widget</source>
-      <translation type="unfinished"/>
+      <translation>チャット がウィジェットにある場合、同じブラウザ・タブでリンクを開く</translation>
     </message>
     <message>
       <source>Show go to survey button on chat close</source>
-      <translation type="unfinished"/>
+      <translation>チャット 閉じる</translation>
     </message>
     <message>
       <source>Enable reactions for visitor</source>
-      <translation type="unfinished"/>
+      <translation>訪問者のリアクションを有効にする</translation>
     </message>
     <message>
       <source>Only one reaction can be chosen per message</source>
-      <translation type="unfinished"/>
+      <translation>1つのメッセージにつき選択できるリアクションは1つだけです。</translation>
     </message>
     <message>
       <source>Selected reactions should be always visible under a message</source>
-      <translation type="unfinished"/>
+      <translation>選択されたリアクションは常にメッセージの下に表示されるべきである</translation>
     </message>
     <message>
       <source>Always visible reactions</source>
-      <translation type="unfinished"/>
+      <translation>常に目に見える反応</translation>
     </message>
     <message>
       <source>Custom toolbar icons</source>
-      <translation type="unfinished"/>
+      <translation>カスタムツールバーアイコン</translation>
     </message>
     <message>
       <source>Custom modal window icons</source>
-      <translation type="unfinished"/>
+      <translation>カスタムモーダルウィンドウのアイコン</translation>
     </message>
     <message>
       <source>Try to expand widget to full screen in page embed mode</source>
-      <translation type="unfinished"/>
+      <translation>ページ埋め込みモードでウィジェットをフルスクリーンに拡大してみる</translation>
     </message>
     <message>
       <source>Automatically determine intro message by bot default message</source>
-      <translation type="unfinished"/>
+      <translation>bot 、イントロメッセージを自動的に決定する。</translation>
     </message>
     <message>
       <source>Use bot profile in the widget instead of default</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットでデフォルトの代わりにbot プロファイルを使用する。</translation>
     </message>
     <message>
       <source>Try to detect language from browser headers</source>
-      <translation type="unfinished"/>
+      <translation>ブラウザのヘッダーから言語を検出する</translation>
     </message>
     <message>
       <source>Bubble style messages</source>
-      <translation type="unfinished"/>
+      <translation>バブルスタイルのメッセージ</translation>
     </message>
     <message>
       <source>Hide chat status block</source>
-      <translation type="unfinished"/>
+      <translation>チャット ステータスブロックを隠す</translation>
     </message>
     <message>
       <source>Use expanding message area</source>
-      <translation type="unfinished"/>
+      <translation>メッセージエリアの拡大</translation>
     </message>
     <message>
       <source>Hide visitor profile</source>
-      <translation type="unfinished"/>
+      <translation>訪問者のプロフィールを隠す</translation>
     </message>
     <message>
       <source>Notifications enabled</source>
-      <translation type="unfinished"/>
+      <translation>通知を有効にする</translation>
     </message>
     <message>
       <source>Notification title</source>
-      <translation type="unfinished"/>
+      <translation>通知タイトル</translation>
     </message>
     <message>
       <source>Notification domain</source>
-      <translation type="unfinished"/>
+      <translation>通知ドメイン</translation>
     </message>
     <message>
       <source>Header icons color</source>
-      <translation type="unfinished"/>
+      <translation>ヘッダーアイコン色</translation>
     </message>
     <message>
       <source>Offline widget background color</source>
-      <translation type="unfinished"/>
+      <translation>オフライン・ウィジェット背景色</translation>
     </message>
     <message>
       <source>Offline widget border color</source>
-      <translation type="unfinished"/>
+      <translation>オフライン・ウィジェットボーダー色</translation>
     </message>
     <message>
       <source>Offline text/icon color</source>
-      <translation type="unfinished"/>
+      <translation>オフラインテキスト/アイコン色</translation>
     </message>
     <message>
       <source>Show close widget button in status widget</source>
-      <translation type="unfinished"/>
+      <translation>ステータスウィジェットにウィジェットを閉じるボタンを表示する</translation>
     </message>
     <message>
       <source>Show operator profile in a new row</source>
-      <translation type="unfinished"/>
+      <translation>新しい行にオペレータ プロファイルを表示する</translation>
     </message>
     <message>
       <source>Enable embed code override</source>
-      <translation type="unfinished"/>
+      <translation>埋め込みコードのオーバーライドを有効にする</translation>
     </message>
     <message>
       <source>New messages text. 1 message case</source>
-      <translation type="unfinished"/>
+      <translation>新着メッセージ本文1件のメッセージ</translation>
     </message>
     <message>
       <source>New messages text. 2 or more new messages</source>
-      <translation type="unfinished"/>
+      <translation>新着メッセージのテキスト。2件以上の新着メッセージ</translation>
     </message>
     <message>
       <source>Scroll to the bottom</source>
-      <translation type="unfinished"/>
+      <translation>下までスクロール</translation>
     </message>
     <message>
       <source>Scroll to the bottom background color</source>
-      <translation type="unfinished"/>
+      <translation>下までスクロール背景色</translation>
     </message>
     <message>
       <source>Close button position in embed mode</source>
-      <translation type="unfinished"/>
+      <translation>埋め込みモードでの閉じるボタンの位置</translation>
     </message>
     <message>
       <source>Viewport settings</source>
-      <translation type="unfinished"/>
+      <translation>ビューポート設定</translation>
     </message>
     <message>
       <source>Date format if message is on different day</source>
-      <translation type="unfinished"/>
+      <translation>メッセージが別の日にある場合の日付フォーマット</translation>
     </message>
     <message>
       <source>Date format if message is on same day</source>
-      <translation type="unfinished"/>
+      <translation>メッセージが同じ日にある場合の日付フォーマット</translation>
     </message>
     <message>
       <source>New message text</source>
-      <translation type="unfinished"/>
+      <translation>新しいメッセージテキスト</translation>
     </message>
     <message>
       <source>New message text color</source>
-      <translation type="unfinished"/>
+      <translation>新しいメッセージテキスト色</translation>
     </message>
     <message>
       <source>New message background color</source>
-      <translation type="unfinished"/>
+      <translation>新しいメッセージ背景色</translation>
     </message>
     <message>
       <source>Reaction to visitor message bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>メッセージバブルへの反応背景色</translation>
     </message>
     <message>
       <source>Reaction to visitor message bubble icon color</source>
-      <translation type="unfinished"/>
+      <translation>来場者のメッセージバブルアイコンへの反応色</translation>
     </message>
     <message>
       <source>Reaction to operator message bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>オペレーターのメッセージ・バブルへの反応背景色</translation>
     </message>
     <message>
       <source>Reaction to operator message bubble icon color</source>
-      <translation type="unfinished"/>
+      <translation>オペレーターのメッセージバブルアイコンへの反応色</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Widget témy</translation>
+      <translation>ウィジェットテーマ</translation>
     </message>
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message they will get.</source>
-      <translation type="unfinished"/>
+      <translation>部門がオンラインであり、訪問者がチャット を開始し、何人かがチャット を受け入れるのを待っている場合。これが彼らが受け取る最初のメッセージとなる。</translation>
     </message>
     <message>
       <source>If department is offline and visitor starts a chat this message will be send instaed of default welcome message. If this message is empty - welcome message will be send.</source>
-      <translation type="unfinished"/>
+      <translation>部門がオフラインで、訪問者がチャット を開始した場合、デフォルトのウェルカムメッセージの代わりにこのメッセージが送信されます。このメッセージが空の場合、ウェルカムメッセージが送信されます。</translation>
     </message>
     <message>
       <source>Internal conversion parameters. Internal conversion is used to track covnersion where final step is done by user executing specific action and letting website to know us it happened.</source>
-      <translation type="unfinished"/>
+      <translation>内部変換パラメータ。内部コンバージョンは、ユーザーが特定のアクションを実行し、それが起こったことを私たちのウェブサイトに知らせることによって、最終的なステップが行われるコベネーションを追跡するために使用されます。</translation>
     </message>
     <message>
       <source>Sample javascript to finish conversion</source>
-      <translation type="unfinished"/>
+      <translation>変換を終了するサンプルjavascript</translation>
     </message>
     <message>
       <source>You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.</source>
-      <translation type="unfinished"/>
+      <translation>{proactive_img_1},{proactive_img_2},{proactive_img_3},{proactive_img_4},{proactive_img_5} のようなキーワードで5つの画像を使用することもできます。これらのイベントを使用することができます。これらのイベントはonclickイベントで使用する必要があります。</translation>
     </message>
     <message>
       <source>Main wrapper element should have id of</source>
-      <translation type="unfinished"/>
+      <translation>メインのラッパー要素は</translation>
     </message>
     <message>
       <source>New widget options</source>
-      <translation type="unfinished"/>
+      <translation>新しいウィジェット・オプション</translation>
     </message>
     <message>
       <source>Old widget options</source>
-      <translation type="unfinished"/>
+      <translation>旧ウィジェットオプション</translation>
     </message>
     <message>
       <source>URL Matching conditions</source>
-      <translation type="unfinished"/>
+      <translation>URLマッチング条件</translation>
     </message>
     <message>
       <source>This option has to be activated for URL invitations to start working.</source>
-      <translation type="unfinished"/>
+      <translation>このオプションを有効にしないと、URL招待は機能しません。</translation>
     </message>
     <message>
       <source>By default, if an invitation was not closed by the visitor, the next invitation will be shown when the visitor navigates to a different page. If the visitor closed the invitation, it will not be shown on the next page. Enabling this option will display the invitation on the next page even if the previous one was closed by the visitor.</source>
-      <translation type="unfinished"/>
+      <translation>デフォルトでは、訪問者によって招待状が閉じられていない場合、訪問者が別のページに移動すると、次の招待状が表示されます。訪問者が招待状を閉じた場合、次のページには表示されません。このオプションを有効にすると、前の招待状が訪問者によって閉じられた場合でも、次のページに招待状が表示されます。</translation>
     </message>
     <message>
       <source>Invitation will be shown only once per visitor session. If the visitor closes the invitation it will not be shown again during the same session.</source>
-      <translation type="unfinished"/>
+      <translation>招待状は、訪問者のセッションごとに1回のみ表示されます。訪問者が招待状を閉じた場合、同じセッション中に再度表示されることはありません。</translation>
     </message>
     <message>
       <source>If chat was accepted by the same language speaking operator you can send visitor a custom message on chat accept event.</source>
-      <translation type="unfinished"/>
+      <translation>チャット が同じ言語を話すオペレーターによって受け入れられた場合、チャット accept イベントで訪問者にカスタムメッセージを送ることができます。</translation>
     </message>
     <message>
       <source>What languages should be ignored. If chat language is one of the selected, message will not be send.</source>
-      <translation type="unfinished"/>
+      <translation>どの言語を無視するか。チャット の言語が選択されている場合、メッセージは送信されません。</translation>
     </message>
     <message>
       <source>If you leave empty - message we will be send only if translated message is found.</source>
-      <translation type="unfinished"/>
+      <translation>メッセージを空白にすると、翻訳されたメッセージが見つかった場合にのみ送信されます。</translation>
     </message>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
-      <translation>Ak chcete aby aktívna pozvánka do rozhovoru fungovala, musí byť povolená v</translation>
+      <translation>積極的なチャット招待を有効化する</translation>
     </message>
     <message>
       <source>chat configuration</source>
-      <translation>nastavenie rozhovoru</translation>
+      <translation>チャット設定</translation>
     </message>
     <message>
       <source>also online users tracking has to be</source>
-      <translation>tiež on-line sledovanie používateľov musí byť</translation>
+      <translation>オンラインユーザートラッキング</translation>
     </message>
     <message>
       <source>enabled</source>
-      <translation>povolené</translation>
+      <translation>有効化</translation>
     </message>
     <message>
       <source>[Record ID] [User ID] [Object ID]</source>
-      <translation type="unfinished"/>
+      <translation>[レコードID】【ユーザーID】【オブジェクトID</translation>
     </message>
     <message>
       <source>Category</source>
-      <translation type="unfinished"/>
+      <translation>カテゴリー</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation type="unfinished"/>
+      <translation>メッセージ</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>ファイル</translation>
     </message>
     <message>
       <source>If same identifier used for two columns, both values will be represented in single column.</source>
-      <translation type="unfinished"/>
+      <translation>2つのカラムに同じ識別子が使用されている場合、両方の値は1つのカラムで表現されます。</translation>
     </message>
     <message>
       <source>Line</source>
-      <translation type="unfinished"/>
+      <translation>ライン</translation>
     </message>
     <message>
       <source>Severity</source>
-      <translation type="unfinished"/>
+      <translation>重大性</translation>
     </message>
     <message>
       <source>Source</source>
-      <translation type="unfinished"/>
+      <translation>ソース</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>時間</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
+      <translation>言語は空欄のまま。例：lit、rus、gerなど。</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>名称</translation>
     </message>
     <message>
       <source>Operator. Visitor will see this operator nick.</source>
-      <translation type="unfinished"/>
+      <translation>オペレータービジターにはこのオペレーターのニックネームが表示されます。</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation type="unfinished"/>
+      <translation>ポジション</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Oddelenie</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>ユーザー</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
-      <translation type="unfinished"/>
+      <translation>待機メッセージ。ユーザーがチャット を開始し、誰かがチャット を受け入れるのを待っているときに表示される。</translation>
     </message>
     <message>
       <source>Wait timeout.</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトを待つ。</translation>
     </message>
     <message>
       <source>Show visitor this message when wait timeout passes</source>
-      <translation type="unfinished"/>
+      <translation>待ち時間が過ぎると、訪問者にこのメッセージを表示する</translation>
     </message>
     <message>
       <source>How many times repeat message? Applied only to first message.</source>
-      <translation type="unfinished"/>
+      <translation>メッセージのリピート回数最初のメッセージにのみ適用されます。</translation>
     </message>
     <message>
       <source>Redirect visitor to survey if visitor does not responds within N seconds</source>
-      <translation type="unfinished"/>
+      <translation>N秒以内に回答がない場合、訪問者をアンケートにリダイレクトする。</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>アンケート</translation>
     </message>
     <message>
       <source>Timeout. [1]</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウト[1]</translation>
     </message>
     <message>
       <source>Timeout. [2]</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウト。[2]</translation>
     </message>
     <message>
       <source>Timeout. [3]</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウト。[3]</translation>
     </message>
     <message>
       <source>Timeout. [4]</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウト。[4]</translation>
     </message>
     <message>
       <source>Timeout. [5]</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウト。[5]</translation>
     </message>
     <message>
       <source>Default on hold message. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>デフォルトの保留メッセージ。ランダムメッセージの区切りには ||| を使用。</translation>
     </message>
     <message>
       <source>Message for timeout [1]. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [1]。ランダムメッセージの区切りには ||| を使用する。</translation>
     </message>
     <message>
       <source>Message for timeout [2]. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [2]。ランダムメッセージの区切りには ||| を使用する。</translation>
     </message>
     <message>
       <source>Message for timeout [3]. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [3]。ランダムメッセージの区切りには ||| を使用する。</translation>
     </message>
     <message>
       <source>Message for timeout [4]. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [4]。ランダムメッセージの区切りには ||| を使用する。</translation>
     </message>
     <message>
       <source>Message for timeout [5]. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [5]。ランダムメッセージの区切りには ||| を使用する。</translation>
     </message>
     <message>
       <source>Message for timeout [1]</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [1］</translation>
     </message>
     <message>
       <source>Message for timeout [2]</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [2］</translation>
     </message>
     <message>
       <source>Message for timeout [3]</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [3］</translation>
     </message>
     <message>
       <source>Message for timeout [4]</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [4］</translation>
     </message>
     <message>
       <source>Message for timeout [5]</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [5］</translation>
     </message>
     <message>
       <source>Message for timeout [1], use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [1]、ランダムなメッセージの区切りには ||| を使う。</translation>
     </message>
     <message>
       <source>Message for timeout [2], use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [2]、ランダムなメッセージの区切りには ||| を使う。</translation>
     </message>
     <message>
       <source>Message for timeout [3], use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [3]、ランダムなメッセージの区切りには ||| を使う。</translation>
     </message>
     <message>
       <source>Message for timeout [4], use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [4]、ランダムなメッセージの区切りには ||| を使う。</translation>
     </message>
     <message>
       <source>Message for timeout [5], use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>タイムアウトのメッセージ [5]、ランダムなメッセージの区切りには ||| を使う。</translation>
     </message>
     <message>
       <source>Message to visitor on chat close. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>チャット 閉鎖時の訪問者へのメッセージ。ランダムなメッセージの区切りには ||| を使用してください。</translation>
     </message>
     <message>
       <source>Message to visitor if department is offline. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>部門がオフラインの場合の訪問者へのメッセージ。ランダムなメッセージの区切りには||を使用してください。</translation>
     </message>
     <message>
       <source>Message to visitor if operator speaks same language as visitor. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>オペレータが訪問者と同じ言語を話す場合、訪問者へのメッセージ。ランダムなメッセージの区切りには||を使用してください。</translation>
     </message>
     <message>
       <source>Icon name</source>
-      <translation type="unfinished"/>
+      <translation>アイコン名</translation>
     </message>
     <message>
       <source>Icon identifier</source>
-      <translation type="unfinished"/>
+      <translation>アイコン識別子</translation>
     </message>
     <message>
       <source>it should have same value you enter in alert icon trigger</source>
-      <translation type="unfinished"/>
+      <translation>アラート・アイコン・トリガーに入力した値と同じでなければなりません。</translation>
     </message>
     <message>
       <source>Column name</source>
-      <translation type="unfinished"/>
+      <translation>カラム名</translation>
     </message>
     <message>
       <source>Column identifier</source>
-      <translation type="unfinished"/>
+      <translation>列の識別子</translation>
     </message>
     <message>
       <source>Column icon, material icons text</source>
-      <translation type="unfinished"/>
+      <translation>列アイコン、素材アイコン テキスト</translation>
     </message>
     <message>
       <source>Variable name</source>
-      <translation type="unfinished"/>
+      <translation>変数名</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>有効</translation>
     </message>
     <message>
       <source>Icon mode</source>
-      <translation type="unfinished"/>
+      <translation>アイコンモード</translation>
     </message>
     <message>
       <source>Visible in the widget chat lists</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットで表示チャット リスト</translation>
     </message>
     <message>
       <source>Enabled in chat window</source>
-      <translation type="unfinished"/>
+      <translation>チャット ウィンドウで有効</translation>
     </message>
     <message>
       <source>Visible in the widget mail lists</source>
-      <translation type="unfinished"/>
+      <translation>ウィジェットのメールリストに表示される</translation>
     </message>
     <message>
       <source>Visible standard chat list</source>
-      <translation type="unfinished"/>
+      <translation>可視標準チャット リスト</translation>
     </message>
     <message>
       <source>Visible standard mail list</source>
-      <translation type="unfinished"/>
+      <translation>可視標準メールリスト</translation>
     </message>
     <message>
       <source>Has popup information</source>
-      <translation type="unfinished"/>
+      <translation>ポップアップ情報がある</translation>
     </message>
     <message>
       <source>Sort enabled, you can define custom column also.</source>
-      <translation type="unfinished"/>
+      <translation>ソートを有効にすると、カスタム・カラムを定義することもできます。</translation>
     </message>
     <message>
       <source>Sort column from lh_chat table, or JSON syntax</source>
-      <translation type="unfinished"/>
+      <translation>lh_chat テーブルからカラムをソート、または JSON 構文</translation>
     </message>
     <message>
       <source>Visible in online visitors list</source>
-      <translation type="unfinished"/>
+      <translation>オンライン訪問者リストに表示</translation>
     </message>
     <message>
       <source>Remove permanently matched content</source>
-      <translation type="unfinished"/>
+      <translation>永久にマッチしたコンテンツを削除する</translation>
     </message>
     <message>
       <source>Place you replacement pattern here.</source>
-      <translation type="unfinished"/>
+      <translation>ここに交換パターンを配置する。</translation>
     </message>
     <message>
       <source>Pattern for replacement</source>
-      <translation type="unfinished"/>
+      <translation>交換パターン</translation>
     </message>
     <message>
       <source>Message to visitor after posting sensitive information</source>
-      <translation type="unfinished"/>
+      <translation>機密情報投稿後の訪問者へのメッセージ</translation>
     </message>
     <message>
       <source>Auto reply warning if visitor is posting information to agent which does not have permission to view sensitive data.</source>
-      <translation type="unfinished"/>
+      <translation>訪問者が機密データを閲覧する権限のないエージェントに情報を投稿している場合、自動返信の警告を表示します。</translation>
     </message>
     <message>
       <source>Department rule to apply</source>
-      <translation type="unfinished"/>
+      <translation>適用される部規定</translation>
     </message>
     <message>
       <source>To what department transfer chat</source>
-      <translation type="unfinished"/>
+      <translation>どの部署へチャット</translation>
     </message>
     <message>
       <source>Expected variable value</source>
-      <translation type="unfinished"/>
+      <translation>変数の期待値</translation>
     </message>
     <message>
       <source>Destination department by brand role</source>
-      <translation type="unfinished"/>
+      <translation>ブランドの役割別デスティネーション部門</translation>
     </message>
     <message>
       <source>Change department only if present department role is</source>
-      <translation type="unfinished"/>
+      <translation>現在の部門ロールが</translation>
     </message>
     <message>
       <source>Condition is always checked independently of transfer method. Department or Department brand role.</source>
-      <translation type="unfinished"/>
+      <translation>コンディションは移籍方法とは無関係に常にチェックされる。部門または部門ブランドの役割。</translation>
     </message>
     <message>
       <source>Set chat priority to</source>
-      <translation type="unfinished"/>
+      <translation>チャット の優先順位を</translation>
     </message>
     <message>
       <source>Skip bot and set chat to pending status</source>
-      <translation type="unfinished"/>
+      <translation>bot をスキップし、チャット を保留状態にする。</translation>
     </message>
     <message>
       <source>Rule priority</source>
-      <translation type="unfinished"/>
+      <translation>ルールの優先順位</translation>
     </message>
     <message>
       <source>Javascript/Cookie variable value</source>
-      <translation type="unfinished"/>
+      <translation>Javascript/Cookieの変数値</translation>
     </message>
     <message>
       <source>Variable identifier</source>
-      <translation type="unfinished"/>
+      <translation>変数識別子</translation>
     </message>
     <message>
       <source>Old way passed variable name</source>
-      <translation type="unfinished"/>
+      <translation>変数名を渡す古い方法</translation>
     </message>
     <message>
       <source>Variable changed from [b]{old_val}[/b] to [b]{new_val}[/b]</source>
-      <translation type="unfinished"/>
+      <translation>変数が [b]{old_val}[/b] から [b]{new_val}[/b] に変更された。</translation>
     </message>
     <message>
       <source>Log message for for variable. Variables you can use {old_val}, {new_val}</source>
-      <translation type="unfinished"/>
+      <translation>変数に対するログメッセージ。使用できる変数{old_val} 、{new_val}</translation>
     </message>
     <message>
       <source>Variable type</source>
-      <translation type="unfinished"/>
+      <translation>可変タイプ</translation>
     </message>
     <message>
       <source>Content field to extract. You can access JWT token content field.</source>
-      <translation type="unfinished"/>
+      <translation>抽出するコンテンツ・フィールド。JWTトークンのコンテンツフィールドにアクセスできます。</translation>
     </message>
     <message>
       <source>Default message</source>
-      <translation type="unfinished"/>
+      <translation>デフォルトメッセージ</translation>
     </message>
     <message>
       <source>Visitor ID</source>
-      <translation type="unfinished"/>
+      <translation>ビジターID</translation>
     </message>
     <message>
       <source>Event ID</source>
@@ -2818,7 +2818,7 @@
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Auto odpovedač</translation>
+      <translation>自動応答</translation>
     </message>
     <message>
       <source>Chat alert icons</source>
@@ -2878,7 +2878,7 @@
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Aktívna pozvánka do rozhovoru</translation>
+      <translation>積極的なチャット招待</translation>
     </message>
     <message>
       <source>Pro active chat variables</source>
@@ -3499,7 +3499,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation>Oddelenie</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>Check all departments from selected department group</source>
@@ -3663,23 +3663,23 @@
     </message>
     <message>
       <source>Title/Message</source>
-      <translation>Titulok/Správa</translation>
+      <translation>タイトル／メッセージ</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Užívateľ</translation>
+      <translation>ユーザー</translation>
     </message>
     <message>
       <source>Delay</source>
-      <translation>Oneskorenie</translation>
+      <translation>遅れ</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Pozícia</translation>
+      <translation>位置</translation>
     </message>
     <message>
       <source>Auto send</source>
-      <translation>Auto odpovedač</translation>
+      <translation>自動送信</translation>
     </message>
     <message>
       <source>Updated at</source>
@@ -3691,7 +3691,7 @@
     </message>
     <message>
       <source>Edit message</source>
-      <translation>Upraviť správu</translation>
+      <translation>メッセージ編集</translation>
     </message>
     <message>
       <source>See details</source>
@@ -3699,11 +3699,11 @@
     </message>
     <message>
       <source>Delete message</source>
-      <translation>Odstrániť správu</translation>
+      <translation>メッセージ削除</translation>
     </message>
     <message>
       <source>New canned message</source>
-      <translation>Nová pripravená správa</translation>
+      <translation>新規定型メッセージ</translation>
     </message>
     <message>
       <source>Delete selected</source>
@@ -3747,7 +3747,7 @@
     </message>
     <message>
       <source>Title</source>
-      <translation>Názov</translation>
+      <translation>タイトル</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -3755,15 +3755,15 @@
     </message>
     <message>
       <source>Explain</source>
-      <translation>Vysvetli</translation>
+      <translation>説明</translation>
     </message>
     <message>
       <source>Automatically send this message to user then chat is accepted</source>
-      <translation>Automaticky zaslať túto správu užívateľovi, potom je chat akceptovaný</translation>
+      <translation>チャットが許可されたユーザーへ自動的にこのメッセージを送信します</translation>
     </message>
     <message>
       <source>Delay in seconds</source>
-      <translation>Oneskorenie v sekundách</translation>
+      <translation>遅れ（秒）</translation>
     </message>
     <message>
       <source>The smaller the position value the higher the canned message will appear in the list</source>
@@ -3771,11 +3771,11 @@
     </message>
     <message>
       <source>Message</source>
-      <translation>Správa</translation>
+      <translation>メッセージ</translation>
     </message>
     <message>
       <source>Fallback message</source>
-      <translation>Spätná správa</translation>
+      <translation>メッセージを戻す</translation>
     </message>
     <message>
       <source>HTML Snippet</source>
@@ -3795,11 +3795,11 @@
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Pripravené správy</translation>
+      <translation>定型メッセージ</translation>
     </message>
     <message>
       <source>Edit canned message</source>
-      <translation>Upraviť pripravenú správu</translation>
+      <translation>定型メッセージ編集</translation>
     </message>
     <message>
       <source>Default department if visitor does not have assigned one</source>
@@ -3835,15 +3835,15 @@
     </message>
     <message>
       <source>Personal canned message</source>
-      <translation>Osobné pripravené správy</translation>
+      <translation>個人定型メッセージ</translation>
     </message>
     <message>
       <source>Canned message was saved</source>
-      <translation>Pripravená správa bola uložená</translation>
+      <translation>定型メッセージが保存されました</translation>
     </message>
     <message>
       <source>Tag&apos;s</source>
-      <translation>Tagy</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Personal auto responder message</source>
@@ -3879,7 +3879,7 @@
     </message>
     <message>
       <source>Please enter a canned message</source>
-      <translation>Prosím, zadajte pripravenú správu</translation>
+      <translation>定型メッセージを入力してください</translation>
     </message>
     <message>
       <source>Canned message tags should not contain # character</source>
@@ -3907,7 +3907,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Nastavenie systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>Canned messages suggester configuration</source>
@@ -3998,7 +3998,7 @@
     </message>
     <message>
       <source>Any</source>
-      <translation>Každá</translation>
+      <translation>いずれも</translation>
     </message>
     <message>
       <source>Your time zone</source>
@@ -4030,11 +4030,11 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Zakázané</translation>
+      <translation>無効化</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation>Skrytý</translation>
+      <translation>隠し</translation>
     </message>
     <message>
       <source>Active</source>
@@ -4070,7 +4070,7 @@
     </message>
     <message>
       <source>Edit department</source>
-      <translation>Upraviť oddelenie</translation>
+      <translation>部署編集</translation>
     </message>
     <message>
       <source>Edit brand</source>
@@ -4078,7 +4078,7 @@
     </message>
     <message>
       <source>Edit department group</source>
-      <translation>Editovať skupinu oddelenia</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit department limit group</source>
@@ -4086,7 +4086,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Názov</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>Alias for argument. No spaces or slashes.</source>
@@ -4106,11 +4106,11 @@
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation>Viditeľné iba online</translation>
+      <translation>オンラインの時だけ表示</translation>
     </message>
     <message>
       <source>Will not be visible to visitor</source>
-      <translation>Nebude viditeľné pre návštevníka</translation>
+      <translation>訪問者へ表示しない</translation>
     </message>
     <message>
       <source>Hidden departments are not shown in department choosing dropdown. They do not participate in online status check if department is not provided.</source>
@@ -4134,39 +4134,39 @@
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation>Oneskorenie v sekundách pred odchodom, kedy je zobrazený formulár nechajte nám správu. 0 znamená, že funkcia je zakázaná, </translation>
+      <translation>表示される残されたメッセージ前の遅れ（秒）。0は無効化を意味します。</translation>
     </message>
     <message>
       <source>Priority, used for chats priority</source>
-      <translation>Priorita, používaná pre priority chatov</translation>
+      <translation>優先度、チャットの優先度に使用されます</translation>
     </message>
     <message>
       <source>Priority, used for departments sort</source>
-      <translation>Priorita, používaná pre zoradenie oddelení</translation>
+      <translation>優先度、部署順序に使用されます</translation>
     </message>
     <message>
       <source>Automate online hours</source>
-      <translation>Automatizovať on-line hodiny</translation>
+      <translation>自動のオンライン時間</translation>
     </message>
     <message>
       <source>Notifications</source>
-      <translation>Oznámenia</translation>
+      <translation>通知</translation>
     </message>
     <message>
       <source>Chat transfer worklow</source>
-      <translation>Presun rozhovorov</translation>
+      <translation>チャット転送ワークフロー</translation>
     </message>
     <message>
       <source>Auto assignment</source>
-      <translation>Automatické priradenie</translation>
+      <translation>自動アサイン</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Produkt</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Miscellaneous</source>
-      <translation>Rôzne</translation>
+      <translation>雑多</translation>
     </message>
     <message>
       <source>Bot configuration</source>
@@ -4174,7 +4174,7 @@
     </message>
     <message>
       <source>Survey</source>
-      <translation>Prieskum</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Design</source>
@@ -4190,7 +4190,7 @@
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
-      <translation>Logika pracovnej doby/pracovných dní je aktívna</translation>
+      <translation>ロジックがアクティブな業務時間／業務日</translation>
     </message>
     <message>
       <source>Your personal time zone</source>
@@ -4202,11 +4202,11 @@
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>Pracovné dni/pracovná doba, v týchto dňoch/hodinách bude rozhovor aktívny automaticky</translation>
+      <translation>業務日／業務時間、これらの日／時間にチャットが自動的にアクティブになります</translation>
     </message>
     <message>
       <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
-      <translation>Pracovné hodiny, 24 hodinový formát, 1 - 24, minútový formát 0 - 60</translation>
+      <translation>業務時間、24時間形式、1-24、分形式0-60</translation>
     </message>
     <message>
       <source>If you want that chat ignored operators online status and went online only by these defined hours can do that</source>
@@ -4230,43 +4230,43 @@
     </message>
     <message>
       <source>Hours from</source>
-      <translation>Hodín od</translation>
+      <translation>開始時間</translation>
     </message>
     <message>
       <source>Hours from, E.g. 8</source>
-      <translation>Hodiny od, napr. 8</translation>
+      <translation>開始時間、例．8</translation>
     </message>
     <message>
       <source>Minutes from</source>
-      <translation>Minút od</translation>
+      <translation>開始分</translation>
     </message>
     <message>
       <source>Minutes from, E.g. 30</source>
-      <translation>Minúty od, napr. 30</translation>
+      <translation>開始分、例．30</translation>
     </message>
     <message>
       <source>Hours to</source>
-      <translation>Hodín do</translation>
+      <translation>終了時間</translation>
     </message>
     <message>
       <source>Hours to, E.g. 17</source>
-      <translation>Hodín do, napríklad 17</translation>
+      <translation>終了時間、例．17</translation>
     </message>
     <message>
       <source>Minutes to</source>
-      <translation>Minút do</translation>
+      <translation>終了分</translation>
     </message>
     <message>
       <source>Minutes to, E.g. 30</source>
-      <translation>Minút do, napríklad 30</translation>
+      <translation>終了分、例．30</translation>
     </message>
     <message>
       <source>Custom period</source>
-      <translation>Vlastný interval</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Period</source>
-      <translation>Interval</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Day of the week</source>
@@ -4278,67 +4278,67 @@
     </message>
     <message>
       <source>Date from</source>
-      <translation>Dátum od</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Custom work day</source>
-      <translation>Vlastný pracovný deň</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Dátum do</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Add</source>
-      <translation>Pridať</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Start time</source>
-      <translation>Čas spustenia</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>End time</source>
-      <translation>Čas ukončenia</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Remove</source>
-      <translation>Odstrániť</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>XMPP recipients</source>
-      <translation>XMPP príjemcovia </translation>
+      <translation>XMPP受信者</translation>
     </message>
     <message>
       <source>XMPP group recipients</source>
-      <translation>Príjemcovia XMPP skupiny</translation>
+      <translation>XMPPグループ受信者</translation>
     </message>
     <message>
       <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>Napr. nejakyrozhovor@konferencia.server.org/LiveChat</translation>
+      <translation>例．somechat@conference.server.org/LiveChat</translation>
     </message>
     <message>
       <source>These messages will be send as group messages</source>
-      <translation>Tieto správy budú odoslané ako skupinové správy</translation>
+      <translation>これらのメッセージがグループメッセージとして送信されます</translation>
     </message>
     <message>
       <source>Inform about new chats using</source>
-      <translation>Informovať o nových rozhovoroch použitím</translation>
+      <translation>新規に使用されるチャットについて知らせます</translation>
     </message>
     <message>
       <source>XMPP messages</source>
-      <translation>XMPP správ</translation>
+      <translation>XMPPメッセージ</translation>
     </message>
     <message>
       <source>Send XMPP messages to all department operators</source>
-      <translation>Poslať XMPP správy všetkým operátorom oddelenia</translation>
+      <translation>全ての部署オペレータにSMPPメッセージを送信</translation>
     </message>
     <message>
       <source>Mail messages</source>
-      <translation>Mailových správach</translation>
+      <translation>メールメッセージ</translation>
     </message>
     <message>
       <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>Koľko sekúnd môže rozhovor čakať, než je o rozhovore informovaný personál</translation>
+      <translation>チャットをスタッフに知らせる前に保留する事ができる時間は何秒</translation>
     </message>
     <message>
       <source>Inform about unread messages if from last unread user message has passed (seconds)</source>
@@ -4346,27 +4346,27 @@
     </message>
     <message>
       <source>Please enter value in seconds</source>
-      <translation>Zadajte hodnotu v sekundách</translation>
+      <translation>秒で値を入力してください</translation>
     </message>
     <message>
       <source>Inform then chat is accepted by one of the staff members using</source>
-      <translation>Informovať o tom, že chat používa jeden zo zamestnancov</translation>
+      <translation>チャットがスタッフメンバーにより許可された時知らせる</translation>
     </message>
     <message>
       <source>Other</source>
-      <translation>Ostatné</translation>
+      <translation>その他</translation>
     </message>
     <message>
       <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>Potom informovať e-mailom, že rozhovor je ukončený operátorom.</translation>
+      <translation>チャットがオペレータによりクローズされた時に知らせる、メール通知だけ送信する。</translation>
     </message>
     <message>
       <source>Inform then chat is closed automatically, only mail notification is send.</source>
-      <translation>Informovať o tom, že sa rozhovor automaticky uzavrie, pošle sa iba mailova notifikácia.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
-      <translation>Ďalšie e-mail adresy, ktoré budú informované o uzavretých chatoch, do tohto e-mailu budú odoslané všetky upozornenia o uzatvorených chatoch</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail is sent in the following order 1. To e-mail template recipient if filled 2. Department e-mail 3. First system operator</source>
@@ -4374,7 +4374,7 @@
     </message>
     <message>
       <source>To what department chat should be transferred if it is not accepted</source>
-      <translation>Do akého oddelenia sa má rozhovor presunúť, ak nie je prijatý</translation>
+      <translation>チャットが転送許可されない部署</translation>
     </message>
     <message>
       <source>Minimum chat priority for transfer to happen.</source>
@@ -4382,7 +4382,7 @@
     </message>
     <message>
       <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
-      <translation>Zdržanie v sekundách predtým, ako sa chat presunie na iné oddelenie. Minimum 5 sekúnd.</translation>
+      <translation>チャットが他の部署へ転送される前のタイムアウト時間（最小5秒）</translation>
     </message>
     <message>
       <source>Transfer immediately to this department if current department has no online operators?</source>
@@ -4402,11 +4402,11 @@
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
-      <translation>Vykonať znovu logiku pre nový chat pre oddelenie príjemcov?</translation>
+      <translation>受信部署に新規チャットロジックを再び実行するか？</translation>
     </message>
     <message>
       <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation>Vykonať znovu logiku pre chat bez odpovede pre oddelenie príjemcov?</translation>
+      <translation>受信部署に未回答チャットロジックを再び実行するか？</translation>
     </message>
     <message>
       <source>Do not transfer to destination department if it has no online operators</source>
@@ -4414,23 +4414,23 @@
     </message>
     <message>
       <source>Based on selected department these products will be shown</source>
-      <translation>Na základe vybraného oddelenia sa zobrazia tieto produkty</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable products </source>
-      <translation>Povoliť produkty</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Required</source>
-      <translation>Povinný</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Assigned products</source>
-      <translation>Priradené produkty</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>Toto pole je dlhé max. 50 znakov a môže byť použité pre akýkoľvek účel rozšírenia. Toto pole je tiež indexované.</translation>
+      <translation>このフィールドは、エクステンションにより、最大50文字の長さとどのような目的にも使用できます。このフィールドはインデックスされています。</translation>
     </message>
     <message>
       <source>Department groups</source>
@@ -4438,7 +4438,7 @@
     </message>
     <message>
       <source>None</source>
-      <translation>Nič</translation>
+      <translation>無し</translation>
     </message>
     <message>
       <source>Click to remove</source>
@@ -4450,7 +4450,7 @@
     </message>
     <message>
       <source>Departments</source>
-      <translation>Oddelenia</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>Maximum pending chats</source>
@@ -4514,7 +4514,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>These bot logic applies also</source>
@@ -4690,39 +4690,39 @@
     </message>
     <message>
       <source>Monday</source>
-      <translation>Pondelok</translation>
+      <translation>月曜日</translation>
     </message>
     <message>
       <source>Tuesday</source>
-      <translation>Utorok</translation>
+      <translation>火曜日</translation>
     </message>
     <message>
       <source>Wednesday</source>
-      <translation>Streda</translation>
+      <translation>水曜日</translation>
     </message>
     <message>
       <source>Thursday</source>
-      <translation>Štvrtok</translation>
+      <translation>木曜日</translation>
     </message>
     <message>
       <source>Friday</source>
-      <translation>Piatok</translation>
+      <translation>金曜日</translation>
     </message>
     <message>
       <source>Saturday</source>
-      <translation>Sobota</translation>
+      <translation>土曜日</translation>
     </message>
     <message>
       <source>Sunday</source>
-      <translation>Nedeľa</translation>
+      <translation>日曜日</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Nastavenie systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>Edit a department</source>
-      <translation>Upraviť oddelenie</translation>
+      <translation>部署編集</translation>
     </message>
     <message>
       <source>Brands</source>
@@ -4730,7 +4730,7 @@
     </message>
     <message>
       <source>Departments groups</source>
-      <translation>Skupiny oddelení</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments limit groups</source>
@@ -4789,7 +4789,7 @@
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Napíšte vašu správu používateľovi</translation>
+      <translation>ユーザーへのメッセージを入力してください</translation>
     </message>
     <message>
       <source>You can paste usernames separated by a new line.</source>
@@ -4837,15 +4837,15 @@
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation>Vyžaduje e-mail</translation>
+      <translation>メールアドレスは必須です</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation>Vyžaduje meno</translation>
+      <translation>名前は必須です</translation>
     </message>
     <message>
       <source>Requires phone</source>
-      <translation>Vyžaduje telefónne číslo</translation>
+      <translation>電話番号は必須です</translation>
     </message>
     <message>
       <source>Campaign</source>
@@ -4857,7 +4857,7 @@
     </message>
     <message>
       <source>Send the message</source>
-      <translation>Odoslať správu</translation>
+      <translation>メッセージ送信</translation>
     </message>
     <message>
       <source>Visitor have assigned chat with id</source>
@@ -4889,23 +4889,23 @@
     </message>
     <message>
       <source>Message was sent to the user</source>
-      <translation>Správa bola používateľovi odoslaná</translation>
+      <translation>メッセージはユーザーへ送信されました</translation>
     </message>
     <message>
       <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>Ak už bola správa odoslaná, toto ju označí ako nedoručenú a používateľovi sa znovu zobrazí chatová správa.</translation>
+      <translation>メッセージは既に送信されました、これは配送されなかったマークか、ユーザーがチャットメッセージを再び表示したマークです。</translation>
     </message>
     <message>
       <source>Send a message to the user</source>
-      <translation>Odoslať používateľovi správu</translation>
+      <translation>ユーザーへメッセージを送信</translation>
     </message>
     <message>
       <source>Type your message to the operator</source>
-      <translation>Napíšte správu operátorovi</translation>
+      <translation>オペレータへのメッセージを入力してください</translation>
     </message>
     <message>
       <source>Start chat with operator</source>
-      <translation>Začať chat s operátorom</translation>
+      <translation>オペレータとチャットが開始されました</translation>
     </message>
   </context>
   <context>
@@ -4920,35 +4920,35 @@
     </message>
     <message>
       <source>Remove</source>
-      <translation>Odstrániť</translation>
+      <translation>削除</translation>
     </message>
     <message>
       <source>Start a chat form settings</source>
-      <translation>Nastavenia formuláru pre začatie chatu</translation>
+      <translation>設定からチャットを開始</translation>
     </message>
     <message>
       <source>At least one field has to be visible and required in the popup and page widget</source>
-      <translation>Najmenej jedno pole musí byť viditeľné a povinné v popup okne a widgete stránky</translation>
+      <translation>少なくとも一つのフィールドがポップアップとページウィジェットで表示される必要があります</translation>
     </message>
     <message>
       <source>Custom fields generator, these fields will be visible in start chat forms</source>
-      <translation>Generátor vlastných polí, tieto polia budú viditeľné vo formulári začiatia chatu</translation>
+      <translation>カスタムフィールド生成、これらのフィールドはチャットフォーム開始時に表示されます</translation>
     </message>
     <message>
       <source>Field label</source>
-      <translation>Označenie poľa</translation>
+      <translation>フィールドラベル</translation>
     </message>
     <message>
       <source>Default value</source>
-      <translation>Predvolená hodnota</translation>
+      <translation>既定値</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation>Typ</translation>
+      <translation>タイプ</translation>
     </message>
     <message>
       <source>Text</source>
-      <translation>Text</translation>
+      <translation>テキスト</translation>
     </message>
     <message>
       <source>Password</source>
@@ -4956,7 +4956,7 @@
     </message>
     <message>
       <source>Hidden</source>
-      <translation>Skrytý</translation>
+      <translation>隠し</translation>
     </message>
     <message>
       <source>Dropdown</source>
@@ -4964,19 +4964,19 @@
     </message>
     <message>
       <source>Visible on</source>
-      <translation>Viditeľné na</translation>
+      <translation>表示</translation>
     </message>
     <message>
       <source>Offline and online form</source>
-      <translation>Offline a online formulár</translation>
+      <translation>オフラインとオンラインフォーム</translation>
     </message>
     <message>
       <source>Only offline</source>
-      <translation>Len offline</translation>
+      <translation>オフラインのみ</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation>Iba online</translation>
+      <translation>オンラインのみ</translation>
     </message>
     <message>
       <source>Show if</source>
@@ -4992,15 +4992,15 @@
     </message>
     <message>
       <source>Size (between 1 and 12)</source>
-      <translation>Veľkosť (medzi 1 a 12)</translation>
+      <translation>サイズ(1から12の間)</translation>
     </message>
     <message>
       <source>Field identifier</source>
-      <translation>Identifikátor poľa</translation>
+      <translation>フィールドID</translation>
     </message>
     <message>
       <source>Is required</source>
-      <translation>Je potrebné</translation>
+      <translation>必須</translation>
     </message>
     <message>
       <source>Hide if prefilled</source>
@@ -5016,15 +5016,15 @@
     </message>
     <message>
       <source>Add a field</source>
-      <translation>Pridaj pole</translation>
+      <translation>フィールド追加</translation>
     </message>
     <message>
       <source>left</source>
-      <translation>vľavo</translation>
+      <translation>左</translation>
     </message>
     <message>
       <source>right</source>
-      <translation>vprávo</translation>
+      <translation>右</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -5032,7 +5032,7 @@
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
-      <translation>Povoliť funkciu zanechania správy automaticky, ak nie sú k dispozícii online operátori</translation>
+      <translation>残すメッセージ機能はオンラインオペレータがいない時に自動的に有効になります</translation>
     </message>
     <message>
       <source>Auto start chat if there is no required fields. Usefull in case bot handles chat.</source>
@@ -5052,19 +5052,19 @@
     </message>
     <message>
       <source>Online form settings</source>
-      <translation>Nastavenia onlnine formuláru</translation>
+      <translation>オンラインフォーム設定</translation>
     </message>
     <message>
       <source>Offline form settings</source>
-      <translation>Nastavenia offline formuláru</translation>
+      <translation>オフラインフォーム設定</translation>
     </message>
     <message>
       <source>Additional form settings</source>
-      <translation>Dodatočné nastavenia formuláru</translation>
+      <translation>フォーム設定追加</translation>
     </message>
     <message>
       <source>Custom fields</source>
-      <translation>Vlastné polia</translation>
+      <translation>カスタムフィールド</translation>
     </message>
     <message>
       <source>URL Arguments</source>
@@ -5080,19 +5080,19 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>This field is visible in the popup</source>
-      <translation>Toto pole je viditeľé len v popup</translation>
+      <translation>このフィールドはポップアップで表示されます</translation>
     </message>
     <message>
       <source>This field is visible in the page widget</source>
-      <translation>Toto pole je viditeľné len vo widgete stránky</translation>
+      <translation>このフィールドはページウィジェットで表示されます</translation>
     </message>
     <message>
       <source>This field is invisible but prefilled data is collected</source>
-      <translation>Toto pole je neviditeľné, ale sú zhromaždené predbežne vyplnené údaje</translation>
+      <translation>このフィールドは非表示ですが、事前にデータが収集されます</translation>
     </message>
     <message>
       <source>This field is hidden if chat is started with bot</source>
@@ -5100,15 +5100,15 @@
     </message>
     <message>
       <source>This field is</source>
-      <translation>Toto pole je</translation>
+      <translation>このフィールドは</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation>Požadované</translation>
+      <translation>必須</translation>
     </message>
     <message>
       <source>Optional</source>
-      <translation>Voliteľné</translation>
+      <translation>オプション</translation>
     </message>
     <message>
       <source>Column width, 1-12</source>
@@ -5116,31 +5116,31 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation>Správa</translation>
+      <translation>メッセージ</translation>
     </message>
     <message>
       <source>Automatically start chat then user starts typing. Only message field has to be required</source>
-      <translation>Automaticke spúšťanie chatu potom čo začne písať používateľ. Vyžaduje sa iba pole správy</translation>
+      <translation>自動的にチャット開始した際にユーザー入力が開始します。メッセージのみのフィールドは必須です</translation>
     </message>
     <message>
       <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
-      <translation>Začnite proces chatu v pozadí, akonáhle používateľ odošle formulár. Vyžaduje sa iba pole správy</translation>
+      <translation>ユーザーがフォーム送信するとすぐバックグラウンドでチャットプロセスが開始されます。メッセージのみフィールドが必須です</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefón</translation>
+      <translation>電話番号</translation>
     </message>
     <message>
       <source>Terms of service acceptance checkbox</source>
-      <translation>Checkbox prijatia zmluvných podmienok</translation>
+      <translation>サービス期間受入チェックボックス</translation>
     </message>
     <message>
       <source>Checked by default</source>
-      <translation>V predvolenom nastavení začiarknuté</translation>
+      <translation>既定のチェック</translation>
     </message>
     <message>
       <source>Field custom location</source>
@@ -5156,19 +5156,19 @@
     </message>
     <message>
       <source>Show operator profile above input fields</source>
-      <translation>Zobraziť profil operátora nad vstupnými poľami</translation>
+      <translation>オペレータプロフィールを入力フィールドの上に表示</translation>
     </message>
     <message>
       <source>Remove space after operator profile</source>
-      <translation>Odstrániť medzeru za profilom operátora</translation>
+      <translation>オペレータプロフィールの後のスペース削除</translation>
     </message>
     <message>
       <source>Hide message label</source>
-      <translation>Skryť správu</translation>
+      <translation>メッセージラベル隠す</translation>
     </message>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation>Zobraziť pole pre správy nad vstupnými poliami, užitočné pre kombinácie UX.</translation>
+      <translation>入力フィールドの上にメッセージボックス表示、UXのコンビネーションに有用です。</translation>
     </message>
     <message>
       <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
@@ -5184,7 +5184,7 @@
     </message>
     <message>
       <source>Initial user message height in pixels</source>
-      <translation>Počiatočná výška používateľskej správy v pixeloch</translation>
+      <translation>初期ユーザーメッセージの高さ（ピクセル）</translation>
     </message>
     <message>
       <source>Department settings</source>
@@ -5204,7 +5204,7 @@
     </message>
     <message>
       <source>Encryption key, min length 40</source>
-      <translation>Šifrovací kľúč, minimálna dĺžka 40</translation>
+      <translation>暗号化キー、最小の長さ40</translation>
     </message>
     <message>
       <source>Test encrypt/decrypt</source>
@@ -5356,15 +5356,15 @@
     </message>
     <message>
       <source>Please enter resource identifier</source>
-      <translation>Zadajte identifikátor zdroja</translation>
+      <translation>リソースIDを入力してください</translation>
     </message>
     <message>
       <source>Add resource</source>
-      <translation>Pridať zdroj</translation>
+      <translation>リソース追加</translation>
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
-      <translation>Minimálne 40 znakov pre šifrovací kľúč!</translation>
+      <translation>暗号化キーは最小で40文字です！</translation>
     </message>
     <message>
       <source>Copy of Default</source>
@@ -5376,7 +5376,7 @@
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Nastavenie formulára pre začiatok chatu</translation>
+      <translation>チャット開始フォーム設定</translation>
     </message>
     <message>
       <source>Default settings</source>
@@ -5407,7 +5407,7 @@
     </message>
     <message>
       <source>Choose department</source>
-      <translation>Vyberte oddelenie</translation>
+      <translation>部署選択</translation>
     </message>
     <message>
       <source>Date range from</source>
@@ -5459,7 +5459,7 @@
     </message>
     <message>
       <source>Search</source>
-      <translation>Hľadať</translation>
+      <translation>検索</translation>
     </message>
     <message>
       <source>Debug chat attributes</source>
@@ -5479,7 +5479,7 @@
     </message>
     <message>
       <source>Delete all items</source>
-      <translation>Odstráňte všetky položky</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Left to delete</source>
@@ -5535,7 +5535,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation>Oddelenie</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -5623,7 +5623,7 @@
     </message>
     <message>
       <source>Delete selected</source>
-      <translation>Vymazať označené</translation>
+      <translation>選択されたものを削除</translation>
     </message>
     <message>
       <source>Abandoned chats</source>
@@ -5675,11 +5675,11 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation>Prezývka</translation>
+      <translation>ニックネーム</translation>
     </message>
     <message>
       <source>Select subject</source>
@@ -5695,15 +5695,15 @@
     </message>
     <message>
       <source>User</source>
-      <translation>Používateľ</translation>
+      <translation>ユーザー</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation>Vybrať používateľa</translation>
+      <translation>ユーザー選択</translation>
     </message>
     <message>
       <source>Chat ID</source>
-      <translation>ID chatu</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
@@ -5731,31 +5731,31 @@
     </message>
     <message>
       <source>Vote status</source>
-      <translation>Stav hlasu</translation>
+      <translation>投票ステータス</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation>Akékoľvek</translation>
+      <translation>どれも</translation>
     </message>
     <message>
       <source>Not Voted</source>
-      <translation>Nehlasoval</translation>
+      <translation>未投票</translation>
     </message>
     <message>
       <source>Up Voted</source>
-      <translation>Hlasoval za</translation>
+      <translation>高評価</translation>
     </message>
     <message>
       <source>Down vote</source>
-      <translation>Hlasoval proti</translation>
+      <translation>低評価</translation>
     </message>
     <message>
       <source>Chat status</source>
-      <translation>Stav chatu</translation>
+      <translation>チャットステータス</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Produkt</translation>
+      <translation>製品</translation>
     </message>
     <message>
       <source>Visitor ID</source>
@@ -5823,11 +5823,11 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation>Áno</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>No</source>
-      <translation>Nie</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Theme</source>
@@ -5859,7 +5859,7 @@
     </message>
     <message>
       <source>Has unread messages</source>
-      <translation>Má neprečítané správy</translation>
+      <translation>未読メッセージがあります</translation>
     </message>
     <message>
       <source>Unanswered chat</source>
@@ -5947,7 +5947,7 @@
     </message>
     <message>
       <source>Print</source>
-      <translation>Tlačiť</translation>
+      <translation>印刷</translation>
     </message>
     <message>
       <source>chats</source>
@@ -5971,11 +5971,11 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Čakajúce chaty</translation>
+      <translation>チャット保留</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktívne chaty</translation>
+      <translation>チャット開始</translation>
     </message>
     <message>
       <source>Bot chats</source>
@@ -5983,19 +5983,19 @@
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Ukončené chaty</translation>
+      <translation>閉じられたチャット</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Chatbox chaty</translation>
+      <translation>チャットボックスチャット</translation>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation>Chaty operátorov</translation>
+      <translation>オペレータチャット</translation>
     </message>
     <message>
       <source>Select product</source>
-      <translation>Vyberte produkt</translation>
+      <translation>製品選択</translation>
     </message>
     <message>
       <source>Choose country</source>
@@ -6019,11 +6019,11 @@
     </message>
     <message>
       <source>Select department</source>
-      <translation>Vyberte oddelenie</translation>
+      <translation>部署選択</translation>
     </message>
     <message>
       <source>Type to search</source>
-      <translation>Píšte pre vyhľadávanie</translation>
+      <translation>検索タイプ</translation>
     </message>
     <message>
       <source>Apply this configuration also to these departments</source>
@@ -6083,7 +6083,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>名</translation>
     </message>
     <message>
       <source>Alias</source>
@@ -6535,7 +6535,7 @@
     </message>
     <message>
       <source>Compare to past</source>
-      <translation>Porovnať s minulosťou</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select country</source>
@@ -6575,15 +6575,15 @@
     </message>
     <message>
       <source>Group by</source>
-      <translation>Zoskupiť podľa</translation>
+      <translation>グループ毎</translation>
     </message>
     <message>
       <source>Month</source>
-      <translation>Mesiac</translation>
+      <translation>月</translation>
     </message>
     <message>
       <source>Day</source>
-      <translation>Deň</translation>
+      <translation>日</translation>
     </message>
     <message>
       <source>Week</source>
@@ -6631,7 +6631,7 @@
     </message>
     <message>
       <source>Date range from to</source>
-      <translation>Rozsah dátumu od do</translation>
+      <translation>日付範囲</translation>
     </message>
     <message>
       <source>Message user</source>
@@ -6719,7 +6719,7 @@
     </message>
     <message>
       <source>Group results by operator</source>
-      <translation>Zoskupiť výsledky podľa operátora</translation>
+      <translation>オペレータによるグループ結果</translation>
     </message>
     <message>
       <source>Minimum operator chats</source>
@@ -6727,7 +6727,7 @@
     </message>
     <message>
       <source>Optional</source>
-      <translation>Voliteľné</translation>
+      <translation>オプション</translation>
     </message>
     <message>
       <source>XLS</source>
@@ -6823,7 +6823,7 @@
     </message>
     <message>
       <source>Username</source>
-      <translation>Užívateľské meno</translation>
+      <translation>ユーザー名</translation>
     </message>
     <message>
       <source>Nickname</source>
@@ -6831,7 +6831,7 @@
     </message>
     <message>
       <source>Surname</source>
-      <translation>Priezvisko</translation>
+      <translation>姓</translation>
     </message>
     <message>
       <source>Account status</source>
@@ -7696,63 +7696,63 @@
     </message>
     <message>
       <source>Photo</source>
-      <translation>Foto</translation>
+      <translation>写真</translation>
     </message>
     <message>
       <source>Server default time zone</source>
-      <translation>predvolená časová zóna servera</translation>
+      <translation>サーバ既定のタイムゾーン</translation>
     </message>
     <message>
       <source>Edit user</source>
-      <translation>Upraviť používateľa</translation>
+      <translation>ユーザー編集</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Nezadávajte heslo, pokiaľ si ho neželáte zmeniť</translation>
+      <translation>パスワードを変更しない場合は、パスワードを入力しないでください</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Užívateľské meno</translation>
+      <translation>ユーザー名</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Heslo</translation>
+      <translation>パスワード</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Zopakujte nové heslo</translation>
+      <translation>新規パスワード再入力</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation>Prezývka chatu</translation>
+      <translation>チャットニックネーム</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Priezvisko</translation>
+      <translation>姓（ローマ字）</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Uložiť</translation>
+      <translation>保存</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Aktualizovať</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Zrušiť</translation>
+      <translation>キャンセル</translation>
     </message>
     <message>
       <source>User time zone</source>
-      <translation>Časové pásmo používateľa</translation>
+      <translation>ユーザータイムゾーン</translation>
     </message>
     <message>
       <source>Choose</source>
@@ -7760,15 +7760,15 @@
     </message>
     <message>
       <source>Application default time zone</source>
-      <translation>Predvolená časová zóna aplikácie</translation>
+      <translation>アプリケーション既定のタイムゾーン</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Nesprávna e-mailová adresa</translation>
+      <translation>間違ったメールアドレス</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>Neplatný CSRF token!</translation>
+      <translation>無効なCSRFトークンです！</translation>
     </message>
     <message>
       <source>Password reset requested by</source>
@@ -7776,15 +7776,15 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Užívatelia</translation>
+      <translation>ユーザー</translation>
     </message>
     <message>
       <source>User edit</source>
-      <translation>Upraviť používateľa</translation>
+      <translation>ユーザー編集</translation>
     </message>
     <message>
       <source>Invalid email address</source>
@@ -7877,23 +7877,23 @@
     <name>survey/form</name>
     <message>
       <source>Add option</source>
-      <translation>Pridať možnosť</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enter a possible answer to your question here...</source>
-      <translation>Zadajte možnú odpoveď k vašej otázke sem...</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable stars</source>
-      <translation>Povoliť hviezdičky</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable question</source>
-      <translation>Povoliť otázku</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable question with an answers</source>
-      <translation>Povoliť otázu s odpoveďami</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7924,35 +7924,35 @@
     </message>
     <message>
       <source>Department is disabled</source>
-      <translation>Oddelenie je zakázané</translation>
+      <translation>部署が無効</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>Enter your email address</source>
-      <translation>Zadajte vašu email adresu</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefón</translation>
+      <translation>電話番号</translation>
     </message>
     <message>
       <source>Enter your phone</source>
-      <translation>Zadajte váš telefón</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enter your message</source>
-      <translation>Napíšte vašu správu</translation>
+      <translation>メッセージを入力</translation>
     </message>
     <message>
       <source>Your question</source>
-      <translation>Vaša otázka</translation>
+      <translation>ご質問</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation>Tu napíšte správu a stlačte klávesu enter pre odoslanie...</translation>
+      <translation>メッセージをここに入力し、Enterを押して送信...</translation>
     </message>
     <message>
       <source>Please provide a department</source>
@@ -7960,15 +7960,15 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>Enter your name</source>
-      <translation>Zadajte vaše meno</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Are you sure you want to close this chat?</source>
-      <translation>Ste si istý, že chcete zavrieť chat?</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Type your message here...</source>
@@ -7980,27 +7980,27 @@
     </message>
     <message>
       <source>Live support is not available in your country</source>
-      <translation>Live support nie je dostupný vo vašej krajinne</translation>
+      <translation>Liveサポートはあなたの国ではご利用できません</translation>
     </message>
     <message>
       <source>Live Support</source>
-      <translation>On-line podpora</translation>
+      <translation>Liveサポート</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave a message</source>
-      <translation>V tomto okamihu nie je žiadny operátor on-line, prosím, nechajte nám správu</translation>
+      <translation>ただいまオンラインオペレータがいません、メッセージを残してください</translation>
     </message>
     <message>
       <source>File</source>
-      <translation>Súbor</translation>
+      <translation>ファイル</translation>
     </message>
     <message>
       <source>Your request was sent!</source>
-      <translation>Vaša správa bola odoslaná!</translation>
+      <translation>あなたのリクエストが送信されました！</translation>
     </message>
     <message>
       <source>Leave a message</source>
-      <translation>Napíšte nám správu</translation>
+      <translation>メッセージを残す</translation>
     </message>
     <message>
       <source>Send message</source>
@@ -8008,7 +8008,7 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Zrušiť</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Record voice message</source>
@@ -8032,75 +8032,75 @@
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
-      <translation>Súhlasím s tým, že moje osobné údaje budú spracované v súlade s</translation>
+      <translation>私は私の個人データが処理されることを受け入れます</translation>
     </message>
     <message>
       <source>our terms and to the Law</source>
-      <translation>podmienkami použitia a miestnymi zákonmi.</translation>
+      <translation>用語と法律</translation>
     </message>
     <message>
       <source>Please choose</source>
-      <translation>Prosím, vyberte</translation>
+      <translation>選択してください</translation>
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Spustiť chat</translation>
+      <translation>チャットをスタート</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Oddelenie</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation>Offline</translation>
+      <translation>オフライン</translation>
     </message>
     <message>
       <source>Have a question? Ask us!</source>
-      <translation>Máte otázku? Opýtajte sa nás!</translation>
+      <translation>質問がありますか？お気軽にお尋ねください！</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Odoslať</translation>
+      <translation>送信</translation>
     </message>
     <message>
       <source>Department is offline</source>
-      <translation>Oddelenie je v režime offline</translation>
+      <translation>部署がオフラインです</translation>
     </message>
     <message>
       <source>Go to leave a message form</source>
-      <translation>Prejsť na formulár zanechať správu</translation>
+      <translation>残されたメッセージへ</translation>
     </message>
     <message>
       <source>Cancel and choose another department</source>
-      <translation>Zrušiť a vybrať si iné oddelenie</translation>
+      <translation>キャンセルし、他の部署を選択</translation>
     </message>
     <message>
       <source>characters</source>
-      <translation>znaky</translation>
+      <translation>文字</translation>
     </message>
     <message>
       <source>Personal assistant</source>
-      <translation>Osobný asistent</translation>
+      <translation>個人アシスタント</translation>
     </message>
     <message>
       <source>Fill out this form to start a chat</source>
-      <translation>Vyplňte tento formulár pre začatie rozhovoru</translation>
+      <translation>このフォームに入力してチャットを開始します</translation>
     </message>
     <message>
       <source>There are no online operators at the moment, please leave your message</source>
-      <translation>V tomto okamihu nie je žiadny operátor on-line, prosím, napíšte nám správu</translation>
+      <translation>ただいまオンラインオペレータがいません、メッセージを残してください</translation>
     </message>
     <message>
       <source>Me</source>
-      <translation>Ja</translation>
+      <translation>私</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Produkt</translation>
+      <translation>製品</translation>
     </message>
     <message>
       <source>Choose a product</source>
-      <translation>Vybrať produkt</translation>
+      <translation>製品選択</translation>
     </message>
     <message>
       <source>Your language</source>
@@ -8108,11 +8108,11 @@
     </message>
     <message>
       <source>Choose your language</source>
-      <translation>Zvoľte si jazyk</translation>
+      <translation>言語選択</translation>
     </message>
     <message>
       <source>Minimize</source>
-      <translation>Minimalizovať</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup</source>
@@ -8120,7 +8120,7 @@
     </message>
     <message>
       <source>End chat</source>
-      <translation>Ukončiť chat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Switch to Classic</source>
@@ -8144,19 +8144,19 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>Neplatný CSRF token!</translation>
+      <translation>無効なCSRFトークンです</translation>
     </message>
     <message>
       <source>Please enter a valid email address</source>
-      <translation>Zadajte platnú e-mailovú adresu</translation>
+      <translation>有効なメールアドレスを入力してください</translation>
     </message>
     <message>
       <source>Maximum 50 characters</source>
-      <translation>Maximálne 50 znakov</translation>
+      <translation>最大50文字</translation>
     </message>
     <message>
       <source>Please enter your name</source>
-      <translation>Napíšte vaše meno</translation>
+      <translation>名前を入力してください</translation>
     </message>
     <message>
       <source>Maximum 100 characters</source>
@@ -8164,47 +8164,47 @@
     </message>
     <message>
       <source>Please enter your message</source>
-      <translation>Napíšte vašu správu</translation>
+      <translation>メッセージを入力してください</translation>
     </message>
     <message>
       <source>Maximum</source>
-      <translation>Najviac</translation>
+      <translation>最大</translation>
     </message>
     <message>
       <source>characters for a message</source>
-      <translation>znakov pre správu</translation>
+      <translation>メッセージの文字</translation>
     </message>
     <message>
       <source>You have to accept our Terms Of Service</source>
-      <translation>Musíte akceptovať podmienky používania našich služieb</translation>
+      <translation>サービスの利用規約を許諾する必要があります</translation>
     </message>
     <message>
       <source>Please enter your phone</source>
-      <translation>Napíšte prosím váš telefón</translation>
+      <translation>電話番号を入力してください</translation>
     </message>
     <message>
       <source>Maximum 100 characters for phone</source>
-      <translation>Najviac 100 znakov pre telefóne číslo</translation>
+      <translation>電話番号は最大100文字です</translation>
     </message>
     <message>
       <source>Invalid file</source>
-      <translation>Neplatný súbor</translation>
+      <translation>無効なファイル</translation>
     </message>
     <message>
       <source>Please choose department!</source>
-      <translation>Zvoľte si, prosím, oddelenie!</translation>
+      <translation>部署を選択してください</translation>
     </message>
     <message>
       <source>Could not find a product!</source>
-      <translation>Nepodarilo sa nájsť produkt!</translation>
+      <translation>製品が見つかりません</translation>
     </message>
     <message>
       <source>Could not determine a default department!</source>
-      <translation>Nemožno určiť predvolené oddelenie!</translation>
+      <translation>既定の部署を決定できません</translation>
     </message>
     <message>
       <source>Please choose a product!</source>
-      <translation>Prosím Zvoľte produkt!</translation>
+      <translation>製品を選択してください！</translation>
     </message>
     <message>
       <source>At the moment department is overloaded, please choose a different department or try again later!</source>
@@ -8212,7 +8212,7 @@
     </message>
     <message>
       <source>is required</source>
-      <translation>je nutné</translation>
+      <translation>必須です</translation>
     </message>
     <message>
       <source>Based on current chat.</source>
@@ -8220,7 +8220,7 @@
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Návštevník</translation>
+      <translation>訪問者</translation>
     </message>
     <message>
       <source>Offline request message was saved.</source>
@@ -8228,7 +8228,7 @@
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation>Vaša žiadosť nebola spracovaná podľa očakávania - ale nebojte sa, nebola to vaša chyba. Znova odošlite svoju žiadosť. Ak sa opäť prajví ten istý problém, musíte nás kontaktovať inými spôsobom.</translation>
+      <translation>期待通りに要求が処理されませんでした - しかし、あなたのせいではないので心配しないでください。要求を再送信してください。同じ問題が発生した場合は、他の手段を介して私達に連絡して頂く必要があります。</translation>
     </message>
     <message>
       <source>Chat started by</source>
@@ -8304,7 +8304,7 @@
     </message>
     <message>
       <source>Please enter a message, max characters</source>
-      <translation>Prosím napíšte správu, najviac znakov</translation>
+      <translation>最大文字数でメッセージを入力してください</translation>
     </message>
     <message>
       <source>You cannot send messages to this chat. Please refresh your browser.</source>
@@ -8332,7 +8332,7 @@
     </message>
     <message>
       <source>Pending Chat</source>
-      <translation>Čakajúci Chat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New mail</source>
@@ -8348,7 +8348,7 @@
     </message>
     <message>
       <source>Unread message</source>
-      <translation>Neprečítaná správa</translation>
+      <translation>未読メッセージ</translation>
     </message>
     <message>
       <source>Alert notification</source>
@@ -8364,7 +8364,7 @@
     </message>
     <message>
       <source>Transfer Chat</source>
-      <translation>Presunúť Chat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Trigger alert chat!</source>
@@ -8372,15 +8372,15 @@
     </message>
     <message>
       <source>Assigned Chat</source>
-      <translation>Priradený chat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Nemáte oprávnenie na rozhovor! Obráťte sa na vlastníka webu.</translation>
+      <translation>チャットへのアクセス権限がありません！サイトオーナーに問い合わせてください。</translation>
     </message>
     <message>
       <source>Fill in the form to start a chat</source>
-      <translation>Vyplňte formulár pre začatie rozhovoru</translation>
+      <translation>開始されたチャットフォームに入力</translation>
     </message>
     <message>
       <source>You can edit only your own messages!</source>
@@ -8444,7 +8444,7 @@
     </message>
     <message>
       <source>Please enter a message</source>
-      <translation>Prosím napíšte správu</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>characters max.</source>
@@ -8504,11 +8504,11 @@
     </message>
     <message>
       <source>This chat is closed now. You can close window.</source>
-      <translation>Tento chat je zatvorený. Môžete zatvoriť okno.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Your message...</source>
-      <translation type="unfinished"/>
+      <translation>メッセージ</translation>
     </message>
     <message>
       <source>Send files or enter additional information</source>
@@ -8528,7 +8528,7 @@
     </message>
     <message>
       <source>Go to Survey.</source>
-      <translation>Ohodnoť náš chat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>There was an issue sending the message. Try again.</source>
@@ -8591,59 +8591,59 @@
     </message>
     <message>
       <source>Bottom right corner of the screen</source>
-      <translation>V pravom dolnom rohu obrazovky</translation>
+      <translation>画面の下段右コーナー</translation>
     </message>
     <message>
       <source>Bottom left corner of the screen</source>
-      <translation>V ľavom dolnom rohu obrazovky</translation>
+      <translation>画面の下段左コーナー</translation>
     </message>
     <message>
       <source>Middle right side of the screen</source>
-      <translation>V strede pravej strany obrazovky</translation>
+      <translation>画面の真ん中の右サイド</translation>
     </message>
     <message>
       <source>Middle left side of the screen</source>
-      <translation>V strede ľavej strany obrazovky</translation>
+      <translation>画面の真ん中の左サイド</translation>
     </message>
     <message>
       <source>Full height right</source>
-      <translation>Plná výška vpravo</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Full height left</source>
-      <translation>Plná výška vľavo</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>no survey</source>
-      <translation>žiadny prieskum</translation>
+      <translation>アンケートがありません</translation>
     </message>
     <message>
       <source>HTML code</source>
-      <translation>HTML kód</translation>
+      <translation>HTMLコード</translation>
     </message>
     <message>
       <source>Popup width</source>
-      <translation>Šírka popupu</translation>
+      <translation>ポップアップ幅</translation>
     </message>
     <message>
       <source>Popup height, used only if iframe is used</source>
-      <translation>Výška popupu, používa sa iba pri použití iframe</translation>
+      <translation>ポップアップ高さ、iframeが利用される場合だけ使用されます</translation>
     </message>
     <message>
       <source>Identifier, this can be used as filter for pro active chat invitations and is use full having different messages for different domains. Only string without spaces or special characters.</source>
-      <translation>Identifikátor, toto môže byť použité ako filter pre proaktívne pozvánky na chat a naplno sa využíva s rôznymi správami pre rôzne domény. Len reťazce bez medzery alebo špeciálnych znakov.</translation>
+      <translation>IDは、スペースと特殊文字を除いて積極的なチャット招待と異なるドメインの異なるメッセージのフィルタとして使用できます。</translation>
     </message>
     <message>
       <source>Leave empty if it is not important to you</source>
-      <translation>Nechajte prázdne, pokiaľ to nie je pre vás dôležité</translation>
+      <translation>あなたに重要でなければ空にします</translation>
     </message>
     <message>
       <source>Offer timeout in days, after how many days show offers for the same visitor again, leave empty for session</source>
-      <translation>Vypršanie ponuky v dňoch, po koľkých dňoch zobrazovať ponuky znovu pre toho istého návštevníka, ponechajte prázdne pre reláciu</translation>
+      <translation>同じ訪問者のセッションを空にするタイムアウト日数</translation>
     </message>
     <message>
       <source>For what domain you are generating embed code?</source>
-      <translation>Pre akú doménu generujete vnorený kód</translation>
+      <translation>生成される組込コードのドメインは？</translation>
     </message>
     <message>
       <source>example.com</source>
@@ -8651,107 +8651,107 @@
     </message>
     <message>
       <source>Choose prefered http mode</source>
-      <translation>Vyberte preferovaný režim http</translation>
+      <translation>httpモードを選択</translation>
     </message>
     <message>
       <source>Based on site (default)</source>
-      <translation>Na základe stránky (predvolené)</translation>
+      <translation>サイトのベース(既定)</translation>
     </message>
     <message>
       <source>Choose a language</source>
-      <translation>Vyberte si jazyk</translation>
+      <translation>言語選択</translation>
     </message>
     <message>
       <source>Chatbox messages content height</source>
-      <translation>Výška obsahu chatbox okna</translation>
+      <translation>チャットボックスメッセージコンテンツの高さ</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation>Šablóna</translation>
+      <translation>テーマ</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation>Default</translation>
+      <translation>既定値</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want it to be rendered</source>
-      <translation>Skopírujte kód z textovej oblasti na stránku, na ktorej ho chcete zobraziť</translation>
+      <translation>テキストエリアのコードを表示したいページにコピーします</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation>Umiestnite tento tag tam, kde chcete zobraziť modul Live Helper Chatbox.</translation>
+      <translation>Live Helper Chatboxモジュールを表示したい場所にこのタグを配置します</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation>Umiestnite teto tag za tag modulu Live Helper Chatbox.</translation>
+      <translation>Live Helper Chatboxモジュールタグの後にこのタグを配置します。</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>チャットボックス</translation>
     </message>
     <message>
       <source>Position from the top, is only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Pozícia zhora sa používa iba vtedy, ak ste vybrali strednú ľavú alebo strednú pravú stranu</translation>
+      <translation>中程の左か右を選択する場合のみ使用されるトップからの位置</translation>
     </message>
     <message>
       <source>Pixels</source>
-      <translation>Pixely</translation>
+      <translation>ピクセル</translation>
     </message>
     <message>
       <source>Percents</source>
-      <translation>Percentá</translation>
+      <translation>パーセント</translation>
     </message>
     <message>
       <source>Size</source>
-      <translation>Veľkosť</translation>
+      <translation>サイズ</translation>
     </message>
     <message>
       <source>Width</source>
-      <translation>Šírka</translation>
+      <translation>幅</translation>
     </message>
     <message>
       <source>Height</source>
-      <translation>Výška</translation>
+      <translation>高さ</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Pozícia</translation>
+      <translation>位置</translation>
     </message>
     <message>
       <source>Disable responsive layout for status widget.</source>
-      <translation>Zakázať responzívne usporiadanie pre widgetu stavu.</translation>
+      <translation>ステータスウィジェットの回答レイアウト無効化</translation>
     </message>
     <message>
       <source>Disable minimize icon</source>
-      <translation>Zakázať tlačidlo minimalizovať</translation>
+      <translation>最小化アイコン無効化</translation>
     </message>
     <message>
       <source>Show chatbox content instead of widget, users will be able only minimize, not close it.</source>
-      <translation>Zobraziť obsah chatboxu namiesto widgetu, používatelia ho budú môcť len minimalizovať, ale nie zavrieť.</translation>
+      <translation>ユーザーがチャットボックスを最小化できる場合で、閉じることができない場合にウィジェットの代わりにチャットボックスコンテンツ表示</translation>
     </message>
     <message>
       <source>Show chatbox content minimized first time if content is shown.</source>
-      <translation>Ak sa zobrazí obsah, minimalizujte prvýkrát obsah chatboxu.</translation>
+      <translation>コンテンツ表示する場合に最初にチャットボックスコンテンツ最小化表示</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Skopírujte kód z textovej oblasti do päty pred uzatváracím &amp;lt;/body&amp;gt; tagom</translation>
+      <translation>&amp;lt;/body&amp;gt;タグを閉じる前にテキストエリアからのコードをフッターへコピーします</translation>
     </message>
     <message>
       <source>Copy the code from the textarea to page where you want it to be rendered</source>
-      <translation>Skopírujte kód z textovej oblasti na stránku, na ktorej ho chcete zobraziť</translation>
+      <translation>表示したいページにテキストエリアからのコードをコピーします</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper FAQ module to render.</source>
-      <translation>Umiestnite tento tag tam, kde chcete zobraziť modul Live Helper FAQ.</translation>
+      <translation>Live Helper FAQモジュールを表示したい場所へこのタグを配置します</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper FAQ module tag.</source>
-      <translation>Umiestnite túto značku za tag modulu Live Helper FAQ.</translation>
+      <translation>Live Helper FAQモジュールタグの後にこのタグを配置します</translation>
     </message>
     <message>
       <source>Status text</source>
-      <translation>Text statusu</translation>
+      <translation>ステータステキスト</translation>
     </message>
     <message>
       <source>FAQ</source>
@@ -8759,31 +8759,31 @@
     </message>
     <message>
       <source>Position from the top, only used if the Middle left or the Middle right side is chosen</source>
-      <translation>Pozícia zhora, používa sa iba vtedy, ak ste vybrali strednú ľavú alebo strednú pravú stranu</translation>
+      <translation>中程の左か右を選択する場合のみ使用されるトップからの位置</translation>
     </message>
     <message>
       <source>Choose what form you want to embed</source>
-      <translation>Vyberte, aký formulár chcete vložiť</translation>
+      <translation>組込みたいものを選択</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifikátor</translation>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Questionary module to render.</source>
-      <translation>Umiestnite tento tag na miesto, kde chcete vykresliť modul Live Helper Dotazník.</translation>
+      <translation>Live Helper Questionaryモジュールを表示したい場所にこのタグを配置します。</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Questionary module tag.</source>
-      <translation>Umiestnite tento tag za značku modulu Live Helper Dotazník.</translation>
+      <translation>Live Helper Questionaryモジュールタグの後にこのタグを配置します。</translation>
     </message>
     <message>
       <source>Help us to grow</source>
-      <translation>Pomôžte nám rásť</translation>
+      <translation>私達の成長を助けます</translation>
     </message>
     <message>
       <source>Embed code</source>
-      <translation>Kód pre vloženie</translation>
+      <translation>組込コード</translation>
     </message>
     <message>
       <source>Widget embed code (new)</source>
@@ -8799,19 +8799,19 @@
     </message>
     <message>
       <source>Widget embed code</source>
-      <translation>Widget embed kód</translation>
+      <translation>ウィジェット組込コード</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation>Kód pre vloženie na stránku</translation>
+      <translation>ページ組込コード</translation>
     </message>
     <message>
       <source>Set default speech recognition language</source>
-      <translation>Nastaviť predvolený jazyk rozpoznávania reči</translation>
+      <translation>既定のスピーチ推奨言語設定</translation>
     </message>
     <message>
       <source>Speech language</source>
-      <translation>Jazyk reči</translation>
+      <translation>スピーチ言語</translation>
     </message>
     <message>
       <source>Languages</source>
@@ -8823,23 +8823,23 @@
     </message>
     <message>
       <source>Operator ID</source>
-      <translation>ID operátora</translation>
+      <translation>オペレータID</translation>
     </message>
     <message>
       <source>To what operator chat should be assigned automatically?</source>
-      <translation>Akému operátorovi bude chat automaticky priradený?</translation>
+      <translation>オペレータをチャットに自動アサインしますか？</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Všeobecné</translation>
+      <translation>一般</translation>
     </message>
     <message>
       <source>Design</source>
-      <translation>Dizajn</translation>
+      <translation>デザイン</translation>
     </message>
     <message>
       <source>Hide status when offline</source>
-      <translation>Skryť status pri offline</translation>
+      <translation>オフライン時ステータスを隠す</translation>
     </message>
     <message>
       <source>Show a ‘leave a message form’ when there are no online operators</source>
@@ -8847,23 +8847,23 @@
     </message>
     <message>
       <source>Department</source>
-      <translation>Oddelenie</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation>Akékoľvek</translation>
+      <translation>いずれも</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page where you want your status to appear</source>
-      <translation>Skopírujte kód z textovej oblasti na stránku, na ktorej chcete, aby sa váš stav zobrazil</translation>
+      <translation>テキストエリアのコードをステータスを表示したいページにコピーします</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Plugin to render.</source>
-      <translation>Umiestnite tento tag na miesto, kde chcete zobraziť Live Helper Plugin.</translation>
+      <translation>Live Helper プラグインを表示したい場所にこのタグを配置します。</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Plugin tag.</source>
-      <translation>Umiestnite tento tag za tag Live Helper Plugin.</translation>
+      <translation>Live Helper プラグインタグの後にこのタグをを配置します。</translation>
     </message>
     <message>
       <source>Show the page widget when a mouse is clicked</source>
@@ -8883,59 +8883,59 @@
     </message>
     <message>
       <source>Try to detect language automatically</source>
-      <translation>Pokúsiť sa zistiť jazyk automaticky</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Survey at the end of chat</source>
-      <translation>Hodnotenie na konci chatu</translation>
+      <translation>チャットの最後にアンケート</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Produkt</translation>
+      <translation>製品</translation>
     </message>
     <message>
       <source>Minimize action, applies only if status widget is at the bottom</source>
-      <translation>Akcia pri minimallizovaní, platí iba vtedy, ak je widget stavu v spodnej časti</translation>
+      <translation>最小アクション、ステータスウィジェットは最下段に適用されます</translation>
     </message>
     <message>
       <source>Keep where it was</source>
-      <translation>Nechať kde bolo</translation>
+      <translation>それが保持される場所</translation>
     </message>
     <message>
       <source>Minimize to bottom of the screen</source>
-      <translation>Minimalizovať na spodok obrazovky</translation>
+      <translation>画面の最下段に最小化</translation>
     </message>
     <message>
       <source>Native placement - it will be shown where the html is embedded</source>
-      <translation>Natívne umiestnenie - bude zobrazené tam, kde je umiestnené HTML</translation>
+      <translation>元の配置 - HTMLが組み込まれた場所が表示されます</translation>
     </message>
     <message>
       <source>Invisible, only JS API will be included</source>
-      <translation>Neviditeľný, zahrnutý bude len JS API</translation>
+      <translation>見えない、JS APIが含まれます</translation>
     </message>
     <message>
       <source>Popup window width</source>
-      <translation>Šírka popup okna</translation>
+      <translation>ポップアップウィンドウ幅</translation>
     </message>
     <message>
       <source>Popup window width in pixels</source>
-      <translation>Šírka popup okna v pixeloch</translation>
+      <translation>ポップアップウィンドウ幅（ピクセル）</translation>
     </message>
     <message>
       <source>Popup window height in pixels</source>
-      <translation>Výška popup okna v pixeloch</translation>
+      <translation>ポップアップウィンドウ高さ（ピクセル）</translation>
     </message>
     <message>
       <source>Widget width</source>
-      <translation>Šírka widgetu</translation>
+      <translation>ウィジェット幅</translation>
     </message>
     <message>
       <source>Widget width in pixels</source>
-      <translation>Šírka widgetu v pixeloch</translation>
+      <translation>ウィジェット幅（ピクセル）</translation>
     </message>
     <message>
       <source>Widget height in pixels</source>
-      <translation>Výška widgetu v pixeloch</translation>
+      <translation>ウィジェット高さ（ピクセル）</translation>
     </message>
     <message>
       <source>Position from the top, only used if the middle left or the middle right side is chosen</source>
@@ -8951,15 +8951,15 @@
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
-      <translation>Nezadávajte protokol, vyžaduje sa iba názov domény</translation>
+      <translation>ドメイン名だけでなくプロトコルも入力してください</translation>
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
-      <translation>Vložte tento tag tam, kde chcete, aby sa zobrazil Live Helper stav.</translation>
+      <translation>Live Helper ステータスを表示したい場所にこのタグを配置します。</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
-      <translation>Umiestnite tento tag za tag stavu Live Helper.</translation>
+      <translation>Live Helper ステータスタグの後にこのタグを配置します。</translation>
     </message>
     <message>
       <source>Static image</source>
@@ -9047,19 +9047,19 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>Chat expired</source>
-      <translation>Chat skončila</translation>
+      <translation>チャット期限切れ</translation>
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation>Neplatný hash</translation>
+      <translation>無効なハッシュ</translation>
     </message>
     <message>
       <source>Chat was removed</source>
-      <translation>Chat bol odstránený</translation>
+      <translation>チャットは削除されました</translation>
     </message>
   </context>
   <context>
@@ -9070,15 +9070,15 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Nastavenia aktualizované</translation>
+      <translation>設定が更新されました</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Nastavenie GEO detekcie</translation>
+      <translation>GEO設定検出</translation>
     </message>
     <message>
       <source>Map location</source>
-      <translation>Umiestnenie na mape</translation>
+      <translation>マップ場所</translation>
     </message>
     <message>
       <source>Test GEO</source>
@@ -9086,43 +9086,43 @@
     </message>
     <message>
       <source>GEO Enabled</source>
-      <translation>GEO Povolené</translation>
+      <translation>GEO有効化</translation>
     </message>
     <message>
       <source>Use this service</source>
-      <translation>Použiť túto službu</translation>
+      <translation>このサービス使用</translation>
     </message>
     <message>
       <source>API Key</source>
-      <translation>API kľúč</translation>
+      <translation>APIキー</translation>
     </message>
     <message>
       <source>Use mod_geoip2</source>
-      <translation>Použiť mod_geoip2</translation>
+      <translation>mod_geoip2使用</translation>
     </message>
     <message>
       <source>Country code server variable</source>
-      <translation>Kód krajiny servera</translation>
+      <translation>国コードサーバ変数</translation>
     </message>
     <message>
       <source>Country name server variable</source>
-      <translation>Premenná názvu krajiny servera</translation>
+      <translation>国名サーバ変数</translation>
     </message>
     <message>
       <source>City name server variable</source>
-      <translation>Premenná názvu mesta servera</translation>
+      <translation>市区町村名サーバ変数</translation>
     </message>
     <message>
       <source>Region name server variable</source>
-      <translation>Premenná názov regiónu servera</translation>
+      <translation>都道府県名サーバ変数</translation>
     </message>
     <message>
       <source>Latitude variable</source>
-      <translation>Premenná zemepisnej šírky</translation>
+      <translation>緯度変数</translation>
     </message>
     <message>
       <source>Longitude variable</source>
-      <translation>Premenná zemepisnej dĺžky</translation>
+      <translation>経度変数</translation>
     </message>
     <message>
       <source>Use http://ip-api.com</source>
@@ -9134,15 +9134,15 @@
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation>Použiť MaxMind, nezávislé na nijakej vzdialenej službe tretej strany</translation>
+      <translation>MaxMindを使用すると、あらゆるサードパーティのリモートサービスを頼りません</translation>
     </message>
     <message>
       <source>You can download city/country database from.</source>
-      <translation>Môžete si stiahnuť databázu miest/krajín od.</translation>
+      <translation>あなたはダウンロードできる都市／国です。</translation>
     </message>
     <message>
       <source>bcmath php extension detected</source>
-      <translation>php rozšírenie bcmath detekované</translation>
+      <translation>phpのbcmath拡張モジュールが検出されました</translation>
     </message>
     <message>
       <source>Location of city database. Make sure you uploaded file in this location.</source>
@@ -9150,51 +9150,51 @@
     </message>
     <message>
       <source>User country based detection, faster</source>
-      <translation>Detekcia založená na krajine užívateľa, rýchlejšie</translation>
+      <translation>ユーザー国ベース検出、速い</translation>
     </message>
     <message>
       <source>File exists</source>
-      <translation>Súbor existuje</translation>
+      <translation>ファイルが存在します</translation>
     </message>
     <message>
       <source>File does not exists</source>
-      <translation>Súbor neexistuje</translation>
+      <translation>ファイルが存在しません</translation>
     </message>
     <message>
       <source>User city based detection, slower</source>
-      <translation>Detekcia založená na meste užívateľa, pomalšie</translation>
+      <translation>ユーザー都市ベース検出、遅い</translation>
     </message>
     <message>
       <source>Use PHP-GeoIP module</source>
-      <translation>Použiť PHP-GeoIP modul</translation>
+      <translation>PHPのGeoIPモジュール使用</translation>
     </message>
     <message>
       <source>Support for PHP-GeoIP detected</source>
-      <translation>Podpora pre PHP-GeoIP bola zistená</translation>
+      <translation>PHPのGeoIP検出をサポート</translation>
     </message>
     <message>
       <source>Requests will be comming from</source>
-      <translation>Žiadosti budú prichádzať z</translation>
+      <translation>リクエストが次から来ました</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Užívateľské meno</translation>
+      <translation>ユーザー名</translation>
     </message>
     <message>
       <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation>IP, ak je vaša vzdialená IP odlišná od zistenej, ​​uveďte správnu vzdialenú IP adresu</translation>
+      <translation>サイトリモートIPが検出されたものと異なります、正しいリモートIPアドレスを提供してください</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Uložiť</translation>
+      <translation>保存</translation>
     </message>
     <message>
       <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation>Pretiahnite značku, kde chcete mať mapu zobrazenú v predvolenom nastavení. Zväčšenie je tiež uložené.</translation>
+      <translation>既定のマップ中央にしたい場所へマーカーをドラッグします。ズームが保存されます。</translation>
     </message>
     <message>
       <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
-      <translation>Kľúč API služby Mapy Google, uložený automaticky. Po vložení kľúča obnovte stránku.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Test</source>
@@ -9202,35 +9202,35 @@
     </message>
     <message>
       <source>Send message</source>
-      <translation>Poslať správu</translation>
+      <translation>メッセージ送信</translation>
     </message>
     <message>
       <source>Chat list</source>
-      <translation>Zoznam chatov</translation>
+      <translation>チャットリスト</translation>
     </message>
     <message>
       <source>Dashboard</source>
-      <translation>Domovska stránka</translation>
+      <translation>ダッシュボード</translation>
     </message>
     <message>
       <source>City</source>
-      <translation>Mesto</translation>
+      <translation>都市</translation>
     </message>
     <message>
       <source>Lat.</source>
-      <translation>Z. šírka</translation>
+      <translation>緯度</translation>
     </message>
     <message>
       <source>Lon.</source>
-      <translation>Z. výška</translation>
+      <translation>経度</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation>Časová zóna</translation>
+      <translation>タイムゾーン</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifikátor</translation>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Nick</source>
@@ -9238,187 +9238,187 @@
     </message>
     <message>
       <source>Additional information</source>
-      <translation>Dodatočné informácie</translation>
+      <translation>追加情報</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Posledná aktivita</translation>
+      <translation>最新アクティビティ</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>pred</translation>
+      <translation>以前</translation>
     </message>
     <message>
       <source>On page</source>
-      <translation>Na stránke</translation>
+      <translation>ページ上</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation>Áno</translation>
+      <translation>はい</translation>
     </message>
     <message>
       <source>No</source>
-      <translation>Nie</translation>
+      <translation>いいえ</translation>
     </message>
     <message>
       <source>User does not have any message from operator</source>
-      <translation>Užívateľ nemá žiadnu správu od operátora</translation>
+      <translation>ユーザーにオペレータからのメッセージがありません</translation>
     </message>
     <message>
       <source>User have not seen message from operator, or message window still open.</source>
-      <translation>Užívateľ nevidel správu od operátora, alebo je okno so správou stále otvorené.</translation>
+      <translation>オペレータからのユーザーが見るべきメッセージがないか、メッセージウィンドウがまだ開いています。</translation>
     </message>
     <message>
       <source>User has seen message from operator.</source>
-      <translation>Užívateľ videl správu od operátora.</translation>
+      <translation>ユーザーにオペレータからの見るべきメッセージがあります。</translation>
     </message>
     <message>
       <source>User is chatting</source>
-      <translation>Užívateľ práve chatuje</translation>
+      <translation>ユーザーはチャットしています</translation>
     </message>
     <message>
       <source>User is not having any chat right now</source>
-      <translation>Užívateľ práve teraz nie je v žiadnom rozhovore</translation>
+      <translation>今、ユーザーには保持チャットはありません</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation>Operátor</translation>
+      <translation>オペレータ</translation>
     </message>
     <message>
       <source>has send message to user</source>
-      <translation>odoslal správu užívateľovi</translation>
+      <translation>ユーザーへメッセージ送信しました</translation>
     </message>
     <message>
       <source>No one has send any message to user yet</source>
-      <translation>Ešte nikto neposlal správu užívateľovi</translation>
+      <translation>ユーザーへまだ送信していないメッセージはありません</translation>
     </message>
     <message>
       <source>First visit</source>
-      <translation>Prvá návšteva</translation>
+      <translation>初回訪問</translation>
     </message>
     <message>
       <source>Last visit</source>
-      <translation>Posledná návšteva</translation>
+      <translation>最新訪問</translation>
     </message>
     <message>
       <source>Total visits</source>
-      <translation>Celkom návštev</translation>
+      <translation>訪問合計</translation>
     </message>
     <message>
       <source>time(s) invitation logic was applied</source>
-      <translation>koľko krát bola použitá logika pozvania</translation>
+      <translation>招待ロジックが適用された時間</translation>
     </message>
     <message>
       <source>Pageviews</source>
-      <translation>Zobrazené stránky</translation>
+      <translation>ページビュー</translation>
     </message>
     <message>
       <source>Total pageviews</source>
-      <translation>Celkom zobrazených stránok</translation>
+      <translation>ページピュー合計</translation>
     </message>
     <message>
       <source>Time on site</source>
-      <translation>Čas na stránke</translation>
+      <translation>サイト滞留時間</translation>
     </message>
     <message>
       <source>Total time on site</source>
-      <translation>Celkový čas na stránke</translation>
+      <translation>サイト滞留時間合計</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation>Aktuálna stránka</translation>
+      <translation>現在のページ</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>Prišiel z</translation>
+      <translation>どこから来たか</translation>
     </message>
     <message>
       <source>Clear list</source>
-      <translation>Vymazať zoznam</translation>
+      <translation>リストをクリア</translation>
     </message>
     <message>
       <source>User tracking is disabled, enable it at</source>
-      <translation>Sledovanie užívateľov je zakázané, povoľte ho v</translation>
+      <translation>ユーザートラッキングが無効です、有効にしてください</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Nastavení rozhovoru</translation>
+      <translation>チャット設定</translation>
     </message>
     <message>
       <source>Online visitors list</source>
-      <translation>Zoznam online návštevníkov</translation>
+      <translation>オンライン訪問者リスト</translation>
     </message>
     <message>
       <source>Online visitors on map</source>
-      <translation>Online návštevníci na mape</translation>
+      <translation>オンライン訪問者マップ</translation>
     </message>
     <message>
       <source>Preview chat</source>
-      <translation>Ukážka chatu</translation>
+      <translation>チャットプレビュー</translation>
     </message>
     <message>
       <source>Visits</source>
-      <translation>Návštevy</translation>
+      <translation>訪問</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Nové</translation>
+      <translation>新規</translation>
     </message>
     <message>
       <source>has sent a message to the user</source>
-      <translation>poslal správu užívateľovi</translation>
+      <translation>メッセージをユーザーに送信しました</translation>
     </message>
     <message>
       <source>Seen</source>
-      <translation>Vidieť</translation>
+      <translation>既読</translation>
     </message>
     <message>
       <source>Unseen</source>
-      <translation>Nevidené</translation>
+      <translation>未読</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Strana</translation>
+      <translation>ページ</translation>
     </message>
     <message>
       <source>From</source>
-      <translation>Od</translation>
+      <translation>から</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
-      <translation>Povoliť/zakázať zvuk o novom návštevníkovi</translation>
+      <translation>新規訪問者の効果音の有効／無効</translation>
     </message>
     <message>
       <source>Enable/Disable browser notifications about new visitor</source>
-      <translation>Povoliť/zakázať notifikácie prehliadača o novom návštevníkovi</translation>
+      <translation>新規訪問者のブラウザ通知の有効／無効</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Online návštevníci</translation>
+      <translation>オンライン訪問者</translation>
     </message>
     <message>
       <source>User has message from operator</source>
-      <translation>Užívateľ má správu od operátora</translation>
+      <translation>ユーザーには、オペレータからのメッセージがあります</translation>
     </message>
     <message>
       <source>Marker timeout before it dissapears from map</source>
-      <translation>Čas po ktorom znizne značka z mapy</translation>
+      <translation>マーカーがマップから消えるまでのタイムアウト</translation>
     </message>
     <message>
       <source>seconds</source>
-      <translation>sekúnd</translation>
+      <translation>秒</translation>
     </message>
     <message>
       <source>minute</source>
-      <translation>minúta</translation>
+      <translation>分</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation>minúty</translation>
+      <translation>分</translation>
     </message>
     <message>
       <source>online users</source>
-      <translation>on-line používatelia</translation>
+      <translation>オンラインユーザー</translation>
     </message>
     <message>
       <source>Show only connected</source>
@@ -9426,63 +9426,63 @@
     </message>
     <message>
       <source>Group list by</source>
-      <translation>Zoskupiť zoznam podľa</translation>
+      <translation>によるグループリスト</translation>
     </message>
     <message>
       <source>Group by</source>
-      <translation>Zoskupiť podľa</translation>
+      <translation>グループ毎</translation>
     </message>
     <message>
       <source>User country</source>
-      <translation>Krajina užívateľa</translation>
+      <translation>ユーザー国</translation>
     </message>
     <message>
       <source>Page title</source>
-      <translation>Názov stránky</translation>
+      <translation>ページタイトル</translation>
     </message>
     <message>
       <source>Referrer</source>
-      <translation>Referrer</translation>
+      <translation>リファラー</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Oddelenie</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>Refresh list every</source>
-      <translation>Obnoviť zoznam každých</translation>
+      <translation>リスト全てリフレッシュ</translation>
     </message>
     <message>
       <source>second</source>
-      <translation>druhý</translation>
+      <translation>秒</translation>
     </message>
     <message>
       <source>Show visitors who visited site in the past</source>
-      <translation>Zobraziť návštevníkov, ktorí navštívili stránky v minulosti</translation>
+      <translation>過去にサイトを訪問した訪問者を表示</translation>
     </message>
     <message>
       <source>hour</source>
-      <translation>hodina</translation>
+      <translation>時</translation>
     </message>
     <message>
       <source>day</source>
-      <translation>deň</translation>
+      <translation>日</translation>
     </message>
     <message>
       <source>days</source>
-      <translation>dni</translation>
+      <translation>日</translation>
     </message>
     <message>
       <source>Max records to return</source>
-      <translation>Maximálny počet záznamov pre zobrazenie</translation>
+      <translation>返り値としての最大レコード数</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Chat</translation>
+      <translation>チャット</translation>
     </message>
     <message>
       <source>Returning</source>
-      <translation>Vracia</translation>
+      <translation>返信</translation>
     </message>
     <message>
       <source>Start a chat</source>
@@ -9522,7 +9522,7 @@
     </message>
     <message>
       <source>Files upload for users is active</source>
-      <translation>Upload súborov pre užívateľa je aktívny</translation>
+      <translation>ユーザーへのファイルアップロードがアクティブです</translation>
     </message>
     <message>
       <source>Allow visitor to choose only one file for the upload</source>
@@ -9534,7 +9534,7 @@
     </message>
     <message>
       <source>Files upload for operators is active</source>
-      <translation>Upload súborov pre operátorov je aktívny</translation>
+      <translation>オペレータへのファイルアップロードがアクティブです</translation>
     </message>
     <message>
       <source>Remove meta information from images</source>
@@ -9562,23 +9562,23 @@
     </message>
     <message>
       <source>Country code variable does not exist!</source>
-      <translation>Premenná kód krajiny neexistuje!</translation>
+      <translation>国コード変数が存在しません！</translation>
     </message>
     <message>
       <source>Country name variable does not exist!</source>
-      <translation>Premenná názov krajiny neexistuje!</translation>
+      <translation>国名変数が存在しません！</translation>
     </message>
     <message>
       <source>Please enter city variable!</source>
-      <translation>Zadajte prosím premennú mesta!</translation>
+      <translation>市区町村変数を入力してください！</translation>
     </message>
     <message>
       <source>Please enter latitude variable!</source>
-      <translation>Zadajte prosím premennú zemepisnej šírky!</translation>
+      <translation>緯度変数を入力してください！</translation>
     </message>
     <message>
       <source>Please enter longitude variable!</source>
-      <translation>Zadajte prosím premennú zemepisnej dĺžky!</translation>
+      <translation>経度変数を入力してください！</translation>
     </message>
     <message>
       <source>Please enter API Key!</source>
@@ -9586,71 +9586,71 @@
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-      <translation>Poskytovateľ služby nastavení zlyhal, prosíme skontrolujte, či váš poskytovateľ služieb vám umožňuje vytvárať požiadavky na vzdialené stránky!</translation>
+      <translation>サービスプロバイダの設定が異常です、サービスプロバイダがあなたのリモートページへのリクエストを許可しているか確認してください！</translation>
     </message>
     <message>
       <source>MaxMind city file does not exists!</source>
-      <translation>MaxMind súbor mesta neexistuje!</translation>
+      <translation>MaxMindの市区町村ファイルが存在しません！</translation>
     </message>
     <message>
       <source>MaxMind country file does not exists!</source>
-      <translation>MaxMind súbor krajiny neexistuje!</translation>
+      <translation>MaxMindの国ファイルが存在しません！</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation>Poskytovateľ služby nastavenia zlyhal, prosíme skontrolujte, či databázové súbory MaxMind existujú!</translation>
+      <translation>サービスプロバイダの設定が異常です、MaxMindデータベースファイルが存在するか確認してください！</translation>
     </message>
     <message>
       <source>Please enter the API key!</source>
-      <translation>Prosím, zadajte API kľúč!</translation>
+      <translation>APIキーを入力してください！</translation>
     </message>
     <message>
       <source>Please enter the API username!</source>
-      <translation>Zadajte prosím užívateľské API meno!</translation>
+      <translation>APIユーザー名を入力してください！</translation>
     </message>
     <message>
       <source>Please enter IP!</source>
-      <translation>Zadajte prosím IP adresu!</translation>
+      <translation>IPアドレスを入力してください！</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
-      <translation>Poskytovateľ služby nastavenia zlyhal, prosíme skontrolujte, či váš poskytovateľ služieb vám umožňuje vykonávať požiadavky na vzdialené stránky a či sú API kľúč a užívateľské meno správne!</translation>
+      <translation>サービスプロバイダ設定が異常です、サービスプロバイダがあなたのリモートページヘのリクエストを許可しているか、APIキーとユーザー名が正しいか確認してください！</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation>Poskytovateľ služby nastavenia zlyhal, prosíme skontrolujte, či váš poskytovateľ služieb vám umožňuje vykonávať požiadavky na vzdialené stránky a váš API kľúč je správny!</translation>
+      <translation>サービスプロバイダの設定が異常です、サービスプロバイダがあなたのリモートページへのリクエストを許可しているか、APIキーが正しいか確認してください！</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation>Poskytovateľ služby nastavenia zlyhal, prosíme skontrolujte, či máte nainštalovaný php-GeoIP modul a či je k dispozícii súbor GeoIPCity.dat!</translation>
+      <translation>サービスプロバイダの設定が異常です、phpのGeoIPモジュールがインストールされているか、GeoIPCity,datファイルが利用可能か確認してください！</translation>
     </message>
     <message>
       <source>Please choose a service provider!</source>
-      <translation>Vyberte si prosím poskytovateľa služieb!</translation>
+      <translation>サービスプロバイダを選択してください！</translation>
     </message>
     <message>
       <source>Online users</source>
-      <translation>On-line používatelia</translation>
+      <translation>オンラインユーザー</translation>
     </message>
     <message>
       <source>Visitor local time</source>
-      <translation>Miestny čas návštevníka</translation>
+      <translation>訪問者ローカル時間</translation>
     </message>
     <message>
       <source>By user status on site</source>
-      <translation>Podľa stavu používateľa na stránkach</translation>
+      <translation>サイト上でのユーザーステータス</translation>
     </message>
     <message>
       <source>Action</source>
-      <translation>Akcia</translation>
+      <translation>アクション</translation>
     </message>
     <message>
       <source>User has seen the message from the operator.</source>
-      <translation>Užívateľ už videl správu od operátora.</translation>
+      <translation>ユーザーはオペレータからのメッセージを見ました。</translation>
     </message>
     <message>
       <source>User does not have any messages from the operator</source>
-      <translation>Užívateľ nemá žiadne správy od operátora</translation>
+      <translation>ユーザーには、オペレータからのメッセージがありません</translation>
     </message>
     <message>
       <source>Returning visitor, visits in total</source>
@@ -9882,11 +9882,11 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation>Upraviť</translation>
+      <translation>編集</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Odstrániť</translation>
+      <translation>削除</translation>
     </message>
     <message>
       <source>Command</source>
@@ -9926,7 +9926,7 @@
     </message>
     <message>
       <source>Username</source>
-      <translation>Užívateľské meno</translation>
+      <translation>ユーザー名</translation>
     </message>
     <message>
       <source>Start activity</source>
@@ -9934,7 +9934,7 @@
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Posledná aktivita</translation>
+      <translation>最新アクティビティ</translation>
     </message>
     <message>
       <source>Duration</source>
@@ -9982,7 +9982,7 @@
     </message>
     <message>
       <source>Users</source>
-      <translation>Užívatelia</translation>
+      <translation>ユーザー</translation>
     </message>
     <message>
       <source>Username (Nickname)</source>
@@ -9990,7 +9990,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>Maximum number of chats operator can have.</source>
@@ -10026,11 +10026,11 @@
     </message>
     <message>
       <source>New user</source>
-      <translation>Nový užívateľ</translation>
+      <translation>新規ユーザー</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>Statistic</source>
@@ -10049,7 +10049,7 @@
     </message>
     <message>
       <source>Chat preview</source>
-      <translation>Prehľad chatu</translation>
+      <translation>チャットプレビュー</translation>
     </message>
     <message>
       <source>Send chat</source>
@@ -10128,7 +10128,7 @@
     </message>
     <message>
       <source>Attach uploaded file</source>
-      <translation>Priložiť nahraný súbor</translation>
+      <translation>アップロードファイル添付</translation>
     </message>
     <message>
       <source>Block visitor</source>
@@ -10148,7 +10148,7 @@
     </message>
     <message>
       <source>Close chat</source>
-      <translation>Ukončiť rozhovor</translation>
+      <translation>チャットを閉じる</translation>
     </message>
     <message>
       <source>Exit chat</source>
@@ -10156,7 +10156,7 @@
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation>Zdieľanie obrazovky</translation>
+      <translation>画面シェア</translation>
     </message>
     <message>
       <source>Copy messages</source>
@@ -10164,7 +10164,7 @@
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Odstrániť rozhovor</translation>
+      <translation>チャットを削除</translation>
     </message>
     <message>
       <source>Modify chat</source>
@@ -10180,11 +10180,11 @@
     </message>
     <message>
       <source>Print</source>
-      <translation>Tlačiť</translation>
+      <translation>印刷</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Ste si istí?</translation>
+      <translation>本当によろしいですか？</translation>
     </message>
     <message>
       <source>Redirect to contact form</source>
@@ -10196,15 +10196,15 @@
     </message>
     <message>
       <source>Mail was send</source>
-      <translation>E-mail bol odoslaný</translation>
+      <translation>メールが送信されました</translation>
     </message>
     <message>
       <source>Send mail</source>
-      <translation>Poslať mail</translation>
+      <translation>メール送信</translation>
     </message>
     <message>
       <source>Redirect user to survey</source>
-      <translation>Presmerovať užívateľa na survey</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose recognition language</source>
@@ -10212,11 +10212,11 @@
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation>Presunutý rozhovor</translation>
+      <translation>チャット転送</translation>
     </message>
     <message>
       <source>Footprint</source>
-      <translation>Stopa</translation>
+      <translation>足あと</translation>
     </message>
     <message>
       <source>Average response time (agent)</source>
@@ -10224,11 +10224,11 @@
     </message>
     <message>
       <source>Additional data</source>
-      <translation>Doplňujúce údaje</translation>
+      <translation>データ追加</translation>
     </message>
     <message>
       <source>Hidden field</source>
-      <translation>Skryté pole</translation>
+      <translation>隠しフィールド</translation>
     </message>
     <message>
       <source>Passed as encrypted variable</source>
@@ -10272,27 +10272,27 @@
     </message>
     <message>
       <source>Click to change chat status</source>
-      <translation>Klikni pre zmenu statusu chatu</translation>
+      <translation>クリックしてチャットステータス変更</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation>Čaká na chat</translation>
+      <translation>チャット保留</translation>
     </message>
     <message>
       <source>Active chat</source>
-      <translation>Prebiehajúci chat</translation>
+      <translation>チャット開始</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation>Ukončený chat</translation>
+      <translation>チャット終了</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Chatbox chat</translation>
+      <translation>チャットボックスチャット</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Chat operátorov</translation>
+      <translation>オペレータチャット</translation>
     </message>
     <message>
       <source>Bot chat</source>
@@ -10304,11 +10304,11 @@
     </message>
     <message>
       <source>Chat duration</source>
-      <translation>Trvanie rozhovoru</translation>
+      <translation>チャット中</translation>
     </message>
     <message>
       <source>Chat owner</source>
-      <translation>Držiteľ rozhovoru</translation>
+      <translation>チャットオーナー</translation>
     </message>
     <message>
       <source>Operator chats during this conversations.</source>
@@ -10348,7 +10348,7 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail:</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>First response time (agent)</source>
@@ -10380,11 +10380,11 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefón</translation>
+      <translation>電話番号</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Produkt</translation>
+      <translation>製品</translation>
     </message>
     <message>
       <source>Page from where visitor started a chat.</source>
@@ -10404,27 +10404,27 @@
     </message>
     <message>
       <source>Computer</source>
-      <translation>Počítač</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Smartphone</source>
-      <translation>Smartfón</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Tablet</source>
-      <translation>Tablet</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User left</source>
-      <translation>Používateľ odišiel</translation>
+      <translation>残数</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation>Časová zóna</translation>
+      <translation>タイムゾーン</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Návštevník</translation>
+      <translation>訪問者</translation>
     </message>
     <message>
       <source>Start a call</source>
@@ -10432,19 +10432,19 @@
     </message>
     <message>
       <source>Waited</source>
-      <translation>Čakal</translation>
+      <translation>待ち</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation>Súbory</translation>
+      <translation>ファイル</translation>
     </message>
     <message>
       <source>Could not detect. Make sure that GEO detection is enabled.</source>
-      <translation>Nemožno detekovať. Uistite sa, že je zapnutá GEO detekcia.</translation>
+      <translation>検出できない、GEO検出を有効化してください。</translation>
     </message>
     <message>
       <source>Map</source>
-      <translation>Mapa</translation>
+      <translation>マップ</translation>
     </message>
     <message>
       <source>No information</source>
@@ -10452,15 +10452,15 @@
     </message>
     <message>
       <source>Refresh</source>
-      <translation>Obnoviť</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>User browsing information</source>
-      <translation>Prezeranie informácií o používateľovi</translation>
+      <translation>ユーザーブラウジング情報</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation>Chaty</translation>
+      <translation>チャット</translation>
     </message>
     <message>
       <source>Chat notes</source>
@@ -10480,7 +10480,7 @@
     </message>
     <message>
       <source>Remarks</source>
-      <translation>Poznámky</translation>
+      <translation>リマーク</translation>
     </message>
     <message>
       <source>has notes</source>
@@ -10520,7 +10520,7 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation>Správy</translation>
+      <translation>メッセージ</translation>
     </message>
     <message>
       <source>Copied!</source>
@@ -10532,11 +10532,11 @@
     </message>
     <message>
       <source>Close dialog</source>
-      <translation>Zatvoriť dialógové okno</translation>
+      <translation>ダイアログを閉じる</translation>
     </message>
     <message>
       <source>Notes</source>
-      <translation>Poznámky</translation>
+      <translation>ノート</translation>
     </message>
     <message>
       <source>Invitation</source>
@@ -10548,7 +10548,7 @@
     </message>
     <message>
       <source>Select a canned message</source>
-      <translation>Vyberte pripravenú správu</translation>
+      <translation>定型メッセージ選択</translation>
     </message>
     <message>
       <source>BB Code</source>
@@ -10572,11 +10572,11 @@
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
-      <translation>Poslať oneskorenú pripravenú správu okamžite</translation>
+      <translation>簡易に定型メッセージを遅れ送信します</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Odoslať</translation>
+      <translation>送信</translation>
     </message>
     <message>
       <source>Styling options</source>
@@ -10588,7 +10588,7 @@
     </message>
     <message>
       <source>Created</source>
-      <translation>Vytvorené</translation>
+      <translation>作成された</translation>
     </message>
     <message>
       <source>Priority</source>
@@ -10620,7 +10620,7 @@
     </message>
     <message>
       <source>Please enter a URL</source>
-      <translation>Prosím, zadajte URL adresu </translation>
+      <translation>URLを入力してください</translation>
     </message>
     <message>
       <source>Please enter an URL!</source>
@@ -10640,7 +10640,7 @@
     </message>
     <message>
       <source>Redirect user to another url</source>
-      <translation>Presmerovať užívateľa na inú url</translation>
+      <translation>他のURLへユーザーをリダイレクトする</translation>
     </message>
     <message>
       <source>You do not have permission to close conversation</source>
@@ -10692,7 +10692,7 @@
     </message>
     <message>
       <source>Auto responder got error</source>
-      <translation>Auto odpovedač dostal chybu</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>did not accepted mail in time.</source>
@@ -10720,7 +10720,7 @@
     </message>
     <message>
       <source>has accepted the chat!</source>
-      <translation>prijal chat!</translation>
+      <translation>チャットへ許可されました</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -10752,11 +10752,11 @@
     </message>
     <message>
       <source>Form data not valid</source>
-      <translation>Údaje formuláru sú neplatné</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Has no access to this chat</source>
-      <translation>Nemá prístup k tomuto chatu</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>has modified a message.</source>
@@ -10787,19 +10787,19 @@
     <name>chat/getstatus</name>
     <message>
       <source>Close</source>
-      <translation>Zavrieť</translation>
+      <translation>閉じる</translation>
     </message>
     <message>
       <source>Allow operator to see your page content?</source>
-      <translation>Povoliť operátorovi zobrazenie obsahu vašej stránky?</translation>
+      <translation>ページコンテンツの閲覧をオペレータに許可するか？</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Otvoriť v novom okne</translation>
+      <translation>新規ウィンドウで開く</translation>
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation>Minimalizovať/Obnoviť</translation>
+      <translation>最小化／元に戻す</translation>
     </message>
     <message>
       <source>New messages</source>
@@ -10807,19 +10807,19 @@
     </message>
     <message>
       <source>Live Help</source>
-      <translation>Pomoc Live</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live help is online...</source>
-      <translation>Sme on-line, poradíme?</translation>
+      <translation>チャットはオンライン状態です</translation>
     </message>
     <message>
       <source>Live help is offline...</source>
-      <translation>Napíšte nám správu...</translation>
+      <translation>チャットはオフライン状態です</translation>
     </message>
     <message>
       <source>Need help?</source>
-      <translation>Potrebujete pomoc?</translation>
+      <translation>お困りですか？</translation>
     </message>
     <message>
       <source>Our staff are always ready to help!</source>
@@ -10827,65 +10827,65 @@
     </message>
     <message>
       <source>Screen shared, click to finish</source>
-      <translation>Obrazovka zdieľaná, kliknite pre ukončenie</translation>
+      <translation>画面シェア、終了をクリック</translation>
     </message>
   </context>
   <context>
     <name>questionary/htmlcode</name>
     <message>
       <source>Show overlay</source>
-      <translation>Zobraziť prekrytie</translation>
+      <translation>オーバーレイ表示</translation>
     </message>
     <message>
       <source>Show different offers for the same user</source>
-      <translation>Zobraziť rôzne ponuky pre toho istého používateľa</translation>
+      <translation>同じユーザーの異なるオファー表示</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the page header or footer</source>
-      <translation>Opíšte kód z textového poľa do hlavičky alebo päty</translation>
+      <translation>テキストエリアのコードを表示したいページのヘッダーまたはフッターにコピーします</translation>
     </message>
     <message>
       <source>Status text</source>
-      <translation>Stavový text</translation>
+      <translation>ステータステキスト</translation>
     </message>
     <message>
       <source>Expand the widget automatically for new users</source>
-      <translation>Rozbaliť widget automaticky pre nových užívateľov</translation>
+      <translation>新規ユーザー向けにウィジェットを自動的に拡張する</translation>
     </message>
     <message>
       <source>Copy the code from the text area to the footer, before the closing &amp;lt;/body&amp;gt; tag</source>
-      <translation>Skopírujte kód z textovej oblasti do päty pred uzatváracím &amp;lt;/body&amp;gt; tagom</translation>
+      <translation>&amp;lt;/body&amp;gt;タグを閉じる前にテキストエリアからのコードをフッターへコピーします</translation>
     </message>
     <message>
       <source>HTML code</source>
-      <translation>HTML kód</translation>
+      <translation>HTMLコード</translation>
     </message>
   </context>
   <context>
     <name>browseoffer/index</name>
     <message>
       <source>Browse offers</source>
-      <translation>Prezerať ponuky</translation>
+      <translation>オファー閲覧</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Všeobecné</translation>
+      <translation>一般</translation>
     </message>
     <message>
       <source>Browse your offers</source>
-      <translation>Prezerať vaše ponnuky</translation>
+      <translation>あなたのオファー閲覧</translation>
     </message>
     <message>
       <source>HTML Code</source>
-      <translation>HTML kód</translation>
+      <translation>HTMLコード</translation>
     </message>
     <message>
       <source>Forms</source>
-      <translation>Formuláre</translation>
+      <translation>フォーム</translation>
     </message>
     <message>
       <source>Form</source>
-      <translation>Formulár</translation>
+      <translation>フォーム</translation>
     </message>
   </context>
   <context>
@@ -10973,7 +10973,7 @@
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
-      <translation>Operátor ukončil tento rozhovor</translation>
+      <translation>サポートスタッフメンバーがこのチャットを終了しました</translation>
     </message>
     <message>
       <source>Read more</source>
@@ -10981,7 +10981,7 @@
     </message>
     <message>
       <source>Edit nick</source>
-      <translation>Uprav prezývku</translation>
+      <translation>ニックネーム編集</translation>
     </message>
     <message>
       <source>Previous conversation</source>
@@ -11045,11 +11045,11 @@
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
-      <translation>Chat bol automaticky presunutý do</translation>
+      <translation>チャットを自動的に転送</translation>
     </message>
     <message>
       <source>from</source>
-      <translation>z</translation>
+      <translation>から</translation>
     </message>
     <message>
       <source>Chat was closed by cron!</source>
@@ -11073,11 +11073,11 @@
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
-      <translation>Operátor zavrel okno chatu, ale môžete nám zanechať odkaz a administrátor si ho prečíta neskôr.</translation>
+      <translation>サポートはチャットウインドウを終了しましたが、メッセージを残すことができます。管理者は、後で読むことができます。</translation>
     </message>
     <message>
       <source>You do not have permission to view this chat, or the chat was deleted</source>
-      <translation>Nemáte povolenie na zobrazenie tohto chatu alebo chat bol odstránený</translation>
+      <translation>このチャットを見る権限がないか、チャットが削除されています</translation>
     </message>
   </context>
   <context>
@@ -11088,11 +11088,11 @@
     </message>
     <message>
       <source>Show/Hide right column</source>
-      <translation>Zobraziť/skryť pravý stĺpec</translation>
+      <translation>右カラムを表示／隠す</translation>
     </message>
     <message>
       <source>User is typing now...</source>
-      <translation>Užívateľ práve píše...</translation>
+      <translation>が入力しております</translation>
     </message>
     <message>
       <source>Write</source>
@@ -11136,7 +11136,7 @@
     </message>
     <message>
       <source>This chat was closed. You can not write messages anymore.</source>
-      <translation>Tento chat je zatvorený. Už nemôžete písať správy.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You can only read a messages.</source>
@@ -11156,23 +11156,23 @@
     </message>
     <message>
       <source>Pending</source>
-      <translation>Čakajúce</translation>
+      <translation>ペンディング</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktívny</translation>
+      <translation>アクティブ</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation>Zatvoriť</translation>
+      <translation>クローズ</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Chatbox chat</translation>
+      <translation>チャットボックスチャット</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Chat operátorov</translation>
+      <translation>オペレータチャット</translation>
     </message>
     <message>
       <source>Bot chat</source>
@@ -11180,11 +11180,11 @@
     </message>
     <message>
       <source>Change chat status</source>
-      <translation>Zmeniť stav chatu</translation>
+      <translation>チャットステータス変更</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Zrušiť</translation>
+      <translation>キャンセル</translation>
     </message>
     <message>
       <source>Type your message here...</source>
@@ -11192,11 +11192,11 @@
     </message>
     <message>
       <source>Close</source>
-      <translation>Zavrieť</translation>
+      <translation>クローズ</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Odoslať</translation>
+      <translation>送信</translation>
     </message>
     <message>
       <source>Decrease height</source>
@@ -11208,11 +11208,11 @@
     </message>
     <message>
       <source>This chat is closed.</source>
-      <translation>Tento rozhovor je ukončený.</translation>
+      <translation>このチャットはクローズされました。</translation>
     </message>
     <message>
       <source>Pending confirm</source>
-      <translation>Čaká sa na potvrdenie</translation>
+      <translation>ペンディング確認</translation>
     </message>
     <message>
       <source>Load more...</source>
@@ -11220,35 +11220,35 @@
     </message>
     <message>
       <source>Chatbox is disabled.</source>
-      <translation>Chatbox je zakázaný.</translation>
+      <translation>チャットボックスは無効です。</translation>
     </message>
     <message>
       <source>Invalid hash or auto creation is disabled</source>
-      <translation>Neplatný hash alebo je zakázané automatické vytváranie</translation>
+      <translation>無効なハッシュまたは自動作成が無効です。</translation>
     </message>
     <message>
       <source>Back to chat</source>
-      <translation>Naspäť na chat</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Switch to widget</source>
-      <translation>Prepnúť na widget</translation>
+      <translation>ウィジェットへ切替</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Návštevník</translation>
+      <translation>訪問者</translation>
     </message>
     <message>
       <source>Chat started</source>
-      <translation>Rozhovor začal</translation>
+      <translation>チャットが開始されました</translation>
     </message>
     <message>
       <source>is typing now...</source>
-      <translation>práve píše...</translation>
+      <translation>が入力しております</translation>
     </message>
     <message>
       <source>Operator is typing now...</source>
-      <translation>Operátor práve píše...</translation>
+      <translation>オペレーターが入力しております</translation>
     </message>
     <message>
       <source>You have closed this chat!</source>
@@ -11263,31 +11263,31 @@
     <name>files/files</name>
     <message>
       <source>Not an accepted file type</source>
-      <translation>Typ súboru nie je prijatý</translation>
+      <translation>許可されていないファイルタイプ</translation>
     </message>
     <message>
       <source>Filesize is too big</source>
-      <translation>Súbor je príliš veľký</translation>
+      <translation>ファイルサイズが大きすぎます</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation>Obnoviť</translation>
+      <translation>リフレッシュ</translation>
     </message>
     <message>
       <source>Delete file</source>
-      <translation>Zmazať súbor</translation>
+      <translation>ファイル削除</translation>
     </message>
     <message>
       <source>Sent by Customer</source>
-      <translation>Odoslané zákazníkom</translation>
+      <translation>顧客によって送信</translation>
     </message>
     <message>
       <source>Sent by Operator</source>
-      <translation>Odoslané operátorom</translation>
+      <translation>オペレータによって送信</translation>
     </message>
     <message>
       <source>Drop your files here.</source>
-      <translation>Pustite súbory sem.</translation>
+      <translation>ファイルをここにドロップ</translation>
     </message>
   </context>
   <context>
@@ -11452,7 +11452,7 @@
     <name>chat/blockedusers</name>
     <message>
       <source>IP</source>
-      <translation>IP</translation>
+      <translation>IPアドレス</translation>
     </message>
     <message>
       <source>Block ID</source>
@@ -11524,11 +11524,11 @@
     </message>
     <message>
       <source>Remove block</source>
-      <translation>Povoliť používateľa</translation>
+      <translation>ブロックを削除</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Prázdne...</translation>
+      <translation>空です...</translation>
     </message>
     <message>
       <source>Nick/Email</source>
@@ -11576,7 +11576,7 @@
     </message>
     <message>
       <source>Blocked users</source>
-      <translation>Zablokovaní užívatelia</translation>
+      <translation>ブロックされたユーザー</translation>
     </message>
     <message>
       <source>Block sender</source>
@@ -11584,7 +11584,7 @@
     </message>
     <message>
       <source>Please enter an IP to block</source>
-      <translation>Zadajte IP adresy, ktoré budú blokované</translation>
+      <translation>ブロックするIPアドレスを入力してください</translation>
     </message>
     <message>
       <source>This IP can not be blocked!</source>
@@ -11592,7 +11592,7 @@
     </message>
     <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
-      <translation>Zablokovanie užívateľa sa nepodarilo, možno nemáte oprávnenie zablokovať užívateľov?</translation>
+      <translation>ユーザーブロックに失敗しました、ユーザーをブロックする権限がありますか？</translation>
     </message>
     <message>
       <source>Please choose a block type!</source>
@@ -11643,7 +11643,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>Updated!</source>
@@ -11655,7 +11655,7 @@
     </message>
     <message>
       <source>Updated</source>
-      <translation>Aktualizované</translation>
+      <translation>更新された</translation>
     </message>
     <message>
       <source>General</source>
@@ -11667,7 +11667,7 @@
     </message>
     <message>
       <source>Delete</source>
-      <translation>Vymazať</translation>
+      <translation>削除</translation>
     </message>
     <message>
       <source>Hide bot profile while chat is in bot mode</source>
@@ -11723,7 +11723,7 @@
     </message>
     <message>
       <source>Update</source>
-      <translation>Aktualizovať</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>What languages you speak?</source>
@@ -11735,31 +11735,31 @@
     </message>
     <message>
       <source>Updating...</source>
-      <translation>Aktualizuje sa...</translation>
+      <translation>更新しています...</translation>
     </message>
     <message>
       <source>Logged user</source>
-      <translation>Prihlásený užívateľ</translation>
+      <translation>記録されたユーザー</translation>
     </message>
     <message>
       <source>Account data</source>
-      <translation>Údaje o účte</translation>
+      <translation>アカウントデータ</translation>
     </message>
     <message>
       <source>Assigned departments</source>
-      <translation>Pridelené oddelenia</translation>
+      <translation>アサインされた部署</translation>
     </message>
     <message>
       <source>Visible lists</source>
-      <translation>Viditeľné zoznamy</translation>
+      <translation>可視リスト</translation>
     </message>
     <message>
       <source>Speech</source>
-      <translation>Reč</translation>
+      <translation>スピーチ</translation>
     </message>
     <message>
       <source>Permissions</source>
-      <translation>Povolenia</translation>
+      <translation>権限</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -11767,35 +11767,35 @@
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
-      <translation>Nezadávajte heslo, pokiaľ si ho neželáte zmeniť</translation>
+      <translation>パスワードを変更しない場合は、パスワードを入力しないでください</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Užívateľské meno</translation>
+      <translation>ユーザー名</translation>
     </message>
     <message>
       <source>Your username</source>
-      <translation>Vaše prihlasovacie meno</translation>
+      <translation>あなたのユーザー名</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Heslo</translation>
+      <translation>パスワード</translation>
     </message>
     <message>
       <source>Enter a new password</source>
-      <translation>Zadajte nové heslo</translation>
+      <translation>新規パスワード入力</translation>
     </message>
     <message>
       <source>Repeat password</source>
-      <translation>Opakujte heslo</translation>
+      <translation>パスワード再入力</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Opakujte nové heslo</translation>
+      <translation>新規パスワード再入力</translation>
     </message>
     <message>
       <source>Email</source>
-      <translation>Email</translation>
+      <translation>メールアドレス</translation>
     </message>
     <message>
       <source>Your email address</source>
@@ -11803,19 +11803,19 @@
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation>Prezývka chatu</translation>
+      <translation>チャットニックネーム</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Priezvisko</translation>
+      <translation>姓（ローマ字）</translation>
     </message>
     <message>
       <source>Job title</source>
-      <translation>Názov práce</translation>
+      <translation>役職</translation>
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation>Dostávam žiadosti o oprávnenie od iných operátorov</translation>
+      <translation>他のオペレータの許可リクエストを受け取ります</translation>
     </message>
     <message>
       <source>Skype</source>
@@ -11823,15 +11823,15 @@
     </message>
     <message>
       <source>XMPP username</source>
-      <translation>XMPP používateľské meno</translation>
+      <translation>XMPPユーザー名</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Foto</translation>
+      <translation>写真</translation>
     </message>
     <message>
       <source>Return</source>
-      <translation>Návrat</translation>
+      <translation>戻る</translation>
     </message>
     <message>
       <source>Pending chats list enabled</source>
@@ -11855,7 +11855,7 @@
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
-      <translation>Môžem vidieť všetky čakajúce chaty, nie iba priradené mne</translation>
+      <translation>全ての保留チャットを見ることができるが、私にアサインできない</translation>
     </message>
     <message>
       <source>Automatically accept assigned chats</source>
@@ -11923,11 +11923,11 @@
     </message>
     <message>
       <source>Show permissions</source>
-      <translation>Zobraziť oprávnenia</translation>
+      <translation>権限表示</translation>
     </message>
     <message>
       <source>Account updated</source>
-      <translation>Účet bol aktualizovaný</translation>
+      <translation>アカウントが更新されました</translation>
     </message>
     <message>
       <source>Account update failed! Please try again!</source>
@@ -11935,7 +11935,7 @@
     </message>
     <message>
       <source>All departments</source>
-      <translation>Všetky oddelenia</translation>
+      <translation>全ての部署</translation>
     </message>
     <message>
       <source>You cannot make changes because this user account is disabled!</source>
@@ -11943,7 +11943,7 @@
     </message>
     <message>
       <source>Individual departments</source>
-      <translation>Individuálne oddelena</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New</source>
@@ -12015,7 +12015,7 @@
     </message>
     <message>
       <source>Departments groups</source>
-      <translation>Skupiny oddelení</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Are you sure you want to remove this department group assignment?</source>
@@ -12027,7 +12027,7 @@
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation>Stav četu sa nezmení pri otvorení čakajúceho chatu</translation>
+      <translation>チャットステータスは保留中のチャット開放時変更されることはありません</translation>
     </message>
     <message>
       <source>Assign in read only mode</source>
@@ -12087,7 +12087,7 @@
     </message>
     <message>
       <source>Notifications</source>
-      <translation>Notifikácie</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Actions</source>
@@ -12095,11 +12095,11 @@
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation>Používateľ dostáva žiadosti pre oprávnenia od iných operátorov</translation>
+      <translation>ユーザーが他のオペレータ許可リクエストを受け取ります</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
-      <translation>Používateľ môže vidieť všetky čakajúce chaty, nie iba priradené jemu</translation>
+      <translation>ユーザーは全ての保留チャットを見ることができるが、彼にはアサインはできない</translation>
     </message>
     <message>
       <source>Exclude from auto assign workflow</source>
@@ -12131,7 +12131,7 @@
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation>Vlastné predpripravené správy</translation>
+      <translation>個人定型メッセージ</translation>
     </message>
     <message>
       <source>Hide quick notifications</source>
@@ -12186,7 +12186,7 @@
     </message>
     <message>
       <source>Choose what widgets you want to see</source>
-      <translation>Vyberte si widgety, ktoré chcete vidieť</translation>
+      <translation>表示させるウィジェットを選択</translation>
     </message>
     <message>
       <source>Widgets</source>
@@ -12210,7 +12210,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Nastavenie aktualizácie</translation>
+      <translation>設定が更新されました</translation>
     </message>
     <message>
       <source>Send mass invitation message</source>
@@ -12258,27 +12258,27 @@
     </message>
     <message>
       <source>Online operators</source>
-      <translation>Online operátorov</translation>
+      <translation>オンラインオペレータ</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktívne chaty</translation>
+      <translation>アクティブチャット</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Online návštevníci</translation>
+      <translation>オンライン訪問者</translation>
     </message>
     <message>
       <source>Departments stats</source>
-      <translation>Štatistiky oddelení</translation>
+      <translation>部署統計</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Čakajúce chaty</translation>
+      <translation>保留チャット</translation>
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation>Presunuté chaty</translation>
+      <translation>転送チャット</translation>
     </message>
     <message>
       <source>Ongoing trigger alerts</source>
@@ -12290,7 +12290,7 @@
     </message>
     <message>
       <source>Unread chats</source>
-      <translation>Neprečítané chaty</translation>
+      <translation>未読チャット</translation>
     </message>
     <message>
       <source>My active and pending chats</source>
@@ -12341,19 +12341,19 @@
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Prázdne...</translation>
+      <translation>空です...</translation>
     </message>
     <message>
       <source>collapse/expand</source>
-      <translation>zbaliť/rozbaliť</translation>
+      <translation>縮小／拡大</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktívne chaty</translation>
+      <translation>アクティブチャット</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Ukončené rozhovory</translation>
+      <translation>閉じたチャット</translation>
     </message>
     <message>
       <source>My active and pending chats</source>
@@ -12361,23 +12361,23 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Čakajúce rozhovory</translation>
+      <translation>チャット保留</translation>
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Neprečítané správy</translation>
+      <translation>未読メッセージ</translation>
     </message>
     <message>
       <source>Chats transferred to you directly</source>
-      <translation>Chaty presunuté priamo na teba</translation>
+      <translation>チャットが直接転送されました</translation>
     </message>
     <message>
       <source>Transferred to your department</source>
-      <translation>Presunuté do tvojho oddelenia</translation>
+      <translation>あなたの部署へ転送されました</translation>
     </message>
     <message>
       <source>Home</source>
-      <translation>Domov</translation>
+      <translation>ホーム</translation>
     </message>
     <message>
       <source>Active mails</source>
@@ -12385,7 +12385,7 @@
     </message>
     <message>
       <source>Download XLS</source>
-      <translation>Stiahnuť XLS</translation>
+      <translation>XLSダウンロード</translation>
     </message>
     <message>
       <source>Hard limit</source>
@@ -12421,7 +12421,7 @@
     </message>
     <message>
       <source>Number of elements in list</source>
-      <translation>Počet položiek v zozname</translation>
+      <translation>リストの要素の数</translation>
     </message>
     <message>
       <source>Alarm mails</source>
@@ -12429,7 +12429,7 @@
     </message>
     <message>
       <source>All departments</source>
-      <translation>Všetky oddelenia</translation>
+      <translation>全ての部署</translation>
     </message>
     <message>
       <source>departments</source>
@@ -12437,19 +12437,19 @@
     </message>
     <message>
       <source>Check all</source>
-      <translation>Označiť všetky</translation>
+      <translation>全てチェック</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation>Iba online</translation>
+      <translation>オンラインのみ</translation>
     </message>
     <message>
       <source>Only explicit online</source>
-      <translation>Iba explicitne online</translation>
+      <translation>明示的なオンラインのみ</translation>
     </message>
     <message>
       <source>Hide hidden</source>
-      <translation>Skryť skryté</translation>
+      <translation>非表示を隠す</translation>
     </message>
     <message>
       <source>Hide departments</source>
@@ -12461,7 +12461,7 @@
     </message>
     <message>
       <source>Hide disabled</source>
-      <translation>Skryť zakázané</translation>
+      <translation>非表示を無効</translation>
     </message>
     <message>
       <source>Department group</source>
@@ -12469,7 +12469,7 @@
     </message>
     <message>
       <source>Department</source>
-      <translation>Oddelenie</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>Users</source>
@@ -12501,7 +12501,7 @@
     </message>
     <message>
       <source>Departments stats</source>
-      <translation>Štatistiky oddelení</translation>
+      <translation>部署統計</translation>
     </message>
     <message>
       <source>My active and new mails</source>
@@ -12509,11 +12509,11 @@
     </message>
     <message>
       <source>Online operators</source>
-      <translation>Online operátorov</translation>
+      <translation>オンラインオペレータ</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation>Online návštevníci</translation>
+      <translation>オンライン訪問者</translation>
     </message>
     <message>
       <source>Ongoing trigger alerts!</source>
@@ -12521,7 +12521,7 @@
     </message>
     <message>
       <source>Transferred chats</source>
-      <translation>Prenesené chaty</translation>
+      <translation>転送チャット</translation>
     </message>
     <message>
       <source>Inline</source>
@@ -12569,7 +12569,7 @@
     </message>
     <message>
       <source>Clean cache</source>
-      <translation>Vyčistiť cache</translation>
+      <translation>キャッシュクリア</translation>
     </message>
     <message>
       <source>Offline</source>
@@ -12581,15 +12581,15 @@
     </message>
     <message>
       <source>Modules</source>
-      <translation>Moduly</translation>
+      <translation>モジュール</translation>
     </message>
     <message>
       <source>Browse offers</source>
-      <translation>Prezerať ponuky</translation>
+      <translation>オファー閲覧</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>チャットボックス</translation>
     </message>
     <message>
       <source>FAQ</source>
@@ -12597,11 +12597,11 @@
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Dotazník</translation>
+      <translation>質問</translation>
     </message>
     <message>
       <source>New chat request</source>
-      <translation>Nová žiadosť o chat</translation>
+      <translation>新規チャットリクエスト</translation>
     </message>
     <message>
       <source>New chat has been transferred to you directly!</source>
@@ -12649,11 +12649,11 @@
     </message>
     <message>
       <source>Dashboard</source>
-      <translation>Hlavná stránka</translation>
+      <translation>ダッシュボード</translation>
     </message>
     <message>
       <source>Settings</source>
-      <translation>Nastavenia</translation>
+      <translation>設定</translation>
     </message>
     <message>
       <source>Hide/Show chats toolbar</source>
@@ -12661,15 +12661,15 @@
     </message>
     <message>
       <source>This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.</source>
-      <translation>Toto okno bude automaticky obnovené o {{lhc.lhcVersionCounter}} sekúnd z dôvodu aktualizácie verzie.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You have weak internet connection or the server has problems. Try to refresh the  page. Error code {{lhc.lhcConnectivityProblemExplain}}</source>
-      <translation>Vaše internetové spojenie so serverom má problémy. Skúste obnoviť stránku. Error kód {{lhc.lhcConnectivityProblemExplain}}</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You went offline because of inactivity. Please close other chat windows if you have any</source>
-      <translation>Boli ste odpojení pre nečinnosť. Prosím zavrite ostatné okná rozhovorov ak nejaké máte stále otvorené.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>in chat</source>
@@ -12685,7 +12685,7 @@
     </message>
     <message>
       <source>Chat tabs</source>
-      <translation>Karty chatu</translation>
+      <translation>チャットタブ</translation>
     </message>
     <message>
       <source>Chats List</source>
@@ -12709,7 +12709,7 @@
     </message>
     <message>
       <source>Account</source>
-      <translation>Účet</translation>
+      <translation>アカウント</translation>
     </message>
     <message>
       <source>Dark/bright</source>
@@ -12717,7 +12717,7 @@
     </message>
     <message>
       <source>Logout</source>
-      <translation>Odhlásenie</translation>
+      <translation>ログアウト</translation>
     </message>
     <message>
       <source>New messages</source>
@@ -12805,7 +12805,7 @@
     </message>
     <message>
       <source>All items will appear here</source>
-      <translation>Tu sa zobrazia všetky položky</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total operators active in backend (last 10 min). (Number) is count of those also in online status.</source>
@@ -12832,43 +12832,43 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Otvoriť v novom okne</translation>
+      <translation>新規ウィンドウで開く</translation>
     </message>
     <message>
       <source>No previous chats</source>
-      <translation>Žiadne predchádzajúce chaty</translation>
+      <translation>以前のチャットがありません</translation>
     </message>
     <message>
       <source>h.</source>
-      <translation>h.</translation>
+      <translation>時間</translation>
     </message>
     <message>
       <source>m.</source>
-      <translation>m.</translation>
+      <translation>分</translation>
     </message>
     <message>
       <source>s.</source>
-      <translation>s.</translation>
+      <translation>秒</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation>pred</translation>
+      <translation>以前</translation>
     </message>
     <message>
       <source>Nothing found</source>
-      <translation>Nič nebolo nájdené</translation>
+      <translation>何も見つかりません</translation>
     </message>
     <message>
       <source>Accept chat</source>
-      <translation>Prijať chat</translation>
+      <translation>チャット承認</translation>
     </message>
     <message>
       <source>Add chat</source>
-      <translation>Pridať rozhovor</translation>
+      <translation>チャット追加</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Prázdne...</translation>
+      <translation>空です...</translation>
     </message>
     <message>
       <source>See assigned departments statistic</source>
@@ -12876,7 +12876,7 @@
     </message>
     <message>
       <source>Configure dashboard</source>
-      <translation>Konfigurácia palubnej dosky</translation>
+      <translation>ダッシュボード設定</translation>
     </message>
     <message>
       <source>Active mail conversations will appear here.</source>
@@ -12892,7 +12892,7 @@
     </message>
     <message>
       <source>Visitor</source>
-      <translation>Navštevník</translation>
+      <translation>訪問者</translation>
     </message>
     <message>
       <source>Sort by visitor nick</source>
@@ -12940,15 +12940,15 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation>Operátor</translation>
+      <translation>オペレータ</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Oddelenie</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation>Doba čakania</translation>
+      <translation>いつ</translation>
     </message>
     <message>
       <source>Offline request</source>
@@ -13036,11 +13036,11 @@
     </message>
     <message>
       <source>Last activity ago</source>
-      <translation>Posledná aktivita pred</translation>
+      <translation>最新アクティビティ</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Aktívne chaty</translation>
+      <translation>アクティブチャット</translation>
     </message>
     <message>
       <source>Sort by active chats number</source>
@@ -13048,7 +13048,7 @@
     </message>
     <message>
       <source>Start chat</source>
-      <translation>Začať chat</translation>
+      <translation>チャットをスタート</translation>
     </message>
     <message>
       <source>Change operator status</source>
@@ -13080,15 +13080,15 @@
     </message>
     <message>
       <source>Sort</source>
-      <translation>Zoradiť</translation>
+      <translation>順序</translation>
     </message>
     <message>
       <source>Redirect user to contact form.</source>
-      <translation>Presmerovať užívateľa na kontaktný formulár</translation>
+      <translation>ユーザーを問い合わせフォームへリダイレクト</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation>Ste si istí?</translation>
+      <translation>本当によろしいですか？</translation>
     </message>
     <message>
       <source>Time since last message</source>
@@ -13100,7 +13100,7 @@
     </message>
     <message>
       <source>Time ago</source>
-      <translation>Pred časom</translation>
+      <translation>以前の日時</translation>
     </message>
     <message>
       <source>Department group</source>
@@ -13108,7 +13108,7 @@
     </message>
     <message>
       <source>Pending chats</source>
-      <translation>Čakajúce chaty</translation>
+      <translation>チャット保留</translation>
     </message>
     <message>
       <source>Bot chats</source>
@@ -13140,7 +13140,7 @@
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Vymazať chat</translation>
+      <translation>チャット削除</translation>
     </message>
     <message>
       <source>All new mails will appear here.</source>
@@ -13148,7 +13148,7 @@
     </message>
     <message>
       <source>Created</source>
-      <translation>Vytvorené</translation>
+      <translation>作成日時</translation>
     </message>
     <message>
       <source>Transferred chats to you will appear here.</source>
@@ -13156,7 +13156,7 @@
     </message>
     <message>
       <source>Transfer time</source>
-      <translation>Čas prenosu</translation>
+      <translation>転送日時</translation>
     </message>
     <message>
       <source>Transferred chats to your department will appear here.</source>
@@ -13247,27 +13247,27 @@
     <name>chat/translation</name>
     <message>
       <source>Visitor language</source>
-      <translation>Jazyk návštevníka</translation>
+      <translation>訪問者言語</translation>
     </message>
     <message>
       <source>My language</source>
-      <translation>Môj jazyk</translation>
+      <translation>自分の言語</translation>
     </message>
     <message>
       <source>Auto translate</source>
-      <translation>Auto preklad</translation>
+      <translation>自動翻訳</translation>
     </message>
     <message>
       <source>Translating</source>
-      <translation>Prekladanie</translation>
+      <translation>音訳</translation>
     </message>
     <message>
       <source>Automatically detected</source>
-      <translation>Automaticky zistené</translation>
+      <translation>自動検出</translation>
     </message>
     <message>
       <source>Automatic translation</source>
-      <translation>Automatický preklad</translation>
+      <translation>自動翻訳</translation>
     </message>
     <message>
       <source>Translate operator message to visitor language</source>
@@ -13291,27 +13291,27 @@
     </message>
     <message>
       <source>Translation settings</source>
-      <translation>Nastavenie prekladu</translation>
+      <translation>翻訳設定</translation>
     </message>
     <message>
       <source>Enter text for testing purposes</source>
-      <translation>Zadajte text pre testovanie</translation>
+      <translation>テスト目的でテキスト入力</translation>
     </message>
     <message>
       <source>Translated text</source>
-      <translation>Preložený text</translation>
+      <translation>テキスト翻訳</translation>
     </message>
     <message>
       <source>Detected language</source>
-      <translation>Zistený jazyk</translation>
+      <translation>言語検出</translation>
     </message>
     <message>
       <source>Detect language</source>
-      <translation>Rozpoznaj jazyk</translation>
+      <translation>言語検出</translation>
     </message>
     <message>
       <source>Translate</source>
-      <translation>Prelož</translation>
+      <translation>翻訳</translation>
     </message>
     <message>
       <source>Enable translation response cache</source>
@@ -13327,7 +13327,7 @@
     </message>
     <message>
       <source>Enable translation service</source>
-      <translation>Povoliť službu prekladania</translation>
+      <translation>翻訳サービス有効化</translation>
     </message>
     <message>
       <source>Bing</source>
@@ -13351,7 +13351,7 @@
     </message>
     <message>
       <source>Use Bing service</source>
-      <translation>Použi službu Bing</translation>
+      <translation>Bingサービス使用</translation>
     </message>
     <message>
       <source>Select Region</source>
@@ -13359,19 +13359,19 @@
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
-      <translation>Bing klient tajna fráza, kľúč sa nezobrazuje z bezpečnostných dôvodov</translation>
+      <translation>Bingクライアントシークレット、キーはセキュリティ目的の為に表示することはありません</translation>
     </message>
     <message>
       <source>Bing access token expires</source>
-      <translation>Bing prístupový token vyprší</translation>
+      <translation>Bingアクセスのトークン期限切れ</translation>
     </message>
     <message>
       <source>Use Google service</source>
-      <translation>Použi služby Google</translation>
+      <translation>Googleサービス利用</translation>
     </message>
     <message>
       <source>API key, key is never shown for security purposes</source>
-      <translation>API kľúč, kľúč sa nikdy nezobrazuje z bezpečnostných dôvodov</translation>
+      <translation>APIキー、キーはセキュリティ目的の為に表示することはありません</translation>
     </message>
     <message>
       <source>Set referrer, usefull if want to limit calls to specific referrer.</source>
@@ -13403,11 +13403,11 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Nastavenie aktualizácie</translation>
+      <translation>設定が更新されました</translation>
     </message>
     <message>
       <source>Missing text to translate</source>
-      <translation>Chýbajúci text na preklad</translation>
+      <translation>翻訳すべきテキストがありません</translation>
     </message>
     <message>
       <source>Missing translate region</source>
@@ -13415,11 +13415,11 @@
     </message>
     <message>
       <source>Could not detect a language</source>
-      <translation>Nepodarilo sa zistiť jazyk</translation>
+      <translation>言語を検出できません</translation>
     </message>
     <message>
       <source>Could not translate</source>
-      <translation>Nemožno preložiť</translation>
+      <translation>翻訳できません</translation>
     </message>
     <message>
       <source>Missing DeepL API key</source>
@@ -13427,7 +13427,7 @@
     </message>
     <message>
       <source>Could not detect language</source>
-      <translation>Nepodarilo sa zistiť jazyk</translation>
+      <translation>言語を検出できません</translation>
     </message>
     <message>
       <source>We could not detect operator language</source>
@@ -13451,7 +13451,7 @@
     </message>
     <message>
       <source>Translation configuration</source>
-      <translation>Konfiguráciu prekladača</translation>
+      <translation>翻訳設定</translation>
     </message>
     <message>
       <source>Settings has been saved</source>
@@ -13518,7 +13518,7 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Zrušiť</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Stop sharing your screen</source>
@@ -13609,27 +13609,27 @@
     <name>chat/screenshot</name>
     <message>
       <source>Take user screenshot</source>
-      <translation>Spraviť screenshot užívateľa</translation>
+      <translation>ユーザーのスクリーンショットを取得</translation>
     </message>
     <message>
       <source>Refresh</source>
-      <translation>Obnoviť</translation>
+      <translation>リフレッシュ</translation>
     </message>
     <message>
       <source>Taken</source>
-      <translation>Taken</translation>
+      <translation>取得</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Prázdny...</translation>
+      <translation>空です...</translation>
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>Možno je screenshot na ceste, alebo nie je v prehliadači klienta podporovaný. Kliknite na tlačidlo obnoviť pre screenshot.</translation>
+      <translation>おそらく、スクリーンショットが進行中であるかのスクリーンショットは、クライアントのブラウザでサポートされていません。スクリーンショットを確認するためにリフレッシュをクリックしてください</translation>
     </message>
     <message>
       <source>Screenshot</source>
-      <translation>Screenshot</translation>
+      <translation>スクリーンショット</translation>
     </message>
     <message>
       <source>Redirect to URL</source>
@@ -13637,7 +13637,7 @@
     </message>
     <message>
       <source>Screenshot store error</source>
-      <translation>Error pri ukladaní screenshotu</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screenshot ready...</source>
@@ -13843,11 +13843,11 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation>Áno</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>No</source>
-      <translation>Nie</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
@@ -14142,11 +14142,11 @@
     <name>front/default</name>
     <message>
       <source>Pending confirm</source>
-      <translation>Čaká sa na potvrdenie</translation>
+      <translation>確認保留</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation>Prebiehajúce rozhovory</translation>
+      <translation>アクティブチャット</translation>
     </message>
     <message>
       <source>My active and pending chats</source>
@@ -14154,35 +14154,35 @@
     </message>
     <message>
       <source>Unread messages</source>
-      <translation>Neprečítané správy</translation>
+      <translation>未読メッセージ</translation>
     </message>
     <message>
       <source>All pending chats</source>
-      <translation>Všetky čakajúce rozhovory</translation>
+      <translation>全ての保留中チャット</translation>
     </message>
     <message>
       <source>All active chats</source>
-      <translation>Všetky prebiehajúce rozhovory</translation>
+      <translation>全てのアクティブチャット</translation>
     </message>
     <message>
       <source>All unread chats</source>
-      <translation>Všetky neprečítané rozhovory</translation>
+      <translation>全ての未読チャット</translation>
     </message>
     <message>
       <source>You do not have permission to use chattabschrome function</source>
-      <translation>Nemáte oprávnenie na použitie funkcie notifikácii v Chrome</translation>
+      <translation>チャットタブchrome機能の権限がありません</translation>
     </message>
     <message>
       <source>Please</source>
-      <translation>Prosím</translation>
+      <translation>どうか</translation>
     </message>
     <message>
       <source>login first.</source>
-      <translation>najprv sa prihláste.</translation>
+      <translation>最初にログイン</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation>Online operátori</translation>
+      <translation>オンラインオペレータ</translation>
     </message>
     <message>
       <source>Open last 10 my active chats</source>
@@ -14274,7 +14274,7 @@
     </message>
     <message>
       <source>Mail settings</source>
-      <translation>Nastavenie pošty</translation>
+      <translation>メール設定</translation>
     </message>
     <message>
       <source>SMTP</source>
@@ -14311,15 +14311,15 @@
     </message>
     <message>
       <source>A support staff member has closed this chat</source>
-      <translation>Operátor ukončil tento rozhovor</translation>
+      <translation>サポートスタッフメンバーがこのチャットを終了しました</translation>
     </message>
     <message>
       <source>A support staff member has joined this chat</source>
-      <translation>Operátor práve prišiel, hneď sa vám bude venovať</translation>
+      <translation>サポートスタッフメンバーがチャットに参加しました</translation>
     </message>
     <message>
       <source>At this moment there are no logged in support staff members, but you can leave your messages</source>
-      <translation>V tejto chvíli nie je prihlásený nikto z nášho personálu, no môžete nám zanechať správu</translation>
+      <translation>この時点では、ログインしたスタッフメンバーはいません、しかしメッセージを残すことができます</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
@@ -14331,11 +14331,11 @@
     </message>
     <message>
       <source>You are number</source>
-      <translation>Ste číslo</translation>
+      <translation>多数あります</translation>
     </message>
     <message>
       <source>in the queue. Please wait...</source>
-      <translation>v poradovníku. Prosím čakajte...</translation>
+      <translation>キュー処理、お待ち下さい...</translation>
     </message>
     <message>
       <source>Chat status if customer is chatting with a bot</source>
@@ -14347,11 +14347,11 @@
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages OR Less than a minute</source>
-      <translation type="unfinished"/>
+      <translation>まずは質問等を入力して頂いて、サポートスタッフをお待ちくださいませ。サポートスタッフがチャットの内容を確認しましたら、ご返事させて頂きます。</translation>
     </message>
     <message>
       <source>You are number {number} in the queue. Please wait... OR Average waiting time for attention is {avg_wait_time} minute{avg_wait_time__s}</source>
-      <translation type="unfinished"/>
+      <translation>あなたは現在、キューの{number}番目にいます。しばらく待ち下さい。平均待ち時間は、{avg_wait_time}分{avg_wait_time__s}秒です。</translation>
     </message>
     <message>
       <source>Thank you for your feedback</source>
@@ -14403,7 +14403,7 @@
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
-      <translation>Návštevník bol presmerovaný na kontaktný formulár</translation>
+      <translation>訪問者は問い合わせフォームへリダイレクトされました</translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form  [because of chat pending time]</source>
@@ -14418,7 +14418,7 @@
     </message>
     <message>
       <source>Skype call</source>
-      <translation>Skype volanie</translation>
+      <translation>Skypeコール</translation>
     </message>
     <message>
       <source>Switch To Human</source>
@@ -14429,35 +14429,35 @@
     <name>chat/user_settings</name>
     <message>
       <source>End the chat</source>
-      <translation>Ukončiť chat</translation>
+      <translation>チャットの終了</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
-      <translation>Povoliť/zakázať zvukové upozornenia na nové správy od operátora</translation>
+      <translation>オペレータからの新規メッセージのサウンド有効／無効</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation>Tlačiť</translation>
+      <translation>印刷</translation>
     </message>
     <message>
       <source>Send chat transcript to your e-mail</source>
-      <translation>Zaslať kópiu chatu na váš e-mail</translation>
+      <translation>チャットの写しをあなたのメールアドレスに送信します</translation>
     </message>
     <message>
       <source>Change my visibility to visible/invisible</source>
-      <translation>Zmeniť moju viditeľnosť na viditeľný/neviditeľný</translation>
+      <translation>表示状態の表示／非表示を変更</translation>
     </message>
     <message>
       <source>Change my status to online/offline</source>
-      <translation>Zmeniť môj status na online/offline</translation>
+      <translation>ステータスのオンライン／オフラインを変更</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from users</source>
-      <translation>Povoliť/zakázať zvuk o nových správach od užívateľov</translation>
+      <translation>ユーザーからの新規メッセージのサウンド有効／無効</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new pending chats</source>
-      <translation>Povoliť/zakázať zvukové upozornenia o nových čakajúcich rozhovoroch</translation>
+      <translation>チャット保留時のサウンド有効／無効</translation>
     </message>
     <message>
       <source>Download as txt</source>
@@ -14488,34 +14488,34 @@
     <name>chat/editchatconfig</name>
     <message>
       <source>Edit</source>
-      <translation>Upraviť</translation>
+      <translation>編集</translation>
     </message>
     <message>
       <source>Value in</source>
-      <translation>Hodnota v</translation>
+      <translation>値</translation>
     </message>
     <message>
       <source>site access</source>
-      <translation>prístup k stránke</translation>
+      <translation>サイトアクセス</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Aktualizovať</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Data updated</source>
-      <translation>Údaje aktualizované</translation>
+      <translation>データ更新</translation>
     </message>
   </context>
   <context>
     <name>chat/editnick</name>
     <message>
       <source>Your information</source>
-      <translation>Vaše informácie</translation>
+      <translation>情報</translation>
     </message>
     <message>
       <source>Updated!</source>
-      <translation>Aktualizované!</translation>
+      <translation>更新されました！</translation>
     </message>
   </context>
   <context>
@@ -14529,22 +14529,22 @@
     <name>chat/chatnotexists</name>
     <message>
       <source>Chat was deleted</source>
-      <translation>Rozhovor bol zmazaný</translation>
+      <translation>チャットは削除されました</translation>
     </message>
     <message>
       <source>Survey not exist please check embed code options</source>
-      <translation>Prieskum neexistuje, prosím skontrolujte nastavenia vloženého kódu</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Resume chat</source>
-      <translation>Pokračovať v rozhovore</translation>
+      <translation>チャット再開</translation>
     </message>
   </context>
   <context>
     <name>chat/errors/entertext</name>
     <message>
       <source>Please enter text!</source>
-      <translation>Prosím, napíšte text!</translation>
+      <translation>テキストを入力してください！</translation>
     </message>
   </context>
   <context>
@@ -14590,27 +14590,27 @@
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
-      <translation>Geo nastavenia aktívne</translation>
+      <translation>GEOをアクティブに調整</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Nastavenie aktualizácie</translation>
+      <translation>設定が更新されました</translation>
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation>Nastavenia XMPP</translation>
+      <translation>XMPP設定</translation>
     </message>
     <message>
       <source>XMPP active</source>
-      <translation>Aktívne XMPP</translation>
+      <translation>XMPPアクティブ</translation>
     </message>
     <message>
       <source>XMPP Message content</source>
-      <translation>Obsha XMPP správy</translation>
+      <translation>XMPPメッセージコンテンツ</translation>
     </message>
     <message>
       <source>XMPP Message about accepted chat</source>
-      <translation>XMPP správa o akceptovanom chate</translation>
+      <translation>許可されたチャットのXMPPメッセージ</translation>
     </message>
     <message>
       <source>XMPP</source>
@@ -14622,178 +14622,178 @@
     </message>
     <message>
       <source>Use standard XMPP service</source>
-      <translation>Použiť štandardnú XMPP službu</translation>
+      <translation>標準XMPPサービスを使用</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation>Host</translation>
+      <translation>ホスト名</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation>Port</translation>
+      <translation>ポート</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Prihlásenie</translation>
+      <translation>ログイン</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Heslo</translation>
+      <translation>パスワード</translation>
     </message>
     <message>
       <source>Resource</source>
-      <translation>Zdroje</translation>
+      <translation>リソース</translation>
     </message>
     <message>
       <source>Server</source>
-      <translation>Server</translation>
+      <translation>サーバ</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation>Príjemcovia</translation>
+      <translation>受信者</translation>
     </message>
     <message>
       <source>Default recipients</source>
-      <translation>Predvolení príjemcovia</translation>
+      <translation>既定の受信者</translation>
     </message>
     <message>
       <source>Test recipients</source>
-      <translation>Test príjemcov</translation>
+      <translation>テスト受信者</translation>
     </message>
     <message>
       <source>Individual recipients</source>
-      <translation>Jednotliví príjemcovia</translation>
+      <translation>個々の受信者</translation>
     </message>
     <message>
       <source>Test group recipients</source>
-      <translation>Príjemcovia testovacej skupiny</translation>
+      <translation>テストグループ受信者</translation>
     </message>
     <message>
       <source>Test message will be send to your account e-mail</source>
-      <translation>Testovacia správa bude odoslaná na e-mail vášho účtu</translation>
+      <translation>テストメッセージがあなたのメールアドレスに送信されました</translation>
     </message>
     <message>
       <source>Use GTalk for messaging</source>
-      <translation>Použiť službu GTalk pre správy</translation>
+      <translation>メッセージにGTalkを使用</translation>
     </message>
     <message>
       <source>Information for your google app</source>
-      <translation>Informácie pre vašu aplikáciu Google</translation>
+      <translation>あなたのgoogle app情報</translation>
     </message>
     <message>
       <source>Redirect URL, this url you will have to enter in your google app configuration</source>
-      <translation>Adresa URL presmerovania, túto URL musíte zadať do konfigurácie aplikácie Google</translation>
+      <translation>リダイレクトURL、このURLにはあなたのgoogle app設定を入力する必要があります</translation>
     </message>
     <message>
       <source>Enter your app information bellow</source>
-      <translation>Nižšie zadajte informácie o svojej aplikácii</translation>
+      <translation>以下のapp情報を入力します</translation>
     </message>
     <message>
       <source>OAuth 2.0 Client ID</source>
-      <translation>OAuth 2.0 ID Klienta</translation>
+      <translation>OAuth 2.0 Client ID</translation>
     </message>
     <message>
       <source>Please enter your Client ID</source>
-      <translation>Prosím zadajte ID vášho Klienta</translation>
+      <translation>Client IDを入力してください</translation>
     </message>
     <message>
       <source>Client secret</source>
-      <translation>Klientovo tajomstvo</translation>
+      <translation>Clientシークレット</translation>
     </message>
     <message>
       <source>Please enter to what gmail address test message should be send?</source>
-      <translation>Prosím zadajte, na akú gmail adresu má byť zaslaná tetsovacia správa?</translation>
+      <translation>テストメッセージを送信すべきgmailアドレスを入力してください</translation>
     </message>
     <message>
       <source>This message will be send to test e-mail</source>
-      <translation>Táto správa bude zaslaná na tetsovací e-mail</translation>
+      <translation>このメッセージがテストメールアドレスへ送信されました</translation>
     </message>
     <message>
       <source>Send test message</source>
-      <translation>Odoslať testovaciu správu</translation>
+      <translation>テストメッセージ送信</translation>
     </message>
     <message>
       <source>Revoke access token</source>
-      <translation>Zrušiť prístupový token</translation>
+      <translation>アクセストークン取消</translation>
     </message>
     <message>
       <source>Revoke permission to send a message</source>
-      <translation>Zrušiť povolenie na odoslanie správy</translation>
+      <translation>メッセージ送信権限取消</translation>
     </message>
     <message>
       <source>Authentificate and grant permission to send a message</source>
-      <translation>Autentifikovať a udeliť povolenie na odoslanie správy</translation>
+      <translation>認証とメッセージ送信権限の許可</translation>
     </message>
     <message>
       <source>Grant permission to send a message</source>
-      <translation>Pridať povolenie na odoslanie správy</translation>
+      <translation>メッセージ送信権限の許可</translation>
     </message>
     <message>
       <source>Succesfully authorised, now you can try to send a message</source>
-      <translation>Úspešne autorizované, teraz sa môžete pokúsiť odoslať správu</translation>
+      <translation>正常に認証されました、メッセージ送信試行できます</translation>
     </message>
     <message>
       <source>Token was revoked</source>
-      <translation>Token bol zrušený</translation>
+      <translation>トークンが取消されました</translation>
     </message>
     <message>
       <source>XMPP message was sent succesfuly</source>
-      <translation>XMPP správa bola úspešne odoslaná</translation>
+      <translation>XMPPメッセージが正常に送信されました</translation>
     </message>
     <message>
       <source>Invalid test e-mail address</source>
-      <translation>Neplatná testovacia e-mail adresa</translation>
+      <translation>無効なテストメールアドレス</translation>
     </message>
   </context>
   <context>
     <name>chat/geoadjustment</name>
     <message>
       <source>Apply to chat widget status indicator these rules also? performance decrease is associated with this option</source>
-      <translation>Použiť tieto pravidlá aj na widget indikátoru stavu? Zníženie výkonu je spojené s touto možnosťou</translation>
+      <translation>チャットウィジェットステータス表示板にこれらのルールを適用しますか？このオプションで関連したパフォーマンスが低下します</translation>
     </message>
     <message>
       <source>Make chat status normal for these countries, countries can be separated by comma &quot;de,gb,us,fr&quot; means chat would be shown as usual only for these countries.</source>
-      <translation>Nastavoiť status chatu na normálny, pre tieto krajiny, krajiny môžu byť oddelené čiarkou &quot;de,gb,us,fr&quot;. Znamená, že rozhovor sa bude zobrazovať ako zvyčajne iba v týchto krajinách.</translation>
+      <translation>カンマ区切り&quot;de,gb,us,fr&quot;で指定したこれらの国をチャットで表示し、チャットステータスの通常とします。</translation>
     </message>
     <message>
       <source>For</source>
-      <translation>Pre</translation>
+      <translation>のため</translation>
     </message>
     <message>
       <source>all</source>
-      <translation>Všetky</translation>
+      <translation>全て</translation>
     </message>
     <message>
       <source>custom</source>
-      <translation>vlastný</translation>
+      <translation>カスタム</translation>
     </message>
     <message>
       <source>E.g. ar,pl</source>
-      <translation>Napr. ar,pl</translation>
+      <translation>例．ar,pl</translation>
     </message>
     <message>
       <source>Other countries, put widget/chat status to</source>
-      <translation>Iné krajiny, kde vložiť widget/chat stav</translation>
+      <translation>ウィジェット／チャットステータスへ出力する他の国</translation>
     </message>
     <message>
       <source>offline status</source>
-      <translation>stav v režime offline</translation>
+      <translation>オフラインステータス</translation>
     </message>
     <message>
       <source>hidden/disabled, widget will not be shown</source>
-      <translation>skrytý/zakázaný, widget sa nezobrazí</translation>
+      <translation>ウィジェットを表示しない、非表示／無効化</translation>
     </message>
     <message>
       <source>For unmatched countries put chat status to</source>
-      <translation>Pre krajiny bez zhody, nastaviť stav chatu na</translation>
+      <translation>一致しない国をチャットステータスへ出力</translation>
     </message>
     <message>
       <source>normal status</source>
-      <translation>normálny stav</translation>
+      <translation>一般ステータス</translation>
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation>GEO nastavenia</translation>
+      <translation>GEO調整</translation>
     </message>
   </context>
   <context>
@@ -14816,11 +14816,11 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation>Príjemca e-mailu</translation>
+      <translation>受信者メールアドレス</translation>
     </message>
     <message>
       <source>Inform me then visitor returns</source>
@@ -14832,15 +14832,15 @@
     </message>
     <message>
       <source>Nick</source>
-      <translation>Prezývka</translation>
+      <translation>ニックネーム</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefón</translation>
+      <translation>電話番号</translation>
     </message>
     <message>
       <source>Update chat</source>
-      <translation>Aktualizovať chat</translation>
+      <translation>チャット更新</translation>
     </message>
     <message>
       <source>Unanswered chat</source>
@@ -14900,7 +14900,7 @@
     </message>
     <message>
       <source>Chat information was updated</source>
-      <translation>Chat informácie boli aktualizované</translation>
+      <translation>チャット情報が更新されました</translation>
     </message>
     <message>
       <source>Conversation</source>
@@ -14919,11 +14919,11 @@
     </message>
     <message>
       <source>Request notification permission</source>
-      <translation>Povolenia oznámení</translation>
+      <translation>リクエスト通知権限</translation>
     </message>
     <message>
       <source>Close button</source>
-      <translation>Tlačidlo Zavrieť</translation>
+      <translation>終了ボタン</translation>
     </message>
     <message>
       <source>Chat duration</source>
@@ -14931,7 +14931,7 @@
     </message>
     <message>
       <source>New chat notification settings</source>
-      <translation>Nastavenie oznámení o nových rozhovoroch</translation>
+      <translation>新規チャット通知設定</translation>
     </message>
     <message>
       <source>Supported: group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, bot_chats, my_chats</source>
@@ -14947,11 +14947,11 @@
     </message>
     <message>
       <source>Departments</source>
-      <translation>Oddelenia</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation>Skupiny oddelení</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Departments limit groups</source>
@@ -14979,15 +14979,15 @@
     </message>
     <message>
       <source>Time zone settings</source>
-      <translation>Nastavenie časovej zóny</translation>
+      <translation>タイムゾーン設定</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>E-mailové šablóny</translation>
+      <translation>メールテンプレート</translation>
     </message>
     <message>
       <source>GEO detection configuration</source>
-      <translation>Nastavenie GEO detekcie</translation>
+      <translation>GEO検出設定</translation>
     </message>
     <message>
       <source>Alert icons</source>
@@ -14995,7 +14995,7 @@
     </message>
     <message>
       <source>Chat archive</source>
-      <translation>Archív chatov</translation>
+      <translation>チャットアーカイブ</translation>
     </message>
     <message>
       <source>Audit Logs</source>
@@ -15015,7 +15015,7 @@
     </message>
     <message>
       <source>Auto responder</source>
-      <translation>Auto odpovedač</translation>
+      <translation>自動回答</translation>
     </message>
     <message>
       <source>BBCode configuration</source>
@@ -15027,7 +15027,7 @@
     </message>
     <message>
       <source>Blocked users</source>
-      <translation>Zablokovaní užívatelia</translation>
+      <translation>ブロックユーザー</translation>
     </message>
     <message>
       <source>Bot</source>
@@ -15059,11 +15059,11 @@
     </message>
     <message>
       <source>Browse offers embed code</source>
-      <translation>Prehľadávať ponuky embed kód</translation>
+      <translation>オファー閲覧の組込コード</translation>
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Pripravené správy</translation>
+      <translation>定型メッセージ</translation>
     </message>
     <message>
       <source>Canned messages suggester configuration</source>
@@ -15083,15 +15083,15 @@
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Nastavenie rozhovoru</translation>
+      <translation>チャット設定</translation>
     </message>
     <message>
       <source>Live help embed code</source>
-      <translation>Live help embed kód</translation>
+      <translation>Live help 組込コード</translation>
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Zoznam chatov</translation>
+      <translation>チャットリスト</translation>
     </message>
     <message>
       <source>Chat priority</source>
@@ -15103,19 +15103,19 @@
     </message>
     <message>
       <source>Chatbox embed code</source>
-      <translation>Chatbox embed kód</translation>
+      <translation>チャットボックス組込コード</translation>
     </message>
     <message>
       <source>Mail settings</source>
-      <translation>Nastavenie pošty</translation>
+      <translation>メール設定</translation>
     </message>
     <message>
       <source>FAQ embed code</source>
-      <translation>FAQ embed kód</translation>
+      <translation>FAQ組込コード</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation>Súbory</translation>
+      <translation>ファイル</translation>
     </message>
     <message>
       <source>Files configuration</source>
@@ -15131,7 +15131,7 @@
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation>GEO nastavenia</translation>
+      <translation>GEO調整</translation>
     </message>
     <message>
       <source>Group chat</source>
@@ -15151,7 +15151,7 @@
     </message>
     <message>
       <source>Languages configuration</source>
-      <translation>Nastavenie jazykov</translation>
+      <translation>言語設定</translation>
     </message>
     <message>
       <source>Visual settings for the visitor</source>
@@ -15159,15 +15159,15 @@
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Widget témy</translation>
+      <translation>ウィジェットテーマ</translation>
     </message>
     <message>
       <source>Import new themes</source>
-      <translation>Importovať nové témy</translation>
+      <translation>新規テーマインポート</translation>
     </message>
     <message>
       <source>Default theme</source>
-      <translation>Predvolená téma</translation>
+      <translation>既定のテーマ</translation>
     </message>
     <message>
       <source>Visual settings for the admin</source>
@@ -15175,11 +15175,11 @@
     </message>
     <message>
       <source>Admin themes</source>
-      <translation>Admin témy</translation>
+      <translation>管理者テーマ</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation>Predvolená admin téma</translation>
+      <translation>既定の管理者テーマ</translation>
     </message>
     <message>
       <source>Personal theme</source>
@@ -15187,7 +15187,7 @@
     </message>
     <message>
       <source>Maintenance</source>
-      <translation>Údržba</translation>
+      <translation>メンテナンス</translation>
     </message>
     <message>
       <source>Messages content protection</source>
@@ -15215,15 +15215,15 @@
     </message>
     <message>
       <source>Paid chat configuration</source>
-      <translation>Konfigurácia plateného chatu</translation>
+      <translation>チャット設定が行われました</translation>
     </message>
     <message>
       <source>Update information</source>
-      <translation>Informácie o aktualizácii</translation>
+      <translation>情報更新</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
-      <translation>Aktívne pozvánky k rozhovoru</translation>
+      <translation>積極的チャット招待</translation>
     </message>
     <message>
       <source>Pro active chat campaigns</source>
@@ -15239,11 +15239,11 @@
     </message>
     <message>
       <source>Product</source>
-      <translation>Produkt</translation>
+      <translation>製品</translation>
     </message>
     <message>
       <source>Questionary embed code</source>
-      <translation>Embed kód dotazníka</translation>
+      <translation>Questionary組込コード</translation>
     </message>
     <message>
       <source>Re-captcha settings</source>
@@ -15255,11 +15255,11 @@
     </message>
     <message>
       <source>Start chat form settings</source>
-      <translation>Nastavenia úvodného formulára rozhovoru</translation>
+      <translation>設定からチャット開始</translation>
     </message>
     <message>
       <source>Statistic</source>
-      <translation>Štatistika</translation>
+      <translation>統計</translation>
     </message>
     <message>
       <source>Subjects</source>
@@ -15267,11 +15267,11 @@
     </message>
     <message>
       <source>Surveys</source>
-      <translation>Prieskumy</translation>
+      <translation>アンケート</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Nastavenia synchronizácie a zvuku</translation>
+      <translation>同期と効果音設定</translation>
     </message>
     <message>
       <source>Chat transfer configuration</source>
@@ -15279,19 +15279,19 @@
     </message>
     <message>
       <source>Automatic translations</source>
-      <translation>Automatické preklady</translation>
+      <translation>自動翻訳</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Užívatelia</translation>
+      <translation>ユーザー</translation>
     </message>
     <message>
       <source>List of groups</source>
-      <translation>Zoznam skupín</translation>
+      <translation>グループリスト</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Zoznam rolí</translation>
+      <translation>ロールリスト</translation>
     </message>
     <message>
       <source>Permissions explorer</source>
@@ -15335,7 +15335,7 @@
     </message>
     <message>
       <source>XMPP settings</source>
-      <translation>XMPP nastavenia</translation>
+      <translation>XMPP設定</translation>
     </message>
     <message>
       <source>Mail conversation</source>
@@ -15343,23 +15343,23 @@
     </message>
     <message>
       <source>Speech</source>
-      <translation>Reč</translation>
+      <translation>スピーチ</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>Embed code</source>
-      <translation>Vložiť kód</translation>
+      <translation>組込コード</translation>
     </message>
     <message>
       <source>Live help configuration</source>
-      <translation>Konfigurácia Live help</translation>
+      <translation>Liveヘルプ設定</translation>
     </message>
     <message>
       <source>System</source>
-      <translation>Systém</translation>
+      <translation>システム</translation>
     </message>
     <message>
       <source>You can test notification by entering chat ID</source>
@@ -15375,23 +15375,23 @@
     </message>
     <message>
       <source>Show notification only if I am an owner pending chat</source>
-      <translation>Zobrazovať upozornenia iba v prípade, že som vlastník čakajúceho chatu</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You will stop receive notifications for pending chats if you are not an owner</source>
-      <translation>Prestanete dostávať upozornenia na čakajúce chaty ak nie ste vlastníkom</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show notifications if I am offline</source>
-      <translation>Zobraziť notifikácie ak som offline</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You will not receive notifications if you are not online</source>
-      <translation>Nebudete dostávať notifikácie ak nie ste online</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show alert for new chats</source>
-      <translation>Zobraziť upozornenie pre nové chaty</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show alerts for transferred chats</source>
@@ -15407,31 +15407,31 @@
     </message>
     <message>
       <source>Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.</source>
-      <translation>Sledovanie aktivity je nastavené na globálnej úrovni. Vaše nastavenia budú ignorované. Hodnota časového limitu sa bude naďalej preberať z nastavení vášho účtu.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Change my online/offline status based on my activity</source>
-      <translation>Meniť môj online/offline stav na základe mojej aktivity</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>After certain period of time if no actions are detected you will be marked as offline automatically</source>
-      <translation>Po určitom čase, ak nie sú zistené žiadne akcie, budete automaticky označený ako offline</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose timeout value</source>
-      <translation>Vyberte časový limit</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select after how long of inactivity you will be marked as offline automatically</source>
-      <translation>Vyberte po akom dlhom čase nečinnosti budete automaticky označený ako offline</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Use default system value</source>
-      <translation>Použite predvolenú hodnotu systému</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>minutes</source>
-      <translation>minúty</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -15491,11 +15491,11 @@
     </message>
     <message>
       <source>File configuration</source>
-      <translation>Konfigurácia súborov</translation>
+      <translation>ファイル設定</translation>
     </message>
     <message>
       <source>List of files</source>
-      <translation>Zoznam súborov</translation>
+      <translation>ファイルリスト</translation>
     </message>
     <message>
       <source>Edit file</source>
@@ -15503,18 +15503,18 @@
     </message>
     <message>
       <source>New file</source>
-      <translation>Nový súbor</translation>
+      <translation>新規ファイル</translation>
     </message>
   </context>
   <context>
     <name>chat/listchatconfig</name>
     <message>
       <source>Application name</source>
-      <translation>Názov aplikácie</translation>
+      <translation>アプリケーション名</translation>
     </message>
     <message>
       <source>Site settings</source>
-      <translation>Nastavenia stránok</translation>
+      <translation>サイト設定</translation>
     </message>
     <message>
       <source>New and old widget supported attribute</source>
@@ -15530,19 +15530,19 @@
     </message>
     <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
-      <translation>(Widget je otvorený) alebo (zatvorený a používateľ má aktivitu za posledných 5 minút a ping reaguje)</translation>
+      <translation>（ウィジェット開く）または（閉じてユーザーの最新5分のアクティビティとpingレスポンス）</translation>
     </message>
     <message>
       <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
-      <translation>(Widget je otvorený alebo zatvorený) a (používateľ má aktivitu za posledných 5 minút a ping reaguje)</translation>
+      <translation>(ウィジェットを開くまたは閉じる)と(ユーザーの最新5分のアクティビティとpingレスポンス)</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Aktualizovať</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Nastavenia aktualizované</translation>
+      <translation>設定が更新されました</translation>
     </message>
     <message>
       <source>Data protection</source>
@@ -15550,62 +15550,62 @@
     </message>
     <message>
       <source>Screen sharing</source>
-      <translation>Zdieľanie obrazovky</translation>
+      <translation>画面シェア</translation>
     </message>
     <message>
       <source>Notifications about new chats</source>
-      <translation>Oznámenia o nových rozhovoroch</translation>
+      <translation>新規チャットの通知</translation>
     </message>
     <message>
       <source>Copyright settings</source>
-      <translation>Nastavenia copyright-u</translation>
+      <translation>コピーライト設定</translation>
     </message>
     <message>
       <source>Online tracking</source>
-      <translation>Online sledovanie</translation>
+      <translation>オンライントラッキング</translation>
     </message>
     <message>
       <source>Misc</source>
-      <translation>Rôzne</translation>
+      <translation>その他</translation>
     </message>
     <message>
       <source>Visitor activity</source>
-      <translation>Aktivita návštevníkov</translation>
+      <translation>訪問者アクティビティ</translation>
     </message>
     <message>
       <source>Workflow</source>
-      <translation>Workflow</translation>
+      <translation>ワークフロー</translation>
     </message>
     <message>
       <source>Chat configuration</source>
-      <translation>Nastavenie rozhovoru</translation>
+      <translation>チャット設定</translation>
     </message>
     <message>
       <source>Online if</source>
-      <translation>Online ak</translation>
+      <translation>オンラインなら</translation>
     </message>
     <message>
       <source>Chat related</source>
-      <translation>Súvisiaci s chatom</translation>
+      <translation>関連チャット</translation>
     </message>
     <message>
       <source>Cookie related</source>
-      <translation>Súvisiaci s cookie</translation>
+      <translation>関連Cookie</translation>
     </message>
     <message>
       <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation>Toto určuje, či by mal zmeniť widget pre stav svoj stav po prihlásení operátora. Odporúčaná hodnota 290</translation>
+      <translation>ステータスウィジェットはオペレータのログイン後にそのステータスを変更する必要があります。推奨値290</translation>
     </message>
     <message>
       <source>List chat configuration</source>
-      <translation>Nastavenie zoznamu rozhovorov</translation>
+      <translation>チャット設定リスト</translation>
     </message>
   </context>
   <context>
     <name>chat/pendingchats</name>
     <message>
       <source>Information</source>
-      <translation>Informácie</translation>
+      <translation>情報</translation>
     </message>
     <message>
       <source>Operator</source>
@@ -15617,39 +15617,39 @@
     </message>
     <message>
       <source>Status</source>
-      <translation>Stav</translation>
+      <translation>ステータス</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Otvoriť v novom okne</translation>
+      <translation>新規ウィンドウで開く</translation>
     </message>
     <message>
       <source>Reject chat</source>
-      <translation>Odmietnuť rozhovor</translation>
+      <translation>チャット拒否</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Prázdne...</translation>
+      <translation>空です...</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation>Čakajúci chat</translation>
+      <translation>チャット保留</translation>
     </message>
     <message>
       <source>Active chat</source>
-      <translation>Aktívy chat</translation>
+      <translation>チャット開始</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation>Zatvorený chat</translation>
+      <translation>閉じられたチャット</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation>Chatbox chat</translation>
+      <translation>チャットボックスチャット</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation>Chat operátorov</translation>
+      <translation>オペレータチャット</translation>
     </message>
     <message>
       <source>Bot chat</source>
@@ -15657,7 +15657,7 @@
     </message>
     <message>
       <source>Chats list</source>
-      <translation>Zoznam rozhovorov</translation>
+      <translation>チャットリスト</translation>
     </message>
     <message>
       <source>Nick</source>
@@ -15700,11 +15700,11 @@
     <name>chat/activechats</name>
     <message>
       <source>Close chat</source>
-      <translation>Zavrieť rozhovor</translation>
+      <translation>チャット閉じる</translation>
     </message>
     <message>
       <source>Delete chat</source>
-      <translation>Zmazať rozhovor</translation>
+      <translation>チャット削除</translation>
     </message>
     <message>
       <source>Offline request</source>
@@ -15712,22 +15712,22 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation>Otvoriť v novom okne</translation>
+      <translation>新規ウィンドウで開く</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Prázdne...</translation>
+      <translation>空です...</translation>
     </message>
   </context>
   <context>
     <name>chat/closedchats</name>
     <message>
       <source>Delete chat</source>
-      <translation>Zmazať rozhovor</translation>
+      <translation>チャット削除</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Prázdne...</translation>
+      <translation>空です...</translation>
     </message>
   </context>
   <context>
@@ -15745,7 +15745,7 @@
     <name>chat/syncadmin</name>
     <message>
       <source>System assistant</source>
-      <translation>Systémový asistent</translation>
+      <translation>システムアシスタント</translation>
     </message>
     <message>
       <source>Scheduled for sent!</source>
@@ -15784,38 +15784,38 @@
     <name>chat/maintenance</name>
     <message>
       <source>Maintenance</source>
-      <translation>Údržba</translation>
+      <translation>メンテナンス</translation>
     </message>
     <message>
       <source>Automatic chats close, click to close old chats</source>
-      <translation>Automatické zatváranie chatov, kliknutím zatvoríte staré chaty</translation>
+      <translation>自動チャットクローズ、クリックすると古いチャットを閉じます</translation>
     </message>
     <message>
       <source>Automatic chats purge, click to purge old chats</source>
-      <translation>Automatické čistenie chatov, kliknutím vymažete staré rozhovory</translation>
+      <translation>自動チャットパージ、クリックすると古いチャットを削除します</translation>
     </message>
     <message>
       <source>Update chats duration by using new algorithm</source>
-      <translation>Aktualizovať trvanie chatov pomocou nového algoritmu</translation>
+      <translation>新規アルゴリズムを使用して、チャット期限を更新します</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation>Ukončené chaty</translation>
+      <translation>閉じられたチャット</translation>
     </message>
     <message>
       <source>Purged chats</source>
-      <translation>Vyčistené chaty</translation>
+      <translation>パージされたチャット</translation>
     </message>
     <message>
       <source>Chats duration was updated</source>
-      <translation>Dĺžka chatov bola aktualizovaná</translation>
+      <translation>チャット期限が更新されました</translation>
     </message>
   </context>
   <context>
     <name>chat/statistic</name>
     <message>
       <source>Statistic</source>
-      <translation>Štatisticka</translation>
+      <translation>統計</translation>
     </message>
     <message>
       <source>What charts to display</source>
@@ -15835,7 +15835,7 @@
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
-      <translation>Počet prokatívnych chatov, vs začatých návštevníkom</translation>
+      <translation>積極的チャット数vs訪問者開始</translation>
     </message>
     <message>
       <source>Device type</source>
@@ -15855,15 +15855,15 @@
     </message>
     <message>
       <source>Number of chats by country</source>
-      <translation>Počet chatov podľa krajiny</translation>
+      <translation>国でのチャット数</translation>
     </message>
     <message>
       <source>Number of messages by user</source>
-      <translation>Počet správ podľa používateľa</translation>
+      <translation>ユーザーでのメッセージ数</translation>
     </message>
     <message>
       <source>Number of chats per hour, average chat duration</source>
-      <translation>Počet chatov za hodinu, priemrna dĺžka chatu</translation>
+      <translation>時間でのチャット数、チャット時間平均</translation>
     </message>
     <message>
       <source>Average wait time in seconds (maximum of 10 minutes)</source>
@@ -15871,7 +15871,7 @@
     </message>
     <message>
       <source>Number of chats by user</source>
-      <translation>Počet chatov podľa používateľa</translation>
+      <translation>ユーザーでのチャット数</translation>
     </message>
     <message>
       <source>Number of chats by user (participant)</source>
@@ -15895,7 +15895,7 @@
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
-      <translation>Priemerný čas čakania návštevníka podľa operátora</translation>
+      <translation>オペレータによる訪問者の待ち時間平均</translation>
     </message>
     <message>
       <source>Average chat duration by user in seconds</source>
@@ -15915,11 +15915,11 @@
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation>Palec hore</translation>
+      <translation>受入</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation>Palec dole</translation>
+      <translation>拒絶</translation>
     </message>
     <message>
       <source>Number of chats</source>
@@ -15931,15 +15931,15 @@
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktívny</translation>
+      <translation>アクティブ</translation>
     </message>
     <message>
       <source>Operators</source>
-      <translation>Operátori</translation>
+      <translation>オペレータ</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation>Čakajúce</translation>
+      <translation>保留</translation>
     </message>
     <message>
       <source>Bot</source>
@@ -15947,7 +15947,7 @@
     </message>
     <message>
       <source>Closed</source>
-      <translation>Zatvoriť</translation>
+      <translation>閉じられた</translation>
     </message>
     <message>
       <source>Proactive invitation</source>
@@ -15959,7 +15959,7 @@
     </message>
     <message>
       <source>Visitors initiated</source>
-      <translation>Návštevníci boli iniciovaní</translation>
+      <translation>訪問者開始</translation>
     </message>
     <message>
       <source>Mobile</source>
@@ -15975,11 +15975,11 @@
     </message>
     <message>
       <source>Visitors</source>
-      <translation>Návštevníci</translation>
+      <translation>訪問者</translation>
     </message>
     <message>
       <source>System</source>
-      <translation>Systém</translation>
+      <translation>システム</translation>
     </message>
     <message>
       <source>Bot and Auto responder</source>
@@ -16031,15 +16031,15 @@
     </message>
     <message>
       <source>All operators statistic will be downloaded</source>
-      <translation>Všetky štatistiky operátorov budú stiahnuté</translation>
+      <translation>ダウンロードされた全てのオペレータの統計</translation>
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
-      <translation>Najskôr vyberte štatistické parametre!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Total chats</source>
-      <translation>Chatov celkovo</translation>
+      <translation>チャット合計</translation>
     </message>
     <message>
       <source>Proactive chats number vs visitor initiated</source>
@@ -16051,7 +16051,7 @@
     </message>
     <message>
       <source>Proactive</source>
-      <translation>Aktívny</translation>
+      <translation>積極的</translation>
     </message>
     <message>
       <source>Visitor initiated</source>
@@ -16063,7 +16063,7 @@
     </message>
     <message>
       <source>Chats statistic</source>
-      <translation>Štatistiky diskusie</translation>
+      <translation>チャット統計</translation>
     </message>
     <message>
       <source>Number of messages per interval</source>
@@ -16179,27 +16179,27 @@
     </message>
     <message>
       <source>Parameter</source>
-      <translation>Parameter</translation>
+      <translation>パラメータ</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation>Hodnota</translation>
+      <translation>値</translation>
     </message>
     <message>
       <source>User</source>
-      <translation>Užívateľ</translation>
+      <translation>ユーザー</translation>
     </message>
     <message>
       <source>Total messages</source>
-      <translation>Celkom správ</translation>
+      <translation>メッセージ合計</translation>
     </message>
     <message>
       <source>Votes</source>
-      <translation>Hlasov</translation>
+      <translation>投票</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation>Posledná aktivita</translation>
+      <translation>最新アクティビティ</translation>
     </message>
     <message>
       <source>If you have thousands of chats generating this report can significantly increase server load!</source>
@@ -16263,7 +16263,7 @@
     </message>
     <message>
       <source>ago</source>
-      <translation>pred</translation>
+      <translation>以前</translation>
     </message>
     <message>
       <source>Avg. Wait Time</source>
@@ -16315,7 +16315,7 @@
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation>Chatbox rozhovory</translation>
+      <translation>チャットボックスチャット</translation>
     </message>
     <message>
       <source>Last 24h statistics</source>
@@ -16359,15 +16359,15 @@
     </message>
     <message>
       <source>Number of Thumbs Down</source>
-      <translation>Počet palcov dole</translation>
+      <translation>拒絶数</translation>
     </message>
     <message>
       <source>Number of Thumbs Up</source>
-      <translation>Počet palcov hore</translation>
+      <translation>受入数</translation>
     </message>
     <message>
       <source>Operators statistic, top 100 by chats number</source>
-      <translation>Štatistiky operátorov, top 100 podľa počtu chatov</translation>
+      <translation>オペレータ統計、チャット数のトップ100</translation>
     </message>
     <message>
       <source>Agents statistics</source>
@@ -16387,11 +16387,11 @@
     </message>
     <message>
       <source>Total active chats</source>
-      <translation>Všetky prebiehajúce rozhovory</translation>
+      <translation>アクティブチャット合計</translation>
     </message>
     <message>
       <source>Total closed chats</source>
-      <translation>Celkom uzavretých chatov</translation>
+      <translation>閉じられたチャット合計</translation>
     </message>
     <message>
       <source>Total messages (including visitors, system and operator messages)</source>
@@ -16403,19 +16403,19 @@
     </message>
     <message>
       <source>Total messages (only operators)</source>
-      <translation>Celkom správ (iba operátory)</translation>
+      <translation>メッセージ合計(オペレータのみ)</translation>
     </message>
     <message>
       <source>Total messages (only system messages)</source>
-      <translation>Celkom správ (len systémové správy)</translation>
+      <translation>メッセージ合計(システムメッセージのみ)</translation>
     </message>
     <message>
       <source>Total messages (only visitors)</source>
-      <translation>Celkom správ (iba návštevníci)</translation>
+      <translation>メッセージ合計(訪問者のみ)</translation>
     </message>
     <message>
       <source>Total pending chats</source>
-      <translation>Všetky čakajúce rozhovory</translation>
+      <translation>保留チャット合計</translation>
     </message>
     <message>
       <source>Total statistics</source>
@@ -16423,7 +16423,7 @@
     </message>
     <message>
       <source>Unanswered chats</source>
-      <translation>Chaty bez odpovedí</translation>
+      <translation>未回答チャット</translation>
     </message>
     <message>
       <source>Returning visitors</source>
@@ -16663,7 +16663,7 @@
     <name>abstract/list</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Si si istý?</translation>
+      <translation>本当によろしいですか？</translation>
     </message>
   </context>
   <context>
@@ -16677,109 +16677,109 @@
     <name>chat/sendchat</name>
     <message>
       <source>Enter your e-mail</source>
-      <translation>Zadajte svoj e-mail</translation>
+      <translation>メールアドレスを入力してください</translation>
     </message>
   </context>
   <context>
     <name>chat/sendmail</name>
     <message>
       <source>Recipient</source>
-      <translation>Príjemca</translation>
+      <translation>受信者</translation>
     </message>
     <message>
       <source>Recipient e-mail</source>
-      <translation>Príjemca e-mailu</translation>
+      <translation>受信者メールアドレス</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Predmet</translation>
+      <translation>件名</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation>Meno odosielateľa</translation>
+      <translation>送信者名</translation>
     </message>
     <message>
       <source>Reply e-mail</source>
-      <translation>E-mail pre odpoveď</translation>
+      <translation>返信メールアドレス</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>Odoslať z e-mailu</translation>
+      <translation>送信者メールアドレス</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
-      <translation>Napíšte Vaše správu pre používateľa</translation>
+      <translation>ユーザーへのメッセージを入力</translation>
     </message>
     <message>
       <source>Send the mail</source>
-      <translation>Odoslať e-mail</translation>
+      <translation>メール送信</translation>
     </message>
     <message>
       <source>Embed link to file</source>
-      <translation>Vložiť link na súbor</translation>
+      <translation>ファイルへのリンク</translation>
     </message>
     <message>
       <source>Send mail to the user</source>
-      <translation>Poslať e-mail používateľovi</translation>
+      <translation>ユーザーへメールを送信</translation>
     </message>
     <message>
       <source>Mail was sent to the user</source>
-      <translation>Používateľovi bol zaslaný mail</translation>
+      <translation>ユーザーへメールが送信されました</translation>
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
-      <translation>Prosím zadajte e-mail prijíjmateľa!</translation>
+      <translation>受信者メールアドレスを入力してください！</translation>
     </message>
     <message>
       <source>From e-mail is missing!</source>
-      <translation>E-mail Od chýba!</translation>
+      <translation>送信者メールアドレスがありません！</translation>
     </message>
     <message>
       <source>Reply e-mail is missing!</source>
-      <translation>E-mail Odpovedať na chýba!</translation>
+      <translation>返信メールアドレスがありません！</translation>
     </message>
     <message>
       <source>Subject is missing!</source>
-      <translation>Chýba predmet!</translation>
+      <translation>件名がありません！</translation>
     </message>
   </context>
   <context>
     <name>chat/syncandsoundesetting</name>
     <message>
       <source>Save</source>
-      <translation>Uložiť</translation>
+      <translation>保存</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Aktualizovať</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Zrušiť</translation>
+      <translation>キャンセル</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Nastavenie aktualizácie</translation>
+      <translation>設定が更新されました</translation>
     </message>
     <message>
       <source>Synchronisation and sound settings</source>
-      <translation>Synchronizácia a nastavenie zvuku</translation>
+      <translation>同期と効果音設定</translation>
     </message>
     <message>
       <source>How many seconds for a user to be considered as being online</source>
-      <translation>Koľko sekúnd aby bol používateľ považovaný za online</translation>
+      <translation>何秒でユーザーをオンラインと考えますか</translation>
     </message>
     <message>
       <source>Value in seconds</source>
-      <translation>Hodnota v sekundách</translation>
+      <translation>値（秒）</translation>
     </message>
     <message>
       <source>Sync for new chats, interval in seconds</source>
-      <translation>Synchronizácia pre nové chaty, interval v sekundách</translation>
+      <translation>新規チャットと同期、秒での間隔</translation>
     </message>
     <message>
       <source>Check for messages from the operators, interval in seconds</source>
-      <translation>Kontrolovanie pre správy od operátorov, intervale v sekundách</translation>
+      <translation>オペレータからのメッセージ確認、秒での間隔</translation>
     </message>
     <message>
       <source>Preload previous chat messages on chat open</source>
@@ -16787,75 +16787,75 @@
     </message>
     <message>
       <source>Messages settings</source>
-      <translation>Nastavenia správ</translation>
+      <translation>メッセージ設定</translation>
     </message>
     <message>
       <source>Sync for a new user message, interval in seconds</source>
-      <translation>Synchronizácia pre novú používateľskú správu, interval v sekundách</translation>
+      <translation>新規ユーザーメッセージ同期、秒での間隔</translation>
     </message>
     <message>
       <source>Show browser notification for new messages</source>
-      <translation>Zobraziť upozornenie prehliadača pre nové správy</translation>
+      <translation>新規メッセージのブラウザ通知を表示</translation>
     </message>
     <message>
       <source>New chat request notification settings</source>
-      <translation>Žiadosť o nový chat nastavenia notifikácii</translation>
+      <translation>新規チャットリクエスト通知設定</translation>
     </message>
     <message>
       <source>Play a new pending chat sound on a new chat request</source>
-      <translation>Prehrať zvuk pre nový čakajúci chat pri novej žiadosti o chat</translation>
+      <translation>新規チャットリクエストで新規保留中チャット効果音を再生</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a back office user</source>
-      <translation>prehrať zvuk pri novej správe od back office používateľa</translation>
+      <translation>バックオフィスユーザーの新規メッセージに効果音を再生</translation>
     </message>
     <message>
       <source>Play a sound on a new message for a front end user</source>
-      <translation>Prehrať zvuk pri novej správe front end používateľa</translation>
+      <translation>フロントエンドユーザーの新規メッセージで効果音を再生</translation>
     </message>
     <message>
       <source>Show alert message on a new chat request</source>
-      <translation>Zobraziť upozornenie pri novej žiadosti o chat</translation>
+      <translation>新規チャットリクエストで警告メッセージを表示</translation>
     </message>
     <message>
       <source>How many times play sound notification</source>
-      <translation>Koľkokrát prehrať zvukové upozornenie</translation>
+      <translation>何時間で効果音通知を再生するか</translation>
     </message>
     <message>
       <source>Number</source>
-      <translation>Číslo</translation>
+      <translation>数字</translation>
     </message>
     <message>
       <source>Delay between sound notifications in seconds</source>
-      <translation>Pauza medzi zvukovými upozorneniami v sekundách</translation>
+      <translation>効果音通知の遅延（秒）</translation>
     </message>
     <message>
       <source>delay in seconds</source>
-      <translation>pauza v sekundách</translation>
+      <translation>遅延（秒）</translation>
     </message>
     <message>
       <source>Seconds</source>
-      <translation>Sekundy</translation>
+      <translation>秒</translation>
     </message>
     <message>
       <source>Please enter a valid online timeout value!</source>
-      <translation>Zadajte platnú hodnotu časového limitu online!</translation>
+      <translation>有効なオンラインタイムアウト値を入力してください！</translation>
     </message>
     <message>
       <source>Please enter a valid operator message timeout value!</source>
-      <translation>Zadajte platnú hodnotu časového limitu správy operátora!</translation>
+      <translation>有効なオペレータメッセージタイムアウト値を入力してください！</translation>
     </message>
     <message>
       <source>Please enter a valid back office sync interval!</source>
-      <translation>Zadajte platný interval synchronizácie pre back office!</translation>
+      <translation>有効なバックオフィス同期間隔を入力してください！</translation>
     </message>
     <message>
       <source>Please enter a valid new messages sync interval!</source>
-      <translation>Zadajte platný nový interval synchronizácie správ!</translation>
+      <translation>有効な新規メッセージ同期間隔を入力してください！</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
-      <translation>Nastavenia synchronizácie a zvuku</translation>
+      <translation>同期と効果音設定</translation>
     </message>
   </context>
   <context>
@@ -16870,19 +16870,19 @@
     </message>
     <message>
       <source>Online</source>
-      <translation>Online</translation>
+      <translation>オンライン</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation>Offline</translation>
+      <translation>オフライン</translation>
     </message>
     <message>
       <source>Transfer to a user</source>
-      <translation>Presunúť na používateľa</translation>
+      <translation>ユーザーへ転送</translation>
     </message>
     <message>
       <source>Transfer to a department</source>
-      <translation>Presunúť na oddelenie</translation>
+      <translation>部署へ転送</translation>
     </message>
     <message>
       <source>Change owner</source>
@@ -16894,11 +16894,11 @@
     </message>
     <message>
       <source>Logged in users</source>
-      <translation>Prihlásení používatelia</translation>
+      <translation>ログインユーザー</translation>
     </message>
     <message>
       <source>Transfer a chat to one of your departments users</source>
-      <translation>Presunúť chat na jedného používateľa z vašich oddelení</translation>
+      <translation>チャットを部署ユーザーへ転送</translation>
     </message>
     <message>
       <source>Only logged and online operators</source>
@@ -16910,19 +16910,19 @@
     </message>
     <message>
       <source>Transfer</source>
-      <translation>Prenos</translation>
+      <translation>転送</translation>
     </message>
     <message>
       <source>Only departments which are online and explicitly assigned operator are online</source>
-      <translation>Iba oddelenia, ktoré sú online a výslovne pridelené operátorom, sú online</translation>
+      <translation>明示的にアサインされているオペレータとオンラインの部署のみ</translation>
     </message>
     <message>
       <source>Exclude hidden departments</source>
-      <translation>Vynechať skryté oddelenia</translation>
+      <translation>隠し部署を除外</translation>
     </message>
     <message>
       <source>Exclude disabled departments</source>
-      <translation>Vynechať zakázané oddelenia</translation>
+      <translation>無効部署を除外</translation>
     </message>
     <message>
       <source>You will still remain an owner of the chat.</source>
@@ -16937,18 +16937,18 @@
     <name>chat/userjoined</name>
     <message>
       <source>Visitor has joined the chat!</source>
-      <translation>Návštevník sa pripojil k chatu!</translation>
+      <translation>訪問者はチャットに参加しています！</translation>
     </message>
     <message>
       <source>Visitor has joined the chat from popup chat window!</source>
-      <translation>Návštevník sa pripojil k chatu z popup chat okna!</translation>
+      <translation>訪問者はポップアップチャットウィンドウからチャットに参加しています！</translation>
     </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
-      <translation>Návštevník opustil chat!</translation>
+      <translation>訪問者がチャットを残しました！</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -16972,7 +16972,7 @@
     </message>
     <message>
       <source>Visitor has closed the chat explicitly!</source>
-      <translation>Návštevník zavrel chat explicitne!</translation>
+      <translation>訪問者はチャットを明示的に閉じました！</translation>
     </message>
     <message>
       <source>Whisper message!</source>
@@ -16983,15 +16983,15 @@
     <name>chatarchive/archive</name>
     <message>
       <source>Chat archive</source>
-      <translation>Archív chatu</translation>
+      <translation>チャットアーカイブ</translation>
     </message>
     <message>
       <source>Archives list</source>
-      <translation>Zoznam archívov</translation>
+      <translation>アーカイブリスト</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation>Nový archív</translation>
+      <translation>新規アーカイブ</translation>
     </message>
     <message>
       <source>Configuration</source>
@@ -17010,11 +17010,11 @@
     <name>chatarchive/archivechats</name>
     <message>
       <source>Archiving has finished.</source>
-      <translation>Archivácia bolo dokončená.</translation>
+      <translation>アーカイブが完了しました。</translation>
     </message>
     <message>
       <source>See archived chats</source>
-      <translation>Pozrieť archivované chaty</translation>
+      <translation>アーカイブされたチャットを表示</translation>
     </message>
     <message>
       <source>See archived mails</source>
@@ -17025,30 +17025,30 @@
     <name>chatarchive/editarchive</name>
     <message>
       <source>Edit archive</source>
-      <translation>Upraviť archív</translation>
+      <translation>アーカイブ編集</translation>
     </message>
     <message>
       <source>Archive updated</source>
-      <translation>Archív aktualizovaný</translation>
+      <translation>アーカイブが更新されました</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/newarchive</name>
     <message>
       <source>Date from</source>
-      <translation>Dátum od</translation>
+      <translation>開始日付</translation>
     </message>
     <message>
       <source>E.g</source>
-      <translation>napr.</translation>
+      <translation>例．</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Dátum do</translation>
+      <translation>終了日付</translation>
     </message>
     <message>
       <source>New archive</source>
-      <translation>Nový archív</translation>
+      <translation>新規アーカイブ</translation>
     </message>
     <message>
       <source>Name</source>
@@ -17064,11 +17064,11 @@
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Zadajte platný dátum od!</translation>
+      <translation>有効な開始日付を入力してください！</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Zadajte platný dátum do!</translation>
+      <translation>有効な終了日付を入力してください！</translation>
     </message>
     <message>
       <source>Please enter an archive name!</source>
@@ -17079,27 +17079,27 @@
     <name>chatarchive/list</name>
     <message>
       <source>Archives list</source>
-      <translation>Zoznam archívov</translation>
+      <translation>アーカイブリスト</translation>
     </message>
     <message>
       <source>From date</source>
-      <translation>Od dátumu</translation>
+      <translation>開始日付</translation>
     </message>
     <message>
       <source>Till date</source>
-      <translation>Do dátumu</translation>
+      <translation>終了日付</translation>
     </message>
     <message>
       <source>List chats</source>
-      <translation>Zoznam chatov</translation>
+      <translation>チャットリスト</translation>
     </message>
     <message>
       <source>Process again</source>
-      <translation>Spracovať znovu</translation>
+      <translation>再試行</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Upraviť</translation>
+      <translation>編集</translation>
     </message>
     <message>
       <source>Backup</source>
@@ -17207,7 +17207,7 @@
     </message>
     <message>
       <source>Archived chats</source>
-      <translation>Archivované chaty</translation>
+      <translation>アーカイブされたチャット</translation>
     </message>
     <message>
       <source>Archived mails</source>
@@ -17226,11 +17226,11 @@
     <name>chatarchive/listarchivechats</name>
     <message>
       <source>Archived chats</source>
-      <translation>Archivované chaty</translation>
+      <translation>アーカイブされたチャット</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation>Informácie</translation>
+      <translation>情報</translation>
     </message>
     <message>
       <source>Archived mails</source>
@@ -17241,37 +17241,37 @@
     <name>chat/previewchat</name>
     <message>
       <source>Last 100 messages rows</source>
-      <translation>Posledných 100 riadkov správ</translation>
+      <translation>メッセージの最新100行</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process</name>
     <message>
       <source>Process archive</source>
-      <translation>Sprocesovať archív</translation>
+      <translation>アーカイブ処理</translation>
     </message>
     <message>
       <source>Process</source>
-      <translation>Sprocesovať</translation>
+      <translation>処理</translation>
     </message>
   </context>
   <context>
     <name>chatarchive/process_content</name>
     <message>
       <source>Date from</source>
-      <translation>Dátum od</translation>
+      <translation>開始日付</translation>
     </message>
     <message>
       <source>Date to</source>
-      <translation>Dátum do</translation>
+      <translation>終了日付</translation>
     </message>
     <message>
       <source>Potential chats to archive</source>
-      <translation>Potencionálne chaty pre archiváciu</translation>
+      <translation>潜在的なチャットをアーカイブ</translation>
     </message>
     <message>
       <source>Archived chats</source>
-      <translation>Archivované chaty</translation>
+      <translation>アーカイブされたチャット</translation>
     </message>
     <message>
       <source>First archived chat ID</source>
@@ -17283,35 +17283,35 @@
     </message>
     <message>
       <source>Archive progress</source>
-      <translation>Proces archivovania</translation>
+      <translation>アーカイブ処理</translation>
     </message>
     <message>
       <source>Pending for action...</source>
-      <translation>Čaká sa na akciu</translation>
+      <translation>アクションを保留...</translation>
     </message>
     <message>
       <source>Terms dictionary</source>
-      <translation>Slovník termínov</translation>
+      <translation>用語辞書</translation>
     </message>
     <message>
       <source>first archived chat ID</source>
-      <translation>ID prvého archivovaného chatu</translation>
+      <translation>最初のアーカイブチャットID</translation>
     </message>
     <message>
       <source>last archived chat ID</source>
-      <translation>ID posledného archivovaného chatu</translation>
+      <translation>最後のアーカイブチャットID</translation>
     </message>
     <message>
       <source>number of archived chats</source>
-      <translation>Počet archivovaných chatov</translation>
+      <translation>アーカイブチャット数</translation>
     </message>
     <message>
       <source>number of archived messages</source>
-      <translation>Počet archivovaných správ</translation>
+      <translation>アーカイブメッセージ数</translation>
     </message>
     <message>
       <source>Error accoured during archive process</source>
-      <translation>Počas procesu archivovania sa vyskytla chyba</translation>
+      <translation>アーカイブ処理中にエラー発生</translation>
     </message>
     <message>
       <source>Potential mails to archive</source>
@@ -17330,117 +17330,117 @@
     <name>kernel/message</name>
     <message>
       <source>Are you sure?</source>
-      <translation>Ste si istí?</translation>
+      <translation>本当によろしいですか？</translation>
     </message>
   </context>
   <context>
     <name>chatbox/configuration</name>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>チャットボックス</translation>
     </message>
     <message>
       <source>General</source>
-      <translation>Všeobecné</translation>
+      <translation>一般</translation>
     </message>
     <message>
       <source>General settings</source>
-      <translation>Všeobecné nastavenia</translation>
+      <translation>一般設定</translation>
     </message>
     <message>
       <source>Chatbox list</source>
-      <translation>Zoznam chatboxov</translation>
+      <translation>チャットボックスリスト</translation>
     </message>
   </context>
   <context>
     <name>system/messages</name>
     <message>
       <source>Updated</source>
-      <translation>Aktualizované</translation>
+      <translation>更新された</translation>
     </message>
   </context>
   <context>
     <name>chatbox/form</name>
     <message>
       <source>Chatbox name</source>
-      <translation>Názov chatboxu</translation>
+      <translation>チャットボックス名</translation>
     </message>
     <message>
       <source>Name of manager</source>
-      <translation>Meno manažéra</translation>
+      <translation>管理者名</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifikátor</translation>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Chatbox active</source>
-      <translation>Chatbox aktívny</translation>
+      <translation>チャットボックスアクティブ</translation>
     </message>
   </context>
   <context>
     <name>chatbox/generalsettings</name>
     <message>
       <source>Chatbox settings</source>
-      <translation>Nastavenia chatboxu</translation>
+      <translation>チャットボックス設定</translation>
     </message>
     <message>
       <source>Default new chatbox name</source>
-      <translation>Predvolený názov pre nový chatbox</translation>
+      <translation>既定の新規チャットボックス名</translation>
     </message>
     <message>
       <source>Default operator name</source>
-      <translation>Predvolené meno operátora</translation>
+      <translation>既定のオペレータ名</translation>
     </message>
     <message>
       <source>Messages limit in the chatbox</source>
-      <translation>Limit správ v chatboxe</translation>
+      <translation>チャットボックスでのメッセージ制限</translation>
     </message>
     <message>
       <source>Auto creation by chatbox identifier is enabled</source>
-      <translation>Automatické vytvorenie pomocou identifikátora chatboxu je povolené</translation>
+      <translation>チャットボックスIDが有効化されることで自動作成</translation>
     </message>
     <message>
       <source>Secret hash, this is used when auto creation is disabled</source>
-      <translation>Tajný hash, toto sa používa pri vypnutom automatickom vytvorení</translation>
+      <translation>シークレットハッシュ、自動作成が無効化された際に利用されます</translation>
     </message>
     <message>
       <source>more information on how to use it</source>
-      <translation>ďalšie informácie o tom, ako to používať</translation>
+      <translation>より詳細な使用方法</translation>
     </message>
     <message>
       <source>Paid chat settings</source>
-      <translation>Nastavenia plateného chatu</translation>
+      <translation>引き継がれたチャット設定</translation>
     </message>
   </context>
   <context>
     <name>chatbox/list</name>
     <message>
       <source>Chatbox list</source>
-      <translation>Zoznam chatboxov</translation>
+      <translation>チャットボックスリスト</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifikátor</translation>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Chatbox</source>
-      <translation>Chatbox</translation>
+      <translation>チャットボックス</translation>
     </message>
   </context>
   <context>
     <name>chatbox/new</name>
     <message>
       <source>New chatbox</source>
-      <translation>Nový chatbox</translation>
+      <translation>新規チャットボックス</translation>
     </message>
     <message>
       <source>New</source>
-      <translation>Nové</translation>
+      <translation>新規</translation>
     </message>
   </context>
   <context>
@@ -17614,7 +17614,7 @@
     <name>department/departments</name>
     <message>
       <source>Edit</source>
-      <translation>Upraviť</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Clone</source>
@@ -17630,15 +17630,15 @@
     </message>
     <message>
       <source>Departments</source>
-      <translation>Oddelenia</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Názov</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>Hidden</source>
@@ -17678,11 +17678,11 @@
     </message>
     <message>
       <source>Yes</source>
-      <translation>Áno</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>No</source>
-      <translation>Nie</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Assigned operators</source>
@@ -17690,15 +17690,15 @@
     </message>
     <message>
       <source>New department</source>
-      <translation>Nové oddelenie</translation>
+      <translation>新規部署</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation>Skupiny oddelení</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Group</source>
-      <translation>Skupina</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Pending chats</source>
@@ -17806,7 +17806,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>Archive configuration</source>
@@ -17829,35 +17829,35 @@
     <name>cobrowse/browse</name>
     <message>
       <source>Click blue eye at the top to request screen share</source>
-      <translation>Kliknite na modré oko v hornej časti a požiadajte o zdieľanie obrazovky</translation>
+      <translation>画面共有リクエストのためにトップの青い目をクリック</translation>
     </message>
     <message>
       <source>Request screen share</source>
-      <translation>Žiadosť o zdieľanie obrazovky</translation>
+      <translation>画面共有リクエスト</translation>
     </message>
     <message>
       <source>Show my mouse position to visitor</source>
-      <translation>Zobraziť moju pozíciu myši návštevníkovi</translation>
+      <translation>マウスポインタを訪問者に表示</translation>
     </message>
     <message>
       <source>On highlight scroll user window location to match my</source>
-      <translation>Pri zvýraznení presunúť pozíciu navigačného okna používateľa podľa môjho</translation>
+      <translation>ハイライトスクロールユーザーの一致するウィンドウの場所</translation>
     </message>
     <message>
       <source>Follow user scroll position</source>
-      <translation>Sledovať polohu posunu používateľa</translation>
+      <translation>次のユーザースクロール位置</translation>
     </message>
     <message>
       <source>On click navigate user browser</source>
-      <translation>Po kliknutí navigujte v prehliadači používateľa</translation>
+      <translation>クリックしてユーザーブラウザをナビゲートします</translation>
     </message>
     <message>
       <source>Screen sharing session has finished</source>
-      <translation>Relácia zdieľania obrazovky je dokončená</translation>
+      <translation>画面共有セッション完了</translation>
     </message>
     <message>
       <source>Screen is shared</source>
-      <translation>Obrazovka je zdieľaná</translation>
+      <translation>画面が共有されます</translation>
     </message>
     <message>
       <source>Co-browse is stopped by error</source>
@@ -17888,7 +17888,7 @@
     </message>
     <message>
       <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
-      <translation>Maximálny počet aktívnych chatov, ktoré môže mať používateľ otvorené, 0 - neobmedzený</translation>
+      <translation>ユーザーが一度に持てるアクティブチャットの最大数、0 - 無制限</translation>
     </message>
     <message>
       <source>Maximum number of department active chats, 0 - unlimited</source>
@@ -17900,7 +17900,7 @@
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
-      <translation>Automaticky priradiť rozhovor inému operátorovi, ak operátor neprijal chat v priebehu niekoľkých sekúnd, 0 - zakázaný</translation>
+      <translation>オペレータがチャットを許可しない場合の他のオペレータへの自動アサインチャット時間、0 - 無効化</translation>
     </message>
     <message>
       <source>Minimum delay between chat assignment to operator</source>
@@ -18015,7 +18015,7 @@
     <name>department/new</name>
     <message>
       <source>New department</source>
-      <translation>Nové oddelenie</translation>
+      <translation>新規部署</translation>
     </message>
     <message>
       <source>New brand</source>
@@ -18023,7 +18023,7 @@
     </message>
     <message>
       <source>New department group</source>
-      <translation>Nová skupina oddelenia</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New department limit group</source>
@@ -18063,7 +18063,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -18101,7 +18101,7 @@
     </message>
     <message>
       <source>Ask a question</source>
-      <translation>Položte otázku</translation>
+      <translation>質問する</translation>
     </message>
     <message>
       <source>Keyword</source>
@@ -18117,66 +18117,66 @@
     </message>
     <message>
       <source>Type your question</source>
-      <translation>Zadajte svoju otázku</translation>
+      <translation>質問タイプ</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Otázka</translation>
+      <translation>質問</translation>
     </message>
     <message>
       <source>Send your question</source>
-      <translation>Pošlite svoju otázku</translation>
+      <translation>質問送信</translation>
     </message>
     <message>
       <source>Your question was submitted!</source>
-      <translation>Vaša otázka bola odoslaná!</translation>
+      <translation>質問が送信されました！</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Prosím zadajte otázku!</translation>
+      <translation>質問を入力してください！</translation>
     </message>
     <message>
       <source>Please enter your email address!</source>
-      <translation>Zadajte vašu email adresu!</translation>
+      <translation>メールアドレスを入力してください！</translation>
     </message>
   </context>
   <context>
     <name>faq/new</name>
     <message>
       <source>Question</source>
-      <translation>Otázka</translation>
+      <translation>質問</translation>
     </message>
     <message>
       <source>Answer</source>
-      <translation>Odpoveď</translation>
+      <translation>回答</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation>URL, zadajte * na konci pre wildcard</translation>
+      <translation>URL、*をワイルドカードとして最後に入力します</translation>
     </message>
     <message>
       <source>The URL where this question should appear, leave it empty for all</source>
-      <translation>Adresa URL, na ktorej by sa táto otázka mala objaviť, nechajte prázdnu pre všetky</translation>
+      <translation>この質問が表示されるURL、全ての場合は空で残す</translation>
     </message>
     <message>
       <source>Submitter e-mail</source>
-      <translation>E-mail odosielateľa</translation>
+      <translation>送信メールアドレス</translation>
     </message>
     <message>
       <source>Identifier, can be used to filter questions by identifier</source>
-      <translation>Identifikátor, možno ho použiť na filtrovanie otázok podľa identifikátora</translation>
+      <translation>ID、IDによる質問のフィルターを利用できます</translation>
     </message>
     <message>
       <source>Question is active</source>
-      <translation>Otázka je aktívna</translation>
+      <translation>質問アクティブ</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Nová otázka</translation>
+      <translation>新規質問</translation>
     </message>
   </context>
   <context>
@@ -18187,66 +18187,66 @@
     </message>
     <message>
       <source>Question</source>
-      <translation>Otázka</translation>
+      <translation>質問</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifikátor</translation>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktívny</translation>
+      <translation>アクティブ</translation>
     </message>
     <message>
       <source>Y</source>
-      <translation>A</translation>
+      <translation>はい</translation>
     </message>
     <message>
       <source>N</source>
-      <translation>N</translation>
+      <translation>いいえ</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Upraviť</translation>
+      <translation>編集</translation>
     </message>
     <message>
       <source>Delete this question</source>
-      <translation>Odstrániť túto otázku</translation>
+      <translation>この質問を削除</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Nová otázka</translation>
+      <translation>新規質問</translation>
     </message>
   </context>
   <context>
     <name>faq/view</name>
     <message>
       <source>View</source>
-      <translation>Pozrieť</translation>
+      <translation>閲覧</translation>
     </message>
     <message>
       <source>Please enter a manager name!</source>
-      <translation>Prosím zadajte meno manažéra!</translation>
+      <translation>管理者名を入力してください！</translation>
     </message>
     <message>
       <source>Please enter a chatbox name!</source>
-      <translation>Prosím zadajte názov chatboxu!</translation>
+      <translation>チャットボックス名を入力してください！</translation>
     </message>
     <message>
       <source>Please enter a chatbox identifier!</source>
-      <translation>Zadajte identifikátor chatboxu!</translation>
+      <translation>チャットボックスIDを入力してください！</translation>
     </message>
     <message>
       <source>Please enter answer!</source>
-      <translation>Zadajte, prosím, odpoveď!</translation>
+      <translation>回答を入力してください！</translation>
     </message>
     <message>
       <source>Identifier has to be shorter than 10 characters!</source>
-      <translation>Identifikátor musí byť kratší ako 10 znakov!</translation>
+      <translation>IDは、より短い10文字である必要があります！</translation>
     </message>
     <message>
       <source>Please enter question!</source>
-      <translation>Prosím zadajte otázku!</translation>
+      <translation>質問を入力してください！</translation>
     </message>
     <message>
       <source>FAQ</source>
@@ -18254,30 +18254,30 @@
     </message>
     <message>
       <source>FAQ description</source>
-      <translation>FAQ popis</translation>
+      <translation>FAQ説明</translation>
     </message>
   </context>
   <context>
     <name>file/list</name>
     <message>
       <source>List of files</source>
-      <translation>Zoznam súborov</translation>
+      <translation>ファイルリスト</translation>
     </message>
     <message>
       <source>Upload a file</source>
-      <translation>Nahrať súbor</translation>
+      <translation>ファイルアップロード</translation>
     </message>
     <message>
       <source>Upload name</source>
-      <translation>Názov súboru</translation>
+      <translation>アップロード名</translation>
     </message>
     <message>
       <source>File size</source>
-      <translation>Veľkosť súboru</translation>
+      <translation>ファイルサイズ</translation>
     </message>
     <message>
       <source>Embed BB code</source>
-      <translation>Vložiť BB kód</translation>
+      <translation>組込BBコード</translation>
     </message>
     <message>
       <source>ID</source>
@@ -18289,7 +18289,7 @@
     </message>
     <message>
       <source>Extension</source>
-      <translation>Rozšírenie</translation>
+      <translation>エクステンション</translation>
     </message>
     <message>
       <source>Disposition</source>
@@ -18321,11 +18321,11 @@
     </message>
     <message>
       <source>User</source>
-      <translation>Používateľ</translation>
+      <translation>ユーザー</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Chat</translation>
+      <translation>チャット</translation>
     </message>
     <message>
       <source>Persistent</source>
@@ -18333,7 +18333,7 @@
     </message>
     <message>
       <source>Date</source>
-      <translation>Dátum</translation>
+      <translation>日付</translation>
     </message>
     <message>
       <source>Public</source>
@@ -18349,7 +18349,7 @@
     </message>
     <message>
       <source>Delete the file</source>
-      <translation>Odstrániť súbor</translation>
+      <translation>ファイル削除</translation>
     </message>
     <message>
       <source>Has metadata</source>
@@ -18368,15 +18368,15 @@
     <name>file/configuration</name>
     <message>
       <source>Allowed files types for operators</source>
-      <translation>Povolené typy súborov pre operátorov</translation>
+      <translation>オペレータへの許可されるファイルタイプ</translation>
     </message>
     <message>
       <source>Allowed files types for users</source>
-      <translation>Povolené typy súborov pre používateľov</translation>
+      <translation>ユーザーへの許可されるファイルタイプ</translation>
     </message>
     <message>
       <source>Maximum file size in KB</source>
-      <translation>Maximálna veľkosť súboru v KB</translation>
+      <translation>最大ファイルサイズ（KB）</translation>
     </message>
     <message>
       <source>Max file size</source>
@@ -18512,26 +18512,26 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Nastavenie aktualizácie</translation>
+      <translation>設定が更新されました</translation>
     </message>
     <message>
       <source>File configuration</source>
-      <translation>Konfigurácia súborov</translation>
+      <translation>ファイル設定</translation>
     </message>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Prosím, vložte platný typ!</translation>
+      <translation>有効なファイルタイプを入力してください！</translation>
     </message>
     <message>
       <source>Please enter valid maximum file size!</source>
-      <translation>Zadajte platnú maximálnu veľkosť súboru!</translation>
+      <translation>有効な最大ファイルサイズを入力してください！</translation>
     </message>
   </context>
   <context>
     <name>file/new</name>
     <message>
       <source>File name</source>
-      <translation>Názov súboru</translation>
+      <translation>ファイル名</translation>
     </message>
     <message>
       <source>Persistent</source>
@@ -18563,11 +18563,11 @@
     </message>
     <message>
       <source>Upload</source>
-      <translation>Nahrať</translation>
+      <translation>アップロード</translation>
     </message>
     <message>
       <source>File uploaded</source>
-      <translation>Súbor bol nahraný</translation>
+      <translation>ファイルアップロード</translation>
     </message>
     <message>
       <source>Edit file</source>
@@ -18575,14 +18575,14 @@
     </message>
     <message>
       <source>New file</source>
-      <translation>Nový súbor</translation>
+      <translation>新規ファイル</translation>
     </message>
   </context>
   <context>
     <name>form/collected</name>
     <message>
       <source>Download XLS</source>
-      <translation>Stiahnuť XLS</translation>
+      <translation>XLSダウンロード</translation>
     </message>
     <message>
       <source>URL</source>
@@ -18590,11 +18590,11 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifikátor</translation>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Chat</source>
@@ -18602,11 +18602,11 @@
     </message>
     <message>
       <source>Intro</source>
-      <translation>Intro</translation>
+      <translation>イントロ</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation>Čas</translation>
+      <translation>時間</translation>
     </message>
     <message>
       <source>IP</source>
@@ -18614,57 +18614,57 @@
     </message>
     <message>
       <source>View</source>
-      <translation>Pozrieť</translation>
+      <translation>表示</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation>Na stiahnutie</translation>
+      <translation>ダウンロード</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Vymazať</translation>
+      <translation>削除</translation>
     </message>
   </context>
   <context>
     <name>form/fill</name>
     <message>
       <source>Return</source>
-      <translation>Návrat</translation>
+      <translation>戻る</translation>
     </message>
     <message>
       <source>Submit</source>
-      <translation>Odoslať</translation>
+      <translation>送信</translation>
     </message>
     <message>
       <source>Information collected</source>
-      <translation>Informácie zozbierané</translation>
+      <translation>情報収集</translation>
     </message>
     <message>
       <source>is required</source>
-      <translation>je potrebné</translation>
+      <translation>必須です</translation>
     </message>
     <message>
       <source>invalid date format</source>
-      <translation>neplatný formát dátumu</translation>
+      <translation>無効な日付形式</translation>
     </message>
   </context>
   <context>
     <name>form/index</name>
     <message>
       <source>Form</source>
-      <translation>Formulár</translation>
+      <translation>フォーム</translation>
     </message>
     <message>
       <source>List of forms</source>
-      <translation>Zoznam formulárov</translation>
+      <translation>フォームリスト</translation>
     </message>
     <message>
       <source>Page embed code</source>
-      <translation>Kód na vloženie stránky</translation>
+      <translation>ページ組込コード</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Dátum</translation>
+      <translation>日付</translation>
     </message>
     <message>
       <source>Custom fields</source>
@@ -18672,18 +18672,18 @@
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifikátor</translation>
+      <translation>ID</translation>
     </message>
   </context>
   <context>
     <name>form/viewcollected</name>
     <message>
       <source>collected information</source>
-      <translation>zozbierané informácie</translation>
+      <translation>収集された情報</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation>Identifikátor</translation>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Custom attributes</source>
@@ -18695,11 +18695,11 @@
     </message>
     <message>
       <source>Download</source>
-      <translation>Na stiahnutie</translation>
+      <translation>ダウンロード</translation>
     </message>
     <message>
       <source>Collected information</source>
-      <translation>Zozbierané informácie</translation>
+      <translation>収集された情報</translation>
     </message>
   </context>
   <context>
@@ -19128,42 +19128,42 @@
     <name>kernel/nopermission</name>
     <message>
       <source>Go back</source>
-      <translation>Ísť späť</translation>
+      <translation>戻る</translation>
     </message>
     <message>
       <source>You do not have permission to access the module</source>
-      <translation>Nemáte oprávnenie pre prístup k modulu</translation>
+      <translation>モジュールへのアクセス権限がありません</translation>
     </message>
     <message>
       <source>and use</source>
-      <translation>a použitiu</translation>
+      <translation>さらに使用</translation>
     </message>
     <message>
       <source>function</source>
-      <translation>funkcie</translation>
+      <translation>機能</translation>
     </message>
     <message>
       <source>You do not have permission to edit selected object</source>
-      <translation>Nemáte povolenie na úpravu vybratého objektu</translation>
+      <translation>選択されたオブジェクトを編集する権限がありません</translation>
     </message>
   </context>
   <context>
     <name>core/paginator</name>
     <message>
       <source>Page</source>
-      <translation>Strana</translation>
+      <translation>ページ</translation>
     </message>
     <message>
       <source>of</source>
-      <translation>z</translation>
+      <translation>of</translation>
     </message>
     <message>
       <source>Found</source>
-      <translation>Nájdených</translation>
+      <translation>見つかった</translation>
     </message>
     <message>
       <source>Go to page</source>
-      <translation>Ísť na stranu</translation>
+      <translation>ページヘ行く</translation>
     </message>
   </context>
   <context>
@@ -21539,38 +21539,38 @@
     <name>paidchat/expiredchat</name>
     <message>
       <source>Chat</source>
-      <translation>Chat</translation>
+      <translation>チャット</translation>
     </message>
     <message>
       <source>Chat was closed.</source>
-      <translation>Chat bol zatvorený</translation>
+      <translation>チャットが閉じられました。</translation>
     </message>
     <message>
       <source>Invalid hash</source>
-      <translation>Neplatný hash</translation>
+      <translation>無効なハッシュ</translation>
     </message>
     <message>
       <source>Removed paid chat</source>
-      <translation>Odstránený platený chat</translation>
+      <translation>引き継がれたチャットが削除されました</translation>
     </message>
   </context>
   <context>
     <name>paidchat/settings</name>
     <message>
       <source>Paid chat settings</source>
-      <translation>Nastavenia plateného chatu</translation>
+      <translation>引き継がれたチャット設定</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation>Povolené</translation>
+      <translation>有効化</translation>
     </message>
     <message>
       <source>User can not access old chat if chat is closed</source>
-      <translation>Používateľ nemôže pristupovať k starému chatu, ak je zatvorený</translation>
+      <translation>チャットが閉じられるとユーザーは古いチャットへアクセスできません</translation>
     </message>
     <message>
       <source>Secret hash, used for verification</source>
-      <translation>Tajný hash, použitý na overenie</translation>
+      <translation>シークレットハッシュ、検証のために使用</translation>
     </message>
   </context>
   <context>
@@ -21589,39 +21589,39 @@
     </message>
     <message>
       <source>Edit role</source>
-      <translation>Uprav funkciu</translation>
+      <translation>ロール編集</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Názov</translation>
+      <translation>タイトル</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Aktualizovať</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Zrušiť</translation>
+      <translation>キャンセル</translation>
     </message>
     <message>
       <source>Assigned functions</source>
-      <translation>Priradené funkcie</translation>
+      <translation>アサインされた機能</translation>
     </message>
     <message>
       <source>Remove selected policy</source>
-      <translation>Odstrániť vybrané pravidlá</translation>
+      <translation>選択されたポリシーを削除</translation>
     </message>
     <message>
       <source>New policy</source>
-      <translation>Nové pravidlo</translation>
+      <translation>新規ポリシー</translation>
     </message>
     <message>
       <source>Module</source>
-      <translation>Modul</translation>
+      <translation>モジュール</translation>
     </message>
     <message>
       <source>Function</source>
-      <translation>Funkcia</translation>
+      <translation>機能</translation>
     </message>
     <message>
       <source>Type</source>
@@ -21629,15 +21629,15 @@
     </message>
     <message>
       <source>Role assigned groups</source>
-      <translation>Skupiny priradené roli</translation>
+      <translation>ロールにアサインされたグループ</translation>
     </message>
     <message>
       <source>Remove selected role</source>
-      <translation>Odstrániť vybranú rolu</translation>
+      <translation>選択されたロールを削除</translation>
     </message>
     <message>
       <source>Assign a group</source>
-      <translation>Priradiť skupinu</translation>
+      <translation>グループをアサイン</translation>
     </message>
     <message>
       <source>Grant</source>
@@ -21661,35 +21661,35 @@
     </message>
     <message>
       <source>All modules</source>
-      <translation>Všetky moduly</translation>
+      <translation>全てのモジュール</translation>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Všetky funkcie</translation>
+      <translation>全ての機能</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Zoznam rolí</translation>
+      <translation>ロールリスト</translation>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Prosím, zadajte názov role</translation>
+      <translation>ロール名を入力してください</translation>
     </message>
     <message>
       <source>Please choose module</source>
-      <translation>Prosím vyberte modul</translation>
+      <translation>モジュールを選択してください</translation>
     </message>
     <message>
       <source>Please choose module function</source>
-      <translation>Prosím, vyberte funkciu modulu</translation>
+      <translation>モジュール機能を選択してください</translation>
     </message>
     <message>
       <source>Role edit</source>
-      <translation>Úprava role</translation>
+      <translation>ロール編集</translation>
     </message>
   </context>
   <context>
@@ -21755,48 +21755,48 @@
     <name>permission/getpermissionssummary</name>
     <message>
       <source>Request permission</source>
-      <translation>Žiadosť o povolenie</translation>
+      <translation>権限リクエスト</translation>
     </message>
     <message>
       <source>Please choose at least one permission</source>
-      <translation>Vyberte aspoň jedno povolenie</translation>
+      <translation>少なくとも一つの権限を選択してください</translation>
     </message>
   </context>
   <context>
     <name>permission/groupassignrole</name>
     <message>
       <source>Title</source>
-      <translation>Názov</translation>
+      <translation>タイトル</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Priradiť</translation>
+      <translation>アサイン</translation>
     </message>
   </context>
   <context>
     <name>permission/modulefunctions</name>
     <message>
       <source>All functions</source>
-      <translation>Všetky funkcie</translation>
+      <translation>全ての機能</translation>
     </message>
   </context>
   <context>
     <name>permission/newpolicy</name>
     <message>
       <source>New policy</source>
-      <translation>Nové pravidlo</translation>
+      <translation>新規ポリシー</translation>
     </message>
     <message>
       <source>Choose a module</source>
-      <translation>Vyberte si modul</translation>
+      <translation>モジュール選択</translation>
     </message>
     <message>
       <source>All modules</source>
-      <translation>Všetky moduly</translation>
+      <translation>全てのモジュール</translation>
     </message>
     <message>
       <source>Choose a module function</source>
-      <translation>Vyberte funkciu modulu</translation>
+      <translation>モジュール機能選択</translation>
     </message>
     <message>
       <source>Options</source>
@@ -21812,111 +21812,111 @@
     </message>
     <message>
       <source>Save</source>
-      <translation>Uložiť</translation>
+      <translation>保存</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Zrušiť</translation>
+      <translation>キャンセル</translation>
     </message>
     <message>
       <source>All functions</source>
-      <translation>Všetky funkcie</translation>
+      <translation>全ての機能</translation>
     </message>
   </context>
   <context>
     <name>permission/newrole</name>
     <message>
       <source>New role</source>
-      <translation>Nová funkcia</translation>
+      <translation>新規ロール</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Názov</translation>
+      <translation>タイトル</translation>
     </message>
     <message>
       <source>Policy list</source>
-      <translation>Zoznam pravidiel</translation>
+      <translation>ポリシーリスト</translation>
     </message>
     <message>
       <source>Module</source>
-      <translation>Modul</translation>
+      <translation>モジュール</translation>
     </message>
     <message>
       <source>Function</source>
-      <translation>Funkcia</translation>
+      <translation>機能</translation>
     </message>
     <message>
       <source>New policy</source>
-      <translation>Nové pravidlo</translation>
+      <translation>新規ポリシー</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Uložiť</translation>
+      <translation>保存</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Zrušiť</translation>
+      <translation>キャンセル</translation>
     </message>
     <message>
       <source>Please enter role name</source>
-      <translation>Zadajte názov funkcie</translation>
+      <translation>ロール名を入力してください</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>List of roles</source>
-      <translation>Zoznam funkcií</translation>
+      <translation>ロールリスト</translation>
     </message>
   </context>
   <context>
     <name>permission/request</name>
     <message>
       <source>Request permission</source>
-      <translation>Žiadosť o povolenie</translation>
+      <translation>権限リクエスト</translation>
     </message>
     <message>
       <source>Request permissions</source>
-      <translation>Požiadajte o povolenia</translation>
+      <translation>権限リクエスト</translation>
     </message>
     <message>
       <source>Permission requested</source>
-      <translation>Vyžaduje sa oprávnenie</translation>
+      <translation>リクエストされた権限</translation>
     </message>
     <message>
       <source>Please choose a user!</source>
-      <translation>Vyberte používateľa!</translation>
+      <translation>ユーザーを選択してください！</translation>
     </message>
     <message>
       <source>This user can not receive permision request!</source>
-      <translation>Tento používateľ nemôže prijať žiadosť o povolenie!</translation>
+      <translation>このユーザーは権限リクエスト受け付けることができません！</translation>
     </message>
     <message>
       <source>Permissions were not provided</source>
-      <translation>Oprávnenia neboli poskytnuté</translation>
+      <translation>権限が与えられません</translation>
     </message>
   </context>
   <context>
     <name>permission/roleassigngroup</name>
     <message>
       <source>Title</source>
-      <translation>Názov</translation>
+      <translation>タイトル</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Priradiť</translation>
+      <translation>アサイン</translation>
     </message>
   </context>
   <context>
     <name>permission/roles</name>
     <message>
       <source>List of roles</source>
-      <translation>Zoznam rolí</translation>
+      <translation>ロールリスト</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Názov</translation>
+      <translation>タイトル</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -21928,11 +21928,11 @@
     </message>
     <message>
       <source>Delete a role</source>
-      <translation>Odstrániť rolu</translation>
+      <translation>ロール削除</translation>
     </message>
     <message>
       <source>New role</source>
-      <translation>Nová rola</translation>
+      <translation>新規ロール</translation>
     </message>
     <message>
       <source>Copy of</source>
@@ -21940,21 +21940,21 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
   </context>
   <context>
     <name>lhproduct/index</name>
     <message>
       <source>Products</source>
-      <translation>Produkty</translation>
+      <translation>製品</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Products</source>
-      <translation>Produkty</translation>
+      <translation>製品</translation>
     </message>
     <message>
       <source>My theme</source>
@@ -21962,31 +21962,31 @@
     </message>
     <message>
       <source>Default theme</source>
-      <translation>Predvolená šablóna</translation>
+      <translation>既定のテーマ</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation>Téma</translation>
+      <translation>テーマ</translation>
     </message>
     <message>
       <source>Widget themes</source>
-      <translation>Témy widgetu</translation>
+      <translation>ウィジェットテーマ</translation>
     </message>
     <message>
       <source>Import a new theme</source>
-      <translation>Importovať novú tému</translation>
+      <translation>新規テーマインポート</translation>
     </message>
     <message>
       <source>Admin</source>
-      <translation>Administrátor</translation>
+      <translation>管理者</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation>Témy administrátora</translation>
+      <translation>管理者テーマ</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation>Predvolená téma administrátora</translation>
+      <translation>既定の管理者テーマ</translation>
     </message>
     <message>
       <source>Rest API</source>
@@ -21994,7 +21994,7 @@
     </message>
     <message>
       <source>Themes</source>
-      <translation>Témy</translation>
+      <translation>テーマ</translation>
     </message>
     <message>
       <source>Import</source>
@@ -22002,7 +22002,7 @@
     </message>
     <message>
       <source>Import theme</source>
-      <translation>Importovať tému</translation>
+      <translation>テーマインポート</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -22013,11 +22013,11 @@
     <name>questionary/answers</name>
     <message>
       <source>Answer</source>
-      <translation>Odpoveď</translation>
+      <translation>回答</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Dátum</translation>
+      <translation>日付</translation>
     </message>
     <message>
       <source>IP</source>
@@ -22025,58 +22025,58 @@
     </message>
     <message>
       <source>View</source>
-      <translation>Pozrieť</translation>
+      <translation>表示</translation>
     </message>
     <message>
       <source>Delete the answer</source>
-      <translation>Odstrániť odpoveď</translation>
+      <translation>回答削除</translation>
     </message>
     <message>
       <source>Option name</source>
-      <translation>Názov možnosti</translation>
+      <translation>オプション名</translation>
     </message>
     <message>
       <source>Progress</source>
-      <translation>Pokrok</translation>
+      <translation>進捗</translation>
     </message>
     <message>
       <source>Votes</source>
-      <translation>Hlasy</translation>
+      <translation>投票</translation>
     </message>
   </context>
   <context>
     <name>questionary/edit</name>
     <message>
       <source>Edit the question</source>
-      <translation>Upraviť otázku</translation>
+      <translation>質問編集</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Otázka</translation>
+      <translation>質問</translation>
     </message>
     <message>
       <source>Voting options</source>
-      <translation>Možnosti hlasovania</translation>
+      <translation>投票時オプション</translation>
     </message>
     <message>
       <source>Answers</source>
-      <translation>Odpovede</translation>
+      <translation>回答</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Uložiť</translation>
+      <translation>保存</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation>Aktualizovať</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Zrušiť</translation>
+      <translation>キャンセル</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Aktualizované</translation>
+      <translation>更新された</translation>
     </message>
     <message>
       <source>If there are no options to choose from, the user will be shown a text field where they will be able to enter their own answer.</source>
@@ -22084,98 +22084,98 @@
     </message>
     <message>
       <source>Option</source>
-      <translation>Možnosť</translation>
+      <translation>オプション</translation>
     </message>
     <message>
       <source>Enter name...</source>
-      <translation>Napíšte meno...</translation>
+      <translation>名前を入力...</translation>
     </message>
     <message>
       <source>Option position</source>
-      <translation>Pozícia možnosti</translation>
+      <translation>オプション位置</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation>Pozícia</translation>
+      <translation>位置</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation>Upraviť</translation>
+      <translation>編集</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation>Odstrániť</translation>
+      <translation>削除</translation>
     </message>
     <message>
       <source>Please enter a question!</source>
-      <translation>Prosím, zadajte otázku!</translation>
+      <translation>質問を入力してください！</translation>
     </message>
     <message>
       <source>Please enter an option!</source>
-      <translation>Zadajte voľbu!</translation>
+      <translation>オプションを入力してください！</translation>
     </message>
     <message>
       <source>Edit a question</source>
-      <translation>Upraviť otázku</translation>
+      <translation>質問を編集</translation>
     </message>
   </context>
   <context>
     <name>questionary/list</name>
     <message>
       <source>Questions</source>
-      <translation>Otázky</translation>
+      <translation>質問</translation>
     </message>
     <message>
       <source>Question</source>
-      <translation>Otázka</translation>
+      <translation>質問</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation>Poloha</translation>
+      <translation>場所</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation>Priorita</translation>
+      <translation>優先度</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktívny</translation>
+      <translation>アクティブ</translation>
     </message>
     <message>
       <source>Revote</source>
-      <translation>Zmena hlasovania</translation>
+      <translation>再投票</translation>
     </message>
     <message>
       <source>Y</source>
-      <translation>A</translation>
+      <translation>はい</translation>
     </message>
     <message>
       <source>N</source>
-      <translation>N</translation>
+      <translation>いいえ</translation>
     </message>
     <message>
       <source>Edit the question</source>
-      <translation>Upraviť otázku</translation>
+      <translation>質問編集</translation>
     </message>
     <message>
       <source>Delete the question</source>
-      <translation>Odstrániť otázka</translation>
+      <translation>質問削除</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Prázdne...</translation>
+      <translation>空です...</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Nová otázka</translation>
+      <translation>新規質問</translation>
     </message>
     <message>
       <source>Off</source>
-      <translation>Off</translation>
+      <translation>オフ</translation>
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Dotazník</translation>
+      <translation>質問</translation>
     </message>
     <message>
       <source>Admin themes</source>
@@ -22186,92 +22186,92 @@
     <name>questionary/newquestion</name>
     <message>
       <source>Enter a new question</source>
-      <translation>Zadajte novú otázku</translation>
+      <translation>新規質問を入力</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Uložiť</translation>
+      <translation>保存</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation>Zrušiť</translation>
+      <translation>キャンセル</translation>
     </message>
     <message>
       <source>New question</source>
-      <translation>Nová otázka</translation>
+      <translation>新規質問</translation>
     </message>
   </context>
   <context>
     <name>questionary/previewanswer</name>
     <message>
       <source>Preview the answer</source>
-      <translation>Zobraziť odpoveď</translation>
+      <translation>回答プレビュー</translation>
     </message>
   </context>
   <context>
     <name>questionary/form_question</name>
     <message>
       <source>Question</source>
-      <translation>Otázka</translation>
+      <translation>質問</translation>
     </message>
     <message>
       <source>Question intro</source>
-      <translation>Úvod otázky</translation>
+      <translation>質問イントロ</translation>
     </message>
     <message>
       <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
-      <translation>Zobraziť otázky pre všetky adresy URL obsahujúce tento reťazec napr. /obchod/košík</translation>
+      <translation>この文字列が全てのURLを含んでいるのであれば、質問を表示　例．/shop/basket</translation>
     </message>
     <message>
       <source>Priority, if multiple questions match a location, the question with the higher priority will be shown</source>
-      <translation>Priorita, ak sa viaceré otázky zhodujú s miestom, zobrazí sa otázka s vyššou prioritou</translation>
+      <translation>優先度、もし複数選択質問でパスが一致した場合、質問は高い優先度で表示されます</translation>
     </message>
     <message>
       <source>Revote time (hours), before can revote. Default 0 - never. Higher value allow revote after seconds expire since last vote</source>
-      <translation>Potrebný čas (v hodinách), pred možnosťou zmeny hlasovania. Predvolené 0 - nikdy. Vyššia hodnota povoľuje opakovanie po uplynutí sekundy od posledného hlasovania</translation>
+      <translation>再投票時間（時）、期限前に再投票できます。既定値 0 - 無制限、より大きい値で秒数で再投票を許可します</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktívny</translation>
+      <translation>アクティブ</translation>
     </message>
   </context>
   <context>
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation>Dotazník</translation>
+      <translation>質問</translation>
     </message>
     <message>
       <source>Thank you!</source>
-      <translation>Ďakujem vám!</translation>
+      <translation>ありがとうございました！</translation>
     </message>
     <message>
       <source>You have already voted, thank you!</source>
-      <translation>Už ste hlasovali, ďakujeme!</translation>
+      <translation>すでに投票しています、ありがとうございます！</translation>
     </message>
     <message>
       <source>Vote</source>
-      <translation>Hlasovať</translation>
+      <translation>投票</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation>Odoslať</translation>
+      <translation>送信</translation>
     </message>
     <message>
       <source>We do not have any requests for now.</source>
-      <translation>Momentálne nemáme žiadne požiadavky.</translation>
+      <translation>現在リクエストがありません。</translation>
     </message>
     <message>
       <source>Please choose one of the options!</source>
-      <translation>Prosím, zvoľte jednu z možností!</translation>
+      <translation>オプションの一つを選択してください！</translation>
     </message>
     <message>
       <source>No question was detected</source>
-      <translation>Nebola zistená žiadna otázka</translation>
+      <translation>検出された質問はありません</translation>
     </message>
     <message>
       <source>Please enter your feedback!</source>
-      <translation>Napíšte prosím svoj názor!</translation>
+      <translation>あなたのフィードバックを入力してください！</translation>
     </message>
     <message>
       <source>You have already sent your feedback!</source>
@@ -22286,7 +22286,7 @@
     </message>
     <message>
       <source>Rest API Keys</source>
-      <translation>Rest API kľúče</translation>
+      <translation>Rest APIキー</translation>
     </message>
     <message>
       <source>Rest API Remote Keys</source>
@@ -22301,11 +22301,11 @@
     </message>
     <message>
       <source>Language</source>
-      <translation>Jazyk</translation>
+      <translation>言語</translation>
     </message>
     <message>
       <source>Dialect</source>
-      <translation>Dialekt</translation>
+      <translation>方言</translation>
     </message>
     <message>
       <source>Language Code</source>
@@ -22349,22 +22349,22 @@
     </message>
     <message>
       <source>Choose speech recognition language for this chat</source>
-      <translation>Vyberte jazyk rozpoznávania reči pre tento rozhovor</translation>
+      <translation>このチャットのスピーチ認識言語を選択してください</translation>
     </message>
     <message>
       <source>Default speech recognition language</source>
-      <translation>Predvolený jazyk rozpoznávania reči</translation>
+      <translation>既定のスピーチ認識言語</translation>
     </message>
   </context>
   <context>
     <name>speech/speech</name>
     <message>
       <source>Use application default recognition language</source>
-      <translation>Použiť predvolený jazyk rozpoznávania</translation>
+      <translation>アプリケーションで既定の認識言語を使用</translation>
     </message>
     <message>
       <source>Use application default recognition dialect</source>
-      <translation>Použiť predvolený rozpoznávací dialekt</translation>
+      <translation>アプリケーションで既定の認識方言を使用</translation>
     </message>
   </context>
   <context>
@@ -22454,11 +22454,11 @@
     <name>survey/choosesurvey</name>
     <message>
       <source>Survey</source>
-      <translation>Prieskum</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Collected information</source>
-      <translation>Zozbierané informácie</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Redirect to survey</source>
@@ -22470,7 +22470,7 @@
     </message>
     <message>
       <source>Visitor was redirected to survey, you can now close this window.</source>
-      <translation>Návštevník bol presmerovaný na prieskum, teraz môžete zatvoriť toto okno.</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -22497,7 +22497,7 @@
     </message>
     <message>
       <source>Stars</source>
-      <translation>Hviezdy</translation>
+      <translation>スター</translation>
     </message>
     <message>
       <source>Percentages</source>
@@ -22505,31 +22505,31 @@
     </message>
     <message>
       <source>Chats</source>
-      <translation>Chaty</translation>
+      <translation>チャット</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation>Chat</translation>
+      <translation>チャット</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation>Oddelenie</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation>Operátor</translation>
+      <translation>オペレータ</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation>Čas</translation>
+      <translation>時間</translation>
     </message>
     <message>
       <source>View information</source>
-      <translation>Zobraziť informácie</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Collected information</source>
-      <translation>Zozbierané informácie</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Survey</source>
@@ -22537,7 +22537,7 @@
     </message>
     <message>
       <source>Department name</source>
-      <translation type="unfinished"/>
+      <translation>部署名</translation>
     </message>
     <message>
       <source>Survey ID</source>
@@ -22548,23 +22548,23 @@
     <name>survey/fill</name>
     <message>
       <source>Preview chat</source>
-      <translation>Ukážka chatu</translation>
+      <translation>チャットプレビュー</translation>
     </message>
     <message>
       <source>star</source>
-      <translation>hviezda</translation>
+      <translation>スター</translation>
     </message>
     <message>
       <source>Poor</source>
-      <translation>Zlé</translation>
+      <translation>乏しい</translation>
     </message>
     <message>
       <source>stars</source>
-      <translation>hviezdy</translation>
+      <translation>スター</translation>
     </message>
     <message>
       <source>Excellent</source>
-      <translation>Vynikajúce</translation>
+      <translation>素晴らしい</translation>
     </message>
     <message>
       <source>Type here...</source>
@@ -22576,11 +22576,11 @@
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation>Prosím, ohodnoťte spokojnosť s chatom</translation>
+      <translation>この短い評価アンケートに記入してください</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation>Ďakujeme za spätnú väzbu...</translation>
+      <translation>フィードバックありがとうございます...</translation>
     </message>
   </context>
   <context>
@@ -22606,7 +22606,7 @@
     <name>users/autologin</name>
     <message>
       <source>Auto login settings</source>
-      <translation>Nastavenia automatického prihlasovania</translation>
+      <translation>自動ログイン設定</translation>
     </message>
     <message>
       <source>Custom auto logins</source>
@@ -22614,15 +22614,15 @@
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
-      <translation>Tento modul je možné použiť, ak generujete odkaz pre automaticke prihlásenie. Pozrite si stránku pre príklady kódov</translation>
+      <translation>自動ログインリンクを生成した時このモジュールが使用できます。サイトのコード例をみてください</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation>Povolené</translation>
+      <translation>有効化</translation>
     </message>
     <message>
       <source>Secret hash used for authentification token generation, min 10 characters</source>
-      <translation>Tajný hash použitý na autentifikáciu generácie tokenu, min 10 znakov</translation>
+      <translation>シークレットハッシュは認証トークン生成に使用されます、最小10文字</translation>
     </message>
     <message>
       <source>User ID</source>
@@ -22654,7 +22654,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Nastavenie aktualizácie</translation>
+      <translation>設定が更新されました</translation>
     </message>
     <message>
       <source>Password requirements</source>
@@ -22722,23 +22722,23 @@
     </message>
     <message>
       <source>Autologin hash has expired</source>
-      <translation>Hash pre automaticke prihlásenie expiroval</translation>
+      <translation>自動ログインハッシュが期限切れです</translation>
     </message>
     <message>
       <source>Could not find a user</source>
-      <translation>Používateľa sa nepodarilo nájsť</translation>
+      <translation>ユーザーが見つかりません</translation>
     </message>
     <message>
       <source>Could not find a provided user</source>
-      <translation>Nepodarilo sa nájsť zadaného používateľa</translation>
+      <translation>許可されたユーザーが見つかりません</translation>
     </message>
     <message>
       <source>Invalid autologin hash</source>
-      <translation>Naplatný hash pre automatické prihlásenie</translation>
+      <translation>無効な自動ログインハッシュ</translation>
     </message>
     <message>
       <source>Auto login module is not enabled</source>
-      <translation>Modul pre automatické prihlasovanie nie je povolený</translation>
+      <translation>自動ログインモジュールは有効ではありません</translation>
     </message>
     <message>
       <source>Invalid hash or user</source>
@@ -22832,47 +22832,47 @@
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
-      <translation>Konfigurácia Jazykov</translation>
+      <translation>言語設定</translation>
     </message>
     <message>
       <source>Your language</source>
-      <translation>Váš jazyk</translation>
+      <translation>あなたの言語</translation>
     </message>
     <message>
       <source>General language settings</source>
-      <translation>Všeobecné nastavenia jazyka</translation>
+      <translation>一般言語設定</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation>Jazyk</translation>
+      <translation>言語</translation>
     </message>
     <message>
       <source>Current site access</source>
-      <translation>Aktuálny prístup k stránke</translation>
+      <translation>現在のサイトアクセス</translation>
     </message>
     <message>
       <source>Site access</source>
-      <translation>Prístup k stránke</translation>
+      <translation>サイトアクセス</translation>
     </message>
     <message>
       <source>options for</source>
-      <translation>možnosti</translation>
+      <translation>オプション</translation>
     </message>
     <message>
       <source>Theme, separate themes by new line</source>
-      <translation>Téma, oddeľte témy novým riadkom</translation>
+      <translation>テーマ、新しい行で区切られたテーマ</translation>
     </message>
     <message>
       <source>Default module</source>
-      <translation>Predvolený modul</translation>
+      <translation>既定のモジュール</translation>
     </message>
     <message>
       <source>Default view</source>
-      <translation>Predvolené zobrazenie</translation>
+      <translation>既定のビュー</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation>Nastavenia aktualizované</translation>
+      <translation>設定が更新されました</translation>
     </message>
     <message>
       <source>Notice messages</source>
@@ -22896,7 +22896,7 @@
     </message>
     <message>
       <source>Please choose correct language</source>
-      <translation>Prosím, vyberte správny jazyk</translation>
+      <translation>正しい言語を選択してください</translation>
     </message>
     <message>
       <source>Please choose a valid siteaccess</source>
@@ -22908,15 +22908,15 @@
     </message>
     <message>
       <source>Please enter theme</source>
-      <translation>Prosím, zadajte tému</translation>
+      <translation>テーマを入力してください！</translation>
     </message>
     <message>
       <source>Please enter module name</source>
-      <translation>Prosím, zadajte názov modulu</translation>
+      <translation>モジュール名を入力してください！</translation>
     </message>
     <message>
       <source>Please enter view name</source>
-      <translation>Prosím, zadajte názov pohľadu</translation>
+      <translation>ビュー名を入力してください</translation>
     </message>
   </context>
   <context>
@@ -22962,23 +22962,23 @@
     </message>
     <message>
       <source>Time zone settings</source>
-      <translation>Nastavenie časovej zóny</translation>
+      <translation>タイムゾーン設定</translation>
     </message>
     <message>
       <source>Set application specific time zone</source>
-      <translation>Nastaviť časové pásmo pre aplikáciu</translation>
+      <translation>アプリケーションに特定のタイムゾーンを設定</translation>
     </message>
     <message>
       <source>Date format E.g (Y-m-d)</source>
-      <translation>Formát dátumu napr. (Y-m-d)</translation>
+      <translation>日付形式 例．(Y-m-d)</translation>
     </message>
     <message>
       <source>Full date format E.g (Y-m-d H:i:s)</source>
-      <translation>Plný formát dátumu napr. (Y-m-d H:i:s)</translation>
+      <translation>日付形式完全 例．(Y-m-d H:i:s)</translation>
     </message>
     <message>
       <source>Hour format E.g (H:i:s)</source>
-      <translation>Formát hodín napr. (H:i:s)</translation>
+      <translation>時間形式 例．(H:i:s)</translation>
     </message>
     <message>
       <source>Update</source>
@@ -22986,54 +22986,54 @@
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
-      <translation>Porovnávam aktuálnu štruktúru databázy, čakajte prosím ...</translation>
+      <translation>現在のデータベース構造を比較中、しばらくお待ちください...</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation>Časová zóna</translation>
+      <translation>タイムゾーン</translation>
     </message>
   </context>
   <context>
     <name>system/smtp</name>
     <message>
       <source>Settings updated</source>
-      <translation>Nastavenie aktualizácie</translation>
+      <translation>設定が更新されました</translation>
     </message>
     <message>
       <source>Mail settings</source>
-      <translation>Nastavenie pošty</translation>
+      <translation>メール設定</translation>
     </message>
     <message>
       <source>Sender address</source>
-      <translation>Adresa odosielateľa</translation>
+      <translation>送信者アドレス</translation>
     </message>
     <message>
       <source>Default from e-mail address</source>
-      <translation>Predvolený e-mail od</translation>
+      <translation>既定の送信者メールアドレス</translation>
     </message>
     <message>
       <source>Default from name</source>
-      <translation>Predvolené meno Od</translation>
+      <translation>既定の送信者名</translation>
     </message>
     <message>
       <source>SMTP enabled</source>
-      <translation>SMTP povolené</translation>
+      <translation>SMTP有効化</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Prihlásenie</translation>
+      <translation>ログイン</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Heslo</translation>
+      <translation>パスワード</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation>Host</translation>
+      <translation>ホスト</translation>
     </message>
     <message>
       <source>Port</source>
-      <translation>Port</translation>
+      <translation>ポート</translation>
     </message>
     <message>
       <source>Bind IP, multiple IP can be separated by comma. Random IP will be chosen.</source>
@@ -23106,7 +23106,7 @@
     </message>
     <message>
       <source>I receive other operators permissions request</source>
-      <translation>Dostávam žiadosť o povolenie iných operátorov</translation>
+      <translation>他のオペレータの許可リクエストを受け取ります</translation>
     </message>
     <message>
       <source>Offline</source>
@@ -23114,7 +23114,7 @@
     </message>
     <message>
       <source>Invisible mode</source>
-      <translation>Neviditeľný mód</translation>
+      <translation>非表示モード</translation>
     </message>
     <message>
       <source>Force user to change password on login</source>
@@ -23126,11 +23126,11 @@
     </message>
     <message>
       <source>User receives other operators permissions request</source>
-      <translation>Používateľ dostáva žiadosť o povolenie iných operátorov</translation>
+      <translation>ユーザーは他のオペレータの許可リクエストを受け取ります</translation>
     </message>
     <message>
       <source>User group</source>
-      <translation>Používateľská skupina</translation>
+      <translation>ユーザーグループ</translation>
     </message>
     <message>
       <source>Required groups, choose one or more</source>
@@ -23138,7 +23138,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Zakázané</translation>
+      <translation>無効化</translation>
     </message>
     <message>
       <source>User department</source>
@@ -23150,43 +23150,43 @@
     </message>
     <message>
       <source>New user</source>
-      <translation>Nový užívateľ</translation>
+      <translation>新規ユーザー</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Užívateľské meno</translation>
+      <translation>ユーザー名</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation>Heslo</translation>
+      <translation>パスワード</translation>
     </message>
     <message>
       <source>Repeat the new password</source>
-      <translation>Zopakujte nové heslo</translation>
+      <translation>新規パスワード再入力</translation>
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation>Prezývka chatu</translation>
+      <translation>チャットニックネーム</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Priezvisko</translation>
+      <translation>姓（ローマ字）</translation>
     </message>
     <message>
       <source>Photo</source>
-      <translation>Foto</translation>
+      <translation>写真</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Uložiť</translation>
+      <translation>保存</translation>
     </message>
     <message>
       <source>Save and edit</source>
@@ -23206,26 +23206,26 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation>Užívatelia</translation>
+      <translation>ユーザー</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Zadajte názov skupiny</translation>
+      <translation>グループ名を入力してください</translation>
     </message>
   </context>
   <context>
     <name>system/update</name>
     <message>
       <source>Your version</source>
-      <translation>Vaša verzia</translation>
+      <translation>あなたのバージョン</translation>
     </message>
     <message>
       <source>Current version</source>
-      <translation>Aktuálna verzia</translation>
+      <translation>現在のバージョン</translation>
     </message>
     <message>
       <source>Status/security checks</source>
@@ -23269,7 +23269,7 @@
     </message>
     <message>
       <source>News</source>
-      <translation>Novinky</translation>
+      <translation>ニュース</translation>
     </message>
     <message>
       <source>Upgrade instructions</source>
@@ -23277,7 +23277,7 @@
     </message>
     <message>
       <source>Live Helper Chat update information</source>
-      <translation>Informácia o aktualizácii Live Helper Chat</translation>
+      <translation>Live Helper Chat 更新情報</translation>
     </message>
   </context>
   <context>
@@ -23292,22 +23292,22 @@
     </message>
     <message>
       <source>Your database does not require any updates</source>
-      <translation>Vaša databáza nevyžaduje žiadne aktualizácie</translation>
+      <translation>データベースの更新は必要ありません</translation>
     </message>
     <message>
       <source>Update database</source>
-      <translation>Aktualizácia databázy</translation>
+      <translation>データベース更新</translation>
     </message>
     <message>
       <source>Queries which will be executed on update</source>
-      <translation>Dotazy, ktoré sa vykonajú pri aktualizácii</translation>
+      <translation>更新時にクエリが実行されます</translation>
     </message>
   </context>
   <context>
     <name>icclicktocallform/form</name>
     <message>
       <source>Settings</source>
-      <translation>Nastavenia</translation>
+      <translation>設定</translation>
     </message>
     <message>
       <source>Chat attributes</source>
@@ -23319,15 +23319,15 @@
     </message>
     <message>
       <source>Header settings</source>
-      <translation>Nastavenia hlavičky</translation>
+      <translation>ヘッダ設定</translation>
     </message>
     <message>
       <source>Header css</source>
-      <translation>CSS hlavičky</translation>
+      <translation>ヘッダCSS</translation>
     </message>
     <message>
       <source>Static content</source>
-      <translation>Statiscký obsah</translation>
+      <translation>静的コンテンツ</translation>
     </message>
     <message>
       <source>JS</source>
@@ -23339,46 +23339,46 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>名前</translation>
     </message>
     <message>
       <source>Header content</source>
-      <translation>Obsah hlavičky</translation>
+      <translation>ヘッダコンテンツ</translation>
     </message>
     <message>
       <source>Resource name for replacement</source>
-      <translation>Názov zdroja pre výmenu</translation>
+      <translation>交換用のリソース名</translation>
     </message>
     <message>
       <source>Empty...</source>
-      <translation>Prázdny...</translation>
+      <translation>空です...</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>Neplatný CSRF token!</translation>
+      <translation>無効なCSRFトークンです！</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Prosím zadajte meno</translation>
+      <translation>名前を入力してください</translation>
     </message>
     <message>
       <source>File not chosen for</source>
-      <translation>Súbor nie je vybraný pre</translation>
+      <translation>ファイルが選択されていません</translation>
     </message>
   </context>
   <context>
     <name>lhtheme/admin</name>
     <message>
       <source>New admin theme</source>
-      <translation>Nová admin téma</translation>
+      <translation>新規管理者テーマ</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation>Admin témy</translation>
+      <translation>管理者テーマ</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>名前</translation>
     </message>
     <message>
       <source>Operator</source>
@@ -23386,11 +23386,11 @@
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation>Predvolená admin téma</translation>
+      <translation>既定の管理者テーマ</translation>
     </message>
     <message>
       <source>Edit admin theme</source>
-      <translation>Upraviť admin tému</translation>
+      <translation>管理者テーマ編集</translation>
     </message>
     <message>
       <source>Personal theme</source>
@@ -23401,11 +23401,11 @@
     <name>admintheme/form</name>
     <message>
       <source>Edit theme</source>
-      <translation>Upraviť tému</translation>
+      <translation>テーマ編集</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation>Aktualizované</translation>
+      <translation>更新されました</translation>
     </message>
     <message>
       <source>Personal theme</source>
@@ -23420,42 +23420,42 @@
     <name>theme/default</name>
     <message>
       <source>Set as default theme</source>
-      <translation>Nastaviť ako predvolenú tému</translation>
+      <translation>既定のテーマとして設定</translation>
     </message>
   </context>
   <context>
     <name>theme/import</name>
     <message>
       <source>Default theme was set</source>
-      <translation>Predvolená téma bola nastavená</translation>
+      <translation>既定のテーマが設定されました</translation>
     </message>
     <message>
       <source>Default admin theme was set</source>
-      <translation>Predvolená admin téma bola nastavená</translation>
+      <translation>既定の管理者テーマが設定されました</translation>
     </message>
     <message>
       <source>Import theme</source>
-      <translation>Importovať tému</translation>
+      <translation>テーマをインポート</translation>
     </message>
     <message>
       <source>File</source>
-      <translation>Súbor</translation>
+      <translation>ファイル</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation>Import</translation>
+      <translation>インポート</translation>
     </message>
     <message>
       <source>Theme imported</source>
-      <translation>Téma importovaná</translation>
+      <translation>テーマがインポートされました</translation>
     </message>
     <message>
       <source>Could not import a new theme!</source>
-      <translation>Nie je možné importovať novú tému!</translation>
+      <translation>新規テーマをインポートできませんでした！</translation>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation>Neplatný súbor!</translation>
+      <translation>無効なファイル！</translation>
     </message>
   </context>
   <context>
@@ -23466,11 +23466,11 @@
     </message>
     <message>
       <source>Title</source>
-      <translation>Názov</translation>
+      <translation>タイトル</translation>
     </message>
     <message>
       <source>Member of this group can work with the following groups</source>
-      <translation>Člen tejto skupiny môže pracovať s nasledujúcimi skupinami</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Direct members of this group cannot assign this group to other operators.</source>
@@ -23478,7 +23478,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation>Zakázané</translation>
+      <translation>無効化</translation>
     </message>
     <message>
       <source>Required</source>
@@ -23490,78 +23490,78 @@
     </message>
     <message>
       <source>Update</source>
-      <translation>Aktualizovať</translation>
+      <translation>更新</translation>
     </message>
     <message>
       <source>Assigned users</source>
-      <translation>Priradení používatelia</translation>
+      <translation>アサインされたユーザー</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation>Užívateľské meno</translation>
+      <translation>ユーザー名</translation>
     </message>
     <message>
       <source>Remove user from the group</source>
-      <translation>Odstrániť používateľa zo skupiny</translation>
+      <translation>グループからユーザー削除</translation>
     </message>
     <message>
       <source>Assign user</source>
-      <translation>Priradiť užívateľa</translation>
+      <translation>アサインユーザー</translation>
     </message>
     <message>
       <source>Assigned roles</source>
-      <translation>Priradené roly</translation>
+      <translation>アサインされたロール</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>Remove role from group</source>
-      <translation>Odstrániť rolu zo skupiny</translation>
+      <translation>グループからロール削除</translation>
     </message>
     <message>
       <source>Assign role</source>
-      <translation>Priradiť rolu</translation>
+      <translation>アサインロール</translation>
     </message>
     <message>
       <source>Please enter a group name</source>
-      <translation>Prosím, zadajte názov skupiny</translation>
+      <translation>グループ名を入力してください</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Skupiny</translation>
+      <translation>グループ</translation>
     </message>
     <message>
       <source>Group edit</source>
-      <translation>Upraviť skupinu</translation>
+      <translation>グループ編集</translation>
     </message>
   </context>
   <context>
     <name>user/forgotpassword</name>
     <message>
       <source>Password reminder</source>
-      <translation>Obnovenie hesla</translation>
+      <translation>パスワードリマインダー</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>Restore password</source>
-      <translation>Obnoviť heslo</translation>
+      <translation>パスワードリストア</translation>
     </message>
     <message>
       <source>Invalid e-mail address!</source>
-      <translation>Nesprávna e-mailová adresa!</translation>
+      <translation>無効なメールアドレスです！</translation>
     </message>
     <message>
       <source>Password remind</source>
-      <translation>Pripomenutie hesla</translation>
+      <translation>パスワード忘れ</translation>
     </message>
     <message>
       <source>Click this link and You will be able to change a password</source>
@@ -23572,7 +23572,7 @@
     <name>user/forgotpasswordsent</name>
     <message>
       <source>Password reminder</source>
-      <translation>Pripomienka hesla</translation>
+      <translation>パスワードリマインダー</translation>
     </message>
     <message>
       <source>If this e-mail exists we have send password remind link. Click the link in the email and You will be able to set a new password.</source>
@@ -23583,54 +23583,54 @@
     <name>user/groupassignuser</name>
     <message>
       <source>Username</source>
-      <translation>Meno používateľa</translation>
+      <translation>ユーザー名</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>Surname</source>
-      <translation>Priezvisko</translation>
+      <translation>姓（ローマ字）</translation>
     </message>
     <message>
       <source>Assign</source>
-      <translation>Prideliť</translation>
+      <translation>アサイン</translation>
     </message>
     <message>
       <source>User was assigned to the group!</source>
-      <translation>Používateľ bol pridelený do skupiny!</translation>
+      <translation>ユーザーはグループに割り当てられました！</translation>
     </message>
   </context>
   <context>
     <name>user/grouplist</name>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>Edit group</source>
-      <translation>Upraviť skupinu</translation>
+      <translation>グループ編集</translation>
     </message>
     <message>
       <source>Delete group</source>
-      <translation>Odstrániť skupinu</translation>
+      <translation>グループ削除</translation>
     </message>
     <message>
       <source>New group</source>
-      <translation>Nová skupina</translation>
+      <translation>新規グループ</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Skupiny</translation>
+      <translation>グループ</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
   </context>
   <context>
@@ -23744,7 +23744,7 @@
     <name>user/login</name>
     <message>
       <source>Please login</source>
-      <translation>Prosím prihláste sa</translation>
+      <translation>ログインしてください</translation>
     </message>
     <message>
       <source>Username OR E-mail</source>
@@ -23752,19 +23752,19 @@
     </message>
     <message>
       <source>Password</source>
-      <translation>Heslo</translation>
+      <translation>パスワード</translation>
     </message>
     <message>
       <source>Remember me</source>
-      <translation>Zapamätať si ma</translation>
+      <translation>覚えておいてください</translation>
     </message>
     <message>
       <source>Login</source>
-      <translation>Prihlásenie</translation>
+      <translation>ログイン</translation>
     </message>
     <message>
       <source>Password reminder</source>
-      <translation>Pripomenutie hesla</translation>
+      <translation>パスワードリマインダー</translation>
     </message>
     <message>
       <source>Your session has ended. Please login!</source>
@@ -23776,7 +23776,7 @@
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
-      <translation>Boli ste odhlásený, pretože iný používateľ sa prihlásil pod rovnakým účtom</translation>
+      <translation>他のユーザーが同じアカウントでログインしたため、ログアウトしました</translation>
     </message>
     <message>
       <source>Your password has expired or it has to be changed.</source>
@@ -23824,7 +23824,7 @@
     </message>
     <message>
       <source>CSFR token is invalid, try to resubmit form</source>
-      <translation>Neplatný CSFR token, skúste znovu odoslať formulár</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>You can not login because of IP restrictions</source>
@@ -23840,7 +23840,7 @@
     </message>
     <message>
       <source>Incorrect username or password</source>
-      <translation>Nesprávne používateľské meno alebo heslo</translation>
+      <translation>ユーザー名またはパスワードが正しくありません</translation>
     </message>
     <message>
       <source>Logged in successfully. WEB</source>
@@ -23848,7 +23848,7 @@
     </message>
     <message>
       <source>Logged in successfully</source>
-      <translation>Úspešne prihlásený</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User could not be found!</source>
@@ -23886,27 +23886,27 @@
     <name>user/newgroup</name>
     <message>
       <source>New group</source>
-      <translation>Nová skupina</translation>
+      <translation>新規グループ</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation>Názov</translation>
+      <translation>タイトル</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation>Uložiť</translation>
+      <translation>保存</translation>
     </message>
     <message>
       <source>Save and assign the user</source>
-      <translation>Uložiť a priradiť užívateľa</translation>
+      <translation>保存してユーザーをアサインする</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation>Konfigurácia systému</translation>
+      <translation>システム設定</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation>Skupiny</translation>
+      <translation>グループ</translation>
     </message>
   </context>
   <context>
@@ -23936,7 +23936,7 @@
     </message>
     <message>
       <source>New password</source>
-      <translation>Nové heslo:</translation>
+      <translation>新規パスワード</translation>
     </message>
     <message>
       <source>Repeat password</source>
@@ -23963,15 +23963,15 @@
     </message>
     <message>
       <source>Continue</source>
-      <translation>Pokračovať</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Logout</source>
-      <translation>Odhlásiť</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Offline</source>
-      <translation>Offline</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -24285,15 +24285,15 @@
     </message>
     <message>
       <source>Name, for personal purposes</source>
-      <translation>Meno, na osobné účely</translation>
+      <translation>目的の名称</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation>Predmet</translation>
+      <translation>件名</translation>
     </message>
     <message>
       <source>Allow user to change subject</source>
-      <translation>Povoliť používateľoví zmeniť predmet</translation>
+      <translation>ユーザーが件名を変更することを許可</translation>
     </message>
     <message>
       <source>Set language based on visitor language. By default we set language by embed code.</source>
@@ -24305,47 +24305,47 @@
     </message>
     <message>
       <source>From name</source>
-      <translation>Meno od</translation>
+      <translation>送信者名</translation>
     </message>
     <message>
       <source>Allow to change from name</source>
-      <translation>Povoliť zmenu mena Od</translation>
+      <translation>送信者名の変更を許可</translation>
     </message>
     <message>
       <source>From e-mail</source>
-      <translation>E-mail od</translation>
+      <translation>Fromメールアドレス</translation>
     </message>
     <message>
       <source>Allow to change from e-mail</source>
-      <translation>Povoliť zmenu e-mailu Od</translation>
+      <translation>Fromメールアドレスの変更を許可</translation>
     </message>
     <message>
       <source>Use user e-mail as from address</source>
-      <translation>Použiť e-mail používateľa ako adresu Od</translation>
+      <translation>ユーザーメールアドレスを From メールアドレスとして使用</translation>
     </message>
     <message>
       <source>Reply to</source>
-      <translation>odpovedať komu</translation>
+      <translation>返信</translation>
     </message>
     <message>
       <source>Allow to change reply e-mail</source>
-      <translation>Povoliť zmenu odpovede na e-mail</translation>
+      <translation>返信メールアドレスの変更を許可</translation>
     </message>
     <message>
       <source>Recipient email, this is used if the application could not determine who should receive an email.</source>
-      <translation>E-mail príjemcu, toto sa používa, ak aplikácia nemohla určiť, kto by mal dostať e-mail.</translation>
+      <translation>受信者メールアドレス、アプリケーションがメール受信者を決定できない場合に使用されます。</translation>
     </message>
     <message>
       <source>BCC recipients, can be separated by comma.</source>
-      <translation>Príjemcovia BCC, môžu byť oddelení čiarkou.</translation>
+      <translation>BCC受信者、カンマ区切りで入力できます。</translation>
     </message>
     <message>
       <source>Content</source>
-      <translation>Obsah</translation>
+      <translation>コンテンツ</translation>
     </message>
     <message>
       <source>E-mail templates</source>
-      <translation>Šablóny e-mailu</translation>
+      <translation>メールテンプレート</translation>
     </message>
   </context>
   <context>
@@ -24356,7 +24356,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>表示名</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -24364,138 +24364,138 @@
     </message>
     <message>
       <source>Feedback text</source>
-      <translation>Text spätnej väzby</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Max stars for feedback</source>
-      <translation>Max hviezd pre spätnú väzbu</translation>
+      <translation>フィードバックの最大スター</translation>
     </message>
     <message>
       <source>Max stars pos</source>
-      <translation>Max hviezd poz.</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title for evaluation</source>
-      <translation>Titulok pre hodnotenie</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Required</source>
-      <translation>Povinný</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title for plain question</source>
-      <translation>Titulok pre jednoduché otázky</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title for custom questions</source>
-      <translation>Titulok pre vlastné otázky</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Survey</source>
-      <translation>Prieskum</translation>
+      <translation>アンケート</translation>
     </message>
   </context>
   <context>
     <name>abstract/browserofferinvitation</name>
     <message>
       <source>Name for personal purposes</source>
-      <translation>Meno na osobné účely</translation>
+      <translation>目的の名称</translation>
     </message>
     <message>
       <source>Content</source>
-      <translation>Obsah</translation>
+      <translation>コンテンツ</translation>
     </message>
     <message>
       <source>Name attributes</source>
-      <translation>Atribúty názvu</translation>
+      <translation>属性名</translation>
     </message>
     <message>
       <source>Introduction attributes</source>
-      <translation>Úvodné atribúty</translation>
+      <translation>はじめの属性</translation>
     </message>
     <message>
       <source>XLS Columns</source>
-      <translation>XLS stĺpce</translation>
+      <translation>XLSカラム</translation>
     </message>
     <message>
       <source>Recipient</source>
-      <translation>Príjemca</translation>
+      <translation>受信者</translation>
     </message>
     <message>
       <source>Post content after form is submitted</source>
-      <translation>Odoslať obsah po odoslaní formuláru</translation>
+      <translation>フォームが送信された後にコンテンツを送信する</translation>
     </message>
     <message>
       <source>Custom pagelayout</source>
-      <translation>Vlastné rozloženie stránky</translation>
+      <translation>カスタムページレイアウト</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation>Aktívny</translation>
+      <translation>アクティブ</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Jazyk, ponechajte prázdne pre všetky. Napr. lit, rus, ger, atď...</translation>
+      <translation>言語…空にするとすべての言語になります。例．lit, rus, ger etc...</translation>
     </message>
     <message>
       <source>Time on site on single page in seconds</source>
-      <translation>Čas na stránkach na jednej stránke v sekundách</translation>
+      <translation>サイトのシングルページの時間（秒）</translation>
     </message>
     <message>
       <source>Priority, the lower the higher</source>
-      <translation>Priorita, nižšie je vyššia</translation>
+      <translation>優先度、低い・高い</translation>
     </message>
     <message>
       <source>Popup width</source>
-      <translation>Šírka popup</translation>
+      <translation>ポップアップの幅</translation>
     </message>
     <message>
       <source>Popup height</source>
-      <translation>Výška popup</translation>
+      <translation>ポップアップの高さ</translation>
     </message>
     <message>
       <source>Measure units, px or percents</source>
-      <translation>Merné jednotky, px alebo percentá (percents)</translation>
+      <translation>長さの単位…ピクセルまたはパーセンテージ</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Referenčná doména bez www, napr. kľúčové slovo google sa zhodne s ľubovoľnou doménou google</translation>
+      <translation>wwwなしのリファラードメイン…例．google はすべてのgoogleドメインにマッチします</translation>
     </message>
     <message>
       <source>URL, enter * at the end for the wildcard</source>
-      <translation>URL, zadajte * na konci pre wildcard</translation>
+      <translation>URL…*を最後に入力するとワイルドカードとして扱われます</translation>
     </message>
     <message>
       <source>Custom iframe URL, takes priority over default content</source>
-      <translation>Vlastná iframe URL má prednosť pred predvoleným obsahom</translation>
+      <translation>カスタムiframeのURL、既定のコンテンツを超える優先度となります</translation>
     </message>
     <message>
       <source>Default popup content</source>
-      <translation>Predvolený obsah popup</translation>
+      <translation>既定のポップアップコンテンツ</translation>
     </message>
     <message>
       <source>Callback content, must be valid json</source>
-      <translation>Obsah spätného volania musí byť platný json</translation>
+      <translation>コールバックコンテンツ、有効なjsonでなければなりません</translation>
     </message>
     <message>
       <source>Load content in lhc iframe</source>
-      <translation>ačítať obsah v lhc iframe</translation>
+      <translation>コンテンツをLHCのiframeに読み込みます</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Identifikátor, pre ktorý identifikátor by sa táto správa mala zobrazovať, nechajte prázdne pre všetkých</translation>
+      <translation>表示されるメッセージのID…空にするとすべてが該当します</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation>Počet zhôd</translation>
+      <translation>一致時間</translation>
     </message>
     <message>
       <source>Browser offer invitations</source>
-      <translation>Prezerať ponuky pozvánok</translation>
+      <translation>ブラウザに招待オファー</translation>
     </message>
     <message>
       <source>Forms list</source>
-      <translation>Zoznam formulárov</translation>
+      <translation>フォームリスト</translation>
     </message>
   </context>
   <context>
@@ -24506,19 +24506,19 @@
     </message>
     <message>
       <source>Name</source>
-      <translation>Meno</translation>
+      <translation>名前</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation>Priorita</translation>
+      <translation>優先度</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation>Produkt</translation>
+      <translation>製品</translation>
     </message>
     <message>
       <source>API Key</source>
-      <translation>API kľúč</translation>
+      <translation>APIキー</translation>
     </message>
     <message>
       <source>Rest API Remote Keys</source>
@@ -24552,18 +24552,18 @@
     </message>
     <message>
       <source>Collected survey data</source>
-      <translation>Zhromaždené dáta prieskumu</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
       <source>Chat has been transfered to</source>
-      <translation>Chat bol preusnutý na</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>has joined the chat!</source>
-      <translation>sa pripojil k chatu!</translation>
+      <translation>チャットに参加しています！</translation>
     </message>
     <message>
       <source>has accepted a transferred chat!</source>
@@ -24582,15 +24582,15 @@
     <name>chat/chatexport</name>
     <message>
       <source>Department name</source>
-      <translation>Názov oddelenia</translation>
+      <translation>部署名</translation>
     </message>
     <message>
       <source>Pending chats number</source>
-      <translation>Počet čakajúcich čatov</translation>
+      <translation>保留チャット数</translation>
     </message>
     <message>
       <source>Active chats number</source>
-      <translation>Počet aktívnych chatov</translation>
+      <translation>アクティブチャット数</translation>
     </message>
     <message>
       <source>Bot chats number</source>
@@ -24606,19 +24606,19 @@
     </message>
     <message>
       <source>Visitor Name</source>
-      <translation>Meno návštevníka</translation>
+      <translation>訪問者名</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation>E-mail</translation>
+      <translation>電子メール</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation>Telefón</translation>
+      <translation>電話番号</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation>Doba čakania</translation>
+      <translation>待ち時間</translation>
     </message>
     <message>
       <source>Wait time abandoned</source>
@@ -24626,7 +24626,7 @@
     </message>
     <message>
       <source>Country</source>
-      <translation>Krajina</translation>
+      <translation>国</translation>
     </message>
     <message>
       <source>Country Code</source>
@@ -24634,7 +24634,7 @@
     </message>
     <message>
       <source>City</source>
-      <translation>Mesto</translation>
+      <translation>都市</translation>
     </message>
     <message>
       <source>IP</source>
@@ -24642,7 +24642,7 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation>Operátor</translation>
+      <translation>オペレータ</translation>
     </message>
     <message>
       <source>Operator Name</source>
@@ -24650,19 +24650,19 @@
     </message>
     <message>
       <source>Department</source>
-      <translation>Oddelenie</translation>
+      <translation>部署</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation>Dátum</translation>
+      <translation>日付</translation>
     </message>
     <message>
       <source>Minutes</source>
-      <translation>Minúty</translation>
+      <translation>分</translation>
     </message>
     <message>
       <source>Vote status</source>
-      <translation>Stav hlasovania</translation>
+      <translation>投票ステータス</translation>
     </message>
     <message>
       <source>Subjects</source>
@@ -24670,19 +24670,19 @@
     </message>
     <message>
       <source>Mail send</source>
-      <translation>Odoslanie e-mailu</translation>
+      <translation>メール送信</translation>
     </message>
     <message>
       <source>Page</source>
-      <translation>Strana</translation>
+      <translation>ページ</translation>
     </message>
     <message>
       <source>Came from</source>
-      <translation>Priiel z</translation>
+      <translation>出身地</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation>Link</translation>
+      <translation>リンク</translation>
     </message>
     <message>
       <source>Remarks</source>
@@ -24722,7 +24722,7 @@
     </message>
     <message>
       <source>User ID</source>
-      <translation>ID používateľa</translation>
+      <translation>ユーザーID</translation>
     </message>
     <message>
       <source>Chat start page</source>
@@ -24770,7 +24770,7 @@
     </message>
     <message>
       <source>Chat content</source>
-      <translation>Obsah chatu</translation>
+      <translation>チャットコンテンツ</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -24834,7 +24834,7 @@
     </message>
     <message>
       <source>Chat average in seconds</source>
-      <translation>Priemer chatu v sekundách</translation>
+      <translation>チャット平均（秒）</translation>
     </message>
     <message>
       <source>Agent</source>
@@ -24965,7 +24965,7 @@
     </message>
     <message>
       <source>has closed the chat!</source>
-      <translation>zatvoril chat!</translation>
+      <translation>チャットは閉じられています！</translation>
     </message>
     <message>
       <source>has changed chat status to pending!</source>
@@ -25012,7 +25012,7 @@
     </message>
     <message>
       <source>Please enter a department name</source>
-      <translation>Prosím zadajte názov oddelenia</translation>
+      <translation>部署名を入力してください</translation>
     </message>
     <message>
       <source>Alias should be not a plain number!</source>
@@ -25020,11 +25020,11 @@
     </message>
     <message>
       <source>Minimum 5 seconds</source>
-      <translation>Minimálne 5 sekúnd.</translation>
+      <translation>最小5秒</translation>
     </message>
     <message>
       <source>Transfer department has to be different one than self</source>
-      <translation>Oddelenie pre presun musí byť iné, než to isté</translation>
+      <translation>転送先の部署は自分自身以外にしてください</translation>
     </message>
     <message>
       <source>Please enter bot name!</source>
@@ -25068,18 +25068,18 @@
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
-      <translation>Prosím zadajte platný dátum od!</translation>
+      <translation>有効な開始日付を入力してください！</translation>
     </message>
     <message>
       <source>Please enter a valid to date range!</source>
-      <translation>Prosím zadajte platný dátum do!</translation>
+      <translation>有効な終了日付を入力してください！</translation>
     </message>
   </context>
   <context>
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
-      <translation>Prosím zadajte názov skupiny oddelenia</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter a brand name</source>
@@ -25160,11 +25160,11 @@
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
-      <translation>Prosím, vložte meno.</translation>
+      <translation>ユーザー名を入力してください</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation>Používateľ existuje.</translation>
+      <translation>ユーザーが存在します</translation>
     </message>
     <message>
       <source>Password missing</source>
@@ -25172,11 +25172,11 @@
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation>Zlá emailová adresa.</translation>
+      <translation>メールアドレスが間違っています</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation>Prosím, vložte meno.</translation>
+      <translation>名前を入力してください</translation>
     </message>
     <message>
       <source>In order to assign user all departments you have to provide  `departments` and `departments_read` argument.</source>
@@ -25188,19 +25188,19 @@
     </message>
     <message>
       <source>You are trying to assign group which are not known!</source>
-      <translation>Pokúšate sa priradiť skupinu, ktorá nie je známa!</translation>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation>Prosím, vyberte si predvolenú skupinu</translation>
+      <translation>既定のユーザーグループを選択してください</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
-      <translation>Chyba hesla.</translation>
+      <translation>パスワードが一致しません</translation>
     </message>
     <message>
       <source>User action type not set</source>
-      <translation>Typ akcie používateľa nie je nastavený</translation>
+      <translation>ユーザーアクションタイプが設定されていません</translation>
     </message>
     <message>
       <source>Please choose a user Time Zone!</source>
@@ -25324,7 +25324,7 @@
     <name>chat/deletechatadmin</name>
     <message>
       <source>You do not have rights to delete a chat</source>
-      <translation>Nemáte právo odstrániť chat</translation>
+      <translation>チャットを削除する権限がありません</translation>
     </message>
   </context>
   <context>
@@ -25335,33 +25335,33 @@
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation>Palec hore</translation>
+      <translation>高評価</translation>
     </message>
     <message>
       <source>Thumbs down</source>
-      <translation>Palec dole</translation>
+      <translation>低評価</translation>
     </message>
     <message>
       <source>Removed thumb vote</source>
-      <translation>Odstránené hlasovanie palcom</translation>
+      <translation>投票を削除しました</translation>
     </message>
   </context>
   <context>
     <name>chat/refreshcustomfields</name>
     <message>
       <source>Data refreshed</source>
-      <translation>Údaje obnovené</translation>
+      <translation>データがリフレッシュされました</translation>
     </message>
     <message>
       <source>Custom chat data was saved</source>
-      <translation>Vlastné dáta chatu boli uložené</translation>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>chat/single</name>
     <message>
       <source>Chat started with</source>
-      <translation>Chat začal s</translation>
+      <translation>チャットが開始されました</translation>
     </message>
   </context>
   <context>
@@ -25432,7 +25432,7 @@
     <name>chatarchive/viewarchivedchat</name>
     <message>
       <source>View archived chat</source>
-      <translation>Zobraziť archivovaný chat</translation>
+      <translation>アーカイブされたチャットを表示</translation>
     </message>
   </context>
   <context>
@@ -25465,7 +25465,7 @@
     <name>file/configurations</name>
     <message>
       <source>Please enter valid file type!</source>
-      <translation>Prosím, vložte platný typ!</translation>
+      <translation>有効なファイルタイプを入力してください</translation>
     </message>
   </context>
   <context>

@@ -74,7 +74,8 @@ return array (
                             29 => 'cat',
                             30 => 'hun',
                             31 => 'svk',
-                            32 => 'site_admin'
+                            32 => 'jpn',
+                            33 => 'site_admin'
                         ),
                 ),
             'default_url' =>
@@ -699,6 +700,24 @@ return array (
                         array (
                             'locale' => 'hu_HU',
                             'content_language' => 'hu',
+                            'dir_language' => 'ltr',
+                            'title' => '',
+                            'description' => '',
+                            'theme' =>
+                                array (
+                                    0 => 'customtheme',
+                                    1 => 'defaulttheme'
+                                ),
+                            'default_url' =>
+                                array (
+                                    'module' => 'chat',
+                                    'view' => 'start'
+                                ),
+                        ),
+                    'jpn' =>
+                        array (
+                            'locale' => 'ja_JP',
+                            'content_language' => 'ha',
                             'dir_language' => 'ltr',
                             'title' => '',
                             'description' => '',
