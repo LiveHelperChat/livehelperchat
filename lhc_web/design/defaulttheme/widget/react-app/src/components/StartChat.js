@@ -15,6 +15,22 @@ import SharedTextarea from './SharedTextarea';
 
 import { initOnlineForm, submitOnlineForm, minimizeWidget } from "../actions/chatActions"
 
+class ChatStatusContainer extends React.PureComponent {
+    render() {
+        const pre = this.props.preChatHtml ? this.props.preChatHtml : '';
+        const op = this.props.operatorProfile ? this.props.operatorProfile : '';
+        const html = pre + op;
+
+        if (!html) return null;
+
+        const className = "p-2" + (this.props.npBorder ? '' : ' border-bottom');
+
+        return (
+            <div id="lhc-profile-body"><div id="chat-status-container" className={className} dangerouslySetInnerHTML={{__html: html}}></div></div>
+        );
+    }
+}
+
 @connect((store) => {
     return {
         chatwidget: store.chatwidget
@@ -518,11 +534,11 @@ class StartChat extends Component {
                         {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
                         {this.state.changeLanguage && <ChatModal showModal={this.state.changeLanguage} setLanguage={this.setLanguageAction} toggle={this.changeLanguage} dataUrl={"/widgetrestapi/chooselanguage"} />}
-
-                        {
+                            
+                            {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && !this.props.chatwidget.hasIn(['proactive','data','std_header'])  && <ChatInvitationMessage mode='profile_only' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
-                            ((this.props.chatwidget.hasIn(['chat_ui','pre_chat_html']) || (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '')) && <div id="lhc-profile-body"><div id="chat-status-container" className={"p-2"+(this.props.chatwidget.hasIn(['chat_ui','np_border']) ? '' : ' border-bottom')} dangerouslySetInnerHTML={{__html:(this.props.chatwidget.hasIn(['chat_ui','pre_chat_html']) ? this.props.chatwidget.getIn(['chat_ui','pre_chat_html']) : '') + (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) ? this.props.chatwidget.getIn(['chat_ui','operator_profile']) : '')}}></div></div>)
+                            <ChatStatusContainer preChatHtml={this.props.chatwidget.getIn(['chat_ui','pre_chat_html'])} operatorProfile={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} npBorder={this.props.chatwidget.hasIn(['chat_ui','np_border'])} />
                         }
 
                         <div className={msg_expand} id="messagesBlock">
@@ -602,11 +618,11 @@ class StartChat extends Component {
                 return (
 
                 <div id="id-container-fluid">
-                    {
+                        {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode='profile' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
-                            ((this.props.chatwidget.hasIn(['chat_ui','pre_chat_html']) || (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '')) && <div id="lhc-profile-body"><div id="chat-status-container" className={"p-2"+(this.props.chatwidget.hasIn(['chat_ui','np_border']) ? '' : ' border-bottom')} dangerouslySetInnerHTML={{__html:(this.props.chatwidget.hasIn(['chat_ui','pre_chat_html']) ? this.props.chatwidget.getIn(['chat_ui','pre_chat_html']) : '') + (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) ? this.props.chatwidget.getIn(['chat_ui','operator_profile']) : '')}}></div></div>)
-                    }
+                            <ChatStatusContainer preChatHtml={this.props.chatwidget.getIn(['chat_ui','pre_chat_html'])} operatorProfile={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} npBorder={this.props.chatwidget.hasIn(['chat_ui','np_border'])} />
+                        }
                     <div className="container-fluid">
 
                         <ChatErrorList errors={this.props.chatwidget.get('validationErrors')} />

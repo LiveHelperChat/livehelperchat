@@ -9,6 +9,18 @@ import ChatDepartment from './ChatDepartment';
 import ChatAbort from './ChatAbort';
 import ChatErrorList from './ChatErrorList';
 
+class OfflineIntroOperator extends React.PureComponent {
+    render() {
+        const pre = this.props.preChatHtml ? this.props.preChatHtml : '';
+        const op = this.props.operatorProfile ? this.props.operatorProfile : '';
+        const html = pre + op;
+
+        if (!html) return null;
+
+        return <div className="py-2 px-3 offline-intro-operator" dangerouslySetInnerHTML={{__html: html}}></div>;
+    }
+}
+
 @connect((store) => {
     return {
         chatwidget: store.chatwidget
@@ -21,6 +33,7 @@ class OfflineChat extends Component {
         super(props);
 
         this.state = {};
+        this._lastWidgetHeight = null;
         
         this.initOfflineFormCall();
 
@@ -172,9 +185,14 @@ class OfflineChat extends Component {
                 headerContent = document.getElementById('widget-header-content').offsetHeight;
             }
 
-            helperFunctions.sendMessageParent('widgetHeight', [{
-                'height' : document.getElementById('id-container-fluid').offsetHeight + headerContent + 10
-            }]);
+            var newHeight = document.getElementById('id-container-fluid').offsetHeight + headerContent + 10;
+
+            if (this._lastWidgetHeight !== newHeight) {
+                this._lastWidgetHeight = newHeight;
+                helperFunctions.sendMessageParent('widgetHeight', [{
+                    'height' : newHeight
+                }]);
+            }
         }
     }
     
@@ -213,8 +231,8 @@ class OfflineChat extends Component {
 
         if (this.props.chatwidget.get('processStatusOffline') == 0 || this.props.chatwidget.get('processStatusOffline') == 1) {
             return (
-                  <div id="id-container-fluid">
-                    {this.props.chatwidget.get('leave_message') && (this.props.chatwidget.hasIn(['chat_ui','pre_chat_html']) || (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '')) && <div className="py-2 px-3 offline-intro-operator" dangerouslySetInnerHTML={{__html:(this.props.chatwidget.hasIn(['chat_ui','pre_chat_html']) ? this.props.chatwidget.getIn(['chat_ui','pre_chat_html']) : '') + (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) ? this.props.chatwidget.getIn(['chat_ui','operator_profile']) : '')}}></div>}
+                                    <div id="id-container-fluid">
+                                        {this.props.chatwidget.get('leave_message') && <OfflineIntroOperator preChatHtml={this.props.chatwidget.getIn(['chat_ui','pre_chat_html'])} operatorProfile={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} />}
 
                     {this.props.chatwidget.get('leave_message') && this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && this.props.chatwidget.getIn(['chat_ui','offline_intro']) != '' && <p className="pb-1 mb-0 pt-2 px-3 fw-bold offline-intro" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
 
@@ -248,7 +266,7 @@ class OfflineChat extends Component {
             return (
                 <div id="id-container-fluid">
 
-                {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '' && <div className="py-2 px-3 offline-intro-operator" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>}
+                <OfflineIntroOperator operatorProfile={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} />
 
                 {this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && this.props.chatwidget.getIn(['chat_ui','offline_intro']) != '' && <p className="pb-1 mb-0 pt-2 px-3 fw-bold offline-intro offline-intro-filled" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
 
