@@ -82,9 +82,10 @@ $ViewList['statistic'] = array(
         66 => 'has_online_hours',
         67 => 'exclude_deactivated',
         68 => 'mail_conv_user',
+        69 => 'attr_int_1_multi'
     ),
     'functions' => array( 'viewstatistic' ),
-    'multiple_arguments' => array('bot_ids','subject_ids','department_ids','group_ids','user_ids','department_group_ids','invitation_ids','chart_type','country_ids')
+    'multiple_arguments' => array('bot_ids','subject_ids','department_ids','group_ids','user_ids','department_group_ids','invitation_ids','chart_type','country_ids','attr_int_1_multi')
 );
 
 $ViewList['loadreport'] = array(
