@@ -26,6 +26,7 @@ $transItems = array(
     "homepage.notifications_not_supported" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Notifications not supported in this browser'),
     "homepage.notifications_blocked" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Notifications blocked (check browser settings)'),
     "homepage.notifications_like" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','You will now receive notifications from this site'),
+    "homepage.notifications_enabled" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Notifications enabled'),
 
     // Open chat
     'front_default.chat_id_to_open' => erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Chat ID to open'),

@@ -5,7 +5,6 @@
     // State variables
     let notificationEnabled = false;
     let notificationState = "default"; // "default", "granted", "denied"
-    let statusMessage = $t("homepage.enable_notifications");
     import { t } from "../i18n/i18n.js";
 
 
@@ -18,7 +17,6 @@
     const checkNotificationStatus = () => {
         if (!isNotificationSupported()) {
             notificationState = "denied";
-            statusMessage = $t("homepage.notifications_not_supported");
             return;
         }
 
@@ -26,20 +24,16 @@
 
         if (notificationState === "granted") {
             notificationEnabled = true;
-            statusMessage = "Notifications enabled";
         } else if (notificationState === "denied") {
             notificationEnabled = false;
-            statusMessage = $t("homepage.notifications_blocked");
         } else {
             notificationEnabled = false;
-            statusMessage = $t("homepage.enable_notifications");
         }
     };
 
     // Request notification permission
     const requestNotificationPermission = async () => {
         if (!isNotificationSupported()) {
-            statusMessage = $t("homepage.notifications_not_supported");
             return;
         }
 
@@ -54,10 +48,9 @@
 
             if (permission === "granted") {
                 notificationEnabled = true;
-                statusMessage = "Notifications enabled";
 
                 // Show a test notification
-                const notification = new Notification("Notifications Enabled", {
+                const notification = new Notification($t("homepage.notifications_enabled"), {
                     body: $t("homepage.notifications_like"),
                     icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png' // Use your site's favicon or other icon
                 });
@@ -66,11 +59,10 @@
                 setTimeout(() => notification.close(), 3000);
             } else if (permission === "denied") {
                 notificationEnabled = false;
-                statusMessage = $t("homepage.notifications_blocked");
             }
         } catch (error) {
             console.error("Error requesting notification permission:", error);
-            statusMessage = "Error enabling notifications";
+            // nothing to set — template uses translations directly
         }
     };
 
@@ -90,7 +82,7 @@
     <a class="nav-link status-indicator {notificationState === 'granted' ? 'text-success' : notificationState === 'denied' ? 'text-danger' : 'text-warning'}"
         on:click={handleIconClick}
         role="button"
-        title="{statusMessage}"
+        title={$t(notificationState === 'granted' ? "homepage.notifications_enabled" : notificationState === 'denied' ? "homepage.notifications_blocked" : "homepage.enable_notifications")}
         tabindex="0"
         aria-label="Toggle notifications">
         <span class="material-icons">

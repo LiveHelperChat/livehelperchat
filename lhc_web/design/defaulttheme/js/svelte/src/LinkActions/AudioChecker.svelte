@@ -5,7 +5,6 @@
 
     // State variables
     let soundEnabled = false;
-    let statusMessage = $t("homepage.interact_sound");
     let audioContext = null;
     let initialInteractionDone = false;
 
@@ -18,28 +17,16 @@
 
                 // Initial state is usually suspended due to browser policies
                 soundEnabled = audioContext.state === 'running';
-                updateStatusMessage();
             } catch (error) {
-                statusMessage = $t("homepage.browser_no_sound");
                 console.error("Audio Context Error:", error);
             }
         } else {
             // Update state based on current audio context state
             soundEnabled = audioContext.state === 'running';
-            updateStatusMessage();
         }
     };
 
-    // Function to update status message
-    const updateStatusMessage = () => {
-        if (soundEnabled) {
-            statusMessage = "Sound is enabled";
-        } else if (initialInteractionDone) {
-            statusMessage = $t("homepage.sound_disabled");
-        } else {
-            statusMessage = $t("homepage.interact_sound");
-        }
-    };
+    // No separate statusMessage variable — template uses $t(...) inline so translations update automatically
 
     // Function to try enabling sound after user interaction
     const enableSound = async () => {
@@ -53,10 +40,8 @@
                 soundEnabled = audioContext.state === 'running';
             }
 
-            // Update status message
-            updateStatusMessage();
+            // status reflected directly in template
         } catch (error) {
-            statusMessage = "Failed to enable audio";
             console.error("Enable Sound Error:", error);
         }
     };
@@ -109,6 +94,6 @@
 
 {#if !soundEnabled}
 <li class="list-inline-item nav-item">
-    <a class="nav-link" title={statusMessage}><i class="material-icons text-danger">volume_off</i></a>
+    <a class="nav-link" title={$t(soundEnabled ? "homepage.sound_enabled" : initialInteractionDone ? "homepage.sound_disabled" : "homepage.interact_sound")}><i class="material-icons text-danger">volume_off</i></a>
 </li>
 {/if}
