@@ -172,6 +172,10 @@ class erLhcoreClassGenericBotActionRestapi
                             json_encode([
                                 'name' => '(polling conditions failed) [' . $restAPI->name . '] [' . $i . '] tries' . (isset($method['name']) ? $method['name'] : 'unknwon_name'),
                                 'method_name' => $method['name'],
+                                'trigger' => (isset($params['current_trigger']) && is_object($params['current_trigger']) ? 'B['. $params['current_trigger']->bot_id .'] T['.$params['current_trigger']->id . '] ' . $params['current_trigger']->name : null),
+                                'caller' =>  isset($params['lhc_caller']['file']) ? $params['lhc_caller']['file']. ' ['.$params['lhc_caller']['line'].']' : '',
+                                'log_data' => $params['log_data'] ?? '',
+                                'webhook_id' => $params['webhook_id'] ?? '',
                                 'rest_api_id' => $restAPI->id,
                                 'http_code' => (isset($response['http_code']) ? $response['http_code'] : 'unknown'),
                                 'method' => (isset($method['method']) ? $method['method'] : 'unknwon'),
@@ -209,6 +213,10 @@ class erLhcoreClassGenericBotActionRestapi
                             'content' => json_encode([
                                 'name' => '[' . $restAPI->name . '] ' . (isset($method['name']) ? $method['name'] : 'unknwon_name'),
                                 'method_name' => $method['name'],
+                                'trigger' => (isset($params['current_trigger']) && is_object($params['current_trigger']) ? 'B['. $params['current_trigger']->bot_id .'] T['.$params['current_trigger']->id . '] ' . $params['current_trigger']->name : null),
+                                'caller' =>  isset($params['lhc_caller']['file']) ? $params['lhc_caller']['file']. ' ['.$params['lhc_caller']['line'] : '',
+                                'log_data' => $params['log_data'] ?? '',
+                                'webhook_id' => $params['webhook_id'] ?? '',
                                 'rest_api_id' => $restAPI->id,
                                 'http_code' => (isset($response['http_code']) ? $response['http_code'] : 'unknown'),
                                 'method' => (isset($method['method']) ? $method['method'] : 'unknwon'),
@@ -218,6 +226,7 @@ class erLhcoreClassGenericBotActionRestapi
                                 'http_error' => $response['http_error'],
                                 'msg_id' =>  (isset($params['msg']) && is_object($params['msg'])) ?  $params['msg']->id : 0,
                                 'msg_text' => '-',
+                                'line' => __LINE__,
                             ],JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
                         $msgLog->msg = '(polling conditions failed) [' . $restAPI->name . ']  [' . $i . ' tries] [i]'.(isset($method['name']) ? $method['name'] : 'unknown_name').'[/i]';
                         $msgLog->saveThis();
@@ -1298,6 +1307,10 @@ class erLhcoreClassGenericBotActionRestapi
                     json_encode([
                         'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name'),
                         'method_name' => $methodSettings['name'],
+                        'trigger' => (isset($paramsCustomer['params']['current_trigger']) && is_object($paramsCustomer['params']['current_trigger']) ? 'B['. $paramsCustomer['params']['current_trigger']->bot_id .'] T['.$paramsCustomer['params']['current_trigger']->id . '] ' . $paramsCustomer['params']['current_trigger']->name : null),
+                        'caller' =>  isset($paramsCustomer['params']['lhc_caller']['file']) ? $paramsCustomer['params']['lhc_caller']['file']. ' ['.$paramsCustomer['params']['lhc_caller']['line'].']' : '',
+                        'log_data' => $paramsCustomer['params']['log_data'] ?? '',
+                        'webhook_id' => $paramsCustomer['params']['webhook_id'] ?? '',
                         'rest_api_id' => $paramsCustomer['rest_api']->id,
                         'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                         'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknwon'),
@@ -1331,6 +1344,10 @@ class erLhcoreClassGenericBotActionRestapi
                     'content' => json_encode([
                         'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name'),
                         'method_name' => $methodSettings['name'],
+                        'trigger' => (isset($paramsCustomer['params']['current_trigger']) && is_object($paramsCustomer['params']['current_trigger']) ? 'B['. $paramsCustomer['params']['current_trigger']->bot_id .'] T['.$paramsCustomer['params']['current_trigger']->id . '] ' . $paramsCustomer['params']['current_trigger']->name : null),
+                        'caller' =>  isset($paramsCustomer['params']['lhc_caller']['file']) ? $paramsCustomer['params']['lhc_caller']['file']. ' ['.$paramsCustomer['params']['lhc_caller']['line'].']' : '',
+                        'webhook_id' => $paramsCustomer['params']['webhook_id'] ?? '',
+                        'log_data' => $paramsCustomer['params']['log_data'] ?? '',
                         'rest_api_id' => $paramsCustomer['rest_api']->id,
                         'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                         'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknown'),
@@ -1342,6 +1359,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'stream_lines' => '',
                         'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                         'msg_text' => $msg_text,
+                        'line' => __LINE__,
                     ],JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
                 $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
                 $msgLog->saveThis();
@@ -1751,6 +1769,10 @@ class erLhcoreClassGenericBotActionRestapi
                         'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                         'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknwon'),
                         'method_name' => $methodSettings['name'],
+                        'trigger' => (isset($paramsCustomer['params']['current_trigger']) && is_object($paramsCustomer['params']['current_trigger']) ? 'B['. $paramsCustomer['params']['current_trigger']->bot_id .'] T['.$paramsCustomer['params']['current_trigger']->id . '] ' . $paramsCustomer['params']['current_trigger']->name : null),
+                        'caller' =>  isset($paramsCustomer['params']['lhc_caller']['file']) ? $paramsCustomer['params']['lhc_caller']['file']. ' ['.$paramsCustomer['params']['lhc_caller']['line'].']' : '',
+                        'log_data' => $paramsCustomer['params']['log_data'] ?? '',
+                        'webhook_id' => $paramsCustomer['params']['webhook_id'] ?? '',
                         'rest_api_id' => $paramsCustomer['rest_api']->id,
                         'request_type' => (isset($methodSettings['body_request_type']) ? $methodSettings['body_request_type'] : ''),
                         'params_request' => $paramsRequestDebug,
@@ -1791,6 +1813,10 @@ class erLhcoreClassGenericBotActionRestapi
                     'content' => json_encode([
                     'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name'),
                     'method_name' => $methodSettings['name'],
+                    'trigger' => (isset($paramsCustomer['params']['current_trigger']) && is_object($paramsCustomer['params']['current_trigger']) ? 'B['. $paramsCustomer['params']['current_trigger']->bot_id .'] T['.$paramsCustomer['params']['current_trigger']->id . '] ' . $paramsCustomer['params']['current_trigger']->name : null),
+                    'caller' =>  isset($paramsCustomer['params']['lhc_caller']['file']) ? $paramsCustomer['params']['lhc_caller']['file']. ' ['.$paramsCustomer['params']['lhc_caller']['line'].']' : '',
+                    'log_data' => $paramsCustomer['params']['log_data'] ?? '',
+                    'webhook_id' => $paramsCustomer['params']['webhook_id'] ?? '',
                     'rest_api_id' => $paramsCustomer['rest_api']->id,
                     'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                     'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknown'),
@@ -1804,6 +1830,7 @@ class erLhcoreClassGenericBotActionRestapi
                     'stream_lines' => $streamLines,
                     'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                     'msg_text' => $msg_text,
+                    'line' => __LINE__,
                 ],JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
                 $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
                 $msgLog->saveThis();

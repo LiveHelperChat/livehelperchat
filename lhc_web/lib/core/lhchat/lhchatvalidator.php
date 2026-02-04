@@ -1389,7 +1389,7 @@ class erLhcoreClassChatValidator {
 
                 if ($dispatchEvent === true) {
                     // Perhaps someone is listening for chat modifications
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('chat' => & $chat, 'params' => array()));
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('log_data' => erLhcoreClassChat::getStateDiff($chat->chat_variables_array, $chatVariablesDataArray), 'chat' => & $chat, 'params' => array()));
                 }
             }
         }
@@ -1491,7 +1491,7 @@ class erLhcoreClassChatValidator {
                 $db->commit();
 
                 // Perhaps someone is listening for chat modifications
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('chat' => & $chat, 'params' => array()));
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('log_data' => 'updateAdditionalVariables', 'chat' => & $chat, 'params' => array()));
             }
         }
 

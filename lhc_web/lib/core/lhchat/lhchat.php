@@ -1744,14 +1744,41 @@ class erLhcoreClassChat {
        return $string;;
    }
    
+   public static function getStateDiff($oldState, $newState)
+   {
+       $diff = array();
+
+       $oldState = is_array($oldState) ? $oldState : (array)$oldState;
+       $newState = is_array($newState) ? $newState : (array)$newState;
+
+       $allKeys = array_unique(array_merge(array_keys($oldState), array_keys($newState)));
+
+       foreach ($allKeys as $key) {
+           $old = array_key_exists($key, $oldState) ? $oldState[$key] : null;
+           $new = array_key_exists($key, $newState) ? $newState[$key] : null;
+
+           if (is_array($old) || is_array($new)) {
+               if (json_encode($old) !== json_encode($new)) {
+                   $diff[$key] = array('old' => $old, 'new' => $new);
+               }
+           } else {
+               if ($old !== $new) {
+                   $diff[$key] = array('old' => $old, 'new' => $new);
+               }
+           }
+       }
+
+       return $diff;
+   }
+
    public static function setTimeZoneByChat($chat)
    {
-   		if ($chat->user_tz_identifier != '') {
-   			erLhcoreClassModule::$defaultTimeZone = $chat->user_tz_identifier;
-   			date_default_timezone_set(erLhcoreClassModule::$defaultTimeZone);   			
-   		} 
+       if ($chat->user_tz_identifier != '') {
+           erLhcoreClassModule::$defaultTimeZone = $chat->user_tz_identifier;
+           date_default_timezone_set(erLhcoreClassModule::$defaultTimeZone);           
+       } 
    }
-   
+    
    public static function getSession()
    {
         if ( !isset( self::$persistentSession ) )

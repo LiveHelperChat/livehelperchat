@@ -54,6 +54,7 @@ class erLhcoreClassChatEventDispatcher {
 
            $className = 'erLhcoreClassChatWebhook' .ucfirst($worker);
            if (class_exists($className)) {
+               $param['lhc_caller'] = debug_backtrace(2,2)[1];
                $worker = new $className;
                $worker->processEvent($event, $param, $singleEvent);
            }

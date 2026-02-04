@@ -17,6 +17,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 
         $chat->syncAndLock();
 
+        $status = $chat->getState();
+
         $chatOriginal = clone $chat;
         $Errors = erLhcoreClassChatValidator::validateChatModifyCore($chat);
 
@@ -48,7 +50,9 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
                 erLhcoreClassChat::updateActiveChats($chat->user_id);
             }
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('chat' => & $chat, 'params' => $Params));
+            $statusNew = $chat->getState();
+
+            $modified = true;
 
             $tpl->set('chat_updated',true);
         } else {
@@ -56,6 +60,14 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
         }
 
         $db->commit();
+
+        if (isset($modified) && ($diff = erLhcoreClassChat::getStateDiff($status, $statusNew)) && !empty($diff)) {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('log_data' => [
+                'file' => 'modifychat.php',
+                'changes' => erLhcoreClassChat::getStateDiff($status, $statusNew)
+            ],  'chat' => & $chat, 'params' => $Params));
+        }
+
     }
 }
 
@@ -68,6 +80,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
         $db->beginTransaction();
 
         $chat->syncAndLock();
+
+        $status = $chat->getState();
 
         $chatOriginal = clone $chat;
 	  	$Errors = erLhcoreClassChatValidator::validateChatModify($chat);
@@ -135,7 +149,9 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
                 $userInstance->saveThis();
             }
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('chat' => & $chat, 'params' => $Params));
+            $statusNew = $chat->getState();
+
+            $modified = true;
 
 	  		$tpl->set('chat_updated',true);
 	  	} else {
@@ -143,6 +159,13 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 	  	}
 
 	  	$db->commit();
+
+        if (isset($modified) && ($diff = erLhcoreClassChat::getStateDiff($status, $statusNew)) && !empty($diff)) {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('log_data' => [
+                'file' => 'modifychat.php',
+                'changes' => $diff
+            ],  'chat' => & $chat, 'params' => $Params));
+        }
   }
 
   $tpl->set('pos',$Params['user_parameters_unordered']['pos']);

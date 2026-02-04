@@ -47,6 +47,7 @@ try {
             $db = ezcDbInstance::get();
             $db->beginTransaction();
             $chat->syncAndLock();
+            $state = $chat->getState();
 
             // Event for extensions to listen
             if ($Params['user_parameters_unordered']['userinit'] === 'true') {
@@ -62,9 +63,15 @@ try {
             // Update chat variables
             $needUpdate = erLhcoreClassChatValidator::validateJSVarsChat ($chat, $jsonData, $Params['user_parameters_unordered']['encrypted'] === 'true', false);
             $db->commit();
+ 
+            $statusNew = $chat->getState();
 
             if ($needUpdate === true) {
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array('chat' => & $chat, 'params' => array()));
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array(
+                    'log_data' => [
+                        'file' => 'updatejsvars.php', 
+                        'changes' => erLhcoreClassChat::getStateDiff($state, $statusNew)
+                    ], 'chat' => & $chat, 'params' => array()));
             }
 
             // Force operators to check for new messages
