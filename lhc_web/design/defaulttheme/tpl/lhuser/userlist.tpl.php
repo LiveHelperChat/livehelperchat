@@ -6,6 +6,7 @@
 	$canEdit = $currentUser->hasAccessTo('lhuser','edituser');
 	$canDelete = $currentUser->hasAccessTo('lhuser','deleteuser');
 	$canLoginAs = $currentUser->hasAccessTo('lhuser','loginas');
+	$canClone = $currentUser->hasAccessTo('lhuser','clone');
 ?>
 <table class="table table-sm list-links" cellpadding="0" ng-non-bindable cellspacing="0" width="100%">
 <thead>
@@ -17,6 +18,7 @@
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Last activity');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Last login');?></th>
     <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_multiinclude.tpl.php')); ?>
+    <?php if ($canClone) : ?><th width="1%">&nbsp;</th><?php endif;?>
     <?php if ($canLoginAs) : ?><th width="1%">&nbsp;</th><?php endif;?>
     <?php if ($canDelete) : ?><th width="1%">&nbsp;</th><?php endif;?>
 </tr>
@@ -67,6 +69,9 @@
             <?php endif; ?>
         </td>
         <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_data_multiinclude.tpl.php')); ?>
+        <?php if ($canLoginAs) : ?>
+            <td nowrap=""><a class="btn btn-info btn-xs csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('user/clone')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Clone');?></a></td>
+        <?php endif;?>
         <?php if ($canLoginAs) : ?>
             <td nowrap=""><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/loginas')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Login As');?></a></td>
         <?php endif;?>

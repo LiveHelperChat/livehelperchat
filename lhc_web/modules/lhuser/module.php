@@ -92,6 +92,12 @@ $ViewList['delete'] = array(
     'functions' => array( 'deleteuser' )
 );
 
+$ViewList['clone'] = array(
+    'params' => array('user_id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'clone' )
+);
+
 $ViewList['new'] = array(
     'params' => array(),
     'uparams' => array('tab'),
@@ -263,5 +269,6 @@ $FunctionList['change_name_surname'] = array('explain' => 'Allow user to change 
 $FunctionList['change_password'] = array('explain' => 'Allow user to change their password');
 $FunctionList['pswdsecurity'] = array('explain' => 'Allow user to manage password requirements');
 $FunctionList['largeactivitytimeout'] = array('explain' => 'Allow user to choose a large inactivity timeout');
+$FunctionList['clone'] = array('explain' => 'Allow user to clone other user and his settings');
 
 ?>

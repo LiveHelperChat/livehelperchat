@@ -1064,7 +1064,15 @@ function lh(){
                                     $('#'+inst.attr('data-ajax-remove')).fadeOut();
                                     $('#myModal').modal('hide');
                                 } else {
-                                    document.location.reload();
+                                    if (typeof data === 'object' && data !== null) {
+                                        if (data.location && typeof data.location === 'string') {
+                                            window.location.href = data.location;
+                                        } else {
+                                            document.location.reload();
+                                        }
+                                    } else {
+                                        document.location.reload();
+                                    }
                                 }
                             }).fail(function(e){
                                 document.location.reload();
