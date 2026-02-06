@@ -23,7 +23,7 @@
 		<input class="form-control form-control-sm" onkeyup="ee.emitEvent('svelteOnlineUserSetting',['setQuery',this.value])" ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
 	</div>
 	<div class="col-1 pe-0">
-		<select class="form-control form-control-sm" id="svelte-groupByField" onchange="ee.emitEvent('svelteOnlineUserSetting',['groupBy',this.value])" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group list by');?>">
+		<select class="form-control form-control-sm mb-2" id="svelte-groupByField" onchange="ee.emitEvent('svelteOnlineUserSetting',['groupBy',this.value])" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group list by');?>">
 		    	<option value="none"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group by');?></option>
 		    	<option value="user_country_name"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User country');?></option>
 		    	<option value="current_page"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?></option>
@@ -33,11 +33,11 @@
 		    	<option value="dep_id"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Department');?></option>
 		</select>
 	</div>
-	<div class="col-2 pe-0">
+	<div class="col-1 pe-0">
         <?php $dwFilters = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_filters', '{}', false, false, true),true); ?>
         <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
             'input_name'     => 'department_ids[]',
-            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department'),
             'selected_id'    => (isset($dwFilters['department_online']) ? explode('/',$dwFilters['department_online']) : []),
             'wrapper_class'  => 'online-department-filter',
             'ajax'           => 'deps',
@@ -46,7 +46,20 @@
             'list_function_params' => array_merge(['sort' => '`name` ASC', 'limit' => 50],erLhcoreClassUserDep::conditionalDepartmentFilter()),
             'list_function'  => 'erLhcoreClassModelDepartament::getList'
         )); ?>
-	</div>
+    </div>
+
+    <div class="col-1 pe-0">
+        <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+            'input_name'     => 'department_group_ids[]',
+            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group'),
+            'selected_id'    => (isset($dwFilters['department_online_dpgroups']) ? explode('/',$dwFilters['department_online_dpgroups']) : []),
+            'css_class'      => 'form-control',
+            'wrapper_class'  => 'online-department-group-filter',
+            'display_name'   => 'name',
+            'list_function_params' => array_merge(['sort' => '`name` ASC', 'limit' => false],erLhcoreClassUserDep::conditionalDepartmentGroupFilter()),
+            'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
+        )); ?>
+    </div>
 
     <?php $columnCountrySize = 1?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/country_filter.tpl.php')); ?>
@@ -106,6 +119,15 @@
             },
             'on_delete' : function(item){
                 ee.emitEvent('svelteOnlineUserSetting',['departments']);
+            }
+        });
+
+        $('.online-department-group-filter').makeDropdown({
+            'on_select' : function(item){
+                ee.emitEvent('svelteOnlineUserSetting',['departments_groups']);
+            },
+            'on_delete' : function(item){
+                ee.emitEvent('svelteOnlineUserSetting',['departments_groups']);
             }
         });
     });

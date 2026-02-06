@@ -107,6 +107,14 @@
             $lhcList.department_online = departments;
             setTimeout(() => syncOnlineVisitors(),500);
             lhcServices.setLocalSettings('department_online', $lhcList.department_online);
+        } else if (settingName == 'departments_groups') {
+            let departments = [];
+            jQuery('.online-department-group-filter input[name^=department_group_ids]').each(function(i){
+                departments.push(parseInt(this.value));
+            });
+            $lhcList.department_online_dpgroups = departments;
+            setTimeout(() => syncOnlineVisitors(),500);
+            lhcServices.setLocalSettings('department_online_dpgroups', $lhcList.department_online_dpgroups);
         }
     });
 
@@ -170,6 +178,12 @@
                 departments.push(parseInt(this.value));
             });
             $lhcList.department_online = departments;
+
+            departments = [];
+            jQuery('.online-department-group-filter input[name^=department_group_ids]').each(function(i){
+                departments.push(parseInt(this.value));
+            });
+            $lhcList.department_online_dpgroups = departments;
         }
 
         syncOnlineVisitors();
