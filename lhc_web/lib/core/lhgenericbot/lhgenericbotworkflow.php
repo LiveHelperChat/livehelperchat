@@ -1629,6 +1629,87 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
+    /**
+     * Evaluate trigger condition expression with support for logical operators and parentheses
+     * 
+     * @param string $conditionExpression The condition expression to evaluate (e.g., "is_vip && (-is_private_ip || -is_uk)")
+     * @param object $chat The chat object
+     * @param array $params Parameters array that may contain replace_array
+     * @return bool True if condition is met, false otherwise
+     */
+    public static function evaluateTriggerCondition($conditionExpression, $chat, $params = array())
+    {
+        // Helper function to evaluate a single condition identifier
+        $evaluateCondition = function($identifier) use ($chat, $params) {
+            $identifier = trim($identifier);
+            $negative = str_starts_with($identifier, '-');
+            $conditionId = ltrim($identifier, '-');
+            $conditionId = trim($conditionId);
+            
+            $conditionsToValidate = \LiveHelperChat\Models\Bot\Condition::getList(['filter' => ['identifier' => $conditionId]]);
+            
+            if (empty($conditionsToValidate)) {
+                // If condition doesn't exist, return false for safety
+                return false;
+            }
+            
+            $conditionValid = false;
+            foreach ($conditionsToValidate as $conditionToValidate) {
+                $conditionValid = $conditionToValidate->isValid(['chat' => $chat, 'replace_array' => ($params['args']['replace_array'] ?? [])]);
+            }
+            
+            return $negative ? !$conditionValid : $conditionValid;
+        };
+        
+        // Recursively evaluate expression with support for &&, ||, and parentheses
+        $evaluateExpression = function($expr) use ($evaluateCondition, &$evaluateExpression) {
+            $expr = trim($expr);
+            
+            // Handle parentheses first (recursively for first level)
+            while (preg_match('/\(([^()]+)\)/', $expr, $matches)) {
+                $innerResult = $evaluateExpression($matches[1]);
+                // Replace parenthesized expression with placeholder
+                $placeholder = $innerResult ? '__TRUE__' : '__FALSE__';
+                $expr = str_replace($matches[0], $placeholder, $expr);
+            }
+            
+            // Split by || (OR has lower precedence)
+            $orParts = preg_split('/\s*\|\|\s*/', $expr);
+            
+            foreach ($orParts as $orPart) {
+                // Split by && (AND has higher precedence)
+                $andParts = preg_split('/\s*&&\s*/', $orPart);
+                $andResult = true;
+                
+                foreach ($andParts as $andPart) {
+                    $andPart = trim($andPart);
+                    
+                    // Check if it's a placeholder from parentheses evaluation
+                    if ($andPart === '__TRUE__') {
+                        $partResult = true;
+                    } elseif ($andPart === '__FALSE__') {
+                        $partResult = false;
+                    } else {
+                        $partResult = $evaluateCondition($andPart);
+                    }
+                    
+                    if (!$partResult) {
+                        $andResult = false;
+                        break;
+                    }
+                }
+                
+                if ($andResult) {
+                    return true; // At least one OR branch is true
+                }
+            }
+            
+            return false; // All OR branches are false
+        };
+        
+        return $evaluateExpression($conditionExpression);
+    }
+
     public static function logAudit($chat, $forceLog = false)
     {
         static $logEnabled = null;
@@ -1709,21 +1790,8 @@ class erLhcoreClassGenericBotWorkflow {
 
             // Check does conditions match
             if (!empty($action['content']['trigger_condition'])) {
-
-                $action['content']['trigger_condition'] = trim($action['content']['trigger_condition']);
-                $negative = str_starts_with($action['content']['trigger_condition'],'-');
-                $condition = ltrim($action['content']['trigger_condition'],'-');
-                $conditionsToValidate = \LiveHelperChat\Models\Bot\Condition::getList(['filter' => ['identifier' => $condition]]);
-
-                foreach ($conditionsToValidate as $conditionToValidate) {
-                    $conditionValid = $conditionToValidate->isValid(['chat' => $chat, 'replace_array' => ($params['args']['replace_array'] ?? [])]);
-                    if (
-                        ($negative === false && $conditionValid === false) ||
-                        ($negative === true && $conditionValid === true)
-                    )
-                    {
-                        continue 2;
-                    }
+                if (!self::evaluateTriggerCondition($action['content']['trigger_condition'], $chat, $params)) {
+                    continue;
                 }
             }
 

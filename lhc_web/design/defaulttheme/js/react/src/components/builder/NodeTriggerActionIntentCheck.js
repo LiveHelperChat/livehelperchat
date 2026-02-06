@@ -35,7 +35,7 @@ class NodeTriggerActionIntentCheck extends Component {
                     <div className="pe-2">
                         <div className="input-group input-group-sm">
                             <span className="input-group-text" id="basic-addon1"><span className="material-icons me-0">filter_alt</span></span>
-                            <input type="text" title="Bot condition - action will only execute if this condition matches. Use prefix (-) for negation. Examples: banned_user OR -banned_user" onChange={(e) => this.onchangeAttr({'path' : ['trigger_condition'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','trigger_condition'])} className="form-control form-control-sm" placeholder="vip_1 OR -vip_1" />
+                            <input type="text" title="Bot condition - action will only execute if this condition matches. Use prefix (-) for negation. Examples: vip_1 && (is_lithuania || is_private_ip)" onChange={(e) => this.onchangeAttr({'path' : ['trigger_condition'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','trigger_condition'])} className="form-control form-control-sm" placeholder="vip_1 && (is_lithuania || is_private_ip)" />
                         </div>
                     </div>
                     <div className="pe-2">
