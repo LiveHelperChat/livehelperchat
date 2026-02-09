@@ -37,8 +37,10 @@
         LHC_API.args.chat_hash = <?php echo json_encode($hash)?>;
     <?php endif; ?>
 
+    <?php if (is_numeric($theme) && $theme > 0 && ($themeObj = erLhAbstractModelWidgetTheme::fetch($theme)) instanceof erLhAbstractModelWidgetTheme) : ?>
+    LHC_API.args['theme'] = <?php echo json_encode($themeObj->alias != '' ? $themeObj->alias : $themeObj->id);?>;
+    <?php endif; ?>
 
-    LHC_API.args['theme'] = <?php echo json_encode(is_numeric($theme) && $theme > 0 && ($themeObj = erLhAbstractModelWidgetTheme::fetch($theme)) instanceof erLhAbstractModelWidgetTheme ? ($themeObj->alias != '' ? $themeObj->alias : $themeObj->id) : null);?>;
     document.getElementById('json-args-content').innerText = "var LHC_API = LHC_API||{};\nLHC_API = "+JSON.stringify(LHC_API, null, 2);
     (function() {
         var po = document.createElement('script'); po.type = 'text/javascript'; po.setAttribute('crossorigin','anonymous'); po.async = true;
