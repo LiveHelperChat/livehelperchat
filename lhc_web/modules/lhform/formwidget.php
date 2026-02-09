@@ -21,7 +21,7 @@ $content_rendered = $form->content_rendered;
 $chat = null;
 $replaceArray = ['{chat_id}' => '','{hash}' => '', '{msg_id}' => ''];
 
-if (isset($_GET['chat_id']) && is_numeric($_GET['chat_id']) && isset($_GET['hash']) && ($chat = erLhcoreClassModelChat::fetch($_GET['chat_id'])) instanceof erLhcoreClassModelChat && $chat->hash == $_GET['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+/*if (isset($_GET['chat_id']) && is_numeric($_GET['chat_id']) && isset($_GET['hash']) && ($chat = erLhcoreClassModelChat::fetch($_GET['chat_id'])) instanceof erLhcoreClassModelChat && $chat->hash == $_GET['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
     $tpl->setArray(array(
         'hash' => $_GET['hash'],
         'chat_id' => $_GET['chat_id'],
@@ -49,6 +49,48 @@ if (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) && isset($_POST['h
         if ($msg instanceof erLhcoreClassModelmsg && $msg->chat_id == $chat->id) {
             $tpl->set('msg_id',$msg->id);
             $replaceArray['{msg_id}'] = $msg->id;
+        }
+    }
+}*/
+
+
+// Handle both GET and POST in a single loop to avoid duplication
+foreach (array('GET','POST') as $method) {
+    $input = ($method === 'GET') ? $_GET : $_POST;
+
+    // skip if no input to avoid null/notice
+    if (empty($input)) {
+        continue;
+    }
+
+    if (isset($input['chat_id']) && is_numeric($input['chat_id']) && isset($input['hash'])) {
+
+        $chat = erLhcoreClassModelChat::fetch($input['chat_id']);
+        if ($chat instanceof erLhcoreClassModelChat && $chat->hash == $input['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+
+            $tpl->setArray(array(
+                'hash' => $input['hash'],
+                'chat_id' => $input['chat_id'],
+            ));
+
+            $replaceArray['{chat_id}'] = $chat->id;
+            $replaceArray['{hash}'] = $chat->hash;
+
+            if (isset($input['msg_id']) && is_numeric($input['msg_id'])) {
+                $msg = erLhcoreClassModelmsg::fetch($input['msg_id']);
+                if ($msg instanceof erLhcoreClassModelmsg && $msg->chat_id == $chat->id) {
+                    $tpl->set('msg_id', $msg->id);
+                    $replaceArray['{msg_id}'] = $msg->id;
+                    if (!empty($msg->meta_msg_array['content']['iframe']['iframe_options']['iframe_args'])) {
+                        $args = json_decode($msg->meta_msg_array['content']['iframe']['iframe_options']['iframe_args'], true);
+                        if (is_array($args)) {
+                            foreach($args as $argKey => $argValue) {
+                                $replaceArray['{iframe_args.'. $argKey .'}'] = $argValue;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -671,13 +671,15 @@ class erLhcoreClassFormRenderer {
     public static function renderInputTypeTextarea($params) {    	
     	
     	$value = '';
+        $isInvalid = false;
+        $errorInline = '';
+
     	if (ezcInputForm::hasPostData()) {
     	
     		$validationFields = array();
     		$validationFields[$params['name']] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     	
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
-            $isInvalid = false;
 
     		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && trim($form->{$params['name']}) == '')) {
                 $errorString = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');

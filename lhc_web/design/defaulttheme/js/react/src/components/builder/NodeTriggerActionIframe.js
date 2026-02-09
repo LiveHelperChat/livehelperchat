@@ -96,6 +96,12 @@ class NodeTriggerActionIframe extends Component {
                     </div>
                     <div className="col-12">
                         <div className="form-group">
+                            <label>Form args for iframe in JSON. In form content use {'{iframe_args.<key>}'}</label>
+                            <textarea className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['iframe_options','iframe_args'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','iframe_options','iframe_args'])}></textarea>
+                        </div>
+                    </div>
+                    <div className="col-12">
+                        <div className="form-group">
                             <label>CSS</label>
                             <textarea className="form-control form-control-sm" placeholder="[{css_rule},{font_options}]" onChange={(e) => this.onchangeAttr({'path' : ['payload_css'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','payload_css'])}></textarea>
                             <div>CSS Sample (include bootstrap library)</div>
