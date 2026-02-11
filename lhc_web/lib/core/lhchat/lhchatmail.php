@@ -106,8 +106,12 @@ class erLhcoreClassChatMail {
 
 	    	if (empty($sendMail->reply_to)) {
 	    		$sendMail->reply_to = $userData->email;
-	    	}
-    	}
+	    	} else {
+                $sendMail->reply_to = erLhcoreClassGenericBotWorkflow::translateMessage($sendMail->reply_to, array('chat' => $chat, 'args' => ['chat' => $chat]));
+            }
+        }
+
+        $sendMail->content = erLhcoreClassGenericBotWorkflow::translateMessage($sendMail->content, array('chat' => $chat, 'args' => ['chat' => $chat]));
     }
 
     // Validate send mail
@@ -145,7 +149,7 @@ class erLhcoreClassChatMail {
         $url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('chat/readchatmail') . '/' . $chat->id . '/' . sha1($secretHash . $chat->hash . $chat->id);
 
     	$sendMail->content = str_replace(array('{user_chat_nick}','{messages_content}','{chat_id}','{survey}','{operator_name}','{chat_link}'), array($chat->nick, $tpl->fetch(), $chat->id, $surveyContent, $chat->plain_user_name, $url), $sendMail->content);
-    	
+
     	if ($form->hasValidData( 'Message' ) )
     	{
     		$sendMail->content = str_replace('{additional_message}', $form->Message, $sendMail->content);
@@ -153,7 +157,7 @@ class erLhcoreClassChatMail {
 
         $sendMail->content = str_replace(array('{chat_link}'), array($url), $sendMail->content);
 
-    	$sendMail->content = erLhcoreClassBBCode::parseForMail($sendMail->content);
+        $sendMail->content = erLhcoreClassBBCode::parseForMail($sendMail->content);
 
     	if ( $form->hasValidData( 'FromEmail' ) ) {
     		$sendMail->from_email = $form->FromEmail;
