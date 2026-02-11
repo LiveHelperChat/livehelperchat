@@ -15606,6 +15606,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Captcha settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Rest API</source>
       <translation type="unfinished"/>
     </message>
@@ -23550,7 +23554,19 @@
   <context>
     <name>system/recaptcha</name>
     <message>
-      <source>Re-captcha settings</source>
+      <source>Captcha settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -23558,7 +23574,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Get Re-captcha keys</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -24335,6 +24367,10 @@
     </message>
     <message>
       <source>Google re-captcha validation failed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Captcha validation failed</source>
       <translation type="unfinished"/>
     </message>
     <message>

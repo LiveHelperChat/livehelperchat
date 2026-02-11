@@ -15859,6 +15859,11 @@
       <source>New file</source>
       <translation>Naujas failas</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Captcha nustatymai</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23561,16 +23566,49 @@
     </message>
     <message>
       <source>Site key</source>
-      <translation type="unfinished"/>
+      <translation>Svetainės raktas</translation>
     </message>
     <message>
       <source>Secret key</source>
-      <translation type="unfinished"/>
+      <translation>Slaptasis raktas</translation>
     </message>
     <message>
       <source>Secret key is not shown!</source>
-      <translation type="unfinished"/>
+      <translation>Slaptasis raktas nerodomas!</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Captcha nustatymai</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>Captcha tiekėjas</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>Tai veikia su Google reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Gauti Google reCAPTCHA raktus</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>Tai veikia su Cloudflare Turnstile.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Gauti Cloudflare Turnstile raktus</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24359,6 +24397,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>Captcha patvirtinimas nepavyko</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

@@ -15859,6 +15859,11 @@
       <source>New file</source>
       <translation>Nova datoteka</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Postavke captcha</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23561,16 +23566,49 @@
     </message>
     <message>
       <source>Site key</source>
-      <translation type="unfinished"/>
+      <translation>Ključ web-mjesta</translation>
     </message>
     <message>
       <source>Secret key</source>
-      <translation type="unfinished"/>
+      <translation>Tajni ključ</translation>
     </message>
     <message>
       <source>Secret key is not shown!</source>
-      <translation type="unfinished"/>
+      <translation>Tajni ključ nije prikazan!</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Postavke captcha</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>Pružatelj captcha usluge</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>Ovo radi s Google reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Preuzmi Google reCAPTCHA ključeve</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>Ovo radi s Cloudflare Turnstile.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Preuzmi Cloudflare Turnstile ključeve</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24359,6 +24397,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>Captcha provjera nije uspjela</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

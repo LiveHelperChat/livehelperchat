@@ -15859,6 +15859,11 @@
       <source>New file</source>
       <translation>新規ファイル</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>CAPTCHA設定</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23571,6 +23576,39 @@
       <source>Secret key is not shown!</source>
       <translation>秘密鍵は表示されない！</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>CAPTCHA設定</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>CAPTCHA プロバイダー</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>これは Google reCAPTCHA v3 で動作します。</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Google reCAPTCHA キーを取得</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>これはCloudflare Turnstileで動作します。</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Cloudflare Turnstile キーを取得</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24359,6 +24397,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation>ログインに失敗しました。xml_check_login</translation>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>CAPTCHA の検証に失敗しました</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

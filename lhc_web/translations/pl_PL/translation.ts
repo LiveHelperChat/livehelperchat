@@ -15859,6 +15859,11 @@
       <source>New file</source>
       <translation>Nowy plik</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Ustawienia captcha</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23571,6 +23576,39 @@
       <source>Secret key is not shown!</source>
       <translation>Tajny klucz nie jest wyświetlany!</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Ustawienia captcha</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>Dostawca captcha</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>To działa z Google reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Pobierz klucze Google reCAPTCHA</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>To działa z Cloudflare Turnstile.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Pobierz klucze Cloudflare Turnstile</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24359,6 +24397,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation>Logowanie nie powiodło się. XML_CHECK_LOGIN</translation>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>Walidacja captcha nie powiodła się</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

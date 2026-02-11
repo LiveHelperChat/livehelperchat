@@ -15865,6 +15865,11 @@ Icona colonna, testo icone materiale</translation>
       <source>New file</source>
       <translation>Nuovo file</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Impostazioni captcha</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23577,6 +23582,39 @@ Icona colonna, testo icone materiale</translation>
       <source>Secret key is not shown!</source>
       <translation>La chiave segreta non viene mostrata!</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Impostazioni captcha</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>Provider captcha</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>Funziona con Google reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Ottieni le chiavi Google reCAPTCHA</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>Funziona con Cloudflare Turnstile.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Ottieni le chiavi Cloudflare Turnstile</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24365,6 +24403,11 @@ Icona colonna, testo icone materiale</translation>
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation>Accesso fallito. XML_CHECK_LOGIN</translation>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>Convalida captcha non riuscita</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

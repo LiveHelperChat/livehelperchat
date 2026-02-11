@@ -15859,6 +15859,11 @@
       <source>New file</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>การตั้งค่า captcha</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23561,16 +23566,49 @@
     </message>
     <message>
       <source>Site key</source>
-      <translation type="unfinished"/>
+      <translation>คีย์ไซต์</translation>
     </message>
     <message>
       <source>Secret key</source>
-      <translation type="unfinished"/>
+      <translation>คีย์ลับ</translation>
     </message>
     <message>
       <source>Secret key is not shown!</source>
-      <translation type="unfinished"/>
+      <translation>ไม่แสดงคีย์ลับ!</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>การตั้งค่า captcha</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>ผู้ให้บริการ captcha</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>ใช้งานได้กับ Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>รับคีย์ Google reCAPTCHA</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>ใช้งานได้กับ Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>รับคีย์ Cloudflare Turnstile</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24359,6 +24397,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>การตรวจสอบ captcha ล้มเหลว</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

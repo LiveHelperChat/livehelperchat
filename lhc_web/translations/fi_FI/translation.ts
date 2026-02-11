@@ -15859,6 +15859,11 @@
       <source>New file</source>
       <translation>Uusi tiedosto</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Captcha-asetukset</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23561,16 +23566,49 @@
     </message>
     <message>
       <source>Site key</source>
-      <translation type="unfinished"/>
+      <translation>Sivustoavain</translation>
     </message>
     <message>
       <source>Secret key</source>
-      <translation type="unfinished"/>
+      <translation>Salainen avain</translation>
     </message>
     <message>
       <source>Secret key is not shown!</source>
-      <translation type="unfinished"/>
+      <translation>Salaista avainta ei näytetä!</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Captcha-asetukset</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>Captcha-palveluntarjoaja</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>Tämä toimii Google reCAPTCHA v3:n kanssa.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Hae Google reCAPTCHA -avaimet</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>Tämä toimii Cloudflare Turnstilen kanssa.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Hae Cloudflare Turnstile -avaimet</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24359,6 +24397,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>Captcha-vahvistus epäonnistui</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>
