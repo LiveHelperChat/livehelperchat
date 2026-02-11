@@ -7,7 +7,7 @@
 <body>
 
 <div class="modal d-block" tabindex="-1" role="dialog">
-<div class="modal-dialog">
+<div class="modal-dialog<?php isset($Result['modal_size']) ? print ' ' . $Result['modal_size'] : ''?>">
 	<div class="modal-content">
 		<div class="modal-header">
 			<span><a href="<?php echo erLhcoreClassDesign::baseurl()?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Home')?>"><img src="<?php echo erLhcoreClassDesign::design('images/general/logo_login.png');?>" class="img-fluid" alt="<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' )?>" title="<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' )?>"></a></span>
