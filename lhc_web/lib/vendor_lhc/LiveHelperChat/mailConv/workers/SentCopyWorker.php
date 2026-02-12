@@ -25,11 +25,13 @@ class SentCopyWorker
             $stmt->execute();
             $ids = $stmt->fetchAll(\PDO::FETCH_COLUMN);
         } catch (\Exception $e) {
+            $db->rollback();
             // Someone is already processing. So we just ignore and retry later
             return;
         }
 
         if (empty($ids)) {
+            $db->rollback();
             return;
         }
 
@@ -43,10 +45,15 @@ class SentCopyWorker
             if (self::sentCopy($message)) {
                 $stmt = $db->prepare('DELETE FROM lhc_mailconv_sent_copy WHERE id IN (' . $message->id . ')');
                 $stmt->execute();
+            } else {
+                // Copy failed, let's reschedule
+                $stmt = $db->prepare('UPDATE lhc_mailconv_sent_copy SET status = 0 WHERE id IN (' . $message->id . ')');
+                $stmt->execute();
             }
         }
 
-        if ((count($ids) >= 10) && \erLhcoreClassRedis::instance()->llen('resque:queue:lhc_imap_copy') <= 4) {
+        // Reschedule if there is pending copies to be created
+        if (\LiveHelperChat\Models\mailConv\SentCopy::getCount(['filter' => ['status' => 0]]) > 0 && \erLhcoreClassRedis::instance()->llen('resque:queue:lhc_imap_copy') <= 4) {
             \erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array('inst_id' => isset($this->args['inst_id']) && $this->args['inst_id'] > 0 ? $this->args['inst_id'] : 0));
         }
     }

@@ -68,6 +68,15 @@ if ($message instanceof erLhcoreClassModelMailconvMessage && $message->conversat
 
         if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PENDING) {
             $subStatus = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Scheduling fetching.') . ' [attempt - ' . (int)$_POST['counter'] . ']';
+
+            // Job should not take more than 10 sesconds before it starts
+            // Reschedule if it's pending and ticket was not found
+            if ((int)$_POST['counter'] % 5 === 0) {
+                $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+                erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv', 'erLhcoreClassMailConvWorker', array('inst_id' => $inst_id, 'ignore_timeout' => true, 'mailbox_id' => $mailboxId));
+                $subStatus = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Re-scheduling fetching.') . ' [attempt - ' . (int)$_POST['counter'] . ']';
+            }
+
         } elseif ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $scheduled == 0) {
             $subStatus = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Waiting for previous job to finish.') . ' [attempt - ' . (int)$_POST['counter'] . ']';
         } elseif ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $scheduled == 1) {
