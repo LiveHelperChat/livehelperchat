@@ -69,7 +69,7 @@
             <?php endif; ?>
         </td>
         <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_data_multiinclude.tpl.php')); ?>
-        <?php if ($canLoginAs) : ?>
+        <?php if ($canClone) : ?>
             <td nowrap=""><a class="btn btn-info btn-xs csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('user/clone')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Clone');?></a></td>
         <?php endif;?>
         <?php if ($canLoginAs) : ?>

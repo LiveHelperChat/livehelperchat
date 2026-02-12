@@ -56,6 +56,47 @@ if ($Params['user_parameters_unordered']['action'] === 'truncate' && method_exis
     exit;
 }
 
+if ($Params['user_parameters_unordered']['action'] === 'clone' && isset($Params['user_parameters_unordered']['object_id']) && $currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+
+    // Check if object supports cloning
+    if (property_exists($objectData, 'clone_fields') && is_array($objectData->clone_fields) && !empty($objectData->clone_fields)) {
+        try {
+            // Fetch the original object
+            $originalObject = call_user_func($objectClass . '::fetch', $Params['user_parameters_unordered']['object_id']);
+            
+            if ($originalObject) {
+                // Create a new instance
+                $clonedObject = new $objectClass();
+                
+                // Get state of original object
+                $state = $originalObject->getState();
+                
+                // Remove id from state
+                unset($state['id']);
+                
+                // Add _copy suffix to clone fields
+                foreach ($objectData->clone_fields as $field) {
+                    if (isset($state[$field])) {
+                        $state[$field] = $state[$field] . '_copy';
+                    }
+                }
+                
+                // Set state to cloned object
+                $clonedObject->setState($state);
+                
+                // Save the cloned object
+                $clonedObject->saveThis();
+            }
+        } catch (Exception $e) {
+            // Handle error silently or log if needed
+        }
+        
+        // Redirect back to list
+        erLhcoreClassModule::redirect('abstract/list/' . $Params['user_parameters']['identifier']);
+        exit;
+    }
+}
+
 $rowsNumber = null;
 
 $db = ezcDbInstance::get();
@@ -135,6 +176,10 @@ if (isset($object_trans['permission_edit']) && !$currentUser->hasAccessTo($objec
 
 if ($objectData->hide_delete === true || (isset($object_trans['permission_delete']) && !$currentUser->hasAccessTo($object_trans['permission_delete']['module'],$object_trans['permission_delete']['function']))) {
     $tpl->set('hide_delete',true);
+}
+
+if (property_exists($objectData, 'clone_fields') && is_array($objectData->clone_fields) && !empty($objectData->clone_fields) && (!isset($object_trans['permission_edit']) || $currentUser->hasAccessTo($object_trans['permission_edit']['module'],$object_trans['permission_edit']['function']))) {
+    $tpl->set('can_clone',true);
 }
 
 $Result['content'] = $tpl->fetch();

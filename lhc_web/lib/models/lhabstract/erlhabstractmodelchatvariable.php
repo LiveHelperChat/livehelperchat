@@ -94,7 +94,7 @@ class erLhAbstractModelChatVariable
             'permission' => array(
                 'module' => 'lhchat',
                 'function' => 'administratechatvariable'
-            ),
+            ),            
             'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Chat variables')
         );
 
@@ -124,6 +124,12 @@ class erLhAbstractModelChatVariable
         }
     }
 
+    public $clone_fields = [
+        'var_identifier',
+        'var_name',
+        'js_variable',
+    ];
+    
     public $id = null;
     public $dep_id = 0;
     public $js_variable = '';

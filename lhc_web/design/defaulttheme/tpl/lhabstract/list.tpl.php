@@ -40,6 +40,10 @@
 	    	    <th width="1%">&nbsp;</th>
             <?php endif;?>
 
+            <?php if (isset($can_clone)) : ?>
+                <th width="1%">&nbsp;</th>
+            <?php endif;?>
+
 	    	<?php if (!isset($hide_delete)) : ?>
 	   			<th width="1%">&nbsp;</th>
 	    	<?php endif;?>
@@ -103,6 +107,10 @@
 
             <?php if (!isset($hide_edit)) : ?>
 	        <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/<?php echo $identifier . '/' . $item->id . $extension?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit');?></a></td>
+            <?php endif;?>
+
+            <?php if (isset($can_clone)) : ?>
+                <td nowrap=""><a class="btn btn-info btn-xs csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/<?php echo $identifier?>/(action)/clone/(object_id)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Clone');?></a></td>
             <?php endif;?>
 
 	         <?php if (!isset($hide_delete)) : ?>
