@@ -72,6 +72,7 @@ if ($message instanceof erLhcoreClassModelMailconvMessage && $message->conversat
             // Job should not take more than 10 sesconds before it starts
             // Reschedule if it's pending and ticket was not found
             if ((int)$_POST['counter'] % 5 === 0) {
+                $scheduled = 1;
                 $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
                 erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv', 'erLhcoreClassMailConvWorker', array('inst_id' => $inst_id, 'ignore_timeout' => true, 'mailbox_id' => $mailboxId));
                 $subStatus = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Re-scheduling fetching.') . ' [attempt - ' . (int)$_POST['counter'] . ']';
