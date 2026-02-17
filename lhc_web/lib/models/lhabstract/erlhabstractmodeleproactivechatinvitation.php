@@ -799,7 +799,7 @@ class erLhAbstractModelProactiveChatInvitation {
                      } elseif ($design_data_array['attrf_cond_' . $i] == 'contains' && strrpos($valueAttr, $conditionAttr) === false) {
                          $conditionsValid = false;
                          break;
-                     } elseif ($design_data_array['attrf_cond_' . $i] == 'in_list' && in_array(trim($valueAttr), explode('||', trim($conditionAttr)))) {
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'in_list' && !in_array(trim($valueAttr), explode('||', trim($conditionAttr)))) {
                          $conditionsValid = false;
                          break;
                      } elseif ($design_data_array['attrf_cond_' . $i] == 'in_list_lowercase' && !in_array(strtolower(trim($valueAttr)), explode('||', strtolower(trim($conditionAttr))))) {
