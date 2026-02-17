@@ -719,31 +719,34 @@ class erLhAbstractModelProactiveChatInvitation {
                      $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$conditionAttr);
                      $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr);
 
-                     if (isset($design_data_array['attrf_cond_' . $i]) && !in_array($design_data_array['attrf_cond_' . $i],['like','notlike','contains'])) {
+                     if (isset($design_data_array['attrf_cond_' . $i]) && !in_array($design_data_array['attrf_cond_' . $i],['like','notlike','contains','in_list','in_list_lowercase','not_in_list','not_in_list_lowercase'])) {
                          // Remove spaces
                          $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
                          $valueAttr = preg_replace('/\s+/', '', $valueAttr);
 
                          // Allow only mathematical operators
-                         $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
-                         $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
-
-                         if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
-                             // Evaluate if there is mathematical rules
-                             try {
-                                 eval('$conditionAttr = ' . $conditionAttrMath . ";");
-                             } catch (ParseError $e) {
-                                 // Do nothing
-                             }
+                         if (isset($design_data_array['attrf_cond_math_' . $i]) && $design_data_array['attrf_cond_math_' . $i] === true) {
+                            $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
+                            if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
+                                // Evaluate if there is mathematical rules
+                                try {
+                                    eval('$conditionAttr = ' . $conditionAttrMath . ";");
+                                } catch (ParseError | DivisionByZeroError $e) {
+                                    // Do nothing
+                                }
+                            }
                          }
 
-                         if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
-                             // Evaluate if there is mathematical rules
-                             try {
-                                 eval('$valueAttr = ' . $valueAttrMath . ";");
-                             } catch (ParseError $e) {
-                                 // Do nothing
-                             }
+                         if (isset($design_data_array['attrf_val_math_' . $i]) && $design_data_array['attrf_val_math_' . $i] === true) {
+                            $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
+                            if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
+                                // Evaluate if there is mathematical rules
+                                try {
+                                    eval('$valueAttr = ' . $valueAttrMath . ";");
+                                } catch (ParseError | DivisionByZeroError $e) {
+                                    // Do nothing
+                                }
+                            }
                          }
                      }
 
@@ -796,10 +799,22 @@ class erLhAbstractModelProactiveChatInvitation {
                      } elseif ($design_data_array['attrf_cond_' . $i] == 'contains' && strrpos($valueAttr, $conditionAttr) === false) {
                          $conditionsValid = false;
                          break;
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'in_list' && in_array(trim($valueAttr), explode('||', trim($conditionAttr)))) {
+                         $conditionsValid = false;
+                         break;
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'in_list_lowercase' && !in_array(strtolower(trim($valueAttr)), explode('||', strtolower(trim($conditionAttr))))) {
+                         $conditionsValid = false;
+                         break;
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'not_in_list' && in_array(trim($valueAttr), explode('||', trim($conditionAttr)))) {
+                         $conditionsValid = false;
+                         break;
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'not_in_list_lowercase' && in_array(strtolower(trim($valueAttr)), explode('||', strtolower(trim($conditionAttr))))) {
+                         $conditionsValid = false;
+                         break;
                      }
                 }
             }
-
+   
             if ($messageToUser->url_present != '') {
                 $urlOptions = explode(',',$messageToUser->url_present);
                 $currentPage = ltrim($item->current_page,'/');

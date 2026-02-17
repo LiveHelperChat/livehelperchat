@@ -726,6 +726,22 @@ for ($ai = 0; $ai < 10; $ai++) {
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     );
+    $proactiveAttr['attrf_cond_math_' . ($ai  + 1)] = array(
+        'type' => 'checkbox',
+        'main_attr' => 'design_data_array',
+        'trans' => '',
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
+    );
+    $proactiveAttr['attrf_val_math_' . ($ai  + 1)] = array(
+        'type' => 'checkbox',
+        'main_attr' => 'design_data_array',
+        'trans' => '',
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
+    );
 }
 
 return $proactiveAttr;
