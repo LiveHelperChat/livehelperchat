@@ -173,4 +173,10 @@ class erLhAbstractModelSubject {
     public $widgets = 0;
     public $pinned = 0;
     public $color = '';
+
+    public $hide_add = false;
+    public $hide_delete = false;
+
+    public $has_filter = true;
+    public $filter_name = 'subject';
 }

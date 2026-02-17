@@ -16,6 +16,11 @@
             <?php ;
             break;
 
+        case 'subject': ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/subject.tpl.php')); ?>
+            <?php ;
+            break;
+
         default:
             ;
             break;

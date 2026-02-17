@@ -1,4 +1,4 @@
-<form action="" method="get">
+<form action="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/AutoResponder" method="get">
     <div class="row">
 
         <div class="col-md-12">

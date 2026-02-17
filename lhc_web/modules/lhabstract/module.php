@@ -16,6 +16,8 @@ $ViewList['list'] = array(
     'uparams' => array(
         'extension',
         'name',
+        'pinned',
+        'internal',
         'object_id',
         'user_id',
         'category',
