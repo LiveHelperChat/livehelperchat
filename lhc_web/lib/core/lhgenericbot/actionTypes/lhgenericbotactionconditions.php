@@ -215,8 +215,17 @@ class erLhcoreClassGenericBotActionConditions {
                         }
 
                         $replaceArray = array('{time}' => time());
-                        $attr = trim(str_replace(array_keys($replaceArray), array_values($replaceArray), $attr));
-                        $valAttr = trim(str_replace(array_keys($replaceArray), array_values($replaceArray), $valAttr));
+                        $attr = str_replace(array_keys($replaceArray), array_values($replaceArray), $attr);
+                        $valAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $valAttr);
+
+                        if (is_string($attr)) {
+                            $attr = trim($attr);
+                        }
+
+                        if (is_string($valAttr)) {
+                            $valAttr = trim($valAttr);
+                        }
+                        
 
                         if (!in_array($condition['content']['comp'], ['like', 'notlike', 'contains', 'in_list', 'in_list_lowercase', 'not_in_list', 'not_in_list_lowercase'])) {
 
