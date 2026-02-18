@@ -215,15 +215,13 @@ class erLhcoreClassGenericBotActionConditions {
                         }
 
                         $replaceArray = array('{time}' => time());
-                        $attr = str_replace(array_keys($replaceArray), array_values($replaceArray), $attr);
-                        $valAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $valAttr);
+                        $attr = trim(str_replace(array_keys($replaceArray), array_values($replaceArray), $attr));
+                        $valAttr = trim(str_replace(array_keys($replaceArray), array_values($replaceArray), $valAttr));
 
                         if (!in_array($condition['content']['comp'], ['like', 'notlike', 'contains', 'in_list', 'in_list_lowercase', 'not_in_list', 'not_in_list_lowercase'])) {
 
-                            $attr = preg_replace('/\s+/', '', $attr);
-                            $valAttr = preg_replace('/\s+/', '', $valAttr);
-
                             if (isset($condition['content']['attr_math']) && $condition['content']['attr_math'] === true) {
+                                $attr = preg_replace('/\s+/', '', $attr);
                                 $conditionAttrMath = preg_replace("/[^%\(\)\.\*\-\/\+0-9]+/", "", $attr);
                                 if ($conditionAttrMath != '' && $conditionAttrMath === $attr) {
                                     try {
@@ -231,7 +229,9 @@ class erLhcoreClassGenericBotActionConditions {
                                     } catch (ParseError | DivisionByZeroError $e) { }
                                 }
                             }
+
                             if (isset($condition['content']['val_math']) && $condition['content']['val_math'] === true) {
+                                $valAttr = preg_replace('/\s+/', '', $valAttr);
                                 $valueAttrMath = preg_replace("/[^%\(\)\.\*\-\/\+0-9]+/", "", $valAttr);
                                 if ($valueAttrMath != '' && $valueAttrMath === $valAttr) {
                                     try {

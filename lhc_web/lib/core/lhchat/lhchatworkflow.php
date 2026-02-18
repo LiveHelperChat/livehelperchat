@@ -1273,12 +1273,23 @@ class erLhcoreClassChatWorkflow {
             $msg->user_id = $chat->user_id;
             $msg->name_support = $chat->user->name_support;
 
+            // This avoids triggering visitor not replying auto responder
             $chat->last_op_msg_time = $chat->last_user_msg_time = $msg->time = time();
+
+            // Required for auto responder to be triggered
+            if ($cannedMsg->activate_responder == 1) {
+                $chat->last_op_msg_time += 2;
+            }
+
             $chat->has_unread_op_messages = 1;
             $chat->unread_op_messages_informed = 0;
 
+            $msg->meta_msg = json_encode(['content' => ['auto_responder' => true, 'auto_send' => true]]);
+
             \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat));
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_before_save',array('msg' => & $msg, 'chat' => & $chat));
+
+
 
             erLhcoreClassChat::getSession()->save($msg);
 

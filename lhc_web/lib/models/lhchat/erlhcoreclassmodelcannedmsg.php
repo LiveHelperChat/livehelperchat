@@ -40,6 +40,7 @@ class erLhcoreClassModelCannedMsg
             'days_activity' => $this->days_activity,
             'disabled' => $this->disabled,
             'delete_on_exp' => $this->delete_on_exp,
+            'activate_responder' => $this->activate_responder
         );
     }
 
@@ -485,6 +486,7 @@ class erLhcoreClassModelCannedMsg
     public $days_activity = '';
     public $disabled = 0;
     public $delete_on_exp = 0;
+    public $activate_responder = 0;
 
 
 }

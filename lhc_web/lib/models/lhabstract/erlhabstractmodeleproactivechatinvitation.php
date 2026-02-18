@@ -716,16 +716,14 @@ class erLhAbstractModelProactiveChatInvitation {
                      );
 
                      // Remove internal variables
-                     $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$conditionAttr);
-                     $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr);
+                     $conditionAttr = trim(str_replace(array_keys($replaceArray), array_values($replaceArray),$conditionAttr));
+                     $valueAttr = trim(str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr));
 
                      if (isset($design_data_array['attrf_cond_' . $i]) && !in_array($design_data_array['attrf_cond_' . $i],['like','notlike','contains','in_list','in_list_lowercase','not_in_list','not_in_list_lowercase'])) {
-                         // Remove spaces
-                         $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
-                         $valueAttr = preg_replace('/\s+/', '', $valueAttr);
-
+ 
                          // Allow only mathematical operators
                          if (isset($design_data_array['attrf_cond_math_' . $i]) && $design_data_array['attrf_cond_math_' . $i] === true) {
+                            $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
                             $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
                             if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
                                 // Evaluate if there is mathematical rules
@@ -738,6 +736,7 @@ class erLhAbstractModelProactiveChatInvitation {
                          }
 
                          if (isset($design_data_array['attrf_val_math_' . $i]) && $design_data_array['attrf_val_math_' . $i] === true) {
+                            $valueAttr = preg_replace('/\s+/', '', $valueAttr);
                             $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
                             if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
                                 // Evaluate if there is mathematical rules

@@ -1,0 +1,1 @@
+ALTER TABLE `lh_canned_msg` ADD `activate_responder` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';

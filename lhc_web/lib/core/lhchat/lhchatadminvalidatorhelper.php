@@ -236,6 +236,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'AutoSend' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'activate_responder' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'Disabled' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
@@ -389,6 +392,13 @@ class erLhcoreClassAdminChatValidatorHelper {
             $cannedMessage->auto_send = 1;
         } else {
             $cannedMessage->auto_send = 0;
+        }
+
+        if ( $form->hasValidData( 'activate_responder' ) && $form->activate_responder == true )
+        {
+            $cannedMessage->activate_responder = 1;
+        } else {
+            $cannedMessage->activate_responder = 0;
         }
 
         if ( $form->hasValidData( 'Disabled' ) && $form->Disabled == true )

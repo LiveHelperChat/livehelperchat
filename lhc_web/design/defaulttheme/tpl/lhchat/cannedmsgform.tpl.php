@@ -43,17 +43,22 @@
             <input type="text"  class="form-control form-control-sm" name="ExplainHover" value="<?php echo htmlspecialchars($canned_message->explain);?>" />
         </div>
 
-        <div class="row">
-            <div class="col-6">
-                <label><input type="checkbox" name="AutoSend" value="on" <?php $canned_message->auto_send == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Automatically send this message to user then chat is accepted');?></label>
-            </div>
-            <div class="col-6">
-                <div class="form-group">
-                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay in seconds');?></label>
-                    <input type="text"  class="form-control form-control-sm" name="Delay" value="<?php echo $canned_message->delay?>" />
+        <div class="border rounded p-3 bg-light">
+            <div class="row">   
+                <div class="col-6">
+                    <label><input type="checkbox" name="AutoSend" value="on" <?php $canned_message->auto_send == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Automatically send this message to user then chat is accepted');?></label><br>
+                    <label><input type="checkbox" name="activate_responder" value="on" <?php $canned_message->activate_responder == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Auto responder will be activated upon automatic message sending.');?></label>
+                </div>
+                <div class="col-6">
+                    <div class="form-group row">
+                        <label class="col-sm-4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay in seconds');?></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-sm" name="Delay" value="<?php echo $canned_message->delay?>" />
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+         </div>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?>

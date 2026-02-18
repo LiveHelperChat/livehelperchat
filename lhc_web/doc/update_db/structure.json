@@ -4437,6 +4437,14 @@
         "extra": ""
       },
       {
+        "field": "activate_responder",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "created_at",
         "type": "int(11) unsigned",
         "null": "NO",

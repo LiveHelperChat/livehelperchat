@@ -1,3 +1,20 @@
+4.79v
+
+1. Notable changes since 4.78v
+   - Abstract/Back office: added subject filter options (Name, Pinned, Internal) and corrected autoresponder filter form routing.
+   - Cloning: added generic abstract object cloning support and user clone action in user list.
+   - Bot & proactive invitations: expanded condition operator support (`(` and `||`) and added more proactive invitation condition checks.
+   - Mail conversations: improved reliability of ticket fetch/send flow, better scheduled-state handling, and replaceable variable support for send e-mail templates.
+   - Chat/Webhooks: enhanced chat state tracking and logging across chat validators, dispatchers, and webhook handlers.
+   - Forms & UI: added reusable custom form args, extension-specific login sizing, theme existence checks, online users attribute fixes, and widget cache/version updates.
+   - Translations: updated translation packs, including Japanese language/default translation updates.
+
+2. Summary
+   - This release focuses on reliability improvements in mail/chat workflows and stronger bot/proactive condition handling.
+   - It also includes operator-facing UX improvements (filtering and cloning) and broad translation/frontend update refreshes.
+
+execute doc/update_db/update_346.sql for update
+
 4.78v
 
 1. Notable changes since 4.77v
