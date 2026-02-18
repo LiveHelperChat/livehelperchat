@@ -1,6 +1,15 @@
 <form action="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Subject" method="get">
     <div class="row">
 
+     
+
+        <div class="col-md-1">
+            <div class="mb-3">
+                <label class="form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','ID');?></label>
+                <input type="text" class="form-control form-control-sm" name="object_id" value="<?php echo htmlspecialchars((string)$input_form->object_id)?>" />
+            </div>
+        </div>
+
         <div class="col-md-3">
             <div class="mb-3">
                 <label class="form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Name');?></label>

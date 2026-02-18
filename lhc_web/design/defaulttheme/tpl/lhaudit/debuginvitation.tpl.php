@@ -1,6 +1,12 @@
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Simplified output')?></h5>
 
 <ul>
+
+
+    <?php if (erLhcoreClassModelChatConfig::fetch('pro_active_invite')->current_value != 1) : ?>
+    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Proactive invitations is')?>&nbsp;<span class="badge bg-danger">disabled</span>&nbsp;<a href="<?php echo erLhcoreClassDesign::baseurl('chat/listchatconfig')?>#onlinetracking"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','change it.')?></a></li>
+    <?php endif; ?>
+
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Valid invitations found')?> - <?php echo count($debug_invitation['rows']); ?> [<?php echo implode(',',array_keys($debug_invitation['rows']))?>]</li>
 
     <?php if (isset($debug_invitation['no_messages'])) : ?>

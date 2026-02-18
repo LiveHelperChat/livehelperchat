@@ -27,6 +27,18 @@ $fieldsSearch['pinned'] = array (
     )
 );
 
+$fieldsSearch['object_id'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => '`lh_abstract_subject`.`id`',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
 $fieldsSearch['internal'] = array (
     'type' => 'text',
     'trans' => 'Internal',
