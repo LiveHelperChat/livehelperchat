@@ -55,6 +55,7 @@ class erLhcoreClassChatEventDispatcher {
            $className = 'erLhcoreClassChatWebhook' .ucfirst($worker);
            if (class_exists($className)) {
                $param['lhc_caller'] = debug_backtrace(2,2)[1];
+               $param['lhc_event'] = $event;
                $worker = new $className;
                $worker->processEvent($event, $param, $singleEvent);
            }
@@ -67,7 +68,7 @@ class erLhcoreClassChatEventDispatcher {
 
 	   	if (isset($this->listeners[$event])) {
             $param['lhc_caller'] = debug_backtrace(2,2)[1];
-
+            $param['lhc_event'] = $event;
 		   	foreach ($this->listeners[$event] as $listener)
 		   	{
 		   		$responseData = call_user_func_array($listener, array($param));

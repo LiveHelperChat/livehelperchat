@@ -6,6 +6,10 @@ class erLhcoreClassGenericBotActionText {
     {
         static $triggersProcessed = array();
 
+        if (!($chat instanceof \erLhcoreClassModelChat)) {
+            return;
+        }
+
         $params['current_trigger'] = $trigger;
 
         if (!isset($params['first_trigger'])) {
