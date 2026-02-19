@@ -1,0 +1,1 @@
+ALTER TABLE `lh_abstract_msg_protection` ADD `languages` text NOT NULL, COMMENT='';
