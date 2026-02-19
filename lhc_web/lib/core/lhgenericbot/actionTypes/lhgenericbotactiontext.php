@@ -7,7 +7,7 @@ class erLhcoreClassGenericBotActionText {
         static $triggersProcessed = array();
 
         if (!($chat instanceof \erLhcoreClassModelChat)) {
-            return;
+            $params['do_not_save'] = true;
         }
 
         $params['current_trigger'] = $trigger;
