@@ -716,8 +716,17 @@ class erLhAbstractModelProactiveChatInvitation {
                      );
 
                      // Remove internal variables
-                     $conditionAttr = trim(str_replace(array_keys($replaceArray), array_values($replaceArray),$conditionAttr));
-                     $valueAttr = trim(str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr));
+                     $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$conditionAttr);
+
+                     if (is_string($conditionAttr)) {
+                         $conditionAttr = trim($conditionAttr);
+                     }
+
+                     $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr);
+
+                     if (is_string($valueAttr)) {
+                         $valueAttr = trim($valueAttr);
+                     }
 
                      if (isset($design_data_array['attrf_cond_' . $i]) && !in_array($design_data_array['attrf_cond_' . $i],['like','notlike','contains','in_list','in_list_lowercase','not_in_list','not_in_list_lowercase'])) {
  
