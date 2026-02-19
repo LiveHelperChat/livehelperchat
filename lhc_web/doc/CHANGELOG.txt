@@ -1,3 +1,17 @@
+4.80v
+
+1. Notable changes since 4.79v
+   - Message content protection: added language-specific warning message support for ghosting/masking rules.
+   - UI (back office): redesigned message protection warning editor with multilingual tabs and per-language message fields.
+   - Runtime masking: warning text can now be translated by chat locale (full locale and short locale fallback).
+   - Data/model layer: added `languages` persistence support in `lh_abstract_msg_protection` model/POS mapping.
+   - Frontend cleanup: simplified multilingual tab content rendering in Svelte component used by admin forms.
+
+2. Summary
+   - This release extends message protection rules with localized warning messages and wires the full stack (DB, model, UI, and runtime locale resolution).
+
+execute doc/update_db/update_347.sql for update
+
 4.79v
 
 1. Notable changes since 4.78v

@@ -29,7 +29,8 @@ class ChatMessagesGhosting {
             'rule_type' => $this->rule_type,
             'has_dep' => $this->has_dep,
             'dep_ids' => $this->dep_ids,
-            'name'  => $this->name
+            'name'  => $this->name,
+            'languages' => $this->languages
         );
 
         return $stateArray;
@@ -83,6 +84,7 @@ class ChatMessagesGhosting {
     public static function maskVisitorMessages(& $messages, \erLhcoreClassModelChat $chat, $type = self::MSG_TYPE_VISITOR_TO_OPERATOR) {
         $user_id = $chat->user_id;
         $dep_id = $chat->dep_id;
+        $locale = isset($chat->chat_locale) ? $chat->chat_locale : '';
         
         // Create a cache key based on type and department
         $cacheKey = $type . '_' . $dep_id;
@@ -107,6 +109,11 @@ class ChatMessagesGhosting {
         // If no rule exists, return early - no need to check permissions
         if ($maskRule === null) {
             return $messages;
+        }
+
+        if ($locale != '') {
+            $maskRule = clone $maskRule;
+            $maskRule->translateByChat($locale);
         }
 
         // Only check permissions if user is assigned and we have a rule to apply
@@ -358,7 +365,7 @@ class ChatMessagesGhosting {
 
     public function dependFooterJs()
     {
-        return '<script type="module" src="'. \erLhcoreClassDesign::designJSStatic('js/svelte/public/build/departments.js').'"></script><script type="module" src="'. \erLhcoreClassDesign::designJSStatic('js/svelte/public/build/masking.js').'"></script>';
+        return '<script type="module" src="'. \erLhcoreClassDesign::designJSStatic('js/svelte/public/build/departments.js').'"></script><script type="module" src="' . \erLhcoreClassDesign::designJSStatic('js/svelte/public/build/masking.js').'"></script><script type="module" src="' . \erLhcoreClassDesign::designJSStatic('js/svelte/public/build/languages.js').'"></script>';
     }
 
     public function getModuleTranslations()
@@ -403,6 +410,70 @@ class ChatMessagesGhosting {
         }
     }
 
+    public function setTranslationData($data)
+    {
+        if (isset($data['message']) && $data['message'] != '') {
+            $this->v_warning = $data['message'];
+        }
+    }
+
+    public function translateByChat($locale)
+    {
+        if ($locale == '' || $this->languages == '') {
+            return;
+        }
+
+        $languages = json_decode($this->languages, true);
+
+        if (!is_array($languages)) {
+            return;
+        }
+
+        foreach ($languages as $data) {
+            if (isset($data['languages']) && is_array($data['languages']) && in_array($locale, $data['languages'])) {
+                $this->setTranslationData($data);
+                return;
+            }
+        }
+
+        $localeShort = explode('-', $locale)[0];
+        foreach ($languages as $data) {
+            if (isset($data['languages']) && is_array($data['languages']) && in_array($localeShort, $data['languages'])) {
+                $this->setTranslationData($data);
+                return;
+            }
+        }
+    }
+
+    public function validateInput($params = array())
+    {
+        $definition = array(
+            'languages' => new \ezcInputFormDefinitionElement(\ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY),
+            'message_lang' => new \ezcInputFormDefinitionElement(\ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY),
+        );
+
+        $form = new \ezcInputForm(INPUT_POST, $definition);
+
+        $languagesData = [];
+
+        if ($form->hasValidData('languages') && !empty($form->languages)) {
+            foreach ($form->languages as $index => $languages) {
+                $languagesData[] = [
+                    'message' => isset($form->message_lang[$index]) ? $form->message_lang[$index] : '',
+                    'languages' => $languages,
+                ];
+            }
+        }
+
+        $this->languages = json_encode($languagesData, JSON_HEX_APOS);
+        $this->languages_array = $languagesData;
+    }
+
+    public function beforeSave()
+    {
+        $this->has_dep = $this->dep_ids == '' || $this->dep_ids == '[]' ? 0 : 1;
+    }
+
     public function beforeUpdate()
     {
         $this->has_dep = $this->dep_ids == '' || $this->dep_ids == '[]' ? 0 : 1;    
@@ -421,4 +492,5 @@ class ChatMessagesGhosting {
     public $has_dep = 0;
     public $dep_ids = '';
     public $name = '';
+    public $languages = '';
 }

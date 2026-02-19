@@ -187,29 +187,21 @@
         <DepartamentSelection on:department_select={(dep_id) => {selectDepartment(dep_id, lang)}} on:department_unselect={(dep_id) => {unselectDepartment(dep_id, lang)}} index_block={index} selected_departments={lang.dep_ids}></DepartamentSelection>
         {/if}
 
-
         {#if fields.length > 0}
-        <ul class="nav nav-pills" role="tablist">
-            <li role="presentation" class="nav-item"><a class="nav-link active" href="#main-extension-lang-{index}" aria-controls="main-extension-lang-{index}" role="tab" data-bs-toggle="tab" >{$t('user_account.messages')}</a></li>
-        </ul>
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="main-extension-lang-{index}">
-                <div class="row">
-                    {#each fields as field}
-                        <div class={"col-"+(field.column ? field.column : '12')}>
-                        {#if field.type === 'header_block'}
-                            <h4>{field.name}</h4>
-                        {:else}
-                            <div class="form-group">
-                                {#if field.name_literal}<label>{field.name_literal}</label>{/if}
-                                <BBCodeToolbar selector="#{field.name}-{index}"></BBCodeToolbar>
-                                <textarea class="form-control" rows="2" id={field.name+"-"+index} name={field.name+"["+index+"]"} bind:value={lang[field['bind_name']]}></textarea>
-                            </div>
-                        {/if}
-                        </div>
-                    {/each}
+        <div class="row">
+            {#each fields as field}
+                <div class={"col-"+(field.column ? field.column : '12')}>
+                {#if field.type === 'header_block'}
+                    <h4>{field.name}</h4>
+                {:else}
+                    <div class="form-group">
+                        {#if field.name_literal}<label>{field.name_literal}</label>{/if}
+                        <BBCodeToolbar selector="#{field.name}-{index}"></BBCodeToolbar>
+                        <textarea class="form-control" rows="2" id={field.name+"-"+index} name={field.name+"["+index+"]"} bind:value={lang[field['bind_name']]}></textarea>
+                    </div>
+                {/if}
                 </div>
-            </div>
+            {/each}
         </div>
         {/if}
 

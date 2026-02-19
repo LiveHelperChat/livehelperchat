@@ -67,12 +67,42 @@ $object->languages_ignore; // Just to init
         </h2>
         <div id="collapseWarning" class="accordion-collapse collapse" aria-labelledby="headingWarning" data-bs-parent="#accordionMsgProtection">
             <div class="accordion-body">
-                <div class="form-group">
-                    <div class="pb-1">
-                    <label class="pe-1"><?php echo $fields['v_warning']['trans'];?></label><button class="btn btn-xs btn-secondary me-1" id="sample-button" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Sample');?></button>
+
+                <ul class="nav nav-tabs mb-2" role="tablist" id="languageProtection-tabs">
+                    <a class="nav-link active" href="#main" aria-controls="main" role="tab" data-bs-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Main');?></a>
+                    <lhc-multilanguage-tab identifier="languageProtection" <?php if ($object->languages != '') : ?>init_langauges="<?php echo ($object->id > 0 ? $object->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab>
+                </ul>
+
+                <script>
+  
+                    <?php if ($object->languages != '') : ?>
+                    var languageProtection<?php echo $object->id?> = <?php echo json_encode(json_decode($object->languages, true), JSON_HEX_APOS) ?>;
+                    <?php endif; ?>
+
+                    var languageDialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>;
+
+                    window.languageProtectionFields = <?php echo json_encode([
+                        [
+                            'name' => 'message_lang',
+                            'bind_name' => 'message',
+                            'name_literal' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message')
+                        ]
+                    ])?>;
+                </script>
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="main">
+                        <div class="form-group">
+                            <div class="pb-1">
+                            <label class="pe-1"><?php echo $fields['v_warning']['trans'];?></label><button class="btn btn-xs btn-secondary me-1" id="sample-button" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Sample');?></button>
+                            </div>
+                            <?php echo erLhcoreClassAbstract::renderInput('v_warning', $fields['v_warning'], $object)?>
+                        </div>
                     </div>
-                    <?php echo erLhcoreClassAbstract::renderInput('v_warning', $fields['v_warning'], $object)?>
+                    <lhc-multilanguage-tab-content identifier="languageProtection" <?php if ($object->languages != '') : ?>init_langauges="<?php echo ($object->id > 0 ? $object->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
                 </div>
+
+
             </div>
         </div>
     </div>
