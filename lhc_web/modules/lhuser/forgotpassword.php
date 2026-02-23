@@ -53,31 +53,9 @@ if (isset($_POST['Forgotpassword'])) {
         $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Invalid e-mail address!');
     }
 
-    $recaptchaData = erLhcoreClassModelChatConfig::fetch('recaptcha_data')->data_value;
-
-    if (is_array($recaptchaData) && isset($recaptchaData['enabled']) && $recaptchaData['enabled'] == 1) {
-        $params = [
-            'secret'    => $recaptchaData['secret_key'],
-            'response'  => $_POST['g-recaptcha']
-        ];
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        curl_setopt($ch,CURLOPT_POST,1);
-        curl_setopt($ch,CURLOPT_POSTFIELDS,$params);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces warning...
-        $res = curl_exec($ch);
-
-        $res = json_decode($res,true);
-
-        if (!(isset($res['success']) && $res['success'] == 1 && isset($res['score']) && $res['score'] >= 0.1 && $res['action'] == 'login_action')) {
-            $Errors[] = 'Invalid recaptcha!';
-        }
+    $captchaValidation = \LiveHelperChat\Validators\CaptchaValidator::validateAuthCaptcha($_POST, 'forgot_password_action');
+    if ($captchaValidation['valid'] !== true) {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Captcha validation failed');
     }
 
 	if (count($Errors) == 0) {

@@ -13,6 +13,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
+<?php $captchaAction = 'forgot_password_action'; ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/recaptcha.tpl.php'));?>
 
 <input type="submit" class="btn btn-primary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Restore password')?>" name="Forgotpassword" />
