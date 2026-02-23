@@ -1,20 +1,6 @@
 <?php
 
-$detect = new Mobile_Detect;
-
-// New dashboard available only on desktop
-//$device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
-
-$new_dashboard = (int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1);
-
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.setting.new_dashboard',array('new_dashboard' => & $new_dashboard));
-
-if ($new_dashboard == 1) {
-    $tpl = erLhcoreClassTemplate::getInstance( 'lhfront/default_new.tpl.php');
-    $tpl->set('new_dashboard',true);
-} else {
-    $tpl = erLhcoreClassTemplate::getInstance( 'lhfront/default.tpl.php');
-}
+$tpl = erLhcoreClassTemplate::getInstance( 'lhfront/default_new.tpl.php');
 
 $tpl->set('geo_location_data',erLhcoreClassModelChatConfig::fetch('geo_location_data')->data);
 $tpl->set('tracking_enabled',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1);

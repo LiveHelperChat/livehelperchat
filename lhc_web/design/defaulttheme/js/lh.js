@@ -581,7 +581,7 @@ function lh(){
     		return ;
     	}
 
-    	var hideTabs = confLH.new_dashboard && confLH.hide_tabs && document.getElementById('tabs-dashboard') !== null ? ' d-none' : '';
+    	var hideTabs = confLH.hide_tabs && document.getElementById('tabs-dashboard') !== null ? ' d-none' : '';
 
     	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item'+hideTabs+'"><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span><a class="nav-link chat-nav-item" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-bs-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="chat-tab-content '+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span></a></li>';
 
@@ -3002,23 +3002,7 @@ function lh(){
                 }
 
                 if ($textarea.val() == '' && evt.altKey && (evt.which == 38 || evt.which == 40)) {
-                    if (confLH.new_dashboard == true) {
-                        ee.emitEvent('activateNextTab',[chat_id,(evt.which == 38 ? true : false)]);
-                    } else {
-
-                        if (evt.which == 38) {
-                            var tab = lhinst.smartTabFocus($('#tabs'),chat_id,{keep:true,up:true});
-                        } else {
-                            var tab = lhinst.smartTabFocus($('#tabs'),chat_id,{keep:true,up:false});
-                        }
-
-                        var parts = tab.split('chat-id-');
-
-                        if (parts[1] && !isNaN(parts[1].replace('mc',''))) {
-                            $('#tabs > div > div.chat-tab-pane.active.show:not(#chat-id-' + parts[1] + ')').removeClass('active show');
-                            $('#chat-tab-link-'+parts[1]).click();
-                        }
-                    }
+                    ee.emitEvent('activateNextTab',[chat_id,(evt.which == 38 ? true : false)]);
                     return ;
                 }
 
