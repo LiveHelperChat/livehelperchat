@@ -439,6 +439,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Clone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete</source>
       <translation type="unfinished"/>
     </message>
@@ -733,6 +737,14 @@
     </message>
     <message>
       <source>Attribute key</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Parse condition value for mathematical outcome</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Parse for mathematical outcome</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3157,10 +3169,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Start of OR</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>In list (lowercase before comparison), items separated by ||</source>
       <translation type="unfinished"/>
     </message>
@@ -3170,6 +3178,10 @@
     </message>
     <message>
       <source>Not in list (lowercase before comparison), items separated by ||</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start of OR</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3652,6 +3664,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Activity period</source>
       <translation type="unfinished"/>
     </message>
@@ -3892,15 +3908,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Auto responder will be activated upon automatic message sending.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delay in seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>The smaller the position value the higher the canned message will appear in the list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5648,6 +5664,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show only pinned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show only internal</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete all items</source>
       <translation type="unfinished"/>
     </message>
@@ -6252,10 +6284,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Alias</source>
       <translation type="unfinished"/>
     </message>
@@ -6365,10 +6393,6 @@
     </message>
     <message>
       <source>Include messages content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7819,6 +7843,10 @@
     </message>
     <message>
       <source>Auto reply warning to visitor/operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Main</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9996,6 +10024,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Proactive invitations is</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>change it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Valid invitations found</source>
       <translation type="unfinished"/>
     </message>
@@ -10311,6 +10347,10 @@
     </message>
     <message>
       <source>ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13120,6 +13160,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Notifications enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -15602,7 +15646,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Re-captcha settings</source>
+      <source>Captcha settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -20966,6 +21010,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Re-scheduling fetching.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Waiting for previous job to finish.</source>
       <translation type="unfinished"/>
     </message>
@@ -23539,10 +23587,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Re-captcha settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Transfer configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -23550,15 +23594,27 @@
   <context>
     <name>system/recaptcha</name>
     <message>
-      <source>Re-captcha settings</source>
+      <source>Captcha settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>This works with V3 re-captcha.</source>
+      <source>Captcha provider</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Get Re-captcha keys</source>
+      <source>Google reCAPTCHA v3</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -23571,6 +23627,14 @@
     </message>
     <message>
       <source>Secret key is not shown!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -24326,15 +24390,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Captcha validation failed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>CSFR token is invalid, try to resubmit form</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>You can not login because of IP restrictions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Google re-captcha validation failed</source>
       <translation type="unfinished"/>
     </message>
     <message>
