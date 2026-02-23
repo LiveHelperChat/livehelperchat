@@ -50,6 +50,7 @@
 
 <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($redirect_url);?>" />
 
+<?php $captchaAction = 'login_action'; ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/recaptcha.tpl.php'));?>
 
 

@@ -15860,6 +15860,11 @@
       <source>New file</source>
       <translation>Новый файл</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Настройки captcha</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23572,6 +23577,39 @@
       <source>Secret key is not shown!</source>
       <translation>Секретный ключ не отображается!</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Настройки captcha</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>Провайдер captcha</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>Это работает с Google reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Получить ключи Google reCAPTCHA</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>Это работает с Cloudflare Turnstile.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Получить ключи Cloudflare Turnstile</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24360,6 +24398,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation>Не удалось войти в систему. XML_CHECK_LOGIN</translation>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>Проверка captcha не прошла</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

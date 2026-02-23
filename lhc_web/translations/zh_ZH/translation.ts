@@ -15859,6 +15859,11 @@
       <source>New file</source>
       <translation>新的文件</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>验证码设置</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23561,16 +23566,49 @@
     </message>
     <message>
       <source>Site key</source>
-      <translation type="unfinished"/>
+      <translation>站点密钥</translation>
     </message>
     <message>
       <source>Secret key</source>
-      <translation type="unfinished"/>
+      <translation>机密密钥</translation>
     </message>
     <message>
       <source>Secret key is not shown!</source>
-      <translation type="unfinished"/>
+      <translation>机密密钥不会显示！</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>验证码设置</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>验证码提供商</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>此功能适用于 Google reCAPTCHA v3。</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>获取 Google reCAPTCHA 密钥</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>此功能适用于 Cloudflare Turnstile。</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>获取 Cloudflare Turnstile 密钥</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24359,6 +24397,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>验证码验证失败</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

@@ -15859,6 +15859,11 @@
       <source>New file</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>إعدادات الكابتشا</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23561,16 +23566,49 @@
     </message>
     <message>
       <source>Site key</source>
-      <translation type="unfinished"/>
+      <translation>مفتاح الموقع</translation>
     </message>
     <message>
       <source>Secret key</source>
-      <translation type="unfinished"/>
+      <translation>المفتاح السري</translation>
     </message>
     <message>
       <source>Secret key is not shown!</source>
-      <translation type="unfinished"/>
+      <translation>المفتاح السري غير معروض!</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>إعدادات الكابتشا</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>موفر الكابتشا</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>يعمل هذا مع Google reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>احصل على مفاتيح Google reCAPTCHA</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>يعمل هذا مع Cloudflare Turnstile.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>احصل على مفاتيح Cloudflare Turnstile</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24359,6 +24397,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>فشل التحقق من الكابتشا</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

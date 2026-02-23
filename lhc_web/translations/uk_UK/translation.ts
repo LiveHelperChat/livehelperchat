@@ -15859,6 +15859,11 @@
       <source>New file</source>
       <translation>Новий файл</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Налаштування captcha</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23571,6 +23576,39 @@
       <source>Secret key is not shown!</source>
       <translation>Секретний ключ не відображається!</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Налаштування captcha</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>Постачальник captcha</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>Це працює з Google reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Отримайте ключі Google reCAPTCHA</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>Це працює з Cloudflare Turnstile.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Отримайте ключі Cloudflare Turnstile</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24359,6 +24397,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation>Помилка входу. XML_CHECK_LOGIN</translation>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>Перевірка captcha не пройшла</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

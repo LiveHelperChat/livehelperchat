@@ -15859,6 +15859,11 @@
       <source>New file</source>
       <translation>Új fájl</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Captcha beállítások</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23571,6 +23576,39 @@
       <source>Secret key is not shown!</source>
       <translation>A titkos kulcs nem jelenik meg</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Captcha beállítások</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>Captcha szolgáltató</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>Ez Google reCAPTCHA v3-mal működik.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Google reCAPTCHA kulcsok lekérése</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>Ez Cloudflare Turnstile-lel működik.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Cloudflare Turnstile kulcsok lekérése</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24359,6 +24397,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation>Sikertelen bejelentkezés (XML_CHECK_LOGIN)</translation>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>A captcha érvényesítése sikertelen</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

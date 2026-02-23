@@ -15860,6 +15860,11 @@
       <source>New file</source>
       <translation>Skedar i ri</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Cilësimet e captcha</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23562,16 +23567,49 @@
     </message>
     <message>
       <source>Site key</source>
-      <translation type="unfinished"/>
+      <translation>Çelësi i faqes</translation>
     </message>
     <message>
       <source>Secret key</source>
-      <translation type="unfinished"/>
+      <translation>Çelësi sekret</translation>
     </message>
     <message>
       <source>Secret key is not shown!</source>
-      <translation type="unfinished"/>
+      <translation>Çelësi sekret nuk shfaqet!</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Cilësimet e captcha</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>Ofruesi i captcha</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>Kjo funksionon me Google reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Merr çelësat e Google reCAPTCHA</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>Kjo funksionon me Cloudflare Turnstile.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Merr çelësat e Cloudflare Turnstile</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24360,6 +24398,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>Verifikimi i captcha dështoi</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

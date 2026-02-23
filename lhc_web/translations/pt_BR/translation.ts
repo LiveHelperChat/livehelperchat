@@ -15860,6 +15860,11 @@
       <source>New file</source>
       <translation>Novo arquivo</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Configurações de captcha</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23572,6 +23577,39 @@
       <source>Secret key is not shown!</source>
       <translation>A chave secreta não é exibida!</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Configurações de captcha</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>Provedor de captcha</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>Funciona com o Google reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Obter chaves do Google reCAPTCHA</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>Funciona com o Cloudflare Turnstile.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Obter chaves do Cloudflare Turnstile</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24360,6 +24398,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation>Falha no login. XML_CHECK_LOGIN</translation>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>Falha na validação do captcha</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

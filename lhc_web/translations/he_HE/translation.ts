@@ -15859,6 +15859,11 @@
       <source>New file</source>
       <translation>קובץ חדש</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>הגדרות captcha</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23561,16 +23566,49 @@
     </message>
     <message>
       <source>Site key</source>
-      <translation type="unfinished"/>
+      <translation>מפתח אתר</translation>
     </message>
     <message>
       <source>Secret key</source>
-      <translation type="unfinished"/>
+      <translation>מפתח סודי</translation>
     </message>
     <message>
       <source>Secret key is not shown!</source>
-      <translation type="unfinished"/>
+      <translation>המפתח הסודי אינו מוצג!</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>הגדרות captcha</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>ספק captcha</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>זה עובד עם Google reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>קבל מפתחות Google reCAPTCHA</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>זה עובד עם Cloudflare Turnstile.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>קבל מפתחות Cloudflare Turnstile</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24359,6 +24397,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>אימות captcha נכשל</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>

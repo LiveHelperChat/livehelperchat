@@ -15859,6 +15859,11 @@
       <source>New file</source>
       <translation>Nouveau fichier</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Paramètres captcha</translation>
+    </message>
+
   </context>
   <context>
     <name>chat/listchatconfig</name>
@@ -23571,6 +23576,39 @@
       <source>Secret key is not shown!</source>
       <translation>La clé secrète n&apos;est pas affichée !</translation>
     </message>
+    <message>
+      <source>Captcha settings</source>
+      <translation>Paramètres captcha</translation>
+    </message>
+    <message>
+      <source>Captcha provider</source>
+      <translation>Fournisseur de captcha</translation>
+    </message>
+    <message>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>Cela fonctionne avec Google reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Obtenir les clés Google reCAPTCHA</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>Cela fonctionne avec Cloudflare Turnstile.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Obtenir les clés Cloudflare Turnstile</translation>
+    </message>
+
   </context>
   <context>
     <name>system/transferconfiguration</name>
@@ -24359,6 +24397,11 @@
       <source>Failed login. XML_CHECK_LOGIN</source>
       <translation>Échec de la connexion. XML_CHECK_LOGIN</translation>
     </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>Échec de la validation du captcha</translation>
+    </message>
+
   </context>
   <context>
     <name>notifications/accounts</name>
