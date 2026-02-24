@@ -327,6 +327,26 @@
 
             switch(e.keyCode) {
 
+                case 37: // ctrl+left - stop cursor from looping at start of text
+                    {
+                        const sel = window.getSelection();
+                        if (sel && sel.rangeCount) {
+                            const preRange = document.createRange();
+                            preRange.selectNodeContents(myInput);
+                            if (e.shiftKey) {
+                                // Check the focus (moving end) of the selection
+                                preRange.setEnd(sel.focusNode, sel.focusOffset);
+                            } else {
+                                const range = sel.getRangeAt(0);
+                                preRange.setEnd(range.startContainer, range.startOffset);
+                            }
+                            if (preRange.toString().length === 0) {
+                                ret = false;
+                            }
+                        }
+                    }
+                    break;
+
                 case 32: // ctrl+space
                     setCursorAtEnd(myInput);
                     rangeRestore = saveSelection();
