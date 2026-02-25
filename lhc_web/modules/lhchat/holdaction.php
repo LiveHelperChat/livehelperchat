@@ -13,6 +13,10 @@ try {
         throw new Exception('Chat could not be found!');
     }
 
+    if (!erLhcoreClassChat::hasAccessToRead($chat) || !erLhcoreClassChat::hasAccessToWrite($chat)){
+        throw new Exception('No permission to access a chat!');
+    }
+
     if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
         throw new Exception('Invalid CSRF token!');
     }

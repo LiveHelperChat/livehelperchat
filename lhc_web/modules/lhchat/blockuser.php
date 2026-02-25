@@ -24,6 +24,10 @@ if (!($currentUser->hasAccessTo('lhchat','allowblockusers') || $chat->user_id ==
     $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','User blocking failed, perhaps you do not have permission to block users?');
 }
 
+if (!erLhcoreClassChat::hasAccessToRead($chat)) {
+    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','You do not have permission to access a chat!');
+}
+
 $definition = array(
     'btype' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0, 'max_range' => 4),FILTER_REQUIRE_ARRAY
