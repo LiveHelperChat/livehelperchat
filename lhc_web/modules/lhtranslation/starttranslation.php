@@ -33,7 +33,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
             $tpl = erLhcoreClassTemplate::getInstance('lhkernel/alert_success.tpl.php');
             $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Settings has been saved'));
             $data['result'] = $tpl->fetch();
-            $data['translation_status'] = (isset($_POST['translate_old']) && $_POST['translate_old'] == 'true');
+            
+            $data['translation_status'] = isset($_POST['live_translations']) && $_POST['live_translations'] == 'true';
 
             if (isset($_POST['live_translations']) && $_POST['live_translations'] == 'true') {
                 $chatVariablesArray = $chat->chat_variables_array;

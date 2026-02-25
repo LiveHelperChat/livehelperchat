@@ -68,7 +68,15 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
         'deepl_api_key' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
-
+        'hide_translate_button' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'show_auto_translate' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'translate_old_msg' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
         'aws_region' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -146,6 +154,24 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
     
     if ( $form->hasValidData( 'deepl_api_key' ) && $form->deepl_api_key != '') {
         $data['deepl_api_key'] = $form->deepl_api_key;
+    }
+
+    if ( $form->hasValidData( 'hide_translate_button' ) && $form->hide_translate_button == true) {
+        $data['hide_translate_button'] = true;
+    } else {
+        $data['hide_translate_button'] = false;
+    }
+
+    if ( $form->hasValidData( 'translate_old_msg' ) && $form->translate_old_msg == true) {
+        $data['translate_old_msg'] = true;
+    } else {
+        $data['translate_old_msg'] = false;
+    }
+
+    if ( $form->hasValidData( 'show_auto_translate' ) && $form->show_auto_translate == true) {
+        $data['show_auto_translate'] = true;
+    } else {
+        $data['show_auto_translate'] = false;
     }
     
     $translationData->value = serialize($data);

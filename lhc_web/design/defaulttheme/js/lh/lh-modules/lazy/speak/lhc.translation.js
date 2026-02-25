@@ -5,12 +5,30 @@ module.exports = (function() {
 	function LHCTranslationText() {	
 				
 	};
-		
+
+    LHCTranslationText.prototype.startAutoTranslation = function(params)
+    {
+        lhc.revealModal({
+            'url':WWW_DIR_JAVASCRIPT+'chat/singleaction/' + params['chat_id'] + '/translation',
+            'showcallback' : function() {
+                 jQuery('#live_translations_'+params['chat_id']).attr('checked','checked');
+                 if (params['old']) {
+                    jQuery('#chat_auto_translate_'+params['chat_id']).attr('checked','checked');
+                 }
+                 lhc.methodCall('lhc.translation','startTranslation',{
+                    'btn': params['btn'], 
+                    'chat_id': params['chat_id'],
+                    'auto_hide': true
+                })
+        }});
+    };
+
 	LHCTranslationText.prototype.startTranslation = function(params)
 	{
 		// Disable buttons
 		params.btn.prop('disabled','disabled');		
 		params.btn.button('loading');
+        jQuery('.translate-button-'+params['chat_id']).prop('disabled','disabled').button('loading');	
 
         jQuery.postJSON(WWW_DIR_JAVASCRIPT + 'translation/starttranslation/' + params['chat_id'] + '/' +jQuery('#id_chat_locale_'+params['chat_id']).val()+'/'+jQuery('#id_chat_locale_to_'+params['chat_id']).val(), {
             live_translations: jQuery('#live_translations_'+params['chat_id']).is(':checked'),
@@ -33,14 +51,17 @@ module.exports = (function() {
 					lhinst.syncadmincall();	
 					
 					// Restore button
-					jQuery('.translate-button-'+params['chat_id']).addClass('btn-success');		
-					
+					jQuery('.translate-button-'+params['chat_id']).addClass('btn-outline-success');		
 				} else { // User stopped translation process
-					
 					// Restore button
-					jQuery('.translate-button-'+params['chat_id']).removeClass('btn-success');
-
+					jQuery('.translate-button-'+params['chat_id']).removeClass('btn-outline-success');
 				}
+
+                if (params['auto_hide']) {
+                    $('#myModal').modal('hide');
+                    lhinst.setFocus(params['chat_id']);
+                }
+
 			} else {
 				// There was an error so show tab for user
 				jQuery('#chat-tab-items-'+params['chat_id']+' a[href="#main-user-info-translation-'+params['chat_id']+'"]').tab('show');
@@ -48,6 +69,7 @@ module.exports = (function() {
 			
 			params.btn.button('reset');
 			params.btn.prop('disabled','');
+            jQuery('.translate-button-'+params['chat_id']).prop('disabled','').button('reset');
 			
 		});
 	};

@@ -117,7 +117,7 @@
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','You can always translate old chat messages by clicking right mouse button on the message.');?></p>
 
                 <div class="btn-group form-group" role="group" aria-label="...">
-                    <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Save settings')?>" class="translate-button-<?php echo $chat->id?> btn btn-secondary<?php if ($chat->chat_locale != '' && $chat->chat_locale_to != '') :?> btn-success<?php endif;?>" data-loading-text="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Translating')?>..." onclick="return lhc.methodCall('lhc.translation','startTranslation',{'btn':$(this),'chat_id':'<?php echo $chat->id?>'})" />
+                    <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Save settings')?>" class="translate-button-<?php echo $chat->id?> btn btn-outline-secondary<?php if ($chat->chat_locale != '' && $chat->chat_locale_to != '') :?> btn-outline-success<?php endif;?>" data-loading-text="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Translating')?>..." onclick="return lhc.methodCall('lhc.translation','startTranslation',{'btn':$(this),'chat_id':'<?php echo $chat->id?>'})" />
                 </div>
 
             </div>
