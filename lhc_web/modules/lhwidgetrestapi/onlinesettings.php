@@ -466,6 +466,12 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_name']));
         }
 
+        $placeholderName = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your name');
+
+        if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['placeholder_name']) && !empty($theme->bot_configuration_array['placeholder_name'])) {
+            $placeholderName = $chat_ui['placeholder_name'] = $theme->bot_configuration_array['placeholder_name'];
+        }
+
         $fields[] = array(
             'type' => (isset($start_data_fields['name_hidden']) && $start_data_fields['name_hidden'] == true ? 'hidden' : 'text'),
             'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['name_width'] > 0 ? (int)$start_data_fields['name_width'] : 6),
@@ -476,7 +482,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'identifier' => 'username',
             'priority' => (isset($start_data_fields['name_priority']) && is_numeric($start_data_fields['name_priority']) ? (int)$start_data_fields['name_priority'] : 0),
             'hide_prefilled' => (isset($start_data_fields['name_hidden_prefilled']) && $start_data_fields['name_hidden_prefilled'] == true),
-            'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your name')
+            'placeholder' => $placeholderName
         );
     }
 
