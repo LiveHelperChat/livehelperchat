@@ -148,7 +148,11 @@ if (trim($form->msg) != '')
                     }
                 }
 
-    	        if ($messageUserId != -1 && $Chat->chat_locale != '' && $Chat->chat_locale_to != '' && isset($Chat->chat_variables_array['lhc_live_trans']) && $Chat->chat_variables_array['lhc_live_trans'] === true) {
+    	        if ($messageUserId != -1 && $Chat->chat_locale != '' && $Chat->chat_locale_to != '' &&
+                    isset($Chat->chat_variables_array['lhc_live_trans']) &&
+                    $Chat->chat_variables_array['lhc_live_trans'] === true &&
+                    !str_contains($msg->msg, '[translation]') // Do not translate message with translations
+                ) {
     	            erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
     	        }
 
