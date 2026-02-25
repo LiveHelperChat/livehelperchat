@@ -7,7 +7,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
 
     if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-        echo json_encode(array('error' => true, 'msg' => ''));
+        echo json_encode(array('error' => true, 'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','CSRF is missing')));
         exit;
     }
 
@@ -19,7 +19,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
             echo json_encode(array('error' => true,'msg' => $_POST['msg']."\n".'[translation]'. $e->getMessage() .'[/translation]'));
         }
     } else {
-        echo json_encode(array('error' => true,'msg' => ''));
+        echo json_encode(array('error' => true,'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Enter a message to be translated')));
     }
 }
 
