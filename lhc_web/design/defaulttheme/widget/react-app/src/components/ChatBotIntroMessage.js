@@ -144,10 +144,18 @@ class ChatBotIntroMessage extends PureComponent {
                     }
 
                     if (domNode.name && domNode.name === 'button') {
+                        if (this.props.chatwidget.get('processStatus') == 1) {
+                            return <button {...domNode.attribs} disabled>{domToReact(domNode.children)}</button>
+                        }
                         if (cloneAttr.onclick) {
                             return <button {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</button>
                         }
                     } else if (domNode.name && domNode.name === 'a') {
+
+                        if (this.props.chatwidget.get('processStatus') == 1 && cloneAttr.onclick) {
+                            const disabledClass = ((domNode.attribs.className || '') + ' disabled').trim();
+                            return <a {...domNode.attribs} className={disabledClass} tabIndex="-1" role="button" aria-disabled="true" onClick={(e) => e.preventDefault()}>{domToReact(domNode.children)}</a>
+                        }
 
                         if (cloneAttr.onclick) {
                             return <a {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</a>
