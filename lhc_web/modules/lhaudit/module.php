@@ -19,6 +19,7 @@ $ViewList['loginhistory'] = array(
 
 $ViewList['debuginvitation'] = array(
     'params' => array('ouser_id','invitation_id','tag'),
+    'uparams' => array('action'),
     'functions' => array( 'use' ),
 );
 

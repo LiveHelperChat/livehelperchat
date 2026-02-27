@@ -67,17 +67,26 @@ class erLhcoreClassModelChatOnlineUser
 
     public function beforeRemove()
     {
-        $q = ezcDbInstance::get()->createDeleteQuery();
+        $db = ezcDbInstance::get();
+
+        $q = $db->createDeleteQuery();
 
         // Delete user footprint
         $q->deleteFrom('lh_chat_online_user_footprint')->where($q->expr->eq('chat_id', 0), $q->expr->eq('online_user_id', $this->id));
         $stmt = $q->prepare();
         $stmt->execute();
 
-        $q = ezcDbInstance::get()->createDeleteQuery();
+        $q = $db->createDeleteQuery();
 
         // Delete realted events
         $q->deleteFrom('lh_abstract_proactive_chat_event')->where( $q->expr->eq('vid_id', $this->id));
+        $stmt = $q->prepare();
+        $stmt->execute();
+
+        $q = $db->createDeleteQuery();
+
+        // Delete realted one time invitations
+        $q->deleteFrom('lh_abstract_proactive_chat_invitation_one_time')->where( $q->expr->eq('vid_id', $this->id));
         $stmt = $q->prepare();
         $stmt->execute();
     }

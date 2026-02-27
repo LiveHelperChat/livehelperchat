@@ -18,7 +18,10 @@
         <input type="text" class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Tag to test against. E.g. error_deposit')?>" id="invitation_tag" value="">
     </div>
     <div class="col-12">
-        <button id="test-visitor-invitation" type="button" class="btn btn-xs btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Test')?></button>
+        <div class="btn-group" role="group">
+            <button id="test-visitor-invitation" type="button" class="btn btn-xs btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Test')?></button>
+            <button id="reset-visitor-invitation" type="button" class="btn btn-xs btn-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Reset invitation data')?></button>
+        </div>
     </div>
     <div class="col-12" id="debug-invitation-output">
 
@@ -31,22 +34,14 @@
             $('#debug-invitation-output').html(data.data);
         });
     });
+    $('#reset-visitor-invitation').click(function(){
+        $.post(WWW_DIR_JAVASCRIPT + "audit/debuginvitation/<?php echo $online_user->id ?>/" + $('#id_invitation_id').val() + '/empty/(action)/resetinvitation', function(data) {
+            $('#debug-invitation-output').html(data.data);
+            $('#online-attr-debug').html(data.data_debug);
+        });
+    });
 </script>
 
-<hr />
-<pre class="fs11"><?php 
-$state = $online_user->getState();
-if (isset($state['online_attr']) && !empty($state['online_attr'])) {
-    $decoded = json_decode($state['online_attr'], true);
-    if ($decoded !== null) {
-        $state['online_attr'] = $decoded;
-    }
-}
-if (isset($state['online_attr_system']) && !empty($state['online_attr_system'])) {
-    $decoded = json_decode($state['online_attr_system'], true);
-    if ($decoded !== null) {
-        $state['online_attr_system'] = $decoded;
-    }
-}
-echo htmlspecialchars(json_encode($state, JSON_PRETTY_PRINT)); 
-?></pre>
+<div id="online-attr-debug">
+<?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/debug_data.tpl.php'));?>
+</div>
