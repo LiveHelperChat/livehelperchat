@@ -148,7 +148,10 @@ class NodeTriggerActionCommand extends Component {
                     <div className="row">
                         <div className="col-6">
                             <div className="form-group">
-                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['update_if_empty'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','update_if_empty'])} /> Update only if empty</label>
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['update_if_empty'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','update_if_empty'])} /> Update only if empty. No variable was set before.</label>
+                            </div>
+                            <div className="form-group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['ignore_if_empty'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','ignore_if_empty'])} /> Do not update if any of replaceable variable in expression is empty.</label>
                             </div>
                             <div className="form-group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['update_right_column'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','update_right_column'])} /> Update right column information</label>

@@ -736,14 +736,20 @@ class erLhcoreClassGenericBotActionCommand {
                 }
 
                 if (!empty($action['content']['payload'])) {
+
+                    $ignoreUpdate = false;
+
                     if (isset($params['replace_array']) && is_array($params['replace_array'])) {
                         $variablesAppend = $action['content']['payload'];
-
                         foreach ($params['replace_array'] as $keyReplace => $valueReplace) {
                             if (is_object($valueReplace) || is_array($valueReplace)) {
                                 $variablesAppend = @str_replace($keyReplace,json_encode($valueReplace),$variablesAppend);
                             } else {
-                                $variablesAppend = @str_replace($keyReplace,$valueReplace,$variablesAppend);
+                                if (isset($action['content']['ignore_if_empty']) && $action['content']['ignore_if_empty'] == true && str_contains($variablesAppend, $keyReplace) && empty($valueReplace)){
+                                    $ignoreUpdate = true;
+                                } else {
+                                    $variablesAppend = @str_replace($keyReplace,$valueReplace,$variablesAppend);
+                                }
                             }
                         }
 
@@ -753,8 +759,7 @@ class erLhcoreClassGenericBotActionCommand {
 
                     $variablesAppend = json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($variablesAppend, array('as_json' => true, 'chat' => $chat, 'args' => $params)), true);
 
-                    if (is_array($variablesAppend)) {
-
+                    if ($ignoreUpdate === false && is_array($variablesAppend)) {
                         foreach ($variablesAppend as $key => $value) {
                             // Update only if empty and this variable is not empty
                             if (isset($action['content']['update_if_empty']) && $action['content']['update_if_empty'] == true && isset($variablesArray[$key]) && $variablesArray[$key] != '' && $variablesArray[$key] != '0') {
@@ -770,6 +775,9 @@ class erLhcoreClassGenericBotActionCommand {
                             }
                         }
                     }
+
+
+
                 }
 
                 $chat->chat_variables = json_encode($variablesArray);
