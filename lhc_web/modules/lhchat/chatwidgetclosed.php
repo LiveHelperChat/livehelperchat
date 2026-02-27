@@ -34,6 +34,13 @@ if (erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value 
 
         $onlineAttributes = $userInstance->online_attr_system_array;
 
+        if ($userInstance->invitation !== false && isset($userInstance->invitation->design_data_array['one_time']) && $userInstance->invitation->design_data_array['one_time'] == 1) {
+            $seenInvitation = new \LiveHelperChat\Models\LHCAbstract\ProactiveInvitationOneTime();
+            $seenInvitation->invitation_id = $userInstance->invitation->id;
+            $seenInvitation->vid_id = $userInstance->id;
+            $seenInvitation->saveThisOnly();
+        }
+
         if ($userInstance->invitation !== false && isset($userInstance->invitation->design_data_array['show_everytime']) && $userInstance->invitation->design_data_array['show_everytime'] == true) {
             $userInstance->operator_message = '';
             $userInstance->message_seen = 0;

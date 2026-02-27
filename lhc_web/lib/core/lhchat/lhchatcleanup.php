@@ -207,6 +207,11 @@ class erLhcoreClassChatCleanup {
                     $stmt->bindValue(':last_visit', (int)(time() - ($timeoutCleanup * 24 * 3600)), PDO::PARAM_INT);
                     $stmt->execute();
 
+                    // One time invitations cleanup
+                    $stmt = $db->prepare('DELETE T2 FROM lh_abstract_proactive_chat_invitation_one_time as T2 INNER JOIN lh_chat_online_user as T1 ON T1.id = T2.vid_id WHERE last_visit < :last_visit');
+                    $stmt->bindValue(':last_visit', (int)(time() - ($timeoutCleanup * 24 * 3600)), PDO::PARAM_INT);
+                    $stmt->execute();
+
                     // Online user cleanup
                     $stmt = $db->prepare('DELETE FROM lh_chat_online_user WHERE last_visit < :last_activity LIMIT 50000');
                     $stmt->bindValue(':last_activity', (int)(time() - ($timeoutCleanup * 24 * 3600)), PDO::PARAM_INT);

@@ -332,6 +332,13 @@ if (empty($Errors)) {
                             $userInstance->online_attr_system = json_encode($onlineAttrSystem);
                         }
 
+                        if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($invitation->design_data_array['one_time']) && $invitation->design_data_array['one_time'] == 1) {
+                            $seenInvitation = new \LiveHelperChat\Models\LHCAbstract\ProactiveInvitationOneTime();
+                            $seenInvitation->invitation_id = $invitation->id;
+                            $seenInvitation->vid_id = $userInstance->id;
+                            $seenInvitation->saveThisOnly();
+                        }
+
                         if ($invitation instanceof erLhAbstractModelProactiveChatInvitation &&
                             isset($invitation->design_data_array['show_everytime']) && $invitation->design_data_array['show_everytime'] == true &&
                             isset($invitation->design_data_array['show_after_chat']) && $invitation->design_data_array['show_after_chat'] == true) {

@@ -1410,6 +1410,15 @@ try {
         	       KEY `identifier` (`identifier`)
         	   ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                    $db->query("CREATE TABLE `lh_abstract_proactive_chat_invitation_one_time` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `invitation_id` bigint(20) unsigned NOT NULL,
+  `vid_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `invitation_id_vid_id` (`invitation_id`,`vid_id`),
+  KEY `vid_id` (`vid_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
                     $db->query("CREATE TABLE `lh_abstract_proactive_chat_campaign` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `text` text NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_abstract_proactive_chat_campaign_conv` (
@@ -1580,7 +1589,7 @@ try {
                 ('preload_iframes','0','0','Preload widget. It will avoid loading delay after clicking widget','0'),
                 ('product_show_departament','0','0','Enable products show by departments', '1'),
                 ('paidchat_data','','0','Paid chat configuration','1'),
-                ('version_updates',	'347',	0,	'',	1),
+                ('version_updates',	'348',	0,	'',	1),
                 ('del_on_close_no_msg','0','0','Delete chat on close if there are no messages from the visitor','0'),
                 ('mheight_op','200','0','Messages box height for operator','0'),
                 ('listd_op','10','0','Default number of online operators to show','0'),

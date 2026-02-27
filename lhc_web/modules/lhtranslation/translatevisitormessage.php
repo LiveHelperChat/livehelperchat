@@ -15,9 +15,9 @@ if (erLhcoreClassChat::hasAccessToRead($chat)) {
         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
 
         if ($msg->user_id > 0) {
-            $translatedMessage = erLhcoreClassTranslate::translateTo($msg->msg, ($chat->chat_locale_to != '' ? $chat->chat_locale_to : substr(erLhcoreClassSystem::instance()->Language, 0, 2)), $chat->chat_locale);
+            $translatedMessage = erLhcoreClassTranslate::translateTo($msg->msg, ($chat->chat_locale_to != '' ? $chat->chat_locale_to : substr(erLhcoreClassSystem::instance()->Language, 0, 2)), $chat->chat_locale, erLhcoreClassTranslate::MESSAGE_OPERATOR);
         } else {
-            $translatedMessage = erLhcoreClassTranslate::translateTo($msg->msg, $chat->chat_locale, $chat->chat_locale_to != '' ? $chat->chat_locale_to : substr(erLhcoreClassSystem::instance()->Language, 0, 2));
+            $translatedMessage = erLhcoreClassTranslate::translateTo($msg->msg, $chat->chat_locale, $chat->chat_locale_to != '' ? $chat->chat_locale_to : substr(erLhcoreClassSystem::instance()->Language, 0, 2), erLhcoreClassTranslate::MESSAGE_VISITOR);
         }
 
         $msg->msg .= "[translation]{$translatedMessage}[/translation]";

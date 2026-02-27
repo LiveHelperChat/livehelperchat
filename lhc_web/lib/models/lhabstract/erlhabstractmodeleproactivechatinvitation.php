@@ -86,6 +86,12 @@ class erLhAbstractModelProactiveChatInvitation {
 		}
 	}
 	
+    public function customAction($action) {
+        if ($action == 'proactiveflushlist') {
+            $this->removeOneTime();
+        }
+    }
+
 	public static function getFilter(){
         // Global filters
         return erLhcoreClassUserDep::conditionalDepartmentFilter(false,'dep_id');
@@ -692,6 +698,16 @@ class erLhAbstractModelProactiveChatInvitation {
                 continue;
             }
 
+            if (
+                isset($optionsInvitation['one_time']) && $optionsInvitation['one_time'] == 1 && 
+                \LiveHelperChat\Models\LHCAbstract\ProactiveInvitationOneTime::getCount(['filter' => ['vid_id' => $item->id, 'invitation_id' => $messageToUser->id]]) > 0
+                ) {
+                    if (isset($params['debug'])) {
+                        $debugData['invitation_was_seen'][] = 'vid_id => ' . $item->id . ', invitation_id => ' . $messageToUser->id;
+                    }
+                    continue; 
+            }
+
             $design_data_array = $messageToUser->design_data_array;
             $conditionsValid = true;
 
@@ -1108,7 +1124,18 @@ class erLhAbstractModelProactiveChatInvitation {
         $stmt = $db->prepare('DELETE FROM `lh_abstract_proactive_chat_invitation_dep` WHERE `invitation_id` = :invitation_id');
         $stmt->bindValue(':invitation_id', $this->id,PDO::PARAM_INT);
         $stmt->execute();
+
+        $this->removeOneTime();
 	}
+
+
+    protected function removeOneTime()
+    {
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('DELETE FROM `lh_abstract_proactive_chat_invitation_one_time` WHERE `invitation_id` = :invitation_id');
+        $stmt->bindValue(':invitation_id', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 
     public function beforeUpdate()
     {

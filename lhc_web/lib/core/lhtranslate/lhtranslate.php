@@ -834,6 +834,10 @@ class erLhcoreClassTranslate
         }
     }
 
+
+    const MESSAGE_OPERATOR = 0;
+    const MESSAGE_VISITOR = 1;
+
     /**
      * Translations provided text from source to destination language
      *
@@ -845,7 +849,7 @@ class erLhcoreClassTranslate
      *
      *
      */
-    public static function translateTo($text, $translateFrom, $translateTo)
+    public static function translateTo($text, $translateFrom, $translateTo, $messageOwner = self::MESSAGE_OPERATOR)
     {
         $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_config', array());
         if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
@@ -884,7 +888,21 @@ class erLhcoreClassTranslate
                     $translateFrom = self::detectLanguage($text);
                 } else {
                     if (!key_exists($translateFrom, $supportedLanguages)) {
-                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Operator language is not supported by Google translation service'). ' [' . $translateFrom . ']' );
+                        $translateFromShort = explode('-', $translateFrom)[0];
+                        if (key_exists($translateFromShort, $supportedLanguages)) {
+                            $translateFrom = $translateFromShort;
+                        } else {
+                            throw new Exception(self::generateErrorMessage($translateFrom, $translateTo, $messageOwner));
+                        }
+                    }
+                }
+
+                if (!key_exists($translateTo, $supportedLanguages)) {
+                    $translateToShort = explode('-', $translateTo)[0];
+                    if (key_exists($translateToShort, $supportedLanguages)) {
+                        $translateTo = $translateToShort;
+                    } else {
+                        throw new Exception(self::generateErrorMessage($translateFrom, $translateTo, $messageOwner));
                     }
                 }
 
@@ -898,24 +916,49 @@ class erLhcoreClassTranslate
                     $translateFrom = self::detectLanguage($text, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
                 } else {
                     if (!key_exists($translateFrom, $supportedLanguages)) {
-                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Operator language is not supported by Google translation service'). ' [' . $translateFrom . ']' );
+                        $translateFromShort = explode('-', $translateFrom)[0];
+                        if (key_exists($translateFromShort, $supportedLanguages)) {
+                            $translateFrom = $translateFromShort;
+                        } else {
+                            throw new Exception(self::generateErrorMessage($translateFrom, $translateTo, $messageOwner));
+                        }
                     }
                 }
 
                 if (!key_exists($translateTo, $supportedLanguages)) {
-                    throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Visitor language is not supported by Google translation service!'). ' [' . $translateTo . ']' );
+                    $translateToShort = explode('-', $translateTo)[0];
+                    if (key_exists($translateToShort, $supportedLanguages)) {
+                        $translateTo = $translateToShort;
+                    } else {
+                        throw new Exception(self::generateErrorMessage($translateFrom, $translateTo, $messageOwner));
+                    }
                 }
 
                 $translatedItem = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $text, $translateFrom, $translateTo, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
             } elseif ($translationData['translation_handler'] == 'aws') {
 
+                $supportedLanguages = self::getSupportedLanguages(true);
+
                 if ($translateFrom == false) {
                     $translateFrom = 'auto';
                 } else {
-                    $supportedLanguages = self::getSupportedLanguages(true);
                     if (!key_exists($translateFrom, $supportedLanguages)) {
-                        // If not supported language fallback to auto
-                        $translateFrom = 'auto';
+                        $translateFromShort = explode('-', $translateFrom)[0];
+                        if (key_exists($translateFromShort, $supportedLanguages)) {
+                            $translateFrom = $translateFromShort;
+                        } else {
+                            // If not supported language fallback to auto
+                            $translateFrom = 'auto';
+                        }
+                    }
+                }
+
+                if (!key_exists($translateTo, $supportedLanguages)) {
+                    $translateToShort = explode('-', $translateTo)[0];
+                    if (key_exists($translateToShort, $supportedLanguages)) {
+                        $translateTo = $translateToShort;
+                    } else {
+                        throw new Exception(self::generateErrorMessage($translateFrom, $translateTo, $messageOwner));
                     }
                 }
 
@@ -933,7 +976,21 @@ class erLhcoreClassTranslate
                     $translateFrom = self::detectLanguage($text);
                 } else {
                     if (!key_exists($translateFrom, $supportedLanguages)) {
-                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Operator language is not supported by Google translation service'). ' [' . $translateFrom . ']' );
+                        $translateFromShort = explode('-', $translateFrom)[0];
+                        if (key_exists($translateFromShort, $supportedLanguages)) {
+                            $translateFrom = $translateFromShort;
+                        } else {
+                            throw new Exception(self::generateErrorMessage($translateFrom, $translateTo, $messageOwner));
+                        }
+                    }
+                }
+
+                if (!key_exists($translateTo, $supportedLanguages)) {
+                    $translateToShort = explode('-', $translateTo)[0];
+                    if (key_exists($translateToShort, $supportedLanguages)) {
+                        $translateTo = $translateToShort;
+                    } else {
+                        throw new Exception(self::generateErrorMessage($translateFrom, $translateTo, $messageOwner));
                     }
                 }
 
@@ -947,7 +1004,21 @@ class erLhcoreClassTranslate
                     $translateFrom = self::detectLanguage($text);
                 } else {
                     if (!key_exists($translateFrom, $supportedLanguages)) {
-                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Operator language is not supported by DeepL translation service'). ' [' . $translateFrom . ']' );
+                        $translateFromShort = explode('-', $translateFrom)[0];
+                        if (key_exists($translateFromShort, $supportedLanguages)) {
+                            $translateFrom = $translateFromShort;
+                        } else {
+                            throw new Exception(self::generateErrorMessage($translateFrom, $translateTo, $messageOwner));
+                        }
+                    }
+                }
+
+                if (!key_exists($translateTo, $supportedLanguages)) {
+                    $translateToShort = explode('-', $translateTo)[0];
+                    if (key_exists($translateToShort, $supportedLanguages)) {
+                        $translateTo = $translateToShort;
+                    } else {
+                        throw new Exception(self::generateErrorMessage($translateFrom, $translateTo, $messageOwner));
                     }
                 }
 
@@ -963,6 +1034,13 @@ class erLhcoreClassTranslate
 
             return $translatedItem;
         }
+    }
+
+    protected static function generateErrorMessage($translateFrom, $translateTo, $messageOwner = self::MESSAGE_OPERATOR) {
+        if ($messageOwner === self::MESSAGE_VISITOR) {
+            return erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Translation to operator language failed') . ' [' . $translateFrom . ' -> ' . $translateTo . ']';
+        }
+        return erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Translation to visitor language failed') . ' [' . $translateFrom . ' -> ' . $translateTo . ']';
     }
 
     /**

@@ -42,7 +42,7 @@ $ViewList['copyautoresponder'] = array(
 $ViewList['edit'] = array(
     'functions' => array( 'use' ),
     'params' => array('identifier','object_id'),
-    'uparams' => array('extension')
+    'uparams' => array('extension','action','csfr')
 );
 
 $ViewList['delete'] = array(

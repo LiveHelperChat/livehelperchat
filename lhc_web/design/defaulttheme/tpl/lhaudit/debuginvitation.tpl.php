@@ -17,6 +17,10 @@
         <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Skipped because of no online operators')?> - [<?php echo implode(',',array_keys($debug_invitation['no_online_ops']))?>]</li>
     <?php endif; ?>
 
+    <?php if (isset($debug_invitation['invitation_was_seen'])) : ?>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Skipped because invitation was seen')?> - <span class="badge bg-secondary">[<?php echo implode(',',$debug_invitation['invitation_was_seen'])?>]</span></li>
+    <?php endif; ?>
+
     <?php if (isset($debug_invitation['last_visit_prev'])) : ?>
         <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Skipped because of')?> <span class="badge bg-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Last time seen on website ago')?>.</span> - [<?php echo implode(',',array_keys($debug_invitation['last_visit_prev']))?>], <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','conditions')?> - [<?php echo implode(',',$debug_invitation['last_visit_prev_cond'])?>]</li>
     <?php endif; ?>

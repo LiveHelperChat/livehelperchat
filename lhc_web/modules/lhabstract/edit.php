@@ -50,6 +50,17 @@ if ( method_exists($ObjectData,'checkPermission') ) {
 	}
 }
 
+if (
+    !empty($Params['user_parameters_unordered']['action']) && 
+    $currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr']) &&
+    method_exists($ObjectData,'customAction')
+    ) {
+    $ObjectData->customAction($Params['user_parameters_unordered']['action']);
+    erLhcoreClassModule::redirect('abstract/edit','/'.$Params['user_parameters']['identifier'] . '/' .$ObjectData->id);
+    exit;
+}
+
+
 if (isset($_POST['SaveClient']) || isset($_POST['UpdateClient']))
 {
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {

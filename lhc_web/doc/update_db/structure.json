@@ -6699,6 +6699,32 @@
         "extra": "auto_increment"
       }
     ],
+    "lh_abstract_proactive_chat_invitation_one_time": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      },
+      {
+        "field": "invitation_id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "vid_id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": null,
+        "extra": ""
+      }
+    ],
     "lh_departament_limit_group_member": [
       {
         "field": "id",
@@ -12489,6 +12515,7 @@
     "lh_notification_op_subscriber" : "CREATE TABLE `lh_notification_op_subscriber` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `user_id` bigint(20) unsigned NOT NULL,\n  `device_type` tinyint(1) NOT NULL,\n  `ctime` bigint(20) unsigned NOT NULL,\n  `utime` bigint(20) unsigned NOT NULL,\n  `status` tinyint(1) unsigned NOT NULL, `achat` tinyint(1) unsigned NOT NULL, `pchat` tinyint(1) unsigned NOT NULL,\n  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `last_error` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `subscriber_hash` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`), KEY `status` (`status`), KEY `user_id` (`user_id`), KEY `subscriber_hash` (`subscriber_hash`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_userdep_disabled" : "CREATE TABLE `lh_userdep_disabled` (\n                              `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,`only_priority` tinyint(1) unsigned NOT NULL DEFAULT '0',\n                              `user_id` int(11) NOT NULL,\n                              `dep_id` int(11) NOT NULL,\n                              `last_activity` bigint(20) unsigned NOT NULL,\n                              `hide_online` int(11) NOT NULL,\n                              `last_accepted` bigint(20) unsigned NOT NULL DEFAULT 0,\n                              `active_chats` int(11) NOT NULL DEFAULT 0,\n                              `type` int(11) NOT NULL DEFAULT 0,\n                              `dep_group_id` int(11) NOT NULL DEFAULT 0,\n                              `hide_online_ts` bigint(20) unsigned NOT NULL DEFAULT 0,\n                              `pending_chats` int(11) NOT NULL DEFAULT 0,\n                              `inactive_chats` int(11) NOT NULL DEFAULT 0,\n                              `max_chats` int(11) NOT NULL DEFAULT 0,\n                              `exclude_autoasign` tinyint(1) NOT NULL DEFAULT 0,\n                              `ro` tinyint(1) NOT NULL DEFAULT 0,\n                              `always_on` tinyint(1) NOT NULL DEFAULT 0,\n                              `lastd_activity` bigint(20) unsigned NOT NULL DEFAULT 0,\n                              `exc_indv_autoasign` tinyint(1) NOT NULL DEFAULT 0,\n                              `exclude_autoasign_mails` tinyint(1) NOT NULL DEFAULT 0,\n                              `active_mails` int(11) NOT NULL DEFAULT 0,\n                              `pending_mails` int(11) NOT NULL DEFAULT 0,\n                              `max_mails` int(11) NOT NULL DEFAULT 0,\n                              `last_accepted_mail` bigint(20) unsigned NOT NULL DEFAULT 0,\n                              `assign_priority` int(11) NOT NULL DEFAULT 0,\n                              `chat_max_priority` int(11) NOT NULL DEFAULT 0,\n                              `chat_min_priority` int(11) NOT NULL DEFAULT 0,\n                              PRIMARY KEY (`id`),\n                              KEY `dep_id` (`dep_id`),\n                              KEY `user_id_type` (`user_id`,`type`),\n                              KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),\n                              KEY `online_op_widget_2` (`dep_id`,`last_activity`,`user_id`),\n                              KEY `online_op_widget_3` (`user_id`,`active_chats`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_departament_group_user_disabled" : "CREATE TABLE `lh_departament_group_user_disabled` (\n                                             `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,`only_priority` tinyint(1) unsigned NOT NULL DEFAULT '0',\n                                             `dep_group_id` int(11) NOT NULL,\n                                             `user_id` int(11) NOT NULL,\n                                             `read_only` tinyint(1) unsigned NOT NULL DEFAULT 0,\n                                             `exc_indv_autoasign` tinyint(1) unsigned NOT NULL DEFAULT 0,\n                                             `assign_priority` int(11) NOT NULL DEFAULT 0,\n                                             `chat_min_priority` int(11) NOT NULL DEFAULT 0,\n                                             `chat_max_priority` int(11) NOT NULL DEFAULT 0,\n                                             PRIMARY KEY (`id`),\n                                             KEY `dep_group_id` (`dep_group_id`),\n                                             KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lhc_mailconv_pending_import" : "CREATE TABLE `lhc_mailconv_pending_import` (  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,  `uid` bigint(20) unsigned NOT NULL,  `mailbox_id` int(11) unsigned NOT NULL,  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,  `attempt` tinyint(1) unsigned NOT NULL DEFAULT 0,  `last_failure` text COLLATE utf8mb4_unicode_ci NOT NULL,  `created_at` int(11) unsigned NOT NULL,  `updated_at` int(11) unsigned NOT NULL,  PRIMARY KEY (`id`),  UNIQUE KEY `mailbox_id_uid` (`mailbox_id`,`uid`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci"
+    "lhc_mailconv_pending_import" : "CREATE TABLE `lhc_mailconv_pending_import` (  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,  `uid` bigint(20) unsigned NOT NULL,  `mailbox_id` int(11) unsigned NOT NULL,  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,  `attempt` tinyint(1) unsigned NOT NULL DEFAULT 0,  `last_failure` text COLLATE utf8mb4_unicode_ci NOT NULL,  `created_at` int(11) unsigned NOT NULL,  `updated_at` int(11) unsigned NOT NULL,  PRIMARY KEY (`id`),  UNIQUE KEY `mailbox_id_uid` (`mailbox_id`,`uid`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lh_abstract_proactive_chat_invitation_one_time" : "CREATE TABLE `lh_abstract_proactive_chat_invitation_one_time` (  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,  `invitation_id` bigint(20) unsigned NOT NULL,  `vid_id` bigint(20) unsigned NOT NULL,  PRIMARY KEY (`id`),  KEY `invitation_id_vid_id` (`invitation_id`,`vid_id`),  KEY `vid_id` (`vid_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
   }
 }
