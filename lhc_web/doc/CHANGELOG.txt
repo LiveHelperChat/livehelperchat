@@ -1,5 +1,22 @@
 4.81v
 
+1. Notable changes since 4.80v
+   - One-time proactive chat invitations: new DB table `lh_abstract_proactive_chat_invitation_one_time` tracks which visitors have already seen an invitation, preventing repeat displays.
+   - Proactive invitations: cleanup logic added for stale one-time invitation records; widget now records when a one-time invitation is shown; edit module enhanced with custom actions for proactive invitations.
+   - Captcha: added provider-based captcha support — Google reCAPTCHA v3 and Cloudflare Turnstile are now both supported with a shared validation layer (`CaptchaValidator`, `erLhcoreClassUserValidator`).
+   - Captcha admin UI: provider selector with provider-specific field sections; shared key labels across providers; CSRF redirect fix.
+   - Translation system: UX improvements for automatic translations; operator and visitor message translation differentiated; messages with existing translations are now skipped; translation configuration UI updated.
+   - Bot/Widget: custom HTML buttons and bot buttons are now disabled when a form is in progress status; alert messages added; placeholder for name field in widget start form.
+   - Editor: fixed infinite loop issue in the new rich-text editor (LHCEditor).
+   - Dashboard: removed legacy old dashboard; cleaned up related options and switch logic.
+   - Security/permissions: added permission access checks in block user, hold action, transfer chat, and chat widget closed flows.
+   - PHP 8.5 compatibility: resolved deprecation and compatibility issues.
+   - Translations: updated translation catalogs including new captcha-related and translation-workflow keys.
+
+2. Summary
+   - This release introduces one-time proactive chat invitations, a flexible multi-provider captcha system, and several translation workflow improvements.
+   - Includes editor stability fixes, dashboard cleanup, PHP 8.5 compatibility, and stricter permission checks across chat action endpoints.
+
 execute doc/update_db/update_348.sql for update
 
 4.80v
