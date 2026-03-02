@@ -223,6 +223,21 @@ if ($tab == 'active') {
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.active_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
 
+    if ($filterParams['input_form']->op_msg_count !== false && is_numeric($filterParams['input_form']->op_msg_count)) {
+        $n = (int)$filterParams['input_form']->op_msg_count;
+        $filterParams['filter']['customfilter']['op_msg_count'] = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND `lh_msg`.`user_id` > 0) >= {$n}";
+    }
+
+    if ($filterParams['input_form']->vi_msg_count !== false && is_numeric($filterParams['input_form']->vi_msg_count)) {
+        $n = (int)$filterParams['input_form']->vi_msg_count;
+        $filterParams['filter']['customfilter']['vi_msg_count'] = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND `lh_msg`.`user_id` = 0) >= {$n}";
+    }
+
+    if ($filterParams['input_form']->bot_msg_count !== false && is_numeric($filterParams['input_form']->bot_msg_count)) {
+        $n = (int)$filterParams['input_form']->bot_msg_count;
+        $filterParams['filter']['customfilter']['bot_msg_count'] = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND `lh_msg`.`user_id` = -2) >= {$n}";
+    }
+
     $tpl->set('input',$filterParams['input_form']);
 
     if (isset($_GET['xmlavguser'])) {
@@ -458,6 +473,21 @@ if ($tab == 'active') {
     }
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.chatsstatistic_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
+
+    if ($filterParams['input_form']->op_msg_count !== false && is_numeric($filterParams['input_form']->op_msg_count)) {
+        $n = (int)$filterParams['input_form']->op_msg_count;
+        $filterParams['filter']['customfilter']['op_msg_count'] = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND `lh_msg`.`user_id` > 0) >= {$n}";
+    }
+
+    if ($filterParams['input_form']->vi_msg_count !== false && is_numeric($filterParams['input_form']->vi_msg_count)) {
+        $n = (int)$filterParams['input_form']->vi_msg_count;
+        $filterParams['filter']['customfilter']['vi_msg_count'] = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND `lh_msg`.`user_id` = 0) >= {$n}";
+    }
+
+    if ($filterParams['input_form']->bot_msg_count !== false && is_numeric($filterParams['input_form']->bot_msg_count)) {
+        $n = (int)$filterParams['input_form']->bot_msg_count;
+        $filterParams['filter']['customfilter']['bot_msg_count'] = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND `lh_msg`.`user_id` = -2) >= {$n}";
+    }
 
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : ($filterParams['input_form']->groupby == 2 ? 'Y-m-d' : 'Y.m'));

@@ -313,7 +313,10 @@ $ViewList['list'] = array(
         'aart_from',
         'priority_from',
         'priority_till',
-        'ipp'
+        'ipp',
+        'op_msg_count',
+        'vi_msg_count',
+        'bot_msg_count'
         ),
     'functions' => array( 'use' ),
     'multiple_arguments' => array(

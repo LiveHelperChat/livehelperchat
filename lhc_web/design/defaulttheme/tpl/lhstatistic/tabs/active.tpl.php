@@ -480,6 +480,28 @@
                 <?php endforeach; ?>
         </datalist>
     </div>
+
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Min operator messages');?></label>
+            <input type="number" min="0" step="1" class="form-control form-control-sm" name="op_msg_count" value="<?php echo htmlspecialchars((string)$input->op_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Count');?> &gt;=" />
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Min visitor messages');?></label>
+            <input type="number" min="0" step="1" class="form-control form-control-sm" name="vi_msg_count" value="<?php echo htmlspecialchars((string)$input->vi_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Count');?>  &gt;=" />
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Min bot messages');?></label>
+            <input type="number" min="0" step="1" class="form-control form-control-sm" name="bot_msg_count" value="<?php echo htmlspecialchars((string)$input->bot_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Count');?>  &gt;=" />
+        </div>
+    </div>
+
+
+
 </div>
 
 <div class="row">

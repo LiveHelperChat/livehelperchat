@@ -532,6 +532,42 @@ $fieldsSearch['without_bot'] = array (
     )
 );
 
+$fieldsSearch['op_msg_count'] = array (
+    'type' => 'int',
+    'trans' => 'Min operator messages',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'filter_table_field' => '',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['vi_msg_count'] = array (
+    'type' => 'int',
+    'trans' => 'Min visitor messages',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'filter_table_field' => '',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['bot_msg_count'] = array (
+    'type' => 'int',
+    'trans' => 'Min bot messages',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'filter_table_field' => '',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
 $fieldSortAttr = array (
 'field'      => false,
 'default'    => false,

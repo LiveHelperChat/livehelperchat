@@ -647,6 +647,23 @@
                     </div>
                 </div>
 
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Message counts, Operators, Visitors, Bot');?></label>
+                        <div class="row">
+                            <div class="col-4">
+                                <input type="number" min="0" step="1" class="form-control form-control-sm" name="op_msg_count" value="<?php echo htmlspecialchars((string)$input->op_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Min operator');?> &gt;=" />
+                            </div>
+                            <div class="col-4">
+                                <input type="number" min="0" step="1" class="form-control form-control-sm" name="vi_msg_count" value="<?php echo htmlspecialchars((string)$input->vi_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Min visitor');?> &gt;=" />
+                            </div>
+                            <div class="col-4">
+                                <input type="number" min="0" step="1" class="form-control form-control-sm" name="bot_msg_count" value="<?php echo htmlspecialchars((string)$input->bot_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Min bot');?> &gt;=" />
+                            </div>                   
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-md-2">
                     <div class="form-group">
                         <label class="col-form-label"><input type="checkbox" name="hum" <?php $input->hum == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread messages')?></label>
