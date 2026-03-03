@@ -13,7 +13,7 @@ try {
 	$file = erLhcoreClassModelChatFile::fetch((int)$Params['user_parameters']['file_id']);
 	$hash = $Params['user_parameters']['hash'];
 
-	if ( $hash == $file->security_hash ) {
+	if ( is_object($file) && $hash == $file->security_hash ) {
 
         $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
 
