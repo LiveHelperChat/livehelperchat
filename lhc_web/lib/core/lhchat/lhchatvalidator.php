@@ -904,6 +904,12 @@ class erLhcoreClassChatValidator {
                         $chat->chat_variables_array = $chatVariables;
                         $chat->chat_variables = json_encode($chatVariables);
                     } else {
+
+                        // Remove any existing elements with the same identifier
+                        $stringParts = array_filter($stringParts, function($item) use ($jsVar) {
+                            return !isset($item['identifier']) || $item['identifier'] !== $jsVar->var_identifier;
+                        });
+
                         $stringParts[] = array('secure' => $secure, 'h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                     }
                 }

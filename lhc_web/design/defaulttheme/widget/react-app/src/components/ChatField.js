@@ -78,7 +78,6 @@ class ChatField extends Component {
         }
 
         if (this.props.attrPrefill) {
-
             if (this.props.attrPrefill.attr_prefill_admin) {
                 this.props.attrPrefill.attr_prefill_admin.forEach((item) => {
                     if (item.index == this.props.field.get('identifier') || (this.props.field.has('identifier_prefill') && item.index == this.props.field.get('identifier_prefill'))) {
@@ -93,6 +92,14 @@ class ChatField extends Component {
 
             if (this.props.attrPrefill.attr_prefill) {
                 this.props.attrPrefill.attr_prefill.forEach((item) => {
+
+                    if (this.props.field.has('identifier_prefill') && item[this.props.field.get('identifier_prefill')]) {
+                        this.props.onChangeContent({id : this.props.field.get('name'), value : item[this.props.field.get('identifier_prefill')]});
+                        if (this.props.field.has('hide_prefilled') && this.props.field.get('hide_prefilled') == true && this.props.isInvalid === false) {
+                            this.setState({'hiddenIfPrefilled':true});
+                        }
+                    }
+
                     if (this.props.field.has('identifier')){
                         let string = this.props.field.get('identifier');
                         if (item[string[0].toUpperCase() + string.slice(1)]) {

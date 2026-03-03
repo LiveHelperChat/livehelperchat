@@ -424,6 +424,19 @@ if ($startDataDepartment === false) {
     $startDataFields = (array)$startData->data;
 }
 
+if (isset($startDataFields['custom_fields']) && !empty($startDataFields['custom_fields']) && isset($outputResponse['js_vars'] ) && !empty($outputResponse['js_vars'])) {
+    $fieldsIdentifiers = [];
+    foreach (json_decode($startDataFields['custom_fields'],true) as $customField) {
+        $fieldsIdentifiers[] = $customField['fieldidentifier'];
+    }
+    foreach ($outputResponse['js_vars'] as & $jsVar) {
+        $itemKeys = explode('lhc_var.',$jsVar['var']);
+        if (isset($itemKeys[1]) && in_array($itemKeys[1],$fieldsIdentifiers)){
+            $jsVar['type'] = $itemKeys[1];
+        }
+    }
+}
+
 $disableNeedHelp = false;
 
 if (isset($startDataFields['pre_conditions']) && !empty($startDataFields['pre_conditions'])) {
@@ -558,7 +571,7 @@ $ts = time();
 $outputResponse['wv'] = 267;
  
 // React APP versions
-$outputResponse['v'] = 397;
+$outputResponse['v'] = 398;
 
 $cfg = erConfigClassLhConfig::getInstance();
 
