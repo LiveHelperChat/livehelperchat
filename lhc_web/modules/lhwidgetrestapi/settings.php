@@ -79,7 +79,7 @@ if ((!isset($_GET['debug']) || $_GET['debug'] === 'false') && ($ignorable_ip == 
     if (is_array($department) && !empty($department)) {
         foreach (erLhAbstractModelChatVariable::getList(array('ignore_fields' => array('dep_id','var_name'), 'customfilter' => array('dep_id = 0 OR dep_id IN (' . implode(',',$department) .')'))) as $jsVar) {
             $itemVar = array('id' => $jsVar->id,'var' => $jsVar->js_variable);
-            if (key_exists($jsVar->var_identifier,$mapFieldsToPrefill) && $jsVar->type != 3) {
+            if (key_exists($jsVar->var_identifier,$mapFieldsToPrefill)) {
                 $itemVar['type'] = $mapFieldsToPrefill[$jsVar->var_identifier];
             }
             if ($jsVar->type == 5) {
@@ -90,7 +90,7 @@ if ((!isset($_GET['debug']) || $_GET['debug'] === 'false') && ($ignorable_ip == 
     } else {
         foreach (erLhAbstractModelChatVariable::getList(array('ignore_fields' => array('dep_id','var_name'), 'filter' => array('dep_id' => 0))) as $jsVar) {
             $itemVar =  array('id' => $jsVar->id, 'var' => $jsVar->js_variable);
-            if (key_exists($jsVar->var_identifier,$mapFieldsToPrefill) && $jsVar->type != 3) {
+            if (key_exists($jsVar->var_identifier,$mapFieldsToPrefill)) {
                 $itemVar['type'] = $mapFieldsToPrefill[$jsVar->var_identifier];
             }
             if ($jsVar->type == 5) {

@@ -846,6 +846,10 @@ class erLhcoreClassChatValidator {
                         $chat->chat_variables = json_encode($chatVariables);
                     }
 
+                    if (isset($Errors['email']) && $lhcVar == 'email') {
+                        unset($Errors['email']);
+                    }
+
                     if ($chat->{$lhcVar} != $val && $val != '' && $encryptFailed === false) {
                         $chat->{$lhcVar} = $val;
                     }
