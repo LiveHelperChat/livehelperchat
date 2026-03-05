@@ -37,6 +37,12 @@ $modalBodyClass = 'p-1';
                             <div class="col-6">
                                 <label><input type="checkbox" name="auto_preload" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Auto preload previous visitor chat messages')?></label>
                             </div>
+                            <div class="col-6">
+                                <label><input type="checkbox" name="chat_tabs_on" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show chat tabs')?></label>
+                            </div>
+                            <div class="col-6">
+                                <label><input type="checkbox" name="chat_tabs_off" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hide chat tabs')?></label>
+                            </div>
                         </div>
                     </div>
             </div>

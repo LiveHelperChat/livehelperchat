@@ -78,18 +78,22 @@ if ($Params['user_parameters_unordered']['export'] == 'quick_actions' && erLhcor
             $stmt->execute();
         }
 
-        if (isset($_POST['auto_preload']) && $_POST['auto_preload'] == 'on') {
-            $q = ezcDbInstance::get()->createDeleteQuery();
-            $conditions = erLhcoreClassModelUser::getConditions($filterParams['filter'], $q);
-            $conditions[] = $q->expr->eq('identifier', $q->bindValue('auto_preload'));
-            $q->deleteFrom( 'lh_users_setting' )
-                ->where(
-                    $conditions
-                );
-            $stmt = $q->prepare();
-            $stmt->execute();
-            foreach (erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'],array( 'limit' => false))) as $userItem) {
-                erLhcoreClassModelUserSetting::setSetting('auto_preload',1, $userItem->id);
+        $settingActions = [
+            'auto_preload' => ['identifier' => 'auto_preload', 'value' => 1],
+            'chat_tabs_on' => ['identifier' => 'hide_tabs',    'value' => 0],
+            'chat_tabs_off' => ['identifier' => 'hide_tabs',   'value' => 1],
+        ];
+
+        foreach ($settingActions as $postKey => $action) {
+            if (isset($_POST[$postKey]) && $_POST[$postKey] == 'on') {
+                $q = ezcDbInstance::get()->createDeleteQuery();
+                $conditions = erLhcoreClassModelUser::getConditions($filterParams['filter'], $q);
+                $conditions[] = $q->expr->eq('identifier', $q->bindValue($action['identifier']));
+                $q->deleteFrom('lh_users_setting')->where($conditions);
+                $q->prepare()->execute();
+                foreach (erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'], array('limit' => false))) as $userItem) {
+                    erLhcoreClassModelUserSetting::setSetting($action['identifier'], $action['value'], $userItem->id);
+                }
             }
         }
 
