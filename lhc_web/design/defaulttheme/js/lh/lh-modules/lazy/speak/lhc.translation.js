@@ -11,14 +11,19 @@ module.exports = (function() {
         lhc.revealModal({
             'url':WWW_DIR_JAVASCRIPT+'chat/singleaction/' + params['chat_id'] + '/translation',
             'showcallback' : function() {
-                 jQuery('#live_translations_'+params['chat_id']).attr('checked','checked');
-                 if (params['old']) {
-                    jQuery('#chat_auto_translate_'+params['chat_id']).attr('checked','checked');
-                 }
-                 lhc.methodCall('lhc.translation','startTranslation',{
-                    'btn': params['btn'], 
-                    'chat_id': params['chat_id'],
-                    'auto_hide': true
+                if (params['btn'].hasClass('btn-outline-success')) {
+                    jQuery('#live_translations_'+params['chat_id']).removeAttr('checked');
+                    jQuery('#chat_auto_translate_'+params['chat_id']).removeAttr('checked');
+                } else {
+                    jQuery('#live_translations_'+params['chat_id']).attr('checked','checked');
+                    if (params['old']) {
+                        jQuery('#chat_auto_translate_'+params['chat_id']).attr('checked','checked');
+                    }
+                }
+                lhc.methodCall('lhc.translation','startTranslation',{
+                   'btn': params['btn'], 
+                   'chat_id': params['chat_id'],
+                   'auto_hide': true
                 })
         }});
     };
