@@ -43,6 +43,18 @@ $modalBodyClass = 'p-1';
                             <div class="col-6">
                                 <label><input type="checkbox" name="chat_tabs_off" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hide chat tabs')?></label>
                             </div>
+                            <div class="col-6">
+                                <label><input type="checkbox" name="auto_accept_on" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Automatically accept assigned chats')?></label>
+                            </div>
+                            <div class="col-6">
+                                <label><input type="checkbox" name="auto_accept_off" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Do not automatically accept assigned chats')?></label>
+                            </div>
+                            <div class="col-6">
+                                <label><input type="checkbox" name="show_alert_transfer_on" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show alerts for transferred chats')?></label>
+                            </div>
+                            <div class="col-6">
+                                <label><input type="checkbox" name="show_alert_transfer_off" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Do not show alerts for transferred chats')?></label>
+                            </div>
                         </div>
                     </div>
             </div>

@@ -52,36 +52,31 @@ if ($Params['user_parameters_unordered']['export'] == 'quick_actions' && erLhcor
 
     if (ezcInputForm::hasPostData()) {
 
-        if (isset($_POST['disable_operators']) && $_POST['disable_operators'] == 'on') {
-            $q = ezcDbInstance::get()->createUpdateQuery();
-            $conditions = erLhcoreClassModelUser::getConditions($filterParams['filter'], $q);
-            $q->update( 'lh_users' )->set( 'disabled',  1);
-            if (!empty($conditions)) {
-                $q->where(
-                    $conditions
-                );
-            }
-            $stmt = $q->prepare();
-            $stmt->execute();
-        }
+        $directUserActions = [
+            'disable_operators' => ['column' => 'disabled',      'value' => 1],
+            'force_logout'      => ['column' => 'force_logout',   'value' => 1],
+            'auto_accept_on'    => ['column' => 'auto_accept',    'value' => 1],
+            'auto_accept_off'   => ['column' => 'auto_accept',    'value' => 0],
+        ];
 
-        if (isset($_POST['force_logout']) && $_POST['force_logout'] == 'on') {
-            $q = ezcDbInstance::get()->createUpdateQuery();
-            $conditions = erLhcoreClassModelUser::getConditions($filterParams['filter'], $q);
-            $q->update( 'lh_users' )->set( 'force_logout',  1);
-            if (!empty($conditions)) {
-                $q->where(
-                    $conditions
-                );
+        foreach ($directUserActions as $postKey => $action) {
+            if (isset($_POST[$postKey]) && $_POST[$postKey] == 'on') {
+                $q = ezcDbInstance::get()->createUpdateQuery();
+                $conditions = erLhcoreClassModelUser::getConditions($filterParams['filter'], $q);
+                $q->update('lh_users')->set($action['column'], $action['value']);
+                if (!empty($conditions)) {
+                    $q->where($conditions);
+                }
+                $q->prepare()->execute();
             }
-            $stmt = $q->prepare();
-            $stmt->execute();
         }
 
         $settingActions = [
             'auto_preload' => ['identifier' => 'auto_preload', 'value' => 1],
             'chat_tabs_on' => ['identifier' => 'hide_tabs',    'value' => 0],
             'chat_tabs_off' => ['identifier' => 'hide_tabs',   'value' => 1],
+            'show_alert_transfer_off' => ['identifier' => 'show_alert_transfer', 'value' => 0],
+            'show_alert_transfer_on' => ['identifier' => 'show_alert_transfer', 'value' => 1]
         ];
 
         foreach ($settingActions as $postKey => $action) {

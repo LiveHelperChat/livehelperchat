@@ -651,14 +651,17 @@
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Message counts, Operators, Visitors, Bot');?></label>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-3">
                                 <input type="number" min="0" step="1" class="form-control form-control-sm" name="op_msg_count" value="<?php echo htmlspecialchars((string)$input->op_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Min operator');?> &gt;=" />
                             </div>
-                            <div class="col-4">
+                            <div class="col-3">
                                 <input type="number" min="0" step="1" class="form-control form-control-sm" name="vi_msg_count" value="<?php echo htmlspecialchars((string)$input->vi_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Min visitor');?> &gt;=" />
                             </div>
-                            <div class="col-4">
+                            <div class="col-3">
                                 <input type="number" min="0" step="1" class="form-control form-control-sm" name="bot_msg_count" value="<?php echo htmlspecialchars((string)$input->bot_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Min bot');?> &gt;=" />
+                            </div>
+                            <div class="col-3">
+                                <input type="number" min="0" step="1" class="form-control form-control-sm" name="all_msg_count" value="<?php echo htmlspecialchars((string)$input->all_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Total count');?> &gt;=" />
                             </div>                   
                         </div>
                     </div>

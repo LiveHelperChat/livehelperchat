@@ -238,6 +238,11 @@ if ($tab == 'active') {
         $filterParams['filter']['customfilter']['bot_msg_count'] = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND `lh_msg`.`user_id` = -2) >= {$n}";
     }
 
+    if ($filterParams['input_form']->all_msg_count !== false && is_numeric($filterParams['input_form']->all_msg_count)) {
+        $n = (int)$filterParams['input_form']->all_msg_count;
+        $filterParams['filter']['customfilter']['all_msg_count'] = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND (`lh_msg`.`user_id` IN (-2,0) OR `lh_msg`.`user_id` > 0)) >= {$n}";
+    }
+
     $tpl->set('input',$filterParams['input_form']);
 
     if (isset($_GET['xmlavguser'])) {
@@ -487,6 +492,11 @@ if ($tab == 'active') {
     if ($filterParams['input_form']->bot_msg_count !== false && is_numeric($filterParams['input_form']->bot_msg_count)) {
         $n = (int)$filterParams['input_form']->bot_msg_count;
         $filterParams['filter']['customfilter']['bot_msg_count'] = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND `lh_msg`.`user_id` = -2) >= {$n}";
+    }
+
+    if ($filterParams['input_form']->all_msg_count !== false && is_numeric($filterParams['input_form']->all_msg_count)) {
+        $n = (int)$filterParams['input_form']->all_msg_count;
+        $filterParams['filter']['customfilter']['all_msg_count'] = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND (`lh_msg`.`user_id` IN (-2,0) OR `lh_msg`.`user_id` > 0)) >= {$n}";
     }
 
     $tpl->set('input',$filterParams['input_form']);
