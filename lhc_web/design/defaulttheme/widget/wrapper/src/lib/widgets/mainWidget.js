@@ -192,6 +192,9 @@ export class mainWidget{
 
         attributes.eventEmitter.addListener('reloadWidget',() => {
             this.isLoaded = false;
+            this.is_loaded = false;
+            this.widget_rendered = false;
+            this.loadStatus = {main: false, css: false, theme: false, font_status: false, font_preload: true, css_preload: true};
             this.makeContent();
             attributes.eventEmitter.emitEvent('widgetHeight',[{'reset_height' : true}]);
             this.toggleVisibility(attributes.widgetStatus.valueInternal);

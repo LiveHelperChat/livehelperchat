@@ -53,6 +53,8 @@ cp -v dist/*.js ../../js/widgetv2/ && cp -v dist/*.js.map ../../js/widgetv2/
 cd ../../../../
 
 echo "Compiling wrapper"
+# One liner build while developing
+# docker run --rm -v "$(pwd)":/app -w /app node:22 npm run build && cp -v dist/*.js.map ../../js/widgetv2/ && cp -v dist/*.js ../../js/widgetv2
 cd ./design/defaulttheme/widget/wrapper && docker run --rm -v "$(pwd)":/app -w /app node:22 npm run build
 cp -v dist/*.js ../../js/widgetv2/ && cp -v dist/*.js.map ../../js/widgetv2/
 cd ../../../../
