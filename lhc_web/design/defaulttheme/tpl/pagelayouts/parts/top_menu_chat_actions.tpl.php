@@ -15,5 +15,8 @@ if ($currentUser->hasAccessTo('lhmailconv','use_admin')) {
 if ($currentUser->hasAccessTo('lhviews','use')) {
     $menuItems[] = array('href' => erLhcoreClassDesign::baseurl('views/home'), 'iclass' => 'saved_search', 'text' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout', 'My views'));
 }
+?>
 
-endif;?>
+<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/side_menu_post_multiinclude.tpl.php'));?>
+
+<?php endif;?>
