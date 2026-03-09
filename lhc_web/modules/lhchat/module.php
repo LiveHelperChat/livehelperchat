@@ -317,7 +317,8 @@ $ViewList['list'] = array(
         'op_msg_count',
         'vi_msg_count',
         'bot_msg_count',
-        'all_msg_count'
+        'all_msg_count',
+        'all_msg_count_till'
         ),
     'functions' => array( 'use' ),
     'multiple_arguments' => array(

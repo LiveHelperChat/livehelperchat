@@ -505,6 +505,12 @@
             <input type="number" min="0" step="1" class="form-control form-control-sm" name="all_msg_count" value="<?php echo htmlspecialchars((string)$input->all_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Count');?>  &gt;=" />
         </div>
     </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Total messages count till');?></label>
+            <input type="number" min="0" step="1" class="form-control form-control-sm" name="all_msg_count_till" value="<?php echo htmlspecialchars((string)$input->all_msg_count_till)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Count');?>  &lt;=" />
+        </div>
+    </div>
 
 
 

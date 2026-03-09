@@ -580,6 +580,18 @@ $fieldsSearch['all_msg_count'] = array (
     )
 );
 
+$fieldsSearch['all_msg_count_till'] = array (
+    'type' => 'int',
+    'trans' => 'All messages count till',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'filter_table_field' => '',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
 $fieldSortAttr = array (
 'field'      => false,
 'default'    => false,

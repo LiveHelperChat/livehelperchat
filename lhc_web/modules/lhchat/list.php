@@ -124,9 +124,19 @@ if ($filterParams['input_form']->bot_msg_count !== false && is_numeric($filterPa
     $filterParams['filter']['customfilter'][] = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND `lh_msg`.`user_id` = -2) >= {$n}";
 }
 
-if ($filterParams['input_form']->all_msg_count !== false && is_numeric($filterParams['input_form']->all_msg_count)) {
-    $n = (int)$filterParams['input_form']->all_msg_count;
-    $filterParams['filter']['customfilter'][] = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND (`lh_msg`.`user_id` IN (-2,0) OR `lh_msg`.`user_id` > 0)) >= {$n}";
+$allMsgCountMin = ($filterParams['input_form']->all_msg_count !== false && is_numeric($filterParams['input_form']->all_msg_count)) ? (int)$filterParams['input_form']->all_msg_count : null;
+$allMsgCountMax = ($filterParams['input_form']->all_msg_count_till !== false && is_numeric($filterParams['input_form']->all_msg_count_till)) ? (int)$filterParams['input_form']->all_msg_count_till : null;
+$allMsgCountQuery = "(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND (`lh_msg`.`user_id` IN (-2,0) OR `lh_msg`.`user_id` > 0))";
+
+if ($allMsgCountMin !== null && $allMsgCountMax !== null) {
+    if ($allMsgCountMin > $allMsgCountMax) {
+        [$allMsgCountMin, $allMsgCountMax] = [$allMsgCountMax, $allMsgCountMin];
+    }
+    $filterParams['filter']['customfilter'][] = "{$allMsgCountQuery} BETWEEN {$allMsgCountMin} AND {$allMsgCountMax}";
+} elseif ($allMsgCountMin !== null) {
+    $filterParams['filter']['customfilter'][] = "{$allMsgCountQuery} >= {$allMsgCountMin}";
+} elseif ($allMsgCountMax !== null) {
+    $filterParams['filter']['customfilter'][] = "{$allMsgCountQuery} <= {$allMsgCountMax}";
 }
 
 /**

@@ -651,18 +651,25 @@
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Message counts, Operators, Visitors, Bot');?></label>
                         <div class="row">
-                            <div class="col-3">
-                                <input type="number" min="0" step="1" class="form-control form-control-sm" name="op_msg_count" value="<?php echo htmlspecialchars((string)$input->op_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Min operator');?> &gt;=" />
+                            <div class="col-2">
+                                <input type="number" min="0" step="1" class="form-control form-control-sm" name="op_msg_count" value="<?php echo htmlspecialchars((string)$input->op_msg_count)?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Operator messages');?> &gt;=" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Op');?>. &gt;=" />
                             </div>
-                            <div class="col-3">
-                                <input type="number" min="0" step="1" class="form-control form-control-sm" name="vi_msg_count" value="<?php echo htmlspecialchars((string)$input->vi_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Min visitor');?> &gt;=" />
+                            <div class="col-2">
+                                <input type="number" min="0" step="1" class="form-control form-control-sm" name="vi_msg_count" value="<?php echo htmlspecialchars((string)$input->vi_msg_count)?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Visitor messages');?> &gt;=" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Vi');?>. &gt;=" />
                             </div>
-                            <div class="col-3">
-                                <input type="number" min="0" step="1" class="form-control form-control-sm" name="bot_msg_count" value="<?php echo htmlspecialchars((string)$input->bot_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Min bot');?> &gt;=" />
+                            <div class="col-2">
+                                <input type="number" min="0" step="1" class="form-control form-control-sm" name="bot_msg_count" value="<?php echo htmlspecialchars((string)$input->bot_msg_count)?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Bot messages');?> &gt;=" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Bot');?> &gt;=" />
                             </div>
-                            <div class="col-3">
-                                <input type="number" min="0" step="1" class="form-control form-control-sm" name="all_msg_count" value="<?php echo htmlspecialchars((string)$input->all_msg_count)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Total count');?> &gt;=" />
-                            </div>                   
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="number" min="0" step="1" class="form-control form-control-sm" name="all_msg_count"  value="<?php echo htmlspecialchars((string)$input->all_msg_count)?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Total messages');?> &gt;=" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Total');?> &gt;=" />
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="number" min="0" step="1" class="form-control form-control-sm" name="all_msg_count_till" value="<?php echo htmlspecialchars((string)$input->all_msg_count_till)?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Total messages');?> &lt;=" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Total');?> &lt;=" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -86,7 +86,8 @@ $ViewList['statistic'] = array(
         70 => 'op_msg_count',
         71 => 'vi_msg_count',
         72 => 'bot_msg_count',
-        73 => 'all_msg_count'
+        73 => 'all_msg_count',
+        74 => 'all_msg_count_till'
     ),
     'functions' => array( 'viewstatistic' ),
     'multiple_arguments' => array('bot_ids','subject_ids','department_ids','group_ids','user_ids','department_group_ids','invitation_ids','chart_type','country_ids','attr_int_1_multi')
