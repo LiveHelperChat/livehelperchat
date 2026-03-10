@@ -65,7 +65,11 @@ if (isset($requestPayload['theme']) && !empty($requestPayload['theme'])) {
     if ($themeId !== false) {
         $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
         if ($theme instanceof erLhAbstractModelWidgetTheme){
-            $theme->translate();
+            $paramsTheme = [];
+            if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])) {
+                $paramsTheme['ou'] = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid'], true);
+            }
+            $theme->translate($paramsTheme);
         } else {
             $theme = false;
         }
@@ -842,7 +846,7 @@ if ($theme !== false) {
             }
 
             if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])){
-                $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
+                $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid'], true);
                 if ($onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
                     $chat = new erLhcoreClassModelChat();
                     $chat->bot = $bot;
@@ -925,8 +929,8 @@ if ($theme !== false) {
 
     if (isset($theme->bot_configuration_array['prev_msg']) && $theme->bot_configuration_array['prev_msg'] == true) {
         if (!isset($onlineUser) || !($onlineUser instanceof erLhcoreClassModelChatOnlineUser)) {
-            if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])){
-                $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
+            if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])) {
+                $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid'], true);
             }
         }
 
@@ -1176,8 +1180,8 @@ if (isset($start_data_fields['pre_conditions']) && !empty($start_data_fields['pr
         (isset($preConditions['offline']) && !empty($preConditions['offline'])) ||
         (isset($preConditions['disable']) && !empty($preConditions['disable'])) ) {
         if (!isset($onlineUser) || !($onlineUser instanceof erLhcoreClassModelChatOnlineUser)) {
-            if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])){
-                $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
+            if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])) {
+                $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid'], true);
             }
         }
 

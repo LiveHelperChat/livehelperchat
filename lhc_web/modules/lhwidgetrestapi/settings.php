@@ -503,7 +503,7 @@ if ($disableNeedHelp === false && ((isset($theme) && $theme instanceof erLhAbstr
             $outputResponse['nh']['ap'] = true;
         }
 
-        $theme->translate();
+        $theme->translate(['ou' => $userInstance]);
 
         if (isset($theme->bot_configuration_array['need_help_html']) && !empty($theme->bot_configuration_array['need_help_html'])){
             $outputResponse['nh']['html'] = $theme->bot_configuration_array['need_help_html'];

@@ -19,12 +19,6 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/checkchatstatus.tpl.php');
 $tpl->set('theme',false);
 $tpl->set('react',true);
 
-if (($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
-    $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
-    $theme->translate();
-    $tpl->set('theme',$theme);
-}
-
 $responseArray = array();
 
 try {
@@ -34,6 +28,12 @@ try {
     
     $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
     
+    if (($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
+        $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
+        $theme->translate(['ou' => ($chat instanceof erLhcoreClassModelChat ? $chat->online_user : null)]);
+        $tpl->set('theme',$theme);
+    }
+
     if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $Params['user_parameters']['hash'] && ((isset($requestPayload['debug']) && $requestPayload['debug'] === true && erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','preview_messages')) || $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->last_op_msg_time == 0 || $chat->last_op_msg_time > time() - (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value)) {
 
         if (!isset($requestPayload['debug']) || $requestPayload['debug'] === false) {

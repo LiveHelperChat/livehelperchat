@@ -120,7 +120,7 @@ try {
 
             if ($theme instanceof erLhAbstractModelWidgetTheme) {
 
-                $theme->translate();
+                $theme->translate(['ou' => $chat->online_user]);
 
                 foreach (array('placeholder_file_message','placeholder_message','cnew_msgh','cnew_msg','cscroll_btn','cnew_msgm','min_text','popup_text','end_chat_text','fheight_text_class','fheight_text_col') as $attrTranslate) {
                     if (isset($theme->bot_configuration_array[$attrTranslate]) && !empty($theme->bot_configuration_array[$attrTranslate])) {

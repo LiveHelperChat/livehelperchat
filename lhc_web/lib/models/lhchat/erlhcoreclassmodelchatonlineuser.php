@@ -757,15 +757,17 @@ class erLhcoreClassModelChatOnlineUser
         return $isCrawler;
     }
 
-    public static function fetchByVid($vid)
+    public static function fetchByVid($vid, $useCache = false)
     {
-        $items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $vid)));
-        if (!empty($items)) {
-            $item = array_shift($items);
-            return $item;
+        static $items = [];
+
+        if (isset($items[$vid]) && $useCache === true) {
+            return $items[$vid];
         }
 
-        return false;
+        $items[$vid] = self::findOne(array('filter' => array('vid' => $vid)));
+
+        return $items[$vid];
     }
     
     public static function getDynamicInvitation($paramsHandle = array())

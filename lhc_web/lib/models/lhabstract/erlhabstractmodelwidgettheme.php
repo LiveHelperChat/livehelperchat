@@ -438,7 +438,7 @@ class erLhAbstractModelWidgetTheme {
 		return 'widget_theme.tpl.php';
 	}
 
-	public function translate() {
+	public function translate($params = []) {
 
         $config = erConfigClassLhConfig::getInstance();
         $chatLocaleFallback = $config->getDirLanguage('content_language');
@@ -545,6 +545,18 @@ class erLhAbstractModelWidgetTheme {
                 } elseif (isset($attributes[$attr])) {
                     unset($attributes[$attr]);
                 }
+            }
+        }
+
+        foreach ($attributesDirect as $attr) {
+            if (isset($this->{$attr}) && $this->{$attr} !== '' && str_contains($this->{$attr},'{args.')) {
+                $this->{$attr} = erLhcoreClassGenericBotWorkflow::translateMessage($this->{$attr}, array('args' => $params));
+            }
+        }
+
+        foreach ($attributes as $keyAttribute => $valueAttribute) {
+            if (is_string($valueAttribute) && str_contains($valueAttribute,'{args.')) {
+                $attributes[$keyAttribute] = erLhcoreClassGenericBotWorkflow::translateMessage($valueAttribute, array('args' => $params));
             }
         }
 

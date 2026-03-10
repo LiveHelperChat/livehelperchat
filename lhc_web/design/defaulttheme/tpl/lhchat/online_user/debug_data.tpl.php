@@ -4,13 +4,13 @@ $state = $online_user->getState();
 if (isset($state['online_attr']) && !empty($state['online_attr'])) {
     $decoded = json_decode($state['online_attr'], true);
     if ($decoded !== null) {
-        $state['online_attr'] = $decoded;
+        $state['online_attr_array'] = $decoded;
     }
 }
 if (isset($state['online_attr_system']) && !empty($state['online_attr_system'])) {
     $decoded = json_decode($state['online_attr_system'], true);
     if ($decoded !== null) {
-        $state['online_attr_system'] = $decoded;
+        $state['online_attr_system_array'] = $decoded;
     }
 }
 echo htmlspecialchars(json_encode($state, JSON_PRETTY_PRINT)); 

@@ -74,7 +74,7 @@ if (isset($payload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($pay
 
     if ($theme instanceof erLhAbstractModelWidgetTheme)
     {
-        $theme->translate();
+        $theme->translate(['ou' => $onlineUser]);
 
         if (isset($theme->bot_configuration_array['bubble_style_profile']) && $theme->bot_configuration_array['bubble_style_profile'] == 1) {
             $outputResponse['bubble'] = true;
