@@ -64,6 +64,72 @@
 
 <hr>
 
+<h4>Folders permissions</h5>
+<div class="row pb-3">
+ 
+        <div class="col-3">
+            <span>I can write to "cache/cacheconfig" directory</span>
+            <?php echo is_writable("cache/cacheconfig") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "cache/translations" directory</span>
+            <?php echo is_writable("cache/translations") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "cache/userinfo" directory</span>
+            <?php echo is_writable("cache/userinfo") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "cache/compiledtemplates" directory</span>
+            <?php echo is_writable("cache/compiledtemplates") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "settings/" directory</span>
+            <?php echo is_writable("settings/") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "var/storage" directory</span>
+            <?php echo is_writable("var/storage") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "var/userphoto" directory</span>
+            <?php echo is_writable("var/userphoto") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "var/storageform" directory</span>
+            <?php echo is_writable("var/storageform") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "var/storageadmintheme" directory</span>
+            <?php echo is_writable("var/storageadmintheme") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "var/botphoto" directory</span>
+            <?php echo is_writable("var/botphoto") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "var/bottrphoto" directory</span>
+            <?php echo is_writable("var/bottrphoto") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "var/storageinvitation" directory</span>
+            <?php echo is_writable("var/storageinvitation") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "var/storagedocshare" directory</span>
+            <?php echo is_writable("var/storagedocshare") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "var/storagetheme" directory</span>
+            <?php echo is_writable("var/storagetheme") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+        <div class="col-3">
+            <span>I can write to "var/tmpfiles" directory</span>
+            <?php echo is_writable("var/tmpfiles") ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'?>
+        </div>
+  
+</div>
+
 <h4>Time Zone</h4>
 
 <ul>
