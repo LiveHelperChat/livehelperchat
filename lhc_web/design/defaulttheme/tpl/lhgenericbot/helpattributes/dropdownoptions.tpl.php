@@ -12,7 +12,18 @@
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'JSON based options.');?></h5>
 <textarea class="form-control form-control-sm mb-3" rows="3"><?php echo '{"name":"Please choose","value":""}
 {"name":"Default","dep_id":20,"value":"def","subject_id":"8"}
+{"name":{"default":"Multilanguage","lt":"Daugiakalbystė"},"value":"Multilanguage"}
 {"name":"Other","dep_id":18,"value":"other"}';?></textarea>
+
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'If multilanguage is used for the name, default should be always defined.');?></p>
+
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Possible languages');?></h5>
+
+    <?php foreach (erConfigClassLhConfig::getInstance()->getSetting('site', 'available_site_access') as $siteAccess) : 
+        $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting('site_access_options', $siteAccess);
+        if (isset($siteAccessOptions['content_language'])) : ?>
+    <span class="badge bg-success"><?php echo htmlspecialchars($siteAccessOptions['content_language']); ?></span>
+    <?php endif; endforeach; ?>
 
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Regular syntax. Depreciated.');?></h5>
     <ul>

@@ -606,13 +606,45 @@ if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fie
     $customAdminfields = json_decode($start_data_fields['custom_fields'],true);
     if (is_array($customAdminfields)) {
         $adminCustomFieldsMode = $Params['user_parameters_unordered']['online'] == '0' ? 'off' : 'on';
+
+        $locale = erLhcoreClassChatValidator::getVisitorLocale();
+
+        $chat_locale = 'default';
+
+        if ($locale !== null) {
+            $chat_locale = $locale;
+        }
+
+        // We set custom chat locale only if visitor is not using default siteaccss and default langauge is not english.
+        if (erConfigClassLhConfig::getInstance()->getSetting('site','default_site_access') != erLhcoreClassSystem::instance()->SiteAccess) {
+            $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting('site_access_options', erLhcoreClassSystem::instance()->SiteAccess);
+            // Never override to en
+            if (isset($siteAccessOptions['content_language'])) {
+                $chat_locale = $siteAccessOptions['content_language'];
+            }
+        }
+
         foreach ($customAdminfields as $key => $adminField) {
             if ($adminField['visibility'] == 'all' || $adminCustomFieldsMode == $adminField['visibility']) {
+
+                $fieldName = $adminField['fieldname'];
+                if (str_starts_with($adminField['fieldname'],'{')) {
+                    $names = json_decode($adminField['fieldname'],true);
+                    if (is_array($names)) {
+                        if (isset($names[$chat_locale])) {
+                            $fieldName = $names[$chat_locale];
+                        } else if (isset($names['default'])) {
+                            $fieldName = $names['default'];
+                        } else {
+                            $fieldName = 'Name not found!';
+                        }
+                    }
+                }
 
                 $fieldData = array(
                     'type' => $adminField['fieldtype'],
                     'width' => $adminField['size'],
-                    'label' => $adminField['fieldname'],
+                    'label' => $fieldName,
                     'class' => 'form-control form-control-sm',
                     'required' => $adminField['isrequired'] == 'true',
                     'name' => 'value_items_admin_'. $key,
@@ -633,8 +665,20 @@ if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fie
                          if (is_array($itemDataJson)) {
                              $nameValue = $itemDataJson['name'];
                              $depValue = isset($itemDataJson['dep_id']) ? $itemDataJson['dep_id'] : null;
-                             $valueOption = isset($itemDataJson['value']) ? $itemDataJson['value'] : $nameValue;
                              $subject = isset($itemDataJson['subject_id']) ? $itemDataJson['subject_id'] : null;
+
+                             if (is_array($nameValue)) {
+                                 if (isset($nameValue[$chat_locale])) {
+                                     $nameValue = $nameValue[$chat_locale];
+                                 } else if (isset($nameValue['default'])) {
+                                     $nameValue = $nameValue['default'];
+                                 } else {
+                                     $nameValue = 'Name not found!';
+                                 }
+                             }
+
+                             $valueOption = isset($itemDataJson['value']) ? $itemDataJson['value'] : $nameValue;
+
                          } else {
                              $itemData = explode('=>',$optionRaw);
 

@@ -111,6 +111,29 @@ class erLhcoreClassChatValidator {
     }
 
     /**
+     * Extract field name from admin field definition
+     * Handles JSON-encoded multilingual field names
+     * 
+     * @param array $adminField The admin field configuration array
+     * @return string The extracted field name
+     */
+    private static function extractFieldName($adminField)
+    {
+        $fieldName = $adminField['fieldname'];
+        if (str_starts_with($adminField['fieldname'], '{')) {
+            $names = json_decode($adminField['fieldname'], true);
+            if (is_array($names)) {
+                if (isset($names['default'])) {
+                    $fieldName = $names['default'];
+                } else {
+                    $fieldName = 'Name not found!';
+                }
+            }
+        }
+        return $fieldName;
+    }
+
+    /**
      * Custom form fields validation
      */
     public static function validateStartChat(& $inputForm, & $start_data_fields, & $chat, $additionalParams = array())
@@ -669,6 +692,22 @@ class erLhcoreClassChatValidator {
         	}
         }
 
+        // Detect user locale
+        $locale = self::getVisitorLocale();
+
+        if ($locale !== null) {
+            $chat->chat_locale = $locale;
+        }
+
+        // We set custom chat locale only if visitor is not using default siteaccss and default langauge is not english.
+        if (erConfigClassLhConfig::getInstance()->getSetting('site','default_site_access') != erLhcoreClassSystem::instance()->SiteAccess) {
+            $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting('site_access_options', erLhcoreClassSystem::instance()->SiteAccess);
+            // Never override to en
+            if (isset($siteAccessOptions['content_language'])) {
+                $chat->chat_locale = $siteAccessOptions['content_language'];
+            }
+        }
+        
         if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fields'] != '') {
             $customAdminfields = json_decode($start_data_fields['custom_fields'],true);
             
@@ -697,7 +736,10 @@ class erLhcoreClassChatValidator {
             }
 
             if (is_array($customAdminfields)) {
+
                 foreach ($customAdminfields as $key => $adminField) {
+                   
+                    $fieldName = self::extractFieldName($adminField);
 
                     if (
                         (
@@ -709,9 +751,7 @@ class erLhcoreClassChatValidator {
                             (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')
                         )
                     ) {
-
-
-                        $Errors[(isset($additionalParams['payload_data']) ? 'value_items_admin_' . $key : 'additional_admin_' . $key)] = trim($adminField['fieldname']).': '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
+                        $Errors[(isset($additionalParams['payload_data']) ? 'value_items_admin_' . $key : 'additional_admin_' . $key)] = trim($fieldName).': '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
             		}
 
             		if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
@@ -727,7 +767,7 @@ class erLhcoreClassChatValidator {
             		        }
             		    }
 
-            		    $stringParts[] = array('secure' => $secure, 'h' => (isset($inputForm->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $valueStore);
+            		    $stringParts[] = array('secure' => $secure, 'h' => (isset($inputForm->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $fieldName, 'value' => $valueStore);
             		}
                 }
             }
@@ -756,27 +796,11 @@ class erLhcoreClassChatValidator {
                     if (is_array($customURLfields)) {
                         foreach ($customURLfields as $key => $adminField) {
                             if (isset($argumentsFormatted[$adminField['fieldidentifier']])) {
-                                $stringParts[] = array('url' => true, 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $argumentsFormatted[$adminField['fieldidentifier']]);
+                                $stringParts[] = array('url' => true, 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => self::extractFieldName($adminField), 'value' => $argumentsFormatted[$adminField['fieldidentifier']]);
                             }
                         }
                     }
                 }
-            }
-        }
-
-        // Detect user locale
-        $locale = self::getVisitorLocale();
-
-        if ($locale !== null) {
-            $chat->chat_locale = $locale;
-        }
-
-        // We set custom chat locale only if visitor is not using default siteaccss and default langauge is not english.
-        if (erConfigClassLhConfig::getInstance()->getSetting('site','default_site_access') != erLhcoreClassSystem::instance()->SiteAccess) {
-            $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting('site_access_options', erLhcoreClassSystem::instance()->SiteAccess);
-            // Never override to en
-            if (isset($siteAccessOptions['content_language'])) {
-                $chat->chat_locale = $siteAccessOptions['content_language'];
             }
         }
 
@@ -1906,7 +1930,7 @@ class erLhcoreClassChatValidator {
                                 }
                             }
 
-                            $currentChatData[] = array('secure' => $secure, 'h' => true, 'identifier' => $adminField['fieldidentifier'], 'key' => $adminField['fieldname'], 'value' => $valueStore);
+                            $currentChatData[] = array('secure' => $secure, 'h' => true, 'identifier' => $adminField['fieldidentifier'], 'key' => self::extractFieldName($adminField), 'value' => $valueStore);
                         }
                     }
                 }
@@ -2560,7 +2584,7 @@ class erLhcoreClassChatValidator {
                                 foreach ($customAdminfields as $key => $adminField) {
 
                                     if (isset($params['inputData']->value_items_admin[$key]) && isset($adminField['isrequired']) && $adminField['isrequired'] == 'true' && ($adminField['visibility'] == 'all' || $adminField['visibility'] == (isset($additionalParams['offline']) ? 'off' : 'on')) && (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')) {
-                                        $Errors['additional_admin_'.$key] = trim($adminField['fieldname']).': '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
+                                        $Errors['additional_admin_'.$key] = trim(self::extractFieldName($adminField)).': '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
                                     }
 
                                     if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
@@ -2576,7 +2600,7 @@ class erLhcoreClassChatValidator {
                                             }
                                         }
 
-                                        $stringParts[] = array('secure' => $secure, 'h' => (isset($params['inputData']->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $valueStore);
+                                        $stringParts[] = array('secure' => $secure, 'h' => (isset($params['inputData']->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => self::extractFieldName($adminField), 'value' => $valueStore);
                                     }
                                 }
                             }

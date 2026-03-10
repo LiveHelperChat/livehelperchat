@@ -96,7 +96,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Field label')?></label>
+                        <label><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/fieldlabel'});" class="material-icons text-muted">help</a><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Field label')?></label>
                         <input ng-model="field.fieldname" class="form-control form-control-sm" ng-model="" type="text" name="customFieldLabel[]" value="" />
                     </div>
                 </div>
