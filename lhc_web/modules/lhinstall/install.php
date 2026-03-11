@@ -1439,6 +1439,7 @@ try {
                       `conv_event` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
                       `unique_id` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
                       PRIMARY KEY (`id`),
+                      KEY `inv_vid` (`invitation_id`,`invitation_status`,`vid_id`),
                       KEY `campaign_id` (`campaign_id`),
                       KEY `invitation_status` (`invitation_status`),
                       KEY `ctime` (`ctime`),
