@@ -870,7 +870,7 @@ class erLhcoreClassGenericBotActionRestapi
 
         $dynamicParamsVariables = self::extractDynamicParams($methodSettings, $paramsCustomer['params']);
 
-        $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat']);
+        $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat'], $paramsCustomer['params']);
 
         if (!isset($methodSettings['body_raw'])) {
             $methodSettings['body_raw'] = '';
@@ -2226,7 +2226,7 @@ class erLhcoreClassGenericBotActionRestapi
         return $userData['dynamic_variables'];
     }
 
-    public static function extractDynamicVariables($methodSettings, $chat) {
+    public static function extractDynamicVariables($methodSettings, $chat, $paramsCustomer = []) {
 
          $dynamicVariables = [];
          $requiredVars = [];
@@ -2235,6 +2235,7 @@ class erLhcoreClassGenericBotActionRestapi
              'dynamic_variables' => & $dynamicVariables,
              'required_vars' => & $requiredVars,
              'chat' => $chat,
+             'params_customer' => & $paramsCustomer
          );
          
          array_walk_recursive($methodSettings, function ($item, $key, $userData) {
@@ -2308,7 +2309,7 @@ class erLhcoreClassGenericBotActionRestapi
                     $counter = 0;
 
                     // It's safe to include all messages
-                    $userMessageStarted = erLhcoreClassGenericBotWorkflow::$startChat;
+                    $userMessageStarted = erLhcoreClassGenericBotWorkflow::$startChat == true || (isset($userData['params_customer']['start_mode']) && $userData['params_customer']['start_mode'] == true);
 
                     foreach ($messages as $message) {
 
