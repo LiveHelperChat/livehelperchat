@@ -1168,7 +1168,7 @@
 
                         // Send directly response
                         attributesWidget.popupWidget.attributes = attributesWidget;
-                        e.source.postMessage('lhc_event:jsVars::' + JSON.stringify([attributesWidget.popupWidget.getAttributesToSent()]), e.origin);
+                        e.source.postMessage('lhc_event:jsVars::' + JSON.stringify([attributesWidget.popupWidget.getAttributesToSent(), attributesWidget.userSession.getPrefillVars()]), e.origin);                        
                     } else if (parts[1] == 'isstarted') {
                         // Parent window has LHC, terminate present instance
                         attributesWidget.eventEmitter.emitEvent('terminated', []);

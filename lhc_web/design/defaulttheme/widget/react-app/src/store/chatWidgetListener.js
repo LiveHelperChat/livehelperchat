@@ -136,8 +136,9 @@ export default function (dispatch, getState) {
         {id : 'vars_encrypted',cb : (data) => {dispatch({type: 'vars_encrypted', data: data})}},
         {id : 'jsVars',cb : (data, data2) => {
             dispatch({type: 'jsVars', data: data});
-            if (typeof data2 !== 'undefined') {
-                dispatch({type: 'jsVarsPrefill', data: data2});
+            if (typeof data2 !== 'undefined' && Array.isArray(data2)) {
+                //dispatch({type: 'jsVarsPrefill', data: data2});
+                dispatch({type: 'attr_prefill', data: data2});
             }
         }},
         {id : 'ext_modules',cb : (data) => {

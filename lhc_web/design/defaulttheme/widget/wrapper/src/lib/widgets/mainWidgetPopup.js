@@ -217,7 +217,7 @@ export class mainWidgetPopup {
 
     sendParameters(chatEvents) {
         if (this.cont.elementReferrerPopup && this.cont.elementReferrerPopup.closed === false) {
-            chatEvents.sendChildEvent('jsVars', [this.getAttributesToSent()]);
+            chatEvents.sendChildEvent('jsVars', [this.getAttributesToSent(), this.attributes.userSession.getPrefillVars()]);
         }
     }
 }
