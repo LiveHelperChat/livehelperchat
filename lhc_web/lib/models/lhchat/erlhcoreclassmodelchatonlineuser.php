@@ -749,9 +749,10 @@ class erLhcoreClassModelChatOnlineUser
 
     public static function isBot($userAgent)
     {
-        $crawlers = 'Google|msnbot|Rambler|Yahoo|AbachoBOT|accoona|' .
-            'AcioRobot|ASPSeek|CocoCrawler|Dumbot|FAST-WebCrawler|' .
-            'GeonaBot|Gigabot|Lycos|MSRBOT|Scooter|AltaVista|IDBot|eStyle|Scrubby';
+        $crawlers = 'Google|Googlebot|AdsBot-Google|Mediapartners-Google|APIs-Google|Storebot-Google|Google-InspectionTool|'
+            . 'msnbot|bingbot|BingPreview|AdIdxBot|Yahoo|Slurp|DuckDuckBot|Baiduspider|Yandex(Bot|Images|MobileBot)|Sogou|Exabot|'
+            . 'facebot|facebookexternalhit|ia_archiver|Applebot|PetalBot|Bytespider|CCBot|SemrushBot|AhrefsBot|MJ12bot|DotBot|'
+            . 'LinkedInBot|Pinterestbot|Amazonbot|OAI-SearchBot|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|cohere-ai|anthropic-ai';
         $isCrawler = (preg_match("/$crawlers/", $userAgent) > 0);
 
         return $isCrawler;
