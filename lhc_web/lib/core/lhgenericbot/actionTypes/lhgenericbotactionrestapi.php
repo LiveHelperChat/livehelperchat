@@ -2306,7 +2306,9 @@ class erLhcoreClassGenericBotActionRestapi
                     $content = '';
 
                     $counter = 0;
-                    $userMessageStarted = false;
+
+                    // It's safe to include all messages
+                    $userMessageStarted = erLhcoreClassGenericBotWorkflow::$startChat;
 
                     foreach ($messages as $message) {
 
