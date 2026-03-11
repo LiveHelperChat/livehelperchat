@@ -49,7 +49,7 @@ class ChatDepartment extends Component {
 
         var departmentOutput = null;
         if (this.props.departments.get('departments').size > 1 && !this.props.departments.hasIn(['settings','hide_department'])) {
-            var classNameInput = ['form-control','form-control-sm'];
+            var classNameInput = ['form-select','form-select-sm'];
 
             if (this.props.isInvalid === true) {
                 classNameInput.push('is-invalid');
@@ -67,7 +67,7 @@ class ChatDepartment extends Component {
 
         var productOutput = null;
         if (this.props.departments.getIn(['settings','product']) === true) {
-            var classNameInputProduct = ['form-control','form-control-sm'];
+            var classNameInputProduct = ['form-select','form-select-sm'];
 
             if (this.props.isInvalidProduct === true) {
                 classNameInputProduct.push('is-invalid');

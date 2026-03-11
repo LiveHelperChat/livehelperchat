@@ -645,7 +645,7 @@ if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fie
                     'type' => $adminField['fieldtype'],
                     'width' => $adminField['size'],
                     'label' => $fieldName,
-                    'class' => 'form-control form-control-sm',
+                    'class' => $adminField['fieldtype'] == 'dropdown' ? 'form-select form-select-sm' : 'form-control form-control-sm',
                     'required' => $adminField['isrequired'] == 'true',
                     'name' => 'value_items_admin_'. $key,
                     'identifier' => 'value_items_admin_' . $key,
