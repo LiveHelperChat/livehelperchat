@@ -4,6 +4,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -1916,6 +1920,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Placeholder for name text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Placeholder for message text if files are attached</source>
       <translation type="unfinished"/>
     </message>
@@ -2196,6 +2204,14 @@
     </message>
     <message>
       <source>By default, if an invitation was not closed by the visitor, the next invitation will be shown when the visitor navigates to a different page. If the visitor closed the invitation, it will not be shown on the next page. Enabling this option will display the invitation on the next page even if the previous one was closed by the visitor.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Persistence settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Flush list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2668,6 +2684,10 @@
     </message>
     <message>
       <source>Do not show invitation after it was closed in the same session.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>One-time invitation. It will never be shown again to the same visitor.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6060,6 +6080,38 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Message counts, Operators, Visitors, Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Op</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vi</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Has unread messages</source>
       <translation type="unfinished"/>
     </message>
@@ -6712,6 +6764,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Min operator messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Count</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Min visitor messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Min bot messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total messages from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total messages till</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude offline requests from charts</source>
       <translation type="unfinished"/>
     </message>
@@ -7013,6 +7089,30 @@
     </message>
     <message>
       <source>Auto preload previous visitor chat messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show chat tabs</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide chat tabs</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically accept assigned chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not automatically accept assigned chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show alerts for transferred chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not show alerts for transferred chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8216,6 +8316,10 @@
   <context>
     <name>chat/startchat</name>
     <message>
+      <source>BB code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New</source>
       <translation type="unfinished"/>
     </message>
@@ -8776,7 +8880,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>BB code</source>
+      <source>Emojis</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10044,6 +10148,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Skipped because invitation was seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Skipped because of</source>
       <translation type="unfinished"/>
     </message>
@@ -10096,7 +10204,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Reset invitation data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation data for visitor was reset!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -11963,6 +12079,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You do not have permission to access a chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose a block type!</source>
       <translation type="unfinished"/>
     </message>
@@ -13618,6 +13738,18 @@
   <context>
     <name>chat/translation</name>
     <message>
+      <source>Operator language is not supported by Google translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor language is not supported by Google translation service!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator language is not supported by DeepL translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor language</source>
       <translation type="unfinished"/>
     </message>
@@ -13643,6 +13775,10 @@
     </message>
     <message>
       <source>Translate operator message to visitor language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start translated chat session</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13774,6 +13910,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hide translate single message button.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show start translations button</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Action options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation type="unfinished"/>
     </message>
@@ -13810,15 +13958,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator language is not supported by Google translation service</source>
+      <source>Translation to operator language failed</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Visitor language is not supported by Google translation service!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator language is not supported by DeepL translation service</source>
+      <source>Translation to visitor language failed</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13831,6 +13975,14 @@
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>CSRF is missing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a message to be translated</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -14517,6 +14669,14 @@
   <context>
     <name>front/default</name>
     <message>
+      <source>Old dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Pending confirm</source>
       <translation type="unfinished"/>
     </message>
@@ -14582,14 +14742,6 @@
     </message>
     <message>
       <source>Reset widget filters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Old dashboard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New dashboard</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14739,6 +14891,10 @@
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your name</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17335,6 +17491,10 @@
       <source>Transfer chat</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>No permission to access this chat.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/userjoined</name>
@@ -19393,7 +19553,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>If multilanguage is used for the name, default should be always defined.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Possible languages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Regular syntax. Depreciated.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can define multilanguage label for your custom fields. Default should be always defined.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -26172,6 +26344,10 @@
     </message>
     <message>
       <source>Completed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attachment</source>
       <translation type="unfinished"/>
     </message>
   </context>

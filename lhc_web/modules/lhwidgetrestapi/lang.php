@@ -15,7 +15,7 @@ $translations = array(
         "minimize" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Minimize'),
         "end_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','End chat'),
         "start_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start a chat'),
-        "bb_code" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','BB code'),
+        "bb_code" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Emojis'),
         "print" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Print'),
         "dwntxt" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Download as txt'),
         "mail" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Send chat to your email!'),
@@ -77,6 +77,7 @@ $translations = array(
         "processing" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Processing...'),
         "upload_failed" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Upload failed!'),
         "completed" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Completed.'),
+        "attachment" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Attachment'),
     ],
     "notifications" => [
         "subscribing" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/notifications','Subscribing...')
