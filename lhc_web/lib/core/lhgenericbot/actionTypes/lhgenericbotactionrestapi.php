@@ -2301,15 +2301,18 @@ class erLhcoreClassGenericBotActionRestapi
 
                     $foreachCycleParseTemplate = $matchesValues[3][$indexElement];
 
-                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => $matchesValues[1][$indexElement], 'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => ((int)$matchesValues[1][$indexElement] + 1), 'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
 
                     $totalElements = count($messages);
+                    $userMessageStarted = $totalElements <= (int)$matchesValues[1][$indexElement];
+                    
+                    if ($totalElements > (int)$matchesValues[1][$indexElement]) {
+                        array_shift($messages);
+                        $totalElements = count($messages);
+                    }
+                    
                     $content = '';
-
                     $counter = 0;
-
-                    // It's safe to include all messages
-                    $userMessageStarted = erLhcoreClassGenericBotWorkflow::$startChat == true || (isset($userData['params_customer']['start_mode']) && $userData['params_customer']['start_mode'] == true);
 
                     foreach ($messages as $message) {
 
