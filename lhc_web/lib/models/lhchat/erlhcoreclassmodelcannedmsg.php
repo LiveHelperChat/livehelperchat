@@ -319,6 +319,10 @@ class erLhcoreClassModelCannedMsg
                 '(id IN (SELECT canned_id FROM lh_canned_msg_dep WHERE dep_id = ' . (int)$department_id . ') AND (user_id = 0 OR ' . $q->expr->eq('user_id', $q->bindValue($user_id)) . '))'
             );
 	
+            if (isset($paramsFilter['auto_send']) && $paramsFilter['auto_send'] === true) {
+                $filter[] = $q->expr->eq('auto_send', 1);
+            }
+
 	        if (isset($paramsFilter['q']) && $paramsFilter['q'] != '') {
 	            $filter[] = $q->expr->lOr(
 	                $q->expr->like('msg', $q->bindValue('%' . $paramsFilter['q'] . '%')),
@@ -359,15 +363,17 @@ class erLhcoreClassModelCannedMsg
         }
 
         // Include subjects associated with canned messages
-        $keys = array_keys($items);
-        if (!empty($keys)) {
-            $cannedSubjects = erLhcoreClassModelCannedMsgSubject::getList(array('limit' => false, array('filterin' => array('canned_id' => $keys))));
-            foreach ($cannedSubjects as $cannedSubject) {
-                if (isset($items[$cannedSubject->canned_id])){
-                    if (!isset($items[$cannedSubject->canned_id]->subjects_ids)) {
-                        $items[$cannedSubject->canned_id]->subjects_ids = [];
+        if (!isset($paramsFilter['ignore_subjects']) || $paramsFilter['ignore_subjects'] === false) { 
+            $keys = array_keys($items);
+            if (!empty($keys)) {
+                $cannedSubjects = erLhcoreClassModelCannedMsgSubject::getList(array('limit' => false, array('filterin' => array('canned_id' => $keys))));
+                foreach ($cannedSubjects as $cannedSubject) {
+                    if (isset($items[$cannedSubject->canned_id])){
+                        if (!isset($items[$cannedSubject->canned_id]->subjects_ids)) {
+                            $items[$cannedSubject->canned_id]->subjects_ids = [];
+                        }
+                        $items[$cannedSubject->canned_id]->subjects_ids[] = $cannedSubject->subject_id;
                     }
-                    $items[$cannedSubject->canned_id]->subjects_ids[] = $cannedSubject->subject_id;
                 }
             }
         }

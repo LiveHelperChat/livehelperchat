@@ -1162,20 +1162,9 @@ class erLhcoreClassChatWorkflow {
         ));
 
         if ($statusWorkflow === false) {
-            $session = erLhcoreClassChat::getSession();
-            $q = $session->createFindQuery( 'erLhcoreClassModelCannedMsg' );
-            $q->where(
-                $q->expr->lOr(
-                    $q->expr->eq( 'department_id', $q->bindValue($chat->dep_id) ),
-                    $q->expr->lAnd($q->expr->eq( 'department_id', $q->bindValue( 0 ) ),$q->expr->eq( 'user_id', $q->bindValue( 0 ) )),
-                    $q->expr->eq( 'user_id', $q->bindValue($chat->user_id) )
-                ),
-                $q->expr->eq( 'auto_send', $q->bindValue(1) )
-            );
-
-            $q->limit(1, 0);
-            $q->orderBy('user_id DESC, position ASC, id ASC' ); // Questions with matched URL has higher priority
-            $items = $session->find( $q );
+            $items = erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id, $chat->user_id, array(
+                'ignore_subjects' => true, 
+                'auto_send' => true));
         } else {
             $items = $statusWorkflow['items'];
         }
