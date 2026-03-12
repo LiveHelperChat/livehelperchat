@@ -4,7 +4,8 @@ import { withTranslation } from 'react-i18next';
 class ChatField extends Component {
 
     state = {
-        hiddenIfPrefilled: false
+        hiddenIfPrefilled: false,
+        defaultValue : ''
     };
 
     constructor(props) {
@@ -59,10 +60,17 @@ class ChatField extends Component {
     }
 
     componentDidMount() {
+
+        if (this.props.field.has('hide_prefilled') && this.props.field.get('hide_prefilled') == true && this.props.field.has('identifier_prefill')) {
+            this.defaultValue = '';
+        } else {
+            this.defaultValue = this.props.defaultValueField;
+        }
+
         if (this.props.field.get('type') == 'checkbox' && this.props.field.get('default') == true) {
             this.props.onChangeContent({id : this.props.field.get('name'), value : true});
         } else if (this.props.field.get('type') == 'dropdown' || this.props.field.get('type') == 'text') {
-            this.props.onChangeContent({id : this.props.field.get('name'), value : this.props.defaultValueField});
+            this.props.onChangeContent({id : this.props.field.get('name'), value : this.defaultValue});
 
             if (this.props.field.has('hide_prefilled') && this.props.field.get('hide_prefilled') == true && this.props.isInvalid === false && this.props.field.get('value')) {
                 this.setState({'hiddenIfPrefilled':true});
@@ -70,12 +78,12 @@ class ChatField extends Component {
 
             if (this.props.field.get('type') == 'dropdown') {
                 this.props.field.get('options').map((dep) => {
-                    if (dep.get('value') == this.props.defaultValueField && dep.get('dep_id')) {
+                    if (dep.get('value') == this.defaultValue && dep.get('dep_id')) {
                         this.props.onChangeContent({set_default: true, id : 'DepartamentID', subject_id: (dep.has('subject_id') ? dep.get('subject_id') : null), value : dep.get('dep_id')});
                     }
                 });
             }
-        }
+        }       
 
         if (this.props.attrPrefill) {
             if (this.props.attrPrefill.attr_prefill_admin) {
@@ -94,7 +102,8 @@ class ChatField extends Component {
                 this.props.attrPrefill.attr_prefill.forEach((item) => {
 
                     if (this.props.field.has('identifier_prefill') && item[this.props.field.get('identifier_prefill')]) {
-                        this.props.onChangeContent({id : this.props.field.get('name'), value : item[this.props.field.get('identifier_prefill')]});
+                        this.defaultValue = item[this.props.field.get('identifier_prefill')];
+                        this.props.onChangeContent({id : this.props.field.get('name'), value : this.defaultValue});
                         if (this.props.field.has('hide_prefilled') && this.props.field.get('hide_prefilled') == true && this.props.isInvalid === false) {
                             this.setState({'hiddenIfPrefilled':true});
                         }
@@ -138,7 +147,7 @@ class ChatField extends Component {
                 <div className={className}>
                     <div className="form-group">
                         <label className="control-label">{this.props.field.get('label')}{required === true ? '*' : ''}</label>
-                        <input type="text" className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.props.defaultValueField} placeholder={this.props.field.get('placeholder')} />
+                        <input type="text" className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.defaultValue} placeholder={this.props.field.get('placeholder')} />
                         {this.props.validationError === true ? <div class="invalid-feedback">{this.props.validationError}</div> : ''}
                     </div>
                 </div>
@@ -148,7 +157,7 @@ class ChatField extends Component {
                 <div className={className}>
                     <div className="form-group">
                         <label className="control-label">{this.props.field.get('label')}{required === true ? '*' : ''}</label>
-                        <input type="password" autocomplete="new-password" className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.props.defaultValueField} placeholder={this.props.field.get('placeholder')} />
+                        <input type="password" autocomplete="new-password" className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.defaultValue} placeholder={this.props.field.get('placeholder')} />
                         {this.props.validationError === true && this.props.validationError ? <div class="invalid-feedback">{this.props.validationError}</div> : ''}
                     </div>
                 </div>
@@ -158,7 +167,7 @@ class ChatField extends Component {
                 <div className={className}>
                     <div className="form-group">
                         {!this.props.chatUI.has('hide_message_label') && this.props.field.get('identifier') == 'question' && <label className="control-label">{this.props.field.get('label')}{required === true ? '*' : ''}</label>}
-                        <textarea maxLength={this.props.field.get('name') == 'Question' ? this.props.chatUI.get('max_length') : null} className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.props.defaultValueField} placeholder={this.props.field.get('placeholder')} />
+                        <textarea maxLength={this.props.field.get('name') == 'Question' ? this.props.chatUI.get('max_length') : null} className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.defaultValue} placeholder={this.props.field.get('placeholder')} />
                         {this.props.validationError ? <div class="invalid-feedback">{this.props.validationError}</div> : ''}
                     </div>
                 </div>
@@ -186,13 +195,13 @@ class ChatField extends Component {
                 </div>
             )
         } else if (this.props.field.get('type') == 'hidden') {
-            return <input type="hidden" className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.props.defaultValueField} placeholder={this.props.field.get('placeholder')} />
+            return <input type="hidden" className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.defaultValue} placeholder={this.props.field.get('placeholder')} />
         } else if (this.props.field.get('type') == 'dropdown') {
-           var options = this.props.field.get('options').map(dep => <option key={'opt-drop-'+dep.get('value')} subject-id={dep.has('subject_id') ? dep.get('subject_id') : null} dep-id={dep.get('dep_id')} selected={this.props.defaultValueField == dep.get('value')} value={dep.get('value')}>{dep.get('name')}</option>);
+           var options = this.props.field.get('options').map(dep => <option key={'opt-drop-'+dep.get('value')} subject-id={dep.has('subject_id') ? dep.get('subject_id') : null} dep-id={dep.get('dep_id')} selected={this.defaultValue == dep.get('value')} value={dep.get('value')}>{dep.get('name')}</option>);
            return (<div className={className}>
                 <div className="form-group">
                     <label className="control-label">{this.props.field.get('label')}{required === true ? '*' : ''}</label>
-                    <select className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'target': e.target, 'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.props.defaultValueField}>
+                    <select className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'target': e.target, 'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.defaultValue}>
                         {options}
                     </select>
                     {this.props.validationError === true ? <div class="invalid-feedback">{this.props.validationError}</div> : ''}

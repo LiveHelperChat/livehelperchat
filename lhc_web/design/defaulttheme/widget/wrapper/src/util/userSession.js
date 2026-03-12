@@ -225,11 +225,14 @@ export class userSession {
         if (this.withCredentials == true) {
             xhr.withCredentials = true;
         }
+        
+        xhr.onloadend = () => {
+            if (typeof cb !== 'undefined' && this.hash === null && this.id === null) {
+                cb(varsJSON, this.getPrefillVars());
+            }
+        };
+        
         xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(varsJSON) )+"&host=" + window.location.origin );
-
-        if (typeof cb !== 'undefined' && this.hash === null && this.id === null) {
-            cb(varsJSON, this.getPrefillVars());
-        }
     }
 
     setChatInformation(data, alwaysPersistentNeedHelp) {

@@ -568,10 +568,10 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 269;
+$outputResponse['wv'] = 270;
  
 // React APP versions
-$outputResponse['v'] = 400;
+$outputResponse['v'] = 401;
 
 $cfg = erConfigClassLhConfig::getInstance();
 

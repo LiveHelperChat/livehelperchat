@@ -321,14 +321,22 @@ class StartChat extends Component {
         }));
     }
 
-    updateOnlineFields() {
-        if (this.props.chatwidget.getIn(['onlineData','fetched']) === false) {
+    updateOnlineFields(forceOnlineFieldsUpdate) {
+        if (this.props.chatwidget.getIn(['onlineData','fetched']) === false || forceOnlineFieldsUpdate === true) {
             this.updateOnlineFieldsInit();
         }
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        this.updateOnlineFields();
+
+        let forceOnlineFieldsUpdate = false;
+        if (JSON.stringify(this.props.chatwidget.get('attr_prefill')) !== JSON.stringify(prevProps.chatwidget.get('attr_prefill'))) {
+            forceOnlineFieldsUpdate = true;
+        }
+
+        this.updateOnlineFields(forceOnlineFieldsUpdate);
+
+        
         if (document.getElementById('id-container-fluid')) {
             helperFunctions.sendMessageParent('widgetHeight', [{'height' : document.getElementById('id-container-fluid').offsetHeight+40}]);
         }
@@ -498,7 +506,7 @@ class StartChat extends Component {
     }
 
     if (this.props.chatwidget.getIn(['onlineData','fields']).size > 0 && !(this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0)) {
-        var mappedFields = this.props.chatwidget.getIn(['onlineData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} key={field.get('identifier')} validationError={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')]) ? this.props.chatwidget.getIn(['validationErrors',field.get('identifier')]) : null} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={this.state[field.get('name')] || field.get('value')} attrPrefill={{'attr_prefill_admin' : this.props.chatwidget.get('attr_prefill_admin'), 'attr_prefill' : this.props.chatwidget.get('attr_prefill')}} onChangeContent={this.handleContentChange} field={field} />);
+        var mappedFields = this.props.chatwidget.getIn(['onlineData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} key={field.get('identifier') + '_' + JSON.stringify(this.props.chatwidget.get('attr_prefill')) + '_' + JSON.stringify(this.props.chatwidget.get('attr_prefill_admin'))} validationError={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')]) ? this.props.chatwidget.getIn(['validationErrors',field.get('identifier')]) : null} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={this.state[field.get('name')] || field.get('value')} attrPrefill={{'attr_prefill_admin' : this.props.chatwidget.get('attr_prefill_admin'), 'attr_prefill' : this.props.chatwidget.get('attr_prefill')}} onChangeContent={this.handleContentChange} field={field} />);
     } else {
         var mappedFields = "";
     }
