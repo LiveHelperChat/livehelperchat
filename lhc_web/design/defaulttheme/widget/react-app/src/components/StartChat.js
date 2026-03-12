@@ -13,7 +13,7 @@ import ChatBotIntroMessage from './ChatBotIntroMessage';
 import ChatAbort from './ChatAbort';
 import SharedTextarea from './SharedTextarea';
 
-import { initOnlineForm, submitOnlineForm, minimizeWidget } from "../actions/chatActions"
+import { initOnlineForm, submitOnlineForm, minimizeWidget, initProactive } from "../actions/chatActions"
 
 class ChatStatusContainer extends React.PureComponent {
     render() {
@@ -324,6 +324,15 @@ class StartChat extends Component {
     updateOnlineFields(forceOnlineFieldsUpdate) {
         if (this.props.chatwidget.getIn(['onlineData','fetched']) === false || forceOnlineFieldsUpdate === true) {
             this.updateOnlineFieldsInit();
+
+            if (forceOnlineFieldsUpdate && this.props.chatwidget.hasIn(['proactive','data','invitation_id']) === true) {
+                    this.props.dispatch(initProactive({
+                            'invitation' : this.props.chatwidget.getIn(['proactive','data','invitation_id']),
+                            'vid' : this.props.chatwidget.get('vid'),
+                            'theme' : this.props.chatwidget.get('theme')
+                    })
+                );
+            } 
         }
     }
 
