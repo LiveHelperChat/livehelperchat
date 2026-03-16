@@ -42,6 +42,7 @@ const initialState = fromJS({
     usersettings : {soundOn : false},
     vid: null,
     base_url: null,
+    expand_mode: false,
     position_placement: '',
     position_placement_original: '',
     initClose : false,
@@ -115,6 +116,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         case 'trigger_id':
         case 'priority':
         case 'position_placement':
+        case 'expand_mode':
         case 'position_placement_original':
         case 'lang': {
             return state.set(action.type,action.data);

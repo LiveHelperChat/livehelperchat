@@ -779,6 +779,28 @@ $fields = array(
                       'validation_definition' => new ezcInputFormDefinitionElement(
                           ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                       )),
+                'shrink_text' => array(
+                      'type' => 'text',
+                      'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Title of the collapse icon'),
+                      'required' => false,
+                      'hidden' => true,
+                      'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Collapse content'),
+                      'translatable' => true,
+                      'main_attr' => 'bot_configuration_array',
+                      'validation_definition' => new ezcInputFormDefinitionElement(
+                          ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                      )),
+                'expand_text' => array(
+                      'type' => 'text',
+                      'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Title of the expand icon'),
+                      'required' => false,
+                      'hidden' => true,
+                      'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Expand content'),
+                      'translatable' => true,
+                      'main_attr' => 'bot_configuration_array',
+                      'validation_definition' => new ezcInputFormDefinitionElement(
+                          ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                      )),
                 'popup_text' => array(
                       'type' => 'text',
                       'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Title of the popup icon'),
@@ -1432,7 +1454,26 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
-
+                'expandw' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget width expand ratio (1.01 - 1.99) or pixels if more than 2'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'expandh' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget height expand ratio (1.01 - 1.99) or pixels if more than 2'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
                 'operator_avatar' => array(
                     'type' => 'text',
                     'main_attr' => 'bot_configuration_array',

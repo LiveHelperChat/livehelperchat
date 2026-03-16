@@ -1,0 +1,110 @@
+/*
+  Icon Font: MaterialIcons-lhc-v7
+*/
+
+@font-face {
+  font-family: "MaterialIcons-lhc-v7";
+  src: url("./MaterialIcons-lhc-v7.eot");
+  src: url("./MaterialIcons-lhc-v7.eot?#iefix") format("embedded-opentype"),
+       url("./MaterialIcons-lhc-v7.woff2") format("woff2"),
+       url("./MaterialIcons-lhc-v7.woff") format("woff"),
+       url("./MaterialIcons-lhc-v7.ttf") format("truetype"),
+       url("./MaterialIcons-lhc-v7.svg#MaterialIcons-lhc-v7") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "MaterialIcons-lhc-v7";
+    src: url("./MaterialIcons-lhc-v7.svg#MaterialIcons-lhc-v7") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.i-ic_account_box_24px:before,
+.i-ic_attach_file_24px:before,
+.i-ic_close_24px:before,
+.i-ic_cloud_download_24px:before,
+.i-ic_collapse_content_24px:before,
+.i-ic_edit_24px:before,
+.i-ic_expand_content_24px:before,
+.i-ic_face_24px:before,
+.i-ic_fiber_manual_record_24px:before,
+.i-ic_fold_24px:before,
+.i-ic_format_size_24px:before,
+.i-ic_full_screen_24px:before,
+.i-ic_full_screen_exit_24px:before,
+.i-ic_hourglass_empty_24px:before,
+.i-ic_image_24px:before,
+.i-ic_language_24px:before,
+.i-ic_link_24px:before,
+.i-ic_mail_outline_24px:before,
+.i-ic_menu_24px:before,
+.i-ic_mic_none_24px:before,
+.i-ic_minimize_24px:before,
+.i-ic_notifications_24px:before,
+.i-ic_open_in_new_24px:before,
+.i-ic_phone_in_talk_24px:before,
+.i-ic_play_arrow_24px:before,
+.i-ic_print_24px:before,
+.i-ic_send_24px:before,
+.i-ic_settings_24px:before,
+.i-ic_stop_24px:before,
+.i-ic_thumb_down_24px:before,
+.i-ic_thumb_up_24px:before,
+.i-ic_unfold_24px:before,
+.i-ic_volume_off_24px:before,
+.i-ic_volume_up_24px:before,
+.i-lhc:before {
+  display: inline-block;
+  font-family: "MaterialIcons-lhc-v7";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.i-ic_account_box_24px:before { content: "\f10d"; }
+.i-ic_attach_file_24px:before { content: "\f10e"; }
+.i-ic_close_24px:before { content: "\f10a"; }
+.i-ic_cloud_download_24px:before { content: "\f119"; }
+.i-ic_collapse_content_24px:before { content: "\f127"; }
+.i-ic_edit_24px:before { content: "\f116"; }
+.i-ic_expand_content_24px:before { content: "\f128"; }
+.i-ic_face_24px:before { content: "\f104"; }
+.i-ic_fiber_manual_record_24px:before { content: "\f10f"; }
+.i-ic_fold_24px:before { content: "\f123"; }
+.i-ic_format_size_24px:before { content: "\f11d"; }
+.i-ic_full_screen_24px:before { content: "\f124"; }
+.i-ic_full_screen_exit_24px:before { content: "\f125"; }
+.i-ic_hourglass_empty_24px:before { content: "\f113"; }
+.i-ic_image_24px:before { content: "\f114"; }
+.i-ic_language_24px:before { content: "\f11e"; }
+.i-ic_link_24px:before { content: "\f115"; }
+.i-ic_mail_outline_24px:before { content: "\f11a"; }
+.i-ic_menu_24px:before { content: "\f105"; }
+.i-ic_mic_none_24px:before { content: "\f10b"; }
+.i-ic_minimize_24px:before { content: "\f11c"; }
+.i-ic_notifications_24px:before { content: "\f118"; }
+.i-ic_open_in_new_24px:before { content: "\f106"; }
+.i-ic_phone_in_talk_24px:before { content: "\f117"; }
+.i-ic_play_arrow_24px:before { content: "\f111"; }
+.i-ic_print_24px:before { content: "\f10c"; }
+.i-ic_send_24px:before { content: "\f107"; }
+.i-ic_settings_24px:before { content: "\f100"; }
+.i-ic_stop_24px:before { content: "\f112"; }
+.i-ic_thumb_down_24px:before { content: "\f108"; }
+.i-ic_thumb_up_24px:before { content: "\f109"; }
+.i-ic_unfold_24px:before { content: "\f126"; }
+.i-ic_volume_off_24px:before { content: "\f101"; }
+.i-ic_volume_up_24px:before { content: "\f102"; }
+.i-lhc:before { content: "\f11b"; }

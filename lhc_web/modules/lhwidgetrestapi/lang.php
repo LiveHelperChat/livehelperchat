@@ -38,8 +38,10 @@ $translations = array(
         "next" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Next 〉'),
         "back" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','〈 Back'),
         "submit" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Submit'),
-        "fheight_text_col" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Switch to Column'),
-        "fheight_text_class" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Switch to Classic')
+        "fheight_text_col" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Switch to Column'),
+        "fheight_text_class" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Switch to Classic'),
+        "shrink_text" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Collapse content'),
+        "expand_text" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Expand content')
     ],
     "chat" => [
         "option_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from the operator'),

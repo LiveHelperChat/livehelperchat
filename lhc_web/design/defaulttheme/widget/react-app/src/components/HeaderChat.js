@@ -19,6 +19,7 @@ class HeaderChat extends Component {
         this.endChat = this.endChat.bind(this);
         this.popup = this.popup.bind(this);
         this.switchColumn = this.switchColumn.bind(this);
+        this.expandChat = this.expandChat.bind(this);
     }
 
     closeWidget() {
@@ -35,6 +36,10 @@ class HeaderChat extends Component {
 
     switchColumn(){
         this.props.switchColumn();
+    }
+
+    expandChat(){
+        this.props.expandChat();
     }
 
     render() {
@@ -79,6 +84,13 @@ class HeaderChat extends Component {
                         {(this.props.chatwidget.hasIn(['chat_ui','img_icon_close']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_close'])} alt="" />) || <i className="material-icons">&#xf10a;</i>}
                         {btn.get('print') && <span className="end-chat-text">{endText}</span>}
                     </a>;
+                } else if (btn.get('btn') == 'expand' && !this.props.chatwidget.get('isMobile')) {
+                    const expandText = this.props.chatwidget.get('expand_mode') === true ? (this.props.chatwidget.getIn(['chat_ui','shrink_text']) || t('button.shrink_text')) : (this.props.chatwidget.getIn(['chat_ui','expand_text']) || t('button.expand_text'));
+                    iconsNumber++;
+                    return <a key={btn.get('pos')+index} tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.expandChat() : '' }} title={expandText} className={"header-link float-"+position} onClick={this.expandChat}>
+                        {(this.props.chatwidget.hasIn(['chat_ui','img_icon_expand']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_expand'])} alt="" />) || <i className="material-icons">{this.props.chatwidget.get('expand_mode') === true ? <React.Fragment>&#xf127;</React.Fragment> : <React.Fragment>&#xf128;</React.Fragment>}</i>}
+                        {btn.get('print') && <span className="expand-chat-text">{expandText}</span>}
+                    </a>;
                 } else if (btn.get('btn') == 'fullheight' && !this.props.chatwidget.get('isMobile')) {
                     iconsNumber++;
                     let fheightText = '';
@@ -119,6 +131,13 @@ class HeaderChat extends Component {
                 return <a key={btn.get('pos')+index} tabIndex="0" title={endText} onKeyPress={(e) => { e.key === "Enter" ? this.endChat() : '' }} className={"header-link header-burger-link  py-1 d-block text-nowrap ps-1"} onClick={this.endChat}>
                     {(this.props.chatwidget.hasIn(['chat_ui','img_icon_close']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_close'])} alt="" />) || <i className="material-icons">&#xf10a;</i>}
                     <span className="menu-text">{endText}</span>
+                </a>;
+            } else if (btn.get('btn') == 'expand' && !this.props.chatwidget.get('isMobile')) {
+                const expandText = this.props.chatwidget.getIn(['chat_ui','expand_text']) || t('button.expand_text');
+                iconsNumber++;
+                return <a key={btn.get('pos')+index} tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.expandChat() : '' }} title={expandText} className={"header-link float-"+position} onClick={this.expandChat}>
+                    {(this.props.chatwidget.hasIn(['chat_ui','img_icon_expand']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_expand'])} alt="" />) || <i className="material-icons">{this.props.chatwidget.get('expand_mode') === true ? <React.Fragment>&#xf127;</React.Fragment> : <React.Fragment>&#xf128;</React.Fragment>}</i>}
+                    {btn.get('print') && <span className="expand-chat-text">{expandText}</span>}
                 </a>;
             } else if (btn.get('btn') == 'fullheight' && !this.props.chatwidget.get('isMobile')) {
                 dropdownNumber++;

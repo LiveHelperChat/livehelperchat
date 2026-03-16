@@ -173,9 +173,9 @@ export class mainWidget{
                 } else {
                     attributes.widgetDimesions.nextPropertySilent('height_soverride', null);
                 }
-
-                if (window.innerWidth < attributes.widgetDimesions.valueInternal['width'] + 60) {
-                    attributes.widgetDimesions.nextPropertySilent('width_soverride', window.innerWidth - 60);
+    
+                if (window.innerWidth < Math.max(attributes.widgetDimesions.valueInternal['width'], attributes.widgetDimesions.value['width_override'] ? attributes.widgetDimesions.value['width_override'] : 0) + 60) {
+                      attributes.widgetDimesions.nextPropertySilent('width_soverride', window.innerWidth - 60);
                 } else {
                     attributes.widgetDimesions.nextPropertySilent('width_soverride', null);
                 }
@@ -283,7 +283,7 @@ export class mainWidget{
     }
 
     monitorDimensions(data) {
-        this.width = data.width_override || data.width_soverride || data.width;
+        this.width = data.width_soverride || data.width_override || data.width;
         this.height = data.height_soverride || data.height_override || data.height;
         this.bottom = data.bottom_override ? (data.bottom_override + (data.wbottom ? data.wbottom : 0)) : (30 + (this.attributes.clinst === true ? 70 : 0) + (data.wbottom ? data.wbottom : 0));
         this.right = data.right_override ? (data.right_override + (data.wright_inv ? data.wright_inv : 0)) : (30 + (data.wright ? data.wright : 0));

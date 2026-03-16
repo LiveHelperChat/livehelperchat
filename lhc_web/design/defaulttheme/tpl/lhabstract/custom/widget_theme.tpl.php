@@ -409,8 +409,8 @@
                             <label><?php echo $fields['icons_order']['trans'];?></label>
                             <?php echo erLhcoreClassAbstract::renderInput('icons_order', $fields['icons_order'], $object)?>
                             <div class="text-muted fs12">E.g</div>
-                            <div class="text-muted fs12">* dropdown_print,dropdown_min,dropdown_popup,dropdown_fullheight,dropdown_close</div>
-                            <div class="text-muted fs12">* left_close,right_min,dropdown_popup,left_fullheight,dropdown_close</div>
+                            <div class="text-muted fs12">* dropdown_print,dropdown_min,dropdown_popup,dropdown_fullheight,dropdown_close,dropdown_expand</div>
+                            <div class="text-muted fs12">* left_close,right_min,right_popup,left_fullheight,dropdown_close,right_expand</div>
                         </div>
 
                     <div class="row">
@@ -658,7 +658,20 @@
                                 <option value="full_height_left" <?php $object->widget_position == 'full_height_left' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Full height left');?></option>
                             </select>
                         </div>
-
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['expandw']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('expandw', $fields['expandw'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['expandh']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('expandh', $fields['expandh'], $object)?>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -673,7 +686,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -876,6 +888,12 @@
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
                     <?php $translatableItem = array('identifier' => 'min_text'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'expand_text'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'shrink_text'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
                     <?php $translatableItem = array('identifier' => 'popup_text'); ?>

@@ -19,12 +19,12 @@ a {
     font-family: 'MaterialIconsLHC';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/MaterialIcons-lhc-v6.eot'); /* For IE6-8 */
+    src: url('../fonts/MaterialIcons-lhc-v7.eot'); /* For IE6-8 */
     src: local('MaterialIconsLHC'),
     local('MaterialIconsLHC'),
-    url('../fonts/MaterialIcons-lhc-v6.woff2') format('woff2'),
-    url('../fonts/MaterialIcons-lhc-v6.woff') format('woff'),
-    url('../fonts/MaterialIcons-lhc-v6.ttf') format('truetype');
+    url('../fonts/MaterialIcons-lhc-v7.woff2') format('woff2'),
+    url('../fonts/MaterialIcons-lhc-v7.woff') format('woff'),
+    url('../fonts/MaterialIcons-lhc-v7.ttf') format('truetype');
     font-display: swap;
 }
 

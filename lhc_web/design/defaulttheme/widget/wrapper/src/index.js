@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 270;
+            lhc.version = 271;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -221,6 +221,9 @@
                 attributesWidget.widgetDimesions = new BehaviorSubject({
                     sright: (LHC_API.args.sright || 0),
                     sbottom: (LHC_API.args.sbottom || 0),
+                    expand_mode: false,
+                    expandw: (LHC_API.args.expandw || 1.2), // Expand width ratio
+                    expandh: (LHC_API.args.expandh || 1.2), // Expand height ratio
                     wright_inv: 0,
                     wbottom: 0,
                     wtop: 0,
@@ -452,49 +455,21 @@
                             attributesWidget.status_delay = data.chat_ui.status_delay;
                         }
 
-                        if (data.chat_ui.kcw) {
-                            attributesWidget.kcw = true;
-                        }
-
-                        if (data.chat_ui.clinst) {
-                            attributesWidget.clinst = true;
-                        }
-
-                        if (data.chat_ui.drag_enabled) {
-                            attributesWidget.drag_enabled = true;
-                        }
-
-                        if (data.chat_ui.animate_nh) {
-                            attributesWidget.animate_nh = true;
-                        }
+                        ['kcw', 'clinst', 'drag_enabled', 'animate_nh'].forEach(prop => {
+                            if (data.chat_ui[prop]) {
+                                attributesWidget[prop] = true;
+                            }
+                        });
 
                         if (data.chat_ui.viewport) {
                             attributesWidget.viewport_enabled = data.chat_ui.viewport != 2 && data.chat_ui.viewport == 1 && isMobile === true;
                         }
 
-                        if (data.chat_ui.wbottom) {
-                            attributesWidget.widgetDimesions.nextProperty('wbottom', data.chat_ui.wbottom);
-                        }
-
-                        if (data.chat_ui.wtop) {
-                            attributesWidget.widgetDimesions.nextProperty('wtop', data.chat_ui.wtop);
-                        }
-
-                        if (data.chat_ui.sbottom) {
-                            attributesWidget.widgetDimesions.nextProperty('sbottom', data.chat_ui.sbottom);
-                        }
-
-                        if (data.chat_ui.sright) {
-                            attributesWidget.widgetDimesions.nextProperty('sright', data.chat_ui.sright);
-                        }
-
-                        if (data.chat_ui.wright) {
-                            attributesWidget.widgetDimesions.nextProperty('wright', data.chat_ui.wright);
-                        }
-
-                        if (data.chat_ui.wright_inv) {
-                            attributesWidget.widgetDimesions.nextProperty('wright_inv', data.chat_ui.wright_inv);
-                        }
+                        ['wbottom', 'wtop', 'sbottom', 'expandw', 'expandh', 'sright', 'wright', 'wright_inv'].forEach(prop => {
+                            if (data.chat_ui[prop]) {
+                                attributesWidget.widgetDimesions.nextProperty(prop, data.chat_ui[prop]);
+                            }
+                        });
 
                         if (data.chat_ui.mobile_popup && isMobile && attributesWidget.mode != 'embed') {
                             attributesWidget.mode = 'popup';
@@ -1026,19 +1001,35 @@
                         return;
                     }
 
+                    if (typeof data.expand_mode !== 'undefined') {
+                        attributesWidget.widgetDimesions.nextProperty('expand_mode', data.expand_mode);
+                        if (data.expand_mode === true) {
+                            attributesWidget.widgetDimesions.nextPropertySilent('height_override', attributesWidget.widgetDimesions.value['expandh'] > 2 ? (attributesWidget.widgetDimesions.value['height'] + attributesWidget.widgetDimesions.value['expandh']) : (attributesWidget.widgetDimesions.value['height'] * attributesWidget.widgetDimesions.value['expandh']));
+                            attributesWidget.widgetDimesions.nextPropertySilent('width_override', attributesWidget.widgetDimesions.value['expandw'] > 2 ? (attributesWidget.widgetDimesions.value['width'] + attributesWidget.widgetDimesions.value['expandw']) : (attributesWidget.widgetDimesions.value['width'] *  attributesWidget.widgetDimesions.value['expandw']) );
+                        } else {
+                            attributesWidget.widgetDimesions.nextPropertySilent('height_override', null);
+                            attributesWidget.widgetDimesions.nextPropertySilent('width_override', null);
+                        }
+                        attributesWidget.widgetDimesions.callListeners();
+                        attributesWidget.mainWidget.resizeTrigger();
+                        return;
+                    }
+
                     if (data.reset_height) {
-                        attributesWidget.widgetDimesions.nextProperty('height_override', null);
-                        attributesWidget.widgetDimesions.nextProperty('bottom_override', null);
-                        attributesWidget.widgetDimesions.nextProperty('right_override', null);
-                        attributesWidget.widgetDimesions.nextProperty('width_override', null);
+                        attributesWidget.widgetDimesions.nextPropertySilent('height_override', null);
+                        attributesWidget.widgetDimesions.nextPropertySilent('bottom_override', null);
+                        attributesWidget.widgetDimesions.nextPropertySilent('right_override', null);
+                        attributesWidget.widgetDimesions.nextPropertySilent('width_override', null);
+                        attributesWidget.widgetDimesions.callListeners();
                         return;
                     }
 
                     if (data.force_height || data.force_width || data.force_bottom || data.force_right) {
-                        data.force_height && attributesWidget.widgetDimesions.nextProperty('height_override', data.force_height);
-                        data.force_width && attributesWidget.widgetDimesions.nextProperty('width_override', data.force_width);
-                        data.force_right && attributesWidget.widgetDimesions.nextProperty('right_override', data.force_right);
-                        data.force_bottom && attributesWidget.widgetDimesions.nextProperty('bottom_override', data.force_bottom);
+                        data.force_height && attributesWidget.widgetDimesions.nextPropertySilent('height_override', data.force_height);
+                        data.force_width && attributesWidget.widgetDimesions.nextPropertySilent('width_override', data.force_width);
+                        data.force_right && attributesWidget.widgetDimesions.nextPropertySilent('right_override', data.force_right);
+                        data.force_bottom && attributesWidget.widgetDimesions.nextPropertySilent('bottom_override', data.force_bottom);
+                        attributesWidget.widgetDimesions.callListeners();
                         return;
                     }
 
