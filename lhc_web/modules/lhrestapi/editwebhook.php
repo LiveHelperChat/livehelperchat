@@ -9,6 +9,10 @@ try {
         throw new Exception("Invalid parameters. ID s are required.");
     }
 
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhwebhooks', 'configuration')) {
+        throw new Exception('You do not have permission. `lhwebhooks`, `configuration` is required.');
+    }
+
     $webhook = erLhcoreClassModelChatWebhook::fetch((int)$requestBody['id']);
 
     if (!$webhook) {
@@ -16,8 +20,9 @@ try {
     }
 
     if (isset($requestBody['configuration'])) {
-    $webhook->configuration = $requestBody['configuration'];
+        $webhook->configuration = $requestBody['configuration'];
     }
+
     $webhook->disabled = $requestBody['disabled'];
     $webhook->updateThis();
 
