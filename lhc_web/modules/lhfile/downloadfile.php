@@ -141,6 +141,18 @@ try {
 
         } // Non chat based files, those are always public
 
+        // Verify mime type for old files
+        if (\erLhcoreClassChatWebhookIncoming::getExtensionByMime($file->extension, true) != $file->type) {
+            if (in_array($file->extension,['jpg','jpeg','png'])) {
+                $denyImage = 'design/defaulttheme/images/general/denied.png';
+                header('Content-type: image/png; charset=binary');
+                echo file_get_contents($denyImage);
+                exit;
+            } else {
+                exit('Mime type does not match!');
+            }
+        }
+
         session_write_close();
 
         if (!(isset($_GET['modal']) && $_GET['modal'] === 'true')) {
