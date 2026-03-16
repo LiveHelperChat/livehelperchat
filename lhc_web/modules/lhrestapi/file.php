@@ -58,7 +58,7 @@ try {
 
         $requestBody = json_decode(file_get_contents('php://input'),true);
 
-        $whiteList = ['upload_name','persistent'];
+        $whiteList = ['upload_name','persistent', 'chat_id', 'user_id', 'online_user_id'];
 
         foreach ($requestBody as $attr => $attrValue) {
             if (in_array($attr, $whiteList, true)) {
