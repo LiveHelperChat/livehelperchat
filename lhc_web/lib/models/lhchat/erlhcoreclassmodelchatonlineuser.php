@@ -466,6 +466,12 @@ class erLhcoreClassModelChatOnlineUser
 
     public static function executeRequest($url, $headers = [], $paramsExecution = [])
     {
+        $urlParts = parse_url($url);
+
+        if (!in_array($urlParts['scheme'],['http','https'])) {
+            throw new \Exception('Only HTTP/HTTPS and are supported!');
+        }
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -474,7 +480,7 @@ class erLhcoreClassModelChatOnlineUser
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_USERAGENT, 'curl/7.29.0');
-        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces wargning...
+        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces warning...
         if (!empty($headers)) {
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         }
