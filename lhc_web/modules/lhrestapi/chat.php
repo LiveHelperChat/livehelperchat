@@ -66,12 +66,14 @@ try
             throw new Exception('Chat could not be found!');
         }
 
-        if (erLhcoreClassRestAPIHandler::hasAccessToWrite($chat) && (erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','deleteglobalchat') || (erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','deletechat') && $chat->user_id == erLhcoreClassRestAPIHandler::getUserId())))
-        {
+        if (
+            erLhcoreClassRestAPIHandler::hasAccessToWrite($chat) &&
+            (erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','deleteglobalchat') || (erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','deletechat') && $chat->user_id == erLhcoreClassRestAPIHandler::getUserId()))
+        ) {
+            $chat->removeThis();
+        } else {
             throw new Exception('You do not have permission to delete this chat!');
         }
-
-        $chat->removeThis();
 
         erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => true));
         exit;
