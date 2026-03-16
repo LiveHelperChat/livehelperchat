@@ -140,7 +140,7 @@ class erLhcoreClassModelDepartament {
 	   		break;
 
 	   		case 'inform_options_array':
-	   			$this->inform_options_array = $this->inform_options != '' ? unserialize($this->inform_options) : array();
+	   			$this->inform_options_array = $this->inform_options != '' ? unserialize($this->inform_options, array('allowed_classes' => false)) : array();
 	   			return $this->inform_options_array;
 	   		break;
 

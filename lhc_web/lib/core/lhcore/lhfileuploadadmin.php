@@ -85,6 +85,38 @@ class erLhcoreClassFileUploadAdmin extends erLhcoreClassFileUpload
                 $file->size = $fileUpload->size = filesize($fileUpload->file_path_server);
             }
 
+            // Validate actual file content MIME type against declared Content-Type (finfo_file)
+            if (function_exists('finfo_open')) {
+                $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                $actualMime = finfo_file($finfo, $fileUpload->file_path_server);
+                finfo_close($finfo);
+                if ($actualMime !== false) {
+                    $declaredMime = $fileUpload->type;
+                    $mimeAliases = ['image/jpg' => 'image/jpeg', 'image/pjpeg' => 'image/jpeg', 'image/x-png' => 'image/png'];
+                    $actualMime   = $mimeAliases[$actualMime]   ?? $actualMime;
+                    $declaredMime = $mimeAliases[$declaredMime] ?? $declaredMime;
+                    // ZIP-based Office/ODF containers are legitimately reported as application/zip by finfo
+                    $zipBasedMimes = [
+                        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                        'application/vnd.oasis.opendocument.text',
+                        'application/vnd.oasis.opendocument.spreadsheet',
+                    ];
+                    $mimeCompatible = ($actualMime === $declaredMime)
+                        || ($actualMime === 'application/zip' && in_array($declaredMime, $zipBasedMimes));
+                    if (!$mimeCompatible) {
+                        $fileUpload->beforeRemove();
+                        throw new Exception('Mime type does not match!');
+                    }
+                }
+            }
+
+            if (\erLhcoreClassChatWebhookIncoming::getExtensionByMime($fileUpload->extension, true) != $fileUpload->type) {
+                $fileUpload->beforeRemove();
+                throw new Exception('Mime type does not match!');
+            }
+
             $fileUpload->saveThis();
 
             $this->uploadedFile = $fileUpload;

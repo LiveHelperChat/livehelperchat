@@ -148,7 +148,6 @@ try {
             if (!isset($Params['user_parameters_unordered']['inline']) || $Params['user_parameters_unordered']['inline'] != 'true') {
                 // Download with file name
                 header('Content-Disposition: attachment; filename="'.$file->id.'-'.pathinfo($file->upload_name, PATHINFO_FILENAME).'.'.$file->extension.'"');
-                header('X-Content-Type-Options: nosniff');
                 header('Referrer-Policy: no-referrer');
                 if ($file->chat_id > 0) {
                     header("Cache-Control: private, max-age=3600");
@@ -169,6 +168,7 @@ try {
             exit;
 
         } else {
+            header('X-Content-Type-Options: nosniff');
             header('Content-length: ' . $file->size);
 
             // There was no callbacks or file not found etc, we try to download from standard location

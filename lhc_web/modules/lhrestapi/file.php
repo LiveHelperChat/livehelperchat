@@ -21,7 +21,15 @@ try {
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.new.file_path', array('path' => & $path));
 
-            $upload_handler = new erLhcoreClassFileUploadAdmin(array('chat_id' => (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) ? $_POST['chat_id'] : 0), 'remove_meta' => (isset($data['remove_meta']) ? $data['remove_meta'] : false), 'user_id' => erLhcoreClassRestAPIHandler::getUserId(), 'persistent' => (isset($_POST['persistent']) && $_POST['persistent'] == 'true'), 'file_name_replace' => (isset($_POST['name_replace']) ? $_POST['name_replace'] : ''), 'file_name_manual' => (isset($_POST['name_prepend']) ? $_POST['name_prepend'] : ''), 'upload_dir' => $path, 'download_via_php' => true, 'max_file_size' => $data['fs_max'] * 1024, 'accept_file_types_lhc' => '/\.(' . $data['ft_op'] . ')$/i'));
+            $upload_handler = new erLhcoreClassFileUploadAdmin(array(
+                'chat_id' => (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) ? $_POST['chat_id'] : 0), 'remove_meta' => (isset($data['remove_meta']) ? $data['remove_meta'] : false), 
+                'user_id' => erLhcoreClassRestAPIHandler::getUserId(), 'persistent' => (isset($_POST['persistent']) && $_POST['persistent'] == 'true'), 
+                'file_name_replace' => (isset($_POST['name_replace']) ? $_POST['name_replace'] : ''), 
+                'file_name_manual' => (isset($_POST['name_prepend']) ? $_POST['name_prepend'] : ''), 
+                'upload_dir' => $path, 
+                'download_via_php' => true, 
+                'max_file_size' => $data['fs_max'] * 1024, 
+                'accept_file_types_lhc' => '/\.(' . $data['ft_op'] . ')$/i'));
 
             if ($upload_handler->uploadedFile instanceof erLhcoreClassModelChatFile) {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.file_new_admin.file_store', array('chat_file' => $upload_handler->uploadedFile));
@@ -50,9 +58,13 @@ try {
 
         $requestBody = json_decode(file_get_contents('php://input'),true);
 
+        $whiteList = ['upload_name','persistent'];
+
         foreach ($requestBody as $attr => $attrValue) {
-            $file->{$attr} = $attrValue;
-            $file->updateThis();
+            if (in_array($attr, $whiteList, true)) {
+                $file->{$attr} = $attrValue;
+                $file->updateThis();
+            }
         }
 
         $state = $file->getState();
@@ -78,6 +90,8 @@ try {
         } else {
             header('Content-type: '.$file->type);
             header('Content-Disposition: attachment; filename="'.$file->id.'-'.$file->chat_id.'.'.$file->extension.'"');
+            header('X-Content-Type-Options: nosniff');
+            header('Referrer-Policy: no-referrer');
 
             $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.download', array('chat_file' => $file));
 

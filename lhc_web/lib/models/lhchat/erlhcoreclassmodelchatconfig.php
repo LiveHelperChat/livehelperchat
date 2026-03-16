@@ -102,14 +102,15 @@ class erLhcoreClassModelChatConfig {
    public function __get($variable)
    {
    		switch ($variable) {
-   			case 'data':
-   			        if ($this->value != '' && $this->value != '0'){
-                        $this->data = unserialize($this->value);
+            case 'data':
+                    if ($this->value != '' && $this->value != '0') {
+                        $data = @unserialize($this->value, array('allowed_classes' => false));
+                        $this->data = is_array($data) ? $data : array();
                     } else {
                         $this->data = array();
                     }
-   					return $this->data;
-   				break;
+                    return $this->data;
+                break;
    				
    			case 'data_value':
    					$this->data_value = $this->data;
@@ -132,12 +133,13 @@ class erLhcoreClassModelChatConfig {
    								return $this->current_value;
    							break;
 
-   						default:
-   							break;
-   					}
-   					$this->data = unserialize($this->value);
-   					return $this->data;
-   				break;
+                        default:
+                            break;
+                    }
+                    $data = @unserialize($this->value, array('allowed_classes' => false));
+                    $this->data = is_array($data) ? $data : array();
+                    return $this->data;
+                break;
 
    			default:
    				break;

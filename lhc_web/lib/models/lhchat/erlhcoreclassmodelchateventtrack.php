@@ -38,7 +38,7 @@ class erLhcoreClassModelChatEventTrack
                 break;
 
             case 'data_array':
-                $this->data_array = unserialize($this->data);
+                $this->data_array = @unserialize($this->data, array('allowed_classes' => false));
                 return $this->data_array;
                 break;
 

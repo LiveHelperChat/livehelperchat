@@ -558,7 +558,7 @@ class erLhcoreClassModelChat {
            			if ($jsonData !== null) {
            				$this->chat_variables_array = $jsonData;
            			} else {
-           			    $chat_variables_array = @unserialize($this->chat_variables);
+           			    $chat_variables_array = @unserialize($this->chat_variables, array('allowed_classes' => false));
            			    if ($chat_variables_array !== false) {
            			        $this->chat_variables_array = $chat_variables_array;
            			    } else {
