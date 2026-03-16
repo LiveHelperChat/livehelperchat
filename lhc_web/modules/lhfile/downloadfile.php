@@ -180,12 +180,17 @@ try {
             exit;
 
         } else {
-            header('X-Content-Type-Options: nosniff');
-            header('Content-length: ' . $file->size);
-
+            header('X-Content-Type-Options: nosniff');            
             // There was no callbacks or file not found etc, we try to download from standard location
             if ($response === false) {
-                echo file_get_contents($file->file_path_server);
+                if (file_exists($file->file_path_server) && str_starts_with($file->file_path_server, 'var/')) {
+                    header('Content-length: ' . $file->size);
+                    echo file_get_contents($file->file_path_server);
+                } else {
+                    $denyImage = 'design/defaulttheme/images/general/denied.png';
+                    header('Content-type: image/png; charset=binary');
+                    echo file_get_contents($denyImage);
+                }
             } else {
                 echo $response['filedata'];
             }

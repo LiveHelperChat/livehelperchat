@@ -932,7 +932,7 @@ class erLhcoreClassBBCode
                                 $width = $file->width > 0 ? $file->width : 0;
                                 $height = $file->height > 0 ? $file->height : 0;
 
-                                if ($width == 0 || $height == 0) {
+                                if (($width == 0 || $height == 0) && file_exists($file->file_path_server)) {
                                     list($width, $height) = getimagesize($file->file_path_server);
                                 }
 

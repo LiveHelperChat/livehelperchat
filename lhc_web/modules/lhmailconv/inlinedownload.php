@@ -173,7 +173,7 @@ try {
 
     header('Content-type: '.$file->type);
 
-    if (file_exists($file->file_path_server)) {
+    if (file_exists($file->file_path_server) && str_starts_with($file->file_path_server, 'var/')) {
         header('X-Content-Type-Options: nosniff');
         header('Referrer-Policy: no-referrer');
         header("Cache-Control: private, max-age=3600");
