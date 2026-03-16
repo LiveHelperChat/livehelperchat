@@ -8,6 +8,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -1656,6 +1660,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Title of the collapse icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title of the expand icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Title of the popup icon</source>
       <translation type="unfinished"/>
     </message>
@@ -1885,6 +1897,14 @@
     </message>
     <message>
       <source>Widget width (px)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget width expand ratio (1.01 - 1.99) or pixels if more than 2</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget height expand ratio (1.01 - 1.99) or pixels if more than 2</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8529,6 +8549,14 @@
     </message>
     <message>
       <source>Minimize</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Collapse content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Expand content</source>
       <translation type="unfinished"/>
     </message>
     <message>
