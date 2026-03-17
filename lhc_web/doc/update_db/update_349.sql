@@ -1,0 +1,1 @@
+ALTER TABLE `lh_abstract_proactive_chat_campaign_conv` ADD INDEX `inv_vid` (`invitation_id`,`invitation_status`,`vid_id`);

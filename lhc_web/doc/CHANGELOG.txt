@@ -1,3 +1,35 @@
+4.82v
+
+1. Notable changes since 4.81v
+   - Security/file handling: enhanced MIME type validation across file download endpoints (`downloadfile.php`, `inlinedownload.php`, REST API `file.php`); MIME type constants added in mail conversation parser; all operator/visitor uploads validated against `var` folder path; resolved security issues L01, L02, L04, L05, L06, L11, L13.
+   - Widget: added expand mode with configurable width/height ratios and new `shrink_text`/`expand_text` UI fields; widget communication updated to include user session prefill variables in sent messages; fixed `reloadWidget` function; updated wrapper version.
+   - Chat search/statistics: added message count filters (operators, visitors, bots) to search panel and statistics tabs; added total messages count input field; added search by message ID range.
+   - Chat tab visibility: operators can toggle chat tab visibility (show/hide chat tabs) via quick actions in user settings.
+   - User settings: added auto-accept chats option and alert preference for transferred chats.
+   - Variables/prefill: support for passing custom back-office vars as `lhc_var` variables; encrypted prefilled variables always applied; variable only set when replaceable variable is non-empty; proactive invitations now update vars when custom vars are passed.
+   - Theme/translations: widget theme `translate` method accepts user context; REST API modules (`checkchatstatus`, `getinvitation`, `initchat`, `onlinesettings`, `settings`) use user context for theme translations; multilanguage support for custom fields; `fetchByVid` includes caching option.
+   - Canned messages: refactored retrieval with `getCannedMessages` method; added `auto_send` filter and `ignore_subjects` parameter.
+   - Extensions: support for extensions to contribute custom side-menu items.
+   - Configuration: folder/directory write-permission checks added to the configuration page with per-directory success/error indicators.
+   - Bot: support for background workers in REST API bot action; improved bot detection filtering.
+   - Message history: previous-message loading always uses all messages when the page limit is not reached; safe inclusion of all chat messages.
+
+2. Summary
+   - This release strengthens file handling security with MIME type validation, file path checks, and resolves multiple L-series security issues.
+   - Operator UX improvements include widget expand mode, chat tab visibility toggles, and richer user settings (auto-accept, transfer alerts).
+   - Search and statistics gain new message count filters; extensions gain custom side-menu support; theme translations now respect user context.
+
+3. Contributors
+
+- L01: SSRF via incoming webhook image download (CWE-918)
+- L06: Mass assignment in REST API file PUT leading to arbitrary file read (CWE-915, CWE-22)
+- L11: Stored XSS via Content-Type spoofing in file upload (CWE-79, CWE-345)
+- L13: Unsafe deserialization in configuration loader (CWE-502)
+
+Vulnerability Researcher: Pedro J. Núñez-Cacho Fuentes (https://blogs.tunelko.com)
+
+execute doc/update_db/update_349.sql for update
+
 4.81v
 
 1. Notable changes since 4.80v
