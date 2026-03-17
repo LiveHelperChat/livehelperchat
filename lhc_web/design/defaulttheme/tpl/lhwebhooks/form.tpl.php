@@ -82,7 +82,39 @@
         </select>
     </div>
     <div class="col-6">
-        <button type="button" class="btn btn-sm btn-light" ng-click="webhooksctl.addItem(webhooksctl.itemAdd)">Add</button>
+
+    <div class="btn-group btn-group-sm me-2 mb-2" role="group">
+        <div class="input-group input-group-sm">
+
+        <button type="button" class="btn btn-sm btn-secondary" ng-click="webhooksctl.addItem(webhooksctl.itemAdd)">Add</button>
+
+        <?php if (is_numeric($item->id)) : ?>
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhgenericbot','test_pattern')) : ?>
+                <input type="text" class="form-control form-control-sm" id="test-chat-id" name="chat_id_test" value="<?php isset($_POST['chat_id_test']) ? print (int)$_POST['chat_id_test'] : '';?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="">
+                <button type="button" id="check-against-chat" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save condition first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Test');?></button>
+            <?php endif; ?>
+        <?php endif; ?>
+        </div>
+    </div>
+
+    <?php if (is_numeric($item->id)) : ?>
+        <script>
+            $('#check-against-chat').click(function(){
+                var webhookType = $('input[name="type"]:checked').val();
+                var payload = {'webhook_id' : <?php echo $item->id?>};
+                if (webhookType == '2') {
+                    payload['mail'] = 1;
+                }
+                $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-chat-id').val(), payload, function(data){
+                    $('#output-test').html('<pre class="fs11">'+data+'</pre>');
+                });
+            });
+            $('input[name="type"]').change(function(){
+                $('#test-chat-id').attr('placeholder', $(this).val() == '2' ? '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Message ID');?>' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>');
+            });
+        </script>
+    <?php endif; ?>
+
     </div>
 </div>
 <div ng-repeat="condition in webhooksctl.conditions track by $index">
@@ -121,10 +153,10 @@
                                 <option value="like"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text like');?></option>
                                 <option value="notlike"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text not like');?></option>
                                 <option value="contains"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Contains');?></option>
-                                <option value="in_list"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','In list');?></option>
-                                <option value="in_list_lowercase"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','In list (lowercase)');?></option>
-                                <option value="not_in_list"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Not in list');?></option>
-                                <option value="not_in_list_lowercase"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Not in list (lowercase)');?></option>
+                                <option value="in_list"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','In list, items separated by ||')?></option>
+                                <option value="in_list_lowercase"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','In list (lowercase before comparison), items separated by ||')?></option>
+                                <option value="not_in_list"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Not in list, items separated by ||')?></option>
+                                <option value="not_in_list_lowercase"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Not in list (lowercase before comparison), items separated by ||')?></option>
                             </select>
                         </div>
                     </div>
@@ -237,3 +269,8 @@
 <div class="form-group">
     <label><input type="checkbox" value="on" name="disabled" <?php echo $item->disabled == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?></label>
 </div>
+
+
+<?php if (is_numeric($item->id)) : ?>
+    <div id="output-test" class="ps-1 pt-1"></div>
+<?php endif; ?>

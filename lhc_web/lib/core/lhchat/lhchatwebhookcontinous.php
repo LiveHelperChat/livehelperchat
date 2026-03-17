@@ -2,12 +2,18 @@
 
 class erLhcoreClassChatWebhookContinuous {
 
-    public static function processEvent() {
+    public static function processEvent($paramsWebhook = []) {
 
-        try {
-            $continuousHooks = erLhcoreClassModelChatWebhook::getList(array('filter' => array('type' => 1, 'disabled' => 0)));
-        } catch (Exception $e) {
-            return;
+        $debugMode = isset($paramsWebhook['log']) && $paramsWebhook['log'] === true && isset($paramsWebhook['chat']) && isset($paramsWebhook['webhook']);
+
+        if ($debugMode) {
+            $continuousHooks = [$paramsWebhook['webhook']];
+        } else {
+            try {
+                $continuousHooks = erLhcoreClassModelChatWebhook::getList(array('filter' => array('type' => 1, 'disabled' => 0)));
+            } catch (Exception $e) {
+                return;
+            }
         }
 
         $statusValid = array(
@@ -16,9 +22,13 @@ class erLhcoreClassChatWebhookContinuous {
             erLhcoreClassModelChat::STATUS_BOT_CHAT,
         );
 
-        $chats = erLhcoreClassModelChat::getList(array(
-            'limit' => 1000,
-            'filterin' => array('status' => $statusValid)));
+        if ($debugMode) {
+            $chats = [$paramsWebhook['chat']];
+        } else {
+            $chats = erLhcoreClassModelChat::getList(array(
+                'limit' => 1000,
+                'filterin' => array('status' => $statusValid)));
+        }
 
         $db = ezcDbInstance::get();
 
@@ -76,6 +86,7 @@ class erLhcoreClassChatWebhookContinuous {
                     }
 
                     $previousMessageId = 0;
+                    $conditionsDebug = [];
 
                     // We do final check here
                     $isValid = true;
@@ -100,6 +111,7 @@ class erLhcoreClassChatWebhookContinuous {
                                             'msg' => $messageLast->msg,
                                             'words_typo' => 0,
                                         ))['found'];
+                                        $conditionsDebug[] = 'msg => ' . json_encode($messageLast->msg) . ' like ' . json_encode($conditionsCurrent['message_contains']) . ' => ' . ($conditionItemValid ? 'VALID' : 'INVALID');
                                      }
                                 }
                             } elseif ($conditionsCurrent['type'] == '3') { // No response from operator for n seconds
@@ -140,30 +152,40 @@ class erLhcoreClassChatWebhookContinuous {
                                 $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$conditionAttr);
                                 $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr);
 
-                                // Remove spaces
-                                $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
-                                $valueAttr = preg_replace('/\s+/', '', $valueAttr);
+                                if (!in_array($conditionsCurrent['condition'], ['like', 'notlike', 'contains', 'in_list', 'in_list_lowercase', 'not_in_list', 'not_in_list_lowercase'])) {
+                                    // Remove spaces
+                                    $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
+                                    $valueAttr = preg_replace('/\s+/', '', $valueAttr);
 
-                                // Allow only mathematical operators
-                                $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
-                                $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
+                                    // Allow only mathematical operators
+                                    $conditionAttrMath = preg_replace("/[^%\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
+                                    $valueAttrMath = preg_replace("/[^%\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
 
-                                if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
-                                    // Evaluate if there is mathematical rules
-                                    try {
-                                        eval('$conditionAttr = ' . $conditionAttrMath . ";");
-                                    } catch (ParseError $e) {
-                                        // Do nothing
+                                    if ($conditionAttrMath != '' && $conditionAttrMath === $conditionAttr) {
+                                        // Evaluate if there is mathematical rules
+                                        try {
+                                            eval('$conditionAttr = ' . $conditionAttrMath . ";");
+                                        } catch (ParseError | DivisionByZeroError $e) {
+                                            // Do nothing
+                                        }
+                                    }
+
+                                    if ($valueAttrMath != '' && $valueAttrMath === $valueAttr) {
+                                        // Evaluate if there is mathematical rules
+                                        try {
+                                            eval('$valueAttr = ' . $valueAttrMath . ";");
+                                        } catch (ParseError | DivisionByZeroError $e) {
+                                            // Do nothing
+                                        }
                                     }
                                 }
 
-                                if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
-                                    // Evaluate if there is mathematical rules
-                                    try {
-                                        eval('$valueAttr = ' . $valueAttrMath . ";");
-                                    } catch (ParseError $e) {
-                                        // Do nothing
-                                    }
+                                if (in_array($conditionsCurrent['condition'], ['lt', 'lte', 'gt', 'gte'])) {
+                                    $conditionAttr = round((float)$conditionAttr, 3);
+                                    $valueAttr = round((float)$valueAttr, 3);
+                                } elseif ((is_string($conditionAttr) || is_numeric($conditionAttr)) && (is_string($valueAttr) || is_numeric($valueAttr))) {
+                                    $conditionAttr = (string)$conditionAttr;
+                                    $valueAttr = (string)$valueAttr;
                                 }
 
                                 if (!isset($conditionsCurrent['condition'])) {
@@ -196,7 +218,21 @@ class erLhcoreClassChatWebhookContinuous {
                                     $conditionItemValid = true;
                                 } else if ($conditionsCurrent['condition'] == 'contains' && strrpos($conditionAttr, $valueAttr) !== false) {
                                     $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'notempty' && !empty($conditionAttr)) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'empty' && empty($conditionAttr)) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'in_list' && in_array(trim($conditionAttr), explode('||', trim($valueAttr)))) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'in_list_lowercase' && in_array(strtolower(trim($conditionAttr)), explode('||', strtolower(trim($valueAttr))))) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'not_in_list' && !in_array(trim($conditionAttr), explode('||', trim($valueAttr)))) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'not_in_list_lowercase' && !in_array(strtolower(trim($conditionAttr)), explode('||', strtolower(trim($valueAttr))))) {
+                                    $conditionItemValid = true;
                                 }
+
+                                $conditionsDebug[] = ($conditionsCurrent['attr'] ?? '') . ' => ' . json_encode($conditionAttr) . ' ' . $conditionsCurrent['condition'] . ' ' . json_encode($valueAttr) . ' => ' . ($conditionItemValid ? 'VALID' : 'INVALID');
                             }
 
                             if ($conditionItemValid == true){
@@ -209,8 +245,13 @@ class erLhcoreClassChatWebhookContinuous {
                         }
                     }
 
+                    if ($debugMode) {
+                        erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = $conditionsDebug;
+                        erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = $isValid ? 'VALID' : 'INVALID';
+                    }
+                    
                     // Group is valid we can execute bot and trigger against specific chat
-                    if ($isValid === true) {
+                    if ($isValid === true && !$debugMode) {
                         $chatsApplied[$continuousHook->id][] = $chat->id;
                         $trigger = erLhcoreClassModelGenericBotTrigger::fetch($continuousHook->trigger_id);
                         if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
@@ -231,7 +272,7 @@ class erLhcoreClassChatWebhookContinuous {
             }
 
             // Execute alternative trigger if to chat was not applied matching trigger
-            if ($continuousHook->trigger_id_alt > 0) {
+            if (!$debugMode && $continuousHook->trigger_id_alt > 0) {
                 $trigger = erLhcoreClassModelGenericBotTrigger::fetch($continuousHook->trigger_id_alt);
                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
                     foreach ($chats as $chat) {

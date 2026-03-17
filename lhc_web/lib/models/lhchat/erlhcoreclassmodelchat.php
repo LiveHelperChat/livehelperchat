@@ -256,6 +256,10 @@ class erLhcoreClassModelChat {
            $this->last_msg = erLhcoreClassModelmsg::fetch($this->last_msg_id);
            return $this->last_msg;
 
+       case 'last_msg_text':
+           $this->last_msg_text = erLhcoreClassModelmsg::findOne(['filternot' => ['user_id' => -1, 'msg' => ''], 'sort' => '`id` DESC', 'filter' => ['chat_id' => $this->id]]);
+           return $this->last_msg_text;
+
        case 'last_msg_time':
             $this->last_msg_time = max($this->last_user_msg_time, $this->last_op_msg_time);
             return $this->last_msg_time;

@@ -101,6 +101,14 @@ if (isset($_POST['msg'])) {
 
             $response = implode("\n",$patterns);
 
+        } elseif (isset($_POST['webhook_id'])) {
+
+            $conditionToValidate = erLhcoreClassModelChatWebhook::fetch($_POST['webhook_id']);
+            \LiveHelperChat\mailConv\Webhooks\Continous::processEventMail(['chat' => $chat, 'webhook' => $conditionToValidate, 'log' => true]);
+            $response .= json_encode(erLhcoreClassGenericBotWorkflow::$triggerNameDebug, JSON_PRETTY_PRINT);
+            echo htmlspecialchars($response);
+            exit;
+
         } elseif (isset($_POST['text_pattern'])) {
 
             if ($_POST['test_pattern'][0] === "{") {
@@ -158,15 +166,25 @@ if (isset($_POST['msg'])) {
             if (empty($response)){
                 $response = 'n/a';
             }
+        } elseif (isset($_POST['webhook_id'])) {
+
+            $conditionToValidate = erLhcoreClassModelChatWebhook::fetch($_POST['webhook_id']);
+            erLhcoreClassChatWebhookContinuous::processEvent(['chat' => $chat, 'webhook' => $conditionToValidate, 'log' => true]);
+
+            $response .= json_encode(erLhcoreClassGenericBotWorkflow::$triggerNameDebug, JSON_PRETTY_PRINT);
+            echo htmlspecialchars($response);
+            exit;
+
         } elseif (isset($_POST['condition_id'])) {
             $conditionToValidate = \LiveHelperChat\Models\Bot\Condition::fetch($_POST['condition_id']);
             $response = $conditionToValidate->isValid(['chat' => $chat]) === true ? '✔️' : '❌';
             $response .= "\n".json_encode(erLhcoreClassGenericBotWorkflow::$triggerNameDebug, JSON_PRETTY_PRINT);
             echo htmlspecialchars($response);
             exit;
-
         } elseif (isset($_POST['extract_action'])) {
+
             $patterns = [];
+
             foreach ($chat->getState() as $stateKey => $stateAttr) {
                 $patterns[] = '{args.chat.' . $stateKey .'} = ' . $stateAttr;
             }

@@ -4,12 +4,18 @@ namespace LiveHelperChat\mailConv\Webhooks;
 
 class Continous
 {
-    public static function processEventMail()
+    public static function processEventMail($paramsWebhook = [])
     {
-        try {
-            $continuousHooks = \erLhcoreClassModelChatWebhook::getList(array('filter' => array('type' => 2, 'disabled' => 0)));
-        } catch (\Exception $e) {
-            return;
+        $debugMode = isset($paramsWebhook['log']) && $paramsWebhook['log'] === true && isset($paramsWebhook['chat']) && isset($paramsWebhook['webhook']);
+
+        if ($debugMode) {
+            $continuousHooks = [$paramsWebhook['webhook']];
+        } else {
+            try {
+                $continuousHooks = \erLhcoreClassModelChatWebhook::getList(array('filter' => array('type' => 2, 'disabled' => 0)));
+            } catch (\Exception $e) {
+                return;
+            }
         }
 
         // Continue here
@@ -192,7 +198,11 @@ class Continous
                 $filterPrepared['limit'] = 100;
                 $filterPrepared['filter']['status'] = [\erLhcoreClassModelMailconvMessage::STATUS_PENDING, \erLhcoreClassModelMailconvMessage::STATUS_ACTIVE];
 
-                $chats = \erLhcoreClassModelMailconvMessage::getList($filterPrepared);
+                if ($debugMode) {
+                    $chats = [$paramsWebhook['chat']];
+                } else {
+                    $chats = \erLhcoreClassModelMailconvMessage::getList($filterPrepared);
+                }
 
                 foreach ($chats as $chat) {
 
@@ -200,6 +210,8 @@ class Continous
                     if (isset($chatsApplied[$continuousHook->id]) && in_array($chat->id, $chatsApplied[$continuousHook->id])) {
                         continue;
                     }
+
+                    $conditionsDebug = [];
 
                     // We do final check here
                     $isValid = true;
@@ -213,7 +225,7 @@ class Continous
                             if ($conditionsCurrent['type'] == '1') { // Visitor message contains
                                 // For that visitor should use event based events or contains just options
                             } elseif ($conditionsCurrent['type'] == '3') { // No response from operator for n seconds
-                                $conditionAttr = $conditionsCurrent['attr'];
+                                $conditionAttr = $conditionsCurrent['attr'] ?? '';
                                 if (strpos($conditionAttr, '{args.') !== false) {
                                     $matchesValues = array();
                                     preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $conditionAttr, $matchesValues);
@@ -227,7 +239,7 @@ class Continous
                                     $conditionAttr = \erLhcoreClassGenericBotWorkflow::translateMessage($conditionAttr, array('chat' => $chat, 'args' => ['chat' => $chat]));
                                 }
 
-                                $valueAttr = $conditionsCurrent['value'];
+                                $valueAttr = $conditionsCurrent['value'] ?? '';
 
                                 if (strpos($valueAttr, '{args.') !== false) {
                                     $matchesValues = array();
@@ -250,30 +262,44 @@ class Continous
                                 $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $conditionAttr);
                                 $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $valueAttr);
 
-                                // Remove spaces
-                                $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
-                                $valueAttr = preg_replace('/\s+/', '', $valueAttr);
+                                if (!in_array($conditionsCurrent['condition'], ['like', 'notlike', 'contains', 'in_list', 'in_list_lowercase', 'not_in_list', 'not_in_list_lowercase'])) {
+                                    // Remove spaces
+                                    $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
+                                    $valueAttr = preg_replace('/\s+/', '', $valueAttr);
 
-                                // Allow only mathematical operators
-                                $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
-                                $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
+                                    // Allow only mathematical operators
+                                    $conditionAttrMath = preg_replace("/[^%\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
+                                    $valueAttrMath = preg_replace("/[^%\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
 
-                                if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
-                                    // Evaluate if there is mathematical rules
-                                    try {
-                                        eval('$conditionAttr = ' . $conditionAttrMath . ";");
-                                    } catch (ParseError $e) {
-                                        // Do nothing
+                                    if ($conditionAttrMath != '' && $conditionAttrMath === $conditionAttr) {
+                                        // Evaluate if there is mathematical rules
+                                        try {
+                                            eval('$conditionAttr = ' . $conditionAttrMath . ";");
+                                        } catch (\ParseError | \DivisionByZeroError $e) {
+                                            // Do nothing
+                                        }
+                                    }
+
+                                    if ($valueAttrMath != '' && $valueAttrMath === $valueAttr) {
+                                        // Evaluate if there is mathematical rules
+                                        try {
+                                            eval('$valueAttr = ' . $valueAttrMath . ";");
+                                        } catch (\ParseError | \DivisionByZeroError $e) {
+                                            // Do nothing
+                                        }
                                     }
                                 }
 
-                                if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
-                                    // Evaluate if there is mathematical rules
-                                    try {
-                                        eval('$valueAttr = ' . $valueAttrMath . ";");
-                                    } catch (ParseError $e) {
-                                        // Do nothing
-                                    }
+                                if (in_array($conditionsCurrent['condition'], ['lt', 'lte', 'gt', 'gte'])) {
+                                    $conditionAttr = round((float)$conditionAttr, 3);
+                                    $valueAttr = round((float)$valueAttr, 3);
+                                } elseif ((is_string($conditionAttr) || is_numeric($conditionAttr)) && (is_string($valueAttr) || is_numeric($valueAttr))) {
+                                    $conditionAttr = (string)$conditionAttr;
+                                    $valueAttr = (string)$valueAttr;
+                                }
+
+                                if (!isset($conditionsCurrent['condition'])) {
+                                    $conditionsCurrent['condition'] = 'not_set';
                                 }
 
                                 if ($conditionsCurrent['condition'] == 'eq' && ($conditionAttr == $valueAttr)) {
@@ -302,7 +328,21 @@ class Continous
                                     $conditionItemValid = true;
                                 } else if ($conditionsCurrent['condition'] == 'contains' && strrpos($conditionAttr, $valueAttr) !== false) {
                                     $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'notempty' && !empty($conditionAttr)) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'empty' && empty($conditionAttr)) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'in_list' && in_array(trim($conditionAttr), explode('||', trim($valueAttr)))) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'in_list_lowercase' && in_array(strtolower(trim($conditionAttr)), explode('||', strtolower(trim($valueAttr))))) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'not_in_list' && !in_array(trim($conditionAttr), explode('||', trim($valueAttr)))) {
+                                    $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'not_in_list_lowercase' && !in_array(strtolower(trim($conditionAttr)), explode('||', strtolower(trim($valueAttr))))) {
+                                    $conditionItemValid = true;
                                 }
+
+                                $conditionsDebug[] = ($conditionsCurrent['attr'] ?? '') . ' => ' . json_encode($conditionAttr) . ' ' . $conditionsCurrent['condition'] . ' ' . json_encode($valueAttr) . ' => ' . ($conditionItemValid ? 'VALID' : 'INVALID');
                             }
 
                             if ($conditionItemValid == true) {
@@ -315,9 +355,13 @@ class Continous
                         }
                     }
 
+                    if ($debugMode) {
+                        \erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = $conditionsDebug;
+                        \erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = $isValid ? 'VALID' : 'INVALID';
+                    }
 
                     // Group is valid we can execute bot and trigger against specific chat
-                    if ($isValid === true) {
+                    if ($isValid === true && !$debugMode) {
                         $chatsApplied[$continuousHook->id][] = $chat->id;
 
                         $db = \ezcDbInstance::get();
