@@ -3,6 +3,7 @@
 class erLhcoreClassMailconvParser {
 
     const IMAGE_EXTENSIONS = ['png','bmp','gif','jfif','jpg','jpeg','webp','heic'];
+    const IMAGE_MIME_TYPES = ['image/png','image/bmp','image/gif','image/jpeg','image/webp','image/heic'];
 
     public static function getRawConnection($mailbox)
     {

@@ -96,7 +96,17 @@ try {
             $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.download', array('chat_file' => $file));
 
             // There was no callbacks or file not found etc, we try to download from standard location
-            if ($response === false) {
+            if ($response === false && str_starts_with($file->file_path_server, 'var/')) {
+                if (\erLhcoreClassChatWebhookIncoming::getExtensionByMime($file->extension, true) != $file->type) {
+                    if (in_array($file->extension,['jpg','jpeg','png'])) {
+                        $denyImage = 'design/defaulttheme/images/general/denied.png';
+                        header('Content-type: image/png; charset=binary');
+                        echo file_get_contents($denyImage);
+                        exit;
+                    } else {
+                        exit('Mime type does not match!');
+                    }
+                }
                 echo file_get_contents($file->file_path_server);
             } else {
                 echo $response['filedata'];

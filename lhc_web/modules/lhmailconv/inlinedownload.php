@@ -13,7 +13,9 @@ try {
         }
     }
 
-    if ($file->disposition != 'INLINE') {
+    $inlineSupported = in_array($file->extension, erLhcoreClassMailconvParser::IMAGE_EXTENSIONS) && in_array(explode(';',$file->type)[0], erLhcoreClassMailconvParser::IMAGE_MIME_TYPES);
+
+   if ($inlineSupported === true && $file->disposition != 'INLINE') {
         $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
         $mcOptionsData = (array)$mcOptions->data;
         if ($file->extension === 'jpg' && !str_ends_with($file->name, '.jpg')) {
@@ -177,6 +179,11 @@ try {
         header('X-Content-Type-Options: nosniff');
         header('Referrer-Policy: no-referrer');
         header("Cache-Control: private, max-age=3600");
+
+        if ($inlineSupported === false) {
+            header('Content-Disposition: attachment; filename="'.$file->name.'"');
+        }
+
         echo file_get_contents($file->file_path_server);
     } else {
         echo file_get_contents('design/defaulttheme/images/general/denied.png');

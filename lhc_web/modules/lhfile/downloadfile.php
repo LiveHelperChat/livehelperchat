@@ -157,7 +157,7 @@ try {
 
         if (!(isset($_GET['modal']) && $_GET['modal'] === 'true')) {
             header('Content-type: '.$file->type);
-            if (!isset($Params['user_parameters_unordered']['inline']) || $Params['user_parameters_unordered']['inline'] != 'true') {
+            if (!isset($Params['user_parameters_unordered']['inline']) || $Params['user_parameters_unordered']['inline'] != 'true' || (isset($Params['user_parameters_unordered']['inline']) && $Params['user_parameters_unordered']['inline'] === 'true' && !in_array($file->type,['image/png','image/bmp','image/gif','image/jpeg','image/webp','image/heic']))) {
                 // Download with file name
                 header('Content-Disposition: attachment; filename="'.$file->id.'-'.pathinfo($file->upload_name, PATHINFO_FILENAME).'.'.$file->extension.'"');
                 header('Referrer-Policy: no-referrer');
@@ -169,8 +169,7 @@ try {
             }
         }
 
-		$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.download', array('chat_file' => $file));
-
+        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.download', array('chat_file' => $file));
 
         if (isset($_GET['modal']) && $_GET['modal'] === 'true') {
 
