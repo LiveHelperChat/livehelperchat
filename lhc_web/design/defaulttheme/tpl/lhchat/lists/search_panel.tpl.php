@@ -718,6 +718,8 @@
                     <option <?php if ($input->sortby == 'id_asc') : ?>selected="selected"<?php endif; ?> value="id_asc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Oldest first');?></option>
                     <option <?php if ($input->sortby == 'lmt_dsc') : ?>selected="selected"<?php endif; ?> value="lmt_dsc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Last interactions first');?></option>
                     <option <?php if ($input->sortby == 'lmt_asc') : ?>selected="selected"<?php endif; ?> value="lmt_asc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Last interactions last');?></option>
+                    <option <?php if ($input->sortby == 'hnm_desc') : ?>selected="selected"<?php endif; ?> value="hnm_desc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Highest total number of messages');?></option>
+                    <option <?php if ($input->sortby == 'hnm_asc') : ?>selected="selected"<?php endif; ?> value="hnm_asc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Lowest total number of messages');?></option>
                 </select>
 
                 <select name="ipp" class="form-control form-control-sm rounded-0 border-secondary rounded-end" onchange="this.form.submit()">

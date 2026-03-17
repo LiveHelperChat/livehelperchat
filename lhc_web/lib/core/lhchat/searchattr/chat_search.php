@@ -780,6 +780,8 @@ $fieldSortAttr = array (
         'id_asc' => array('sort_column' => '`lh_chat`.`id` ASC'),
         'lmt_dsc' => array('sort_column' => '`lh_chat`.`last_msg_id` DESC'),
         'lmt_asc' => array('sort_column' => '`lh_chat`.`last_msg_id` ASC'),
+        'hnm_desc' => array('sort_column' => '(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND (`lh_msg`.`user_id` IN (-2,0) OR `lh_msg`.`user_id` > 0)) DESC'),
+        'hnm_asc' => array('sort_column' => '(SELECT COUNT(*) FROM `lh_msg` WHERE `lh_msg`.`chat_id` = `lh_chat`.`id` AND (`lh_msg`.`user_id` IN (-2,0) OR `lh_msg`.`user_id` > 0)) ASC'),
     )
 );
 

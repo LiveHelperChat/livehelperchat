@@ -139,6 +139,22 @@ if ($allMsgCountMin !== null && $allMsgCountMax !== null) {
     $filterParams['filter']['customfilter'][] = "{$allMsgCountQuery} <= {$allMsgCountMax}";
 }
 
+$showMsgCount = (
+    ($filterParams['input_form']->op_msg_count !== false && is_numeric($filterParams['input_form']->op_msg_count)) ||
+    ($filterParams['input_form']->vi_msg_count !== false && is_numeric($filterParams['input_form']->vi_msg_count)) ||
+    ($filterParams['input_form']->bot_msg_count !== false && is_numeric($filterParams['input_form']->bot_msg_count)) ||
+    $allMsgCountMin !== null ||
+    $allMsgCountMax !== null ||
+    in_array($filterParams['input_form']->sortby, ['hnm_desc', 'hnm_asc'])
+);
+
+
+if (in_array($filterParams['input_form']->sortby, ['hnm_desc', 'hnm_asc'])) {
+    $hnmTimeFrom = $filterParams['filter']['filtergte']['time'] ?? ($filterParams['filter']['filtergte']['cls_time'] ?? null);
+    $hnmTimeTo = $filterParams['filter']['filterlte']['time'] ?? ($filterParams['filter']['filterlte']['cls_time'] ?? time());
+    $hnmSortWarning = !($hnmTimeFrom !== null && $hnmTimeTo !== null && ($hnmTimeTo - $hnmTimeFrom) <= 31 * 24 * 3600);
+}
+
 /**
  * Departments filter
  * */
@@ -296,7 +312,7 @@ if (empty($filterParams['filter'])) {
 
 try {
     $pages = new lhPaginator();
-    $pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelChat::getCount($filterParams['filter']);
+    $pages->items_total = ($hnmSortWarning ?? false) ? 0 : (is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelChat::getCount($filterParams['filter']));
     $pages->translationContext = 'chat/pendingchats';
     $pages->serverURL = erLhcoreClassDesign::baseurl('chat/list').$append;
     if ($filterParams['input']->ipp > 0) {
@@ -308,7 +324,11 @@ try {
     $tpl->set('pages',$pages);
 
     if ($pages->items_total > 0) {
-        $items = erLhcoreClassModelChat::getList(array_merge($filterParams['filter'],array('limit' => $pages->items_per_page,'offset' => $pages->low)));
+        $listExtraParams = array('limit' => $pages->items_per_page, 'offset' => $pages->low);
+        if ($showMsgCount) {
+            $listExtraParams['select_columns'] = $allMsgCountQuery . ' as msg_all_count';
+        }
+        $items = erLhcoreClassModelChat::getList(array_merge($filterParams['filter'], $listExtraParams));
         $iconsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_identifier','enabled'), 'sort' => false, 'filter' => array('icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1)));
         $iconsAdditionalColumn = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_identifier','enabled'), 'sort' => 'position ASC, id ASC','filter' => array('enabled' => 1, 'icon_mode' => 0, 'chat_list_enabled' => 1)));
 
@@ -353,6 +373,8 @@ $tpl->set('can_delete_global',$currentUser->hasAccessTo('lhchat','deleteglobalch
 $tpl->set('can_delete_general',$currentUser->hasAccessTo('lhchat','deletechat'));
 $tpl->set('can_close_global',$currentUser->hasAccessTo('lhchat','allowcloseremote'));
 $tpl->set('current_user_id',$currentUser->getUserID());
+$tpl->set('show_msg_count', $showMsgCount ?? false);
+$tpl->set('hnm_sort_warning', $hnmSortWarning ?? false);
 
 $Result['content'] = $tpl->fetch();
 

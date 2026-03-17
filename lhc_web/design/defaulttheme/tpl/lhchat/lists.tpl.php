@@ -11,6 +11,13 @@
 
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel.tpl.php')); ?>
 
+                    <?php if (isset($hnm_sort_warning) && $hnm_sort_warning) : ?>
+                        <div role="alert" class="alert alert-danger alert-dismissible fade show" ng-non-bindable>
+                            <button type="button" class="btn-close pt-1 pe-1" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/list', 'Sorting by number of messages requires a date range of 31 days or less to be set.');?>
+                        </div>
+                    <?php endif; ?>
+
                     <?php if (isset($stats_delete)) : $msg = $stats_delete['selected'] . ' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/list', 'chats were selected for deletion, and') . ' ' . $stats_delete['deleted'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/list', 'of them were deleted!');?>
                         <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_info.tpl.php')); ?>
                     <?php endif; ?>
@@ -96,6 +103,7 @@
 
 
                                 <?php if ($chat->priority > 0) : ?><span class="text-muted fs11" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists','Priority');?>"><span class="material-icons me-0">label</span><?php echo $chat->priority?></span><?php endif; ?>
+                                <?php if (!empty($show_msg_count) && isset($chat->virtual_msg_all_count)) : ?><span class="text-muted fs11 ms-1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists','Messages count');?>"><span class="material-icons">message</span><?php echo (int)$chat->virtual_msg_all_count?></span><?php endif; ?>
 
                             </td>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/additional_chat_column_row.tpl.php'));?>
