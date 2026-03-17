@@ -158,15 +158,15 @@ export class mainWidget{
         {
             this.screenAttributesUpdate = () => {
 
-                if (this.is_invitation === true && attributes.full_invitation === false) {
+                /*if (this.is_invitation === true && attributes.full_invitation === false) {
                     return;
-                }
+                }*/
 
                 var body = this.cont.elmDomDoc.body,
                     html = this.cont.elmDomDoc.documentElement;
 
                 var height = Math.max( body.scrollHeight, body.offsetHeight,
-                    html.clientHeight, html.scrollHeight, html.offsetHeight, attributes.widgetDimesions.value['height'], attributes.widgetDimesions.value['height_override'] ? attributes.widgetDimesions.value['height_override'] : 0);
+                    html.clientHeight, html.scrollHeight, html.offsetHeight, attributes.widgetDimesions.value['height_override'] ? attributes.widgetDimesions.value['height_override'] : attributes.widgetDimesions.value['height']);
 
                 if (window.innerHeight < height + 60 + (this.attributes.clinst === true ? 70 : 0) + attributes.widgetDimesions.valueInternal['wtop']) {
                     attributes.widgetDimesions.nextPropertySilent('height_soverride', window.innerHeight - 60 - (this.attributes.clinst === true ? 70 : 0) - attributes.widgetDimesions.valueInternal['wtop']);
@@ -174,7 +174,7 @@ export class mainWidget{
                     attributes.widgetDimesions.nextPropertySilent('height_soverride', null);
                 }
     
-                if (window.innerWidth < Math.max(attributes.widgetDimesions.valueInternal['width'], attributes.widgetDimesions.value['width_override'] ? attributes.widgetDimesions.value['width_override'] : 0) + 60) {
+                if (window.innerWidth < (attributes.widgetDimesions.value['width_override'] ? attributes.widgetDimesions.value['width_override'] : attributes.widgetDimesions.valueInternal['width']) + 60) {
                       attributes.widgetDimesions.nextPropertySilent('width_soverride', window.innerWidth - 60);
                 } else {
                     attributes.widgetDimesions.nextPropertySilent('width_soverride', null);

@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 271;
+            lhc.version = 272;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -1030,6 +1030,7 @@
                         data.force_right && attributesWidget.widgetDimesions.nextPropertySilent('right_override', data.force_right);
                         data.force_bottom && attributesWidget.widgetDimesions.nextPropertySilent('bottom_override', data.force_bottom);
                         attributesWidget.widgetDimesions.callListeners();
+                        attributesWidget.mode == 'widget' && attributesWidget.mainWidget.resizeTrigger();
                         return;
                     }
 
