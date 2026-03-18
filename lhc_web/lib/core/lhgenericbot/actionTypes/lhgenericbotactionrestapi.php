@@ -399,6 +399,7 @@ class erLhcoreClassGenericBotActionRestapi
 
                     if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
                         if ($msg->chat_id > 0) {
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $msg->user_id));
                             $msg->saveThis();
                         }
                     }
