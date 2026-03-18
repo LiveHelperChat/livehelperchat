@@ -151,6 +151,9 @@ class erLhcoreClassGenericBotActionCollectable {
                 $msg->time += 1;
             }
 
+            // Let extensions (e.g. channel integrations) inspect/adjust bot outgoing message before persisting.
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $msg->user_id));
+
             erLhcoreClassChat::getSession()->save($msg);
             return $msg;
         }
