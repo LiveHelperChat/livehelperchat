@@ -253,7 +253,7 @@
                                     'css_class'      => 'form-control',
                                     'display_name'   => 'name',
                                     'list_function'  => 'erLhAbstractModelSubject::getList',
-                                    'list_function_params'  => array('limit' => false)
+                                    'list_function_params' => array_merge(['limit' => false],erLhcoreClassUserDep::conditionslSubjectFilter())
                                 )); ?>
                             </div>
                         </div>
