@@ -216,7 +216,7 @@ class erLhcoreClassRenderHelper {
 
         $type = isset($params['type']) ? $params['type'] : 'checkbox';
         $selector = isset($params['no_selector']) && $params['no_selector'] == true ? '' : 'selector-';
-        $selectAllBtns = $type == 'checkbox' ? '<div class="dropdown-select-btns"><button type="button" data-stopPropagation="true" class="btn btn-xs btn-light dropdown-select-all">Select all</button> <button type="button" data-stopPropagation="true" class="btn btn-xs btn-light dropdown-unselect-all">Unselect all</button></div>' : '';
+        $selectAllBtns = $type == 'checkbox' ? '<div class="position-absolute end-0 top-0 me-2 mt-1"><div class="btn-group" role="group"><button title="'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select all').'" type="button" data-stopPropagation="true" class="btn btn-xs btn-light p-0 dropdown-select-all"><span class="material-icons me-0 text-success">select_all</span></button><button title="'.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Un-select all').'" type="button" data-stopPropagation="true" class="btn btn-xs btn-light p-0 dropdown-unselect-all"><span class="material-icons me-0 text-danger">delete</span></button></div></div>' : '';
 
         $template = '<div class="btn-block-department ' . (isset($params['wrapper_class']) ? $params['wrapper_class'] : '') . '"' . (isset($params['data_prop']) ? $params['data_prop'] : '') . '>
                 <ul class="nav">
@@ -225,8 +225,8 @@ class erLhcoreClassRenderHelper {
                         $params['optional_field']. '
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                        <li class="btn-block-department-filter">
-                            <input data-scope="' . str_replace('[]','',$params['input_name']) . '" ' . (isset($params['ajax']) ? 'ajax-provider="' . $params['ajax'] . '"' : '') . ' type="text" class="form-control input-sm" value="" />
+                        <li class="btn-block-department-filter position-relative">
+                            <input data-scope="' . str_replace('[]','',$params['input_name']) . '" ' . (isset($params['ajax']) ? 'ajax-provider="' . $params['ajax'] . '"' : '') . ' type="text" class="form-control input-sm w-100 shadow-none" value="" />
                             '.$selectAllBtns.'
                             <div class="selected-items-filter">'.$selectedOptions.'</div>
                         </li><li class="dropdown-result '. ($params['css_class_result'] ?? '') .'"><ul class="list-unstyled dropdown-lhc">';
