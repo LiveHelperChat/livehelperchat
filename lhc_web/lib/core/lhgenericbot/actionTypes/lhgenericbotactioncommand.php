@@ -232,6 +232,8 @@ class erLhcoreClassGenericBotActionCommand {
                 } else {
                     $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
                 }
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $msg->user_id));
                 $msg->saveThis();
             }
 
@@ -984,6 +986,8 @@ class erLhcoreClassGenericBotActionCommand {
             } else {
                 $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
             }
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $msg->user_id));
             $msg->saveThis();
 
             // Update last user msg time so auto responder work's correctly
