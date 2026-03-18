@@ -214,6 +214,10 @@ class erLhcoreClassRenderHelper {
             }
         }
 
+        $type = isset($params['type']) ? $params['type'] : 'checkbox';
+        $selector = isset($params['no_selector']) && $params['no_selector'] == true ? '' : 'selector-';
+        $selectAllBtns = $type == 'checkbox' ? '<div class="dropdown-select-btns"><button type="button" data-stopPropagation="true" class="btn btn-xs btn-light dropdown-select-all">Select all</button> <button type="button" data-stopPropagation="true" class="btn btn-xs btn-light dropdown-unselect-all">Unselect all</button></div>' : '';
+
         $template = '<div class="btn-block-department ' . (isset($params['wrapper_class']) ? $params['wrapper_class'] : '') . '"' . (isset($params['data_prop']) ? $params['data_prop'] : '') . '>
                 <ul class="nav">
                     <li class="dropdown w-100">
@@ -223,14 +227,13 @@ class erLhcoreClassRenderHelper {
                         <ul class="dropdown-menu" role="menu">
                         <li class="btn-block-department-filter">
                             <input data-scope="' . str_replace('[]','',$params['input_name']) . '" ' . (isset($params['ajax']) ? 'ajax-provider="' . $params['ajax'] . '"' : '') . ' type="text" class="form-control input-sm" value="" />
+                            '.$selectAllBtns.'
                             <div class="selected-items-filter">'.$selectedOptions.'</div>
                         </li><li class="dropdown-result '. ($params['css_class_result'] ?? '') .'"><ul class="list-unstyled dropdown-lhc">';
 
         $items = call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array());
         $ngModel = isset($params['ng-model']) ? ' ng-model="'.$params['ng-model'].'" ' : '';
         $ngModel .= isset($params['ng-change']) ? ' ng-change="'.$params['ng-change'].'" ' : '';
-        $type = isset($params['type']) ? $params['type'] : 'checkbox';
-        $selector = isset($params['no_selector']) && $params['no_selector'] == true ? '' : 'selector-';
 
         if (isset($params['show_optional']) && $params['show_optional'] == true) {
             $template .= '<li data-stoppropagation="true" class="search-option-item fw-bold"><label><input class="me-1" '. (((is_numeric($params['selected_id']) && 0 == $params['selected_id']) || (is_array($params['selected_id']) && in_array(0,$params['selected_id']))) ? 'checked="checked"' : '') .$ngModel.' type="'.$type.'" name="'.$selector.$params['input_name'] .'" value="0">Any</label></li>';

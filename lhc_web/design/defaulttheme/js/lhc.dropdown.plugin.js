@@ -79,7 +79,17 @@ $.fn.makeDropdown = function(paramsDropdown) {
                 selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' + $(this).val() + '"><input type="hidden" value="' + $(this).val() + '" name="'+_thisItem.find('.btn-block-department-filter > input').attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" /><i class="material-icons chat-unread">delete</i>' + escapedName + "</a></div>");
             }
         })
+        _thisItem.on('click', '.dropdown-select-all', function() {
+            _thisItem.find('li.search-option-item:visible input:checkbox:not(:checked)').each(function() {
+                $(this).prop('checked', true).trigger('change');
+            });
+        });
 
+        _thisItem.on('click', '.dropdown-unselect-all', function() {
+            selectedItems.find('.delete-item').each(function() {
+                $(this).trigger('click');
+            });
+        });
         $(this).on('click','.delete-item',function () {
             var itemDelete = _thisItem.find('input[value='+$(this).attr('data-value')+']');
             itemDelete.prop('checked',false);
