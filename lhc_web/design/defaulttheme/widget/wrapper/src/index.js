@@ -345,6 +345,7 @@
                         // Expires cache
                         po.src = currentScript.getAttribute('src') + '&r='+ (new Date()).getHours() + (new Date()).getMinutes();
                         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+
                         return;
                     }
 
@@ -570,6 +571,11 @@
                 })
 
                 attributesWidget.broadcasChannel && attributesWidget.broadcasChannel.addEventListener("message", function(event) {
+
+                    if (attributesWidget.terminated == true) {
+                        return;
+                    }
+
                     if (event.data.action === 'current_vars' || event.data.action === 'check_vars') {
                         if (attributesWidget.lhc_var !== null) {
                             attributesWidget.ignoreVars = true;
@@ -814,6 +820,11 @@
 
                 // Track widget status changes
                 attributesWidget.widgetStatus.subscribe((data) => {
+
+                    if (attributesWidget.terminated == true) {
+                        return;
+                    }
+
                     if (attributesWidget.mode !== 'popup') {
                         if (attributesWidget.mode !== 'embed') {
                             // Do not store open status in local storage because embed is always open
@@ -826,7 +837,7 @@
                             if (attributesWidget.broadcasChannel) {
                                 clearTimeout(timeoutWidget);
                                 timeoutWidget = setTimeout(function(){
-                                    attributesWidget.broadcasChannel.postMessage({'action':'wstatus','value':data});
+                                   attributesWidget.terminated !== true && attributesWidget.broadcasChannel.postMessage({'action':'wstatus','value':data});
                                 },50);
                             }
 
@@ -1088,6 +1099,7 @@
 
                 // Listed for post messages
                 const handleMessages = (e) => {
+
                     if (attributesWidget.terminated === true || typeof e.data !== 'string' || e.data.indexOf(attributesWidget.prefixLowercase + '::')) {
                         if (typeof e.data === 'object' && typeof e.data.action === 'string' &&  e.data.action === "lhc_set_var") {
                             Object.keys(e.data).forEach(key => {
