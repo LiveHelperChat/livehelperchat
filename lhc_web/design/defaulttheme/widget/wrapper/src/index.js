@@ -290,7 +290,8 @@
                         'mode': attributesWidget.mode,
                         'pos': attributesWidget.position,
                         'off': attributesWidget.offline,
-                        'debug': attributesWidget.debug
+                        'debug': attributesWidget.debug,
+                        'wv': lhc.version
                     };
                 }
 
