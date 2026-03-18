@@ -67,6 +67,9 @@ class erLhcoreClassGenericBotActionExecute_js {
             }
 
             if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
+                // Let extensions (e.g. channel integrations) inspect/adjust bot outgoing message before persisting.
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $msg->user_id));
+
                 erLhcoreClassChat::getSession()->save($msg);
             }
         }
