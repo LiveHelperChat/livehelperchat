@@ -54,6 +54,9 @@ class ChatDuration
                 } elseif (isset($metaData['content']['transfer_action_user']['user_id'])) {
                     $row['user_id'] = $metaData['content']['transfer_action_user']['user_id'];
                     $metaAction = true;
+                } elseif (isset($metaData['content']['assign_action']['user_id']) && $chat->user_id != $metaData['content']['assign_action']['user_id']) {
+                    $row['user_id'] = $metaData['content']['assign_action']['user_id'];
+                    $metaAction = true;
                 } else {
                     continue; // Not supported
                 }
