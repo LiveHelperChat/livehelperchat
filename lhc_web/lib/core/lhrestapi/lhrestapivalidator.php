@@ -106,7 +106,7 @@ class erLhcoreClassRestAPIHandler
         if ($authorization !== null) {
             
             $dataAuthorisation = explode(' ', $authorization);
-            $apiData = explode(':', base64_decode($dataAuthorisation[1]));
+            $apiData = explode(':', base64_decode($dataAuthorisation[1]),2);
 
             if (strtolower($dataAuthorisation[0]) == 'bearer') {
 
