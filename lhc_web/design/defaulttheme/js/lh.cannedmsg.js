@@ -192,13 +192,24 @@ var LHCCannedMessageAutoSuggest = (function() {
             return;
         }
 
+        if (evt.keyCode == 16) {
+            return;
+        }
+
+        // Do not modify content on Enter/Shift+Enter - would delete the inserted <br>
+       if (this.newEditor === true && evt.keyCode == 13 && evt.shiftKey === true) {
+           this.nextUppercasePos = 0;
+           this.nextUppercase = true;
+           return;
+       }
+
         // Replace very first character
     	if (originalTextLength <= 3) {
             capText = capText.replace(capText.charAt(0),capText.charAt(0).toUpperCase());
 		}
 
         if (this.nextUppercase == true) {
-             capText = capText.substr(0, this.nextUppercasePos) + capText.charAt(this.nextUppercasePos).toUpperCase() + capText.substr(this.nextUppercasePos+1);
+            capText = capText.substr(0, this.nextUppercasePos) + capText.charAt(this.nextUppercasePos).toUpperCase() + capText.substr(this.nextUppercasePos+1);
 		}
 
         if (originalText.charAt(caretPos-1) == ' ' && (originalText.charAt(caretPos-2) == '.' || originalText.charAt(caretPos-2) == '?' || originalText.charAt(caretPos-2) == '!') && originalText.length == caretPos) {
