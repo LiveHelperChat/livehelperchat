@@ -201,23 +201,24 @@ class erLhcoreClassUserDep
 
     public static function conditionslSubjectFilter($userID = false, $column = 'dep_id', $cacheVersion = 0) {
         $depFilter = self::conditionalDepartmentFilter($userID, $column, $cacheVersion);
+        $archiveFilter = ['filternot' => ['archive' => 1]];
 
         if (empty($depFilter)) {
-            return [];
+            return $archiveFilter;
         }
 
         $departments = $depFilter['filterin']['dep_id'] ?? null;
 
         if ($departments === null) {
-            return [];
+            return $archiveFilter;
         }
 
         if (count($departments) === 1 && $departments[0] === -1) {
-            return ['customfilter' => ['lh_abstract_subject.id = -1']];
+            return array_merge(['customfilter' => ['lh_abstract_subject.id = -1']], $archiveFilter);
         }
 
         $depIds = implode(',', array_map('intval', $departments));
-        return ['customfilter' => ['lh_abstract_subject.id IN (SELECT subject_id FROM lh_abstract_subject_dep WHERE dep_id = 0 OR dep_id IN (' . $depIds . '))']];
+        return array_merge(['customfilter' => ['lh_abstract_subject.id IN (SELECT subject_id FROM lh_abstract_subject_dep WHERE dep_id = 0 OR dep_id IN (' . $depIds . '))']], $archiveFilter);
     }
 
     public static function conditionalDepartmentFilter($userID = false, $column = 'id', $cacheVersion = 0) {

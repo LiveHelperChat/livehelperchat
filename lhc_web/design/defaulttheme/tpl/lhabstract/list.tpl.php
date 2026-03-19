@@ -116,10 +116,12 @@
 
             <?php if (isset($can_clone)) : ?>
                 <td nowrap=""><a class="btn btn-info btn-xs csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/<?php echo $identifier?>/(action)/clone/(object_id)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Clone');?></a></td>
-            <?php endif;?>
-
+            <?php endif;?>		
+			
 	         <?php if (!isset($hide_delete)) : ?>
-	         	<td><a class="csfr-required btn btn-danger btn-xs csfr-post" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('abstract/delete')?>/<?php echo $identifier . '/' . $item->id . $extension?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
+	         	<td>
+					<a class="csfr-required btn btn-danger btn-xs csfr-post" <?php if (method_exists($item,'confirmDialog')) : ?>data-ajax-confirm="true"<?php endif; ?> data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('abstract/delete')?>/<?php echo $identifier . '/' . $item->id . $extension?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a>
+				</td>
 	         <?php endif;?>
 
 	    </tr>

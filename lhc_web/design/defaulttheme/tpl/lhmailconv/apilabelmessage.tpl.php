@@ -8,7 +8,7 @@
 <?php
 $subjects = erLhAbstractModelSubjectDepartment::getList(array(
                 'customfilter' => array('(dep_id = ' . (int)$conv->dep_id . ' OR dep_id = 0)'),
-                'filter'  => ['`lh_abstract_subject`.`internal`' => 0],
+                'filter'  => ['`lh_abstract_subject`.`internal`' => 0, '`lh_abstract_subject`.`archive`' => 0],
                 'sort' => '`lh_abstract_subject`.`name` ASC',
                 'leftjoin' => array('lh_abstract_subject' => array('`lh_abstract_subject`.`id`','`lh_abstract_subject_dep`.`subject_id`'))
         ));

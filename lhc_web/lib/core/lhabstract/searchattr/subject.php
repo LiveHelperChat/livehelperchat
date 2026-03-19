@@ -52,6 +52,19 @@ $fieldsSearch['internal'] = array (
     )
 );
 
+$fieldsSearch['include_archive'] = array (
+    'type' => 'text',
+    'trans' => 'Internal',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filternot',
+    'filter_table_field' => '`lh_abstract_subject`.`archive`',
+    'filter_value_if_not_checked' => 1,
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
 $fieldSortAttr = array (
     'field'      => false,
     'default'    => false,

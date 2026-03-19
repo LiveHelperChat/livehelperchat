@@ -21,7 +21,8 @@ class erLhAbstractModelSubject {
             'internal_type' => $this->internal_type,
             'widgets' => $this->widgets,
             'pinned' => $this->pinned,
-            'color' => $this->color
+            'color' => $this->color,
+            'archive' => $this->archive
         );
 
         return $stateArray;
@@ -166,6 +167,16 @@ class erLhAbstractModelSubject {
         }
     }
 
+    public function confirmDialog() {
+        if (erLhAbstractModelSubjectChat::getCount(array('filter' => array('subject_id' => $this->id))) > 0) {
+            return false;
+        }
+
+        if (erLhcoreClassModelMailconvMessageSubject::getCount(array('filter' => array('subject_id' => $this->id))) > 0) {
+            return false;
+        }
+    }
+
     public $id = null;
     public $name = '';
     public $internal_type = '';
@@ -173,6 +184,7 @@ class erLhAbstractModelSubject {
     public $widgets = 0;
     public $pinned = 0;
     public $color = '';
+    public $archive = 0;
 
     public $hide_add = false;
     public $hide_delete = false;

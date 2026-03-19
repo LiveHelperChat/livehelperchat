@@ -46,6 +46,20 @@ if ( method_exists($ObjectData,'checkPermission') ) {
 	}
 }
 
+$confirmDialog = false;
+
+if ( method_exists($ObjectData,'confirmDialog') ) {
+    $confirmDialog = true;
+	if ($ObjectData->confirmDialog() === false) {
+		$tpl = erLhcoreClassTemplate::getInstance('lhkernel/validation_error.tpl.php');
+        $tpl->set('errors', [erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Object is assigned to mails or chats!')]);
+        $tpl->set('hideErrorButton',true);
+        header ('content-type: application/json; charset=utf-8');
+        echo json_encode(['error' => true, 'result' => $tpl->fetch()]);
+        exit;
+	}
+}
+
 $ObjectData->removeThis();
 
 erLhcoreClassLog::logObjectChange(array(
@@ -61,7 +75,12 @@ erLhcoreClassLog::logObjectChange(array(
 $cache = CSCacheAPC::getMem();
 $cache->increaseCacheVersion('site_attributes_version');
 
-erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier'] . $extension);
+if ($confirmDialog === true) {
+    header ('content-type: application/json; charset=utf-8');
+    echo json_encode(['error' => false]);
+} else {
+    erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier'] . $extension);
+}
 exit;
 
 ?>

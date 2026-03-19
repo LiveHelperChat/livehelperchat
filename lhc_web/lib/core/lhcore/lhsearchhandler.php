@@ -89,12 +89,16 @@ class erLhcoreClassSearchHandler
             
             foreach ($fields as $key => $field) {
                 
-                if (($field['filter_type'] !== false && $inputParams->$key != '') || $inputParams->$key === 0) {
+                if (($field['filter_type'] !== false && $inputParams->$key != '') || $inputParams->$key === 0 || (isset($field['filter_value_if_not_checked']) && is_bool($inputParams->$key) && $inputParams->$key === false)) {
                     
-                    if ($field['filter_type'] == 'filter') {
+                    if ($field['filter_type'] == 'filter' || $field['filter_type'] == 'filternot') {
                         
                         if (is_bool($inputParams->$key) && $inputParams->$key == true) {
-                            $filter[$field['filter_type']][$field['filter_table_field']] = isset($field['filter_value_if_checked']) ? $field['filter_value_if_checked'] : 1;
+                            if (!isset($field['filter_value_if_not_checked'])) {
+                                $filter[$field['filter_type']][$field['filter_table_field']] = isset($field['filter_value_if_checked']) ? $field['filter_value_if_checked'] : 1;
+                            }
+                        } elseif (is_bool($inputParams->$key) && $inputParams->$key === false && isset($field['filter_value_if_not_checked'])) {
+                            $filter[$field['filter_type']][$field['filter_table_field']] = $field['filter_value_if_not_checked'];
                         } else {
                             if (isset($field['multiple_id']) && $field['multiple_id'] == true) {
                                 $parts = explode(",",str_replace(array("\n"," ","\t"),"", $inputParams->$key));

@@ -1,3 +1,22 @@
+4.83v
+
+1. Notable changes since 4.82v
+   - Chat list sorting: added sort options for highest and lowest message count in chat lists; a validation warning is shown when sorting by message count without a date range of 31 days or less.
+   - Webhooks: debug mode support added to `processEvent` in both chat and mail conversation continuous webhook classes; new validation conditions `notempty` and `in_list`; improved error handling and logging; webhook form updated with chat ID testing and improved button styling; test pattern module enhanced with webhook ID validation.
+   - Dropdown: "Select all" and "Unselect all" buttons added to multi-select dropdowns across the back-office; dropdown plugin and render helper updated accordingly.
+   - Subject filter: subject filter conditions added to the chat list search panel and mail conversation search panel; department user dep logic enhanced.
+   - Widget: bumped to version 272; improved `screenAttributesUpdate` height/width calculations for better responsiveness across screen sizes; wrapper now passes its version to the API; fixed proper termination in wrapper source.
+   - Canned messages: fixed auto-uppercase breaking text input in the new rich-text editor (LHCEditor).
+   - REST API: fixed authentication validator regression.
+   - Chat core: added support for dashes in chat handling logic.
+   - Templates: minor fixes in chat lists template and survey fill-widget template.
+
+2. Summary
+   - This release improves chat list usability with message count sorting, strengthens webhook debugging with debug mode and new validation conditions, and enhances multi-select dropdowns with select-all/unselect-all controls.
+   - Widget responsiveness and wrapper version reporting are improved; canned message auto-uppercase and REST API auth issues are resolved.
+
+execute doc/update_db/update_350.sql for update
+
 4.82v
 
 1. Notable changes since 4.81v

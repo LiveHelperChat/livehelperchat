@@ -26,15 +26,23 @@
         <div class="col-6"><label><input type="checkbox" <?php if ($object->widgets & 2) : ?>checked="checked"<?php endif; ?> name="widgets[]" value="2"> Active chat</label></div>
         <div class="col-6"><label><input type="checkbox" <?php if ($object->widgets & 4) : ?>checked="checked"<?php endif; ?> name="widgets[]" value="4"> Bot chats</label></div>
         <div class="col-6"><label><input type="checkbox" <?php if ($object->widgets & 8) : ?>checked="checked"<?php endif; ?> name="widgets[]" value="8"> My active pending chats</label></div>
-        <?php /*<div class="col-6"><label><input type="checkbox" <?php if ($object->widgets & 16) : ?>checked="checked"<?php endif; ?> name="widgets[]" value="16"> Active mails</label></div>
-        <div class="col-6"><label><input type="checkbox" <?php if ($object->widgets & 32) : ?>checked="checked"<?php endif; ?> name="widgets[]" value="32"> New mails</label></div>*/ ?>
     </div>
 </div>
 <hr>
 
-<div class="form-group">
-    <label class="mb-0"><?php echo erLhcoreClassAbstract::renderInput('internal', $fields['internal'], $object)?>&nbsp;<?php echo $fields['internal']['trans'];?></label>
-    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/subject/internal_explain.tpl.php'));?>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label class="mb-0"><?php echo erLhcoreClassAbstract::renderInput('internal', $fields['internal'], $object)?>&nbsp;<?php echo $fields['internal']['trans'];?></label>
+            <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/subject/internal_explain.tpl.php'));?>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label class="mb-0"><?php echo erLhcoreClassAbstract::renderInput('archive', $fields['archive'], $object)?>&nbsp;<?php echo $fields['archive']['trans'];?></label>
+            <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/chatsubject','Archived subjects are hidden from subject pickers and all filtering dropdowns');?></i></small></p>
+        </div>
+    </div>
 </div>
 
 <div class="form-group">
