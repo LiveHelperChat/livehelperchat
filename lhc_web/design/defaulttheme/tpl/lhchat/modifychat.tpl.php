@@ -116,7 +116,7 @@ setTimeout(function() {
                     <td>[<?php echo $participiant->user_id?>]&nbsp;<?php if ($participiant->user_id == -2) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Bot');?><?php elseif ($participiant->user_id == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Visitor');?><?php else : ?><?php echo htmlspecialchars($participiant->n_official)?><?php endif; ?>
                     </td>
                     <td>
-                        <?php echo htmlspecialchars((string)$participiant->duration_front)?>
+                        <?php echo htmlspecialchars(trim((string)$participiant->duration_front) !== '' ? (string)$participiant->duration_front : 'n/a')?>
                     </td>
                     <td>
                         <?php echo htmlspecialchars((string)$participiant->frt)?> s.
