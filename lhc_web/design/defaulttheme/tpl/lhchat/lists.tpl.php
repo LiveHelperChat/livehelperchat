@@ -96,11 +96,10 @@
                     	      ?> | <b><?php echo $hours?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','h.');?> <?php echo $minits ?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','m.');?> <?php echo $seconds?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','s.');?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','ago');?>.</b>
                     	      <?php endif;?>
                                 <?php if (is_array($chat->subjects)) : ?>
-                                    <?php foreach ($chat->subjects as $subject) : ?>
+                                    <?php foreach ($chat->subjects as $subject) : if (!is_object($subject)) {continue;} ?>
                                         <span class="badge bg-info mx-1" <?php if ($subject->color != '') : ?>style="background-color:#<?php echo htmlspecialchars($subject->color)?>!important;" <?php endif;?>><?php echo htmlspecialchars($subject)?></span>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
-
 
                                 <?php if ($chat->priority > 0) : ?><span class="text-muted fs11" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists','Priority');?>"><span class="material-icons me-0">label</span><?php echo $chat->priority?></span><?php endif; ?>
                                 <?php if (!empty($show_msg_count) && isset($chat->virtual_msg_all_count)) : ?><span class="text-muted fs11 ms-1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists','Messages count');?>"><span class="material-icons">message</span><?php echo (int)$chat->virtual_msg_all_count?></span><?php endif; ?>
