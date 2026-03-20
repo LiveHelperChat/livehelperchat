@@ -134,10 +134,11 @@
             <option value="translation">translation - translations failures</option>
             <option value="translation_item">translation_item - translating translation item failed</option>
             <option value="Departament">Department</option>
-            <option value="Subject">Subject</option>
+            <option value="Subject">Subject modification</option>
+            <option value="SubjectDelete">Subject delete</option>
             <option value="User">User</option>
-            <option value="AutoResponder">AutoResponder</option>
-            <option value="AutoResponderDelete">AutoResponderDelete</option>
+            <option value="AutoResponder">Auto Responder modification</option>
+            <option value="AutoResponderDelete">Auto Responder delete</option>
             <option value="CannedMsg">CannedMsg</option>
             <option value="CannedMsgReplace">CannedMsgReplace - replaceable variables</option>
             <option value="CannedMsgDelete">CannedMsgDelete</option>
