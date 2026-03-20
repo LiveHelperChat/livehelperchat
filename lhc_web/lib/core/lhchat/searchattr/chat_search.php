@@ -60,6 +60,18 @@ $fieldsSearch['cls_time'] = array (
     )
 );
 
+$fieldsSearch['participant_not_owner'] = array (
+    'type' => 'boolean',
+    'trans' => 'Participant is not a chat owner',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'manual',
+    'filter_table_field' => ['customfilter' => ['EXISTS (SELECT 1 FROM `lh_chat_participant` WHERE `lh_chat_participant`.`chat_id` = `lh_chat`.`id` AND `lh_chat_participant`.`user_id` != `lh_chat`.`user_id` AND `lh_chat_participant`.`user_id` NOT IN (-2,0))']],
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
 $fieldsSearch['not_invitation'] = array(
     'type' => 'text',
     'trans' => 'Not invitation',
@@ -661,6 +673,18 @@ $fieldsSearch['user_ids'] = array (
     'filter_table_field' => 'user_id',
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
+$fieldsSearch['as_participant'] = array (
+    'type' => 'boolean',
+    'trans' => 'As participant',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'user_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
     )
 );
 

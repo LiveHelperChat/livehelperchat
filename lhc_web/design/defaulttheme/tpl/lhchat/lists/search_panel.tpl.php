@@ -62,16 +62,26 @@
         <div class="col-md-2">
 		   <div class="form-group">
 			<label><?php echo $userTitle['user'];?></label>
-               <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
-                   'input_name'     => 'user_ids[]',
-                   'optional_field' => $userTitle['user_select'],
-                   'selected_id'    => $input->user_ids,
-                   'css_class'      => 'form-control',
-                   'display_name'   => 'name_official',
-                   'ajax'           => 'users',
-                   'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('sort' => '`name` ASC', 'limit' => 50)),
-                   'list_function'  => 'erLhcoreClassModelUser::getUserList',
-               )); ?>
+               <div class="d-flex align-items-start">
+                   <div class="flex-grow-1">
+                   <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                       'input_name'     => 'user_ids[]',
+                       'optional_field' => $userTitle['user_select'],
+                       'selected_id'    => $input->user_ids,
+                       'css_class'      => 'form-control',
+                       'display_name'   => 'name_official',
+                       'ajax'           => 'users',
+                       'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('sort' => '`name` ASC', 'limit' => 50)),
+                       'list_function'  => 'erLhcoreClassModelUser::getUserList',
+                   )); ?>
+                   </div>
+                   <div class="dropdown ms-1">
+                       <button class="btn btn-sm dropdown-toggle btn-outline-secondary border-secondary-control" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="material-icons">search</span></button>
+                       <div class="dropdown-menu">
+                           <label class="dropdown-item mb-0 ps-2"><input type="checkbox" name="as_participant" <?php if ($input->as_participant === true) : ?>checked="checked"<?php endif;?> value="true"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','As participant');?></label>
+                       </div>
+                   </div>
+               </div>
 		  </div>
 		</div>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/user_group_title.tpl.php')); ?>
@@ -703,6 +713,7 @@
                 <div class="col-2"><label class="col-form-label"><input type="checkbox" name="not_invitation" value="0" <?php $input->not_invitation === 0 ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Not automatic invitation')?></label></div>
                 <div class="col-2"><label class="col-form-label"><input type="checkbox" name="transfer_happened" value="1" <?php $input->transfer_happened == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Transfer happened')?></label></div>
                 <div class="col-2"><label class="col-form-label"><input type="checkbox" name="cls_time" value="1" <?php $input->cls_time == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search by close time')?></label></div>
+                <div class="col-2"><label class="col-form-label"><input type="checkbox" name="participant_not_owner" value="1" <?php $input->participant_not_owner == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats with more than one participant')?></label></div>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel_multiinclude.tpl.php'));?>
             </div>
         </div>

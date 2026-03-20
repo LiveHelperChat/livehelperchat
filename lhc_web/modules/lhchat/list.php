@@ -92,6 +92,23 @@ if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions') && count($filter
 
 erLhcoreClassChatStatistic::formatUserFilter($filterParams);
 
+if ($filterParams['input_form']->as_participant === true) {
+    $userIdsForParticipant = [];
+    if (isset($filterParams['filter']['filterin']['user_id'])) {
+        $userIdsForParticipant = array_merge($userIdsForParticipant, (array)$filterParams['filter']['filterin']['user_id']);
+        unset($filterParams['filter']['filterin']['user_id']);
+    }
+    if (isset($filterParams['filter']['filterin']['lh_chat.user_id'])) {
+        $userIdsForParticipant = array_merge($userIdsForParticipant, (array)$filterParams['filter']['filterin']['lh_chat.user_id']);
+        unset($filterParams['filter']['filterin']['lh_chat.user_id']);
+    }
+    if (!empty($userIdsForParticipant)) {
+        erLhcoreClassChat::validateFilterIn($userIdsForParticipant);
+        $idsStr = implode(',', $userIdsForParticipant);
+        $filterParams['filter']['customfilter'][] = "EXISTS (SELECT 1 FROM `lh_chat_participant` WHERE `lh_chat_participant`.`chat_id` = `lh_chat`.`id` AND `lh_chat_participant`.`user_id` IN ({$idsStr}))";
+    }
+}
+
 if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['input_form']->subject_id)) {
     erLhcoreClassChat::validateFilterIn($filterParams['input_form']->subject_id);
     $filterParams['filter']['innerjoin']['lh_abstract_subject_chat'] = array('`lh_abstract_subject_chat`.`chat_id`','`lh_chat` . `id`');

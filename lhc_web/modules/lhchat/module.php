@@ -318,7 +318,9 @@ $ViewList['list'] = array(
         'vi_msg_count',
         'bot_msg_count',
         'all_msg_count',
-        'all_msg_count_till'
+        'all_msg_count_till',
+        'as_participant',
+        'participant_not_owner'
         ),
     'functions' => array( 'use' ),
     'multiple_arguments' => array(

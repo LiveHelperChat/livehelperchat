@@ -1,6 +1,6 @@
 <td><?php echo htmlspecialchars($info->agentName); ?></td>
 <td nowrap="">
-    <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo isset($input) ? erLhcoreClassSearchHandler::getURLAppendFromInput($input,false,array('user_ids')) : ''?>/(user_ids)/<?php echo $info->userId?>"><?php echo $info->numberOfChats; ?></a>, <span class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','As participant')?>"><?php echo $info->numberOfChatsParticipant; ?></span>
+    <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo isset($input) ? erLhcoreClassSearchHandler::getURLAppendFromInput($input,false,array('user_ids')) : ''?>/(user_ids)/<?php echo $info->userId?>"><?php echo $info->numberOfChats; ?></a>, <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?><?php echo isset($input) ? erLhcoreClassSearchHandler::getURLAppendFromInput($input,false,array('user_ids')) : ''?>/(user_ids)/<?php echo $info->userId?>/(as_participant)/true" class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','As participant')?>"><?php echo $info->numberOfChatsParticipant; ?></a>
 </td>
 <?php if (is_array($input->subject_ids) && !empty($input->subject_ids)) : ?>
     <?php foreach ($input->subject_ids as $subjectId) : ?>
