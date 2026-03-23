@@ -1287,17 +1287,19 @@ class erLhcoreClassGenericBotActionRestapi
             $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $bodyPOST);
             $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
             $bodyPOST = str_replace('__lhc_bracket__','{{',$bodyPOST);
-
+           
             if (isset($methodSettings['switch_form_data']) && $methodSettings['switch_form_data'] === true && !empty($files)) {
                 $methodSettings['body_request_type_content'] = $methodSettings['body_request_type'] = 'form-data';
                 $paramsPOST = json_decode($bodyPOST,true);
                 $counter = 0;
+
                 foreach ($files as $mediaFile) {
-                    if ($mediaFile->remote_file === false) {
+                    if ($mediaFile->remote_file !== true) {
                         $paramsPOST['data'.$counter] = new CurlFile($mediaFile->file_path_server, $mediaFile->type, $mediaFile->upload_name);
                         $counter++;
                     }
                 }
+
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $paramsPOST);
             } else {
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);

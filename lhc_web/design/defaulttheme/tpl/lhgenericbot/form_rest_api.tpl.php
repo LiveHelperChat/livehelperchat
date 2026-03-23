@@ -358,7 +358,7 @@
                             </div>
                             <div class="col-6 pt-2">
                                 <label><input type="checkbox" value="on" ng-model="param.switch_form_data">&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Switch to form data if there is file attached to a message.')?></label>
-                                <p><small><i>Files will be attached as [data+n] post fields. First level JSON attributes will become POST vars.</i></small></p>
+                                <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Files will be attached as [data+n] post fields. First level JSON attributes will become POST vars.')?></i></small></p>
                             </div>
                         </div>
                         <div class="form-group">
