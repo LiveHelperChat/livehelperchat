@@ -143,6 +143,10 @@ class ezcTranslationManager
         }
         // Retrieve the context through the backend and apply filters
         $translationContext = $this->backend->getContext( $locale, $context );
+        if ( !is_array( $translationContext ) )
+        {
+            throw new ezcTranslationContextNotAvailableException( $context );
+        }
         foreach ( $this->filters as $filter )
         {
             $filter->runFilter( $translationContext );

@@ -4,6 +4,7 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/adminchat.tpl.php');
 
 $db = ezcDbInstance::get();
 $db->beginTransaction();
+$transactionActive = true;
 
 $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
@@ -149,8 +150,10 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
             $chat->updateThis();
 
     	    $db->commit();
+            $transactionActive = false;
 
             $db->beginTransaction();
+            $transactionActive = true;
 
     	    session_write_close();
 
@@ -186,6 +189,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
                 $chat->updateThis();
     	    };
     	    $db->commit();
+            $transactionActive = false;
     	    
     	    $tpl->set('chat',$chat);
             $tpl->set('canEditChat',true);
@@ -195,7 +199,8 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	    echo $tpl->fetch();
     	        	    
 	    } catch (Exception $e) {
-	        $db->rollback();
+	        if ($transactionActive) { $db->rollback(); }
+	        $transactionActive = false;
             $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');
             $tpl->set('show_close_button',true);
             $tpl->set('auto_close_dialog',true);
@@ -205,7 +210,8 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
             exit;
 	    }
 	} else {
-        $db->rollback();
+        if ($transactionActive) { $db->rollback(); }
+        $transactionActive = false;
 	    $tpl->set('canEditChat',erLhcoreClassChat::hasAccessToWrite($chat));
 	    $tpl->set('chat',$chat);
         $tpl->set('see_sensitive_information',$see_sensitive_information);

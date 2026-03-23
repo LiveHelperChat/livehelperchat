@@ -84,11 +84,11 @@ class erTranslationClassLhTranslation
 
                 return self::$htmlEscape ? htmlspecialchars($translated, ENT_QUOTES) : $translated;
 
-            } catch (Exception $e) {
+            } catch (\Throwable $e) {
                 return self::$htmlEscape ? htmlspecialchars($this->insertarguments($string, $params), ENT_QUOTES) : $this->insertarguments($string, $params);
             }
 
-        } catch (Exception $e) {
+        } catch (\Throwable $e) {
             $translated = $this->insertarguments($string, $params);
             return self::$htmlEscape ? htmlspecialchars($translated, ENT_QUOTES) : $translated;
         }
