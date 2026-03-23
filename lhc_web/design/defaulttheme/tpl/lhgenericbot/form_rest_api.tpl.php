@@ -341,17 +341,25 @@
                     </div>
 
                     <div ng-if="param.body_request_type == 'raw'">
-                        <div class="form-group">
-                            <label>Request Body</label>
-                            <select ng-model="param.body_request_type_content" class="form-control form-control-sm">
-                                <option value="">Text</option>
-                                <option value="text">Text (text/plain)</option>
-                                <option value="json">JSON (application/json)</option>
-                                <option value="js">Javascript (application/javascript)</option>
-                                <option value="appxml">XML (application/xml)</option>
-                                <option value="textxml">XML (text/xml)</option>
-                                <option value="texthtml">HTML (text/html)</option>
-                            </select>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Request Body</label>
+                                    <select ng-model="param.body_request_type_content" class="form-control form-control-sm">
+                                        <option value="">Text</option>
+                                        <option value="text">Text (text/plain)</option>
+                                        <option value="json">JSON (application/json)</option>
+                                        <option value="js">Javascript (application/javascript)</option>
+                                        <option value="appxml">XML (application/xml)</option>
+                                        <option value="textxml">XML (text/xml)</option>
+                                        <option value="texthtml">HTML (text/html)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6 pt-2">
+                                <label><input type="checkbox" value="on" ng-model="param.switch_form_data">&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Switch to form data if there is file attached to a message.')?></label>
+                                <p><small><i>Files will be attached as [data+n] post fields. First level JSON attributes will become POST vars.</i></small></p>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Paste your request here (E.g JSON body). You can put visitor message as placeholder')?>&nbsp;<a href="https://doc.livehelperchat.com/docs/bot/rest-api#replaceable-variables" target="_blank"><i class="material-icons">help</i></a></label>

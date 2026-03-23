@@ -457,6 +457,7 @@ class erLhcoreClassGenericBotActionRestapi
     public static function makeRequest($host, $methodSettings, $paramsCustomer)
     {
         $msg_text = '';
+        $msg_file_attachement = '';
 
         $media = array();
         $files = array();
@@ -466,6 +467,18 @@ class erLhcoreClassGenericBotActionRestapi
         } elseif (isset($paramsCustomer['params']['msg'])) {
             if (is_object($paramsCustomer['params']['msg'])) {
                 $msg_text = $paramsCustomer['params']['msg']->msg;
+                
+                // Attach meta message file
+                $messageFile = $paramsCustomer['params']['msg']->file_data;
+
+                if (isset($messageFile['type']) && $messageFile['type'] == 'meta_msg') {
+                    if (isset($methodSettings['switch_form_data']) && $methodSettings['switch_form_data'] === true) {
+                        $msg_file_attachement .= '[file=' . $messageFile['file']->id . '_' . $messageFile['file']->security_hash.']';
+                    } else {
+                        $msg_text .= '[file=' . $messageFile['file']->id . '_' . $messageFile['file']->security_hash.']';
+                    }
+                }
+
             } else {
                 $msg_text = '';
             }
@@ -483,7 +496,7 @@ class erLhcoreClassGenericBotActionRestapi
         } elseif (isset($paramsCustomer['params']['chat_file'])) {
             $msg_text = '[file=' . $paramsCustomer['params']['chat_file']->id . '_'.$paramsCustomer['params']['chat_file']->security_hash.']';
         }
-  
+
         if (isset($methodSettings['split_into_parts']) && $methodSettings['split_into_parts'] == true){
             // If there is only one message, then we just proceed as usual
             $messagesToProcess = preg_split('/(\[file="?(?:.*?)"?\]|\[img\](?:.*?)\[\/img\])/ms', $msg_text, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
@@ -516,7 +529,7 @@ class erLhcoreClassGenericBotActionRestapi
         
         // We have to extract attached files and send them separately
         $matches = array();
-        preg_match_all('/\[file="?(.*?)"?\]/', $msg_text_cleaned_files, $matches);
+        preg_match_all('/\[file="?(.*?)"?\]/', $msg_text_cleaned_files . $msg_file_attachement, $matches);
 
         foreach ($matches[1] as $index => $body) {
             $parts = explode('_', $body);
@@ -618,8 +631,11 @@ class erLhcoreClassGenericBotActionRestapi
 
         $file_api = false;
 
+        // We want files as attachements.
+        if (isset($methodSettings['switch_form_data']) && $methodSettings['switch_form_data'] === true && count($files) == 1 && trim($msg_text_cleaned) == '') {
+            $msg_text = '';
         // Switch to file API if it's only one file send
-        if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && count($files) == 1 && trim($msg_text_cleaned) == '') {
+        } else if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && count($files) == 1 && trim($msg_text_cleaned) == '') {
             foreach ($files as $mediaFile) {
 
                 $file_api = false;
@@ -1272,8 +1288,21 @@ class erLhcoreClassGenericBotActionRestapi
             $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
             $bodyPOST = str_replace('__lhc_bracket__','{{',$bodyPOST);
 
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
-
+            if (isset($methodSettings['switch_form_data']) && $methodSettings['switch_form_data'] === true && !empty($files)) {
+                $methodSettings['body_request_type_content'] = $methodSettings['body_request_type'] = 'form-data';
+                $paramsPOST = json_decode($bodyPOST,true);
+                $counter = 0;
+                foreach ($files as $mediaFile) {
+                    if ($mediaFile->remote_file === false) {
+                        $paramsPOST['data'.$counter] = new CurlFile($mediaFile->file_path_server, $mediaFile->type, $mediaFile->upload_name);
+                        $counter++;
+                    }
+                }
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $paramsPOST);
+            } else {
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
+            }
+            
             if (isset($methodSettings['body_request_type_content'])) {
                 if ($methodSettings['body_request_type_content'] == 'json') {
                     $headers[] = 'Content-Type: application/json';
@@ -1285,7 +1314,7 @@ class erLhcoreClassGenericBotActionRestapi
                     $headers[] = 'Content-Type: application/xml';
                 } else if ($methodSettings['body_request_type_content'] == 'textxml') {
                     $headers[] = 'Content-Type: text/xml';
-                }else if ($methodSettings['body_request_type_content'] == 'texthtml') {
+                } else if ($methodSettings['body_request_type_content'] == 'texthtml') {
                     $headers[] = 'Content-Type: text/html';
                 }
             }
