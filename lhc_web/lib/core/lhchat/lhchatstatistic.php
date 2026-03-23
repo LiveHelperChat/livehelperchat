@@ -1404,9 +1404,14 @@ class erLhcoreClassChatStatistic {
 
             $useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
 
-            if (isset($filter['filter']['user_id'])){
+            if (isset($filter['filter']['user_id'])) {
                 $filter['filter']['`lh_chat_participant`.`user_id`'] = $filter['filter']['user_id'];
                 unset($filter['filter']['user_id']);
+            }
+
+            if (isset($filter['filtergt']['user_id'])) {
+                $filter['filtergt']['`lh_chat`.`user_id`'] = $filter['filtergt']['user_id'];
+                unset($filter['filtergt']['user_id']);
             }
 
             if (isset($filter['filter']['dep_id'])){
@@ -1458,6 +1463,8 @@ class erLhcoreClassChatStatistic {
             }
 
         	$sql = "SELECT count(`lh_chat_participant`.`id`) AS number_of_chats,{$column} FROM lh_chat_participant {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY {$groupField} ORDER BY number_of_chats DESC LIMIT 40";
+
+            //echo $sql;
 
         	$db = ezcDbInstance::get();
         	$stmt = $db->prepare($sql);
