@@ -1301,6 +1301,9 @@ class erLhcoreClassGenericBotActionRestapi
                 }
 
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $paramsPOST);
+
+                // For debug to work
+                $bodyPOST = json_encode($paramsPOST);
             } else {
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
             }
