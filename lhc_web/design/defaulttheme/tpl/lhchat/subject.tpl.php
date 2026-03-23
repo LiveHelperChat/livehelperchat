@@ -32,15 +32,15 @@
     <div class="row">
         <?php foreach($subjects as $subject) : ?>
         <?php if ($subject->subject->pinned == 1) : ?>
-            <div class="col-3"><label <?php if ($subject->subject->color != '') : ?> class="subject-custom"<?php endif;?> ><input type="checkbox" onchange="lhinst.setSubject($(this),<?php echo $chat->id?>)" name="subject" value="<?php echo $subject->subject_id?>" <?php if (in_array($subject->subject_id,$selectedSubjects)) : ?>checked="checked"<?php endif?> >&nbsp;<?php if ($subject->subject->color != '') : ?><span class="color" style="margin-top:-3px;background-color:#<?php echo $subject->subject->color?>"></span><?php endif;?><?php echo htmlspecialchars($subject)?></label></div>
+            <div class="col-4"><label <?php if ($subject->subject->color != '') : ?> class="subject-custom"<?php endif;?> ><input type="checkbox" onchange="lhinst.setSubject($(this),<?php echo $chat->id?>)" name="subject" value="<?php echo $subject->subject_id?>" <?php if (in_array($subject->subject_id,$selectedSubjects)) : ?>checked="checked"<?php endif?> >&nbsp;<?php if ($subject->subject->color != '') : ?><span class="color" style="margin-top:-3px;background-color:#<?php echo $subject->subject->color?>"></span><?php endif;?><?php echo htmlspecialchars($subject)?></label></div>
         <?php endif; endforeach; ?>
     </div>
     <hr>
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Standard')?></h5>
     <?php endif; ?>
-    <div class="row">
+    <div class="row mx550">
     <?php foreach($subjects as $subject) : if ($subject->subject->pinned == 0) :  ?>
-        <div class="col-3"><label <?php if ($subject->subject->color != '') : ?> class="subject-custom"<?php endif;?> ><input type="checkbox" onchange="lhinst.setSubject($(this),<?php echo $chat->id?>)" name="subject" value="<?php echo $subject->subject_id?>" <?php if (in_array($subject->subject_id,$selectedSubjects)) : ?>checked="checked"<?php endif?> >&nbsp;<?php if ($subject->subject->color != '') : ?><span class="color" style="margin-top:-3px;background-color:#<?php echo $subject->subject->color?>"></span><?php endif;?><?php echo htmlspecialchars($subject)?></label></div>
+        <div class="col-4"><label <?php if ($subject->subject->color != '') : ?> class="subject-custom"<?php endif;?> ><input type="checkbox" onchange="lhinst.setSubject($(this),<?php echo $chat->id?>)" name="subject" value="<?php echo $subject->subject_id?>" <?php if (in_array($subject->subject_id,$selectedSubjects)) : ?>checked="checked"<?php endif?> >&nbsp;<?php if ($subject->subject->color != '') : ?><span class="color" style="margin-top:-3px;background-color:#<?php echo $subject->subject->color?>"></span><?php endif;?><?php echo htmlspecialchars($subject)?></label></div>
     <?php endif; endforeach; ?>
     </div>
 
