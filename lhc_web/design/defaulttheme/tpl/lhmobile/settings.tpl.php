@@ -1,5 +1,9 @@
 <h1 class="attr-header">Mobile Options</h1>
 
+<?php if (erConfigClassLhConfig::getInstance()->getSetting('site', 'disable_mobile', false) === true) : $msg =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Mobile is disabled in the main settings file (settings.ini.php). Mobile notifications will not work.'); ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_info.tpl.php'));?>
+<?php endif; ?>
+
 <form action="" method="post" ng-non-bindable>
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

@@ -22,10 +22,13 @@ class erLhcoreClassChatEventDispatcher {
    public function setGlobalListeners($event = null, $param = array())
    {
        if ($this->globalListenersSet == false) {
+
+           $cfg = erConfigClassLhConfig::getInstance();
+
            $this->globalListenersSet = true;
 
            // Do not set listeners if mobile is disabled
-           if ($this->disableMobile == false) {
+           if ($this->disableMobile == false && $cfg->getSetting('site', 'disable_mobile', false) === false) {
                $this->listen('chat.chat_started', 'erLhcoreClassLHCMobile::chatStarted');
                $this->listen('chat.data_changed_auto_assign', 'erLhcoreClassLHCMobile::chatStarted');
                $this->listen('chat.addmsguser', 'erLhcoreClassLHCMobile::newMessage');
@@ -34,12 +37,14 @@ class erLhcoreClassChatEventDispatcher {
                $this->listen('chat.chat_transfered', 'erLhcoreClassLHCMobile::chatTransferred');
                $this->listen('group_chat.web_add_msg_admin', 'erLhcoreClassLHCMobile::newGroupMessage');
                $this->listen('chat.subject_add', 'erLhcoreClassLHCMobile::newSubject');
+           } else {
+                $this->disableMobile = true;
            }
        }
 
        if ($this->webhooksSet == false && $event !== null) {
 
-           $cfg = erConfigClassLhConfig::getInstance();
+           $cfg = $cfg ?? erConfigClassLhConfig::getInstance();
 
            $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false);
 
