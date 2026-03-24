@@ -17,6 +17,7 @@
 <td nowrap="nowrap"><?php echo $info->aveNumber; ?>, <span class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','As participant')?>"><?php echo $info->aveNumberParticipant; ?></span></td>
 <td nowrap="nowrap"><?php echo $info->avgWaitTime_front; ?></td>
 <td nowrap="nowrap"><?php echo $info->avgChatLength; ?></td>
+<td nowrap="nowrap"><?php echo $info->avgChatLengthParticipant_front; ?></td>
 <td nowrap="nowrap">
     <?php echo isset($info->avgFirstResponseTime_front) ? $info->avgFirstResponseTime_front : ''; ?>, <span class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','As participant')?>"><?php echo isset($info->avgFirstResponseTimePar_front) ? $info->avgFirstResponseTimePar_front : ''; ?></span>
 </td>

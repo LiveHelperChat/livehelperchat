@@ -21,6 +21,9 @@
     <td>
         <?php echo htmlspecialchars($agentStatistic_avg['avgChatLengthSeconds_front'])?>
     </td>
+    <td>
+       <?php echo htmlspecialchars($agentStatistic_avg['avgChatLengthParticipant_front'])?>
+    </td>
     <td nowrap="">
         <?php echo htmlspecialchars($agentStatistic_avg['avgFirstResponseTime_front'])?>, <span class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','As participant')?>"><?php echo htmlspecialchars($agentStatistic_avg['avgFirstResponseTimePar_front'])?></span>
     </td>
