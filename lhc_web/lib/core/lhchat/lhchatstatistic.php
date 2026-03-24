@@ -2300,11 +2300,12 @@ class erLhcoreClassChatStatistic {
                     'avgWaitTime' => $userWaitTimeByOperatorNumber,
                     'avgWaitTime_front' => $avgWaitTime, 
                     'avgChatLength' => $avgChatLength,
+                    'avgChatLengthSeconds' => $avgDuration,
 
                     'avgChatLengthParticipant' => $avgChatLengthParticipation,
                     'avgChatLengthParticipant_front' => erLhcoreClassChat::formatSeconds($avgChatLengthParticipation),
 
-                    'avgChatLengthSeconds' => $avgDuration,
+
                     'subject_stats' => $subjectStats,
 
                     'avgFirstResponseTime' => $avgFirstResponseTime,

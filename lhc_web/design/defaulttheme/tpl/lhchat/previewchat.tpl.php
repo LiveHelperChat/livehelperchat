@@ -1,4 +1,4 @@
-<div class="modal-dialog modal-xl">
+﻿<div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header pt-1 pb-1 ps-2 pe-2">
 
@@ -44,9 +44,9 @@
     <?php if (isset($keyword) && !empty($keyword)) : ?>
         <?php foreach ($messages as $message) : ?>
             <?php if (is_array($keyword)) : ?>
-                <?php foreach ($keyword as $keywordItem) { $message->msg = preg_replace('/\b(' . preg_quote($keywordItem, '/') . ')\b/is', '[level=bg-warning text-dark rounded p-1 d-inline-block][i][b][fs14]' . $keywordItem . '[/fs][/b][/i][/level]', $message->msg); } ?>
+                <?php foreach ($keyword as $keywordItem) { $message->msg = preg_replace_callback('/(\[[^\]]*\])|(\b' . preg_quote($keywordItem, '/') . '\b)/is', function($matches) { if (!empty($matches[1])) { return $matches[1]; } return '[level=bg-warning text-dark rounded p-1 d-inline-block][i][b][fs14]' . $matches[2] . '[/fs][/b][/i][/level]'; }, $message->msg); } ?>
             <?php else : ?>
-                <?php $message->msg = preg_replace('/\b(' . preg_quote($keyword,'/') . ')\b/is','[level=bg-warning text-dark rounded p-1 d-inline-block][i][b][fs14]' . $keyword . '[/fs][/b][/i][/level]', $message->msg); ?>
+                <?php $message->msg = preg_replace_callback('/(\[[^\]]*\])|(\b' . preg_quote($keyword, '/') . '\b)/is', function($matches) { if (!empty($matches[1])) { return $matches[1]; } return '[level=bg-warning text-dark rounded p-1 d-inline-block][i][b][fs14]' . $matches[2] . '[/fs][/b][/i][/level]'; }, $message->msg); ?>
             <?php endif; ?>
         <?php endforeach; ?>
     <?php endif; ?>
