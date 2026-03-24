@@ -22,6 +22,8 @@ if (!empty($id)) {
         erLhcoreClassChat::prefillGetAttributes($chats, array(), array(), array('additional_columns' => $icons_additional, 'do_not_clean' => true));
     }
 
+    $personalAdminTheme = erLhAbstractModelAdminTheme::findOne(array('filter' => array('user_id' => $currentUser->getUserID())));
+
     foreach ($chats as $chat) {
         $msgVisitor = erLhcoreClassChat::getGetLastChatMessagePending($chat->id, true, 3, ' » ');
 
@@ -29,10 +31,15 @@ if (!empty($id)) {
             $msgVisitor = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgVisitor, array('dep_id' => $chat->dep_id));
         }
 
+        $nick = $chat->nick;
+        
+        if ($personalAdminTheme instanceof erLhAbstractModelAdminTheme && !empty($personalAdminTheme->css_attributes_array['nick_template'])) {
+            $nick = erLhcoreClassGenericBotWorkflow::translateMessage($personalAdminTheme->css_attributes_array['nick_template'], array('chat' => $chat, 'args' => ['chat' => $chat]));
+        }
+
         $item = array(
-           /* 'add_attr' => ['snapshot' => '#cecece'],*/
             'id' => $chat->id,
-            'nick' => $chat->nick,
+            'nick' => $nick,
             'cs' => $chat->status,
             'co' => $chat->user_id,
             'dep' => (string)$chat->department,

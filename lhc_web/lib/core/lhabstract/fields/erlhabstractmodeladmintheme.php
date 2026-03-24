@@ -29,6 +29,15 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
+    'nick_template' => array(
+        'type' => 'text',
+        'main_attr' => 'css_attributes_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Nick template'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     'buble_operator_background' => array(
         'type' => 'colorpicker',
         'main_attr' => 'css_attributes_array',

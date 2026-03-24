@@ -29,6 +29,7 @@
         <li role="presentation" class="nav-item"><a class="nav-link" href="#mainattr" aria-controls="mainattr" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Main attributes');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#headersettings" aria-controls="headersettings" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Header settings');?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link" href="#headercss" aria-controls="headercss" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Header css');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link" href="#nicktemplate" aria-controls="nicktemplate" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Nick template');?></a></li>
 		<?php if ($form->id !== null) : ?>
 		<li role="presentation" class="nav-item"><a class="nav-link" href="#static" aria-controls="static" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Static content');?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link" href="#js" aria-controls="js" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','JS');?></a></li>
@@ -346,17 +347,17 @@
                     </div>
                 </div>
             </div>
+		</div>
 
+		<div role="tabpanel" class="tab-pane" id="nicktemplate">
+            <div class="form-group pt-2">
+                <label><?php echo $fields['nick_template']['trans'];?></label>
+                <?php echo erLhcoreClassAbstract::renderInput('nick_template', $fields['nick_template'], $form)?>
+                <small><p class="pt-2 text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','E.g {lhc.nick} [{lhc.add.surname_name}] [{lhc.var.user_id}] or just {args.chat.id}');?></p></small>
+            </div>
+		</div>
 
-
-
-			</div>
-
-
-
-
-
-		<div role="tabpanel" class="tab-pane" id="headersettings">
+        <div role="tabpanel" class="tab-pane" id="headersettings">
             <div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Header content');?></label>
 				<textarea ng-non-bindable name="header_content" class="form-control" rows="10" cols=""><?php echo htmlspecialchars($form->header_content) ?></textarea>

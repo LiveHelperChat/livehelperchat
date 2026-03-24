@@ -221,6 +221,13 @@ const DashboardChatTabs = props => {
                     chat.aicons = {};
                 }
 
+                if (chat.nick) {
+                    let elm = document.getElementById('ntab-chat-'+chat.id);
+                    if (elm) {
+                        elm.textContent = chat.nick;
+                    }
+                }
+
                 dispatch({
                     type: 'update_chat',
                     id: chat.id,
