@@ -20,6 +20,9 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'AllowedFileTypesUser' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
+        'ft_us_bot' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
         'ClamAVSocketPath' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
@@ -241,6 +244,12 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['ft_us'] = $form->AllowedFileTypesUser;
     } else {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration', 'Please enter valid file type!');
+    }
+
+    if ($form->hasValidData('ft_us_bot') && $form->ft_us_bot != '') {
+        $data['ft_us_bot'] = $form->ft_us_bot;
+    } else {
+        $data['ft_us_bot'] = '';
     }
 
     if ($form->hasValidData('MaximumFileSize')) {

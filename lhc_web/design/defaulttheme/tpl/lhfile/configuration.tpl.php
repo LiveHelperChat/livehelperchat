@@ -51,8 +51,16 @@
 		<input type="text" class="form-control" name="AllowedFileTypes" value="<?php isset($file_data['ft_op']) ? print $file_data['ft_op'] : '' ?>" />
 	</div>
 	<div class="col-md-6">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Allowed files types for users'); ?></label>
-		<input type="text" class="form-control" name="AllowedFileTypesUser" value="<?php isset($file_data['ft_us']) ? print $file_data['ft_us'] : '' ?>" />
+        <div class="row">
+            <div class="col-6">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Allowed files types for users'); ?></label>
+                <input type="text" class="form-control" name="AllowedFileTypesUser" value="<?php isset($file_data['ft_us']) ? print $file_data['ft_us'] : '' ?>" />
+            </div>
+            <div class="col-6">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Allowed files types for users while in bot status. You can have custom file types allowed while chat is in bot status.'); ?></label>
+                <input type="text" class="form-control" name="ft_us_bot" value="<?php isset($file_data['ft_us_bot']) ? print $file_data['ft_us_bot'] : '' ?>" />
+            </div>
+        </div>
 	</div>
 </div>
 

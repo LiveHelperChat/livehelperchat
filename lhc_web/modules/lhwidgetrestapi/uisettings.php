@@ -54,6 +54,10 @@ try {
                 $outputResponse['chat_ui']['file_options']['file_preview'] = true;
             }
 
+            if (!empty($fileData['ft_us_bot'])) {
+                $outputResponse['chat_ui']['file_options']['ft_us_bot'] = $fileData['ft_us_bot'];
+            }
+
         } else {
             $outputResponse['chat_ui_remove'][] = ['chat_ui','file'];
             $outputResponse['chat_ui_remove'][] = ['chat_ui','file_options'];

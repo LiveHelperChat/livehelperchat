@@ -38,7 +38,7 @@ class ChatFileUploader extends PureComponent {
     onFilesAdded(files) {
         const { t } = this.props;
 
-        const ruleTest = new RegExp("(\.|\/)(" + this.props.fileOptions.get('ft_us') + ")$","i");
+        const ruleTest = new RegExp("(\.|\/)(" + (this.props.is_bot === true && this.props.fileOptions.get('ft_us_bot') ? this.props.fileOptions.get('ft_us_bot') : this.props.fileOptions.get('ft_us')) + ")$","i");
 
         let uploadErrors = [];
         files.forEach(file => {

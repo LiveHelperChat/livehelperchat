@@ -353,6 +353,10 @@ try {
             if (isset($fileData['file_preview']) && $fileData['file_preview'] == true) {
                 $outputResponse['chat_ui']['file_options']['file_preview'] = true;
             }
+
+            if (!empty($fileData['ft_us_bot'])) {
+                $outputResponse['chat_ui']['file_options']['ft_us_bot'] = $fileData['ft_us_bot'];
+            }
         }
 
         if (isset($chatVariables['lhc_ds'])) {

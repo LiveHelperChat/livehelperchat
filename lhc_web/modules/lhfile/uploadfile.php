@@ -79,7 +79,7 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
                     'antivirus' => $clamav,
                     'user_id' => 0,
                     'max_file_size' => $data['fs_max'] * 1024,
-                    'accept_file_types_lhc' => '/\.(' . $data['ft_us'] . ')$/i',
+                    'accept_file_types_lhc' => '/\.(' . ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && !empty($data['ft_us_bot']) ? $data['ft_us_bot'] : $data['ft_us']) . ')$/i',
                     'chat' => $chat,
                     'file_preview' => (isset($data['file_preview']) && $data['file_preview'] == true),
                     'download_via_php' => true,
