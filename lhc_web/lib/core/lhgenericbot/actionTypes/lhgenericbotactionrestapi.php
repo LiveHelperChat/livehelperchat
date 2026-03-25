@@ -1842,9 +1842,7 @@ class erLhcoreClassGenericBotActionRestapi
                 $msgLog->user_id = -1;
                 $msgLog->chat_id = $paramsCustomer['chat']->id;
                 $msgLog->time = time();
-                $msgLog->meta_msg = json_encode(['content' => ['html' => [
-                    'debug' => true,
-                    'content' => json_encode([
+                $msgLog->meta_msg_array = [
                     'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name'),
                     'method_name' => $methodSettings['name'],
                     'trigger' => (isset($paramsCustomer['params']['current_trigger']) && is_object($paramsCustomer['params']['current_trigger']) ? 'B['. $paramsCustomer['params']['current_trigger']->bot_id .'] T['.$paramsCustomer['params']['current_trigger']->id . '] ' . $paramsCustomer['params']['current_trigger']->name : null),
@@ -1865,9 +1863,15 @@ class erLhcoreClassGenericBotActionRestapi
                     'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                     'msg_text' => $msg_text,
                     'line' => __LINE__,
-                ],JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
+                ];
                 $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
-                $msgLog->saveThis();
+
+                if (!empty($responseContent)) {
+                    $msgLog->meta_msg = json_encode(['content' => ['html' => [
+                        'debug' => true,
+                        'content' => json_encode($msgLog->meta_msg_array,JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
+                    $msgLog->saveThis();
+                }
             }
         }
 
@@ -1876,7 +1880,7 @@ class erLhcoreClassGenericBotActionRestapi
         }
 
         // Check vars is scope correct
-        return self::parseContentOutput([
+        $responseNonStreaming = self::parseContentOutput([
             'paramsCustomer' => $paramsCustomer,
             'methodSettings' => $methodSettings,
             'paramsRequest' => $paramsRequest,
@@ -1887,6 +1891,19 @@ class erLhcoreClassGenericBotActionRestapi
             'http_error' => $http_error,
             'http_data' => $http_data
         ]);
+
+        // Save parsed output
+        if (isset($msgLog) && $msgLog instanceof erLhcoreClassModelmsg) {
+            foreach (['content','content_2','content_3','content_4','content_5','content_6'] as $key) {
+                $msgLog->meta_msg_array[$key] = $responseNonStreaming[$key];
+            }
+            $msgLog->meta_msg = json_encode(['content' => ['html' => [
+                'debug' => true,
+                'content' => json_encode($msgLog->meta_msg_array,JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
+            $msgLog->saveThis();
+        }
+
+        return $responseNonStreaming;
     }
     public static function getCurrentTimeWithMilliseconds() {
         // Get the current time with microseconds as a float
