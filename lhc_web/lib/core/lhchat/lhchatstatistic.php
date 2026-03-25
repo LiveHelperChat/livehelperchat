@@ -1853,7 +1853,11 @@ class erLhcoreClassChatStatistic {
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(20 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','We have send this message as reply or forward'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(21 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Responded by e-mail'));
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_export_columns',array('xls' => & $objPHPExcel));
+        $lastColumn = 21 + $columnCounter;
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_export_columns',array(
+            'xls' => & $objPHPExcel,
+            'last_column' => & $lastColumn
+        ));
 
         $i = 3;
         foreach ($data as $item) {
