@@ -129,14 +129,14 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.after_save', array('chat'=> $chat, 'chat_file' => $upload_handler->uploadedFile));
 
             // Dispatch event only if minimum image width or height is set and file is an image
+            // Picture has to be not temporary
             if (
+                $upload_handler->uploadedFile->tmp == 0 &&
                 isset($data['img_download_policy']) && $data['img_download_policy'] == 1 &&
                 in_array($upload_handler->uploadedFile->extension, array('jfif','jpg', 'jpeg', 'png', 'gif')) &&
                 ($upload_handler->uploadedFile->width > (isset($data['img_verify_min_dim']) ? $data['img_verify_min_dim'] : 100) || $upload_handler->uploadedFile->height > (isset($data['img_verify_min_dim']) ? $data['img_verify_min_dim'] : 100))
             ) {
-                 if ($upload_handler->uploadedFile->tmp == 0) {
-                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.verify_img_file', array('chat'=> $chat, 'chat_file' => $upload_handler->uploadedFile));
-                 }
+                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.verify_img_file', array('chat'=> $chat, 'chat_file' => $upload_handler->uploadedFile));
             }
         }
 
