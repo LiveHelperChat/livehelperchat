@@ -22,7 +22,12 @@ if (!empty($id)) {
         erLhcoreClassChat::prefillGetAttributes($chats, array(), array(), array('additional_columns' => $icons_additional, 'do_not_clean' => true));
     }
 
-    $personalAdminTheme = erLhAbstractModelAdminTheme::findOne(array('filter' => array('user_id' => $currentUser->getUserID())));
+    if (!((int)erLhcoreClassModelUserSetting::getSetting('admin_theme_enabled', 0) == 1 && ($personalAdminTheme = erLhAbstractModelAdminTheme::findOne(array('filter' => array('user_id' => erLhcoreClassUser::instance()->getUserID())))) instanceof erLhAbstractModelAdminTheme)) {
+        $adminThemeId = erLhcoreClassModelChatConfig::fetch('default_admin_theme_id')->current_value;
+        if ($adminThemeId > 0) {
+            $personalAdminTheme = erLhAbstractModelAdminTheme::fetch($adminThemeId);
+        }
+    }
 
     foreach ($chats as $chat) {
         $msgVisitor = erLhcoreClassChat::getGetLastChatMessagePending($chat->id, true, 3, ' » ');
