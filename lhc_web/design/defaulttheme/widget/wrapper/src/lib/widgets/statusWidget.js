@@ -163,7 +163,9 @@ class LHCStatusWidget extends HTMLElement {
         }
 
         function dragIt(e) {
-            objectMoved = true;
+            if (Math.abs(e.pageX - firstX) > 5 || Math.abs(e.pageY - firstY) > 5) {
+                objectMoved = true;
+            }
             let XPos =  (initX + e.pageX - firstX), YPos = (initY + e.pageY - firstY) ;
             object.style.transform = "translate3d(" + XPos + "px, " + YPos + "px, 0px)";
             object.dispatchEventStatus('move', {"x" : XPos, "y": YPos, "bottom": object.style.bottom, "top": object.style.top, "left": object.style.left, "right": object.style.right});
@@ -280,8 +282,10 @@ class LHCStatusWidget extends HTMLElement {
             // This one has to be present otherwise while dragging
             // Page will refresh
             e.preventDefault();
-            objectMoved = true;
             var contact = e.touches;
+            if (Math.abs(contact[0].pageX - firstX) > 5 || Math.abs(contact[0].pageY - firstY) > 5) {
+                objectMoved = true;
+            }
             let XPos = (initX + contact[0].pageX - firstX), YPos = (initY + contact[0].pageY - firstY);
             this.style.transform = "translate3d(" + XPos + "px, " + YPos + "px, 0px)";
             lastTouch = contact[0];
