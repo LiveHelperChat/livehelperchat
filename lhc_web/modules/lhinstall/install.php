@@ -2813,8 +2813,7 @@ try {
   PRIMARY KEY (`id`),
   KEY `oauth_uid` (`oauth_uid`),
   KEY `user_id_completed` (`mailbox_id`,`completed`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4
-;");
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lhc_mailconv_msg` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
