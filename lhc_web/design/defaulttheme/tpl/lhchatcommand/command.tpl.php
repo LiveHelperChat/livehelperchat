@@ -22,6 +22,16 @@
         <label><?php echo htmlspecialchars($field['name'])?><?php if ((isset($field['required']) && $field['required'] == 'required') || !isset($field['required'])) : ?>*<?php endif;?></label>
         <?php if ($field['type'] == 'textarea') : ?>
             <textarea class="form-control form-control-sm<?php if (isset($errors['field_'.$fieldIndex])) : ?> is-invalid<?php endif;?>" name="field_<?php echo $fieldIndex?>" placeholder="<?php echo htmlspecialchars($field['placeholder'] ?? '')?>" rows="<?php echo isset($field['rows']) && (int)$field['rows'] > 0 ? (int)$field['rows'] : 2?>"><?php if (isset($commandArguments['field_' . $fieldIndex])) : ?><?php echo htmlspecialchars($commandArguments['field_' . $fieldIndex])?><?php endif;?></textarea>
+        <?php elseif ($field['type'] == 'dropdown') : ?>
+            <select name="field_<?php echo $fieldIndex?>" class="form-control form-control-sm<?php if (isset($errors['field_'.$fieldIndex])) : ?> is-invalid<?php endif;?>">
+                <?php $options = isset($field['options']) ? preg_split("/\r\n|\n|\r/", $field['options']) : array(); foreach ($options as $opt) :
+                    $parts = explode('||', $opt);
+                    $val = isset($parts[0]) ? trim($parts[0]) : '';
+                    $label = isset($parts[1]) ? trim($parts[1]) : $val;
+                ?>
+                    <option value="<?php echo htmlspecialchars($val)?>" <?php if (isset($commandArguments['field_' . $fieldIndex]) && $commandArguments['field_' . $fieldIndex] == $val) : ?>selected="selected"<?php endif; ?>><?php echo htmlspecialchars($label)?></option>
+                <?php endforeach; ?>
+            </select>
         <?php else : ?>
             <input type="text" name="field_<?php echo $fieldIndex?>" placeholder="<?php echo htmlspecialchars($field['placeholder'] ?? '')?>" class="form-control form-control-sm<?php if (isset($errors['field_'.$fieldIndex])) : ?> is-invalid<?php endif;?>" value="<?php if (isset($commandArguments['field_' . $fieldIndex])) : ?><?php echo htmlspecialchars($commandArguments['field_' . $fieldIndex])?><?php endif;?>" />
         <?php endif; ?>

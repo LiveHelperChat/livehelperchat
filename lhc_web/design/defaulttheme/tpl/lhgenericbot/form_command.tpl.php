@@ -111,7 +111,9 @@
             <select id="custom_field_type" class="form-control form-control-sm">
                 <option value="text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Text field')?></option>
                 <option value="textarea"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Text area')?></option>
+                <option value="dropdown"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Dropdown')?></option>
             </select>
+            <textarea id="custom_field_options" class="form-control form-control-sm mt-2" rows="3" style="display:none" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','value||Label one per line')?>"></textarea>
         </div>
         <div class="col-2">
             <input id="custom_field_rows" class="form-control form-control-sm" type="number" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Number of rows in case Text area field tye is chosen')?>" />
