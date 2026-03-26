@@ -44,7 +44,7 @@
     document.getElementById('json-args-content').innerText = "var LHC_API = LHC_API||{};\nLHC_API = "+JSON.stringify(LHC_API, null, 2);
     (function() {
         var po = document.createElement('script'); po.type = 'text/javascript'; po.setAttribute('crossorigin','anonymous'); po.async = true;
-        var date = new Date();po.src = '//<?php echo $_SERVER['HTTP_HOST']?>/design/defaulttheme/js/widgetv2/index.js?'+(""+date.getFullYear() + date.getMonth() + date.getDate());
+        var date = new Date();po.src = '//<?php echo $_SERVER['HTTP_HOST']?>/design/defaulttheme/js/widgetv2/index.js?ts<?php echo time()?>'+(""+date.getFullYear() + date.getMonth() + date.getDate());
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
     })();
 </script>
