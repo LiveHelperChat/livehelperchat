@@ -113,7 +113,7 @@ setTimeout(function() {
                 </tr>
             <?php foreach (\LiveHelperChat\Models\LHCAbstract\ChatParticipant::getList(['filter' => ['chat_id' => $chat->id]]) as $participiant) : if ($participiant->user_id == 0) {continue;}?>
                 <tr>
-                    <td>[<?php echo $participiant->user_id?>]&nbsp;<?php if ($participiant->user_id == -2) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Bot');?><?php elseif ($participiant->user_id == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Visitor');?><?php else : ?><?php echo htmlspecialchars($participiant->n_official)?><?php endif; ?>
+                    <td title="<?php echo $participiant->id?>">[<?php echo $participiant->user_id?>]&nbsp;<?php if ($participiant->user_id == -2) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Bot');?><?php elseif ($participiant->user_id == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Visitor');?><?php else : ?><?php echo htmlspecialchars($participiant->n_official)?><?php endif; ?>
                     </td>
                     <td>
                         <?php echo htmlspecialchars(trim((string)$participiant->duration_front) !== '' ? (string)$participiant->duration_front : 'n/a')?>
@@ -173,7 +173,7 @@ setTimeout(function() {
             <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->auto_responder, JSON_PRETTY_PRINT));?></pre>
 
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Auto responder object');?></h6>
-            <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->auto_responder?->auto_responder, JSON_PRETTY_PRINT));?></pre>
+            <pre class="fs11"><?php echo htmlspecialchars(json_encode(is_object($chat->auto_responder) ? $chat->auto_responder?->auto_responder : null, JSON_PRETTY_PRINT));?></pre>
 
         </div>
     <?php endif; ?>

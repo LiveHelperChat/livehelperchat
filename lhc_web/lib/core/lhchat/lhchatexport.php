@@ -344,13 +344,42 @@ class erLhcoreClassChatExport {
 		$countryCode = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Country Code');
 		$city = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','City');
 		$ip = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','IP');
-		$operator = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Operator');
-		$operatorName = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Operator Name');
+		$operator = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat operator');
+		$operatorName = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat operator Name');
+		$operator1Name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Operator 1 Name');
+		$operator2Name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Operator 2 Name');
+		$operator3Name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Operator 3 Name');
+		$operator4Name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Operator 4 Name');
+		$operator5Name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Operator 5 Name');
+		$durationOperator1 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Duration (Operator 1)');
+		$durationOperator2 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Duration (Operator 2)');
+		$durationOperator3 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Duration (Operator 3)');
+		$durationOperator4 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Duration (Operator 4)');
+		$durationOperator5 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Duration (Operator 5)');
+		$aartOperator1 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Avg Response Time (Operator 1)');
+		$aartOperator2 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Avg Response Time (Operator 2)');
+		$aartOperator3 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Avg Response Time (Operator 3)');
+		$aartOperator4 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Avg Response Time (Operator 4)');
+		$aartOperator5 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Avg Response Time (Operator 5)');
+		$frtOperator1 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','First Response Time (Operator 1)');
+		$frtOperator2 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','First Response Time (Operator 2)');
+		$frtOperator3 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','First Response Time (Operator 3)');
+		$frtOperator4 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','First Response Time (Operator 4)');
+		$frtOperator5 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','First Response Time (Operator 5)');
+		$martOperator1 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Max Response Time (Operator 1)');
+		$martOperator2 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Max Response Time (Operator 2)');
+		$martOperator3 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Max Response Time (Operator 3)');
+		$martOperator4 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Max Response Time (Operator 4)');
+		$martOperator5 = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Max Response Time (Operator 5)');
 		$dept = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Department');
 		$date = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Date');
 		$minutes = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Minutes');
-		$vote = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Vote status');
+		$voteNone = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Vote: None');
+		$voteUp = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Vote: Up');
+		$voteDown = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Vote: Down');
 		$subjects = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Subjects');
+		$tagged = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Tagged');
+		$notTagged = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Not Tagged');
 		$mail = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Mail send');
 		$page = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Page');
 		$from = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Came from');
@@ -387,7 +416,7 @@ class erLhcoreClassChatExport {
             $survey[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Survey data').' - '.$i;
         }
 
-		$mainColumns = array($id, $name, $email, $phone, $wait, $waitAbandoned, $country, $countryCode, $city, $ip, $operator, $operatorName, $user_id_op, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $visitorRemarks, $subjects, $is_unread, $is_unread_visitor, $is_abandoned, $bot, $chat_actions, $device, $visitorID, $duration, $chat_initiator, $browser, $browserBrand, $platform, $referrer, $session_referrer, $chat_start_time, $chat_end_time);
+		$mainColumns = array($id, $name, $email, $phone, $wait, $waitAbandoned, $country, $countryCode, $city, $ip, $operator, $operatorName, $operator1Name, $operator2Name, $operator3Name, $operator4Name, $operator5Name, $durationOperator1, $durationOperator2, $durationOperator3, $durationOperator4, $durationOperator5, $aartOperator1, $aartOperator2, $aartOperator3, $aartOperator4, $aartOperator5, $frtOperator1, $frtOperator2, $frtOperator3, $frtOperator4, $frtOperator5, $martOperator1, $martOperator2, $martOperator3, $martOperator4, $martOperator5, $user_id_op, $dept, $date, $minutes, $voteNone, $voteUp, $voteDown, $mail, $page, $from, $link, $remarks, $visitorRemarks, $subjects, $tagged, $notTagged, $is_unread, $is_unread_visitor, $is_abandoned, $bot, $chat_actions, $device, $visitorID, $duration, $chat_initiator, $browser, $browserBrand, $platform, $referrer, $session_referrer, $chat_start_time, $chat_end_time);
 
 		if (isset($params['type']) && in_array(2,$params['type'])) {
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat content');
@@ -494,6 +523,22 @@ class erLhcoreClassChatExport {
                 $ip = (string)$item->{'ip'};
                 $user = (string)$item->{'user'};
                 $operatorName = (string)$item->{'n_off_full'};
+
+                // Fetch up to 5 participants (operators) from the participant table
+                $chatParticipants = \LiveHelperChat\Models\LHCAbstract\ChatParticipant::getList([
+                    'sort' => 'id DESC',
+                    'limit' => 5,
+                    'filter' => ['chat_id' => $item->id],
+                    'filternot' => ['user_id' => [0,-2]],
+                ]);
+                $participantSlots = array_fill(0, 5, ['name' => '', 'duration' => '', 'aart' => '', 'frt' => '', 'mart' => '']);
+                $pIdx = 0;
+                foreach ($chatParticipants as $p) {
+                    if ($pIdx >= 5) break;
+                    $participantSlots[$pIdx] = ['name' => $p->n_off_full, 'duration' => $p->duration, 'aart' => $p->aart, 'frt' => $p->frt, 'mart' => $p->mart];
+                    $pIdx++;
+                }
+
                 $user_id_op = (string)$item->{'user_id'};
                 $dept = (string)$item->{'department'};
                 $remarks = (string)$item->{'remarks'};
@@ -517,6 +562,8 @@ class erLhcoreClassChatExport {
                 $chat_end_time = $item->cls_time > 0 ? date('Y-m-d H:i:s',$item->cls_time) : '';
 
                 $subjects = implode(',',erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $item->id))));
+                $tagged = !empty($subjects) ? 'Tagged' : '';
+                $notTagged = empty($subjects) ? 'Not Tagged' : '';
                 $is_unread = (int)$item->has_unread_messages;
                 $is_unread_visitor = (int)$item->has_unread_op_messages;
                 $is_abandoned = ($item->lsync < ($item->pnd_time + $item->wait_time) && $item->wait_time > 1) || ($item->lsync > ($item->pnd_time + $item->wait_time) && $item->wait_time > 1 && $item->user_id == 0) ? 1 : 0;
@@ -530,7 +577,9 @@ class erLhcoreClassChatExport {
 
                 $date = date(erLhcoreClassModule::$dateFormat,$item->time);
                 $minutes = date('H:i:s',$item->time);
-                $vote = ($item->fbst == 1 ? 'UP' : ($item->fbst == 2 ? 'DOWN' : 'NONE'));
+                $voteNone = $item->fbst == 0 ? 'None' : '';
+                $voteUp = $item->fbst == 1 ? 'Up' : '';
+                $voteDown = $item->fbst == 2 ? 'Down' : '';
                 $mail = $item->mail_send == 1 ? 'Yes' : 'No';
                 $page = $item->referrer;
                 $additionalDataContent = $item->additional_data;
@@ -578,7 +627,13 @@ class erLhcoreClassChatExport {
                     }
                 }
 
-                $itemData = array($id, $nick, $email, $phone, $wait, $waitAbandoned, $country, $countryCode, $city, $ip, $user, $operatorName, $user_id_op, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, $visitorRemarks, $subjects, $is_unread, $is_unread_visitor, $is_abandoned, $bot, trim($chat_actions), $device, $visitorID, $duration, $chat_initiator, $browser, $browserBrand, $osFamily, $referrer, $session_referrer, $chat_start_time, $chat_end_time);
+                $itemData = array($id, $nick, $email, $phone, $wait, $waitAbandoned, $country, $countryCode, $city, $ip, $user, $operatorName,
+                    $participantSlots[0]['name'], $participantSlots[1]['name'], $participantSlots[2]['name'], $participantSlots[3]['name'], $participantSlots[4]['name'],
+                    $participantSlots[0]['duration'], $participantSlots[1]['duration'], $participantSlots[2]['duration'], $participantSlots[3]['duration'], $participantSlots[4]['duration'],
+                    $participantSlots[0]['aart'], $participantSlots[1]['aart'], $participantSlots[2]['aart'], $participantSlots[3]['aart'], $participantSlots[4]['aart'],
+                    $participantSlots[0]['frt'], $participantSlots[1]['frt'], $participantSlots[2]['frt'], $participantSlots[3]['frt'], $participantSlots[4]['frt'],
+                    $participantSlots[0]['mart'], $participantSlots[1]['mart'], $participantSlots[2]['mart'], $participantSlots[3]['mart'], $participantSlots[4]['mart'],
+                    $user_id_op, $dept, $date, $minutes, $voteNone, $voteUp, $voteDown, $mail, $page, $from, $url, $remarks, $visitorRemarks, $subjects, $tagged, $notTagged, $is_unread, $is_unread_visitor, $is_abandoned, $bot, trim($chat_actions), $device, $visitorID, $duration, $chat_initiator, $browser, $browserBrand, $osFamily, $referrer, $session_referrer, $chat_start_time, $chat_end_time);
 
                 // Print chat content to last column
                 if (isset($params['type']) && in_array(2,$params['type'])) {

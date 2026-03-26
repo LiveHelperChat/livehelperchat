@@ -80,6 +80,12 @@ class ChatParticipant {
 
                 return $this->n_office;
 
+            case 'n_off_full':
+       	        $this->n_off_full = false;
+       	        if ($this->user !== false) {
+       	            $this->n_off_full = (string)$this->user->name_official;
+       	        }
+       			return $this->n_off_full;
 
             default:
                 ;
