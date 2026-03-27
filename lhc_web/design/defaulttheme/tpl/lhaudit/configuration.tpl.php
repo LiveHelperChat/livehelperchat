@@ -174,6 +174,7 @@ try {
     <li>thread_pool_size - how many threads there are for database</li>
     <li>innodb_buffer_pool_size - database pool size</li>
     <li>Database connection took - <?php echo erLhcoreClassLazyDatabaseConfiguration::$connectionTime !== null ? '<b>' . round(erLhcoreClassLazyDatabaseConfiguration::$connectionTime * 1000, 2) . ' ms</b>' : '<span class="text-muted">already connected (cached)</span>'; ?></li>
+    <li>Time taken to render till this moment - <b><?php echo round((microtime(true) - erLhcoreClassLazyDatabaseConfiguration::$connectionStartTime) * 1000, 2)?> ms</b></li>
 </ul>
 
 <div class="mx550">

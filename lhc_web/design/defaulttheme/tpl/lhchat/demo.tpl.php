@@ -1,5 +1,5 @@
 <?php if (!isset($debug) || $debug === false)  : ?>
-<p style="padding-bottom: 5px"><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Some changes might take effect after you save a widget theme or department!');?></b></p>
+<p style="padding-bottom: 5px"><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Some changes might take effect after you save a widget theme or department!');?> </b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Time taken to render till this moment');?> - <b><?php echo round((microtime(true) - erLhcoreClassLazyDatabaseConfiguration::$connectionStartTime) * 1000, 2)?> ms</b></p>
 <?php endif; ?>
 
 <ul style="padding: 5px;">
