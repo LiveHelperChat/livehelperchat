@@ -4,14 +4,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -1029,6 +1021,10 @@
     </message>
     <message>
       <source>Text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick template</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3185,6 +3181,10 @@
       <source>Test</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Message ID</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>genericbot/restapi</name>
@@ -3422,6 +3422,14 @@
     </message>
     <message>
       <source>Do not send a request if this variable is empty</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch to form data if there is file attached to a message.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files will be attached as [data+n] post fields. First level JSON attributes will become POST vars.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4827,6 +4835,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Dropdown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>value||Label one per line</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Number of rows in case Text area field tye is chosen</source>
       <translation type="unfinished"/>
     </message>
@@ -5720,6 +5736,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Include archived</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete all items</source>
       <translation type="unfinished"/>
     </message>
@@ -5952,6 +5972,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>As participant</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Advanced search</source>
       <translation type="unfinished"/>
     </message>
@@ -6176,6 +6200,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chats with more than one participant</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Newest first (default)</source>
       <translation type="unfinished"/>
     </message>
@@ -6189,6 +6217,14 @@
     </message>
     <message>
       <source>Last interactions last</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Highest total number of messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lowest total number of messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6952,10 +6988,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>As participant</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Total number of chats</source>
       <translation type="unfinished"/>
     </message>
@@ -6981,6 +7013,10 @@
     </message>
     <message>
       <source>Average chat length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average chat length (agent)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7241,6 +7277,14 @@
     </message>
     <message>
       <source>Save search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Un-select all</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8298,7 +8342,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Archived subjects are hidden from subject pickers and all filtering dropdowns</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Internal</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Archived</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8335,10 +8387,6 @@
   </context>
   <context>
     <name>chat/startchat</name>
-    <message>
-      <source>BB code</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>New</source>
       <translation type="unfinished"/>
@@ -9001,6 +9049,14 @@
     </message>
     <message>
       <source>Stop playing recorded audio</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You must accept terms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10002,6 +10058,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Mobile is disabled in the main settings file (settings.ini.php). Mobile notifications will not work.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If you do not choose any department from below we will track all departments.</source>
       <translation type="unfinished"/>
     </message>
@@ -10312,6 +10372,10 @@
     </message>
     <message>
       <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Object is assigned to mails or chats!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13766,18 +13830,6 @@
   <context>
     <name>chat/translation</name>
     <message>
-      <source>Operator language is not supported by Google translation service</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor language is not supported by Google translation service!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator language is not supported by DeepL translation service</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Visitor language</source>
       <translation type="unfinished"/>
     </message>
@@ -14696,14 +14748,6 @@
   </context>
   <context>
     <name>front/default</name>
-    <message>
-      <source>Old dashboard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New dashboard</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Pending confirm</source>
       <translation type="unfinished"/>
@@ -16186,6 +16230,21 @@
     </message>
   </context>
   <context>
+    <name>chat/list</name>
+    <message>
+      <source>Sorting by number of messages requires a date range of 31 days or less to be set.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>chats were selected for deletion, and</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>of them were deleted!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/pendingchats</name>
     <message>
       <source>Information</source>
@@ -16320,15 +16379,8 @@
       <source>Priority</source>
       <translation type="unfinished"/>
     </message>
-  </context>
-  <context>
-    <name>chat/list</name>
     <message>
-      <source>chats were selected for deletion, and</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>of them were deleted!</source>
+      <source>Messages count</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -18954,6 +19006,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Allowed files types for users while in bot status. You can have custom file types allowed while chat is in bot status.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Maximum file size in KB</source>
       <translation type="unfinished"/>
     </message>
@@ -19518,6 +19574,10 @@
     </message>
     <message>
       <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -21476,22 +21536,6 @@
     </message>
     <message>
       <source>Contains</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>In list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>In list (lowercase)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not in list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not in list (lowercase)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -24089,6 +24133,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Nick template</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Static content</source>
       <translation type="unfinished"/>
     </message>
@@ -24102,6 +24150,10 @@
     </message>
     <message>
       <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g {lhc.nick} [{lhc.add.surname_name}] [{lhc.var.user_id}] or just {args.chat.id}</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -25408,11 +25460,111 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator</source>
+      <source>Chat operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator Name</source>
+      <source>Chat operator Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator 1 Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator 2 Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator 3 Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator 4 Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator 5 Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration (Operator 1)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration (Operator 2)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration (Operator 3)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration (Operator 4)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration (Operator 5)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 1)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 2)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 3)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 4)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 5)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First Response Time (Operator 1)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First Response Time (Operator 2)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First Response Time (Operator 3)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First Response Time (Operator 4)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First Response Time (Operator 5)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 1)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 2)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 3)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 4)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 5)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -25428,11 +25580,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Vote status</source>
+      <source>Vote: None</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vote: Up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vote: Down</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Subjects</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tagged</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not Tagged</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -25600,6 +25768,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat average in seconds</source>
       <translation type="unfinished"/>
     </message>
@@ -25649,6 +25821,10 @@
     </message>
     <message>
       <source>Average chat length</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average chat length (participation)</source>
       <translation type="unfinished"/>
     </message>
     <message>
