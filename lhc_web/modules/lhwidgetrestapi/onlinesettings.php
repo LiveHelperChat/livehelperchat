@@ -317,7 +317,6 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'name' => 'Username',
             'identifier' => 'username',
             'priority' => (isset($start_data_fields['offline_name_priority']) && is_numeric($start_data_fields['offline_name_priority']) ? (int)$start_data_fields['offline_name_priority'] : 0),
-            'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name'),
             'value' => $value
         );
     }
@@ -347,7 +346,6 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'required' => (!isset($start_data_fields['offline_email_require_option']) || $start_data_fields['offline_email_require_option'] == 'required'),
             'name' => 'Email',
             'identifier' => 'email',
-            'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your email address'),
             'value' => $value
         );
     }
@@ -377,7 +375,6 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'hide_prefilled' => (isset($start_data_fields['offline_phone_hidden_prefilled']) && $start_data_fields['offline_phone_hidden_prefilled'] == true),
             'priority' => (isset($start_data_fields['offline_phone_priority']) && is_numeric($start_data_fields['offline_phone_priority']) ? (int)$start_data_fields['offline_phone_priority'] : 0),
             'identifier' => 'phone',
-            'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone'),
             'value' => $value
         );
     }
@@ -428,7 +425,6 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'name' => 'Question',
             'identifier' => 'question',
             'priority' => (isset($start_data_fields['offline_message_priority']) && is_numeric($start_data_fields['offline_message_priority']) ? (int)$start_data_fields['offline_message_priority'] : 0),
-            'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your message'),
         );
     }
 
@@ -454,6 +450,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'identifier' => 'accept_tos',
             'default' => (isset($start_data_fields['tos_checked_offline']) && $start_data_fields['tos_checked_offline'] == true),
             'placeholder' => '',
+            'required_msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'You must accept terms'),
         );
     }
 
@@ -510,8 +507,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'name' => 'Email',
             'priority' => (isset($start_data_fields['email_priority']) && is_numeric($start_data_fields['email_priority']) ? (int)$start_data_fields['email_priority'] : 0),
             'hide_prefilled' => (isset($start_data_fields['email_hidden_prefilled']) && $start_data_fields['email_hidden_prefilled'] == true),
-            'identifier' => 'email',
-            'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your email address'),
+            'identifier' => 'email'
         );
     }
 
@@ -535,8 +531,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'name' => 'Phone',
             'hide_prefilled' => (isset($start_data_fields['phone_hidden_prefilled']) && $start_data_fields['phone_hidden_prefilled'] == true),
             'identifier' => 'phone',
-            'priority' => (isset($start_data_fields['phone_priority']) && is_numeric($start_data_fields['phone_priority']) ? (int)$start_data_fields['phone_priority'] : 0),
-            'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your phone'),
+            'priority' => (isset($start_data_fields['phone_priority']) && is_numeric($start_data_fields['phone_priority']) ? (int)$start_data_fields['phone_priority'] : 0)
         );
     }
 
@@ -593,6 +588,7 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             'priority' => (isset($start_data_fields['tos_priority']) && is_numeric($start_data_fields['tos_priority']) ? (int)$start_data_fields['tos_priority'] : 0),
             'default' => (isset($start_data_fields['tos_checked_online']) && $start_data_fields['tos_checked_online'] == true),
             'placeholder' => '',
+            'required_msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'You must accept terms'),
         );
     }
 
@@ -1196,7 +1192,13 @@ if (isset($departmentsOptions['settings']['product'])) {
     $visibleCount = 1;
 }
 
-foreach ($fields as $field) {
+foreach ($fields as &$field) {
+    if (!array_key_exists('placeholder', $field)) {
+        $field['placeholder'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Enter your') . ' ' . $field['label'];
+    }
+    if (!array_key_exists('required_msg', $field)) {
+        $field['required_msg'] = $field['label'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'is required');
+    }
     if ($field['type'] != 'hidden') {
         $visibleCount++;
         if (isset($field['identifier']) && $field['identifier'] == 'question') {
@@ -1204,6 +1206,7 @@ foreach ($fields as $field) {
         }
     }
 }
+unset($field);
 
 usort($fields, function($a, $b) {
     return (isset($a['priority']) && isset($b['priority']) && $a['priority'] > $b['priority']) ? 1 : 0;
