@@ -64,7 +64,7 @@
 
 <hr>
 
-<h4>Folders permissions</h5>
+<h4>Folders permissions</h4>
 <div class="row pb-3">
  
         <div class="col-3">
