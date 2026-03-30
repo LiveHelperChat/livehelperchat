@@ -2025,7 +2025,98 @@ $fields = array(
             'validation_definition' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             )
-       ),'send_area_background' => array(
+       ),
+       'operator_txt_color' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator profile text color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'label_txt_color' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Input field label color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'input_bg_color' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Input field background color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'input_plc_color' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Input field polaceholder text color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'input_brd_color' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Input field border color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'send_icons_clr' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Settings and send icons color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'send_icons_clr_hover' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Settings and send icons hover color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'input_shd_color' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Input field shadow color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'input_txt_color' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Input field text color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'send_area_background' => array(
             'type' => 'colorpicker',
             'main_attr' => 'bot_configuration_array',
             'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Send message area background color'),

@@ -310,6 +310,69 @@
                             <?php echo erLhcoreClassAbstract::renderInput('msg_background', $fields['msg_background'], $object)?>
                         </div>
 
+                        <div class="form-group">
+                            <label><?php echo $fields['operator_txt_color']['trans'];?></label>
+                            <?php echo erLhcoreClassAbstract::renderInput('operator_txt_color', $fields['operator_txt_color'], $object)?>
+                        </div>
+
+                        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Start chat input fields coloring')?></h5>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['label_txt_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('label_txt_color', $fields['label_txt_color'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['input_bg_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('input_bg_color', $fields['input_bg_color'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['input_plc_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('input_plc_color', $fields['input_plc_color'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['input_txt_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('input_txt_color', $fields['input_txt_color'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['input_brd_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('input_brd_color', $fields['input_brd_color'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['input_shd_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('input_shd_color', $fields['input_shd_color'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Icons coloring')?></h5>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['send_icons_clr']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('send_icons_clr', $fields['send_icons_clr'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['send_icons_clr_hover']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('send_icons_clr_hover', $fields['send_icons_clr_hover'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','New message separator style')?></h5>
 
                         <?php $translatableItem = array('identifier' => 'cnew_msgh'); ?>
