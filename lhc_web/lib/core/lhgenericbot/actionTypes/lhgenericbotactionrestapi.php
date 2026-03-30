@@ -1571,8 +1571,55 @@ class erLhcoreClassGenericBotActionRestapi
                                 if (empty($currentMatchedOutput)) {
                                     $currentMatchedOutput = $responseStream['id'];
                                 } elseif (!(isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1) || $currentMatchedOutput != $responseStream['id']) {
-                                    $streamLines[] = self::getCurrentTimeWithMilliseconds().' SKIPPING - [' . $streamEvent . '] - ' . $streamBuffer;
-                                    continue;
+                                    
+                                // We encounter tool call matching
+                                if (isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1 && 
+                                        isset($responseStream['stream_final']) && $responseStream['stream_final'] == true &&
+                                        isset($responseStream['final_match_stream']) && $responseStream['final_match_stream'] == true
+                                    ) {
+                                                                                
+                                        $argsDefault = array(
+                                            'replace_array' => array(
+                                                '{content_1}' => $responseContent['content'],
+                                                '{content_2}' => $responseContent['content_2'],
+                                                '{content_3}' => $responseContent['content_3'],
+                                                '{content_4}' => $responseContent['content_4'],
+                                                '{content_5}' => $responseContent['content_5'],
+                                                '{content_6}' => $responseContent['content_6'],
+                                                '{content_1_json}' => json_encode($responseContent['content']),
+                                                '{content_2_json}' => json_encode($responseContent['content_2']),
+                                                '{content_3_json}' => json_encode($responseContent['content_3']),
+                                                '{content_4_json}' => json_encode($responseContent['content_4']),
+                                                '{content_5_json}' => json_encode($responseContent['content_5']),
+                                                '{content_6_json}' => json_encode($responseContent['content_6']),
+                                                '{http_code}' => $responseStream['http_code'],
+                                                '{http_error}' => $responseStream['http_error'],
+                                                '{content_raw}' => $responseStream['content_raw'],
+                                                '{http_data}' => $responseStream['http_data']
+                                            )
+                                        );
+
+                                        $trigger = erLhcoreClassModelGenericBotTrigger::fetch($paramsCustomer['action']['content']['rest_api_method_output'][$currentMatchedOutput]);
+
+                                        erLhcoreClassGenericBotWorkflow::processTrigger($paramsCustomer['chat'], $trigger, true, array('args' => $argsDefault));
+                                        
+                                        $streamLines[] = self::getCurrentTimeWithMilliseconds().' EXECUTING_PREVIOUS [trigger exec] - [' . $trigger->name . '] [' . $trigger->id . '] with content ' . json_encode($responseContent);
+
+                                        // Switch to new lock stream item
+                                        $responseContent = $responseStream;
+                                        // Because we are saving stream itself we want to have empty vars
+                                        $responseContent['content'] =
+                                        $responseContent['content_2'] =
+                                        $responseContent['content_3'] =
+                                        $responseContent['content_4'] =
+                                        $responseContent['content_5'] =
+                                        $responseContent['content_6'] = '';
+                                        $lockMatchedOutput = true;
+
+                                    } else {
+                                        $streamLines[] = self::getCurrentTimeWithMilliseconds().' SKIPPING - [' . $streamEvent . '] - ' . $streamBuffer;
+                                        continue;
+                                    }
                                 }
                             }
 
