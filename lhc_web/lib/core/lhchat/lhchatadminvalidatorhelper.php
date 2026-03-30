@@ -606,10 +606,6 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'MessageAutoStartOnKeyPress' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
-            'NoProfileBorder' => new ezcInputFormDefinitionElement(
-	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	        ),
-
 	        'MessageRequireOption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	        ),
@@ -673,9 +669,6 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'OfflinePhoneRequireOption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'string'
 	        ),
-	        'UserMessageHeight' => new ezcInputFormDefinitionElement(
-	            ezcInputFormDefinitionElement::OPTIONAL, 'int'
-	        ),
 	    
 	        // Force leave a message
 	        'ForceLeaveMessage' => new ezcInputFormDefinitionElement(
@@ -712,21 +705,6 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        ),
 	        
 	        // Extra
-	        'ShowOperatorProfile' => new ezcInputFormDefinitionElement(
-	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	        ),
-	        'RemoveOperatorSpace' => new ezcInputFormDefinitionElement(
-	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	        ),
-	        'HideMessageLabel' => new ezcInputFormDefinitionElement(
-	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	        ),
-	        'ShowMessagesBox' => new ezcInputFormDefinitionElement(
-	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	        ),
-            'HideStartButton' => new ezcInputFormDefinitionElement(
-	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	        ),
             'LazyLoad' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	        ),
@@ -854,12 +832,6 @@ class erLhcoreClassAdminChatValidatorHelper {
             $data['disable_start_chat'] = false;
         }
 
-        if ( $form->hasValidData( 'NoProfileBorder' ) && $form->NoProfileBorder == true ) {
-            $data['np_border'] = true;
-        } else {
-            $data['np_border'] = false;
-        }
-
         if ( $form->hasValidData( 'pre_conditions' )) {
             $data['pre_conditions'] = $form->pre_conditions;
         }
@@ -985,12 +957,6 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['auto_start_chat'] = false;
 	    }
 
-	    if ( $form->hasValidData( 'HideStartButton' ) && $form->HideStartButton == true ) {
-	        $data['hide_start_button'] = true;
-	    } else {
-	        $data['hide_start_button'] = false;
-	    }
-
 	    if ( $form->hasValidData( 'LazyLoad' ) && $form->LazyLoad == true ) {
 	        $data['lazy_load'] = true;
 	    } else {
@@ -1026,12 +992,6 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['requires_dep_lock'] = true;
 	    } else {
 	        $data['requires_dep_lock'] = false;
-	    }
-
-	    if ( $form->hasValidData( 'ShowMessagesBox' ) && $form->ShowMessagesBox == true ) {
-	        $data['show_messages_box'] = true;
-	    } else {
-	        $data['show_messages_box'] = false;
 	    }
 	    
 	    if ( $form->hasValidData( 'TOSVisibleInPageWidget' ) && $form->TOSVisibleInPageWidget == true ) {
@@ -1223,12 +1183,6 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        $data['email_require_option'] = 'required';
 	    }
 	    
-	    if ( $form->hasValidData( 'UserMessageHeight' ) ) {
-	        $data['user_msg_height'] = $form->UserMessageHeight;
-	    } else {
-	        $data['user_msg_height'] = '';
-	    }
-	    
 	    if ($data['email_visible_in_popup'] == true && $data['email_require_option'] == 'required') {
 	        $hasValidPopupData = true;
 	    }
@@ -1362,24 +1316,7 @@ class erLhcoreClassAdminChatValidatorHelper {
 	    } else {
 	        $data['offline_message_visible_in_page_widget'] = false;
 	    }
-	    
-	    if ( $form->hasValidData( 'ShowOperatorProfile' ) && $form->ShowOperatorProfile == true ) {
-	        $data['show_operator_profile'] = true;
-	    } else {
-	        $data['show_operator_profile'] = false;
-	    }
-	    
-	    if ( $form->hasValidData( 'RemoveOperatorSpace' ) && $form->RemoveOperatorSpace == true ) {
-	        $data['remove_operator_space'] = true;
-	    } else {
-	        $data['remove_operator_space'] = false;
-	    }
-	    
-	    if ( $form->hasValidData( 'HideMessageLabel' ) && $form->HideMessageLabel == true ) {
-	        $data['hide_message_label'] = true;
-	    } else {
-	        $data['hide_message_label'] = false;
-	    }
+	     
 	    
 	    if ( $form->hasValidData( 'OfflineMessageRequireOption' ) && $form->OfflineMessageRequireOption != '' ) {
 	        $data['offline_message_require_option'] = $form->OfflineMessageRequireOption;

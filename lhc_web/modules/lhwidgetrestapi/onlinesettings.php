@@ -196,25 +196,7 @@ if (isset($startDataFields['requires_dep']) && $startDataFields['requires_dep'] 
     }
 }
 
-if (isset($startDataFields['hide_message_label']) && $startDataFields['hide_message_label'] == true){
-    $chat_ui['hide_message_label'] = true;
-}
 
-if (isset($startDataFields['np_border']) && $startDataFields['np_border'] == true) {
-    $chat_ui['np_border'] = true;
-}
-
-if (isset($startDataFields['show_messages_box']) && $startDataFields['show_messages_box'] == true){
-    $chat_ui['show_messages_box'] = true;
-}
-
-if (isset($startDataFields['user_msg_height']) && $startDataFields['user_msg_height'] != ''){
-    $chat_ui['user_msg_height'] = (int)$startDataFields['user_msg_height'];
-}
-
-if (isset($startDataFields['hide_start_button']) && $startDataFields['hide_start_button'] == true) {
-    $chat_ui['hstr_btn'] = true;
-}
 
 if ((int)erLhcoreClassModelChatConfig::fetch('bbc_button_visible')->value != 1) {
     $chat_ui['bbc_btnh'] = true;
@@ -827,6 +809,26 @@ if ($theme !== false) {
         unset($chat_ui['bbc_btnh']);
     }
 
+    if (isset($theme->bot_configuration_array['np_border']) && $theme->bot_configuration_array['np_border'] == true) {
+        $chat_ui['np_border'] = true;
+    }
+
+    if (isset($theme->bot_configuration_array['hide_message_label']) && $theme->bot_configuration_array['hide_message_label'] == true) {
+        $chat_ui['hide_message_label'] = true;
+    }
+
+    if (!isset($theme->bot_configuration_array['show_messages_box']) || $theme->bot_configuration_array['show_messages_box'] == true) {
+        $chat_ui['show_messages_box'] = true;
+    }
+
+    if (isset($theme->bot_configuration_array['hide_start_button']) && $theme->bot_configuration_array['hide_start_button'] == true) {
+        $chat_ui['hstr_btn'] = true;
+    }
+
+    if (isset($theme->bot_configuration_array['user_msg_height']) && $theme->bot_configuration_array['user_msg_height'] != '') {
+        $chat_ui['user_msg_height'] = (int)$theme->bot_configuration_array['user_msg_height'];
+    }
+
     if ($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') {
         if ($Params['user_parameters_unordered']['mode'] == 'widget') {
             if ($theme->popup_image_url != '') {
@@ -1104,9 +1106,12 @@ if ($theme !== false) {
     if (isset($theme->bot_configuration_array['custom_html_header_body']) && $theme->bot_configuration_array['custom_html_header_body'] != '') {
         $chat_ui['custom_html_header_body'] = $theme->bot_configuration_array['custom_html_header_body'];
     }
+} else {
+    $chat_ui['show_messages_box'] = true;
+    $show_operator_profile = true;
 }
 
-if ($Params['user_parameters_unordered']['online'] == '1' && isset($startDataFields['show_operator_profile']) && $startDataFields['show_operator_profile'] != '') {
+if ($Params['user_parameters_unordered']['online'] == '1' && (isset($show_operator_profile) || ($theme !== false && (!isset($theme->bot_configuration_array['show_operator_profile']) || $theme->bot_configuration_array['show_operator_profile'] == true)))) {
     $tpl = new erLhcoreClassTemplate('lhchat/part/operator_profile_start_chat.tpl.php');
     $tpl->set('theme',$theme);
     $tpl->set('start_data_fields',$startDataFields);

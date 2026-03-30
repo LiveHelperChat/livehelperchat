@@ -1524,6 +1524,16 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
+                'user_msg_height' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Initial user message height in pixels'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
                 'wright_inv' => array(
                     'type' => 'text',
                     'main_attr' => 'bot_configuration_array',
@@ -1764,6 +1774,56 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
+                'np_border' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','No border under a profile in start chat form'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'hide_message_label' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Hide message label'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'show_operator_profile' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show operator profile above input fields'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'hide_start_button' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'show_messages_box' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Show messages box above input fields, usefull for UX combinations.'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
                 'enable_react_for_vi' => array(
                     'type' => 'checkbox',
                     'main_attr' => 'bot_configuration_array',
@@ -1942,6 +2002,33 @@ $fields = array(
             'type' => 'colorpicker',
             'main_attr' => 'bot_configuration_array',
             'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Header icons color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),'op_background' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator/chat status background color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),'msg_background' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Messages area background color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),'send_area_background' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Send message area background color'),
             'required' => true,
             'hidden' => true,
             'validation_definition' => new ezcInputFormDefinitionElement(

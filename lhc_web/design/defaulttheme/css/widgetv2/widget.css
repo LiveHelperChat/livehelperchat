@@ -949,8 +949,7 @@ button.material-icons-button{
     font-size: 32px;
 }
 
-.message-send-area{
-    background-color: #fff;
+.message-send-area {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }

@@ -197,7 +197,7 @@
         		<div role="tabpanel" class="tab-pane" id="messagesstyle">
                 	    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Live preview')?></h3>
 
-            		    <div id="messages" ng-class="{'bubble-messages': abstract_checked_bubble_style_profile, 'hide-visitor-profile' : abstract_checked_hide_visitor_profile}">
+            		    <div id="messages" style="background-color:#{{bactract_bg_color_msg_background}}" ng-class="{'bubble-messages': abstract_checked_bubble_style_profile, 'hide-visitor-profile' : abstract_checked_hide_visitor_profile}">
                             <div class="msgBlock" style="" id="messagesBlock">       
                                 <div class="message-row response" id="msg-10459" data-op-id="0">
                                     <div class="msg-date">10:14:39</div>
@@ -303,6 +303,13 @@
                             </div>
                         </div>
 
+                        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Messages area background color')?></h5>
+                     
+                        <div class="form-group">
+                            <label><?php echo $fields['msg_background']['trans'];?></label>
+                            <?php echo erLhcoreClassAbstract::renderInput('msg_background', $fields['msg_background'], $object)?>
+                        </div>
+
                         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','New message separator style')?></h5>
 
                         <?php $translatableItem = array('identifier' => 'cnew_msgh'); ?>
@@ -401,6 +408,21 @@
                                 <div class="form-group">
                                     <label><?php echo $fields['header_icon_color']['trans'];?></label>
                                     <?php echo erLhcoreClassAbstract::renderInput('header_icon_color', $fields['header_icon_color'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['op_background']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('op_background', $fields['op_background'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['send_area_background']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('send_area_background', $fields['send_area_background'], $object)?>
                                 </div>
                             </div>
                         </div>
@@ -552,6 +574,36 @@
 						<div class="form-group">
 						    <label><?php echo erLhcoreClassAbstract::renderInput('survey_button', $fields['survey_button'], $object)?> <?php echo $fields['survey_button']['trans'];?></label>
         		        </div>
+
+                        <div class="bg-light p-2 border mb-2">
+                            <h4 class="fs16"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Migrated from start chat form');?></h4>
+
+                            <div class="form-group">
+                                <label><?php echo erLhcoreClassAbstract::renderInput('show_operator_profile', $fields['show_operator_profile'], $object)?> <?php echo $fields['show_operator_profile']['trans'];?></label>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo erLhcoreClassAbstract::renderInput('hide_message_label', $fields['hide_message_label'], $object)?> <?php echo $fields['hide_message_label']['trans'];?></label>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo erLhcoreClassAbstract::renderInput('show_messages_box', $fields['show_messages_box'], $object)?> <?php echo $fields['show_messages_box']['trans'];?></label>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo erLhcoreClassAbstract::renderInput('hide_start_button', $fields['hide_start_button'], $object)?> <?php echo $fields['hide_start_button']['trans'];?></label>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo erLhcoreClassAbstract::renderInput('np_border', $fields['np_border'], $object)?> <?php echo $fields['np_border']['trans'];?></label>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo $fields['user_msg_height']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('user_msg_height', $fields['user_msg_height'], $object)?>
+                            </div>
+                           
+                        </div>
 
 						<div class="form-group">
 						    <label><?php echo erLhcoreClassAbstract::renderInput('confirm_close', $fields['confirm_close'], $object)?> <?php echo $fields['confirm_close']['trans'];?></label>

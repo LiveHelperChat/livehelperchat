@@ -40,6 +40,24 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         #messagesBlock div.message-admin .op-tit{color:#<?php echo htmlspecialchars($Result['theme']->buble_operator_title_color)?>!important;}
         <?php endif;?>
 
+        <?php if (isset($Result['theme']->bot_configuration_array['msg_background']) && $Result['theme']->bot_configuration_array['msg_background'] != '') : ?>
+        .start-chat,#messagesBlock{
+            background-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['msg_background']);?>!important;
+        }
+        <?php endif;?>
+
+        <?php if (isset($Result['theme']->bot_configuration_array['op_background']) && $Result['theme']->bot_configuration_array['op_background'] != '') : ?>
+        #chat-status-container{
+            background-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['op_background']);?>!important;
+        }
+        <?php endif;?>
+
+        <?php if (isset($Result['theme']->bot_configuration_array['send_area_background']) && $Result['theme']->bot_configuration_array['send_area_background'] != '') : ?>
+        .message-send-area{
+            background-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['send_area_background']);?>!important;
+        }
+        <?php endif;?>
+
         .btn-bot,.btn-bot:hover,.btn-bot:focus,.btn-bot:active{
             <?php if (isset($Result['theme']->bot_configuration_array['bot_button_border']) && $Result['theme']->bot_configuration_array['bot_button_border'] != '') : ?>
             border-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['bot_button_border']);?>!important;

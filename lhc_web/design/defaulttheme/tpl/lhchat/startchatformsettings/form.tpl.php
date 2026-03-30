@@ -405,30 +405,32 @@
 				</div>
 			</div>
 		</div>
-		<div role="tabpanel" class="tab-pane" id="panel3">
-			<label><input type="checkbox" value="on" name="ShowOperatorProfile" <?php (isset($start_chat_data['show_operator_profile']) && $start_chat_data['show_operator_profile'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show operator profile above input fields');?></label>
-			
-			<br />
-			<label><input type="checkbox" value="on" name="RemoveOperatorSpace" <?php (isset($start_chat_data['remove_operator_space']) && $start_chat_data['remove_operator_space'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Remove space after operator profile');?></label>
-			
-			<br />
-			<label><input type="checkbox" value="on" name="HideMessageLabel" <?php (isset($start_chat_data['hide_message_label']) && $start_chat_data['hide_message_label'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide message label');?></label>
-			
-			<br />
-			<label><input type="checkbox" value="on" name="ShowMessagesBox" <?php (isset($start_chat_data['show_messages_box']) && $start_chat_data['show_messages_box'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show messages box above input fields, usefull for UX combinations.');?></label>
+		<div role="tabpanel" class="tab-pane pt-2" id="panel3">
 
-            <br />
-			<label><input type="checkbox" value="on" name="HideStartButton" <?php (isset($start_chat_data['hide_start_button']) && $start_chat_data['hide_start_button'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.');?></label>
+            <div class="bg-light p-2 border mb-2">
+                <h4 class="fs16"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Deprecated - Migrated to Widget Theme');?></h4>
+                
+                <label><input disabled type="checkbox" value="on" name="ShowOperatorProfile" <?php (isset($start_chat_data['show_operator_profile']) && $start_chat_data['show_operator_profile'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show operator profile above input fields');?></label>
+                
+                <br />
+                <label><input disabled type="checkbox" value="on" name="HideMessageLabel" <?php (isset($start_chat_data['hide_message_label']) && $start_chat_data['hide_message_label'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide message label');?></label>
+                
+                <br />
+                <label><input disabled type="checkbox" value="on" name="ShowMessagesBox" <?php (isset($start_chat_data['show_messages_box']) && $start_chat_data['show_messages_box'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show messages box above input fields, useful for UX combinations.');?></label>
 
-            <br />
-			<label><input type="checkbox" value="on" name="NoProfileBorder" <?php (isset($start_chat_data['np_border']) && $start_chat_data['np_border'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','No border under a profile');?></label>
+                <br />
+                <label><input disabled type="checkbox" value="on" name="HideStartButton" <?php (isset($start_chat_data['hide_start_button']) && $start_chat_data['hide_start_button'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide start chat button. Useful if in the theme you choose bot and trigger with a buttons.');?></label>
 
-            <br />
+                <br />
+                <label><input disabled type="checkbox" value="on" name="NoProfileBorder" <?php (isset($start_chat_data['np_border']) && $start_chat_data['np_border'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','No border under a profile');?></label>
+
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Initial user message height in pixels');?></label> <input disabled class="form-control" type="text" name="UserMessageHeight" value="<?php (isset($start_chat_data['user_msg_height'])) ? print htmlspecialchars($start_chat_data['user_msg_height']) : ''?>" />
+                </div>
+
+            </div>
+         
 			<label><input type="checkbox" value="on" name="LazyLoad" <?php (isset($start_chat_data['lazy_load']) && $start_chat_data['lazy_load'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.');?></label>
-
-			<div class="form-group">
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Initial user message height in pixels');?></label> <input class="form-control" type="text" name="UserMessageHeight" value="<?php (isset($start_chat_data['user_msg_height'])) ? print htmlspecialchars($start_chat_data['user_msg_height']) : ''?>" />
-			</div>
 
             <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Department settings')?></h4>
 
@@ -473,15 +475,15 @@
             </div>
 		</div>
 		
-		<div role="tabpanel" class="tab-pane" id="customfields">
+		<div role="tabpanel" class="tab-pane pt-2" id="customfields">
             <?php include(erLhcoreClassDesign::designtpl('lhchat/startchatformsettings/custom_fields.tpl.php'));?>
 		</div>
 
-		<div role="tabpanel" class="tab-pane" id="urlfields">
+		<div role="tabpanel" class="tab-pane pt-2" id="urlfields">
             <?php include(erLhcoreClassDesign::designtpl('lhchat/startchatformsettings/url_fields.tpl.php'));?>
 		</div>
         
-		<div role="tabpanel" class="tab-pane" id="prechat">
+		<div role="tabpanel" class="tab-pane pt-2" id="prechat">
             <?php include(erLhcoreClassDesign::designtpl('lhchat/startchatformsettings/prechat.tpl.php'));?>
 		</div>
 
