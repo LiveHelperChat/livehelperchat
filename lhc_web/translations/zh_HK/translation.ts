@@ -437,6 +437,10 @@
       <translation>編輯</translation>
     </message>
     <message>
+      <source>Clone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete</source>
       <translation>刪除</translation>
     </message>
@@ -734,6 +738,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Parse condition value for mathematical outcome</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Parse for mathematical outcome</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Comparison operator</source>
       <translation type="unfinished"/>
     </message>
@@ -1008,6 +1020,10 @@
     <message>
       <source>Text color</source>
       <translation>文字顏色</translation>
+    </message>
+    <message>
+      <source>Nick template</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>My messages bubble background color</source>
@@ -1638,6 +1654,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Title of the collapse icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Title of the expand icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Title of the popup icon</source>
       <translation type="unfinished"/>
     </message>
@@ -1870,6 +1894,14 @@
       <translation>Widget 寬度 (px)</translation>
     </message>
     <message>
+      <source>Widget width expand ratio (1.01 - 1.99) or pixels if more than 2</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget height expand ratio (1.01 - 1.99) or pixels if more than 2</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Operator avatar</source>
       <translation type="unfinished"/>
     </message>
@@ -1900,6 +1932,10 @@
     <message>
       <source>Placeholder for message text</source>
       <translation>信息文本的佔位符</translation>
+    </message>
+    <message>
+      <source>Placeholder for name text</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Placeholder for message text if files are attached</source>
@@ -2182,6 +2218,14 @@
     </message>
     <message>
       <source>By default, if an invitation was not closed by the visitor, the next invitation will be shown when the visitor navigates to a different page. If the visitor closed the invitation, it will not be shown on the next page. Enabling this option will display the invitation on the next page even if the previous one was closed by the visitor.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Persistence settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Flush list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2654,6 +2698,10 @@
     </message>
     <message>
       <source>Do not show invitation after it was closed in the same session.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>One-time invitation. It will never be shown again to the same visitor.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3131,6 +3179,10 @@
       <source>Test</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Message ID</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>genericbot/restapi</name>
@@ -3155,10 +3207,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Start of OR</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>In list (lowercase before comparison), items separated by ||</source>
       <translation type="unfinished"/>
     </message>
@@ -3168,6 +3216,10 @@
     </message>
     <message>
       <source>Not in list (lowercase before comparison), items separated by ||</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start of OR</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3368,6 +3420,14 @@
     </message>
     <message>
       <source>Do not send a request if this variable is empty</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch to form data if there is file attached to a message.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files will be attached as [data+n] post fields. First level JSON attributes will become POST vars.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3650,6 +3710,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Message</source>
+      <translation>訊息</translation>
+    </message>
+    <message>
       <source>Activity period</source>
       <translation type="unfinished"/>
     </message>
@@ -3890,16 +3954,16 @@
       <translation>在交談接受後，自動向使用者發送此訊息</translation>
     </message>
     <message>
+      <source>Auto responder will be activated upon automatic message sending.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delay in seconds</source>
       <translation>延遲時間（秒）</translation>
     </message>
     <message>
       <source>The smaller the position value the higher the canned message will appear in the list</source>
       <translation>位置值越小，罐頭信息將在列表中顯示的越高</translation>
-    </message>
-    <message>
-      <source>Message</source>
-      <translation>訊息</translation>
     </message>
     <message>
       <source>Fallback message</source>
@@ -4766,6 +4830,14 @@
     </message>
     <message>
       <source>Text area</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dropdown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>value||Label one per line</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5646,6 +5718,26 @@
       <translation>排除個人回應</translation>
     </message>
     <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>名稱</translation>
+    </message>
+    <message>
+      <source>Show only pinned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show only internal</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include archived</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete all items</source>
       <translation type="unfinished"/>
     </message>
@@ -5878,6 +5970,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>As participant</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Advanced search</source>
       <translation type="unfinished"/>
     </message>
@@ -6026,6 +6122,38 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Message counts, Operators, Visitors, Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Op</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vi</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Has unread messages</source>
       <translation>有未讀取訊息</translation>
     </message>
@@ -6070,6 +6198,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chats with more than one participant</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Newest first (default)</source>
       <translation type="unfinished"/>
     </message>
@@ -6083,6 +6215,14 @@
     </message>
     <message>
       <source>Last interactions last</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Highest total number of messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lowest total number of messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6250,10 +6390,6 @@
       <translation>選擇翻譯</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>名稱</translation>
-    </message>
-    <message>
       <source>Alias</source>
       <translation type="unfinished"/>
     </message>
@@ -6363,10 +6499,6 @@
     </message>
     <message>
       <source>Include messages content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6686,6 +6818,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Min operator messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Count</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Min visitor messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Min bot messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total messages from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total messages till</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude offline requests from charts</source>
       <translation>從圖表中排除離線請求</translation>
     </message>
@@ -6830,10 +6986,6 @@
       <translation>平均</translation>
     </message>
     <message>
-      <source>As participant</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Total number of chats</source>
       <translation>聊天次數總數</translation>
     </message>
@@ -6860,6 +7012,10 @@
     <message>
       <source>Average chat length</source>
       <translation>平均聊天時間</translation>
+    </message>
+    <message>
+      <source>Average chat length (agent)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Average of first response time (agent)</source>
@@ -6990,6 +7146,30 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Show chat tabs</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide chat tabs</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatically accept assigned chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not automatically accept assigned chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show alerts for transferred chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not show alerts for transferred chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Username</source>
       <translation>使用者名稱</translation>
     </message>
@@ -7095,6 +7275,14 @@
     </message>
     <message>
       <source>Save search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select all</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Un-select all</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7820,6 +8008,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Main</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sample</source>
       <translation type="unfinished"/>
     </message>
@@ -8148,7 +8340,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Archived subjects are hidden from subject pickers and all filtering dropdowns</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Internal</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Archived</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8396,6 +8596,14 @@
     <message>
       <source>Minimize</source>
       <translation>最小化</translation>
+    </message>
+    <message>
+      <source>Collapse content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Expand content</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Popup</source>
@@ -8746,8 +8954,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>BB code</source>
-      <translation>BB Code</translation>
+      <source>Emojis</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send to email</source>
@@ -8840,6 +9048,14 @@
     <message>
       <source>Stop playing recorded audio</source>
       <translation>停止播放已錄取語音</translation>
+    </message>
+    <message>
+      <source>You must accept terms</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter your</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>There was a problem sending your request. Please try again later!</source>
@@ -9840,6 +10056,10 @@
       <translation>客服人員的語音信息已激活</translation>
     </message>
     <message>
+      <source>Mobile is disabled in the main settings file (settings.ini.php). Mobile notifications will not work.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If you do not choose any department from below we will track all departments.</source>
       <translation type="unfinished"/>
     </message>
@@ -9994,6 +10214,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Proactive invitations is</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>change it.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Valid invitations found</source>
       <translation type="unfinished"/>
     </message>
@@ -10003,6 +10231,10 @@
     </message>
     <message>
       <source>Skipped because of no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skipped because invitation was seen</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10058,7 +10290,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Reset invitation data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation data for visitor was reset!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -10131,6 +10371,10 @@
     <message>
       <source>Choose</source>
       <translation>選擇</translation>
+    </message>
+    <message>
+      <source>Object is assigned to mails or chats!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Bots</source>
@@ -10309,6 +10553,10 @@
     </message>
     <message>
       <source>ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11921,6 +12169,10 @@
       <translation>封鎖客戶失敗，可能是您沒有權限封鎖客戶？</translation>
     </message>
     <message>
+      <source>You do not have permission to access a chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose a block type!</source>
       <translation type="unfinished"/>
     </message>
@@ -13118,6 +13370,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Notifications enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation type="unfinished"/>
     </message>
@@ -13600,6 +13856,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Start translated chat session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>On save automatically translate old chat messages. If not checked only new messages will be translated.</source>
       <translation type="unfinished"/>
     </message>
@@ -13728,6 +13988,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hide translate single message button.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show start translations button</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Action options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>設定已更新</translation>
     </message>
@@ -13764,15 +14036,11 @@
       <translation>檢測到客服人員和訪客的語言匹配，請手動選擇語言</translation>
     </message>
     <message>
-      <source>Operator language is not supported by Google translation service</source>
+      <source>Translation to operator language failed</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Visitor language is not supported by Google translation service!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator language is not supported by DeepL translation service</source>
+      <source>Translation to visitor language failed</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13786,6 +14054,14 @@
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
       <translation>請手動選擇翻譯語言，然後點擊自動翻譯</translation>
+    </message>
+    <message>
+      <source>CSRF is missing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a message to be translated</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -14539,14 +14815,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Old dashboard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New dashboard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Click to switch to static/dynamic</source>
       <translation type="unfinished"/>
     </message>
@@ -14694,6 +14962,10 @@
     <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>在這裡輸入您的訊息並按下 Enter 送出......</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>⏎ or additional information</source>
@@ -15600,8 +15872,8 @@
       <translation>Questionary embed code</translation>
     </message>
     <message>
-      <source>Re-captcha settings</source>
-      <translation>驗證碼設置</translation>
+      <source>Captcha settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Rest API</source>
@@ -15956,6 +16228,21 @@
     </message>
   </context>
   <context>
+    <name>chat/list</name>
+    <message>
+      <source>Sorting by number of messages requires a date range of 31 days or less to be set.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>chats were selected for deletion, and</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>of them were deleted!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/pendingchats</name>
     <message>
       <source>Information</source>
@@ -16090,15 +16377,8 @@
       <source>Priority</source>
       <translation type="unfinished"/>
     </message>
-  </context>
-  <context>
-    <name>chat/list</name>
     <message>
-      <source>chats were selected for deletion, and</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>of them were deleted!</source>
+      <source>Messages count</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -17288,6 +17568,10 @@
     <message>
       <source>Transfer chat</source>
       <translation>轉接交談</translation>
+    </message>
+    <message>
+      <source>No permission to access this chat.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -18720,6 +19004,10 @@
       <translation>允許訪客的檔案類型</translation>
     </message>
     <message>
+      <source>Allowed files types for users while in bot status. You can have custom file types allowed while chat is in bot status.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Maximum file size in KB</source>
       <translation>最大檔案大小，以 kb 為單位</translation>
     </message>
@@ -19287,6 +19575,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
       <translation type="unfinished"/>
     </message>
@@ -19347,7 +19639,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>If multilanguage is used for the name, default should be always defined.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Possible languages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Regular syntax. Depreciated.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can define multilanguage label for your custom fields. Default should be always defined.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -20964,6 +21268,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Re-scheduling fetching.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Waiting for previous job to finish.</source>
       <translation type="unfinished"/>
     </message>
@@ -21226,22 +21534,6 @@
     </message>
     <message>
       <source>Contains</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>In list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>In list (lowercase)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not in list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not in list (lowercase)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -23537,10 +23829,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Re-captcha settings</source>
-      <translation>驗證碼設置</translation>
-    </message>
-    <message>
       <source>Transfer configuration</source>
       <translation>轉接配置</translation>
     </message>
@@ -23548,16 +23836,28 @@
   <context>
     <name>system/recaptcha</name>
     <message>
-      <source>Re-captcha settings</source>
-      <translation>驗證碼設置</translation>
+      <source>Captcha settings</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>This works with V3 re-captcha.</source>
-      <translation>這適用於V3驗證碼。</translation>
+      <source>Captcha provider</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Get Re-captcha keys</source>
-      <translation>獲取驗證碼</translation>
+      <source>Google reCAPTCHA v3</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Site key</source>
@@ -23570,6 +23870,14 @@
     <message>
       <source>Secret key is not shown!</source>
       <translation>不顯示密鑰！</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -23823,6 +24131,10 @@
       <translation>標題 CSS</translation>
     </message>
     <message>
+      <source>Nick template</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Static content</source>
       <translation>靜態內容</translation>
     </message>
@@ -23837,6 +24149,10 @@
     <message>
       <source>Name</source>
       <translation>名稱</translation>
+    </message>
+    <message>
+      <source>E.g {lhc.nick} [{lhc.add.surname_name}] [{lhc.var.user_id}] or just {args.chat.id}</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Header content</source>
@@ -24324,16 +24640,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Captcha validation failed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>CSFR token is invalid, try to resubmit form</source>
       <translation>CSRF令牌無效，請嘗試提交表單</translation>
     </message>
     <message>
       <source>You can not login because of IP restrictions</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Google re-captcha validation failed</source>
-      <translation>Google驗證碼驗證失敗</translation>
     </message>
     <message>
       <source>Your account is disabled!</source>
@@ -25142,11 +25458,111 @@
       <translation>IP</translation>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>客服人員</translation>
+      <source>Chat operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Operator Name</source>
+      <source>Chat operator Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator 1 Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator 2 Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator 3 Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator 4 Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator 5 Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration (Operator 1)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration (Operator 2)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration (Operator 3)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration (Operator 4)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration (Operator 5)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 1)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 2)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 3)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 4)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 5)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First Response Time (Operator 1)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First Response Time (Operator 2)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First Response Time (Operator 3)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First Response Time (Operator 4)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First Response Time (Operator 5)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 1)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 2)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 3)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 4)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 5)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -25162,11 +25578,27 @@
       <translation>分鐘</translation>
     </message>
     <message>
-      <source>Vote status</source>
-      <translation>評價狀態</translation>
+      <source>Vote: None</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vote: Up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Vote: Down</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Subjects</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tagged</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not Tagged</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -25334,6 +25766,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Operator</source>
+      <translation>客服人員</translation>
+    </message>
+    <message>
       <source>Chat average in seconds</source>
       <translation>平均交談時間 / 秒</translation>
     </message>
@@ -25384,6 +25820,10 @@
     <message>
       <source>Average chat length</source>
       <translation>平均聊天時間</translation>
+    </message>
+    <message>
+      <source>Average chat length (participation)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Average first response time</source>
@@ -26106,6 +26546,10 @@
     </message>
     <message>
       <source>Completed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attachment</source>
       <translation type="unfinished"/>
     </message>
   </context>

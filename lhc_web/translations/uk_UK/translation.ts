@@ -437,6 +437,10 @@
       <translation>Редагувати</translation>
     </message>
     <message>
+      <source>Clone</source>
+      <translation>Клон</translation>
+    </message>
+    <message>
       <source>Delete</source>
       <translation>Видалити</translation>
     </message>
@@ -734,6 +738,14 @@
       <translation>Ключ атрибута</translation>
     </message>
     <message>
+      <source>Parse condition value for mathematical outcome</source>
+      <translation>Розбір значення умови для математичного результату</translation>
+    </message>
+    <message>
+      <source>Parse for mathematical outcome</source>
+      <translation>Розбір для отримання математичного результату</translation>
+    </message>
+    <message>
       <source>Comparison operator</source>
       <translation>Оператор порівняння</translation>
     </message>
@@ -943,7 +955,7 @@
     </message>
     <message>
       <source>Some changes might take effect after you save a widget theme or department!</source>
-      <translation type="unfinished"/>
+      <translation>Віджет Деякі зміни можуть набути чинності після того, як ви Зберегти тему або відділ!</translation>
     </message>
     <message>
       <source>Clear cookies and reload</source>
@@ -1008,6 +1020,10 @@
     <message>
       <source>Text color</source>
       <translation>Колір тексту</translation>
+    </message>
+    <message>
+      <source>Nick template</source>
+      <translation>Шаблон ніка</translation>
     </message>
     <message>
       <source>My messages bubble background color</source>
@@ -1215,7 +1231,7 @@
     </message>
     <message>
       <source>Applies to</source>
-      <translation type="unfinished"/>
+      <translation>Поширюється на</translation>
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
@@ -1638,6 +1654,14 @@
       <translation>Назва значка мінімізації</translation>
     </message>
     <message>
+      <source>Title of the collapse icon</source>
+      <translation>Назва іконки згортання</translation>
+    </message>
+    <message>
+      <source>Title of the expand icon</source>
+      <translation>Назва іконки розгортання</translation>
+    </message>
+    <message>
       <source>Title of the popup icon</source>
       <translation>Назва спливаючого значка</translation>
     </message>
@@ -1663,7 +1687,7 @@
     </message>
     <message>
       <source>Back to chat from offline form</source>
-      <translation type="unfinished"/>
+      <translation>Повернутися на чат з офлайн-форми</translation>
     </message>
     <message>
       <source>Online image</source>
@@ -1870,6 +1894,14 @@
       <translation>Ширина віджета (px)</translation>
     </message>
     <message>
+      <source>Widget width expand ratio (1.01 - 1.99) or pixels if more than 2</source>
+      <translation>Віджет коефіцієнт розширення по ширині (1.01 - 1.99) або пікселів, якщо більше 2</translation>
+    </message>
+    <message>
+      <source>Widget height expand ratio (1.01 - 1.99) or pixels if more than 2</source>
+      <translation>Віджет коефіцієнт розширення по висоті (1.01 - 1.99) або пікселів, якщо більше 2</translation>
+    </message>
+    <message>
       <source>Operator avatar</source>
       <translation>Аватар оператора</translation>
     </message>
@@ -1887,7 +1919,7 @@
     </message>
     <message>
       <source>Widget position from top to append</source>
-      <translation type="unfinished"/>
+      <translation>Віджет позиція зверху донизу</translation>
     </message>
     <message>
       <source>Widget position from right to append in invitation</source>
@@ -1900,6 +1932,10 @@
     <message>
       <source>Placeholder for message text</source>
       <translation>Заповнювач для тексту повідомлення</translation>
+    </message>
+    <message>
+      <source>Placeholder for name text</source>
+      <translation>Заповнювач для тексту назви</translation>
     </message>
     <message>
       <source>Placeholder for message text if files are attached</source>
@@ -2183,6 +2219,14 @@
     <message>
       <source>By default, if an invitation was not closed by the visitor, the next invitation will be shown when the visitor navigates to a different page. If the visitor closed the invitation, it will not be shown on the next page. Enabling this option will display the invitation on the next page even if the previous one was closed by the visitor.</source>
       <translation>За замовчуванням, якщо відвідувач не закрив запрошення, наступне запрошення буде показано, коли він перейде на іншу сторінку. Якщо відвідувач закрив запрошення, воно не буде показано на наступній сторінці. Увімкнувши цю опцію, запрошення буде відображатися на наступній сторінці, навіть якщо попередня сторінка була закрита відвідувачем.</translation>
+    </message>
+    <message>
+      <source>Persistence settings</source>
+      <translation>Налаштування персистентності</translation>
+    </message>
+    <message>
+      <source>Flush list</source>
+      <translation>Список змивів</translation>
     </message>
     <message>
       <source>Invitation will be shown only once per visitor session. If the visitor closes the invitation it will not be shown again during the same session.</source>
@@ -2470,19 +2514,19 @@
     </message>
     <message>
       <source>Name for personal reference</source>
-      <translation type="unfinished"/>
+      <translation>Ім&apos;я для особистого звернення</translation>
     </message>
     <message>
       <source>Messages from visitors to agents</source>
-      <translation type="unfinished"/>
+      <translation>Повідомлення від відвідувачів агентам</translation>
     </message>
     <message>
       <source>Messages from agents to visitors</source>
-      <translation type="unfinished"/>
+      <translation>Повідомлення від агентів до відвідувачів</translation>
     </message>
     <message>
       <source>Applies to rest API calls</source>
-      <translation type="unfinished"/>
+      <translation>Застосовується до викликів решти API</translation>
     </message>
     <message>
       <source>Place you replacement pattern here.</source>
@@ -2490,11 +2534,11 @@
     </message>
     <message>
       <source>Guardrails rules</source>
-      <translation type="unfinished"/>
+      <translation>Правила огородження</translation>
     </message>
     <message>
       <source>Stores JSON array of department IDs to which the rule applies. Empty means all departments.</source>
-      <translation type="unfinished"/>
+      <translation>Зберігає JSON-масив ідентифікаторів відділів, до яких застосовується правило. Порожній означає всі відділи.</translation>
     </message>
     <message>
       <source>Message to visitor after posting sensitive information</source>
@@ -2655,6 +2699,10 @@
     <message>
       <source>Do not show invitation after it was closed in the same session.</source>
       <translation>Не показуйте запрошення після того, як його було закрито в тій самій сесії.</translation>
+    </message>
+    <message>
+      <source>One-time invitation. It will never be shown again to the same visitor.</source>
+      <translation>Одноразове запрошення. Воно ніколи більше не буде показано тому самому відвідувачу.</translation>
     </message>
     <message>
       <source>Show next matching invitation if URL changes and present invitation was closed</source>
@@ -2969,51 +3017,51 @@
     </message>
     <message>
       <source>Chat ID or any other chat variable</source>
-      <translation type="unfinished"/>
+      <translation>чат ID або будь-яку іншу змінну чат </translation>
     </message>
     <message>
       <source>Chat Status</source>
-      <translation type="unfinished"/>
+      <translation>чат Статус</translation>
     </message>
     <message>
       <source>Department ID</source>
-      <translation type="unfinished"/>
+      <translation>Ідентифікатор відділу</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>Ідентифікатор користувача</translation>
     </message>
     <message>
       <source>Email</source>
-      <translation type="unfinished"/>
+      <translation>Електронна пошта</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Телефон</translation>
     </message>
     <message>
       <source>Nickname</source>
-      <translation type="unfinished"/>
+      <translation>Нікнейм</translation>
     </message>
     <message>
       <source>Country Code</source>
-      <translation type="unfinished"/>
+      <translation>Код країни</translation>
     </message>
     <message>
       <source>Chat Variable</source>
-      <translation type="unfinished"/>
+      <translation>чат Змінна</translation>
     </message>
     <message>
       <source>Chat variable accessible directly</source>
-      <translation type="unfinished"/>
+      <translation>чат змінна, доступна безпосередньо</translation>
     </message>
     <message>
       <source>Reuse existing conditions</source>
-      <translation type="unfinished"/>
+      <translation>Повторне використання існуючих умов</translation>
     </message>
     <message>
       <source>Chat ID or any other chatr variable</source>
-      <translation type="unfinished"/>
+      <translation>чат ID або будь-яка інша змінна chatr</translation>
     </message>
     <message>
       <source>Parse for mathematical outcome</source>
@@ -3021,7 +3069,7 @@
     </message>
     <message>
       <source>Investigate places where this Rest API is used</source>
-      <translation type="unfinished"/>
+      <translation>Дослідіть місця, де використовується цей Rest API</translation>
     </message>
     <message>
       <source>Investigate places where this translation is used</source>
@@ -3029,7 +3077,7 @@
     </message>
     <message>
       <source>Investigate places where this bot is used</source>
-      <translation type="unfinished"/>
+      <translation>Дослідіть місця, де використовується цей бот</translation>
     </message>
     <message>
       <source>Individualization item</source>
@@ -3069,59 +3117,59 @@
     </message>
     <message>
       <source>This Bot is used in the following places</source>
-      <translation type="unfinished"/>
+      <translation>Цей бот використовується в наступних місцях</translation>
     </message>
     <message>
       <source>Continuous Chat</source>
-      <translation type="unfinished"/>
+      <translation>Безперервний чат</translation>
     </message>
     <message>
       <source>Continuous Mail</source>
-      <translation type="unfinished"/>
+      <translation>Постійна пошта</translation>
     </message>
     <message>
       <source>Auto Responder</source>
-      <translation type="unfinished"/>
+      <translation>Автовідповідач</translation>
     </message>
     <message>
       <source>Widget Theme</source>
-      <translation type="unfinished"/>
+      <translation>Віджет Тема</translation>
     </message>
     <message>
       <source>Proactive Invitation</source>
-      <translation type="unfinished"/>
+      <translation>Проактивне запрошення</translation>
     </message>
     <message>
       <source>Bot Command</source>
-      <translation type="unfinished"/>
+      <translation>Бот-команда</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Відділ</translation>
     </message>
     <message>
       <source>This Bot is not used anywhere yet.</source>
-      <translation type="unfinished"/>
+      <translation>Цей бот ще ніде не використовується.</translation>
     </message>
     <message>
       <source>Bot not found.</source>
-      <translation type="unfinished"/>
+      <translation>Бота не знайдено.</translation>
     </message>
     <message>
       <source>This REST API is used in the following triggers</source>
-      <translation type="unfinished"/>
+      <translation>Цей REST API використовується в наступних тригерах</translation>
     </message>
     <message>
       <source>Methods used</source>
-      <translation type="unfinished"/>
+      <translation>Використані методи</translation>
     </message>
     <message>
       <source>This REST API is not used in any triggers yet.</source>
-      <translation type="unfinished"/>
+      <translation>Цей REST API ще не використовується в жодному тригері.</translation>
     </message>
     <message>
       <source>REST API not found.</source>
-      <translation type="unfinished"/>
+      <translation>REST API не знайдено.</translation>
     </message>
     <message>
       <source>Test output</source>
@@ -3130,6 +3178,10 @@
     <message>
       <source>Test</source>
       <translation>Тест</translation>
+    </message>
+    <message>
+      <source>Message ID</source>
+      <translation>Ідентифікатор повідомлення</translation>
     </message>
   </context>
   <context>
@@ -3155,10 +3207,6 @@
       <translation>В елементах списку (малі літери перед порівнянням), елементи розділяються символами ||.</translation>
     </message>
     <message>
-      <source>Start of OR</source>
-      <translation>Початок операції</translation>
-    </message>
-    <message>
       <source>In list (lowercase before comparison), items separated by ||</source>
       <translation>У списку (у нижньому регістрі перед порівнянням) елементи розділені символами ||.</translation>
     </message>
@@ -3169,6 +3217,10 @@
     <message>
       <source>Not in list (lowercase before comparison), items separated by ||</source>
       <translation>Не в списку (малі літери перед порівнянням), елементи розділені символами ||.</translation>
+    </message>
+    <message>
+      <source>Start of OR</source>
+      <translation>Початок операції</translation>
     </message>
     <message>
       <source>Name</source>
@@ -3369,6 +3421,14 @@
     <message>
       <source>Do not send a request if this variable is empty</source>
       <translation>Не надсилати запит, якщо ця змінна порожня</translation>
+    </message>
+    <message>
+      <source>Switch to form data if there is file attached to a message.</source>
+      <translation>Переключитися на дані форми, якщо до повідомлення прикріплено файл.</translation>
+    </message>
+    <message>
+      <source>Files will be attached as [data+n] post fields. First level JSON attributes will become POST vars.</source>
+      <translation>Файли будуть прикріплені у вигляді [data+n] полів допису. Атрибути JSON першого рівня стануть змінними POST.</translation>
     </message>
     <message>
       <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
@@ -3650,6 +3710,10 @@
       <translation>Якщо ви не виберете спеціальний або стандартний автовідповідач, проактивні чати не матимуть призначеного автовідповідача.</translation>
     </message>
     <message>
+      <source>Message</source>
+      <translation>Повідомлення</translation>
+    </message>
+    <message>
       <source>Activity period</source>
       <translation>Період діяльності</translation>
     </message>
@@ -3890,16 +3954,16 @@
       <translation>Автоматично надіслати це повідомлення користувачеві, тоді чат буде прийнятий</translation>
     </message>
     <message>
+      <source>Auto responder will be activated upon automatic message sending.</source>
+      <translation>Автовідповідач буде активовано після автоматичного відправлення повідомлення.</translation>
+    </message>
+    <message>
       <source>Delay in seconds</source>
       <translation>Затримка в секундах</translation>
     </message>
     <message>
       <source>The smaller the position value the higher the canned message will appear in the list</source>
       <translation>Чим менше значення позиції, тим вище в списку з’явиться готове повідомлення</translation>
-    </message>
-    <message>
-      <source>Message</source>
-      <translation>Повідомлення</translation>
     </message>
     <message>
       <source>Fallback message</source>
@@ -3955,15 +4019,15 @@
     </message>
     <message>
       <source>Pending items will be processed with</source>
-      <translation type="unfinished"/>
+      <translation>Неопрацьовані питання будуть оброблятися за допомогою</translation>
     </message>
     <message>
       <source>cron command</source>
-      <translation type="unfinished"/>
+      <translation>команда cron</translation>
     </message>
     <message>
       <source>Items with Ignore status will not be imported during standard flow</source>
-      <translation type="unfinished"/>
+      <translation>Елементи зі статусом Ігнорувати не будуть імпортовані під час стандартного потоку</translation>
     </message>
     <message>
       <source>Language</source>
@@ -4266,27 +4330,27 @@
     </message>
     <message>
       <source>Offline request recipients priority:</source>
-      <translation type="unfinished"/>
+      <translation>Пріоритет офлайн-одержувачів запитів:</translation>
     </message>
     <message>
       <source>E-mail template recipient (if filled and &quot;Send only to recipient&quot; is checked)</source>
-      <translation type="unfinished"/>
+      <translation>Одержувач шаблону електронної пошти (якщо заповнено та встановлено прапорець &quot;Надсилати тільки одержувачу&quot;)</translation>
     </message>
     <message>
       <source>Department e-mail (this field)</source>
-      <translation type="unfinished"/>
+      <translation>Електронна пошта кафедри (це поле)</translation>
     </message>
     <message>
       <source>E-mail template recipient (if filled)</source>
-      <translation type="unfinished"/>
+      <translation>Одержувач шаблону електронної пошти (якщо заповнено)</translation>
     </message>
     <message>
       <source>First system operator e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Перша система Оператор e-mail</translation>
     </message>
     <message>
       <source>Current recipient:</source>
-      <translation type="unfinished"/>
+      <translation>Поточний одержувач:</translation>
     </message>
     <message>
       <source>Maximum pending chats, if this limit is reached department becomes offline automatically</source>
@@ -4386,11 +4450,11 @@
     </message>
     <message>
       <source>You assigned a bot to this department, but didn’t enable the setting that makes the bot follow the department’s online hours. This may cause the department to appear online at all times. Ensure your bot checks online hours in its logic</source>
-      <translation type="unfinished"/>
+      <translation>Ви призначили бота для цього відділу, але не ввімкнули налаштування, яке змушує бота слідувати за годинами роботи відділу онлайн. Це може призвести до того, що відділ завжди буде онлайн. Переконайтеся, що ваш бот у своїй логіці перевіряє онлайн-години</translation>
     </message>
     <message>
       <source>Change it</source>
-      <translation type="unfinished"/>
+      <translation>Змініть його.</translation>
     </message>
     <message>
       <source>to render widget online status</source>
@@ -4530,11 +4594,11 @@
     </message>
     <message>
       <source>Inform when chat with operator is closed. Only mail notification is sent.</source>
-      <translation type="unfinished"/>
+      <translation>Повідомити, коли чат з Оператор буде закрито. Буде надіслано лише повідомлення на пошту.</translation>
     </message>
     <message>
       <source>Inform when all chats are closed. Only mail notification is sent.</source>
-      <translation type="unfinished"/>
+      <translation>Повідомити, коли всі чати будуть закриті. Надсилається лише повідомлення на пошту.</translation>
     </message>
     <message>
       <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
@@ -4767,6 +4831,14 @@
     <message>
       <source>Text area</source>
       <translation>Текстова область</translation>
+    </message>
+    <message>
+      <source>Dropdown</source>
+      <translation>Випадаюче меню</translation>
+    </message>
+    <message>
+      <source>value||Label one per line</source>
+      <translation>значення||По одному мітці в рядку</translation>
     </message>
     <message>
       <source>Number of rows in case Text area field tye is chosen</source>
@@ -5476,7 +5548,7 @@
     </message>
     <message>
       <source>Maintenance mode activated</source>
-      <translation type="unfinished"/>
+      <translation>Активовано режим технічного обслуговування</translation>
     </message>
     <message>
       <source>Show widget in maintenance mode</source>
@@ -5644,6 +5716,26 @@
     <message>
       <source>Exclude personal responses</source>
       <translation>Виключити особисті відповіді</translation>
+    </message>
+    <message>
+      <source>ID</source>
+      <translation>ІДЕНТИФІКАТОР</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Ім&apos;я</translation>
+    </message>
+    <message>
+      <source>Show only pinned</source>
+      <translation>Показати тільки закріплені</translation>
+    </message>
+    <message>
+      <source>Show only internal</source>
+      <translation>Показувати тільки внутрішні</translation>
+    </message>
+    <message>
+      <source>Include archived</source>
+      <translation>Включити заархівовані</translation>
     </message>
     <message>
       <source>Delete all items</source>
@@ -5878,6 +5970,10 @@
       <translation>Телефон</translation>
     </message>
     <message>
+      <source>As participant</source>
+      <translation>Як учасник</translation>
+    </message>
+    <message>
       <source>Advanced search</source>
       <translation>Розширений пошук</translation>
     </message>
@@ -6026,6 +6122,38 @@
       <translation>До</translation>
     </message>
     <message>
+      <source>Message counts, Operators, Visitors, Bot</source>
+      <translation>Кількість повідомлень, Оператори, Відвідувачі, Бот</translation>
+    </message>
+    <message>
+      <source>Operator messages</source>
+      <translation>Оператор повідомлення</translation>
+    </message>
+    <message>
+      <source>Op</source>
+      <translation>Op</translation>
+    </message>
+    <message>
+      <source>Visitor messages</source>
+      <translation>Повідомлення відвідувачів</translation>
+    </message>
+    <message>
+      <source>Vi</source>
+      <translation>Вай</translation>
+    </message>
+    <message>
+      <source>Bot messages</source>
+      <translation>Повідомлення бота</translation>
+    </message>
+    <message>
+      <source>Total messages</source>
+      <translation>Всього повідомлень</translation>
+    </message>
+    <message>
+      <source>Total</source>
+      <translation>Всього</translation>
+    </message>
+    <message>
       <source>Has unread messages</source>
       <translation>Є непрочитані повідомлення</translation>
     </message>
@@ -6070,6 +6198,10 @@
       <translation>Пошук за часом закриття</translation>
     </message>
     <message>
+      <source>Chats with more than one participant</source>
+      <translation>Чати з кількома учасниками</translation>
+    </message>
+    <message>
       <source>Newest first (default)</source>
       <translation>Найновіші спочатку (за замовчуванням)</translation>
     </message>
@@ -6084,6 +6216,14 @@
     <message>
       <source>Last interactions last</source>
       <translation>Останні взаємодії тривають</translation>
+    </message>
+    <message>
+      <source>Highest total number of messages</source>
+      <translation>Найбільша загальна кількість повідомлень</translation>
+    </message>
+    <message>
+      <source>Lowest total number of messages</source>
+      <translation>Найменша загальна кількість повідомлень</translation>
     </message>
     <message>
       <source>20 items per page</source>
@@ -6250,10 +6390,6 @@
       <translation>Виберіть переклади</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>Ім&apos;я</translation>
-    </message>
-    <message>
       <source>Alias</source>
       <translation>Псевдонім</translation>
     </message>
@@ -6364,10 +6500,6 @@
     <message>
       <source>Include messages content</source>
       <translation>Включити вміст повідомлень</translation>
-    </message>
-    <message>
-      <source>ID</source>
-      <translation>ІДЕНТИФІКАТОР</translation>
     </message>
     <message>
       <source>Conversation</source>
@@ -6686,6 +6818,30 @@
       <translation>Групова діаграма</translation>
     </message>
     <message>
+      <source>Min operator messages</source>
+      <translation>Min Оператор повідомлень</translation>
+    </message>
+    <message>
+      <source>Count</source>
+      <translation>Граф.</translation>
+    </message>
+    <message>
+      <source>Min visitor messages</source>
+      <translation>Мінімальні повідомлення відвідувачів</translation>
+    </message>
+    <message>
+      <source>Min bot messages</source>
+      <translation>Міні-повідомлення бота</translation>
+    </message>
+    <message>
+      <source>Total messages from</source>
+      <translation>Всього повідомлень від</translation>
+    </message>
+    <message>
+      <source>Total messages till</source>
+      <translation>Всього повідомлень до</translation>
+    </message>
+    <message>
       <source>Exclude offline requests from charts</source>
       <translation>Виключити офлайн-запити з діаграм</translation>
     </message>
@@ -6830,10 +6986,6 @@
       <translation>Середній</translation>
     </message>
     <message>
-      <source>As participant</source>
-      <translation>Як учасник</translation>
-    </message>
-    <message>
       <source>Total number of chats</source>
       <translation>Загальна кількість чатів</translation>
     </message>
@@ -6860,6 +7012,10 @@
     <message>
       <source>Average chat length</source>
       <translation>Середня тривалість чату</translation>
+    </message>
+    <message>
+      <source>Average chat length (agent)</source>
+      <translation>Середня довжина чат (агент)</translation>
     </message>
     <message>
       <source>Average of first response time (agent)</source>
@@ -6990,6 +7146,30 @@
       <translation>Автоматичне попереднє завантаження повідомлень чату попередніх відвідувачів</translation>
     </message>
     <message>
+      <source>Show chat tabs</source>
+      <translation>Показати вкладки чат </translation>
+    </message>
+    <message>
+      <source>Hide chat tabs</source>
+      <translation>Приховати вкладки чат </translation>
+    </message>
+    <message>
+      <source>Automatically accept assigned chats</source>
+      <translation>Автоматично приймати призначені чати</translation>
+    </message>
+    <message>
+      <source>Do not automatically accept assigned chats</source>
+      <translation>Не приймати автоматично призначені чати</translation>
+    </message>
+    <message>
+      <source>Show alerts for transferred chats</source>
+      <translation>Показувати сповіщення для перенесених чатів</translation>
+    </message>
+    <message>
+      <source>Do not show alerts for transferred chats</source>
+      <translation>Не показувати сповіщення про перенесені чати</translation>
+    </message>
+    <message>
       <source>Username</source>
       <translation>Користувач</translation>
     </message>
@@ -7096,6 +7276,14 @@
     <message>
       <source>Save search</source>
       <translation>Зберегти пошук</translation>
+    </message>
+    <message>
+      <source>Select all</source>
+      <translation>Вибрати все</translation>
+    </message>
+    <message>
+      <source>Un-select all</source>
+      <translation>Зніміть позначку з усіх</translation>
     </message>
     <message>
       <source>Till now</source>
@@ -7809,15 +7997,19 @@
     <name>abstract/message_protection</name>
     <message>
       <source>If no department is chosen this will apply to all departments</source>
-      <translation type="unfinished"/>
+      <translation>Якщо жоден відділ не обрано, це буде застосовано до всіх відділів</translation>
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Оберіть відділ</translation>
     </message>
     <message>
       <source>Auto reply warning to visitor/operator</source>
-      <translation type="unfinished"/>
+      <translation>Попередження про автоматичну відповідь відвідувачу/Оператор</translation>
+    </message>
+    <message>
+      <source>Main</source>
+      <translation>Головна</translation>
     </message>
     <message>
       <source>Sample</source>
@@ -7845,134 +8037,134 @@
     </message>
     <message>
       <source>Redacted field: Please contact your administrator for details</source>
-      <translation type="unfinished"/>
+      <translation>Відредаговане поле: Будь ласка, зверніться до вашого адміністратора за деталями</translation>
     </message>
     <message>
       <source>Regex</source>
-      <translation type="unfinished"/>
+      <translation>Regex</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>Електронна пошта</translation>
     </message>
     <message>
       <source>Credit Card</source>
-      <translation type="unfinished"/>
+      <translation>Кредитна картка</translation>
     </message>
     <message>
       <source>PII</source>
-      <translation type="unfinished"/>
+      <translation>PII</translation>
     </message>
     <message>
       <source>Secret Keys</source>
-      <translation type="unfinished"/>
+      <translation>Секретні ключі</translation>
     </message>
     <message>
       <source>URLs</source>
-      <translation type="unfinished"/>
+      <translation>URL-адреси</translation>
     </message>
     <message>
       <source>Add Rule</source>
-      <translation type="unfinished"/>
+      <translation>Додати правило</translation>
     </message>
     <message>
       <source>Pattern</source>
-      <translation type="unfinished"/>
+      <translation>Візерунок</translation>
     </message>
     <message>
       <source>Replacement</source>
-      <translation type="unfinished"/>
+      <translation>Заміна</translation>
     </message>
     <message>
       <source>Replacement (optional)</source>
-      <translation type="unfinished"/>
+      <translation>Заміна (за бажанням)</translation>
     </message>
     <message>
       <source>Replacement Domain</source>
-      <translation type="unfinished"/>
+      <translation>Запасний домен</translation>
     </message>
     <message>
       <source>Replacement (leave empty to use [mask] tags)</source>
-      <translation type="unfinished"/>
+      <translation>Заміна (залиште порожнім, щоб використовувати теги [mask])</translation>
     </message>
     <message>
       <source>Entities</source>
-      <translation type="unfinished"/>
+      <translation>Суб&apos;єкти</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Ім&apos;я</translation>
     </message>
     <message>
       <source>Threshold</source>
-      <translation type="unfinished"/>
+      <translation>Поріг</translation>
     </message>
     <message>
       <source>Strict</source>
-      <translation type="unfinished"/>
+      <translation>Суворий.</translation>
     </message>
     <message>
       <source>Balanced</source>
-      <translation type="unfinished"/>
+      <translation>Збалансований</translation>
     </message>
     <message>
       <source>Permissive</source>
-      <translation type="unfinished"/>
+      <translation>Дозвільний</translation>
     </message>
     <message>
       <source>e.g. * or leave empty for badge</source>
-      <translation type="unfinished"/>
+      <translation>наприклад, * або залиште порожнім для бейджа</translation>
     </message>
     <message>
       <source>e.g. Phone Number</source>
-      <translation type="unfinished"/>
+      <translation>наприклад, номер телефону</translation>
     </message>
     <message>
       <source>Block User Info</source>
-      <translation type="unfinished"/>
+      <translation>Заблокувати інформацію про користувача</translation>
     </message>
     <message>
       <source>Allow Subdomains</source>
-      <translation type="unfinished"/>
+      <translation>Дозволити субдомени</translation>
     </message>
     <message>
       <source>Allow host where chat is hosted. Required for images and other media stored on the server to load properly.</source>
-      <translation type="unfinished"/>
+      <translation>Дозволити хост, на якому розміщено чат. Необхідно для правильного завантаження зображень та інших медіафайлів, що зберігаються на сервері.</translation>
     </message>
     <message>
       <source>Allow List (one per line). All other URLs will be blocked.</source>
-      <translation type="unfinished"/>
+      <translation>Дозволити список (по одному в рядку). Всі інші URL-адреси будуть заблоковані.</translation>
     </message>
     <message>
       <source>Deny List (one per line). All other URLs will be allowed.</source>
-      <translation type="unfinished"/>
+      <translation>Список заборон (по одному в рядку). Всі інші URL-адреси будуть дозволені.</translation>
     </message>
     <message>
       <source>Note: Only one list can be filled at a time. Allow List and Deny List are mutually exclusive.</source>
-      <translation type="unfinished"/>
+      <translation>Примітка: Одночасно може бути заповнений лише один список. Список дозволів і список заборон є взаємовиключними.</translation>
     </message>
     <message>
       <source>Email Domain Allow List (one per line). Use __mailbox__ to allow all mailbox domains</source>
-      <translation type="unfinished"/>
+      <translation>Список дозволених поштових доменів (по одному в рядку). Використовуйте __mailbox__, щоб дозволити всі домени поштових скриньок</translation>
     </message>
     <message>
       <source>Phone Allow List (one per line). You can use wildcard at the end of phone.</source>
-      <translation type="unfinished"/>
+      <translation>Список дозволених телефонів (по одному на рядок). Ви можете використовувати символ підстановки в кінці телефону.</translation>
     </message>
   </context>
   <context>
     <name>abstract/chatmessagesghosting</name>
     <message>
       <source>Message content protection rules are disabled for visitors and operators. They still will work for Rest API calls.</source>
-      <translation type="unfinished"/>
+      <translation>Правила захисту вмісту повідомлень вимкнено для відвідувачів та операторів. Вони все ще будуть працювати для викликів Rest API.</translation>
     </message>
     <message>
       <source>Message content protection rules are enabled for visitors and operators. Only one rule per department will be applied if multiple rules match.</source>
-      <translation type="unfinished"/>
+      <translation>Правила захисту вмісту повідомлень увімкнено для відвідувачів та операторів. Якщо декілька правил збігаються, буде застосовано лише одне правило на відділ.</translation>
     </message>
     <message>
       <source>Change setting</source>
-      <translation type="unfinished"/>
+      <translation>Змінити налаштування</translation>
     </message>
   </context>
   <context>
@@ -8148,8 +8340,16 @@
       <translation>Виберіть, в яких віджетах цей предмет буде видно безпосередньо</translation>
     </message>
     <message>
+      <source>Archived subjects are hidden from subject pickers and all filtering dropdowns</source>
+      <translation>Архівні теми приховані від вибору тем і всіх випадаючих списків фільтрів</translation>
+    </message>
+    <message>
       <source>Internal</source>
       <translation>Внутрішній</translation>
+    </message>
+    <message>
+      <source>Archived</source>
+      <translation>Архівовано</translation>
     </message>
     <message>
       <source>Pinned</source>
@@ -8398,6 +8598,14 @@
       <translation>Звести до мінімуму</translation>
     </message>
     <message>
+      <source>Collapse content</source>
+      <translation>Згорнути вміст</translation>
+    </message>
+    <message>
+      <source>Expand content</source>
+      <translation>Розгорнути вміст</translation>
+    </message>
+    <message>
       <source>Popup</source>
       <translation>Вискочити</translation>
     </message>
@@ -8519,7 +8727,7 @@
     </message>
     <message>
       <source>External operator. Account owner.</source>
-      <translation type="unfinished"/>
+      <translation>Зовнішній Оператор. Власник облікового запису.</translation>
     </message>
     <message>
       <source>Chat started by</source>
@@ -8746,8 +8954,8 @@
       <translation>Почніть чат</translation>
     </message>
     <message>
-      <source>BB code</source>
-      <translation>BB код</translation>
+      <source>Emojis</source>
+      <translation>Емодзі</translation>
     </message>
     <message>
       <source>Send to email</source>
@@ -8840,6 +9048,14 @@
     <message>
       <source>Stop playing recorded audio</source>
       <translation>Припиніть відтворення записаного аудіо</translation>
+    </message>
+    <message>
+      <source>You must accept terms</source>
+      <translation>Ви повинні прийняти умови</translation>
+    </message>
+    <message>
+      <source>Enter your</source>
+      <translation>Введіть свій</translation>
     </message>
     <message>
       <source>There was a problem sending your request. Please try again later!</source>
@@ -9840,6 +10056,10 @@
       <translation>Голосові повідомлення для операторів активні</translation>
     </message>
     <message>
+      <source>Mobile is disabled in the main settings file (settings.ini.php). Mobile notifications will not work.</source>
+      <translation>В головному файлі налаштувань (settings.ini.php) вимкнено мобільний зв&apos;язок. Мобільні сповіщення не працюватимуть.</translation>
+    </message>
+    <message>
       <source>If you do not choose any department from below we will track all departments.</source>
       <translation>Якщо ви не виберете жоден відділ знизу, ми відстежимо всі відділи.</translation>
     </message>
@@ -9994,6 +10214,14 @@
       <translation>Спрощений вихід</translation>
     </message>
     <message>
+      <source>Proactive invitations is</source>
+      <translation>Проактивні запрошення - це</translation>
+    </message>
+    <message>
+      <source>change it.</source>
+      <translation>змінити його.</translation>
+    </message>
+    <message>
       <source>Valid invitations found</source>
       <translation>Знайдено дійсні запрошення</translation>
     </message>
@@ -10004,6 +10232,10 @@
     <message>
       <source>Skipped because of no online operators</source>
       <translation>Пропущено через відсутність онлайн-операторів</translation>
+    </message>
+    <message>
+      <source>Skipped because invitation was seen</source>
+      <translation>Пропущено, тому що бачили запрошення</translation>
     </message>
     <message>
       <source>Skipped because of</source>
@@ -10058,8 +10290,16 @@
       <translation>Тест</translation>
     </message>
     <message>
+      <source>Reset invitation data</source>
+      <translation>Скинути дані запрошення</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>Будь-який</translation>
+    </message>
+    <message>
+      <source>Invitation data for visitor was reset!</source>
+      <translation>Дані запрошення для відвідувача було скинуто!</translation>
     </message>
   </context>
   <context>
@@ -10131,6 +10371,10 @@
     <message>
       <source>Choose</source>
       <translation>Обрати</translation>
+    </message>
+    <message>
+      <source>Object is assigned to mails or chats!</source>
+      <translation>Об&apos;єкт призначається листам або чатам!</translation>
     </message>
     <message>
       <source>Bots</source>
@@ -10205,7 +10449,7 @@
     </message>
     <message>
       <source>Short Name</source>
-      <translation type="unfinished"/>
+      <translation>Коротка назва</translation>
     </message>
     <message>
       <source>Test</source>
@@ -10312,6 +10556,10 @@
       <translation>тому</translation>
     </message>
     <message>
+      <source>Clone</source>
+      <translation>Клон</translation>
+    </message>
+    <message>
       <source>New user</source>
       <translation>Новий користувач</translation>
     </message>
@@ -10367,7 +10615,7 @@
     <name>genericbot/chat_actions</name>
     <message>
       <source>Messages preview</source>
-      <translation type="unfinished"/>
+      <translation>Попередній перегляд повідомлень</translation>
     </message>
     <message>
       <source>Chat actions</source>
@@ -10550,11 +10798,11 @@
     </message>
     <message>
       <source>Auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Автовідповідач</translation>
     </message>
     <message>
       <source>Auto responder was assigned</source>
-      <translation type="unfinished"/>
+      <translation>Призначено автовідповідач</translation>
     </message>
     <message>
       <source>Bot ID</source>
@@ -10702,7 +10950,7 @@
     </message>
     <message>
       <source>Proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Проактивне запрошення</translation>
     </message>
     <message>
       <source>Product</source>
@@ -11582,7 +11830,7 @@
     </message>
     <message>
       <source>Visitor has just sent a message</source>
-      <translation type="unfinished"/>
+      <translation>Відвідувач щойно надіслав повідомлення</translation>
     </message>
   </context>
   <context>
@@ -11919,6 +12167,10 @@
     <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
       <translation>Помилка блокування користувачів, можливо, у вас немає дозволу на блокування користувачів?</translation>
+    </message>
+    <message>
+      <source>You do not have permission to access a chat!</source>
+      <translation>Ви не маєте дозволу на доступ до чат!</translation>
     </message>
     <message>
       <source>Please choose a block type!</source>
@@ -13118,6 +13370,10 @@
       <translation>Тепер ви будете отримувати сповіщення з цього сайту</translation>
     </message>
     <message>
+      <source>Notifications enabled</source>
+      <translation>Сповіщення увімкнено</translation>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation>Деякий час тому</translation>
     </message>
@@ -13143,7 +13399,7 @@
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Бот</translation>
     </message>
     <message>
       <source>Search for department</source>
@@ -13600,6 +13856,10 @@
       <translation>Перекласти повідомлення оператора мовою відвідувача</translation>
     </message>
     <message>
+      <source>Start translated chat session</source>
+      <translation>Почніть перекладати чат сесію</translation>
+    </message>
+    <message>
       <source>On save automatically translate old chat messages. If not checked only new messages will be translated.</source>
       <translation>При збереженні автоматично перекладайте старі повідомлення чату. Якщо не встановлено прапорець, перекладатимуться лише нові повідомлення.</translation>
     </message>
@@ -13728,6 +13988,18 @@
       <translation>Скористайтеся сервісом DeepL</translation>
     </message>
     <message>
+      <source>Hide translate single message button.</source>
+      <translation>Приховати кнопку перекладу окремого повідомлення.</translation>
+    </message>
+    <message>
+      <source>Show start translations button</source>
+      <translation>Показати кнопку &quot;Почати переклад</translation>
+    </message>
+    <message>
+      <source>Action options</source>
+      <translation>Варіанти дій</translation>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>Налаштування оновлено</translation>
     </message>
@@ -13764,16 +14036,12 @@
       <translation>Виявлені збіги мов оператора та відвідувача, будь ласка, виберіть мови вручну</translation>
     </message>
     <message>
-      <source>Operator language is not supported by Google translation service</source>
-      <translation>Мова оператора не підтримується службою перекладу Google</translation>
+      <source>Translation to operator language failed</source>
+      <translation>Переклад на Оператор Мова не вдалося</translation>
     </message>
     <message>
-      <source>Visitor language is not supported by Google translation service!</source>
-      <translation>Мова відвідувачів не підтримується службою перекладу Google!</translation>
-    </message>
-    <message>
-      <source>Operator language is not supported by DeepL translation service</source>
-      <translation>Оператор Мова не підтримується службою перекладу DeepL</translation>
+      <source>Translation to visitor language failed</source>
+      <translation>Переклад для відвідувача Мова не вдалося.</translation>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -13786,6 +14054,14 @@
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
       <translation>Виберіть мови перекладу вручну та натисніть Автоматичний переклад</translation>
+    </message>
+    <message>
+      <source>CSRF is missing</source>
+      <translation>CSRF відсутній</translation>
+    </message>
+    <message>
+      <source>Enter a message to be translated</source>
+      <translation>Введіть повідомлення для перекладу</translation>
     </message>
   </context>
   <context>
@@ -14357,7 +14633,7 @@
     </message>
     <message>
       <source>Bot follows online hours</source>
-      <translation type="unfinished"/>
+      <translation>Бот слідкує за онлайн-графіком</translation>
     </message>
     <message>
       <source>Status</source>
@@ -14539,14 +14815,6 @@
       <translation>Скинути фільтри віджетів</translation>
     </message>
     <message>
-      <source>Old dashboard</source>
-      <translation>Стара панель</translation>
-    </message>
-    <message>
-      <source>New dashboard</source>
-      <translation>Нова панель</translation>
-    </message>
-    <message>
       <source>Click to switch to static/dynamic</source>
       <translation>Натисніть, щоб перейти до статичного/динамічного</translation>
     </message>
@@ -14696,8 +14964,12 @@
       <translation>Введіть ваше повідомлення та натисніть Enter аби відправити...</translation>
     </message>
     <message>
+      <source>Enter your name</source>
+      <translation>Введіть ваше ім&apos;я</translation>
+    </message>
+    <message>
       <source>⏎ or additional information</source>
-      <translation type="unfinished"/>
+      <translation>⏎ або додаткову інформацію</translation>
     </message>
     <message>
       <source>{nick}</source>
@@ -15182,7 +15454,7 @@
     </message>
     <message>
       <source>Preview chat as visitor</source>
-      <translation type="unfinished"/>
+      <translation>Переглянути чат як відвідувач</translation>
     </message>
     <message>
       <source>Participant</source>
@@ -15238,11 +15510,11 @@
     </message>
     <message>
       <source>Preview live widget</source>
-      <translation type="unfinished"/>
+      <translation>Перегляд у прямому ефірі Віджет</translation>
     </message>
     <message>
       <source>Department statistic</source>
-      <translation type="unfinished"/>
+      <translation>Статистика відділу</translation>
     </message>
     <message>
       <source>Conversation</source>
@@ -15261,19 +15533,19 @@
     </message>
     <message>
       <source>Closes chat if more than a defined amount of time has passed since the last visitor/operator message.</source>
-      <translation type="unfinished"/>
+      <translation>Закриває чат, якщо з моменту останнього повідомлення відвідувача/Оператор пройшло більше визначеного часу.</translation>
     </message>
     <message>
       <source>Chats that are pending and the specified amount of time has passed since the chat started. This means the chat was not accepted within this period.</source>
-      <translation type="unfinished"/>
+      <translation>Чати, які знаходяться в стані очікування і з моменту початку чат пройшов вказаний час. Це означає, що чат не було прийнято протягом цього періоду.</translation>
     </message>
     <message>
       <source>Close active chat if it runs longer than x minutes. This strictly limits how long an active chat can remain open.</source>
-      <translation type="unfinished"/>
+      <translation>Закрийте активний чат, якщо він працює довше, ніж x хвилин. Це суворо обмежує час, протягом якого активний чат може залишатися відкритим.</translation>
     </message>
     <message>
       <source>Closes chat if more than a defined amount of time has passed since the last visitor message.</source>
-      <translation type="unfinished"/>
+      <translation>Закриває чат, якщо з моменту останнього повідомлення відвідувача пройшло більше визначеного часу.</translation>
     </message>
     <message>
       <source>Close button</source>
@@ -15600,8 +15872,8 @@
       <translation>Запитальний код для вставки</translation>
     </message>
     <message>
-      <source>Re-captcha settings</source>
-      <translation>Налаштування Re-captcha</translation>
+      <source>Captcha settings</source>
+      <translation>Налаштування капчі</translation>
     </message>
     <message>
       <source>Rest API</source>
@@ -15956,6 +16228,21 @@
     </message>
   </context>
   <context>
+    <name>chat/list</name>
+    <message>
+      <source>Sorting by number of messages requires a date range of 31 days or less to be set.</source>
+      <translation>Для сортування за кількістю повідомлень потрібно встановити діапазон дат не більше 31 дня.</translation>
+    </message>
+    <message>
+      <source>chats were selected for deletion, and</source>
+      <translation>чатів було відібрано для видалення, і</translation>
+    </message>
+    <message>
+      <source>of them were deleted!</source>
+      <translation>з них було видалено!</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/pendingchats</name>
     <message>
       <source>Information</source>
@@ -16090,16 +16377,9 @@
       <source>Priority</source>
       <translation>Пріоритет</translation>
     </message>
-  </context>
-  <context>
-    <name>chat/list</name>
     <message>
-      <source>chats were selected for deletion, and</source>
-      <translation>чатів було відібрано для видалення, і</translation>
-    </message>
-    <message>
-      <source>of them were deleted!</source>
-      <translation>з них було видалено!</translation>
+      <source>Messages count</source>
+      <translation>Підрахунок повідомлень</translation>
     </message>
   </context>
   <context>
@@ -17288,6 +17568,10 @@
     <message>
       <source>Transfer chat</source>
       <translation>Передати чат</translation>
+    </message>
+    <message>
+      <source>No permission to access this chat.</source>
+      <translation>Немає дозволу на доступ до цього чат.</translation>
     </message>
   </context>
   <context>
@@ -18720,6 +19004,10 @@
       <translation>Дозволені типи файлів для користувачів</translation>
     </message>
     <message>
+      <source>Allowed files types for users while in bot status. You can have custom file types allowed while chat is in bot status.</source>
+      <translation>Дозволені типи файлів для користувачів у статусі бота. Ви можете дозволити користувацькі типи файлів, коли чат перебуває у статусі бота.</translation>
+    </message>
+    <message>
       <source>Maximum file size in KB</source>
       <translation>Максимальний розмір файлу в КБ</translation>
     </message>
@@ -19133,7 +19421,7 @@
     <name>genericbot/new</name>
     <message>
       <source>Short name</source>
-      <translation type="unfinished"/>
+      <translation>Коротка назва</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -19172,7 +19460,7 @@
     <name>genericbot/helpattributes</name>
     <message>
       <source>Conditions explain</source>
-      <translation type="unfinished"/>
+      <translation>Умови пояснюють</translation>
     </message>
     <message>
       <source>Page where chat started</source>
@@ -19287,6 +19575,10 @@
       <translation>Описує, скільки часу чат тривав до того, як був закритий. Тривалість чат базується на часі, проведеному між повідомленнями.</translation>
     </message>
     <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
+      <translation>Описує час, за який чат був закритий. Тривалість чат базується на часі між повідомленнями для кожного агента.</translation>
+    </message>
+    <message>
       <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
       <translation>Описує, скільки часу потрібно агенту, щоб відповісти на перше повідомлення відвідувачу, після того, як чат його прийняв.</translation>
     </message>
@@ -19347,8 +19639,20 @@
       <translation>Опції на основі JSON.</translation>
     </message>
     <message>
+      <source>If multilanguage is used for the name, default should be always defined.</source>
+      <translation>Якщо для назви використовується багатомовність, завжди слід вказувати значення за замовчуванням.</translation>
+    </message>
+    <message>
+      <source>Possible languages</source>
+      <translation>Можливі мови</translation>
+    </message>
+    <message>
       <source>Regular syntax. Depreciated.</source>
       <translation>Звичайний синтаксис. Знецінена.</translation>
+    </message>
+    <message>
+      <source>You can define multilanguage label for your custom fields. Default should be always defined.</source>
+      <translation>Ви можете визначити багатомовний підпис для своїх полів. Завжди має бути визначена мова за замовчуванням.</translation>
     </message>
     <message>
       <source>Sample how to use uploaded image from Design section</source>
@@ -19820,7 +20124,7 @@
     </message>
     <message>
       <source>Manual import record was created</source>
-      <translation type="unfinished"/>
+      <translation>Створено запис ручного імпорту</translation>
     </message>
     <message>
       <source>Mailbox</source>
@@ -19828,7 +20132,7 @@
     </message>
     <message>
       <source>UID</source>
-      <translation type="unfinished"/>
+      <translation>UID</translation>
     </message>
     <message>
       <source>Status</source>
@@ -19836,27 +20140,27 @@
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>На розгляді</translation>
     </message>
     <message>
       <source>Ignore</source>
-      <translation type="unfinished"/>
+      <translation>Ігнорувати.</translation>
     </message>
     <message>
       <source>Attempt</source>
-      <translation type="unfinished"/>
+      <translation>Спроба</translation>
     </message>
     <message>
       <source>Last failure</source>
-      <translation type="unfinished"/>
+      <translation>Остання невдача</translation>
     </message>
     <message>
       <source>Edit manual import</source>
-      <translation type="unfinished"/>
+      <translation>Редагувати ручний імпорт</translation>
     </message>
     <message>
       <source>Create manual import</source>
-      <translation type="unfinished"/>
+      <translation>Створити ручний імпорт</translation>
     </message>
     <message>
       <source>Choose mail to merge</source>
@@ -19884,23 +20188,23 @@
     </message>
     <message>
       <source>Pending imports</source>
-      <translation type="unfinished"/>
+      <translation>Очікуваний імпорт</translation>
     </message>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ІДЕНТИФІКАТОР</translation>
     </message>
     <message>
       <source>Mailbox ID</source>
-      <translation type="unfinished"/>
+      <translation>Ідентифікатор поштової скриньки</translation>
     </message>
     <message>
       <source>Created at</source>
-      <translation type="unfinished"/>
+      <translation>Створено за адресою</translation>
     </message>
     <message>
       <source>Updated at</source>
-      <translation type="unfinished"/>
+      <translation>Оновлено за адресою</translation>
     </message>
     <message>
       <source>was assigned as a mail owner from auto assignment workflow</source>
@@ -20240,11 +20544,11 @@
     </message>
     <message>
       <source>Mailbox is required</source>
-      <translation type="unfinished"/>
+      <translation>Поштова скринька обов&apos;язкова</translation>
     </message>
     <message>
       <source>UID is required</source>
-      <translation type="unfinished"/>
+      <translation>UID обов&apos;язковий</translation>
     </message>
     <message>
       <source>Invalid merge destination!</source>
@@ -20464,11 +20768,11 @@
     </message>
     <message>
       <source>Auto-Replied - Automatic reply from recipient (vacation, out-of-office, delivery receipt). Not a personal reply.</source>
-      <translation type="unfinished"/>
+      <translation>Авто-відповідь - автоматична відповідь від одержувача (відпустка, відсутність в офісі, квитанція про доставку). Не особиста відповідь.</translation>
     </message>
     <message>
       <source>Auto-Generated - System or marketing message (campaign/courier). No personal reply expected.</source>
-      <translation type="unfinished"/>
+      <translation>Автоматично згенероване - системне або маркетингове повідомлення (кампанія/кур&apos;єр). Особистої відповіді не очікується.</translation>
     </message>
     <message>
       <source>Reply</source>
@@ -20668,11 +20972,11 @@
     </message>
     <message>
       <source>Broken external image</source>
-      <translation type="unfinished"/>
+      <translation>Розбите зовнішнє зображення</translation>
     </message>
     <message>
       <source>Open in new tab</source>
-      <translation type="unfinished"/>
+      <translation>Відкрити в новій вкладці</translation>
     </message>
     <message>
       <source>Copy of</source>
@@ -20897,7 +21201,7 @@
     </message>
     <message>
       <source>Append mailbox signature</source>
-      <translation type="unfinished"/>
+      <translation>Додати підпис поштової скриньки</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -20933,15 +21237,15 @@
     </message>
     <message>
       <source>Please select a mailbox first</source>
-      <translation type="unfinished"/>
+      <translation>Будь ласка, спочатку виберіть поштову скриньку</translation>
     </message>
     <message>
       <source>Failed to fetch signature</source>
-      <translation type="unfinished"/>
+      <translation>Не вдалося отримати підпис</translation>
     </message>
     <message>
       <source>Error fetching signature</source>
-      <translation type="unfinished"/>
+      <translation>Помилка при отриманні підпису</translation>
     </message>
     <message>
       <source>Replaceable variables?</source>
@@ -20964,6 +21268,10 @@
       <translation>Запланувавши забір.</translation>
     </message>
     <message>
+      <source>Re-scheduling fetching.</source>
+      <translation>Перепланування вибірки.</translation>
+    </message>
+    <message>
       <source>Waiting for previous job to finish.</source>
       <translation>Чекаю на завершення попередньої роботи.</translation>
     </message>
@@ -20973,23 +21281,23 @@
     </message>
     <message>
       <source>Mailbox email is required</source>
-      <translation type="unfinished"/>
+      <translation>Обов&apos;язкова наявність поштової скриньки</translation>
     </message>
     <message>
       <source>Mailbox not found or inactive</source>
-      <translation type="unfinished"/>
+      <translation>Поштова скринька не знайдена або неактивна</translation>
     </message>
     <message>
       <source>No signature found for this mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Для цієї поштової скриньки не знайдено підпису</translation>
     </message>
     <message>
       <source>Signature fetched successfully</source>
-      <translation type="unfinished"/>
+      <translation>Підпис успішно отримано</translation>
     </message>
     <message>
       <source>An error occurred</source>
-      <translation type="unfinished"/>
+      <translation>Виникла помилка</translation>
     </message>
   </context>
   <context>
@@ -21227,22 +21535,6 @@
     <message>
       <source>Contains</source>
       <translation>Містить</translation>
-    </message>
-    <message>
-      <source>In list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>In list (lowercase)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not in list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not in list (lowercase)</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Execute if conditions are valid</source>
@@ -23298,7 +23590,7 @@
     </message>
     <message>
       <source>Pending imports</source>
-      <translation type="unfinished"/>
+      <translation>Очікуваний імпорт</translation>
     </message>
     <message>
       <source>Mailing options</source>
@@ -23537,10 +23829,6 @@
       <translation>Прив&apos;яжіть IP, декілька IP можуть бути розділені комою. Буде обрано випадковий IP.</translation>
     </message>
     <message>
-      <source>Re-captcha settings</source>
-      <translation>Налаштування Re-captcha</translation>
-    </message>
-    <message>
       <source>Transfer configuration</source>
       <translation>Конфігурація передачі</translation>
     </message>
@@ -23548,16 +23836,28 @@
   <context>
     <name>system/recaptcha</name>
     <message>
-      <source>Re-captcha settings</source>
-      <translation>Налаштування Re-captcha</translation>
+      <source>Captcha settings</source>
+      <translation>Налаштування капчі</translation>
     </message>
     <message>
-      <source>This works with V3 re-captcha.</source>
-      <translation>Це працює з V3 re-captcha.</translation>
+      <source>Captcha provider</source>
+      <translation>Постачальник капчі</translation>
     </message>
     <message>
-      <source>Get Re-captcha keys</source>
-      <translation>Отримайте ключі Re-captcha</translation>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>Турнікет Cloudflare</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>Це працює з Google reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Отримайте ключі Google reCAPTCHA</translation>
     </message>
     <message>
       <source>Site key</source>
@@ -23570,6 +23870,14 @@
     <message>
       <source>Secret key is not shown!</source>
       <translation>Секретний ключ не відображається!</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>Це працює з Cloudflare Turnstile.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Отримайте ключі від турнікета Cloudflare</translation>
     </message>
   </context>
   <context>
@@ -23823,6 +24131,10 @@
       <translation>CSS заголовку</translation>
     </message>
     <message>
+      <source>Nick template</source>
+      <translation>Шаблон ніка</translation>
+    </message>
+    <message>
       <source>Static content</source>
       <translation>Статичний вміст</translation>
     </message>
@@ -23837,6 +24149,10 @@
     <message>
       <source>Name</source>
       <translation>Ім&apos;я</translation>
+    </message>
+    <message>
+      <source>E.g {lhc.nick} [{lhc.add.surname_name}] [{lhc.var.user_id}] or just {args.chat.id}</source>
+      <translation>Наприклад, {lhc.nick} [{lhc.add.surname_name}] [{lhc.var.user_id}] або просто {args.чат.id}</translation>
     </message>
     <message>
       <source>Header content</source>
@@ -24265,7 +24581,7 @@
     </message>
     <message>
       <source>Your IP</source>
-      <translation type="unfinished"/>
+      <translation>Ваш IP</translation>
     </message>
     <message>
       <source>Your session has ended. Please login!</source>
@@ -24324,16 +24640,16 @@
       <translation>Неправильна URL-адреса бек-офісу</translation>
     </message>
     <message>
+      <source>Captcha validation failed</source>
+      <translation>Валідація капчі не пройшла</translation>
+    </message>
+    <message>
       <source>CSFR token is invalid, try to resubmit form</source>
       <translation>Токен CSFR недійсний, спробуйте повторно надіслати форму</translation>
     </message>
     <message>
       <source>You can not login because of IP restrictions</source>
       <translation>Ви не можете увійти через обмеження IP-адреси</translation>
-    </message>
-    <message>
-      <source>Google re-captcha validation failed</source>
-      <translation>Помилка перевірки re-captcha Google</translation>
     </message>
     <message>
       <source>Your account is disabled!</source>
@@ -25142,12 +25458,112 @@
       <translation>IP</translation>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Оператор</translation>
+      <source>Chat operator</source>
+      <translation>чат Оператор</translation>
     </message>
     <message>
-      <source>Operator Name</source>
-      <translation>Ім&apos;я оператора</translation>
+      <source>Chat operator Name</source>
+      <translation>чат Оператор Ім&apos;я</translation>
+    </message>
+    <message>
+      <source>Operator 1 Name</source>
+      <translation>Оператор 1 Ім&apos;я</translation>
+    </message>
+    <message>
+      <source>Operator 2 Name</source>
+      <translation>Оператор 2 Ім&apos;я</translation>
+    </message>
+    <message>
+      <source>Operator 3 Name</source>
+      <translation>Оператор 3 Ім&apos;я</translation>
+    </message>
+    <message>
+      <source>Operator 4 Name</source>
+      <translation>Оператор 4 Ім&apos;я</translation>
+    </message>
+    <message>
+      <source>Operator 5 Name</source>
+      <translation>Оператор 5 Ім&apos;я</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 1)</source>
+      <translation>Тривалість (Оператор 1)</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 2)</source>
+      <translation>Тривалість (Оператор 2)</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 3)</source>
+      <translation>Тривалість (Оператор 3)</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 4)</source>
+      <translation>Тривалість (Оператор 4)</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 5)</source>
+      <translation>Тривалість (Оператор 5)</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 1)</source>
+      <translation>Середній час відгуку (Оператор 1)</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 2)</source>
+      <translation>Середній час відповіді (Оператор 2)</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 3)</source>
+      <translation>Середній час відгуку (Оператор 3)</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 4)</source>
+      <translation>Середній час відповіді (Оператор 4)</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 5)</source>
+      <translation>Середній час відгуку (Оператор 5)</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 1)</source>
+      <translation>Час першого реагування (Оператор 1)</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 2)</source>
+      <translation>Час першого реагування (Оператор 2)</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 3)</source>
+      <translation>Час першого реагування (Оператор 3)</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 4)</source>
+      <translation>Час першого реагування (Оператор 4)</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 5)</source>
+      <translation>Час першого реагування (Оператор 5)</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 1)</source>
+      <translation>Максимальний час відгуку (Оператор 1)</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 2)</source>
+      <translation>Максимальний час відгуку (Оператор 2)</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 3)</source>
+      <translation>Максимальний час відгуку (Оператор 3)</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 4)</source>
+      <translation>Максимальний час відгуку (Оператор 4)</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 5)</source>
+      <translation>Максимальний час відгуку (Оператор 5)</translation>
     </message>
     <message>
       <source>Department</source>
@@ -25162,12 +25578,28 @@
       <translation>Хвилини</translation>
     </message>
     <message>
-      <source>Vote status</source>
-      <translation>Статус голосування</translation>
+      <source>Vote: None</source>
+      <translation>Голосуйте: Ні</translation>
+    </message>
+    <message>
+      <source>Vote: Up</source>
+      <translation>Голосуйте: &quot;За&quot;.</translation>
+    </message>
+    <message>
+      <source>Vote: Down</source>
+      <translation>Голосуйте: &quot;Проти&quot;.</translation>
     </message>
     <message>
       <source>Subjects</source>
       <translation>Тема</translation>
+    </message>
+    <message>
+      <source>Tagged</source>
+      <translation>Tagged</translation>
+    </message>
+    <message>
+      <source>Not Tagged</source>
+      <translation>Не позначено.</translation>
     </message>
     <message>
       <source>Mail send</source>
@@ -25334,6 +25766,10 @@
       <translation>Тема</translation>
     </message>
     <message>
+      <source>Operator</source>
+      <translation>Оператор</translation>
+    </message>
+    <message>
       <source>Chat average in seconds</source>
       <translation>Середнє значення чату в секундах</translation>
     </message>
@@ -25384,6 +25820,10 @@
     <message>
       <source>Average chat length</source>
       <translation>Середня тривалість чату</translation>
+    </message>
+    <message>
+      <source>Average chat length (participation)</source>
+      <translation>Середня довжина чат (участь)</translation>
     </message>
     <message>
       <source>Average first response time</source>
@@ -26107,6 +26547,10 @@
     <message>
       <source>Completed.</source>
       <translation>Завершено.</translation>
+    </message>
+    <message>
+      <source>Attachment</source>
+      <translation>Вкладення</translation>
     </message>
   </context>
   <context>

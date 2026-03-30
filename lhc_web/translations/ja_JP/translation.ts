@@ -437,6 +437,10 @@
       <translation>編集</translation>
     </message>
     <message>
+      <source>Clone</source>
+      <translation>クローン</translation>
+    </message>
+    <message>
       <source>Delete</source>
       <translation>削除</translation>
     </message>
@@ -734,6 +738,14 @@
       <translation>属性キー</translation>
     </message>
     <message>
+      <source>Parse condition value for mathematical outcome</source>
+      <translation>数学的結果を得るための条件値の解析</translation>
+    </message>
+    <message>
+      <source>Parse for mathematical outcome</source>
+      <translation>数学的結果の解析</translation>
+    </message>
+    <message>
       <source>Comparison operator</source>
       <translation>比較演算子</translation>
     </message>
@@ -1008,6 +1020,10 @@
     <message>
       <source>Text color</source>
       <translation>テキスト色</translation>
+    </message>
+    <message>
+      <source>Nick template</source>
+      <translation>ニック・テンプレート</translation>
     </message>
     <message>
       <source>My messages bubble background color</source>
@@ -1638,6 +1654,14 @@
       <translation>最小化アイコンのタイトル</translation>
     </message>
     <message>
+      <source>Title of the collapse icon</source>
+      <translation>崩壊アイコンのタイトル</translation>
+    </message>
+    <message>
+      <source>Title of the expand icon</source>
+      <translation>展開アイコンのタイトル</translation>
+    </message>
+    <message>
       <source>Title of the popup icon</source>
       <translation>ポップアップアイコンのタイトル</translation>
     </message>
@@ -1870,6 +1894,14 @@
       <translation>ウィジェットの幅 (px)</translation>
     </message>
     <message>
+      <source>Widget width expand ratio (1.01 - 1.99) or pixels if more than 2</source>
+      <translation>ウィジェット幅の拡大率（1.01～1.99）、または2以上の場合はピクセル数</translation>
+    </message>
+    <message>
+      <source>Widget height expand ratio (1.01 - 1.99) or pixels if more than 2</source>
+      <translation>ウィジェットの高さの拡大率(1.01～1.99)、または2以上の場合はピクセル数</translation>
+    </message>
+    <message>
       <source>Operator avatar</source>
       <translation>オペレーターアバター</translation>
     </message>
@@ -1900,6 +1932,10 @@
     <message>
       <source>Placeholder for message text</source>
       <translation>メッセージテキストのプレースホルダ</translation>
+    </message>
+    <message>
+      <source>Placeholder for name text</source>
+      <translation>名前テキスト用プレースホルダ</translation>
     </message>
     <message>
       <source>Placeholder for message text if files are attached</source>
@@ -2183,6 +2219,14 @@
     <message>
       <source>By default, if an invitation was not closed by the visitor, the next invitation will be shown when the visitor navigates to a different page. If the visitor closed the invitation, it will not be shown on the next page. Enabling this option will display the invitation on the next page even if the previous one was closed by the visitor.</source>
       <translation>デフォルトでは、訪問者によって招待状が閉じられていない場合、訪問者が別のページに移動すると、次の招待状が表示されます。訪問者が招待状を閉じた場合、次のページには表示されません。このオプションを有効にすると、前の招待状が訪問者によって閉じられた場合でも、次のページに招待状が表示されます。</translation>
+    </message>
+    <message>
+      <source>Persistence settings</source>
+      <translation>永続性の設定</translation>
+    </message>
+    <message>
+      <source>Flush list</source>
+      <translation>フラッシュリスト</translation>
     </message>
     <message>
       <source>Invitation will be shown only once per visitor session. If the visitor closes the invitation it will not be shown again during the same session.</source>
@@ -2655,6 +2699,10 @@
     <message>
       <source>Do not show invitation after it was closed in the same session.</source>
       <translation>同じセッションで閉じた後、招待状を表示しない。</translation>
+    </message>
+    <message>
+      <source>One-time invitation. It will never be shown again to the same visitor.</source>
+      <translation>一度限りの招待。同じ訪問者には二度と表示されません。</translation>
     </message>
     <message>
       <source>Show next matching invitation if URL changes and present invitation was closed</source>
@@ -3131,6 +3179,10 @@
       <source>Test</source>
       <translation>テスト</translation>
     </message>
+    <message>
+      <source>Message ID</source>
+      <translation>メッセージID</translation>
+    </message>
   </context>
   <context>
     <name>genericbot/restapi</name>
@@ -3155,10 +3207,6 @@
       <translation>リスト項目（比較の前は小文字）では、｜｜で区切られた項目は</translation>
     </message>
     <message>
-      <source>Start of OR</source>
-      <translation>ORの開始</translation>
-    </message>
-    <message>
       <source>In list (lowercase before comparison), items separated by ||</source>
       <translation>リスト（比較の前は小文字）では、項目は || で区切られる。</translation>
     </message>
@@ -3169,6 +3217,10 @@
     <message>
       <source>Not in list (lowercase before comparison), items separated by ||</source>
       <translation>リストにはない（比較前は小文字）、項目は｜｜で区切られる</translation>
+    </message>
+    <message>
+      <source>Start of OR</source>
+      <translation>ORの開始</translation>
     </message>
     <message>
       <source>Name</source>
@@ -3369,6 +3421,14 @@
     <message>
       <source>Do not send a request if this variable is empty</source>
       <translation>この変数が空の場合はリクエストを送信しない</translation>
+    </message>
+    <message>
+      <source>Switch to form data if there is file attached to a message.</source>
+      <translation>メッセージにファイルが添付されている場合、フォームデータに切り替える。</translation>
+    </message>
+    <message>
+      <source>Files will be attached as [data+n] post fields. First level JSON attributes will become POST vars.</source>
+      <translation>ファイルは[data+n]投稿フィールドとして添付されます。第一レベルのJSON属性はPOSTバーになります。</translation>
     </message>
     <message>
       <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
@@ -3650,6 +3710,10 @@
       <translation>カスタムまたはデフォルトの自動応答機能を選択しない場合、プロアクティブチャットには自動応答機能が割り当てられません。</translation>
     </message>
     <message>
+      <source>Message</source>
+      <translation>メッセージ</translation>
+    </message>
+    <message>
       <source>Activity period</source>
       <translation>活動期間</translation>
     </message>
@@ -3890,16 +3954,16 @@
       <translation>チャットが許可されたユーザーへ自動的にこのメッセージを送信します</translation>
     </message>
     <message>
+      <source>Auto responder will be activated upon automatic message sending.</source>
+      <translation>オートレスポンダは、メッセージの自動送信時にアクティブになります。</translation>
+    </message>
+    <message>
       <source>Delay in seconds</source>
       <translation>遅れ（秒）</translation>
     </message>
     <message>
       <source>The smaller the position value the higher the canned message will appear in the list</source>
       <translation>位置の値が小さいほど、定型文はリストの上位に表示されます。</translation>
-    </message>
-    <message>
-      <source>Message</source>
-      <translation>メッセージ</translation>
     </message>
     <message>
       <source>Fallback message</source>
@@ -4767,6 +4831,14 @@
     <message>
       <source>Text area</source>
       <translation>テキストエリア</translation>
+    </message>
+    <message>
+      <source>Dropdown</source>
+      <translation>ドロップダウン</translation>
+    </message>
+    <message>
+      <source>value||Label one per line</source>
+      <translation>値||ラベルは1行に1つ</translation>
     </message>
     <message>
       <source>Number of rows in case Text area field tye is chosen</source>
@@ -5646,6 +5718,26 @@
       <translation>個人的な回答は除く</translation>
     </message>
     <message>
+      <source>ID</source>
+      <translation>身分証明書</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>名</translation>
+    </message>
+    <message>
+      <source>Show only pinned</source>
+      <translation>ピンされたもののみ表示</translation>
+    </message>
+    <message>
+      <source>Show only internal</source>
+      <translation>内部のみ表示</translation>
+    </message>
+    <message>
+      <source>Include archived</source>
+      <translation>アーカイブを含む</translation>
+    </message>
+    <message>
       <source>Delete all items</source>
       <translation>すべての項目を削除する</translation>
     </message>
@@ -5878,6 +5970,10 @@
       <translation>電話</translation>
     </message>
     <message>
+      <source>As participant</source>
+      <translation>参加者として</translation>
+    </message>
+    <message>
       <source>Advanced search</source>
       <translation>高度な検索</translation>
     </message>
@@ -6026,6 +6122,38 @@
       <translation>へ</translation>
     </message>
     <message>
+      <source>Message counts, Operators, Visitors, Bot</source>
+      <translation>メッセージ数、オペレーター、ビジターbot</translation>
+    </message>
+    <message>
+      <source>Operator messages</source>
+      <translation>オペレーターメッセージ</translation>
+    </message>
+    <message>
+      <source>Op</source>
+      <translation>オペ</translation>
+    </message>
+    <message>
+      <source>Visitor messages</source>
+      <translation>ビジターメッセージ</translation>
+    </message>
+    <message>
+      <source>Vi</source>
+      <translation>ヴィ</translation>
+    </message>
+    <message>
+      <source>Bot messages</source>
+      <translation>bot メッセージ</translation>
+    </message>
+    <message>
+      <source>Total messages</source>
+      <translation>メッセージ数</translation>
+    </message>
+    <message>
+      <source>Total</source>
+      <translation>合計</translation>
+    </message>
+    <message>
       <source>Has unread messages</source>
       <translation>未読メッセージがあります</translation>
     </message>
@@ -6070,6 +6198,10 @@
       <translation>閉店時間で検索</translation>
     </message>
     <message>
+      <source>Chats with more than one participant</source>
+      <translation>複数の参加者とのチャット</translation>
+    </message>
+    <message>
       <source>Newest first (default)</source>
       <translation>新しい順（デフォルト）</translation>
     </message>
@@ -6084,6 +6216,14 @@
     <message>
       <source>Last interactions last</source>
       <translation>最後の交流</translation>
+    </message>
+    <message>
+      <source>Highest total number of messages</source>
+      <translation>最高メッセージ総数</translation>
+    </message>
+    <message>
+      <source>Lowest total number of messages</source>
+      <translation>総メッセージ数最少</translation>
     </message>
     <message>
       <source>20 items per page</source>
@@ -6250,10 +6390,6 @@
       <translation>翻訳を選択</translation>
     </message>
     <message>
-      <source>Name</source>
-      <translation>名</translation>
-    </message>
-    <message>
       <source>Alias</source>
       <translation>別名</translation>
     </message>
@@ -6364,10 +6500,6 @@
     <message>
       <source>Include messages content</source>
       <translation>メッセージの内容を含む</translation>
-    </message>
-    <message>
-      <source>ID</source>
-      <translation>身分証明書</translation>
     </message>
     <message>
       <source>Conversation</source>
@@ -6686,6 +6818,30 @@
       <translation>グループ・チャート</translation>
     </message>
     <message>
+      <source>Min operator messages</source>
+      <translation>最小演算子メッセージ</translation>
+    </message>
+    <message>
+      <source>Count</source>
+      <translation>カウント</translation>
+    </message>
+    <message>
+      <source>Min visitor messages</source>
+      <translation>最小訪問者メッセージ</translation>
+    </message>
+    <message>
+      <source>Min bot messages</source>
+      <translation>最小bot メッセージ</translation>
+    </message>
+    <message>
+      <source>Total messages from</source>
+      <translation>からのメッセージの合計</translation>
+    </message>
+    <message>
+      <source>Total messages till</source>
+      <translation>メッセージ数</translation>
+    </message>
+    <message>
       <source>Exclude offline requests from charts</source>
       <translation>オフラインのリクエストをチャートから除外する</translation>
     </message>
@@ -6830,10 +6986,6 @@
       <translation>平均</translation>
     </message>
     <message>
-      <source>As participant</source>
-      <translation>参加者として</translation>
-    </message>
-    <message>
       <source>Total number of chats</source>
       <translation>チャットの総数</translation>
     </message>
@@ -6860,6 +7012,10 @@
     <message>
       <source>Average chat length</source>
       <translation>平均チャット 長さ</translation>
+    </message>
+    <message>
+      <source>Average chat length (agent)</source>
+      <translation>平均チャット 長さ（エージェント）</translation>
     </message>
     <message>
       <source>Average of first response time (agent)</source>
@@ -6990,6 +7146,30 @@
       <translation>以前の訪問者チャット メッセージを自動的にプリロード</translation>
     </message>
     <message>
+      <source>Show chat tabs</source>
+      <translation>チャット タブを表示</translation>
+    </message>
+    <message>
+      <source>Hide chat tabs</source>
+      <translation>チャット タブを隠す</translation>
+    </message>
+    <message>
+      <source>Automatically accept assigned chats</source>
+      <translation>指定されたチャットを自動的に受け入れる</translation>
+    </message>
+    <message>
+      <source>Do not automatically accept assigned chats</source>
+      <translation>割り当てられたチャットを自動的に受け入れない</translation>
+    </message>
+    <message>
+      <source>Show alerts for transferred chats</source>
+      <translation>転送されたチャットのアラートを表示</translation>
+    </message>
+    <message>
+      <source>Do not show alerts for transferred chats</source>
+      <translation>転送されたチャットのアラートを表示しない</translation>
+    </message>
+    <message>
       <source>Username</source>
       <translation>ユーザー名</translation>
     </message>
@@ -7096,6 +7276,14 @@
     <message>
       <source>Save search</source>
       <translation>検索を保存</translation>
+    </message>
+    <message>
+      <source>Select all</source>
+      <translation>すべて選択</translation>
+    </message>
+    <message>
+      <source>Un-select all</source>
+      <translation>すべて選択解除</translation>
     </message>
     <message>
       <source>Till now</source>
@@ -7820,6 +8008,10 @@
       <translation>訪問者/オペレーターへの自動返信警告</translation>
     </message>
     <message>
+      <source>Main</source>
+      <translation>メイン</translation>
+    </message>
+    <message>
       <source>Sample</source>
       <translation>サンプル</translation>
     </message>
@@ -8148,8 +8340,16 @@
       <translation>この件名を直接表示するウィジェットを選択します。</translation>
     </message>
     <message>
+      <source>Archived subjects are hidden from subject pickers and all filtering dropdowns</source>
+      <translation>アーカイブされた主題は、主題ピッカーおよびすべてのフィルタリング ドロップダウンから非表示になります。</translation>
+    </message>
+    <message>
       <source>Internal</source>
       <translation>内部</translation>
+    </message>
+    <message>
+      <source>Archived</source>
+      <translation>アーカイブ</translation>
     </message>
     <message>
       <source>Pinned</source>
@@ -8396,6 +8596,14 @@
     <message>
       <source>Minimize</source>
       <translation>最小化</translation>
+    </message>
+    <message>
+      <source>Collapse content</source>
+      <translation>コンテンツの崩壊</translation>
+    </message>
+    <message>
+      <source>Expand content</source>
+      <translation>コンテンツ拡大</translation>
     </message>
     <message>
       <source>Popup</source>
@@ -8746,8 +8954,8 @@
       <translation>スタートチャット</translation>
     </message>
     <message>
-      <source>BB code</source>
-      <translation>BBコード</translation>
+      <source>Emojis</source>
+      <translation>絵文字</translation>
     </message>
     <message>
       <source>Send to email</source>
@@ -8840,6 +9048,14 @@
     <message>
       <source>Stop playing recorded audio</source>
       <translation>録音した音声の再生を停止する</translation>
+    </message>
+    <message>
+      <source>You must accept terms</source>
+      <translation>条件を受け入れる必要があります</translation>
+    </message>
+    <message>
+      <source>Enter your</source>
+      <translation>を入力してください。</translation>
     </message>
     <message>
       <source>There was a problem sending your request. Please try again later!</source>
@@ -9840,6 +10056,10 @@
       <translation>オペレーターへのボイスメッセージはアクティブ</translation>
     </message>
     <message>
+      <source>Mobile is disabled in the main settings file (settings.ini.php). Mobile notifications will not work.</source>
+      <translation>メイン設定ファイル（settings.ini.php）でモバイルが無効になっています。モバイル通知は機能しません。</translation>
+    </message>
+    <message>
       <source>If you do not choose any department from below we will track all departments.</source>
       <translation>下記から部門を選択しない場合は、すべての部門を追跡します。</translation>
     </message>
@@ -9994,6 +10214,14 @@
       <translation>簡易出力</translation>
     </message>
     <message>
+      <source>Proactive invitations is</source>
+      <translation>積極的な招待とは</translation>
+    </message>
+    <message>
+      <source>change it.</source>
+      <translation>それを変える。</translation>
+    </message>
+    <message>
       <source>Valid invitations found</source>
       <translation>有効な招待状が見つかりました</translation>
     </message>
@@ -10004,6 +10232,10 @@
     <message>
       <source>Skipped because of no online operators</source>
       <translation>オンラインオペレーターがいないためスキップ</translation>
+    </message>
+    <message>
+      <source>Skipped because invitation was seen</source>
+      <translation>招待状が見られたためスキップ</translation>
     </message>
     <message>
       <source>Skipped because of</source>
@@ -10058,8 +10290,16 @@
       <translation>テスト</translation>
     </message>
     <message>
+      <source>Reset invitation data</source>
+      <translation>招待状データのリセット</translation>
+    </message>
+    <message>
       <source>Any</source>
       <translation>どんなものでも</translation>
+    </message>
+    <message>
+      <source>Invitation data for visitor was reset!</source>
+      <translation>訪問者の招待データがリセットされました！</translation>
     </message>
   </context>
   <context>
@@ -10131,6 +10371,10 @@
     <message>
       <source>Choose</source>
       <translation>選ぶ</translation>
+    </message>
+    <message>
+      <source>Object is assigned to mails or chats!</source>
+      <translation>オブジェクトはメールまたはチャットに割り当てられます！</translation>
     </message>
     <message>
       <source>Bots</source>
@@ -10310,6 +10554,10 @@
     <message>
       <source>ago</source>
       <translation>前</translation>
+    </message>
+    <message>
+      <source>Clone</source>
+      <translation>クローン</translation>
     </message>
     <message>
       <source>New user</source>
@@ -11921,6 +12169,10 @@
       <translation>ユーザーブロックに失敗しました、ユーザーをブロックする権限がありますか？</translation>
     </message>
     <message>
+      <source>You do not have permission to access a chat!</source>
+      <translation>チャット にアクセスする権限がありません！</translation>
+    </message>
+    <message>
       <source>Please choose a block type!</source>
       <translation>ブロックの種類をお選びください！</translation>
     </message>
@@ -13118,6 +13370,10 @@
       <translation>このサイトからの通知を受け取ることができます。</translation>
     </message>
     <message>
+      <source>Notifications enabled</source>
+      <translation>通知を有効にする</translation>
+    </message>
+    <message>
       <source>Time ago</source>
       <translation>時間前</translation>
     </message>
@@ -13600,6 +13856,10 @@
       <translation>オペレータのメッセージを訪問者の言語に翻訳</translation>
     </message>
     <message>
+      <source>Start translated chat session</source>
+      <translation>翻訳されたチャット セッションを開始</translation>
+    </message>
+    <message>
       <source>On save automatically translate old chat messages. If not checked only new messages will be translated.</source>
       <translation>保存時に古いチャット メッセージを自動的に翻訳します。チェックしない場合、新しいメッセージのみが翻訳されます。</translation>
     </message>
@@ -13728,6 +13988,18 @@
       <translation>DeepLサービスの利用</translation>
     </message>
     <message>
+      <source>Hide translate single message button.</source>
+      <translation>単一メッセージボタンの翻訳を隠す。</translation>
+    </message>
+    <message>
+      <source>Show start translations button</source>
+      <translation>翻訳開始ボタンを表示する</translation>
+    </message>
+    <message>
+      <source>Action options</source>
+      <translation>アクション・オプション</translation>
+    </message>
+    <message>
       <source>Settings updated</source>
       <translation>設定が更新されました</translation>
     </message>
@@ -13764,16 +14036,12 @@
       <translation>検出されたオペレータと訪問者の言語が一致します。</translation>
     </message>
     <message>
-      <source>Operator language is not supported by Google translation service</source>
-      <translation>オペレーターの言語は、Google翻訳サービスではサポートされていません。</translation>
+      <source>Translation to operator language failed</source>
+      <translation>オペレータ言語への翻訳に失敗</translation>
     </message>
     <message>
-      <source>Visitor language is not supported by Google translation service!</source>
-      <translation>訪問者の言語はGoogle翻訳サービスではサポートされていません！</translation>
-    </message>
-    <message>
-      <source>Operator language is not supported by DeepL translation service</source>
-      <translation>オペレータ言語は、DeepL 翻訳サービスではサポートされていません。</translation>
+      <source>Translation to visitor language failed</source>
+      <translation>ビジター言語への翻訳に失敗</translation>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -13786,6 +14054,14 @@
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
       <translation>翻訳言語を手動で選択し、自動翻訳をクリックしてください。</translation>
+    </message>
+    <message>
+      <source>CSRF is missing</source>
+      <translation>CSRFが見つからない</translation>
+    </message>
+    <message>
+      <source>Enter a message to be translated</source>
+      <translation>翻訳するメッセージを入力する</translation>
     </message>
   </context>
   <context>
@@ -14539,14 +14815,6 @@
       <translation>ウィジェットフィルターのリセット</translation>
     </message>
     <message>
-      <source>Old dashboard</source>
-      <translation>古いダッシュボード</translation>
-    </message>
-    <message>
-      <source>New dashboard</source>
-      <translation>新しいダッシュボード</translation>
-    </message>
-    <message>
       <source>Click to switch to static/dynamic</source>
       <translation>クリックして静的／動的を切り替える</translation>
     </message>
@@ -14694,6 +14962,10 @@
     <message>
       <source>Type your message here and hit enter to send...</source>
       <translation>ここにメッセージを入力し、エンターキーを押して送信...</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation>名前を入力</translation>
     </message>
     <message>
       <source>⏎ or additional information</source>
@@ -15600,8 +15872,8 @@
       <translation>Questionary組込コード</translation>
     </message>
     <message>
-      <source>Re-captcha settings</source>
-      <translation>再キャプチャ設定</translation>
+      <source>Captcha settings</source>
+      <translation>キャプチャの設定</translation>
     </message>
     <message>
       <source>Rest API</source>
@@ -15956,6 +16228,21 @@
     </message>
   </context>
   <context>
+    <name>chat/list</name>
+    <message>
+      <source>Sorting by number of messages requires a date range of 31 days or less to be set.</source>
+      <translation>メッセージ数でソートするには、31日以内の日付範囲を設定する必要があります。</translation>
+    </message>
+    <message>
+      <source>chats were selected for deletion, and</source>
+      <translation>チャットが削除対象に選ばれた。</translation>
+    </message>
+    <message>
+      <source>of them were deleted!</source>
+      <translation>が削除された！</translation>
+    </message>
+  </context>
+  <context>
     <name>chat/pendingchats</name>
     <message>
       <source>Information</source>
@@ -16090,16 +16377,9 @@
       <source>Priority</source>
       <translation>優先順位</translation>
     </message>
-  </context>
-  <context>
-    <name>chat/list</name>
     <message>
-      <source>chats were selected for deletion, and</source>
-      <translation>チャットが削除対象に選ばれた。</translation>
-    </message>
-    <message>
-      <source>of them were deleted!</source>
-      <translation>が削除された！</translation>
+      <source>Messages count</source>
+      <translation>メッセージ数</translation>
     </message>
   </context>
   <context>
@@ -17288,6 +17568,10 @@
     <message>
       <source>Transfer chat</source>
       <translation>譲渡チャット</translation>
+    </message>
+    <message>
+      <source>No permission to access this chat.</source>
+      <translation>このチャット へのアクセスは許可されていません。</translation>
     </message>
   </context>
   <context>
@@ -18720,6 +19004,10 @@
       <translation>ユーザーへの許可されるファイルタイプ</translation>
     </message>
     <message>
+      <source>Allowed files types for users while in bot status. You can have custom file types allowed while chat is in bot status.</source>
+      <translation>bot ステータスの間、ユーザーに許可されるファイルタイプ。チャット がbot ステータスの間、許可されるカスタムファイルタイプを持つことができます。</translation>
+    </message>
+    <message>
       <source>Maximum file size in KB</source>
       <translation>最大ファイルサイズ（KB）</translation>
     </message>
@@ -19287,6 +19575,10 @@
       <translation>チャット がクローズされるまでに要した時間を記述する。チャット 持続時間はメッセージ間の時間に基づいている。</translation>
     </message>
     <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
+      <translation>チャット がクローズされるまでの時間を記述する。チャット duration は、エージェントごとのメッセージ間の時間に基づいている。</translation>
+    </message>
+    <message>
       <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
       <translation>チャット 受付後、エージェントが訪問者に最初のメッセージを返信するまでの時間を記述します。</translation>
     </message>
@@ -19347,8 +19639,20 @@
       <translation>JSONベースのオプション。</translation>
     </message>
     <message>
+      <source>If multilanguage is used for the name, default should be always defined.</source>
+      <translation>名前に多言語が使われている場合、デフォルトが常に定義されていなければならない。</translation>
+    </message>
+    <message>
+      <source>Possible languages</source>
+      <translation>可能な言語</translation>
+    </message>
+    <message>
       <source>Regular syntax. Depreciated.</source>
       <translation>通常の構文。減価償却済み。</translation>
+    </message>
+    <message>
+      <source>You can define multilanguage label for your custom fields. Default should be always defined.</source>
+      <translation>カスタムフィールドに多言語ラベルを定義することができます。デフォルトは常に定義されています。</translation>
     </message>
     <message>
       <source>Sample how to use uploaded image from Design section</source>
@@ -20964,6 +21268,10 @@
       <translation>フェッチのスケジューリング。</translation>
     </message>
     <message>
+      <source>Re-scheduling fetching.</source>
+      <translation>フェッチの再スケジュール。</translation>
+    </message>
+    <message>
       <source>Waiting for previous job to finish.</source>
       <translation>前の仕事が終わるのを待っている。</translation>
     </message>
@@ -21227,22 +21535,6 @@
     <message>
       <source>Contains</source>
       <translation>内容</translation>
-    </message>
-    <message>
-      <source>In list</source>
-      <translation>リスト</translation>
-    </message>
-    <message>
-      <source>In list (lowercase)</source>
-      <translation>リスト内（小文字）</translation>
-    </message>
-    <message>
-      <source>Not in list</source>
-      <translation>リストにない</translation>
-    </message>
-    <message>
-      <source>Not in list (lowercase)</source>
-      <translation>リストにない（小文字）</translation>
     </message>
     <message>
       <source>Execute if conditions are valid</source>
@@ -23537,10 +23829,6 @@
       <translation>バインドIP、複数のIPはカンマで区切ることができます。ランダムIPが選択されます。</translation>
     </message>
     <message>
-      <source>Re-captcha settings</source>
-      <translation>再キャプチャ設定</translation>
-    </message>
-    <message>
       <source>Transfer configuration</source>
       <translation>転送設定</translation>
     </message>
@@ -23548,16 +23836,28 @@
   <context>
     <name>system/recaptcha</name>
     <message>
-      <source>Re-captcha settings</source>
-      <translation>再キャプチャ設定</translation>
+      <source>Captcha settings</source>
+      <translation>キャプチャの設定</translation>
     </message>
     <message>
-      <source>This works with V3 re-captcha.</source>
-      <translation>これはV3の再キャプチャで動作します。</translation>
+      <source>Captcha provider</source>
+      <translation>キャプチャ・プロバイダー</translation>
     </message>
     <message>
-      <source>Get Re-captcha keys</source>
-      <translation>Re-captchaキーを取得する</translation>
+      <source>Google reCAPTCHA v3</source>
+      <translation>Google reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>クラウドフレア・ターンスタイル</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>これはGoogle reCAPTCHA v3で動作します。</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>GoogleのreCAPTCHAキーを取得する</translation>
     </message>
     <message>
       <source>Site key</source>
@@ -23570,6 +23870,14 @@
     <message>
       <source>Secret key is not shown!</source>
       <translation>秘密鍵は表示されない！</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>これはCloudflare Turnstileで動作します。</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Cloudflare Turnstileキーを入手する</translation>
     </message>
   </context>
   <context>
@@ -23823,6 +24131,10 @@
       <translation>ヘッダCSS</translation>
     </message>
     <message>
+      <source>Nick template</source>
+      <translation>ニック・テンプレート</translation>
+    </message>
+    <message>
       <source>Static content</source>
       <translation>静的コンテンツ</translation>
     </message>
@@ -23837,6 +24149,10 @@
     <message>
       <source>Name</source>
       <translation>名前</translation>
+    </message>
+    <message>
+      <source>E.g {lhc.nick} [{lhc.add.surname_name}] [{lhc.var.user_id}] or just {args.chat.id}</source>
+      <translation>例：{lhc.nick} [{lhc.var.user_id}] または {args.{lhc.add.surname_name}] [{lhc.var.user_id}] または{args.チャット.id}のみ。</translation>
     </message>
     <message>
       <source>Header content</source>
@@ -24324,16 +24640,16 @@
       <translation>無効なバックオフィスのURL</translation>
     </message>
     <message>
+      <source>Captcha validation failed</source>
+      <translation>Captcha バリデーションに失敗しました。</translation>
+    </message>
+    <message>
       <source>CSFR token is invalid, try to resubmit form</source>
       <translation>CSFRトークンが無効です。</translation>
     </message>
     <message>
       <source>You can not login because of IP restrictions</source>
       <translation>IP制限でログインできない</translation>
-    </message>
-    <message>
-      <source>Google re-captcha validation failed</source>
-      <translation>Googleの再キャプチャ検証に失敗しました</translation>
     </message>
     <message>
       <source>Your account is disabled!</source>
@@ -25142,12 +25458,112 @@
       <translation>IP</translation>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>オペレータ</translation>
+      <source>Chat operator</source>
+      <translation>チャット オペレーター</translation>
     </message>
     <message>
-      <source>Operator Name</source>
-      <translation>オペレーター名</translation>
+      <source>Chat operator Name</source>
+      <translation>チャット オペレーター名</translation>
+    </message>
+    <message>
+      <source>Operator 1 Name</source>
+      <translation>オペレーター1 氏名</translation>
+    </message>
+    <message>
+      <source>Operator 2 Name</source>
+      <translation>オペレーター2 氏名</translation>
+    </message>
+    <message>
+      <source>Operator 3 Name</source>
+      <translation>オペレーター3 氏名</translation>
+    </message>
+    <message>
+      <source>Operator 4 Name</source>
+      <translation>オペレーター4 氏名</translation>
+    </message>
+    <message>
+      <source>Operator 5 Name</source>
+      <translation>オペレーター5 氏名</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 1)</source>
+      <translation>所要時間（オペレーター1）</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 2)</source>
+      <translation>所要時間（オペレーター2）</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 3)</source>
+      <translation>所要時間（オペレーター3）</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 4)</source>
+      <translation>所要時間（オペレーター4）</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 5)</source>
+      <translation>所要時間（オペレーター5）</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 1)</source>
+      <translation>平均応答時間（オペレーター1）</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 2)</source>
+      <translation>平均応答時間（オペレーター2）</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 3)</source>
+      <translation>平均応答時間（オペレーター3）</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 4)</source>
+      <translation>平均応答時間（オペレーター4）</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 5)</source>
+      <translation>平均応答時間（オペレーター5）</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 1)</source>
+      <translation>初動対応時間（オペレーター1）</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 2)</source>
+      <translation>初動対応時間（オペレーター2）</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 3)</source>
+      <translation>初動対応時間（オペレーター3）</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 4)</source>
+      <translation>初動対応時間（オペレーター4）</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 5)</source>
+      <translation>初動対応時間（オペレーター5）</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 1)</source>
+      <translation>最大応答時間（オペレーター1）</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 2)</source>
+      <translation>最大応答時間（オペレーター2）</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 3)</source>
+      <translation>最大応答時間（オペレーター3）</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 4)</source>
+      <translation>最大応答時間（オペレーター4）</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 5)</source>
+      <translation>最大応答時間（オペレーター5）</translation>
     </message>
     <message>
       <source>Department</source>
@@ -25162,12 +25578,28 @@
       <translation>分</translation>
     </message>
     <message>
-      <source>Vote status</source>
-      <translation>投票ステータス</translation>
+      <source>Vote: None</source>
+      <translation>投票なし</translation>
+    </message>
+    <message>
+      <source>Vote: Up</source>
+      <translation>投票上</translation>
+    </message>
+    <message>
+      <source>Vote: Down</source>
+      <translation>投票ダウン</translation>
     </message>
     <message>
       <source>Subjects</source>
       <translation>対象</translation>
+    </message>
+    <message>
+      <source>Tagged</source>
+      <translation>タグ</translation>
+    </message>
+    <message>
+      <source>Not Tagged</source>
+      <translation>タグなし</translation>
     </message>
     <message>
       <source>Mail send</source>
@@ -25334,6 +25766,10 @@
       <translation>テーマ</translation>
     </message>
     <message>
+      <source>Operator</source>
+      <translation>オペレータ</translation>
+    </message>
+    <message>
       <source>Chat average in seconds</source>
       <translation>チャット平均（秒）</translation>
     </message>
@@ -25384,6 +25820,10 @@
     <message>
       <source>Average chat length</source>
       <translation>平均チャット 長さ</translation>
+    </message>
+    <message>
+      <source>Average chat length (participation)</source>
+      <translation>平均チャット 長さ（参加）</translation>
     </message>
     <message>
       <source>Average first response time</source>
@@ -26107,6 +26547,10 @@
     <message>
       <source>Completed.</source>
       <translation>完成した。</translation>
+    </message>
+    <message>
+      <source>Attachment</source>
+      <translation>アタッチメント</translation>
     </message>
   </context>
   <context>

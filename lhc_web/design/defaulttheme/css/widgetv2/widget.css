@@ -827,7 +827,6 @@ code {
 }
 
 .operator-info{
-    background-color:#FFF;
     position: relative;
     z-index: 1;
     font-size: 12px;

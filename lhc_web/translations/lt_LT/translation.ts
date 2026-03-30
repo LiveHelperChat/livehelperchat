@@ -3,7 +3,7 @@
     <name>listchatconfig</name>
     <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
-      <translation type="unfinished"/>
+      <translation>Kiek laiko turėtume laukti prieš informuodami operatorių apie neatsakytą pokalbį.</translation>
     </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
@@ -11,7 +11,7 @@
     </message>
     <message>
       <source>Domains where script can be embedded. E.g example.com, google.com</source>
-      <translation type="unfinished"/>
+      <translation>Domenai, į kuriuos galima įterpti scenarijų. pvz., example.com, google.com</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
@@ -23,11 +23,11 @@
     </message>
     <message>
       <source>How long keep operators online sessions data? (days)</source>
-      <translation type="unfinished"/>
+      <translation>Kiek laiko operatoriai saugo internetinių sesijų duomenis? (dienomis)</translation>
     </message>
     <message>
       <source>Which ip should not be allowed to be blocked</source>
-      <translation type="unfinished"/>
+      <translation>Kurių ip neturėtų būti leidžiama blokuoti</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -35,7 +35,7 @@
     </message>
     <message>
       <source>Should mouse movement be tracked as activity measure, if not checked only basic events would be tracked</source>
-      <translation type="unfinished"/>
+      <translation>Ar pelės judėjimas turėtų būti stebimas kaip veiklos matas, jei nepažymėta, būtų stebimi tik pagrindiniai įvykiai</translation>
     </message>
     <message>
       <source>Track is user still on site, chat status checks also has to be enabled</source>
@@ -55,7 +55,7 @@
     </message>
     <message>
       <source>Track users activity on site?</source>
-      <translation type="unfinished"/>
+      <translation>Stebėti naudotojų veiklą svetainėje?</translation>
     </message>
     <message>
       <source>How many days keep records of online users.</source>
@@ -63,7 +63,7 @@
     </message>
     <message>
       <source>How many days keep records of users footprint.</source>
-      <translation type="unfinished"/>
+      <translation>Kiek dienų saugokite naudotojų pėdsakų įrašus.</translation>
     </message>
     <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
       <source>Make default pending chats order from old to new</source>
-      <translation type="unfinished"/>
+      <translation>Padaryti numatytąją laukiančių pokalbių tvarką iš senosios į naująją</translation>
     </message>
     <message>
       <source>Reopen chat functionality enabled</source>
@@ -131,11 +131,11 @@
     </message>
     <message>
       <source>Should we remember username for the next time visitor starts a chat?</source>
-      <translation type="unfinished"/>
+      <translation>Ar turėtume įsiminti vartotojo vardą, kad kitą kartą lankytojas pradėtų pokalbį?</translation>
     </message>
     <message>
       <source>Should we remember E-Mail, Phone for the next time visitor starts a chat?</source>
-      <translation type="unfinished"/>
+      <translation>Ar turėtume prisiminti E-Mail, Telefonas kitą kartą, kai lankytojas pradės pokalbį?</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
@@ -151,15 +151,15 @@
     </message>
     <message>
       <source>Preload iframes. It will avoid loading delay after clicking widget</source>
-      <translation type="unfinished"/>
+      <translation>Iš anksto įkelkite iframe. Tai padės išvengti krovimo vėlavimo spustelėjus valdiklį</translation>
     </message>
     <message>
       <source>How many seconds customer has to open already closed chat.</source>
-      <translation type="unfinished"/>
+      <translation>Kiek sekundžių klientas turi atidaryti jau uždarytą pokalbį.</translation>
     </message>
     <message>
       <source>On chat close exit chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbyje uždaryti išeiti iš pokalbio</translation>
     </message>
     <message>
       <source/>
@@ -167,7 +167,7 @@
     </message>
     <message>
       <source>Cookie should be valid only for domain where Javascript is embedded</source>
-      <translation type="unfinished"/>
+      <translation>Slapukas turėtų galioti tik domene, kuriame įterptas Javascript</translation>
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
@@ -183,7 +183,7 @@
     </message>
     <message>
       <source>Messages box height for operator</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų dėžutės aukštis operatoriui</translation>
     </message>
     <message>
       <source>Messages box height</source>
@@ -199,23 +199,23 @@
     </message>
     <message>
       <source>List unread chats, disabled for high performance</source>
-      <translation type="unfinished"/>
+      <translation>Neskaitytų pokalbių sąrašas, išjungtas dėl didelio našumo</translation>
     </message>
     <message>
       <source>List online operators, 0 - no, 1 - yes.</source>
-      <translation type="unfinished"/>
+      <translation>Internetinių operatorių sąrašas, 0 - ne, 1 - taip.</translation>
     </message>
     <message>
       <source>List closed chats, disabled for high performance</source>
-      <translation type="unfinished"/>
+      <translation>Uždarytų pokalbių sąrašas, išjungtas, kad būtų užtikrintas aukštas našumas</translation>
     </message>
     <message>
       <source>Default number of online operators to show</source>
-      <translation type="unfinished"/>
+      <translation>Numatytasis rodomų interneto operatorių skaičius</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
-      <translation type="unfinished"/>
+      <translation>Informuoti lankytoją apie neskaitytus operatoriaus pranešimus, vertė minutėmis. 0 - išjungta</translation>
     </message>
     <message>
       <source>Ignore users online statuses and use departments online hours</source>
@@ -223,7 +223,7 @@
     </message>
     <message>
       <source>Do not store what visitor is typing</source>
-      <translation type="unfinished"/>
+      <translation>Nesaugokite, ką lankytojas rašo</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
@@ -239,7 +239,7 @@
     </message>
     <message>
       <source>Hide close button in dropdown</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti uždarymo mygtuką išskleidžiamajame lange</translation>
     </message>
     <message>
       <source>Home page tabs order</source>
@@ -247,7 +247,7 @@
     </message>
     <message>
       <source>Footprint updates should be processed in the background. Make sure you are running workflow background cronjob.</source>
-      <translation type="unfinished"/>
+      <translation>Pėdsako atnaujinimai turėtų būti apdorojami fone. Įsitikinkite, kad paleidžiate fono darbo eigos cronjob.</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -263,23 +263,23 @@
     </message>
     <message>
       <source>Encrypt also operators messages.</source>
-      <translation type="unfinished"/>
+      <translation>Užšifruokite ir operatorių pranešimus.</translation>
     </message>
     <message>
       <source>After how many days encrypt messaes.</source>
-      <translation type="unfinished"/>
+      <translation>Po kiek dienų šifruokite pranešimus.</translation>
     </message>
     <message>
       <source>Enable status check cache using Redis. PHPResque extension is required.</source>
-      <translation type="unfinished"/>
+      <translation>Įjunkite būsenos tikrinimo talpyklą naudodami &quot;Redis&quot;. Reikalingas PHPResque plėtinys.</translation>
     </message>
     <message>
       <source>Do not track visitors IP.</source>
-      <translation type="unfinished"/>
+      <translation>Nesekti lankytojų IP.</translation>
     </message>
     <message>
       <source>Disable chat download</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti pokalbių atsisiuntimą</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
@@ -291,11 +291,11 @@
     </message>
     <message>
       <source>Hide &apos;New Window&apos; option in Connector Widget</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti &quot;Naujo lango&quot; parinktį jungties valdiklyje</translation>
     </message>
     <message>
       <source>Disable live auto assign</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti tiesioginį automatinį priskyrimą</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
@@ -303,7 +303,7 @@
     </message>
     <message>
       <source>Disable iframes in sharing mode</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti iframe bendrinimo režimu</translation>
     </message>
     <message>
       <source>Disable HMTL5 storage, check it if your site is switching between http and https</source>
@@ -311,11 +311,11 @@
     </message>
     <message>
       <source>How long department availability statistic should be kept? (days)</source>
-      <translation type="unfinished"/>
+      <translation>Kiek laiko turėtų būti saugoma skyriaus prieinamumo statistika? (dienomis)</translation>
     </message>
     <message>
       <source>Delete chat on close there there is no visitor messages in chat</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti pokalbį uždaryti nėra lankytojų pranešimų pokalbyje</translation>
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
@@ -331,7 +331,7 @@
     </message>
     <message>
       <source>Cleanup should should be done only using cronjob.</source>
-      <translation type="unfinished"/>
+      <translation>Valymas turėtų būti atliekamas tik naudojant cronjob.</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
@@ -339,11 +339,11 @@
     </message>
     <message>
       <source>How long operator can wait for message from visitor before time between messages are ignored. Values in minutes.</source>
-      <translation type="unfinished"/>
+      <translation>Kiek laiko operatorius gali laukti pranešimo iš lankytojo, kol laikas tarp pranešimų bus ignoruojamas. Vertės minutėmis.</translation>
     </message>
     <message>
       <source>How long visitor can wait for message from operator before time between messages are ignored. Values in minutes.</source>
-      <translation type="unfinished"/>
+      <translation>Kiek laiko lankytojas gali laukti operatoriaus pranešimo, kol laikas tarp pranešimų bus ignoruojamas. Vertės minutėmis.</translation>
     </message>
     <message>
       <source>Show BB Code button</source>
@@ -363,15 +363,15 @@
     </message>
     <message>
       <source>Automatic pending chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis laukiančių pokalbių uždarymas. 0 - išjungta, n &gt; 0 laikas minutėmis iki pokalbio automatinio uždarymo</translation>
     </message>
     <message>
       <source>Automatic bot chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis botų pokalbių uždarymas. 0 - išjungta, n &gt; 0 laikas minutėmis, kol pokalbis bus automatiškai uždarytas</translation>
     </message>
     <message>
       <source>Automatic active chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis aktyvių pokalbių uždarymas. 0 - išjungta, n &gt; 0 laikas minutėmis iki pokalbio automatinio uždarymo</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
@@ -379,15 +379,15 @@
     </message>
     <message>
       <source>Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n &gt; 0 time in minutes</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai uždaromi aktyvūs pokalbiai, jei nuo paskutinio lankytojo / operatoriaus žinutė perduota. 0 - išjungta, n &gt; 0 laikas minutėmis</translation>
     </message>
     <message>
       <source>Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor &lt;desktop timeout&gt;,&lt;mobile timeout&gt;.</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai uždaryti laukiančius pokalbius, jei lankytojas paliko pokalbį. Laiko limitas minutėmis, paskutinė lankytojo veikla &lt;desktop timeout&gt;,&lt;mobile timeout&gt;.</translation>
     </message>
     <message>
       <source>Chats waiting in pending queue more than n seconds should be auto-assigned first. Time in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai, laukiantys laukiančiųjų eilėje ilgiau nei n sekundžių, pirmiausia turėtų būti priskirti automatiškai. Laikas sekundėmis</translation>
     </message>
     <message>
       <source>Support application name, visible in browser title.</source>
@@ -399,11 +399,11 @@
     </message>
     <message>
       <source>Track all logged operators activity and ignore their individual settings.</source>
-      <translation type="unfinished"/>
+      <translation>Stebėkite visų registruotų operatorių veiklą ir nekreipkite dėmesio į jų individualius nustatymus.</translation>
     </message>
     <message>
       <source>How long operator should go offline automatically because of inactivity</source>
-      <translation type="unfinished"/>
+      <translation>Kiek laiko operatorius turėtų automatiškai pereiti prie neprisijungusio ryšio dėl neveiklumo</translation>
     </message>
     <message>
       <source>Change to your site Terms of Service</source>
@@ -430,11 +430,15 @@
     </message>
     <message>
       <source>Test masking rules</source>
-      <translation type="unfinished"/>
+      <translation>Bandomosios maskavimo taisyklės</translation>
     </message>
     <message>
       <source>Edit</source>
       <translation>Redaguoti</translation>
+    </message>
+    <message>
+      <source>Clone</source>
+      <translation>Klonas</translation>
     </message>
     <message>
       <source>Delete</source>
@@ -450,23 +454,23 @@
     </message>
     <message>
       <source>Reload back office for operators. Requires NodeJS</source>
-      <translation type="unfinished"/>
+      <translation>Perkraukite operatorių atgalinę tarnybinę stotį. Reikalingas NodeJS</translation>
     </message>
     <message>
       <source>Copied</source>
-      <translation type="unfinished"/>
+      <translation>Nukopijuota</translation>
     </message>
     <message>
       <source>Copy</source>
-      <translation type="unfinished"/>
+      <translation>Kopijuoti</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryti</translation>
     </message>
     <message>
       <source>Debug data</source>
-      <translation type="unfinished"/>
+      <translation>Derinimo duomenys</translation>
     </message>
     <message>
       <source>Updated</source>
@@ -474,7 +478,7 @@
     </message>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
+      <translation>Paieška</translation>
     </message>
     <message>
       <source>Test</source>
@@ -482,15 +486,15 @@
     </message>
     <message>
       <source>Block IP</source>
-      <translation type="unfinished"/>
+      <translation>Blokuoti IP</translation>
     </message>
     <message>
       <source>Block e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Blokuoti el. paštą</translation>
     </message>
     <message>
       <source>Block country</source>
-      <translation type="unfinished"/>
+      <translation>Bloko šalis</translation>
     </message>
     <message>
       <source>Yes</source>
@@ -498,15 +502,15 @@
     </message>
     <message>
       <source>Send message to</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti žinutę adresu</translation>
     </message>
     <message>
       <source>visitors</source>
-      <translation type="unfinished"/>
+      <translation>lankytojai</translation>
     </message>
     <message>
       <source>Send the message and start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Siųskite žinutę ir pradėkite pokalbį</translation>
     </message>
     <message>
       <source>Send</source>
@@ -514,7 +518,7 @@
     </message>
     <message>
       <source>Check all</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite visus</translation>
     </message>
     <message>
       <source>Save and continue</source>
@@ -534,7 +538,7 @@
     </message>
     <message>
       <source>Save &amp; Exit</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti ir išeiti</translation>
     </message>
     <message>
       <source>Delete department</source>
@@ -542,55 +546,55 @@
     </message>
     <message>
       <source>Back</source>
-      <translation type="unfinished"/>
+      <translation>Atgal</translation>
     </message>
     <message>
       <source>Error</source>
-      <translation type="unfinished"/>
+      <translation>Klaida</translation>
     </message>
     <message>
       <source>Starting...</source>
-      <translation type="unfinished"/>
+      <translation>Pradedant...</translation>
     </message>
     <message>
       <source>Make sure you saved settings first</source>
-      <translation type="unfinished"/>
+      <translation>Pirmiausia įsitikinkite, kad išsaugojote nustatymus</translation>
     </message>
     <message>
       <source>Test settings</source>
-      <translation type="unfinished"/>
+      <translation>Bandymų nustatymai</translation>
     </message>
     <message>
       <source>Loading...</source>
-      <translation type="unfinished"/>
+      <translation>Pakraunama...</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiųsti</translation>
     </message>
     <message>
       <source>Save &amp; Assign recipients</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti ir priskirti gavėjus</translation>
     </message>
     <message>
       <source>Recipient status</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjo statusas</translation>
     </message>
     <message>
       <source>Choose</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite</translation>
     </message>
     <message>
       <source>Mail was opened</source>
-      <translation type="unfinished"/>
+      <translation>Paštas buvo atidarytas</translation>
     </message>
     <message>
       <source>New manual recipient</source>
-      <translation type="unfinished"/>
+      <translation>Naujas rankinis gavėjas</translation>
     </message>
     <message>
       <source>Update recipients from mailing list</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti adresatus iš adresatų sąrašo</translation>
     </message>
     <message>
       <source>Import</source>
@@ -602,7 +606,7 @@
     </message>
     <message>
       <source>Send test notification</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti bandomąjį pranešimą</translation>
     </message>
     <message>
       <source>Submit</source>
@@ -610,27 +614,27 @@
     </message>
     <message>
       <source>Send feedback</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti atsiliepimus</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Ar tikrai?</translation>
     </message>
     <message>
       <source>Proceed</source>
-      <translation type="unfinished"/>
+      <translation>Tęsti</translation>
     </message>
     <message>
       <source>Set default</source>
-      <translation type="unfinished"/>
+      <translation>Nustatyti numatytąsias nuostatas</translation>
     </message>
     <message>
       <source>Below saved data is not shown.</source>
-      <translation type="unfinished"/>
+      <translation>Toliau išsaugoti duomenys nerodomi.</translation>
     </message>
     <message>
       <source>Share</source>
-      <translation type="unfinished"/>
+      <translation>Dalintis</translation>
     </message>
     <message>
       <source>Send test message</source>
@@ -660,42 +664,42 @@
     </message>
     <message>
       <source>Please choose atleast one department!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite bent vieną skyrių!</translation>
     </message>
   </context>
   <context>
     <name>abstract/widgettheme</name>
     <message>
       <source>Auto responders with lowest values will be applied first</source>
-      <translation type="unfinished"/>
+      <translation>Pirmiausia bus taikomi automatiniai atsakikliai su mažiausiomis vertėmis</translation>
     </message>
     <message>
       <source>Welcome message</source>
-      <translation type="unfinished"/>
+      <translation>Sveikinimo žinutė</translation>
     </message>
     <message>
       <source>Offline message</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Pending chat messaging</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama pokalbių žinučių</translation>
     </message>
     <message>
       <source>Visitor not replying messaging</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas neatsako į žinutes</translation>
     </message>
     <message>
       <source>Operator not replying messaging</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius neatsako į žinutes</translation>
     </message>
     <message>
       <source>On-hold chat messaging</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių pranešimų siuntimas budėjimo režimu</translation>
     </message>
     <message>
       <source>Close messaging</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryti pranešimų siuntimą</translation>
     </message>
     <message>
       <source>Survey</source>
@@ -703,99 +707,107 @@
     </message>
     <message>
       <source>Multi-language chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai keliomis kalbomis</translation>
     </message>
     <message>
       <source>Invitation is active if any of these are true.</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimas yra aktyvus, jei kuris nors iš šių parametrų yra teisingas.</translation>
     </message>
     <message>
       <source>If operator has 3 max chats, and you enter here 2. Means proactive invitation will be active only if operator has less than 5 chats assigned to him.</source>
-      <translation type="unfinished"/>
+      <translation>Jei operatorius turi 3 maksimalius pokalbius, o jūs čia įvedate 2. Tai reiškia, kad proaktyvus kvietimas bus aktyvus tik tada, jei operatorius turi mažiau nei 5 jam priskirtus pokalbius.</translation>
     </message>
     <message>
       <source>Other conditions</source>
-      <translation type="unfinished"/>
+      <translation>Kitos sąlygos</translation>
     </message>
     <message>
       <source>If visitor arrived to website today, and they were on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
-      <translation type="unfinished"/>
+      <translation>Jei lankytojas šiandien atvyko į svetainę, o vakar buvo joje. Ši reikšmė atitinka paskutinį kartą, kai lankytojas buvo matytas svetainėje vakar.</translation>
     </message>
     <message>
       <source>Attributes conditions conditions</source>
-      <translation type="unfinished"/>
+      <translation>Savybės sąlygos sąlygos sąlygos</translation>
     </message>
     <message>
       <source>You can filter by `online_attr_system` attribute key and it&apos;s value. Multiple values can be separated by ||</source>
-      <translation type="unfinished"/>
+      <translation>Galite filtruoti pagal atributo `online_attr_system` raktą ir jo reikšmę. Kelias reikšmes galima atskirti ||</translation>
     </message>
     <message>
       <source>Attribute key</source>
-      <translation type="unfinished"/>
+      <translation>Atributo raktas</translation>
+    </message>
+    <message>
+      <source>Parse condition value for mathematical outcome</source>
+      <translation>Sąlygos reikšmės analizė matematiniam rezultatui</translation>
+    </message>
+    <message>
+      <source>Parse for mathematical outcome</source>
+      <translation>Matematinio rezultato analizė</translation>
     </message>
     <message>
       <source>Comparison operator</source>
-      <translation type="unfinished"/>
+      <translation>Palyginimo operatorius</translation>
     </message>
     <message>
       <source>Attribute value</source>
-      <translation type="unfinished"/>
+      <translation>Atributo vertė</translation>
     </message>
     <message>
       <source>For trigger being executed on chat start also it has to have `Can be passed as argument` option enabled.</source>
-      <translation type="unfinished"/>
+      <translation>Kad trigeris būtų vykdomas pokalbio pradžioje, taip pat turi būti įjungta parinktis `Galima perduoti kaip argumentą`.</translation>
     </message>
     <message>
       <source>Search for language. Enter * to see all.</source>
-      <translation type="unfinished"/>
+      <translation>Ieškoti kalbos. Įveskite *, kad pamatytumėte visus.</translation>
     </message>
     <message>
       <source>See all variations</source>
-      <translation type="unfinished"/>
+      <translation>Žiūrėti visus variantus</translation>
     </message>
     <message>
       <source>Invitation</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimas</translation>
     </message>
     <message>
       <source>Activity conditions</source>
-      <translation type="unfinished"/>
+      <translation>Veiklos sąlygos</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>Dynamic</source>
-      <translation type="unfinished"/>
+      <translation>Dinaminis</translation>
     </message>
     <message>
       <source>Events</source>
-      <translation type="unfinished"/>
+      <translation>Renginiai</translation>
     </message>
     <message>
       <source>Design</source>
-      <translation type="unfinished"/>
+      <translation>Dizainas</translation>
     </message>
     <message>
       <source>Inject HTML</source>
-      <translation type="unfinished"/>
+      <translation>Įšvirkšti HTML</translation>
     </message>
     <message>
       <source>Conversion</source>
-      <translation type="unfinished"/>
+      <translation>Konversija</translation>
     </message>
     <message>
       <source>Choose what bot trigger element append after auto responder message</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite, kokį bot trigerio elementą pridėti po automatinio atsakiklio pranešimo</translation>
     </message>
     <message>
       <source>Preview</source>
-      <translation type="unfinished"/>
+      <translation>Peržiūra</translation>
     </message>
     <message>
       <source>Message will be sent only if chat is in active or bot status.</source>
-      <translation type="unfinished"/>
+      <translation>Žinutė bus išsiųsta tik tada, jei pokalbis yra aktyvus arba boto būsenoje.</translation>
     </message>
     <message>
       <source>Conditions</source>
@@ -803,15 +815,15 @@
     </message>
     <message>
       <source>E.g 5, means there have to be 5 pending chats in the queue and I am 6 in the queue.</source>
-      <translation type="unfinished"/>
+      <translation>Pvz., 5, reiškia, kad eilėje turi būti 5 laukiantys pokalbiai, o aš esu 6 eilėje.</translation>
     </message>
     <message>
       <source>OR</source>
-      <translation type="unfinished"/>
+      <translation>ARBA</translation>
     </message>
     <message>
       <source>Messaging</source>
-      <translation type="unfinished"/>
+      <translation>Žinučių siuntimas</translation>
     </message>
     <message>
       <source>Status widget style</source>
@@ -823,7 +835,7 @@
     </message>
     <message>
       <source>Messages style</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų stilius</translation>
     </message>
     <message>
       <source>Need help widget</source>
@@ -831,11 +843,11 @@
     </message>
     <message>
       <source>Chat widget</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių valdiklis</translation>
     </message>
     <message>
       <source>Custom content</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis turinys</translation>
     </message>
     <message>
       <source>Custom CSS</source>
@@ -843,31 +855,31 @@
     </message>
     <message>
       <source>Custom bot style</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis boto stilius</translation>
     </message>
     <message>
       <source>Notification</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas</translation>
     </message>
     <message>
       <source>Reactions</source>
-      <translation type="unfinished"/>
+      <translation>Reakcijos</translation>
     </message>
     <message>
       <source>If you enter alias make sure you pass this string as argument for a theme. Otherwise argument will be ignored.</source>
-      <translation type="unfinished"/>
+      <translation>Jei įvedate slapyvardį, įsitikinkite, kad šią eilutę perduodate kaip temos argumentą. Priešingu atveju argumentas bus ignoruojamas.</translation>
     </message>
     <message>
       <source>Online status options</source>
-      <translation type="unfinished"/>
+      <translation>Internetinės būsenos parinktys</translation>
     </message>
     <message>
       <source>Offline status options</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungusios būsenos parinktys</translation>
     </message>
     <message>
       <source>Images</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdai</translation>
     </message>
     <message>
       <source>Live preview</source>
@@ -875,39 +887,39 @@
     </message>
     <message>
       <source>Visitor messages style</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų pranešimų stilius</translation>
     </message>
     <message>
       <source>Operator messages style</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus pranešimų stilius</translation>
     </message>
     <message>
       <source>New message separator style</source>
-      <translation type="unfinished"/>
+      <translation>Naujas pranešimų skirtuko stilius</translation>
     </message>
     <message>
       <source>Scroll to the bottom style</source>
-      <translation type="unfinished"/>
+      <translation>Slinkite prie apatinio stiliaus</translation>
     </message>
     <message>
       <source>Other</source>
-      <translation type="unfinished"/>
+      <translation>Kita</translation>
     </message>
     <message>
       <source>Override embed code settings</source>
-      <translation type="unfinished"/>
+      <translation>Pakeisti įterpimo kodo nustatymus</translation>
     </message>
     <message>
       <source>Build your own need help widget layout</source>
-      <translation type="unfinished"/>
+      <translation>Sukurkite savo pagalbos poreikio valdiklio maketą</translation>
     </message>
     <message>
       <source>Set default HTML</source>
-      <translation type="unfinished"/>
+      <translation>Nustatyti numatytąjį HTML</translation>
     </message>
     <message>
       <source>If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.</source>
-      <translation type="unfinished"/>
+      <translation>Jei norite pasidaryti nerdai, galite sukurti savo akį traukiantį elementą naudodami numatytąjį šabloną kaip pradinį tašką. Aukščiau nurodytus pagalbos valdiklio matmenis galite koreguoti. Taip pat žiūrėkite, kokias vietos žymes palaikome.</translation>
     </message>
     <message>
       <source>General settings</source>
@@ -915,27 +927,27 @@
     </message>
     <message>
       <source>Text changes</source>
-      <translation type="unfinished"/>
+      <translation>Teksto pakeitimai</translation>
     </message>
     <message>
       <source>Text content before user fields</source>
-      <translation type="unfinished"/>
+      <translation>Teksto turinys prieš naudotojo laukus</translation>
     </message>
     <message>
       <source>Choose manually bot ant trigger</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite rankiniu būdu botų skruzdžių paleidimo funkciją</translation>
     </message>
     <message>
       <source>For it to work, trigger has to have checked</source>
-      <translation type="unfinished"/>
+      <translation>Kad jis veiktų, trigeris turi būti patikrintas</translation>
     </message>
     <message>
       <source>Can be passed as argument</source>
-      <translation type="unfinished"/>
+      <translation>Galima perduoti kaip argumentą</translation>
     </message>
     <message>
       <source>Choose department to test</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite skyrių, kurį norite išbandyti</translation>
     </message>
     <message>
       <source>Download theme</source>
@@ -943,7 +955,7 @@
     </message>
     <message>
       <source>Some changes might take effect after you save a widget theme or department!</source>
-      <translation type="unfinished"/>
+      <translation>Kai kurie pakeitimai gali įsigalioti po to, kai išsaugosite valdiklio temą arba skyrių!</translation>
     </message>
     <message>
       <source>Clear cookies and reload</source>
@@ -955,7 +967,7 @@
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji</translation>
     </message>
     <message>
       <source>Add translation</source>
@@ -963,395 +975,399 @@
     </message>
     <message>
       <source>Requires - `Can be passed as argument` option to be checked.</source>
-      <translation type="unfinished"/>
+      <translation>Requires - `Can be passed as argument` tikrinama parinktis.</translation>
     </message>
     <message>
       <source>Bright message style</source>
-      <translation type="unfinished"/>
+      <translation>Ryškios žinutės stilius</translation>
     </message>
     <message>
       <source>Other Operator messages style</source>
-      <translation type="unfinished"/>
+      <translation>Kitų operatoriaus pranešimų stilius</translation>
     </message>
     <message>
       <source>If other operator writes a message in the chat this is how their message will look a like.</source>
-      <translation type="unfinished"/>
+      <translation>Jei kitas operatorius rašo žinutę pokalbyje, taip atrodys jo žinutė.</translation>
     </message>
     <message>
       <source>System assistant messages style</source>
-      <translation type="unfinished"/>
+      <translation>Sistemos pagalbininko pranešimų stilius</translation>
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Bendra</translation>
     </message>
     <message>
       <source>Dark message style</source>
-      <translation type="unfinished"/>
+      <translation>Tamsus pranešimo stilius</translation>
     </message>
     <message>
       <source>Themes which will be edited all at once.</source>
-      <translation type="unfinished"/>
+      <translation>Temos, kurios bus redaguojamos vienu metu.</translation>
     </message>
     <message>
       <source>Department group departments does not have any themes assigned to them.</source>
-      <translation type="unfinished"/>
+      <translation>Departamentų grupės departamentai neturi jiems priskirtų temų.</translation>
     </message>
     <message>
       <source>Bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Burbulo fono spalva</translation>
     </message>
     <message>
       <source>Title color</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimo spalva</translation>
     </message>
     <message>
       <source>Text color</source>
       <translation>Teksto spalva</translation>
     </message>
     <message>
+      <source>Nick template</source>
+      <translation>Nicko šablonas</translation>
+    </message>
+    <message>
       <source>My messages bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Mano pranešimų burbulo fono spalva</translation>
     </message>
     <message>
       <source>Other operator bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Kita operatoriaus burbulo fono spalva</translation>
     </message>
     <message>
       <source>Chat background color</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio fono spalva</translation>
     </message>
     <message>
       <source>New message separator color</source>
-      <translation type="unfinished"/>
+      <translation>Nauja pranešimo skirtuko spalva</translation>
     </message>
     <message>
       <source>Time text color</source>
-      <translation type="unfinished"/>
+      <translation>Laiko teksto spalva</translation>
     </message>
     <message>
       <source>Title text color</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimo teksto spalva</translation>
     </message>
     <message>
       <source>Message text color</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo teksto spalva</translation>
     </message>
     <message>
       <source>Main background color</source>
-      <translation type="unfinished"/>
+      <translation>Pagrindinė fono spalva</translation>
     </message>
     <message>
       <source>Link default text color</source>
-      <translation type="unfinished"/>
+      <translation>Nuorodos numatytoji teksto spalva</translation>
     </message>
     <message>
       <source>Default text color</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji teksto spalva</translation>
     </message>
     <message>
       <source>Dropdown background color</source>
-      <translation type="unfinished"/>
+      <translation>Išskleidžiamojo fono spalva</translation>
     </message>
     <message>
       <source>Navigation bar icons text color</source>
-      <translation type="unfinished"/>
+      <translation>Navigacijos juostos piktogramų teksto spalva</translation>
     </message>
     <message>
       <source>Navigation bar icons hover text color</source>
-      <translation type="unfinished"/>
+      <translation>Navigacijos juostos piktogramų teksto spalva</translation>
     </message>
     <message>
       <source>Tab border color</source>
-      <translation type="unfinished"/>
+      <translation>Skirtuko krašto spalva</translation>
     </message>
     <message>
       <source>Button text color</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko teksto spalva</translation>
     </message>
     <message>
       <source>Button background color</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko fono spalva</translation>
     </message>
     <message>
       <source>Button border color</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko krašto spalva</translation>
     </message>
     <message>
       <source>Button active text color</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko aktyviojo teksto spalva</translation>
     </message>
     <message>
       <source>Button active background color</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko aktyvioji fono spalva</translation>
     </message>
     <message>
       <source>Button active border color</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko aktyvaus krašto spalva</translation>
     </message>
     <message>
       <source>Dropdown hover background color</source>
-      <translation type="unfinished"/>
+      <translation>Išskleidžiamojo lango fono spalva</translation>
     </message>
     <message>
       <source>Dropdown border color</source>
-      <translation type="unfinished"/>
+      <translation>Išskleidžiamojo lango krašto spalva</translation>
     </message>
     <message>
       <source>Online background color</source>
-      <translation type="unfinished"/>
+      <translation>Interneto fono spalva</translation>
     </message>
     <message>
       <source>Panel header background color</source>
-      <translation type="unfinished"/>
+      <translation>Skydelio antraštės fono spalva</translation>
     </message>
     <message>
       <source>Panel header border color</source>
-      <translation type="unfinished"/>
+      <translation>Skydelio antraštės apvado spalva</translation>
     </message>
     <message>
       <source>Header background color</source>
-      <translation type="unfinished"/>
+      <translation>Antraštės fono spalva</translation>
     </message>
     <message>
       <source>Panel background color</source>
-      <translation type="unfinished"/>
+      <translation>Skydo fono spalva</translation>
     </message>
     <message>
       <source>Active tab background color</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvaus skirtuko fono spalva</translation>
     </message>
     <message>
       <source>Breadcrumb background color</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Breadcrumb&quot; fono spalva</translation>
     </message>
     <message>
       <source>Breadcrumb border color</source>
-      <translation type="unfinished"/>
+      <translation>Drobės pasienio spalva</translation>
     </message>
     <message>
       <source>Menu active background color</source>
-      <translation type="unfinished"/>
+      <translation>Meniu aktyvioji fono spalva</translation>
     </message>
     <message>
       <source>Menu text color</source>
-      <translation type="unfinished"/>
+      <translation>Meniu teksto spalva</translation>
     </message>
     <message>
       <source>Tab text color</source>
-      <translation type="unfinished"/>
+      <translation>Skirtuko teksto spalva</translation>
     </message>
     <message>
       <source>Table border color</source>
-      <translation type="unfinished"/>
+      <translation>Lentelės krašto spalva</translation>
     </message>
     <message>
       <source>Navbar toggle background color</source>
-      <translation type="unfinished"/>
+      <translation>Navigacijos juostos perjungimo fono spalva</translation>
     </message>
     <message>
       <source>Navbar toggle border color</source>
-      <translation type="unfinished"/>
+      <translation>Navigacijos juostos perjungimo ribos spalva</translation>
     </message>
     <message>
       <source>Tab active text color</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvioji skirtuko teksto spalva</translation>
     </message>
     <message>
       <source>Header border color</source>
-      <translation type="unfinished"/>
+      <translation>Antraštės krašto spalva</translation>
     </message>
     <message>
       <source>Button border radius</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko apvado spindulys</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Neįgalieji</translation>
     </message>
     <message>
       <source>Choose a bot</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite botą</translation>
     </message>
     <message>
       <source>Choose a trigger</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite gaiduką</translation>
     </message>
     <message>
       <source>Minimum time in second how long sync has to be stopped before allowing reset auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Minimalus laikas sekundėmis, kiek laiko turi būti sustabdyta sinchronizacija prieš leidžiant iš naujo nustatyti automatinį atsakiklį</translation>
     </message>
     <message>
       <source>Maximum time in seconds how long sync has to be stopped before we do not reset auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus laikas sekundėmis, kiek laiko turi būti sustabdyta sinchronizacija, kad nebūtų iš naujo nustatytas automatinis atsakiklis</translation>
     </message>
     <message>
       <source>Disable reset auto responder if visitor was redirected to survey</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti automatinį atsakiklį, jei lankytojas buvo nukreiptas į apklausą</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
+      <translation>Departamentai</translation>
     </message>
     <message>
       <source>Do not send messages to pending chat if chat is assigned to operator.</source>
-      <translation type="unfinished"/>
+      <translation>Nesiųskite pranešimų į laukiantį pokalbį, jei pokalbis priskirtas operatoriui.</translation>
     </message>
     <message>
       <source>This auto responder applies only to proactive invitations.</source>
-      <translation type="unfinished"/>
+      <translation>Šis automatinis atsakiklis taikomas tik proaktyviems kvietimams.</translation>
     </message>
     <message>
       <source>How many pending chats have to be in the queue (not counting started chat) for pending chat messaging to be activated.</source>
-      <translation type="unfinished"/>
+      <translation>Kiek laukiančių pokalbių turi būti eilėje (neskaičiuojant pradėtų pokalbių), kad būtų aktyvuotas laukiančių pokalbių pranešimų siuntimas.</translation>
     </message>
     <message>
       <source>Minimum pending chats for pending messaging to be activated</source>
-      <translation type="unfinished"/>
+      <translation>Minimalus laukiančių pokalbių skaičius, kad būtų aktyvuoti laukiantys pranešimai</translation>
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Laiko juosta</translation>
     </message>
     <message>
       <source>Applies to</source>
-      <translation type="unfinished"/>
+      <translation>Taikoma</translation>
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
-      <translation type="unfinished"/>
+      <translation>Jei kintamasis neperduodamas, ar turėtume išsaugoti anksčiau įrašytą vertę?</translation>
     </message>
     <message>
       <source>Try to decrypt variable first</source>
-      <translation type="unfinished"/>
+      <translation>Pirmiausia pabandykite iššifruoti kintamąjį</translation>
     </message>
     <message>
       <source>Case insensitive</source>
-      <translation type="unfinished"/>
+      <translation>Neribojama didžioji raidė</translation>
     </message>
     <message>
       <source>This variable is invisible for operator and will be stored in chat_variables attribute</source>
-      <translation type="unfinished"/>
+      <translation>Šis kintamasis yra nematomas operatoriui ir bus saugomas atribute chat_variables</translation>
     </message>
     <message>
       <source>Event id to receive from website for conversion to finish.</source>
-      <translation type="unfinished"/>
+      <translation>Įvykio ID, kurį reikia gauti iš svetainės, kad būtų baigtas konvertavimas.</translation>
     </message>
     <message>
       <source>E.g ordered</source>
-      <translation type="unfinished"/>
+      <translation>Pvz., užsakyta</translation>
     </message>
     <message>
       <source>Conversion has to happen within this period of time after invitation was send/clicked.</source>
-      <translation type="unfinished"/>
+      <translation>Konversija turi įvykti per šį laikotarpį nuo kvietimo išsiuntimo/paspaudimo.</translation>
     </message>
     <message>
       <source>Invitation expire time, after that period of time invitation will be hidden</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimo galiojimo laikas, praėjus tam tikram laikui kvietimas bus paslėptas.</translation>
     </message>
     <message>
       <source>Any of these operators are online. Enter operator id separated by comma. Your user id is</source>
-      <translation type="unfinished"/>
+      <translation>Bet kuris iš šių operatorių yra prisijungęs. Įveskite kableliu atskirtus operatoriaus ID. Jūsų naudotojo id yra</translation>
     </message>
     <message>
       <source>Operator maximum chats limit can be exceeded by this number of chats.</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus maksimali pokalbių riba gali būti viršyta šiuo pokalbių skaičiumi.</translation>
     </message>
     <message>
       <source>Last time seen on website ago.</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinį kartą svetainėje matytas prieš.</translation>
     </message>
     <message>
       <source>Last time had chat n minutes ago.</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinį kartą kalbėjosi prieš n minučių.</translation>
     </message>
     <message>
       <source>After this invitation expires or was closed, any next invitation can be shown after defined amount of time.</source>
-      <translation type="unfinished"/>
+      <translation>Pasibaigus šio kvietimo galiojimo laikui arba jį uždarius, kitas kvietimas gali būti rodomas po nustatyto laiko.</translation>
     </message>
     <message>
       <source>Invitation message width</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimo žinutės plotis</translation>
     </message>
     <message>
       <source>Invitation message placement from bottom</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimo žinutės išdėstymas iš apačios</translation>
     </message>
     <message>
       <source>Invitation message placement from right</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimo pranešimo vieta iš dešinės</translation>
     </message>
     <message>
       <source>Mobile HTML</source>
-      <translation type="unfinished"/>
+      <translation>Mobilusis HTML</translation>
     </message>
     <message>
       <source>Custom on click event</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis paspaudimo įvykis</translation>
     </message>
     <message>
       <source>Custom CSS, applies also to invitation bubble</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis CSS, taip pat taikomas kvietimo burbului</translation>
     </message>
     <message>
       <source>Custom image 1</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis vaizdas 1</translation>
     </message>
     <message>
       <source>Custom image 2</source>
-      <translation type="unfinished"/>
+      <translation>2 pasirinktinis vaizdas</translation>
     </message>
     <message>
       <source>Custom image 3</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis vaizdas 3</translation>
     </message>
     <message>
       <source>Custom image 4</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis vaizdas 4</translation>
     </message>
     <message>
       <source>Custom image 5</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis vaizdas 5</translation>
     </message>
     <message>
       <source>Do not show default content on success form submit.</source>
-      <translation type="unfinished"/>
+      <translation>Nerodyti numatytojo turinio sėkmingai pateikus formą.</translation>
     </message>
     <message>
       <source>Color</source>
-      <translation type="unfinished"/>
+      <translation>Spalva</translation>
     </message>
     <message>
       <source>Survey title</source>
-      <translation type="unfinished"/>
+      <translation>Apklausos pavadinimas</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation type="unfinished"/>
+      <translation>Užpildykite šią trumpą vertinimo apklausą</translation>
     </message>
     <message>
       <source>Disable chat preview</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti pokalbių peržiūrą</translation>
     </message>
     <message>
       <source>Allow visitor return to chat even if it was closed.</source>
-      <translation type="unfinished"/>
+      <translation>Leisti lankytojui grįžti į pokalbį, net jei jis buvo uždarytas.</translation>
     </message>
     <message>
       <source>Disable chat download</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti pokalbių atsisiuntimą</translation>
     </message>
     <message>
       <source> Required only if stars less or equal to 1 - n</source>
-      <translation type="unfinished"/>
+      <translation> Reikalinga tik jei žvaigždės mažesnės arba lygios 1 - n</translation>
     </message>
     <message>
       <source>Stars field Nr. (1-5)</source>
-      <translation type="unfinished"/>
+      <translation>Žvaigždžių laukas Nr. (1-5)</translation>
     </message>
     <message>
       <source>If more than one theme is passed, randomly chosen theme is fixed for selected period of time.</source>
-      <translation type="unfinished"/>
+      <translation>Jei perduodama daugiau nei viena tema, atsitiktinai pasirinkta tema nustatoma pasirinktam laikotarpiui.</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1359,7 +1375,7 @@
     </message>
     <message>
       <source>Alias for argument. No spaces or slashes.</source>
-      <translation type="unfinished"/>
+      <translation>Argumento slapyvardis. Jokių tarpų ar brūkšnelių.</translation>
     </message>
     <message>
       <source>Name of the company</source>
@@ -1367,11 +1383,11 @@
     </message>
     <message>
       <source>Chat status if customer is chatting with a bot</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio būsena, jei klientas bendrauja su botu</translation>
     </message>
     <message>
       <source>Header icons order. _print is optional and indicates we should also print a text after an icon</source>
-      <translation type="unfinished"/>
+      <translation>Antraštės piktogramų tvarka. _print yra neprivalomas ir nurodo, kad po piktogramos taip pat turėtume spausdinti tekstą.</translation>
     </message>
     <message>
       <source>Need help header text</source>
@@ -1379,79 +1395,79 @@
     </message>
     <message>
       <source>Need help tooltip timeout, after how many hours show again tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Reikia pagalbos įrankių užuominos laiko limitas, po kiek valandų vėl rodyti įrankių užuominą?</translation>
     </message>
     <message>
       <source>After how many seconds after page load show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Po kiek sekundžių po puslapio įkėlimo rodyti pagalbos užuominą?</translation>
     </message>
     <message>
       <source>After how many seconds after page load show status widget</source>
-      <translation type="unfinished"/>
+      <translation>Po kiek sekundžių po puslapio įkėlimo rodyti būsenos valdiklį</translation>
     </message>
     <message>
       <source>Need help widget width</source>
-      <translation type="unfinished"/>
+      <translation>Reikia pagalbos valdiklio plotis</translation>
     </message>
     <message>
       <source>Need help widget height</source>
-      <translation type="unfinished"/>
+      <translation>Reikia pagalbos valdiklio aukštis</translation>
     </message>
     <message>
       <source>Position from right</source>
-      <translation type="unfinished"/>
+      <translation>Pozicija iš dešinės</translation>
     </message>
     <message>
       <source>Position from bottom</source>
-      <translation type="unfinished"/>
+      <translation>Padėtis nuo apačios</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti pagalbos įrankių užuominą?</translation>
     </message>
     <message>
       <source>Hide need help widget for mobile devices.</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti reikia pagalbos valdiklį mobiliesiems įrenginiams.</translation>
     </message>
     <message>
       <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
-      <translation type="unfinished"/>
+      <translation>Tingus valdiklio turinio įkėlimas. Valdiklio turinys bus įkeltas tik tada, jei lankytojas paspaus būsenos piktogramą.</translation>
     </message>
     <message>
       <source>Print raw HTML in footer without parsing it for special functions. Makes custom HTML in footer to render faster.</source>
-      <translation type="unfinished"/>
+      <translation>Spausdinti neapdorotą HTML failą poraštėje, jo neanalizuojant specialioms funkcijoms. Užtikrina greitesnį pasirinktinio HTML atvaizdavimą poraštėje.</translation>
     </message>
     <message>
       <source>Always visible. Usefull if you make custom HTML and want that need help would be always visible.</source>
-      <translation type="unfinished"/>
+      <translation>Visada matomas. Naudinga, jei kuriate pasirinktinį HTML ir norite, kad pagalba būtų visada matoma.</translation>
     </message>
     <message>
       <source>Hide close button</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti uždarymo mygtuką</translation>
     </message>
     <message>
       <source>Message time visible for</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo laikas, matomas</translation>
     </message>
     <message>
       <source>Message time placement</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo laiko išdėstymas</translation>
     </message>
     <message>
       <source>Use modern look. It is used only in older widget.</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite modernią išvaizdą. Ji naudojama tik senesniuose valdikliuose.</translation>
     </message>
     <message>
       <source>Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite naują valdiklį ieškokite senojo įterpimo kodo. Jei negalite lengvai pakeisti senų įterptųjų kodų, galite priversti sistemą įkelti naują valdiklį.</translation>
     </message>
     <message>
       <source>Enable drag and drop for status widget</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti būsenos valdiklio vilkimo ir nuleidimo funkciją</translation>
     </message>
     <message>
       <source>Animate need help position change after status widget position was changed</source>
-      <translation type="unfinished"/>
+      <translation>Animate need help position change after status widget position was changed</translation>
     </message>
     <message>
       <source>Need help standard text</source>
@@ -1463,11 +1479,11 @@
     </message>
     <message>
       <source>Online status text [old widget]</source>
-      <translation type="unfinished"/>
+      <translation>Internetinės būsenos tekstas [senas valdiklis]</translation>
     </message>
     <message>
       <source>Offline status text [old widget]</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungusios būsenos tekstas [senas valdiklis]</translation>
     </message>
     <message>
       <source>Operator intro text</source>
@@ -1487,7 +1503,7 @@
     </message>
     <message>
       <source>Text/Icon color</source>
-      <translation type="unfinished"/>
+      <translation>Teksto / piktogramos spalva</translation>
     </message>
     <message>
       <source>Operator image in chat widget</source>
@@ -1515,19 +1531,19 @@
     </message>
     <message>
       <source>Disable sound for the visitor by default</source>
-      <translation type="unfinished"/>
+      <translation>Pagal numatytuosius nustatymus išjungti lankytojo garsą</translation>
     </message>
     <message>
       <source>Terminate script if parent window already has live help script</source>
-      <translation type="unfinished"/>
+      <translation>Nutraukti scenarijų, jei pagrindiniame lange jau yra tiesioginės pagalbos scenarijus</translation>
     </message>
     <message>
       <source>Terminate script in parent window if any child iframe has already live helper script</source>
-      <translation type="unfinished"/>
+      <translation>Nutraukti scenarijų pagrindiniame lange, jei bet kuriame pagalbiniame iframe jau veikia pagalbinis scenarijus</translation>
     </message>
     <message>
       <source>If visitor opens a popup keep chat in the widget also</source>
-      <translation type="unfinished"/>
+      <translation>Jei lankytojas atidaro iškylantį langą, pokalbiai taip pat vyksta valdiklyje</translation>
     </message>
     <message>
       <source>Header height (px)</source>
@@ -1535,7 +1551,7 @@
     </message>
     <message>
       <source>Widget response layout width trigger (px)</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio atsako išdėstymo pločio trigeris (px)</translation>
     </message>
     <message>
       <source>Header padding (px)</source>
@@ -1551,119 +1567,127 @@
     </message>
     <message>
       <source>Custom html before start chat form fields, popup</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis html prieš pradedant pokalbio formos laukus, iššokantis langas</translation>
     </message>
     <message>
       <source>Inject HTML on widget open</source>
-      <translation type="unfinished"/>
+      <translation>HTML injekcija atidarius valdiklį</translation>
     </message>
     <message>
       <source>Header HTML. Here you can paste custom head HTML.</source>
-      <translation type="unfinished"/>
+      <translation>HTML antraštė. Čia galite įklijuoti pasirinktinį antraštės HTML.</translation>
     </message>
     <message>
       <source>Survey title content, {survey_title} - survey title</source>
-      <translation type="unfinished"/>
+      <translation>Apklausos pavadinimo turinys, {survey_title} - apklausos pavadinimas</translation>
     </message>
     <message>
       <source>Survey feedback content, {survey_feedback} - survey feedback</source>
-      <translation type="unfinished"/>
+      <translation>Apklausos atsiliepimų turinys, {survey_feedback} - apklausos atsiliepimai</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, widget</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis html prieš pradedant pokalbio formos laukus, valdiklis</translation>
     </message>
     <message>
       <source>Custom survey page CSS</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis apklausos puslapis CSS</translation>
     </message>
     <message>
       <source>Custom page CSS (new widget only)</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis puslapio CSS (tik naujam valdikliui)</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, popup (bot mode)</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis html prieš pradedant pokalbio formos laukus, iššokantis langas (boto režimas)</translation>
     </message>
     <message>
       <source>Custom html before start chat form fields, widget (bot mode)</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis html prieš pradedant pokalbio formos laukus, valdiklis (boto režimas)</translation>
     </message>
     <message>
       <source>Custom html before standard widget header</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis html prieš standartinę valdiklio antraštę</translation>
     </message>
     <message>
       <source>Custom html after widget content</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis html po valdiklio turinio</translation>
     </message>
     <message>
       <source>Operator intro message. You can wrap custom HTML with [html][/html] bbcode</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus įžanginė žinutė. Pasirinktinį HTML kodą galite apvynioti naudodami [html][/html] bbcode</translation>
     </message>
     <message>
       <source>Operator intro message in HTML</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus įžanginis pranešimas HTML formatu</translation>
     </message>
     <message>
       <source>Custom html above status/profile body in online mode</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis html virš būsenos/profilio kūno internetiniame režime</translation>
     </message>
     <message>
       <source>Custom html above status/profile body in offline mode</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis html virš būsenos/profilio kūno, kai naudojamas neprisijungus prie interneto režimas</translation>
     </message>
     <message>
       <source>Custom html inside standard widget header</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis html standartinio valdiklio antraštėje</translation>
     </message>
     <message>
       <source>Custom html before standard widget status header</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis html prieš standartinę valdiklio būsenos antraštę</translation>
     </message>
     <message>
       <source>Custom html after chat status</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis html po pokalbio būsenos</translation>
     </message>
     <message>
       <source>Start chat button text, standard chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio pradžios mygtuko tekstas, standartinis pokalbis</translation>
     </message>
     <message>
       <source>TOS text</source>
-      <translation type="unfinished"/>
+      <translation>TOS tekstas</translation>
     </message>
     <message>
       <source>Title of the minimize icon</source>
-      <translation type="unfinished"/>
+      <translation>Minimizavimo piktogramos pavadinimas</translation>
+    </message>
+    <message>
+      <source>Title of the collapse icon</source>
+      <translation>Sugriuvimo piktogramos pavadinimas</translation>
+    </message>
+    <message>
+      <source>Title of the expand icon</source>
+      <translation>Išplėsti piktogramos pavadinimas</translation>
     </message>
     <message>
       <source>Title of the popup icon</source>
-      <translation type="unfinished"/>
+      <translation>Iššokančio lango piktogramos pavadinimas</translation>
     </message>
     <message>
       <source>Title of the end chat icon</source>
-      <translation type="unfinished"/>
+      <translation>Pabaigos pokalbio piktogramos pavadinimas</translation>
     </message>
     <message>
       <source>Switch to default widget position</source>
-      <translation type="unfinished"/>
+      <translation>Perjungimas į numatytąją valdiklio padėtį</translation>
     </message>
     <message>
       <source>Switch to full height widget position</source>
-      <translation type="unfinished"/>
+      <translation>Perjungimas į viso aukščio valdiklio padėtį</translation>
     </message>
     <message>
       <source>Start chat button text, bot chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio pradžios mygtuko tekstas, botų pokalbis</translation>
     </message>
     <message>
       <source>Leave a message button text</source>
-      <translation type="unfinished"/>
+      <translation>Palikti žinutę mygtuko tekstas</translation>
     </message>
     <message>
       <source>Back to chat from offline form</source>
-      <translation type="unfinished"/>
+      <translation>Grįžimas į pokalbius iš neprisijungusios formos</translation>
     </message>
     <message>
       <source>Online image</source>
@@ -1671,7 +1695,7 @@
     </message>
     <message>
       <source>Notification icon</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo piktograma</translation>
     </message>
     <message>
       <source>Offline image</source>
@@ -1687,7 +1711,7 @@
     </message>
     <message>
       <source>Custom need help HTML</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis reikia pagalbos HTML</translation>
     </message>
     <message>
       <source>Need help background color</source>
@@ -1703,23 +1727,23 @@
     </message>
     <message>
       <source>Text when user starts chat based on proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Tekstas, kai naudotojas pradeda pokalbį pagal aktyvų kvietimą</translation>
     </message>
     <message>
       <source>Text when operator closes a chat</source>
-      <translation type="unfinished"/>
+      <translation>Tekstas, kai operatorius uždaro pokalbį</translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is 1 or if less than a minute wait time.</source>
-      <translation type="unfinished"/>
+      <translation>Tekstas, kai naudotojas pradeda pokalbį ir laukia, kol operatorius prisijungs prie pokalbio. Tik jei eilė yra 1 arba jei laukimo laikas trumpesnis nei minutė.</translation>
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is &gt; 1. {number}, {avg_wait_time}, {avg_wait_time_live}, {avg_wait_time_live__string if more than one minute live wait time}, {avg_wait_time__string if more than one minute wait time}</source>
-      <translation type="unfinished"/>
+      <translation>Tekstas, kai naudotojas pradeda pokalbį ir laukia, kol operatorius prisijungs prie pokalbio. Tik jei eilė &gt; 1. {number}, {avg_wait_time}, {avg_wait_time_live}, {avg_wait_time_live__string, jei daugiau nei minutę laukiama gyvai}, {avg_wait_time__string, jei daugiau nei minutę laukiama gyvai}, {avg_wait_time__string, jei daugiau nei minutę laukiama gyvai}.</translation>
     </message>
     <message>
       <source>Text when user starts a chat but department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Tekstas, kai naudotojas pradeda pokalbį, bet skyrius yra neprisijungęs</translation>
     </message>
     <message>
       <source>Leave a message form text</source>
@@ -1727,11 +1751,11 @@
     </message>
     <message>
       <source>Thank you for your feedback text</source>
-      <translation type="unfinished"/>
+      <translation>Dėkojame už atsiliepimus</translation>
     </message>
     <message>
       <source>Blocked visitor message</source>
-      <translation type="unfinished"/>
+      <translation>Užblokuoto lankytojo pranešimas</translation>
     </message>
     <message>
       <source>Need help border color</source>
@@ -1739,11 +1763,11 @@
     </message>
     <message>
       <source>Need help close text color</source>
-      <translation type="unfinished"/>
+      <translation>Reikia pagalbos uždaryti teksto spalvą</translation>
     </message>
     <message>
       <source>Need help close hover text color</source>
-      <translation type="unfinished"/>
+      <translation>Reikia pagalbos uždaryti rodyklės teksto spalvą</translation>
     </message>
     <message>
       <source>Need help operator image</source>
@@ -1755,7 +1779,7 @@
     </message>
     <message>
       <source>Custom CSS only for popup</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis CSS tik iššokančiam langui</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
@@ -1783,355 +1807,367 @@
     </message>
     <message>
       <source>Visitor bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo burbulo fono spalva</translation>
     </message>
     <message>
       <source>Visitor title color</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo pavadinimo spalva</translation>
     </message>
     <message>
       <source>Visitor text color</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo teksto spalva</translation>
     </message>
     <message>
       <source>Operator bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus burbulo fono spalva</translation>
     </message>
     <message>
       <source>Operator title color</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus pavadinimo spalva</translation>
     </message>
     <message>
       <source>Operator text color</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus teksto spalva</translation>
     </message>
     <message>
       <source>Show voting thumbs?</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti balsavimo nykščius?</translation>
     </message>
     <message>
       <source>Use different title for the name field</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite kitą pavadinimą pavadinimo laukui</translation>
     </message>
     <message>
       <source>Use different title for the e-mail field</source>
-      <translation type="unfinished"/>
+      <translation>El. pašto lauke naudokite kitokį pavadinimą</translation>
     </message>
     <message>
       <source>Use different title for the file field</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite kitokį failo lauko pavadinimą</translation>
     </message>
     <message>
       <source>Use different title for the phone field</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite kitokį telefono lauko pavadinimą</translation>
     </message>
     <message>
       <source>Use different title for the question field</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite kitą klausimo lauko pavadinimą</translation>
     </message>
     <message>
       <source>Use different title for department? E.g Location</source>
-      <translation type="unfinished"/>
+      <translation>Naudoti kitą skyriaus pavadinimą? Pvz., Vieta</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation type="unfinished"/>
+      <translation>Vieta</translation>
     </message>
     <message>
       <source>Additional option before department selection</source>
-      <translation type="unfinished"/>
+      <translation>Papildoma parinktis prieš pasirenkant departamentą</translation>
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite skyrių</translation>
     </message>
     <message>
       <source>Button background hover color</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko fono užvedimo spalva</translation>
     </message>
     <message>
       <source>Button top and bottom</source>
-      <translation type="unfinished"/>
+      <translation>Mygtukas viršuje ir apačioje</translation>
     </message>
     <message>
       <source>Button padding right and left</source>
-      <translation type="unfinished"/>
+      <translation>Mygtukų paminkštinimas dešinėje ir kairėje</translation>
     </message>
     <message>
       <source>Button font size</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko šrifto dydis</translation>
     </message>
     <message>
       <source>Widget height (px)</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio aukštis (px)</translation>
     </message>
     <message>
       <source>Widget width (px)</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio plotis (px)</translation>
+    </message>
+    <message>
+      <source>Widget width expand ratio (1.01 - 1.99) or pixels if more than 2</source>
+      <translation>Plokštelės pločio santykis (1,01 - 1,99) arba pikseliai, jei daugiau nei 2</translation>
+    </message>
+    <message>
+      <source>Widget height expand ratio (1.01 - 1.99) or pixels if more than 2</source>
+      <translation>Widget aukštis išplėsti santykis (1.01 - 1.99) arba pikselių, jei daugiau nei 2</translation>
     </message>
     <message>
       <source>Operator avatar</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus avataras</translation>
     </message>
     <message>
       <source>Need help avatar</source>
-      <translation type="unfinished"/>
+      <translation>Reikia pagalbos avataras</translation>
     </message>
     <message>
       <source>Widget position from right to append</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio padėtis iš dešinės į dešinę pridėti</translation>
     </message>
     <message>
       <source>Widget position from bottom to append</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio padėtis nuo apačios iki pridėjimo</translation>
     </message>
     <message>
       <source>Widget position from top to append</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio padėtis nuo viršaus iki pridėjimo</translation>
     </message>
     <message>
       <source>Widget position from right to append in invitation</source>
-      <translation type="unfinished"/>
+      <translation>Rodyklės padėtis iš dešinės, kad būtų galima pridėti kvietime</translation>
     </message>
     <message>
       <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
-      <translation type="unfinished"/>
+      <translation>Po kiek naudotojo pranešimų rodomas perėjimas prie žmogaus mygtuko. tuščia - niekada, 0 - visada</translation>
     </message>
     <message>
       <source>Placeholder for message text</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo teksto pakaitinis žymuo</translation>
+    </message>
+    <message>
+      <source>Placeholder for name text</source>
+      <translation>Pavadinimo teksto pakaitinis žymuo</translation>
     </message>
     <message>
       <source>Placeholder for message text if files are attached</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo teksto pakaitinis žymuo, jei pridedami failai</translation>
     </message>
     <message>
       <source>Main operator title, {nick}, {name}, {surname}</source>
-      <translation type="unfinished"/>
+      <translation>Pagrindinio operatoriaus pavadinimas, {nick}, {name}, {surname}</translation>
     </message>
     <message>
       <source>Chat is unavailable and offline form is disabled.</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis neprieinamas, o neprisijungusi forma išjungta.</translation>
     </message>
     <message>
       <source>Do not allow visitor to edit previous message by pressing up arrow</source>
-      <translation type="unfinished"/>
+      <translation>Neleiskite lankytojui redaguoti ankstesnio pranešimo paspaudus rodyklę į viršų</translation>
     </message>
     <message>
       <source>Before closing chat ask user if they really want to to close chat</source>
-      <translation type="unfinished"/>
+      <translation>Prieš uždarant pokalbį paklauskite naudotojo, ar jis tikrai nori uždaryti pokalbį</translation>
     </message>
     <message>
       <source>Show start chat form instantly after operator closes a chat.</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriui uždarius pokalbį, iš karto rodykite pokalbio pradžios formą.</translation>
     </message>
     <message>
       <source>Show previous chat messages in chat widget.</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių valdiklyje rodyti ankstesnius pokalbių pranešimus.</translation>
     </message>
     <message>
       <source>Custom HTML has priority over invitation content in opened widget</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis HTML turi pirmenybę prieš kvietimų turinį atidarytame valdiklyje</translation>
     </message>
     <message>
       <source>Show invitation content once visitor started to type</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti kvietimo turinį, kai lankytojas pradėjo rašyti</translation>
     </message>
     <message>
       <source>Hide job title</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti darbo pavadinimą</translation>
     </message>
     <message>
       <source>Close chat if page is refreshed. Usefull if you have embed code in popup.</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryti pokalbį, jei puslapis atnaujinamas. Naudinga, jei iškylančiajame lange turite įterptą kodą.</translation>
     </message>
     <message>
       <source>Do not prefill offline message with chat messages.</source>
-      <translation type="unfinished"/>
+      <translation>Neužpildykite neprisijungusio pranešimo pokalbių žinutėmis.</translation>
     </message>
     <message>
       <source>Hide BB Code button</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti BB kodo mygtuką</translation>
     </message>
     <message>
       <source>Show new messages snippet widget</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti naujų pranešimų fragmentų valdiklį</translation>
     </message>
     <message>
       <source>Allow visitor to change font size</source>
-      <translation type="unfinished"/>
+      <translation>Leisti lankytojui keisti šrifto dydį</translation>
     </message>
     <message>
       <source>Use system timezone instead of a visitor. Visitor TZ will be overriden with system a system one.</source>
-      <translation type="unfinished"/>
+      <translation>Vietoj lankytojo naudokite sistemos laiko juostą. Lankytojo TZ bus pakeista sistemine TZ.</translation>
     </message>
     <message>
       <source>Print button as a message as soon visitor clicks a button.</source>
-      <translation type="unfinished"/>
+      <translation>Spausdinti mygtuką kaip pranešimą, kai tik lankytojas spusteli mygtuką.</translation>
     </message>
     <message>
       <source>Open link in the same browser tab if chat is in the widget</source>
-      <translation type="unfinished"/>
+      <translation>Atidaryti nuorodą tame pačiame naršyklės skirtuke, jei pokalbis yra valdiklyje</translation>
     </message>
     <message>
       <source>Show go to survey button on chat close</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti eiti į apklausą mygtuką pokalbio uždarymo metu</translation>
     </message>
     <message>
       <source>Enable reactions for visitor</source>
-      <translation type="unfinished"/>
+      <translation>Įgalinti lankytojo reakcijas</translation>
     </message>
     <message>
       <source>Only one reaction can be chosen per message</source>
-      <translation type="unfinished"/>
+      <translation>Viename pranešime galima pasirinkti tik vieną reakciją</translation>
     </message>
     <message>
       <source>Selected reactions should be always visible under a message</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktos reakcijos turėtų būti visada matomos po pranešimu</translation>
     </message>
     <message>
       <source>Always visible reactions</source>
-      <translation type="unfinished"/>
+      <translation>Visada matomos reakcijos</translation>
     </message>
     <message>
       <source>Custom toolbar icons</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinės įrankių juostos piktogramos</translation>
     </message>
     <message>
       <source>Custom modal window icons</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinės modalinio lango piktogramos</translation>
     </message>
     <message>
       <source>Try to expand widget to full screen in page embed mode</source>
-      <translation type="unfinished"/>
+      <translation>Pabandykite išplėsti valdiklį į visą ekraną puslapio įterpimo režimu</translation>
     </message>
     <message>
       <source>Automatically determine intro message by bot default message</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai nustatyti įžanginį pranešimą pagal numatytąjį boto pranešimą</translation>
     </message>
     <message>
       <source>Use bot profile in the widget instead of default</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite boto profilį valdiklyje vietoj numatytojo</translation>
     </message>
     <message>
       <source>Try to detect language from browser headers</source>
-      <translation type="unfinished"/>
+      <translation>Pabandykite nustatyti kalbą iš naršyklės antraščių</translation>
     </message>
     <message>
       <source>Bubble style messages</source>
-      <translation type="unfinished"/>
+      <translation>Burbulo stiliaus pranešimai</translation>
     </message>
     <message>
       <source>Hide chat status block</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti pokalbio būsenos bloką</translation>
     </message>
     <message>
       <source>Use expanding message area</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite plečiamą pranešimų sritį</translation>
     </message>
     <message>
       <source>Hide visitor profile</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti lankytojo profilį</translation>
     </message>
     <message>
       <source>Notifications enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti pranešimai</translation>
     </message>
     <message>
       <source>Notification title</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo pavadinimas</translation>
     </message>
     <message>
       <source>Notification domain</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų sritis</translation>
     </message>
     <message>
       <source>Header icons color</source>
-      <translation type="unfinished"/>
+      <translation>Antraštės piktogramų spalva</translation>
     </message>
     <message>
       <source>Offline widget background color</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto valdiklio fono spalva</translation>
     </message>
     <message>
       <source>Offline widget border color</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto valdiklio rėmelio spalva</translation>
     </message>
     <message>
       <source>Offline text/icon color</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto teksto / piktogramos spalva</translation>
     </message>
     <message>
       <source>Show close widget button in status widget</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti uždarymo valdiklio mygtuką būsenos valdiklyje</translation>
     </message>
     <message>
       <source>Show operator profile in a new row</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti operatoriaus profilį naujoje eilutėje</translation>
     </message>
     <message>
       <source>Enable embed code override</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti įterpto kodo pakeitimą</translation>
     </message>
     <message>
       <source>New messages text. 1 message case</source>
-      <translation type="unfinished"/>
+      <translation>Naujų žinučių tekstas. 1 žinutės atvejis</translation>
     </message>
     <message>
       <source>New messages text. 2 or more new messages</source>
-      <translation type="unfinished"/>
+      <translation>Naujų žinučių tekstas. 2 ar daugiau naujų žinučių</translation>
     </message>
     <message>
       <source>Scroll to the bottom</source>
-      <translation type="unfinished"/>
+      <translation>Slinkite į apačią</translation>
     </message>
     <message>
       <source>Scroll to the bottom background color</source>
-      <translation type="unfinished"/>
+      <translation>Slinkimas į apatinę fono spalvą</translation>
     </message>
     <message>
       <source>Close button position in embed mode</source>
-      <translation type="unfinished"/>
+      <translation>Uždarymo mygtuko padėtis įterpimo režimu</translation>
     </message>
     <message>
       <source>Viewport settings</source>
-      <translation type="unfinished"/>
+      <translation>Rodinio lango nustatymai</translation>
     </message>
     <message>
       <source>Date format if message is on different day</source>
-      <translation type="unfinished"/>
+      <translation>Datos formatas, jei pranešimas yra kitą dieną</translation>
     </message>
     <message>
       <source>Date format if message is on same day</source>
-      <translation type="unfinished"/>
+      <translation>Datos formatas, jei pranešimas yra tą pačią dieną</translation>
     </message>
     <message>
       <source>New message text</source>
-      <translation type="unfinished"/>
+      <translation>Naujo pranešimo tekstas</translation>
     </message>
     <message>
       <source>New message text color</source>
-      <translation type="unfinished"/>
+      <translation>Naujos žinutės teksto spalva</translation>
     </message>
     <message>
       <source>New message background color</source>
-      <translation type="unfinished"/>
+      <translation>Nauja pranešimo fono spalva</translation>
     </message>
     <message>
       <source>Reaction to visitor message bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Reakcija į lankytojo pranešimo burbulo fono spalvą</translation>
     </message>
     <message>
       <source>Reaction to visitor message bubble icon color</source>
-      <translation type="unfinished"/>
+      <translation>Reakcija į lankytojo pranešimo burbulo piktogramos spalvą</translation>
     </message>
     <message>
       <source>Reaction to operator message bubble background color</source>
-      <translation type="unfinished"/>
+      <translation>Reakcija į operatoriaus pranešimo burbulo fono spalvą</translation>
     </message>
     <message>
       <source>Reaction to operator message bubble icon color</source>
-      <translation type="unfinished"/>
+      <translation>Reakcija į operatoriaus pranešimo burbulo piktogramos spalvą</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -2142,63 +2178,71 @@
     <name>abstract/proactivechatinvitation</name>
     <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message they will get.</source>
-      <translation type="unfinished"/>
+      <translation>Jei skyrius yra prisijungęs, o lankytojas pradeda pokalbį ir laukia, kol kas nors priims pokalbį. Tai bus pradinis pranešimas, kurį jie gaus.</translation>
     </message>
     <message>
       <source>If department is offline and visitor starts a chat this message will be send instaed of default welcome message. If this message is empty - welcome message will be send.</source>
-      <translation type="unfinished"/>
+      <translation>Jei skyrius yra neprisijungęs ir lankytojas pradeda pokalbį, šis pranešimas bus išsiųstas vietoj numatytojo sveikinimo pranešimo. Jei šis pranešimas tuščias, bus siunčiamas sveikinimo pranešimas.</translation>
     </message>
     <message>
       <source>Internal conversion parameters. Internal conversion is used to track covnersion where final step is done by user executing specific action and letting website to know us it happened.</source>
-      <translation type="unfinished"/>
+      <translation>Vidiniai konvertavimo parametrai. Vidinė konversija naudojama kovnerijai stebėti, kai galutinį žingsnį atlieka naudotojas, atlikdamas tam tikrą veiksmą ir pranešdamas svetainei, kad tai įvyko.</translation>
     </message>
     <message>
       <source>Sample javascript to finish conversion</source>
-      <translation type="unfinished"/>
+      <translation>Pavyzdys javascript baigti konversiją</translation>
     </message>
     <message>
       <source>You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.</source>
-      <translation type="unfinished"/>
+      <translation>Taip pat galite naudoti 5 paveikslėlius, naudodami tokius raktažodžius kaip {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. Galite naudoti šiuos įvykius. Šie įvykiai turėtų būti naudojami onclick įvykyje.</translation>
     </message>
     <message>
       <source>Main wrapper element should have id of</source>
-      <translation type="unfinished"/>
+      <translation>Pagrindinis apvalkalo elementas turėtų turėti id</translation>
     </message>
     <message>
       <source>New widget options</source>
-      <translation type="unfinished"/>
+      <translation>Naujos valdiklio parinktys</translation>
     </message>
     <message>
       <source>Old widget options</source>
-      <translation type="unfinished"/>
+      <translation>Senosios valdiklio parinktys</translation>
     </message>
     <message>
       <source>URL Matching conditions</source>
-      <translation type="unfinished"/>
+      <translation>URL atitikimo sąlygos</translation>
     </message>
     <message>
       <source>This option has to be activated for URL invitations to start working.</source>
-      <translation type="unfinished"/>
+      <translation>Ši parinktis turi būti aktyvuota, kad URL kvietimai pradėtų veikti.</translation>
     </message>
     <message>
       <source>By default, if an invitation was not closed by the visitor, the next invitation will be shown when the visitor navigates to a different page. If the visitor closed the invitation, it will not be shown on the next page. Enabling this option will display the invitation on the next page even if the previous one was closed by the visitor.</source>
-      <translation type="unfinished"/>
+      <translation>Pagal numatytuosius nustatymus, jei lankytojas neuždarė kvietimo, kitas kvietimas bus rodomas, kai lankytojas pereis į kitą puslapį. Jei lankytojas uždarė kvietimą, jis nebus rodomas kitame puslapyje. Įjungus šią parinktį, kvietimas bus rodomas kitame puslapyje, net jei ankstesnįjį lankytojas uždarė.</translation>
+    </message>
+    <message>
+      <source>Persistence settings</source>
+      <translation>Pastovumo nustatymai</translation>
+    </message>
+    <message>
+      <source>Flush list</source>
+      <translation>Išplauti sąrašą</translation>
     </message>
     <message>
       <source>Invitation will be shown only once per visitor session. If the visitor closes the invitation it will not be shown again during the same session.</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimas bus rodomas tik vieną kartą per vieną lankytojo sesiją. Jei lankytojas uždaro kvietimą, per tą pačią sesiją jis daugiau nebus rodomas.</translation>
     </message>
     <message>
       <source>If chat was accepted by the same language speaking operator you can send visitor a custom message on chat accept event.</source>
-      <translation type="unfinished"/>
+      <translation>Jei pokalbį priėmė ta pačia kalba kalbantis operatorius, galite siųsti lankytojui pasirinktinį pranešimą pokalbio priėmimo įvykio metu.</translation>
     </message>
     <message>
       <source>What languages should be ignored. If chat language is one of the selected, message will not be send.</source>
-      <translation type="unfinished"/>
+      <translation>Kokias kalbas reikėtų ignoruoti. Jei pokalbių kalba yra viena iš pasirinktų, žinutė nebus siunčiama.</translation>
     </message>
     <message>
       <source>If you leave empty - message we will be send only if translated message is found.</source>
-      <translation type="unfinished"/>
+      <translation>Jei paliksite tuščią - žinutė bus išsiųsta tik tada, jei bus rasta išversta žinutė.</translation>
     </message>
     <message>
       <source>If you want pro active chat invitation to work it has to be enabled in</source>
@@ -2218,55 +2262,55 @@
     </message>
     <message>
       <source>[Record ID] [User ID] [Object ID]</source>
-      <translation type="unfinished"/>
+      <translation>[Įrašo ID] [Naudotojo ID] [Objekto ID]</translation>
     </message>
     <message>
       <source>Category</source>
-      <translation type="unfinished"/>
+      <translation>Kategorija</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation type="unfinished"/>
+      <translation>Žinutė</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Failas</translation>
     </message>
     <message>
       <source>If same identifier used for two columns, both values will be represented in single column.</source>
-      <translation type="unfinished"/>
+      <translation>Jei dviem stulpeliams naudojamas tas pats identifikatorius, abi reikšmės bus pateiktos viename stulpelyje.</translation>
     </message>
     <message>
       <source>Line</source>
-      <translation type="unfinished"/>
+      <translation>Linija</translation>
     </message>
     <message>
       <source>Severity</source>
-      <translation type="unfinished"/>
+      <translation>Sunkumas</translation>
     </message>
     <message>
       <source>Source</source>
-      <translation type="unfinished"/>
+      <translation>Šaltinis</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Laikas</translation>
     </message>
     <message>
       <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation type="unfinished"/>
+      <translation>Kalba, palikite tuščią vietą visiems. Pvz., lit, rus, ger ir t. t.</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Operator. Visitor will see this operator nick.</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius. Lankytojas matys šį operatoriaus slapyvardį.</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation type="unfinished"/>
+      <translation>Pozicija</translation>
     </message>
     <message>
       <source>Department</source>
@@ -2274,563 +2318,567 @@
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas</translation>
     </message>
     <message>
       <source>Wait message. Visible when users starts chat and is waiting for someone to accept a chat.</source>
-      <translation type="unfinished"/>
+      <translation>Laukimo pranešimas. Matomas, kai naudotojai pradeda pokalbį ir laukia, kol kas nors priims pokalbį.</translation>
     </message>
     <message>
       <source>Wait timeout.</source>
-      <translation type="unfinished"/>
+      <translation>Laukimo laiko limitas.</translation>
     </message>
     <message>
       <source>Show visitor this message when wait timeout passes</source>
-      <translation type="unfinished"/>
+      <translation>Parodykite lankytojui šį pranešimą, kai praeina laukimo laiko limitas</translation>
     </message>
     <message>
       <source>How many times repeat message? Applied only to first message.</source>
-      <translation type="unfinished"/>
+      <translation>Kiek kartų pakartoti pranešimą? Taikoma tik pirmajai žinutei.</translation>
     </message>
     <message>
       <source>Redirect visitor to survey if visitor does not responds within N seconds</source>
-      <translation type="unfinished"/>
+      <translation>Nukreipti lankytoją į apklausą, jei lankytojas neatsako per N sekundžių</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Apklausa</translation>
     </message>
     <message>
       <source>Timeout. [1]</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limitas. [1]</translation>
     </message>
     <message>
       <source>Timeout. [2]</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limitas. [2]</translation>
     </message>
     <message>
       <source>Timeout. [3]</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limitas. [3]</translation>
     </message>
     <message>
       <source>Timeout. [4]</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limitas. [4]</translation>
     </message>
     <message>
       <source>Timeout. [5]</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limitas. [5]</translation>
     </message>
     <message>
       <source>Default on hold message. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji sulaikymo žinutė. Atsitiktiniams pranešimams atskirti naudokite ||||.</translation>
     </message>
     <message>
       <source>Message for timeout [1]. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [1]. Atsitiktiniams pranešimams atskirti naudokite ||||.</translation>
     </message>
     <message>
       <source>Message for timeout [2]. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [2]. Atsitiktiniams pranešimams atskirti naudokite ||||.</translation>
     </message>
     <message>
       <source>Message for timeout [3]. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [3]. Atsitiktiniams pranešimams atskirti naudokite ||||.</translation>
     </message>
     <message>
       <source>Message for timeout [4]. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [4]. Atsitiktiniams pranešimams atskirti naudokite ||||.</translation>
     </message>
     <message>
       <source>Message for timeout [5]. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [5]. Atsitiktiniams pranešimams atskirti naudokite ||||.</translation>
     </message>
     <message>
       <source>Message for timeout [1]</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [1]</translation>
     </message>
     <message>
       <source>Message for timeout [2]</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [2]</translation>
     </message>
     <message>
       <source>Message for timeout [3]</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [3]</translation>
     </message>
     <message>
       <source>Message for timeout [4]</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [4]</translation>
     </message>
     <message>
       <source>Message for timeout [5]</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [5]</translation>
     </message>
     <message>
       <source>Message for timeout [1], use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [1], atsitiktiniams pranešimams atskirti naudokite |||.</translation>
     </message>
     <message>
       <source>Message for timeout [2], use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [2], atsitiktiniams pranešimams atskirti naudokite |||.</translation>
     </message>
     <message>
       <source>Message for timeout [3], use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [3], atsitiktiniams pranešimams atskirti naudokite |||.</translation>
     </message>
     <message>
       <source>Message for timeout [4], use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [4], atsitiktiniams pranešimams atskirti naudokite |||.</translation>
     </message>
     <message>
       <source>Message for timeout [5], use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limito pranešimas [5], atsitiktiniams pranešimams atskirti naudokite |||.</translation>
     </message>
     <message>
       <source>Message to visitor on chat close. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas lankytojui apie pokalbio uždarymą. Atsitiktiniams pranešimams atskirti naudokite ||||.</translation>
     </message>
     <message>
       <source>Message to visitor if department is offline. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas lankytojui, jei skyrius neprisijungęs. Atsitiktiniams pranešimams atskirti naudokite ||||.</translation>
     </message>
     <message>
       <source>Message to visitor if operator speaks same language as visitor. Use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas lankytojui, jei operatorius kalba ta pačia kalba kaip ir lankytojas. Atsitiktiniams pranešimams atskirti naudokite |||.</translation>
     </message>
     <message>
       <source>Icon name</source>
-      <translation type="unfinished"/>
+      <translation>Ikonos pavadinimas</translation>
     </message>
     <message>
       <source>Icon identifier</source>
-      <translation type="unfinished"/>
+      <translation>Ikonos identifikatorius</translation>
     </message>
     <message>
       <source>it should have same value you enter in alert icon trigger</source>
-      <translation type="unfinished"/>
+      <translation>ji turėtų turėti tą pačią reikšmę, kurią įvedėte į įspėjimo piktogramos trigerį.</translation>
     </message>
     <message>
       <source>Column name</source>
-      <translation type="unfinished"/>
+      <translation>Stulpelio pavadinimas</translation>
     </message>
     <message>
       <source>Column identifier</source>
-      <translation type="unfinished"/>
+      <translation>Stulpelio identifikatorius</translation>
     </message>
     <message>
       <source>Column icon, material icons text</source>
-      <translation type="unfinished"/>
+      <translation>Stulpelio piktograma, medžiagos piktogramos tekstas</translation>
     </message>
     <message>
       <source>Variable name</source>
-      <translation type="unfinished"/>
+      <translation>Kintamojo pavadinimas</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungta</translation>
     </message>
     <message>
       <source>Icon mode</source>
-      <translation type="unfinished"/>
+      <translation>Ikonos režimas</translation>
     </message>
     <message>
       <source>Visible in the widget chat lists</source>
-      <translation type="unfinished"/>
+      <translation>Matomas valdiklio pokalbių sąrašuose</translation>
     </message>
     <message>
       <source>Enabled in chat window</source>
-      <translation type="unfinished"/>
+      <translation>Įjungta pokalbių lange</translation>
     </message>
     <message>
       <source>Visible in the widget mail lists</source>
-      <translation type="unfinished"/>
+      <translation>Matomas valdiklių pašto sąrašuose</translation>
     </message>
     <message>
       <source>Visible standard chat list</source>
-      <translation type="unfinished"/>
+      <translation>Matomas standartinis pokalbių sąrašas</translation>
     </message>
     <message>
       <source>Visible standard mail list</source>
-      <translation type="unfinished"/>
+      <translation>Matomas standartinis pašto sąrašas</translation>
     </message>
     <message>
       <source>Has popup information</source>
-      <translation type="unfinished"/>
+      <translation>Turi iššokančios informacijos</translation>
     </message>
     <message>
       <source>Sort enabled, you can define custom column also.</source>
-      <translation type="unfinished"/>
+      <translation>Įjungus rūšiavimą, taip pat galite nustatyti pasirinktinį stulpelį.</translation>
     </message>
     <message>
       <source>Sort column from lh_chat table, or JSON syntax</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti stulpelį iš lh_chat lentelės arba JSON sintaksė</translation>
     </message>
     <message>
       <source>Visible in online visitors list</source>
-      <translation type="unfinished"/>
+      <translation>Matomas internetinių lankytojų sąraše</translation>
     </message>
     <message>
       <source>Name for personal reference</source>
-      <translation type="unfinished"/>
+      <translation>Vardas ir pavardė asmeninei nuorodai</translation>
     </message>
     <message>
       <source>Messages from visitors to agents</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų pranešimai agentams</translation>
     </message>
     <message>
       <source>Messages from agents to visitors</source>
-      <translation type="unfinished"/>
+      <translation>Agentų pranešimai lankytojams</translation>
     </message>
     <message>
       <source>Applies to rest API calls</source>
-      <translation type="unfinished"/>
+      <translation>Taikoma likusiems API skambučiams</translation>
     </message>
     <message>
       <source>Place you replacement pattern here.</source>
-      <translation type="unfinished"/>
+      <translation>Įdėkite pakaitinį modelį čia.</translation>
     </message>
     <message>
       <source>Guardrails rules</source>
-      <translation type="unfinished"/>
+      <translation>Apsauginių aptvarų taisyklės</translation>
     </message>
     <message>
       <source>Stores JSON array of department IDs to which the rule applies. Empty means all departments.</source>
-      <translation type="unfinished"/>
+      <translation>Saugomas JSON masyvas su skyriaus ID, kuriam taikoma taisyklė. Tuščias reiškia visus skyrius.</translation>
     </message>
     <message>
       <source>Message to visitor after posting sensitive information</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas lankytojui po neskelbtinos informacijos paskelbimo</translation>
     </message>
     <message>
       <source>Auto reply warning if visitor is posting information to agent which does not have permission to view sensitive data.</source>
-      <translation type="unfinished"/>
+      <translation>Automatinio atsakymo įspėjimas, jei lankytojas siunčia informaciją agentui, kuris neturi teisės peržiūrėti neskelbtinų duomenų.</translation>
     </message>
     <message>
       <source>Department rule to apply</source>
-      <translation type="unfinished"/>
+      <translation>Departamento taikoma taisyklė</translation>
     </message>
     <message>
       <source>To what department transfer chat</source>
-      <translation type="unfinished"/>
+      <translation>Į kokį skyrių perkelti pokalbiai</translation>
     </message>
     <message>
       <source>Expected variable value</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama kintamojo vertė</translation>
     </message>
     <message>
       <source>Destination department by brand role</source>
-      <translation type="unfinished"/>
+      <translation>Paskirties departamentas pagal prekės ženklo vaidmenį</translation>
     </message>
     <message>
       <source>Change department only if present department role is</source>
-      <translation type="unfinished"/>
+      <translation>Keisti skyrių tik tada, jei dabartinio skyriaus vaidmuo yra</translation>
     </message>
     <message>
       <source>Condition is always checked independently of transfer method. Department or Department brand role.</source>
-      <translation type="unfinished"/>
+      <translation>Būklė visada tikrinama nepriklausomai nuo perdavimo būdo. Departamento arba departamento prekės ženklo vaidmuo.</translation>
     </message>
     <message>
       <source>Set chat priority to</source>
-      <translation type="unfinished"/>
+      <translation>Nustatykite pokalbių prioritetą į</translation>
     </message>
     <message>
       <source>Skip bot and set chat to pending status</source>
-      <translation type="unfinished"/>
+      <translation>Praleisti botą ir nustatyti pokalbio būseną</translation>
     </message>
     <message>
       <source>Rule priority</source>
-      <translation type="unfinished"/>
+      <translation>Taisyklės prioritetas</translation>
     </message>
     <message>
       <source>Javascript/Cookie variable value</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Javascript/Cookie&quot; kintamojo vertė</translation>
     </message>
     <message>
       <source>Variable identifier</source>
-      <translation type="unfinished"/>
+      <translation>Kintamojo identifikatorius</translation>
     </message>
     <message>
       <source>Old way passed variable name</source>
-      <translation type="unfinished"/>
+      <translation>Senasis būdas perdavė kintamojo vardą</translation>
     </message>
     <message>
       <source>Variable changed from [b]{old_val}[/b] to [b]{new_val}[/b]</source>
-      <translation type="unfinished"/>
+      <translation>Kintamasis pakeistas iš [b]{old_val}[/b] į [b]{new_val}[/b]</translation>
     </message>
     <message>
       <source>Log message for for variable. Variables you can use {old_val}, {new_val}</source>
-      <translation type="unfinished"/>
+      <translation>Žurnalo pranešimas apie kintamąjį for. Kintamieji, kuriuos galite naudoti {old_val}, {new_val}</translation>
     </message>
     <message>
       <source>Variable type</source>
-      <translation type="unfinished"/>
+      <translation>Kintamasis tipas</translation>
     </message>
     <message>
       <source>Content field to extract. You can access JWT token content field.</source>
-      <translation type="unfinished"/>
+      <translation>Ištraukiamas turinio laukas. Galite pasiekti JWT žetono turinio lauką.</translation>
     </message>
     <message>
       <source>Default message</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji žinutė</translation>
     </message>
     <message>
       <source>Visitor ID</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo ID</translation>
     </message>
     <message>
       <source>Event ID</source>
-      <translation type="unfinished"/>
+      <translation>Įvykio ID</translation>
     </message>
     <message>
       <source>Timestamp</source>
-      <translation type="unfinished"/>
+      <translation>Laiko žyma</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation type="unfinished"/>
+      <translation>Vertė</translation>
     </message>
     <message>
       <source>Name for personal purposes</source>
-      <translation type="unfinished"/>
+      <translation>Vardas ir pavardė asmeniniais tikslais</translation>
     </message>
     <message>
       <source>Operator name</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus pavadinimas</translation>
     </message>
     <message>
       <source>Time on site in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Laikas svetainėje sekundėmis</translation>
     </message>
     <message>
       <source>Delay invitation widget show for N seconds if invitation was already matched.</source>
-      <translation type="unfinished"/>
+      <translation>N sekundžių atidėti kvietimo valdiklio rodymą, jei kvietimas jau buvo suderintas.</translation>
     </message>
     <message>
       <source>URL to match. Multiple URL can be defined by comma. Wildcard is supported at the end of URL</source>
-      <translation type="unfinished"/>
+      <translation>Atitinkamas URL adresas. Keletą URL galima apibrėžti kableliu. URL pabaigoje palaikomas simbolis &quot;Wildcard&quot;.</translation>
     </message>
     <message>
       <source>Delay invitation widget show for N seconds if trigger is matched for first time.</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimo valdiklio rodymo atidėjimas N sekundžių, jei trigeris sutampa pirmą kartą.</translation>
     </message>
     <message>
       <source>If dynamic invitation was matched on page refresh show instantly. Otherwise dynamic conditions will have to be matched again.</source>
-      <translation type="unfinished"/>
+      <translation>Jei dinaminis kvietimas atitiko puslapio atnaujinimą, rodomas iš karto. Priešingu atveju dinaminės sąlygos turės būti suderintos iš naujo.</translation>
     </message>
     <message>
       <source>Inject only HTML, widget state will not be changed. Matched invitation is executed on each page load.</source>
-      <translation type="unfinished"/>
+      <translation>Injektuokite tik HTML, valdiklio būsena nebus keičiama. Atitinkamas kvietimas vykdomas kiekvieno puslapio įkėlimo metu.</translation>
     </message>
     <message>
       <source>Pageviews</source>
-      <translation type="unfinished"/>
+      <translation>Puslapių peržiūros</translation>
     </message>
     <message>
       <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Google&quot; raktinis žodis atitiks bet kurį &quot;Google&quot; domeną.</translation>
     </message>
     <message>
       <source>How many times user show invitation, 0 - untill users closes it, &gt; 0 limits.</source>
-      <translation type="unfinished"/>
+      <translation>Kiek kartų naudotojui rodomas kvietimas, 0 - kol naudotojas jį uždaro, &gt; 0 ribos.</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Reikalingas el. paštas</translation>
     </message>
     <message>
       <source>Requires name</source>
-      <translation type="unfinished"/>
+      <translation>Reikalingas pavadinimas</translation>
     </message>
     <message>
       <source>Show on these devices only</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti tik šiuose įrenginiuose</translation>
     </message>
     <message>
       <source>Assign to shown operator</source>
-      <translation type="unfinished"/>
+      <translation>Priskirti rodomam operatoriui</translation>
     </message>
     <message>
       <source>Invitation is visible only if URL matches</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimas matomas tik tuo atveju, jei URL atitinka</translation>
     </message>
     <message>
       <source>Do not show invitation after it was closed in the same session.</source>
-      <translation type="unfinished"/>
+      <translation>Nerodyti kvietimo po to, kai jis buvo uždarytas toje pačioje sesijoje.</translation>
+    </message>
+    <message>
+      <source>One-time invitation. It will never be shown again to the same visitor.</source>
+      <translation>Vienkartinis kvietimas. Jis niekada nebus rodomas tam pačiam lankytojui.</translation>
     </message>
     <message>
       <source>Show next matching invitation if URL changes and present invitation was closed</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti kitą atitinkamą kvietimą, jei URL pasikeičia ir dabartinis kvietimas buvo uždarytas</translation>
     </message>
     <message>
       <source>Use default auto responder if available</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite numatytąjį automatinį atsakiklį, jei yra</translation>
     </message>
     <message>
       <source>Show everytime it is matched</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti kiekvieną kartą, kai jis sutampa</translation>
     </message>
     <message>
       <source>Show invitation next time even if a customer started a chat</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti kvietimą kitą kartą, net jei klientas pradėjo pokalbį</translation>
     </message>
     <message>
       <source>Lock department. The department will be the one that was set when the invitation was issued.</source>
-      <translation type="unfinished"/>
+      <translation>Užraktų skyrius. Tai bus tas skyrius, kuris buvo nustatytas išsiunčiant kvietimą.</translation>
     </message>
     <message>
       <source>Requires phone</source>
-      <translation type="unfinished"/>
+      <translation>Reikalingas telefonas</translation>
     </message>
     <message>
       <source>Show random operator profile</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti atsitiktinio operatoriaus profilį</translation>
     </message>
     <message>
       <source>Enter operators IDs from whom random operator should be shown, separated by comma</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite operatorių ID, iš kurių turėtų būti rodomas atsitiktinis operatorius, atskirti kableliu</translation>
     </message>
     <message>
       <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius, kokiam identifikatoriui šis pranešimas turėtų būti rodomas, palikite tuščią reikšmę visiems</translation>
     </message>
     <message>
       <source>Tag</source>
-      <translation type="unfinished"/>
+      <translation>Žyma</translation>
     </message>
     <message>
       <source>Auto responder to apply</source>
-      <translation type="unfinished"/>
+      <translation>Automatinio atsakiklio taikymas</translation>
     </message>
     <message>
       <source>Parent invitation</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimas tėvams</translation>
     </message>
     <message>
       <source>Campaign</source>
-      <translation type="unfinished"/>
+      <translation>Kampanija</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>Trigger to execute</source>
-      <translation type="unfinished"/>
+      <translation>Vykdymo trigeris</translation>
     </message>
     <message>
       <source>Execute bot only if there is no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Vykdyti botą tik tada, jei nėra internetinių operatorių</translation>
     </message>
     <message>
       <source>Matched times</source>
-      <translation type="unfinished"/>
+      <translation>Suderinti laikai</translation>
     </message>
     <message>
       <source>Message to user</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas naudotojui</translation>
     </message>
     <message>
       <source>Message to returning user</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas grįžtančiam naudotojui</translation>
     </message>
     <message>
       <source>Nick which will be used if we cannot determine returning user name</source>
-      <translation type="unfinished"/>
+      <translation>Nick, kuris bus naudojamas, jei negalėsime nustatyti grąžinamo naudotojo vardo</translation>
     </message>
     <message>
       <source>This is dynamic invitation</source>
-      <translation type="unfinished"/>
+      <translation>Tai dinamiškas kvietimas</translation>
     </message>
     <message>
       <source>Choose a dynamic event</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite dinamišką įvykį</translation>
     </message>
     <message>
       <source>Show invitation if visitor is idle for n seconds</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti kvietimą, jei lankytojas nedirba n sekundžių</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Neįgalieji</translation>
     </message>
     <message>
       <source>Apply HTML invitation only to mobile devices</source>
-      <translation type="unfinished"/>
+      <translation>Taikyti HTML kvietimą tik mobiliesiems įrenginiams</translation>
     </message>
     <message>
       <source>Inject HTML everytime dynamic event occurs</source>
-      <translation type="unfinished"/>
+      <translation>HTML injekcija kiekvieną kartą, kai įvyksta dinaminis įvykis</translation>
     </message>
     <message>
       <source>Do not show widget automatically</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai nerodyti valdiklio</translation>
     </message>
     <message>
       <source>Show widget on invitation to chat. Applies only to desktop devices.</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti valdiklį kviečiant į pokalbį. Taikoma tik darbalaukio įrenginiams.</translation>
     </message>
     <message>
       <source>If shown invitation was closed, next time show it minimized.</source>
-      <translation type="unfinished"/>
+      <translation>Jei parodytas kvietimas buvo uždarytas, kitą kartą jį rodykite sumažintą.</translation>
     </message>
     <message>
       <source>Close button above invitation</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryti mygtuką virš kvietimo</translation>
     </message>
     <message>
       <source>Show profile photo on the left</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti profilio nuotrauką kairėje</translation>
     </message>
     <message>
       <source>Hide operator name in invitation widget</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus pavadinimo slėpimas kvietimo valdiklyje</translation>
     </message>
     <message>
       <source>Hide operator profile image</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti operatoriaus profilio paveikslėlį</translation>
     </message>
     <message>
       <source>Hide content on click</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti turinį paspaudus</translation>
     </message>
     <message>
       <source>Show default header on proactive widget open event</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti numatytąją antraštę proaktyvaus valdiklio atidarymo įvykio metu</translation>
     </message>
     <message>
       <source>Play sound</source>
-      <translation type="unfinished"/>
+      <translation>Groti garsą</translation>
     </message>
     <message>
       <source>Skip bot and set chat status directly to pending state</source>
-      <translation type="unfinished"/>
+      <translation>Praleiskite botą ir nustatykite pokalbio būseną tiesiai į laukimo būseną</translation>
     </message>
     <message>
       <source>Append trigger content in full widget</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti trigerio turinį visame valdiklyje</translation>
     </message>
     <message>
       <source>Keep invitation body after widget close. No further invitations will be processed.</source>
-      <translation type="unfinished"/>
+      <translation>Po valdiklio uždarymo išsaugokite kvietimo kūną. Daugiau kvietimų nebus apdorojama.</translation>
     </message>
     <message>
       <source>Append trigger content in intro message</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti trigerio turinį į įžanginį pranešimą</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Do not store event if from last event has passed less than x seconds.</source>
-      <translation type="unfinished"/>
+      <translation>Nesaugoti įvykio, jei nuo paskutinio įvykio praėjo mažiau nei x sekundžių.</translation>
     </message>
     <message>
       <source>Filter by value</source>
-      <translation type="unfinished"/>
+      <translation>Filtruoti pagal vertę</translation>
     </message>
     <message>
       <source>Audit log</source>
-      <translation type="unfinished"/>
+      <translation>Audito žurnalas</translation>
     </message>
     <message>
       <source>Auto responder</source>
@@ -2838,59 +2886,59 @@
     </message>
     <message>
       <source>Chat alert icons</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių įspėjimo piktogramos</translation>
     </message>
     <message>
       <source>Chat columns</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių skiltys</translation>
     </message>
     <message>
       <source>Chat priority</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių prioritetas</translation>
     </message>
     <message>
       <source>String</source>
-      <translation type="unfinished"/>
+      <translation>Stygos</translation>
     </message>
     <message>
       <source>Integer</source>
-      <translation type="unfinished"/>
+      <translation>Sveikasis skaičius</translation>
     </message>
     <message>
       <source>Decimal</source>
-      <translation type="unfinished"/>
+      <translation>Dešimtainis</translation>
     </message>
     <message>
       <source>Encrypted</source>
-      <translation type="unfinished"/>
+      <translation>Užšifruotas</translation>
     </message>
     <message>
       <source>Website cookie</source>
-      <translation type="unfinished"/>
+      <translation>Svetainės slapukas</translation>
     </message>
     <message>
       <source>JWT Token content field</source>
-      <translation type="unfinished"/>
+      <translation>JWT žetono turinio laukas</translation>
     </message>
     <message>
       <source>Chat variables</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių kintamieji</translation>
     </message>
     <message>
       <source>Pro active chat campaigns</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Pro&quot; aktyvių pokalbių kampanijos</translation>
     </message>
     <message>
       <source>Pro active chat events</source>
-      <translation type="unfinished"/>
+      <translation>Pro aktyvūs pokalbių įvykiai</translation>
     </message>
     <message>
       <source>Mouse leaves a browser window</source>
-      <translation type="unfinished"/>
+      <translation>Pelė palieka naršyklės langą</translation>
     </message>
     <message>
       <source>Visitor idle N seconds on site</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo neveikimas N sekundžių svetainėje</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -2898,732 +2946,744 @@
     </message>
     <message>
       <source>Pro active chat variables</source>
-      <translation type="unfinished"/>
+      <translation>Pro aktyvūs pokalbių kintamieji</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Messages content protection</source>
-      <translation type="unfinished"/>
+      <translation>Žinučių turinio apsauga</translation>
     </message>
   </context>
   <context>
     <name>bot/conditions</name>
     <message>
       <source>OR</source>
-      <translation type="unfinished"/>
+      <translation>ARBA</translation>
     </message>
     <message>
       <source>Main conditions</source>
-      <translation type="unfinished"/>
+      <translation>Pagrindinės sąlygos</translation>
     </message>
     <message>
       <source>Add condition</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti sąlygą</translation>
     </message>
     <message>
       <source>Chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID</translation>
     </message>
     <message>
       <source>Make sure to save priority rule first.</source>
-      <translation type="unfinished"/>
+      <translation>Pirmiausia išsaugokite prioritetinę taisyklę.</translation>
     </message>
     <message>
       <source>Check against chat</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinimas pagal pokalbių įrašus</translation>
     </message>
     <message>
       <source>Field</source>
-      <translation type="unfinished"/>
+      <translation>Laukas</translation>
     </message>
     <message>
       <source>Condition</source>
-      <translation type="unfinished"/>
+      <translation>Būklė</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation type="unfinished"/>
+      <translation>Vertė</translation>
     </message>
     <message>
       <source>Make sure to save condition first.</source>
-      <translation type="unfinished"/>
+      <translation>Pirmiausia būtinai išsaugokite būklę.</translation>
     </message>
     <message>
       <source>Investigate places where this variable is used</source>
-      <translation type="unfinished"/>
+      <translation>Ištirti vietas, kuriose naudojamas šis kintamasis</translation>
     </message>
     <message>
       <source>Use cases</source>
-      <translation type="unfinished"/>
+      <translation>Naudojimo atvejai</translation>
     </message>
     <message>
       <source>If no conditions are defined, it is considered as invalid.</source>
-      <translation type="unfinished"/>
+      <translation>Jei sąlygos nenustatytos, jis laikomas negaliojančiu.</translation>
     </message>
     <message>
       <source>Investigate places where this condition is used</source>
-      <translation type="unfinished"/>
+      <translation>Ištirti vietas, kuriose ši sąlyga naudojama</translation>
     </message>
     <message>
       <source>Chat ID or any other chat variable</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID arba bet kuris kitas pokalbio kintamasis</translation>
     </message>
     <message>
       <source>Chat Status</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio būsena</translation>
     </message>
     <message>
       <source>Department ID</source>
-      <translation type="unfinished"/>
+      <translation>Departamento ID</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo ID</translation>
     </message>
     <message>
       <source>Email</source>
-      <translation type="unfinished"/>
+      <translation>El. paštas</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefonas</translation>
     </message>
     <message>
       <source>Nickname</source>
-      <translation type="unfinished"/>
+      <translation>Slapyvardis</translation>
     </message>
     <message>
       <source>Country Code</source>
-      <translation type="unfinished"/>
+      <translation>Šalies kodas</translation>
     </message>
     <message>
       <source>Chat Variable</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių kintamasis</translation>
     </message>
     <message>
       <source>Chat variable accessible directly</source>
-      <translation type="unfinished"/>
+      <translation>Tiesiogiai pasiekiamas pokalbių kintamasis</translation>
     </message>
     <message>
       <source>Reuse existing conditions</source>
-      <translation type="unfinished"/>
+      <translation>Pakartotinis esamų sąlygų panaudojimas</translation>
     </message>
     <message>
       <source>Chat ID or any other chatr variable</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID arba bet kuris kitas chatr kintamasis</translation>
     </message>
     <message>
       <source>Parse for mathematical outcome</source>
-      <translation type="unfinished"/>
+      <translation>Matematinio rezultato analizė</translation>
     </message>
     <message>
       <source>Investigate places where this Rest API is used</source>
-      <translation type="unfinished"/>
+      <translation>Ištirti vietas, kuriose naudojama ši &quot;Rest API</translation>
     </message>
     <message>
       <source>Investigate places where this translation is used</source>
-      <translation type="unfinished"/>
+      <translation>Ištirti vietas, kuriose šis vertimas vartojamas</translation>
     </message>
     <message>
       <source>Investigate places where this bot is used</source>
-      <translation type="unfinished"/>
+      <translation>Ištirti vietas, kuriose naudojamas šis botas</translation>
     </message>
     <message>
       <source>Individualization item</source>
-      <translation type="unfinished"/>
+      <translation>Individualizavimo elementas</translation>
     </message>
     <message>
       <source>Trigger</source>
-      <translation type="unfinished"/>
+      <translation>Triggeris</translation>
     </message>
     <message>
       <source>Chat priority</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių prioritetas</translation>
     </message>
     <message>
       <source>Replaceable variable </source>
-      <translation type="unfinished"/>
+      <translation>Keičiamas kintamasis </translation>
     </message>
     <message>
       <source>Canned message</source>
-      <translation type="unfinished"/>
+      <translation>Konservuotas pranešimas</translation>
     </message>
     <message>
       <source>Mail response template</source>
-      <translation type="unfinished"/>
+      <translation>Pašto atsakymo šablonas</translation>
     </message>
     <message>
       <source>Proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus kvietimas</translation>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis atsakiklis</translation>
     </message>
     <message>
       <source>Webhook</source>
-      <translation type="unfinished"/>
+      <translation>Webhook</translation>
     </message>
     <message>
       <source>This Bot is used in the following places</source>
-      <translation type="unfinished"/>
+      <translation>Šis botas naudojamas šiose vietose</translation>
     </message>
     <message>
       <source>Continuous Chat</source>
-      <translation type="unfinished"/>
+      <translation>Nuolatinis pokalbis</translation>
     </message>
     <message>
       <source>Continuous Mail</source>
-      <translation type="unfinished"/>
+      <translation>Nuolatinis paštas</translation>
     </message>
     <message>
       <source>Auto Responder</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis atsakiklis</translation>
     </message>
     <message>
       <source>Widget Theme</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio tema</translation>
     </message>
     <message>
       <source>Proactive Invitation</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus kvietimas</translation>
     </message>
     <message>
       <source>Bot Command</source>
-      <translation type="unfinished"/>
+      <translation>Boto komanda</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>This Bot is not used anywhere yet.</source>
-      <translation type="unfinished"/>
+      <translation>Šis botas dar niekur nenaudojamas.</translation>
     </message>
     <message>
       <source>Bot not found.</source>
-      <translation type="unfinished"/>
+      <translation>Botas nerastas.</translation>
     </message>
     <message>
       <source>This REST API is used in the following triggers</source>
-      <translation type="unfinished"/>
+      <translation>Ši REST API naudojama šiuose trigeriuose</translation>
     </message>
     <message>
       <source>Methods used</source>
-      <translation type="unfinished"/>
+      <translation>Taikomi metodai</translation>
     </message>
     <message>
       <source>This REST API is not used in any triggers yet.</source>
-      <translation type="unfinished"/>
+      <translation>Ši REST API dar nenaudojama jokiuose trigeriuose.</translation>
     </message>
     <message>
       <source>REST API not found.</source>
-      <translation type="unfinished"/>
+      <translation>REST API nerastas.</translation>
     </message>
     <message>
       <source>Test output</source>
-      <translation type="unfinished"/>
+      <translation>Bandymo išvestis</translation>
     </message>
     <message>
       <source>Test</source>
-      <translation type="unfinished"/>
+      <translation>Testas</translation>
+    </message>
+    <message>
+      <source>Message ID</source>
+      <translation>Pranešimo ID</translation>
     </message>
   </context>
   <context>
     <name>genericbot/restapi</name>
     <message>
       <source>Text like</source>
-      <translation type="unfinished"/>
+      <translation>Tekstas, pvz.</translation>
     </message>
     <message>
       <source>Text not like</source>
-      <translation type="unfinished"/>
+      <translation>Tekstas nepanašus į</translation>
     </message>
     <message>
       <source>Contains</source>
-      <translation type="unfinished"/>
+      <translation>Sudėtyje yra</translation>
     </message>
     <message>
       <source>In list, items separated by ||</source>
-      <translation type="unfinished"/>
+      <translation>Sąraše elementai atskirti ||</translation>
     </message>
     <message>
       <source>In list items (lowercase before comparison), items separated by ||</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Start of OR</source>
-      <translation type="unfinished"/>
+      <translation>Sąrašo elementai (prieš palyginimą rašomi mažosiomis raidėmis), elementai atskirti ||</translation>
     </message>
     <message>
       <source>In list (lowercase before comparison), items separated by ||</source>
-      <translation type="unfinished"/>
+      <translation>Sąraše (prieš palyginimą rašoma mažosiomis raidėmis), elementai atskirti ||</translation>
     </message>
     <message>
       <source>Not in list, items separated by ||</source>
-      <translation type="unfinished"/>
+      <translation>Ne sąraše, elementai atskirti ||</translation>
     </message>
     <message>
       <source>Not in list (lowercase before comparison), items separated by ||</source>
-      <translation type="unfinished"/>
+      <translation>Ne sąraše (mažosios raidės prieš palyginimą), elementai atskirti ||</translation>
+    </message>
+    <message>
+      <source>Start of OR</source>
+      <translation>Tęstinės operacijos pradžia</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Description</source>
-      <translation type="unfinished"/>
+      <translation>Aprašymas</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Šeimininkas</translation>
     </message>
     <message>
       <source>Log all request and their responses in audit log.</source>
-      <translation type="unfinished"/>
+      <translation>Įrašykite visas užklausas ir jų atsakymus į audito žurnalą.</translation>
     </message>
     <message>
       <source>Log all requests and their responses as system messages.</source>
-      <translation type="unfinished"/>
+      <translation>Registruokite visas užklausas ir jų atsakymus kaip sistemos pranešimus.</translation>
     </message>
     <message>
       <source>Ignore request with these http statuses. Separate multiple by comma.</source>
-      <translation type="unfinished"/>
+      <translation>Ignoruokite užklausas su šiomis http būsenomis. Atskirkite kelis kableliu.</translation>
     </message>
     <message>
       <source>Skip request body. Only response will be logged.</source>
-      <translation type="unfinished"/>
+      <translation>Praleisti užklausos kūną. Registruojamas tik atsakymas.</translation>
     </message>
     <message>
       <source>Enable cache</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti talpyklą</translation>
     </message>
     <message>
       <source>Clear cache</source>
-      <translation type="unfinished"/>
+      <translation>Išvalyti talpyklą</translation>
     </message>
     <message>
       <source>We will cache unique request and responses to speed up processing.</source>
-      <translation type="unfinished"/>
+      <translation>Norėdami pagreitinti apdorojimą, unikalias užklausas ir atsakymus įrašysime į talpyklą.</translation>
     </message>
     <message>
       <source>Add request</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti užklausą</translation>
     </message>
     <message>
       <source>Explore</source>
-      <translation type="unfinished"/>
+      <translation>Naršykite</translation>
     </message>
     <message>
       <source>possible chat attributes directly.</source>
-      <translation type="unfinished"/>
+      <translation>galimi tiesioginiai pokalbių atributai.</translation>
     </message>
     <message>
       <source>Request</source>
-      <translation type="unfinished"/>
+      <translation>Užklausa</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti</translation>
     </message>
     <message>
       <source>Name of the request</source>
-      <translation type="unfinished"/>
+      <translation>Prašymo pavadinimas</translation>
     </message>
     <message>
       <source>Tab position</source>
-      <translation type="unfinished"/>
+      <translation>Skirtuko padėtis</translation>
     </message>
     <message>
       <source>Method</source>
-      <translation type="unfinished"/>
+      <translation>Metodas</translation>
     </message>
     <message>
       <source>Protocol</source>
-      <translation type="unfinished"/>
+      <translation>Protokolas</translation>
     </message>
     <message>
       <source>Sub URL</source>
-      <translation type="unfinished"/>
+      <translation>Papildomas URL adresas</translation>
     </message>
     <message>
       <source>Maximum execution time</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus vykdymo laikas</translation>
     </message>
     <message>
       <source>Split message into separate Rest API calls if message contains text and files at the same time.</source>
-      <translation type="unfinished"/>
+      <translation>Suskirstykite pranešimą į atskirus &quot;Rest API&quot; skambučius, jei pranešime tuo pačiu metu yra teksto ir failų.</translation>
     </message>
     <message>
       <source>Params</source>
-      <translation type="unfinished"/>
+      <translation>Params</translation>
     </message>
     <message>
       <source>Authorization</source>
-      <translation type="unfinished"/>
+      <translation>Leidimas</translation>
     </message>
     <message>
       <source>Headers</source>
-      <translation type="unfinished"/>
+      <translation>Antraštės</translation>
     </message>
     <message>
       <source>Body</source>
-      <translation type="unfinished"/>
+      <translation>Kūnas</translation>
     </message>
     <message>
       <source>User parameters</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo parametrai</translation>
     </message>
     <message>
       <source>Output parsing</source>
-      <translation type="unfinished"/>
+      <translation>Išvesties analizė</translation>
     </message>
     <message>
       <source>Conditions</source>
-      <translation type="unfinished"/>
+      <translation>Sąlygos</translation>
     </message>
     <message>
       <source>Remote Message ID</source>
-      <translation type="unfinished"/>
+      <translation>Nuotolinio pranešimo ID</translation>
     </message>
     <message>
       <source>Polling</source>
-      <translation type="unfinished"/>
+      <translation>Apklausa</translation>
     </message>
     <message>
       <source>Streaming</source>
-      <translation type="unfinished"/>
+      <translation>Srautinė transliacija</translation>
     </message>
     <message>
       <source>You can put visitor message as placeholder</source>
-      <translation type="unfinished"/>
+      <translation>Galite įrašyti lankytojo žinutę kaip pakaitinį simbolį</translation>
     </message>
     <message>
       <source>Add param</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti param</translation>
     </message>
     <message>
       <source>You can always just define custom header if you do not find authorisation method here.</source>
-      <translation type="unfinished"/>
+      <translation>Jei nerandate autorizavimo metodo, visada galite tiesiog nustatyti pasirinktinę antraštę.</translation>
     </message>
     <message>
       <source>Authorization method</source>
-      <translation type="unfinished"/>
+      <translation>Autorizavimo metodas</translation>
     </message>
     <message>
       <source>Skip</source>
-      <translation type="unfinished"/>
+      <translation>Praleisti</translation>
     </message>
     <message>
       <source>API Key Location</source>
-      <translation type="unfinished"/>
+      <translation>API rakto vieta</translation>
     </message>
     <message>
       <source>Header</source>
-      <translation type="unfinished"/>
+      <translation>Antraštė</translation>
     </message>
     <message>
       <source>Query Params</source>
-      <translation type="unfinished"/>
+      <translation>Užklausos parametrai</translation>
     </message>
     <message>
       <source>Only if these conditions are met we will send Rest API request. Usefull in webhook cases.</source>
-      <translation type="unfinished"/>
+      <translation>Tik jei šios sąlygos bus įvykdytos, išsiųsime Rest API užklausą. Naudinga Webhook atvejais.</translation>
     </message>
     <message>
       <source>Add condition</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti sąlygą</translation>
     </message>
     <message>
       <source>Check for presence of variable</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite, ar yra kintamasis</translation>
     </message>
     <message>
       <source>Request Body</source>
-      <translation type="unfinished"/>
+      <translation>Užklausos kūnas</translation>
     </message>
     <message>
       <source>none</source>
-      <translation type="unfinished"/>
+      <translation>nėra</translation>
     </message>
     <message>
       <source>raw (Use this to send JSON Body)</source>
-      <translation type="unfinished"/>
+      <translation>raw (Naudokite šį parametrą norėdami siųsti JSON kūną)</translation>
     </message>
     <message>
       <source>form-data (Use this to send post parameters)</source>
-      <translation type="unfinished"/>
+      <translation>form-data (Naudokite šį elementą pašto parametrams siųsti)</translation>
     </message>
     <message>
       <source>x-www-form-urlencoded (Use this to send post parameters encoded in URL)</source>
-      <translation type="unfinished"/>
+      <translation>x-www-form-urlencoded (Naudokite šį parametrą, jei norite siųsti įrašo parametrus, užkoduotus URL)</translation>
     </message>
     <message>
       <source>Check for word syntax if only one word is send.</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite žodžių sintaksę, jei siunčiamas tik vienas žodis.</translation>
     </message>
     <message>
       <source>Do not send a request if this variable is empty</source>
-      <translation type="unfinished"/>
+      <translation>Nesiųsti užklausos, jei šis kintamasis yra tuščias</translation>
+    </message>
+    <message>
+      <source>Switch to form data if there is file attached to a message.</source>
+      <translation>Pereiti prie formos duomenų, jei prie pranešimo pridėtas failas.</translation>
+    </message>
+    <message>
+      <source>Files will be attached as [data+n] post fields. First level JSON attributes will become POST vars.</source>
+      <translation>Failai bus pridedami kaip [data+n] pašto laukai. Pirmojo lygio JSON atributai taps POST vars.</translation>
     </message>
     <message>
       <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
-      <translation type="unfinished"/>
+      <translation>Čia įklijuokite savo užklausą (pvz., JSON kūną). Galite įrašyti lankytojo žinutę kaip pakaitinį simbolį</translation>
     </message>
     <message>
       <source>Sub URL for file</source>
-      <translation type="unfinished"/>
+      <translation>Papildomas failo URL adresas</translation>
     </message>
     <message>
       <source>If you are sending file you can have a different body content</source>
-      <translation type="unfinished"/>
+      <translation>Jei siunčiate failą, galite nurodyti kitokį kūno turinį.</translation>
     </message>
     <message>
       <source>Convert to multipart/form-data if one of those API is used. Post the file using multipart/form-data in the usual way that files are uploaded via the browser.</source>
-      <translation type="unfinished"/>
+      <translation>Konvertuokite į multipart/form-data, jei naudojama viena iš šių API. Išsiųskite failą naudodami multipart/form-data įprastu būdu, kaip failai įkeliami per naršyklę.</translation>
     </message>
     <message>
       <source>You can define additional parameters user can enter in bot trigger directly.</source>
-      <translation type="unfinished"/>
+      <translation>Galite apibrėžti papildomus parametrus, kuriuos naudotojas gali tiesiogiai įvesti į boto trigerį.</translation>
     </message>
     <message>
       <source>Location</source>
-      <translation type="unfinished"/>
+      <translation>Vieta</translation>
     </message>
     <message>
       <source>Query</source>
-      <translation type="unfinished"/>
+      <translation>Užklausa</translation>
     </message>
     <message>
       <source>Body Post Param</source>
-      <translation type="unfinished"/>
+      <translation>Kūno posto parametras</translation>
     </message>
     <message>
       <source>Body Param</source>
-      <translation type="unfinished"/>
+      <translation>Kūno parametras</translation>
     </message>
     <message>
       <source>Name visible in trigger</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas, matomas trigeryje</translation>
     </message>
     <message>
       <source>Location/Key</source>
-      <translation type="unfinished"/>
+      <translation>Vieta / raktas</translation>
     </message>
     <message>
       <source>Either key which will be used for replacement</source>
-      <translation type="unfinished"/>
+      <translation>Arba raktas, kuris bus naudojamas pakeitimui</translation>
     </message>
     <message>
       <source>You can define response conditions to which you will be able to add corresponding triggers.</source>
-      <translation type="unfinished"/>
+      <translation>Galite apibrėžti atsako sąlygas, prie kurių galėsite pridėti atitinkamus trigerius.</translation>
     </message>
     <message>
       <source>Add combination</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti derinį</translation>
     </message>
     <message>
       <source>Output</source>
-      <translation type="unfinished"/>
+      <translation>Išėjimas</translation>
     </message>
     <message>
       <source>Expected output definition</source>
-      <translation type="unfinished"/>
+      <translation>Laukiamo išvesties apibrėžimas</translation>
     </message>
     <message>
       <source>Priority, output combinations with highers priority will be checked first.</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas, išvesties deriniai su aukštesniu prioritetu bus tikrinami pirmiausia.</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas</translation>
     </message>
     <message>
       <source>HTTP status code E.g 200,301,500</source>
-      <translation type="unfinished"/>
+      <translation>HTTP būsenos kodas, pvz., 200, 301, 500</translation>
     </message>
     <message>
       <source>HTTP status code 200,301</source>
-      <translation type="unfinished"/>
+      <translation>HTTP būsenos kodas 200,301</translation>
     </message>
     <message>
       <source>Response Location 1. Available as {content_1} in messages.</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo vieta 1. Galima rasti {content_1} pranešimuose.</translation>
     </message>
     <message>
       <source>response:msg you can leave an empty if you want forward whole response or enter __all__.</source>
-      <translation type="unfinished"/>
+      <translation>atsakymas:msg galite palikti tuščią, jei norite persiųsti visą atsakymą arba įvesti __all__.</translation>
     </message>
     <message>
       <source>Response Location 2. Available as {content_2} in messages.</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo vieta 2. Galima rasti {content_2} pranešimuose.</translation>
     </message>
     <message>
       <source>Response Location 3. Available as {content_3} in messages.</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo vieta 3. Galima rasti {content_3} pranešimuose.</translation>
     </message>
     <message>
       <source>Response Location 4. Available as {content_4} in messages.</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo vieta 4. Galima rasti {content_4} pranešimuose.</translation>
     </message>
     <message>
       <source>Response Location 5. Available as {content_5} in messages.</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo vieta 5. Galima rasti {content_5} pranešimuose.</translation>
     </message>
     <message>
       <source>Response Location 6. Available as {content_6} in messages.</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo vieta 6. Galima rasti {content_6} pranešimuose.</translation>
     </message>
     <message>
       <source>Meta msg location. If you support Live Helper Chat JSON syntax you can set location of this response.</source>
-      <translation type="unfinished"/>
+      <translation>Meta msg vieta. Jei palaikote Live Helper Chat JSON sintaksę, galite nustatyti šio atsakymo vietą.</translation>
     </message>
     <message>
       <source>Preg replace rules to apply extracted content.</source>
-      <translation type="unfinished"/>
+      <translation>Preg pakeitimo taisyklės, taikomos išgautam turiniui.</translation>
     </message>
     <message>
       <source>You can apply preg replace rules to extracted content. One rule per row. Format example: ^.{5,}+$==&gt;Replace with content</source>
-      <translation type="unfinished"/>
+      <translation>Ištrauktam turiniui galite taikyti preg pakeitimo taisykles. Vienai eilutei taikoma viena taisyklė. Formato pavyzdys: ^.{5,}+$==&gt;Pakeisti turiniu</translation>
     </message>
     <message>
       <source>Custom event</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis įvykis</translation>
     </message>
     <message>
       <source>This event will be dispatched and extension can listen to it. E.g you want additionally log response data.</source>
-      <translation type="unfinished"/>
+      <translation>Šis įvykis bus išsiųstas ir plėtinys galės jo klausytis. Pvz., norite papildomai registruoti atsakymo duomenis.</translation>
     </message>
     <message>
       <source>If required you can also have condition to check</source>
-      <translation type="unfinished"/>
+      <translation>Jei reikia, taip pat galite patikrinti būklę</translation>
     </message>
     <message>
       <source>Response Location. It will also fail if attribute is not found.</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo vieta. Taip pat nepavyks, jei atributas nerastas.</translation>
     </message>
     <message>
       <source>response:msg you can leave an empty if you want forward whole response.</source>
-      <translation type="unfinished"/>
+      <translation>response:msg galite palikti tuščią, jei norite persiųsti visą atsakymą.</translation>
     </message>
     <message>
       <source>Response comparison</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymų palyginimas</translation>
     </message>
     <message>
       <source>Choose</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite</translation>
     </message>
     <message>
       <source>Not empty</source>
-      <translation type="unfinished"/>
+      <translation>Ne tuščias</translation>
     </message>
     <message>
       <source>Comparison value</source>
-      <translation type="unfinished"/>
+      <translation>Lyginamoji vertė</translation>
     </message>
     <message>
       <source>Value to compare</source>
-      <translation type="unfinished"/>
+      <translation>Lyginama vertė</translation>
     </message>
     <message>
       <source>Streaming options</source>
-      <translation type="unfinished"/>
+      <translation>Transliavimo parinktys</translation>
     </message>
     <message>
       <source>Output is matched only if event is this type</source>
-      <translation type="unfinished"/>
+      <translation>Išėjimas atitinka tik tada, jei įvykis yra šio tipo</translation>
     </message>
     <message>
       <source>Content of response is streamed to visitor.</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo turinys transliuojamas lankytojui.</translation>
     </message>
     <message>
       <source>Stream content to visitor as HTML.</source>
-      <translation type="unfinished"/>
+      <translation>Siųskite turinį lankytojui kaip HTML.</translation>
     </message>
     <message>
       <source>Save stream without streaming it to visitor.</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti srautą be transliacijos lankytojui.</translation>
     </message>
     <message>
       <source>No other stream event can be parsed after this type is matched.</source>
-      <translation type="unfinished"/>
+      <translation>Po šio tipo atitikimo negalima analizuoti jokio kito srauto įvykio.</translation>
     </message>
     <message>
       <source>Execute trigger on matched content. Stream will continue afterwards.</source>
-      <translation type="unfinished"/>
+      <translation>Vykdyti trigerį pagal suderintą turinį. Po to srautas bus tęsiamas.</translation>
     </message>
     <message>
       <source>If matched use response as final response.</source>
-      <translation type="unfinished"/>
+      <translation>Jei atsakymas sutampa, naudokite atsakymą kaip galutinį atsakymą.</translation>
     </message>
     <message>
       <source>Retry</source>
-      <translation type="unfinished"/>
+      <translation>Pakartoti</translation>
     </message>
     <message>
       <source>If request output is matched we should retry based on polling rules.</source>
-      <translation type="unfinished"/>
+      <translation>Jei užklausos išvestis sutampa, turėtume pakartoti bandymą, remdamiesi apklausos taisyklėmis.</translation>
     </message>
     <message>
       <source>If you want to add custom data within each send message to its meta_data attribute you can provide response path here</source>
-      <translation type="unfinished"/>
+      <translation>Jei norite pridėti pasirinktinius duomenis kiekviename siunčiamame pranešime į jo atributą meta_data, čia galite nurodyti atsakymo kelią.</translation>
     </message>
     <message>
       <source>Repeat request n times if conditions are not met (polling)</source>
-      <translation type="unfinished"/>
+      <translation>Pakartoti užklausą n kartų, jei sąlygos netenkinamos (apklausa)</translation>
     </message>
     <message>
       <source>Making n seconds delay between each request</source>
-      <translation type="unfinished"/>
+      <translation>n sekundžių uždelsimas tarp kiekvienos užklausos</translation>
     </message>
     <message>
       <source>Do not delay first polling request</source>
-      <translation type="unfinished"/>
+      <translation>Neatidėliokite pirmosios apklausos užklausos</translation>
     </message>
     <message>
       <source>This is a streaming request</source>
-      <translation type="unfinished"/>
+      <translation>Tai srautinės transliacijos užklausa</translation>
     </message>
     <message>
       <source>Streaming event type field</source>
-      <translation type="unfinished"/>
+      <translation>Srautinio įvykio tipo laukas</translation>
     </message>
   </context>
   <context>
     <name>chat/cannedmsg</name>
     <message>
       <source>You can make this canned message available only for certain period of times.</source>
-      <translation type="unfinished"/>
+      <translation>Šį konservuotą pranešimą galite pateikti tik tam tikrą laiką.</translation>
     </message>
     <message>
       <source>Not active</source>
-      <translation type="unfinished"/>
+      <translation>Neaktyvus</translation>
     </message>
     <message>
       <source>Week day</source>
-      <translation type="unfinished"/>
+      <translation>Savaitės diena</translation>
     </message>
     <message>
       <source>One time period</source>
-      <translation type="unfinished"/>
+      <translation>Vienas laikotarpis</translation>
     </message>
     <message>
       <source>Annually</source>
-      <translation type="unfinished"/>
+      <translation>Kasmet</translation>
     </message>
     <message>
       <source>Active from</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus nuo</translation>
     </message>
     <message>
       <source>Active to</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus į</translation>
     </message>
     <message>
       <source>Department</source>
@@ -3631,43 +3691,47 @@
     </message>
     <message>
       <source>Check all departments from selected department group</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite visus pasirinktos departamentų grupės skyrius</translation>
     </message>
     <message>
       <source>Check</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite</translation>
     </message>
     <message>
       <source>Uncheck all departments from selected department group</source>
-      <translation type="unfinished"/>
+      <translation>Panaikinkite visų pasirinktų departamentų grupės žymėjimą</translation>
     </message>
     <message>
       <source>Uncheck</source>
-      <translation type="unfinished"/>
+      <translation>Panaikinkite žymėjimą</translation>
     </message>
     <message>
       <source>If you do not select a custom or default auto-responder, proactive chats will not have an auto-responder assigned.</source>
-      <translation type="unfinished"/>
+      <translation>Jei nepasirinksite pasirinktinio arba numatytojo automatinio atsakiklio, proaktyviems pokalbiams nebus priskirtas automatinis atsakiklis.</translation>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation>Žinutė</translation>
     </message>
     <message>
       <source>Activity period</source>
-      <translation type="unfinished"/>
+      <translation>Veiklos laikotarpis</translation>
     </message>
     <message>
       <source>click to expand</source>
-      <translation type="unfinished"/>
+      <translation>spustelėkite, jei norite išplėsti</translation>
     </message>
     <message>
       <source>Variable Time Zone</source>
-      <translation type="unfinished"/>
+      <translation>Kintama laiko juosta</translation>
     </message>
     <message>
       <source>If you do not choose time zone in the back office replacement will be happening based on operator time zone. Variable used on widget interface - we will use visitor time zone.</source>
-      <translation type="unfinished"/>
+      <translation>Jei nepasirinksite laiko juostos, pakeitimas bus atliekamas pagal operatoriaus laiko juostą. Valdiklio sąsajoje naudojamas kintamasis - naudosime lankytojo laiko juostą.</translation>
     </message>
     <message>
       <source>Main</source>
-      <translation type="unfinished"/>
+      <translation>Pagrindinis</translation>
     </message>
     <message>
       <source>Add translation</source>
@@ -3675,119 +3739,119 @@
     </message>
     <message>
       <source>Search for language. Enter * to see all.</source>
-      <translation type="unfinished"/>
+      <translation>Ieškoti kalbos. Įveskite *, kad pamatytumėte visus.</translation>
     </message>
     <message>
       <source>Category</source>
-      <translation type="unfinished"/>
+      <translation>Kategorija</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Laikas</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Identifier, use it like {identifier} in canned responses, or bot. Use {{replaceable.&lt;identifier&gt;}} in Rest API</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius, naudokite jį kaip {identifikatorius} konservuotuose atsakymuose arba botas. Naudokite {{pakeičiamas.&lt;identifier&gt;}} Rest API</translation>
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji</translation>
     </message>
     <message>
       <source>Add combination</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti derinį</translation>
     </message>
     <message>
       <source>Default value</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji vertė</translation>
     </message>
     <message>
       <source>Tab custom name</source>
-      <translation type="unfinished"/>
+      <translation>Skirtuko pasirinktinis pavadinimas</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation type="unfinished"/>
+      <translation>Vertė</translation>
     </message>
     <message>
       <source>Put a custom value here</source>
-      <translation type="unfinished"/>
+      <translation>Įrašykite čia pasirinktinę vertę</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas</translation>
     </message>
     <message>
       <source>Rules with highest priority will be checked first</source>
-      <translation type="unfinished"/>
+      <translation>Taisyklės su didžiausiu prioritetu bus tikrinamos pirmiausia.</translation>
     </message>
     <message>
       <source>Conditions</source>
-      <translation type="unfinished"/>
+      <translation>Sąlygos</translation>
     </message>
     <message>
       <source>Advanced filtering</source>
-      <translation type="unfinished"/>
+      <translation>Išplėstinis filtravimas</translation>
     </message>
     <message>
       <source>Add condition</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti sąlygą</translation>
     </message>
     <message>
       <source>Replaceable variables</source>
-      <translation type="unfinished"/>
+      <translation>Keičiami kintamieji</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus</translation>
     </message>
     <message>
       <source>In-Active</source>
-      <translation type="unfinished"/>
+      <translation>Neaktyvus</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>Configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konfigūracija</translation>
     </message>
     <message>
       <source>Assume first n letter from keyword is valid</source>
-      <translation type="unfinished"/>
+      <translation>Tarkime, kad pirmoji n raktinio žodžio raidė yra galiojanti</translation>
     </message>
     <message>
       <source>Minimum percentage to match for related tag to be considered as valid</source>
-      <translation type="unfinished"/>
+      <translation>Mažiausia procentinė atitiktis, kad susijusi žyma būtų laikoma galiojančia</translation>
     </message>
     <message>
       <source>Top n matches tags should be considered as valid</source>
-      <translation type="unfinished"/>
+      <translation>Top n atitikmenų žymos turėtų būti laikomos galiojančiomis</translation>
     </message>
     <message>
       <source>Maximum number of canned messages to show by default</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias pagal numatytuosius nustatymus rodomų konservuotų pranešimų skaičius</translation>
     </message>
     <message>
       <source>Copied</source>
-      <translation type="unfinished"/>
+      <translation>Nukopijuota</translation>
     </message>
     <message>
       <source>Skipped</source>
-      <translation type="unfinished"/>
+      <translation>Praleistas</translation>
     </message>
     <message>
       <source>Title/Message</source>
@@ -3811,11 +3875,11 @@
     </message>
     <message>
       <source>Updated at</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta adresu</translation>
     </message>
     <message>
       <source>Created at</source>
-      <translation type="unfinished"/>
+      <translation>Sukurta adresu</translation>
     </message>
     <message>
       <source>Edit message</source>
@@ -3823,7 +3887,7 @@
     </message>
     <message>
       <source>See details</source>
-      <translation type="unfinished"/>
+      <translation>Žiūrėti daugiau informacijos</translation>
     </message>
     <message>
       <source>Delete message</source>
@@ -3835,23 +3899,23 @@
     </message>
     <message>
       <source>Delete selected</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti pasirinktą</translation>
     </message>
     <message>
       <source>Copy selected as e-mail templates</source>
-      <translation type="unfinished"/>
+      <translation>Kopijuoti pasirinktus el. pašto šablonus</translation>
     </message>
     <message>
       <source>By default last 30 days statistic is shown.</source>
-      <translation type="unfinished"/>
+      <translation>Pagal numatytuosius nustatymus rodoma paskutinių 30 dienų statistika.</translation>
     </message>
     <message>
       <source>Used</source>
-      <translation type="unfinished"/>
+      <translation>Naudotas</translation>
     </message>
     <message>
       <source>This change will be applied to all departments that use this canned message</source>
-      <translation type="unfinished"/>
+      <translation>Šis pakeitimas bus taikomas visiems departamentams, kurie naudoja šį konservuotą pranešimą.</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -3859,19 +3923,19 @@
     </message>
     <message>
       <source>We are</source>
-      <translation type="unfinished"/>
+      <translation>Mes esame</translation>
     </message>
     <message>
       <source>not</source>
-      <translation type="unfinished"/>
+      <translation>ne</translation>
     </message>
     <message>
       <source>collecting statistic.</source>
-      <translation type="unfinished"/>
+      <translation>rinkti statistinius duomenis.</translation>
     </message>
     <message>
       <source>Active it</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus jis</translation>
     </message>
     <message>
       <source>Title</source>
@@ -3879,7 +3943,7 @@
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Neįgalieji</translation>
     </message>
     <message>
       <source>Explain</source>
@@ -3890,16 +3954,16 @@
       <translation>Automatiškai išsiųsti šią žinutę vartotojui, kai pokalbis buna priimtas adminitratoriaus.</translation>
     </message>
     <message>
+      <source>Auto responder will be activated upon automatic message sending.</source>
+      <translation>Automatinis atsakiklis bus įjungtas automatiškai išsiuntus pranešimą.</translation>
+    </message>
+    <message>
       <source>Delay in seconds</source>
       <translation>Uždelsimas sekundėmis</translation>
     </message>
     <message>
       <source>The smaller the position value the higher the canned message will appear in the list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Message</source>
-      <translation>Žinutė</translation>
+      <translation>Kuo mažesnė pozicijos reikšmė, tuo aukščiau sąraše bus rodomas konservuotas pranešimas.</translation>
     </message>
     <message>
       <source>Fallback message</source>
@@ -3907,19 +3971,19 @@
     </message>
     <message>
       <source>HTML Snippet</source>
-      <translation type="unfinished"/>
+      <translation>HTML fragmentas</translation>
     </message>
     <message>
       <source>On expire delete canned message</source>
-      <translation type="unfinished"/>
+      <translation>Pasibaigus galiojimo laikui ištrinti konservuotą pranešimą</translation>
     </message>
     <message>
       <source>Tags</source>
-      <translation type="unfinished"/>
+      <translation>Žymos</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Canned messages</source>
@@ -3931,39 +3995,39 @@
     </message>
     <message>
       <source>Default department if visitor does not have assigned one</source>
-      <translation type="unfinished"/>
+      <translation>Numatytasis departamentas, jei lankytojui nėra priskirtas.</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>The smaller the position value the higher the command will appear in the list</source>
-      <translation type="unfinished"/>
+      <translation>Kuo mažesnė pozicijos reikšmė, tuo aukščiau komanda bus rodoma sąraše</translation>
     </message>
     <message>
       <source>Department, if you do not choose command will be available to all departments.</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas, jei nepasirinksite komandos, ji bus prieinama visiems departamentams.</translation>
     </message>
     <message>
       <source>Shortcut, optional</source>
-      <translation type="unfinished"/>
+      <translation>Neprivalomas trumpinys</translation>
     </message>
     <message>
       <source>Group</source>
-      <translation type="unfinished"/>
+      <translation>Grupė</translation>
     </message>
     <message>
       <source>Pending items will be processed with</source>
-      <translation type="unfinished"/>
+      <translation>Laukiantys elementai bus apdorojami su</translation>
     </message>
     <message>
       <source>cron command</source>
-      <translation type="unfinished"/>
+      <translation>cron komanda</translation>
     </message>
     <message>
       <source>Items with Ignore status will not be imported during standard flow</source>
-      <translation type="unfinished"/>
+      <translation>Elementai, kurių būsena Ignoruoti, nebus importuojami standartinio srauto metu</translation>
     </message>
     <message>
       <source>Language</source>
@@ -3971,7 +4035,7 @@
     </message>
     <message>
       <source>Siteaccess</source>
-      <translation type="unfinished"/>
+      <translation>Prieiga prie svetainės</translation>
     </message>
     <message>
       <source>Personal canned message</source>
@@ -3983,39 +4047,39 @@
     </message>
     <message>
       <source>Tag&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>Tag&apos;s</translation>
     </message>
     <message>
       <source>Personal auto responder message</source>
-      <translation type="unfinished"/>
+      <translation>Asmeninis automatinio atsakiklio pranešimas</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite vardą</translation>
     </message>
     <message>
       <source>Please enter a identifier</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite identifikatorių</translation>
     </message>
     <message>
       <source>Please enter a default value</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite numatytąją vertę</translation>
     </message>
     <message>
       <source>Please enter from and to time. To has to be greater than from.</source>
-      <translation type="unfinished"/>
+      <translation>Prašome įvesti nuo ir iki laiko. Iki turi būti didesnis nei nuo.</translation>
     </message>
     <message>
       <source>Please enter activity to period</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite veiklą į laikotarpį</translation>
     </message>
     <message>
       <source>Please enter activity from period</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite laikotarpio veiklą</translation>
     </message>
     <message>
       <source>Activity to period has to be bigger than activity from</source>
-      <translation type="unfinished"/>
+      <translation>Veikla iki laikotarpio turi būti didesnė nei veikla nuo</translation>
     </message>
     <message>
       <source>Please enter a canned message</source>
@@ -4023,27 +4087,27 @@
     </message>
     <message>
       <source>Canned message tags should not contain # character</source>
-      <translation type="unfinished"/>
+      <translation>Konservuotų pranešimų žymose neturėtų būti simbolio #</translation>
     </message>
     <message>
       <source>Canned message tags should not contain spaces</source>
-      <translation type="unfinished"/>
+      <translation>Konservuotų žinučių žymose neturėtų būti tarpų</translation>
     </message>
     <message>
       <source>Please choose a department!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite skyrių!</translation>
     </message>
     <message>
       <source>You cannot modify canned messages for the departments you are not assigned to!</source>
-      <translation type="unfinished"/>
+      <translation>Negalite keisti skyrių, kuriems nesate priskirtas, konservuotų pranešimų!</translation>
     </message>
     <message>
       <source>Please enter language name!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite kalbos pavadinimą!</translation>
     </message>
     <message>
       <source>Please choose a language!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite kalbą!</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -4051,27 +4115,27 @@
     </message>
     <message>
       <source>Canned messages suggester configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konservuotų pranešimų siūlymo konfigūracija</translation>
     </message>
     <message>
       <source>🔍 Navigate with ⮃ and ↵ Enter. Esc to quit.</source>
-      <translation type="unfinished"/>
+      <translation>🔍 Naršykite naudodami ⮃ ir ↵ Enter. Esc, kad išeitumėte.</translation>
     </message>
     <message>
       <source>Send instantly</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti iš karto</translation>
     </message>
     <message>
       <source>Do you really want to send the same canned message as the previous one?</source>
-      <translation type="unfinished"/>
+      <translation>Ar tikrai norite siųsti tą pačią konservuotą žinutę kaip ir ankstesnė?</translation>
     </message>
     <message>
       <source>Dialects</source>
-      <translation type="unfinished"/>
+      <translation>Dialektai</translation>
     </message>
     <message>
       <source>Edit dialect</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti dialektą</translation>
     </message>
     <message>
       <source>Languages</source>
@@ -4079,62 +4143,62 @@
     </message>
     <message>
       <source>Please choose at-least one user to share your view!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite bent vieną naudotoją, kuris pasidalytų jūsų nuomone!</translation>
     </message>
   </context>
   <context>
     <name>department/edit</name>
     <message>
       <source>Work hours, 24 hours format, 0 - 23, minutes format 0 - 59</source>
-      <translation type="unfinished"/>
+      <translation>Darbo valandos, 24 valandų formatas, 0 - 23, minučių formatas 0 - 59</translation>
     </message>
     <message>
       <source>These hours will be using</source>
-      <translation type="unfinished"/>
+      <translation>Šios valandos bus naudojamos</translation>
     </message>
     <message>
       <source>time zone</source>
-      <translation type="unfinished"/>
+      <translation>laiko juosta</translation>
     </message>
     <message>
       <source>Days activity will be using time set my database server.</source>
-      <translation type="unfinished"/>
+      <translation>Dienos veikla bus naudojama laiko nustatyti mano duomenų bazės serverį.</translation>
     </message>
     <message>
       <source>Time zone used for the visitor will be</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojui naudojama laiko juosta bus</translation>
     </message>
     <message>
       <source>Server default timezone.</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji serverio laiko juosta.</translation>
     </message>
     <message>
       <source>If you have set your time zone in account. Make sure you set it in default settings file also.</source>
-      <translation type="unfinished"/>
+      <translation>Jei paskyroje nustatėte savo laiko juostą. Įsitikinkite, kad ją nustatėte ir numatytųjų nustatymų faile.</translation>
     </message>
     <message>
       <source>All time zones and times should match before making any adjustments to activity period.</source>
-      <translation type="unfinished"/>
+      <translation>Prieš atliekant bet kokius veiklos laikotarpio pakeitimus, visos laiko zonos ir laikai turėtų sutapti.</translation>
     </message>
     <message>
       <source>Period type</source>
-      <translation type="unfinished"/>
+      <translation>Laikotarpio tipas</translation>
     </message>
     <message>
       <source>Even if you enter a year. This proactive invitation will be active annually at the same time each year.</source>
-      <translation type="unfinished"/>
+      <translation>Net jei įvesite metus. Šis aktyvus kvietimas bus aktyvus kasmet tuo pačiu metu kiekvienais metais.</translation>
     </message>
     <message>
       <source>Time from</source>
-      <translation type="unfinished"/>
+      <translation>Laikas nuo</translation>
     </message>
     <message>
       <source>Time to</source>
-      <translation type="unfinished"/>
+      <translation>Laikas</translation>
     </message>
     <message>
       <source>Choose department group</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite departamento grupę</translation>
     </message>
     <message>
       <source>Any</source>
@@ -4142,31 +4206,31 @@
     </message>
     <message>
       <source>Your time zone</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų laiko juosta</translation>
     </message>
     <message>
       <source>Even if you enter a year. This canned message will be active annually at the same time each year.</source>
-      <translation type="unfinished"/>
+      <translation>Net jei įvesite metus. Šis skardinis pranešimas bus aktyvus kasmet tuo pačiu metu kiekvienais metais.</translation>
     </message>
     <message>
       <source>Time in database server</source>
-      <translation type="unfinished"/>
+      <translation>Duomenų bazės serverio laikas</translation>
     </message>
     <message>
       <source>No departments assigned to this group</source>
-      <translation type="unfinished"/>
+      <translation>Šiai grupei nepriskirti jokie skyriai</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Statusas</translation>
     </message>
     <message>
       <source>Also assigned to other groups</source>
-      <translation type="unfinished"/>
+      <translation>Taip pat priskirti kitoms grupėms</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -4178,35 +4242,35 @@
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus</translation>
     </message>
     <message>
       <source>Inactive</source>
-      <translation type="unfinished"/>
+      <translation>Neaktyvus</translation>
     </message>
     <message>
       <source>Shared</source>
-      <translation type="unfinished"/>
+      <translation>Bendras</translation>
     </message>
     <message>
       <source>Exclusive</source>
-      <translation type="unfinished"/>
+      <translation>Išskirtinis</translation>
     </message>
     <message>
       <source>Exclusive departments</source>
-      <translation type="unfinished"/>
+      <translation>Išskirtiniai skyriai</translation>
     </message>
     <message>
       <source>Shared departments</source>
-      <translation type="unfinished"/>
+      <translation>Bendri skyriai</translation>
     </message>
     <message>
       <source>Note</source>
-      <translation type="unfinished"/>
+      <translation>Pastaba</translation>
     </message>
     <message>
       <source>Some departments in this group are also assigned to other department groups. This may affect chat routing and operator assignments.</source>
-      <translation type="unfinished"/>
+      <translation>Kai kurie šios grupės skyriai taip pat priskirti kitoms skyrių grupėms. Tai gali turėti įtakos pokalbių nukreipimui ir operatorių priskyrimui.</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -4214,15 +4278,15 @@
     </message>
     <message>
       <source>Edit brand</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti prekės ženklą</translation>
     </message>
     <message>
       <source>Edit department group</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti skyrių grupę</translation>
     </message>
     <message>
       <source>Edit department limit group</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti departamento ribinę grupę</translation>
     </message>
     <message>
       <source>Name</source>
@@ -4230,23 +4294,23 @@
     </message>
     <message>
       <source>Alias for argument. No spaces or slashes.</source>
-      <translation type="unfinished"/>
+      <translation>Argumento slapyvardis. Jokių tarpų ar brūkšnelių.</translation>
     </message>
     <message>
       <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored. It has to be not number!</source>
-      <translation type="unfinished"/>
+      <translation>Jei įvedate slapyvardį, įsitikinkite, kad šią eilutę perduodate kaip argumentą departamentui. Priešingu atveju argumentas bus ignoruojamas. Tai turi būti ne skaičius!</translation>
     </message>
     <message>
       <source>Priority check</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetinis patikrinimas</translation>
     </message>
     <message>
       <source>We will process priority rules for department changes. This introduces performance penalty.</source>
-      <translation type="unfinished"/>
+      <translation>Apdorosime prioritetines skyriaus pakeitimų taisykles. Dėl to sumažės našumas.</translation>
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation type="unfinished"/>
+      <translation>Matoma tik jei esate prisijungę</translation>
     </message>
     <message>
       <source>Will not be visible to visitor</source>
@@ -4254,47 +4318,47 @@
     </message>
     <message>
       <source>Hidden departments are not shown in department choosing dropdown. They do not participate in online status check if department is not provided.</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti departamentai nerodomi departamento pasirinkimo išskleidžiamajame lange. Jie nedalyvauja internetiniame būsenos patikrinime, jei departamentas nenurodytas.</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Archived</source>
-      <translation type="unfinished"/>
+      <translation>Archyvuota</translation>
     </message>
     <message>
       <source>Offline request recipients priority:</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungę užklausų gavėjai turi pirmenybę:</translation>
     </message>
     <message>
       <source>E-mail template recipient (if filled and &quot;Send only to recipient&quot; is checked)</source>
-      <translation type="unfinished"/>
+      <translation>El. pašto šablono gavėjas (jei užpildytas ir pažymėta &quot;Siųsti tik gavėjui&quot;)</translation>
     </message>
     <message>
       <source>Department e-mail (this field)</source>
-      <translation type="unfinished"/>
+      <translation>Departamento el. paštas (šis laukas)</translation>
     </message>
     <message>
       <source>E-mail template recipient (if filled)</source>
-      <translation type="unfinished"/>
+      <translation>El. pašto šablono gavėjas (jei užpildytas)</translation>
     </message>
     <message>
       <source>First system operator e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Pirmasis sistemos operatoriaus el. paštas</translation>
     </message>
     <message>
       <source>Current recipient:</source>
-      <translation type="unfinished"/>
+      <translation>Dabartinis gavėjas:</translation>
     </message>
     <message>
       <source>Maximum pending chats, if this limit is reached department becomes offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias laukiančių pokalbių skaičius, jei ši riba pasiekiama, skyrius automatiškai tampa neprisijungęs.</translation>
     </message>
     <message>
       <source>Group limit</source>
-      <translation type="unfinished"/>
+      <translation>Grupės riba</translation>
     </message>
     <message>
       <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
@@ -4302,11 +4366,11 @@
     </message>
     <message>
       <source>Priority, used for chats priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas, naudojamas pokalbių prioritetui</translation>
     </message>
     <message>
       <source>Priority, used for departments sort</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas, naudojamas skyrių rūšiavimui</translation>
     </message>
     <message>
       <source>Automate online hours</source>
@@ -4334,23 +4398,23 @@
     </message>
     <message>
       <source>Bot configuration</source>
-      <translation type="unfinished"/>
+      <translation>Boto konfigūracija</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Apklausa</translation>
     </message>
     <message>
       <source>Design</source>
-      <translation type="unfinished"/>
+      <translation>Dizainas</translation>
     </message>
     <message>
       <source>Offline mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungusi pašto dėžutė</translation>
     </message>
     <message>
       <source>We will use this mailbox to send an e-mail.</source>
-      <translation type="unfinished"/>
+      <translation>Šią pašto dėžutę naudosime siųsdami el. laišką.</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -4358,11 +4422,11 @@
     </message>
     <message>
       <source>Your personal time zone</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų asmeninė laiko juosta</translation>
     </message>
     <message>
       <source>Widget time zone</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklis laiko juosta</translation>
     </message>
     <message>
       <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
@@ -4374,31 +4438,31 @@
     </message>
     <message>
       <source>If you want that chat ignored operators online status and went online only by these defined hours can do that</source>
-      <translation type="unfinished"/>
+      <translation>Jei norite, kad pokalbis ignoruoti operatorių interneto statusą ir išvyko į internetą tik šiomis nustatytomis valandomis gali tai padaryti</translation>
     </message>
     <message>
       <source>here</source>
-      <translation type="unfinished"/>
+      <translation>čia</translation>
     </message>
     <message>
       <source>If we find custom period for specific day it takes priority over day work hours definition</source>
-      <translation type="unfinished"/>
+      <translation>Jei randame pasirinktinį laikotarpį konkrečiai dienai, jam teikiama pirmenybė prieš dienos darbo valandų apibrėžtį</translation>
     </message>
     <message>
       <source>You assigned a bot to this department, but didn’t enable the setting that makes the bot follow the department’s online hours. This may cause the department to appear online at all times. Ensure your bot checks online hours in its logic</source>
-      <translation type="unfinished"/>
+      <translation>Šiam skyriui priskyrėte botą, tačiau neįjungėte nuostatos, pagal kurią botui būtų taikomos skyriaus darbo internete valandos. Dėl to departamentas gali būti rodomas visą laiką prisijungęs. Užtikrinkite, kad jūsų botas savo logikoje tikrintų internetines valandas</translation>
     </message>
     <message>
       <source>Change it</source>
-      <translation type="unfinished"/>
+      <translation>Pakeiskite jį</translation>
     </message>
     <message>
       <source>to render widget online status</source>
-      <translation type="unfinished"/>
+      <translation>atvaizduoti valdiklio būseną internete</translation>
     </message>
     <message>
       <source>Change default time zone.</source>
-      <translation type="unfinished"/>
+      <translation>Pakeiskite numatytąją laiko juostą.</translation>
     </message>
     <message>
       <source>Hours from</source>
@@ -4434,7 +4498,7 @@
     </message>
     <message>
       <source>Custom period</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis laikotarpis</translation>
     </message>
     <message>
       <source>Period</source>
@@ -4442,11 +4506,11 @@
     </message>
     <message>
       <source>Day of the week</source>
-      <translation type="unfinished"/>
+      <translation>Savaitės diena</translation>
     </message>
     <message>
       <source>Choose day of the week</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite savaitės dieną</translation>
     </message>
     <message>
       <source>Date from</source>
@@ -4454,7 +4518,7 @@
     </message>
     <message>
       <source>Custom work day</source>
-      <translation type="unfinished"/>
+      <translation>Individualizuota darbo diena</translation>
     </message>
     <message>
       <source>Date to</source>
@@ -4514,7 +4578,7 @@
     </message>
     <message>
       <source>Inform about unread messages if from last unread user message has passed (seconds)</source>
-      <translation type="unfinished"/>
+      <translation>Informuoti apie neperskaitytus pranešimus, jei nuo paskutinio neperskaityto vartotojo pranešimo praėjo (sekundės)</translation>
     </message>
     <message>
       <source>Please enter value in seconds</source>
@@ -4530,47 +4594,47 @@
     </message>
     <message>
       <source>Inform when chat with operator is closed. Only mail notification is sent.</source>
-      <translation type="unfinished"/>
+      <translation>Informuokite, kai pokalbis su operatoriumi baigiamas. Siunčiamas tik pranešimas el. paštu.</translation>
     </message>
     <message>
       <source>Inform when all chats are closed. Only mail notification is sent.</source>
-      <translation type="unfinished"/>
+      <translation>Informuoti, kai visi pokalbiai yra uždaryti. Siunčiamas tik pranešimas paštu.</translation>
     </message>
     <message>
       <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Papildomas el. pašto adresas, skirtas informuoti apie uždarytus pokalbius, į šį el. pašto adresą bus siunčiami visi pranešimai apie uždarytus pokalbius.</translation>
     </message>
     <message>
       <source>E-mail is sent in the following order 1. To e-mail template recipient if filled 2. Department e-mail 3. First system operator</source>
-      <translation type="unfinished"/>
+      <translation>Elektroninis paštas siunčiamas tokia tvarka 1. Į el. pašto šablono gavėją, jei užpildytas 2. Departamento el. paštas 3. Pirmajam sistemos operatoriui</translation>
     </message>
     <message>
       <source>To what department chat should be transferred if it is not accepted</source>
-      <translation type="unfinished"/>
+      <translation>Į kokį skyrių reikėtų perkelti pokalbį, jei jis nepriimtas</translation>
     </message>
     <message>
       <source>Minimum chat priority for transfer to happen.</source>
-      <translation type="unfinished"/>
+      <translation>Minimalus pokalbio prioritetas, kad būtų atliktas perdavimas.</translation>
     </message>
     <message>
       <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
-      <translation type="unfinished"/>
+      <translation>Laiko limitas sekundėmis, kol pokalbis bus perduotas kitam skyriui. Mažiausiai 5 sekundės.</translation>
     </message>
     <message>
       <source>Transfer immediately to this department if current department has no online operators?</source>
-      <translation type="unfinished"/>
+      <translation>Nedelsiant perkelti į šį skyrių, jei dabartiniame skyriuje nėra internetinių operatorių?</translation>
     </message>
     <message>
       <source>Transfer immediately to this department if it is outside work hour?</source>
-      <translation type="unfinished"/>
+      <translation>Nedelsiant perkelti į šį skyrių, jei tai vyksta ne darbo valandomis?</translation>
     </message>
     <message>
       <source>Reset assigned user on chat transfer?</source>
-      <translation type="unfinished"/>
+      <translation>Iš naujo nustatyti priskirtą naudotoją pokalbių perdavimui?</translation>
     </message>
     <message>
       <source>Automatic transfer is disabled if there is online operators</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis perkėlimas išjungiamas, jei yra interneto operatoriai</translation>
     </message>
     <message>
       <source>Execute new chat logic again for recipient department?</source>
@@ -4582,11 +4646,11 @@
     </message>
     <message>
       <source>Do not transfer to destination department if it has no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Neperkelkite į paskirties departamentą, jei jame nėra internetinių operatorių</translation>
     </message>
     <message>
       <source>Based on selected department these products will be shown</source>
-      <translation type="unfinished"/>
+      <translation>Pagal pasirinktą skyrių bus rodomi šie produktai</translation>
     </message>
     <message>
       <source>Enable products </source>
@@ -4594,7 +4658,7 @@
     </message>
     <message>
       <source>Required</source>
-      <translation type="unfinished"/>
+      <translation>Reikalinga</translation>
     </message>
     <message>
       <source>Assigned products</source>
@@ -4606,7 +4670,7 @@
     </message>
     <message>
       <source>Department groups</source>
-      <translation type="unfinished"/>
+      <translation>Departamentų grupės</translation>
     </message>
     <message>
       <source>None</source>
@@ -4614,75 +4678,75 @@
     </message>
     <message>
       <source>Click to remove</source>
-      <translation type="unfinished"/>
+      <translation>Spustelėkite norėdami pašalinti</translation>
     </message>
     <message>
       <source>Role</source>
-      <translation type="unfinished"/>
+      <translation>Vaidmuo</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
+      <translation>Departamentai</translation>
     </message>
     <message>
       <source>Maximum pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias laukiančių pokalbių skaičius</translation>
     </message>
     <message>
       <source>Individual theme is picked only if one department is passed. Theme determination happens in the following order.</source>
-      <translation type="unfinished"/>
+      <translation>Atskira tema pasirenkama tik tada, jei perduodamas vienas skyrius. Tema nustatoma tokia tvarka.</translation>
     </message>
     <message>
       <source>Check for passed theme</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite, ar perduota tema</translation>
     </message>
     <message>
       <source>Check for individual theme</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite atskirą temą</translation>
     </message>
     <message>
       <source>Check for default department theme</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite numatytąją departamento temą</translation>
     </message>
     <message>
       <source>Check for global default theme</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite, ar yra pasaulinė numatytoji tema</translation>
     </message>
     <message>
       <source>Individual theme</source>
-      <translation type="unfinished"/>
+      <translation>Individuali tema</translation>
     </message>
     <message>
       <source>Default theme applied per department</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji tema, taikoma kiekvienam departamentui</translation>
     </message>
     <message>
       <source>This theme is set from</source>
-      <translation type="unfinished"/>
+      <translation>Ši tema yra nustatyta iš</translation>
     </message>
     <message>
       <source>Default theme</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji tema</translation>
     </message>
     <message>
       <source>section and checking As default department theme.</source>
-      <translation type="unfinished"/>
+      <translation>skyrių ir pažymėkite Kaip numatytoji skyriaus tema.</translation>
     </message>
     <message>
       <source>Theme global</source>
-      <translation type="unfinished"/>
+      <translation>Pasaulinė tema</translation>
     </message>
     <message>
       <source>If you are using only</source>
-      <translation type="unfinished"/>
+      <translation>Jei naudojate tik</translation>
     </message>
     <message>
       <source>option and you have more than one server you might get inconsistent theme pickup. Apply</source>
-      <translation type="unfinished"/>
+      <translation>parinktį ir turite daugiau nei vieną serverį, gali būti, kad tema bus paimta nenuosekliai. Taikyti</translation>
     </message>
     <message>
       <source>to department as default or choose individual theme.</source>
-      <translation type="unfinished"/>
+      <translation>į skyrių kaip numatytąją arba pasirinkti individualią temą.</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -4690,175 +4754,183 @@
     </message>
     <message>
       <source>These bot logic applies also</source>
-      <translation type="unfinished"/>
+      <translation>Ši botų logika taip pat taikoma</translation>
     </message>
     <message>
       <source>Custom attribute 1</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis atributas 1</translation>
     </message>
     <message>
       <source>Custom attribute 2</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis atributas 2</translation>
     </message>
     <message>
       <source>Custom attribute 3</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis atributas 3</translation>
     </message>
     <message>
       <source>Exception groups to apply</source>
-      <translation type="unfinished"/>
+      <translation>Taikytinos išimčių grupės</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Nick, what should be operator nick. E.g Support Bot</source>
-      <translation type="unfinished"/>
+      <translation>Nikas, kas turėtų būti operatorius nick. Pvz., Paramos botas</translation>
     </message>
     <message>
       <source>Command, do not add ! prefix</source>
-      <translation type="unfinished"/>
+      <translation>Komanda, nepridėkite ! priešdėlio</translation>
     </message>
     <message>
       <source>Sub command</source>
-      <translation type="unfinished"/>
+      <translation>Dalinė komanda</translation>
     </message>
     <message>
       <source>Info message</source>
-      <translation type="unfinished"/>
+      <translation>Informacinis pranešimas</translation>
     </message>
     <message>
       <source>Subject added!</source>
-      <translation type="unfinished"/>
+      <translation>Tema pridėta!</translation>
     </message>
     <message>
       <source>Info message is usefull if you want to show operator that command was executed without storing any real message within chat.</source>
-      <translation type="unfinished"/>
+      <translation>Informacinis pranešimas yra naudingas, jei norite parodyti operatoriui, kad komanda buvo įvykdyta, tačiau pokalbyje neišsaugoti jokio realaus pranešimo.</translation>
     </message>
     <message>
       <source>Choose</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite</translation>
     </message>
     <message>
       <source>Please choose a bot</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite botą</translation>
     </message>
     <message>
       <source>Please choose a trigger</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite gaiduką</translation>
     </message>
     <message>
       <source>Custom arguments fields, visible in modal window if enabled for display</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktiniai argumentų laukai, matomi modaliniame lange, jei įjungtas rodymas</translation>
     </message>
     <message>
       <source>Name of the field</source>
-      <translation type="unfinished"/>
+      <translation>Lauko pavadinimas</translation>
     </message>
     <message>
       <source>Placeholder</source>
-      <translation type="unfinished"/>
+      <translation>Vietoj</translation>
     </message>
     <message>
       <source>Text field</source>
-      <translation type="unfinished"/>
+      <translation>Teksto laukas</translation>
     </message>
     <message>
       <source>Text area</source>
-      <translation type="unfinished"/>
+      <translation>Teksto sritis</translation>
+    </message>
+    <message>
+      <source>Dropdown</source>
+      <translation>Išskleidžiamieji langai</translation>
+    </message>
+    <message>
+      <source>value||Label one per line</source>
+      <translation>value|||Ženklinimas po vieną eilutėje</translation>
     </message>
     <message>
       <source>Number of rows in case Text area field tye is chosen</source>
-      <translation type="unfinished"/>
+      <translation>Eilučių skaičius, jei pasirenkamas teksto srities lauko tye</translation>
     </message>
     <message>
       <source>Field is required</source>
-      <translation type="unfinished"/>
+      <translation>Laukas yra privalomas</translation>
     </message>
     <message>
       <source>Field is optional</source>
-      <translation type="unfinished"/>
+      <translation>Laukas neprivalomas</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation type="unfinished"/>
+      <translation>Tipas</translation>
     </message>
     <message>
       <source>Rows</source>
-      <translation type="unfinished"/>
+      <translation>Eilutės</translation>
     </message>
     <message>
       <source>Choose a bot</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite botą</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas</translation>
     </message>
     <message>
       <source>Custom message</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis pranešimas</translation>
     </message>
     <message>
       <source>If you have configured Automatic Translations we will use it for untranslated items.</source>
-      <translation type="unfinished"/>
+      <translation>Jei esate sukonfigūravę automatinį vertimą, mes jį naudosime neišverstiems elementams.</translation>
     </message>
     <message>
       <source>For automatic translations we have to know what is the main bot language. From this language we will translate bot messages.</source>
-      <translation type="unfinished"/>
+      <translation>Norėdami atlikti automatinius vertimus, turime žinoti, kokia yra pagrindinė boto kalba. Iš šios kalbos verčiame boto pranešimus.</translation>
     </message>
     <message>
       <source>Translation</source>
-      <translation type="unfinished"/>
+      <translation>Vertimas</translation>
     </message>
     <message>
       <source>Private</source>
-      <translation type="unfinished"/>
+      <translation>Privatus</translation>
     </message>
     <message>
       <source>Not presented</source>
-      <translation type="unfinished"/>
+      <translation>Nepateikta</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation type="unfinished"/>
+      <translation>Informacija</translation>
     </message>
     <message>
       <source>This department is not assigned to any department groups.</source>
-      <translation type="unfinished"/>
+      <translation>Šis skyrius nepriskirtas jokioms skyrių grupėms.</translation>
     </message>
     <message>
       <source>Department Group</source>
-      <translation type="unfinished"/>
+      <translation>Departamento grupė</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Laukiami pokalbiai</translation>
     </message>
     <message>
       <source>Bot chats</source>
-      <translation type="unfinished"/>
+      <translation>Bot pokalbiai</translation>
     </message>
     <message>
       <source>Inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>Neaktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Edit group</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti grupę</translation>
     </message>
     <message>
       <source>Monday</source>
@@ -4898,66 +4970,66 @@
     </message>
     <message>
       <source>Brands</source>
-      <translation type="unfinished"/>
+      <translation>Prekės ženklai</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Departamentų grupės</translation>
     </message>
     <message>
       <source>Departments limit groups</source>
-      <translation type="unfinished"/>
+      <translation>Departamentų ribinės grupės</translation>
     </message>
     <message>
       <source>Edit a group chat</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti grupės pokalbį</translation>
     </message>
   </context>
   <context>
     <name>chat/sendnotice</name>
     <message>
       <source>Does not apply</source>
-      <translation type="unfinished"/>
+      <translation>Netaikoma</translation>
     </message>
     <message>
       <source>minute</source>
-      <translation type="unfinished"/>
+      <translation>minutė</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>minutės</translation>
     </message>
     <message>
       <source>hour</source>
-      <translation type="unfinished"/>
+      <translation>valanda</translation>
     </message>
     <message>
       <source>hours</source>
-      <translation type="unfinished"/>
+      <translation>valandos</translation>
     </message>
     <message>
       <source>day</source>
-      <translation type="unfinished"/>
+      <translation>diena</translation>
     </message>
     <message>
       <source>Choose duration</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite trukmę</translation>
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>dienos</translation>
     </message>
     <message>
       <source>Permanent (visitor has to close invitation)</source>
-      <translation type="unfinished"/>
+      <translation>Nuolatinis (lankytojas turi uždaryti kvietimą)</translation>
     </message>
     <message>
       <source>Follows system default settings</source>
-      <translation type="unfinished"/>
+      <translation>Laikosi sistemos numatytųjų nustatymų</translation>
     </message>
     <message>
       <source>seconds</source>
-      <translation type="unfinished"/>
+      <translation>sekundės</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
@@ -4965,47 +5037,47 @@
     </message>
     <message>
       <source>You can paste usernames separated by a new line.</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojų vardus galite įklijuoti atskirtus nauja eilute.</translation>
     </message>
     <message>
       <source>Open full widget for the visitor</source>
-      <translation type="unfinished"/>
+      <translation>Atidarykite visą valdiklį lankytojui</translation>
     </message>
     <message>
       <source>Skip bot</source>
-      <translation type="unfinished"/>
+      <translation>Praleisti botą</translation>
     </message>
     <message>
       <source>Invitation expire time, after that period of time invitation will be hidden.</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimų galiojimo laikas, praėjus tam laikotarpiui kvietimas bus paslėptas.</translation>
     </message>
     <message>
       <source>Last sent invitation expires in</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinio išsiųsto kvietimo galiojimo laikas baigiasi</translation>
     </message>
     <message>
       <source>last invitation was seen</source>
-      <translation type="unfinished"/>
+      <translation>paskutinis kvietimas buvo matytas</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation type="unfinished"/>
+      <translation>prieš</translation>
     </message>
     <message>
       <source>has active invitation</source>
-      <translation type="unfinished"/>
+      <translation>turi aktyvų kvietimą</translation>
     </message>
     <message>
       <source>do not have any active invitation</source>
-      <translation type="unfinished"/>
+      <translation>neturi jokio aktyvaus kvietimo</translation>
     </message>
     <message>
       <source>Assign the chat to me if the visitor replies</source>
-      <translation type="unfinished"/>
+      <translation>Priskirti pokalbį man, jei lankytojas atsako</translation>
     </message>
     <message>
       <source>Do not send automated messages if the customer replies</source>
-      <translation type="unfinished"/>
+      <translation>Nesiųskite automatinių pranešimų, jei klientas atsako</translation>
     </message>
     <message>
       <source>Requires e-mail</source>
@@ -5021,11 +5093,11 @@
     </message>
     <message>
       <source>Campaign</source>
-      <translation type="unfinished"/>
+      <translation>Kampanija</translation>
     </message>
     <message>
       <source>Canned message</source>
-      <translation type="unfinished"/>
+      <translation>Konservuotas pranešimas</translation>
     </message>
     <message>
       <source>Send the message</source>
@@ -5033,31 +5105,31 @@
     </message>
     <message>
       <source>Visitor have assigned chat with id</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas turi priskirtą pokalbį su id</translation>
     </message>
     <message>
       <source>Chat is in pending/active state.</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis yra laukimo/aktyvios būsenos.</translation>
     </message>
     <message>
       <source>Chat is in bot status.</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis yra boto būsenos.</translation>
     </message>
     <message>
       <source>Chat is closed, we will start a new chat.</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis uždarytas, pradėsime naują pokalbį.</translation>
     </message>
     <message>
       <source>We will initiate a new chat, because visitor has ended previous chat already. Is in survey/closed chat/filling contact form</source>
-      <translation type="unfinished"/>
+      <translation>Inicijuosime naują pokalbį, nes lankytojas jau baigė ankstesnį pokalbį. Yra apklausoje/uždarytas pokalbis/užpildyta kontaktinė forma</translation>
     </message>
     <message>
       <source>Visitor does not have any chat. We will initiate a new chat.</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas neturi jokių pokalbių. Inicijuosime naują pokalbį.</translation>
     </message>
     <message>
       <source>Send the message and start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Siųskite žinutę ir pradėkite pokalbį</translation>
     </message>
     <message>
       <source>Message was sent to the user</source>
@@ -5084,11 +5156,11 @@
     <name>chat/startchatformsettings</name>
     <message>
       <source>Add event</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti įvykį</translation>
     </message>
     <message>
       <source>Event</source>
-      <translation type="unfinished"/>
+      <translation>Renginys</translation>
     </message>
     <message>
       <source>Remove</source>
@@ -5124,7 +5196,7 @@
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodis</translation>
     </message>
     <message>
       <source>Hidden</source>
@@ -5132,7 +5204,7 @@
     </message>
     <message>
       <source>Dropdown</source>
-      <translation type="unfinished"/>
+      <translation>Išskleidžiamieji langai</translation>
     </message>
     <message>
       <source>Visible on</source>
@@ -5152,7 +5224,7 @@
     </message>
     <message>
       <source>Show if</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti, jei</translation>
     </message>
     <message>
       <source>Always</source>
@@ -5160,7 +5232,7 @@
     </message>
     <message>
       <source>Username is empty</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo vardas yra tuščias</translation>
     </message>
     <message>
       <source>Size (between 1 and 12)</source>
@@ -5176,15 +5248,15 @@
     </message>
     <message>
       <source>Hide if prefilled</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti, jei iš anksto užpildyta</translation>
     </message>
     <message>
       <source>Options</source>
-      <translation type="unfinished"/>
+      <translation>Parinktys</translation>
     </message>
     <message>
       <source>Each option in new line</source>
-      <translation type="unfinished"/>
+      <translation>Kiekviena parinktis naujoje eilutėje</translation>
     </message>
     <message>
       <source>Add a field</source>
@@ -5200,7 +5272,7 @@
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas</translation>
     </message>
     <message>
       <source>Enable leave a message functionality automatically if there are no online operators</source>
@@ -5208,19 +5280,19 @@
     </message>
     <message>
       <source>Auto start chat if there is no required fields. Usefull in case bot handles chat.</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis pokalbio paleidimas, jei nėra privalomų laukų. Naudinga, jei pokalbius tvarko botas.</translation>
     </message>
     <message>
       <source>Open popup on mobile devices using mobile layout.</source>
-      <translation type="unfinished"/>
+      <translation>Atidarykite iššokantį langą mobiliuosiuose įrenginiuose naudodami mobilųjį išdėstymą.</translation>
     </message>
     <message>
       <source>Do not process internal pages and use redirects.</source>
-      <translation type="unfinished"/>
+      <translation>Neapdorokite vidinių puslapių ir nenaudokite nukreipimų.</translation>
     </message>
     <message>
       <source>Disable start chat URL</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti pradžios pokalbio URL</translation>
     </message>
     <message>
       <source>Online form settings</source>
@@ -5240,15 +5312,15 @@
     </message>
     <message>
       <source>URL Arguments</source>
-      <translation type="unfinished"/>
+      <translation>URL argumentai</translation>
     </message>
     <message>
       <source>Pre chat</source>
-      <translation type="unfinished"/>
+      <translation>Išankstinis pokalbis</translation>
     </message>
     <message>
       <source>Pre chat conditions</source>
-      <translation type="unfinished"/>
+      <translation>Išankstinio pokalbio sąlygos</translation>
     </message>
     <message>
       <source>Name</source>
@@ -5268,7 +5340,7 @@
     </message>
     <message>
       <source>This field is hidden if chat is started with bot</source>
-      <translation type="unfinished"/>
+      <translation>Šis laukas paslėptas, jei pokalbis pradėtas naudojant botą</translation>
     </message>
     <message>
       <source>This field is</source>
@@ -5284,7 +5356,7 @@
     </message>
     <message>
       <source>Column width, 1-12</source>
-      <translation type="unfinished"/>
+      <translation>Stulpelio plotis, 1-12</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -5296,11 +5368,11 @@
     </message>
     <message>
       <source>Automatically start chat then user starts typing. Only message field has to be required</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai pradėkite pokalbį, kai naudotojas pradeda rašyti. Reikia reikalauti tik pranešimo lauko</translation>
     </message>
     <message>
       <source>Start chat process in the background as soon user submits form. Only message field has to be required</source>
-      <translation type="unfinished"/>
+      <translation>Pradėkite pokalbių procesą fone, kai tik naudotojas pateikia formą. Turi būti privalomas tik pranešimo laukas</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -5316,15 +5388,15 @@
     </message>
     <message>
       <source>Field custom location</source>
-      <translation type="unfinished"/>
+      <translation>Lauko pasirinktinė vieta</translation>
     </message>
     <message>
       <source>Field can be prefilled if this condition is met</source>
-      <translation type="unfinished"/>
+      <translation>Lauką galima iš anksto užpildyti, jei tenkinama ši sąlyga</translation>
     </message>
     <message>
       <source>Allow to attach a file</source>
-      <translation type="unfinished"/>
+      <translation>Leidimas pridėti failą</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
@@ -5340,19 +5412,19 @@
     </message>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti pranešimų langelį virš įvesties laukų, naudingas UX deriniams.</translation>
     </message>
     <message>
       <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti pokalbio pradžios mygtuką. Naudinga, jei temoje pasirenkate botą ir paleidžiate su mygtukais.</translation>
     </message>
     <message>
       <source>No border under a profile</source>
-      <translation type="unfinished"/>
+      <translation>Jokio krašto po profiliu</translation>
     </message>
     <message>
       <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
-      <translation type="unfinished"/>
+      <translation>Tingus valdiklio turinio įkėlimas. Valdiklio turinys bus įkeltas tik tada, jei lankytojas paspaus būsenos piktogramą.</translation>
     </message>
     <message>
       <source>Initial user message height in pixels</source>
@@ -5360,195 +5432,195 @@
     </message>
     <message>
       <source>Department settings</source>
-      <translation type="unfinished"/>
+      <translation>Departamento nustatymai</translation>
     </message>
     <message>
       <source>Requires pre-filled department</source>
-      <translation type="unfinished"/>
+      <translation>Reikalingas iš anksto užpildytas skyrius</translation>
     </message>
     <message>
       <source>User can not change passed department.</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojas negali keisti perduoto skyriaus.</translation>
     </message>
     <message>
       <source>Encryption</source>
-      <translation type="unfinished"/>
+      <translation>Šifravimas</translation>
     </message>
     <message>
       <source>Encryption key, min length 40</source>
-      <translation type="unfinished"/>
+      <translation>Šifravimo raktas, min. ilgis 40</translation>
     </message>
     <message>
       <source>Test encrypt/decrypt</source>
-      <translation type="unfinished"/>
+      <translation>Bandymas šifruoti / iššifruoti</translation>
     </message>
     <message>
       <source>Encrypted text or text to encrypt</source>
-      <translation type="unfinished"/>
+      <translation>Užšifruotas tekstas arba tekstas, kurį reikia užšifruoti</translation>
     </message>
     <message>
       <source>Decrypt</source>
-      <translation type="unfinished"/>
+      <translation>Iššifruoti</translation>
     </message>
     <message>
       <source>Encrypt</source>
-      <translation type="unfinished"/>
+      <translation>Užšifruoti</translation>
     </message>
     <message>
       <source>Result</source>
-      <translation type="unfinished"/>
+      <translation>Rezultatas</translation>
     </message>
     <message>
       <source>Possible use cases</source>
-      <translation type="unfinished"/>
+      <translation>Galimi naudojimo atvejai</translation>
     </message>
     <message>
       <source>With these rules you can enable chat only for specific visitors</source>
-      <translation type="unfinished"/>
+      <translation>Naudodami šias taisykles galite įjungti pokalbius tik su tam tikrais lankytojais.</translation>
     </message>
     <message>
       <source>Go to maintenance mode and disable widget completely.</source>
-      <translation type="unfinished"/>
+      <translation>Pereikite į techninės priežiūros režimą ir visiškai išjunkite valdiklį.</translation>
     </message>
     <message>
       <source>Provide chat only for specific players and for others leave a message that chat is available only as example for VIP visitors.</source>
-      <translation type="unfinished"/>
+      <translation>Suteikite pokalbių galimybę tik tam tikriems žaidėjams, o kitiems palikite pranešimą, kad pokalbiai prieinami tik VIP lankytojams.</translation>
     </message>
     <message>
       <source>Online conditions</source>
-      <translation type="unfinished"/>
+      <translation>Internetinės sąlygos</translation>
     </message>
     <message>
       <source>If these conditions are met widget will become online</source>
-      <translation type="unfinished"/>
+      <translation>Jei šios sąlygos bus įvykdytos, valdiklis bus prijungtas prie interneto</translation>
     </message>
     <message>
       <source>Add condition</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti sąlygą</translation>
     </message>
     <message>
       <source>conditions are optional</source>
-      <translation type="unfinished"/>
+      <translation>sąlygos neprivalomos</translation>
     </message>
     <message>
       <source>one of</source>
-      <translation type="unfinished"/>
+      <translation>vienas iš</translation>
     </message>
     <message>
       <source>like</source>
-      <translation type="unfinished"/>
+      <translation>kaip</translation>
     </message>
     <message>
       <source>not like</source>
-      <translation type="unfinished"/>
+      <translation>ne kaip</translation>
     </message>
     <message>
       <source>contains</source>
-      <translation type="unfinished"/>
+      <translation>yra</translation>
     </message>
     <message>
       <source>Success</source>
-      <translation type="unfinished"/>
+      <translation>Sėkmė</translation>
     </message>
     <message>
       <source>Make widget offline if widget is not in oline mode</source>
-      <translation type="unfinished"/>
+      <translation>Padaryti valdiklį neprisijungusį prie interneto, jei valdiklis veikia ne oline režimu</translation>
     </message>
     <message>
       <source>Enable offline mode</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti neprisijungusį režimą</translation>
     </message>
     <message>
       <source>conditions are optional.</source>
-      <translation type="unfinished"/>
+      <translation>sąlygos neprivalomos.</translation>
     </message>
     <message>
       <source>Enable disable mode</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti išjungimo režimą</translation>
     </message>
     <message>
       <source>Show this message to the visitors who opens a chat widget.</source>
-      <translation type="unfinished"/>
+      <translation>Parodykite šį pranešimą lankytojams, kurie atidaro pokalbių valdiklį.</translation>
     </message>
     <message>
       <source>Activate maintenance mode</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti techninės priežiūros režimą</translation>
     </message>
     <message>
       <source>Maintenance mode activated</source>
-      <translation type="unfinished"/>
+      <translation>Įjungtas techninės priežiūros režimas</translation>
     </message>
     <message>
       <source>Show widget in maintenance mode</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti valdiklį techninės priežiūros režimu</translation>
     </message>
     <message>
       <source>New chats can not be started, widget will be hidden.</source>
-      <translation type="unfinished"/>
+      <translation>Naujų pokalbių pradėti negalima, valdiklis bus paslėptas.</translation>
     </message>
     <message>
       <source>Widget will be visible for those who have already started a chat.</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklis bus matomas tiems, kurie jau pradėjo pokalbį.</translation>
     </message>
     <message>
       <source>Anyone who have widget open and want to start a chat will get validation error.</source>
-      <translation type="unfinished"/>
+      <translation>Visi, kurie turi atidarytą valdiklį ir nori pradėti pokalbį, gaus patvirtinimo klaidą.</translation>
     </message>
     <message>
       <source>After you see there are no pending/bot/active chats you can turn off the server or do your thing.</source>
-      <translation type="unfinished"/>
+      <translation>Kai pamatysite, kad nėra jokių laukiančių / robotų / aktyvių pokalbių, galite išjungti serverį arba užsiimti savo reikalais.</translation>
     </message>
     <message>
       <source>If none of the above conditions are met widget will become hidden.</source>
-      <translation type="unfinished"/>
+      <translation>Jei netenkinama nė viena iš pirmiau nurodytų sąlygų, valdiklis bus paslėptas.</translation>
     </message>
     <message>
       <source>Argument identifier</source>
-      <translation type="unfinished"/>
+      <translation>Argumento identifikatorius</translation>
     </message>
     <message>
       <source>Argument name</source>
-      <translation type="unfinished"/>
+      <translation>Argumento pavadinimas</translation>
     </message>
     <message>
       <source>Start chat settings</source>
-      <translation type="unfinished"/>
+      <translation>Pradėti pokalbio nustatymus</translation>
     </message>
     <message>
       <source>List of start chat settings</source>
-      <translation type="unfinished"/>
+      <translation>Pradinio pokalbio nustatymų sąrašas</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>Create a copy from default settings</source>
-      <translation type="unfinished"/>
+      <translation>Sukurti kopiją pagal numatytuosius nustatymus</translation>
     </message>
     <message>
       <source>Please enter resource identifier</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite išteklių identifikatorių</translation>
     </message>
     <message>
       <source>Add resource</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti išteklių</translation>
     </message>
     <message>
       <source>Minimum 40 characters for encryption key!</source>
-      <translation type="unfinished"/>
+      <translation>Mažiausiai 40 simbolių šifravimo raktas!</translation>
     </message>
     <message>
       <source>Copy of Default</source>
-      <translation type="unfinished"/>
+      <translation>Neįvykdytų įsipareigojimų kopija</translation>
     </message>
     <message>
       <source>Copy of</source>
-      <translation type="unfinished"/>
+      <translation>Kopija</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -5556,22 +5628,22 @@
     </message>
     <message>
       <source>Default settings</source>
-      <translation type="unfinished"/>
+      <translation>Numatytuosius nustatymus</translation>
     </message>
   </context>
   <context>
     <name>chat/lists/search_panel</name>
     <message>
       <source>Select event</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite įvykį</translation>
     </message>
     <message>
       <source>Department filter</source>
-      <translation type="unfinished"/>
+      <translation>Departamento filtras</translation>
     </message>
     <message>
       <source>Click to remove</source>
-      <translation type="unfinished"/>
+      <translation>Spustelėkite norėdami pašalinti</translation>
     </message>
     <message>
       <source>Choose department</source>
@@ -5579,51 +5651,51 @@
     </message>
     <message>
       <source>Date range from</source>
-      <translation type="unfinished"/>
+      <translation>Datų intervalas nuo</translation>
     </message>
     <message>
       <source>Hour and minute from</source>
-      <translation type="unfinished"/>
+      <translation>Valanda ir minutė nuo</translation>
     </message>
     <message>
       <source>Select hour</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite valandą</translation>
     </message>
     <message>
       <source>Select minute</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite minutę</translation>
     </message>
     <message>
       <source>Select seconds</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite sekundes</translation>
     </message>
     <message>
       <source>Date range to</source>
-      <translation type="unfinished"/>
+      <translation>Datų intervalas iki</translation>
     </message>
     <message>
       <source>Hour and minute to</source>
-      <translation type="unfinished"/>
+      <translation>Valanda ir minutė į</translation>
     </message>
     <message>
       <source>Object ID</source>
-      <translation type="unfinished"/>
+      <translation>Objekto ID</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo ID</translation>
     </message>
     <message>
       <source>Category</source>
-      <translation type="unfinished"/>
+      <translation>Kategorija</translation>
     </message>
     <message>
       <source>Source</source>
-      <translation type="unfinished"/>
+      <translation>Šaltinis</translation>
     </message>
     <message>
       <source>Message body</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo tekstas</translation>
     </message>
     <message>
       <source>Search</source>
@@ -5631,75 +5703,95 @@
     </message>
     <message>
       <source>Debug chat attributes</source>
-      <translation type="unfinished"/>
+      <translation>Derinti pokalbių atributus</translation>
     </message>
     <message>
       <source>Export</source>
-      <translation type="unfinished"/>
+      <translation>Eksportuoti</translation>
     </message>
     <message>
       <source>Truncate</source>
-      <translation type="unfinished"/>
+      <translation>Sutrumpinti</translation>
     </message>
     <message>
       <source>Exclude personal responses</source>
-      <translation type="unfinished"/>
+      <translation>Neįtraukti asmeninių atsakymų</translation>
+    </message>
+    <message>
+      <source>ID</source>
+      <translation>ID</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Pavadinimas</translation>
+    </message>
+    <message>
+      <source>Show only pinned</source>
+      <translation>Rodyti tik prisegtus</translation>
+    </message>
+    <message>
+      <source>Show only internal</source>
+      <translation>Rodyti tik vidaus</translation>
+    </message>
+    <message>
+      <source>Include archived</source>
+      <translation>Įtraukti archyvuotus</translation>
     </message>
     <message>
       <source>Delete all items</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti visus elementus</translation>
     </message>
     <message>
       <source>Left to delete</source>
-      <translation type="unfinished"/>
+      <translation>Kairėje pusėje ištrinti</translation>
     </message>
     <message>
       <source>Start deletion</source>
-      <translation type="unfinished"/>
+      <translation>Pradėti trinti</translation>
     </message>
     <message>
       <source>records will be deleted.</source>
-      <translation type="unfinished"/>
+      <translation>įrašai bus ištrinti.</translation>
     </message>
     <message>
       <source>Disable</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungta</translation>
     </message>
     <message>
       <source>Assign selected department to canned messages</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkto skyriaus priskyrimas skardiniams pranešimams</translation>
     </message>
     <message>
       <source>Remove selected department from canned messages</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkto skyriaus pašalinimas iš konservuotų pranešimų</translation>
     </message>
     <message>
       <source>Save</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti</translation>
     </message>
     <message>
       <source>Quick actions</source>
-      <translation type="unfinished"/>
+      <translation>Greiti veiksmai</translation>
     </message>
     <message>
       <source>records will be updated.</source>
-      <translation type="unfinished"/>
+      <translation>įrašai bus atnaujinti.</translation>
     </message>
     <message>
       <source>Title</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation type="unfinished"/>
+      <translation>Žinutė</translation>
     </message>
     <message>
       <source>Fallback message</source>
-      <translation type="unfinished"/>
+      <translation>Atsarginis pranešimas</translation>
     </message>
     <message>
       <source>Department</source>
@@ -5707,87 +5799,87 @@
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Usage frequency in the last 31 days</source>
-      <translation type="unfinished"/>
+      <translation>Naudojimo dažnumas per pastarąsias 31 dieną</translation>
     </message>
     <message>
       <source>Any times</source>
-      <translation type="unfinished"/>
+      <translation>Bet kuriuo metu</translation>
     </message>
     <message>
       <source>Zero times</source>
-      <translation type="unfinished"/>
+      <translation>Nulis kartų</translation>
     </message>
     <message>
       <source>Once</source>
-      <translation type="unfinished"/>
+      <translation>Kai</translation>
     </message>
     <message>
       <source>One or more</source>
-      <translation type="unfinished"/>
+      <translation>Vienas ar daugiau</translation>
     </message>
     <message>
       <source>Sort by</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti pagal</translation>
     </message>
     <message>
       <source>CSV</source>
-      <translation type="unfinished"/>
+      <translation>CSV</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>Importas</translation>
     </message>
     <message>
       <source>Department group</source>
-      <translation type="unfinished"/>
+      <translation>Departamento grupė</translation>
     </message>
     <message>
       <source>Generate</source>
-      <translation type="unfinished"/>
+      <translation>Sukurti</translation>
     </message>
     <message>
       <source>Choose department group</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite departamento grupę</translation>
     </message>
     <message>
       <source>Include content</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukite turinį</translation>
     </message>
     <message>
       <source>Include survey</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti apklausą</translation>
     </message>
     <message>
       <source>Include messages statistic</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti pranešimų statistiką</translation>
     </message>
     <message>
       <source>Include subject</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti temą</translation>
     </message>
     <message>
       <source>Include additional chat variables as columns</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti papildomus pokalbių kintamuosius kaip stulpelius</translation>
     </message>
     <message>
       <source>Export XLS</source>
-      <translation type="unfinished"/>
+      <translation>Eksportuoti XLS</translation>
     </message>
     <message>
       <source>Export CSV</source>
-      <translation type="unfinished"/>
+      <translation>CSV eksportas</translation>
     </message>
     <message>
       <source>Export XLS/CSV</source>
-      <translation type="unfinished"/>
+      <translation>XLS/CSV eksportas</translation>
     </message>
     <message>
       <source>Close selected</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryti pasirinktą</translation>
     </message>
     <message>
       <source>Delete selected</source>
@@ -5795,51 +5887,51 @@
     </message>
     <message>
       <source>Abandoned chats</source>
-      <translation type="unfinished"/>
+      <translation>Palikti pokalbiai</translation>
     </message>
     <message>
       <source>previous month</source>
-      <translation type="unfinished"/>
+      <translation>ankstesnis mėnuo</translation>
     </message>
     <message>
       <source>last 7 days</source>
-      <translation type="unfinished"/>
+      <translation>paskutinės 7 dienos</translation>
     </message>
     <message>
       <source>last 2 days</source>
-      <translation type="unfinished"/>
+      <translation>paskutinės 2 dienos</translation>
     </message>
     <message>
       <source>last 15 days</source>
-      <translation type="unfinished"/>
+      <translation>per paskutines 15 dienų</translation>
     </message>
     <message>
       <source>last 30 days</source>
-      <translation type="unfinished"/>
+      <translation>per paskutines 30 dienų</translation>
     </message>
     <message>
       <source>yesterday</source>
-      <translation type="unfinished"/>
+      <translation>vakar</translation>
     </message>
     <message>
       <source>this week</source>
-      <translation type="unfinished"/>
+      <translation>šią savaitę</translation>
     </message>
     <message>
       <source>this month</source>
-      <translation type="unfinished"/>
+      <translation>šį mėnesį</translation>
     </message>
     <message>
       <source>today</source>
-      <translation type="unfinished"/>
+      <translation>šiandien</translation>
     </message>
     <message>
       <source>previous week</source>
-      <translation type="unfinished"/>
+      <translation>praėjusią savaitę</translation>
     </message>
     <message>
       <source>Dropped chat</source>
-      <translation type="unfinished"/>
+      <translation>Nutrauktas pokalbis</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -5851,15 +5943,15 @@
     </message>
     <message>
       <source>Select subject</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite temą</translation>
     </message>
     <message>
       <source>User group</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojų grupė</translation>
     </message>
     <message>
       <source>Select group</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite grupę</translation>
     </message>
     <message>
       <source>User</source>
@@ -5871,31 +5963,35 @@
     </message>
     <message>
       <source>Chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefonas</translation>
+    </message>
+    <message>
+      <source>As participant</source>
+      <translation>Kaip dalyvis</translation>
     </message>
     <message>
       <source>Advanced search</source>
-      <translation type="unfinished"/>
+      <translation>Išplėstinė paieška</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Laukimo laikas</translation>
     </message>
     <message>
       <source>More than</source>
-      <translation type="unfinished"/>
+      <translation>Daugiau nei</translation>
     </message>
     <message>
       <source>seconds</source>
-      <translation type="unfinished"/>
+      <translation>sekundės</translation>
     </message>
     <message>
       <source>Less than</source>
-      <translation type="unfinished"/>
+      <translation>Mažiau nei</translation>
     </message>
     <message>
       <source>Vote status</source>
@@ -5919,199 +6015,243 @@
     </message>
     <message>
       <source>Chat status</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio būsena</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produktas</translation>
     </message>
     <message>
       <source>Visitor ID</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo ID</translation>
     </message>
     <message>
       <source>Chat duration</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio trukmė</translation>
     </message>
     <message>
       <source>Chat duration from</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio trukmė nuo</translation>
     </message>
     <message>
       <source>From</source>
-      <translation type="unfinished"/>
+      <translation>Iš</translation>
     </message>
     <message>
       <source>Chat duration till</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio trukmė iki</translation>
     </message>
     <message>
       <source>Till</source>
-      <translation type="unfinished"/>
+      <translation>Iki</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>Šalis</translation>
     </message>
     <message>
       <source>Region</source>
-      <translation type="unfinished"/>
+      <translation>Regionas</translation>
     </message>
     <message>
       <source>Proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus kvietimas</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>Channel</source>
-      <translation type="unfinished"/>
+      <translation>Kanalas</translation>
     </message>
     <message>
       <source>Visitor status on chat close</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo būsena pokalbio uždarymo metu</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Internete</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Undetermined</source>
-      <translation type="unfinished"/>
+      <translation>Nenustatyta</translation>
     </message>
     <message>
       <source>Has unread operator messages</source>
-      <translation type="unfinished"/>
+      <translation>Turi neperskaitytų operatoriaus pranešimų</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Taip</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Ne</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP</translation>
     </message>
     <message>
       <source>First response time (agent)</source>
-      <translation type="unfinished"/>
+      <translation>Pirmojo reagavimo laikas (agentas)</translation>
     </message>
     <message>
       <source>Max response time (agent)</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus atsako laikas (agentas)</translation>
     </message>
     <message>
       <source>Average response time (agent)</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis atsakymo laikas (agentas)</translation>
     </message>
     <message>
       <source>Chat Priority</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių prioritetas</translation>
     </message>
     <message>
       <source>To</source>
-      <translation type="unfinished"/>
+      <translation>Į</translation>
+    </message>
+    <message>
+      <source>Message counts, Operators, Visitors, Bot</source>
+      <translation>Pranešimų skaičius, Operatoriai, Lankytojai, Botas</translation>
+    </message>
+    <message>
+      <source>Operator messages</source>
+      <translation>Operatoriaus pranešimai</translation>
+    </message>
+    <message>
+      <source>Op</source>
+      <translation>Op</translation>
+    </message>
+    <message>
+      <source>Visitor messages</source>
+      <translation>Lankytojų pranešimai</translation>
+    </message>
+    <message>
+      <source>Vi</source>
+      <translation>Vi</translation>
+    </message>
+    <message>
+      <source>Bot messages</source>
+      <translation>Boto pranešimai</translation>
+    </message>
+    <message>
+      <source>Total messages</source>
+      <translation>Iš viso pranešimų</translation>
+    </message>
+    <message>
+      <source>Total</source>
+      <translation>Iš viso</translation>
     </message>
     <message>
       <source>Has unread messages</source>
-      <translation type="unfinished"/>
+      <translation>Turi neperskaitytų pranešimų</translation>
     </message>
     <message>
       <source>Unanswered chat</source>
-      <translation type="unfinished"/>
+      <translation>Neatsakytas pokalbis</translation>
     </message>
     <message>
       <source>Anonymised</source>
-      <translation type="unfinished"/>
+      <translation>Anonimizuota</translation>
     </message>
     <message>
       <source>Chats without an operator</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai be operatoriaus</translation>
     </message>
     <message>
       <source>Chats with an operator</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai su operatoriumi</translation>
     </message>
     <message>
       <source>Chats which had a bot</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai, kuriuose buvo botas</translation>
     </message>
     <message>
       <source>Chats which did not had a bot</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai, kuriuose nebuvo boto</translation>
     </message>
     <message>
       <source>Proactive chat</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus pokalbis</translation>
     </message>
     <message>
       <source>Not automatic invitation</source>
-      <translation type="unfinished"/>
+      <translation>Ne automatinis kvietimas</translation>
     </message>
     <message>
       <source>Transfer happened</source>
-      <translation type="unfinished"/>
+      <translation>Įvyko perkėlimas</translation>
     </message>
     <message>
       <source>Search by close time</source>
-      <translation type="unfinished"/>
+      <translation>Paieška pagal uždarymo laiką</translation>
+    </message>
+    <message>
+      <source>Chats with more than one participant</source>
+      <translation>Pokalbiai su daugiau nei vienu dalyviu</translation>
     </message>
     <message>
       <source>Newest first (default)</source>
-      <translation type="unfinished"/>
+      <translation>Naujausias pirmas (numatytoji reikšmė)</translation>
     </message>
     <message>
       <source>Oldest first</source>
-      <translation type="unfinished"/>
+      <translation>Seniausias pirmas</translation>
     </message>
     <message>
       <source>Last interactions first</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinė sąveika pirma</translation>
     </message>
     <message>
       <source>Last interactions last</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinės sąveikos paskutinis</translation>
+    </message>
+    <message>
+      <source>Highest total number of messages</source>
+      <translation>Didžiausias bendras pranešimų skaičius</translation>
+    </message>
+    <message>
+      <source>Lowest total number of messages</source>
+      <translation>Mažiausias bendras pranešimų skaičius</translation>
     </message>
     <message>
       <source>20 items per page</source>
-      <translation type="unfinished"/>
+      <translation>20 elementų viename puslapyje</translation>
     </message>
     <message>
       <source>40 items per page</source>
-      <translation type="unfinished"/>
+      <translation>40 elementų viename puslapyje</translation>
     </message>
     <message>
       <source>60 items per page</source>
-      <translation type="unfinished"/>
+      <translation>60 elementų viename puslapyje</translation>
     </message>
     <message>
       <source>80 items per page</source>
-      <translation type="unfinished"/>
+      <translation>80 elementų viename puslapyje</translation>
     </message>
     <message>
       <source>100 items per page</source>
-      <translation type="unfinished"/>
+      <translation>100 elementų viename puslapyje</translation>
     </message>
     <message>
       <source>150 items per page</source>
-      <translation type="unfinished"/>
+      <translation>150 elementų viename puslapyje</translation>
     </message>
     <message>
       <source>200 items per page</source>
-      <translation type="unfinished"/>
+      <translation>200 elementų viename puslapyje</translation>
     </message>
     <message>
       <source>Print</source>
@@ -6119,71 +6259,71 @@
     </message>
     <message>
       <source>chats</source>
-      <translation type="unfinished"/>
+      <translation>pokalbiai</translation>
     </message>
     <message>
       <source>Update view</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti vaizdą</translation>
     </message>
     <message>
       <source>Save as view</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti kaip vaizdą</translation>
     </message>
     <message>
       <source>Reset</source>
-      <translation type="unfinished"/>
+      <translation>Iš naujo nustatyti</translation>
     </message>
     <message>
       <source>Choose status</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite būseną</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Laukiami pokalbiai</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Bot chats</source>
-      <translation type="unfinished"/>
+      <translation>Bot pokalbiai</translation>
     </message>
     <message>
       <source>Closed chats</source>
-      <translation type="unfinished"/>
+      <translation>Uždari pokalbiai</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių dėžutės pokalbiai</translation>
     </message>
     <message>
       <source>Operators chats</source>
-      <translation type="unfinished"/>
+      <translation>Operatorių pokalbiai</translation>
     </message>
     <message>
       <source>Select product</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite produktą</translation>
     </message>
     <message>
       <source>Choose country</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite šalį</translation>
     </message>
     <message>
       <source>Choose proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite aktyvų kvietimą</translation>
     </message>
     <message>
       <source>Select bot</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite botą</translation>
     </message>
     <message>
       <source>Choose a channel</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite kanalą</translation>
     </message>
     <message>
       <source>Choose a theme</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite temą</translation>
     </message>
     <message>
       <source>Select department</source>
@@ -6195,551 +6335,567 @@
     </message>
     <message>
       <source>Apply this configuration also to these departments</source>
-      <translation type="unfinished"/>
+      <translation>Šią konfigūraciją taip pat taikykite šiems skyriams</translation>
     </message>
     <message>
       <source>Search for a user.  First 50 users are shown.</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojo paieška.  Rodomi pirmieji 50 naudotojų.</translation>
     </message>
     <message>
       <source>Monday</source>
-      <translation type="unfinished"/>
+      <translation>Pirmadienis</translation>
     </message>
     <message>
       <source>Tuesday</source>
-      <translation type="unfinished"/>
+      <translation>Antradienis</translation>
     </message>
     <message>
       <source>Wednesday</source>
-      <translation type="unfinished"/>
+      <translation>Trečiadienis</translation>
     </message>
     <message>
       <source>Thursday</source>
-      <translation type="unfinished"/>
+      <translation>Ketvirtadienis</translation>
     </message>
     <message>
       <source>Friday</source>
-      <translation type="unfinished"/>
+      <translation>Penktadienis</translation>
     </message>
     <message>
       <source>Saturday</source>
-      <translation type="unfinished"/>
+      <translation>Šeštadienis</translation>
     </message>
     <message>
       <source>Sunday</source>
-      <translation type="unfinished"/>
+      <translation>Sekmadienis</translation>
     </message>
     <message>
       <source>Brand members</source>
-      <translation type="unfinished"/>
+      <translation>Prekės ženklo nariai</translation>
     </message>
     <message>
       <source>Transfer to bot only if department is offline</source>
-      <translation type="unfinished"/>
+      <translation>Perkelti į botą tik tada, jei departamentas yra neprisijungęs</translation>
     </message>
     <message>
       <source>Bot follows online hours. Department will be offline if there is no online operators or it is outside work hours.</source>
-      <translation type="unfinished"/>
+      <translation>Botas seka internetines valandas. Skyrius bus neprisijungęs, jei nėra internetinių operatorių arba tai yra ne darbo valandomis.</translation>
     </message>
     <message>
       <source>Enable debug logging. Records will be found in Audit Log</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti derinimo registravimą. Įrašai bus rasti audito žurnale</translation>
     </message>
     <message>
       <source>Select translations</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite vertimus</translation>
     </message>
     <message>
       <source>Alias</source>
-      <translation type="unfinished"/>
+      <translation>Pseudonimas</translation>
     </message>
     <message>
       <source>Empty</source>
-      <translation type="unfinished"/>
+      <translation>Tuščias</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Paslėptas</translation>
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation type="unfinished"/>
+      <translation>Matoma tik jei esate prisijungę</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Neįgalieji</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Apklausa</translation>
     </message>
     <message>
       <source>Select survey</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite apklausą</translation>
     </message>
     <message>
       <source>Chat id</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID</translation>
     </message>
     <message>
       <source>File name</source>
-      <translation type="unfinished"/>
+      <translation>Failo pavadinimas</translation>
     </message>
     <message>
       <source>File id</source>
-      <translation type="unfinished"/>
+      <translation>Failo ID</translation>
     </message>
     <message>
       <source>Only visitor files</source>
-      <translation type="unfinished"/>
+      <translation>Tik lankytojų failai</translation>
     </message>
     <message>
       <source>Only persistent</source>
-      <translation type="unfinished"/>
+      <translation>Tik nuolatiniai</translation>
     </message>
     <message>
       <source>Conversation ID</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID</translation>
     </message>
     <message>
       <source>Message ID</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo ID</translation>
     </message>
     <message>
       <source>Choose Rest API</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite Rest API</translation>
     </message>
     <message>
       <source>Please choose</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite</translation>
     </message>
     <message>
       <source>Delete and archive all</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinkite ir archyvuokite visus</translation>
     </message>
     <message>
       <source>Delete policy is active.</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti politika yra aktyvi.</translation>
     </message>
     <message>
       <source>If checked we will process message per mailbox settings. If not checked we will ignore mailbox setting and do not touch mail messages on imap.</source>
-      <translation type="unfinished"/>
+      <translation>Jei pažymėta, pranešimą apdorosime pagal pašto dėžutės nustatymus. Jei nepažymėta, ignoruosime pašto dėžutės nustatymus ir neliesime imap pašto pranešimų.</translation>
     </message>
     <message>
       <source>Start deletion in background</source>
-      <translation type="unfinished"/>
+      <translation>Pradėti trinti fone</translation>
     </message>
     <message>
       <source>Left to delete and archive</source>
-      <translation type="unfinished"/>
+      <translation>Kairėje pusėje ištrinti ir archyvuoti</translation>
     </message>
     <message>
       <source>Choose an archive</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite archyvą</translation>
     </message>
     <message>
       <source>Start deletion and archiving in background</source>
-      <translation type="unfinished"/>
+      <translation>Pradėti trinti ir archyvuoti fone</translation>
     </message>
     <message>
       <source>Start deletion and archiving</source>
-      <translation type="unfinished"/>
+      <translation>Pradėti trinti ir archyvuoti</translation>
     </message>
     <message>
       <source>Please create a backup archive first!</source>
-      <translation type="unfinished"/>
+      <translation>Pirmiausia sukurkite atsarginę archyvo kopiją!</translation>
     </message>
     <message>
       <source>records will be deleted and archived.</source>
-      <translation type="unfinished"/>
+      <translation>įrašai bus ištrinti ir archyvuoti.</translation>
     </message>
     <message>
       <source>Include messages content</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti pranešimų turinį</translation>
     </message>
     <message>
       <source>Conversation</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis</translation>
     </message>
     <message>
       <source>Mail subject</source>
-      <translation type="unfinished"/>
+      <translation>Pašto tema</translation>
     </message>
     <message>
       <source>Mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Pašto dėžutė</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Statusas</translation>
     </message>
     <message>
       <source>Sender</source>
-      <translation type="unfinished"/>
+      <translation>Siuntėjas</translation>
     </message>
     <message>
       <source>We</source>
-      <translation type="unfinished"/>
+      <translation>Mes</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas</translation>
     </message>
     <message>
       <source>Attachment</source>
-      <translation type="unfinished"/>
+      <translation>Priedas</translation>
     </message>
     <message>
       <source>Does not matter</source>
-      <translation type="unfinished"/>
+      <translation>Nesvarbu</translation>
     </message>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>Kalba</translation>
     </message>
     <message>
       <source>Undelivered</source>
-      <translation type="unfinished"/>
+      <translation>Nepristatytas</translation>
     </message>
     <message>
       <source>Is followup</source>
-      <translation type="unfinished"/>
+      <translation>Ar tolesni veiksmai</translation>
     </message>
     <message>
       <source>Open status</source>
-      <translation type="unfinished"/>
+      <translation>Atidaryta būsena</translation>
     </message>
     <message>
       <source>Not opened</source>
-      <translation type="unfinished"/>
+      <translation>Neatidaryta</translation>
     </message>
     <message>
       <source>Opened</source>
-      <translation type="unfinished"/>
+      <translation>Atidaryta</translation>
     </message>
     <message>
       <source>New e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Naujas el. paštas</translation>
     </message>
     <message>
       <source>My active/new mails</source>
-      <translation type="unfinished"/>
+      <translation>Mano aktyvūs / nauji laiškai</translation>
     </message>
     <message>
       <source>Choose mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite pašto dėžutę</translation>
     </message>
     <message>
       <source>New mails</source>
-      <translation type="unfinished"/>
+      <translation>Nauji laiškai</translation>
     </message>
     <message>
       <source>Active mails</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs laiškai</translation>
     </message>
     <message>
       <source>Closed mails</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryti laiškai</translation>
     </message>
     <message>
       <source>Choose a language</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite kalbą</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation type="unfinished"/>
+      <translation>Iš pavadinimo</translation>
     </message>
     <message>
       <source>From mail</source>
-      <translation type="unfinished"/>
+      <translation>Iš pašto</translation>
     </message>
     <message>
       <source>Subject contains</source>
-      <translation type="unfinished"/>
+      <translation>Tema yra</translation>
     </message>
     <message>
       <source>Template HTML</source>
-      <translation type="unfinished"/>
+      <translation>HTML šablonas</translation>
     </message>
     <message>
       <source>Template Plain text</source>
-      <translation type="unfinished"/>
+      <translation>Šablonas Paprastas tekstas</translation>
     </message>
     <message>
       <source>Mail</source>
-      <translation type="unfinished"/>
+      <translation>Paštas</translation>
     </message>
     <message>
       <source>Mailbox status</source>
-      <translation type="unfinished"/>
+      <translation>Pašto dėžutės būsena</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus</translation>
     </message>
     <message>
       <source>Non-Active</source>
-      <translation type="unfinished"/>
+      <translation>Neaktyvus</translation>
     </message>
     <message>
       <source>Only failed</source>
-      <translation type="unfinished"/>
+      <translation>Tik nepavyko</translation>
     </message>
     <message>
       <source>In progress</source>
-      <translation type="unfinished"/>
+      <translation>Vykdoma</translation>
     </message>
     <message>
       <source>Details send</source>
-      <translation type="unfinished"/>
+      <translation>Išsamesnė informacija siųsti</translation>
     </message>
     <message>
       <source>Edit recipient</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti gavėją</translation>
     </message>
     <message>
       <source>Assign from selected list</source>
-      <translation type="unfinished"/>
+      <translation>Priskirti iš pasirinkto sąrašo</translation>
     </message>
     <message>
       <source>Un-assign from selected list</source>
-      <translation type="unfinished"/>
+      <translation>Atšaukti priskyrimą iš pasirinkto sąrašo</translation>
     </message>
     <message>
       <source>Choose mailing list to import from</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite pašto sąrašą, iš kurio norite importuoti</translation>
     </message>
     <message>
       <source>New recipient</source>
-      <translation type="unfinished"/>
+      <translation>Naujas gavėjas</translation>
     </message>
     <message>
       <source>Choose user</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite naudotoją</translation>
     </message>
     <message>
       <source>Mailing list</source>
-      <translation type="unfinished"/>
+      <translation>Pašto sąrašas</translation>
     </message>
     <message>
       <source>Choose mailing list</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite adresatų sąrašą</translation>
     </message>
     <message>
       <source>View as report</source>
-      <translation type="unfinished"/>
+      <translation>Peržiūrėti kaip ataskaitą</translation>
     </message>
     <message>
       <source>Report</source>
-      <translation type="unfinished"/>
+      <translation>Ataskaita</translation>
     </message>
     <message>
       <source>Please click search first</source>
-      <translation type="unfinished"/>
+      <translation>Pirmiausia spustelėkite paiešką</translation>
     </message>
     <message>
       <source>Update report</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta ataskaita</translation>
     </message>
     <message>
       <source>Save as report</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti kaip ataskaitą</translation>
     </message>
     <message>
       <source>Description of your report</source>
-      <translation type="unfinished"/>
+      <translation>Ataskaitos aprašymas</translation>
     </message>
     <message>
       <source>Put description for your own purposes.</source>
-      <translation type="unfinished"/>
+      <translation>Aprašykite savo tikslais.</translation>
     </message>
     <message>
       <source>Date filter templates</source>
-      <translation type="unfinished"/>
+      <translation>Datų filtrų šablonai</translation>
     </message>
     <message>
       <source>Previous Day</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnė diena</translation>
     </message>
     <message>
       <source>Previous Week</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnė savaitė</translation>
     </message>
     <message>
       <source>Previous Month</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnis mėnuo</translation>
     </message>
     <message>
       <source>Current Day</source>
-      <translation type="unfinished"/>
+      <translation>Dabartinė diena</translation>
     </message>
     <message>
       <source>Current Week</source>
-      <translation type="unfinished"/>
+      <translation>Einamoji savaitė</translation>
     </message>
     <message>
       <source>Current month</source>
-      <translation type="unfinished"/>
+      <translation>Einamasis mėnuo</translation>
     </message>
     <message>
       <source>Show advanced</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti išplėstinį</translation>
     </message>
     <message>
       <source>Date range start value</source>
-      <translation type="unfinished"/>
+      <translation>Datų intervalo pradžios reikšmė</translation>
     </message>
     <message>
       <source>Last n days.</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinės n dienų.</translation>
     </message>
     <message>
       <source>Last n weeks.</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinės n savaičių.</translation>
     </message>
     <message>
       <source>Last n months.</source>
-      <translation type="unfinished"/>
+      <translation>Paskutiniai n mėnesių.</translation>
     </message>
     <message>
       <source>Start from Days/Weeks/Months ago</source>
-      <translation type="unfinished"/>
+      <translation>Pradėti nuo Prieš kelias dienas/savaites/mėnesius</translation>
     </message>
     <message>
       <source>Ends from Days/Weeks/Months ago</source>
-      <translation type="unfinished"/>
+      <translation>Baigiasi prieš kelias dienas/savaites/mėnesius</translation>
     </message>
     <message>
       <source>The higher number the higher in the report list it will appear</source>
-      <translation type="unfinished"/>
+      <translation>Kuo didesnis skaičius, tuo aukščiau ataskaitų sąraše ji bus rodoma.</translation>
     </message>
     <message>
       <source>Send report to</source>
-      <translation type="unfinished"/>
+      <translation>Ataskaitą siųskite adresu</translation>
     </message>
     <message>
       <source>Daily report</source>
-      <translation type="unfinished"/>
+      <translation>Dienos ataskaita</translation>
     </message>
     <message>
       <source>Weekly report</source>
-      <translation type="unfinished"/>
+      <translation>Savaitės ataskaita</translation>
     </message>
     <message>
       <source>Monthly report</source>
-      <translation type="unfinished"/>
+      <translation>Mėnesio ataskaita</translation>
     </message>
     <message>
       <source>Day of the month</source>
-      <translation type="unfinished"/>
+      <translation>Mėnesio diena</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Laikas</translation>
     </message>
     <message>
       <source>Save as new</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti kaip naują</translation>
     </message>
     <message>
       <source>Save report</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti ataskaitą</translation>
     </message>
     <message>
       <source>My reports</source>
-      <translation type="unfinished"/>
+      <translation>Mano ataskaitos</translation>
     </message>
     <message>
       <source>Make a copy</source>
-      <translation type="unfinished"/>
+      <translation>Padarykite kopiją</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti</translation>
     </message>
     <message>
       <source>Invitation</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimas</translation>
     </message>
     <message>
       <source>Group field</source>
-      <translation type="unfinished"/>
+      <translation>Grupės laukas</translation>
     </message>
     <message>
       <source>Group limit</source>
-      <translation type="unfinished"/>
+      <translation>Grupės riba</translation>
     </message>
     <message>
       <source>Group chart</source>
-      <translation type="unfinished"/>
+      <translation>Grupės diagrama</translation>
+    </message>
+    <message>
+      <source>Min operator messages</source>
+      <translation>Min operatoriaus pranešimai</translation>
+    </message>
+    <message>
+      <source>Count</source>
+      <translation>Skaičiuokite</translation>
+    </message>
+    <message>
+      <source>Min visitor messages</source>
+      <translation>Min lankytojų pranešimai</translation>
+    </message>
+    <message>
+      <source>Min bot messages</source>
+      <translation>Min bot pranešimai</translation>
+    </message>
+    <message>
+      <source>Total messages from</source>
+      <translation>Iš viso pranešimų iš</translation>
+    </message>
+    <message>
+      <source>Total messages till</source>
+      <translation>Iš viso pranešimų iki</translation>
     </message>
     <message>
       <source>Exclude offline requests from charts</source>
-      <translation type="unfinished"/>
+      <translation>Neįtraukti neprisijungusių užklausų į diagramas</translation>
     </message>
     <message>
       <source>Show only offline requests</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti tik neprisijungus pateiktas užklausas</translation>
     </message>
     <message>
       <source>Chats which did not have a bot</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai, kuriuose nebuvo boto</translation>
     </message>
     <message>
       <source>Has unread messages from visitor</source>
-      <translation type="unfinished"/>
+      <translation>Turi neperskaitytų pranešimų iš lankytojo</translation>
     </message>
     <message>
       <source>Compare to past</source>
-      <translation type="unfinished"/>
+      <translation>Palyginti su praeitimi</translation>
     </message>
     <message>
       <source>Select country</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite šalį</translation>
     </message>
     <message>
       <source>Only operators who were online during selected period</source>
-      <translation type="unfinished"/>
+      <translation>Tik tie operatoriai, kurie pasirinktu laikotarpiu buvo prisijungę</translation>
     </message>
     <message>
       <source>Exclude deactivated operators</source>
-      <translation type="unfinished"/>
+      <translation>Neįtraukti išjungtų operatorių</translation>
     </message>
     <message>
       <source>Mail statistic is based on conversation user</source>
-      <translation type="unfinished"/>
+      <translation>Pašto statistika yra pagrįsta pokalbių vartotojo</translation>
     </message>
     <message>
       <source>Group by mail conversations</source>
-      <translation type="unfinished"/>
+      <translation>Grupė pagal pokalbius paštu</translation>
     </message>
     <message>
       <source>Agent</source>
-      <translation type="unfinished"/>
+      <translation>Agentas</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Mails</source>
-      <translation type="unfinished"/>
+      <translation>Paštas</translation>
     </message>
     <message>
       <source>Choose subjects for stats</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite statistikos dalykus</translation>
     </message>
     <message>
       <source>Group by</source>
@@ -6755,47 +6911,47 @@
     </message>
     <message>
       <source>Week</source>
-      <translation type="unfinished"/>
+      <translation>Savaitė</translation>
     </message>
     <message>
       <source>Day of the week</source>
-      <translation type="unfinished"/>
+      <translation>Savaitės diena</translation>
     </message>
     <message>
       <source>Day interval to include from</source>
-      <translation type="unfinished"/>
+      <translation>Dienos intervalas nuo</translation>
     </message>
     <message>
       <source>Day interval to include to</source>
-      <translation type="unfinished"/>
+      <translation>Dienos intervalas, kurį reikia įtraukti į</translation>
     </message>
     <message>
       <source>Abandoned chat</source>
-      <translation type="unfinished"/>
+      <translation>Palikti pokalbiai</translation>
     </message>
     <message>
       <source>User Agent</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo agentas</translation>
     </message>
     <message>
       <source>Device type</source>
-      <translation type="unfinished"/>
+      <translation>Įrenginio tipas</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>Operator who transferred a chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbį perdavęs operatorius</translation>
     </message>
     <message>
       <source>Page from which the customer came to the website.</source>
-      <translation type="unfinished"/>
+      <translation>Puslapis, iš kurio klientas atėjo į svetainę.</translation>
     </message>
     <message>
       <source>Web page from which chat was started</source>
-      <translation type="unfinished"/>
+      <translation>Tinklalapis, iš kurio pradėtas pokalbis</translation>
     </message>
     <message>
       <source>Date range from to</source>
@@ -6803,99 +6959,99 @@
     </message>
     <message>
       <source>Message user</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo naudotojas</translation>
     </message>
     <message>
       <source>Message user group</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo naudotojų grupė</translation>
     </message>
     <message>
       <source>Conversation user</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio naudotojas</translation>
     </message>
     <message>
       <source>Conversation user group</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių naudotojų grupė</translation>
     </message>
     <message>
       <source>Message types to include</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukiamų pranešimų tipai</translation>
     </message>
     <message>
       <source>Choose</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite</translation>
     </message>
     <message>
       <source>Average</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>As participant</source>
-      <translation type="unfinished"/>
+      <translation>Vidutiniškai</translation>
     </message>
     <message>
       <source>Total number of chats</source>
-      <translation type="unfinished"/>
+      <translation>Bendras pokalbių skaičius</translation>
     </message>
     <message>
       <source>Number of chats while online</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių internetu skaičius</translation>
     </message>
     <message>
       <source>Hours on chat (sum of chat duration)</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio valandos (pokalbio trukmės suma)</translation>
     </message>
     <message>
       <source>Time online (sum of time spend online)</source>
-      <translation type="unfinished"/>
+      <translation>Laikas, praleistas internete (internete praleisto laiko suma)</translation>
     </message>
     <message>
       <source>AVG number of chats per hour</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis pokalbių skaičius per valandą</translation>
     </message>
     <message>
       <source>Average pick-up time</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis paėmimo laikas</translation>
     </message>
     <message>
       <source>Average chat length</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinė pokalbio trukmė</translation>
+    </message>
+    <message>
+      <source>Average chat length (agent)</source>
+      <translation>Vidutinė pokalbio trukmė (agentas)</translation>
     </message>
     <message>
       <source>Average of first response time (agent)</source>
-      <translation type="unfinished"/>
+      <translation>Pirmosios reakcijos laiko vidurkis (agentas)</translation>
     </message>
     <message>
       <source>Average of response time (agent)</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo laiko vidurkis (agentas)</translation>
     </message>
     <message>
       <source>Average of maximum response time (agent)</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalaus atsako laiko vidurkis (agentas)</translation>
     </message>
     <message>
       <source>Total mails</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso laiškų</translation>
     </message>
     <message>
       <source>Include hours (from, to)</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti valandas (nuo, iki)</translation>
     </message>
     <message>
       <source>Hour</source>
-      <translation type="unfinished"/>
+      <translation>Valanda</translation>
     </message>
     <message>
       <source>Group results by operator</source>
-      <translation type="unfinished"/>
+      <translation>Grupės rezultatai pagal operatorių</translation>
     </message>
     <message>
       <source>Minimum operator chats</source>
-      <translation type="unfinished"/>
+      <translation>Minimalus operatoriaus pokalbių skaičius</translation>
     </message>
     <message>
       <source>Optional</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinai</translation>
     </message>
     <message>
       <source>XLS</source>
@@ -6911,83 +7067,107 @@
     </message>
     <message>
       <source>Action type</source>
-      <translation type="unfinished"/>
+      <translation>Veiksmo tipas</translation>
     </message>
     <message>
       <source>Choose action type</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite veiksmo tipą</translation>
     </message>
     <message>
       <source>Chat open</source>
-      <translation type="unfinished"/>
+      <translation>Atidarytas pokalbis</translation>
     </message>
     <message>
       <source>Chat preview</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių peržiūra</translation>
     </message>
     <message>
       <source>Chat search</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių paieška</translation>
     </message>
     <message>
       <source>Chat search ElasticSearch</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių paieška ElasticSearch</translation>
     </message>
     <message>
       <source>Chat export</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių eksportas</translation>
     </message>
     <message>
       <source>Chat export ElasticSearch</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių eksportas ElasticSearch</translation>
     </message>
     <message>
       <source>Mail open</source>
-      <translation type="unfinished"/>
+      <translation>Atidarytas paštas</translation>
     </message>
     <message>
       <source>Mail preview</source>
-      <translation type="unfinished"/>
+      <translation>Pašto peržiūra</translation>
     </message>
     <message>
       <source>Mail search</source>
-      <translation type="unfinished"/>
+      <translation>Pašto paieška</translation>
     </message>
     <message>
       <source>Mail search ElasticSearch</source>
-      <translation type="unfinished"/>
+      <translation>Pašto paieška ElasticSearch</translation>
     </message>
     <message>
       <source>Mail export</source>
-      <translation type="unfinished"/>
+      <translation>Pašto eksportas</translation>
     </message>
     <message>
       <source>Mail export ElasticSearch</source>
-      <translation type="unfinished"/>
+      <translation>Pašto eksportas ElasticSearch</translation>
     </message>
     <message>
       <source>Choose department you want to add</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite skyrių, kurį norite pridėti</translation>
     </message>
     <message>
       <source>Choose department group you want to add</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite skyrių grupę, kurią norite pridėti</translation>
     </message>
     <message>
       <source>Disable operators</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti operatoriai</translation>
     </message>
     <message>
       <source>Force logout</source>
-      <translation type="unfinished"/>
+      <translation>Priverstinis atsijungimas</translation>
     </message>
     <message>
       <source>Force change password</source>
-      <translation type="unfinished"/>
+      <translation>Priverstinis slaptažodžio keitimas</translation>
     </message>
     <message>
       <source>Auto preload previous visitor chat messages</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis ankstesnių lankytojų pokalbių žinučių įkėlimas</translation>
+    </message>
+    <message>
+      <source>Show chat tabs</source>
+      <translation>Rodyti pokalbių skirtukus</translation>
+    </message>
+    <message>
+      <source>Hide chat tabs</source>
+      <translation>Paslėpti pokalbių skirtukus</translation>
+    </message>
+    <message>
+      <source>Automatically accept assigned chats</source>
+      <translation>Automatiškai priimti priskirtus pokalbius</translation>
+    </message>
+    <message>
+      <source>Do not automatically accept assigned chats</source>
+      <translation>Automatiškai nepriimti priskirtų pokalbių</translation>
+    </message>
+    <message>
+      <source>Show alerts for transferred chats</source>
+      <translation>Rodyti perspėjimus apie perduotus pokalbius</translation>
+    </message>
+    <message>
+      <source>Do not show alerts for transferred chats</source>
+      <translation>Nerodyti perspėjimų apie perduotus pokalbius</translation>
     </message>
     <message>
       <source>Username</source>
@@ -7007,35 +7187,35 @@
     </message>
     <message>
       <source>Active &amp; Deactivated</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus ir išjungtas</translation>
     </message>
     <message>
       <source>Deactivated</source>
-      <translation type="unfinished"/>
+      <translation>Deaktyvuota</translation>
     </message>
     <message>
       <source>User language</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojo kalba</translation>
     </message>
     <message>
       <source>Login from</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungti iš</translation>
     </message>
     <message>
       <source>Login till</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungti iki</translation>
     </message>
     <message>
       <source>Go to my views</source>
-      <translation type="unfinished"/>
+      <translation>Eikite į mano nuomones</translation>
     </message>
     <message>
       <source>Date range filter</source>
-      <translation type="unfinished"/>
+      <translation>Datų diapazono filtras</translation>
     </message>
     <message>
       <source>My defined date range</source>
-      <translation type="unfinished"/>
+      <translation>Mano apibrėžtas datos intervalas</translation>
     </message>
     <message>
       <source>Today</source>
@@ -7047,374 +7227,382 @@
     </message>
     <message>
       <source>Last 2 days</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinės 2 dienos</translation>
     </message>
     <message>
       <source>Last 7 days</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinės 7 dienos</translation>
     </message>
     <message>
       <source>Last 15 days</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinės 15 dienų</translation>
     </message>
     <message>
       <source>Last 30 days</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinės 30 dienų</translation>
     </message>
     <message>
       <source>This week</source>
-      <translation type="unfinished"/>
+      <translation>Šią savaitę</translation>
     </message>
     <message>
       <source>This month</source>
-      <translation type="unfinished"/>
+      <translation>Šį mėnesį</translation>
     </message>
     <message>
       <source>Previous week</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnė savaitė</translation>
     </message>
     <message>
       <source>Previous month</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnis mėnuo</translation>
     </message>
     <message>
       <source>Include records from the past</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukite praeities įrašus</translation>
     </message>
     <message>
       <source>The higher number the higher in the views list it will appear</source>
-      <translation type="unfinished"/>
+      <translation>Kuo didesnis skaičius, tuo aukščiau peržiūrų sąraše jis bus rodomas.</translation>
     </message>
     <message>
       <source>Passive, number of matching records will not be updated in the background.</source>
-      <translation type="unfinished"/>
+      <translation>Pasyvus, atitinkančių įrašų skaičius nebus atnaujinamas fone.</translation>
     </message>
     <message>
       <source>Description of your view</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų požiūrio aprašymas</translation>
     </message>
     <message>
       <source>Save search</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti paiešką</translation>
+    </message>
+    <message>
+      <source>Select all</source>
+      <translation>Pasirinkite visus</translation>
+    </message>
+    <message>
+      <source>Un-select all</source>
+      <translation>Atšaukti visus</translation>
     </message>
     <message>
       <source>Till now</source>
-      <translation type="unfinished"/>
+      <translation>Iki šiol</translation>
     </message>
     <message>
       <source>Copy of</source>
-      <translation type="unfinished"/>
+      <translation>Kopija</translation>
     </message>
   </context>
   <context>
     <name>module/mailconvmb</name>
     <message>
       <source>Choose a parent invitation</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite tėvų kvietimą</translation>
     </message>
     <message>
       <source>Choose a related mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite susijusią pašto dėžutę</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Login settings</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungimo nustatymai</translation>
     </message>
     <message>
       <source>Options</source>
-      <translation type="unfinished"/>
+      <translation>Parinktys</translation>
     </message>
     <message>
       <source>Mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Pašto dėžutė</translation>
     </message>
     <message>
       <source>Signature</source>
-      <translation type="unfinished"/>
+      <translation>Parašas</translation>
     </message>
     <message>
       <source>Matching Rules</source>
-      <translation type="unfinished"/>
+      <translation>Atitikimo taisyklės</translation>
     </message>
     <message>
       <source>Utilities</source>
-      <translation type="unfinished"/>
+      <translation>Komunalinės paslaugos</translation>
     </message>
     <message>
       <source>Get mailbox to sync</source>
-      <translation type="unfinished"/>
+      <translation>Gauti pašto dėžutę sinchronizuoti</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus</translation>
     </message>
     <message>
       <source>Create a copy in a send folder.</source>
-      <translation type="unfinished"/>
+      <translation>Sukurkite kopiją į siunčiamąjį aplanką.</translation>
     </message>
     <message>
       <source>Delete on archive. Messages on archive event will follow delete options.</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti archyvuojant. Archyvavimo įvykyje pranešimai bus ištrinti pagal ištrynimo parinktis.</translation>
     </message>
     <message>
       <source>If not checked, we will not touch archived messages on IMAP server.</source>
-      <translation type="unfinished"/>
+      <translation>Jei nepažymėta, IMAP serveryje archyvuotų pranešimų neliesime.</translation>
     </message>
     <message>
       <source>On message deletion delete it also on IMAP server. Choose delete policy from below</source>
-      <translation type="unfinished"/>
+      <translation>Ištrynus žinutę ištrinkite ją ir IMAP serveryje. Pasirinkite ištrynimo politiką iš toliau pateiktų</translation>
     </message>
     <message>
       <source>Delete options</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti parinktis</translation>
     </message>
     <message>
       <source>Move to Trash folder on IMAP server. Default.</source>
-      <translation type="unfinished"/>
+      <translation>Perkelkite į IMAP serverio aplanką &quot;Šiukšliadėžė&quot;. Numatytoji reikšmė.</translation>
     </message>
     <message>
       <source>Permanently delete mail from IMAP server.</source>
-      <translation type="unfinished"/>
+      <translation>Visam laikui ištrinti laiškus iš IMAP serverio.</translation>
     </message>
     <message>
       <source>Assign follow-up e-mail to the previous thread owner</source>
-      <translation type="unfinished"/>
+      <translation>Priskirti tolesnius el. pašto pranešimus ankstesniam temos savininkui</translation>
     </message>
     <message>
       <source>Check for new messages interval in seconds.</source>
-      <translation type="unfinished"/>
+      <translation>Naujų pranešimų tikrinimo intervalas sekundėmis.</translation>
     </message>
     <message>
       <source>Use only In-Reply value as reference to the thread. Otherwise Reference attribute also would be used.</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite tik &quot;In-Reply&quot; reikšmę kaip nuorodą į siūlą. Priešingu atveju taip pat būtų naudojamas atributas Reference.</translation>
     </message>
     <message>
       <source>Import messages n hours old from present time</source>
-      <translation type="unfinished"/>
+      <translation>Importuoti n valandų senumo pranešimus iš dabartinio laiko</translation>
     </message>
     <message>
       <source>48 hours is default.</source>
-      <translation type="unfinished"/>
+      <translation>48 valandos yra numatytasis nustatymas.</translation>
     </message>
     <message>
       <source>User present time to import messages from instead of last import time.</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo dabartinis laikas importuoti pranešimus iš vietoj paskutinio importo laiko.</translation>
     </message>
     <message>
       <source>Import since this unix timestamp.</source>
-      <translation type="unfinished"/>
+      <translation>Importuoti nuo šios Unix laiko žymos.</translation>
     </message>
     <message>
       <source>Set to now</source>
-      <translation type="unfinished"/>
+      <translation>Nustatyti į dabar</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>Importas</translation>
     </message>
     <message>
       <source>On a new mail arrival, default</source>
-      <translation type="unfinished"/>
+      <translation>Kai gaunamas naujas laiškas, numatytoji</translation>
     </message>
     <message>
       <source>Every half hour</source>
-      <translation type="unfinished"/>
+      <translation>Kas pusvalandį</translation>
     </message>
     <message>
       <source>Every hour</source>
-      <translation type="unfinished"/>
+      <translation>Kas valandą</translation>
     </message>
     <message>
       <source>Every two hour</source>
-      <translation type="unfinished"/>
+      <translation>Kas dvi valandas</translation>
     </message>
     <message>
       <source>Every three hour</source>
-      <translation type="unfinished"/>
+      <translation>Kas tris valandas</translation>
     </message>
     <message>
       <source>Every 6 hours</source>
-      <translation type="unfinished"/>
+      <translation>Kas 6 valandas</translation>
     </message>
     <message>
       <source>Every 12 hours</source>
-      <translation type="unfinished"/>
+      <translation>Kas 12 valandų</translation>
     </message>
     <message>
       <source>Every 24 hours</source>
-      <translation type="unfinished"/>
+      <translation>Kas 24 valandas</translation>
     </message>
     <message>
       <source>Import last N E-mails. Default 100.</source>
-      <translation type="unfinished"/>
+      <translation>Importuoti paskutinius N el. laiškų. Numatytoji reikšmė 100.</translation>
     </message>
     <message>
       <source>Timeout in days after last response before we create a new issue</source>
-      <translation type="unfinished"/>
+      <translation>Laiko tarpas dienomis po paskutinio atsakymo prieš sukuriant naują problemą</translation>
     </message>
     <message>
       <source>Un-assing operator on closed ticket re-open</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryto bilieto pakartotinio atidarymo operatoriaus panaikinimas</translation>
     </message>
     <message>
       <source>Import priority. If mail is send to two mailbox and we handle both, only mail with higher mailbox priority will be processed.</source>
-      <translation type="unfinished"/>
+      <translation>Importo prioritetas. Jei laiškai siunčiami į dvi pašto dėžutes ir mes apdorojame abi, bus apdorojami tik aukštesnio prioriteto laiškai.</translation>
     </message>
     <message>
       <source>Close conversations older than n days. Only conversations of the active mailboxes will be closed.</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryti senesnius nei n dienų pokalbius. Bus uždaryti tik aktyvių pašto dėžučių pokalbiai.</translation>
     </message>
     <message>
       <source>What status conversations we should close?</source>
-      <translation type="unfinished"/>
+      <translation>Kokios būklės pokalbius turėtume užbaigti?</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama</translation>
     </message>
     <message>
       <source>Reset and import</source>
-      <translation type="unfinished"/>
+      <translation>Iš naujo nustatyti ir importuoti</translation>
     </message>
     <message>
       <source>Reset import status</source>
-      <translation type="unfinished"/>
+      <translation>Iš naujo nustatyti importo būseną</translation>
     </message>
     <message>
       <source>In progress</source>
-      <translation type="unfinished"/>
+      <translation>Vykdoma</translation>
     </message>
     <message>
       <source>Finished</source>
-      <translation type="unfinished"/>
+      <translation>Baigtas</translation>
     </message>
     <message>
       <source>Last sync finished</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinė sinchronizacija baigta</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation type="unfinished"/>
+      <translation>prieš</translation>
     </message>
     <message>
       <source>Last sync started</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinė pradėta sinchronizacija</translation>
     </message>
     <message>
       <source>Last processed</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinį kartą apdorotas</translation>
     </message>
     <message>
       <source>UUID Next status</source>
-      <translation type="unfinished"/>
+      <translation>UUID Kitas statusas</translation>
     </message>
     <message>
       <source>Sync log</source>
-      <translation type="unfinished"/>
+      <translation>Sinchronizavimo žurnalas</translation>
     </message>
     <message>
       <source>Matching rules</source>
-      <translation type="unfinished"/>
+      <translation>Atitikimo taisyklės</translation>
     </message>
     <message>
       <source>Put signature directly under reply</source>
-      <translation type="unfinished"/>
+      <translation>Padėkite parašą tiesiai po atsakymu</translation>
     </message>
     <message>
       <source>Supported replaceable variable.</source>
-      <translation type="unfinished"/>
+      <translation>Palaikomas keičiamas kintamasis.</translation>
     </message>
     <message>
       <source>Real operator Name and Surname</source>
-      <translation type="unfinished"/>
+      <translation>Tikrojo operatoriaus vardas ir pavardė</translation>
     </message>
     <message>
       <source>Operator chat Nick name if filled, otherwise real  Name and Surname</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus pokalbių slapyvardis Nick, jei užpildytas, kitu atveju tikrasis Vardas ir pavardė</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta</translation>
     </message>
     <message>
       <source>Choose a user</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite naudotoją</translation>
     </message>
     <message>
       <source>Default department</source>
-      <translation type="unfinished"/>
+      <translation>Numatytasis departamentas</translation>
     </message>
     <message>
       <source>Select</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite</translation>
     </message>
     <message>
       <source>Import progress</source>
-      <translation type="unfinished"/>
+      <translation>Importo pažanga</translation>
     </message>
     <message>
       <source>Import priority</source>
-      <translation type="unfinished"/>
+      <translation>Importo prioritetas</translation>
     </message>
     <message>
       <source>Reset status</source>
-      <translation type="unfinished"/>
+      <translation>Iš naujo nustatyti būseną</translation>
     </message>
     <message>
       <source>New mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Nauja pašto dėžutė</translation>
     </message>
     <message>
       <source>Main settings</source>
-      <translation type="unfinished"/>
+      <translation>Pagrindiniai nustatymai</translation>
     </message>
     <message>
       <source>Mail</source>
-      <translation type="unfinished"/>
+      <translation>Paštas</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation type="unfinished"/>
+      <translation>Iš pavadinimo</translation>
     </message>
     <message>
       <source>Authentication method</source>
-      <translation type="unfinished"/>
+      <translation>Autentiškumo nustatymo metodas</translation>
     </message>
     <message>
       <source>Normal password</source>
-      <translation type="unfinished"/>
+      <translation>Įprastas slaptažodis</translation>
     </message>
     <message>
       <source>OAuth2</source>
-      <translation type="unfinished"/>
+      <translation>OAuth2</translation>
     </message>
     <message>
       <source>Finish OAuth authentication</source>
-      <translation type="unfinished"/>
+      <translation>Baigti &quot;OAuth&quot; autentifikavimą</translation>
     </message>
     <message>
       <source>Token expires at</source>
-      <translation type="unfinished"/>
+      <translation>Žetono galiojimo laikas baigiasi</translation>
     </message>
     <message>
       <source>Please save first initial account settings</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugokite pirmuosius pradinius paskyros nustatymus</translation>
     </message>
     <message>
       <source>Send e-mail settings SMTP</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti el. pašto nustatymai SMTP</translation>
     </message>
     <message>
       <source>Do not enter SMTP username and password if it is the same as IMAP</source>
-      <translation type="unfinished"/>
+      <translation>Neįveskite SMTP vartotojo vardo ir slaptažodžio, jei jie yra tokie patys kaip IMAP</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo vardas</translation>
     </message>
     <message>
       <source>Password</source>
@@ -7422,15 +7610,15 @@
     </message>
     <message>
       <source>You can set custom from mail and name. If not set we will use the main settings. Reply-to always will be set to main settings mail.</source>
-      <translation type="unfinished"/>
+      <translation>Galite nustatyti pasirinktinį laišką ir pavadinimą. Jei nenustatyta, bus naudojami pagrindiniai nustatymai. Atsakyti į visada bus nustatytas pagrindinis nustatymų paštas.</translation>
     </message>
     <message>
       <source>No password required to send an e-mail.</source>
-      <translation type="unfinished"/>
+      <translation>Norint siųsti el. laišką, slaptažodžio nereikia.</translation>
     </message>
     <message>
       <source>Host</source>
-      <translation type="unfinished"/>
+      <translation>Šeimininkas</translation>
     </message>
     <message>
       <source>Port</source>
@@ -7438,7 +7626,7 @@
     </message>
     <message>
       <source>Receive e-mail IMAP settings.</source>
-      <translation type="unfinished"/>
+      <translation>Gauti el. pašto IMAP nustatymai.</translation>
     </message>
     <message>
       <source>IMAP Server address</source>
@@ -7446,7 +7634,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Add</source>
@@ -7454,532 +7642,536 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti</translation>
     </message>
     <message>
       <source>This mailbox was already added!</source>
-      <translation type="unfinished"/>
+      <translation>Ši pašto dėžutė jau buvo pridėta!</translation>
     </message>
     <message>
       <source>Please choose mailbox and user!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite pašto dėžutę ir naudotoją!</translation>
     </message>
     <message>
       <source>Personal Mailbox Rules</source>
-      <translation type="unfinished"/>
+      <translation>Asmeninės pašto dėžutės taisyklės</translation>
     </message>
     <message>
       <source>Mails</source>
-      <translation type="unfinished"/>
+      <translation>Paštas</translation>
     </message>
     <message>
       <source>E-mail was sent.</source>
-      <translation type="unfinished"/>
+      <translation>Išsiųstas el. laiškas.</translation>
     </message>
     <message>
       <source>Sent e-mail copy was created in a sent folder.</source>
-      <translation type="unfinished"/>
+      <translation>Išsiųstojo el. pašto kopija buvo sukurta išsiųstajame aplanke.</translation>
     </message>
     <message>
       <source>Campaigns list</source>
-      <translation type="unfinished"/>
+      <translation>Kampanijų sąrašas</translation>
     </message>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Statusas</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjai</translation>
     </message>
     <message>
       <source>Copy campaign</source>
-      <translation type="unfinished"/>
+      <translation>Kopijavimo kampanija</translation>
     </message>
     <message>
       <source>List of recipients</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjų sąrašas</translation>
     </message>
     <message>
       <source>Campaign recipient</source>
-      <translation type="unfinished"/>
+      <translation>Kampanijos gavėjas</translation>
     </message>
     <message>
       <source>Recipient</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjas</translation>
     </message>
     <message>
       <source>Send at</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti adresu</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation type="unfinished"/>
+      <translation>Tipas</translation>
     </message>
     <message>
       <source>Seen</source>
-      <translation type="unfinished"/>
+      <translation>Žiūrėta</translation>
     </message>
     <message>
       <source>Ticket</source>
-      <translation type="unfinished"/>
+      <translation>Bilietas</translation>
     </message>
     <message>
       <source>Copied</source>
-      <translation type="unfinished"/>
+      <translation>Nukopijuota</translation>
     </message>
     <message>
       <source>Click to copy</source>
-      <translation type="unfinished"/>
+      <translation>Spustelėkite, jei norite kopijuoti</translation>
     </message>
     <message>
       <source>Send test e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti bandomąjį el. laišką</translation>
     </message>
     <message>
       <source>Failed</source>
-      <translation type="unfinished"/>
+      <translation>Nepavyko</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti</translation>
     </message>
     <message>
       <source>Manual</source>
-      <translation type="unfinished"/>
+      <translation>Rankinis</translation>
     </message>
     <message>
       <source>Based on recipient list</source>
-      <translation type="unfinished"/>
+      <translation>Pagal gavėjų sąrašą</translation>
     </message>
     <message>
       <source>Mail was not opened yet!</source>
-      <translation type="unfinished"/>
+      <translation>Paštas dar neatidarytas!</translation>
     </message>
     <message>
       <source>Mail was opened first time at</source>
-      <translation type="unfinished"/>
+      <translation>Paštas pirmą kartą buvo atidarytas</translation>
     </message>
     <message>
       <source>Send log</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti žurnalą</translation>
     </message>
     <message>
       <source>Main</source>
-      <translation type="unfinished"/>
+      <translation>Pagrindinis</translation>
     </message>
     <message>
       <source>Statistic</source>
-      <translation type="unfinished"/>
+      <translation>Statistika</translation>
     </message>
     <message>
       <source>Owner</source>
-      <translation type="unfinished"/>
+      <translation>Savininkas</translation>
     </message>
     <message>
       <source>Total recipients</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso gavėjų</translation>
     </message>
     <message>
       <source>Total recipients pending</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso laukiančių gavėjų</translation>
     </message>
     <message>
       <source>Total recipients send</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso išsiųstų gavėjų</translation>
     </message>
     <message>
       <source>Total recipients failed</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso gavėjų, kuriems nepavyko</translation>
     </message>
     <message>
       <source>Total recipients in progress</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso nebaigtų gavėjų</translation>
     </message>
     <message>
       <source>Number of recipients who opened an e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjų, kurie atidarė el. laišką, skaičius</translation>
     </message>
     <message>
       <source>This recipient is a member of these mailing lists</source>
-      <translation type="unfinished"/>
+      <translation>Šis gavėjas yra šių adresatų sąrašų narys</translation>
     </message>
     <message>
       <source>were assigned</source>
-      <translation type="unfinished"/>
+      <translation>buvo priskirti</translation>
     </message>
     <message>
       <source>already existed</source>
-      <translation type="unfinished"/>
+      <translation>jau egzistavo</translation>
     </message>
     <message>
       <source>were skipped</source>
-      <translation type="unfinished"/>
+      <translation>buvo praleisti</translation>
     </message>
     <message>
       <source>were removed from recipient list</source>
-      <translation type="unfinished"/>
+      <translation>buvo išbraukti iš gavėjų sąrašo</translation>
     </message>
     <message>
       <source>Members</source>
-      <translation type="unfinished"/>
+      <translation>Nariai</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas</translation>
     </message>
     <message>
       <source>List of members</source>
-      <translation type="unfinished"/>
+      <translation>Narių sąrašas</translation>
     </message>
     <message>
       <source>Mailing recipient</source>
-      <translation type="unfinished"/>
+      <translation>Siuntimo gavėjas</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>El. paštas</translation>
     </message>
     <message>
       <source>Attribute string 1</source>
-      <translation type="unfinished"/>
+      <translation>Atributų eilutė 1</translation>
     </message>
     <message>
       <source>Attribute string 2</source>
-      <translation type="unfinished"/>
+      <translation>Atributas eilutė 2</translation>
     </message>
     <message>
       <source>Attribute string 3</source>
-      <translation type="unfinished"/>
+      <translation>Atributų eilutė 3</translation>
     </message>
     <message>
       <source>Attribute string 4</source>
-      <translation type="unfinished"/>
+      <translation>Atributų eilutė 4</translation>
     </message>
     <message>
       <source>Attribute string 5</source>
-      <translation type="unfinished"/>
+      <translation>Atributų eilutė 5</translation>
     </message>
     <message>
       <source>Attribute string 6</source>
-      <translation type="unfinished"/>
+      <translation>Atributų eilutė 6</translation>
     </message>
     <message>
       <source>Recipient was created</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjas buvo sukurtas</translation>
     </message>
     <message>
       <source>Ticket owner workflow</source>
-      <translation type="unfinished"/>
+      <translation>Bilieto savininko darbo eiga</translation>
     </message>
     <message>
       <source>Campaign creator will be an owner of the ticket</source>
-      <translation type="unfinished"/>
+      <translation>Kampanijos kūrėjas bus bilieto savininkas</translation>
     </message>
     <message>
       <source>Me</source>
-      <translation type="unfinished"/>
+      <translation>Aš</translation>
     </message>
     <message>
       <source>Ticket will follow standard mailbox rules</source>
-      <translation type="unfinished"/>
+      <translation>Bilietas atitinka standartines pašto dėžutės taisykles</translation>
     </message>
     <message>
       <source>Selected user will be assigned as ticket owner</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktas naudotojas bus paskirtas bilieto savininku</translation>
     </message>
     <message>
       <source>Dedicated ticket user</source>
-      <translation type="unfinished"/>
+      <translation>Specialusis bilietų naudotojas</translation>
     </message>
     <message>
       <source>Activate campaign</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvinti kampaniją</translation>
     </message>
     <message>
       <source>Only once the campaign is activated we will start sending e-mails. Progress you can see in statistic tab.</source>
-      <translation type="unfinished"/>
+      <translation>Tik suaktyvinus kampaniją pradėsime siųsti el. laiškus. Pažangą galite matyti statistikos skirtuke.</translation>
     </message>
     <message>
       <source>As active</source>
-      <translation type="unfinished"/>
+      <translation>Kaip aktyvus</translation>
     </message>
     <message>
       <source>Created ticket will be created as active one</source>
-      <translation type="unfinished"/>
+      <translation>Sukurtas bilietas bus sukurtas kaip aktyvus</translation>
     </message>
     <message>
       <source>Start sending at</source>
-      <translation type="unfinished"/>
+      <translation>Pradėkite siųsti</translation>
     </message>
     <message>
       <source>Pending, campaign has not started yet.</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama, kampanija dar nepradėta.</translation>
     </message>
     <message>
       <source>Set campaign status to pending. E.g You can activate it again if you have added more recipients.</source>
-      <translation type="unfinished"/>
+      <translation>Nustatykite kampanijos būseną į laukiančią. Pvz., Galite vėl ją aktyvuoti, jei pridėjote daugiau gavėjų.</translation>
     </message>
     <message>
       <source>you can set a mailbox to send from per recipient</source>
-      <translation type="unfinished"/>
+      <translation>galite nustatyti pašto dėžutę, iš kurios bus siunčiama vienam gavėjui.</translation>
     </message>
     <message>
       <source>Use in campaign body - {args.recipient.name}</source>
-      <translation type="unfinished"/>
+      <translation>Naudojimas kampanijos kūne - {args.recipient.name}</translation>
     </message>
     <message>
       <source>String attribute 1</source>
-      <translation type="unfinished"/>
+      <translation>1 eilutės požymis</translation>
     </message>
     <message>
       <source>Use in campaign body - {args.recipient.attr_str_1}</source>
-      <translation type="unfinished"/>
+      <translation>Naudojimas kampanijos kūne - {args.recipient.attr_str_1}</translation>
     </message>
     <message>
       <source>String attribute 2</source>
-      <translation type="unfinished"/>
+      <translation>2 eilutės atributas</translation>
     </message>
     <message>
       <source>Use in campaign body - {args.recipient.attr_str_2}</source>
-      <translation type="unfinished"/>
+      <translation>Naudojimas kampanijos kūne - {args.recipient.attr_str_2}</translation>
     </message>
     <message>
       <source>String attribute 3</source>
-      <translation type="unfinished"/>
+      <translation>Styginių atributas 3</translation>
     </message>
     <message>
       <source>Use in campaign body - {args.recipient.attr_str_3}</source>
-      <translation type="unfinished"/>
+      <translation>Naudojimas kampanijos kūne - {args.recipient.attr_str_3}</translation>
     </message>
     <message>
       <source>String attribute 4</source>
-      <translation type="unfinished"/>
+      <translation>Styginių atributas 4</translation>
     </message>
     <message>
       <source>Use in campaign body - {args.recipient.attr_str_4}</source>
-      <translation type="unfinished"/>
+      <translation>Naudojimas kampanijos kūne - {args.recipient.attr_str_4}</translation>
     </message>
     <message>
       <source>String attribute 5</source>
-      <translation type="unfinished"/>
+      <translation>Styginių atributas 5</translation>
     </message>
     <message>
       <source>Use in campaign body - {args.recipient.attr_str_5}</source>
-      <translation type="unfinished"/>
+      <translation>Naudojimas kampanijos kūne - {args.recipient.attr_str_5}</translation>
     </message>
     <message>
       <source>String attribute 6</source>
-      <translation type="unfinished"/>
+      <translation>Styginių atributas 6</translation>
     </message>
     <message>
       <source>Use in campaign body - {args.recipient.attr_str_6}</source>
-      <translation type="unfinished"/>
+      <translation>Naudojimas kampanijos kūne - {args.recipient.attr_str_6}</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Neįgalieji</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Taip</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Ne</translation>
     </message>
     <message>
       <source>This list was updated. Please</source>
-      <translation type="unfinished"/>
+      <translation>Šis sąrašas buvo atnaujintas. Prašome</translation>
     </message>
     <message>
       <source>refresh</source>
-      <translation type="unfinished"/>
+      <translation>atnaujinti</translation>
     </message>
   </context>
   <context>
     <name>abstract/message_protection</name>
     <message>
       <source>If no department is chosen this will apply to all departments</source>
-      <translation type="unfinished"/>
+      <translation>Jei nepasirinktas joks departamentas, tai bus taikoma visiems departamentams.</translation>
     </message>
     <message>
       <source>Choose department</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite skyrių</translation>
     </message>
     <message>
       <source>Auto reply warning to visitor/operator</source>
-      <translation type="unfinished"/>
+      <translation>Automatinio atsakymo įspėjimas lankytojui / operatoriui</translation>
+    </message>
+    <message>
+      <source>Main</source>
+      <translation>Pagrindinis</translation>
     </message>
     <message>
       <source>Sample</source>
-      <translation type="unfinished"/>
+      <translation>Pavyzdys</translation>
     </message>
     <message>
       <source>Test masking</source>
-      <translation type="unfinished"/>
+      <translation>Bandomasis maskavimas</translation>
     </message>
     <message>
       <source>Message to test against</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas, pagal kurį testuojama</translation>
     </message>
     <message>
       <source>Rules to test</source>
-      <translation type="unfinished"/>
+      <translation>Testavimo taisyklės</translation>
     </message>
     <message>
       <source>Output</source>
-      <translation type="unfinished"/>
+      <translation>Išėjimas</translation>
     </message>
     <message>
       <source>Test</source>
-      <translation type="unfinished"/>
+      <translation>Testas</translation>
     </message>
     <message>
       <source>Redacted field: Please contact your administrator for details</source>
-      <translation type="unfinished"/>
+      <translation>Redaguotas laukas: Dėl išsamesnės informacijos kreipkitės į administratorių</translation>
     </message>
     <message>
       <source>Regex</source>
-      <translation type="unfinished"/>
+      <translation>Regex</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>El. paštas</translation>
     </message>
     <message>
       <source>Credit Card</source>
-      <translation type="unfinished"/>
+      <translation>Kredito kortelė</translation>
     </message>
     <message>
       <source>PII</source>
-      <translation type="unfinished"/>
+      <translation>PII</translation>
     </message>
     <message>
       <source>Secret Keys</source>
-      <translation type="unfinished"/>
+      <translation>Slaptieji raktai</translation>
     </message>
     <message>
       <source>URLs</source>
-      <translation type="unfinished"/>
+      <translation>URL adresai</translation>
     </message>
     <message>
       <source>Add Rule</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti taisyklę</translation>
     </message>
     <message>
       <source>Pattern</source>
-      <translation type="unfinished"/>
+      <translation>Modelis</translation>
     </message>
     <message>
       <source>Replacement</source>
-      <translation type="unfinished"/>
+      <translation>Pakaitinis</translation>
     </message>
     <message>
       <source>Replacement (optional)</source>
-      <translation type="unfinished"/>
+      <translation>Keitimas (neprivalomas)</translation>
     </message>
     <message>
       <source>Replacement Domain</source>
-      <translation type="unfinished"/>
+      <translation>Pakeitimo domenas</translation>
     </message>
     <message>
       <source>Replacement (leave empty to use [mask] tags)</source>
-      <translation type="unfinished"/>
+      <translation>Keitimas (palikite tuščią, jei norite naudoti [kaukės] žymas)</translation>
     </message>
     <message>
       <source>Entities</source>
-      <translation type="unfinished"/>
+      <translation>Subjektai</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Threshold</source>
-      <translation type="unfinished"/>
+      <translation>Slenkstis</translation>
     </message>
     <message>
       <source>Strict</source>
-      <translation type="unfinished"/>
+      <translation>Griežtas</translation>
     </message>
     <message>
       <source>Balanced</source>
-      <translation type="unfinished"/>
+      <translation>Subalansuota</translation>
     </message>
     <message>
       <source>Permissive</source>
-      <translation type="unfinished"/>
+      <translation>Leidžiantis</translation>
     </message>
     <message>
       <source>e.g. * or leave empty for badge</source>
-      <translation type="unfinished"/>
+      <translation>pvz., * arba palikite tuščią vietą, jei norite naudoti ženkliuką</translation>
     </message>
     <message>
       <source>e.g. Phone Number</source>
-      <translation type="unfinished"/>
+      <translation>pvz., Telefono numeris</translation>
     </message>
     <message>
       <source>Block User Info</source>
-      <translation type="unfinished"/>
+      <translation>Blokuoti naudotojo informaciją</translation>
     </message>
     <message>
       <source>Allow Subdomains</source>
-      <translation type="unfinished"/>
+      <translation>Leisti subdomenus</translation>
     </message>
     <message>
       <source>Allow host where chat is hosted. Required for images and other media stored on the server to load properly.</source>
-      <translation type="unfinished"/>
+      <translation>Leisti priimti, kur talpinami pokalbiai. Reikalinga, kad būtų tinkamai įkeliami serveryje saugomi paveikslėliai ir kita medija.</translation>
     </message>
     <message>
       <source>Allow List (one per line). All other URLs will be blocked.</source>
-      <translation type="unfinished"/>
+      <translation>Leidimų sąrašas (po vieną eilutėje). Visi kiti URL adresai bus blokuojami.</translation>
     </message>
     <message>
       <source>Deny List (one per line). All other URLs will be allowed.</source>
-      <translation type="unfinished"/>
+      <translation>Neleidžiamų įrašų sąrašas (po vieną kiekvienoje eilutėje). Visi kiti URL adresai bus leidžiami.</translation>
     </message>
     <message>
       <source>Note: Only one list can be filled at a time. Allow List and Deny List are mutually exclusive.</source>
-      <translation type="unfinished"/>
+      <translation>Pastaba: vienu metu galima užpildyti tik vieną sąrašą. Sąrašai Allow List ir Deny List yra vienas kitą paneigiantys.</translation>
     </message>
     <message>
       <source>Email Domain Allow List (one per line). Use __mailbox__ to allow all mailbox domains</source>
-      <translation type="unfinished"/>
+      <translation>El. pašto domenų leidžiamų sąrašai (po vieną eilutėje). Naudokite __mailbox__, jei norite leisti visus pašto dėžutės domenus</translation>
     </message>
     <message>
       <source>Phone Allow List (one per line). You can use wildcard at the end of phone.</source>
-      <translation type="unfinished"/>
+      <translation>Telefono leidimų sąrašas (po vieną kiekvienai linijai). Telefono gale galite naudoti simbolį.</translation>
     </message>
   </context>
   <context>
     <name>abstract/chatmessagesghosting</name>
     <message>
       <source>Message content protection rules are disabled for visitors and operators. They still will work for Rest API calls.</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojams ir operatoriams pranešimų turinio apsaugos taisyklės yra išjungtos. Jos vis tiek veiks poilsio API skambučiams.</translation>
     </message>
     <message>
       <source>Message content protection rules are enabled for visitors and operators. Only one rule per department will be applied if multiple rules match.</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojams ir operatoriams įjungtos pranešimų turinio apsaugos taisyklės. Jei sutampa kelios taisyklės, kiekvienam skyriui bus taikoma tik viena taisyklė.</translation>
     </message>
     <message>
       <source>Change setting</source>
-      <translation type="unfinished"/>
+      <translation>Keisti nustatymus</translation>
     </message>
   </context>
   <context>
     <name>user/edit</name>
     <message>
       <source>Application default Time Zone</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji programos laiko juosta</translation>
     </message>
     <message>
       <source>Photo</source>
@@ -7991,7 +8183,7 @@
     </message>
     <message>
       <source>Edit user</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti naudotoją</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -8015,7 +8207,7 @@
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių slapyvardis</translation>
     </message>
     <message>
       <source>Name</source>
@@ -8043,7 +8235,7 @@
     </message>
     <message>
       <source>Choose</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite</translation>
     </message>
     <message>
       <source>Application default time zone</source>
@@ -8059,7 +8251,7 @@
     </message>
     <message>
       <source>Password reset requested by</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodžio atstatymo prašė</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -8075,135 +8267,143 @@
     </message>
     <message>
       <source>Invalid email address</source>
-      <translation type="unfinished"/>
+      <translation>Netinkamas el. pašto adresas</translation>
     </message>
     <message>
       <source>Invalid chat!</source>
-      <translation type="unfinished"/>
+      <translation>Negaliojantis pokalbis!</translation>
     </message>
   </context>
   <context>
     <name>chat/subject</name>
     <message>
       <source>Will appear as very first items to select for the subject</source>
-      <translation type="unfinished"/>
+      <translation>Bus rodomi kaip pirmieji elementai, kuriuos reikia pasirinkti temai</translation>
     </message>
     <message>
       <source>If you do not choose any department, subject will be visible for all departments</source>
-      <translation type="unfinished"/>
+      <translation>Jei nepasirinksite jokio departamento, tema bus matoma visuose departamentuose.</translation>
     </message>
     <message>
       <source>This is usefull if you need additional filtering for your own purposes. Leave it empty in most cases.</source>
-      <translation type="unfinished"/>
+      <translation>Tai naudinga, jei jums reikia papildomo filtravimo savo reikmėms. Daugeliu atvejų palikite jį tuščią.</translation>
     </message>
     <message>
       <source>Internal subjects will not be shown in a subject choosing modal window for the operators. They are good for setting them in the bot, extensions etc.</source>
-      <translation type="unfinished"/>
+      <translation>Vidiniai objektai nebus rodomi operatorių objektų pasirinkimo modaliniame lange. Juos tinka nustatyti botuose, plėtiniuose ir pan.</translation>
     </message>
     <message>
       <source>Choose a subject</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite temą</translation>
     </message>
     <message>
       <source>Set a subject</source>
-      <translation type="unfinished"/>
+      <translation>Nustatykite temą</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Pinned</source>
-      <translation type="unfinished"/>
+      <translation>Prisegtas</translation>
     </message>
     <message>
       <source>Standard</source>
-      <translation type="unfinished"/>
+      <translation>Standartinis</translation>
     </message>
     <message>
       <source>Invalid CSRF token</source>
-      <translation type="unfinished"/>
+      <translation>Neteisingas CSRF simbolis</translation>
     </message>
     <message>
       <source>Subject selected!</source>
-      <translation type="unfinished"/>
+      <translation>Tema pasirinkta!</translation>
     </message>
     <message>
       <source>Subject unselected!</source>
-      <translation type="unfinished"/>
+      <translation>Tema nepasirinkta!</translation>
     </message>
     <message>
       <source>Please choose a subject</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite temą</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>Netinkamas CSRF simbolis!</translation>
     </message>
   </context>
   <context>
     <name>abstract/chatsubject</name>
     <message>
       <source>Choose in what widgets this subject will be visible directly</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite, kokiuose valdikliuose ši tema bus matoma tiesiogiai</translation>
+    </message>
+    <message>
+      <source>Archived subjects are hidden from subject pickers and all filtering dropdowns</source>
+      <translation>Archyvuotos temos paslėptos nuo temų rinkiklių ir visų filtravimo išskleidžiamųjų sąrašų</translation>
     </message>
     <message>
       <source>Internal</source>
-      <translation type="unfinished"/>
+      <translation>Vidinis</translation>
+    </message>
+    <message>
+      <source>Archived</source>
+      <translation>Archyvuota</translation>
     </message>
     <message>
       <source>Pinned</source>
-      <translation type="unfinished"/>
+      <translation>Prisegtas</translation>
     </message>
     <message>
       <source>Internal type</source>
-      <translation type="unfinished"/>
+      <translation>Vidinis tipas</translation>
     </message>
   </context>
   <context>
     <name>survey/form</name>
     <message>
       <source>Add option</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti parinktį</translation>
     </message>
     <message>
       <source>Enter a possible answer to your question here...</source>
-      <translation type="unfinished"/>
+      <translation>Čia įveskite galimą atsakymą į savo klausimą...</translation>
     </message>
     <message>
       <source>Enable stars</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti žvaigždutes</translation>
     </message>
     <message>
       <source>Enable question</source>
-      <translation type="unfinished"/>
+      <translation>Įgalinti klausimą</translation>
     </message>
     <message>
       <source>Enable question with an answers</source>
-      <translation type="unfinished"/>
+      <translation>Įgalinti klausimą su atsakymais</translation>
     </message>
   </context>
   <context>
     <name>chat/startchat</name>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>↓ Scroll to the bottom</source>
-      <translation type="unfinished"/>
+      <translation>↓ Slinkite į apačią</translation>
     </message>
     <message>
       <source>New message!</source>
-      <translation type="unfinished"/>
+      <translation>Nauja žinutė!</translation>
     </message>
     <message>
       <source>Chat is currently unavailable</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis šiuo metu neprieinamas</translation>
     </message>
     <message>
       <source>Please try again later.</source>
-      <translation type="unfinished"/>
+      <translation>Prašome pabandyti vėliau.</translation>
     </message>
     <message>
       <source>Department is disabled</source>
@@ -8239,7 +8439,7 @@
     </message>
     <message>
       <source>Please provide a department</source>
-      <translation type="unfinished"/>
+      <translation>Nurodykite departamentą</translation>
     </message>
     <message>
       <source>Name</source>
@@ -8251,15 +8451,15 @@
     </message>
     <message>
       <source>Are you sure you want to close this chat?</source>
-      <translation type="unfinished"/>
+      <translation>Ar tikrai norite uždaryti šį pokalbį?</translation>
     </message>
     <message>
       <source>Type your message here...</source>
-      <translation type="unfinished"/>
+      <translation>Čia įveskite savo žinutę...</translation>
     </message>
     <message>
       <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
-      <translation type="unfinished"/>
+      <translation>Šiuo metu su mumis galite susisiekti tik el. paštu. Atsiprašome už nepatogumus.</translation>
     </message>
     <message>
       <source>Live support is not available in your country</source>
@@ -8291,27 +8491,27 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>Atšaukti</translation>
     </message>
     <message>
       <source>Record voice message</source>
-      <translation type="unfinished"/>
+      <translation>Įrašyti balso žinutę</translation>
     </message>
     <message>
       <source>Stop recording</source>
-      <translation type="unfinished"/>
+      <translation>Sustabdyti įrašymą</translation>
     </message>
     <message>
       <source>Play recorded audio</source>
-      <translation type="unfinished"/>
+      <translation>Atkurti įrašytą garsą</translation>
     </message>
     <message>
       <source>Stop playing</source>
-      <translation type="unfinished"/>
+      <translation>Nustokite žaisti</translation>
     </message>
     <message>
       <source>Send voice message</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti balso žinutę</translation>
     </message>
     <message>
       <source>I accept my personal data will be handled according to</source>
@@ -8383,11 +8583,11 @@
     </message>
     <message>
       <source>Choose a product</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite gaminį</translation>
     </message>
     <message>
       <source>Your language</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų kalba</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -8395,39 +8595,47 @@
     </message>
     <message>
       <source>Minimize</source>
-      <translation type="unfinished"/>
+      <translation>Sumažinkite</translation>
+    </message>
+    <message>
+      <source>Collapse content</source>
+      <translation>Susilpninti turinį</translation>
+    </message>
+    <message>
+      <source>Expand content</source>
+      <translation>Išplėsti turinį</translation>
     </message>
     <message>
       <source>Popup</source>
-      <translation type="unfinished"/>
+      <translation>Iššokantis langas</translation>
     </message>
     <message>
       <source>End chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio pabaiga</translation>
     </message>
     <message>
       <source>Switch to Classic</source>
-      <translation type="unfinished"/>
+      <translation>Perėjimas prie &quot;Classic</translation>
     </message>
     <message>
       <source>Switch to Column</source>
-      <translation type="unfinished"/>
+      <translation>Perjungti į stulpelį</translation>
     </message>
     <message>
       <source>〈 Back</source>
-      <translation type="unfinished"/>
+      <translation>〈 Atgal</translation>
     </message>
     <message>
       <source>You</source>
-      <translation type="unfinished"/>
+      <translation>Jūs</translation>
     </message>
     <message>
       <source>Us</source>
-      <translation type="unfinished"/>
+      <translation>Mes</translation>
     </message>
     <message>
       <source>Summary</source>
-      <translation type="unfinished"/>
+      <translation>Santrauka</translation>
     </message>
     <message>
       <source>Invalid CSRF token!</source>
@@ -8479,7 +8687,7 @@
     </message>
     <message>
       <source>Please choose department!</source>
-      <translation type="unfinished"/>
+      <translation>Prašome pasirinkti skyrių!</translation>
     </message>
     <message>
       <source>Could not find a product!</source>
@@ -8495,7 +8703,7 @@
     </message>
     <message>
       <source>At the moment department is overloaded, please choose a different department or try again later!</source>
-      <translation type="unfinished"/>
+      <translation>Šiuo metu skyrius yra perkrautas, prašome pasirinkti kitą skyrių arba bandyti vėliau!</translation>
     </message>
     <message>
       <source>is required</source>
@@ -8503,7 +8711,7 @@
     </message>
     <message>
       <source>Based on current chat.</source>
-      <translation type="unfinished"/>
+      <translation>Remiantis dabartiniais pokalbiais.</translation>
     </message>
     <message>
       <source>Visitor</source>
@@ -8511,7 +8719,7 @@
     </message>
     <message>
       <source>Offline request message was saved.</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugotas neprisijungus prie interneto pateiktas užklausos pranešimas.</translation>
     </message>
     <message>
       <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
@@ -8519,79 +8727,79 @@
     </message>
     <message>
       <source>External operator. Account owner.</source>
-      <translation type="unfinished"/>
+      <translation>Išorės operatorius. Paskyros savininkas.</translation>
     </message>
     <message>
       <source>Chat started by</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbį pradėjo</translation>
     </message>
     <message>
       <source>payload!</source>
-      <translation type="unfinished"/>
+      <translation>naudingoji apkrova!</translation>
     </message>
     <message>
       <source>File is to big! Maximum</source>
-      <translation type="unfinished"/>
+      <translation>Failas yra per didelis! Maksimalus</translation>
     </message>
     <message>
       <source>File is to big!</source>
-      <translation type="unfinished"/>
+      <translation>Failas yra per didelis!</translation>
     </message>
     <message>
       <source>File upload is not for this chat!</source>
-      <translation type="unfinished"/>
+      <translation>Failų įkėlimas nėra skirtas šiam pokalbiui!</translation>
     </message>
     <message>
       <source>File upload is not enabled for the visitor!</source>
-      <translation type="unfinished"/>
+      <translation>Failų įkėlimas lankytojui neįjungtas!</translation>
     </message>
     <message>
       <source>There was a problem with your uploaded file!</source>
-      <translation type="unfinished"/>
+      <translation>Su įkeltu failu kilo problema!</translation>
     </message>
     <message>
       <source>We could not download a file!</source>
-      <translation type="unfinished"/>
+      <translation>Nepavyko atsisiųsti failo!</translation>
     </message>
     <message>
       <source>Media attribute could not be found or there was an error:</source>
-      <translation type="unfinished"/>
+      <translation>Žiniasklaidos atributas nerastas arba įvyko klaida:</translation>
     </message>
     <message>
       <source>Invalid file extension</source>
-      <translation type="unfinished"/>
+      <translation>Netinkamas failo plėtinys</translation>
     </message>
     <message>
       <source>Invalid file extension!</source>
-      <translation type="unfinished"/>
+      <translation>Netinkamas failo plėtinys!</translation>
     </message>
     <message>
       <source>File too big!</source>
-      <translation type="unfinished"/>
+      <translation>Failas per didelis!</translation>
     </message>
     <message>
       <source>Please complete previous process!</source>
-      <translation type="unfinished"/>
+      <translation>Prašome užbaigti ankstesnį procesą!</translation>
     </message>
     <message>
       <source>Chat was transferred to operator!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo perduotas operatoriui!</translation>
     </message>
     <message>
       <source>Chat was transferred to bot!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo perkeltas į botą!</translation>
     </message>
     <message>
       <source>Button action could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko veiksmo nepavyko rasti!</translation>
     </message>
     <message>
       <source>Trigger could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Trigerio nepavyko rasti!</translation>
     </message>
     <message>
       <source>Update actions could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinimo veiksmų nepavyko rasti!</translation>
     </message>
     <message>
       <source>Please enter a message, max characters</source>
@@ -8599,43 +8807,43 @@
     </message>
     <message>
       <source>You cannot send messages to this chat. Please refresh your browser.</source>
-      <translation type="unfinished"/>
+      <translation>Į šį pokalbį negalima siųsti pranešimų. Atnaujinkite naršyklę.</translation>
     </message>
     <message>
       <source>Message was removed!</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas buvo pašalintas!</translation>
     </message>
     <message>
       <source>Message could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo nepavyko rasti!</translation>
     </message>
     <message>
       <source>You can edit only your last message!</source>
-      <translation type="unfinished"/>
+      <translation>Galite redaguoti tik paskutinę žinutę!</translation>
     </message>
     <message>
       <source>You can edit your own message!</source>
-      <translation type="unfinished"/>
+      <translation>Galite redaguoti savo pranešimą!</translation>
     </message>
     <message>
       <source>No last message was found!</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinio pranešimo nerasta!</translation>
     </message>
     <message>
       <source>Pending Chat</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama pokalbio</translation>
     </message>
     <message>
       <source>New mail</source>
-      <translation type="unfinished"/>
+      <translation>Naujas paštas</translation>
     </message>
     <message>
       <source>Unresponded mail</source>
-      <translation type="unfinished"/>
+      <translation>Neatsakytas paštas</translation>
     </message>
     <message>
       <source>Transferred mail</source>
-      <translation type="unfinished"/>
+      <translation>Perduotas paštas</translation>
     </message>
     <message>
       <source>Unread message</source>
@@ -8643,27 +8851,27 @@
     </message>
     <message>
       <source>Alert notification</source>
-      <translation type="unfinished"/>
+      <translation>Įspėjamasis pranešimas</translation>
     </message>
     <message>
       <source>Bot Chat</source>
-      <translation type="unfinished"/>
+      <translation>Botų pokalbiai</translation>
     </message>
     <message>
       <source>New message from operator</source>
-      <translation type="unfinished"/>
+      <translation>Naujas operatoriaus pranešimas</translation>
     </message>
     <message>
       <source>Transfer Chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai apie perdavimą</translation>
     </message>
     <message>
       <source>Trigger alert chat!</source>
-      <translation type="unfinished"/>
+      <translation>Triggerio pavojaus pokalbis!</translation>
     </message>
     <message>
       <source>Assigned Chat</source>
-      <translation type="unfinished"/>
+      <translation>Priskirtas pokalbis</translation>
     </message>
     <message>
       <source>You do not have permission to chat! Please contact site owner.</source>
@@ -8675,202 +8883,210 @@
     </message>
     <message>
       <source>You can edit only your own messages!</source>
-      <translation type="unfinished"/>
+      <translation>Galite redaguoti tik savo pranešimus!</translation>
     </message>
     <message>
       <source>Chat was already closed!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis jau buvo uždarytas!</translation>
     </message>
     <message>
       <source>You have subscribed to new messages notifications!</source>
-      <translation type="unfinished"/>
+      <translation>Jūs užsiprenumeravote pranešimus apie naujus pranešimus!</translation>
     </message>
     <message>
       <source>Enter a message</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite žinutę</translation>
     </message>
     <message>
       <source>Pending to join...</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama prisijungimo...</translation>
     </message>
     <message>
       <source>Already a member</source>
-      <translation type="unfinished"/>
+      <translation>Jau esate narys</translation>
     </message>
     <message>
       <source>Invite</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimas</translation>
     </message>
     <message>
       <source>Cancel invite</source>
-      <translation type="unfinished"/>
+      <translation>Atšaukti kvietimą</translation>
     </message>
     <message>
       <source>Leave the group</source>
-      <translation type="unfinished"/>
+      <translation>Palikite grupę</translation>
     </message>
     <message>
       <source>Enter operator name or surname or just click search to invite</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite operatoriaus vardą arba pavardę arba tiesiog spustelėkite ieškoti ir pakvieskite</translation>
     </message>
     <message>
       <source>Leave the group, you still can join anytime you want.</source>
-      <translation type="unfinished"/>
+      <translation>Palikite grupę, vis tiek galėsite prisijungti bet kada, kai tik panorėsite.</translation>
     </message>
     <message>
       <source>Provided survey does not exists!</source>
-      <translation type="unfinished"/>
+      <translation>Pateikta apklausa neegzistuoja!</translation>
     </message>
     <message>
       <source>We are still working on your previous request!</source>
-      <translation type="unfinished"/>
+      <translation>Vis dar dirbame su ankstesniu jūsų prašymu!</translation>
     </message>
     <message>
       <source>Upload disabled!</source>
-      <translation type="unfinished"/>
+      <translation>Įkėlimas išjungtas!</translation>
     </message>
     <message>
       <source>You cannot send messages to this chat. Chat has been closed.</source>
-      <translation type="unfinished"/>
+      <translation>Į šį pokalbį negalima siųsti pranešimų. Pokalbis uždarytas.</translation>
     </message>
     <message>
       <source>Please enter a message</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite žinutę</translation>
     </message>
     <message>
       <source>characters max.</source>
-      <translation type="unfinished"/>
+      <translation>daugiausia simbolių.</translation>
     </message>
     <message>
       <source>Start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Pradėkite pokalbį</translation>
     </message>
     <message>
-      <source>BB code</source>
-      <translation type="unfinished"/>
+      <source>Emojis</source>
+      <translation>Emocijos</translation>
     </message>
     <message>
       <source>Send to email</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti el. paštu</translation>
     </message>
     <message>
       <source>Send a message</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti žinutę</translation>
     </message>
     <message>
       <source>Start a chat with us!</source>
-      <translation type="unfinished"/>
+      <translation>Pradėkite pokalbį su mumis!</translation>
     </message>
     <message>
       <source>New messages!</source>
-      <translation type="unfinished"/>
+      <translation>Nauji pranešimai!</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryti</translation>
     </message>
     <message>
       <source>We will send you a transcript of your chat with agent, so you can browse it later.</source>
-      <translation type="unfinished"/>
+      <translation>Atsiųsime jums pokalbio su agentu stenogramą, kad galėtumėte ją peržiūrėti vėliau.</translation>
     </message>
     <message>
       <source>Change language</source>
-      <translation type="unfinished"/>
+      <translation>Keisti kalbą</translation>
     </message>
     <message>
       <source>Next 〉</source>
-      <translation type="unfinished"/>
+      <translation>Kitas 〉</translation>
     </message>
     <message>
       <source>Submit</source>
-      <translation type="unfinished"/>
+      <translation>Pateikti</translation>
     </message>
     <message>
       <source>This chat is closed now. You can close window.</source>
-      <translation type="unfinished"/>
+      <translation>Šis pokalbis dabar uždarytas. Galite uždaryti langą.</translation>
     </message>
     <message>
       <source>Your message...</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų žinutė...</translation>
     </message>
     <message>
       <source>Send files or enter additional information</source>
-      <translation type="unfinished"/>
+      <translation>Siųskite failus arba įveskite papildomą informaciją</translation>
     </message>
     <message>
       <source>Remove file</source>
-      <translation type="unfinished"/>
+      <translation>Pašalinti failą</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
-      <translation type="unfinished"/>
+      <translation>Dėkojame už jūsų atsiliepimus...</translation>
     </message>
     <message>
       <source>Chat can not be started now. Please try again later.</source>
-      <translation type="unfinished"/>
+      <translation>Dabar pokalbio pradėti negalima. Prašome pabandyti vėliau.</translation>
     </message>
     <message>
       <source>Go to Survey.</source>
-      <translation type="unfinished"/>
+      <translation>Eiti į apklausą.</translation>
     </message>
     <message>
       <source>There was an issue sending the message. Try again.</source>
-      <translation type="unfinished"/>
+      <translation>Kilo problema siunčiant pranešimą. Bandykite dar kartą.</translation>
     </message>
     <message>
       <source>No internet connection.</source>
-      <translation type="unfinished"/>
+      <translation>Nėra interneto ryšio.</translation>
     </message>
     <message>
       <source>Visitor is typing</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas spausdina</translation>
     </message>
     <message>
       <source>Please choose!</source>
-      <translation type="unfinished"/>
+      <translation>Prašome pasirinkti!</translation>
     </message>
     <message>
       <source>Cancel voice message</source>
-      <translation type="unfinished"/>
+      <translation>Atšaukti balso pranešimą</translation>
     </message>
     <message>
       <source>Play recorded message</source>
-      <translation type="unfinished"/>
+      <translation>Paleisti įrašytą pranešimą</translation>
     </message>
     <message>
       <source>Stop playing recorded audio</source>
-      <translation type="unfinished"/>
+      <translation>Nustoti groti įrašytą garsą</translation>
+    </message>
+    <message>
+      <source>You must accept terms</source>
+      <translation>Privalote sutikti su sąlygomis</translation>
+    </message>
+    <message>
+      <source>Enter your</source>
+      <translation>Įveskite savo</translation>
     </message>
     <message>
       <source>There was a problem sending your request. Please try again later!</source>
-      <translation type="unfinished"/>
+      <translation>Kilo problema siunčiant jūsų užklausą. Prašome pabandyti dar kartą vėliau!</translation>
     </message>
   </context>
   <context>
     <name>system/htmlcode</name>
     <message>
       <source>Absent</source>
-      <translation type="unfinished"/>
+      <translation>Nedalyvauja</translation>
     </message>
     <message>
       <source>Top right</source>
-      <translation type="unfinished"/>
+      <translation>Viršutinė dešinė</translation>
     </message>
     <message>
       <source>Bottom left</source>
-      <translation type="unfinished"/>
+      <translation>Apačioje kairėje</translation>
     </message>
     <message>
       <source>Always enabled</source>
-      <translation type="unfinished"/>
+      <translation>Visada įjungta</translation>
     </message>
     <message>
       <source>Enabled on mobile</source>
-      <translation type="unfinished"/>
+      <translation>Įjungta mobiliajame telefone</translation>
     </message>
     <message>
       <source>Always off</source>
-      <translation type="unfinished"/>
+      <translation>Visada išjungta</translation>
     </message>
     <message>
       <source>Bottom right corner of the screen</source>
@@ -8890,15 +9106,15 @@
     </message>
     <message>
       <source>Full height right</source>
-      <translation type="unfinished"/>
+      <translation>Viso aukščio dešinė</translation>
     </message>
     <message>
       <source>Full height left</source>
-      <translation type="unfinished"/>
+      <translation>Viso aukščio kairėje</translation>
     </message>
     <message>
       <source>no survey</source>
-      <translation type="unfinished"/>
+      <translation>nėra apklausos</translation>
     </message>
     <message>
       <source>HTML code</source>
@@ -9070,15 +9286,15 @@
     </message>
     <message>
       <source>Widget embed code (new)</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio įterpimo kodas (naujas)</translation>
     </message>
     <message>
       <source>Widget embed code (legacy)</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio įterpimo kodas (senesnis)</translation>
     </message>
     <message>
       <source>Page embed code (legacy)</source>
-      <translation type="unfinished"/>
+      <translation>Puslapio įterpimo kodas (senesnis)</translation>
     </message>
     <message>
       <source>Widget embed code</source>
@@ -9126,7 +9342,7 @@
     </message>
     <message>
       <source>Show a ‘leave a message form’ when there are no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti &quot;palikti žinutę&quot; formą, kai nėra prisijungusių operatorių</translation>
     </message>
     <message>
       <source>Department</source>
@@ -9150,27 +9366,27 @@
     </message>
     <message>
       <source>Show the page widget when a mouse is clicked</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti puslapio valdiklį paspaudus pelę</translation>
     </message>
     <message>
       <source>Disable proactive invitations</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti aktyvius kvietimus</translation>
     </message>
     <message>
       <source>Disable online tracking (this overrides the system configuration)</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti sekimą internetu (ši funkcija pakeičia sistemos konfigūraciją)</translation>
     </message>
     <message>
       <source>Cookie is valid only for domain where javascript embedded (excludes subdomains)</source>
-      <translation type="unfinished"/>
+      <translation>Slapukas galioja tik tam domenui, į kurį įterptas javascript (netaikoma subdomenams)</translation>
     </message>
     <message>
       <source>Try to detect language automatically</source>
-      <translation type="unfinished"/>
+      <translation>Pabandykite automatiškai aptikti kalbą</translation>
     </message>
     <message>
       <source>Survey at the end of chat</source>
-      <translation type="unfinished"/>
+      <translation>Apklausa pokalbio pabaigoje</translation>
     </message>
     <message>
       <source>Product</source>
@@ -9222,7 +9438,7 @@
     </message>
     <message>
       <source>Position from the top, only used if the middle left or the middle right side is chosen</source>
-      <translation type="unfinished"/>
+      <translation>Padėtis nuo viršaus, naudojama tik jei pasirinkta vidurinė kairioji arba vidurinė dešinioji pusė</translation>
     </message>
     <message>
       <source>Percentage</source>
@@ -9230,7 +9446,7 @@
     </message>
     <message>
       <source>Identifier – enter a unique identifier here. This is useful for separating messages and proactive chat invitations from different domains/web pages. Enter a string without special characters or spaces such as “homepage” or “website1”.</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius - čia įveskite unikalų identifikatorių. Tai naudinga norint atskirti pranešimus ir aktyvius pokalbių kvietimus iš skirtingų domenų ir (arba) tinklalapių. Įveskite eilutę be specialiųjų ženklų ar tarpų, pavyzdžiui, &quot;homepage&quot; arba &quot;website1&quot;.</translation>
     </message>
     <message>
       <source>Please do not enter protocol, only domain name is required</source>
@@ -9246,87 +9462,87 @@
     </message>
     <message>
       <source>Static image</source>
-      <translation type="unfinished"/>
+      <translation>Statiškas vaizdas</translation>
     </message>
     <message>
       <source>On each refresh start a new chat. Users will loose chat session browsing through pages! Usefull in embed mode.</source>
-      <translation type="unfinished"/>
+      <translation>Kiekvieno atnaujinimo metu pradėkite naują pokalbį. Vartotojai praras pokalbių sesiją naršydami puslapius! Naudinga naudoti įterpimo režimu.</translation>
     </message>
     <message>
       <source>Check for operator invitation messages. If you are planning to send messages to online visitors manually you can check this.</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite, ar nėra operatoriaus kvietimo pranešimų. Jei planuojate siųsti pranešimus interneto lankytojams rankiniu būdu, galite tai patikrinti.</translation>
     </message>
     <message>
       <source>Widget embed/click mode</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio įterpimo / spustelėjimo režimas</translation>
     </message>
     <message>
       <source>widget (default)</source>
-      <translation type="unfinished"/>
+      <translation>valdiklis (numatytoji reikšmė)</translation>
     </message>
     <message>
       <source>Widget position</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio padėtis</translation>
     </message>
     <message>
       <source>Widget position placement.</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio padėties vieta.</translation>
     </message>
     <message>
       <source>Bottom right</source>
-      <translation type="unfinished"/>
+      <translation>Apačioje dešinėje</translation>
     </message>
     <message>
       <source>Middle right</source>
-      <translation type="unfinished"/>
+      <translation>Vidurinė dešinė</translation>
     </message>
     <message>
       <source>Middle left</source>
-      <translation type="unfinished"/>
+      <translation>Vidurinė kairė</translation>
     </message>
     <message>
       <source>Bottom right, full height</source>
-      <translation type="unfinished"/>
+      <translation>Apačioje dešinėje, per visą aukštį</translation>
     </message>
     <message>
       <source>Bottom left, full height</source>
-      <translation type="unfinished"/>
+      <translation>Apačioje kairėje, per visą aukštį</translation>
     </message>
     <message>
       <source>Online status text</source>
-      <translation type="unfinished"/>
+      <translation>Internetinės būsenos tekstas</translation>
     </message>
     <message>
       <source>Offline status text. If you lave empty we will return empty image.</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus būsenos tekstas. Jei paliksite tuščią, grąžinsime tuščią vaizdą.</translation>
     </message>
     <message>
       <source>Sample image</source>
-      <translation type="unfinished"/>
+      <translation>Pavyzdinis vaizdas</translation>
     </message>
     <message>
       <source>Source code with a link</source>
-      <translation type="unfinished"/>
+      <translation>Šaltinio kodas su nuoroda</translation>
     </message>
     <message>
       <source>Theme, you can choose multiple to show random one.</source>
-      <translation type="unfinished"/>
+      <translation>Tema, galite pasirinkti kelis rodyti atsitiktinį.</translation>
     </message>
     <message>
       <source>As default department theme</source>
-      <translation type="unfinished"/>
+      <translation>Kaip numatytoji departamento tema</translation>
     </message>
     <message>
       <source>Show a leave a message form when there are no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti pranešimo palikimo formą, kai nėra prisijungusių operatorių</translation>
     </message>
     <message>
       <source>Widget status position from right or left depending on main position. E.g 10 or -10</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio būsenos padėtis iš dešinės arba kairės, priklausomai nuo pagrindinės padėties. Pvz., 10 arba -10</translation>
     </message>
     <message>
       <source>Widget status position from bottom. E.g 10 or -10</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklio būsenos padėtis iš apačios. Pvz., 10 arba -10</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -9334,7 +9550,7 @@
     </message>
     <message>
       <source>Chat expired</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis baigėsi</translation>
     </message>
     <message>
       <source>Invalid hash</source>
@@ -9342,14 +9558,14 @@
     </message>
     <message>
       <source>Chat was removed</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai buvo pašalinti</translation>
     </message>
   </context>
   <context>
     <name>chat/onlineusers</name>
     <message>
       <source>Your request takes to long. Please contact your administrator and send them url from your browser.</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų užklausa trunka pernelyg ilgai. Susisiekite su administratoriumi ir atsiųskite jam url adresą iš savo naršyklės.</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -9365,7 +9581,7 @@
     </message>
     <message>
       <source>Test GEO</source>
-      <translation type="unfinished"/>
+      <translation>Bandymas GEO</translation>
     </message>
     <message>
       <source>GEO Enabled</source>
@@ -9409,11 +9625,11 @@
     </message>
     <message>
       <source>Use http://ip-api.com</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite http://ip-api.com</translation>
     </message>
     <message>
       <source>Use https://www.abstractapi.com/ip-geolocation-api</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite https://www.abstractapi.com/ip-geolocation-api</translation>
     </message>
     <message>
       <source>Use MaxMind, does not depend on any third party remote service</source>
@@ -9429,7 +9645,7 @@
     </message>
     <message>
       <source>Location of city database. Make sure you uploaded file in this location.</source>
-      <translation type="unfinished"/>
+      <translation>Miesto duomenų bazės vieta. Įsitikinkite, kad failą įkėlėte į šią vietą.</translation>
     </message>
     <message>
       <source>User country based detection, faster</source>
@@ -9477,11 +9693,11 @@
     </message>
     <message>
       <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Google Maps API&quot; raktas, išsaugomas automatiškai. Įkėlę raktą, atnaujinkite puslapį.</translation>
     </message>
     <message>
       <source>Test</source>
-      <translation type="unfinished"/>
+      <translation>Testas</translation>
     </message>
     <message>
       <source>Send message</source>
@@ -9489,7 +9705,7 @@
     </message>
     <message>
       <source>Chat list</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių sąrašas</translation>
     </message>
     <message>
       <source>Dashboard</source>
@@ -9517,7 +9733,7 @@
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Nikas</translation>
     </message>
     <message>
       <source>Additional information</source>
@@ -9565,7 +9781,7 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>has send message to user</source>
@@ -9633,15 +9849,15 @@
     </message>
     <message>
       <source>Online visitors on map</source>
-      <translation type="unfinished"/>
+      <translation>Internetiniai lankytojai žemėlapyje</translation>
     </message>
     <message>
       <source>Preview chat</source>
-      <translation type="unfinished"/>
+      <translation>Peržiūrėti pokalbį</translation>
     </message>
     <message>
       <source>Visits</source>
-      <translation type="unfinished"/>
+      <translation>Apsilankymai</translation>
     </message>
     <message>
       <source>New</source>
@@ -9665,7 +9881,7 @@
     </message>
     <message>
       <source>From</source>
-      <translation type="unfinished"/>
+      <translation>Iš</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new visitor</source>
@@ -9705,7 +9921,7 @@
     </message>
     <message>
       <source>Show only connected</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti tik prijungtus</translation>
     </message>
     <message>
       <source>Group list by</source>
@@ -9769,39 +9985,39 @@
     </message>
     <message>
       <source>Start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Pradėkite pokalbį</translation>
     </message>
     <message>
       <source>+20 (More than 20 seconds spend on site) 20 (Less than 20 seconds spend on site)</source>
-      <translation type="unfinished"/>
+      <translation>+20 (svetainėje praleidžiama daugiau nei 20 sekundžių) 20 (svetainėje praleidžiama mažiau nei 20 sekundžių)</translation>
     </message>
     <message>
       <source>In progress...</source>
-      <translation type="unfinished"/>
+      <translation>Vykdoma...</translation>
     </message>
     <message>
       <source>Visitor country</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų šalis</translation>
     </message>
     <message>
       <source>Select country</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite šalį</translation>
     </message>
     <message>
       <source>Visited in the past</source>
-      <translation type="unfinished"/>
+      <translation>Aplankytas praeityje</translation>
     </message>
     <message>
       <source>Never had a chat</source>
-      <translation type="unfinished"/>
+      <translation>Niekada neteko bendrauti</translation>
     </message>
     <message>
       <source>Usernames (*.csv)</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojų vardai (*.csv)</translation>
     </message>
     <message>
       <source>Upload usernames in CSV format</source>
-      <translation type="unfinished"/>
+      <translation>Įkelkite naudotojų vardus CSV formatu</translation>
     </message>
     <message>
       <source>Files upload for users is active</source>
@@ -9809,11 +10025,11 @@
     </message>
     <message>
       <source>Allow visitor to choose only one file for the upload</source>
-      <translation type="unfinished"/>
+      <translation>Leisti lankytojui pasirinkti tik vieną įkeliamą failą</translation>
     </message>
     <message>
       <source>Show file preview before uploading file</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti failo peržiūrą prieš įkeliant failą</translation>
     </message>
     <message>
       <source>Files upload for operators is active</source>
@@ -9821,27 +10037,31 @@
     </message>
     <message>
       <source>Remove meta information from images</source>
-      <translation type="unfinished"/>
+      <translation>Pašalinti meta informaciją iš vaizdų</translation>
     </message>
     <message>
       <source>Check for suspicious PDF files content</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite, ar nėra įtartino PDF failų turinio</translation>
     </message>
     <message>
       <source>Uploaded files from visitors are scanned</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų įkelti failai nuskaitomi</translation>
     </message>
     <message>
       <source>Voice messages for visitors is active</source>
-      <translation type="unfinished"/>
+      <translation>Balso pranešimai lankytojams yra aktyvūs</translation>
     </message>
     <message>
       <source>Voice messages for operators is active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus operatorių balso pranešimų siuntimas</translation>
+    </message>
+    <message>
+      <source>Mobile is disabled in the main settings file (settings.ini.php). Mobile notifications will not work.</source>
+      <translation>Mobilusis ryšys išjungtas pagrindiniame nustatymų faile (settings.ini.php). Mobilieji pranešimai neveiks.</translation>
     </message>
     <message>
       <source>If you do not choose any department from below we will track all departments.</source>
-      <translation type="unfinished"/>
+      <translation>Jei nepasirinksite nė vieno iš toliau nurodytų skyrių, bus stebimi visi skyriai.</translation>
     </message>
     <message>
       <source>Country code variable does not exist!</source>
@@ -9865,7 +10085,7 @@
     </message>
     <message>
       <source>Please enter API Key!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite API raktą!</translation>
     </message>
     <message>
       <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
@@ -9937,152 +10157,172 @@
     </message>
     <message>
       <source>Returning visitor, visits in total</source>
-      <translation type="unfinished"/>
+      <translation>Grįžtantis lankytojas, iš viso apsilankymų</translation>
     </message>
   </context>
   <context>
     <name>audit/options</name>
     <message>
       <source>Audit Configuration</source>
-      <translation type="unfinished"/>
+      <translation>Audito konfigūracija</translation>
     </message>
     <message>
       <source>How many days keep log?</source>
-      <translation type="unfinished"/>
+      <translation>Kiek dienų saugoti žurnalą?</translation>
     </message>
     <message>
       <source>Log javascript errors</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungimo javascript klaidos</translation>
     </message>
     <message>
       <source>Log applied routing/chat priority rules</source>
-      <translation type="unfinished"/>
+      <translation>Registruoti taikomas maršrutų ir pokalbių prioriteto taisykles</translation>
     </message>
     <message>
       <source>Log applied blocks</source>
-      <translation type="unfinished"/>
+      <translation>Naudojami rąstų blokai</translation>
     </message>
     <message>
       <source>Log users changes</source>
-      <translation type="unfinished"/>
+      <translation>Registruoti naudotojų pakeitimus</translation>
     </message>
     <message>
       <source>Log failed files uploads</source>
-      <translation type="unfinished"/>
+      <translation>Registruoti nepavykusius failų įkėlimus</translation>
     </message>
     <message>
       <source>Log if operator uses not defined mailbox for reply to e-mail.</source>
-      <translation type="unfinished"/>
+      <translation>Registruokitės, jei operatorius atsakymui į el. laišką naudoja nenustatytą pašto dėžutę.</translation>
     </message>
     <message>
       <source>What objects changes log?</source>
-      <translation type="unfinished"/>
+      <translation>Kokie objektų pokyčiai registruojami?</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti nustatymai</translation>
     </message>
     <message>
       <source>Options</source>
-      <translation type="unfinished"/>
+      <translation>Parinktys</translation>
     </message>
   </context>
   <context>
     <name>lhaudit/debuginvitation</name>
     <message>
       <source>Simplified output</source>
-      <translation type="unfinished"/>
+      <translation>Supaprastinta išvestis</translation>
+    </message>
+    <message>
+      <source>Proactive invitations is</source>
+      <translation>Aktyvūs kvietimai yra</translation>
+    </message>
+    <message>
+      <source>change it.</source>
+      <translation>jį pakeisti.</translation>
     </message>
     <message>
       <source>Valid invitations found</source>
-      <translation type="unfinished"/>
+      <translation>Rasti galiojantys kvietimai</translation>
     </message>
     <message>
       <source>No valid messages were found from candidates</source>
-      <translation type="unfinished"/>
+      <translation>Nebuvo rasta jokių galiojančių pranešimų iš kandidatų</translation>
     </message>
     <message>
       <source>Skipped because of no online operators</source>
-      <translation type="unfinished"/>
+      <translation>Praleista, nes nėra internetinių operatorių</translation>
+    </message>
+    <message>
+      <source>Skipped because invitation was seen</source>
+      <translation>Praleista, nes kvietimas buvo matytas</translation>
     </message>
     <message>
       <source>Skipped because of</source>
-      <translation type="unfinished"/>
+      <translation>Praleista dėl</translation>
     </message>
     <message>
       <source>Last time seen on website ago</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinį kartą svetainėje matytas prieš</translation>
     </message>
     <message>
       <source>conditions</source>
-      <translation type="unfinished"/>
+      <translation>sąlygos</translation>
     </message>
     <message>
       <source>Last time had chat n minutes ago</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinį kartą kalbėjosi prieš n minučių</translation>
     </message>
     <message>
       <source>Attributes conditions not valid</source>
-      <translation type="unfinished"/>
+      <translation>Atributų sąlygos negalioja</translation>
     </message>
     <message>
       <source>Message selected</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkta žinutė</translation>
     </message>
     <message>
       <source>Attributes online visitor</source>
-      <translation type="unfinished"/>
+      <translation>Internetinio lankytojo požymiai</translation>
     </message>
     <message>
       <source>Time on site</source>
-      <translation type="unfinished"/>
+      <translation>Laikas darbo vietoje</translation>
     </message>
     <message>
       <source>Online user output</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojo internetinė išvestis</translation>
     </message>
     <message>
       <source>Raw output debug</source>
-      <translation type="unfinished"/>
+      <translation>Neapdorotos išvesties derinimas</translation>
     </message>
     <message>
       <source>Proactive invitation to test against. Choose Any for auto select.</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus kvietimas atlikti testavimą. Automatiniam pasirinkimui pasirinkite Any.</translation>
     </message>
     <message>
       <source>Tag to test against. E.g. error_deposit</source>
-      <translation type="unfinished"/>
+      <translation>Žyma, pagal kurią testuojama. Pvz., error_deposit</translation>
     </message>
     <message>
       <source>Test</source>
-      <translation type="unfinished"/>
+      <translation>Testas</translation>
+    </message>
+    <message>
+      <source>Reset invitation data</source>
+      <translation>Kvietimo duomenų atstatymas</translation>
     </message>
     <message>
       <source>Any</source>
-      <translation type="unfinished"/>
+      <translation>Bet kuris</translation>
+    </message>
+    <message>
+      <source>Invitation data for visitor was reset!</source>
+      <translation>Lankytojo kvietimo duomenys buvo iš naujo nustatyti!</translation>
     </message>
   </context>
   <context>
     <name>genericbot/list</name>
     <message>
       <source>Login history</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungimo istorija</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiųsti</translation>
     </message>
     <message>
       <source>Commands list</source>
-      <translation type="unfinished"/>
+      <translation>Komandų sąrašas</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>Conditions</source>
-      <translation type="unfinished"/>
+      <translation>Sąlygos</translation>
     </message>
     <message>
       <source>Import</source>
@@ -10090,31 +10330,31 @@
     </message>
     <message>
       <source>Responses for API error</source>
-      <translation type="unfinished"/>
+      <translation>API klaidos atsakymai</translation>
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>Poilsio API skambučiai</translation>
     </message>
     <message>
       <source>Bot individualization</source>
-      <translation type="unfinished"/>
+      <translation>Boto individualizavimas</translation>
     </message>
     <message>
       <source>Translations items</source>
-      <translation type="unfinished"/>
+      <translation>Vertimai elementai</translation>
     </message>
     <message>
       <source>Could not execute</source>
-      <translation type="unfinished"/>
+      <translation>Nepavyko įvykdyti</translation>
     </message>
     <message>
       <source>with args</source>
-      <translation type="unfinished"/>
+      <translation>su argumentais</translation>
     </message>
     <message>
       <source>Visitor was blocked by</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas buvo užblokuotas</translation>
     </message>
     <message>
       <source>Confirm</source>
@@ -10122,15 +10362,19 @@
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>Atšaukti</translation>
     </message>
     <message>
       <source>Function is not callable</source>
-      <translation type="unfinished"/>
+      <translation>Funkcija nėra iškviečiama</translation>
     </message>
     <message>
       <source>Choose</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite</translation>
+    </message>
+    <message>
+      <source>Object is assigned to mails or chats!</source>
+      <translation>Objektas priskiriamas laiškams arba pokalbiams!</translation>
     </message>
     <message>
       <source>Bots</source>
@@ -10138,30 +10382,30 @@
     </message>
     <message>
       <source>Bot was assigned to one of the chats. Please remove those chats first!</source>
-      <translation type="unfinished"/>
+      <translation>Botas buvo priskirtas vienam iš pokalbių. Pirmiausia pašalinkite tuos pokalbius!</translation>
     </message>
   </context>
   <context>
     <name>user/userlist</name>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ID</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo ID</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation type="unfinished"/>
+      <translation>Žinutė</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>Data</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -10173,43 +10417,43 @@
     </message>
     <message>
       <source>Command</source>
-      <translation type="unfinished"/>
+      <translation>Komanda</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>Trigger</source>
-      <translation type="unfinished"/>
+      <translation>Triggeris</translation>
     </message>
     <message>
       <source>Shortcut</source>
-      <translation type="unfinished"/>
+      <translation>Trumpasis adresas</translation>
     </message>
     <message>
       <source>Position</source>
-      <translation type="unfinished"/>
+      <translation>Pozicija</translation>
     </message>
     <message>
       <source>Visible in the chat dropdown menu</source>
-      <translation type="unfinished"/>
+      <translation>Matomas pokalbių išskleidžiamajame meniu</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Short Name</source>
-      <translation type="unfinished"/>
+      <translation>Trumpas pavadinimas</translation>
     </message>
     <message>
       <source>Test</source>
-      <translation type="unfinished"/>
+      <translation>Testas</translation>
     </message>
     <message>
       <source>Username</source>
@@ -10217,7 +10461,7 @@
     </message>
     <message>
       <source>Start activity</source>
-      <translation type="unfinished"/>
+      <translation>Veiklos pradžia</translation>
     </message>
     <message>
       <source>Last activity</source>
@@ -10225,51 +10469,51 @@
     </message>
     <message>
       <source>Duration</source>
-      <translation type="unfinished"/>
+      <translation>Trukmė</translation>
     </message>
     <message>
       <source>Chats served</source>
-      <translation type="unfinished"/>
+      <translation>Suteikti pokalbiai</translation>
     </message>
     <message>
       <source>Was offline for</source>
-      <translation type="unfinished"/>
+      <translation>Buvo neprisijungęs</translation>
     </message>
     <message>
       <source>Went offline</source>
-      <translation type="unfinished"/>
+      <translation>Išėjo į neprisijungusį tinklą</translation>
     </message>
     <message>
       <source>Sync timeout</source>
-      <translation type="unfinished"/>
+      <translation>Sinchronizavimo laiko limitas</translation>
     </message>
     <message>
       <source>Went online</source>
-      <translation type="unfinished"/>
+      <translation>Ėjo internetu</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Laukiami pokalbiai</translation>
     </message>
     <message>
       <source>Inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>Neaktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Real Time Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Realaus laiko aktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Update stats</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti statistiką</translation>
     </message>
     <message>
       <source>Login As</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungti kaip</translation>
     </message>
     <message>
       <source>Users</source>
@@ -10277,7 +10521,7 @@
     </message>
     <message>
       <source>Username (Nickname)</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo vardas (slapyvardis)</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -10285,31 +10529,35 @@
     </message>
     <message>
       <source>Maximum number of chats operator can have.</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias galimas pokalbių skaičius.</translation>
     </message>
     <message>
       <source>Number of chats</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių skaičius</translation>
     </message>
     <message>
       <source>Last login</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinis prisijungimas</translation>
     </message>
     <message>
       <source>This user is disabled</source>
-      <translation type="unfinished"/>
+      <translation>Šis naudotojas yra išjungtas</translation>
     </message>
     <message>
       <source>This user is forced to logout</source>
-      <translation type="unfinished"/>
+      <translation>Šis naudotojas priverstas atsijungti</translation>
     </message>
     <message>
       <source>Excluded from auto assign workflow</source>
-      <translation type="unfinished"/>
+      <translation>Neįtrauktas į automatinio priskyrimo darbo eigą</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation type="unfinished"/>
+      <translation>prieš</translation>
+    </message>
+    <message>
+      <source>Clone</source>
+      <translation>Klonas</translation>
     </message>
     <message>
       <source>New user</source>
@@ -10321,116 +10569,116 @@
     </message>
     <message>
       <source>Statistic</source>
-      <translation type="unfinished"/>
+      <translation>Statistika</translation>
     </message>
     <message>
       <source>Users Actions</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojų veiksmai</translation>
     </message>
   </context>
   <context>
     <name>chat/chatpreview</name>
     <message>
       <source>Log preview</source>
-      <translation type="unfinished"/>
+      <translation>Žurnalo peržiūra</translation>
     </message>
     <message>
       <source>Chat preview</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių peržiūra</translation>
     </message>
     <message>
       <source>Send chat</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti pokalbį</translation>
     </message>
     <message>
       <source>Image preview</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdų peržiūra</translation>
     </message>
     <message>
       <source>Bot preview</source>
-      <translation type="unfinished"/>
+      <translation>Boto peržiūra</translation>
     </message>
     <message>
       <source>Downloading image...</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdo atsisiuntimas...</translation>
     </message>
     <message>
       <source>Unable to display image. Click below to download the file.</source>
-      <translation type="unfinished"/>
+      <translation>Nepavyksta parodyti vaizdo. Spustelėkite toliau, jei norite atsisiųsti failą.</translation>
     </message>
     <message>
       <source>Dispatch event</source>
-      <translation type="unfinished"/>
+      <translation>Išsiuntimo įvykis</translation>
     </message>
   </context>
   <context>
     <name>genericbot/chat_actions</name>
     <message>
       <source>Messages preview</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų peržiūra</translation>
     </message>
     <message>
       <source>Chat actions</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių veiksmai</translation>
     </message>
     <message>
       <source>Action</source>
-      <translation type="unfinished"/>
+      <translation>Veiksmas</translation>
     </message>
     <message>
       <source>Body</source>
-      <translation type="unfinished"/>
+      <translation>Kūnas</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Laikas</translation>
     </message>
   </context>
   <context>
     <name>chat/adminchat</name>
     <message>
       <source>Strike</source>
-      <translation type="unfinished"/>
+      <translation>Streikas</translation>
     </message>
     <message>
       <source>Quote</source>
-      <translation type="unfinished"/>
+      <translation>Citata</translation>
     </message>
     <message>
       <source>Youtube</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Youtube&quot;</translation>
     </message>
     <message>
       <source>HTML Code</source>
-      <translation type="unfinished"/>
+      <translation>HTML kodas</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation type="unfinished"/>
+      <translation>Drąsiai</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation type="unfinished"/>
+      <translation>Kursyvu</translation>
     </message>
     <message>
       <source>Underline</source>
-      <translation type="unfinished"/>
+      <translation>Pabraukti</translation>
     </message>
     <message>
       <source>Font Size</source>
-      <translation type="unfinished"/>
+      <translation>Šrifto dydis</translation>
     </message>
     <message>
       <source>Color</source>
-      <translation type="unfinished"/>
+      <translation>Spalva</translation>
     </message>
     <message>
       <source>Apply</source>
-      <translation type="unfinished"/>
+      <translation>Taikyti</translation>
     </message>
     <message>
       <source>Insert image or file</source>
-      <translation type="unfinished"/>
+      <translation>Įterpti paveikslėlį arba failą</translation>
     </message>
     <message>
       <source>Preview</source>
@@ -10442,19 +10690,19 @@
     </message>
     <message>
       <source>Block visitor</source>
-      <translation type="unfinished"/>
+      <translation>Bloko lankytojas</translation>
     </message>
     <message>
       <source>Exiting chat</source>
-      <translation type="unfinished"/>
+      <translation>Išėjimas iš pokalbio</translation>
     </message>
     <message>
       <source>Closing...</source>
-      <translation type="unfinished"/>
+      <translation>Uždarymas...</translation>
     </message>
     <message>
       <source>Chat was already closed</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis jau buvo uždarytas</translation>
     </message>
     <message>
       <source>Close chat</source>
@@ -10462,7 +10710,7 @@
     </message>
     <message>
       <source>Exit chat</source>
-      <translation type="unfinished"/>
+      <translation>Išeiti iš pokalbio</translation>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -10478,15 +10726,15 @@
     </message>
     <message>
       <source>Modify chat</source>
-      <translation type="unfinished"/>
+      <translation>Pakeisti pokalbį</translation>
     </message>
     <message>
       <source>Edit chat</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti pokalbį</translation>
     </message>
     <message>
       <source>Bot commands</source>
-      <translation type="unfinished"/>
+      <translation>Boto komandos</translation>
     </message>
     <message>
       <source>Print</source>
@@ -10498,11 +10746,11 @@
     </message>
     <message>
       <source>Redirect to contact form</source>
-      <translation type="unfinished"/>
+      <translation>Nukreipti į kontaktinę formą</translation>
     </message>
     <message>
       <source>Redirect to another url</source>
-      <translation type="unfinished"/>
+      <translation>Nukreipti į kitą url adresą</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -10514,11 +10762,11 @@
     </message>
     <message>
       <source>Redirect user to survey</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojo nukreipimas į apklausą</translation>
     </message>
     <message>
       <source>Choose recognition language</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite atpažinimo kalbą</translation>
     </message>
     <message>
       <source>Transfer chat</source>
@@ -10530,7 +10778,7 @@
     </message>
     <message>
       <source>Average response time (agent)</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis atsakymo laikas (agentas)</translation>
     </message>
     <message>
       <source>Additional data</source>
@@ -10542,51 +10790,51 @@
     </message>
     <message>
       <source>Passed as encrypted variable</source>
-      <translation type="unfinished"/>
+      <translation>Perduodamas kaip užšifruotas kintamasis</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis atsakiklis</translation>
     </message>
     <message>
       <source>Auto responder was assigned</source>
-      <translation type="unfinished"/>
+      <translation>Buvo priskirtas automatinis atsakiklis</translation>
     </message>
     <message>
       <source>Bot ID</source>
-      <translation type="unfinished"/>
+      <translation>Boto ID</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>Proactive chat</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus pokalbis</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus</translation>
     </message>
     <message>
       <source>Operators</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriai</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>Uždaras</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama</translation>
     </message>
     <message>
       <source>Click to change chat status</source>
@@ -10614,11 +10862,11 @@
     </message>
     <message>
       <source>Bot chat</source>
-      <translation type="unfinished"/>
+      <translation>Botų pokalbiai</translation>
     </message>
     <message>
       <source>Times</source>
-      <translation type="unfinished"/>
+      <translation>Times</translation>
     </message>
     <message>
       <source>Chat duration</source>
@@ -10630,39 +10878,39 @@
     </message>
     <message>
       <source>Operator chats during this conversations.</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus pokalbiai per šiuos pokalbius.</translation>
     </message>
     <message>
       <source>Transferred by</source>
-      <translation type="unfinished"/>
+      <translation>Perkelta</translation>
     </message>
     <message>
       <source>Concurrent chats.</source>
-      <translation type="unfinished"/>
+      <translation>Lygiagrečiai vykstantys pokalbiai.</translation>
     </message>
     <message>
       <source>Location on map</source>
-      <translation type="unfinished"/>
+      <translation>Vieta žemėlapyje</translation>
     </message>
     <message>
       <source>Created at</source>
-      <translation type="unfinished"/>
+      <translation>Sukurta adresu</translation>
     </message>
     <message>
       <source>Started wait at</source>
-      <translation type="unfinished"/>
+      <translation>Pradėta laukti</translation>
     </message>
     <message>
       <source>Closed at</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryta</translation>
     </message>
     <message>
       <source>Department ID</source>
-      <translation type="unfinished"/>
+      <translation>Departamento ID</translation>
     </message>
     <message>
       <source>This is offline message</source>
-      <translation type="unfinished"/>
+      <translation>Tai yra neprisijungęs pranešimas</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -10670,31 +10918,31 @@
     </message>
     <message>
       <source>First response time (agent)</source>
-      <translation type="unfinished"/>
+      <translation>Pirmojo reagavimo laikas (agentas)</translation>
     </message>
     <message>
       <source>Collapse/Expand</source>
-      <translation type="unfinished"/>
+      <translation>Sugriauti / išplėsti</translation>
     </message>
     <message>
       <source>Related mail tickets</source>
-      <translation type="unfinished"/>
+      <translation>Susiję pašto bilietai</translation>
     </message>
     <message>
       <source>Fetching related mails...</source>
-      <translation type="unfinished"/>
+      <translation>Susijusių laiškų gavimas...</translation>
     </message>
     <message>
       <source>Max response time (agent)</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus atsako laikas (agentas)</translation>
     </message>
     <message>
       <source>Online profile</source>
-      <translation type="unfinished"/>
+      <translation>Internetinis profilis</translation>
     </message>
     <message>
       <source>Previous chats</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesni pokalbiai</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -10702,27 +10950,27 @@
     </message>
     <message>
       <source>Proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus kvietimas</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produktas</translation>
     </message>
     <message>
       <source>Page from where visitor started a chat.</source>
-      <translation type="unfinished"/>
+      <translation>Puslapis, iš kurio lankytojas pradėjo pokalbį.</translation>
     </message>
     <message>
       <source>Screenshot</source>
-      <translation type="unfinished"/>
+      <translation>Ekrano nuotrauka</translation>
     </message>
     <message>
       <source>Page from where visitor come and was seen very first time in current session.</source>
-      <translation type="unfinished"/>
+      <translation>Puslapis, iš kurio lankytojas atėjo ir buvo pamatytas pirmą kartą per dabartinę sesiją.</translation>
     </message>
     <message>
       <source>Theme</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Computer</source>
@@ -10750,7 +10998,7 @@
     </message>
     <message>
       <source>Start a call</source>
-      <translation type="unfinished"/>
+      <translation>Skambučio pradžia</translation>
     </message>
     <message>
       <source>Waited</source>
@@ -10770,7 +11018,7 @@
     </message>
     <message>
       <source>No information</source>
-      <translation type="unfinished"/>
+      <translation>Nėra informacijos</translation>
     </message>
     <message>
       <source>Refresh</source>
@@ -10786,19 +11034,19 @@
     </message>
     <message>
       <source>Chat notes</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių pastabos</translation>
     </message>
     <message>
       <source>These are saved per chat</source>
-      <translation type="unfinished"/>
+      <translation>Jie išsaugomi kiekvienam pokalbiui</translation>
     </message>
     <message>
       <source>Visitor notes. Will remain the same for the same visitor chats.</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų pastabos. Išliks tokie patys lankytojų pokalbiai.</translation>
     </message>
     <message>
       <source>These are saved per visitor</source>
-      <translation type="unfinished"/>
+      <translation>Šie duomenys įrašomi kiekvienam lankytojui</translation>
     </message>
     <message>
       <source>Remarks</source>
@@ -10806,39 +11054,39 @@
     </message>
     <message>
       <source>has notes</source>
-      <translation type="unfinished"/>
+      <translation>turi pastabų</translation>
     </message>
     <message>
       <source>Private chat between operators</source>
-      <translation type="unfinished"/>
+      <translation>Privatus pokalbis tarp operatorių</translation>
     </message>
     <message>
       <source>Include system messages</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti sistemos pranešimus</translation>
     </message>
     <message>
       <source>Include meta messages</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti meta pranešimus</translation>
     </message>
     <message>
       <source>Do not parse for BBCode</source>
-      <translation type="unfinished"/>
+      <translation>Neparinkti BBC kodo</translation>
     </message>
     <message>
       <source>Include bot messages</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti botų pranešimus</translation>
     </message>
     <message>
       <source>Include whisper messages</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti šnabždesius</translation>
     </message>
     <message>
       <source>Include operator data</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti operatoriaus duomenis</translation>
     </message>
     <message>
       <source>Include message ID</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti pranešimo ID</translation>
     </message>
     <message>
       <source>Messages</source>
@@ -10862,11 +11110,11 @@
     </message>
     <message>
       <source>Invitation</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimas</translation>
     </message>
     <message>
       <source>Select campaign</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite kampaniją</translation>
     </message>
     <message>
       <source>Select a canned message</source>
@@ -10878,19 +11126,19 @@
     </message>
     <message>
       <source>Personal</source>
-      <translation type="unfinished"/>
+      <translation>Asmeninis</translation>
     </message>
     <message>
       <source>Global</source>
-      <translation type="unfinished"/>
+      <translation>Pasaulinis</translation>
     </message>
     <message>
       <source>Hold/Un-Hold chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio sulaikymas/atšaukimas</translation>
     </message>
     <message>
       <source>Wait for visitor message and stop auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Palaukite lankytojo pranešimo ir sustabdykite automatinį atsakiklį</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
@@ -10902,11 +11150,11 @@
     </message>
     <message>
       <source>Styling options</source>
-      <translation type="unfinished"/>
+      <translation>Stiliaus parinktys</translation>
     </message>
     <message>
       <source>[code] or ``` or ` for inline</source>
-      <translation type="unfinished"/>
+      <translation>[kodas] arba ```` arba ``, jei norite įrašyti į eilutę</translation>
     </message>
     <message>
       <source>Created</source>
@@ -10914,31 +11162,31 @@
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas</translation>
     </message>
     <message>
       <source>Visitor ID</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo ID</translation>
     </message>
     <message>
       <source>Previous item</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnis punktas</translation>
     </message>
     <message>
       <source>Next item</source>
-      <translation type="unfinished"/>
+      <translation>Kitas punktas</translation>
     </message>
     <message>
       <source>Use Alt+↑↓ arrows to navigate in the list.</source>
-      <translation type="unfinished"/>
+      <translation>Norėdami naršyti sąraše, naudokite Alt+↑↓ rodykles.</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation type="unfinished"/>
+      <translation>Tęsti</translation>
     </message>
     <message>
       <source>Close selected</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryti pasirinktą</translation>
     </message>
     <message>
       <source>Please enter a URL</source>
@@ -10946,19 +11194,19 @@
     </message>
     <message>
       <source>Please enter an URL!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite URL adresą!</translation>
     </message>
     <message>
       <source>Automatic translation</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis vertimas</translation>
     </message>
     <message>
       <source>You are in whisper mode! To execute commands properly switch to write mode.</source>
-      <translation type="unfinished"/>
+      <translation>Jūs naudojate šnabždesio režimą! Norėdami tinkamai vykdyti komandas, pereikite į rašymo režimą.</translation>
     </message>
     <message>
       <source>Accept</source>
-      <translation type="unfinished"/>
+      <translation>Priimti</translation>
     </message>
     <message>
       <source>Redirect user to another url</source>
@@ -10966,79 +11214,79 @@
     </message>
     <message>
       <source>You do not have permission to close conversation</source>
-      <translation type="unfinished"/>
+      <translation>Neturite leidimo užbaigti pokalbį</translation>
     </message>
     <message>
       <source>Check e-email for close on ticket close</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite el. paštą, ar uždarytas bilietas</translation>
     </message>
     <message>
       <source>pending</source>
-      <translation type="unfinished"/>
+      <translation>laukiama</translation>
     </message>
     <message>
       <source>active</source>
-      <translation type="unfinished"/>
+      <translation>aktyvus</translation>
     </message>
     <message>
       <source>excluded from auto closing!</source>
-      <translation type="unfinished"/>
+      <translation>neįtrauktas automatinis uždarymas!</translation>
     </message>
     <message>
       <source>No related mail tickets were found!</source>
-      <translation type="unfinished"/>
+      <translation>Susijusių pašto bilietų nerasta!</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation type="unfinished"/>
+      <translation>Informacija</translation>
     </message>
     <message>
       <source>Sending...</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti...</translation>
     </message>
     <message>
       <source>Are you sure you want to delete this item?</source>
-      <translation type="unfinished"/>
+      <translation>Ar tikrai norite ištrinti šį elementą?</translation>
     </message>
     <message>
       <source>Mobile</source>
-      <translation type="unfinished"/>
+      <translation>Mobilusis</translation>
     </message>
     <message>
       <source>Offline message</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Department is offline, bot cannot be assigned!</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas neprisijungęs, botas negali būti priskirtas!</translation>
     </message>
     <message>
       <source>Auto responder got error</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis atsakiklis gavo klaidą</translation>
     </message>
     <message>
       <source>did not accepted mail in time.</source>
-      <translation type="unfinished"/>
+      <translation>nepriėmė pašto laiku.</translation>
     </message>
     <message>
       <source>did not accepted chat in time.</source>
-      <translation type="unfinished"/>
+      <translation>nepriėmė pokalbių laiku.</translation>
     </message>
     <message>
       <source>Chat was assigned to</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo priskirtas</translation>
     </message>
     <message>
       <source>Hold removed!</source>
-      <translation type="unfinished"/>
+      <translation>Laikykite pašalintą!</translation>
     </message>
     <message>
       <source>has accepted the pending chat by sending a message!</source>
-      <translation type="unfinished"/>
+      <translation>priėmė laukiantį pokalbį išsiųsdamas žinutę!</translation>
     </message>
     <message>
       <source>has accepted the bot chat by sending a message!</source>
-      <translation type="unfinished"/>
+      <translation>priėmė botų pokalbį siųsdamas žinutę!</translation>
     </message>
     <message>
       <source>has accepted the chat!</source>
@@ -11046,35 +11294,35 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>Netinkamas CSRF simbolis!</translation>
     </message>
     <message>
       <source>Invalid chat status</source>
-      <translation type="unfinished"/>
+      <translation>Negaliojanti pokalbio būsena</translation>
     </message>
     <message>
       <source>Visitor has already left a chat. Hold can not be applied.</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas jau paliko pokalbį. Sulaikyti negalima.</translation>
     </message>
     <message>
       <source>Visitor hold removed!</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų sulaikymas pašalintas!</translation>
     </message>
     <message>
       <source>Visitor hold added!</source>
-      <translation type="unfinished"/>
+      <translation>Pridėtas lankytojų sulaikymas!</translation>
     </message>
     <message>
       <source>Hold added!</source>
-      <translation type="unfinished"/>
+      <translation>Laikykite pridėtą!</translation>
     </message>
     <message>
       <source>No permission</source>
-      <translation type="unfinished"/>
+      <translation>Leidimo nėra</translation>
     </message>
     <message>
       <source>Form data not valid</source>
-      <translation type="unfinished"/>
+      <translation>Formos duomenys negalioja</translation>
     </message>
     <message>
       <source>Has no access to this chat</source>
@@ -11082,27 +11330,27 @@
     </message>
     <message>
       <source>has modified a message.</source>
-      <translation type="unfinished"/>
+      <translation>pakeitė pranešimą.</translation>
     </message>
     <message>
       <source>Original message</source>
-      <translation type="unfinished"/>
+      <translation>Originali žinutė</translation>
     </message>
     <message>
       <source>Field is required</source>
-      <translation type="unfinished"/>
+      <translation>Laukas yra privalomas</translation>
     </message>
     <message>
       <source>Sensitive Information</source>
-      <translation type="unfinished"/>
+      <translation>Jautri informacija</translation>
     </message>
     <message>
       <source>has invited</source>
-      <translation type="unfinished"/>
+      <translation>pakvietė</translation>
     </message>
     <message>
       <source>for the private chat.</source>
-      <translation type="unfinished"/>
+      <translation>privačiam pokalbiui.</translation>
     </message>
   </context>
   <context>
@@ -11125,11 +11373,11 @@
     </message>
     <message>
       <source>New messages</source>
-      <translation type="unfinished"/>
+      <translation>Nauji pranešimai</translation>
     </message>
     <message>
       <source>Live Help</source>
-      <translation type="unfinished"/>
+      <translation>Pagalba gyvai</translation>
     </message>
     <message>
       <source>Live help is online...</source>
@@ -11145,7 +11393,7 @@
     </message>
     <message>
       <source>Our staff are always ready to help!</source>
-      <translation type="unfinished"/>
+      <translation>Mūsų darbuotojai visada pasirengę padėti!</translation>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
@@ -11214,84 +11462,84 @@
     <name>canned/import</name>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta</translation>
     </message>
     <message>
       <source>Imported</source>
-      <translation type="unfinished"/>
+      <translation>Importuota</translation>
     </message>
     <message>
       <source>Removed</source>
-      <translation type="unfinished"/>
+      <translation>Pašalinta</translation>
     </message>
     <message>
       <source>Remove old canned messages</source>
-      <translation type="unfinished"/>
+      <translation>Pašalinti senus konservuotus pranešimus</translation>
     </message>
     <message>
       <source>If you do not check we will try to update existing records without removing all records.</source>
-      <translation type="unfinished"/>
+      <translation>Jei nepatikrinsite, bandysime atnaujinti esamus įrašus nepašalindami visų įrašų.</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>Importas</translation>
     </message>
     <message>
       <source>Remove old templates</source>
-      <translation type="unfinished"/>
+      <translation>Pašalinti senus šablonus</translation>
     </message>
     <message>
       <source>First row in CSV is skipped. Columns order</source>
-      <translation type="unfinished"/>
+      <translation>Praleidžiama pirmoji CSV eilutė. Stulpelių tvarka</translation>
     </message>
     <message>
       <source>Remove old records</source>
-      <translation type="unfinished"/>
+      <translation>Pašalinti senus įrašus</translation>
     </message>
     <message>
       <source>File is not UTF-8 encoded!</source>
-      <translation type="unfinished"/>
+      <translation>Failas nėra UTF-8 koduotas!</translation>
     </message>
     <message>
       <source>Expected columns does not match!</source>
-      <translation type="unfinished"/>
+      <translation>Laukiami stulpeliai nesutampa!</translation>
     </message>
     <message>
       <source>Invalid file format</source>
-      <translation type="unfinished"/>
+      <translation>Netinkamas failo formatas</translation>
     </message>
     <message>
       <source>Please choose at-least one mailing list!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite bent vieną adresatų sąrašą!</translation>
     </message>
     <message>
       <source>Missing CSRF Token!!</source>
-      <translation type="unfinished"/>
+      <translation>Trūksta CSRF žetono!!</translation>
     </message>
   </context>
   <context>
     <name>cannedmsg/deletereplace</name>
     <message>
       <source>Clone</source>
-      <translation type="unfinished"/>
+      <translation>Klonas</translation>
     </message>
   </context>
   <context>
     <name>chat/buttons</name>
     <message>
       <source>No-Tag</source>
-      <translation type="unfinished"/>
+      <translation>&quot;No-Tag&quot;</translation>
     </message>
   </context>
   <context>
     <name>chat/syncuser</name>
     <message>
       <source>Thumbs down</source>
-      <translation type="unfinished"/>
+      <translation>Nykščiai žemyn</translation>
     </message>
     <message>
       <source>Thumbs up</source>
-      <translation type="unfinished"/>
+      <translation>Nykščiai aukštyn</translation>
     </message>
     <message>
       <source>Support staff member has closed this chat</source>
@@ -11299,71 +11547,71 @@
     </message>
     <message>
       <source>Read more</source>
-      <translation type="unfinished"/>
+      <translation>Skaityti daugiau</translation>
     </message>
     <message>
       <source>Edit nick</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti slapyvardį</translation>
     </message>
     <message>
       <source>Previous conversation</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnis pokalbis</translation>
     </message>
     <message>
       <source>Inline survey</source>
-      <translation type="unfinished"/>
+      <translation>Inline apklausa</translation>
     </message>
     <message>
       <source>Hide</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti</translation>
     </message>
     <message>
       <source>Typing...</source>
-      <translation type="unfinished"/>
+      <translation>Rašymas...</translation>
     </message>
     <message>
       <source>Chat was assigned to chat opener event it had other agent assigned at that moment</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo priskirtas pokalbio atidarymo renginiui, kuriam tuo metu buvo priskirtas kitas agentas</translation>
     </message>
     <message>
       <source>Opened chat by</source>
-      <translation type="unfinished"/>
+      <translation>Atidarytas pokalbis pagal</translation>
     </message>
     <message>
       <source>Reply To</source>
-      <translation type="unfinished"/>
+      <translation>Atsakyti į</translation>
     </message>
     <message>
       <source>Reason</source>
-      <translation type="unfinished"/>
+      <translation>Priežastis</translation>
     </message>
     <message>
       <source>Last user message</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinė naudotojo žinutė</translation>
     </message>
     <message>
       <source>Last operator message</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinis operatoriaus pranešimas</translation>
     </message>
     <message>
       <source>Last time visitor seen</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinį kartą matytas lankytojas</translation>
     </message>
     <message>
       <source>Delay</source>
-      <translation type="unfinished"/>
+      <translation>Atidėjimas</translation>
     </message>
     <message>
       <source>Hide/Show HTML Code</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti / rodyti HTML kodą</translation>
     </message>
     <message>
       <source>Transferred to</source>
-      <translation type="unfinished"/>
+      <translation>Perkelta į</translation>
     </message>
     <message>
       <source>as no operators online in</source>
-      <translation type="unfinished"/>
+      <translation>nes nėra operatorių internete</translation>
     </message>
     <message>
       <source>Chat was automatically transferred to</source>
@@ -11375,23 +11623,23 @@
     </message>
     <message>
       <source>Chat was closed by cron!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo uždarytas cron!</translation>
     </message>
     <message>
       <source>Chat was closed by cron because of inactivity!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo uždarytas cron dėl neaktyvumo!</translation>
     </message>
     <message>
       <source>Chat was closed by cron because visitor left the bot chat!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbį uždarė cronas, nes lankytojas paliko boto pokalbį!</translation>
     </message>
     <message>
       <source>Chat was closed by cron because visitor left the active chat!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbį uždarė cronas, nes lankytojas išėjo iš aktyvaus pokalbio!</translation>
     </message>
     <message>
       <source>Chat was closed by cron because visitor left the pending chat!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbį uždarė cronas, nes lankytojas paliko laukiantį pokalbį!</translation>
     </message>
     <message>
       <source>Support has closed the chat window, but You can leave messages, and the administrator will read them later.</source>
@@ -11406,7 +11654,7 @@
     <name>chat/chat</name>
     <message>
       <source>Last visitor message time</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinio lankytojo pranešimo laikas</translation>
     </message>
     <message>
       <source>Show/Hide right column</source>
@@ -11418,63 +11666,63 @@
     </message>
     <message>
       <source>Write</source>
-      <translation type="unfinished"/>
+      <translation>Rašykite</translation>
     </message>
     <message>
       <source>Preview</source>
-      <translation type="unfinished"/>
+      <translation>Peržiūra</translation>
     </message>
     <message>
       <source>You are in whisper mode!</source>
-      <translation type="unfinished"/>
+      <translation>Jūs naudojate šnabždesio režimą!</translation>
     </message>
     <message>
       <source>Whisper</source>
-      <translation type="unfinished"/>
+      <translation>Šnabždesys</translation>
     </message>
     <message>
       <source>Impersonate</source>
-      <translation type="unfinished"/>
+      <translation>Apsimesti</translation>
     </message>
     <message>
       <source>You are not chat owner, type with caution.</source>
-      <translation type="unfinished"/>
+      <translation>Jūs nesate pokalbių savininkas, įveskite atsargiai.</translation>
     </message>
     <message>
       <source>Me</source>
-      <translation type="unfinished"/>
+      <translation>Aš</translation>
     </message>
     <message>
       <source>You are working as a chat owner.</source>
-      <translation type="unfinished"/>
+      <translation>Dirbate kaip pokalbių savininkas.</translation>
     </message>
     <message>
       <source>Chat owner</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių savininkas</translation>
     </message>
     <message>
       <source>Join as</source>
-      <translation type="unfinished"/>
+      <translation>Prisijunkite kaip</translation>
     </message>
     <message>
       <source>This chat was closed. You can not write messages anymore.</source>
-      <translation type="unfinished"/>
+      <translation>Šis pokalbis buvo uždarytas. Jūs nebegalite rašyti žinučių.</translation>
     </message>
     <message>
       <source>You can only read a messages.</source>
-      <translation type="unfinished"/>
+      <translation>Galite skaityti tik pranešimus.</translation>
     </message>
     <message>
       <source>Switch between chats using Alt+</source>
-      <translation type="unfinished"/>
+      <translation>Perjungti pokalbius naudojant Alt+</translation>
     </message>
     <message>
       <source>arrows</source>
-      <translation type="unfinished"/>
+      <translation>rodyklės</translation>
     </message>
     <message>
       <source>Search for canned messages by using their tags #hash. You can drop files here.</source>
-      <translation type="unfinished"/>
+      <translation>Konservuotų žinučių ieškokite naudodami jų žymes #hash. Čia galite mesti failus.</translation>
     </message>
     <message>
       <source>Pending</source>
@@ -11498,7 +11746,7 @@
     </message>
     <message>
       <source>Bot chat</source>
-      <translation type="unfinished"/>
+      <translation>Botų pokalbiai</translation>
     </message>
     <message>
       <source>Change chat status</source>
@@ -11510,7 +11758,7 @@
     </message>
     <message>
       <source>Type your message here...</source>
-      <translation type="unfinished"/>
+      <translation>Čia įveskite savo žinutę...</translation>
     </message>
     <message>
       <source>Close</source>
@@ -11550,7 +11798,7 @@
     </message>
     <message>
       <source>Back to chat</source>
-      <translation type="unfinished"/>
+      <translation>Grįžti į pokalbį</translation>
     </message>
     <message>
       <source>Switch to widget</source>
@@ -11574,15 +11822,15 @@
     </message>
     <message>
       <source>You have closed this chat!</source>
-      <translation type="unfinished"/>
+      <translation>Jūs uždarėte šį pokalbį!</translation>
     </message>
     <message>
       <source>You have been redirected to survey!</source>
-      <translation type="unfinished"/>
+      <translation>Jūs buvote nukreiptas į apklausą!</translation>
     </message>
     <message>
       <source>Visitor has just sent a message</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas ką tik išsiuntė žinutę</translation>
     </message>
   </context>
   <context>
@@ -11620,158 +11868,158 @@
     <name>chat/avatarbuilder</name>
     <message>
       <source>Build your avatar</source>
-      <translation type="unfinished"/>
+      <translation>Sukurkite savo avatarą</translation>
     </message>
     <message>
       <source>We will generate avatar based on this string if you do not choose some parts</source>
-      <translation type="unfinished"/>
+      <translation>Mes sukursime avatarą pagal šią eilutę, jei nepasirinksite kai kurių dalių</translation>
     </message>
     <message>
       <source>Choose</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite</translation>
     </message>
     <message>
       <source>Robo</source>
-      <translation type="unfinished"/>
+      <translation>Robotas</translation>
     </message>
     <message>
       <source>Girl</source>
-      <translation type="unfinished"/>
+      <translation>Mergina</translation>
     </message>
     <message>
       <source>Blonde</source>
-      <translation type="unfinished"/>
+      <translation>Blondinė</translation>
     </message>
     <message>
       <source>Evilnormie</source>
-      <translation type="unfinished"/>
+      <translation>Evilnormie</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>Šalis</translation>
     </message>
     <message>
       <source>Johnyold</source>
-      <translation type="unfinished"/>
+      <translation>Johnyold</translation>
     </message>
     <message>
       <source>Asian</source>
-      <translation type="unfinished"/>
+      <translation>Azijos</translation>
     </message>
     <message>
       <source>Punk</source>
-      <translation type="unfinished"/>
+      <translation>Punk</translation>
     </message>
     <message>
       <source>Afrohair</source>
-      <translation type="unfinished"/>
+      <translation>Afrohair</translation>
     </message>
     <message>
       <source>Normie female</source>
-      <translation type="unfinished"/>
+      <translation>Normie patelė</translation>
     </message>
     <message>
       <source>Older</source>
-      <translation type="unfinished"/>
+      <translation>Senesnis</translation>
     </message>
     <message>
       <source>Firehair</source>
-      <translation type="unfinished"/>
+      <translation>Ugniniai plaukai</translation>
     </message>
     <message>
       <source>Blond</source>
-      <translation type="unfinished"/>
+      <translation>Blondinė</translation>
     </message>
     <message>
       <source>Ateam</source>
-      <translation type="unfinished"/>
+      <translation>Ateam</translation>
     </message>
     <message>
       <source>Rasta</source>
-      <translation type="unfinished"/>
+      <translation>Rasta</translation>
     </message>
     <message>
       <source>Meta</source>
-      <translation type="unfinished"/>
+      <translation>Meta</translation>
     </message>
     <message>
       <source>Color</source>
-      <translation type="unfinished"/>
+      <translation>Spalva</translation>
     </message>
     <message>
       <source>Set</source>
-      <translation type="unfinished"/>
+      <translation>Nustatyti</translation>
     </message>
   </context>
   <context>
     <name>chat/bbcodeinsert</name>
     <message>
       <source>Image</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdas</translation>
     </message>
     <message>
       <source>Link</source>
-      <translation type="unfinished"/>
+      <translation>Nuoroda</translation>
     </message>
     <message>
       <source>Link title</source>
-      <translation type="unfinished"/>
+      <translation>Nuorodos pavadinimas</translation>
     </message>
     <message>
       <source>Bold</source>
-      <translation type="unfinished"/>
+      <translation>Drąsiai</translation>
     </message>
     <message>
       <source>Italic</source>
-      <translation type="unfinished"/>
+      <translation>Kursyvu</translation>
     </message>
     <message>
       <source>Strikethrough</source>
-      <translation type="unfinished"/>
+      <translation>Perbrauktas</translation>
     </message>
     <message>
       <source>Please enter link to an image</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite nuorodą į paveikslėlį</translation>
     </message>
     <message>
       <source>Please enter a link</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite nuorodą</translation>
     </message>
     <message>
       <source>Here is a link</source>
-      <translation type="unfinished"/>
+      <translation>Čia yra nuoroda</translation>
     </message>
     <message>
       <source>Positive</source>
-      <translation type="unfinished"/>
+      <translation>Teigiamas</translation>
     </message>
     <message>
       <source>Neutral</source>
-      <translation type="unfinished"/>
+      <translation>Neutralus</translation>
     </message>
     <message>
       <source>Negative</source>
-      <translation type="unfinished"/>
+      <translation>Neigiamas</translation>
     </message>
     <message>
       <source>Things</source>
-      <translation type="unfinished"/>
+      <translation>Daiktai</translation>
     </message>
     <message>
       <source>Money</source>
-      <translation type="unfinished"/>
+      <translation>Pinigai</translation>
     </message>
     <message>
       <source>Please enter link to an image!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite nuorodą į paveikslėlį!</translation>
     </message>
     <message>
       <source>Please enter a link!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite nuorodą!</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiųsti</translation>
     </message>
   </context>
   <context>
@@ -11782,71 +12030,71 @@
     </message>
     <message>
       <source>Block ID</source>
-      <translation type="unfinished"/>
+      <translation>Bloko ID</translation>
     </message>
     <message>
       <source>Chat ID to test</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID išbandyti</translation>
     </message>
     <message>
       <source>Block history</source>
-      <translation type="unfinished"/>
+      <translation>Bloko istorija</translation>
     </message>
     <message>
       <source>IP/E-mail</source>
-      <translation type="unfinished"/>
+      <translation>IP / el. paštas</translation>
     </message>
     <message>
       <source>Block type</source>
-      <translation type="unfinished"/>
+      <translation>Bloko tipas</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Nick/E-mail/Country</source>
-      <translation type="unfinished"/>
+      <translation>Nick/E-paštas/šalis</translation>
     </message>
     <message>
       <source>Expires in</source>
-      <translation type="unfinished"/>
+      <translation>Galioja iki</translation>
     </message>
     <message>
       <source>Block date</source>
-      <translation type="unfinished"/>
+      <translation>Bloko data</translation>
     </message>
     <message>
       <source>User who blocked</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojas, kuris užblokavo</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Nikas</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>Šalis</translation>
     </message>
     <message>
       <source>Nick and Department</source>
-      <translation type="unfinished"/>
+      <translation>Nikas ir departamentas</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>El. paštas</translation>
     </message>
     <message>
       <source>Online user</source>
-      <translation type="unfinished"/>
+      <translation>Interneto naudotojas</translation>
     </message>
     <message>
       <source>Sender E-mail</source>
-      <translation type="unfinished"/>
+      <translation>Siuntėjo el. paštas</translation>
     </message>
     <message>
       <source>E-mail hidden</source>
-      <translation type="unfinished"/>
+      <translation>Paslėptas el. paštas</translation>
     </message>
     <message>
       <source>Remove block</source>
@@ -11858,47 +12106,47 @@
     </message>
     <message>
       <source>Nick/Email</source>
-      <translation type="unfinished"/>
+      <translation>Nikas / el. paštas</translation>
     </message>
     <message>
       <source>Bocked by</source>
-      <translation type="unfinished"/>
+      <translation>Užkietėjęs</translation>
     </message>
     <message>
       <source>Sender e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Siuntėjo el. paštas</translation>
     </message>
     <message>
       <source>Expires</source>
-      <translation type="unfinished"/>
+      <translation>Galioja iki</translation>
     </message>
     <message>
       <source>Block</source>
-      <translation type="unfinished"/>
+      <translation>Blokas</translation>
     </message>
     <message>
       <source>Block visitor</source>
-      <translation type="unfinished"/>
+      <translation>Bloko lankytojas</translation>
     </message>
     <message>
       <source>Online user profile</source>
-      <translation type="unfinished"/>
+      <translation>Internetinis naudotojo profilis</translation>
     </message>
     <message>
       <source>day (cool off)</source>
-      <translation type="unfinished"/>
+      <translation>diena (atvėsti)</translation>
     </message>
     <message>
       <source>days (cool off)</source>
-      <translation type="unfinished"/>
+      <translation>dienų (atvėsti)</translation>
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>dienos</translation>
     </message>
     <message>
       <source>Permanent/unlimited</source>
-      <translation type="unfinished"/>
+      <translation>Nuolatinis / neribotas</translation>
     </message>
     <message>
       <source>Blocked users</source>
@@ -11906,7 +12154,7 @@
     </message>
     <message>
       <source>Block sender</source>
-      <translation type="unfinished"/>
+      <translation>Blokuoti siuntėją</translation>
     </message>
     <message>
       <source>Please enter an IP to block</source>
@@ -11914,54 +12162,58 @@
     </message>
     <message>
       <source>This IP can not be blocked!</source>
-      <translation type="unfinished"/>
+      <translation>Šio IP negalima blokuoti!</translation>
     </message>
     <message>
       <source>User blocking failed, perhaps you do not have permission to block users?</source>
       <translation>Blokuoti nepavyko, galbūt Jūs neturite teisės blokuoti vartotojų?</translation>
     </message>
     <message>
+      <source>You do not have permission to access a chat!</source>
+      <translation>Neturite leidimo prisijungti prie pokalbio!</translation>
+    </message>
+    <message>
       <source>Please choose a block type!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite bloko tipą!</translation>
     </message>
     <message>
       <source>Chat does not have an e-mail set!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis neturi el. pašto rinkinio!</translation>
     </message>
     <message>
       <source>Chat does not have online user</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis neturi internetinio naudotojo</translation>
     </message>
     <message>
       <source>Please choose expire option!</source>
-      <translation type="unfinished"/>
+      <translation>Prašome pasirinkti galiojimo pabaigos variantą!</translation>
     </message>
     <message>
       <source>Visitor was blocked!</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas buvo užblokuotas!</translation>
     </message>
     <message>
       <source>Sender was blocked!</source>
-      <translation type="unfinished"/>
+      <translation>Siuntėjas buvo užblokuotas!</translation>
     </message>
   </context>
   <context>
     <name>user/account</name>
     <message>
       <source>Canned messages</source>
-      <translation type="unfinished"/>
+      <translation>Konservuoti pranešimai</translation>
     </message>
     <message>
       <source>Statistic</source>
-      <translation type="unfinished"/>
+      <translation>Statistika</translation>
     </message>
     <message>
       <source>Copy nick</source>
-      <translation type="unfinished"/>
+      <translation>Kopijuoti slapyvardį</translation>
     </message>
     <message>
       <source>Copied</source>
-      <translation type="unfinished"/>
+      <translation>Nukopijuota</translation>
     </message>
     <message>
       <source>Name</source>
@@ -11973,7 +12225,7 @@
     </message>
     <message>
       <source>Processed!</source>
-      <translation type="unfinished"/>
+      <translation>Perdirbta!</translation>
     </message>
     <message>
       <source>Updated</source>
@@ -11981,11 +12233,11 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Bendra</translation>
     </message>
     <message>
       <source>Interface</source>
-      <translation type="unfinished"/>
+      <translation>Sąsaja</translation>
     </message>
     <message>
       <source>Delete</source>
@@ -11993,55 +12245,55 @@
     </message>
     <message>
       <source>Hide bot profile while chat is in bot mode</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti boto profilį, kai pokalbis vyksta boto režimu</translation>
     </message>
     <message>
       <source>Start chat with hidden message box</source>
-      <translation type="unfinished"/>
+      <translation>Pradėti pokalbį su paslėptu pranešimų langeliu</translation>
     </message>
     <message>
       <source>Do not count button click as a visitor message</source>
-      <translation type="unfinished"/>
+      <translation>Neskaičiuokite mygtuko paspaudimo kaip lankytojo pranešimo</translation>
     </message>
     <message>
       <source>Enabled for display</source>
-      <translation type="unfinished"/>
+      <translation>Įjungtas rodymas</translation>
     </message>
     <message>
       <source>If translation is not found use translation service</source>
-      <translation type="unfinished"/>
+      <translation>Jei vertimas nerandamas, naudokitės vertimo paslauga</translation>
     </message>
     <message>
       <source>Mails</source>
-      <translation type="unfinished"/>
+      <translation>Paštas</translation>
     </message>
     <message>
       <source>Standard</source>
-      <translation type="unfinished"/>
+      <translation>Standartinis</translation>
     </message>
     <message>
       <source>Subject filter</source>
-      <translation type="unfinished"/>
+      <translation>Objekto filtras</translation>
     </message>
     <message>
       <source>Time filter</source>
-      <translation type="unfinished"/>
+      <translation>Laiko filtras</translation>
     </message>
     <message>
       <source>Notification was sent</source>
-      <translation type="unfinished"/>
+      <translation>Išsiųstas pranešimas</translation>
     </message>
     <message>
       <source>Explorer</source>
-      <translation type="unfinished"/>
+      <translation>Explorer</translation>
     </message>
     <message>
       <source>URL Explorer</source>
-      <translation type="unfinished"/>
+      <translation>URL Explorer</translation>
     </message>
     <message>
       <source>User permissions</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojo leidimai</translation>
     </message>
     <message>
       <source>Update</source>
@@ -12049,11 +12301,11 @@
     </message>
     <message>
       <source>What languages you speak?</source>
-      <translation type="unfinished"/>
+      <translation>Kokias kalbas mokate?</translation>
     </message>
     <message>
       <source>If pending chats comes in the same language as chosen one. To you will be assigned same language chats first.</source>
-      <translation type="unfinished"/>
+      <translation>Jei laukiantys pokalbiai vyksta ta pačia kalba kaip ir pasirinktas pokalbis. Jums pirmiausia bus priskirti tos pačios kalbos pokalbiai.</translation>
     </message>
     <message>
       <source>Updating...</source>
@@ -12085,7 +12337,7 @@
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -12121,11 +12373,11 @@
     </message>
     <message>
       <source>Your email address</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų el. pašto adresas</translation>
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių slapyvardis</translation>
     </message>
     <message>
       <source>Surname</source>
@@ -12157,23 +12409,23 @@
     </message>
     <message>
       <source>Pending chats list enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungtas laukiančių pokalbių sąrašas</translation>
     </message>
     <message>
       <source>Active chats list enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungtas aktyvių pokalbių sąrašas</translation>
     </message>
     <message>
       <source>Unread chats list enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungtas neperskaitytų pokalbių sąrašas</translation>
     </message>
     <message>
       <source>My pending and active chats list enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungtas mano laukiančių ir aktyvių pokalbių sąrašas</translation>
     </message>
     <message>
       <source>Bot chats list enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungtas botų pokalbių sąrašas</translation>
     </message>
     <message>
       <source>I can see all pending chats, not only assigned to me</source>
@@ -12181,67 +12433,67 @@
     </message>
     <message>
       <source>Automatically accept assigned chats</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai priimti priskirtus pokalbius</translation>
     </message>
     <message>
       <source>Auto join private chats</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis prisijungimas prie privačių pokalbių</translation>
     </message>
     <message>
       <source>Do not scroll to the bottom on chat open</source>
-      <translation type="unfinished"/>
+      <translation>Atidarytame pokalbyje neslinkite iki apačios</translation>
     </message>
     <message>
       <source>Remove my closed chats from opened chat list on page refresh</source>
-      <translation type="unfinished"/>
+      <translation>Pašalinti mano uždarytus pokalbius iš atidaryto pokalbių sąrašo atnaujinus puslapį</translation>
     </message>
     <message>
       <source>Include not only my chats</source>
-      <translation type="unfinished"/>
+      <translation>Įtraukti ne tik mano pokalbius</translation>
     </message>
     <message>
       <source>Other operators chats also will be closed on page refresh</source>
-      <translation type="unfinished"/>
+      <translation>Kitų operatorių pokalbiai taip pat bus uždaryti atnaujinus puslapį</translation>
     </message>
     <message>
       <source>How much time has to be passed after chat close before chat is removed. Time in minutes.</source>
-      <translation type="unfinished"/>
+      <translation>Kiek laiko turi praeiti po pokalbio uždarymo, kad pokalbis būtų pašalintas. Laikas minutėmis.</translation>
     </message>
     <message>
       <source>Exclude me from chats auto assign workflow</source>
-      <translation type="unfinished"/>
+      <translation>Neįtraukti manęs į pokalbius automatiškai priskirti darbo eigą</translation>
     </message>
     <message>
       <source>Auto preload previous visitor chat messages</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis ankstesnių lankytojų pokalbių žinučių įkėlimas</translation>
     </message>
     <message>
       <source>Default number of rows for chat text area</source>
-      <translation type="unfinished"/>
+      <translation>Numatytasis pokalbių teksto srities eilučių skaičius</translation>
     </message>
     <message>
       <source>Number of rows</source>
-      <translation type="unfinished"/>
+      <translation>Eilučių skaičius</translation>
     </message>
     <message>
       <source>Auto uppercase sentences</source>
-      <translation type="unfinished"/>
+      <translation>Automatiniai sakiniai didžiosiomis raidėmis</translation>
     </message>
     <message>
       <source>Maximum active chats</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias aktyvių pokalbių skaičius</translation>
     </message>
     <message>
       <source>Automatically accept assigned mails</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai priimti priskirtus laiškus</translation>
     </message>
     <message>
       <source>Exclude me from mails auto assign workflow</source>
-      <translation type="unfinished"/>
+      <translation>Neįtraukti manęs į laiškus automatiškai priskirti darbo eigą</translation>
     </message>
     <message>
       <source>Maximum active mails</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias aktyvių laiškų kiekis</translation>
     </message>
     <message>
       <source>Show permissions</source>
@@ -12253,7 +12505,7 @@
     </message>
     <message>
       <source>Account update failed! Please try again!</source>
-      <translation type="unfinished"/>
+      <translation>Paskyros atnaujinimas nepavyko! Bandykite dar kartą!</translation>
     </message>
     <message>
       <source>All departments</source>
@@ -12261,91 +12513,91 @@
     </message>
     <message>
       <source>You cannot make changes because this user account is disabled!</source>
-      <translation type="unfinished"/>
+      <translation>Negalite atlikti pakeitimų, nes ši naudotojo paskyra yra išjungta!</translation>
     </message>
     <message>
       <source>Individual departments</source>
-      <translation type="unfinished"/>
+      <translation>Atskiri skyriai</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Alias nick</source>
-      <translation type="unfinished"/>
+      <translation>Slapyvardis nick</translation>
     </message>
     <message>
       <source>Job title alias</source>
-      <translation type="unfinished"/>
+      <translation>Pseudonimas Darbo pavadinimas</translation>
     </message>
     <message>
       <source>Avatar</source>
-      <translation type="unfinished"/>
+      <translation>Avataras</translation>
     </message>
     <message>
       <source>Profile picture</source>
-      <translation type="unfinished"/>
+      <translation>Profilio nuotrauka</translation>
     </message>
     <message>
       <source>Read only</source>
-      <translation type="unfinished"/>
+      <translation>Tik skaityti</translation>
     </message>
     <message>
       <source>Exclude from auto assignment workflow</source>
-      <translation type="unfinished"/>
+      <translation>Neįtraukti į automatinio priskyrimo darbo eigą</translation>
     </message>
     <message>
       <source>Assignment priority, optional, default - 0</source>
-      <translation type="unfinished"/>
+      <translation>Priskyrimo prioritetas, neprivalomas, numatytoji reikšmė - 0</translation>
     </message>
     <message>
       <source>Min chat priority for chat being assigned by my assign priority</source>
-      <translation type="unfinished"/>
+      <translation>Min pokalbio prioritetas pokalbiui priskiriamas pagal mano priskirti prioritetą</translation>
     </message>
     <message>
       <source>Max chat priority for chat being assigned by my assign priority</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias pokalbių prioritetas pokalbiams, priskiriamas pagal mano priskirti prioritetą</translation>
     </message>
     <message>
       <source>Remove</source>
-      <translation type="unfinished"/>
+      <translation>Pašalinti</translation>
     </message>
     <message>
       <source>Are you sure you want to remove this department assignment?</source>
-      <translation type="unfinished"/>
+      <translation>Ar tikrai norite pašalinti šį skyriaus priskyrimą?</translation>
     </message>
     <message>
       <source>You have permission to edit departments group, but do not have permission to read them. Missing one of these permissions</source>
-      <translation type="unfinished"/>
+      <translation>Turite teisę redaguoti skyrių grupę, bet neturite teisės jų skaityti. Trūksta vieno iš šių leidimų</translation>
     </message>
     <message>
       <source>Changes will not be saved!</source>
-      <translation type="unfinished"/>
+      <translation>Pakeitimai nebus išsaugoti!</translation>
     </message>
     <message>
       <source>For account page</source>
-      <translation type="unfinished"/>
+      <translation>Paskyros puslapis</translation>
     </message>
     <message>
       <source>For user edit page</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojo redagavimo puslapiui</translation>
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Departamentų grupės</translation>
     </message>
     <message>
       <source>Are you sure you want to remove this department group assignment?</source>
-      <translation type="unfinished"/>
+      <translation>Ar tikrai norite pašalinti šios departamento grupės priskyrimą?</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
@@ -12353,59 +12605,59 @@
     </message>
     <message>
       <source>Assign in read only mode</source>
-      <translation type="unfinished"/>
+      <translation>Priskyrimas tik skaitymo režimu</translation>
     </message>
     <message>
       <source>Assign as operator</source>
-      <translation type="unfinished"/>
+      <translation>Priskirti kaip operatorių</translation>
     </message>
     <message>
       <source>Operator assignment priority, optional, default - 0. Inclusive.</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus priskyrimo prioritetas, neprivalomas, numatytoji reikšmė - 0. Įskaitant.</translation>
     </message>
     <message>
       <source>Agents with higher assignment priority will be assigned first to chat</source>
-      <translation type="unfinished"/>
+      <translation>Agentai, turintys aukštesnį priskyrimo prioritetą, pirmiausia bus priskirti pokalbiams.</translation>
     </message>
     <message>
       <source>Min and Max chat priority for chat being assigned by department priority assignment flow. Inclusive.</source>
-      <translation type="unfinished"/>
+      <translation>Min. ir maks. pokalbio prioritetas, kai pokalbis priskiriamas pagal skyriaus prioritetų priskyrimo srautą. Įskaitant.</translation>
     </message>
     <message>
       <source>Participate only in department priority assignment queue</source>
-      <translation type="unfinished"/>
+      <translation>Dalyvauti tik skyriaus prioritetų priskyrimo eilėje</translation>
     </message>
     <message>
       <source>Agent will not participate in regular auto assignment flow. Only department priority assignment chats will be assigned.</source>
-      <translation type="unfinished"/>
+      <translation>Agentas nedalyvaus įprastiniame automatinio priskyrimo sraute. Bus priskirti tik skyriaus prioriteto priskyrimo pokalbiai.</translation>
     </message>
     <message>
       <source>Department alias</source>
-      <translation type="unfinished"/>
+      <translation>Departamento slapyvardis</translation>
     </message>
     <message>
       <source>Avatar builder</source>
-      <translation type="unfinished"/>
+      <translation>Avataro kūrėjas</translation>
     </message>
     <message>
       <source>Enter any string to generate an avatar</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite bet kokią eilutę, kad sukurtumėte avatarą</translation>
     </message>
     <message>
       <source>Click to set avatar</source>
-      <translation type="unfinished"/>
+      <translation>Spustelėkite norėdami nustatyti avatarą</translation>
     </message>
     <message>
       <source>Alias job title</source>
-      <translation type="unfinished"/>
+      <translation>Pseudonimas pareigų pavadinimas</translation>
     </message>
     <message>
       <source>Photo alias</source>
-      <translation type="unfinished"/>
+      <translation>Nuotraukos slapyvardis</translation>
     </message>
     <message>
       <source>Photo has higher priority than avatar.</source>
-      <translation type="unfinished"/>
+      <translation>Nuotrauka turi didesnį prioritetą nei avataras.</translation>
     </message>
     <message>
       <source>Notifications</source>
@@ -12413,7 +12665,7 @@
     </message>
     <message>
       <source>Actions</source>
-      <translation type="unfinished"/>
+      <translation>Veiksmai</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -12425,31 +12677,31 @@
     </message>
     <message>
       <source>Exclude from auto assign workflow</source>
-      <translation type="unfinished"/>
+      <translation>Neįtraukti į automatinio priskyrimo darbo eigą</translation>
     </message>
     <message>
       <source>Exclude from mails auto assign workflow</source>
-      <translation type="unfinished"/>
+      <translation>Išbraukti iš laiškų automatiškai priskirti darbo eigą</translation>
     </message>
     <message>
       <source>In order to change operator permissions you have to edit</source>
-      <translation type="unfinished"/>
+      <translation>Norėdami pakeisti operatoriaus teises, turite redaguoti</translation>
     </message>
     <message>
       <source>roles</source>
-      <translation type="unfinished"/>
+      <translation>vaidmenys</translation>
     </message>
     <message>
       <source>Department assignment could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Departamento paskyrimo nepavyko rasti!</translation>
     </message>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>Sukurta</translation>
     </message>
     <message>
       <source>Personal auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Asmeninis automatinis atsakiklis</translation>
     </message>
     <message>
       <source>Personal canned messages</source>
@@ -12457,43 +12709,43 @@
     </message>
     <message>
       <source>Hide quick notifications</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti greituosius pranešimus</translation>
     </message>
     <message>
       <source>Do not show persistent notifications for chat actions</source>
-      <translation type="unfinished"/>
+      <translation>Nerodyti nuolatinių pranešimų apie pokalbių veiksmus</translation>
     </message>
     <message>
       <source>Main</source>
-      <translation type="unfinished"/>
+      <translation>Pagrindinis</translation>
     </message>
     <message>
       <source>New password was set, copy it or</source>
-      <translation type="unfinished"/>
+      <translation>Nustatytas naujas slaptažodis, nukopijuokite jį arba</translation>
     </message>
     <message>
       <source>click to show</source>
-      <translation type="unfinished"/>
+      <translation>Spustelėkite, kad parodytumėte</translation>
     </message>
     <message>
       <source>Copy</source>
-      <translation type="unfinished"/>
+      <translation>Kopijuoti</translation>
     </message>
     <message>
       <source>Password was reset. Please login now.</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodis buvo iš naujo nustatytas. Prisijunkite dabar.</translation>
     </message>
     <message>
       <source>Password was updated. Now you can go to back office.</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodis buvo atnaujintas. Dabar galite eiti į galinį biurą.</translation>
     </message>
     <message>
       <source>Load previous message on scroll</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnio pranešimo įkėlimas slinkties metu</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Internete</translation>
     </message>
     <message>
       <source>Add translation</source>
@@ -12504,31 +12756,31 @@
     <name>chat/dashboardwidgets</name>
     <message>
       <source>Updated!</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta!</translation>
     </message>
     <message>
       <source>Choose what widgets you want to see</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite, kokius valdiklius norite matyti</translation>
     </message>
     <message>
       <source>Widgets</source>
-      <translation type="unfinished"/>
+      <translation>Valdikliai</translation>
     </message>
     <message>
       <source>Alert icons</source>
-      <translation type="unfinished"/>
+      <translation>Įspėjimo piktogramos</translation>
     </message>
     <message>
       <source>Column number</source>
-      <translation type="unfinished"/>
+      <translation>Stulpelio numeris</translation>
     </message>
     <message>
       <source>Choose for what icons we should show notification.</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite, kokioms piktogramoms turėtume rodyti pranešimą.</translation>
     </message>
     <message>
       <source>Choose what icons you want to exclude from the list.</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite, kokių piktogramų norite neįtraukti į sąrašą.</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -12536,126 +12788,126 @@
     </message>
     <message>
       <source>Send mass invitation message</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti masinio kvietimo žinutę</translation>
     </message>
     <message>
       <source>Filter chats by subject</source>
-      <translation type="unfinished"/>
+      <translation>Filtruoti pokalbius pagal temą</translation>
     </message>
     <message>
       <source>On mobile I should receive notification only if chat is one of these states. If you do not choose, you will receive mobile notification in all cases.</source>
-      <translation type="unfinished"/>
+      <translation>Mobiliajame telefone turėčiau gauti pranešimą tik tada, jei pokalbis yra vienoje iš šių būsenų. Jei nepasirinksite, mobiliuoju telefonu pranešimus gausite visais atvejais.</translation>
     </message>
     <message>
       <source>Notifications about bot chats</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimai apie botų pokalbius</translation>
     </message>
     <message>
       <source>To receive browser notifications you have to enable them in your account Notifications settings.</source>
-      <translation type="unfinished"/>
+      <translation>Norėdami gauti naršyklės pranešimus, turite juos įjungti paskyros pranešimų nustatymuose.</translation>
     </message>
     <message>
       <source>Notify me about bot conversation after defined number of user interactions.</source>
-      <translation type="unfinished"/>
+      <translation>Praneškite man apie boto pokalbį po nustatyto naudotojo sąveikų skaičiaus.</translation>
     </message>
     <message>
       <source>Notify me if visitor writes more than defined number messages.</source>
-      <translation type="unfinished"/>
+      <translation>Praneškite man, jei lankytojas parašo daugiau nei nustatytą pranešimų skaičių.</translation>
     </message>
     <message>
       <source>Report was saved</source>
-      <translation type="unfinished"/>
+      <translation>Ataskaita buvo išsaugota</translation>
     </message>
     <message>
       <source>online status</source>
-      <translation type="unfinished"/>
+      <translation>internetinė būsena</translation>
     </message>
     <message>
       <source>Change filtered e-mails owner to selected operator</source>
-      <translation type="unfinished"/>
+      <translation>Pakeisti filtruotų el. laiškų savininką į pasirinktą operatorių</translation>
     </message>
     <message>
       <source>Search was saved</source>
-      <translation type="unfinished"/>
+      <translation>Paieška buvo išsaugota</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>Interneto operatoriai</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Online visitors</source>
-      <translation type="unfinished"/>
+      <translation>Interneto lankytojai</translation>
     </message>
     <message>
       <source>Departments stats</source>
-      <translation type="unfinished"/>
+      <translation>Departamentų statistika</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Laukiami pokalbiai</translation>
     </message>
     <message>
       <source>Transfered chats</source>
-      <translation type="unfinished"/>
+      <translation>Perkelti pokalbiai</translation>
     </message>
     <message>
       <source>Ongoing trigger alerts</source>
-      <translation type="unfinished"/>
+      <translation>Nuolatiniai trigerio įspėjimai</translation>
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>Grupės pokalbiai</translation>
     </message>
     <message>
       <source>Unread chats</source>
-      <translation type="unfinished"/>
+      <translation>Neperskaityti pokalbiai</translation>
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Mano aktyvūs ir laukiantys pokalbiai</translation>
     </message>
     <message>
       <source>Bot chats</source>
-      <translation type="unfinished"/>
+      <translation>Bot pokalbiai</translation>
     </message>
     <message>
       <source>My active and new mails</source>
-      <translation type="unfinished"/>
+      <translation>Mano aktyvūs ir nauji laiškai</translation>
     </message>
     <message>
       <source>Active mails</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs laiškai</translation>
     </message>
     <message>
       <source>New mails</source>
-      <translation type="unfinished"/>
+      <translation>Nauji laiškai</translation>
     </message>
     <message>
       <source>Mail queue alarm</source>
-      <translation type="unfinished"/>
+      <translation>Pašto eilės pavojaus signalas</translation>
     </message>
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
       <source>Newest first (default)</source>
-      <translation type="unfinished"/>
+      <translation>Naujausias pirmas (numatytoji reikšmė)</translation>
     </message>
     <message>
       <source>Oldest first</source>
-      <translation type="unfinished"/>
+      <translation>Seniausias pirmas</translation>
     </message>
     <message>
       <source>Recently updated first</source>
-      <translation type="unfinished"/>
+      <translation>Neseniai atnaujintas pirmasis</translation>
     </message>
     <message>
       <source>Recently updated last</source>
-      <translation type="unfinished"/>
+      <translation>Neseniai atnaujintas paskutinis</translation>
     </message>
     <message>
       <source>Nothing found...</source>
@@ -12679,7 +12931,7 @@
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Mano aktyvūs ir laukiantys pokalbiai</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -12703,7 +12955,7 @@
     </message>
     <message>
       <source>Active mails</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs laiškai</translation>
     </message>
     <message>
       <source>Download XLS</source>
@@ -12711,35 +12963,35 @@
     </message>
     <message>
       <source>Hard limit</source>
-      <translation type="unfinished"/>
+      <translation>Griežta riba</translation>
     </message>
     <message>
       <source>Soft limit</source>
-      <translation type="unfinished"/>
+      <translation>Minkšta riba</translation>
     </message>
     <message>
       <source>Hard limit - (active online operators chats - inactive online operators chats) (soft limit - active chats)</source>
-      <translation type="unfinished"/>
+      <translation>Kietoji riba - (aktyvūs interneto operatorių pokalbiai - neaktyvūs interneto operatorių pokalbiai) (minkštoji riba - aktyvūs pokalbiai)</translation>
     </message>
     <message>
       <source>Hard</source>
-      <translation type="unfinished"/>
+      <translation>Hard</translation>
     </message>
     <message>
       <source>Soft</source>
-      <translation type="unfinished"/>
+      <translation>Minkštas</translation>
     </message>
     <message>
       <source>Taken time to render departments groups statistic</source>
-      <translation type="unfinished"/>
+      <translation>Užtruko, kol departamentų grupės pateikė statistiką</translation>
     </message>
     <message>
       <source>Taken time to render departments statistic</source>
-      <translation type="unfinished"/>
+      <translation>Užtruko, kol departamentai pateikė statistiką</translation>
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>Grupės pokalbiai</translation>
     </message>
     <message>
       <source>Number of elements in list</source>
@@ -12747,7 +12999,7 @@
     </message>
     <message>
       <source>Alarm mails</source>
-      <translation type="unfinished"/>
+      <translation>Pavojaus laiškai</translation>
     </message>
     <message>
       <source>All departments</source>
@@ -12755,71 +13007,71 @@
     </message>
     <message>
       <source>departments</source>
-      <translation type="unfinished"/>
+      <translation>skyriai</translation>
     </message>
     <message>
       <source>Check all</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite visus</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation type="unfinished"/>
+      <translation>Tik internetu</translation>
     </message>
     <message>
       <source>Only explicit online</source>
-      <translation type="unfinished"/>
+      <translation>Tik aiškiai internete</translation>
     </message>
     <message>
       <source>Hide hidden</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti paslėptą</translation>
     </message>
     <message>
       <source>Hide departments</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti departamentus</translation>
     </message>
     <message>
       <source>Hide departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti departamentų grupes</translation>
     </message>
     <message>
       <source>Hide disabled</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti neįgaliuosius</translation>
     </message>
     <message>
       <source>Department group</source>
-      <translation type="unfinished"/>
+      <translation>Departamento grupė</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojai</translation>
     </message>
     <message>
       <source>Search for operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus paieška</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas</translation>
     </message>
     <message>
       <source>User group</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojų grupė</translation>
     </message>
     <message>
       <source>Taken time to fetch information for this widget</source>
-      <translation type="unfinished"/>
+      <translation>Užtruko šio valdiklio informacijos gavimas</translation>
     </message>
     <message>
       <source>New mails</source>
-      <translation type="unfinished"/>
+      <translation>Nauji laiškai</translation>
     </message>
     <message>
       <source>Bot chats</source>
-      <translation type="unfinished"/>
+      <translation>Bot pokalbiai</translation>
     </message>
     <message>
       <source>Departments stats</source>
@@ -12827,7 +13079,7 @@
     </message>
     <message>
       <source>My active and new mails</source>
-      <translation type="unfinished"/>
+      <translation>Mano aktyvūs ir nauji laiškai</translation>
     </message>
     <message>
       <source>Online operators</source>
@@ -12839,55 +13091,55 @@
     </message>
     <message>
       <source>Ongoing trigger alerts!</source>
-      <translation type="unfinished"/>
+      <translation>Nuolatiniai įspėjimai apie trigerius!</translation>
     </message>
     <message>
       <source>Transferred chats</source>
-      <translation type="unfinished"/>
+      <translation>Perkelti pokalbiai</translation>
     </message>
     <message>
       <source>Inline</source>
-      <translation type="unfinished"/>
+      <translation>Inline</translation>
     </message>
     <message>
       <source>As file</source>
-      <translation type="unfinished"/>
+      <translation>Kaip failas</translation>
     </message>
     <message>
       <source>Inline or as file</source>
-      <translation type="unfinished"/>
+      <translation>Inline arba kaip failas</translation>
     </message>
     <message>
       <source>No attachment (inline)</source>
-      <translation type="unfinished"/>
+      <translation>Be priedo (inline)</translation>
     </message>
     <message>
       <source>No attachment (as file)</source>
-      <translation type="unfinished"/>
+      <translation>Be priedo (kaip failas)</translation>
     </message>
     <message>
       <source>No attachment (inline or as file)</source>
-      <translation type="unfinished"/>
+      <translation>Nėra priedo (inline arba kaip failas)</translation>
     </message>
     <message>
       <source>Higher priority, newest first</source>
-      <translation type="unfinished"/>
+      <translation>Aukštesnis prioritetas, naujausias pirmas</translation>
     </message>
     <message>
       <source>Higher priority, oldest first</source>
-      <translation type="unfinished"/>
+      <translation>Aukštesnis prioritetas, pirmiausia seniausias</translation>
     </message>
     <message>
       <source>Active, New sorted by higher priority</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus, Naujas surūšiuotas pagal aukštesnį prioritetą</translation>
     </message>
     <message>
       <source>Newest replies first</source>
-      <translation type="unfinished"/>
+      <translation>Naujausi atsakymai pirmi</translation>
     </message>
     <message>
       <source>Oldest replies first</source>
-      <translation type="unfinished"/>
+      <translation>Seniausi atsakymai pirmieji</translation>
     </message>
     <message>
       <source>Clean cache</source>
@@ -12895,11 +13147,11 @@
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Internete</translation>
     </message>
     <message>
       <source>Modules</source>
@@ -12927,47 +13179,47 @@
     </message>
     <message>
       <source>New chat has been transferred to you directly!</source>
-      <translation type="unfinished"/>
+      <translation>Naujas pokalbis buvo perduotas tiesiogiai jums!</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Remove</source>
-      <translation type="unfinished"/>
+      <translation>Pašalinti</translation>
     </message>
     <message>
       <source>Quote</source>
-      <translation type="unfinished"/>
+      <translation>Citata</translation>
     </message>
     <message>
       <source>Copy</source>
-      <translation type="unfinished"/>
+      <translation>Kopijuoti</translation>
     </message>
     <message>
       <source>Copy all</source>
-      <translation type="unfinished"/>
+      <translation>Kopijuoti visus</translation>
     </message>
     <message>
       <source>Ask for help</source>
-      <translation type="unfinished"/>
+      <translation>Paprašykite pagalbos</translation>
     </message>
     <message>
       <source>Translate</source>
-      <translation type="unfinished"/>
+      <translation>Išversti</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>Chats and Mails</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai ir laiškai</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Dashboard</source>
@@ -12979,55 +13231,55 @@
     </message>
     <message>
       <source>Hide/Show chats toolbar</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti / rodyti pokalbių įrankių juostą</translation>
     </message>
     <message>
       <source>This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.</source>
-      <translation type="unfinished"/>
+      <translation>Šis langas bus automatiškai atnaujinamas per {{lhc.lhcVersionCounter}} sekundes dėl versijos atnaujinimo.</translation>
     </message>
     <message>
       <source>You have weak internet connection or the server has problems. Try to refresh the  page. Error code {{lhc.lhcConnectivityProblemExplain}}</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų interneto ryšys silpnas arba serveris turi problemų. Pabandykite atnaujinti puslapį. Klaidos kodas {{lhc.lhcConnectivityProblemExplain}}</translation>
     </message>
     <message>
       <source>You went offline because of inactivity. Please close other chat windows if you have any</source>
-      <translation type="unfinished"/>
+      <translation>Dėl neveiklumo perėjote į neprisijungusį režimą. Prašome uždaryti kitus pokalbių langus, jei jų turite.</translation>
     </message>
     <message>
       <source>in chat</source>
-      <translation type="unfinished"/>
+      <translation>pokalbyje</translation>
     </message>
     <message>
       <source>active chat was opened</source>
-      <translation type="unfinished"/>
+      <translation>atidarytas aktyvus pokalbis</translation>
     </message>
     <message>
       <source>previously loaded chat was opened</source>
-      <translation type="unfinished"/>
+      <translation>anksčiau įkeltas pokalbis buvo atidarytas</translation>
     </message>
     <message>
       <source>Chat tabs</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių skirtukai</translation>
     </message>
     <message>
       <source>Chats List</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių sąrašas</translation>
     </message>
     <message>
       <source>Mails List</source>
-      <translation type="unfinished"/>
+      <translation>Pašto sąrašas</translation>
     </message>
     <message>
       <source>New e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Naujas el. paštas</translation>
     </message>
     <message>
       <source>My views</source>
-      <translation type="unfinished"/>
+      <translation>Mano nuomonė</translation>
     </message>
     <message>
       <source>Hello</source>
-      <translation type="unfinished"/>
+      <translation>Sveiki</translation>
     </message>
     <message>
       <source>Account</source>
@@ -13035,7 +13287,7 @@
     </message>
     <message>
       <source>Dark/bright</source>
-      <translation type="unfinished"/>
+      <translation>Tamsus / šviesus</translation>
     </message>
     <message>
       <source>Logout</source>
@@ -13043,118 +13295,122 @@
     </message>
     <message>
       <source>New messages</source>
-      <translation type="unfinished"/>
+      <translation>Nauji pranešimai</translation>
     </message>
     <message>
       <source>New chats</source>
-      <translation type="unfinished"/>
+      <translation>Nauji pokalbiai</translation>
     </message>
     <message>
       <source>Always online</source>
-      <translation type="unfinished"/>
+      <translation>Visada prisijungę</translation>
     </message>
     <message>
       <source>Based on activity</source>
-      <translation type="unfinished"/>
+      <translation>Pagal veiklą</translation>
     </message>
     <message>
       <source>Invisible</source>
-      <translation type="unfinished"/>
+      <translation>Nematomas</translation>
     </message>
     <message>
       <source>Visible</source>
-      <translation type="unfinished"/>
+      <translation>Matomas</translation>
     </message>
     <message>
       <source>Sound is disabled (interact with page to enable)</source>
-      <translation type="unfinished"/>
+      <translation>Garsas išjungtas (norėdami jį įjungti, sąveikaukite su puslapiu)</translation>
     </message>
     <message>
       <source>Sound is disabled (trying to enable...)</source>
-      <translation type="unfinished"/>
+      <translation>Garsas išjungtas (bandoma įjungti...)</translation>
     </message>
     <message>
       <source>Audio not supported in this browser</source>
-      <translation type="unfinished"/>
+      <translation>Šioje naršyklėje nepalaikomas garsas</translation>
     </message>
     <message>
       <source>No connection detected!</source>
-      <translation type="unfinished"/>
+      <translation>Ryšys neaptiktas!</translation>
     </message>
     <message>
       <source>Chats data updated at</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių duomenys atnaujinami adresu</translation>
     </message>
     <message>
       <source>NodeJS Connection Status</source>
-      <translation type="unfinished"/>
+      <translation>&quot;NodeJS&quot; ryšio būsena</translation>
     </message>
     <message>
       <source>Sync blocked because of inactivity</source>
-      <translation type="unfinished"/>
+      <translation>Sinchronizavimas užblokuotas dėl neveiklumo</translation>
     </message>
     <message>
       <source>Online session updated ago</source>
-      <translation type="unfinished"/>
+      <translation>Internetinė sesija atnaujinta prieš</translation>
     </message>
     <message>
       <source>Connection problem detected. Please check your connectivity.</source>
-      <translation type="unfinished"/>
+      <translation>Aptikta ryšio problema. Patikrinkite ryšį.</translation>
     </message>
     <message>
       <source>Click to enable notifications</source>
-      <translation type="unfinished"/>
+      <translation>Spustelėkite , kad įjungtumėte pranešimus</translation>
     </message>
     <message>
       <source>Notifications not supported in this browser</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimai nepalaikomi šioje naršyklėje</translation>
     </message>
     <message>
       <source>Notifications blocked (check browser settings)</source>
-      <translation type="unfinished"/>
+      <translation>Užblokuoti pranešimai (patikrinkite naršyklės nustatymus)</translation>
     </message>
     <message>
       <source>You will now receive notifications from this site</source>
-      <translation type="unfinished"/>
+      <translation>Dabar gausite pranešimus iš šios svetainės</translation>
+    </message>
+    <message>
+      <source>Notifications enabled</source>
+      <translation>Įjungti pranešimai</translation>
     </message>
     <message>
       <source>Time ago</source>
-      <translation type="unfinished"/>
+      <translation>Prieš kurį laiką</translation>
     </message>
     <message>
       <source>Operator chats statistic</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus pokalbių statistika</translation>
     </message>
     <message>
       <source>All items will appear here</source>
-      <translation type="unfinished"/>
+      <translation>Visi elementai bus rodomi čia</translation>
     </message>
     <message>
       <source>Total operators active in backend (last 10 min). (Number) is count of those also in online status.</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso aktyvių operatorių backend&apos;e (per paskutines 10 min.). (Skaičius) - taip pat prisijungusių operatorių skaičius.</translation>
     </message>
     <message>
       <source>Stop updating widget content</source>
-      <translation type="unfinished"/>
+      <translation>Nustokite atnaujinti valdiklio turinį</translation>
     </message>
     <message>
       <source>Resume updating widget content</source>
-      <translation type="unfinished"/>
+      <translation>Tęsti valdiklio turinio atnaujinimą</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>Search for department</source>
-      <translation type="unfinished"/>
+      <translation>Skyriaus paieška</translation>
     </message>
   </context>
   <context>
     <name>chat/syncadmininterface</name>
     <message>
       <source>New window</source>
-      <translation type="unfinished"/>
+      <translation>Naujas langas</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -13162,7 +13418,7 @@
     </message>
     <message>
       <source>No previous chats</source>
-      <translation type="unfinished"/>
+      <translation>Jokių ankstesnių pokalbių</translation>
     </message>
     <message>
       <source>h.</source>
@@ -13198,15 +13454,15 @@
     </message>
     <message>
       <source>See assigned departments statistic</source>
-      <translation type="unfinished"/>
+      <translation>Žr. priskirtų departamentų statistiką</translation>
     </message>
     <message>
       <source>Configure dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Prietaisų skydelio konfigūravimas</translation>
     </message>
     <message>
       <source>Active mail conversations will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Čia bus rodomi aktyvūs pašto pokalbiai.</translation>
     </message>
     <message>
       <source>Location</source>
@@ -13226,43 +13482,43 @@
     </message>
     <message>
       <source>Sort by last message time</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti pagal paskutinio pranešimo laiką</translation>
     </message>
     <message>
       <source>Sort by chat start time</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti pagal pokalbio pradžios laiką</translation>
     </message>
     <message>
       <source>Sort by operator</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti pagal operatorių</translation>
     </message>
     <message>
       <source>Sort by department</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti pagal skyrių</translation>
     </message>
     <message>
       <source>More rows</source>
-      <translation type="unfinished"/>
+      <translation>Daugiau eilučių</translation>
     </message>
     <message>
       <source>Less rows</source>
-      <translation type="unfinished"/>
+      <translation>Mažiau eilučių</translation>
     </message>
     <message>
       <source>Has unread messages</source>
-      <translation type="unfinished"/>
+      <translation>Turi neperskaitytų pranešimų</translation>
     </message>
     <message>
       <source>Chat started at</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis prasidėjo adresu</translation>
     </message>
     <message>
       <source>Receive or send indicator and time since it happened</source>
-      <translation type="unfinished"/>
+      <translation>Gavimo arba siuntimo indikatorius ir laikas nuo įvykio</translation>
     </message>
     <message>
       <source>Create time</source>
-      <translation type="unfinished"/>
+      <translation>Sukurti laiką</translation>
     </message>
     <message>
       <source>Operator</source>
@@ -13278,87 +13534,87 @@
     </message>
     <message>
       <source>Offline request</source>
-      <translation type="unfinished"/>
+      <translation>Užklausa neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Number of messages by user</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojo pranešimų skaičius</translation>
     </message>
     <message>
       <source>More than</source>
-      <translation type="unfinished"/>
+      <translation>Daugiau nei</translation>
     </message>
     <message>
       <source>user messages</source>
-      <translation type="unfinished"/>
+      <translation>naudotojo pranešimai</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>You have unread messages</source>
-      <translation type="unfinished"/>
+      <translation>Turite neperskaitytų pranešimų</translation>
     </message>
     <message>
       <source>Accept invitation and join private chat</source>
-      <translation type="unfinished"/>
+      <translation>Priimkite kvietimą ir prisijunkite prie privataus pokalbio</translation>
     </message>
     <message>
       <source>Accept invite</source>
-      <translation type="unfinished"/>
+      <translation>Priimti kvietimą</translation>
     </message>
     <message>
       <source>Reject for private chat</source>
-      <translation type="unfinished"/>
+      <translation>Atmesti privatų pokalbį</translation>
     </message>
     <message>
       <source>Reject invite</source>
-      <translation type="unfinished"/>
+      <translation>Atmesti kvietimą</translation>
     </message>
     <message>
       <source>You can join public chat</source>
-      <translation type="unfinished"/>
+      <translation>Galite prisijungti prie viešo pokalbio</translation>
     </message>
     <message>
       <source>Join public chat</source>
-      <translation type="unfinished"/>
+      <translation>Prisijunkite prie viešo pokalbio</translation>
     </message>
     <message>
       <source>You are member of this group chat</source>
-      <translation type="unfinished"/>
+      <translation>Jūs esate šios grupės pokalbio narys</translation>
     </message>
     <message>
       <source>Member</source>
-      <translation type="unfinished"/>
+      <translation>Narys</translation>
     </message>
     <message>
       <source>Your new group name</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų naujasis grupės pavadinimas</translation>
     </message>
     <message>
       <source>Private group</source>
-      <translation type="unfinished"/>
+      <translation>Privati grupė</translation>
     </message>
     <message>
       <source>Public group</source>
-      <translation type="unfinished"/>
+      <translation>Viešoji grupė</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>Last message</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinė žinutė</translation>
     </message>
     <message>
       <source>Pending chat</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama pokalbio</translation>
     </message>
     <message>
       <source>Sort by online status</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti pagal interneto būseną</translation>
     </message>
     <message>
       <source>Last activity ago</source>
@@ -13370,7 +13626,7 @@
     </message>
     <message>
       <source>Sort by active chats number</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti pagal aktyvių pokalbių skaičių</translation>
     </message>
     <message>
       <source>Start chat</source>
@@ -13378,35 +13634,35 @@
     </message>
     <message>
       <source>Change operator status</source>
-      <translation type="unfinished"/>
+      <translation>Keisti operatoriaus statusą</translation>
     </message>
     <message>
       <source>See operator statistic</source>
-      <translation type="unfinished"/>
+      <translation>Žr. operatoriaus statistiką</translation>
     </message>
     <message>
       <source>Max</source>
-      <translation type="unfinished"/>
+      <translation>Max</translation>
     </message>
     <message>
       <source>chats</source>
-      <translation type="unfinished"/>
+      <translation>pokalbiai</translation>
     </message>
     <message>
       <source>a.c</source>
-      <translation type="unfinished"/>
+      <translation>a.c</translation>
     </message>
     <message>
       <source>Free slots</source>
-      <translation type="unfinished"/>
+      <translation>Nemokami žaidimų automatai</translation>
     </message>
     <message>
       <source>f.s</source>
-      <translation type="unfinished"/>
+      <translation>f.s</translation>
     </message>
     <message>
       <source>Sort</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti</translation>
     </message>
     <message>
       <source>Redirect user to contact form.</source>
@@ -13418,11 +13674,11 @@
     </message>
     <message>
       <source>Time since last message</source>
-      <translation type="unfinished"/>
+      <translation>Laikas nuo paskutinio pranešimo</translation>
     </message>
     <message>
       <source>Wait time or time since chat was started</source>
-      <translation type="unfinished"/>
+      <translation>Laukimo laikas arba laikas nuo pokalbio pradžios</translation>
     </message>
     <message>
       <source>Time ago</source>
@@ -13430,7 +13686,7 @@
     </message>
     <message>
       <source>Department group</source>
-      <translation type="unfinished"/>
+      <translation>Departamento grupė</translation>
     </message>
     <message>
       <source>Pending chats</source>
@@ -13438,31 +13694,31 @@
     </message>
     <message>
       <source>Bot chats</source>
-      <translation type="unfinished"/>
+      <translation>Bot pokalbiai</translation>
     </message>
     <message>
       <source>Load statistic</source>
-      <translation type="unfinished"/>
+      <translation>Įkrovos statistika</translation>
     </message>
     <message>
       <source>Group chats will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Čia bus rodomi grupės pokalbiai.</translation>
     </message>
     <message>
       <source>Mail alarms will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Čia bus rodomi laiškų pavojaus signalai.</translation>
     </message>
     <message>
       <source>Mails assigned to you will appear here. List includes new and active mails.</source>
-      <translation type="unfinished"/>
+      <translation>Čia bus rodomi jums priskirti laiškai. Sąraše pateikiami nauji ir aktyvūs laiškai.</translation>
     </message>
     <message>
       <source>Chat ready</source>
-      <translation type="unfinished"/>
+      <translation>Parengta pokalbiams</translation>
     </message>
     <message>
       <source>Show only operators that are online</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti tik prisijungusius operatorius</translation>
     </message>
     <message>
       <source>Delete chat</source>
@@ -13470,7 +13726,7 @@
     </message>
     <message>
       <source>All new mails will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Čia bus rodomi visi nauji laiškai.</translation>
     </message>
     <message>
       <source>Created</source>
@@ -13478,95 +13734,95 @@
     </message>
     <message>
       <source>Transferred chats to you will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Čia bus rodomi jums perkelti pokalbiai.</translation>
     </message>
     <message>
       <source>Transfer time</source>
-      <translation type="unfinished"/>
+      <translation>Perkėlimo laikas</translation>
     </message>
     <message>
       <source>Transferred chats to your department will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Čia bus rodomi į jūsų skyrių perkelti pokalbiai.</translation>
     </message>
     <message>
       <source>Transferred chats to you or your department will appear here.</source>
-      <translation type="unfinished"/>
+      <translation>Čia bus rodomi jums arba jūsų skyriui perduoti pokalbiai.</translation>
     </message>
     <message>
       <source>No ping detected for</source>
-      <translation type="unfinished"/>
+      <translation>Nebuvo aptikta ping</translation>
     </message>
     <message>
       <source>Last assignment ago</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinė užduotis prieš</translation>
     </message>
     <message>
       <source>Went offline {{ago}} ago</source>
-      <translation type="unfinished"/>
+      <translation>Atsijungė nuo interneto {{ago}} prieš</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Sort by operator name</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti pagal operatoriaus pavadinimą</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus</translation>
     </message>
     <message>
       <source>Live chats - (active chats + pending chats - inactive chats)</source>
-      <translation type="unfinished"/>
+      <translation>Tiesioginiai pokalbiai - (aktyvūs pokalbiai + laukiantys pokalbiai - neaktyvūs pokalbiai)</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama</translation>
     </message>
     <message>
       <source>Sort by chat priority and chat start time</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti pagal pokalbio prioritetą ir pokalbio pradžios laiką</translation>
     </message>
     <message>
       <source>Sort by chat wait time</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti pagal pokalbio laukimo laiką</translation>
     </message>
     <message>
       <source>Sort by live chats numbers</source>
-      <translation type="unfinished"/>
+      <translation>Rūšiuoti pagal tiesioginių pokalbių numerius</translation>
     </message>
     <message>
       <source>Download XLS</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiųsti XLS</translation>
     </message>
     <message>
       <source>inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>neaktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>inactive online operators chats</source>
-      <translation type="unfinished"/>
+      <translation>neaktyvūs interneto operatorių pokalbiai</translation>
     </message>
     <message>
       <source>active online operators chats</source>
-      <translation type="unfinished"/>
+      <translation>aktyvūs internetiniai operatorių pokalbiai</translation>
     </message>
     <message>
       <source>Hard limit</source>
-      <translation type="unfinished"/>
+      <translation>Griežta riba</translation>
     </message>
     <message>
       <source>Soft limit</source>
-      <translation type="unfinished"/>
+      <translation>Minkšta riba</translation>
     </message>
     <message>
       <source>Hard limit - (active online operators chats - inactive online operators chats) (soft limit - active chats)</source>
-      <translation type="unfinished"/>
+      <translation>Kietoji riba - (aktyvūs interneto operatorių pokalbiai - neaktyvūs interneto operatorių pokalbiai) (minkštoji riba - aktyvūs pokalbiai)</translation>
     </message>
     <message>
       <source>Free slots (max chats - ((active chats + pending chats) - inactive chats))</source>
-      <translation type="unfinished"/>
+      <translation>Laisvi laiko tarpsniai (maksimalus pokalbių skaičius - ((aktyvūs pokalbiai + laukiantys pokalbiai) - neaktyvūs pokalbiai))</translation>
     </message>
   </context>
   <context>
@@ -13597,23 +13853,27 @@
     </message>
     <message>
       <source>Translate operator message to visitor language</source>
-      <translation type="unfinished"/>
+      <translation>Išverskite operatoriaus pranešimą į lankytojo kalbą</translation>
+    </message>
+    <message>
+      <source>Start translated chat session</source>
+      <translation>Pradėti išverstą pokalbių sesiją</translation>
     </message>
     <message>
       <source>On save automatically translate old chat messages. If not checked only new messages will be translated.</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti automatiškai išversti senus pokalbių pranešimus. Jei nepažymėta, bus verčiamos tik naujos žinutės.</translation>
     </message>
     <message>
       <source>Automatically translate operator and visitor messages</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai išversti operatoriaus ir lankytojo pranešimus</translation>
     </message>
     <message>
       <source>You can always translate old chat messages by clicking right mouse button on the message.</source>
-      <translation type="unfinished"/>
+      <translation>Visada galite išversti senus pokalbių pranešimus spustelėję dešinįjį pelės klavišą ant pranešimo.</translation>
     </message>
     <message>
       <source>Save settings</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti nustatymus</translation>
     </message>
     <message>
       <source>Translation settings</source>
@@ -13641,15 +13901,15 @@
     </message>
     <message>
       <source>Enable translation response cache</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti vertimo atsakymų talpyklą</translation>
     </message>
     <message>
       <source>cache items</source>
-      <translation type="unfinished"/>
+      <translation>talpyklos elementai</translation>
     </message>
     <message>
       <source>Clear cache</source>
-      <translation type="unfinished"/>
+      <translation>Išvalyti talpyklą</translation>
     </message>
     <message>
       <source>Enable translation service</source>
@@ -13665,15 +13925,15 @@
     </message>
     <message>
       <source>Yandex</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Yandex&quot;</translation>
     </message>
     <message>
       <source>AWS</source>
-      <translation type="unfinished"/>
+      <translation>AWS</translation>
     </message>
     <message>
       <source>DeepL</source>
-      <translation type="unfinished"/>
+      <translation>DeepL</translation>
     </message>
     <message>
       <source>Use Bing service</source>
@@ -13681,7 +13941,7 @@
     </message>
     <message>
       <source>Select Region</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite regioną</translation>
     </message>
     <message>
       <source>Bing client secret, key is never shown for security purposes</source>
@@ -13701,31 +13961,43 @@
     </message>
     <message>
       <source>Set referrer, usefull if want to limit calls to specific referrer.</source>
-      <translation type="unfinished"/>
+      <translation>Nustatyti nukreipiančiąją nuorodą, naudinga, jei norite apriboti skambučius konkrečiai nukreipiančiajai nuorodai.</translation>
     </message>
     <message>
       <source>Use AWS</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite AWS</translation>
     </message>
     <message>
       <source>AWS Region</source>
-      <translation type="unfinished"/>
+      <translation>AWS regionas</translation>
     </message>
     <message>
       <source>AWS Access Key</source>
-      <translation type="unfinished"/>
+      <translation>AWS prieigos raktas</translation>
     </message>
     <message>
       <source>AWS Secret Key</source>
-      <translation type="unfinished"/>
+      <translation>AWS slaptasis raktas</translation>
     </message>
     <message>
       <source>Use Yandex service</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite &quot;Yandex&quot; paslaugą</translation>
     </message>
     <message>
       <source>Use DeepL service</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite DeepL paslaugą</translation>
+    </message>
+    <message>
+      <source>Hide translate single message button.</source>
+      <translation>Paslėpti vieno pranešimo vertimo mygtuką.</translation>
+    </message>
+    <message>
+      <source>Show start translations button</source>
+      <translation>Rodyti pradžios vertimų mygtuką</translation>
+    </message>
+    <message>
+      <source>Action options</source>
+      <translation>Veiksmų parinktys</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -13737,7 +14009,7 @@
     </message>
     <message>
       <source>Missing translate region</source>
-      <translation type="unfinished"/>
+      <translation>Trūksta vertimo regiono</translation>
     </message>
     <message>
       <source>Could not detect a language</source>
@@ -13749,7 +14021,7 @@
     </message>
     <message>
       <source>Missing DeepL API key</source>
-      <translation type="unfinished"/>
+      <translation>Trūksta DeepL API rakto</translation>
     </message>
     <message>
       <source>Could not detect language</source>
@@ -13757,23 +14029,19 @@
     </message>
     <message>
       <source>We could not detect operator language</source>
-      <translation type="unfinished"/>
+      <translation>Nepavyko aptikti operatoriaus kalbos</translation>
     </message>
     <message>
       <source>Detected operator and visitor languages matches, please choose languages manually</source>
-      <translation type="unfinished"/>
+      <translation>Aptiktos operatoriaus ir lankytojo kalbos sutampa, pasirinkite kalbas rankiniu būdu</translation>
     </message>
     <message>
-      <source>Operator language is not supported by Google translation service</source>
-      <translation type="unfinished"/>
+      <source>Translation to operator language failed</source>
+      <translation>Vertimas į operatoriaus kalbą nepavyko</translation>
     </message>
     <message>
-      <source>Visitor language is not supported by Google translation service!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator language is not supported by DeepL translation service</source>
-      <translation type="unfinished"/>
+      <source>Translation to visitor language failed</source>
+      <translation>Vertimas į lankytojo kalbą nepavyko</translation>
     </message>
     <message>
       <source>Translation configuration</source>
@@ -13781,154 +14049,162 @@
     </message>
     <message>
       <source>Settings has been saved</source>
-      <translation type="unfinished"/>
+      <translation>Nustatymai buvo išsaugoti</translation>
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite vertimo kalbas rankiniu būdu ir spustelėkite Automatinis vertimas</translation>
+    </message>
+    <message>
+      <source>CSRF is missing</source>
+      <translation>CSRF trūksta</translation>
+    </message>
+    <message>
+      <source>Enter a message to be translated</source>
+      <translation>Įveskite verčiamą pranešimą</translation>
     </message>
   </context>
   <context>
     <name>chat/voice_video</name>
     <message>
       <source>Voice &amp; Video &amp; ScreenShare</source>
-      <translation type="unfinished"/>
+      <translation>Balso ir vaizdo įrašai bei ekrano bendrinimas</translation>
     </message>
     <message>
       <source>Has not started</source>
-      <translation type="unfinished"/>
+      <translation>Nebuvo pradėtas</translation>
     </message>
     <message>
       <source>Visitor - waiting for permission to join the call</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas - laukiama leidimo prisijungti prie skambučio</translation>
     </message>
     <message>
       <source>Visitor - permission granted</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas - leidimas suteiktas</translation>
     </message>
     <message>
       <source>Pending operator to join the call</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama, kol operatorius prisijungs prie skambučio</translation>
     </message>
     <message>
       <source>Operator has joined the call</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius prisijungė prie skambučio</translation>
     </message>
     <message>
       <source>Pending visitor to join the call</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama, kol lankytojas prisijungs prie skambučio</translation>
     </message>
     <message>
       <source>Visitor requested to join a call</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo prašymas prisijungti prie skambučio</translation>
     </message>
     <message>
       <source>Visitor has joined a call</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas prisijungė prie skambučio</translation>
     </message>
     <message>
       <source>Operator has requested a voice call with you!</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius paprašė balso skambučio su jumis!</translation>
     </message>
     <message>
       <source>Start a call</source>
-      <translation type="unfinished"/>
+      <translation>Skambučio pradžia</translation>
     </message>
     <message>
       <source>Visitor requested to start a voice call.</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas paprašė pradėti balso skambutį.</translation>
     </message>
     <message>
       <source>Join call</source>
-      <translation type="unfinished"/>
+      <translation>Prisijunkite prie skambučio</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>Atšaukti</translation>
     </message>
     <message>
       <source>Stop sharing your screen</source>
-      <translation type="unfinished"/>
+      <translation>Nustokite dalytis savo ekranu</translation>
     </message>
     <message>
       <source>Share your screen</source>
-      <translation type="unfinished"/>
+      <translation>Bendrinkite savo ekraną</translation>
     </message>
     <message>
       <source>Enable video</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti vaizdo įrašą</translation>
     </message>
     <message>
       <source>Disable video</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti vaizdo įrašą</translation>
     </message>
     <message>
       <source>Un-mute mic</source>
-      <translation type="unfinished"/>
+      <translation>Mikrofono nutildymo panaikinimas</translation>
     </message>
     <message>
       <source>Mute mic</source>
-      <translation type="unfinished"/>
+      <translation>Nutildyti mikrofoną</translation>
     </message>
     <message>
       <source>Call for the visitor also will end.</source>
-      <translation type="unfinished"/>
+      <translation>Skambutis lankytojui taip pat baigsis.</translation>
     </message>
     <message>
       <source>End the call</source>
-      <translation type="unfinished"/>
+      <translation>Baigti skambutį</translation>
     </message>
     <message>
       <source>Leave a call. Visitor will remain on the call</source>
-      <translation type="unfinished"/>
+      <translation>Palikite skambutį. Lankytojas liks skambinti</translation>
     </message>
     <message>
       <source>Leave the call</source>
-      <translation type="unfinished"/>
+      <translation>Palikite skambutį</translation>
     </message>
     <message>
       <source>Audio call</source>
-      <translation type="unfinished"/>
+      <translation>Garso skambutis</translation>
     </message>
     <message>
       <source>Audio &amp; video call</source>
-      <translation type="unfinished"/>
+      <translation>Garso ir vaizdo skambutis</translation>
     </message>
     <message>
       <source>Let visitor in</source>
-      <translation type="unfinished"/>
+      <translation>Įleiskite lankytoją</translation>
     </message>
     <message>
       <source>Please wait untill operator let&apos;s you in</source>
-      <translation type="unfinished"/>
+      <translation>Palaukite, kol operatorius jus įleis</translation>
     </message>
     <message>
       <source>Me</source>
-      <translation type="unfinished"/>
+      <translation>Aš</translation>
     </message>
     <message>
       <source>Please wait untill operator let&apos;s you join the call</source>
-      <translation type="unfinished"/>
+      <translation>Palaukite, kol operatorius leis jums prisijungti prie skambučio</translation>
     </message>
     <message>
       <source>Visitor is waiting for someone to let them in!</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas laukia, kol kas nors jį įleis!</translation>
     </message>
     <message>
       <source>Pending visitor to join the call!</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama lankytojo, kuris galėtų prisijungti prie skambučio!</translation>
     </message>
     <message>
       <source>Visitor has joined the call!</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas prisijungė prie skambučio!</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>Start conversation</source>
-      <translation type="unfinished"/>
+      <translation>Pradėkite pokalbį</translation>
     </message>
   </context>
   <context>
@@ -13959,513 +14235,513 @@
     </message>
     <message>
       <source>Redirect to URL</source>
-      <translation type="unfinished"/>
+      <translation>Peradresavimas į URL</translation>
     </message>
     <message>
       <source>Screenshot store error</source>
-      <translation type="unfinished"/>
+      <translation>Ekrano nuotrauka parduotuvės klaida</translation>
     </message>
     <message>
       <source>Screenshot ready...</source>
-      <translation type="unfinished"/>
+      <translation>Parengta ekrano nuotrauka...</translation>
     </message>
   </context>
   <context>
     <name>chat/history</name>
     <message>
       <source>Present chat was not closed yet. This information will be inaccurate at the moment.</source>
-      <translation type="unfinished"/>
+      <translation>Dabartinis pokalbis dar nebuvo uždarytas. Šiuo metu ši informacija bus netiksli.</translation>
     </message>
     <message>
       <source>It shows only chats if they were closed. We show maximum of 10 chats in total.</source>
-      <translation type="unfinished"/>
+      <translation>Rodomi tik pokalbiai, jei jie buvo uždaryti. Iš viso rodome ne daugiau kaip 10 pokalbių.</translation>
     </message>
     <message>
       <source>Closed at</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryta</translation>
     </message>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Chat duration</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio trukmė</translation>
     </message>
     <message>
       <source>Started</source>
-      <translation type="unfinished"/>
+      <translation>Pradžia</translation>
     </message>
     <message>
       <source>Ended</source>
-      <translation type="unfinished"/>
+      <translation>Baigėsi</translation>
     </message>
     <message>
       <source>Previous chat assigned</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnis pokalbis priskirtas</translation>
     </message>
     <message>
       <source>Current chat assigned</source>
-      <translation type="unfinished"/>
+      <translation>Dabartinis priskirtas pokalbis</translation>
     </message>
     <message>
       <source>Finished assign</source>
-      <translation type="unfinished"/>
+      <translation>Baigtas priskirti</translation>
     </message>
     <message>
       <source>Pending Chats</source>
-      <translation type="unfinished"/>
+      <translation>Laukiantys pokalbiai</translation>
     </message>
     <message>
       <source>Active Chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Inactive Chats</source>
-      <translation type="unfinished"/>
+      <translation>Neaktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Last assigned was updated successfully</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinis priskirtas buvo sėkmingai atnaujintas</translation>
     </message>
     <message>
       <source>Last assigned update failed</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinis priskirtas atnaujinimas nepavyko</translation>
     </message>
     <message>
       <source>Active chats were updated successfully</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs pokalbiai buvo sėkmingai atnaujinti</translation>
     </message>
     <message>
       <source>Active chats update failed</source>
-      <translation type="unfinished"/>
+      <translation>Nepavyko atnaujinti aktyvių pokalbių</translation>
     </message>
     <message>
       <source>Chat is still running</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis vis dar veikia</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Laukiami pokalbiai</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>Neaktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Active chats update</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvių pokalbių atnaujinimas</translation>
     </message>
     <message>
       <source>Last assigned update</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinis priskirtas atnaujinimas</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Failas</translation>
     </message>
     <message>
       <source>Line</source>
-      <translation type="unfinished"/>
+      <translation>Linija</translation>
     </message>
     <message>
       <source>Next operator ID</source>
-      <translation type="unfinished"/>
+      <translation>Kitas operatoriaus ID</translation>
     </message>
     <message>
       <source>Last accepted</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinis priimtas</translation>
     </message>
     <message>
       <source>chats were found</source>
-      <translation type="unfinished"/>
+      <translation>buvo rasta pokalbių</translation>
     </message>
     <message>
       <source>Start period*</source>
-      <translation type="unfinished"/>
+      <translation>Pradinis laikotarpis*</translation>
     </message>
     <message>
       <source>End period</source>
-      <translation type="unfinished"/>
+      <translation>Laikotarpio pabaiga</translation>
     </message>
   </context>
   <context>
     <name>statistic/departmentstats</name>
     <message>
       <source>Concurrent chats</source>
-      <translation type="unfinished"/>
+      <translation>Vienu metu vykstantys pokalbiai</translation>
     </message>
     <message>
       <source>Active operator chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs operatoriaus pokalbiai</translation>
     </message>
     <message>
       <source>Departments of group</source>
-      <translation type="unfinished"/>
+      <translation>Grupės skyriai</translation>
     </message>
     <message>
       <source>We show only directly or group assigned operators.</source>
-      <translation type="unfinished"/>
+      <translation>Rodome tik tiesiogiai arba grupei priskirtus operatorius.</translation>
     </message>
     <message>
       <source>Group by operator</source>
-      <translation type="unfinished"/>
+      <translation>Grupė pagal operatorių</translation>
     </message>
     <message>
       <source>Only online</source>
-      <translation type="unfinished"/>
+      <translation>Tik internetu</translation>
     </message>
     <message>
       <source>Only offline</source>
-      <translation type="unfinished"/>
+      <translation>Tik neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Only logged</source>
-      <translation type="unfinished"/>
+      <translation>Tik prisijungę</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo ID</translation>
     </message>
     <message>
       <source>Last activity ago</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinė veikla prieš</translation>
     </message>
     <message>
       <source>Read only</source>
-      <translation type="unfinished"/>
+      <translation>Tik skaityti</translation>
     </message>
     <message>
       <source>Assignment type</source>
-      <translation type="unfinished"/>
+      <translation>Užduoties tipas</translation>
     </message>
     <message>
       <source>Department group</source>
-      <translation type="unfinished"/>
+      <translation>Departamento grupė</translation>
     </message>
     <message>
       <source>Exclude from auto assign workflow</source>
-      <translation type="unfinished"/>
+      <translation>Neįtraukti į automatinio priskyrimo darbo eigą</translation>
     </message>
     <message>
       <source>Max chats</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus pokalbių skaičius</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>Neaktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Op. Languages</source>
-      <translation type="unfinished"/>
+      <translation>Op. kalba</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Taip</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Ne</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Department operators</source>
-      <translation type="unfinished"/>
+      <translation>Departamento operatoriai</translation>
     </message>
     <message>
       <source>We show only to group assigned operators. We do not show directly to department assigned operators.</source>
-      <translation type="unfinished"/>
+      <translation>Rodome tik grupei priskirtus operatorius. Mes nerodome tiesiogiai skyriui priskirtiems operatoriams.</translation>
     </message>
     <message>
       <source>Department group operators</source>
-      <translation type="unfinished"/>
+      <translation>Departamento grupių operatoriai</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Operators</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriai</translation>
     </message>
     <message>
       <source>Chats operators</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių operatoriai</translation>
     </message>
     <message>
       <source>Online status</source>
-      <translation type="unfinished"/>
+      <translation>Internetinė būsena</translation>
     </message>
     <message>
       <source>Department groups</source>
-      <translation type="unfinished"/>
+      <translation>Departamentų grupės</translation>
     </message>
     <message>
       <source>Operators online</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriai internetu</translation>
     </message>
     <message>
       <source>Live data</source>
-      <translation type="unfinished"/>
+      <translation>Tiesioginiai duomenys</translation>
     </message>
     <message>
       <source>Online operators soft</source>
-      <translation type="unfinished"/>
+      <translation>Interneto operatoriai minkštas</translation>
     </message>
     <message>
       <source>Online operators hard</source>
-      <translation type="unfinished"/>
+      <translation>Interneto operatoriams sunku</translation>
     </message>
     <message>
       <source>Chats statistic</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių statistika</translation>
     </message>
     <message>
       <source>active chats</source>
-      <translation type="unfinished"/>
+      <translation>aktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>bot chats</source>
-      <translation type="unfinished"/>
+      <translation>botų pokalbiai</translation>
     </message>
     <message>
       <source>pending chats</source>
-      <translation type="unfinished"/>
+      <translation>laukiantys pokalbiai</translation>
     </message>
     <message>
       <source>in-active chats</source>
-      <translation type="unfinished"/>
+      <translation>neaktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Chat is active/pending and user has closed widget or has been redirected to survey</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis yra aktyvus / nebaigtas, o naudotojas uždarė valdiklį arba buvo nukreiptas į apklausą</translation>
     </message>
     <message>
       <source>Load statistic</source>
-      <translation type="unfinished"/>
+      <translation>Įkrovos statistika</translation>
     </message>
     <message>
       <source>soft limit</source>
-      <translation type="unfinished"/>
+      <translation>švelnioji riba</translation>
     </message>
     <message>
       <source>Operator is logged to back office during last 10 minutes and is online/offline</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius per paskutines 10 minučių yra prisijungęs prie &quot;back office&quot; ir yra prisijungęs/neprisijungęs</translation>
     </message>
     <message>
       <source>hard limit</source>
-      <translation type="unfinished"/>
+      <translation>griežta riba</translation>
     </message>
     <message>
       <source>Operator is logged to back office during last 10 minutes and is in online status</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius per paskutines 10 minučių yra prisijungęs prie &quot;back office&quot; ir yra prisijungęs</translation>
     </message>
     <message>
       <source>active operators chats</source>
-      <translation type="unfinished"/>
+      <translation>aktyvūs operatorių pokalbiai</translation>
     </message>
     <message>
       <source>inactive operators chats</source>
-      <translation type="unfinished"/>
+      <translation>neaktyvūs operatorių pokalbiai</translation>
     </message>
     <message>
       <source>Summary statistic [Hard limit]</source>
-      <translation type="unfinished"/>
+      <translation>Apibendrinamoji statistika [Hard limit]</translation>
     </message>
     <message>
       <source>Summary statistic [Soft limit]</source>
-      <translation type="unfinished"/>
+      <translation>Apibendrinamoji statistika [Minkšta riba]</translation>
     </message>
     <message>
       <source>Soft limit. Operator is logged to back office during last 10 minutes and is online/offline.</source>
-      <translation type="unfinished"/>
+      <translation>Minkšta riba. Operatorius prisijungia prie back office per paskutines 10 minučių ir yra prisijungęs/neprisijungęs.</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Internete</translation>
     </message>
     <message>
       <source>Operator active/pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus aktyvūs / laukiantys pokalbiai</translation>
     </message>
     <message>
       <source>Edit operator</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti operatorių</translation>
     </message>
     <message>
       <source>Total</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso</translation>
     </message>
     <message>
       <source>No data.</source>
-      <translation type="unfinished"/>
+      <translation>Duomenų nėra.</translation>
     </message>
     <message>
       <source>Hard limit. Operator is logged to back office during last 10 minutes and is in online status</source>
-      <translation type="unfinished"/>
+      <translation>Griežta riba. Operatorius per paskutines 10 minučių yra prisijungęs prie &quot;back office&quot; ir yra prisijungęs.</translation>
     </message>
     <message>
       <source>Active chats statistic by operators</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvių pokalbių statistika pagal operatorius</translation>
     </message>
     <message>
       <source>Last activity</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinė veikla</translation>
     </message>
     <message>
       <source>Offline for</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Just now</source>
-      <translation type="unfinished"/>
+      <translation>Tik dabar</translation>
     </message>
     <message>
       <source>Online settings</source>
-      <translation type="unfinished"/>
+      <translation>Internetiniai nustatymai</translation>
     </message>
     <message>
       <source>Manual offline mode</source>
-      <translation type="unfinished"/>
+      <translation>Rankinis neprisijungties režimas</translation>
     </message>
     <message>
       <source>Online timeout</source>
-      <translation type="unfinished"/>
+      <translation>Tinklo laiko limitas</translation>
     </message>
     <message>
       <source>Status cache</source>
-      <translation type="unfinished"/>
+      <translation>Būklės talpykla</translation>
     </message>
     <message>
       <source>Ignore operator (global level)</source>
-      <translation type="unfinished"/>
+      <translation>Ignoruoti operatorių (visuotinis lygis)</translation>
     </message>
     <message>
       <source>Ignore operator (department level)</source>
-      <translation type="unfinished"/>
+      <translation>Ignoruoti operatorių (departamento lygmuo)</translation>
     </message>
     <message>
       <source>Bot follows online hours</source>
-      <translation type="unfinished"/>
+      <translation>Botas seka internetines valandas</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Statusas</translation>
     </message>
     <message>
       <source>Status if this was the only department passed (default widget status check)</source>
-      <translation type="unfinished"/>
+      <translation>Būsena, jei tai buvo vienintelis perduotas skyrius (numatytoji valdiklio būsenos patikra)</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Status if online hours were ignored (operators and bot configuration respected)</source>
-      <translation type="unfinished"/>
+      <translation>Būsena, jei buvo ignoruojamos interneto valandos (atsižvelgiama į operatorių ir boto konfigūraciją)</translation>
     </message>
     <message>
       <source>Status if online operators were ignored and only online hours and bot check would be done</source>
-      <translation type="unfinished"/>
+      <translation>Būklė, jei būtų ignoruojami internetiniai operatoriai ir būtų tikrinamos tik internetinės valandos ir botai</translation>
     </message>
     <message>
       <source>Status if bot was ignored (default check for `Stop chat and transfer to human` trigger action)</source>
-      <translation type="unfinished"/>
+      <translation>Būklė, jei botą ignoravo (pagal numatytuosius nustatymus tikrinama, ar veiksmas `Sustabdyti pokalbį ir perduoti žmogui`)</translation>
     </message>
     <message>
       <source>Status if bot and online hours were ignored (default check for `Stop chat and transfer to human` trigger action with `Ignore department online hours` option checked)</source>
-      <translation type="unfinished"/>
+      <translation>Būklė, jei buvo ignoruojamas botas ir interneto valandos (pagal numatytuosius nustatymus tikrinama, ar veiksmas `Sustabdyti pokalbį ir perduoti žmogui` su pažymėta parinktimi `Neignoruoti skyriaus interneto valandų`)</translation>
     </message>
     <message>
       <source>Status if bot and operators status would be excluded. Only online hours would be checked</source>
-      <translation type="unfinished"/>
+      <translation>Būklė, jei botų ir operatorių būsena būtų neįtraukta. Būtų tikrinamos tik prisijungimo valandos</translation>
     </message>
     <message>
       <source>Statistic</source>
-      <translation type="unfinished"/>
+      <translation>Statistika</translation>
     </message>
     <message>
       <source>Online hours</source>
-      <translation type="unfinished"/>
+      <translation>Valandos internetu</translation>
     </message>
     <message>
       <source>Operator online hours</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus darbo internete valandos</translation>
     </message>
     <message>
       <source>Login history</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungimo istorija</translation>
     </message>
     <message>
       <source>User stats</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojų statistika</translation>
     </message>
     <message>
       <source>Chats momentary history</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai trumpalaikė istorija</translation>
     </message>
     <message>
       <source>Last chat assigned ago</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinis pokalbis priskirtas prieš</translation>
     </message>
     <message>
       <source>Max mails</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus laiškų skaičius</translation>
     </message>
     <message>
       <source>Active mails</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs laiškai</translation>
     </message>
     <message>
       <source>Pending mails</source>
-      <translation type="unfinished"/>
+      <translation>Neišsiųsti laiškai</translation>
     </message>
     <message>
       <source>Assignment priority</source>
-      <translation type="unfinished"/>
+      <translation>Priskyrimo prioritetas</translation>
     </message>
     <message>
       <source>All</source>
-      <translation type="unfinished"/>
+      <translation>Visi</translation>
     </message>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
+      <translation>Paieška</translation>
     </message>
     <message>
       <source>When only START date is provided, we will show chats that:</source>
-      <translation type="unfinished"/>
+      <translation>Kai pateikiama tik START data, rodysime pokalbius, kurie:</translation>
     </message>
     <message>
       <source>Were CLOSED and started BEFORE the start date but closed AFTER the start date</source>
-      <translation type="unfinished"/>
+      <translation>Buvo UŽDARYTA ir pradėta prieš pradžios datą, bet baigta PO pradžios datos</translation>
     </message>
     <message>
       <source>Are active/pending and started BEFORE the start date</source>
-      <translation type="unfinished"/>
+      <translation>yra aktyvūs / nebaigti ir pradėti vykdyti iki pradžios datos.</translation>
     </message>
     <message>
       <source>When BOTH start AND end dates are provided, we will show chats where</source>
-      <translation type="unfinished"/>
+      <translation>Kai nurodomos abi pradžios ir pabaigos datos, rodysime pokalbius, kuriuose</translation>
     </message>
     <message>
       <source>Chat start time is AFTER the start date</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio pradžios laikas yra PO pradžios datos</translation>
     </message>
     <message>
       <source>Chat end time is BEFORE the end date</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio pabaigos laikas yra prieš pabaigos datą</translation>
     </message>
   </context>
   <context>
@@ -14480,7 +14756,7 @@
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Mano aktyvūs ir laukiantys pokalbiai</translation>
     </message>
     <message>
       <source>Unread messages</source>
@@ -14516,91 +14792,83 @@
     </message>
     <message>
       <source>Open last 10 my active chats</source>
-      <translation type="unfinished"/>
+      <translation>Atidaryti paskutinius 10 mano aktyvių pokalbių</translation>
     </message>
     <message>
       <source>Open my active chats</source>
-      <translation type="unfinished"/>
+      <translation>Atidaryti mano aktyvius pokalbius</translation>
     </message>
     <message>
       <source>Last 10 your active chats will be always visible</source>
-      <translation type="unfinished"/>
+      <translation>Paskutiniai 10 aktyvių pokalbių bus visada matomi</translation>
     </message>
     <message>
       <source>Keep my active chats</source>
-      <translation type="unfinished"/>
+      <translation>Laikykite mano aktyvius pokalbius</translation>
     </message>
     <message>
       <source>Hide nicknames for offline chats</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti slapyvardžius neprisijungus prie pokalbių</translation>
     </message>
     <message>
       <source>Reset widget filters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Old dashboard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New dashboard</source>
-      <translation type="unfinished"/>
+      <translation>Iš naujo nustatyti valdiklio filtrus</translation>
     </message>
     <message>
       <source>Click to switch to static/dynamic</source>
-      <translation type="unfinished"/>
+      <translation>Spustelėkite , jei norite perjungti į statinį / dinaminį režimą</translation>
     </message>
     <message>
       <source>In static chats order mode</source>
-      <translation type="unfinished"/>
+      <translation>Statinių pokalbių užsakymo režimu</translation>
     </message>
     <message>
       <source>In dynamic chats order mode</source>
-      <translation type="unfinished"/>
+      <translation>Dinaminių pokalbių užsakymo režimu</translation>
     </message>
     <message>
       <source>Switch between old and new editor</source>
-      <translation type="unfinished"/>
+      <translation>Senojo ir naujojo redaktoriaus perjungimas</translation>
     </message>
     <message>
       <source>Switch to old editor</source>
-      <translation type="unfinished"/>
+      <translation>Perėjimas prie senojo redaktoriaus</translation>
     </message>
     <message>
       <source>Switch to new editor</source>
-      <translation type="unfinished"/>
+      <translation>Perėjimas prie naujo redaktoriaus</translation>
     </message>
     <message>
       <source>Click to switch modes</source>
-      <translation type="unfinished"/>
+      <translation>Spustelėkite , jei norite perjungti režimą</translation>
     </message>
     <message>
       <source>Multiple chats view</source>
-      <translation type="unfinished"/>
+      <translation>Kelių pokalbių peržiūra</translation>
     </message>
     <message>
       <source>Single chat view</source>
-      <translation type="unfinished"/>
+      <translation>Vieno pokalbio rodinys</translation>
     </message>
     <message>
       <source>Hide/Show chat tabs</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti / rodyti pokalbių skirtukus</translation>
     </message>
     <message>
       <source>Chats I have presently opened</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai, kuriuos šiuo metu esu atidaręs</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Open chats</source>
-      <translation type="unfinished"/>
+      <translation>Atviri pokalbiai</translation>
     </message>
     <message>
       <source>Tabs/List in left column</source>
-      <translation type="unfinished"/>
+      <translation>Skirtukai / sąrašas kairiajame stulpelyje</translation>
     </message>
     <message>
       <source>Mail settings</source>
@@ -14612,25 +14880,25 @@
     </message>
     <message>
       <source>Chat ID to open</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID atidaryti</translation>
     </message>
     <message>
       <source>Open a chat</source>
-      <translation type="unfinished"/>
+      <translation>Atidarykite pokalbį</translation>
     </message>
   </context>
   <context>
     <name>chat/status_blocked</name>
     <message>
       <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
-      <translation type="unfinished"/>
+      <translation>Šiuo metu su mumis galite susisiekti tik el. paštu. Atsiprašome už nepatogumus.</translation>
     </message>
   </context>
   <context>
     <name>chat/blocked_survey</name>
     <message>
       <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
-      <translation type="unfinished"/>
+      <translation>Šiuo metu su mumis galite susisiekti tik el. paštu. Atsiprašome už nepatogumus.</translation>
     </message>
   </context>
   <context>
@@ -14653,11 +14921,11 @@
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages</source>
-      <translation type="unfinished"/>
+      <translation>Laukdami, kol prie jūsų prisijungs pagalbos tarnybos darbuotojas, galite rašyti savo klausimus, ir kai tik pagalbos tarnybos darbuotojas patvirtins šį pokalbį, jis gaus jūsų žinutes.</translation>
     </message>
     <message>
       <source>You have been transferred. Please wait for operator to join a chat...</source>
-      <translation type="unfinished"/>
+      <translation>Buvote perkeltas. Palaukite, kol operatorius prisijungs prie pokalbio...</translation>
     </message>
     <message>
       <source>You are number</source>
@@ -14669,67 +14937,71 @@
     </message>
     <message>
       <source>Chat status if customer is chatting with a bot</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio būsena, jei klientas bendrauja su botu</translation>
     </message>
     <message>
       <source>Custom need help HTML</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinis reikia pagalbos HTML</translation>
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages OR Less than a minute</source>
-      <translation type="unfinished"/>
+      <translation>Laukdami, kol prie jūsų prisijungs pagalbos tarnybos darbuotojas, galėsite parašyti savo klausimus, o kai tik pagalbos tarnybos darbuotojas patvirtins šį pokalbį, jis gaus jūsų žinutes ARBA Mažiau nei per minutę</translation>
     </message>
     <message>
       <source>You are number {number} in the queue. Please wait... OR Average waiting time for attention is {avg_wait_time} minute{avg_wait_time__s}</source>
-      <translation type="unfinished"/>
+      <translation>Eilėje esate numeriu {number}. Prašome palaukti... ARBA Vidutinė dėmesio laukimo trukmė yra {avg_wait_time} minutė{avg_wait_time__s}</translation>
     </message>
     <message>
       <source>Thank you for your feedback</source>
-      <translation type="unfinished"/>
+      <translation>Dėkojame už atsiliepimus</translation>
     </message>
     <message>
       <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
-      <translation type="unfinished"/>
+      <translation>Šiuo metu su mumis galite susisiekti tik el. paštu. Atsiprašome už nepatogumus.</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite čia savo žinutę ir paspauskite Enter, kad išsiųstumėte...</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation>Įveskite savo vardą ir pavardę</translation>
     </message>
     <message>
       <source>⏎ or additional information</source>
-      <translation type="unfinished"/>
+      <translation>⏎ arba papildoma informacija</translation>
     </message>
     <message>
       <source>{nick}</source>
-      <translation type="unfinished"/>
+      <translation>{nick}</translation>
     </message>
     <message>
       <source>Chat is currently unavailable. Please try again later.</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai šiuo metu nepasiekiami. Prašome pabandyti vėliau.</translation>
     </message>
     <message>
       <source>New message!</source>
-      <translation type="unfinished"/>
+      <translation>Nauja žinutė!</translation>
     </message>
     <message>
       <source>New messages!</source>
-      <translation type="unfinished"/>
+      <translation>Nauji pranešimai!</translation>
     </message>
     <message>
       <source>↓ Scroll to the bottom</source>
-      <translation type="unfinished"/>
+      <translation>↓ Slinkite į apačią</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form [because of chat pending time]</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas buvo nukreiptas į kontaktinę formą [dėl pokalbio laukimo laiko]</translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form [because of chat status]</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas nukreiptas į kontaktų formą [dėl pokalbio būsenos]</translation>
     </message>
     <message>
       <source>Visitor has been redirected to contact form</source>
@@ -14737,14 +15009,14 @@
     </message>
     <message>
       <source>Visitor has been redirected to contact form  [because of chat pending time]</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas buvo nukreiptas į kontaktinę formą [dėl pokalbio laukimo laiko]</translation>
     </message>
   </context>
   <context>
     <name>chat/part/operator_profile</name>
     <message>
       <source>Subscribe/Unsubscribe for notifications</source>
-      <translation type="unfinished"/>
+      <translation>Prenumeruoti/atsisakyti pranešimų</translation>
     </message>
     <message>
       <source>Skype call</source>
@@ -14752,14 +15024,14 @@
     </message>
     <message>
       <source>Switch To Human</source>
-      <translation type="unfinished"/>
+      <translation>Perėjimas prie žmogaus</translation>
     </message>
   </context>
   <context>
     <name>chat/user_settings</name>
     <message>
       <source>End the chat</source>
-      <translation type="unfinished"/>
+      <translation>Baigti pokalbį</translation>
     </message>
     <message>
       <source>Enable/Disable sound about new messages from the operator</source>
@@ -14791,27 +15063,27 @@
     </message>
     <message>
       <source>Download as txt</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiųsti kaip txt</translation>
     </message>
     <message>
       <source>Toggle between dark and white themes</source>
-      <translation type="unfinished"/>
+      <translation>Tamsių ir baltų temų perjungimas</translation>
     </message>
     <message>
       <source>Change my persistent status to online</source>
-      <translation type="unfinished"/>
+      <translation>Pakeiskite mano nuolatinę būseną į internetinę</translation>
     </message>
     <message>
       <source>Change my status to online/offline. Ctrl + F12 Shortcut.</source>
-      <translation type="unfinished"/>
+      <translation>Pakeiskite mano būseną į internetinę/neinternetinę. Ctrl + F12 Spartusis klavišas.</translation>
     </message>
     <message>
       <source>Send chat to your email!</source>
-      <translation type="unfinished"/>
+      <translation>Siųskite pokalbį į savo el. paštą!</translation>
     </message>
     <message>
       <source>Email</source>
-      <translation type="unfinished"/>
+      <translation>El. paštas</translation>
     </message>
   </context>
   <context>
@@ -14852,7 +15124,7 @@
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat or chat was merged/deleted!</source>
-      <translation type="unfinished"/>
+      <translation>Jūs neturite teisės pasiekti dabartinį pokalbį arba pokalbis buvo sujungtas / ištrintas!</translation>
     </message>
   </context>
   <context>
@@ -14863,7 +15135,7 @@
     </message>
     <message>
       <source>Survey not exist please check embed code options</source>
-      <translation type="unfinished"/>
+      <translation>Apklausa neegzistuoja, patikrinkite įterpimo kodo parinktis</translation>
     </message>
     <message>
       <source>Resume chat</source>
@@ -14881,39 +15153,39 @@
     <name>user/assigndepartment</name>
     <message>
       <source>No permission to edit!</source>
-      <translation type="unfinished"/>
+      <translation>Leidimo redaguoti nėra!</translation>
     </message>
     <message>
       <source>Edit department group assignment</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti departamento grupės priskyrimą</translation>
     </message>
     <message>
       <source>Edit department assignment</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti skyriaus priskyrimą</translation>
     </message>
     <message>
       <source>Add</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti</translation>
     </message>
     <message>
       <source>Assign department</source>
-      <translation type="unfinished"/>
+      <translation>Priskirti departamentą</translation>
     </message>
     <message>
       <source>Assign department group</source>
-      <translation type="unfinished"/>
+      <translation>Priskirti departamento grupę</translation>
     </message>
     <message>
       <source>Please choose a department!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite skyrių!</translation>
     </message>
     <message>
       <source>This department department already have been added!</source>
-      <translation type="unfinished"/>
+      <translation>Šis skyrius jau buvo pridėtas!</translation>
     </message>
     <message>
       <source>This department already have been added!</source>
-      <translation type="unfinished"/>
+      <translation>Šis skyrius jau buvo pridėtas!</translation>
     </message>
   </context>
   <context>
@@ -15130,19 +15402,19 @@
     <name>chat/modifychat</name>
     <message>
       <source>Debug</source>
-      <translation type="unfinished"/>
+      <translation>Derinimas</translation>
     </message>
     <message>
       <source>User attribute</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo atributas</translation>
     </message>
     <message>
       <source>Chat attributes</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių atributai</translation>
     </message>
     <message>
       <source>Actions</source>
-      <translation type="unfinished"/>
+      <translation>Veiksmai</translation>
     </message>
     <message>
       <source>E-mail</source>
@@ -15154,11 +15426,11 @@
     </message>
     <message>
       <source>Inform me then visitor returns</source>
-      <translation type="unfinished"/>
+      <translation>Informuokite mane, tada lankytojas grįžta</translation>
     </message>
     <message>
       <source>E-mail is send when visitor starts new browsing session</source>
-      <translation type="unfinished"/>
+      <translation>El. paštas siunčiamas, kai lankytojas pradeda naują naršymo seansą</translation>
     </message>
     <message>
       <source>Nick</source>
@@ -15174,63 +15446,63 @@
     </message>
     <message>
       <source>Unanswered chat</source>
-      <translation type="unfinished"/>
+      <translation>Neatsakytas pokalbis</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Preview chat as visitor</source>
-      <translation type="unfinished"/>
+      <translation>Peržiūrėti pokalbį kaip lankytojas</translation>
     </message>
     <message>
       <source>Participant</source>
-      <translation type="unfinished"/>
+      <translation>Dalyvis</translation>
     </message>
     <message>
       <source>Duration</source>
-      <translation type="unfinished"/>
+      <translation>Trukmė</translation>
     </message>
     <message>
       <source>First response time</source>
-      <translation type="unfinished"/>
+      <translation>Pirmojo reagavimo laikas</translation>
     </message>
     <message>
       <source>Average response time</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis atsako laikas</translation>
     </message>
     <message>
       <source>Max response time</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus atsako laikas</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas</translation>
     </message>
     <message>
       <source>Files</source>
-      <translation type="unfinished"/>
+      <translation>Failai</translation>
     </message>
     <message>
       <source>Duration calculation log</source>
-      <translation type="unfinished"/>
+      <translation>Trukmės skaičiavimo žurnalas</translation>
     </message>
     <message>
       <source>Agents response times calculation log</source>
-      <translation type="unfinished"/>
+      <translation>Agentų atsako laiko skaičiavimo žurnalas</translation>
     </message>
     <message>
       <source>Chat auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių automatinis atsakiklis</translation>
     </message>
     <message>
       <source>Auto responder object</source>
-      <translation type="unfinished"/>
+      <translation>Automatinio atsakiklio objektas</translation>
     </message>
     <message>
       <source>Chat information was updated</source>
@@ -15238,19 +15510,19 @@
     </message>
     <message>
       <source>Preview live widget</source>
-      <translation type="unfinished"/>
+      <translation>Peržiūrėti tiesioginės peržiūros valdiklį</translation>
     </message>
     <message>
       <source>Department statistic</source>
-      <translation type="unfinished"/>
+      <translation>Departamento statistika</translation>
     </message>
     <message>
       <source>Conversation</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis</translation>
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>Žinutės</translation>
     </message>
   </context>
   <context>
@@ -15261,27 +15533,27 @@
     </message>
     <message>
       <source>Closes chat if more than a defined amount of time has passed since the last visitor/operator message.</source>
-      <translation type="unfinished"/>
+      <translation>Uždaro pokalbį, jei nuo paskutinio lankytojo / operatoriaus pranešimo praėjo daugiau nei nustatytas laikas.</translation>
     </message>
     <message>
       <source>Chats that are pending and the specified amount of time has passed since the chat started. This means the chat was not accepted within this period.</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai, kurie yra nebaigti ir nuo pokalbio pradžios praėjo nurodytas laiko tarpas. Tai reiškia, kad per šį laikotarpį pokalbis nebuvo priimtas.</translation>
     </message>
     <message>
       <source>Close active chat if it runs longer than x minutes. This strictly limits how long an active chat can remain open.</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryti aktyvų pokalbį, jei jis trunka ilgiau nei x minučių. Tai griežtai apriboja, kiek laiko aktyvus pokalbis gali būti atidarytas.</translation>
     </message>
     <message>
       <source>Closes chat if more than a defined amount of time has passed since the last visitor message.</source>
-      <translation type="unfinished"/>
+      <translation>Uždaro pokalbį, jei nuo paskutinės lankytojo žinutės praėjo daugiau nei nustatytas laikas.</translation>
     </message>
     <message>
       <source>Close button</source>
-      <translation type="unfinished"/>
+      <translation>Uždarymo mygtukas</translation>
     </message>
     <message>
       <source>Chat duration</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio trukmė</translation>
     </message>
     <message>
       <source>New chat notification settings</source>
@@ -15289,15 +15561,15 @@
     </message>
     <message>
       <source>Supported: group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, bot_chats, my_chats</source>
-      <translation type="unfinished"/>
+      <translation>Palaikoma: group_chats, online_operators, departments_stats, online_visitors, pending_chats, unread_chats, transfered_chats, active_chats, bot_chats, my_chats</translation>
     </message>
     <message>
       <source>Supported: dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_chats,online_operators</source>
-      <translation type="unfinished"/>
+      <translation>Palaikoma: prietaisų skydelis,internetinis_žemėlapis,internetiniai_naudotojai,laukiančios_pokalbių,internetinis_žemėlapis,aktyvios_pokalbių,neperskaitytos_pokalbių,internetiniai_operatoriai</translation>
     </message>
     <message>
       <source>Default settings</source>
-      <translation type="unfinished"/>
+      <translation>Numatytuosius nustatymus</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -15305,31 +15577,31 @@
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Departamentų grupės</translation>
     </message>
     <message>
       <source>Departments limit groups</source>
-      <translation type="unfinished"/>
+      <translation>Departamentų ribinės grupės</translation>
     </message>
     <message>
       <source>Brands</source>
-      <translation type="unfinished"/>
+      <translation>Prekės ženklai</translation>
     </message>
     <message>
       <source>Mail file details</source>
-      <translation type="unfinished"/>
+      <translation>Pašto failo informacija</translation>
     </message>
     <message>
       <source>Visitors notifications</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų pranešimai</translation>
     </message>
     <message>
       <source>Operators notifications</source>
-      <translation type="unfinished"/>
+      <translation>Operatorių pranešimai</translation>
     </message>
     <message>
       <source>Search for configuration options...</source>
-      <translation type="unfinished"/>
+      <translation>Konfigūracijos parinkčių paieška...</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -15345,7 +15617,7 @@
     </message>
     <message>
       <source>Alert icons</source>
-      <translation type="unfinished"/>
+      <translation>Įspėjimo piktogramos</translation>
     </message>
     <message>
       <source>Chat archive</source>
@@ -15353,19 +15625,19 @@
     </message>
     <message>
       <source>Audit Logs</source>
-      <translation type="unfinished"/>
+      <translation>Audito žurnalai</translation>
     </message>
     <message>
       <source>Configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konfigūracija</translation>
     </message>
     <message>
       <source>Login history</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungimo istorija</translation>
     </message>
     <message>
       <source>Automation</source>
-      <translation type="unfinished"/>
+      <translation>Automatizavimas</translation>
     </message>
     <message>
       <source>Auto responder</source>
@@ -15373,11 +15645,11 @@
     </message>
     <message>
       <source>BBCode configuration</source>
-      <translation type="unfinished"/>
+      <translation>BBCode konfigūracija</translation>
     </message>
     <message>
       <source>Blocking</source>
-      <translation type="unfinished"/>
+      <translation>Blokavimas</translation>
     </message>
     <message>
       <source>Blocked users</source>
@@ -15389,27 +15661,27 @@
     </message>
     <message>
       <source>Bot constructor</source>
-      <translation type="unfinished"/>
+      <translation>Boto konstruktorius</translation>
     </message>
     <message>
       <source>Responses for API error</source>
-      <translation type="unfinished"/>
+      <translation>API klaidos atsakymai</translation>
     </message>
     <message>
       <source>Bot individualization</source>
-      <translation type="unfinished"/>
+      <translation>Boto individualizavimas</translation>
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>Poilsio API skambučiai</translation>
     </message>
     <message>
       <source>Commands</source>
-      <translation type="unfinished"/>
+      <translation>Komandos</translation>
     </message>
     <message>
       <source>Conditions</source>
-      <translation type="unfinished"/>
+      <translation>Sąlygos</translation>
     </message>
     <message>
       <source>Browse offers embed code</source>
@@ -15421,19 +15693,19 @@
     </message>
     <message>
       <source>Canned messages suggester configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konservuotų pranešimų siūlymo konfigūracija</translation>
     </message>
     <message>
       <source>Replaceable variables</source>
-      <translation type="unfinished"/>
+      <translation>Keičiami kintamieji</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Additional chat columns</source>
-      <translation type="unfinished"/>
+      <translation>Papildomos pokalbių skiltys</translation>
     </message>
     <message>
       <source>Chat configuration</source>
@@ -15449,11 +15721,11 @@
     </message>
     <message>
       <source>Chat priority</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių prioritetas</translation>
     </message>
     <message>
       <source>Additional chat variables</source>
-      <translation type="unfinished"/>
+      <translation>Papildomi pokalbių kintamieji</translation>
     </message>
     <message>
       <source>Chatbox embed code</source>
@@ -15473,15 +15745,15 @@
     </message>
     <message>
       <source>Files configuration</source>
-      <translation type="unfinished"/>
+      <translation>Failų konfigūracija</translation>
     </message>
     <message>
       <source>List of chat files</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių failų sąrašas</translation>
     </message>
     <message>
       <source>List of mail files</source>
-      <translation type="unfinished"/>
+      <translation>Pašto failų sąrašas</translation>
     </message>
     <message>
       <source>GEO adjustment</source>
@@ -15489,19 +15761,19 @@
     </message>
     <message>
       <source>Group chat</source>
-      <translation type="unfinished"/>
+      <translation>Grupinis pokalbis</translation>
     </message>
     <message>
       <source>Group chats list</source>
-      <translation type="unfinished"/>
+      <translation>Grupės pokalbių sąrašas</translation>
     </message>
     <message>
       <source>Options</source>
-      <translation type="unfinished"/>
+      <translation>Parinktys</translation>
     </message>
     <message>
       <source>Integration</source>
-      <translation type="unfinished"/>
+      <translation>Integracija</translation>
     </message>
     <message>
       <source>Languages configuration</source>
@@ -15509,7 +15781,7 @@
     </message>
     <message>
       <source>Visual settings for the visitor</source>
-      <translation type="unfinished"/>
+      <translation>Vizualiniai lankytojo nustatymai</translation>
     </message>
     <message>
       <source>Widget themes</source>
@@ -15525,19 +15797,19 @@
     </message>
     <message>
       <source>Visual settings for the admin</source>
-      <translation type="unfinished"/>
+      <translation>Vizualiniai administratoriaus nustatymai</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Administratoriaus temos</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji administratoriaus tema</translation>
     </message>
     <message>
       <source>Personal theme</source>
-      <translation type="unfinished"/>
+      <translation>Asmeninė tema</translation>
     </message>
     <message>
       <source>Maintenance</source>
@@ -15545,11 +15817,11 @@
     </message>
     <message>
       <source>Messages content protection</source>
-      <translation type="unfinished"/>
+      <translation>Žinučių turinio apsauga</translation>
     </message>
     <message>
       <source>Mobile</source>
-      <translation type="unfinished"/>
+      <translation>Mobilusis</translation>
     </message>
     <message>
       <source>Settings</source>
@@ -15557,19 +15829,19 @@
     </message>
     <message>
       <source>Sessions</source>
-      <translation type="unfinished"/>
+      <translation>Sesijos</translation>
     </message>
     <message>
       <source>Notice messages</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimai</translation>
     </message>
     <message>
       <source>Offline settings</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungusieji nustatymai</translation>
     </message>
     <message>
       <source>Paid chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>Mokamų pokalbių konfigūracija</translation>
     </message>
     <message>
       <source>Update information</source>
@@ -15581,15 +15853,15 @@
     </message>
     <message>
       <source>Pro active chat campaigns</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Pro&quot; aktyvių pokalbių kampanijos</translation>
     </message>
     <message>
       <source>Pro active chat events</source>
-      <translation type="unfinished"/>
+      <translation>Pro aktyvūs pokalbių įvykiai</translation>
     </message>
     <message>
       <source>Pro active chat variables</source>
-      <translation type="unfinished"/>
+      <translation>Pro aktyvūs pokalbių kintamieji</translation>
     </message>
     <message>
       <source>Product</source>
@@ -15600,12 +15872,12 @@
       <translation>Klausimyno įterpimo kodas</translation>
     </message>
     <message>
-      <source>Re-captcha settings</source>
-      <translation type="unfinished"/>
+      <source>Captcha settings</source>
+      <translation>Captcha nustatymai</translation>
     </message>
     <message>
       <source>Rest API</source>
-      <translation type="unfinished"/>
+      <translation>Poilsio API</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -15617,11 +15889,11 @@
     </message>
     <message>
       <source>Subjects</source>
-      <translation type="unfinished"/>
+      <translation>Subjektai</translation>
     </message>
     <message>
       <source>Surveys</source>
-      <translation type="unfinished"/>
+      <translation>Apklausos</translation>
     </message>
     <message>
       <source>Synchronization and sound settings</source>
@@ -15629,7 +15901,7 @@
     </message>
     <message>
       <source>Chat transfer configuration</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių perdavimo konfigūracija</translation>
     </message>
     <message>
       <source>Automatic translations</source>
@@ -15649,43 +15921,43 @@
     </message>
     <message>
       <source>Permissions explorer</source>
-      <translation type="unfinished"/>
+      <translation>Leidimų tyrėjas</translation>
     </message>
     <message>
       <source>Import users</source>
-      <translation type="unfinished"/>
+      <translation>Importuoti naudotojus</translation>
     </message>
     <message>
       <source>Password requirements</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodžio reikalavimai</translation>
     </message>
     <message>
       <source>Online hours</source>
-      <translation type="unfinished"/>
+      <translation>Valandos internetu</translation>
     </message>
     <message>
       <source>Advanced</source>
-      <translation type="unfinished"/>
+      <translation>Išplėstinė</translation>
     </message>
     <message>
       <source>Users actions</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojų veiksmai</translation>
     </message>
     <message>
       <source>Voice &amp; Video &amp; ScreenShare</source>
-      <translation type="unfinished"/>
+      <translation>Balso ir vaizdo įrašai bei ekrano bendrinimas</translation>
     </message>
     <message>
       <source>Webhooks</source>
-      <translation type="unfinished"/>
+      <translation>Webhooks</translation>
     </message>
     <message>
       <source>Incoming webhooks</source>
-      <translation type="unfinished"/>
+      <translation>Įeinančios žiniatinklio kabutės</translation>
     </message>
     <message>
       <source>Send webhook message</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti webhook pranešimą</translation>
     </message>
     <message>
       <source>XMPP settings</source>
@@ -15693,7 +15965,7 @@
     </message>
     <message>
       <source>Mail conversation</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis paštu</translation>
     </message>
     <message>
       <source>Speech</source>
@@ -15717,131 +15989,131 @@
     </message>
     <message>
       <source>You can test notification by entering chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Galite išbandyti pranešimą įvesdami pokalbio ID</translation>
     </message>
     <message>
       <source>Test notification</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas apie bandymą</translation>
     </message>
     <message>
       <source>If you do not see a notification after a click it means your settings are not correct, or you do not allow notifications.</source>
-      <translation type="unfinished"/>
+      <translation>Jei spustelėję nematote pranešimo, vadinasi, jūsų nustatymai neteisingi arba neleidžiate gauti pranešimų.</translation>
     </message>
     <message>
       <source>Show notification only if I am an owner pending chat</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti pranešimą tik jei esu savininkas, laukiantis pokalbio</translation>
     </message>
     <message>
       <source>You will stop receive notifications for pending chats if you are not an owner</source>
-      <translation type="unfinished"/>
+      <translation>Jei nesate savininkas, nebegausite pranešimų apie laukiančius pokalbius.</translation>
     </message>
     <message>
       <source>Show notifications if I am offline</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti pranešimus, jei esu neprisijungęs</translation>
     </message>
     <message>
       <source>You will not receive notifications if you are not online</source>
-      <translation type="unfinished"/>
+      <translation>Negavote pranešimų, jei nesate prisijungę</translation>
     </message>
     <message>
       <source>Show alert for new chats</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti įspėjimą apie naujus pokalbius</translation>
     </message>
     <message>
       <source>Show alerts for transferred chats</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti perspėjimus apie perduotus pokalbius</translation>
     </message>
     <message>
       <source>You will receive alert notification if chat is transferred directly to you. You will be able to accept it directly from alert.</source>
-      <translation type="unfinished"/>
+      <translation>Gausite įspėjamąjį pranešimą, jei pokalbis bus perduotas tiesiogiai jums. Galėsite jį priimti tiesiai iš įspėjimo.</translation>
     </message>
     <message>
       <source>Quick notifications are the ones that you see at the top left corner of the application.</source>
-      <translation type="unfinished"/>
+      <translation>Greitieji pranešimai - tai pranešimai, kuriuos matote viršutiniame kairiajame programos kampe.</translation>
     </message>
     <message>
       <source>Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.</source>
-      <translation type="unfinished"/>
+      <translation>Veiklos stebėjimas nustatomas pasauliniu lygmeniu. Jūsų nustatymai bus ignoruojami. Laiko limito vertė vis tiek bus paimta iš jūsų paskyros nustatymų.</translation>
     </message>
     <message>
       <source>Change my online/offline status based on my activity</source>
-      <translation type="unfinished"/>
+      <translation>Keisti savo interneto / ne interneto būseną atsižvelgiant į mano veiklą</translation>
     </message>
     <message>
       <source>After certain period of time if no actions are detected you will be marked as offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>Po tam tikro laiko, jei nebus aptikta jokių veiksmų, būsite automatiškai pažymėtas kaip neprisijungęs prie interneto.</translation>
     </message>
     <message>
       <source>Choose timeout value</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite laiko limito vertę</translation>
     </message>
     <message>
       <source>Select after how long of inactivity you will be marked as offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite, po kiek laiko neveikimo būsite automatiškai pažymėti kaip neprisijungę.</translation>
     </message>
     <message>
       <source>Use default system value</source>
-      <translation type="unfinished"/>
+      <translation>Naudoti numatytąją sistemos vertę</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>minutės</translation>
     </message>
     <message>
       <source>hour</source>
-      <translation type="unfinished"/>
+      <translation>valanda</translation>
     </message>
     <message>
       <source>hours</source>
-      <translation type="unfinished"/>
+      <translation>valandos</translation>
     </message>
     <message>
       <source>day</source>
-      <translation type="unfinished"/>
+      <translation>diena</translation>
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>dienos</translation>
     </message>
     <message>
       <source>Show notification only if user is an owner pending chat</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti pranešimą tik jei naudotojas yra savininkas, laukiantis pokalbio</translation>
     </message>
     <message>
       <source>User will stop receive notifications for pending chats if they are not an owner</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojas nebegaus pranešimų apie laukiančius pokalbius, jei jis nėra jų savininkas.</translation>
     </message>
     <message>
       <source>Show notifications if user is offline</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti pranešimus, jei naudotojas yra neprisijungęs</translation>
     </message>
     <message>
       <source>User will not receive notifications if they are not online</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojas negaus pranešimų, jei nėra prisijungęs</translation>
     </message>
     <message>
       <source>User will receive alert notification if chat is transferred directly to him. They will be able to accept it directly from alert.</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojas gaus įspėjamąjį pranešimą, jei pokalbis bus perduotas tiesiogiai jam. Jis galės jį priimti tiesiogiai iš įspėjimo.</translation>
     </message>
     <message>
       <source>Activity tracking is set at global level. User settings will be be ignored. Timeout value still will be taken from account settings.</source>
-      <translation type="unfinished"/>
+      <translation>Veiklos stebėjimas nustatomas pasauliniu lygmeniu. Vartotojo nustatymai bus ignoruojami. Laiko limito vertė vis tiek bus paimta iš paskyros nustatymų.</translation>
     </message>
     <message>
       <source>Change user online/offline status based on their activity</source>
-      <translation type="unfinished"/>
+      <translation>Keisti naudotojo būseną internete ir ne internete atsižvelgiant į jo veiklą</translation>
     </message>
     <message>
       <source>After certain period of time if no actions are detected user will be marked as offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>Po tam tikro laiko, jei nebus aptikta jokių veiksmų, naudotojas bus automatiškai pažymėtas kaip neprisijungęs prie interneto.</translation>
     </message>
     <message>
       <source>Select after how long of inactivity user will be marked as offline automatically</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite, po kiek laiko neaktyvumo naudotojas bus automatiškai pažymėtas kaip neprisijungęs.</translation>
     </message>
     <message>
       <source>User will stop receiving notifications for pending chats if they are not an owner</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojas nebegaus pranešimų apie laukiančius pokalbius, jei jis nėra jų savininkas.</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -15853,7 +16125,7 @@
     </message>
     <message>
       <source>Edit file</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti failą</translation>
     </message>
     <message>
       <source>New file</source>
@@ -15872,23 +16144,23 @@
     </message>
     <message>
       <source>New and old widget supported attribute</source>
-      <translation type="unfinished"/>
+      <translation>Naujas ir senas valdiklio palaikomas atributas</translation>
     </message>
     <message>
       <source>Old widget supported attribute</source>
-      <translation type="unfinished"/>
+      <translation>Senasis valdiklio palaikomas atributas</translation>
     </message>
     <message>
       <source>Other attributes</source>
-      <translation type="unfinished"/>
+      <translation>Kiti požymiai</translation>
     </message>
     <message>
       <source>(Widget is open) or (closed and user has activity in last 5 minutes and ping respond)</source>
-      <translation type="unfinished"/>
+      <translation>(Valdiklis yra atidarytas) arba (uždarytas ir naudotojas turi veiklos per paskutines 5 minutes ir ping atsakyti)</translation>
     </message>
     <message>
       <source>(Widget is open or closed) and (user has activity in last 5 minutes and ping respond)</source>
-      <translation type="unfinished"/>
+      <translation>(Valdiklis yra atidarytas arba uždarytas) ir (naudotojas turi veiklą per pastaruosius 5 minutes ir ping atsakyti)</translation>
     </message>
     <message>
       <source>Update</source>
@@ -15900,7 +16172,7 @@
     </message>
     <message>
       <source>Data protection</source>
-      <translation type="unfinished"/>
+      <translation>Duomenų apsauga</translation>
     </message>
     <message>
       <source>Screen sharing</source>
@@ -15924,7 +16196,7 @@
     </message>
     <message>
       <source>Visitor activity</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų veikla</translation>
     </message>
     <message>
       <source>Workflow</source>
@@ -15936,7 +16208,7 @@
     </message>
     <message>
       <source>Online if</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungę, jei</translation>
     </message>
     <message>
       <source>Chat related</source>
@@ -15948,11 +16220,26 @@
     </message>
     <message>
       <source>This determines should status widget change it&apos;s status once operator logins. Recommended value 290</source>
-      <translation type="unfinished"/>
+      <translation>Tai lemia, ar būsenos valdiklis turėtų pakeisti savo būseną, kai operatorius prisijungia. Rekomenduojama reikšmė 290</translation>
     </message>
     <message>
       <source>List chat configuration</source>
       <translation>Pokalbių nustatymų sąrašas</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/list</name>
+    <message>
+      <source>Sorting by number of messages requires a date range of 31 days or less to be set.</source>
+      <translation>Norint rūšiuoti pagal pranešimų skaičių, reikia nustatyti 31 dienos ar trumpesnį datos intervalą.</translation>
+    </message>
+    <message>
+      <source>chats were selected for deletion, and</source>
+      <translation>pokalbiai buvo atrinkti ištrinti, o</translation>
+    </message>
+    <message>
+      <source>of them were deleted!</source>
+      <translation>jų buvo ištrinti!</translation>
     </message>
   </context>
   <context>
@@ -15963,11 +16250,11 @@
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Status</source>
@@ -15987,27 +16274,27 @@
     </message>
     <message>
       <source>Pending chat</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama pokalbio</translation>
     </message>
     <message>
       <source>Active chat</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus pokalbis</translation>
     </message>
     <message>
       <source>Closed chat</source>
-      <translation type="unfinished"/>
+      <translation>Uždaras pokalbis</translation>
     </message>
     <message>
       <source>Chatbox chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių dėžutės pokalbiai</translation>
     </message>
     <message>
       <source>Operators chat</source>
-      <translation type="unfinished"/>
+      <translation>Operatorių pokalbiai</translation>
     </message>
     <message>
       <source>Bot chat</source>
-      <translation type="unfinished"/>
+      <translation>Botų pokalbiai</translation>
     </message>
     <message>
       <source>Chats list</source>
@@ -16015,39 +16302,39 @@
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Nikas</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>Data</translation>
     </message>
     <message>
       <source>Login history</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungimo istorija</translation>
     </message>
     <message>
       <source>Commands</source>
-      <translation type="unfinished"/>
+      <translation>Komandos</translation>
     </message>
     <message>
       <source>Conditions</source>
-      <translation type="unfinished"/>
+      <translation>Sąlygos</translation>
     </message>
     <message>
       <source>Bot constructor</source>
-      <translation type="unfinished"/>
+      <translation>Boto konstruktorius</translation>
     </message>
     <message>
       <source>Responses for API error</source>
-      <translation type="unfinished"/>
+      <translation>API klaidos atsakymai</translation>
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>Poilsio API skambučiai</translation>
     </message>
     <message>
       <source>Bot individualization</source>
-      <translation type="unfinished"/>
+      <translation>Boto individualizavimas</translation>
     </message>
   </context>
   <context>
@@ -16062,7 +16349,7 @@
     </message>
     <message>
       <source>Offline request</source>
-      <translation type="unfinished"/>
+      <translation>Užklausa neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -16088,18 +16375,11 @@
     <name>chat/lists</name>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/list</name>
-    <message>
-      <source>chats were selected for deletion, and</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas</translation>
     </message>
     <message>
-      <source>of them were deleted!</source>
-      <translation type="unfinished"/>
+      <source>Messages count</source>
+      <translation>Pranešimų skaičius</translation>
     </message>
   </context>
   <context>
@@ -16110,35 +16390,35 @@
     </message>
     <message>
       <source>Scheduled for sent!</source>
-      <translation type="unfinished"/>
+      <translation>Suplanuota išsiųsti!</translation>
     </message>
     <message>
       <source>Have been sent!</source>
-      <translation type="unfinished"/>
+      <translation>Buvo išsiųsti!</translation>
     </message>
     <message>
       <source>Delivered</source>
-      <translation type="unfinished"/>
+      <translation>Pristatytas</translation>
     </message>
     <message>
       <source>Have been seen!</source>
-      <translation type="unfinished"/>
+      <translation>Buvo matytas!</translation>
     </message>
     <message>
       <source>Rejected or failed!</source>
-      <translation type="unfinished"/>
+      <translation>Atmesta arba nepavyko!</translation>
     </message>
     <message>
       <source>ago at</source>
-      <translation type="unfinished"/>
+      <translation>prieš</translation>
     </message>
     <message>
       <source>Alias</source>
-      <translation type="unfinished"/>
+      <translation>Pseudonimas</translation>
     </message>
     <message>
       <source>Message was removed!</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas buvo pašalintas!</translation>
     </message>
   </context>
   <context>
@@ -16180,19 +16460,19 @@
     </message>
     <message>
       <source>What charts to display</source>
-      <translation type="unfinished"/>
+      <translation>Kokias diagramas rodyti</translation>
     </message>
     <message>
       <source>Chat numbers by status</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių numeriai pagal būseną</translation>
     </message>
     <message>
       <source>Unanswered chat numbers</source>
-      <translation type="unfinished"/>
+      <translation>Neatsakyti pokalbių numeriai</translation>
     </message>
     <message>
       <source>Message types</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų tipai</translation>
     </message>
     <message>
       <source>Proactive chats number vs visitors initiated</source>
@@ -16200,19 +16480,19 @@
     </message>
     <message>
       <source>Device type</source>
-      <translation type="unfinished"/>
+      <translation>Įrenginio tipas</translation>
     </message>
     <message>
       <source>Number of chats by subject</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių skaičius pagal temą</translation>
     </message>
     <message>
       <source>Canned messages statistic</source>
-      <translation type="unfinished"/>
+      <translation>Konservuotų pranešimų statistika</translation>
     </message>
     <message>
       <source>Number of Thumbs Up/Down</source>
-      <translation type="unfinished"/>
+      <translation>Nykščių aukštyn/žemyn skaičius</translation>
     </message>
     <message>
       <source>Number of chats by country</source>
@@ -16228,7 +16508,7 @@
     </message>
     <message>
       <source>Average wait time in seconds (maximum of 10 minutes)</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis laukimo laikas sekundėmis (ne ilgiau kaip 10 minučių)</translation>
     </message>
     <message>
       <source>Number of chats by user</source>
@@ -16236,23 +16516,23 @@
     </message>
     <message>
       <source>Number of chats by user (participant)</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojo (dalyvio) pokalbių skaičius</translation>
     </message>
     <message>
       <source>Message delivery statistic (operator)</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų pristatymo statistika (operatorius)</translation>
     </message>
     <message>
       <source>Message delivery statistic (bot)</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų pristatymo statistika (bot)</translation>
     </message>
     <message>
       <source>Number of chats by transfer operator</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių skaičius pagal perdavimo operatorių</translation>
     </message>
     <message>
       <source>Number of chats by department</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių skaičius pagal skyrius</translation>
     </message>
     <message>
       <source>AVG visitor wait time by operator</source>
@@ -16260,19 +16540,19 @@
     </message>
     <message>
       <source>Average chat duration by user in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinė naudotojo pokalbio trukmė sekundėmis</translation>
     </message>
     <message>
       <source>Usefull if you prefill usernames always</source>
-      <translation type="unfinished"/>
+      <translation>Naudinga, jei visada iš anksto užpildote naudotojų vardus</translation>
     </message>
     <message>
       <source>Unique group field records grouped by date</source>
-      <translation type="unfinished"/>
+      <translation>Unikalūs grupės lauko įrašai, sugrupuoti pagal datą</translation>
     </message>
     <message>
       <source>Chats number grouped by date and group field</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių skaičius, sugrupuotas pagal datą ir grupės lauką</translation>
     </message>
     <message>
       <source>Thumbs up</source>
@@ -16284,11 +16564,11 @@
     </message>
     <message>
       <source>Number of chats</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių skaičius</translation>
     </message>
     <message>
       <source>Unique records</source>
-      <translation type="unfinished"/>
+      <translation>Unikalūs įrašai</translation>
     </message>
     <message>
       <source>Active</source>
@@ -16304,7 +16584,7 @@
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>Closed</source>
@@ -16312,11 +16592,11 @@
     </message>
     <message>
       <source>Proactive invitation</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus kvietimas</translation>
     </message>
     <message>
       <source>Manual invitation</source>
-      <translation type="unfinished"/>
+      <translation>Rankinis kvietimas</translation>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -16324,15 +16604,15 @@
     </message>
     <message>
       <source>Mobile</source>
-      <translation type="unfinished"/>
+      <translation>Mobilusis</translation>
     </message>
     <message>
       <source>Tablet</source>
-      <translation type="unfinished"/>
+      <translation>Planšetinis kompiuteris</translation>
     </message>
     <message>
       <source>Desktop</source>
-      <translation type="unfinished"/>
+      <translation>Stalinis kompiuteris</translation>
     </message>
     <message>
       <source>Visitors</source>
@@ -16344,51 +16624,51 @@
     </message>
     <message>
       <source>Bot and Auto responder</source>
-      <translation type="unfinished"/>
+      <translation>Botas ir automatinis atsakiklis</translation>
     </message>
     <message>
       <source>Sent</source>
-      <translation type="unfinished"/>
+      <translation>Išsiųsta</translation>
     </message>
     <message>
       <source>Delivered</source>
-      <translation type="unfinished"/>
+      <translation>Pristatytas</translation>
     </message>
     <message>
       <source>Read</source>
-      <translation type="unfinished"/>
+      <translation>Skaityti</translation>
     </message>
     <message>
       <source>Rejected</source>
-      <translation type="unfinished"/>
+      <translation>Atmesta</translation>
     </message>
     <message>
       <source>Average chats</source>
-      <translation type="unfinished"/>
+      <translation>Vidutiniai pokalbiai</translation>
     </message>
     <message>
       <source>Max chats</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus pokalbių skaičius</translation>
     </message>
     <message>
       <source>Download CSV</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiųsti CSV</translation>
     </message>
     <message>
       <source>chat(s)</source>
-      <translation type="unfinished"/>
+      <translation>pokalbis (-iai)</translation>
     </message>
     <message>
       <source>of chat answered during working hours.</source>
-      <translation type="unfinished"/>
+      <translation>į pokalbius atsakyta darbo valandomis.</translation>
     </message>
     <message>
       <source>of chats answered outside business hours.</source>
-      <translation type="unfinished"/>
+      <translation>pokalbių, į kuriuos atsakyta ne darbo valandomis.</translation>
     </message>
     <message>
       <source>Top 3 hours are</source>
-      <translation type="unfinished"/>
+      <translation>3 svarbiausios valandos</translation>
     </message>
     <message>
       <source>All operators statistic will be downloaded</source>
@@ -16396,7 +16676,7 @@
     </message>
     <message>
       <source>Please choose statistic parameters first!</source>
-      <translation type="unfinished"/>
+      <translation>Pirmiausia pasirinkite statistinius parametrus!</translation>
     </message>
     <message>
       <source>Total chats</source>
@@ -16404,11 +16684,11 @@
     </message>
     <message>
       <source>Proactive chats number vs visitor initiated</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvių pokalbių skaičius, palyginti su lankytojų inicijuotais pokalbiais</translation>
     </message>
     <message>
       <source>Total chats by channel</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso pokalbių pagal kanalą</translation>
     </message>
     <message>
       <source>Proactive</source>
@@ -16416,11 +16696,11 @@
     </message>
     <message>
       <source>Visitor initiated</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų inicijuotas</translation>
     </message>
     <message>
       <source>Default checked charts for</source>
-      <translation type="unfinished"/>
+      <translation>Numatytosios patikrintos diagramos</translation>
     </message>
     <message>
       <source>Chats statistic</source>
@@ -16428,107 +16708,107 @@
     </message>
     <message>
       <source>Number of messages per interval</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų skaičius per intervalą</translation>
     </message>
     <message>
       <source>Number of messages per user</source>
-      <translation type="unfinished"/>
+      <translation>Vienam naudotojui tenkančių pranešimų skaičius</translation>
     </message>
     <message>
       <source>Number of messages per department</source>
-      <translation type="unfinished"/>
+      <translation>Kiekvieno skyriaus pranešimų skaičius</translation>
     </message>
     <message>
       <source>Average duration of interactions by department</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinė sąveikos trukmė pagal skyrius</translation>
     </message>
     <message>
       <source>Average duration of interactions per user</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinė vieno naudotojo sąveikos trukmė</translation>
     </message>
     <message>
       <source>Average wait time</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis laukimo laikas</translation>
     </message>
     <message>
       <source>Messages grouped by date and group field</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimai sugrupuoti pagal datą ir grupės lauką</translation>
     </message>
     <message>
       <source>Messages number per hour</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų skaičius per valandą</translation>
     </message>
     <message>
       <source>Department statistic generation</source>
-      <translation type="unfinished"/>
+      <translation>Departamento statistikos generavimas</translation>
     </message>
     <message>
       <source>Average chat duration should be calculated for the last</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinė pokalbio trukmė turėtų būti apskaičiuojama paskutiniam</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>minutės</translation>
     </message>
     <message>
       <source>hour</source>
-      <translation type="unfinished"/>
+      <translation>valanda</translation>
     </message>
     <message>
       <source>hours</source>
-      <translation type="unfinished"/>
+      <translation>valandos</translation>
     </message>
     <message>
       <source>day</source>
-      <translation type="unfinished"/>
+      <translation>diena</translation>
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>dienos</translation>
     </message>
     <message>
       <source>week</source>
-      <translation type="unfinished"/>
+      <translation>savaitė</translation>
     </message>
     <message>
       <source>weeks</source>
-      <translation type="unfinished"/>
+      <translation>savaitės</translation>
     </message>
     <message>
       <source>Average wait time should be calculated for the last</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinė laukimo trukmė turėtų būti apskaičiuojama paskutiniam</translation>
     </message>
     <message>
       <source>Work hours starts at</source>
-      <translation type="unfinished"/>
+      <translation>Darbo valandos prasideda nuo</translation>
     </message>
     <message>
       <source>Work hours ends at</source>
-      <translation type="unfinished"/>
+      <translation>Darbo valandos baigiasi</translation>
     </message>
     <message>
       <source>Collect canned messages usage statistic</source>
-      <translation type="unfinished"/>
+      <translation>Rinkti konservuotų pranešimų naudojimo statistiką</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Internete</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Neįgalieji</translation>
     </message>
     <message>
       <source>Overloaded</source>
-      <translation type="unfinished"/>
+      <translation>Perkrautas</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Date</source>
@@ -16536,7 +16816,7 @@
     </message>
     <message>
       <source>Hour</source>
-      <translation type="unfinished"/>
+      <translation>Valanda</translation>
     </message>
     <message>
       <source>Parameter</source>
@@ -16564,63 +16844,63 @@
     </message>
     <message>
       <source>If you have thousands of chats generating this report can significantly increase server load!</source>
-      <translation type="unfinished"/>
+      <translation>Jei turite tūkstančius pokalbių, šios ataskaitos generavimas gali gerokai padidinti serverio apkrovą!</translation>
     </message>
     <message>
       <source>Send messages</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti pranešimus</translation>
     </message>
     <message>
       <source>Responded to messages</source>
-      <translation type="unfinished"/>
+      <translation>Atsakė į žinutes</translation>
     </message>
     <message>
       <source>No response required</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo nereikalaujama</translation>
     </message>
     <message>
       <source>Unresponded</source>
-      <translation type="unfinished"/>
+      <translation>Neatsakyta</translation>
     </message>
     <message>
       <source>Number of messages</source>
-      <translation type="unfinished"/>
+      <translation>Žinučių skaičius</translation>
     </message>
     <message>
       <source>Average interaction time</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis sąveikos laikas</translation>
     </message>
     <message>
       <source>Average number of messages</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis pranešimų skaičius</translation>
     </message>
     <message>
       <source>Average response time</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis atsako laikas</translation>
     </message>
     <message>
       <source>Average duration of interactions by department. Max 10 minutes.</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinė sąveikos trukmė pagal skyrius. Ilgiausiai 10 minučių.</translation>
     </message>
     <message>
       <source>Average duration of interactions per user.  Max 10 minutes.</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinė vieno naudotojo sąveikos trukmė.  Ne daugiau kaip 10 minučių.</translation>
     </message>
     <message>
       <source>Average wait time. Max 10 minutes.</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis laukimo laikas. Ilgiausiai 10 minučių.</translation>
     </message>
     <message>
       <source>Horizontal view</source>
-      <translation type="unfinished"/>
+      <translation>Horizontalus vaizdas</translation>
     </message>
     <message>
       <source>Vertical view</source>
-      <translation type="unfinished"/>
+      <translation>Vertikalus vaizdas</translation>
     </message>
     <message>
       <source>Number of messages grouped by attribute</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų, sugrupuotų pagal požymį, skaičius</translation>
     </message>
     <message>
       <source>ago</source>
@@ -16628,51 +16908,51 @@
     </message>
     <message>
       <source>Avg. Wait Time</source>
-      <translation type="unfinished"/>
+      <translation>Vidutiniškai. Laukimo laikas</translation>
     </message>
     <message>
       <source>Chats Started</source>
-      <translation type="unfinished"/>
+      <translation>Pradėti pokalbiai</translation>
     </message>
     <message>
       <source>Abandoned Chats</source>
-      <translation type="unfinished"/>
+      <translation>Palikti pokalbiai</translation>
     </message>
     <message>
       <source>% of chats</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių %</translation>
     </message>
     <message>
       <source>Abandoned at time %</source>
-      <translation type="unfinished"/>
+      <translation>Palikti tuo metu %</translation>
     </message>
     <message>
       <source>Total</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso</translation>
     </message>
     <message>
       <source>By channel</source>
-      <translation type="unfinished"/>
+      <translation>Pagal kanalą</translation>
     </message>
     <message>
       <source>Total visitors</source>
-      <translation type="unfinished"/>
+      <translation>Bendras lankytojų skaičius</translation>
     </message>
     <message>
       <source>Visitors City</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų miestas</translation>
     </message>
     <message>
       <source>Visitors Country</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojai Šalis</translation>
     </message>
     <message>
       <source>New visitors</source>
-      <translation type="unfinished"/>
+      <translation>Nauji lankytojai</translation>
     </message>
     <message>
       <source>Top 100 referrers for selected period</source>
-      <translation type="unfinished"/>
+      <translation>100 geriausių pasirinkto laikotarpio nukreipiančiųjų</translation>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -16680,43 +16960,43 @@
     </message>
     <message>
       <source>Last 24h statistics</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinės paros statistika</translation>
     </message>
     <message>
       <source>Bot messages delivery statistic</source>
-      <translation type="unfinished"/>
+      <translation>Boto pranešimų pristatymo statistika</translation>
     </message>
     <message>
       <source>Operator messages delivery statistic</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus pranešimų pristatymo statistika</translation>
     </message>
     <message>
       <source>Unique</source>
-      <translation type="unfinished"/>
+      <translation>Unikalus</translation>
     </message>
     <message>
       <source>grouped by date</source>
-      <translation type="unfinished"/>
+      <translation>sugrupuoti pagal datą</translation>
     </message>
     <message>
       <source>nick&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>nick&apos;s</translation>
     </message>
     <message>
       <source>user agent&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>naudotojo agento</translation>
     </message>
     <message>
       <source>device type&apos;s</source>
-      <translation type="unfinished"/>
+      <translation>prietaiso tipo</translation>
     </message>
     <message>
       <source>Number of chats transferred by operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus perduotų pokalbių skaičius</translation>
     </message>
     <message>
       <source>Average number of chats &amp; peak per hour</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis pokalbių ir piko valandų skaičius per valandą</translation>
     </message>
     <message>
       <source>Number of Thumbs Down</source>
@@ -16732,19 +17012,19 @@
     </message>
     <message>
       <source>Agents statistics</source>
-      <translation type="unfinished"/>
+      <translation>Agentų statistika</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
+      <translation>Departamentai</translation>
     </message>
     <message>
       <source>Last 24 hours statistics</source>
-      <translation type="unfinished"/>
+      <translation>Pastarųjų 24 valandų statistika</translation>
     </message>
     <message>
       <source>Mail</source>
-      <translation type="unfinished"/>
+      <translation>Paštas</translation>
     </message>
     <message>
       <source>Total active chats</source>
@@ -16756,11 +17036,11 @@
     </message>
     <message>
       <source>Total messages (including visitors, system and operator messages)</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso pranešimų (įskaitant lankytojų, sistemos ir operatoriaus pranešimus)</translation>
     </message>
     <message>
       <source>Total messages (only bot messages)</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso pranešimų (tik botų pranešimai)</translation>
     </message>
     <message>
       <source>Total messages (only operators)</source>
@@ -16780,244 +17060,244 @@
     </message>
     <message>
       <source>Total statistics</source>
-      <translation type="unfinished"/>
+      <translation>Bendra statistika</translation>
     </message>
     <message>
       <source>Unanswered chats</source>
-      <translation type="unfinished"/>
+      <translation>Neatsakyti pokalbiai</translation>
     </message>
     <message>
       <source>Returning visitors</source>
-      <translation type="unfinished"/>
+      <translation>Grįžtantys lankytojai</translation>
     </message>
     <message>
       <source>Countries</source>
-      <translation type="unfinished"/>
+      <translation>Šalys</translation>
     </message>
     <message>
       <source>Cities</source>
-      <translation type="unfinished"/>
+      <translation>Miestai</translation>
     </message>
     <message>
       <source>Top 100 referrers</source>
-      <translation type="unfinished"/>
+      <translation>100 populiariausių nukreipiančiųjų</translation>
     </message>
     <message>
       <source>User agent</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo agentas</translation>
     </message>
     <message>
       <source>Time on site</source>
-      <translation type="unfinished"/>
+      <translation>Laikas darbo vietoje</translation>
     </message>
     <message>
       <source>more than 10 min.</source>
-      <translation type="unfinished"/>
+      <translation>daugiau nei 10 min.</translation>
     </message>
   </context>
   <context>
     <name>chat/loadprevious</name>
     <message>
       <source>Chat messages were hidden. You do not have permission to access department</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių žinutės buvo paslėptos. Jūs neturite teisės prisijungti prie skyriaus</translation>
     </message>
     <message>
       <source>Continue of the chat</source>
-      <translation type="unfinished"/>
+      <translation>Tęsti pokalbį</translation>
     </message>
     <message>
       <source>End of the chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio pabaiga</translation>
     </message>
   </context>
   <context>
     <name>chat/plain</name>
     <message>
       <source>attribute</source>
-      <translation type="unfinished"/>
+      <translation>atributas</translation>
     </message>
     <message>
       <source>hide textarea</source>
-      <translation type="unfinished"/>
+      <translation>paslėpti tekstinę sritį</translation>
     </message>
     <message>
       <source>show textarea</source>
-      <translation type="unfinished"/>
+      <translation>rodyti tekstinę sritį</translation>
     </message>
     <message>
       <source>execute javascript</source>
-      <translation type="unfinished"/>
+      <translation>vykdyti javascript</translation>
     </message>
     <message>
       <source>typing</source>
-      <translation type="unfinished"/>
+      <translation>rašymas</translation>
     </message>
     <message>
       <source>System assistant</source>
-      <translation type="unfinished"/>
+      <translation>Sistemos asistentas</translation>
     </message>
     <message>
       <source>whisper</source>
-      <translation type="unfinished"/>
+      <translation>šnabždesys</translation>
     </message>
     <message>
       <source>Chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID</translation>
     </message>
     <message>
       <source>at</source>
-      <translation type="unfinished"/>
+      <translation>adresu</translation>
     </message>
   </context>
   <context>
     <name>chat/chatcommand</name>
     <message>
       <source>Visitor ID</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo ID</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Please provide modal URL!</source>
-      <translation type="unfinished"/>
+      <translation>Pateikite modalinį URL adresą!</translation>
     </message>
     <message>
       <source>We will show a form in a moment!</source>
-      <translation type="unfinished"/>
+      <translation>Tuoj parodysime formą!</translation>
     </message>
     <message>
       <source>Modal activated!</source>
-      <translation type="unfinished"/>
+      <translation>Įjungtas modalinis variantas!</translation>
     </message>
     <message>
       <source>was executed</source>
-      <translation type="unfinished"/>
+      <translation>buvo įvykdytas</translation>
     </message>
     <message>
       <source>Assigned trigger could not be found</source>
-      <translation type="unfinished"/>
+      <translation>Priskirto trigerio nepavyko rasti</translation>
     </message>
     <message>
       <source>Nick changed!</source>
-      <translation type="unfinished"/>
+      <translation>Nikas pasikeitė!</translation>
     </message>
     <message>
       <source>Files upload was disabled!</source>
-      <translation type="unfinished"/>
+      <translation>Failų įkėlimas buvo išjungtas!</translation>
     </message>
     <message>
       <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
-      <translation type="unfinished"/>
+      <translation>Įjungiau failų įkėlimą. [fupload]Įkelti failą[/fupload].</translation>
     </message>
     <message>
       <source>Files upload enabled.</source>
-      <translation type="unfinished"/>
+      <translation>Įjungtas failų įkėlimas.</translation>
     </message>
     <message>
       <source>Chat status changed on-hold!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio būsena pakeista į sulaikytą!</translation>
     </message>
     <message>
       <source>Chat was transferred to bot!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo perkeltas į botą!</translation>
     </message>
     <message>
       <source>E-mail changed!</source>
-      <translation type="unfinished"/>
+      <translation>Pakeistas el. paštas!</translation>
     </message>
     <message>
       <source>You do not have permission to transfer chat directly!</source>
-      <translation type="unfinished"/>
+      <translation>Jūs neturite leidimo tiesiogiai perkelti pokalbių!</translation>
     </message>
     <message>
       <source>User could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo nepavyko rasti!</translation>
     </message>
     <message>
       <source>Phone changed!</source>
-      <translation type="unfinished"/>
+      <translation>Telefonas pakeistas!</translation>
     </message>
     <message>
       <source>User was redirected!</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas buvo nukreiptas!</translation>
     </message>
     <message>
       <source>Screenshot was scheduled!</source>
-      <translation type="unfinished"/>
+      <translation>Ekrano nuotrauka buvo suplanuota!</translation>
     </message>
     <message>
       <source>User was redirected to contact form!</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas buvo nukreiptas į kontaktinę formą!</translation>
     </message>
     <message>
       <source>User was blocked!</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojas buvo užblokuotas!</translation>
     </message>
     <message>
       <source>You do not have permission to block user!</source>
-      <translation type="unfinished"/>
+      <translation>Jūs neturite leidimo blokuoti naudotoją!</translation>
     </message>
     <message>
       <source>Started chat from</source>
-      <translation type="unfinished"/>
+      <translation>Pradėtas pokalbis iš</translation>
     </message>
     <message>
       <source>Refered from</source>
-      <translation type="unfinished"/>
+      <translation>Nukreipta iš</translation>
     </message>
     <message>
       <source>Current page</source>
-      <translation type="unfinished"/>
+      <translation>Dabartinis puslapis</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>El. paštas</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefonas</translation>
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>Šalis</translation>
     </message>
     <message>
       <source>Chat was closed!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo uždarytas!</translation>
     </message>
     <message>
       <source>You do not have permission to close a chat!</source>
-      <translation type="unfinished"/>
+      <translation>Jūs neturite leidimo uždaryti pokalbį!</translation>
     </message>
     <message>
       <source>Chat was deleted!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo ištrintas!</translation>
     </message>
     <message>
       <source>You do not have permission to delete a chat!</source>
-      <translation type="unfinished"/>
+      <translation>Neturite leidimo ištrinti pokalbio!</translation>
     </message>
     <message>
       <source>Chat status was changed to pending!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio būsena pakeista į laukiančią!</translation>
     </message>
     <message>
       <source>Chat status was changed to active!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio būsena pakeista į aktyvią!</translation>
     </message>
     <message>
       <source>Remarks were saved!</source>
-      <translation type="unfinished"/>
+      <translation>Pastabos buvo išgelbėtos!</translation>
     </message>
     <message>
       <source>Information collected. [baseurl]form/viewcollected/&apos; . $formCollected-&gt;id . &apos;[/baseurl]</source>
-      <translation type="unfinished"/>
+      <translation>Surinkta informacija. [baseurl]form/viewcollected/&quot; . $formCollected-&gt;id . &quot;[/baseurl]</translation>
     </message>
     <message>
       <source>Information collected. Only chat form</source>
-      <translation type="unfinished"/>
+      <translation>Surinkta informacija. Tik pokalbių forma</translation>
     </message>
   </context>
   <context>
@@ -17031,7 +17311,7 @@
     <name>chat/relateditems</name>
     <message>
       <source>Only mails without an attachments are selected by default.</source>
-      <translation type="unfinished"/>
+      <translation>Pagal numatytuosius nustatymus pasirenkami tik laiškai be priedų.</translation>
     </message>
   </context>
   <context>
@@ -17140,7 +17420,7 @@
     </message>
     <message>
       <source>Preload previous chat messages on chat open</source>
-      <translation type="unfinished"/>
+      <translation>Iš anksto įkelti ankstesnius pokalbio pranešimus atidarius pokalbį</translation>
     </message>
     <message>
       <source>Messages settings</source>
@@ -17219,19 +17499,19 @@
     <name>chat/transferchat</name>
     <message>
       <source>current</source>
-      <translation type="unfinished"/>
+      <translation>dabartinis</translation>
     </message>
     <message>
       <source>Member of these departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Šių skyrių grupių narys</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Internete</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Transfer to a user</source>
@@ -17243,11 +17523,11 @@
     </message>
     <message>
       <source>Change owner</source>
-      <translation type="unfinished"/>
+      <translation>Keisti savininką</translation>
     </message>
     <message>
       <source>Change department</source>
-      <translation type="unfinished"/>
+      <translation>Keisti skyrių</translation>
     </message>
     <message>
       <source>Logged in users</source>
@@ -17259,11 +17539,11 @@
     </message>
     <message>
       <source>Only logged and online operators</source>
-      <translation type="unfinished"/>
+      <translation>Tik prisijungę ir prisijungę operatoriai</translation>
     </message>
     <message>
       <source>Only operators from same departments</source>
-      <translation type="unfinished"/>
+      <translation>Tik tų pačių skyrių operatoriai</translation>
     </message>
     <message>
       <source>Transfer</source>
@@ -17271,69 +17551,73 @@
     </message>
     <message>
       <source>Only departments which are online and explicitly assigned operator are online</source>
-      <translation type="unfinished"/>
+      <translation>Tik tie skyriai, kurie yra prisijungę ir kuriems aiškiai priskirtas operatorius, yra prisijungę</translation>
     </message>
     <message>
       <source>Exclude hidden departments</source>
-      <translation type="unfinished"/>
+      <translation>Neįtraukti paslėptų skyrių</translation>
     </message>
     <message>
       <source>Exclude disabled departments</source>
-      <translation type="unfinished"/>
+      <translation>Neįtraukti neįgaliųjų skyrių</translation>
     </message>
     <message>
       <source>You will still remain an owner of the chat.</source>
-      <translation type="unfinished"/>
+      <translation>Vis tiek išliksite pokalbio savininkas.</translation>
     </message>
     <message>
       <source>Transfer chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai apie pervedimus</translation>
+    </message>
+    <message>
+      <source>No permission to access this chat.</source>
+      <translation>Nėra leidimo prisijungti prie šio pokalbio.</translation>
     </message>
   </context>
   <context>
     <name>chat/userjoined</name>
     <message>
       <source>Visitor has joined the chat!</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas prisijungė prie pokalbio!</translation>
     </message>
     <message>
       <source>Visitor has joined the chat from popup chat window!</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas prisijungė prie pokalbio iš iššokančio pokalbio lango!</translation>
     </message>
   </context>
   <context>
     <name>chat/userleftchat</name>
     <message>
       <source>Visitor has left the chat!</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas paliko pokalbį!</translation>
     </message>
     <message>
       <source>Visitor</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas</translation>
     </message>
     <message>
       <source>has left the chat!</source>
-      <translation type="unfinished"/>
+      <translation>paliko pokalbį!</translation>
     </message>
     <message>
       <source>has closed the chat explicitly!</source>
-      <translation type="unfinished"/>
+      <translation>aiškiai uždarė pokalbį!</translation>
     </message>
     <message>
       <source>invite to chat</source>
-      <translation type="unfinished"/>
+      <translation>pakviesti į pokalbį</translation>
     </message>
     <message>
       <source>Page unload.</source>
-      <translation type="unfinished"/>
+      <translation>Puslapio iškrovimas.</translation>
     </message>
     <message>
       <source>Visitor has closed the chat explicitly!</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas aiškiai uždarė pokalbį!</translation>
     </message>
     <message>
       <source>Whisper message!</source>
-      <translation type="unfinished"/>
+      <translation>Šnabždesys!</translation>
     </message>
   </context>
   <context>
@@ -17352,15 +17636,15 @@
     </message>
     <message>
       <source>Configuration</source>
-      <translation type="unfinished"/>
+      <translation>Konfigūracija</translation>
     </message>
     <message>
       <source>Mail archive</source>
-      <translation type="unfinished"/>
+      <translation>Pašto archyvas</translation>
     </message>
     <message>
       <source>Scheduled purge</source>
-      <translation type="unfinished"/>
+      <translation>Suplanuotas valymas</translation>
     </message>
   </context>
   <context>
@@ -17375,7 +17659,7 @@
     </message>
     <message>
       <source>See archived mails</source>
-      <translation type="unfinished"/>
+      <translation>Peržiūrėkite archyvuotus laiškus</translation>
     </message>
   </context>
   <context>
@@ -17409,15 +17693,15 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation type="unfinished"/>
+      <translation>Tipas</translation>
     </message>
     <message>
       <source>You are ready to backup your e-mails.</source>
-      <translation type="unfinished"/>
+      <translation>Esate pasirengę kurti atsarginę el. laiškų kopiją.</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
@@ -17429,7 +17713,7 @@
     </message>
     <message>
       <source>Please enter an archive name!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite archyvo pavadinimą!</translation>
     </message>
   </context>
   <context>
@@ -17460,107 +17744,107 @@
     </message>
     <message>
       <source>Backup</source>
-      <translation type="unfinished"/>
+      <translation>Atsarginė kopija</translation>
     </message>
     <message>
       <source>Archive</source>
-      <translation type="unfinished"/>
+      <translation>Archyvas</translation>
     </message>
     <message>
       <source>You can change type untill there is no mails in it.</source>
-      <translation type="unfinished"/>
+      <translation>Tipą galite keisti tol, kol jame neliks laiškų.</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>List mails</source>
-      <translation type="unfinished"/>
+      <translation>Pašto laiškų sąrašas</translation>
     </message>
     <message>
       <source>You can change type until there is no mails in it.</source>
-      <translation type="unfinished"/>
+      <translation>Tipą galite keisti tol, kol jame neliks laiškų.</translation>
     </message>
     <message>
       <source>Scheduled archive and deletion</source>
-      <translation type="unfinished"/>
+      <translation>Suplanuotas archyvavimas ir ištrynimas</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo ID</translation>
     </message>
     <message>
       <source>Archive ID</source>
-      <translation type="unfinished"/>
+      <translation>Archyvo ID</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Statusas</translation>
     </message>
     <message>
       <source>Created At</source>
-      <translation type="unfinished"/>
+      <translation>Sukurta ne</translation>
     </message>
     <message>
       <source>Updated At</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta</translation>
     </message>
     <message>
       <source>Started At</source>
-      <translation type="unfinished"/>
+      <translation>Pradėta nuo</translation>
     </message>
     <message>
       <source>Finished At</source>
-      <translation type="unfinished"/>
+      <translation>Baigta ties</translation>
     </message>
     <message>
       <source>Filter</source>
-      <translation type="unfinished"/>
+      <translation>Filtras</translation>
     </message>
     <message>
       <source>Pending records to process</source>
-      <translation type="unfinished"/>
+      <translation>Laukiami apdoroti įrašai</translation>
     </message>
     <message>
       <source>Last ID</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinis ID</translation>
     </message>
     <message>
       <source>Mail messages will follow mailbox delete policy</source>
-      <translation type="unfinished"/>
+      <translation>Pašto pranešimai bus siunčiami pagal pašto dėžutės ištrynimo politiką</translation>
     </message>
     <message>
       <source>Mail messages will not be deleted on IMAP</source>
-      <translation type="unfinished"/>
+      <translation>Pašto pranešimai nebus ištrinti IMAP</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama</translation>
     </message>
     <message>
       <source>In progress</source>
-      <translation type="unfinished"/>
+      <translation>Vykdoma</translation>
     </message>
     <message>
       <source>Finished</source>
-      <translation type="unfinished"/>
+      <translation>Baigtas</translation>
     </message>
     <message>
       <source>Finished collecting</source>
-      <translation type="unfinished"/>
+      <translation>Baigta rinkti</translation>
     </message>
     <message>
       <source>found</source>
-      <translation type="unfinished"/>
+      <translation>rasta</translation>
     </message>
     <message>
       <source>of them in progress</source>
-      <translation type="unfinished"/>
+      <translation>iš jų vyksta</translation>
     </message>
     <message>
       <source>processed</source>
-      <translation type="unfinished"/>
+      <translation>apdorotas</translation>
     </message>
     <message>
       <source>Archived chats</source>
@@ -17568,15 +17852,15 @@
     </message>
     <message>
       <source>Archived mails</source>
-      <translation type="unfinished"/>
+      <translation>Archyvuoti laiškai</translation>
     </message>
     <message>
       <source>Scheduled delete flow with ID</source>
-      <translation type="unfinished"/>
+      <translation>Suplanuotas ištrynimo srautas su ID</translation>
     </message>
     <message>
       <source>Scheduled delete flow with archive - ID</source>
-      <translation type="unfinished"/>
+      <translation>Suplanuotas ištrynimo srautas su archyvu - ID</translation>
     </message>
   </context>
   <context>
@@ -17591,7 +17875,7 @@
     </message>
     <message>
       <source>Archived mails</source>
-      <translation type="unfinished"/>
+      <translation>Archyvuoti laiškai</translation>
     </message>
   </context>
   <context>
@@ -17632,11 +17916,11 @@
     </message>
     <message>
       <source>First archived chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Pirmasis archyvuoto pokalbio ID</translation>
     </message>
     <message>
       <source>Last archived chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinio archyvuoto pokalbio ID</translation>
     </message>
     <message>
       <source>Archive progress</source>
@@ -17672,15 +17956,15 @@
     </message>
     <message>
       <source>Potential mails to archive</source>
-      <translation type="unfinished"/>
+      <translation>Potencialūs laiškai, kuriuos reikia archyvuoti</translation>
     </message>
     <message>
       <source>First archived mail ID</source>
-      <translation type="unfinished"/>
+      <translation>Pirmasis archyvuoto pašto ID</translation>
     </message>
     <message>
       <source>Last archived mail ID</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinio archyvuoto laiško ID</translation>
     </message>
   </context>
   <context>
@@ -17767,7 +18051,7 @@
     </message>
     <message>
       <source>Paid chat settings</source>
-      <translation type="unfinished"/>
+      <translation>Mokamų pokalbių nustatymai</translation>
     </message>
   </context>
   <context>
@@ -17804,186 +18088,186 @@
     <name>system/etracking</name>
     <message>
       <source>Events tracking</source>
-      <translation type="unfinished"/>
+      <translation>Įvykių stebėjimas</translation>
     </message>
     <message>
       <source>Events Tracking</source>
-      <translation type="unfinished"/>
+      <translation>Renginių stebėjimas</translation>
     </message>
     <message>
       <source>List of events tracking settings by department</source>
-      <translation type="unfinished"/>
+      <translation>Įvykių stebėjimo nustatymų sąrašas pagal skyrius</translation>
     </message>
     <message>
       <source>Please enable events tracking first!</source>
-      <translation type="unfinished"/>
+      <translation>Pirmiausia įjunkite įvykių stebėjimą!</translation>
     </message>
     <message>
       <source>Enable Events Tracking</source>
-      <translation type="unfinished"/>
+      <translation>Įgalinti įvykių stebėjimą</translation>
     </message>
     <message>
       <source>Track all departments</source>
-      <translation type="unfinished"/>
+      <translation>Stebėti visus skyrius</translation>
     </message>
     <message>
       <source>Enable tracking only for selected departments.</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti tik pasirinktų skyrių stebėjimą.</translation>
     </message>
     <message>
       <source>Javascript to execute on event. {{eventCategory}}, {{eventAction}}, {{eventLabel}}, {{eventInternal}} you can use as placeholders.</source>
-      <translation type="unfinished"/>
+      <translation>Javascript, kuris bus vykdomas įvykio metu. {{eventCategory}}, {{eventAction}}, {{eventLabel}}, {{eventInternal}} galite naudoti kaip žymenis.</translation>
     </message>
     <message>
       <source>Choose one of the possible templates</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite vieną iš galimų šablonų</translation>
     </message>
     <message>
       <source>Google Analytics</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Google Analytics</translation>
     </message>
     <message>
       <source>Javascript for static URL. Paste your GA or any other script here.</source>
-      <translation type="unfinished"/>
+      <translation>Javascript statiniam URL adresui. Čia įklijuokite savo GA arba bet kurį kitą scenarijų.</translation>
     </message>
     <message>
       <source>Widget</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklis</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Invitation</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimas</translation>
     </message>
     <message>
       <source>Need help</source>
-      <translation type="unfinished"/>
+      <translation>Reikia pagalbos</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>Track this event</source>
-      <translation type="unfinished"/>
+      <translation>Stebėti šį įvykį</translation>
     </message>
     <message>
       <source>Status was clicked</source>
-      <translation type="unfinished"/>
+      <translation>Buvo spustelėta būsena</translation>
     </message>
     <message>
       <source>Category</source>
-      <translation type="unfinished"/>
+      <translation>Kategorija</translation>
     </message>
     <message>
       <source>Event action</source>
-      <translation type="unfinished"/>
+      <translation>Įvykio veiksmas</translation>
     </message>
     <message>
       <source>Event label</source>
-      <translation type="unfinished"/>
+      <translation>Įvykio etiketė</translation>
     </message>
     <message>
       <source>Offline message</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>If you leave empty we will set automatically invitation name.</source>
-      <translation type="unfinished"/>
+      <translation>Jei paliksite tuščią vietą, mes automatiškai nustatysime kvietimo pavadinimą.</translation>
     </message>
     <message>
       <source>Invitation hide</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimas paslėpti</translation>
     </message>
     <message>
       <source>Cancel invitation</source>
-      <translation type="unfinished"/>
+      <translation>Atšaukti kvietimą</translation>
     </message>
     <message>
       <source> Called if invitation was in full widget and widget was minimised or visitor clicked close icon in invitation tooltip</source>
-      <translation type="unfinished"/>
+      <translation> Iškviesta, jei kvietimas buvo visame valdiklyje ir valdiklis buvo sumažintas arba lankytojas spustelėjo uždarymo piktogramą kvietimo įrankio užraše</translation>
     </message>
     <message>
       <source>Invitation clicked. Visitor clicked invitation tooltip. It is not triggered if it just clicks status icon while invitation tooltip is shown.</source>
-      <translation type="unfinished"/>
+      <translation>Paspaustas kvietimas. Lankytojas spustelėjo kvietimo užuominą. Ji nesuveikia, jei jis tik spusteli būsenos piktogramą, o kvietimo užrašas rodomas.</translation>
     </message>
     <message>
       <source>Invitation was read. Means visitor opened widget with an invitation either by clicking invitation tooltip or status icon.</source>
-      <translation type="unfinished"/>
+      <translation>Perskaitytas kvietimas. Tai reiškia, kad lankytojas atidarė valdiklį su kvietimu spustelėjęs kvietimo užuominą arba būsenos piktogramą.</translation>
     </message>
     <message>
       <source>Need help was shown</source>
-      <translation type="unfinished"/>
+      <translation>Buvo parodyta, kad reikia pagalbos</translation>
     </message>
     <message>
       <source>Need help was hidden</source>
-      <translation type="unfinished"/>
+      <translation>Pagalbos poreikis buvo paslėptas</translation>
     </message>
     <message>
       <source>Need help was clicked</source>
-      <translation type="unfinished"/>
+      <translation>Reikia pagalbos buvo spustelėta</translation>
     </message>
     <message>
       <source>Need help close icon was clicked</source>
-      <translation type="unfinished"/>
+      <translation>Reikia pagalbos uždaryti piktogramą buvo spustelėta</translation>
     </message>
     <message>
       <source>Bot trigger was executed</source>
-      <translation type="unfinished"/>
+      <translation>Bot trigeris buvo įvykdytas</translation>
     </message>
     <message>
       <source>We will set eventLabel to trigger name</source>
-      <translation type="unfinished"/>
+      <translation>Nustatysime EventLabel į trigerio pavadinimą</translation>
     </message>
     <message>
       <source>Please choose a department</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite skyrių</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite vardą</translation>
     </message>
     <message>
       <source>Events tracking by department</source>
-      <translation type="unfinished"/>
+      <translation>Įvykių stebėjimas pagal skyrius</translation>
     </message>
     <message>
       <source>Edit event tracking</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti įvykių stebėjimą</translation>
     </message>
     <message>
       <source>New event tracking</source>
-      <translation type="unfinished"/>
+      <translation>Naujas įvykių stebėjimas</translation>
     </message>
     <message>
       <source>BBCode configuration</source>
-      <translation type="unfinished"/>
+      <translation>BBCode konfigūracija</translation>
     </message>
     <message>
       <source>Default settings</source>
-      <translation type="unfinished"/>
+      <translation>Numatytuosius nustatymus</translation>
     </message>
   </context>
   <context>
     <name>department/departments</name>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Clone</source>
-      <translation type="unfinished"/>
+      <translation>Klonas</translation>
     </message>
     <message>
       <source>Brands</source>
-      <translation type="unfinished"/>
+      <translation>Prekės ženklai</translation>
     </message>
     <message>
       <source>Brand</source>
-      <translation type="unfinished"/>
+      <translation>Prekės ženklas</translation>
     </message>
     <message>
       <source>Departments</source>
@@ -17999,39 +18283,39 @@
     </message>
     <message>
       <source>Hidden</source>
-      <translation type="unfinished"/>
+      <translation>Paslėptas</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Neįgalieji</translation>
     </message>
     <message>
       <source>Visible only if online</source>
-      <translation type="unfinished"/>
+      <translation>Matoma tik jei esate prisijungę</translation>
     </message>
     <message>
       <source>Overloaded</source>
-      <translation type="unfinished"/>
+      <translation>Perkrautas</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Archived</source>
-      <translation type="unfinished"/>
+      <translation>Archyvuota</translation>
     </message>
     <message>
       <source>Load statistic</source>
-      <translation type="unfinished"/>
+      <translation>Įkrovos statistika</translation>
     </message>
     <message>
       <source>Department alias</source>
-      <translation type="unfinished"/>
+      <translation>Departamento slapyvardis</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Yes</source>
@@ -18043,7 +18327,7 @@
     </message>
     <message>
       <source>Assigned operators</source>
-      <translation type="unfinished"/>
+      <translation>Priskirti operatoriai</translation>
     </message>
     <message>
       <source>New department</source>
@@ -18051,115 +18335,115 @@
     </message>
     <message>
       <source>Departments groups</source>
-      <translation type="unfinished"/>
+      <translation>Departamentų grupės</translation>
     </message>
     <message>
       <source>Group</source>
-      <translation type="unfinished"/>
+      <translation>Grupė</translation>
     </message>
     <message>
       <source>Pending chats</source>
-      <translation type="unfinished"/>
+      <translation>Laukiami pokalbiai</translation>
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>Neaktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Bots chats</source>
-      <translation type="unfinished"/>
+      <translation>Bots pokalbiai</translation>
     </message>
     <message>
       <source>Online operators active chats</source>
-      <translation type="unfinished"/>
+      <translation>Internetiniai operatoriai aktyvūs pokalbiai</translation>
     </message>
     <message>
       <source>Online operators inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>Neaktyvūs pokalbiai su internetiniais operatoriais</translation>
     </message>
     <message>
       <source>Max chats</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus pokalbių skaičius</translation>
     </message>
     <message>
       <source>Online operators</source>
-      <translation type="unfinished"/>
+      <translation>Interneto operatoriai</translation>
     </message>
     <message>
       <source>Offline operators</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungę operatoriai</translation>
     </message>
     <message>
       <source>Total operators</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso operatorių</translation>
     </message>
     <message>
       <source>Update stats</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti statistiką</translation>
     </message>
     <message>
       <source>Edit theme</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti temą</translation>
     </message>
     <message>
       <source>Disabled because there is assigned operators to it!</source>
-      <translation type="unfinished"/>
+      <translation>Neįgalus, nes jam priskirti operatoriai!</translation>
     </message>
     <message>
       <source>Themes edit</source>
-      <translation type="unfinished"/>
+      <translation>Temos redaguoti</translation>
     </message>
     <message>
       <source>Departments limit groups</source>
-      <translation type="unfinished"/>
+      <translation>Departamentų ribinės grupės</translation>
     </message>
     <message>
       <source>Group chat</source>
-      <translation type="unfinished"/>
+      <translation>Grupinis pokalbis</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>Type</source>
-      <translation type="unfinished"/>
+      <translation>Tipas</translation>
     </message>
     <message>
       <source>Creation time</source>
-      <translation type="unfinished"/>
+      <translation>Sukūrimo laikas</translation>
     </message>
     <message>
       <source>Public</source>
-      <translation type="unfinished"/>
+      <translation>Viešoji svetainė</translation>
     </message>
     <message>
       <source>Chat support</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių palaikymas</translation>
     </message>
     <message>
       <source>Private</source>
-      <translation type="unfinished"/>
+      <translation>Privatus</translation>
     </message>
     <message>
       <source>Group chat options</source>
-      <translation type="unfinished"/>
+      <translation>Grupės pokalbių parinktys</translation>
     </message>
     <message>
       <source>User group</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojų grupė</translation>
     </message>
     <message>
       <source>Operator in chat will see automatically members from this group to be invited into private support chat within chat.</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio operatorius pokalbyje automatiškai matys šios grupės narius, kurie bus pakviesti į privatų palaikymo pokalbį pokalbyje.</translation>
     </message>
     <message>
       <source>Replaceable variables</source>
-      <translation type="unfinished"/>
+      <translation>Keičiami kintamieji</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -18167,19 +18451,19 @@
     </message>
     <message>
       <source>Archive configuration</source>
-      <translation type="unfinished"/>
+      <translation>Archyvo konfigūracija</translation>
     </message>
     <message>
       <source>Departments list</source>
-      <translation type="unfinished"/>
+      <translation>Departamentų sąrašas</translation>
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>Grupės pokalbiai</translation>
     </message>
     <message>
       <source>Mail archive configuration</source>
-      <translation type="unfinished"/>
+      <translation>Pašto archyvo konfigūracija</translation>
     </message>
   </context>
   <context>
@@ -18218,18 +18502,18 @@
     </message>
     <message>
       <source>Co-browse is stopped by error</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Co-browse&quot; sustabdyta dėl klaidos</translation>
     </message>
     <message>
       <source>Co-browse is stopped!</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Co-browse&quot; sustabdyta!</translation>
     </message>
   </context>
   <context>
     <name>chat/operatorsbalancing</name>
     <message>
       <source>Active chats auto-assignment</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvių pokalbių automatinis priskyrimas</translation>
     </message>
     <message>
       <source>Maximum number of active chats user can have at a time, 0 - unlimited</source>
@@ -18237,11 +18521,11 @@
     </message>
     <message>
       <source>Maximum number of department active chats, 0 - unlimited</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias aktyvių pokalbių skaičius, 0 - neribotas</translation>
     </message>
     <message>
       <source>If this limit is reached, new chats will not be assigned to any operator.</source>
-      <translation type="unfinished"/>
+      <translation>Pasiekus šią ribą, nauji pokalbiai nebus priskirti jokiam operatoriui.</translation>
     </message>
     <message>
       <source>Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled</source>
@@ -18249,111 +18533,111 @@
     </message>
     <message>
       <source>Minimum delay between chat assignment to operator</source>
-      <translation type="unfinished"/>
+      <translation>Minimalus vėlavimas tarp pokalbio priskyrimo operatoriui</translation>
     </message>
     <message>
       <source>Delay in seconds before next chat can be assigned to operator.</source>
-      <translation type="unfinished"/>
+      <translation>Vėlavimas sekundėmis iki kito pokalbio priskyrimo operatoriui.</translation>
     </message>
     <message>
       <source>Exclude inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>Neįtraukti neaktyvių pokalbių</translation>
     </message>
     <message>
       <source>Pending and active chats which visitors has closed chats explicitly or visitors being redirected to survey will be excluded</source>
-      <translation type="unfinished"/>
+      <translation>Laukiantys ir aktyvūs pokalbiai, kurių lankytojai aiškiai uždarė pokalbius arba lankytojai buvo nukreipti į apklausą, nebus įtraukti.</translation>
     </message>
     <message>
       <source>Assign chat to lowest number of chats having operator</source>
-      <translation type="unfinished"/>
+      <translation>Priskirti pokalbius mažiausiam pokalbių, turinčių operatorių, skaičiui</translation>
     </message>
     <message>
       <source>Try to assign chats first to the same language speaking operators</source>
-      <translation type="unfinished"/>
+      <translation>Pabandykite pokalbius pirmiausia priskirti ta pačia kalba kalbantiems operatoriams.</translation>
     </message>
     <message>
       <source>Check for presence of variable</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite, ar yra kintamasis</translation>
     </message>
     <message>
       <source>Resume auto assign if chat remains pending for n seconds</source>
-      <translation type="unfinished"/>
+      <translation>atnaujinti automatinį priskyrimą, jei pokalbis laukia n sekundžių</translation>
     </message>
     <message>
       <source>Assign chat by operator priority</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių priskyrimas pagal operatoriaus prioritetą</translation>
     </message>
     <message>
       <source>This has higher priority than assign chats to lower number of chats having operators</source>
-      <translation type="unfinished"/>
+      <translation>Tai turi didesnį prioritetą nei priskirti pokalbius mažesniam pokalbių, turinčių operatorių, skaičiui.</translation>
     </message>
     <message>
       <source>Prioritized assignment workflow</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetinė užduočių darbo eiga</translation>
     </message>
     <message>
       <source>Activate prioritized assignment</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvinti prioritetinį priskyrimą</translation>
     </message>
     <message>
       <source>Assign chat by operator priority also</source>
-      <translation type="unfinished"/>
+      <translation>Taip pat priskirti pokalbius pagal operatoriaus prioritetą</translation>
     </message>
     <message>
       <source>Assign only priority operators</source>
-      <translation type="unfinished"/>
+      <translation>Priskirti tik prioritetinius operatorius</translation>
     </message>
     <message>
       <source>By default we assign priority chats to all operators which match priority queues options. This options forces for operator have chosen to participate only in department priority queue.</source>
-      <translation type="unfinished"/>
+      <translation>Pagal numatytuosius nustatymus prioritetinius pokalbius priskiriame visiems operatoriams, atitinkantiems prioritetinių eilių parinktis. Ši parinktis verčia operatorių, pasirinkusį dalyvauti tik skyriaus prioritetinėje eilėje.</translation>
     </message>
     <message>
       <source>Minimum agent assignment priority. Inclusive.</source>
-      <translation type="unfinished"/>
+      <translation>Mažiausias agento priskyrimo prioritetas. Įskaitant.</translation>
     </message>
     <message>
       <source>Minimum chat priority for it being processed with prioritized assignment workflow. Inclusive.</source>
-      <translation type="unfinished"/>
+      <translation>Minimalus pokalbio prioritetas, kad jis būtų apdorojamas naudojant prioritetinę priskyrimo darbo eigą. Įskaitant.</translation>
     </message>
     <message>
       <source>Maximum chat priority for it being processed with prioritized assignment workflow. Inclusive.</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias pokalbio prioritetas, kad jis būtų apdorojamas naudojant prioritetinę priskyrimo darbo eigą. Įskaitant.</translation>
     </message>
     <message>
       <source>Active mails auto-assignment</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvių laiškų automatinis priskyrimas</translation>
     </message>
     <message>
       <source>Maximum number of active mails user can have at a time, 0 - unlimited</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias galimas aktyvių laiškų skaičius vienu metu, 0 - neribotas</translation>
     </message>
     <message>
       <source>Maximum number of department active mails, 0 - unlimited</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias aktyvių laiškų skaičius, 0 - neribotas</translation>
     </message>
     <message>
       <source>If this limit is reached, new mails will not be assigned to any operator.</source>
-      <translation type="unfinished"/>
+      <translation>Pasiekus šią ribą, nauji laiškai nebus priskirti jokiam operatoriui.</translation>
     </message>
     <message>
       <source>Automatically assign mail to another operator if operator did not accepted mail in seconds, 0 - disabled</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai priskirti paštą kitam operatoriui, jei operatorius nepriėmė laiško per kelias sekundes, 0 - išjungta</translation>
     </message>
     <message>
       <source>Minimum delay between mail assignment to operator</source>
-      <translation type="unfinished"/>
+      <translation>Minimalus uždelsimas nuo pašto priskyrimo operatoriui</translation>
     </message>
     <message>
       <source>Delay in seconds before next mail can be assigned to operator.</source>
-      <translation type="unfinished"/>
+      <translation>Vėlavimas sekundėmis, kol operatoriui bus galima priskirti kitą laišką.</translation>
     </message>
     <message>
       <source>Hide send e-mail button for operators in chat window</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti el. pašto siuntimo mygtuką operatoriams pokalbių lange</translation>
     </message>
     <message>
       <source>Do not show survey if chat is ended in a bot status</source>
-      <translation type="unfinished"/>
+      <translation>Nerodyti apklausos, jei pokalbis baigiamas boto būsena</translation>
     </message>
   </context>
   <context>
@@ -18364,19 +18648,19 @@
     </message>
     <message>
       <source>New brand</source>
-      <translation type="unfinished"/>
+      <translation>Naujas prekės ženklas</translation>
     </message>
     <message>
       <source>New department group</source>
-      <translation type="unfinished"/>
+      <translation>Nauja departamento grupė</translation>
     </message>
     <message>
       <source>New department limit group</source>
-      <translation type="unfinished"/>
+      <translation>Nauja departamento apribojimų grupė</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>New bot</source>
@@ -18384,27 +18668,27 @@
     </message>
     <message>
       <source>New command</source>
-      <translation type="unfinished"/>
+      <translation>Nauja komanda</translation>
     </message>
     <message>
       <source>New exception group</source>
-      <translation type="unfinished"/>
+      <translation>Nauja išimčių grupė</translation>
     </message>
     <message>
       <source>New Rest API Call</source>
-      <translation type="unfinished"/>
+      <translation>Naujas &quot;Rest API&quot; skambutis</translation>
     </message>
     <message>
       <source>New individualization</source>
-      <translation type="unfinished"/>
+      <translation>Naujas individualizavimas</translation>
     </message>
     <message>
       <source>New translation item</source>
-      <translation type="unfinished"/>
+      <translation>Naujas vertimo elementas</translation>
     </message>
     <message>
       <source>New group chat</source>
-      <translation type="unfinished"/>
+      <translation>Naujas grupės pokalbis</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -18412,30 +18696,30 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
   </context>
   <context>
     <name>lhsystem/singlesetting</name>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Nustatymai</translation>
     </message>
     <message>
       <source>Ignore operators online statuses and use departments online hours.</source>
-      <translation type="unfinished"/>
+      <translation>Nekreipkite dėmesio į operatorių internetinius statusus ir naudokitės skyrių internetinėmis valandomis.</translation>
     </message>
     <message>
       <source>For all departments.</source>
-      <translation type="unfinished"/>
+      <translation>Visiems skyriams.</translation>
     </message>
     <message>
       <source>Only for this department.</source>
-      <translation type="unfinished"/>
+      <translation>Tik šiame skyriuje.</translation>
     </message>
     <message>
       <source>This is a global setting and is set for the all departments.</source>
-      <translation type="unfinished"/>
+      <translation>Tai visuotinis nustatymas, kuris nustatomas visiems skyriams.</translation>
     </message>
   </context>
   <context>
@@ -18450,15 +18734,15 @@
     </message>
     <message>
       <source>Keyword</source>
-      <translation type="unfinished"/>
+      <translation>Raktinis žodis</translation>
     </message>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
+      <translation>Paieška</translation>
     </message>
     <message>
       <source>No items were found</source>
-      <translation type="unfinished"/>
+      <translation>Nerastas nė vienas elementas</translation>
     </message>
     <message>
       <source>Type your question</source>
@@ -18626,11 +18910,11 @@
     </message>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ID</translation>
     </message>
     <message>
       <source>File name</source>
-      <translation type="unfinished"/>
+      <translation>Failo pavadinimas</translation>
     </message>
     <message>
       <source>Extension</source>
@@ -18638,31 +18922,31 @@
     </message>
     <message>
       <source>Disposition</source>
-      <translation type="unfinished"/>
+      <translation>Dispozicija</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation type="unfinished"/>
+      <translation>Žinutė</translation>
     </message>
     <message>
       <source>Conversation</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis</translation>
     </message>
     <message>
       <source>Attachment</source>
-      <translation type="unfinished"/>
+      <translation>Priedas</translation>
     </message>
     <message>
       <source>Content</source>
-      <translation type="unfinished"/>
+      <translation>Turinys</translation>
     </message>
     <message>
       <source>Dimensions</source>
-      <translation type="unfinished"/>
+      <translation>Matmenys</translation>
     </message>
     <message>
       <source>File path</source>
-      <translation type="unfinished"/>
+      <translation>Failo kelias</translation>
     </message>
     <message>
       <source>User</source>
@@ -18674,7 +18958,7 @@
     </message>
     <message>
       <source>Persistent</source>
-      <translation type="unfinished"/>
+      <translation>Nuolatinis</translation>
     </message>
     <message>
       <source>Date</source>
@@ -18682,15 +18966,15 @@
     </message>
     <message>
       <source>Public</source>
-      <translation type="unfinished"/>
+      <translation>Viešoji svetainė</translation>
     </message>
     <message>
       <source>Temporary file, it will be removed after chat is closed</source>
-      <translation type="unfinished"/>
+      <translation>Laikinas failas, jis bus pašalintas uždarius pokalbį</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Delete the file</source>
@@ -18698,15 +18982,15 @@
     </message>
     <message>
       <source>Has metadata</source>
-      <translation type="unfinished"/>
+      <translation>Turi metaduomenų</translation>
     </message>
     <message>
       <source>Details</source>
-      <translation type="unfinished"/>
+      <translation>Išsami informacija</translation>
     </message>
     <message>
       <source>List of mail files</source>
-      <translation type="unfinished"/>
+      <translation>Pašto failų sąrašas</translation>
     </message>
   </context>
   <context>
@@ -18720,140 +19004,144 @@
       <translation>Leistini failų tipai vartotojams</translation>
     </message>
     <message>
+      <source>Allowed files types for users while in bot status. You can have custom file types allowed while chat is in bot status.</source>
+      <translation>Leidžiami failų tipai naudotojams, kai jie yra boto būsenoje. Galite nustatyti pasirinktinius failų tipus, kurie leidžiami, kai pokalbis yra boto būsenoje.</translation>
+    </message>
+    <message>
       <source>Maximum file size in KB</source>
       <translation>Maksimalus failo dydis KB</translation>
     </message>
     <message>
       <source>Max file size</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus failo dydis</translation>
     </message>
     <message>
       <source>Max post size</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus pranešimo dydis</translation>
     </message>
     <message>
       <source>Maximum visitor image resolution. Images will be resized to fit within a square of this many pixels.</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausia lankytojo vaizdo skiriamoji geba. Vaizdų dydis bus keičiamas taip, kad tilptų į šio skaičiaus pikselių kvadratą.</translation>
     </message>
     <message>
       <source>Files download permissions</source>
-      <translation type="unfinished"/>
+      <translation>Failų atsisiuntimo leidimai</translation>
     </message>
     <message>
       <source>Chat related file can be downloaded by visitors</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojai gali atsisiųsti su pokalbiais susijusį failą</translation>
     </message>
     <message>
       <source>Always (default), generated link is valid for 5 minutes</source>
-      <translation type="unfinished"/>
+      <translation>Visada (numatytasis nustatymas), sugeneruota nuoroda galioja 5 minutes</translation>
     </message>
     <message>
       <source>Link is valid indefinitely</source>
-      <translation type="unfinished"/>
+      <translation>Nuoroda galioja neribotą laiką</translation>
     </message>
     <message>
       <source>If chat is in pending/active/bot status</source>
-      <translation type="unfinished"/>
+      <translation>Jei pokalbis yra laukiančio/aktyvaus/boto būsenoje</translation>
     </message>
     <message>
       <source>For 10 minutes after chat being closed visitor will be able to download a files</source>
-      <translation type="unfinished"/>
+      <translation>10 minučių po to, kai pokalbis bus uždarytas, lankytojas galės atsisiųsti failus</translation>
     </message>
     <message>
       <source>Chat related file can be downloaded by operator</source>
-      <translation type="unfinished"/>
+      <translation>Su pokalbiais susijusį failą gali atsisiųsti operatorius</translation>
     </message>
     <message>
       <source>Always (default)</source>
-      <translation type="unfinished"/>
+      <translation>Visada (numatytasis nustatymas)</translation>
     </message>
     <message>
       <source>Has permission to related chat</source>
-      <translation type="unfinished"/>
+      <translation>Turi leidimą susijusiems pokalbiams</translation>
     </message>
     <message>
       <source>The image file can be downloaded by operator if</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdo failą gali atsisiųsti operatorius, jei</translation>
     </message>
     <message>
       <source>Default, all images files will be downloaded</source>
-      <translation type="unfinished"/>
+      <translation>Pagal numatytuosius nustatymus bus atsisiųsti visi vaizdų failai</translation>
     </message>
     <message>
       <source>Verified and has permission to download protected images OR has permission to download unprotected files</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinta ir turi leidimą atsisiųsti apsaugotus vaizdus ARBA turi leidimą atsisiųsti neapsaugotus failus</translation>
     </message>
     <message>
       <source>Minimum image width or height to require verification</source>
-      <translation type="unfinished"/>
+      <translation>Mažiausias vaizdo plotis arba aukštis, kurį reikia patikrinti</translation>
     </message>
     <message>
       <source>Maximum image resolution for e-mails</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausia el. laiškų vaizdo skiriamoji geba</translation>
     </message>
     <message>
       <source>Maximum mail message image resolution. Images will be resized to fit within a square of this many pixels.</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausia pašto pranešimo vaizdo skiriamoji geba. Vaizdų dydis bus pakeistas taip, kad tilptų į šio skaičiaus pikselių kvadratą.</translation>
     </message>
     <message>
       <source>Mail related file can be downloaded by operator if he</source>
-      <translation type="unfinished"/>
+      <translation>Su paštu susijusį failą operatorius gali atsisiųsti, jei</translation>
     </message>
     <message>
       <source>Has permission to use mail module (default)</source>
-      <translation type="unfinished"/>
+      <translation>Turi leidimą naudoti pašto modulį (numatytoji reikšmė)</translation>
     </message>
     <message>
       <source>Has permission to use mail module and access mail.</source>
-      <translation type="unfinished"/>
+      <translation>Turi leidimą naudoti pašto modulį ir pasiekti paštą.</translation>
     </message>
     <message>
       <source>By-pass those type of images files from verification</source>
-      <translation type="unfinished"/>
+      <translation>Tokio tipo vaizdų failų tikrinimo apėjimas</translation>
     </message>
     <message>
       <source>ClamAV antivirus configuration</source>
-      <translation type="unfinished"/>
+      <translation>&quot;ClamAV&quot; antivirusinės programos konfigūracija</translation>
     </message>
     <message>
       <source>ClamAV socket path</source>
-      <translation type="unfinished"/>
+      <translation>&quot;ClamAV&quot; lizdo kelias</translation>
     </message>
     <message>
       <source>ClamAV socket length</source>
-      <translation type="unfinished"/>
+      <translation>&quot;ClamAV&quot; lizdo ilgis</translation>
     </message>
     <message>
       <source>Voice messages</source>
-      <translation type="unfinished"/>
+      <translation>Balso pranešimai</translation>
     </message>
     <message>
       <source>Voice message max length in seconds</source>
-      <translation type="unfinished"/>
+      <translation>Maksimali balso žinutės trukmė sekundėmis</translation>
     </message>
     <message>
       <source>Maintenance</source>
-      <translation type="unfinished"/>
+      <translation>Techninė priežiūra</translation>
     </message>
     <message>
       <source>Files will be deleted only if days is &gt; 0</source>
-      <translation type="unfinished"/>
+      <translation>Failai bus ištrinti tik tada, jei dienų skaičius yra &gt; 0</translation>
     </message>
     <message>
       <source>Delete files</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti failus</translation>
     </message>
     <message>
       <source>if file is (OR)</source>
-      <translation type="unfinished"/>
+      <translation>jei failas yra (ARBA)</translation>
     </message>
     <message>
       <source>And operator file is older than n days</source>
-      <translation type="unfinished"/>
+      <translation>Ir operatoriaus failas yra senesnis nei n dienų</translation>
     </message>
     <message>
       <source>And visitor file is older than n days</source>
-      <translation type="unfinished"/>
+      <translation>Ir lankytojo failas yra senesnis nei n dienų</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -18880,31 +19168,31 @@
     </message>
     <message>
       <source>Persistent</source>
-      <translation type="unfinished"/>
+      <translation>Nuolatinis</translation>
     </message>
     <message>
       <source>Files maintenance jobs will not be run on this file.</source>
-      <translation type="unfinished"/>
+      <translation>Failų priežiūros darbai su šiuo failu nebus vykdomi.</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti</translation>
     </message>
     <message>
       <source>Meta data</source>
-      <translation type="unfinished"/>
+      <translation>Meta duomenys</translation>
     </message>
     <message>
       <source>BB code as a file</source>
-      <translation type="unfinished"/>
+      <translation>BB kodas kaip failas</translation>
     </message>
     <message>
       <source>BB code as an image</source>
-      <translation type="unfinished"/>
+      <translation>BB kodas kaip paveikslėlis</translation>
     </message>
     <message>
       <source>File updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujintas failas</translation>
     </message>
     <message>
       <source>Upload</source>
@@ -18916,7 +19204,7 @@
     </message>
     <message>
       <source>Edit file</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti failą</translation>
     </message>
     <message>
       <source>New file</source>
@@ -18943,7 +19231,7 @@
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Intro</source>
@@ -19013,7 +19301,7 @@
     </message>
     <message>
       <source>Custom fields</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktiniai laukai</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -19032,11 +19320,11 @@
     </message>
     <message>
       <source>Custom attributes</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktiniai atributai</translation>
     </message>
     <message>
       <source>identifier</source>
-      <translation type="unfinished"/>
+      <translation>identifikatorius</translation>
     </message>
     <message>
       <source>Download</source>
@@ -19051,42 +19339,42 @@
     <name>genericbot/bot</name>
     <message>
       <source>Zoom controls</source>
-      <translation type="unfinished"/>
+      <translation>Priartinimo valdikliai</translation>
     </message>
     <message>
       <source>Reset Zoom</source>
-      <translation type="unfinished"/>
+      <translation>Iš naujo nustatyti priartinimą</translation>
     </message>
     <message>
       <source>Zoom Out</source>
-      <translation type="unfinished"/>
+      <translation>Padidinti mastelį</translation>
     </message>
     <message>
       <source>Zoom In</source>
-      <translation type="unfinished"/>
+      <translation>Priartinti vaizdą</translation>
     </message>
     <message>
       <source>Reload Chart</source>
-      <translation type="unfinished"/>
+      <translation>Perkrovimo diagrama</translation>
     </message>
     <message>
       <source>Bot not found</source>
-      <translation type="unfinished"/>
+      <translation>Botas nerastas</translation>
     </message>
     <message>
       <source>No triggers found for this bot</source>
-      <translation type="unfinished"/>
+      <translation>Nerastas nė vienas šio boto paleidiklis</translation>
     </message>
     <message>
       <source>Chat Start</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio pradžia</translation>
     </message>
   </context>
   <context>
     <name>genericbot/import</name>
     <message>
       <source>Import group</source>
-      <translation type="unfinished"/>
+      <translation>Importo grupė</translation>
     </message>
     <message>
       <source>File</source>
@@ -19098,15 +19386,15 @@
     </message>
     <message>
       <source>Group imported</source>
-      <translation type="unfinished"/>
+      <translation>Importuota grupė</translation>
     </message>
     <message>
       <source>Import bot</source>
-      <translation type="unfinished"/>
+      <translation>Importo botas</translation>
     </message>
     <message>
       <source>In case you have imported the Rest API already. You can make sure the imported bot uses the chosen Rest API.</source>
-      <translation type="unfinished"/>
+      <translation>Jei jau importavote Rest API. Galite įsitikinti, kad importuotas botas naudoja pasirinktą Rest API.</translation>
     </message>
     <message>
       <source>Bot imported</source>
@@ -19114,379 +19402,395 @@
     </message>
     <message>
       <source>Rest API imported</source>
-      <translation type="unfinished"/>
+      <translation>Importuota poilsio API</translation>
     </message>
     <message>
       <source>Webhook imported</source>
-      <translation type="unfinished"/>
+      <translation>Importuotas &quot;Webhook</translation>
     </message>
     <message>
       <source>Invalid file!</source>
-      <translation type="unfinished"/>
+      <translation>Netinkamas failas!</translation>
     </message>
     <message>
       <source>Copy of</source>
-      <translation type="unfinished"/>
+      <translation>Kopija</translation>
     </message>
   </context>
   <context>
     <name>genericbot/new</name>
     <message>
       <source>Short name</source>
-      <translation type="unfinished"/>
+      <translation>Trumpas pavadinimas</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>Sistemos konfigūracija</translation>
     </message>
     <message>
       <source>Bot constructor</source>
-      <translation type="unfinished"/>
+      <translation>Boto konstruktorius</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>Commands</source>
-      <translation type="unfinished"/>
+      <translation>Komandos</translation>
     </message>
     <message>
       <source>Conditions</source>
-      <translation type="unfinished"/>
+      <translation>Sąlygos</translation>
     </message>
     <message>
       <source>Responses for API error</source>
-      <translation type="unfinished"/>
+      <translation>API klaidos atsakymai</translation>
     </message>
     <message>
       <source>Bots</source>
-      <translation type="unfinished"/>
+      <translation>Botai</translation>
     </message>
     <message>
       <source>Bot individualization</source>
-      <translation type="unfinished"/>
+      <translation>Boto individualizavimas</translation>
     </message>
   </context>
   <context>
     <name>genericbot/helpattributes</name>
     <message>
       <source>Conditions explain</source>
-      <translation type="unfinished"/>
+      <translation>Sąlygų paaiškinimas</translation>
     </message>
     <message>
       <source>Page where chat started</source>
-      <translation type="unfinished"/>
+      <translation>Puslapis, kuriame pradėtas pokalbis</translation>
     </message>
     <message>
       <source>Referer from where visitor come to site.</source>
-      <translation type="unfinished"/>
+      <translation>Nuoroda, iš kurios lankytojas atėjo į svetainę.</translation>
     </message>
     <message>
       <source>Operator nick</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus slapyvardis</translation>
     </message>
     <message>
       <source>Previous chat additional chat variable</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnis pokalbis papildomas pokalbio kintamasis</translation>
     </message>
     <message>
       <source>Visitor message content</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo žinutės turinys</translation>
     </message>
     <message>
       <source>Check conditions for bot</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite botų sąlygas</translation>
     </message>
     <message>
       <source>additional information</source>
-      <translation type="unfinished"/>
+      <translation>papildoma informacija</translation>
     </message>
     <message>
       <source>Visitor nick</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo slapyvardis</translation>
     </message>
     <message>
       <source>Visitor e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo el. paštas</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefonas</translation>
     </message>
     <message>
       <source>canned message replaceable variables</source>
-      <translation type="unfinished"/>
+      <translation>skardinės žinutės pakeičiami kintamieji</translation>
     </message>
     <message>
       <source>If you are using those vars in Rest API calls make sure you use double brackets E.g</source>
-      <translation type="unfinished"/>
+      <translation>Jei šias vars naudojate Rest API skambučiuose, įsitikinkite, kad naudojate dvigubus skliaustelius, pvz.</translation>
     </message>
     <message>
       <source>Chat ID, Chat Message ID or Mail Message ID to explore</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID, pokalbio žinutės ID arba pašto žinutės ID ištirti</translation>
     </message>
     <message>
       <source>Attribute to extract</source>
-      <translation type="unfinished"/>
+      <translation>Išskiriamas požymis</translation>
     </message>
     <message>
       <source>RAW value to test against</source>
-      <translation type="unfinished"/>
+      <translation>RAW vertė, pagal kurią testuojama</translation>
     </message>
     <message>
       <source>Extract chat attribute</source>
-      <translation type="unfinished"/>
+      <translation>Ištrauka pokalbio atributas</translation>
     </message>
     <message>
       <source>Explore all possible chat attributes</source>
-      <translation type="unfinished"/>
+      <translation>Išnagrinėkite visus galimus pokalbių atributus</translation>
     </message>
     <message>
       <source>Test chat text pattern</source>
-      <translation type="unfinished"/>
+      <translation>Bandomasis pokalbio teksto modelis</translation>
     </message>
     <message>
       <source>Extract mail attribute</source>
-      <translation type="unfinished"/>
+      <translation>Ištrauka pašto atributas</translation>
     </message>
     <message>
       <source>Explore all possible mail attributes</source>
-      <translation type="unfinished"/>
+      <translation>Išnagrinėti visus galimus pašto atributus</translation>
     </message>
     <message>
       <source>Test mail text pattern</source>
-      <translation type="unfinished"/>
+      <translation>Bandomojo pašto teksto modelis</translation>
     </message>
     <message>
       <source>Test RAW text pattern</source>
-      <translation type="unfinished"/>
+      <translation>Bandomasis RAW teksto modelis</translation>
     </message>
     <message>
       <source>Extract chat message attribute</source>
-      <translation type="unfinished"/>
+      <translation>Ištrauka pokalbio žinutės atributas</translation>
     </message>
     <message>
       <source>Explore all possible chat message attributes</source>
-      <translation type="unfinished"/>
+      <translation>Išnagrinėti visus galimus pokalbių pranešimų atributus</translation>
     </message>
     <message>
       <source>Test chat message text pattern</source>
-      <translation type="unfinished"/>
+      <translation>Bandomojo pokalbio žinutės teksto modelis</translation>
     </message>
     <message>
       <source>Your response will appear here!</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų atsakymas pasirodys čia!</translation>
     </message>
     <message>
       <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
-      <translation type="unfinished"/>
+      <translation>Apibūdina vidutinį laiką, per kurį agentas atsako lankytojui į žinutę, atsižvelgiant į visą pokalbį.</translation>
     </message>
     <message>
       <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
-      <translation type="unfinished"/>
+      <translation>Aprašoma, kiek laiko užtruko pokalbis, kol jis buvo uždarytas. Pokalbio trukmė nustatoma pagal laiką, praleistą tarp žinučių.</translation>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
+      <translation>Aprašoma, kiek laiko užtruko pokalbis, kol jis buvo uždarytas. Pokalbio trukmė apskaičiuojama pagal laiką, praleistą tarp pranešimų vienam agentui.</translation>
     </message>
     <message>
       <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
-      <translation type="unfinished"/>
+      <translation>Apibūdina, per kiek laiko agentas atsako į pirmąją žinutę lankytojui po pokalbio patvirtinimo.</translation>
     </message>
     <message>
       <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
-      <translation type="unfinished"/>
+      <translation>Apibūdina maksimalų laiką, per kurį agentas atsako lankytojui į žinutę.</translation>
     </message>
     <message>
       <source>You can have custom JS execution on click event. In combination with</source>
-      <translation type="unfinished"/>
+      <translation>Paspaudimo įvykio metu galite atlikti pasirinktinį JS vykdymą. Kartu su</translation>
     </message>
     <message>
       <source>Hide content on click</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti turinį paspaudus</translation>
     </message>
     <message>
       <source>you can have your own invitation workflow.</source>
-      <translation type="unfinished"/>
+      <translation>galite turėti savo kvietimų darbo eigą.</translation>
     </message>
     <message>
       <source>Some examples of JS</source>
-      <translation type="unfinished"/>
+      <translation>Keletas JS pavyzdžių</translation>
     </message>
     <message>
       <source>Call page function where widget is embedded</source>
-      <translation type="unfinished"/>
+      <translation>Skambinti puslapio, į kurį įterptas valdiklis, funkcijai</translation>
     </message>
     <message>
       <source>If you are passing department make sure. This is highly recommended as chat might not be able to start if you have custom required fields by department.</source>
-      <translation type="unfinished"/>
+      <translation>Jei perduodate departamentą, įsitikinkite, kad. Tai labai rekomenduojama, nes pokalbio gali nepavykti pradėti, jei turite pasirinktinius privalomus laukus pagal departamentą.</translation>
     </message>
     <message>
       <source>You pass it for all options</source>
-      <translation type="unfinished"/>
+      <translation>Jūs perduodate jį visoms parinktims</translation>
     </message>
     <message>
       <source>All options have to be assigned to same start chat configuration</source>
-      <translation type="unfinished"/>
+      <translation>Visos parinktys turi būti priskirtos tai pačiai pradžios pokalbio konfigūracijai</translation>
     </message>
     <message>
       <source>You have chosen that department in department options.</source>
-      <translation type="unfinished"/>
+      <translation>Skyriaus parinktyse pasirinkote šį skyrių.</translation>
     </message>
     <message>
       <source>Apply this configuration also to these departments</source>
-      <translation type="unfinished"/>
+      <translation>Šią konfigūraciją taip pat taikykite šiems skyriams</translation>
     </message>
     <message>
       <source>or</source>
-      <translation type="unfinished"/>
+      <translation>arba</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>JSON based options.</source>
-      <translation type="unfinished"/>
+      <translation>JSON pagrįstos parinktys.</translation>
+    </message>
+    <message>
+      <source>If multilanguage is used for the name, default should be always defined.</source>
+      <translation>Jei pavadinimui naudojama daugiakalbė kalba, visada turėtų būti nustatomi numatytieji nustatymai.</translation>
+    </message>
+    <message>
+      <source>Possible languages</source>
+      <translation>Galimos kalbos</translation>
     </message>
     <message>
       <source>Regular syntax. Depreciated.</source>
-      <translation type="unfinished"/>
+      <translation>Taisyklinga sintaksė. Nusidėvėjęs.</translation>
+    </message>
+    <message>
+      <source>You can define multilanguage label for your custom fields. Default should be always defined.</source>
+      <translation>Galite nustatyti daugiakalbę pasirinktinių laukų etiketę. Numatytoji reikšmė turėtų būti nustatyta visada.</translation>
     </message>
     <message>
       <source>Sample how to use uploaded image from Design section</source>
-      <translation type="unfinished"/>
+      <translation>Pavyzdys, kaip naudoti įkeltą paveikslėlį iš skyriaus Dizainas</translation>
     </message>
     <message>
       <source>Supported replaceable variables. They are taken from online visitor passed variables.</source>
-      <translation type="unfinished"/>
+      <translation>Palaikomi keičiami kintamieji. Jie paimami iš lankytojų internetu perduotų kintamųjų.</translation>
     </message>
     <message>
       <source>visitor nick if we know it from previous chats</source>
-      <translation type="unfinished"/>
+      <translation>lankytojo slapyvardis, jei jį žinome iš ankstesnių pokalbių</translation>
     </message>
     <message>
       <source>invisible by operator</source>
-      <translation type="unfinished"/>
+      <translation>nematomas pagal operatorių</translation>
     </message>
     <message>
       <source>visible by operator</source>
-      <translation type="unfinished"/>
+      <translation>matomas pagal operatorių</translation>
     </message>
     <message>
       <source>Canned replaceable variables</source>
-      <translation type="unfinished"/>
+      <translation>Konservuoti keičiami kintamieji</translation>
     </message>
     <message>
       <source>Samples how to change bubble background</source>
-      <translation type="unfinished"/>
+      <translation>Pavyzdžiai, kaip pakeisti burbulo foną</translation>
     </message>
     <message>
       <source>Tag structure examples</source>
-      <translation type="unfinished"/>
+      <translation>Žymos struktūros pavyzdžiai</translation>
     </message>
     <message>
       <source>simple tag example</source>
-      <translation type="unfinished"/>
+      <translation>paprastos žymės pavyzdys</translation>
     </message>
     <message>
       <source>If in embed code</source>
-      <translation type="unfinished"/>
+      <translation>Jei įterptas kodas</translation>
     </message>
     <message>
       <source>suffix is appended invitation will be shown always independently was there any other invitation active or not.</source>
-      <translation type="unfinished"/>
+      <translation>pridedama priesaga kvietimas bus rodomas visada, nepriklausomai nuo to, ar buvo koks nors kitas aktyvus kvietimas, ar ne.</translation>
     </message>
     <message>
       <source>Once you define a parent invitation. Present invitation is considered as child invitation.</source>
-      <translation type="unfinished"/>
+      <translation>Apibrėžę pagrindinį kvietimą. Šis kvietimas laikomas kvietimu-vaiku.</translation>
     </message>
     <message>
       <source>Only main display attributes are taken as variation.</source>
-      <translation type="unfinished"/>
+      <translation>Tik pagrindiniai ekrano atributai laikomi variacija.</translation>
     </message>
     <message>
       <source>Parent invitation statistic window will show child invitation performance.</source>
-      <translation type="unfinished"/>
+      <translation>Tėvų kvietimų statistikos lange bus rodomi vaikų kvietimų rezultatai.</translation>
     </message>
     <message>
       <source>These conditions you can check and control widget state. More attributes</source>
-      <translation type="unfinished"/>
+      <translation>Šiomis sąlygomis galite tikrinti ir valdyti valdiklio būseną. Daugiau atributų</translation>
     </message>
     <message>
       <source>here</source>
-      <translation type="unfinished"/>
+      <translation>čia</translation>
     </message>
     <message>
       <source>allow to start only for visitors from United States</source>
-      <translation type="unfinished"/>
+      <translation>leisti pradėti tik lankytojams iš Jungtinių Amerikos Valstijų</translation>
     </message>
     <message>
       <source>allow to start only for visitors from United States and Lithuania</source>
-      <translation type="unfinished"/>
+      <translation>leisti pradėti tik lankytojams iš Jungtinių Amerikos Valstijų ir Lietuvos</translation>
     </message>
     <message>
       <source>allow to start only for visitors whois attribute is VIP</source>
-      <translation type="unfinished"/>
+      <translation>leisti pradėti tik lankytojams, kurių atributas yra VIP</translation>
     </message>
     <message>
       <source>Department ID</source>
-      <translation type="unfinished"/>
+      <translation>Departamento ID</translation>
     </message>
     <message>
       <source>are we online</source>
-      <translation type="unfinished"/>
+      <translation>ar esame prisijungę</translation>
     </message>
     <message>
       <source>To choose yesterday.</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkti vakar.</translation>
     </message>
     <message>
       <source>As start day choose yesterday day</source>
-      <translation type="unfinished"/>
+      <translation>Kaip pradžios dieną pasirinkite vakarykštę dieną</translation>
     </message>
     <message>
       <source>Hour and minute from</source>
-      <translation type="unfinished"/>
+      <translation>Valanda ir minutė nuo</translation>
     </message>
     <message>
       <source>Date range to</source>
-      <translation type="unfinished"/>
+      <translation>Datų intervalas iki</translation>
     </message>
     <message>
       <source>choose today and choose</source>
-      <translation type="unfinished"/>
+      <translation>pasirinkite šiandien ir pasirinkite</translation>
     </message>
     <message>
       <source>Hour and minute to</source>
-      <translation type="unfinished"/>
+      <translation>Valanda ir minutė į</translation>
     </message>
     <message>
       <source>Date from and to are always inclusive.</source>
-      <translation type="unfinished"/>
+      <translation>Datos nuo ir iki visada nurodomos imtinai.</translation>
     </message>
     <message>
       <source>Message does not exist or you do not have permission to access it!</source>
-      <translation type="unfinished"/>
+      <translation>Žinutė neegzistuoja arba neturite leidimo ją pasiekti!</translation>
     </message>
     <message>
       <source>Mail message does not exists or you do not have permission to access it!</source>
-      <translation type="unfinished"/>
+      <translation>Pašto žinutė neegzistuoja arba jūs neturite leidimo ją pasiekti!</translation>
     </message>
     <message>
       <source>Chat does not exists or you do not have permission to access it!</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis neegzistuoja arba jūs neturite leidimo jį pasiekti!</translation>
     </message>
   </context>
   <context>
     <name>system/buttoms</name>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
   </context>
   <context>
     <name>chat/start_chat_blocked</name>
     <message>
       <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
-      <translation type="unfinished"/>
+      <translation>Šiuo metu su mumis galite susisiekti tik el. paštu. Atsiprašome už nepatogumus.</translation>
     </message>
   </context>
   <context>
@@ -19535,2253 +19839,2241 @@
     <name>module/mailconvconv</name>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Sender</source>
-      <translation type="unfinished"/>
+      <translation>Siuntėjas</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Statusas</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>Data</translation>
     </message>
     <message>
       <source>Message was seen by customer first time at</source>
-      <translation type="unfinished"/>
+      <translation>Klientas pirmą kartą pamatė pranešimą</translation>
     </message>
     <message>
       <source>Undelivered e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Neįteiktas el. paštas</translation>
     </message>
     <message>
       <source>Follow up e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Tolesnis el. laiškas</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>Uždaras</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation type="unfinished"/>
+      <translation>prieš</translation>
     </message>
     <message>
       <source>Close selected</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryti pasirinktą</translation>
     </message>
     <message>
       <source>Delete and archive selected</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti ir archyvuoti pasirinktą</translation>
     </message>
   </context>
   <context>
     <name>module/mailconvsb</name>
     <message>
       <source>Choose a subject</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite temą</translation>
     </message>
     <message>
       <source>Set a subject</source>
-      <translation type="unfinished"/>
+      <translation>Nustatykite temą</translation>
     </message>
   </context>
   <context>
     <name>module/mailconvfile</name>
     <message>
       <source>Insert as content</source>
-      <translation type="unfinished"/>
+      <translation>Įterpti kaip turinį</translation>
     </message>
     <message>
       <source>Attach</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti</translation>
     </message>
     <message>
       <source>Insert as link</source>
-      <translation type="unfinished"/>
+      <translation>Įterpti kaip nuorodą</translation>
     </message>
     <message>
       <source>Search for template</source>
-      <translation type="unfinished"/>
+      <translation>Ieškoti šablono</translation>
     </message>
     <message>
       <source>Mail conversations options</source>
-      <translation type="unfinished"/>
+      <translation>Pašto pokalbių parinktys</translation>
     </message>
     <message>
       <source>MCE Plugins</source>
-      <translation type="unfinished"/>
+      <translation>MCE įskiepiai</translation>
     </message>
     <message>
       <source>Set default</source>
-      <translation type="unfinished"/>
+      <translation>Nustatyti numatytąsias nuostatas</translation>
     </message>
     <message>
       <source>MCE Toolbar</source>
-      <translation type="unfinished"/>
+      <translation>MCE įrankių juosta</translation>
     </message>
     <message>
       <source>Disable becoming owner automatically on conversation open event</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti automatinį tapimą savininku pokalbio atidarymo įvykio metu</translation>
     </message>
     <message>
       <source>Operator will become an owner if they click the reply button.</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius taps savininku, jei paspaus atsakymo mygtuką.</translation>
     </message>
     <message>
       <source>Skip directly included images while replying to e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Atsakydami į el. laišką praleiskite tiesiogiai įtrauktus vaizdus</translation>
     </message>
     <message>
       <source>Image will be replaced with Image skipped text</source>
-      <translation type="unfinished"/>
+      <translation>Paveiksliukas bus pakeistas paveikslėliu praleistas tekstas</translation>
     </message>
     <message>
       <source>Do not quote original e-mail while responding to a ticket</source>
-      <translation type="unfinished"/>
+      <translation>Atsakydami į bilietą necituokite originalaus el. pašto.</translation>
     </message>
     <message>
       <source>Preserve the quote if the message is an e-mail forward</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti citatą, jei pranešimas yra persiunčiamas el. paštu</translation>
     </message>
     <message>
       <source>Skipped image replacement text. You can use emoji also e.g</source>
-      <translation type="unfinished"/>
+      <translation>Praleistas paveikslėlio pakeitimo tekstas. Taip pat galite naudoti emoji, pvz.</translation>
     </message>
     <message>
       <source>Copy</source>
-      <translation type="unfinished"/>
+      <translation>Kopijuoti</translation>
     </message>
     <message>
       <source>Reply to template</source>
-      <translation type="unfinished"/>
+      <translation>Atsakyti į šabloną</translation>
     </message>
     <message>
       <source>Forward to template:</source>
-      <translation type="unfinished"/>
+      <translation>Persiųsti į šabloną:</translation>
     </message>
     <message>
       <source>Download view mode</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiuntimo peržiūros režimas</translation>
     </message>
     <message>
       <source>Default (download file)</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji (atsisiųsti failą)</translation>
     </message>
     <message>
       <source>View in new tab</source>
-      <translation type="unfinished"/>
+      <translation>Peržiūrėti naujame skirtuke</translation>
     </message>
     <message>
       <source>Modal</source>
-      <translation type="unfinished"/>
+      <translation>Modalinis</translation>
     </message>
     <message>
       <source>File download restrictions</source>
-      <translation type="unfinished"/>
+      <translation>Failų atsisiuntimo apribojimai</translation>
     </message>
     <message>
       <source>Allow to download all files</source>
-      <translation type="unfinished"/>
+      <translation>Leisti atsisiųsti visus failus</translation>
     </message>
     <message>
       <source>Restrict file downloads by extension</source>
-      <translation type="unfinished"/>
+      <translation>Apriboti failų atsisiuntimą pagal plėtinį</translation>
     </message>
     <message>
       <source>File extension settings</source>
-      <translation type="unfinished"/>
+      <translation>Failų plėtinių nustatymai</translation>
     </message>
     <message>
       <source>Allowed extensions for all operators</source>
-      <translation type="unfinished"/>
+      <translation>Leidžiami visų operatorių plėtiniai</translation>
     </message>
     <message>
       <source>Pipe separated list of file extensions that can be downloaded by all operators without special permissions</source>
-      <translation type="unfinished"/>
+      <translation>vamzdžiu atskirtas failų plėtinių, kuriuos visi operatoriai gali atsisiųsti be specialių leidimų, sąrašas</translation>
     </message>
     <message>
       <source>Restricted extensions (require special permission)</source>
-      <translation type="unfinished"/>
+      <translation>Riboto naudojimo plėtiniai (reikia specialaus leidimo)</translation>
     </message>
     <message>
       <source>Pipe separated list of file extensions that can only be downloaded by operators with special permissions</source>
-      <translation type="unfinished"/>
+      <translation>vamzdžiu atskirtas failų plėtinių, kuriuos gali atsisiųsti tik specialius leidimus turintys operatoriai, sąrašas</translation>
     </message>
     <message>
       <source>Check for suspicious PDF files content</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite, ar nėra įtartino PDF failų turinio</translation>
     </message>
     <message>
       <source>Mail general options</source>
-      <translation type="unfinished"/>
+      <translation>Bendrosios pašto parinktys</translation>
     </message>
     <message>
       <source>Enable language detection</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti kalbos aptikimą</translation>
     </message>
     <message>
       <source>Use mail module to send e-mail from chat</source>
-      <translation type="unfinished"/>
+      <translation>Naudokite pašto modulį el. paštui siųsti iš pokalbio</translation>
     </message>
     <message>
       <source>URL of API endpoint</source>
-      <translation type="unfinished"/>
+      <translation>API galinio taško URL</translation>
     </message>
     <message>
       <source>Language detection provider</source>
-      <translation type="unfinished"/>
+      <translation>Kalbos nustatymo paslaugų teikėjas</translation>
     </message>
     <message>
       <source>Choose provider</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite paslaugų teikėją</translation>
     </message>
     <message>
       <source>Send report of failing mailbox to</source>
-      <translation type="unfinished"/>
+      <translation>Siųskite pranešimą apie neveikiančią pašto dėžutę adresu</translation>
     </message>
     <message>
       <source>We will report to provided e-mail. You can enter multiple e-mails by separating by comma.</source>
-      <translation type="unfinished"/>
+      <translation>Pranešime nurodytu el. pašto adresu. Galite įvesti kelis el. pašto adresus, juos atskirdami kableliu.</translation>
     </message>
     <message>
       <source>Other</source>
-      <translation type="unfinished"/>
+      <translation>Kita</translation>
     </message>
     <message>
       <source>Subject to add if mail ticket is closed from chat. Enter a subject ID</source>
-      <translation type="unfinished"/>
+      <translation>Tema pridedama, jei pašto bilietas yra uždarytas iš pokalbio. Įveskite temos ID</translation>
     </message>
     <message>
       <source>Matching rules to exclude mailbox being automatically closed. Defines matching rule for the mailbox.</source>
-      <translation type="unfinished"/>
+      <translation>Atitikties taisyklės, pagal kurias pašto dėžutė automatiškai neuždaroma. Nustato pašto dėžutės atitikimo taisyklę.</translation>
     </message>
     <message>
       <source>Each new matching rule per line.</source>
-      <translation type="unfinished"/>
+      <translation>Kiekviena nauja atitikimo taisyklė vienoje eilutėje.</translation>
     </message>
     <message>
       <source>E.g.</source>
-      <translation type="unfinished"/>
+      <translation>Pvz.</translation>
     </message>
   </context>
   <context>
     <name>module/mailconv</name>
     <message>
       <source>Change mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Pakeisti pašto dėžutę</translation>
     </message>
     <message>
       <source>Search for a mailbox. First 50 mailbox are shown.</source>
-      <translation type="unfinished"/>
+      <translation>Ieškokite pašto dėžutės. Rodoma 50 pirmųjų pašto dėžučių.</translation>
     </message>
     <message>
       <source>Update</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryti</translation>
     </message>
     <message>
       <source>Mailbox was updated!</source>
-      <translation type="unfinished"/>
+      <translation>Pašto dėžutė buvo atnaujinta!</translation>
     </message>
     <message>
       <source>Mail actions history</source>
-      <translation type="unfinished"/>
+      <translation>Pašto veiksmų istorija</translation>
     </message>
     <message>
       <source>No history</source>
-      <translation type="unfinished"/>
+      <translation>Nėra istorijos</translation>
     </message>
     <message>
       <source>Manual import record was created</source>
-      <translation type="unfinished"/>
+      <translation>Sukurtas rankinis importo įrašas</translation>
     </message>
     <message>
       <source>Mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Pašto dėžutė</translation>
     </message>
     <message>
       <source>UID</source>
-      <translation type="unfinished"/>
+      <translation>UID</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Statusas</translation>
     </message>
     <message>
       <source>Pending</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama</translation>
     </message>
     <message>
       <source>Ignore</source>
-      <translation type="unfinished"/>
+      <translation>Ignoruokite</translation>
     </message>
     <message>
       <source>Attempt</source>
-      <translation type="unfinished"/>
+      <translation>Bandymas</translation>
     </message>
     <message>
       <source>Last failure</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinė nesėkmė</translation>
     </message>
     <message>
       <source>Edit manual import</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti rankinį importą</translation>
     </message>
     <message>
       <source>Create manual import</source>
-      <translation type="unfinished"/>
+      <translation>Sukurti rankinį importą</translation>
     </message>
     <message>
       <source>Choose mail to merge</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite, kokį paštą sujungti</translation>
     </message>
     <message>
       <source>Choose destination mail</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite paskirties paštą</translation>
     </message>
     <message>
       <source>Info</source>
-      <translation type="unfinished"/>
+      <translation>Informacija</translation>
     </message>
     <message>
       <source>Selected conversations belong to different departments.</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkti pokalbiai priklauso skirtingiems skyriams.</translation>
     </message>
     <message>
       <source>Merge selected</source>
-      <translation type="unfinished"/>
+      <translation>Sujungti pasirinktus</translation>
     </message>
     <message>
       <source>Mails were merged!</source>
-      <translation type="unfinished"/>
+      <translation>Laiškai buvo sujungti!</translation>
     </message>
     <message>
       <source>Pending imports</source>
-      <translation type="unfinished"/>
+      <translation>Nebaigtas importas</translation>
     </message>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Mailbox ID</source>
-      <translation type="unfinished"/>
+      <translation>Pašto dėžutės ID</translation>
     </message>
     <message>
       <source>Created at</source>
-      <translation type="unfinished"/>
+      <translation>Sukurta adresu</translation>
     </message>
     <message>
       <source>Updated at</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta adresu</translation>
     </message>
     <message>
       <source>was assigned as a mail owner from auto assignment workflow</source>
-      <translation type="unfinished"/>
+      <translation>buvo priskirtas pašto savininku iš automatinio priskyrimo darbo eigos</translation>
     </message>
     <message>
       <source>Date</source>
-      <translation type="unfinished"/>
+      <translation>Data</translation>
     </message>
     <message>
       <source>Minutes</source>
-      <translation type="unfinished"/>
+      <translation>Protokolas</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Department ID</source>
-      <translation type="unfinished"/>
+      <translation>Departamento ID</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>Operator ID</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus ID</translation>
     </message>
     <message>
       <source>Lang</source>
-      <translation type="unfinished"/>
+      <translation>Lang</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation type="unfinished"/>
+      <translation>Iš pavadinimo</translation>
     </message>
     <message>
       <source>From address</source>
-      <translation type="unfinished"/>
+      <translation>Iš adreso</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefonas</translation>
     </message>
     <message>
       <source>Mail subject</source>
-      <translation type="unfinished"/>
+      <translation>Pašto tema</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas</translation>
     </message>
     <message>
       <source>Started by</source>
-      <translation type="unfinished"/>
+      <translation>Pradėjo nuo</translation>
     </message>
     <message>
       <source>Opened At</source>
-      <translation type="unfinished"/>
+      <translation>Atidaryta adresu</translation>
     </message>
     <message>
       <source>Undelivered</source>
-      <translation type="unfinished"/>
+      <translation>Nepristatytas</translation>
     </message>
     <message>
       <source>Undelivered error</source>
-      <translation type="unfinished"/>
+      <translation>Neįvykusi klaida</translation>
     </message>
     <message>
       <source>Undelivered Status</source>
-      <translation type="unfinished"/>
+      <translation>Nepristatytas statusas</translation>
     </message>
     <message>
       <source>Undelivered report</source>
-      <translation type="unfinished"/>
+      <translation>Neįteikta ataskaita</translation>
     </message>
     <message>
       <source>Subjects</source>
-      <translation type="unfinished"/>
+      <translation>Subjektai</translation>
     </message>
     <message>
       <source>Total messages</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso pranešimų</translation>
     </message>
     <message>
       <source>Visitor messages number</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų pranešimų skaičius</translation>
     </message>
     <message>
       <source>No response required</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo nereikalaujama</translation>
     </message>
     <message>
       <source>Responded</source>
-      <translation type="unfinished"/>
+      <translation>Atsakė</translation>
     </message>
     <message>
       <source>Operator messages send</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus pranešimų siuntimas</translation>
     </message>
     <message>
       <source>Additional variables</source>
-      <translation type="unfinished"/>
+      <translation>Papildomi kintamieji</translation>
     </message>
     <message>
       <source>Messages Plain</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimai Paprastas</translation>
     </message>
     <message>
       <source>Messages HTML</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimai HTML</translation>
     </message>
     <message>
       <source>Please enter a name!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite vardą!</translation>
     </message>
     <message>
       <source>Please enter a subject!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite temą!</translation>
     </message>
     <message>
       <source>Please choose a mailbox!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite pašto dėžutę!</translation>
     </message>
     <message>
       <source>Please enter an e-mail!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite el. pašto adresą!</translation>
     </message>
     <message>
       <source>This recipient already exists in this campaign!</source>
-      <translation type="unfinished"/>
+      <translation>Šis gavėjas jau yra šioje kampanijoje!</translation>
     </message>
     <message>
       <source>Connection could not be established. Please check your logins.</source>
-      <translation type="unfinished"/>
+      <translation>Ryšio užmegzti nepavyko. Patikrinkite savo prisijungimo duomenis.</translation>
     </message>
     <message>
       <source>Previous mail owner</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnis pašto savininkas</translation>
     </message>
     <message>
       <source>Assigning previous mail owner is disabled for the mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnio pašto savininko priskyrimas pašto dėžutei yra išjungtas</translation>
     </message>
     <message>
       <source>Conversation user id was set by previous conversation user.</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio naudotojo ID nustatė ankstesnis pokalbio naudotojas.</translation>
     </message>
     <message>
       <source>Unresponded</source>
-      <translation type="unfinished"/>
+      <translation>Neatsakyta</translation>
     </message>
     <message>
       <source>No reply required</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo nereikia</translation>
     </message>
     <message>
       <source>Send messages</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti pranešimus</translation>
     </message>
     <message>
       <source>Responded by e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Atsakyta el. paštu</translation>
     </message>
     <message>
       <source>Not assigned</source>
-      <translation type="unfinished"/>
+      <translation>Nepriskirta</translation>
     </message>
     <message>
       <source>We have send this message as reply or forward</source>
-      <translation type="unfinished"/>
+      <translation>Mes išsiuntėme šį pranešimą kaip atsakymą arba persiuntimą</translation>
     </message>
     <message>
       <source>Please enter an smtp port!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite smtp prievadą!</translation>
     </message>
     <message>
       <source>Content is required!</source>
-      <translation type="unfinished"/>
+      <translation>Turinys yra būtinas!</translation>
     </message>
     <message>
       <source>Please enter at-least one recipient!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite bent vieną gavėją!</translation>
     </message>
     <message>
       <source>To: Please enter a valid recipient e-mail!</source>
-      <translation type="unfinished"/>
+      <translation>Kam: Prašome įvesti galiojantį gavėjo el. pašto adresą!</translation>
     </message>
     <message>
       <source>To: Invalid e-mail recipient!</source>
-      <translation type="unfinished"/>
+      <translation>Kam: Netinkamas el. pašto gavėjas!</translation>
     </message>
     <message>
       <source>Bcc: Please enter a valid recipient e-mail!</source>
-      <translation type="unfinished"/>
+      <translation>Bcc: Įveskite galiojantį gavėjo el. pašto adresą!</translation>
     </message>
     <message>
       <source>Bcc: Invalid e-mail recipient!</source>
-      <translation type="unfinished"/>
+      <translation>Bcc: Netinkamas el. pašto gavėjas!</translation>
     </message>
     <message>
       <source>Cc: Please enter a valid recipient e-mail!</source>
-      <translation type="unfinished"/>
+      <translation>Cc: Prašome įvesti galiojantį gavėjo el. pašto adresą!</translation>
     </message>
     <message>
       <source>Cc: Invalid e-mail recipient!</source>
-      <translation type="unfinished"/>
+      <translation>Cc: Netinkamas el. pašto gavėjas!</translation>
     </message>
     <message>
       <source>Please enter recipient e-mail!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite gavėjo el. paštą!</translation>
     </message>
     <message>
       <source>You are not allowed to set any reply to e-mail! It has to be one of the defined mailboxes in the system.</source>
-      <translation type="unfinished"/>
+      <translation>Jums neleidžiama nustatyti jokio atsakymo į el. laišką! Tai turi būti viena iš sistemoje nustatytų pašto dėžučių.</translation>
     </message>
     <message>
       <source>Please enter e-mail body!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite el. pašto adresą!</translation>
     </message>
     <message>
       <source>has merge merged</source>
-      <translation type="unfinished"/>
+      <translation>sujungė</translation>
     </message>
     <message>
       <source>into</source>
-      <translation type="unfinished"/>
+      <translation>į</translation>
     </message>
     <message>
       <source>has un-merged</source>
-      <translation type="unfinished"/>
+      <translation>atjungtas</translation>
     </message>
     <message>
       <source>Connection established to IMAP server.</source>
-      <translation type="unfinished"/>
+      <translation>Užmegztas ryšys su IMAP serveriu.</translation>
     </message>
     <message>
       <source>No permission to write conversation.</source>
-      <translation type="unfinished"/>
+      <translation>Jokio leidimo rašyti pokalbį.</translation>
     </message>
     <message>
       <source>has closed a conversation by clicking a close button.</source>
-      <translation type="unfinished"/>
+      <translation>uždarė pokalbį spustelėjęs uždarymo mygtuką.</translation>
     </message>
     <message>
       <source>No permission to read conversation.</source>
-      <translation type="unfinished"/>
+      <translation>Nėra leidimo skaityti pokalbį.</translation>
     </message>
     <message>
       <source>Message with specified ID could not be found anymore in provided IMAP folder</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo su nurodytu ID nebepavyko rasti pateiktame IMAP aplanke</translation>
     </message>
     <message>
       <source>Message ID</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo ID</translation>
     </message>
     <message>
       <source>Please choose a mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite pašto dėžutę</translation>
     </message>
     <message>
       <source>has closed a conversation from a list.</source>
-      <translation type="unfinished"/>
+      <translation>uždarė pokalbį iš sąrašo.</translation>
     </message>
     <message>
       <source>Connection to SMTP server was successful</source>
-      <translation type="unfinished"/>
+      <translation>Ryšys su SMTP serveriu sėkmingai užmegztas</translation>
     </message>
     <message>
       <source>Mail conversation</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis paštu</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Matching rules</source>
-      <translation type="unfinished"/>
+      <translation>Atitikimo taisyklės</translation>
     </message>
     <message>
       <source>Personal Mailbox Rules</source>
-      <translation type="unfinished"/>
+      <translation>Asmeninės pašto dėžutės taisyklės</translation>
     </message>
     <message>
       <source>Response templates</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymų šablonai</translation>
     </message>
     <message>
       <source>On</source>
-      <translation type="unfinished"/>
+      <translation>Svetainėje</translation>
     </message>
     <message>
       <source>wrote</source>
-      <translation type="unfinished"/>
+      <translation>rašė</translation>
     </message>
     <message>
       <source>From</source>
-      <translation type="unfinished"/>
+      <translation>Iš</translation>
     </message>
     <message>
       <source>at</source>
-      <translation type="unfinished"/>
+      <translation>adresu</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>To</source>
-      <translation type="unfinished"/>
+      <translation>Į</translation>
     </message>
     <message>
       <source>Forwarded message</source>
-      <translation type="unfinished"/>
+      <translation>Persiųstas pranešimas</translation>
     </message>
     <message>
       <source>has accepted a mail by clicking reply button.</source>
-      <translation type="unfinished"/>
+      <translation>priėmė laišką spustelėjęs atsakymo mygtuką.</translation>
     </message>
     <message>
       <source>You do not have permission to download that type of files!</source>
-      <translation type="unfinished"/>
+      <translation>Neturite leidimo atsisiųsti tokio tipo failų!</translation>
     </message>
     <message>
       <source>This type of files are not allowed to be downloaded!</source>
-      <translation type="unfinished"/>
+      <translation>Tokio tipo failų atsisiųsti neleidžiama!</translation>
     </message>
     <message>
       <source>PDF file contains suspicious content and cannot be downloaded!</source>
-      <translation type="unfinished"/>
+      <translation>PDF faile yra įtartino turinio ir jo negalima atsisiųsti!</translation>
     </message>
     <message>
       <source>has accepted a mail by opening it.</source>
-      <translation type="unfinished"/>
+      <translation>priėmė laišką jį atidarydamas.</translation>
     </message>
     <message>
       <source>Mailbox is required</source>
-      <translation type="unfinished"/>
+      <translation>Reikalinga pašto dėžutė</translation>
     </message>
     <message>
       <source>UID is required</source>
-      <translation type="unfinished"/>
+      <translation>Reikalingas UID</translation>
     </message>
     <message>
       <source>Invalid merge destination!</source>
-      <translation type="unfinished"/>
+      <translation>Neteisingas sujungimo tikslas!</translation>
     </message>
     <message>
       <source>No permission to read merge destination!</source>
-      <translation type="unfinished"/>
+      <translation>Nėra leidimo skaityti sujungimo paskirties vietą!</translation>
     </message>
     <message>
       <source>No permission to write to merge destination!</source>
-      <translation type="unfinished"/>
+      <translation>Nėra leidimo rašyti į sujungimo paskirties vietą!</translation>
     </message>
     <message>
       <source>Please choose a merge destination!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite susijungimo vietą!</translation>
     </message>
     <message>
       <source>No permission to read mail</source>
-      <translation type="unfinished"/>
+      <translation>Nėra leidimo skaityti paštą</translation>
     </message>
     <message>
       <source>No permission to write to mail</source>
-      <translation type="unfinished"/>
+      <translation>Nėra leidimo rašyti į paštą</translation>
     </message>
     <message>
       <source>No permission to merge mails across different departments!</source>
-      <translation type="unfinished"/>
+      <translation>Nėra leidimo sujungti skirtingų skyrių laiškus!</translation>
     </message>
     <message>
       <source>Please choose what mails you want to merge!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite, kokius laiškus norite sujungti!</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>Personal Mailbox Group</source>
-      <translation type="unfinished"/>
+      <translation>Asmeninių pašto dėžučių grupė</translation>
     </message>
     <message>
       <source>Response Templates</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymų šablonai</translation>
     </message>
     <message>
       <source>Conversations</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>View</source>
-      <translation type="unfinished"/>
+      <translation>Peržiūrėti</translation>
     </message>
     <message>
       <source>Follow up of</source>
-      <translation type="unfinished"/>
+      <translation>Tolesni veiksmai</translation>
     </message>
     <message>
       <source>Operator who has opened this ticket</source>
-      <translation type="unfinished"/>
+      <translation>Šį bilietą atidaręs operatorius</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Laukimo laikas</translation>
     </message>
     <message>
       <source>Copied</source>
-      <translation type="unfinished"/>
+      <translation>Nukopijuota</translation>
     </message>
     <message>
       <source>Copy link</source>
-      <translation type="unfinished"/>
+      <translation>Kopijuoti nuorodą</translation>
     </message>
     <message>
       <source>Sender</source>
-      <translation type="unfinished"/>
+      <translation>Siuntėjas</translation>
     </message>
     <message>
       <source>Delete ticket</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti bilietą</translation>
     </message>
     <message>
       <source>Interactions history</source>
-      <translation type="unfinished"/>
+      <translation>Sąveikos istorija</translation>
     </message>
     <message>
       <source>Print</source>
-      <translation type="unfinished"/>
+      <translation>Spausdinti</translation>
     </message>
     <message>
       <source>Transfer ticket</source>
-      <translation type="unfinished"/>
+      <translation>Pervežimo bilietas</translation>
     </message>
     <message>
       <source>Closed at</source>
-      <translation type="unfinished"/>
+      <translation>Uždaryta</translation>
     </message>
     <message>
       <source>Responded at</source>
-      <translation type="unfinished"/>
+      <translation>Atsakyta adresu</translation>
     </message>
     <message>
       <source>Last time responded at</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinį kartą atsakė į</translation>
     </message>
     <message>
       <source>Interaction time</source>
-      <translation type="unfinished"/>
+      <translation>Sąveikos laikas</translation>
     </message>
     <message>
       <source>Last interaction time</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinis sąveikos laikas</translation>
     </message>
     <message>
       <source>Ticket owner</source>
-      <translation type="unfinished"/>
+      <translation>Bilieto savininkas</translation>
     </message>
     <message>
       <source>Last mail received at</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinis gautas paštas</translation>
     </message>
     <message>
       <source>Accepted at</source>
-      <translation type="unfinished"/>
+      <translation>Priimtas</translation>
     </message>
     <message>
       <source>Last time accepted at</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinį kartą priimta</translation>
     </message>
     <message>
       <source>Information</source>
-      <translation type="unfinished"/>
+      <translation>Informacija</translation>
     </message>
     <message>
       <source>Remarks</source>
-      <translation type="unfinished"/>
+      <translation>Pastabos</translation>
     </message>
     <message>
       <source>Your new message being fetched. If you just send a message you can close this conversation in any case.</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų naujasis pranešimas gaunamas. Jei tiesiog išsiuntėte žinutę, bet kuriuo atveju galite užbaigti šį pokalbį.</translation>
     </message>
     <message>
       <source>Accepted by</source>
-      <translation type="unfinished"/>
+      <translation>Priėmė</translation>
     </message>
     <message>
       <source>Accept wait time</source>
-      <translation type="unfinished"/>
+      <translation>Priimti laukimo laiką</translation>
     </message>
     <message>
       <source>Response wait time</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo laukimo laikas</translation>
     </message>
     <message>
       <source>Exc. pending time</source>
-      <translation type="unfinished"/>
+      <translation>Išskyrus laukiantį laiką</translation>
     </message>
     <message>
       <source>Conversation duration</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio trukmė</translation>
     </message>
     <message>
       <source>Merge</source>
-      <translation type="unfinished"/>
+      <translation>Sujungti</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Taip</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Ne</translation>
     </message>
     <message>
       <source>Are you sure?</source>
-      <translation type="unfinished"/>
+      <translation>Ar tikrai?</translation>
     </message>
     <message>
       <source>Previous messages</source>
-      <translation type="unfinished"/>
+      <translation>Ankstesnės žinutės</translation>
     </message>
     <message>
       <source>Block sender</source>
-      <translation type="unfinished"/>
+      <translation>Blokuoti siuntėją</translation>
     </message>
     <message>
       <source>Sender is blocked!</source>
-      <translation type="unfinished"/>
+      <translation>Siuntėjas užblokuotas!</translation>
     </message>
     <message>
       <source>Response type</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo tipas</translation>
     </message>
     <message>
       <source>Copied to clipboard</source>
-      <translation type="unfinished"/>
+      <translation>Nukopijuota į iškarpinę</translation>
     </message>
     <message>
       <source>Copy e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Nukopijuoti el. paštą</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus</translation>
     </message>
     <message>
       <source>Closed</source>
-      <translation type="unfinished"/>
+      <translation>Uždaras</translation>
     </message>
     <message>
       <source>Opened at</source>
-      <translation type="unfinished"/>
+      <translation>Atidaryta adresu</translation>
     </message>
     <message>
       <source>There is still un-responded messages, are you sure you want to close this conversation?</source>
-      <translation type="unfinished"/>
+      <translation>Vis dar yra neatsakytų žinučių, ar tikrai norite užbaigti šį pokalbį?</translation>
     </message>
     <message>
       <source>Auto-Replied - Automatic reply from recipient (vacation, out-of-office, delivery receipt). Not a personal reply.</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis atsakymas - automatinis gavėjo atsakymas (atostogos, ne darbo vietoje, pristatymo patvirtinimas). Tai nėra asmeninis atsakymas.</translation>
     </message>
     <message>
       <source>Auto-Generated - System or marketing message (campaign/courier). No personal reply expected.</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai generuojamas - sistemos arba rinkodaros pranešimas (kampanija / kurjeris). Asmeninio atsakymo nesitikima.</translation>
     </message>
     <message>
       <source>Reply</source>
-      <translation type="unfinished"/>
+      <translation>Atsakyti</translation>
     </message>
     <message>
       <source>Forward</source>
-      <translation type="unfinished"/>
+      <translation>Pirmyn</translation>
     </message>
     <message>
       <source>Download (eml)</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiųsti (eml)</translation>
     </message>
     <message>
       <source>Message information</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo informacija</translation>
     </message>
     <message>
       <source>from</source>
-      <translation type="unfinished"/>
+      <translation>iš</translation>
     </message>
     <message>
       <source>to</source>
-      <translation type="unfinished"/>
+      <translation>į</translation>
     </message>
     <message>
       <source>reply-to</source>
-      <translation type="unfinished"/>
+      <translation>atsakyti į</translation>
     </message>
     <message>
       <source>mailed-by</source>
-      <translation type="unfinished"/>
+      <translation>išsiųsta paštu</translation>
     </message>
     <message>
       <source>This is our response message</source>
-      <translation type="unfinished"/>
+      <translation>Tai yra mūsų atsakymo pranešimas</translation>
     </message>
     <message>
       <source>Un-responded</source>
-      <translation type="unfinished"/>
+      <translation>Neatsakyta</translation>
     </message>
     <message>
       <source>ago</source>
-      <translation type="unfinished"/>
+      <translation>prieš</translation>
     </message>
     <message>
       <source>Add/Remove label</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti / pašalinti etiketę</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti</translation>
     </message>
     <message>
       <source>Sending...</source>
-      <translation type="unfinished"/>
+      <translation>Siunčiame...</translation>
     </message>
     <message>
       <source>Click to remove</source>
-      <translation type="unfinished"/>
+      <translation>Spustelėkite norėdami pašalinti</translation>
     </message>
     <message>
       <source>You are not the owner of this conversation. This means someone else was working with this ticket. Make sure you want to send a reply to this e-mail.</source>
-      <translation type="unfinished"/>
+      <translation>Jūs nesate šio pokalbio šeimininkas. Tai reiškia, kad su šiuo bilietu dirbo kas nors kitas. Įsitikinkite, kad norite siųsti atsakymą į šį laišką.</translation>
     </message>
     <message>
       <source>View as Plain/HTML</source>
-      <translation type="unfinished"/>
+      <translation>Peržiūrėti kaip paprastą/HTML</translation>
     </message>
     <message>
       <source>Send as Closed</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti kaip uždarytą</translation>
     </message>
     <message>
       <source>Send as New</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti kaip naują</translation>
     </message>
     <message>
       <source>Send as Active</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti kaip aktyvų</translation>
     </message>
     <message>
       <source>Message was seen by customer first time at</source>
-      <translation type="unfinished"/>
+      <translation>Klientas pirmą kartą pamatė pranešimą</translation>
     </message>
     <message>
       <source>This is a merged message</source>
-      <translation type="unfinished"/>
+      <translation>Tai yra sujungtas pranešimas</translation>
     </message>
     <message>
       <source>Un-merge</source>
-      <translation type="unfinished"/>
+      <translation>Atšaukti sujungimą</translation>
     </message>
     <message>
       <source>You are replying to your mailbox. Make sure that it is your intent!</source>
-      <translation type="unfinished"/>
+      <translation>Atsakote į savo pašto dėžutę. Įsitikinkite, kad tai yra jūsų ketinimas!</translation>
     </message>
     <message>
       <source>External e-mail!</source>
-      <translation type="unfinished"/>
+      <translation>Išorinis el. paštas!</translation>
     </message>
     <message>
       <source>This is our mailbox e-mail!</source>
-      <translation type="unfinished"/>
+      <translation>Tai mūsų pašto dėžutė el. paštu!</translation>
     </message>
     <message>
       <source>Pending response</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama atsakymo</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjai</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>El. paštas</translation>
     </message>
     <message>
       <source>Recipient name</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjo pavadinimas</translation>
     </message>
     <message>
       <source>Seems there is some connectivity problem with a server!</source>
-      <translation type="unfinished"/>
+      <translation>Atrodo, kad yra tam tikra ryšio problema su serveriu!</translation>
     </message>
     <message>
       <source>Incorrect file type</source>
-      <translation type="unfinished"/>
+      <translation>Neteisingas failo tipas</translation>
     </message>
     <message>
       <source>File to big</source>
-      <translation type="unfinished"/>
+      <translation>Failas per didelis</translation>
     </message>
     <message>
       <source>Uploading</source>
-      <translation type="unfinished"/>
+      <translation>Įkėlimas</translation>
     </message>
     <message>
       <source>Choose file from uploaded files</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite failą iš įkeltų failų</translation>
     </message>
     <message>
       <source>Drop your files here or choose a new file</source>
-      <translation type="unfinished"/>
+      <translation>Įmeskite savo failus čia arba pasirinkite naują failą</translation>
     </message>
     <message>
       <source>Verifying image access...</source>
-      <translation type="unfinished"/>
+      <translation>Prieigos prie vaizdo tikrinimas...</translation>
     </message>
     <message>
       <source>Checking image access...</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinama prieiga prie vaizdo...</translation>
     </message>
     <message>
       <source>Image verification failed</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdų tikrinimas nepavyko</translation>
     </message>
     <message>
       <source>Access denied to view image</source>
-      <translation type="unfinished"/>
+      <translation>Prieiga draudžiama peržiūrėti vaizdą</translation>
     </message>
     <message>
       <source>Next attempt in</source>
-      <translation type="unfinished"/>
+      <translation>Kitas bandymas</translation>
     </message>
     <message>
       <source>s.</source>
-      <translation type="unfinished"/>
+      <translation>s.</translation>
     </message>
     <message>
       <source>Image not available</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdas neprieinamas</translation>
     </message>
     <message>
       <source>Click to reveal</source>
-      <translation type="unfinished"/>
+      <translation>Spustelėkite, kad atskleistumėte</translation>
     </message>
     <message>
       <source>Loading...</source>
-      <translation type="unfinished"/>
+      <translation>Pakraunama...</translation>
     </message>
     <message>
       <source>Ready to download</source>
-      <translation type="unfinished"/>
+      <translation>Paruošta atsisiųsti</translation>
     </message>
     <message>
       <source>Downloading...</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiuntimas...</translation>
     </message>
     <message>
       <source>Download</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiųsti</translation>
     </message>
     <message>
       <source>Error: File not found/attached</source>
-      <translation type="unfinished"/>
+      <translation>Klaida: Failas nerastas/neprisegtas</translation>
     </message>
     <message>
       <source>Broken external image</source>
-      <translation type="unfinished"/>
+      <translation>Sugadintas išorinis vaizdas</translation>
     </message>
     <message>
       <source>Open in new tab</source>
-      <translation type="unfinished"/>
+      <translation>Atidaryti naujame skirtuke</translation>
     </message>
     <message>
       <source>Copy of</source>
-      <translation type="unfinished"/>
+      <translation>Kopija</translation>
     </message>
     <message>
       <source>Campaign</source>
-      <translation type="unfinished"/>
+      <translation>Kampanija</translation>
     </message>
     <message>
       <source>Edit campaign</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti kampaniją</translation>
     </message>
     <message>
       <source>Mailing list</source>
-      <translation type="unfinished"/>
+      <translation>Pašto sąrašas</translation>
     </message>
     <message>
       <source>Mailing recipient</source>
-      <translation type="unfinished"/>
+      <translation>Siuntimo gavėjas</translation>
     </message>
     <message>
       <source>Campaigns</source>
-      <translation type="unfinished"/>
+      <translation>Kampanijos</translation>
     </message>
   </context>
   <context>
     <name>mailconv/mailconvmb</name>
     <message>
       <source>Choose what mailbox you want to sync</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite, kokią pašto dėžutę norite sinchronizuoti</translation>
     </message>
     <message>
       <source>Choose where deleted e-mails should be moved</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite, kur perkelti ištrintus el. laiškus</translation>
     </message>
     <message>
       <source>Choose a send folder</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite siuntimo aplanką</translation>
     </message>
     <message>
       <source>Delete folder</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti aplanką</translation>
     </message>
   </context>
   <context>
     <name>module/mailconvmr</name>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta</translation>
     </message>
     <message>
       <source>Matching rules</source>
-      <translation type="unfinished"/>
+      <translation>Atitikimo taisyklės</translation>
     </message>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas</translation>
     </message>
     <message>
       <source>Conversation priority</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio prioritetas</translation>
     </message>
     <message>
       <source>Conditions</source>
-      <translation type="unfinished"/>
+      <translation>Sąlygos</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>TO</source>
-      <translation type="unfinished"/>
+      <translation>Į</translation>
     </message>
     <message>
       <source>From name matches</source>
-      <translation type="unfinished"/>
+      <translation>Iš pavadinimo sutampa</translation>
     </message>
     <message>
       <source>Subject contains</source>
-      <translation type="unfinished"/>
+      <translation>Tema yra</translation>
     </message>
     <message>
       <source>From mail</source>
-      <translation type="unfinished"/>
+      <translation>Iš pašto</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>Name for personal reasons</source>
-      <translation type="unfinished"/>
+      <translation>Vardas dėl asmeninių priežasčių</translation>
     </message>
     <message>
       <source>Set department to</source>
-      <translation type="unfinished"/>
+      <translation>Nustatykite departamentą į</translation>
     </message>
     <message>
       <source>Priority conversation should get</source>
-      <translation type="unfinished"/>
+      <translation>Pirmenybė pokalbiui turėtų būti teikiama</translation>
     </message>
     <message>
       <source>Close conversation</source>
-      <translation type="unfinished"/>
+      <translation>Glaudus pokalbis</translation>
     </message>
     <message>
       <source>Skip message, messages will not be imported</source>
-      <translation type="unfinished"/>
+      <translation>Praleisti pranešimą, pranešimai nebus importuojami</translation>
     </message>
     <message>
       <source>Matching rule applies to blocked e-mails</source>
-      <translation type="unfinished"/>
+      <translation>Atitikties taisyklė taikoma užblokuotiems el. laiškams</translation>
     </message>
     <message>
       <source>Choose all mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite visas pašto dėžutes</translation>
     </message>
     <message>
       <source>Mail is send to one of these mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Paštas siunčiamas į vieną iš šių pašto dėžučių</translation>
     </message>
     <message>
       <source>From name</source>
-      <translation type="unfinished"/>
+      <translation>Iš pavadinimo</translation>
     </message>
     <message>
       <source>Every possible combination should start from a new line.</source>
-      <translation type="unfinished"/>
+      <translation>Kiekvienas galimas derinys turėtų prasidėti nuo naujos eilutės.</translation>
     </message>
     <message>
       <source>E.g fish,car &amp;&amp; price{2}$ - fish or car word plus price can have two typos.</source>
-      <translation type="unfinished"/>
+      <translation>Pvz., žuvis, automobilis &amp;&amp; kaina{2}$ - žodis žuvis arba automobilis ir kaina gali turėti dvi rašybos klaidas.</translation>
     </message>
     <message>
       <source>Priority of matching rule. Rules with lower number will be checked first.</source>
-      <translation type="unfinished"/>
+      <translation>Atitikties taisyklės prioritetas. Taisyklės su mažesniu numeriu bus tikrinamos pirmiausia.</translation>
     </message>
     <message>
       <source>Select mail</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite paštą</translation>
     </message>
   </context>
   <context>
     <name>module/mailconvrt</name>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta</translation>
     </message>
     <message>
       <source>New response template</source>
-      <translation type="unfinished"/>
+      <translation>Naujas atsakymo šablonas</translation>
     </message>
     <message>
       <source>Body</source>
-      <translation type="unfinished"/>
+      <translation>Kūnas</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Template HTML</source>
-      <translation type="unfinished"/>
+      <translation>HTML šablonas</translation>
     </message>
     <message>
       <source>Supported replaceable variable.</source>
-      <translation type="unfinished"/>
+      <translation>Palaikomas keičiamas kintamasis.</translation>
     </message>
     <message>
       <source>and</source>
-      <translation type="unfinished"/>
+      <translation>ir</translation>
     </message>
     <message>
       <source>more</source>
-      <translation type="unfinished"/>
+      <translation>daugiau</translation>
     </message>
     <message>
       <source>Template Plain text</source>
-      <translation type="unfinished"/>
+      <translation>Šablonas Paprastas tekstas</translation>
     </message>
     <message>
       <source>Recipient E-mail</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjo el. paštas</translation>
     </message>
     <message>
       <source>Send an e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti el. laišką</translation>
     </message>
     <message>
       <source>Send a new e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti naują el. laišką</translation>
     </message>
     <message>
       <source>Ticket</source>
-      <translation type="unfinished"/>
+      <translation>Bilietas</translation>
     </message>
     <message>
       <source>Working</source>
-      <translation type="unfinished"/>
+      <translation>Darbas</translation>
     </message>
     <message>
       <source>Append mailbox signature</source>
-      <translation type="unfinished"/>
+      <translation>Pridėti pašto dėžutės parašą</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
     </message>
     <message>
       <source>Recipient Name</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjo pavadinimas</translation>
     </message>
     <message>
       <source>Reply to e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Atsakyti į el. laišką</translation>
     </message>
     <message>
       <source>If not filled we will use mailbox e-mail.</source>
-      <translation type="unfinished"/>
+      <translation>Jei nebus užpildyta, naudosime el. pašto dėžutę.</translation>
     </message>
     <message>
       <source>Only defined mailbox are allowed.</source>
-      <translation type="unfinished"/>
+      <translation>Leidžiama naudoti tik apibrėžtą pašto dėžutę.</translation>
     </message>
     <message>
       <source>Reply to name</source>
-      <translation type="unfinished"/>
+      <translation>Atsakyti į pavadinimą</translation>
     </message>
     <message>
       <source>Send as closed</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti kaip uždarytą</translation>
     </message>
     <message>
       <source>Send as Active</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti kaip aktyvų</translation>
     </message>
     <message>
       <source>Please select a mailbox first</source>
-      <translation type="unfinished"/>
+      <translation>Pirmiausia pasirinkite pašto dėžutę</translation>
     </message>
     <message>
       <source>Failed to fetch signature</source>
-      <translation type="unfinished"/>
+      <translation>Nepavyko gauti parašo</translation>
     </message>
     <message>
       <source>Error fetching signature</source>
-      <translation type="unfinished"/>
+      <translation>Klaida gaunant parašą</translation>
     </message>
     <message>
       <source>Replaceable variables?</source>
-      <translation type="unfinished"/>
+      <translation>Pakeičiami kintamieji?</translation>
     </message>
     <message>
       <source>Pending for copy to be created in send folder</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama, kol kopija bus sukurta siunčiamajame aplanke</translation>
     </message>
     <message>
       <source>Creating copy in send folder is in progress</source>
-      <translation type="unfinished"/>
+      <translation>Vyksta kopijos kūrimas siunčiamajame aplanke</translation>
     </message>
     <message>
       <source>Checking for ticket.</source>
-      <translation type="unfinished"/>
+      <translation>Bilieto tikrinimas.</translation>
     </message>
     <message>
       <source>Scheduling fetching.</source>
-      <translation type="unfinished"/>
+      <translation>Parinkimo planavimas.</translation>
+    </message>
+    <message>
+      <source>Re-scheduling fetching.</source>
+      <translation>Pakartotinis surinkimo tvarkaraščio sudarymas.</translation>
     </message>
     <message>
       <source>Waiting for previous job to finish.</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama, kol bus baigtas ankstesnis darbas.</translation>
     </message>
     <message>
       <source>Fetching in progress.</source>
-      <translation type="unfinished"/>
+      <translation>Vyksta duomenų rinkimas.</translation>
     </message>
     <message>
       <source>Mailbox email is required</source>
-      <translation type="unfinished"/>
+      <translation>Reikalingas el. pašto dėžutės el. paštas</translation>
     </message>
     <message>
       <source>Mailbox not found or inactive</source>
-      <translation type="unfinished"/>
+      <translation>Pašto dėžutė nerasta arba neaktyvi</translation>
     </message>
     <message>
       <source>No signature found for this mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Šiai pašto dėžutei parašo nerasta</translation>
     </message>
     <message>
       <source>Signature fetched successfully</source>
-      <translation type="unfinished"/>
+      <translation>Sėkmingai surinktas parašas</translation>
     </message>
     <message>
       <source>An error occurred</source>
-      <translation type="unfinished"/>
+      <translation>Įvyko klaida</translation>
     </message>
   </context>
   <context>
     <name>module/mailconvprint</name>
     <message>
       <source>From</source>
-      <translation type="unfinished"/>
+      <translation>Iš</translation>
     </message>
     <message>
       <source>at</source>
-      <translation type="unfinished"/>
+      <translation>adresu</translation>
     </message>
     <message>
       <source>To</source>
-      <translation type="unfinished"/>
+      <translation>Į</translation>
     </message>
   </context>
   <context>
     <name>module/mailconvdashboard</name>
     <message>
       <source>Notifications about mails</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimai apie laiškus</translation>
     </message>
     <message>
       <source>To receive browser notifications you have to enable them in your account Notifications settings.</source>
-      <translation type="unfinished"/>
+      <translation>Norėdami gauti naršyklės pranešimus, turite juos įjungti paskyros pranešimų nustatymuose.</translation>
     </message>
     <message>
       <source>E-mail arrived during past X time</source>
-      <translation type="unfinished"/>
+      <translation>Elektroninis paštas gautas per pastarąjį X laiką</translation>
     </message>
     <message>
       <source>Do not inform</source>
-      <translation type="unfinished"/>
+      <translation>Neinformuokite</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>minutės</translation>
     </message>
     <message>
       <source>hour</source>
-      <translation type="unfinished"/>
+      <translation>valanda</translation>
     </message>
     <message>
       <source>hours</source>
-      <translation type="unfinished"/>
+      <translation>valandos</translation>
     </message>
     <message>
       <source>day</source>
-      <translation type="unfinished"/>
+      <translation>diena</translation>
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>dienos</translation>
     </message>
     <message>
       <source>days </source>
-      <translation type="unfinished"/>
+      <translation>dienos </translation>
     </message>
     <message>
       <source>When an email takes X mail queue time. Mail is in the pending state longer than X time.</source>
-      <translation type="unfinished"/>
+      <translation>Kai el. laiškas užima X pašto eilės laiko. Laiškas laukimo būsenoje yra ilgiau nei X laiko.</translation>
     </message>
     <message>
       <source>seconds</source>
-      <translation type="unfinished"/>
+      <translation>sekundės</translation>
     </message>
     <message>
       <source>minute</source>
-      <translation type="unfinished"/>
+      <translation>minutė</translation>
     </message>
     <message>
       <source>When an email has been accepted by an agent and for X time and has no response.</source>
-      <translation type="unfinished"/>
+      <translation>Kai agentas priėmė el. laišką ir X laiko, bet į jį neatsakė.</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti nustatymai</translation>
     </message>
   </context>
   <context>
     <name>chat/webhooks</name>
     <message>
       <source>Do these actions if rule matches</source>
-      <translation type="unfinished"/>
+      <translation>Atlikite šiuos veiksmus, jei taisyklė atitinka</translation>
     </message>
     <message>
       <source>Conditions</source>
-      <translation type="unfinished"/>
+      <translation>Sąlygos</translation>
     </message>
     <message>
       <source>Attributes conditions</source>
-      <translation type="unfinished"/>
+      <translation>Atributų sąlygos</translation>
     </message>
     <message>
       <source>optional</source>
-      <translation type="unfinished"/>
+      <translation>pasirinktinai</translation>
     </message>
     <message>
       <source>Visitor message contains</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo pranešime yra</translation>
     </message>
     <message>
       <source>Compare attribute</source>
-      <translation type="unfinished"/>
+      <translation>Palyginti požymį</translation>
     </message>
     <message>
       <source>Start of OR</source>
-      <translation type="unfinished"/>
+      <translation>Tęstinės operacijos pradžia</translation>
     </message>
     <message>
       <source>Attribute</source>
-      <translation type="unfinished"/>
+      <translation>Atributas</translation>
     </message>
     <message>
       <source>Condition</source>
-      <translation type="unfinished"/>
+      <translation>Būklė</translation>
     </message>
     <message>
       <source>Text like</source>
-      <translation type="unfinished"/>
+      <translation>Tekstas, pvz.</translation>
     </message>
     <message>
       <source>Text not like</source>
-      <translation type="unfinished"/>
+      <translation>Tekstas nepanašus į</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation type="unfinished"/>
+      <translation>Vertė</translation>
     </message>
     <message>
       <source>OR</source>
-      <translation type="unfinished"/>
+      <translation>ARBA</translation>
     </message>
     <message>
       <source>AND</source>
-      <translation type="unfinished"/>
+      <translation>IR</translation>
     </message>
     <message>
       <source>Success</source>
-      <translation type="unfinished"/>
+      <translation>Sėkmė</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Name for personal reasons</source>
-      <translation type="unfinished"/>
+      <translation>Vardas dėl asmeninių priežasčių</translation>
     </message>
     <message>
       <source>Hooks events</source>
-      <translation type="unfinished"/>
+      <translation>Įvykiai su kabliukais</translation>
     </message>
     <message>
       <source>Continuous chat events</source>
-      <translation type="unfinished"/>
+      <translation>Nuolatiniai pokalbių įvykiai</translation>
     </message>
     <message>
       <source>Continuous mail events</source>
-      <translation type="unfinished"/>
+      <translation>Nuolatiniai pašto įvykiai</translation>
     </message>
     <message>
       <source>This is hook event</source>
-      <translation type="unfinished"/>
+      <translation>Tai yra įvykis su kabliuku</translation>
     </message>
     <message>
       <source>Event</source>
-      <translation type="unfinished"/>
+      <translation>Renginys</translation>
     </message>
     <message>
       <source>required if it is hook event</source>
-      <translation type="unfinished"/>
+      <translation>privaloma, jei tai yra įvykis su kabliuku</translation>
     </message>
     <message>
       <source>Delay event processing by N seconds</source>
-      <translation type="unfinished"/>
+      <translation>N sekundžių atidėti įvykio apdorojimą</translation>
     </message>
     <message>
       <source>applied only if background workers are used</source>
-      <translation type="unfinished"/>
+      <translation>taikoma tik tada, jei naudojami foniniai darbuotojai.</translation>
     </message>
     <message>
       <source>This is continuous chat event</source>
-      <translation type="unfinished"/>
+      <translation>Tai nuolatinis pokalbių renginys</translation>
     </message>
     <message>
       <source>Make sure you define some conditions. Only pending, active and bot chats are checked against these conditions.</source>
-      <translation type="unfinished"/>
+      <translation>Būtinai apibrėžkite tam tikras sąlygas. Pagal šias sąlygas tikrinami tik laukiantys, aktyvūs ir botų pokalbiai.</translation>
     </message>
     <message>
       <source>This is continuous mail event</source>
-      <translation type="unfinished"/>
+      <translation>Tai nuolatinis pašto įvykis</translation>
     </message>
     <message>
       <source>Make sure you define some conditions. Only new, active mails are checked against these conditions.</source>
-      <translation type="unfinished"/>
+      <translation>Būtinai apibrėžkite tam tikras sąlygas. Pagal šias sąlygas tikrinami tik nauji, aktyvūs laiškai.</translation>
     </message>
     <message>
       <source>Execute if conditions are NOT valid</source>
-      <translation type="unfinished"/>
+      <translation>Vykdyti, jei sąlygos NEGALIOJA</translation>
     </message>
     <message>
       <source>are not executed in this event type.</source>
-      <translation type="unfinished"/>
+      <translation>nevykdomi šiame įvykio tipe.</translation>
     </message>
     <message>
       <source>Reset events. We will process matching messages again.</source>
-      <translation type="unfinished"/>
+      <translation>Iš naujo nustatyti įvykiai. Vėl apdorosime atitinkamus pranešimus.</translation>
     </message>
     <message>
       <source>Processed events</source>
-      <translation type="unfinished"/>
+      <translation>Apdoroti įvykiai</translation>
     </message>
     <message>
       <source>Last 10 messages processed</source>
-      <translation type="unfinished"/>
+      <translation>10 paskutinių apdorotų pranešimų</translation>
     </message>
     <message>
       <source>Older events than 31 day are deleted automatically</source>
-      <translation type="unfinished"/>
+      <translation>Senesni nei 31 dienos įvykiai ištrinami automatiškai</translation>
     </message>
     <message>
       <source>Message ID followed by conversation ID</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo ID, po kurio eina pokalbio ID</translation>
     </message>
     <message>
       <source>Empty</source>
-      <translation type="unfinished"/>
+      <translation>Tuščias</translation>
     </message>
     <message>
       <source>Not empty</source>
-      <translation type="unfinished"/>
+      <translation>Ne tuščias</translation>
     </message>
     <message>
       <source>Contains</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>In list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>In list (lowercase)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not in list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not in list (lowercase)</source>
-      <translation type="unfinished"/>
+      <translation>Sudėtyje yra</translation>
     </message>
     <message>
       <source>Execute if conditions are valid</source>
-      <translation type="unfinished"/>
+      <translation>Vykdyti, jei sąlygos galioja</translation>
     </message>
     <message>
       <source>required</source>
-      <translation type="unfinished"/>
+      <translation>reikalaujama</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Scope. This should be the same for all same provider implementations.</source>
-      <translation type="unfinished"/>
+      <translation>Apimtis. Ji turėtų būti vienoda visoms to paties paslaugų teikėjo įgyvendinimo priemonėms.</translation>
     </message>
     <message>
       <source>URL to put in third party Rest API service. Append ?output=json for JSON format output.</source>
-      <translation type="unfinished"/>
+      <translation>URL, kurį reikia įvesti į trečiosios šalies &quot;Rest API&quot; paslaugą. Pridėkite ?output=json, jei norite gauti JSON formato išvestį.</translation>
     </message>
     <message>
       <source>Icon or image path. E.g.</source>
-      <translation type="unfinished"/>
+      <translation>Ikonos arba vaizdo kelias. Pvz.</translation>
     </message>
     <message>
       <source>images prefix is not needed.</source>
-      <translation type="unfinished"/>
+      <translation>vaizdų priešdėlis nereikalingas.</translation>
     </message>
     <message>
       <source>Icon color</source>
-      <translation type="unfinished"/>
+      <translation>Ikonos spalva</translation>
     </message>
     <message>
       <source>Show integration information.</source>
-      <translation type="unfinished"/>
+      <translation>Rodyti integracijos informaciją.</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Taip</translation>
     </message>
     <message>
       <source>No, uploaded files types might not be detected correctly!</source>
-      <translation type="unfinished"/>
+      <translation>Ne, įkeltų failų tipai gali būti aptikti neteisingai!</translation>
     </message>
     <message>
       <source>Main attributes</source>
-      <translation type="unfinished"/>
+      <translation>Pagrindinės savybės</translation>
     </message>
     <message>
       <source>Text messages 1</source>
-      <translation type="unfinished"/>
+      <translation>Tekstiniai pranešimai 1</translation>
     </message>
     <message>
       <source>Text messages 2</source>
-      <translation type="unfinished"/>
+      <translation>Tekstiniai pranešimai 2</translation>
     </message>
     <message>
       <source>Text messages 3</source>
-      <translation type="unfinished"/>
+      <translation>Tekstiniai pranešimai 3</translation>
     </message>
     <message>
       <source>Text messages 4</source>
-      <translation type="unfinished"/>
+      <translation>Tekstiniai pranešimai 4</translation>
     </message>
     <message>
       <source>Button payload 1</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko naudingoji apkrova 1</translation>
     </message>
     <message>
       <source>Button payload 2</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko naudingoji apkrova 2</translation>
     </message>
     <message>
       <source>Button payload 3</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko naudingoji apkrova 3</translation>
     </message>
     <message>
       <source>Attachments</source>
-      <translation type="unfinished"/>
+      <translation>Priedai</translation>
     </message>
     <message>
       <source>Images/Video 1</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdai / vaizdo įrašas 1</translation>
     </message>
     <message>
       <source>Images/Video 2</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdai / vaizdo įrašas 2</translation>
     </message>
     <message>
       <source>Images/Video 3</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdai / vaizdo įrašas 3</translation>
     </message>
     <message>
       <source>Images/Video 4</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdai ir vaizdo įrašai 4</translation>
     </message>
     <message>
       <source>Images/Video 5</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdai / vaizdo įrašai 5</translation>
     </message>
     <message>
       <source>Images/Video 6</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdai / vaizdo įrašai 6</translation>
     </message>
     <message>
       <source>Messages delivery and reactions</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų pristatymas ir reakcijos</translation>
     </message>
     <message>
       <source>Chat options</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių parinktys</translation>
     </message>
     <message>
       <source>Attributes</source>
-      <translation type="unfinished"/>
+      <translation>Atributai</translation>
     </message>
     <message>
       <source>Message related attributes</source>
-      <translation type="unfinished"/>
+      <translation>Su pranešimu susiję atributai</translation>
     </message>
     <message>
       <source>Messages attribute location</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų atributas vieta</translation>
     </message>
     <message>
       <source>This attribute contains direct message and NOT a messages array</source>
-      <translation type="unfinished"/>
+      <translation>Šiame atribute yra tiesioginis pranešimas, o ne pranešimų masyvas</translation>
     </message>
     <message>
       <source>Messages ID</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų ID</translation>
     </message>
     <message>
       <source>Check for messages uniqueness by message id</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinkite pranešimų unikalumą pagal pranešimo id</translation>
     </message>
     <message>
       <source>Reply to message ID</source>
-      <translation type="unfinished"/>
+      <translation>Atsakyti į pranešimą ID</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Laikas</translation>
     </message>
     <message>
       <source>Chat related attributes</source>
-      <translation type="unfinished"/>
+      <translation>Su pokalbiais susiję atributai</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Nikas</translation>
     </message>
     <message>
       <source>Nick preg match rule</source>
-      <translation type="unfinished"/>
+      <translation>Nick preg rungtynių taisyklė</translation>
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefonas</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP</translation>
     </message>
     <message>
       <source>Country, 2 letters code</source>
-      <translation type="unfinished"/>
+      <translation>Šalis, 2 raidžių kodas</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>El. paštas</translation>
     </message>
     <message>
       <source>Chat ID field location</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID lauko vieta</translation>
     </message>
     <message>
       <source>Chat ID 2 field location</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID 2 lauko vieta</translation>
     </message>
     <message>
       <source>Switch Chat ID with Chat ID 2 if this condition matches</source>
-      <translation type="unfinished"/>
+      <translation>Perjungti pokalbio ID su 2 pokalbio ID, jei ši sąlyga atitinka</translation>
     </message>
     <message>
       <source>We will combine both fields into single identifier</source>
-      <translation type="unfinished"/>
+      <translation>Abu laukus sujungsime į vieną identifikatorių</translation>
     </message>
     <message>
       <source>Chat ID Template for manual message sending. Use {chat_id} as placeholder</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID šablonas, skirtas rankiniam pranešimų siuntimui. Naudokite {chat_id} kaip pakaitinį simbolį</translation>
     </message>
     <message>
       <source>Chat ID field replace rule</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID lauko pakeitimo taisyklė</translation>
     </message>
     <message>
       <source>Chat ID field replace value</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID lauko vertės pakeitimas</translation>
     </message>
     <message>
       <source>General conditions for messages being processed. These are first level attributes</source>
-      <translation type="unfinished"/>
+      <translation>Bendrosios apdorojamų pranešimų sąlygos. Tai pirmojo lygio požymiai</translation>
     </message>
     <message>
       <source>Additional field location</source>
-      <translation type="unfinished"/>
+      <translation>Papildoma lauko vieta</translation>
     </message>
     <message>
       <source>Invisible additional field</source>
-      <translation type="unfinished"/>
+      <translation>Nematomas papildomas laukas</translation>
     </message>
     <message>
       <source>Message body content</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo kūno turinys</translation>
     </message>
     <message>
       <source>For message being considered text message should have attribute value equal to</source>
-      <translation type="unfinished"/>
+      <translation>Kad pranešimas būtų laikomas tekstiniu, jo atributo vertė turi būti lygi</translation>
     </message>
     <message>
       <source>For message being considered bot/operator messages should have attribute value equal to</source>
-      <translation type="unfinished"/>
+      <translation>Kad žinutė būtų laikoma boto/operatoriaus žinute, jos atributo vertė turėtų būti lygi</translation>
     </message>
     <message>
       <source>Download attachment instead of using external URL</source>
-      <translation type="unfinished"/>
+      <translation>Priedo atsisiuntimas vietoj išorinio URL adreso</translation>
     </message>
     <message>
       <source>Image body attributes. URL or base64 encoded content</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdo kūno atributai. URL arba base64 koduotas turinys</translation>
     </message>
     <message>
       <source>Attribute which holds file name. Optional</source>
-      <translation type="unfinished"/>
+      <translation>Atributas, kuriame nurodomas failo pavadinimas. Neprivalomas</translation>
     </message>
     <message>
       <source>Attribute which holds file size. File size check will apply if defined. Optional</source>
-      <translation type="unfinished"/>
+      <translation>Atributas, kuriame nurodomas failo dydis. Jei nustatytas, bus taikomas failo dydžio tikrinimas. Neprivalomas</translation>
     </message>
     <message>
       <source>Attribute which holds mime type. Optional.</source>
-      <translation type="unfinished"/>
+      <translation>Atributas, kuriame nurodomas mime tipas. Neprivalomas.</translation>
     </message>
     <message>
       <source>Decode file options</source>
-      <translation type="unfinished"/>
+      <translation>Failų dekodavimo parinktys</translation>
     </message>
     <message>
       <source>URL To make request to get content</source>
-      <translation type="unfinished"/>
+      <translation>URL Pateikti užklausą turiniui gauti</translation>
     </message>
     <message>
       <source>Request content</source>
-      <translation type="unfinished"/>
+      <translation>Užklausos turinys</translation>
     </message>
     <message>
       <source>Request content headers</source>
-      <translation type="unfinished"/>
+      <translation>Užklausos turinio antraštės</translation>
     </message>
     <message>
       <source>Response location</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo vieta</translation>
     </message>
     <message>
       <source>Returned response is location to download file</source>
-      <translation type="unfinished"/>
+      <translation>Grąžinamas atsakymas yra failo atsisiuntimo vieta</translation>
     </message>
     <message>
       <source>Remote request additional headers</source>
-      <translation type="unfinished"/>
+      <translation>Nuotolinės užklausos papildomos antraštės</translation>
     </message>
     <message>
       <source>For message being considered attachment message should have attribute value equal to</source>
-      <translation type="unfinished"/>
+      <translation>Kad pranešimas būtų laikomas priedu, jo atributo vertė turi būti lygi</translation>
     </message>
     <message>
       <source>Button payload location</source>
-      <translation type="unfinished"/>
+      <translation>Mygtuko naudingosios apkrovos vieta</translation>
     </message>
     <message>
       <source>For message being considered button payload - message should have attribute value equal to</source>
-      <translation type="unfinished"/>
+      <translation>Kad pranešimas būtų laikomas mygtuko naudingąja apkrova - pranešimo atributo vertė turi būti lygi</translation>
     </message>
     <message>
       <source>AND Message text has to start with</source>
-      <translation type="unfinished"/>
+      <translation>IR Žinutės tekstas turi prasidėti žodžiais</translation>
     </message>
     <message>
       <source>Download image instead of using external URL</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiųsti paveikslėlį, o ne naudoti išorinį URL adresą</translation>
     </message>
     <message>
       <source>Returned response is location to download image</source>
-      <translation type="unfinished"/>
+      <translation>Grąžintas atsakymas yra vieta, iš kurios galima atsisiųsti vaizdą</translation>
     </message>
     <message>
       <source>For message being considered images message should have attribute value equal to</source>
-      <translation type="unfinished"/>
+      <translation>Kad pranešimas būtų laikomas paveikslėliu, pranešimo atributo vertė turi būti lygi</translation>
     </message>
     <message>
       <source>Message ID location</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo ID vieta</translation>
     </message>
     <message>
       <source>For message being considered deleted, message should have attribute value equal to</source>
-      <translation type="unfinished"/>
+      <translation>Kad pranešimas būtų laikomas ištrintas, pranešimo atributo vertė turi būti lygi</translation>
     </message>
     <message>
       <source>All unread chat messages should be marked as read</source>
-      <translation type="unfinished"/>
+      <translation>Visos neperskaitytos pokalbių žinutės turėtų būti pažymėtos kaip perskaitytos</translation>
     </message>
     <message>
       <source>For message being considered text message edit</source>
-      <translation type="unfinished"/>
+      <translation>Dėl pranešimo, kuris laikomas tekstine žinute, redagavimo</translation>
     </message>
     <message>
       <source>Message id location to which visitor reacted</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimo ID vieta, į kurią lankytojas reagavo</translation>
     </message>
     <message>
       <source>Reaction message ID</source>
-      <translation type="unfinished"/>
+      <translation>Reakcijos pranešimo ID</translation>
     </message>
     <message>
       <source>For message being considered reaction message</source>
-      <translation type="unfinished"/>
+      <translation>Laikomam pranešimui reakcijos pranešimas</translation>
     </message>
     <message>
       <source>Reaction emoji location</source>
-      <translation type="unfinished"/>
+      <translation>Reakcijos emoji vieta</translation>
     </message>
     <message>
       <source>Try to find chat by message id if we chat was not found by id</source>
-      <translation type="unfinished"/>
+      <translation>Pabandykite rasti pokalbį pagal pranešimo id, jei pokalbis nebuvo rastas pagal id</translation>
     </message>
     <message>
       <source>Reaction is a standalone unicode character</source>
-      <translation type="unfinished"/>
+      <translation>Reakcija yra atskiras unikodo simbolis</translation>
     </message>
     <message>
       <source>Remove previous visitor reaction on action</source>
-      <translation type="unfinished"/>
+      <translation>Pašalinti ankstesnę lankytojo reakciją į veiksmą</translation>
     </message>
     <message>
       <source>Remove previous visitor reaction if emoji location is empty</source>
-      <translation type="unfinished"/>
+      <translation>Pašalinti ankstesnę lankytojo reakciją, jei emoji vieta yra tuščia</translation>
     </message>
     <message>
       <source>If previous chat is found and it is closed we should</source>
-      <translation type="unfinished"/>
+      <translation>Jei randamas ankstesnis pokalbis ir jis yra uždarytas, turėtume</translation>
     </message>
     <message>
       <source>Create a new chat.</source>
-      <translation type="unfinished"/>
+      <translation>Sukurkite naują pokalbį.</translation>
     </message>
     <message>
       <source>Set previous chat to Pending/Bot depending on department configuration.</source>
-      <translation type="unfinished"/>
+      <translation>Nustatykite ankstesnį pokalbį į &quot;Laukiama&quot; / &quot;Robotas&quot;, priklausomai nuo skyriaus konfigūracijos.</translation>
     </message>
     <message>
       <source>Set as active if operator was assigned. Operator will not be reset.</source>
-      <translation type="unfinished"/>
+      <translation>Nustatyta kaip aktyvi, jei operatorius buvo priskirtas. Operatorius nebus atstatytas.</translation>
     </message>
     <message>
       <source>Operator should be reset if chat being transferred to pending state.</source>
-      <translation type="unfinished"/>
+      <translation>Operatorių reikia iš naujo nustatyti, jei pokalbis perkeliamas į laukimo būseną.</translation>
     </message>
     <message>
       <source>Chat should be reset to default department. Bot also will be set to default.</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis turėtų būti atstatytas į numatytąjį skyrių. Botas taip pat bus nustatytas į numatytąjį.</translation>
     </message>
     <message>
       <source>These attributes can be accessed in Rest API. So you would not need to define them there.</source>
-      <translation type="unfinished"/>
+      <translation>Šiuos atributus galima pasiekti per Rest API. Taigi jums nereikės jų apibrėžti.</translation>
     </message>
     <message>
       <source>Expected JSON payload for text message.</source>
-      <translation type="unfinished"/>
+      <translation>Laukiama teksto pranešimo JSON naudingoji apkrova.</translation>
     </message>
     <message>
       <source>expected message body</source>
-      <translation type="unfinished"/>
+      <translation>tikėtinas pranešimo kūnas</translation>
     </message>
     <message>
       <source>expected nick</source>
-      <translation type="unfinished"/>
+      <translation>tikėtinas slapyvardis</translation>
     </message>
     <message>
       <source>unix timestamp E.g 1504208593</source>
-      <translation type="unfinished"/>
+      <translation>unix laiko žyma Pvz. 1504208593</translation>
     </message>
     <message>
       <source>Unique Chat ID.</source>
-      <translation type="unfinished"/>
+      <translation>Unikalus pokalbio ID.</translation>
     </message>
   </context>
   <context>
     <name>module/mailconvpreview</name>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>Sukurta</translation>
     </message>
     <message>
       <source>Wait response time</source>
-      <translation type="unfinished"/>
+      <translation>Laukimo reakcijos laikas</translation>
     </message>
     <message>
       <source>Wait time</source>
-      <translation type="unfinished"/>
+      <translation>Laukimo laikas</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas</translation>
     </message>
   </context>
   <context>
     <name>module/mailconvrp</name>
     <message>
       <source>Subjects</source>
-      <translation type="unfinished"/>
+      <translation>Subjektai</translation>
     </message>
     <message>
       <source>Departments</source>
-      <translation type="unfinished"/>
+      <translation>Departamentai</translation>
     </message>
     <message>
       <source>All departments</source>
-      <translation type="unfinished"/>
+      <translation>Visi skyriai</translation>
     </message>
     <message>
       <source>HTML Template</source>
-      <translation type="unfinished"/>
+      <translation>HTML šablonas</translation>
     </message>
     <message>
       <source>Plain text Template</source>
-      <translation type="unfinished"/>
+      <translation>Paprastojo teksto šablonas</translation>
     </message>
     <message>
       <source>Response templates</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymų šablonai</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
   </context>
   <context>
     <name>module/msauth</name>
     <message>
       <source>MS Auth Options</source>
-      <translation type="unfinished"/>
+      <translation>MS autentifikavimo parinktys</translation>
     </message>
     <message>
       <source>Tenant ID</source>
-      <translation type="unfinished"/>
+      <translation>Nuomininko ID</translation>
     </message>
     <message>
       <source>Client ID</source>
-      <translation type="unfinished"/>
+      <translation>Kliento ID</translation>
     </message>
     <message>
       <source>Client Secret</source>
-      <translation type="unfinished"/>
+      <translation>Kliento paslaptis</translation>
     </message>
     <message>
       <source>Login URL to set in APP settings</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungimo URL, kurį reikia nustatyti APP nustatymuose</translation>
     </message>
     <message>
       <source>Set this URL as Authentication Redirect URLs under Web platform.</source>
-      <translation type="unfinished"/>
+      <translation>Nustatykite šį URL kaip autentifikavimo nukreipimo URL Web platformoje.</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti nustatymai</translation>
     </message>
   </context>
   <context>
     <name>module/fbmessenger</name>
     <message>
       <source>Edit session</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti sesiją</translation>
     </message>
     <message>
       <source>Token</source>
-      <translation type="unfinished"/>
+      <translation>Žetonas</translation>
     </message>
     <message>
       <source>Device</source>
-      <translation type="unfinished"/>
+      <translation>Įrenginys</translation>
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo ID</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Statusas</translation>
     </message>
     <message>
       <source>Last error</source>
-      <translation type="unfinished"/>
+      <translation>Paskutinė klaida</translation>
     </message>
     <message>
       <source>Sessions</source>
-      <translation type="unfinished"/>
+      <translation>Sesijos</translation>
     </message>
     <message>
       <source>Device type</source>
-      <translation type="unfinished"/>
+      <translation>Įrenginio tipas</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas</translation>
     </message>
     <message>
       <source>Created on</source>
-      <translation type="unfinished"/>
+      <translation>Sukurta</translation>
     </message>
     <message>
       <source>Updated on</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta</translation>
     </message>
   </context>
   <context>
     <name>notifications/edit</name>
     <message>
       <source>Main</source>
-      <translation type="unfinished"/>
+      <translation>Pagrindinis</translation>
     </message>
     <message>
       <source>Test notification</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas apie bandymą</translation>
     </message>
     <message>
       <source>Device</source>
@@ -21789,15 +22081,15 @@
     </message>
     <message>
       <source>User Agent</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo agentas</translation>
     </message>
     <message>
       <source>Chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID</translation>
     </message>
     <message>
       <source>Online Visitor ID</source>
-      <translation type="unfinished"/>
+      <translation>Internetinis lankytojo ID</translation>
     </message>
     <message>
       <source>IP</source>
@@ -21809,31 +22101,31 @@
     </message>
     <message>
       <source>Created</source>
-      <translation type="unfinished"/>
+      <translation>Sukurta</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta</translation>
     </message>
     <message>
       <source>Subscriber endpoint settings</source>
-      <translation type="unfinished"/>
+      <translation>Abonento galinio taško nustatymai</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>OR</source>
-      <translation type="unfinished"/>
+      <translation>ARBA</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation type="unfinished"/>
+      <translation>Žinutė</translation>
     </message>
     <message>
       <source>URL, optional.</source>
-      <translation type="unfinished"/>
+      <translation>URL, neprivaloma.</translation>
     </message>
   </context>
   <context>
@@ -21844,19 +22136,19 @@
     </message>
     <message>
       <source>Visitors settings</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų nustatymai</translation>
     </message>
     <message>
       <source>Visitors subscribers list</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų abonentų sąrašas</translation>
     </message>
     <message>
       <source>Operators settings</source>
-      <translation type="unfinished"/>
+      <translation>Operatorių nustatymai</translation>
     </message>
     <message>
       <source>Operators subscribers list</source>
-      <translation type="unfinished"/>
+      <translation>Operatorių abonentų sąrašas</translation>
     </message>
   </context>
   <context>
@@ -21867,30 +22159,30 @@
     </message>
     <message>
       <source>Operators subscribers list</source>
-      <translation type="unfinished"/>
+      <translation>Operatorių abonentų sąrašas</translation>
     </message>
     <message>
       <source>New chat</source>
-      <translation type="unfinished"/>
+      <translation>Naujas pokalbis</translation>
     </message>
     <message>
       <source>Assigned chat</source>
-      <translation type="unfinished"/>
+      <translation>Priskirti pokalbiai</translation>
     </message>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimai</translation>
     </message>
   </context>
   <context>
     <name>notification/list</name>
     <message>
       <source>Chat ID</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio ID</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Theme</source>
@@ -21906,31 +22198,31 @@
     </message>
     <message>
       <source>Registration time</source>
-      <translation type="unfinished"/>
+      <translation>Registracijos laikas</translation>
     </message>
     <message>
       <source>Update time</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinimo laikas</translation>
     </message>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Status</source>
-      <translation type="unfinished"/>
+      <translation>Statusas</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyvus</translation>
     </message>
     <message>
       <source>In-Active</source>
-      <translation type="unfinished"/>
+      <translation>Neaktyvus</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas</translation>
     </message>
   </context>
   <context>
@@ -21945,11 +22237,11 @@
     </message>
     <message>
       <source>You can generate your private and public key here</source>
-      <translation type="unfinished"/>
+      <translation>Čia galite sugeneruoti savo privatų ir viešąjį raktą</translation>
     </message>
     <message>
       <source>Explains were taken from:</source>
-      <translation type="unfinished"/>
+      <translation>Paaiškinimai buvo paimti iš:</translation>
     </message>
     <message>
       <source>Enable notifications</source>
@@ -21957,39 +22249,39 @@
     </message>
     <message>
       <source>On desktop, a notification is only displayed for a short period of time. On Android, notifications are shown until the user interacts with it.</source>
-      <translation type="unfinished"/>
+      <translation>Darbalaukyje pranešimas rodomas tik trumpą laiką. &quot;Android&quot; sistemoje pranešimai rodomi tol, kol naudotojas su jais sąveikauja.</translation>
     </message>
     <message>
       <source>To get the same behaviour on desktop and mobile you can set the &quot;require-interaction&quot; option to true, which means the user must click or dismiss the notification.</source>
-      <translation type="unfinished"/>
+      <translation>Norėdami pasiekti tokį patį elgesį darbalaukyje ir mobiliajame telefone, galite nustatyti parinktį &quot;reikalauti sąveikos&quot; į reikšmę true, o tai reiškia, kad naudotojas turi spustelėti arba atmesti pranešimą.</translation>
     </message>
     <message>
       <source>When you use the tag option, the default behavior of a new notification replacing an existing one is that there is no sound, vibration and the screen is kept asleep.</source>
-      <translation type="unfinished"/>
+      <translation>Kai naudojate žymos parinktį, pagal numatytuosius nustatymus, kai naujas pranešimas pakeičia esamą pranešimą, nėra garso, vibracijos ir ekranas yra užmigdytas.</translation>
     </message>
     <message>
       <source>With `renotify: true` a new notification will play a sound, vibrate and wake up the users device. This means replacing notifications have the same behavior as a completely new notification.</source>
-      <translation type="unfinished"/>
+      <translation>Naudojant `renotify: true` naujas pranešimas skleis garsą, vibruos ir pažadins naudotojo įrenginį. Tai reiškia, kad pakeičiant pranešimus elgiamasi taip pat, kaip ir siunčiant visiškai naują pranešimą.</translation>
     </message>
     <message>
       <source>Note</source>
-      <translation type="unfinished"/>
+      <translation>Pastaba</translation>
     </message>
     <message>
       <source>There is no visible affect on desktop, but on mobile, vibration and sound will be affected.</source>
-      <translation type="unfinished"/>
+      <translation>Darbalaukyje poveikis nėra matomas, tačiau mobiliuosiuose įrenginiuose vibracija ir garsas bus paveikti.</translation>
     </message>
     <message>
       <source>Subject*</source>
-      <translation type="unfinished"/>
+      <translation>Tema*</translation>
     </message>
     <message>
       <source>You must provide a subject that is either a mailto: or a URL.</source>
-      <translation type="unfinished"/>
+      <translation>Turite nurodyti temą, kuri yra mailto: arba URL.</translation>
     </message>
     <message>
       <source>HTTP Host*</source>
-      <translation type="unfinished"/>
+      <translation>HTTP prieglobstis*</translation>
     </message>
     <message>
       <source>Default Icon</source>
@@ -21997,15 +22289,15 @@
     </message>
     <message>
       <source>Badge Icon</source>
-      <translation type="unfinished"/>
+      <translation>Ženklelio piktograma</translation>
     </message>
     <message>
       <source>Notification badges are only being used on mobile, at least at the time of writing. It is used to replace the browser icon that is shown by default.</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimų ženkliukai naudojami tik mobiliuosiuose įrenginiuose, bent jau šiuo metu. Jis naudojamas vietoj naršyklės piktogramos, kuri rodoma pagal numatytuosius nustatymus.</translation>
     </message>
     <message>
       <source>Vibrate</source>
-      <translation type="unfinished"/>
+      <translation>Vibruoti</translation>
     </message>
     <message>
       <source>Public key*</source>
@@ -22017,26 +22309,26 @@
     </message>
     <message>
       <source>Private key is not shown after save</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugojus nerodomas privatus raktas</translation>
     </message>
     <message>
       <source>Download Service Worker</source>
-      <translation type="unfinished"/>
+      <translation>Parsisiųsti Paslaugų darbuotojas</translation>
     </message>
     <message>
       <source>you will have to put this file in your domain root folder.</source>
-      <translation type="unfinished"/>
+      <translation>šį failą turėsite įdėti į domeno šakninį aplanką.</translation>
     </message>
   </context>
   <context>
     <name>paidchat/expiredchat</name>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Chat was closed.</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo uždarytas.</translation>
     </message>
     <message>
       <source>Invalid hash</source>
@@ -22044,45 +22336,45 @@
     </message>
     <message>
       <source>Removed paid chat</source>
-      <translation type="unfinished"/>
+      <translation>Pašalintas mokamas pokalbis</translation>
     </message>
   </context>
   <context>
     <name>paidchat/settings</name>
     <message>
       <source>Paid chat settings</source>
-      <translation type="unfinished"/>
+      <translation>Mokamų pokalbių nustatymai</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungta</translation>
     </message>
     <message>
       <source>User can not access old chat if chat is closed</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojas negali pasiekti senojo pokalbio, jei pokalbis uždarytas</translation>
     </message>
     <message>
       <source>Secret hash, used for verification</source>
-      <translation type="unfinished"/>
+      <translation>Slaptasis hash, naudojamas patikrinimui</translation>
     </message>
   </context>
   <context>
     <name>permission/editrole</name>
     <message>
       <source>Edit function</source>
-      <translation type="unfinished"/>
+      <translation>Redagavimo funkcija</translation>
     </message>
     <message>
       <source>Exclude permission. Operator will lose access to this function.</source>
-      <translation type="unfinished"/>
+      <translation>Neišduoti leidimo. Operatorius neteks prieigos prie šios funkcijos.</translation>
     </message>
     <message>
       <source>Limitation</source>
-      <translation type="unfinished"/>
+      <translation>Apribojimas</translation>
     </message>
     <message>
       <source>Edit role</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti vaidmenį</translation>
     </message>
     <message>
       <source>Title</source>
@@ -22118,7 +22410,7 @@
     </message>
     <message>
       <source>Type</source>
-      <translation type="unfinished"/>
+      <translation>Tipas</translation>
     </message>
     <message>
       <source>Role assigned groups</source>
@@ -22134,23 +22426,23 @@
     </message>
     <message>
       <source>Grant</source>
-      <translation type="unfinished"/>
+      <translation>Grant</translation>
     </message>
     <message>
       <source>Exclude</source>
-      <translation type="unfinished"/>
+      <translation>Išskyrus</translation>
     </message>
     <message>
       <source>Group</source>
-      <translation type="unfinished"/>
+      <translation>Grupė</translation>
     </message>
     <message>
       <source>Role</source>
-      <translation type="unfinished"/>
+      <translation>Vaidmuo</translation>
     </message>
     <message>
       <source>Summary</source>
-      <translation type="unfinished"/>
+      <translation>Santrauka</translation>
     </message>
     <message>
       <source>All modules</source>
@@ -22189,59 +22481,59 @@
     <name>permission/explorer</name>
     <message>
       <source>Permissions explorer</source>
-      <translation type="unfinished"/>
+      <translation>Leidimų tyrėjas</translation>
     </message>
     <message>
       <source>Download as CSV</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiųsti kaip CSV</translation>
     </message>
     <message>
       <source>Module</source>
-      <translation type="unfinished"/>
+      <translation>Modulis</translation>
     </message>
     <message>
       <source>Permission</source>
-      <translation type="unfinished"/>
+      <translation>Leidimas</translation>
     </message>
     <message>
       <source>Explain</source>
-      <translation type="unfinished"/>
+      <translation>Paaiškinkite</translation>
     </message>
     <message>
       <source>Used by URL</source>
-      <translation type="unfinished"/>
+      <translation>Naudojamas URL</translation>
     </message>
     <message>
       <source>Enter URL to see required permissions</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite URL, kad pamatytumėte reikiamus leidimus</translation>
     </message>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
+      <translation>Paieška</translation>
     </message>
     <message>
       <source>Find users who can use it</source>
-      <translation type="unfinished"/>
+      <translation>Suraskite naudotojų, kurie gali juo naudotis</translation>
     </message>
     <message>
       <source>Groups</source>
-      <translation type="unfinished"/>
+      <translation>Grupės</translation>
     </message>
     <message>
       <source>Roles</source>
-      <translation type="unfinished"/>
+      <translation>Vaidmenys</translation>
     </message>
     <message>
       <source>Users</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojai</translation>
     </message>
     <message>
       <source>User</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas</translation>
     </message>
     <message>
       <source>No users were found!</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojų nerasta!</translation>
     </message>
   </context>
   <context>
@@ -22293,15 +22585,15 @@
     </message>
     <message>
       <source>Options</source>
-      <translation type="unfinished"/>
+      <translation>Parinktys</translation>
     </message>
     <message>
       <source>Limitation</source>
-      <translation type="unfinished"/>
+      <translation>Apribojimas</translation>
     </message>
     <message>
       <source>Enter any content which you will be able to get within users permissions</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite bet kokį turinį, kurį galėsite gauti per naudotojų leidimus</translation>
     </message>
     <message>
       <source>Save</source>
@@ -22413,11 +22705,11 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Clone</source>
-      <translation type="unfinished"/>
+      <translation>Klonas</translation>
     </message>
     <message>
       <source>Delete a role</source>
@@ -22429,7 +22721,7 @@
     </message>
     <message>
       <source>Copy of</source>
-      <translation type="unfinished"/>
+      <translation>Kopija</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -22440,18 +22732,18 @@
     <name>lhproduct/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Produktai</translation>
     </message>
   </context>
   <context>
     <name>theme/index</name>
     <message>
       <source>Products</source>
-      <translation type="unfinished"/>
+      <translation>Produktai</translation>
     </message>
     <message>
       <source>My theme</source>
-      <translation type="unfinished"/>
+      <translation>Mano tema</translation>
     </message>
     <message>
       <source>Default theme</source>
@@ -22471,19 +22763,19 @@
     </message>
     <message>
       <source>Admin</source>
-      <translation type="unfinished"/>
+      <translation>Administratorius</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Administratoriaus temos</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji administratoriaus tema</translation>
     </message>
     <message>
       <source>Rest API</source>
-      <translation type="unfinished"/>
+      <translation>Poilsio API</translation>
     </message>
     <message>
       <source>Themes</source>
@@ -22491,7 +22783,7 @@
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>Importas</translation>
     </message>
     <message>
       <source>Import theme</source>
@@ -22499,7 +22791,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>Sistemos konfigūracija</translation>
     </message>
   </context>
   <context>
@@ -22573,7 +22865,7 @@
     </message>
     <message>
       <source>If there are no options to choose from, the user will be shown a text field where they will be able to enter their own answer.</source>
-      <translation type="unfinished"/>
+      <translation>Jei nėra parinkčių, iš kurių būtų galima pasirinkti, naudotojui bus rodomas teksto laukas, į kurį jis galės įrašyti savo atsakymą.</translation>
     </message>
     <message>
       <source>Option</source>
@@ -22672,7 +22964,7 @@
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Administratoriaus temos</translation>
     </message>
   </context>
   <context>
@@ -22768,29 +23060,29 @@
     </message>
     <message>
       <source>You have already sent your feedback!</source>
-      <translation type="unfinished"/>
+      <translation>Jūs jau išsiuntėte savo atsiliepimą!</translation>
     </message>
   </context>
   <context>
     <name>lhrestapi/index</name>
     <message>
       <source>Rest API</source>
-      <translation type="unfinished"/>
+      <translation>Poilsio API</translation>
     </message>
     <message>
       <source>Rest API Keys</source>
-      <translation type="unfinished"/>
+      <translation>Rest API raktai</translation>
     </message>
     <message>
       <source>Rest API Remote Keys</source>
-      <translation type="unfinished"/>
+      <translation>Rest API nuotoliniai raktai</translation>
     </message>
   </context>
   <context>
     <name>speech/language</name>
     <message>
       <source>Dialects</source>
-      <translation type="unfinished"/>
+      <translation>Dialektai</translation>
     </message>
     <message>
       <source>Language</source>
@@ -22814,15 +23106,15 @@
     </message>
     <message>
       <source>Edit dialect</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti dialektą</translation>
     </message>
     <message>
       <source>Edit language</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti kalbą</translation>
     </message>
     <message>
       <source>Dialect name</source>
-      <translation type="unfinished"/>
+      <translation>Dialekto pavadinimas</translation>
     </message>
     <message>
       <source>Language code</source>
@@ -22868,11 +23160,11 @@
     </message>
     <message>
       <source>Total value</source>
-      <translation type="unfinished"/>
+      <translation>Bendra vertė</translation>
     </message>
     <message>
       <source>Parent</source>
-      <translation type="unfinished"/>
+      <translation>Tėvai</translation>
     </message>
     <message>
       <source>Explanation</source>
@@ -22880,74 +23172,74 @@
     </message>
     <message>
       <source>Total send</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso siųsti</translation>
     </message>
     <message>
       <source>Invitation was assigned to online visitor</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimas buvo priskirtas internetiniam lankytojui</translation>
     </message>
     <message>
       <source>Total shown</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso parodyta</translation>
     </message>
     <message>
       <source>widget was opened with invitation content</source>
-      <translation type="unfinished"/>
+      <translation>valdiklis buvo atidarytas su kvietimo turiniu</translation>
     </message>
     <message>
       <source>Total seen</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso pastebėta</translation>
     </message>
     <message>
       <source>Widget was shown but visitor closed it without starting a chat</source>
-      <translation type="unfinished"/>
+      <translation>Valdiklis buvo parodytas, bet lankytojas jį uždarė nepradėjęs pokalbio</translation>
     </message>
     <message>
       <source>Chat started</source>
-      <translation type="unfinished"/>
+      <translation>Pradėtas pokalbis</translation>
     </message>
     <message>
       <source>Visitor started chat by online invitation</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas pradėjo pokalbį pagal internetinį kvietimą</translation>
     </message>
     <message>
       <source>Matched</source>
-      <translation type="unfinished"/>
+      <translation>Suderinta</translation>
     </message>
     <message>
       <source>Total times invitation was matched</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso kartų, kai kvietimas buvo suderintas</translation>
     </message>
     <message>
       <source>Conversions</source>
-      <translation type="unfinished"/>
+      <translation>Konversijos</translation>
     </message>
     <message>
       <source>Number of times conversions has happened from total initiated</source>
-      <translation type="unfinished"/>
+      <translation>Konversijų skaičius iš viso inicijuotų kartų</translation>
     </message>
     <message>
       <source>Unique conversions</source>
-      <translation type="unfinished"/>
+      <translation>Unikalios konversijos</translation>
     </message>
     <message>
       <source>Multiple invitations to the same online visitor is considered as a one record</source>
-      <translation type="unfinished"/>
+      <translation>Keli kvietimai tam pačiam interneto lankytojui laikomi vienu įrašu</translation>
     </message>
     <message>
       <source>field based statistic. Field has to be not empty.</source>
-      <translation type="unfinished"/>
+      <translation>lauko statistika. Laukas turi būti ne tuščias.</translation>
     </message>
     <message>
       <source>Multiple invitation of the same unique_id value is considered as a one record.</source>
-      <translation type="unfinished"/>
+      <translation>Keletas pakvietimų su ta pačia unikalaus_id reikšme laikomi vienu įrašu.</translation>
     </message>
   </context>
   <context>
     <name>survey/choosesurvey</name>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Apklausa</translation>
     </message>
     <message>
       <source>Collected information</source>
@@ -22955,62 +23247,62 @@
     </message>
     <message>
       <source>Redirect to survey</source>
-      <translation type="unfinished"/>
+      <translation>Nukreipti į apklausą</translation>
     </message>
     <message>
       <source>Chat is on hold and can not be forwarded to survey</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis sulaikytas ir jo negalima nukreipti į apklausą</translation>
     </message>
     <message>
       <source>Visitor was redirected to survey, you can now close this window.</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas buvo nukreiptas į apklausą, dabar galite uždaryti šį langą.</translation>
     </message>
   </context>
   <context>
     <name>survey/collected</name>
     <message>
       <source>List</source>
-      <translation type="unfinished"/>
+      <translation>Sąrašas</translation>
     </message>
     <message>
       <source>Chart</source>
-      <translation type="unfinished"/>
+      <translation>Diagrama</translation>
     </message>
     <message>
       <source>Great chats with average of</source>
-      <translation type="unfinished"/>
+      <translation>Puikūs pokalbiai su vidutiniškai</translation>
     </message>
     <message>
       <source>Not so great chats</source>
-      <translation type="unfinished"/>
+      <translation>Ne tokie puikūs pokalbiai</translation>
     </message>
     <message>
       <source>Average</source>
-      <translation type="unfinished"/>
+      <translation>Vidutiniškai</translation>
     </message>
     <message>
       <source>Stars</source>
-      <translation type="unfinished"/>
+      <translation>Žvaigždės</translation>
     </message>
     <message>
       <source>Percentages</source>
-      <translation type="unfinished"/>
+      <translation>Procentai</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>Time</source>
@@ -23026,7 +23318,7 @@
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Apklausa</translation>
     </message>
     <message>
       <source>Department name</source>
@@ -23034,7 +23326,7 @@
     </message>
     <message>
       <source>Survey ID</source>
-      <translation type="unfinished"/>
+      <translation>Apklausos ID</translation>
     </message>
   </context>
   <context>
@@ -23045,27 +23337,27 @@
     </message>
     <message>
       <source>star</source>
-      <translation type="unfinished"/>
+      <translation>žvaigždė</translation>
     </message>
     <message>
       <source>Poor</source>
-      <translation type="unfinished"/>
+      <translation>Prastas</translation>
     </message>
     <message>
       <source>stars</source>
-      <translation type="unfinished"/>
+      <translation>žvaigždės</translation>
     </message>
     <message>
       <source>Excellent</source>
-      <translation type="unfinished"/>
+      <translation>Puikus</translation>
     </message>
     <message>
       <source>Type here...</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite čia...</translation>
     </message>
     <message>
       <source>Thank you for your feedback!</source>
-      <translation type="unfinished"/>
+      <translation>Dėkojame už atsiliepimus!</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
@@ -23080,19 +23372,19 @@
     <name>system/bbcodeconfiguration</name>
     <message>
       <source>BBCode configuration</source>
-      <translation type="unfinished"/>
+      <translation>BBCode konfigūracija</translation>
     </message>
     <message>
       <source>Disable for visitor messages</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti lankytojų pranešimus</translation>
     </message>
     <message>
       <source>Disable for operator messages</source>
-      <translation type="unfinished"/>
+      <translation>Išjungti operatoriaus pranešimus</translation>
     </message>
     <message>
       <source>White list domains separated by comma, use at the end ||{url} as placeholder:</source>
-      <translation type="unfinished"/>
+      <translation>Baltojo sąrašo domenai, atskirti kableliu, naudokite pabaigoje ||{url} kaip pakaitinį simbolį:</translation>
     </message>
   </context>
   <context>
@@ -23103,7 +23395,7 @@
     </message>
     <message>
       <source>Custom auto logins</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktiniai automatiniai prisijungimai</translation>
     </message>
     <message>
       <source>This module can be used if you are generating autologin link. See site for code examples</source>
@@ -23119,31 +23411,31 @@
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo ID</translation>
     </message>
     <message>
       <source>SiteAccess</source>
-      <translation type="unfinished"/>
+      <translation>Svetainės prieiga</translation>
     </message>
     <message>
       <source>Default URL</source>
-      <translation type="unfinished"/>
+      <translation>Numatytasis URL adresas</translation>
     </message>
     <message>
       <source>Secret hash</source>
-      <translation type="unfinished"/>
+      <translation>Slaptasis hash</translation>
     </message>
     <message>
       <source>IP Allowed</source>
-      <translation type="unfinished"/>
+      <translation>Leidžiamas IP</translation>
     </message>
     <message>
       <source>Copied!</source>
-      <translation type="unfinished"/>
+      <translation>Nukopijuota!</translation>
     </message>
     <message>
       <source>Copy URL to clipboard</source>
-      <translation type="unfinished"/>
+      <translation>URL adreso kopijavimas į iškarpinę</translation>
     </message>
     <message>
       <source>Settings updated</source>
@@ -23151,67 +23443,67 @@
     </message>
     <message>
       <source>Password requirements</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodžio reikalavimai</translation>
     </message>
     <message>
       <source>User has to change password every n days</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojas turi keisti slaptažodį kas n dienų</translation>
     </message>
     <message>
       <source>Disable user automatically if from last login passed X number of days</source>
-      <translation type="unfinished"/>
+      <translation>Automatinis naudotojo išjungimas, jei nuo paskutinio prisijungimo praėjo X dienų skaičius</translation>
     </message>
     <message>
       <source>Force user logout if last login was X hours ago</source>
-      <translation type="unfinished"/>
+      <translation>Priversti naudotoją atsijungti, jei paskutinį kartą prisijungta prieš X valandų</translation>
     </message>
     <message>
       <source>Maximum number of failed logins before account is disabled.</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias nesėkmingų prisijungimų skaičius prieš išjungiant paskyrą.</translation>
     </message>
     <message>
       <source>We should generate password for password reminder</source>
-      <translation type="unfinished"/>
+      <translation>Turėtume sugeneruoti slaptažodį slaptažodžio priminimui</translation>
     </message>
     <message>
       <source>Login restrictions</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungimo apribojimai</translation>
     </message>
     <message>
       <source>Allow to login only from these IP</source>
-      <translation type="unfinished"/>
+      <translation>Leisti prisijungti tik iš šių IP</translation>
     </message>
     <message>
       <source>Password format requirements</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodžio formato reikalavimai</translation>
     </message>
     <message>
       <source>Minimal password length</source>
-      <translation type="unfinished"/>
+      <translation>Minimalus slaptažodžio ilgis</translation>
     </message>
     <message>
       <source>Uppercase letters required</source>
-      <translation type="unfinished"/>
+      <translation>Reikia rašyti didžiosiomis raidėmis</translation>
     </message>
     <message>
       <source>Lowercase characters required</source>
-      <translation type="unfinished"/>
+      <translation>Būtina rašyti mažosiomis raidėmis</translation>
     </message>
     <message>
       <source>Numbers required</source>
-      <translation type="unfinished"/>
+      <translation>Reikalingi skaičiai</translation>
     </message>
     <message>
       <source>Special characters required</source>
-      <translation type="unfinished"/>
+      <translation>Reikalingi specialieji simboliai</translation>
     </message>
     <message>
       <source>To these users id&apos;s login IP restrictions does not apply</source>
-      <translation type="unfinished"/>
+      <translation>Šių naudotojų ID prisijungimo IP apribojimai netaikomi</translation>
     </message>
     <message>
       <source>Both passwords must match</source>
-      <translation type="unfinished"/>
+      <translation>Abu slaptažodžiai turi sutapti</translation>
     </message>
     <message>
       <source>Autologin hash has expired</source>
@@ -23235,94 +23527,94 @@
     </message>
     <message>
       <source>Invalid hash or user</source>
-      <translation type="unfinished"/>
+      <translation>Neteisingas hash arba naudotojas</translation>
     </message>
     <message>
       <source>Password changed</source>
-      <translation type="unfinished"/>
+      <translation>Pakeistas slaptažodis</translation>
     </message>
     <message>
       <source>Update password</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti slaptažodį</translation>
     </message>
   </context>
   <context>
     <name>mailconv/module</name>
     <message>
       <source>Mail options</source>
-      <translation type="unfinished"/>
+      <translation>Pašto parinktys</translation>
     </message>
     <message>
       <source>Mailbox list</source>
-      <translation type="unfinished"/>
+      <translation>Pašto dėžučių sąrašas</translation>
     </message>
     <message>
       <source>Mailbox</source>
-      <translation type="unfinished"/>
+      <translation>Pašto dėžutė</translation>
     </message>
     <message>
       <source>Personal mailbox groups</source>
-      <translation type="unfinished"/>
+      <translation>Asmeninių pašto dėžučių grupės</translation>
     </message>
     <message>
       <source>Matching rules</source>
-      <translation type="unfinished"/>
+      <translation>Atitikimo taisyklės</translation>
     </message>
     <message>
       <source>Response templates</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymų šablonai</translation>
     </message>
     <message>
       <source>Editor options</source>
-      <translation type="unfinished"/>
+      <translation>Redaktoriaus parinktys</translation>
     </message>
     <message>
       <source>General options</source>
-      <translation type="unfinished"/>
+      <translation>Bendrosios parinktys</translation>
     </message>
     <message>
       <source>OAuth options</source>
-      <translation type="unfinished"/>
+      <translation>OAuth parinktys</translation>
     </message>
     <message>
       <source>Conversations</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Mail archive</source>
-      <translation type="unfinished"/>
+      <translation>Pašto archyvas</translation>
     </message>
     <message>
       <source>Scheduled archive and deletion</source>
-      <translation type="unfinished"/>
+      <translation>Suplanuotas archyvavimas ir ištrynimas</translation>
     </message>
     <message>
       <source>Pending imports</source>
-      <translation type="unfinished"/>
+      <translation>Nebaigtas importas</translation>
     </message>
     <message>
       <source>Mailing options</source>
-      <translation type="unfinished"/>
+      <translation>Siuntimo parinktys</translation>
     </message>
     <message>
       <source>Mailing list</source>
-      <translation type="unfinished"/>
+      <translation>Pašto sąrašas</translation>
     </message>
     <message>
       <source>Recipients</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjai</translation>
     </message>
     <message>
       <source>Campaigns</source>
-      <translation type="unfinished"/>
+      <translation>Kampanijos</translation>
     </message>
     <message>
       <source>Send an e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti el. laišką</translation>
     </message>
     <message>
       <source>Speech options</source>
-      <translation type="unfinished"/>
+      <translation>Kalbos parinktys</translation>
     </message>
   </context>
   <context>
@@ -23373,23 +23665,23 @@
     </message>
     <message>
       <source>Notice messages</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimai</translation>
     </message>
     <message>
       <source>Generic notice message at the top bar</source>
-      <translation type="unfinished"/>
+      <translation>Bendras pranešimas viršutinėje juostoje</translation>
     </message>
     <message>
       <source>Level of notice</source>
-      <translation type="unfinished"/>
+      <translation>Įspėjimo lygis</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation type="unfinished"/>
+      <translation>Žinutė</translation>
     </message>
     <message>
       <source>Notice message in case of connection issues</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas apie ryšio sutrikimus</translation>
     </message>
     <message>
       <source>Please choose correct language</source>
@@ -23397,11 +23689,11 @@
     </message>
     <message>
       <source>Please choose a valid siteaccess</source>
-      <translation type="unfinished"/>
+      <translation>Prašome pasirinkti galiojančią prieigą prie svetainės</translation>
     </message>
     <message>
       <source>Please choose a language</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite kalbą</translation>
     </message>
     <message>
       <source>Please enter theme</source>
@@ -23420,42 +23712,42 @@
     <name>system/offlinesettings</name>
     <message>
       <source>Offline settings</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungusieji nustatymai</translation>
     </message>
     <message>
       <source>Offline chat request won&apos;t be saved.</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio užklausa neprisijungus prie interneto nebus išsaugota.</translation>
     </message>
     <message>
       <source>Then offline chat is registered it&apos;s status will be changed to closed chat.</source>
-      <translation type="unfinished"/>
+      <translation>Tada užregistruotas neprisijungęs pokalbis, jo būsena bus pakeista į uždarą pokalbį.</translation>
     </message>
     <message>
       <source>Make sure you have NOT checked &apos;Do not save offline chats&apos; option above</source>
-      <translation type="unfinished"/>
+      <translation>Įsitikinkite, kad NEpažymėjote pirmiau nurodytos parinkties &quot;Neišsaugoti neprisijungus prie interneto pokalbių&quot;.</translation>
     </message>
   </context>
   <context>
     <name>system/timezone</name>
     <message>
       <source>Do not save offline chats</source>
-      <translation type="unfinished"/>
+      <translation>Neišsaugoti neprisijungusių pokalbių</translation>
     </message>
     <message>
       <source>Automatically change offline chat status to closed</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai pakeiskite neprisijungusio pokalbio būseną į uždarytą</translation>
     </message>
     <message>
       <source>Do not send e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Nesiųskite el. pašto</translation>
     </message>
     <message>
       <source>Offline message which will be saved within a chat</source>
-      <translation type="unfinished"/>
+      <translation>Žinutė neprisijungus prie interneto, kuri bus išsaugota pokalbyje</translation>
     </message>
     <message>
       <source>Enable</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti</translation>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -23479,7 +23771,7 @@
     </message>
     <message>
       <source>Update</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -23534,72 +23826,88 @@
     </message>
     <message>
       <source>Bind IP, multiple IP can be separated by comma. Random IP will be chosen.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Re-captcha settings</source>
-      <translation type="unfinished"/>
+      <translation>Pririšti IP, kelis IP galima atskirti kableliu. Bus pasirinktas atsitiktinis IP.</translation>
     </message>
     <message>
       <source>Transfer configuration</source>
-      <translation type="unfinished"/>
+      <translation>Perdavimo konfigūracija</translation>
     </message>
   </context>
   <context>
     <name>system/recaptcha</name>
     <message>
-      <source>Re-captcha settings</source>
-      <translation type="unfinished"/>
+      <source>Captcha settings</source>
+      <translation>Captcha nustatymai</translation>
     </message>
     <message>
-      <source>This works with V3 re-captcha.</source>
-      <translation type="unfinished"/>
+      <source>Captcha provider</source>
+      <translation>Captcha teikėjas</translation>
     </message>
     <message>
-      <source>Get Re-captcha keys</source>
-      <translation type="unfinished"/>
+      <source>Google reCAPTCHA v3</source>
+      <translation>&quot;Google&quot; reCAPTCHA v3</translation>
+    </message>
+    <message>
+      <source>Cloudflare Turnstile</source>
+      <translation>&quot;Cloudflare Turnstile</translation>
+    </message>
+    <message>
+      <source>This works with Google reCAPTCHA v3.</source>
+      <translation>Tai veikia su &quot;Google&quot; reCAPTCHA v3.</translation>
+    </message>
+    <message>
+      <source>Get Google reCAPTCHA keys</source>
+      <translation>Gaukite &quot;Google&quot; reCAPTCHA raktus</translation>
     </message>
     <message>
       <source>Site key</source>
-      <translation type="unfinished"/>
+      <translation>Svetainės raktas</translation>
     </message>
     <message>
       <source>Secret key</source>
-      <translation type="unfinished"/>
+      <translation>Slaptasis raktas</translation>
     </message>
     <message>
       <source>Secret key is not shown!</source>
-      <translation type="unfinished"/>
+      <translation>Slaptasis raktas nerodomas!</translation>
+    </message>
+    <message>
+      <source>This works with Cloudflare Turnstile.</source>
+      <translation>Tai veikia su &quot;Cloudflare Turnstile&quot;.</translation>
+    </message>
+    <message>
+      <source>Get Cloudflare Turnstile keys</source>
+      <translation>Gaukite &quot;Cloudflare Turnstile&quot; raktus</translation>
     </message>
   </context>
   <context>
     <name>system/transferconfiguration</name>
     <message>
       <source>Transfer configuration</source>
-      <translation type="unfinished"/>
+      <translation>Perdavimo konfigūracija</translation>
     </message>
     <message>
       <source>Options for chat transfer to department</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių perkėlimo į skyrių parinktys</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti nustatymai</translation>
     </message>
   </context>
   <context>
     <name>user/new</name>
     <message>
       <source>Change chat department to transferred department on chat transfer</source>
-      <translation type="unfinished"/>
+      <translation>Pakeisti pokalbių skyrių į perduotą skyrių pokalbių perdavimo metu</translation>
     </message>
     <message>
       <source>Make chat status pending on transfer to department</source>
-      <translation type="unfinished"/>
+      <translation>Padaryti pokalbio būseną laukiant perkėlimo į skyrių</translation>
     </message>
     <message>
       <source>Make chat unassigned. Assigned operator will be unassigned</source>
-      <translation type="unfinished"/>
+      <translation>Padarykite pokalbį nepriskirtą. Priskirtas operatorius bus atšauktas</translation>
     </message>
     <message>
       <source>I receive other operators permissions request</source>
@@ -23607,7 +23915,7 @@
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Invisible mode</source>
@@ -23615,11 +23923,11 @@
     </message>
     <message>
       <source>Force user to change password on login</source>
-      <translation type="unfinished"/>
+      <translation>Priversti naudotoją pakeisti slaptažodį prisijungimo metu</translation>
     </message>
     <message>
       <source>Force logout</source>
-      <translation type="unfinished"/>
+      <translation>Priverstinis atsijungimas</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -23631,7 +23939,7 @@
     </message>
     <message>
       <source>Required groups, choose one or more</source>
-      <translation type="unfinished"/>
+      <translation>Privalomos grupės, pasirinkite vieną ar daugiau</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -23639,11 +23947,11 @@
     </message>
     <message>
       <source>User department</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojo skyrius</translation>
     </message>
     <message>
       <source>User department group</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojo skyriaus grupė</translation>
     </message>
     <message>
       <source>New user</source>
@@ -23667,7 +23975,7 @@
     </message>
     <message>
       <source>Chat nickname</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių slapyvardis</translation>
     </message>
     <message>
       <source>Name</source>
@@ -23687,19 +23995,19 @@
     </message>
     <message>
       <source>Save and edit</source>
-      <translation type="unfinished"/>
+      <translation>Išsaugoti ir redaguoti</translation>
     </message>
     <message>
       <source>Departments you will be able to assign once you save an operator.</source>
-      <translation type="unfinished"/>
+      <translation>Departamentus galėsite priskirti, kai tik išsaugosite operatorių.</translation>
     </message>
     <message>
       <source>Log request. All request will be logged</source>
-      <translation type="unfinished"/>
+      <translation>Žurnalo užklausa. Visos užklausos bus registruojamos</translation>
     </message>
     <message>
       <source>Log exceptions. Only failed parse requests will be logged.</source>
-      <translation type="unfinished"/>
+      <translation>Registruoti išimtis. Registruojamos tik nesėkmingos parsavimo užklausos.</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -23726,43 +24034,43 @@
     </message>
     <message>
       <source>Status/security checks</source>
-      <translation type="unfinished"/>
+      <translation>Būklės ir (arba) saugumo patikrinimai</translation>
     </message>
     <message>
       <source>Strong secret hash</source>
-      <translation type="unfinished"/>
+      <translation>Stiprus slaptas hash</translation>
     </message>
     <message>
       <source>Weak</source>
-      <translation type="unfinished"/>
+      <translation>Silpnas</translation>
     </message>
     <message>
       <source>Strong</source>
-      <translation type="unfinished"/>
+      <translation>Stiprus</translation>
     </message>
     <message>
       <source>More information</source>
-      <translation type="unfinished"/>
+      <translation>Daugiau informacijos</translation>
     </message>
     <message>
       <source>Strong export hash</source>
-      <translation type="unfinished"/>
+      <translation>Stiprus eksporto hash</translation>
     </message>
     <message>
       <source>Trusted host</source>
-      <translation type="unfinished"/>
+      <translation>Patikimas prieglobstis</translation>
     </message>
     <message>
       <source>not set</source>
-      <translation type="unfinished"/>
+      <translation>nenustatyta</translation>
     </message>
     <message>
       <source>set</source>
-      <translation type="unfinished"/>
+      <translation>nustatyti</translation>
     </message>
     <message>
       <source>Site address</source>
-      <translation type="unfinished"/>
+      <translation>Svetainės adresas</translation>
     </message>
     <message>
       <source>News</source>
@@ -23770,7 +24078,7 @@
     </message>
     <message>
       <source>Upgrade instructions</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinimo instrukcijos</translation>
     </message>
     <message>
       <source>Live Helper Chat update information</source>
@@ -23781,11 +24089,11 @@
     <name>update/statusdb</name>
     <message>
       <source>Database structure check with local version</source>
-      <translation type="unfinished"/>
+      <translation>Duomenų bazės struktūros patikrinimas su vietine versija</translation>
     </message>
     <message>
       <source>Database structure check with official version</source>
-      <translation type="unfinished"/>
+      <translation>Duomenų bazės struktūros patikrinimas su oficialia versija</translation>
     </message>
     <message>
       <source>Your database does not require any updates</source>
@@ -23808,23 +24116,27 @@
     </message>
     <message>
       <source>Chat attributes</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių atributai</translation>
     </message>
     <message>
       <source>Main attributes</source>
-      <translation type="unfinished"/>
+      <translation>Pagrindinės savybės</translation>
     </message>
     <message>
       <source>Header settings</source>
-      <translation type="unfinished"/>
+      <translation>Antraštės nustatymai</translation>
     </message>
     <message>
       <source>Header css</source>
-      <translation type="unfinished"/>
+      <translation>Antraštės css</translation>
+    </message>
+    <message>
+      <source>Nick template</source>
+      <translation>Nicko šablonas</translation>
     </message>
     <message>
       <source>Static content</source>
-      <translation type="unfinished"/>
+      <translation>Statinis turinys</translation>
     </message>
     <message>
       <source>JS</source>
@@ -23836,15 +24148,19 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
+    </message>
+    <message>
+      <source>E.g {lhc.nick} [{lhc.add.surname_name}] [{lhc.var.user_id}] or just {args.chat.id}</source>
+      <translation>Pvz., {lhc.nick} [{lhc.add.pavardė}] [{lhc.var.user_id}] arba tiesiog {args.chat.id}</translation>
     </message>
     <message>
       <source>Header content</source>
-      <translation type="unfinished"/>
+      <translation>Antraštės turinys</translation>
     </message>
     <message>
       <source>Resource name for replacement</source>
-      <translation type="unfinished"/>
+      <translation>Keičiamo ištekliaus pavadinimas</translation>
     </message>
     <message>
       <source>Empty...</source>
@@ -23852,65 +24168,65 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
+      <translation>Netinkamas CSRF simbolis!</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite vardą</translation>
     </message>
     <message>
       <source>File not chosen for</source>
-      <translation type="unfinished"/>
+      <translation>Failas nepasirinktas</translation>
     </message>
   </context>
   <context>
     <name>lhtheme/admin</name>
     <message>
       <source>New admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Nauja administratoriaus tema</translation>
     </message>
     <message>
       <source>Admin themes</source>
-      <translation type="unfinished"/>
+      <translation>Administratoriaus temos</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>Default admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Numatytoji administratoriaus tema</translation>
     </message>
     <message>
       <source>Edit admin theme</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti administratoriaus temą</translation>
     </message>
     <message>
       <source>Personal theme</source>
-      <translation type="unfinished"/>
+      <translation>Asmeninė tema</translation>
     </message>
   </context>
   <context>
     <name>admintheme/form</name>
     <message>
       <source>Edit theme</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti temą</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta</translation>
     </message>
     <message>
       <source>Personal theme</source>
-      <translation type="unfinished"/>
+      <translation>Asmeninė tema</translation>
     </message>
     <message>
       <source>Enable personal theme for me</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti asmeninę temą man</translation>
     </message>
   </context>
   <context>
@@ -23928,7 +24244,7 @@
     </message>
     <message>
       <source>Default admin theme was set</source>
-      <translation type="unfinished"/>
+      <translation>Nustatyta numatytoji administratoriaus tema</translation>
     </message>
     <message>
       <source>Import theme</source>
@@ -23959,7 +24275,7 @@
     <name>user/editgroup</name>
     <message>
       <source>Edit group</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti grupę</translation>
     </message>
     <message>
       <source>Title</source>
@@ -23967,11 +24283,11 @@
     </message>
     <message>
       <source>Member of this group can work with the following groups</source>
-      <translation type="unfinished"/>
+      <translation>Šios grupės narys gali dirbti su šiomis grupėmis</translation>
     </message>
     <message>
       <source>Direct members of this group cannot assign this group to other operators.</source>
-      <translation type="unfinished"/>
+      <translation>Tiesioginiai šios grupės nariai negali priskirti šios grupės kitiems operatoriams.</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -23979,11 +24295,11 @@
     </message>
     <message>
       <source>Required</source>
-      <translation type="unfinished"/>
+      <translation>Reikalinga</translation>
     </message>
     <message>
       <source>If group is required, at least one group of required groups has to be selected.</source>
-      <translation type="unfinished"/>
+      <translation>Jei grupė yra privaloma, reikia pasirinkti bent vieną privalomų grupių grupę.</translation>
     </message>
     <message>
       <source>Update</source>
@@ -24062,7 +24378,7 @@
     </message>
     <message>
       <source>Click this link and You will be able to change a password</source>
-      <translation type="unfinished"/>
+      <translation>Spustelėkite šią nuorodą ir galėsite pakeisti slaptažodį</translation>
     </message>
   </context>
   <context>
@@ -24073,7 +24389,7 @@
     </message>
     <message>
       <source>If this e-mail exists we have send password remind link. Click the link in the email and You will be able to set a new password.</source>
-      <translation type="unfinished"/>
+      <translation>Jei šis el. paštas egzistuoja, mes turime atsiųsti slaptažodžio priminimo nuorodą. Spustelėkite el. laiške esančią nuorodą ir galėsite nustatyti naują slaptažodį.</translation>
     </message>
   </context>
   <context>
@@ -24134,107 +24450,107 @@
     <name>user/import</name>
     <message>
       <source>Import users</source>
-      <translation type="unfinished"/>
+      <translation>Importuoti naudotojus</translation>
     </message>
     <message>
       <source>CSV Separator</source>
-      <translation type="unfinished"/>
+      <translation>CSV separatorius</translation>
     </message>
     <message>
       <source>Skip first row</source>
-      <translation type="unfinished"/>
+      <translation>Praleisti pirmąją eilutę</translation>
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Failas</translation>
     </message>
     <message>
       <source>Import only one record to test</source>
-      <translation type="unfinished"/>
+      <translation>Importuokite tik vieną įrašą, kad išbandytumėte</translation>
     </message>
     <message>
       <source>Enter column number starting from 1</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite stulpelio numerį, pradedant nuo 1</translation>
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>Importas</translation>
     </message>
     <message>
       <source>Updated!</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta!</translation>
     </message>
     <message>
       <source>Updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta</translation>
     </message>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo vardas</translation>
     </message>
     <message>
       <source>Password</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodis</translation>
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>El. paštas</translation>
     </message>
     <message>
       <source>First name</source>
-      <translation type="unfinished"/>
+      <translation>Vardas ir pavardė</translation>
     </message>
     <message>
       <source>Last name</source>
-      <translation type="unfinished"/>
+      <translation>Pavardė</translation>
     </message>
     <message>
       <source>Nickname</source>
-      <translation type="unfinished"/>
+      <translation>Slapyvardis</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Neįgalieji</translation>
     </message>
     <message>
       <source>Hide Online</source>
-      <translation type="unfinished"/>
+      <translation>Paslėpti internete</translation>
     </message>
     <message>
       <source>Can access all departments</source>
-      <translation type="unfinished"/>
+      <translation>Gali naudotis visais skyriais</translation>
     </message>
     <message>
       <source>Skype</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Skype&quot;</translation>
     </message>
     <message>
       <source>Job title</source>
-      <translation type="unfinished"/>
+      <translation>Pareigų pavadinimas</translation>
     </message>
     <message>
       <source>Time Zone</source>
-      <translation type="unfinished"/>
+      <translation>Laiko juosta</translation>
     </message>
     <message>
       <source>Invisible</source>
-      <translation type="unfinished"/>
+      <translation>Nematomas</translation>
     </message>
     <message>
       <source>Automatically accept assigned chats</source>
-      <translation type="unfinished"/>
+      <translation>Automatiškai priimti priskirtus pokalbius</translation>
     </message>
     <message>
       <source>Maximum active chats</source>
-      <translation type="unfinished"/>
+      <translation>Didžiausias aktyvių pokalbių skaičius</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojas gali matyti visus laukiančius pokalbius, ne tik jam priskirtus.</translation>
     </message>
     <message>
       <source>Username field not found!</source>
-      <translation type="unfinished"/>
+      <translation>Nerastas vartotojo vardo laukas!</translation>
     </message>
   </context>
   <context>
@@ -24245,7 +24561,7 @@
     </message>
     <message>
       <source>Username OR E-mail</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo vardas arba el. paštas</translation>
     </message>
     <message>
       <source>Password</source>
@@ -24265,15 +24581,15 @@
     </message>
     <message>
       <source>Your IP</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų IP</translation>
     </message>
     <message>
       <source>Your session has ended. Please login!</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų sesija baigėsi. Prašome prisijungti!</translation>
     </message>
     <message>
       <source>You will be redirected and logged in as a different user in a few moments...</source>
-      <translation type="unfinished"/>
+      <translation>Po kelių akimirkų būsite nukreipti ir prisijungsite kaip kitas naudotojas...</translation>
     </message>
     <message>
       <source>You were logged out because another user logged under same account</source>
@@ -24281,63 +24597,63 @@
     </message>
     <message>
       <source>Your password has expired or it has to be changed.</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų slaptažodžio galiojimo laikas baigėsi arba jį reikia pakeisti.</translation>
     </message>
     <message>
       <source>Go to back office</source>
-      <translation type="unfinished"/>
+      <translation>Eikite į galinį biurą</translation>
     </message>
     <message>
       <source>Old password</source>
-      <translation type="unfinished"/>
+      <translation>Senasis slaptažodis</translation>
     </message>
     <message>
       <source>New password</source>
-      <translation type="unfinished"/>
+      <translation>Naujas slaptažodis</translation>
     </message>
     <message>
       <source>Repeat password</source>
-      <translation type="unfinished"/>
+      <translation>Pakartoti slaptažodį</translation>
     </message>
     <message>
       <source>Update password</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti slaptažodį</translation>
     </message>
     <message>
       <source>Authorization failed!</source>
-      <translation type="unfinished"/>
+      <translation>Autorizacija nepavyko!</translation>
     </message>
     <message>
       <source>Failed login. API</source>
-      <translation type="unfinished"/>
+      <translation>Nepavykęs prisijungimas. API</translation>
     </message>
     <message>
       <source>Account disabled because of to many failed logins!</source>
-      <translation type="unfinished"/>
+      <translation>Paskyra išjungta dėl per daug nesėkmingų prisijungimų!</translation>
     </message>
     <message>
       <source>Failed login. WEB</source>
-      <translation type="unfinished"/>
+      <translation>Nepavykęs prisijungimas. WEB</translation>
     </message>
     <message>
       <source>Invalid back office URL</source>
-      <translation type="unfinished"/>
+      <translation>Neteisingas &quot;back office&quot; URL adresas</translation>
+    </message>
+    <message>
+      <source>Captcha validation failed</source>
+      <translation>Nepavyko patvirtinti Captcha</translation>
     </message>
     <message>
       <source>CSFR token is invalid, try to resubmit form</source>
-      <translation type="unfinished"/>
+      <translation>CSFR simbolis negalioja, pabandykite iš naujo pateikti formą</translation>
     </message>
     <message>
       <source>You can not login because of IP restrictions</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Google re-captcha validation failed</source>
-      <translation type="unfinished"/>
+      <translation>Negalite prisijungti dėl IP apribojimų</translation>
     </message>
     <message>
       <source>Your account is disabled!</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų paskyra išjungta!</translation>
     </message>
     <message>
       <source>Incorrect username or password</source>
@@ -24345,42 +24661,42 @@
     </message>
     <message>
       <source>Logged in successfully. WEB</source>
-      <translation type="unfinished"/>
+      <translation>Sėkmingai prisijungta. WEB</translation>
     </message>
     <message>
       <source>Logged in successfully</source>
-      <translation type="unfinished"/>
+      <translation>Sėkmingai prisijungta</translation>
     </message>
     <message>
       <source>User could not be found!</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo nepavyko rasti!</translation>
     </message>
     <message>
       <source>Failed login. XML_CHECK_LOGIN</source>
-      <translation type="unfinished"/>
+      <translation>Nepavykęs prisijungimas. XML_CHECK_LOGIN</translation>
     </message>
   </context>
   <context>
     <name>notifications/accounts</name>
     <message>
       <source>Persistent notifications</source>
-      <translation type="unfinished"/>
+      <translation>Nuolatiniai pranešimai</translation>
     </message>
     <message>
       <source>Success</source>
-      <translation type="unfinished"/>
+      <translation>Sėkmė</translation>
     </message>
     <message>
       <source>Those notifications are sent independently is browser closed or not. Notifications for chat is shown only if active window is not detected. Mobile notifications should be enabled.</source>
-      <translation type="unfinished"/>
+      <translation>Šie pranešimai siunčiami nepriklausomai nuo to, ar naršyklė uždaryta, ar ne. Pranešimai apie pokalbius rodomi tik tuo atveju, jei aktyvus langas neaptinkamas. Turėtų būti įjungti mobiliojo ryšio pranešimai.</translation>
     </message>
     <message>
       <source>Subscribe</source>
-      <translation type="unfinished"/>
+      <translation>Prenumeruoti</translation>
     </message>
     <message>
       <source>Your subscriptions</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų prenumeratos</translation>
     </message>
   </context>
   <context>
@@ -24414,26 +24730,26 @@
     <name>2fa/admin</name>
     <message>
       <source>Wildcard format</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Wildcard&quot; formatas</translation>
     </message>
     <message>
       <source>CIDR format</source>
-      <translation type="unfinished"/>
+      <translation>CIDR formatas</translation>
     </message>
     <message>
       <source>Start-End IP format</source>
-      <translation type="unfinished"/>
+      <translation>Pradžios ir pabaigos IP formatas</translation>
     </message>
     <message>
       <source>Your IP</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų IP</translation>
     </message>
   </context>
   <context>
     <name>user/remindpassword</name>
     <message>
       <source>Login</source>
-      <translation type="unfinished"/>
+      <translation>Prisijungimas</translation>
     </message>
     <message>
       <source>New password</source>
@@ -24441,348 +24757,348 @@
     </message>
     <message>
       <source>Repeat password</source>
-      <translation type="unfinished"/>
+      <translation>Pakartoti slaptažodį</translation>
     </message>
     <message>
       <source>Password requirements</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodžio reikalavimai</translation>
     </message>
     <message>
       <source>Reset password</source>
-      <translation type="unfinished"/>
+      <translation>Iš naujo nustatyti slaptažodį</translation>
     </message>
     <message>
       <source>Invalid hash or it was used already!</source>
-      <translation type="unfinished"/>
+      <translation>Netinkamas hash arba jis jau buvo panaudotas!</translation>
     </message>
   </context>
   <context>
     <name>user/wentinactive</name>
     <message>
       <source>Because of inactivity you went offline, click continue to go online. Ctrl+F12 Shortcut.</source>
-      <translation type="unfinished"/>
+      <translation>Dėl neaktyvumo perėjote į neprisijungusį režimą, spustelėkite tęsti, kad pereitumėte į internetą. Ctrl+F12 Spartusis klavišas.</translation>
     </message>
     <message>
       <source>Continue</source>
-      <translation type="unfinished"/>
+      <translation>Tęsti</translation>
     </message>
     <message>
       <source>Logout</source>
-      <translation type="unfinished"/>
+      <translation>Atsijungimas</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto</translation>
     </message>
   </context>
   <context>
     <name>views/view</name>
     <message>
       <source>Search was accepted</source>
-      <translation type="unfinished"/>
+      <translation>Paieška buvo priimta</translation>
     </message>
     <message>
       <source>Go to my views</source>
-      <translation type="unfinished"/>
+      <translation>Eikite į mano nuomones</translation>
     </message>
     <message>
       <source>View was rejected</source>
-      <translation type="unfinished"/>
+      <translation>Peržiūra buvo atmesta</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Shared by</source>
-      <translation type="unfinished"/>
+      <translation>Dalijamasi</translation>
     </message>
     <message>
       <source>Description</source>
-      <translation type="unfinished"/>
+      <translation>Aprašymas</translation>
     </message>
     <message>
       <source>Accept a view</source>
-      <translation type="unfinished"/>
+      <translation>Priimti vaizdą</translation>
     </message>
     <message>
       <source>Reject a view</source>
-      <translation type="unfinished"/>
+      <translation>Atmesti vaizdą</translation>
     </message>
     <message>
       <source>Accept a shared views</source>
-      <translation type="unfinished"/>
+      <translation>Priimti bendrą požiūrį</translation>
     </message>
     <message>
       <source>My views</source>
-      <translation type="unfinished"/>
+      <translation>Mano nuomonė</translation>
     </message>
     <message>
       <source>You have shared views with you!</source>
-      <translation type="unfinished"/>
+      <translation>Su jumis pasidalijo nuomonėmis!</translation>
     </message>
     <message>
       <source>Updated ago</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinta prieš</translation>
     </message>
     <message>
       <source>Live updating</source>
-      <translation type="unfinished"/>
+      <translation>Tiesioginis atnaujinimas</translation>
     </message>
     <message>
       <source>This view is passive and is not updated live</source>
-      <translation type="unfinished"/>
+      <translation>Šis vaizdas yra pasyvus ir nėra atnaujinamas tiesiogiai</translation>
     </message>
     <message>
       <source>Share</source>
-      <translation type="unfinished"/>
+      <translation>Dalintis</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Export</source>
-      <translation type="unfinished"/>
+      <translation>Eksportuoti</translation>
     </message>
     <message>
       <source>View is passive and is not updated in the background</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdas yra pasyvus ir nėra atnaujinamas fone</translation>
     </message>
     <message>
       <source>Make active</source>
-      <translation type="unfinished"/>
+      <translation>Aktyviai</translation>
     </message>
     <message>
       <source>View is active and is updated in the background</source>
-      <translation type="unfinished"/>
+      <translation>Rodinys yra aktyvus ir atnaujinamas fone</translation>
     </message>
     <message>
       <source>Make passive</source>
-      <translation type="unfinished"/>
+      <translation>Padaryti pasyvų</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Ištrinti</translation>
     </message>
     <message>
       <source>View was shared</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdas buvo bendrinamas</translation>
     </message>
     <message>
       <source>Set name for a share</source>
-      <translation type="unfinished"/>
+      <translation>Nustatyti akcijos pavadinimą</translation>
     </message>
     <message>
       <source>Set custom description</source>
-      <translation type="unfinished"/>
+      <translation>Nustatyti pasirinktinį aprašymą</translation>
     </message>
     <message>
       <source>Share with</source>
-      <translation type="unfinished"/>
+      <translation>Dalytis su</translation>
     </message>
     <message>
       <source>Share a view</source>
-      <translation type="unfinished"/>
+      <translation>Dalytis vaizdu</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite naudotoją</translation>
     </message>
   </context>
   <context>
     <name>voice/configuration</name>
     <message>
       <source>Voice &amp; Video &amp; ScreenShare</source>
-      <translation type="unfinished"/>
+      <translation>Balso ir vaizdo įrašai bei ekrano bendrinimas</translation>
     </message>
     <message>
       <source>Features</source>
-      <translation type="unfinished"/>
+      <translation>Funkcijos</translation>
     </message>
     <message>
       <source>Calls enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungti skambučiai</translation>
     </message>
     <message>
       <source>Video enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungtas vaizdo įrašas</translation>
     </message>
     <message>
       <source>ScreenShare enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungta funkcija &quot;ScreenShare</translation>
     </message>
     <message>
       <source>Agora integration</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Agora&quot; integracija</translation>
     </message>
     <message>
       <source>Agora APP ID</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Agora&quot; APP ID</translation>
     </message>
     <message>
       <source>Agora App Certificate</source>
-      <translation type="unfinished"/>
+      <translation>&quot;Agora&quot; programėlės sertifikatas</translation>
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>Atnaujinti nustatymai</translation>
     </message>
   </context>
   <context>
     <name>webhooks/module</name>
     <message>
       <source>Webhooks list</source>
-      <translation type="unfinished"/>
+      <translation>Webhooks sąrašas</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Event</source>
-      <translation type="unfinished"/>
+      <translation>Renginys</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>Trigger</source>
-      <translation type="unfinished"/>
+      <translation>Triggeris</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Įjungta</translation>
     </message>
     <message>
       <source>Continuous chat event</source>
-      <translation type="unfinished"/>
+      <translation>Nepertraukiamo pokalbio įvykis</translation>
     </message>
     <message>
       <source>Continuous mail event</source>
-      <translation type="unfinished"/>
+      <translation>Nepertraukiamo pašto įvykis</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti</translation>
     </message>
     <message>
       <source>Incoming webhooks list</source>
-      <translation type="unfinished"/>
+      <translation>Gaunamų žiniatinklio kabliukų sąrašas</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Neįgalieji</translation>
     </message>
     <message>
       <source>Only enabled</source>
-      <translation type="unfinished"/>
+      <translation>Tik įjungta</translation>
     </message>
     <message>
       <source>Please choose a bot</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite botą</translation>
     </message>
     <message>
       <source>Please choose a trigger</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite gaiduką</translation>
     </message>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>Sistemos konfigūracija</translation>
     </message>
     <message>
       <source>Webhooks</source>
-      <translation type="unfinished"/>
+      <translation>Webhooks</translation>
     </message>
     <message>
       <source>Incoming webhooks</source>
-      <translation type="unfinished"/>
+      <translation>Įeinančios žiniatinklio kabutės</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
     <message>
       <source>Push chat</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai &quot;Push chat</translation>
     </message>
   </context>
   <context>
     <name>webhooks/new</name>
     <message>
       <source>New webhook</source>
-      <translation type="unfinished"/>
+      <translation>Naujas webhook</translation>
     </message>
     <message>
       <source>New incoming webhook</source>
-      <translation type="unfinished"/>
+      <translation>Naujas įeinantis webhook</translation>
     </message>
   </context>
   <context>
     <name>webhook/push</name>
     <message>
       <source>New chat based on incoming webhook</source>
-      <translation type="unfinished"/>
+      <translation>Naujas pokalbis pagal įeinantį &quot;webhook</translation>
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation type="unfinished"/>
+      <translation>Atidaryti naujame lange</translation>
     </message>
     <message>
       <source>Open chat</source>
-      <translation type="unfinished"/>
+      <translation>Atviras pokalbis</translation>
     </message>
     <message>
       <source>You will initiate chat as it was response to incoming webhook.</source>
-      <translation type="unfinished"/>
+      <translation>Inicijuosite pokalbį, nes tai buvo atsakas į įeinantį Webhook.</translation>
     </message>
     <message>
       <source>Webhook</source>
-      <translation type="unfinished"/>
+      <translation>Webhook</translation>
     </message>
     <message>
       <source>Recipient. (chatId). In most cases it is just a phone number</source>
-      <translation type="unfinished"/>
+      <translation>Gavėjas. (chatId). Dažniausiai tai būna tiesiog telefono numeris.</translation>
     </message>
     <message>
       <source>Message</source>
-      <translation type="unfinished"/>
+      <translation>Žinutė</translation>
     </message>
     <message>
       <source>Department. If you do not choose one we will use the one defined in webhook.</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas. Jei jo nepasirinksite, naudosime tą, kuris nurodytas webhook.</translation>
     </message>
     <message>
       <source>Create chat</source>
-      <translation type="unfinished"/>
+      <translation>Sukurti pokalbį</translation>
     </message>
     <message>
       <source>Set created chat status as closed. Visitor reply will initiate chat according to incoming webhook configuration.</source>
-      <translation type="unfinished"/>
+      <translation>Nustatykite sukurto pokalbio būseną kaip uždarytą. Lankytojo atsakymas inicijuos pokalbį pagal įeinančio webhook konfigūraciją.</translation>
     </message>
     <message>
       <source>Send</source>
-      <translation type="unfinished"/>
+      <translation>Siųsti</translation>
     </message>
     <message>
       <source>Message was send!</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas buvo išsiųstas!</translation>
     </message>
     <message>
       <source>Choose a webhook</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite webhook</translation>
     </message>
   </context>
   <context>
     <name>abstract/email_template</name>
     <message>
       <source>Popup content, icon will have an option to show a modal window</source>
-      <translation type="unfinished"/>
+      <translation>Iššokančio lango turinys, piktogramoje bus galimybė rodyti modalinį langą</translation>
     </message>
     <message>
       <source>Name, for personal purposes</source>
@@ -24798,11 +25114,11 @@
     </message>
     <message>
       <source>Set language based on visitor language. By default we set language by embed code.</source>
-      <translation type="unfinished"/>
+      <translation>Nustatykite kalbą pagal lankytojo kalbą. Pagal numatytuosius nustatymus kalbą nustatome pagal įterptąjį kodą.</translation>
     </message>
     <message>
       <source>It is the only e-mail which should receive e-mail messages for this template.</source>
-      <translation type="unfinished"/>
+      <translation>Tai vienintelis el. paštas, į kurį turėtų būti siunčiami šio šablono el. laiškai.</translation>
     </message>
     <message>
       <source>From name</source>
@@ -24853,19 +25169,19 @@
     <name>abstract/product</name>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Priority</source>
-      <translation type="unfinished"/>
+      <translation>Prioritetas</translation>
     </message>
     <message>
       <source>Product</source>
-      <translation type="unfinished"/>
+      <translation>Produktas</translation>
     </message>
     <message>
       <source>API Key</source>
@@ -24873,54 +25189,54 @@
     </message>
     <message>
       <source>Rest API Remote Keys</source>
-      <translation type="unfinished"/>
+      <translation>Rest API nuotoliniai raktai</translation>
     </message>
   </context>
   <context>
     <name>abstract/survey</name>
     <message>
       <source>ID</source>
-      <translation type="unfinished"/>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Pavadinimas</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>Identifikatorius</translation>
     </message>
     <message>
       <source>Feedback text</source>
-      <translation type="unfinished"/>
+      <translation>Atsiliepimų tekstas</translation>
     </message>
     <message>
       <source>Max stars for feedback</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus žvaigždučių skaičius už atsiliepimus</translation>
     </message>
     <message>
       <source>Max stars pos</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus žvaigždučių skaičius pos</translation>
     </message>
     <message>
       <source>Title for evaluation</source>
-      <translation type="unfinished"/>
+      <translation>Vertinimo pavadinimas</translation>
     </message>
     <message>
       <source>Required</source>
-      <translation type="unfinished"/>
+      <translation>Reikalinga</translation>
     </message>
     <message>
       <source>Title for plain question</source>
-      <translation type="unfinished"/>
+      <translation>Paprasto klausimo pavadinimas</translation>
     </message>
     <message>
       <source>Title for custom questions</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinktinių klausimų antraštė</translation>
     </message>
     <message>
       <source>Survey</source>
-      <translation type="unfinished"/>
+      <translation>Apklausa</translation>
     </message>
   </context>
   <context>
@@ -25030,37 +25346,37 @@
     <name>abstract/restapikey</name>
     <message>
       <source>Username</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo vardas</translation>
     </message>
     <message>
       <source>API Key, max 50 characters</source>
-      <translation type="unfinished"/>
+      <translation>API raktas, ne daugiau kaip 50 simbolių</translation>
     </message>
     <message>
       <source>IP restrictions. E.g 1.2.3.*,1.2.3/24,1.2.3.4/255.255.255.0,1.2.3.0-1.2.3.255</source>
-      <translation type="unfinished"/>
+      <translation>IP apribojimai. E.g 1.2.3.*,1.2.3/24,1.2.3.4/255.255.255.0,1.2.3.0-1.2.3.255</translation>
     </message>
     <message>
       <source>Only from defined IP/IP range request will be permitted.</source>
-      <translation type="unfinished"/>
+      <translation>Bus leidžiama pateikti užklausą tik iš nustatyto IP/IP diapazono.</translation>
     </message>
   </context>
   <context>
     <name>file/file</name>
     <message>
       <source>Download file</source>
-      <translation type="unfinished"/>
+      <translation>Atsisiųsti failą</translation>
     </message>
     <message>
       <source>Collected survey data</source>
-      <translation type="unfinished"/>
+      <translation>Surinkti apklausos duomenys</translation>
     </message>
   </context>
   <context>
     <name>chat/accepttrasnfer</name>
     <message>
       <source>Chat has been transfered to</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo perkeltas į</translation>
     </message>
     <message>
       <source>has joined the chat!</source>
@@ -25068,15 +25384,15 @@
     </message>
     <message>
       <source>has accepted a transferred chat!</source>
-      <translation type="unfinished"/>
+      <translation>priėmė perkeltą pokalbį!</translation>
     </message>
     <message>
       <source>has closed a conversation from chat!</source>
-      <translation type="unfinished"/>
+      <translation>uždarė pokalbį iš pokalbio!</translation>
     </message>
     <message>
       <source>You do not have permission to close this chat!</source>
-      <translation type="unfinished"/>
+      <translation>Jūs neturite leidimo uždaryti šį pokalbį!</translation>
     </message>
   </context>
   <context>
@@ -25095,15 +25411,15 @@
     </message>
     <message>
       <source>Bot chats number</source>
-      <translation type="unfinished"/>
+      <translation>Botas pokalbių skaičius</translation>
     </message>
     <message>
       <source>Online operators (soft)</source>
-      <translation type="unfinished"/>
+      <translation>Internetiniai operatoriai (lengvatiniai)</translation>
     </message>
     <message>
       <source>Online operators (hard)</source>
-      <translation type="unfinished"/>
+      <translation>Internetiniai operatoriai (sudėtinga)</translation>
     </message>
     <message>
       <source>Visitor Name</source>
@@ -25123,7 +25439,7 @@
     </message>
     <message>
       <source>Wait time abandoned</source>
-      <translation type="unfinished"/>
+      <translation>Atsisakyta laukimo laiko</translation>
     </message>
     <message>
       <source>Country</source>
@@ -25131,7 +25447,7 @@
     </message>
     <message>
       <source>Country Code</source>
-      <translation type="unfinished"/>
+      <translation>Šalies kodas</translation>
     </message>
     <message>
       <source>City</source>
@@ -25142,12 +25458,112 @@
       <translation>IP</translation>
     </message>
     <message>
-      <source>Operator</source>
-      <translation>Operatorius</translation>
+      <source>Chat operator</source>
+      <translation>Pokalbių operatorius</translation>
     </message>
     <message>
-      <source>Operator Name</source>
-      <translation type="unfinished"/>
+      <source>Chat operator Name</source>
+      <translation>Pokalbių operatoriaus vardas</translation>
+    </message>
+    <message>
+      <source>Operator 1 Name</source>
+      <translation>1 operatoriaus vardas ir pavardė</translation>
+    </message>
+    <message>
+      <source>Operator 2 Name</source>
+      <translation>2 operatoriaus pavadinimas</translation>
+    </message>
+    <message>
+      <source>Operator 3 Name</source>
+      <translation>Operatoriaus 3 pavadinimas</translation>
+    </message>
+    <message>
+      <source>Operator 4 Name</source>
+      <translation>Operatoriaus 4 pavadinimas</translation>
+    </message>
+    <message>
+      <source>Operator 5 Name</source>
+      <translation>Operatoriaus 5 pavadinimas</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 1)</source>
+      <translation>Trukmė (1 operatorius)</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 2)</source>
+      <translation>Trukmė (2 operatorius)</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 3)</source>
+      <translation>Trukmė (operatorius 3)</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 4)</source>
+      <translation>Trukmė (operatorius 4)</translation>
+    </message>
+    <message>
+      <source>Duration (Operator 5)</source>
+      <translation>Trukmė (operatorius 5)</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 1)</source>
+      <translation>Vidutinis atsako laikas (1 operatorius)</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 2)</source>
+      <translation>Vidutinis atsako laikas (2 operatorius)</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 3)</source>
+      <translation>Vidutinis atsako laikas (3 operatorius)</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 4)</source>
+      <translation>Vidutinis atsako laikas (operatorius 4)</translation>
+    </message>
+    <message>
+      <source>Avg Response Time (Operator 5)</source>
+      <translation>Vidutinis reakcijos laikas (5 operatorius)</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 1)</source>
+      <translation>Pirmojo reagavimo laikas (1 operatorius)</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 2)</source>
+      <translation>Pirmojo reagavimo laikas (2 operatorius)</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 3)</source>
+      <translation>Pirmojo reagavimo laikas (3 operatorius)</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 4)</source>
+      <translation>Pirmojo reagavimo laikas (4 operatorius)</translation>
+    </message>
+    <message>
+      <source>First Response Time (Operator 5)</source>
+      <translation>Pirmojo reagavimo laikas (5 operatorius)</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 1)</source>
+      <translation>Maksimalus atsako laikas (operatorius 1)</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 2)</source>
+      <translation>Maksimalus atsako laikas (operatorius 2)</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 3)</source>
+      <translation>Maksimalus atsako laikas (operatorius 3)</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 4)</source>
+      <translation>Maksimalus atsako laikas (operatorius 4)</translation>
+    </message>
+    <message>
+      <source>Max Response Time (Operator 5)</source>
+      <translation>Maksimalus atsako laikas (operatorius 5)</translation>
     </message>
     <message>
       <source>Department</source>
@@ -25162,12 +25578,28 @@
       <translation>Minutės</translation>
     </message>
     <message>
-      <source>Vote status</source>
-      <translation>Atsiliepimo būsena</translation>
+      <source>Vote: None</source>
+      <translation>Balsavimas: Nėra</translation>
+    </message>
+    <message>
+      <source>Vote: Up</source>
+      <translation>Balsavimas: Į viršų</translation>
+    </message>
+    <message>
+      <source>Vote: Down</source>
+      <translation>Balsavimas: Žemyn</translation>
     </message>
     <message>
       <source>Subjects</source>
-      <translation type="unfinished"/>
+      <translation>Subjektai</translation>
+    </message>
+    <message>
+      <source>Tagged</source>
+      <translation>Žymos</translation>
+    </message>
+    <message>
+      <source>Not Tagged</source>
+      <translation>Nepažymėta</translation>
     </message>
     <message>
       <source>Mail send</source>
@@ -25187,39 +25619,39 @@
     </message>
     <message>
       <source>Remarks</source>
-      <translation type="unfinished"/>
+      <translation>Pastabos</translation>
     </message>
     <message>
       <source>Visitor remarks</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų pastabos</translation>
     </message>
     <message>
       <source>Device</source>
-      <translation type="unfinished"/>
+      <translation>Įrenginys</translation>
     </message>
     <message>
       <source>Visitor ID</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo ID</translation>
     </message>
     <message>
       <source>Duration</source>
-      <translation type="unfinished"/>
+      <translation>Trukmė</translation>
     </message>
     <message>
       <source>Started by</source>
-      <translation type="unfinished"/>
+      <translation>Pradėjo nuo</translation>
     </message>
     <message>
       <source>User agent</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojo agentas</translation>
     </message>
     <message>
       <source>Browser</source>
-      <translation type="unfinished"/>
+      <translation>Naršyklė</translation>
     </message>
     <message>
       <source>Platform</source>
-      <translation type="unfinished"/>
+      <translation>Platforma</translation>
     </message>
     <message>
       <source>User ID</source>
@@ -25227,47 +25659,47 @@
     </message>
     <message>
       <source>Chat start page</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio pradžios puslapis</translation>
     </message>
     <message>
       <source>Referer page</source>
-      <translation type="unfinished"/>
+      <translation>Nuorodos puslapis</translation>
     </message>
     <message>
       <source>Chat start time</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio pradžios laikas</translation>
     </message>
     <message>
       <source>Chat end time</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio pabaigos laikas</translation>
     </message>
     <message>
       <source>Is unread by operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius neskaito</translation>
     </message>
     <message>
       <source>Is unread by visitor</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas neperskaitė</translation>
     </message>
     <message>
       <source>Is abandoned</source>
-      <translation type="unfinished"/>
+      <translation>Yra apleistas</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>Chat actions</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių veiksmai</translation>
     </message>
     <message>
       <source>Additional data</source>
-      <translation type="unfinished"/>
+      <translation>Papildomi duomenys</translation>
     </message>
     <message>
       <source>Survey data</source>
-      <translation type="unfinished"/>
+      <translation>Apklausos duomenys</translation>
     </message>
     <message>
       <source>Chat content</source>
@@ -25275,63 +25707,67 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>Žinutės</translation>
     </message>
     <message>
       <source>Visitor messages</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų pranešimai</translation>
     </message>
     <message>
       <source>Bot messages</source>
-      <translation type="unfinished"/>
+      <translation>Boto pranešimai</translation>
     </message>
     <message>
       <source>Operator messages</source>
-      <translation type="unfinished"/>
+      <translation>Operatoriaus pranešimai</translation>
     </message>
     <message>
       <source>System messages</source>
-      <translation type="unfinished"/>
+      <translation>Sistemos pranešimai</translation>
     </message>
     <message>
       <source>Visitor messages to bot</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų pranešimai botui</translation>
     </message>
     <message>
       <source>Visitor messages to operator</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojų pranešimai operatoriui</translation>
     </message>
     <message>
       <source>Maximum agent response time</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus agento atsako laikas</translation>
     </message>
     <message>
       <source>Maximum bot response time</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalus boto atsako laikas</translation>
     </message>
     <message>
       <source>Average agent response time</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis agento atsako laikas</translation>
     </message>
     <message>
       <source>Average bot response time</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis boto atsako laikas</translation>
     </message>
     <message>
       <source>First agent response time</source>
-      <translation type="unfinished"/>
+      <translation>Pirmojo agento reakcijos laikas</translation>
     </message>
     <message>
       <source>First bot response time</source>
-      <translation type="unfinished"/>
+      <translation>Pirmasis boto atsako laikas</translation>
     </message>
     <message>
       <source>Wait time till first operator message</source>
-      <translation type="unfinished"/>
+      <translation>Laukimo laikas iki pirmojo operatoriaus pranešimo</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>Tema</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>Chat average in seconds</source>
@@ -25339,130 +25775,134 @@
     </message>
     <message>
       <source>Agent</source>
-      <translation type="unfinished"/>
+      <translation>Agentas</translation>
     </message>
     <message>
       <source>Chats</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbiai</translation>
     </message>
     <message>
       <source>Total number of chats</source>
-      <translation type="unfinished"/>
+      <translation>Bendras pokalbių skaičius</translation>
     </message>
     <message>
       <source>Total number of chats (participation)</source>
-      <translation type="unfinished"/>
+      <translation>Bendras pokalbių skaičius (dalyvavimas)</translation>
     </message>
     <message>
       <source>Number of chats while online</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių internetu skaičius</translation>
     </message>
     <message>
       <source>Hours on chat (sum of chat duration)</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio valandos (pokalbio trukmės suma)</translation>
     </message>
     <message>
       <source>Hours on chat (sum of chat duration (participation))</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio valandos (pokalbio trukmės (dalyvavimo) suma)</translation>
     </message>
     <message>
       <source>Time online (sum of time spend online)</source>
-      <translation type="unfinished"/>
+      <translation>Laikas, praleistas internete (internete praleisto laiko suma)</translation>
     </message>
     <message>
       <source>AVG number of chat per hour</source>
-      <translation type="unfinished"/>
+      <translation>AVG pokalbių skaičius per valandą</translation>
     </message>
     <message>
       <source>AVG number of chats per hour (participation)</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis pokalbių skaičius per valandą (dalyvavimas)</translation>
     </message>
     <message>
       <source>Average pick-up time</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis paėmimo laikas</translation>
     </message>
     <message>
       <source>Average chat length</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinė pokalbio trukmė</translation>
+    </message>
+    <message>
+      <source>Average chat length (participation)</source>
+      <translation>Vidutinė pokalbio trukmė (dalyvavimas)</translation>
     </message>
     <message>
       <source>Average first response time</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis pirmojo reagavimo laikas</translation>
     </message>
     <message>
       <source>Average first response time (participation)</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis pirmojo reagavimo laikas (dalyvavimas)</translation>
     </message>
     <message>
       <source>Average response time</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis atsako laikas</translation>
     </message>
     <message>
       <source>Average response time (participation)</source>
-      <translation type="unfinished"/>
+      <translation>Vidutinis atsakymo laikas (dalyvavimas)</translation>
     </message>
     <message>
       <source>Average of maximum response time</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalaus atsako laiko vidurkis</translation>
     </message>
     <message>
       <source>Average of maximum response time (participation)</source>
-      <translation type="unfinished"/>
+      <translation>Maksimalaus atsako laiko vidurkis (dalyvavimas)</translation>
     </message>
     <message>
       <source>Total mails</source>
-      <translation type="unfinished"/>
+      <translation>Iš viso laiškų</translation>
     </message>
     <message>
       <source>Unresponded</source>
-      <translation type="unfinished"/>
+      <translation>Neatsakyta</translation>
     </message>
     <message>
       <source>No reply required</source>
-      <translation type="unfinished"/>
+      <translation>Atsakymo nereikia</translation>
     </message>
     <message>
       <source>We have send this message as reply or forward</source>
-      <translation type="unfinished"/>
+      <translation>Mes išsiuntėme šį pranešimą kaip atsakymą arba persiuntimą</translation>
     </message>
     <message>
       <source>Responded by e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Atsakyta el. paštu</translation>
     </message>
     <message>
       <source>Online</source>
-      <translation type="unfinished"/>
+      <translation>Internete</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>Neįgalieji</translation>
     </message>
     <message>
       <source>Overloaded</source>
-      <translation type="unfinished"/>
+      <translation>Perkrautas</translation>
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
+      <translation>Neprisijungus prie interneto</translation>
     </message>
     <message>
       <source>Hour</source>
-      <translation type="unfinished"/>
+      <translation>Valanda</translation>
     </message>
   </context>
   <context>
     <name>chat/closechatadmin</name>
     <message>
       <source>has redirected visitor to contact form!</source>
-      <translation type="unfinished"/>
+      <translation>nukreipė lankytoją į kontaktinę formą!</translation>
     </message>
     <message>
       <source>has redirected visitor to survey form!</source>
-      <translation type="unfinished"/>
+      <translation>nukreipė lankytoją į apklausos formą!</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>has closed the chat!</source>
@@ -25470,46 +25910,46 @@
     </message>
     <message>
       <source>has changed chat status to pending!</source>
-      <translation type="unfinished"/>
+      <translation>pakeitė pokalbio būseną į Laukiama!</translation>
     </message>
     <message>
       <source>has changed chat status to bot!</source>
-      <translation type="unfinished"/>
+      <translation>pakeitė pokalbio būseną į Bot!</translation>
     </message>
     <message>
       <source>Visitor auto responder was reset because of sync timeout, returned after</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo automatinis atsakiklis buvo iš naujo nustatytas dėl sinchronizacijos laiko tarpo, grąžintas po</translation>
     </message>
     <message>
       <source>seconds!</source>
-      <translation type="unfinished"/>
+      <translation>sekundžių!</translation>
     </message>
     <message>
       <source>Visitor auto responder was reset because the visitor returned!</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojo automatinis atsakiklis buvo iš naujo nustatytas, nes lankytojas grįžo!</translation>
     </message>
     <message>
       <source>Visitor was redirected to survey by auto responder!</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas buvo nukreiptas į apklausą automatiniu atsakikliu!</translation>
     </message>
     <message>
       <source>changed chat department from</source>
-      <translation type="unfinished"/>
+      <translation>pakeitė pokalbių departamentą iš</translation>
     </message>
     <message>
       <source>to</source>
-      <translation type="unfinished"/>
+      <translation>į</translation>
     </message>
     <message>
       <source>changed visitor nick from</source>
-      <translation type="unfinished"/>
+      <translation>pakeitė lankytojo slapyvardį iš</translation>
     </message>
   </context>
   <context>
     <name>departament/edit</name>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite vardą</translation>
     </message>
     <message>
       <source>Please enter a department name</source>
@@ -25517,7 +25957,7 @@
     </message>
     <message>
       <source>Alias should be not a plain number!</source>
-      <translation type="unfinished"/>
+      <translation>Pseudonimas turėtų būti ne paprastas skaičius!</translation>
     </message>
     <message>
       <source>Minimum 5 seconds</source>
@@ -25529,43 +25969,43 @@
     </message>
     <message>
       <source>Please enter bot name!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite boto vardą!</translation>
     </message>
     <message>
       <source>Please enter bot nick!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite boto slapyvardį!</translation>
     </message>
     <message>
       <source>Please enter Rest API Name!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite &quot;Rest API&quot; pavadinimą!</translation>
     </message>
     <message>
       <source>Please enter translation group name!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite vertimo grupės pavadinimą!</translation>
     </message>
     <message>
       <source>Please choose a group!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite grupę!</translation>
     </message>
     <message>
       <source>Please enter exception group name!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite išimties grupės pavadinimą!</translation>
     </message>
     <message>
       <source>Please enter a command!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite komandą!</translation>
     </message>
     <message>
       <source>Please enter chat id!</source>
-      <translation type="unfinished"/>
+      <translation>Prašome įvesti pokalbio ID!</translation>
     </message>
     <message>
       <source>Please enter a name!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite vardą!</translation>
     </message>
     <message>
       <source>Please enter an identifier!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite identifikatorių!</translation>
     </message>
     <message>
       <source>Please enter a valid from date range!</source>
@@ -25580,120 +26020,120 @@
     <name>departament/editgroup</name>
     <message>
       <source>Please enter a department group name</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite departamento grupės pavadinimą</translation>
     </message>
     <message>
       <source>Please enter a brand name</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite prekės ženklo pavadinimą</translation>
     </message>
   </context>
   <context>
     <name>chat/mobilenotifications</name>
     <message>
       <source>New group message</source>
-      <translation type="unfinished"/>
+      <translation>Naujas grupės pranešimas</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>Operatorius</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Botas</translation>
     </message>
     <message>
       <source>added subject</source>
-      <translation type="unfinished"/>
+      <translation>pridėta tema</translation>
     </message>
     <message>
       <source>subject added</source>
-      <translation type="unfinished"/>
+      <translation>pridėta tema</translation>
     </message>
     <message>
       <source>New message</source>
-      <translation type="unfinished"/>
+      <translation>Nauja žinutė</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>Nikas</translation>
     </message>
     <message>
       <source>Transferred chat</source>
-      <translation type="unfinished"/>
+      <translation>Perkeltas pokalbis</translation>
     </message>
     <message>
       <source>New chat</source>
-      <translation type="unfinished"/>
+      <translation>Naujas pokalbis</translation>
     </message>
   </context>
   <context>
     <name>notifications/index</name>
     <message>
       <source>Notification</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimas</translation>
     </message>
     <message>
       <source>Notifications</source>
-      <translation type="unfinished"/>
+      <translation>Pranešimai</translation>
     </message>
     <message>
       <source>Subscribers list</source>
-      <translation type="unfinished"/>
+      <translation>Prenumeratorių sąrašas</translation>
     </message>
     <message>
       <source>Operators subscribers list</source>
-      <translation type="unfinished"/>
+      <translation>Operatorių abonentų sąrašas</translation>
     </message>
     <message>
       <source>Operators settings</source>
-      <translation type="unfinished"/>
+      <translation>Operatorių nustatymai</translation>
     </message>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Nustatymai</translation>
     </message>
   </context>
   <context>
     <name>user/validator</name>
     <message>
       <source>Please enter a username</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite vartotojo vardą</translation>
     </message>
     <message>
       <source>User exists</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas egzistuoja</translation>
     </message>
     <message>
       <source>Password missing</source>
-      <translation type="unfinished"/>
+      <translation>Trūksta slaptažodžio</translation>
     </message>
     <message>
       <source>Wrong email address</source>
-      <translation type="unfinished"/>
+      <translation>Neteisingas el. pašto adresas</translation>
     </message>
     <message>
       <source>Please enter a name</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite vardą</translation>
     </message>
     <message>
       <source>In order to assign user all departments you have to provide  `departments` and `departments_read` argument.</source>
-      <translation type="unfinished"/>
+      <translation>Norėdami priskirti vartotojui visus skyrius, turite pateikti argumentus `departments` ir `departments_read`.</translation>
     </message>
     <message>
       <source>You have to choose one of required groups!</source>
-      <translation type="unfinished"/>
+      <translation>Turite pasirinkti vieną iš privalomų grupių!</translation>
     </message>
     <message>
       <source>You are trying to assign group which are not known!</source>
-      <translation type="unfinished"/>
+      <translation>Bandote priskirti grupę, kuri nėra žinoma!</translation>
     </message>
     <message>
       <source>Please choose a default user group</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite numatytąją naudotojų grupę</translation>
     </message>
     <message>
       <source>Passwords mismatch</source>
@@ -25701,89 +26141,89 @@
     </message>
     <message>
       <source>User action type not set</source>
-      <translation type="unfinished"/>
+      <translation>Nenustatytas naudotojo veiksmo tipas</translation>
     </message>
     <message>
       <source>Please choose a user Time Zone!</source>
-      <translation type="unfinished"/>
+      <translation>Pasirinkite naudotojo laiko juostą!</translation>
     </message>
     <message>
       <source>Password has to be at least %d characters length</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodis turi būti bent %d simbolių ilgio</translation>
     </message>
     <message>
       <source>Password has to have at-least %d uppercase letter</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodis turi turėti bent %d didžiųjų raidžių</translation>
     </message>
     <message>
       <source>Password has to have at-least %d number(s)</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodį turi sudaryti ne mažiau kaip %d skaičius (-iai)</translation>
     </message>
     <message>
       <source>Password has to have at-least %d special character(s)</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodis turi turėti bent %d specialiųjų ženklų</translation>
     </message>
     <message>
       <source>Password has to have at-least %d lowercase letters</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodį turi sudaryti bent %d mažųjų raidžių</translation>
     </message>
     <message>
       <source>Old password incorrect!</source>
-      <translation type="unfinished"/>
+      <translation>Senasis slaptažodis neteisingas!</translation>
     </message>
     <message>
       <source>Passwords mismatch!</source>
-      <translation type="unfinished"/>
+      <translation>Nesutampa slaptažodžiai!</translation>
     </message>
     <message>
       <source>Old and new password has to be different!</source>
-      <translation type="unfinished"/>
+      <translation>Senasis ir naujasis slaptažodis turi būti skirtingi!</translation>
     </message>
     <message>
       <source>Please enter a password!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite slaptažodį!</translation>
     </message>
     <message>
       <source>Passwords must match!</source>
-      <translation type="unfinished"/>
+      <translation>Slaptažodžiai turi sutapti!</translation>
     </message>
   </context>
   <context>
     <name>lhrestapi/validation</name>
     <message>
       <source>Bearer authorization failed!</source>
-      <translation type="unfinished"/>
+      <translation>Laikiklio autorizavimas nepavyko!</translation>
     </message>
     <message>
       <source>Authorization failed!</source>
-      <translation type="unfinished"/>
+      <translation>Autorizacija nepavyko!</translation>
     </message>
     <message>
       <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
-      <translation type="unfinished"/>
+      <translation>Neturite leidimo tiesiogiai naudoti REST API. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; trūksta!</translation>
     </message>
     <message>
       <source>Rest API IP restrictions applies! </source>
-      <translation type="unfinished"/>
+      <translation>Taikomi Rest API IP apribojimai! </translation>
     </message>
     <message>
       <source>Authorization header is missing!</source>
-      <translation type="unfinished"/>
+      <translation>Trūksta autorizacijos antraštės!</translation>
     </message>
     <message>
       <source>Could not find chat by chat_id!</source>
-      <translation type="unfinished"/>
+      <translation>Nepavyko rasti pokalbio pagal chat_id!</translation>
     </message>
     <message>
       <source>You do not have permission to read this chat!</source>
-      <translation type="unfinished"/>
+      <translation>Jūs neturite leidimo skaityti šį pokalbį!</translation>
     </message>
   </context>
   <context>
     <name>chat/abstractclick</name>
     <message>
       <source>Invitation can not be send because online visitor profile can not be found.</source>
-      <translation type="unfinished"/>
+      <translation>Kvietimo negalima išsiųsti, nes nerandama internetinio lankytojo profilio.</translation>
     </message>
   </context>
   <context>
@@ -25797,7 +26237,7 @@
     <name>chat/voteaction</name>
     <message>
       <source>User has updated their profile information</source>
-      <translation type="unfinished"/>
+      <translation>Naudotojas atnaujino savo profilio informaciją</translation>
     </message>
     <message>
       <source>Thumbs up</source>
@@ -25820,7 +26260,7 @@
     </message>
     <message>
       <source>Custom chat data was saved</source>
-      <translation type="unfinished"/>
+      <translation>Buvo išsaugoti pasirinktiniai pokalbių duomenys</translation>
     </message>
   </context>
   <context>
@@ -25834,64 +26274,64 @@
     <name>chat/start</name>
     <message>
       <source>Department is required!</source>
-      <translation type="unfinished"/>
+      <translation>Departamentas yra būtinas!</translation>
     </message>
     <message>
       <source>Disabled!</source>
-      <translation type="unfinished"/>
+      <translation>Neįgalusis!</translation>
     </message>
   </context>
   <context>
     <name>chat/transferuser</name>
     <message>
       <source>Visitor requested to speak with a human agent by clicking Switch To Human button</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas paprašė pasikalbėti su žmogiškuoju agentu spustelėjęs mygtuką &quot;Perjungti į žmogų&quot;.</translation>
     </message>
     <message>
       <source>has changed department to</source>
-      <translation type="unfinished"/>
+      <translation>pakeitė departamentą į</translation>
     </message>
     <message>
       <source>from</source>
-      <translation type="unfinished"/>
+      <translation>iš</translation>
     </message>
     <message>
       <source>Chat department was changed to</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbių skyrius buvo pakeistas į</translation>
     </message>
     <message>
       <source>has changed owner to</source>
-      <translation type="unfinished"/>
+      <translation>pakeitė savininką į</translation>
     </message>
     <message>
       <source>Chat owner was changed to</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbio savininkas buvo pakeistas į</translation>
     </message>
     <message>
       <source>has transferred chat to</source>
-      <translation type="unfinished"/>
+      <translation>pervedė pokalbį į</translation>
     </message>
     <message>
       <source>Chat was assigned to selected department</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo priskirtas pasirinktam skyriui</translation>
     </message>
     <message>
       <source>Chat was assigned to selected user</source>
-      <translation type="unfinished"/>
+      <translation>Pokalbis buvo priskirtas pasirinktam naudotojui</translation>
     </message>
   </context>
   <context>
     <name>chat/updatemsguser</name>
     <message>
       <source>User has edited their last message</source>
-      <translation type="unfinished"/>
+      <translation>Vartotojas redagavo savo paskutinį pranešimą</translation>
     </message>
   </context>
   <context>
     <name>chat/usertyping</name>
     <message>
       <source>is typing...</source>
-      <translation type="unfinished"/>
+      <translation>spausdina...</translation>
     </message>
   </context>
   <context>
@@ -25905,26 +26345,26 @@
     <name>system/settings</name>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>Sistemos konfigūracija</translation>
     </message>
   </context>
   <context>
     <name>lhchatsettings/startchat</name>
     <message>
       <source>Start chat form settings</source>
-      <translation type="unfinished"/>
+      <translation>Pradėti pokalbio formos nustatymus</translation>
     </message>
     <message>
       <source>Start chat settings list</source>
-      <translation type="unfinished"/>
+      <translation>Pradėti pokalbių nustatymų sąrašą</translation>
     </message>
     <message>
       <source>Edit start chat settings</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti pradžios pokalbio nustatymus</translation>
     </message>
     <message>
       <source>New start chat settings</source>
-      <translation type="unfinished"/>
+      <translation>Nauji pradžios pokalbių nustatymai</translation>
     </message>
   </context>
   <context>
@@ -25938,229 +26378,233 @@
     <name>genericbot/edit</name>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>Sistemos konfigūracija</translation>
     </message>
     <message>
       <source>Bot constructor</source>
-      <translation type="unfinished"/>
+      <translation>Boto konstruktorius</translation>
     </message>
     <message>
       <source>Commands</source>
-      <translation type="unfinished"/>
+      <translation>Komandos</translation>
     </message>
     <message>
       <source>Conditions</source>
-      <translation type="unfinished"/>
+      <translation>Sąlygos</translation>
     </message>
     <message>
       <source>Responses for API error</source>
-      <translation type="unfinished"/>
+      <translation>API klaidos atsakymai</translation>
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation type="unfinished"/>
+      <translation>Poilsio API skambučiai</translation>
     </message>
     <message>
       <source>Bot individualization</source>
-      <translation type="unfinished"/>
+      <translation>Boto individualizavimas</translation>
     </message>
     <message>
       <source>Translations items</source>
-      <translation type="unfinished"/>
+      <translation>Vertimai elementai</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Naujas</translation>
     </message>
   </context>
   <context>
     <name>groupchat/group</name>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>Sistemos konfigūracija</translation>
     </message>
     <message>
       <source>Group chats list</source>
-      <translation type="unfinished"/>
+      <translation>Grupės pokalbių sąrašas</translation>
     </message>
     <message>
       <source>Group chats</source>
-      <translation type="unfinished"/>
+      <translation>Grupės pokalbiai</translation>
     </message>
     <message>
       <source>New group chat</source>
-      <translation type="unfinished"/>
+      <translation>Naujas grupės pokalbis</translation>
     </message>
   </context>
   <context>
     <name>mobile/settings</name>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Nustatymai</translation>
     </message>
     <message>
       <source>Sessions</source>
-      <translation type="unfinished"/>
+      <translation>Sesijos</translation>
     </message>
     <message>
       <source>Edit session</source>
-      <translation type="unfinished"/>
+      <translation>Redaguoti sesiją</translation>
     </message>
     <message>
       <source>Mobile</source>
-      <translation type="unfinished"/>
+      <translation>Mobilusis</translation>
     </message>
   </context>
   <context>
     <name>groupchat/settings</name>
     <message>
       <source>Options</source>
-      <translation type="unfinished"/>
+      <translation>Parinktys</translation>
     </message>
   </context>
   <context>
     <name>lhelasticsearch/module</name>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>Sistemos konfigūracija</translation>
     </message>
     <message>
       <source>Options</source>
-      <translation type="unfinished"/>
+      <translation>Parinktys</translation>
     </message>
   </context>
   <context>
     <name>mailconv/conversation</name>
     <message>
       <source>Sensitive Information</source>
-      <translation type="unfinished"/>
+      <translation>Jautri informacija</translation>
     </message>
   </context>
   <context>
     <name>mobile/sessions</name>
     <message>
       <source>Sessions</source>
-      <translation type="unfinished"/>
+      <translation>Sesijos</translation>
     </message>
   </context>
   <context>
     <name>chat/chat_tabs</name>
     <message>
       <source>Your open chats will appear here</source>
-      <translation type="unfinished"/>
+      <translation>Jūsų atviri pokalbiai bus rodomi čia</translation>
     </message>
     <message>
       <source>You are a chat owner</source>
-      <translation type="unfinished"/>
+      <translation>Esate pokalbio savininkas</translation>
     </message>
   </context>
   <context>
     <name>chat/file</name>
     <message>
       <source>Verifying image access...</source>
-      <translation type="unfinished"/>
+      <translation>Prieigos prie vaizdo tikrinimas...</translation>
     </message>
     <message>
       <source>Image verification failed. Please try again later.</source>
-      <translation type="unfinished"/>
+      <translation>Vaizdą patikrinti nepavyko. Prašome pabandyti vėliau.</translation>
     </message>
     <message>
       <source>Access denied to view this image</source>
-      <translation type="unfinished"/>
+      <translation>Prieiga prie šio vaizdo uždrausta</translation>
     </message>
     <message>
       <source>Checking image access...</source>
-      <translation type="unfinished"/>
+      <translation>Patikrinama prieiga prie vaizdo...</translation>
     </message>
     <message>
       <source>Click to reveal</source>
-      <translation type="unfinished"/>
+      <translation>Spustelėkite, kad atskleistumėte</translation>
     </message>
     <message>
       <source>next attempt in</source>
-      <translation type="unfinished"/>
+      <translation>kitas bandymas</translation>
     </message>
     <message>
       <source>Reverify</source>
-      <translation type="unfinished"/>
+      <translation>Reverify</translation>
     </message>
     <message>
       <source>Uploading</source>
-      <translation type="unfinished"/>
+      <translation>Įkėlimas</translation>
     </message>
     <message>
       <source>Incorrect file type!</source>
-      <translation type="unfinished"/>
+      <translation>Neteisingas failo tipas!</translation>
     </message>
     <message>
       <source>File too big!</source>
-      <translation type="unfinished"/>
+      <translation>Failas per didelis!</translation>
     </message>
     <message>
       <source>Processing...</source>
-      <translation type="unfinished"/>
+      <translation>Apdorojimas...</translation>
     </message>
     <message>
       <source>Upload failed!</source>
-      <translation type="unfinished"/>
+      <translation>Įkelti nepavyko!</translation>
     </message>
     <message>
       <source>Completed.</source>
-      <translation type="unfinished"/>
+      <translation>Baigta.</translation>
+    </message>
+    <message>
+      <source>Attachment</source>
+      <translation>Priedas</translation>
     </message>
   </context>
   <context>
     <name>statistic/onlinehours</name>
     <message>
       <source>Online Hours</source>
-      <translation type="unfinished"/>
+      <translation>Valandos internetu</translation>
     </message>
   </context>
   <context>
     <name>chat/backtochat</name>
     <message>
       <source>Visitor has been redirected back to chat!</source>
-      <translation type="unfinished"/>
+      <translation>Lankytojas buvo nukreiptas atgal į pokalbį!</translation>
     </message>
   </context>
   <context>
     <name>kernel/messages</name>
     <message>
       <source>Error occurred</source>
-      <translation type="unfinished"/>
+      <translation>Įvyko klaida</translation>
     </message>
   </context>
   <context>
     <name>twilio/sendmessage</name>
     <message>
       <source>Please enter chatId!</source>
-      <translation type="unfinished"/>
+      <translation>Prašome įvesti chatId!</translation>
     </message>
     <message>
       <source>Please enter a message!</source>
-      <translation type="unfinished"/>
+      <translation>Įveskite žinutę!</translation>
     </message>
     <message>
       <source>Please choose a webhook!</source>
-      <translation type="unfinished"/>
+      <translation>Prašome pasirinkti webhook!</translation>
     </message>
   </context>
   <context>
     <name>chat/notifications</name>
     <message>
       <source>Subscribing...</source>
-      <translation type="unfinished"/>
+      <translation>Prenumerata...</translation>
     </message>
   </context>
   <context>
     <name>chat/screenshare</name>
     <message>
       <source>Start screen share session</source>
-      <translation type="unfinished"/>
+      <translation>Ekrano bendrinimo seanso pradžia</translation>
     </message>
     <message>
       <source>Deny screen share</source>
-      <translation type="unfinished"/>
+      <translation>Atsisakyti bendrinti ekraną</translation>
     </message>
   </context>
 </TS>
