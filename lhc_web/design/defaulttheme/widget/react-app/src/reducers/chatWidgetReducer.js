@@ -307,7 +307,6 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.setIn(['chatLiveData','operator'], action.data.operator)
                 .set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)))
                 .setIn(['chatLiveData','status_sub'], action.data.status_sub)
-                .setIn(['chatLiveData','hum'], action.data.hum)
                 .setIn(['chatLiveData','status'], action.data.status)
                 .set('initLoaded', true)
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true);
@@ -420,6 +419,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('msgLoaded', true)
                 .setIn(['chatLiveData','lock_send'], action.data.lock_send ? true : false)
                 .set('network_down', false)
+                .setIn(['chatLiveData','hum'], action.data.hum)
                 .set('network_failure_count', 0)
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true)
         }
