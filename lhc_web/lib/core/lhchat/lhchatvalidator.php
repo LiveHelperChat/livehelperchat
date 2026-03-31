@@ -2358,7 +2358,7 @@ class erLhcoreClassChatValidator {
 
                     erLhcoreClassGenericBotWorkflow::$setBotFlow = false;
                 }
-
+                $chat->has_unread_messages = 0;
                 $chat->saveThis();
             } else {
                 $msg = new erLhcoreClassModelmsg();

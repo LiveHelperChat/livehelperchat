@@ -442,6 +442,14 @@ if (empty($Errors)) {
                 $msg->chat_id = $chat->id;
                 $msg->user_id = 0;
                 $msg->time = time();
+
+                if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT || (isset($triggerEvent) && $triggerEvent instanceof erLhcoreClassModelGenericBotChatEvent)) {
+                    $msg->del_st = erLhcoreClassModelmsg::STATUS_READ;
+                } else {
+                    $msg->del_st = erLhcoreClassModelmsg::STATUS_SENT;
+                    $chat->has_unread_messages = 1;
+                }
+
                 erLhcoreClassChat::getSession()->save($msg);
 
                 $paramsExecution['msg'] = $messageInitial = $msg;
