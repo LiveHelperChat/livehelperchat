@@ -56,7 +56,8 @@ if ($Params['user_parameters_unordered']['export'] == 'quick_actions' && erLhcor
             'disable_operators' => ['column' => 'disabled',      'value' => 1],
             'force_logout'      => ['column' => 'force_logout',   'value' => 1],
             'auto_accept_on'    => ['column' => 'auto_accept',    'value' => 1],
-            'auto_accept_off'   => ['column' => 'auto_accept',    'value' => 0],
+            'exclude_auto_assign'   => ['column' => 'exclude_autoasign',    'value' => 1],
+            'include_auto_assign'   => ['column' => 'exclude_autoasign',    'value' => 0],
         ];
 
         foreach ($directUserActions as $postKey => $action) {
@@ -68,6 +69,17 @@ if ($Params['user_parameters_unordered']['export'] == 'quick_actions' && erLhcor
                     $q->where($conditions);
                 }
                 $q->prepare()->execute();
+
+                // Update auto assignment values
+                if (in_array($postKey, ['exclude_auto_assign','include_auto_assign'])) {
+                    foreach (erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'], array('limit' => false))) as $userItem) {
+                        $db = ezcDbInstance::get();
+                        $stmt = $db->prepare('UPDATE lh_userdep SET exclude_autoasign = :exclude_autoasign WHERE user_id = :user_id');
+                        $stmt->bindValue(':user_id', $userItem->id, PDO::PARAM_INT);
+                        $stmt->bindValue(':exclude_autoasign', $action['value'], PDO::PARAM_INT);
+                        $stmt->execute();
+                    }
+                }
             }
         }
 

@@ -55,6 +55,12 @@ $modalBodyClass = 'p-1';
                             <div class="col-6">
                                 <label><input type="checkbox" name="show_alert_transfer_off" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Do not show alerts for transferred chats')?></label>
                             </div>
+                            <div class="col-6">
+                                <label><input type="checkbox" name="exclude_auto_assign" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude from chats auto assign workflow')?></label>
+                            </div>
+                            <div class="col-6">
+                                <label><input type="checkbox" name="include_auto_assign" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Include to auto assign workflow')?></label>
+                            </div>
                         </div>
                     </div>
             </div>
