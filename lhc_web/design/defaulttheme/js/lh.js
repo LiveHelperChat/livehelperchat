@@ -2202,7 +2202,10 @@ function lh(){
 	        {
 	            this.syncroRequestSend = true;
 
-        	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg }, function(data){
+                var activeChatPane = $('#tabs > div.tab-content > div.chat-tab-pane.active');
+                var activeChatId = activeChatPane.length > 0 ? activeChatPane.attr('id').replace('chat-id-', '') : 0;
+
+        	    $.postJSON(this.wwwDir + this.syncadmin ,{ 'chats[]': this.chatsSynchronisingMsg, 'active_chat_id': activeChatId }, function(data){
 
                     if (typeof data.error_url !== 'undefined') {
                         document.location.replace(data.error_url);
