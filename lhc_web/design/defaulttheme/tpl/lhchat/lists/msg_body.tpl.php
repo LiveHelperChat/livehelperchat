@@ -6,16 +6,21 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/reaction_to_visitor.tpl.php'));?>
         <?php endif; ?>
 
-        <?php if ((!isset($visitorRender) || $visitorRender !== true) && isset($msg) && isset($msg['del_st']) && is_array($msg) && ($msg['user_id'] > 0 || $msg['user_id'] == -2)) : // Render status only for admin messages and bot?>
+        <?php if ( isset($msg) && isset($msg['del_st']) && is_array($msg) && 
+                (
+                    ((!isset($visitorRender) || $visitorRender !== true) &&  ($msg['user_id'] > 0 || $msg['user_id'] == -2)) ||
+                    (isset($visitorRender) && $visitorRender == true && $msg['user_id'] == 0)
+                )
+            ) : // Render status only for admin/user messages and bot?>
             <?php if ($msg['del_st'] == erLhcoreClassModelmsg::STATUS_PENDING) : ?>
                 <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','Scheduled for sent!')?>" class="material-icons text-warning msg-del-st-<?php echo erLhcoreClassModelmsg::STATUS_PENDING;?>">radio_button_unchecked</span>
             <?php elseif ($msg['del_st'] == erLhcoreClassModelmsg::STATUS_SENT) : ?>
-                <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','Have been sent!')?>" class="material-icons text-success msg-del-st-<?php echo erLhcoreClassModelmsg::STATUS_SENT;?>">done</span>
+                <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','Have been sent!')?>" class="material-icons <?php if (!isset($visitorRender) || $visitorRender == false) : ?>text-success<?php endif;?> msg-del-st-<?php echo erLhcoreClassModelmsg::STATUS_SENT;?>"><?php if (isset($visitorRender) && $visitorRender == true) : ?>&#xf129;<?php else : ?>done<?php endif; ?></span>
             <?php elseif ($msg['del_st'] == erLhcoreClassModelmsg::STATUS_DELIVERED) : ?>
-                <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','Delivered')?>" class="material-icons text-success msg-del-st-<?php echo erLhcoreClassModelmsg::STATUS_DELIVERED;?>">done_all</span>
+                <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','Delivered')?>" class="material-icons <?php if (!isset($visitorRender) || $visitorRender == false) : ?>text-success<?php endif;?> msg-del-st-<?php echo erLhcoreClassModelmsg::STATUS_DELIVERED;?>"><?php if (isset($visitorRender) && $visitorRender == true) : ?>&#xf12a;<?php else : ?>done_all<?php endif; ?></span>
             <?php /*elseif ($msg['del_st'] == erLhcoreClassModelmsg::STATUS_READ) : ?>
                 <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','Have been seen!')?>" class="material-icons text-success msg-del-st-<?php echo erLhcoreClassModelmsg::STATUS_READ;?>">how_to_reg</span>
-            <?php */ elseif ($msg['del_st'] == erLhcoreClassModelmsg::STATUS_REJECTED) : ?>
+            <?php */elseif ($msg['del_st'] == erLhcoreClassModelmsg::STATUS_REJECTED) : ?>
                 <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','Rejected or failed!')?>" class="material-icons text-danger msg-del-st-<?php echo erLhcoreClassModelmsg::STATUS_REJECTED;?>">unpublished</span>
             <?php endif; ?>
         <?php endif; ?>

@@ -219,6 +219,15 @@ class _nodeJSChat {
                                         'data': {text: ''}
                                     });
                                 }
+ 
+                                /*const state = getState();
+                                if (state.chatwidget.hasIn(['chatData','id']) && state.chatwidget.getIn(['chatLiveData','hum']) != 0) {
+                                    dispatch({
+                                        'type': 'UPDATE_LIVE_DATA',
+                                        'data': {attr: 'hum', 'val' : 0}
+                                    });
+                                }*/
+
                             } else if (op.op == 'sflow') {
 
                                 // We don't have any
@@ -239,6 +248,11 @@ class _nodeJSChat {
                                     streamFlowStarted.scrollIntoView();
                                 }
 
+                            } else if (op.op == 'msg_del') {
+                                dispatch({
+                                    'type': 'UPDATE_LIVE_DATA',
+                                    'data': {attr: 'hum', 'val' : op.hum}
+                                });
                             } else if (op.op == 'cmsg' || op.op == 'schange') {
                                 streamFlowStarted = null;
                                 const state = getState();

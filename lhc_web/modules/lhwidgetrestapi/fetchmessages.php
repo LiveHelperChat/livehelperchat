@@ -42,6 +42,18 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 
     $responseArray['status_sub'] = $chat->status_sub;
     $responseArray['status'] = $chat->status;
+    $responseArray['hum'] = $chat->has_unread_messages;
+
+    /*if ($chat->has_unread_messages == 1) {
+        // Check were they delivered only after 5 seconds
+        if ($chat->last_user_msg_time < time() - 5 && erLhcoreClassChat::getCount(['filter' => ['user_id' => 0, 'del_st' => 2, 'chat_id' => $chat->id]], 'lh_msg') > 0) {
+            $responseArray['hum'] = 2; // Consider as delivered, but not seen
+        } else {
+            $responseArray['hum'] = 1; // Consider them as sent
+        }
+    } else {
+        $responseArray['hum'] = 0;
+    }*/
 
 	try {
 
@@ -315,6 +327,7 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 
     $responseArray['closed'] = true;
 }
+
 
 $responseArray['op'] = $operation;
 $responseArray['uw'] = $userOwner;

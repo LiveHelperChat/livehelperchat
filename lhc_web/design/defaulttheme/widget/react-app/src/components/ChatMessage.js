@@ -14,7 +14,20 @@ class ChatMessage extends PureComponent {
     state = {
         jsExecuted : false,
         moreReactions : false,
-        reactToMessageId : 0
+        reactToMessageId : 0,
+        humWasZero : false,
+        humWasTwo : false
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        const updates = {};
+        if (props.hum == 0 && !state.humWasZero) {
+            updates.humWasZero = true;
+        }
+        if (props.hum == 2 && !state.humWasTwo) {
+            updates.humWasTwo = true;
+        }
+        return Object.keys(updates).length > 0 ? updates : null;
     }
 
     constructor(props) {
@@ -51,7 +64,7 @@ class ChatMessage extends PureComponent {
 
         if (!attrs['data-keep'] && !attrs["data-no-change"] && attrs.type == 'button' && element) {
             element.setAttribute("disabled","disabled");
-            element.innerHTML = "<i class=\"material-icons lhc-spin\">&#xf113;</i>" + element.innerHTML;
+            element.innerHTML = "<i class=\"material-icons lhc-spin\">&#xf12a;</i>" + element.innerHTML;
         }
     }
 
@@ -318,6 +331,12 @@ class ChatMessage extends PureComponent {
                             }
                         } else if (this.props.profilePic && domNode.attribs.className.indexOf('vis-icon-hld') !== -1) {
                             return <img className="profile-msg-pic" onLoad={this.imageLoaded} src={this.props.profilePic} alt="" title="" />
+                        }
+
+                        if (domNode.attribs.className.indexOf('msg-del-st-3') !== -1 || (domNode.attribs.className.indexOf('msg-del-st') != -1 && (this.state.humWasZero || this.props.hum == 0))) {
+                            return <React.Fragment></React.Fragment>;
+                        } else if (domNode.attribs.className.indexOf('msg-del-st-1') !== -1 && (this.state.humWasTwo || this.props.hum == 2)) {
+                            return <span className="material-icons msg-del-st-2" title={t('chat.delivered')}>&#xf12a;</span>;
                         }
 
                         delete domNode.attribs.class;

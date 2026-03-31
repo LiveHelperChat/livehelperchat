@@ -1413,7 +1413,7 @@ class erLhcoreClassChat {
     * @param bool $excludeSystem Exclude system messages
     * @return array Array indexed by chat_id containing message arrays
     * */
-   public static function getPendingMessagesBulk($chatMessagePairs)
+   public static function getPendingMessagesBulk($chatMessagePairs, $activeChatId = 0)
    {
        if (empty($chatMessagePairs)) {
            return array();
@@ -1460,6 +1460,25 @@ class erLhcoreClassChat {
            $messagesByChat[$chat_id][] = $row;
        }
        
+       
+        // Update delivered/read state per chat. Use $activeChatId to decide which state to apply.
+        // If a chat id is present in $activeChatId it will be marked with del_st = 2 (delivered),
+        // otherwise it will be marked with del_st = 3 (viewed).
+        try {
+             foreach ($messagesByChat as $cid => $_msgs) {
+                $cid = (int)$cid;
+                if ($cid != $activeChatId) {
+                    $db->query('UPDATE `lh_msg` SET `del_st` = 2 WHERE `chat_id` = ' . $cid . ' AND `del_st` IN (0,1) AND `user_id` = 0');
+                } else {
+                    $db->query('UPDATE `lh_msg` SET `del_st` = 3 WHERE `chat_id` = ' . $cid . ' AND `del_st` IN (0,1,2) AND `user_id` = 0');
+                }
+            }
+        } catch (Exception $e) {
+
+        }
+
+
+
        return $messagesByChat;
    }
 
