@@ -61,6 +61,12 @@ $modalBodyClass = 'p-1';
                             <div class="col-6">
                                 <label><input type="checkbox" name="include_auto_assign" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Include to auto assign workflow')?></label>
                             </div>
+                            <div class="col-6">
+                                <label><input type="checkbox" name="notification_only_assigned_on" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show notifications only for pending chats assigned to the operator')?></label>
+                            </div>
+                            <div class="col-6">
+                                <label><input type="checkbox" name="notification_only_assigned_off" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show notifications for all pending chats')?></label>
+                            </div>
                         </div>
                     </div>
             </div>

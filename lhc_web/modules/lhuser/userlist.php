@@ -88,18 +88,32 @@ if ($Params['user_parameters_unordered']['export'] == 'quick_actions' && erLhcor
             'chat_tabs_on' => ['identifier' => 'hide_tabs',    'value' => 0],
             'chat_tabs_off' => ['identifier' => 'hide_tabs',   'value' => 1],
             'show_alert_transfer_off' => ['identifier' => 'show_alert_transfer', 'value' => 0],
-            'show_alert_transfer_on' => ['identifier' => 'show_alert_transfer', 'value' => 1]
+            'show_alert_transfer_on' => ['identifier' => 'show_alert_transfer', 'value' => 1],
+            'notification_only_assigned_on' => ['identifier' => 'ownntfonly', 'value' => 1],
+            'notification_only_assigned_off' => ['identifier' => 'ownntfonly', 'value' => 0]
         ];
 
         foreach ($settingActions as $postKey => $action) {
             if (isset($_POST[$postKey]) && $_POST[$postKey] == 'on') {
-                $q = ezcDbInstance::get()->createDeleteQuery();
-                $conditions = erLhcoreClassModelUser::getConditions($filterParams['filter'], $q);
-                $conditions[] = $q->expr->eq('identifier', $q->bindValue($action['identifier']));
-                $q->deleteFrom('lh_users_setting')->where($conditions);
-                $q->prepare()->execute();
+                $userIds = array();
                 foreach (erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'], array('limit' => false))) as $userItem) {
-                    erLhcoreClassModelUserSetting::setSetting($action['identifier'], $action['value'], $userItem->id);
+                    $userIds[] = $userItem->id;
+                }
+
+                if (!empty($userIds)) {
+                    $db = ezcDbInstance::get();
+                    $q = $db->createDeleteQuery();
+                    $q->deleteFrom('lh_users_setting')->where(
+                        $q->expr->lAnd(
+                            $q->expr->in('user_id', $userIds),
+                            $q->expr->eq('identifier', $q->bindValue($action['identifier']))
+                        )
+                    );
+                    $q->prepare()->execute();
+
+                    foreach ($userIds as $userId) {
+                        erLhcoreClassModelUserSetting::setSetting($action['identifier'], $action['value'], $userId);
+                    }
                 }
             }
         }
