@@ -42,6 +42,7 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 
     $responseArray['status_sub'] = $chat->status_sub;
     $responseArray['status'] = $chat->status;
+    $responseArray['hum'] = $chat->has_unread_messages;
 
 	try {
 

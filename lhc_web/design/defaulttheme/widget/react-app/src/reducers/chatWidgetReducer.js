@@ -37,7 +37,7 @@ const initialState = fromJS({
     processStatus : 0,
     processStatusOffline : 0,
     chatData : {}, // Stores only chat id and hash
-    chatLiveData : {'msg_to_store':[] ,'lock_send' : false, 'lmsop':0, 'vtm':0,'otm':0, 'msop':0, 'uid' : 0, 'error' : '','lfmsgid':0, 'lmsgid' : 0, 'operator' : '', 'messages' : [], 'closed' : false, 'ott' : '', 'status_sub' : 0, 'status' : 0}, // Stores live chat data
+    chatLiveData : {'msg_to_store':[] , 'hum': 0, 'lock_send' : false, 'lmsop':0, 'vtm':0,'otm':0, 'msop':0, 'uid' : 0, 'error' : '','lfmsgid':0, 'lmsgid' : 0, 'operator' : '', 'messages' : [], 'closed' : false, 'ott' : '', 'status_sub' : 0, 'status' : 0}, // Stores live chat data
     chatStatusData : {},
     usersettings : {soundOn : false},
     vid: null,
@@ -171,7 +171,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .removeIn(['chat_ui','survey_id'])
                 .removeIn(['chat_ui','cmmsg_widget'])
                 .setIn(['onlineData','fetched'],false)
-                .set('chatLiveData',fromJS({'msg_to_store':[], 'lock_send' : false, 'lmsop':0, 'vtm':0, 'otm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lfmsgid': 0, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
+                .set('chatLiveData',fromJS({'msg_to_store':[], 'hum': 0, 'lock_send' : false, 'lmsop':0, 'vtm':0, 'otm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lfmsgid': 0, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
                 .set('chatStatusData',fromJS({}))
                 .set('chat_ui_state',fromJS({'confirm_close': 0, 'show_survey' : 0, 'pre_survey_done' : 0}))
                 .set('chatEnded',true)
@@ -419,6 +419,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('msgLoaded', true)
                 .setIn(['chatLiveData','lock_send'], action.data.lock_send ? true : false)
                 .set('network_down', false)
+                .setIn(['chatLiveData','hum'], action.data.hum)
                 .set('network_failure_count', 0)
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true)
         }

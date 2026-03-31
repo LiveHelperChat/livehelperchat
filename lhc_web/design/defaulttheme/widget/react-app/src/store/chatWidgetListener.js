@@ -337,7 +337,7 @@ export default function (dispatch, getState) {
 
             i18n.init({
                 backend: {
-                    loadPath: paramsInit['base_url']+'{{lng}}/widgetrestapi/lang/{{ns}}?v=14'+(""+date.getFullYear() + date.getMonth() + date.getDate())
+                    loadPath: paramsInit['base_url']+'{{lng}}/widgetrestapi/lang/{{ns}}?v=15'+(""+date.getFullYear() + date.getMonth() + date.getDate())
                 },
                 lng: ((paramsInit['lang'] && paramsInit['lang'] != '') ?  paramsInit['lang'].replace('/','') : 'eng'),
                 fallbackLng: 'eng',

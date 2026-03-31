@@ -239,6 +239,11 @@ class _nodeJSChat {
                                     streamFlowStarted.scrollIntoView();
                                 }
 
+                            } else if (op.op == 'msg_del') {
+                                dispatch({
+                                    'type': 'UPDATE_LIVE_DATA',
+                                    'data': {attr: 'hum', 'val' : op.hum}
+                                });
                             } else if (op.op == 'cmsg' || op.op == 'schange') {
                                 streamFlowStarted = null;
                                 const state = getState();

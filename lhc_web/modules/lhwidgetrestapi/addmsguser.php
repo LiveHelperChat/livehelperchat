@@ -99,6 +99,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && mb_strlen($payload[
             $msg->chat_id = $payload['id'];
             $msg->user_id = 0;
             $msg->time = time();
+            $msg->del_st = $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ? erLhcoreClassModelmsg::STATUS_READ : erLhcoreClassModelmsg::STATUS_SENT;
 
             if ($chat->chat_locale != '' && $chat->chat_locale_to != '' && isset($chat->chat_variables_array['lhc_live_trans']) && $chat->chat_variables_array['lhc_live_trans'] === true) {
                 erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);

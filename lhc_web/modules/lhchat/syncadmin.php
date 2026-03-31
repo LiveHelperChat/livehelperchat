@@ -30,7 +30,9 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
     // We do not need a session anymore
     session_write_close();
     
-    $db = ezcDbInstance::get();        
+    $db = ezcDbInstance::get();
+
+    $notifyChats = [];
 
     $db->beginTransaction();
     try {
@@ -74,8 +76,10 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
             }
         }
 
+        $activeChatId = isset($_POST['active_chat_id']) ? (int)$_POST['active_chat_id'] : 0;
+
         // Fetch all pending messages at once for all chats
-        $messagesByChat = erLhcoreClassChat::getPendingMessagesBulk($chatMessagePairs);
+        $messagesByChat = erLhcoreClassChat::getPendingMessagesBulk($chatMessagePairs,  $activeChatId);
 
         foreach ($chatIds as $chat_id)
         {
@@ -96,16 +100,21 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 
                 // Use pre-fetched messages instead of fetching individually
                 $Messages = isset($messagesByChat[$chat_id]) ? $messagesByChat[$chat_id] : array();
-                
+
+                // If chat had flag that it contains unread messages set to 0
+                if ($Chat->has_unread_messages == 1 || $Chat->unread_messages_informed == 1) {
+                    $Chat->has_unread_messages = $activeChatId === $Chat->id ? 0 : 2; // Mark as delivered
+                    $Chat->unread_messages_informed = 0;
+                    $Chat->updateThis(array('update' => array('has_unread_messages','unread_messages_informed')));
+                    $notifyChats[] = $Chat;
+                } else if ($activeChatId === $Chat->id && $Chat->has_unread_messages != 0) {
+                    $Chat->has_unread_messages = 0;
+                    $Chat->updateThis(array('update' => array('has_unread_messages')));
+                    $notifyChats[] = $Chat;
+                }
+
                 if (!empty($Messages))
                 {
-                    // If chat had flag that it contains unread messages set to 0
-                    if ($Chat->has_unread_messages == 1 || $Chat->unread_messages_informed == 1) {
-                         $Chat->has_unread_messages = 0;
-                         $Chat->unread_messages_informed = 0;
-                         $Chat->updateThis(array('update' => array('has_unread_messages','unread_messages_informed')));
-                    }
-
                     // Auto accept transfered chats if I have opened this chat
                     if ($Chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
 
@@ -215,6 +224,13 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
     if (count($ReturnStatuses) > 0) {
         $content_status = $ReturnStatuses;
     }
+
+    if (!empty($notifyChats)) {
+        foreach ($notifyChats as $chat) {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.vi_msg_delivered', array('chat' => & $chat, 'user' => $currentUser));
+        }
+    }
+
 }
 
 $response = array('error' => 'false','uw' => $userOwner, 'result_status' => $content_status, 'result' => $content);

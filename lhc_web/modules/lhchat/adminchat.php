@@ -137,8 +137,23 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 
     	    // Update general chat attributes
             if ($chat->user_id == $currentUser->getUserID() || $chat->user_id == 0 || $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+
+                // Mark messages as seen.
+                if ($chat->has_unread_messages == 1) {
+                    // Chat was opened in the background
+                    // Mark as delivered first
+                    if (is_array($Params['user_parameters_unordered']['arg']) && in_array('background',$Params['user_parameters_unordered']['arg'])) {
+                        $messageDelivery = 2;
+                        $chat->has_unread_messages = 2;
+                        $db->query('UPDATE `lh_msg` SET `del_st` = 2 WHERE `chat_id` = ' . $chat->id . ' AND `del_st` IN (0,1) AND `user_id` = 0');
+                    } else {
+                        $messageDelivery = 3;
+                        $db->query('UPDATE `lh_msg` SET `del_st` = 3 WHERE `chat_id` = ' . $chat->id . ' AND `del_st` IN (0,1,2) AND `user_id` = 0');
+                        $chat->has_unread_messages = 0;
+                    }
+                }
+
                 $chat->support_informed = 1;
-                $chat->has_unread_messages = 0;
                 $chat->unread_messages_informed = 0;
             }
 
@@ -160,6 +175,10 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	    if ($chatDataChanged == true) {
     	    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('initiator' => 'user', 'chat' => & $chat, 'user' => $currentUser, 'previous_attributes' => $previousAttributes));
     	    }
+
+            if ($operatorAccepted !== true && isset($messageDelivery)) {
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.vi_msg_delivered', array('chat' => & $chat, 'user' => $currentUser));
+            }
 
     	    if ($operatorAccepted == true) {
     	    	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.accept',array('chat' => & $chat,'user' => $currentUser));	    	
