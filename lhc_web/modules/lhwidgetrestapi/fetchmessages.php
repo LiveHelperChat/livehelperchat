@@ -285,14 +285,14 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 
 	} catch (Exception $e) {
 
-        try {
-            $db->rollback();
-        } catch (Exception $e) {
-
-        }
-
         // Store log to file log
         erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString());
+
+        try {
+            $db->rollback();
+        } catch (Exception $eRollback) {
+
+        }
 
         // Store log to database
         erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString(),
