@@ -54,6 +54,7 @@ $translations = array(
         'files_attached' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send files or enter additional information'),
         'remove_file' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Remove file'),
         'delivered' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','Delivered'),
+        'seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','Have been seen!'),
     ],
     "start_chat" => [
         "thank_you_for_feedback" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Thank you for your feedback...'),

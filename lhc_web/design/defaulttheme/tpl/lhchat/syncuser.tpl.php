@@ -12,11 +12,17 @@ $messageDateFormatDay = erLhcoreClassModule::$dateDateHourFormat;
 $messageDateFormatDayTime = erLhcoreClassModule::$dateHourFormat;
 
 if (isset($theme) && is_object($theme)) {
-    if (isset($theme->bot_configuration_array['msg_time_format_day']) && !empty($theme->bot_configuration_array['msg_time_format_day'])){
+    if (isset($theme->bot_configuration_array['msg_time_format_day']) && !empty($theme->bot_configuration_array['msg_time_format_day'])) {
         $messageDateFormatDay = $theme->bot_configuration_array['msg_time_format_day'];
     }
-    if (isset($theme->bot_configuration_array['msg_time_format_time']) && !empty($theme->bot_configuration_array['msg_time_format_time'])){
+    if (isset($theme->bot_configuration_array['msg_time_format_time']) && !empty($theme->bot_configuration_array['msg_time_format_time'])) {
         $messageDateFormatDayTime = $theme->bot_configuration_array['msg_time_format_time'];
+    }
+    if (isset($theme->bot_configuration_array['hide_delivery_status']) && $theme->bot_configuration_array['hide_delivery_status'] == true) {
+        $hideDeliveryStatus = true;
+    }
+    if (isset($theme->bot_configuration_array['keep_double_tick']) && $theme->bot_configuration_array['keep_double_tick'] == true) {
+        $keepDeliveredTick = true;
     }
 }
 

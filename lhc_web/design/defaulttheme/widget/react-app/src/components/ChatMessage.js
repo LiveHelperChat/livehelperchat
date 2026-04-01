@@ -334,9 +334,13 @@ class ChatMessage extends PureComponent {
                         }
 
                         if (domNode.attribs.className.indexOf('msg-del-st-3') !== -1 || (domNode.attribs.className.indexOf('msg-del-st') != -1 && (this.state.humWasZero || this.props.hum == 0))) {
-                            return <React.Fragment></React.Fragment>;
+                            if (!this.props.kdm) {
+                                return <React.Fragment></React.Fragment>;
+                            } else {
+                                return <span className="material-icons me-0 text-primary msg-del-st-3" title={t('chat.seen')}>&#xf12a;</span>;
+                            }
                         } else if (domNode.attribs.className.indexOf('msg-del-st-1') !== -1 && (this.state.humWasTwo || this.props.hum == 2)) {
-                            return <span className="material-icons msg-del-st-2" title={t('chat.delivered')}>&#xf12a;</span>;
+                            return <span className="material-icons me-0 msg-del-st-2" title={t('chat.delivered')}>&#xf12a;</span>;
                         }
 
                         delete domNode.attribs.class;

@@ -1938,6 +1938,26 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
+                'hide_delivery_status' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Hide message delivery status icons'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'keep_double_tick' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Keep seen message indicator'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
                 'hide_status' => array(
                     'type' => 'checkbox',
                     'main_attr' => 'bot_configuration_array',
@@ -2069,7 +2089,17 @@ $fields = array(
        'input_brd_color' => array(
             'type' => 'colorpicker',
             'main_attr' => 'bot_configuration_array',
-            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Input field border color'),
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Not active input field border color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'input_brd_active' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Active input field border color'),
             'required' => true,
             'hidden' => true,
             'validation_definition' => new ezcInputFormDefinitionElement(
@@ -2359,6 +2389,16 @@ $fields = array(
         'type' => 'colorpicker',
         'main_attr' => 'bot_configuration_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Reaction to visitor message bubble background color'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+
+    'delivered_msg_color' => array(
+        'type' => 'colorpicker',
+        'main_attr' => 'bot_configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Delivered message double tick color'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(

@@ -202,6 +202,10 @@ try {
                     $outputResponse['chat_ui']['close_on_unload'] = true;
                 }
 
+                if (isset($theme->bot_configuration_array['keep_double_tick']) && $theme->bot_configuration_array['keep_double_tick'] == true) {
+                    $outputResponse['chat_ui']['kdm'] = true;
+                }
+
                 if (isset($theme->bot_configuration_array['switch_to_human']) && is_numeric($theme->bot_configuration_array['switch_to_human'])) {
                     $outputResponse['chat_ui']['switch_to_human'] = (int)$theme->bot_configuration_array['switch_to_human'];
                 }

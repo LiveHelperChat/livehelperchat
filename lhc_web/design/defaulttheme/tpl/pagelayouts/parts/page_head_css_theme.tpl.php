@@ -46,6 +46,12 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         }
         <?php endif;?>
 
+<?php if (isset($Result['theme']->bot_configuration_array['delivered_msg_color']) && $Result['theme']->bot_configuration_array['delivered_msg_color'] != '') : ?>
+.text-primary.msg-del-st-3 {
+    color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['delivered_msg_color']);?>!important;
+}
+<?php endif;?>
+
         <?php if (isset($Result['theme']->bot_configuration_array['operator_txt_color']) && $Result['theme']->bot_configuration_array['operator_txt_color'] != '') : ?>
         .status-text, .operator-info{
             color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['operator_txt_color']);?>!important;
@@ -66,12 +72,24 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         <?php endif;?>
         
         <?php if (isset($Result['theme']->bot_configuration_array['input_brd_color']) && $Result['theme']->bot_configuration_array['input_brd_color'] != '') : ?>
-        .start-chat .form-select, 
+        .start-chat .form-select,
         .start-chat .form-control{
             border-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['input_brd_color']);?>!important;
         }
         <?php endif;?>
-        
+
+
+        <?php if (isset($Result['theme']->bot_configuration_array['input_brd_active']) && $Result['theme']->bot_configuration_array['input_brd_active'] != '') : ?>
+        .start-chat .form-select:active,
+        .start-chat .form-select:focus,
+        .start-chat .form-control:active,
+        .start-chat .form-control:focus
+        {
+            border-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['input_brd_active']);?>!important;
+        }
+        <?php endif;?>
+
+
         <?php if (isset($Result['theme']->bot_configuration_array['input_shd_color']) && $Result['theme']->bot_configuration_array['input_shd_color'] != '') : ?>
         .start-chat .form-select:focus,.start-chat .form-control:focus{
             <?php $inputShdColor = ltrim($Result['theme']->bot_configuration_array['input_shd_color'], '#'); $inputShdColor = strlen($inputShdColor) === 3 ? $inputShdColor[0].$inputShdColor[0].$inputShdColor[1].$inputShdColor[1].$inputShdColor[2].$inputShdColor[2] : $inputShdColor; ?>

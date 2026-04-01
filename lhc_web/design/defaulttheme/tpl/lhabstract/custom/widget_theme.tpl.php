@@ -303,8 +303,26 @@
                             </div>
                         </div>
 
-                        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Messages area background color')?></h5>
-                     
+                        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Delivered messages indicators')?></h5>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo erLhcoreClassAbstract::renderInput('hide_delivery_status', $fields['hide_delivery_status'], $object)?> <?php echo $fields['hide_delivery_status']['trans'];?></label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo erLhcoreClassAbstract::renderInput('keep_double_tick', $fields['keep_double_tick'], $object)?> <?php echo $fields['keep_double_tick']['trans'];?> <span class="material-icons">done_all</span></label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['delivered_msg_color']['trans'];?> <span class="material-icons">done_all</span> </label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('delivered_msg_color', $fields['delivered_msg_color'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label><?php echo $fields['msg_background']['trans'];?></label>
                             <?php echo erLhcoreClassAbstract::renderInput('msg_background', $fields['msg_background'], $object)?>
@@ -318,37 +336,43 @@
                         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Start chat input fields coloring')?></h5>
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo $fields['label_txt_color']['trans'];?></label>
                                     <?php echo erLhcoreClassAbstract::renderInput('label_txt_color', $fields['label_txt_color'], $object)?>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo $fields['input_bg_color']['trans'];?></label>
                                     <?php echo erLhcoreClassAbstract::renderInput('input_bg_color', $fields['input_bg_color'], $object)?>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo $fields['input_plc_color']['trans'];?></label>
                                     <?php echo erLhcoreClassAbstract::renderInput('input_plc_color', $fields['input_plc_color'], $object)?>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo $fields['input_txt_color']['trans'];?></label>
                                     <?php echo erLhcoreClassAbstract::renderInput('input_txt_color', $fields['input_txt_color'], $object)?>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo $fields['input_brd_color']['trans'];?></label>
                                     <?php echo erLhcoreClassAbstract::renderInput('input_brd_color', $fields['input_brd_color'], $object)?>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['input_brd_active']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('input_brd_active', $fields['input_brd_active'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo $fields['input_shd_color']['trans'];?></label>
                                     <?php echo erLhcoreClassAbstract::renderInput('input_shd_color', $fields['input_shd_color'], $object)?>
