@@ -253,10 +253,10 @@
 
             {#if no_expand === false && type != 'depgroups_stats'}
             <div class="float-end expand-actions">
-                <a on:click={lhcServices.changeWidgetHeight(lhcList,panel_id,true)} class="text-muted disable-select">
+                <a on:click={(e) => lhcServices.changeWidgetHeight(lhcList,panel_id,true)} class="text-muted disable-select">
                     <i title={$t("widget.more_rows")}  class="material-icons">expand</i>
                 </a>
-                <a on:click={lhcServices.changeWidgetHeight(lhcList,panel_id,false)} class="text-muted disable-select">
+                <a on:click={(e) => lhcServices.changeWidgetHeight(lhcList,panel_id,false)} class="text-muted disable-select">
                     <i title={$t("widget.less_rows")} class="material-icons">compress</i>
                 </a>
             </div>
@@ -269,10 +269,10 @@
             <th width="20%">
                 <i title={$t("widget.op_statistic")} class="material-icons text-info">support_agent</i>
                 <div class="float-end expand-actions">
-                    <a on:click={lhcServices.changeWidgetHeight(lhcList,panel_id,true)} class="text-muted disable-select">
+                    <a on:click={(e) => lhcServices.changeWidgetHeight(lhcList,panel_id,true)} class="text-muted disable-select">
                         <i title={$t("widget.more_rows")}  class="material-icons">expand</i>
                     </a>
-                    <a on:click={lhcServices.changeWidgetHeight(lhcList,panel_id,false)} class="text-muted disable-select">
+                    <a on:click={(e) => lhcServices.changeWidgetHeight(lhcList,panel_id,false)} class="text-muted disable-select">
                         <i title={$t("widget.less_rows")} class="material-icons">compress</i>
                     </a>
                 </div>
