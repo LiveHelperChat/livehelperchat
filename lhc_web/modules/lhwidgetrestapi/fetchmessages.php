@@ -281,7 +281,11 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 
 		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncuser',array('chat' => & $chat, 'response' => & $responseArray));
 
-		$db->commit();
+        try {
+            $db->commit();
+        } catch (Exception $eCommit) {
+
+        }
 
 	} catch (Exception $e) {
 
