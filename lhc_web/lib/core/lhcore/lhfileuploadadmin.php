@@ -104,7 +104,8 @@ class erLhcoreClassFileUploadAdmin extends erLhcoreClassFileUpload
                         'application/vnd.oasis.opendocument.spreadsheet',
                     ];
                     $mimeCompatible = ($actualMime === $declaredMime)
-                        || ($actualMime === 'application/zip' && in_array($declaredMime, $zipBasedMimes));
+                        || ($actualMime === 'application/zip' && in_array($declaredMime, $zipBasedMimes)) 
+                        || (($declaredMime == 'text/csv' || $declaredMime == 'application/octet-stream') && $actualMime == 'text/plain');
                     if (!$mimeCompatible) {
                         $fileUpload->beforeRemove();
                         throw new Exception('Mime type does not match!');

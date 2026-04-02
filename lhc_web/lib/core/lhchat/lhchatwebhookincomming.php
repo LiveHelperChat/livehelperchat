@@ -2457,6 +2457,7 @@ class erLhcoreClassChatWebhookIncoming {
 
             // ms office
             'doc' => 'application/msword',
+            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             'rtf' => 'application/rtf',
             'xls' => 'application/vnd.ms-excel',
             'ppt' => 'application/vnd.ms-powerpoint',
@@ -2466,6 +2467,8 @@ class erLhcoreClassChatWebhookIncoming {
             'odt' => 'application/vnd.oasis.opendocument.text',
             'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
             'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'csv' => 'text/csv',
+            'sql' => 'application/octet-stream'
         );
 
         if ($getMime == false) {
