@@ -128,6 +128,8 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         <?php if (isset($Result['theme']->bot_configuration_array['input_txt_color']) && $Result['theme']->bot_configuration_array['input_txt_color'] != '') : ?>
          .start-chat .form-select,
          .start-chat .form-control,
+         .offline-form .form-select,
+         .offline-form .form-control,
         #CSChatMessage{
             color:#<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['input_txt_color']);?>!important;
 
@@ -136,6 +138,7 @@ if (isset($theme) && $theme->custom_widget_css != '') {
 
         <?php if (isset($Result['theme']->bot_configuration_array['input_plc_color']) && $Result['theme']->bot_configuration_array['input_plc_color'] != '') : ?>
         .start-chat .form-control::placeholder,
+        .offline-form .form-control::placeholder,
         #CSChatMessage::placeholder{
             color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['input_plc_color']);?>!important;
         }
