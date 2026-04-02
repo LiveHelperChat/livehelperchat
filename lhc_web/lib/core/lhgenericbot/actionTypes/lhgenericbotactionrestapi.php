@@ -2154,7 +2154,7 @@ class erLhcoreClassGenericBotActionRestapi
                         foreach ($replaceRules as $replaceRule) {
                             $replaceRuleOptions = explode('==>',$replaceRule);
                             for ($i = 1; $i <= 6; $i++) {
-                                $responseFormatted['content' . ($i > 1 ? '_' . $i : '')] = preg_replace('/'.$replaceRuleOptions[0].'/is',(isset($replaceRuleOptions[1]) ? $replaceRuleOptions[1] : ''), $responseFormatted['content' . ($i > 1 ? '_' . $i : '')]);
+                                $responseFormatted['content' . ($i > 1 ? '_' . $i : '')] = preg_replace('/'.$replaceRuleOptions[0].'/uis',(isset($replaceRuleOptions[1]) ? $replaceRuleOptions[1] : ''), $responseFormatted['content' . ($i > 1 ? '_' . $i : '')]);
                             }
                         }
                     }
