@@ -135,9 +135,9 @@ class erLhcoreClassFileUpload extends UploadHandler
                 finfo_close($finfo);
                 if ($actualMime !== false) {
                     $declaredMime = $fileUpload->type;
-                    $mimeAliases = ['image/jpg' => 'image/jpeg', 'image/pjpeg' => 'image/jpeg', 'image/x-png' => 'image/png'];
+                    $mimeAliases = ['text/xml' => 'application/xml','application/x-rar' => 'application/x-rar-compressed', 'application/x-compressed' => 'application/x-rar-compressed', 'application/x-zip-compressed' => 'application/zip', 'image/jpg' => 'image/jpeg', 'image/pjpeg' => 'image/jpeg', 'image/x-png' => 'image/png'];
                     $actualMime   = $mimeAliases[$actualMime]   ?? $actualMime;
-                    $declaredMime = $mimeAliases[$declaredMime] ?? $declaredMime;
+                    $fileUpload->type = $declaredMime = $mimeAliases[$declaredMime] ?? $declaredMime;
                     // ZIP-based Office/ODF containers are legitimately reported as application/zip by finfo
                     $zipBasedMimes = [
                         'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -174,6 +174,7 @@ class erLhcoreClassFileUpload extends UploadHandler
                     $msg->msg = '[file=' . $file->id . '_' . $fileUpload->security_hash . ']';
                     $msg->chat_id = $chat->id;
                     $msg->user_id = isset($this->options['user_id']) ? $this->options['user_id'] : 0;
+                    $msg->del_st = $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ? erLhcoreClassModelmsg::STATUS_READ : erLhcoreClassModelmsg::STATUS_SENT;
 
                     // We save instantly as message only visitors files
                     if ($msg->user_id == 0 || (isset($this->options['as_form']) && $this->options['as_form'] == true)) {

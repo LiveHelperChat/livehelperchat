@@ -92,9 +92,9 @@ class erLhcoreClassFileUploadAdmin extends erLhcoreClassFileUpload
                 finfo_close($finfo);
                 if ($actualMime !== false) {
                     $declaredMime = $fileUpload->type;
-                    $mimeAliases = ['image/jpg' => 'image/jpeg', 'image/pjpeg' => 'image/jpeg', 'image/x-png' => 'image/png'];
+                    $mimeAliases = ['text/xml' => 'application/xml','application/x-rar' => 'application/x-rar-compressed', 'application/x-compressed' => 'application/x-rar-compressed', 'application/x-zip-compressed' => 'application/zip', 'image/jpg' => 'image/jpeg', 'image/pjpeg' => 'image/jpeg', 'image/x-png' => 'image/png'];
                     $actualMime   = $mimeAliases[$actualMime]   ?? $actualMime;
-                    $declaredMime = $mimeAliases[$declaredMime] ?? $declaredMime;
+                    $fileUpload->type = $declaredMime = $mimeAliases[$declaredMime] ?? $declaredMime;
                     // ZIP-based Office/ODF containers are legitimately reported as application/zip by finfo
                     $zipBasedMimes = [
                         'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
