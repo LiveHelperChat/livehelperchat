@@ -263,7 +263,7 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 
                 $lockTextArea = isset($chat->chat_variables_array['bot_lock_msg']);
 
-                if ($lockTextArea === true && isset($operatorIdLast) && ($operatorIdLast == -2 || $operatorIdLast > 0) && $chat->chat_variables_array['bot_lock_msg'] < $LastMessageID) {
+                if ($lockTextArea === true && $chat->status_sub_sub != erLhcoreClassModelChat::STATUS_SUB_SUB_IN_REST_API && isset($operatorIdLast) && ($operatorIdLast == -2 || $operatorIdLast > 0) && $chat->chat_variables_array['bot_lock_msg'] < $LastMessageID) {
                     $lockTextArea = false;
                     $chatVariables = $chat->chat_variables_array;
                     unset($chatVariables['bot_lock_msg']);

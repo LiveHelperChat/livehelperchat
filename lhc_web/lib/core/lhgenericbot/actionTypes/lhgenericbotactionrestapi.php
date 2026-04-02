@@ -1452,6 +1452,16 @@ class erLhcoreClassGenericBotActionRestapi
         // Streaming request save stream to tmp file
         if (isset($methodSettings['streaming_request']) && $methodSettings['streaming_request'] == 1) {
 
+            // Mark chat as locked from customer messages
+            if (isset($paramsCustomer['chat']) && $paramsCustomer['chat'] instanceof erLhcoreClassModelChat) {
+                $db = ezcDbInstance::get();
+                $db->beginTransaction();
+                $paramsCustomer['chat']->syncAndLock('`id`');
+                $paramsCustomer['chat']->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_IN_REST_API;
+                $paramsCustomer['chat']->updateThis(['update' => ['status_sub_sub']]);
+                $db->commit();
+            }
+
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
             curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) use (& $streamBuffer, &$responseContent, $paramsCustomer, $methodSettings, & $streamLines, $logRequest, & $streamEvent, & $streamContentBuffer, & $lockMatchedOutput, & $currentMatchedOutput)  {
                 $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
@@ -1783,6 +1793,16 @@ class erLhcoreClassGenericBotActionRestapi
                     $overridden = true;
             } else {
                 $content = curl_exec($ch);
+
+                if (isset($methodSettings['streaming_request']) && $methodSettings['streaming_request'] == 1 && isset($paramsCustomer['chat']) && $paramsCustomer['chat'] instanceof erLhcoreClassModelChat) {
+                    // Unlock chat from visitor messages
+                    $db = ezcDbInstance::get();
+                    $db->beginTransaction();
+                    $paramsCustomer['chat']->syncAndLock('`id`');
+                    $paramsCustomer['chat']->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_DEFAULT;
+                    $paramsCustomer['chat']->updateThis(['update' => ['status_sub_sub']]);
+                    $db->commit();
+                }
             }
         }
 
