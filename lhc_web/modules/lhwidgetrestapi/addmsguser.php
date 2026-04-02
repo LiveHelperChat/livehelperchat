@@ -60,7 +60,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && mb_strlen($payload[
 
         $chat = erLhcoreClassModelChat::fetchAndLock($payload['id']);
 
-        if (isset($chat->chat_variables_array['bot_lock_msg'])) {
+        if (isset($chat->chat_variables_array['bot_lock_msg']) && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
             $db->rollback();
             $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','We are still working on your previous request!');
             echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));
