@@ -53,7 +53,7 @@ if (isset($theme) && $theme->custom_widget_css != '') {
 <?php endif;?>
 
         <?php if (isset($Result['theme']->bot_configuration_array['operator_txt_color']) && $Result['theme']->bot_configuration_array['operator_txt_color'] != '') : ?>
-        .status-text, .operator-info{
+        .status-text, .operator-info, .offline-intro{
             color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['operator_txt_color']);?>!important;
         }
         <?php endif;?>
@@ -65,15 +65,20 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         <?php endif;?>
         
         <?php if (isset($Result['theme']->bot_configuration_array['input_bg_color']) && $Result['theme']->bot_configuration_array['input_bg_color'] != '') : ?>
-        .start-chat .form-select, 
-        .start-chat .form-control{
+        .offline-form .form-select,
+        .start-chat .form-select,
+        .start-chat .form-control,
+        .offline-form .form-control
+        {
             background-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['input_bg_color']);?>!important;
         }
         <?php endif;?>
         
         <?php if (isset($Result['theme']->bot_configuration_array['input_brd_color']) && $Result['theme']->bot_configuration_array['input_brd_color'] != '') : ?>
+        .offline-form .form-select,
         .start-chat .form-select,
-        .start-chat .form-control{
+        .start-chat .form-control,
+        .offline-form .form-control{
             border-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['input_brd_color']);?>!important;
         }
         <?php endif;?>
@@ -83,7 +88,11 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         .start-chat .form-select:active,
         .start-chat .form-select:focus,
         .start-chat .form-control:active,
-        .start-chat .form-control:focus
+        .start-chat .form-control:focus,
+        .offline-form .form-select:active,
+        .offline-form .form-select:focus,
+        .offline-form .form-control:active,
+        .offline-form .form-control:focus
         {
             border-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['input_brd_active']);?>!important;
         }
@@ -91,7 +100,11 @@ if (isset($theme) && $theme->custom_widget_css != '') {
 
 
         <?php if (isset($Result['theme']->bot_configuration_array['input_shd_color']) && $Result['theme']->bot_configuration_array['input_shd_color'] != '') : ?>
-        .start-chat .form-select:focus,.start-chat .form-control:focus{
+        .start-chat .form-select:focus,
+        .start-chat .form-control:focus,
+        .offline-form .form-select:focus,
+        .offline-form .form-control:focus
+        {
             <?php $inputShdColor = ltrim($Result['theme']->bot_configuration_array['input_shd_color'], '#'); $inputShdColor = strlen($inputShdColor) === 3 ? $inputShdColor[0].$inputShdColor[0].$inputShdColor[1].$inputShdColor[1].$inputShdColor[2].$inputShdColor[2] : $inputShdColor; ?>
             box-shadow: 0 0 0 .25rem #<?php echo htmlspecialchars($inputShdColor); ?>40!important;
         }
