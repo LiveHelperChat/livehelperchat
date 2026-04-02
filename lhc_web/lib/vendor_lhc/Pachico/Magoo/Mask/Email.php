@@ -80,14 +80,14 @@ class Email implements MaskInterface
             . "(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/";
 
         $matches = [];
-        preg_match_all($regex, $string, $matches);
+        preg_match_all($regex, strtolower($string), $matches);
 
         if (!isset($matches[0]) || empty($matches[0])) {
             return $string;
         }
         foreach ($matches as $matchGroup) {
             foreach ($matchGroup as $match) {
-                $string = str_replace($match, $this->maskIndividualEmailMatch($match), $string);
+                $string = str_ireplace($match, $this->maskIndividualEmailMatch($match), $string);
             }
         }
 
