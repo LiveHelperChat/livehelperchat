@@ -360,7 +360,8 @@ class erLhcoreClassGenericBotActionText {
                 erLhcoreClassChat::getSession()->save($msg);
 
                 // Keep chat locked if user want's that. In case, extensions are handling events in the background.
-                if (isset($action['content']['attr_options']['keep_locked']) && $action['content']['attr_options']['keep_locked'] === true) {
+                // If message arrives during streaming we want to keep lock if there is any set
+                if ((isset($action['content']['attr_options']['keep_locked']) && $action['content']['attr_options']['keep_locked'] === true) || (isset($params['stream_context']) && $params['stream_context'] === true)) {
                     $chat->syncAndLock('`chat_variables`');
 
                     $variablesArray = [];

@@ -1551,7 +1551,8 @@ class erLhcoreClassGenericBotActionRestapi
                                         '{http_error}' => $responseStream['http_error'],
                                         '{content_raw}' => $responseStream['content_raw'],
                                         '{http_data}' => $responseStream['http_data']
-                                    )
+                                    ),
+                                    'stream_context' => true
                                 );
 
                                 $trigger = erLhcoreClassModelGenericBotTrigger::fetch($paramsCustomer['action']['content']['rest_api_method_output'][$responseStream['id']]);
@@ -1606,7 +1607,8 @@ class erLhcoreClassGenericBotActionRestapi
                                                 '{http_error}' => $responseStream['http_error'],
                                                 '{content_raw}' => $responseStream['content_raw'],
                                                 '{http_data}' => $responseStream['http_data']
-                                            )
+                                            ),
+                                            'stream_context' => true
                                         );
 
                                         $trigger = erLhcoreClassModelGenericBotTrigger::fetch($paramsCustomer['action']['content']['rest_api_method_output'][$currentMatchedOutput]);
