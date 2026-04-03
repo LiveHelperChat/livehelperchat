@@ -225,6 +225,9 @@ class _nodeJSChat {
                                 if (streamFlowStarted === null) {
                                     streamFlowStarted = document.querySelector('#messages-scroll > div.message-row-typing > .msg-body');
                                     if (streamFlowStarted) {
+                                        if (!('originalContent' in streamFlowStarted.dataset)) {
+                                            streamFlowStarted.dataset.originalContent = streamFlowStarted.innerHTML;
+                                        }
                                         streamFlowStarted.innerHTML = "";
                                         streamFlowStarted.parentElement.classList.add('message-row-typing-stream');
                                     }

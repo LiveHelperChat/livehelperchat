@@ -371,12 +371,25 @@ class OnlineChat extends Component {
                     this.intervalFunction = () => {
                         let adminMessages = this.nextUntil(msg,'.message-admin', false, true);
                         if (adminMessages.length > 0) {
-                            msg.parentNode.removeChild(msg);
 
-                            this.intervalFunction = null;
-                            clearInterval(this.intervalPending);
+                            if (this.props.chatwidget.getIn(['chatLiveData','lock_send'])) {
+                                // Move msg to be the last one again because chat is still locked
+                                const msgBody = msg.querySelector('.msg-body');
+                                if (msgBody && msgBody.dataset.originalContent !== undefined) {
+                                    msgBody.innerHTML = msgBody.dataset.originalContent;
+                                    msgBody.parentElement.classList.remove('message-row-typing-stream');
+                                }
+                                const lastAdminMsg = adminMessages[adminMessages.length - 1];
+                                lastAdminMsg.insertAdjacentElement('afterend', msg);
+                            } else {
+                                msg.parentNode.removeChild(msg);
 
-                            adminMessages[0].scrollIntoView();
+                                this.intervalFunction = null;
+                                clearInterval(this.intervalPending);
+
+                                adminMessages[0].scrollIntoView();
+                            }
+
                             //this.scrollBottom(false, false); // We now scroll to very first admin message after it's appearance
 
                         } else {

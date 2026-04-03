@@ -1614,7 +1614,13 @@ class erLhcoreClassGenericBotActionRestapi
                                         $trigger = erLhcoreClassModelGenericBotTrigger::fetch($paramsCustomer['action']['content']['rest_api_method_output'][$currentMatchedOutput]);
 
                                         erLhcoreClassGenericBotWorkflow::processTrigger($paramsCustomer['chat'], $trigger, true, array('args' => $argsDefault));
-                                        
+
+                                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stream_chunk_finished', array(
+                                            'restapi' => $paramsCustomer['rest_api'],
+                                            'chat' => $paramsCustomer['chat'],
+                                            'response' => $responseContent
+                                        ));
+
                                         $streamLines[] = self::getCurrentTimeWithMilliseconds().' EXECUTING_PREVIOUS [trigger exec] - [' . $trigger->name . '] [' . $trigger->id . '] with content ' . json_encode($responseContent);
 
                                         // Switch to new lock stream item
