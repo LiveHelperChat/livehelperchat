@@ -1,6 +1,6 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance( 'lhwebhooks/pushchat.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance('lhwebhooks/pushchat.tpl.php');
 
 $item = new stdClass();
 $item->incoming_api_id = 0;
@@ -20,16 +20,16 @@ if (ezcInputForm::hasPostData()) {
         exit;
     }
 
-    $definition = array(
-        'incoming_api_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)),
+    $definition = [
+        'incoming_api_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 1]),
         'message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null),
         'chat_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null),
         'create_chat' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean', null),
         'close_chat' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean', null),
-        'dep_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)),
-    );
+        'dep_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 1]),
+    ];
 
-    $Errors = array();
+    $Errors = [];
     $form = new ezcInputForm(INPUT_POST, $definition);
 
     if ($form->hasValidData('chat_id') && !empty($form->chat_id)) {
@@ -81,25 +81,23 @@ if (ezcInputForm::hasPostData()) {
 
             $chat = erLhcoreClassChatWebhookIncoming::sendMessage(erLhcoreClassModelChatIncomingWebhook::fetch($item->incoming_api_id), $item);
 
-            $tpl->set('updated',true);
-            $tpl->set('chat',$chat);
+            $tpl->set('updated', true);
+            $tpl->set('chat', $chat);
 
         } catch (Exception $e) {
-            $tpl->set('errors',array($e->getMessage()));
+            $tpl->set('errors', [$e->getMessage()]);
         }
 
     } else {
-        $tpl->set('errors',$Errors);
+        $tpl->set('errors', $Errors);
     }
 }
 
 $tpl->set('item', $item);
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(
-    array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','System configuration')),
-    array('url' => erLhcoreClassDesign::baseurl('webhooks/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Webhooks')),
-    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Push chat')),
-)
-
-?>
+$Result['path'] = [
+    ['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module', 'System configuration')],
+    ['url' => erLhcoreClassDesign::baseurl('webhooks/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module', 'Webhooks')],
+    ['title' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module', 'Push chat')],
+];

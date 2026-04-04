@@ -8,15 +8,14 @@ if (!isset($options['notifications']) || !$options['notifications']) {
 
 $currentUser = erLhcoreClassUser::instance();
 
-if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],$_POST['password']))
+if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'], $_POST['password']))
 {
 	exit;
 }
 
 $UserData = $currentUser->getUserData(true);
 
-if ( $currentUser->hasAccessTo('lhuser','changeonlinestatus') ) {
-
+if ($currentUser->hasAccessTo('lhuser', 'changeonlinestatus')) {
 	if ($Params['user_parameters']['status'] == '0') {
 		$UserData->hide_online = 0;
 	} else {
@@ -29,7 +28,7 @@ if ( $currentUser->hasAccessTo('lhuser','changeonlinestatus') ) {
 
     erLhcoreClassChat::updateActiveChats($UserData->id);
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $UserData, 'reason' => 'user_action'));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed', ['user' => & $UserData, 'reason' => 'user_action']);
 }
+
 exit;
-?>

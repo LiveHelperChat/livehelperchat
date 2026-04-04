@@ -1,86 +1,79 @@
 <?php
 
-$Module = array( "name" => "Theme",
-				 'variable_params' => true );
+$Module = ['name' => 'Theme', 'variable_params' => true];
 
-$ViewList = array();
+$ViewList = [];
 
-$ViewList['export'] = array(
-    'params' => array('theme'),
-    'functions' => array( 'administratethemes' )
-);
+$ViewList['export'] = [
+    'params' => ['theme'],
+    'functions' => ['administratethemes']
+];
 
-$ViewList['import'] = array(
-    'params' => array(),
-    'functions' => array( 'administratethemes' )
-);
+$ViewList['import'] = [
+    'params' => [],
+    'functions' => ['administratethemes']
+];
 
-$ViewList['index'] = array(
-    'params' => array(),
-    'functions' => array( 'administratethemes' )
-);
+$ViewList['index'] = [
+    'params' => [],
+    'functions' => ['administratethemes']
+];
 
-$ViewList['default'] = array(
-    'params' => array(),
-    'functions' => array( 'administratethemes' )
-);
+$ViewList['default'] = [
+    'params' => [],
+    'functions' => ['administratethemes']
+];
 
-$ViewList['editthemebydepgroup'] = array(
-    'params' => array('id'),
-    'functions' => array( 'administratethemes' )
-);
+$ViewList['editthemebydepgroup'] = [
+    'params' => ['id'],
+    'functions' => ['administratethemes']
+];
 
-$ViewList['defaultadmintheme'] = array(
-    'params' => array(),
-    'functions' => array( 'administratethemes' )
-);
+$ViewList['defaultadmintheme'] = [
+    'params' => [],
+    'functions' => ['administratethemes']
+];
 
-$ViewList['adminthemes'] = array(
-    'params' => array(),
-    'functions' => array( 'administratethemes' )
-);
+$ViewList['adminthemes'] = [
+    'params' => [],
+    'functions' => ['administratethemes']
+];
 
-$ViewList['personaltheme'] = array(
-    'params' => array(),
-    'functions' => array( 'personaltheme' )
-);
+$ViewList['personaltheme'] = [
+    'params' => [],
+    'functions' => ['personaltheme']
+];
 
-$ViewList['renderpreview'] = array(
-    'params' => array('id'),
-    'functions' => array( 'use_operator' )
-);
+$ViewList['renderpreview'] = [
+    'params' => ['id'],
+    'functions' => ['use_operator']
+];
 
-$ViewList['admincss'] = array(
-    'params' => array('id')
-);
+$ViewList['admincss'] = ['params' => ['id']];
 
-$ViewList['adminnewtheme'] = array(
-    'params' => array(),
-    'functions' => array( 'administratethemes' )
-);
+$ViewList['adminnewtheme'] = [
+    'params' => [],
+    'functions' => ['administratethemes']
+];
 
-$ViewList['adminthemedelete'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array('administratethemes'),
-);
+$ViewList['adminthemedelete'] = [
+    'params' => ['id'],
+    'uparams' => ['csfr'],
+    'functions' => ['administratethemes'],
+];
 
-$ViewList['adminthemeedit'] = array(
-    'params' => array('id'),
-    'functions' => array( 'administratethemes' )
-);
+$ViewList['adminthemeedit'] = [
+    'params' => ['id'],
+    'functions' => ['administratethemes']
+];
 
-$ViewList['deleteresource'] = array (
-    'params' => array('id', 'context', 'hash', ),
-    'functions' => array('administratethemes'),
-);
+$ViewList['deleteresource'] = [
+    'params' => ['id', 'context', 'hash'],
+    'functions' => ['administratethemes'],
+];
 
-$ViewList['gethash'] = array (
-    'params' => array(),
-);
+$ViewList['gethash'] = ['params' => []];
 
-$FunctionList['administratethemes'] = array('explain' =>'Allow users to maintain themes');
-$FunctionList['personaltheme'] = array('explain' =>'Allow operators have their own personal back office theme');
-$FunctionList['use_operator'] = array('explain' =>'Allow operator to preview trigger');
-
-?>
+$FunctionList['administratethemes'] = ['explain' =>'Allow users to maintain themes'];
+$FunctionList['personaltheme'] = ['explain' =>'Allow operators have their own personal back office theme'];
+$FunctionList['use_operator'] = ['explain' =>'Allow operator to preview trigger'];

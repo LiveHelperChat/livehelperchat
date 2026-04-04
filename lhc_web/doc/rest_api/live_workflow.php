@@ -63,63 +63,67 @@ if ($vid !== false) {
      * If you want just check is there any pending messages from operator you can execute this request
      * The only different count_page is equal 0
      */
-    $response = $LHCRestAPI->execute('chatcheckoperatormessage', array(
+    $response = $LHCRestAPI->execute('chatcheckoperatormessage', [
         'ip' => '88.118.220.88',
         'dt' => 'APPLICATIN_NAME - Some Application Specific Window',
         'ua' => '', // User Agent
-    	'onattr' => json_encode(array('chat_id' => 'new chat data')) // Store additional chat attributes
-    ), array(
+        'onattr' => json_encode(['chat_id' => 'new chat data']) // Store additional chat attributes
+    ], [
         'vid' => $vid,  // Use VID from previous request
         'count_page' => 0,  // Do not count as page view, just message check from operator
-        'tz' => 0,          
-        'priority' => 0,   
-        'operator' => 0,    
-        'theme' => 0,       
-        'survey' => 0,      
-        'department' => 5,  
-        'uactiv' => 1       
-    ), 'POST');
+        'tz' => 0,
+        'priority' => 0,
+        'operator' => 0,
+        'theme' => 0,
+        'survey' => 0,
+        'department' => 5,
+        'uactiv' => 1
+    ], 'POST');
 exit;
 
     // Count another page view
-    $response = $LHCRestAPI->execute('chatcheckoperatormessage', array(
+    $response = $LHCRestAPI->execute('chatcheckoperatormessage', [
         'ip' => '88.118.220.88',
         'dt' => 'APPLICATIN_NAME - Some Application Specific Window',
         'l' => '#',
         'ua' => '', // User Agent
-    ), array(
+    ], [
         'vid' => $vid,
-        'count_page' => 1,  
-        'tz' => 0,          
-        'priority' => 0,    
-        'operator' => 0,    
-        'survey' => 0,      
-        'uactiv' => 1       
-    ), 'POST',true,'');
+        'count_page' => 1,
+        'tz' => 0,
+        'priority' => 0,
+        'operator' => 0,
+        'survey' => 0,
+        'uactiv' => 1
+    ], 'POST',true,'');
 
     if ($response->error == false && $response->result->action == 'read_message') {
         $urlAppend = $response->result->args->url_append;
         $message = $response->result->args->message;
         
         // Start chat based on proactive invitation
-        $response = $LHCRestAPI->execute('startchat', array(
-            'Email' => 'remdex@gmail.com',  // E-mail of visitor
-            'DepartamentID' => '5',         // Department
-            'Username' => 'Visitor name',   // From what page chat has started
-            'Question' => 'my Question',    // Initial message from user
-            'AcceptTOS' => true,            // Accept TOS
-            'Phone' => '',                  // visitor phone if any
-            'URLRefer' => '',               // From what page chat has started, it can be page or just some application window name
-            'operator' => '',               // To what operator assign chat automatically
-            'ip' => '88.118.220.88',        // IP of original user
-            'data' => json_encode(array('chat_id' =>  array('val' => 'chat_id attribute'))), // Store additional chat information
-            'proactive' => true             // Start chat based on proactive data
-        ), array(
-            'vid' => $vid // You can pass visitor id so chat will be associated with this visitor
-        ), 'POST',
+        $response = $LHCRestAPI->execute(
+            'startchat',
+            [
+                'Email' => 'remdex@gmail.com',  // E-mail of visitor
+                'DepartamentID' => '5',         // Department
+                'Username' => 'Visitor name',   // From what page chat has started
+                'Question' => 'my Question',    // Initial message from user
+                'AcceptTOS' => true,            // Accept TOS
+                'Phone' => '',                  // visitor phone if any
+                'URLRefer' => '',               // From what page chat has started, it can be page or just some application window name
+                'operator' => '',               // To what operator assign chat automatically
+                'ip' => '88.118.220.88',        // IP of original user
+                'data' => json_encode(['chat_id' => ['val' => 'chat_id attribute']]), // Store additional chat information
+                'proactive' => true             // Start chat based on proactive data
+            ],
+            [
+                'vid' => $vid // You can pass visitor id so chat will be associated with this visitor
+            ],
+            'POST',
             true,
-            $urlAppend);
-        
+            $urlAppend
+        );
         
         exit;
         // @todo add message read from operator
@@ -136,22 +140,27 @@ exit;
 if ($hash === false && $id === false)
 {
     // Start chat
-    $response = $LHCRestAPI->execute('startchat', array(
-        'Email' => 'remdex@gmail.com',  // E-mail of visitor
-        'DepartamentID' => '5',         // Department
-        'Username' => 'Visitor name',   // From what page chat has started
-        'Question' => 'my Question',    // Initial message from user
-        'AcceptTOS' => true,            // Accept TOS
-        'Phone' => '',                  // visitor phone if any
-        'URLRefer' => '',               // From what page chat has started, it can be page or just some application window name
-        'operator' => '',               // To what operator assign chat automatically
-        'ip' => '88.118.220.88',        // IP of original user
-        'data' => json_encode(array('chat_id' =>  array('val' => 'chat_id attribute'))) // Store additional chat information
-    ), array(
-        'vid' => $vid // You can pass visitor id so chat will be associated with this visitor
-    ), 'POST', 
-        true, 
-        $urlAppend);
+    $response = $LHCRestAPI->execute(
+        'startchat',
+        [
+            'Email' => 'remdex@gmail.com',  // E-mail of visitor
+            'DepartamentID' => '5',         // Department
+            'Username' => 'Visitor name',   // From what page chat has started
+            'Question' => 'my Question',    // Initial message from user
+            'AcceptTOS' => true,            // Accept TOS
+            'Phone' => '',                  // visitor phone if any
+            'URLRefer' => '',               // From what page chat has started, it can be page or just some application window name
+            'operator' => '',               // To what operator assign chat automatically
+            'ip' => '88.118.220.88',        // IP of original user
+            'data' => json_encode(['chat_id' => ['val' => 'chat_id attribute']]) // Store additional chat information
+        ],
+        [
+            'vid' => $vid // You can pass visitor id so chat will be associated with this visitor
+        ],
+        'POST',
+        true,
+        $urlAppend
+    );
     
     if ($response->error == false) {
         $hash = $response->result->chat->hash;
@@ -160,20 +169,20 @@ if ($hash === false && $id === false)
 }
 
 // Fetch chat data
-$response = $LHCRestAPI->execute('fetchchat', array(
+$response = $LHCRestAPI->execute('fetchchat', [
     'chat_id' => $id,
     'hash' => $hash
-));
+]);
 
 if ($response->error == false) {
     
-    $status = array(
+    $status = [
         0 => 'STATUS_PENDING_CHAT',
         1 => 'STATUS_ACTIVE_CHAT',
         2 => 'STATUS_CLOSED_CHAT',
         3 => 'STATUS_CHATBOX_CHAT',
         4 => 'STATUS_OPERATORS_CHAT',
-    );
+    ];
        
     // Means chat is accepted
     if ($response->chat->status == 1) {
@@ -181,18 +190,18 @@ if ($response->error == false) {
     }
 
     // This request can be executed every 3-5 seconds it checks is there any new messages
-    $response = $LHCRestAPI->execute('fetchchatmessages', array(
+    $response = $LHCRestAPI->execute('fetchchatmessages', [
         'chat_id' => $id,
         'last_message_id' => 0, // Optional, return messages from this <optional>
         'ignore_system_messages' => true,
         'workflow' => true
-    ));
+    ]);
 
     // Check chat status
-    $responseCheckStatus = $LHCRestAPI->execute('checkchatstatus', array(
+    $responseCheckStatus = $LHCRestAPI->execute('checkchatstatus', [
     		'chat_id' => $id,
     		'hash' => $hash
-    ));
+    ]);
 
     if ($responseCheckStatus->error == false) {
     	if ($responseCheckStatus->result->activated == false) {
@@ -214,27 +223,31 @@ if ($response->error == false) {
     // Add message as a user
     if ($addMessage == true) {
 	    // Now add message to chat
-	    $response = $LHCRestAPI->execute('addmsguser', array(
+	    $response = $LHCRestAPI->execute('addmsguser', [
 	        'chat_id' => $id,
 	        'hash' => $hash,
 	        'msg' => 'User message here'
-	    ), array(), 'POST');
+	    ], [], 'POST');
     }
     
     // Close chat as visitor, let say visitor closes remote application etc
     // Operator will see a message, 
-    $response = $LHCRestAPI->execute('closechatasvisitor', array(
-    		'chat_id' => $id,
-    		'hash' => $hash,
-    		// eclose => true if user explicitly closed application
-    ));  
+    $response = $LHCRestAPI->execute('closechatasvisitor', [
+        'chat_id' => $id,
+        'hash' => $hash,
+        // eclose => true if user explicitly closed application
+    ]);
 
     // Update chat attributes
     // We update chat attributes
-    $response = $LHCRestAPI->execute('updatechatattributes', array(
-		'chat_id' => $id,
-		'hash' => $hash,
-    	'data' => json_encode(array('chat_id' =>  array('val' => 'chat_id attribute')))
-    ),
-    array(), 'POST' );    
+    $response = $LHCRestAPI->execute(
+        'updatechatattributes',
+        [
+            'chat_id' => $id,
+            'hash' => $hash,
+            'data' => json_encode(['chat_id' => ['val' => 'chat_id attribute']])
+        ],
+        [],
+        'POST'
+    );
 }

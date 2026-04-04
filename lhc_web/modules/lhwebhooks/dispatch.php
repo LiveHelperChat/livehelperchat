@@ -59,7 +59,7 @@ if (ezcInputForm::hasPostData()) {
             }
         }
 
-        $args = array();
+        $args = [];
 
         if (isset($_POST['args']) && !empty($_POST['args'])) {
             $argsRows = explode("\n", trim($_POST['args']));
@@ -94,7 +94,3 @@ if (ezcInputForm::hasPostData()) {
     echo $tpl->fetch();
     exit;
 }
-
-
-
-?>

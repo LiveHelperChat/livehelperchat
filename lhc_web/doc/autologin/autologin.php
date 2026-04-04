@@ -2,8 +2,8 @@
 
 function generateAutoLoginLink($params){
     
-     $dataRequest = array();
-     $dataRequestAppend = array();
+     $dataRequest = [];
+     $dataRequestAppend = [];
      
      // Destination ID
      if (isset($params['r'])){
@@ -40,4 +40,4 @@ function generateAutoLoginLink($params){
 
 ?>
 
-<a target="_blank" href="http://dev.livehelperchat.com/<?php echo generateAutoLoginLink(array('r' => 'chat/chattabs', 'u' => 1,/* 'l' => 'admin', *//* 't' => time() + 50000 */ 'secret_hash' => '12456456456456fghfghfghfgh'))?>">Login me</a>
+<a target="_blank" href="http://dev.livehelperchat.com/<?php echo generateAutoLoginLink(['r' => 'chat/chattabs', 'u' => 1,/* 'l' => 'admin', *//* 't' => time() + 50000 */ 'secret_hash' => '12456456456456fghfghfghfgh'])?>">Login me</a>

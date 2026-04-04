@@ -1,40 +1,38 @@
 <?php
 
-$Module = array( "name" => "Voice & Video & ScreenShare" );
+$Module = ['name' => 'Voice & Video & ScreenShare'];
 
-$ViewList = array();
+$ViewList = [];
 
-$ViewList['configuration'] = array(
-    'params' => array(),
-    'functions' => array( 'configuration' )
-);
+$ViewList['configuration'] = [
+    'params' => [],
+    'functions' => ['configuration']
+];
 
-$ViewList['sessions'] = array(
-    'params' => array(),
-    'functions' => array( 'configuration' )
-);
+$ViewList['sessions'] = [
+    'params' => [],
+    'functions' => ['configuration']
+];
 
-$ViewList['call'] = array(
-    'params' => array('id','hash')
-);
+$ViewList['call'] = [
+    'params' => ['id', 'hash']
+];
 
-$ViewList['join'] = array(
-    'params' => array('id','hash'),
-    'uparams' => array('action'),
-);
+$ViewList['join'] = [
+    'params' => ['id', 'hash'],
+    'uparams' => ['action'],
+];
 
-$ViewList['joinop'] = array(
-    'params' => array('id'),
-    'uparams' => array('action'),
-    'functions' => array( 'use' )
-);
+$ViewList['joinop'] = [
+    'params' => ['id'],
+    'uparams' => ['action'],
+    'functions' => ['use']
+];
 
-$ViewList['joinoperator'] = array(
-    'params' => array('id'),
-    'functions' => array( 'use' )
-);
+$ViewList['joinoperator'] = [
+    'params' => ['id'],
+    'functions' => ['use']
+];
 
-$FunctionList['configuration'] = array('explain' => 'Voice & Video & ScreenShare module configuration');
-$FunctionList['use'] = array('explain' => 'Allow operator to use Voice & Video & ScreenShare calls');
-
-?>
+$FunctionList['configuration'] = ['explain' => 'Voice & Video & ScreenShare module configuration'];
+$FunctionList['use'] = ['explain' => 'Allow operator to use Voice & Video & ScreenShare calls'];

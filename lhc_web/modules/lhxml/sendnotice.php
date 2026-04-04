@@ -7,22 +7,22 @@ if (!isset($options['notifications']) || !$options['notifications']) {
 }
 
 $currentUser = erLhcoreClassUser::instance();
-if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],$_POST['password']))
+if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'], $_POST['password']))
 {
     exit;
 }
 
 try {
-	$visitor = erLhcoreClassModelChatOnlineUser::fetch((int)$Params['user_parameters']['online_id']);
+	$visitor = erLhcoreClassModelChatOnlineUser::fetch((int) $Params['user_parameters']['online_id']);
 } catch (Exception $e) {
 	exit;
 }
 
-if ( isset($_POST['msg']) && trim($_POST['msg']) != '') {
+if (isset($_POST['msg']) && trim($_POST['msg']) != '') {
 
-	$validationFields = array();
-	$validationFields['msg'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
-	$form = new ezcInputForm( INPUT_POST, $validationFields );
+	$validationFields = [];
+	$validationFields['msg'] =  new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw');
+	$form = new ezcInputForm(INPUT_POST, $validationFields);
 
 	$visitor->operator_message = $form->msg;
 	$visitor->message_seen = 0;
@@ -31,4 +31,3 @@ if ( isset($_POST['msg']) && trim($_POST['msg']) != '') {
 }
 
 exit;
-?>

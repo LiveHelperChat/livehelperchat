@@ -5,13 +5,13 @@ include 'lhrestapi.php';
 $LHCRestAPI = new LHCRestAPI('<address>', '<username>', '<apikey>');
 
 // Set operator status online or offline
-$response = $LHCRestAPI->execute('setoperatorstatus', array(
+$response = $LHCRestAPI->execute('setoperatorstatus', [
     'status' => 'false', // false - offline, true - online
     // Any argument of below has to be provided
     //'user_id' => '1',
     //'username' => 'admin'
     'email' => 'remdex@gmail.com',
-), true);
+], true);
 print_r($response);
 
 /* 
@@ -25,36 +25,32 @@ print_r($response);
 */
 
 // Fetch chats
-$response = $LHCRestAPI->execute('chats', array(
+$response = $LHCRestAPI->execute('chats', [
     'status' => 1,
     'departament_id' => 5,
     'user_id' => 1,
     'update_activity' => 1 // Forces to update last acitivity, can be used with any call <optional>
-));
+]);
 print_r($response);
 
 // Returns departments
-$response = $LHCRestAPI->execute('departaments', array(   
-));
+$response = $LHCRestAPI->execute('departaments', []);
 print_r($response);
 
 // Fetch chat
-$response = $LHCRestAPI->execute('fetchchat', array(   
-    'chat_id' => 5388
-));
+$response = $LHCRestAPI->execute('fetchchat', ['chat_id' => 5388]);
 print_r($response);
 
-$response = $LHCRestAPI->execute('fetchchatmessages', array(   
+$response = $LHCRestAPI->execute('fetchchatmessages', [
     'chat_id' => 5388,
     'last_message_id' => 3203, // Optional, return messages from this <optional>
-));
+]);
 print_r($response);
 
 // Examples with XML
-$response = $LHCRestAPI->execute('fetchchatmessages', array(
+$response = $LHCRestAPI->execute('fetchchatmessages', [
     'chat_id' => 6724,
     'last_message_id' => 0, // Optional, return messages from this <optional>
     'format' => 'xml'
-),array(),'GET',false);
+],[],'GET',false);
 print_r($response);
-

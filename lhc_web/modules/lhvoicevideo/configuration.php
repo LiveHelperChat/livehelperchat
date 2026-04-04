@@ -3,7 +3,7 @@
 $tpl = erLhcoreClassTemplate::getInstance('lhvoicevideo/configuration.tpl.php');
 
 $voiceData = erLhcoreClassModelChatConfig::fetch('vvsh_configuration');
-$data = (array)$voiceData->data;
+$data = (array) $voiceData->data;
 
 if (isset($_POST['StoreVoiceConfiguration'])) {
 
@@ -12,7 +12,7 @@ if (isset($_POST['StoreVoiceConfiguration'])) {
         exit;
     }
 
-    $definition = array(
+    $definition = [
         'provider' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
@@ -31,12 +31,12 @@ if (isset($_POST['StoreVoiceConfiguration'])) {
         'screenshare' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
-    );
+    ];
 
-    $Errors = array();
+    $Errors = [];
 
     $form = new ezcInputForm(INPUT_POST, $definition);
-    $Errors = array();
+    $Errors = [];
 
     if ($form->hasValidData('provider') && $form->provider != '') {
         $data['provider'] = $form->provider;
@@ -96,8 +96,7 @@ if (isset($_POST['StoreVoiceConfiguration'])) {
 
 $tpl->set('voice_data', $data);
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(
-    array('url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration', 'System configuration')),
-    array('url' => erLhcoreClassDesign::baseurl('file/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration', 'Voice & Video & ScreenShare')));
-
-?>
+$Result['path'] = [
+    ['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration', 'System configuration')],
+    ['url' => erLhcoreClassDesign::baseurl('file/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration', 'Voice & Video & ScreenShare')]
+];

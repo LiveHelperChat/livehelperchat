@@ -1,77 +1,75 @@
 <?php
 
-$Module = array( "name" => "Live helper Chat XML service");
+$Module = ['name' => 'Live helper Chat XML service'];
 
-$ViewList = array();
+$ViewList = [];
 
-$ViewList['checklogin'] = array(
+$ViewList['checklogin'] = [
     'script' => 'checklogin.php',
-    'params' => array()
-);
+    'params' => []
+];
 
-$ViewList['closedchats'] = array(
+$ViewList['closedchats'] = [
     'script' => 'closedchats.php',
-    'params' => array()
-);
+    'params' => []
+];
 
-$ViewList['lists'] = array(
+$ViewList['lists'] = [
     'script' => 'lists.php',
-    'params' => array()
-);
+    'params' => []
+];
 
-$ViewList['getuseronlinestatus'] = array(
+$ViewList['getuseronlinestatus'] = [
     'script' => 'getuseronlinestatus.php',
-    'params' => array()
-);
+    'params' => []
+];
 
-$ViewList['setonlinestatus'] = array(
-    'params' => array('status')
-);
+$ViewList['setonlinestatus'] = [
+    'params' => ['status']
+];
 
-$ViewList['deletechat'] = array(
-    'params' => array('chat_id')
-);
+$ViewList['deletechat'] = [
+    'params' => ['chat_id']
+];
 
-$ViewList['chatdata'] = array(
-    'params' => array('chat_id')
-);
+$ViewList['chatdata'] = [
+    'params' => ['chat_id']
+];
 
-$ViewList['cannedresponses'] = array(
-    'params' => array('chat_id')
-);
+$ViewList['cannedresponses'] = [
+    'params' => ['chat_id']
+];
 
-$ViewList['chatssynchro'] = array(
-    'params' => array()
-);
+$ViewList['chatssynchro'] = [
+    'params' => []
+];
 
-$ViewList['closechat'] = array(
-    'params' => array('chat_id')
-);
+$ViewList['closechat'] = [
+    'params' => ['chat_id']
+];
 
-$ViewList['addmsgadmin'] = array(
-    'params' => array('chat_id')
-);
+$ViewList['addmsgadmin'] = [
+    'params' => ['chat_id']
+];
 
-$ViewList['transferchat'] = array(
-    'params' => array('chat_id')
-);
+$ViewList['transferchat'] = [
+    'params' => ['chat_id']
+];
 
-$ViewList['transferuser'] = array(
-    'params' => array('chat_id','user_id')
-);
+$ViewList['transferuser'] = [
+    'params' => ['chat_id','user_id']
+];
 
-$ViewList['accepttransfer'] = array(
-    'params' => array('transfer_id')
-);
+$ViewList['accepttransfer'] = [
+    'params' => ['transfer_id']
+];
 
-$ViewList['accepttransferbychat'] = array(
-    'params' => array('chat_id')
-);
+$ViewList['accepttransferbychat'] = [
+    'params' => ['chat_id']
+];
 
-$ViewList['sendnotice'] = array(
-		'params' => array('online_id')
-);
+$ViewList['sendnotice'] = [
+		'params' => ['online_id']
+];
 
-$FunctionList = array();
-
-?>
+$FunctionList = [];

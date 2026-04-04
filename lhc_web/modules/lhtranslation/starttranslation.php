@@ -1,16 +1,16 @@
 <?php
 
-header ( 'content-type: application/json; charset=utf-8' );
+header ('content-type: application/json; charset=utf-8');
 
-$visitorLanguage = (string)$Params['user_parameters']['visitor_language'];
-$operatorLanguage = (string)$Params['user_parameters']['operator_language'];
+$visitorLanguage = (string) $Params['user_parameters']['visitor_language'];
+$operatorLanguage = (string) $Params['user_parameters']['operator_language'];
 
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
 if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
-    $errors = array();
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.before_messagetranslated', array('chat' => & $chat, 'errors' => & $errors));
+    $errors = [];
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.before_messagetranslated', ['chat' => & $chat, 'errors' => & $errors]);
 
     if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
         $errors[] = 'Invalid CSRF token!';
@@ -24,11 +24,11 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
             unset($chatVariablesArray['lhc_live_trans']);
             $chat->chat_variables_array = $chatVariablesArray;
             $chat->chat_variables = json_encode($chatVariablesArray);
-            $chat->updateThis(array('update' => array('chat_variables')));
+            $chat->updateThis(['update' => ['chat_variables']]);
         }
 
         try {
-            $data = erLhcoreClassTranslate::setChatLanguages($chat, $visitorLanguage, $operatorLanguage, array('translate_old' => (isset($_POST['translate_old']) && $_POST['translate_old'] == 'true')));
+            $data = erLhcoreClassTranslate::setChatLanguages($chat, $visitorLanguage, $operatorLanguage, ['translate_old' => (isset($_POST['translate_old']) && $_POST['translate_old'] == 'true')]);
             $data['error'] = false;
             $tpl = erLhcoreClassTemplate::getInstance('lhkernel/alert_success.tpl.php');
             $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Settings has been saved'));
@@ -41,22 +41,22 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
                 $chatVariablesArray['lhc_live_trans'] = true;
                 $chat->chat_variables_array = $chatVariablesArray;
                 $chat->chat_variables = json_encode($chatVariablesArray);
-                $chat->updateThis(array('update' => array('chat_variables')));
+                $chat->updateThis(['update' => ['chat_variables']]);
             }
 
             echo json_encode($data);
 
         } catch (Exception $e) {
-            $data = array('error' => true);
+            $data = ['error' => true];
             $tpl = erLhcoreClassTemplate::getInstance('lhkernel/validation_error.tpl.php');
-            $tpl->set('errors', array($e->getMessage(), erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Please choose translation languages manually and click Auto translate')));
+            $tpl->set('errors', [$e->getMessage(), erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Please choose translation languages manually and click Auto translate')]);
             $data['result'] = $tpl->fetch();
             $data['translation_status'] = false;
             echo json_encode($data);
         }
 
     } else {
-        $data = array('error' => true);
+        $data = ['error' => true];
         $tpl = erLhcoreClassTemplate::getInstance('lhkernel/validation_error.tpl.php');
         $tpl->set('errors', $errors);
         $data['result'] = $tpl->fetch();
@@ -66,4 +66,3 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 }
 
 exit;
-?>

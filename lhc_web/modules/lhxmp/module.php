@@ -1,16 +1,14 @@
 <?php
 
-$Module = array( "name" => "XMPP module configuration");
+$Module = ["name" => "XMPP module configuration"];
 
-$ViewList = array();
+$ViewList = [];
 
-$ViewList['configuration'] = array(
-    'params' => array(),
-    'uparams' => array('gtalkoauth'),
-	'functions' => array( 'configurexmp' )
-);
+$ViewList['configuration'] = [
+    'params' => [],
+    'uparams' => ['gtalkoauth'],
+	'functions' => ['configurexmp']
+];
 
-$FunctionList = array();
-$FunctionList['configurexmp'] = array('explain' => 'Allow user to configure XMPP');
-
-?>
+$FunctionList = [];
+$FunctionList['configurexmp'] = ['explain' => 'Allow user to configure XMPP'];
