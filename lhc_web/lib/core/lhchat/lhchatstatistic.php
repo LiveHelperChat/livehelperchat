@@ -1409,6 +1409,11 @@ class erLhcoreClassChatStatistic {
                 unset($filter['filter']['user_id']);
             }
 
+            if (isset($filter['filterin']['user_id'])) {
+                $filter['filterin']['`lh_chat_participant`.`user_id`'] = $filter['filterin']['user_id'];
+                unset($filter['filterin']['user_id']);
+            }
+
             if (isset($filter['filtergt']['user_id'])) {
                 $filter['filtergt']['`lh_chat`.`user_id`'] = $filter['filtergt']['user_id'];
                 unset($filter['filtergt']['user_id']);
