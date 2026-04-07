@@ -1,0 +1,1 @@
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please note that a translation tool is being used to support this conversation.')?>

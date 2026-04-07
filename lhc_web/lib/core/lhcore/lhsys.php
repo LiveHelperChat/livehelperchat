@@ -462,12 +462,12 @@ class erLhcoreClassSystem{
     	erTranslationClassLhTranslation::getInstance()->initLanguage();
     }
     
-    public static function setSiteAccessByLocale($locale) {
+    public static function setSiteAccessByLocale($locale, $attribute = 'locale') {
     	$cfgSite = erConfigClassLhConfig::getInstance();
     	$site_languages = $cfgSite->getSetting( 'site', 'available_site_access');
     	foreach ($site_languages as $siteaccess) {    		
     		$siteAccessOptions =  $cfgSite->getSetting( 'site_access_options', $siteaccess);    		
-    		if ($siteAccessOptions['locale'] == $locale) {
+    		if ($siteAccessOptions[$attribute] == $locale) {
     			self::setSiteAccess($siteaccess);
     			break;
     		}    		

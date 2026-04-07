@@ -108,7 +108,7 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
                         }
 
 				        if (isset($requestPayload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($requestPayload['theme'])) !== false) {
-                            $tpl->set('theme',erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']));
+                            $tpl->set('theme',erLhAbstractModelWidgetTheme::fetch($themeId));
                         }
 
                         $tpl->set('react',true);
@@ -262,6 +262,7 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
                 }
 
                 $lockTextArea = isset($chat->chat_variables_array['bot_lock_msg']) && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT;
+                $translatedChat = isset($chat->chat_variables_array['lhc_live_trans']);
 
                 if ($lockTextArea === true && $chat->status_sub_sub != erLhcoreClassModelChat::STATUS_SUB_SUB_IN_REST_API && isset($operatorIdLast) && ($operatorIdLast == -2 || $operatorIdLast > 0) && $chat->chat_variables_array['bot_lock_msg'] < $LastMessageID) {
                     $lockTextArea = false;
@@ -350,6 +351,20 @@ if (isset($requestPayload['lfmsgid']) && (int)$requestPayload['lfmsgid'] > 0) {
 
 if (isset($lockTextArea) && $lockTextArea === true) {
     $responseArray['lock_send'] = true;
+}
+
+if (isset($translatedChat) && $translatedChat === true && isset($requestPayload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($requestPayload['theme'])) !== false) {
+    $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
+    if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['show_chat_translated']) && $theme->bot_configuration_array['show_chat_translated'] == true) {
+        $tpl = new erLhcoreClassTemplate( 'lhwidgetrestapi/translation_active.tpl.php');
+        $tpl->set('chat',$chat);
+        $responseArray['trc'] = $tpl->fetch();
+
+        // Switch to visitor language
+        erLhcoreClassSystem::instance()->setSiteAccessByLocale($chat->chat_locale,'content_language');
+        $tpl = new erLhcoreClassTemplate( 'lhwidgetrestapi/translation_active_chat.tpl.php');
+        $responseArray['trc'] = str_replace('[[VISITOR_MESSAGE]]',  $tpl->fetch(), $responseArray['trc']);
+    }
 }
 
 $responseArray['messages'] = trim($content);

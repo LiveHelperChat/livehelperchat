@@ -445,6 +445,10 @@
 
                         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Other')?></h5>
 
+                        <div class="form-group">
+                            <label><?php echo erLhcoreClassAbstract::renderInput('show_chat_translated', $fields['show_chat_translated'], $object)?> <?php echo $fields['show_chat_translated']['trans'];?></label>
+                        </div>
+
         		        <div class="form-group">
                             <label><?php echo $fields['hide_ts']['trans'];?></label>
                             <?php echo erLhcoreClassAbstract::renderInput('hide_ts', $fields['hide_ts'], $object)?>

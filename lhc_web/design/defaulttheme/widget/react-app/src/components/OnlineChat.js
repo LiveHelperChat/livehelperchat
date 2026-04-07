@@ -530,7 +530,7 @@ class OnlineChat extends Component {
     // https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html
     getSnapshotBeforeUpdate(prevProps, prevState) {
         // Are we adding new item
-        if (prevProps.chatwidget.getIn(['chatLiveData','messages']).size != this.props.chatwidget.getIn(['chatLiveData','messages']).size) {
+        if (prevProps.chatwidget.getIn(['chatLiveData','messages']).size != this.props.chatwidget.getIn(['chatLiveData','messages']).size || this.props.chatwidget.getIn(['chatLiveData','trc']) != prevProps.chatwidget.getIn(['chatLiveData','trc'])) {
             let setScroll = false;
             let setScrollBottom = true;
             let scrollValue = 0;
@@ -1201,6 +1201,10 @@ class OnlineChat extends Component {
                         {this.state.scrollButton && <div className="position-absolute btn-bottom-scroll fade-in" id="id-btn-bottom-scroll"><button type="button" onClick={this.scrollToMessage} className="btn btn-sm btn-secondary">{(this.state.hasNew && this.state.otm > 0 && <div><i className="material-icons">&#xf11a;</i>{this.state.otm} {(this.state.otm == 1 ? (this.props.chatwidget.getIn(['chat_ui','cnew_msg']) || t('button.new_msg')) : (this.props.chatwidget.getIn(['chat_ui','cnew_msgm']) || t('button.new_msgm')))}</div>) || (this.props.chatwidget.getIn(['chat_ui','cscroll_btn']) || t('button.scroll_bottom'))}</button></div>}
                     </div>
 
+                    {this.props.chatwidget.getIn(['chatLiveData','trc']) &&
+                        <div dangerouslySetInnerHTML={{__html: this.props.chatwidget.getIn(['chatLiveData','trc'])}} />
+                    }
+                
                     {/* File Preview Section */}
                     {this.state.previewFiles.length > 0 && (
                         <Suspense fallback="">

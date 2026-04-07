@@ -579,7 +579,7 @@ $ts = time();
 $outputResponse['wv'] = 272;
  
 // React APP versions
-$outputResponse['v'] = 408;
+$outputResponse['v'] = 409;
 
 $cfg = erConfigClassLhConfig::getInstance();
 
@@ -664,7 +664,7 @@ $outputResponse['static'] = array(
     'widget_mobile_css' => $host . erLhcoreClassDesign::designCSS('css/widgetv2/widget_mobile.css;css/widgetv2/widget_mobile_override.css'),
     'embed_css' => $host . erLhcoreClassDesign::designCSS('css/widgetv2/embed.css;css/widgetv2/embed_override.css'),
     'status_css' => $host . erLhcoreClassDesign::designCSS('css/widgetv2/status.css;css/widgetv2/status_override.css'),
-    'font_status' => $host . erLhcoreClassDesign::design('fonts/MaterialIcons-lhc-v8.woff2'),
+    'font_status' => $host . erLhcoreClassDesign::design('fonts/MaterialIcons-lhc-v9.woff2'),
     'chunk_js' => $host . erLhcoreClassDesign::design('js/widgetv2'),
     'page_css' => $pageCSS,
     'ex_js' => [],
