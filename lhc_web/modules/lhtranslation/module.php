@@ -1,35 +1,33 @@
 <?php
 
-$Module = array( "name" => "Translation module");
+$Module = ['name' => 'Translation module'];
 
-$ViewList = array();
+$ViewList = [];
 
-$ViewList['configuration'] = array(
-		'params' => array(),
-		'functions' => array('configuration'),
-		'uparams' => array('csfr', 'action')
-);
+$ViewList['configuration'] = [
+		'params' => [],
+		'functions' => ['configuration'],
+		'uparams' => ['csfr', 'action']
+];
 
-$ViewList['starttranslation'] = array(
-		'params' => array('chat_id', 'visitor_language', 'operator_language'),
-		'functions' => array('use'),
-		'uparams' => array()
-);
+$ViewList['starttranslation'] = [
+		'params' => ['chat_id', 'visitor_language', 'operator_language'],
+		'functions' => ['use'],
+		'uparams' => []
+];
 
-$ViewList['translateoperatormessage'] = array(
-		'params' => array('chat_id'),
-		'functions' => array('use'),
-		'uparams' => array()
-);
+$ViewList['translateoperatormessage'] = [
+		'params' => ['chat_id'],
+		'functions' => ['use'],
+		'uparams' => []
+];
 
-$ViewList['translatevisitormessage'] = array(
-		'params' => array('chat_id', 'msg_id'),
-		'functions' => array('use'),
-		'uparams' => array()
-);
+$ViewList['translatevisitormessage'] = [
+		'params' => ['chat_id', 'msg_id'],
+		'functions' => ['use'],
+		'uparams' => []
+];
 
-$FunctionList = array();
-$FunctionList['configuration'] = array('explain' => 'Allow operator to configure automatic translations module');
-$FunctionList['use'] = array('explain' => 'Allow operator to use automatic translations');
-
-?>
+$FunctionList = [];
+$FunctionList['configuration'] = ['explain' => 'Allow operator to configure automatic translations module'];
+$FunctionList['use'] = ['explain' => 'Allow operator to use automatic translations'];

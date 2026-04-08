@@ -1,6 +1,6 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance( 'lhtheme/import.tpl.php' );
+$tpl = erLhcoreClassTemplate::getInstance('lhtheme/import.tpl.php');
 
 if (ezcInputForm::hasPostData()) {
 		
@@ -9,23 +9,23 @@ if (ezcInputForm::hasPostData()) {
 		exit;
 	}
 	
-	if (erLhcoreClassSearchHandler::isFile('themefile',array('json'))) {
+	if (erLhcoreClassSearchHandler::isFile('themefile', ['json'])) {
 
 		$dir = 'var/tmpfiles/';
-		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath',array('dir' => & $dir));
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath', ['dir' => & $dir]);
 		
-		erLhcoreClassFileUpload::mkdirRecursive( $dir );
+		erLhcoreClassFileUpload::mkdirRecursive($dir);
 		
-		$filename = erLhcoreClassSearchHandler::moveUploadedFile('themefile',$dir);
-		$content = file_get_contents($dir . $filename);
-		unlink($dir . $filename);	
+		$filename = erLhcoreClassSearchHandler::moveUploadedFile('themefile', $dir);
+		$content = file_get_contents("{$dir}{$filename}");
+		unlink("{$dir}{$filename}");	
 		$data = json_decode($content);		
 		if ($data !== null) {
 			
 			$widgetTheme = new erLhAbstractModelWidgetTheme();
 			
-			$data = (array)$data;
-			$imgData = array();
+			$data = (array) $data;
+			$imgData = [];
 			if (isset($data['logo_image_data'])){
 				$imgData['logo_image'] = $data['logo_image_data'];
 				unset($data['logo_image_data']);
@@ -90,16 +90,16 @@ if (ezcInputForm::hasPostData()) {
 					     * Allow upload only images
 					     * Security report by https://sentry.co.com
 					     */
-					    if (in_array($data[$attr.'_data_ext'],array ('gif','jpg','jpeg','png','bmp')))
+					    if (in_array($data["{$attr}_data_ext"], ['gif','jpg','jpeg','png','bmp']))
                         {
                             $dir = 'var/tmpfiles/';
-                            $fileName = 'data.'.$data[$attr.'_data_ext'];
+                            $fileName = "data.{$data["{$attr}_data_ext"]}";
 
-                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath',array('dir' => & $dir));
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath', ['dir' => & $dir]);
 
-                            erLhcoreClassFileUpload::mkdirRecursive( $dir );
+                            erLhcoreClassFileUpload::mkdirRecursive($dir);
 
-                            $imgPath = $dir . $fileName;
+                            $imgPath = "{$dir}{$fileName}";
                             file_put_contents($imgPath, $imgDataItem);
 
                             if (erLhcoreClassImageConverter::isPhotoLocal($imgPath)){
@@ -113,17 +113,19 @@ if (ezcInputForm::hasPostData()) {
 	
 				$widgetTheme->updateThis();
 			} catch (Exception $e) {
-				$tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('theme/import','Could not import a new theme!')));
+				$tpl->set('errors', [erTranslationClassLhTranslation::getInstance()->getTranslation('theme/import','Could not import a new theme!')]);
 			}			
 		}
 		
 		$tpl->set('updated',true);
 	} else {		
-		$tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('theme/import','Invalid file!')));		
+		$tpl->set('errors', [erTranslationClassLhTranslation::getInstance()->getTranslation('theme/import','Invalid file!')]);		
 	}
 }
 
-$Result['path'] = array(
-    array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','System configuration')),
-    array('url' => erLhcoreClassDesign::baseurl('theme/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','Themes')),array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','Import theme')));
+$Result['path'] = [
+	['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit', 'System configuration')],
+	['url' => erLhcoreClassDesign::baseurl('theme/index'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index', 'Themes')],
+	['title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index', 'Import theme')]
+];
 $Result['content'] = $tpl->fetch();

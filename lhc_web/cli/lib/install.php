@@ -16,20 +16,20 @@ class Install
     }
 
     function step1() {
-        $Errors = array();
+        $Errors = []
         $directories = $this->_scandir('cache');
-        $this->file_is_writable(array('cache'),'', $Errors);
+        $this->file_is_writable(['cache'],'', $Errors);
         $this->file_is_writable($directories, 'cache/', $Errors);
-        $this->file_is_writable(array('settings'), '', $Errors);
-        $var_directories = array(
+        $this->file_is_writable(['settings'], '', $Errors);
+        $var_directories = [
             'var/storage',
             'var/storageform',
             'var/storagetheme',
             'var/storageadmintheme',
             'var/tmpfiles',
             'var/userphoto',
-        );
-        $this->file_is_writable(array('var'),'', $Errors);
+        ];
+        $this->file_is_writable(['var'],'', $Errors);
         $this->file_is_writable($var_directories, '', $Errors);
 
         if (!extension_loaded ('pdo_mysql' ))
@@ -59,7 +59,7 @@ class Install
     }
 
     function step2() {
-        $Errors = array();
+        $Errors = []
         $database = $this->settings['db'];
         foreach ($database as $key => $value) {
             if (!filter_var($database[$key], FILTER_UNSAFE_RAW)) {
@@ -82,9 +82,9 @@ class Install
         if (count($Errors) == 0) {
             $cfgSite = erConfigClassLhConfig::getInstance();
             foreach ($database as $key => $value) {
-                $cfgSite->setSetting( 'db', $key, $value);
+                $cfgSite->setSetting('db', $key, $value);
             }
-            $cfgSite->setSetting( 'site', 'secrethash', erLhcoreClassChat::generateHash(80));
+            $cfgSite->setSetting('site', 'secrethash', erLhcoreClassChat::generateHash(80));
             return true;
         } else {
             return $Errors;
@@ -93,7 +93,7 @@ class Install
 
     function step3() {
 
-        $Errors = array();
+        $Errors = [];
 
         $form = (object)$this->settings['admin'];
         if (!filter_var($form->AdminUsername, FILTER_UNSAFE_RAW))
@@ -2234,56 +2234,56 @@ class Install
             erLhcoreClassRole::getSession()->save($RoleFunction);
 
             // Operators rules and functions
-            $permissionsArray = array(
-                array('module' => 'lhuser',  'function' => 'selfedit'),
-                array('module' => 'lhuser',  'function' => 'changeonlinestatus'),
-                array('module' => 'lhuser',  'function' => 'changeskypenick'),
-                array('module' => 'lhuser',  'function' => 'personalcannedmsg'),
-                array('module' => 'lhuser',  'function' => 'change_visibility_list'),
-                array('module' => 'lhuser',  'function' => 'see_assigned_departments'),
-                array('module' => 'lhuser',  'function' => 'canseedepartmentstats'),
-                array('module' => 'lhchat',  'function' => 'use'),
-                array('module' => 'lhchat',  'function' => 'open_all'),
-                array('module' => 'lhchat',  'function' => 'chattabschrome'),
-                array('module' => 'lhchat',  'function' => 'singlechatwindow'),
-                array('module' => 'lhchat',  'function' => 'allowopenremotechat'),
-                array('module' => 'lhchat',  'function' => 'writeremotechat'),
-                array('module' => 'lhchat',  'function' => 'allowchattabs'),
-                array('module' => 'lhchat',  'function' => 'use_onlineusers'),
-                array('module' => 'lhchat',  'function' => 'take_screenshot'),
-                array('module' => 'lhfront', 'function' => 'use'),
-                array('module' => 'lhchat', 'function' => 'prev_chats'),
-                array('module' => 'lhsystem','function' => 'use'),
-                array('module' => 'lhcannedmsg', 'function' => 'see_global'),
-                array('module' => 'lhtranslation','function' => 'use'),
-                array('module' => 'lhchat',  'function' => 'allowblockusers'),
-                array('module' => 'lhsystem','function' => 'generatejs'),
-                array('module' => 'lhsystem','function' => 'changelanguage'),
-                array('module' => 'lhchat',  'function' => 'allowredirect'),
-                array('module' => 'lhchat',  'function' => 'allowtransfer'),
-                array('module' => 'lhchat',  'function' => 'allowtransferdirectly'),
-                array('module' => 'lhchat',  'function' => 'administratecannedmsg'),
-                array('module' => 'lhchat',  'function' => 'sees_all_online_visitors'),
-                array('module' => 'lhpermission',   'function' => 'see_permissions'),
-                array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
-                array('module' => 'lhfaq',   		'function' => 'manage_faq'),
-                array('module' => 'lhchatbox',   	'function' => 'manage_chatbox'),
-                array('module' => 'lhbrowseoffer',  'function' => 'manage_bo'),
-                array('module' => 'lhxml',   		'function' => '*'),
-                array('module' => 'lhcobrowse',   	'function' => 'browse'),
-                array('module' => 'lhfile',   		'function' => 'use_operator'),
-                array('module' => 'lhfile',   		'function' => 'file_delete_chat'),
-                array('module' => 'lhstatistic',   	'function' => 'use'),
-                array('module' => 'lhspeech', 'function' => 'changedefaultlanguage'),
-                array('module' => 'lhspeech', 'function' => 'use'),
-                array('module' => 'lhcannedmsg', 'function' => 'use'),
-                array('module' => 'lhtheme', 'function' => 'personaltheme'),
-                array('module' => 'lhuser', 'function' => 'userlistonline'),
-                array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),
-                array('module' => 'lhgroupchat', 'function' => 'use'),
-                array('module' => 'lhuser', 'function' => 'see_all_group_users'),
-                array('module' => 'lhvoicevideo', 'function' => 'use'),
-            );
+            $permissionsArray = [
+                ['module' => 'lhuser',        'function' => 'selfedit'],
+                ['module' => 'lhuser',        'function' => 'changeonlinestatus'],
+                ['module' => 'lhuser',        'function' => 'changeskypenick'],
+                ['module' => 'lhuser',        'function' => 'personalcannedmsg'],
+                ['module' => 'lhuser',        'function' => 'change_visibility_list'],
+                ['module' => 'lhuser',        'function' => 'see_assigned_departments'],
+                ['module' => 'lhuser',        'function' => 'canseedepartmentstats'],
+                ['module' => 'lhchat',        'function' => 'use'],
+                ['module' => 'lhchat',        'function' => 'open_all'],
+                ['module' => 'lhchat',        'function' => 'chattabschrome'],
+                ['module' => 'lhchat',        'function' => 'singlechatwindow'],
+                ['module' => 'lhchat',        'function' => 'allowopenremotechat'],
+                ['module' => 'lhchat',        'function' => 'writeremotechat'],
+                ['module' => 'lhchat',        'function' => 'allowchattabs'],
+                ['module' => 'lhchat',        'function' => 'use_onlineusers'],
+                ['module' => 'lhchat',        'function' => 'take_screenshot'],
+                ['module' => 'lhfront',       'function' => 'use'],
+                ['module' => 'lhchat',        'function' => 'prev_chats'],
+                ['module' => 'lhsystem',      'function' => 'use'],
+                ['module' => 'lhcannedmsg',   'function' => 'see_global'],
+                ['module' => 'lhtranslation', 'function' => 'use'],
+                ['module' => 'lhchat',        'function' => 'allowblockusers'],
+                ['module' => 'lhsystem',      'function' => 'generatejs'],
+                ['module' => 'lhsystem',      'function' => 'changelanguage'],
+                ['module' => 'lhchat',        'function' => 'allowredirect'],
+                ['module' => 'lhchat',        'function' => 'allowtransfer'],
+                ['module' => 'lhchat',        'function' => 'allowtransferdirectly'],
+                ['module' => 'lhchat',        'function' => 'administratecannedmsg'],
+                ['module' => 'lhchat',        'function' => 'sees_all_online_visitors'],
+                ['module' => 'lhpermission',  'function' => 'see_permissions'],
+                ['module' => 'lhquestionary', 'function' => 'manage_questionary'],
+                ['module' => 'lhfaq',   	  'function' => 'manage_faq'],
+                ['module' => 'lhchatbox',     'function' => 'manage_chatbox'],
+                ['module' => 'lhbrowseoffer', 'function' => 'manage_bo'],
+                ['module' => 'lhxml',   	  'function' => '*'],
+                ['module' => 'lhcobrowse',    'function' => 'browse'],
+                ['module' => 'lhfile',   	  'function' => 'use_operator'],
+                ['module' => 'lhfile',   	  'function' => 'file_delete_chat'],
+                ['module' => 'lhstatistic',   'function' => 'use'],
+                ['module' => 'lhspeech',      'function' => 'changedefaultlanguage'],
+                ['module' => 'lhspeech',      'function' => 'use'],
+                ['module' => 'lhcannedmsg',   'function' => 'use'],
+                ['module' => 'lhtheme',       'function' => 'personaltheme'],
+                ['module' => 'lhuser',        'function' => 'userlistonline'],
+                ['module' => 'lhspeech',      'function' => 'change_chat_recognition'],
+                ['module' => 'lhgroupchat',   'function' => 'use'],
+                ['module' => 'lhuser',        'function' => 'see_all_group_users'],
+                ['module' => 'lhvoicevideo',  'function' => 'use'],
+            ];
 
             foreach ($permissionsArray as $paramsPermission) {
                 $RoleFunctionOperator = new erLhcoreClassModelRoleFunction();
@@ -2294,31 +2294,31 @@ class Install
             }
 
             $cfgSite = erConfigClassLhConfig::getInstance();
-            $cfgSite->setSetting( 'site', 'installed', true);
-            $cfgSite->setSetting( 'site', 'templatecache', true);
-            $cfgSite->setSetting( 'site', 'templatecompile', true);
-            $cfgSite->setSetting( 'site', 'modulecompile', true);
-            $cfgSite->setSetting( 'site', 'force_virtual_host', $form->ForceVirtualHost == 1);
-            $cfgSite->setSetting( 'webhooks', 'enabled', isset($form->WebhooksEnabled) &&$form->WebhooksEnabled == 1);
-            $cfgSite->setSetting( 'webhooks', 'worker', isset($form->WebhooksWorker) ? $form->WebhooksWorker : 'http');
+            $cfgSite->setSetting('site', 'installed', true);
+            $cfgSite->setSetting('site', 'templatecache', true);
+            $cfgSite->setSetting('site', 'templatecompile', true);
+            $cfgSite->setSetting('site', 'modulecompile', true);
+            $cfgSite->setSetting('site', 'force_virtual_host', $form->ForceVirtualHost == 1);
+            $cfgSite->setSetting('webhooks', 'enabled', isset($form->WebhooksEnabled) &&$form->WebhooksEnabled == 1);
+            $cfgSite->setSetting('webhooks', 'worker', isset($form->WebhooksWorker) ? $form->WebhooksWorker : 'http');
             
             if ($form->Extensions != '') {
                 $extensions = explode(',',str_replace(' ','',$form->Extensions));
                 if (!empty($extensions) ) {
-                    $cfgSite->setSetting( 'site', 'extensions', $extensions);
+                    $cfgSite->setSetting('site', 'extensions', $extensions);
                 }
             }
 
             if ($form->ApacheUserGroupName != '') {
-                $cfgSite->setSetting( 'site', 'default_group', $form->ApacheUserGroupName);
+                $cfgSite->setSetting('site', 'default_group', $form->ApacheUserGroupName);
             }
 
             if ($form->ApacheUserName != '') {
-                $cfgSite->setSetting( 'site', 'default_user', $form->ApacheUserName);
+                $cfgSite->setSetting('site', 'default_user', $form->ApacheUserName);
             }
 
             if ($form->TimeZone != '') {
-                $cfgSite->setSetting( 'site', 'time_zone', $form->TimeZone);
+                $cfgSite->setSetting('site', 'time_zone', $form->TimeZone);
             }
 
             if (isset($form->DefaultConfigs) && is_array($form->DefaultConfigs)) {
@@ -2333,10 +2333,12 @@ class Install
 
             $smtpData = erLhcoreClassModelChatConfig::fetch('smtp_data');
 
-            $data = (array)$smtpData->data;
-            $data['default_from'] = 'info@'.$form->Domain;
-            $data['default_from_name'] = trim($form->AdminName . ' ' . $form->AdminSurname);
-            $data['sender'] = 'info@'.$form->Domain;
+            $data = [
+                ...(array) $smtpData->data,
+                'default_from' => "info@$form->Domain",
+                'default_from_name' => trim("$form->AdminName $form->AdminSurname"),
+                'sender' => "info@$form->Domain"
+            ];
 
             $smtpData->value = serialize($data);
             $smtpData->saveThis();
@@ -2356,7 +2358,7 @@ class Install
 
     function print_errors($errors) {
         foreach($errors as $error) {
-            syslog(LOG_ERR, "ERROR: ".$error);
+            syslog(LOG_ERR, "ERROR: $error");
         }
         exit(-1);
     }
@@ -2374,9 +2376,9 @@ class Install
         foreach ($directories as $directory) {
             $error = false;
             syslog(LOG_DEBUG, "Evaluate $directory if writable");
-            $owner = fileowner($preffix.$directory);
-            $group = filegroup($preffix.$directory);
-            $permission = $this->file_perms($preffix.$directory);
+            $owner = fileowner("{$preffix}{$directory}");
+            $group = filegroup("{$preffix}{$directory}");
+            $permission = $this->file_perms("{$preffix}{$directory}");
             if ($permission[2] == 7) {
                 continue;
             }
@@ -2387,7 +2389,7 @@ class Install
                 $error = true;
             }
             if ($error) {
-                $Errors[] = $preffix.$directory." is not writable";
+                $Errors[] = "{$preffix}{$directory} is not writable";
             }
         }
     }

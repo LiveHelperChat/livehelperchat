@@ -9,7 +9,7 @@ if (!isset($options['notifications']) || !$options['notifications']) {
 }
 
 $currentUser = erLhcoreClassUser::instance();
-if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],$_POST['password']))
+if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'], $_POST['password']))
 {
     exit;
 }
@@ -20,9 +20,9 @@ if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],
 
 if ($currentUser->isLogged() && isset($_POST['chats']))
 {
-    $arrayReturn = array();
+    $arrayReturn = [];
 
-    $chats = explode(';',$_POST['chats']);
+    $chats = explode(';', $_POST['chats']);
 
     foreach ($chats as $chatContent)
     {
@@ -31,7 +31,7 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
         $chat_id = $paramsExecution[0];
         $msgIDs = isset($paramsExecution[1]) ? $paramsExecution[1] : '';
 
-        $chatsMessages = array();
+        $chatsMessages = [];
         $chatStatusMessage = '';
 
         // Get messages from with needs to synchronise
@@ -40,7 +40,7 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
         // From this messages we can fetch msg's
         $minMessageID = min($masgIDArray);
 
-        $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $chat_id);
+        $Chat = erLhcoreClassChat::getSession()->load('erLhcoreClassModelChat', $chat_id);
 
         if ( erLhcoreClassChat::hasAccessToRead($Chat) )
         {
@@ -53,9 +53,9 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
                         if ($msgID < $msg['id']) {
 
                             if (strpos($_SERVER['HTTP_USER_AGENT'],'Dart/') !== false) {
-                                $msg['msg'] = str_replace('"//','"'. (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' ,erLhcoreClassBBCode::make_clickable($msg['msg'], array('sender' => $msg['user_id'])));
+                                $msg['msg'] = str_replace('"//','"'. (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' ,erLhcoreClassBBCode::make_clickable($msg['msg'], ['sender' => $msg['user_id']]));
                             } else {
-                                $msg['msg'] = erLhcoreClassBBCodePlain::make_clickable($msg['msg'], array('sender' => $msg['user_id']));
+                                $msg['msg'] = erLhcoreClassBBCodePlain::make_clickable($msg['msg'], ['sender' => $msg['user_id']]);
                             }
 
                             if (str_contains($msg['meta_msg'],'whisper')){
@@ -92,14 +92,9 @@ if ($currentUser->isLogged() && isset($_POST['chats']))
         }
     }
 
-    echo json_encode(array("error" => false,'result' => $arrayReturn));
+    echo json_encode(['error' => false, 'result' => $arrayReturn]);
 } else {
-    echo json_encode(array("error" => true));
+    echo json_encode(['error' => true]);
 }
 
-
-
-
-
 exit;
-?>

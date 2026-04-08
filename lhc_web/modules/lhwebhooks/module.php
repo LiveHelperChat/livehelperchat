@@ -1,69 +1,67 @@
 <?php
 
-$Module = array( "name" => "Webhooks" );
+$Module = ['name' => 'Webhooks'];
 
-$ViewList = array();
+$ViewList = [];
 
-$ViewList['configuration'] = array(
-    'params' => array(),
-    'uparams' => array('name','enabled','event'),
-    'functions' => array( 'configuration' )
-);
+$ViewList['configuration'] = [
+    'params' => [],
+    'uparams' => ['name','enabled','event'],
+    'functions' => ['configuration']
+];
 
-$ViewList['pushchat'] = array(
-    'params' => array(),
-    'functions' => array( 'configuration' )
-);
+$ViewList['pushchat'] = [
+    'params' => [],
+    'functions' => ['configuration']
+];
 
-$ViewList['new'] = array(
-    'params' => array(),
-    'functions' => array( 'configuration' )
-);
+$ViewList['new'] = [
+    'params' => [],
+    'functions' => ['configuration']
+];
 
-$ViewList['newincoming'] = array(
-    'params' => array(),
-    'functions' => array( 'configuration' )
-);
+$ViewList['newincoming'] = [
+    'params' => [],
+    'functions' => ['configuration']
+];
 
-$ViewList['editincoming'] = array(
-    'params' => array('id'),
-    'functions' => array( 'configuration' )
-);
+$ViewList['editincoming'] = [
+    'params' => ['id'],
+    'functions' => ['configuration']
+];
 
-$ViewList['incoming'] = array(
-    'params' => array('identifier'),
-);
+$ViewList['incoming'] = [
+    'params' => ['identifier'],
+];
 
-$ViewList['edit'] = array(
-    'params' => array('id'),
-    'uparams' => array('action','csfr'),
-    'functions' => array( 'configuration' )
-);
+$ViewList['edit'] = [
+    'params' => ['id'],
+    'uparams' => ['action','csfr'],
+    'functions' => ['configuration']
+];
 
-$ViewList['delete'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'configuration' )
-);
+$ViewList['delete'] = [
+    'params' => ['id'],
+    'uparams' => ['csfr'],
+    'functions' => ['configuration']
+];
 
-$ViewList['deleteincoming'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'configuration' )
-);
+$ViewList['deleteincoming'] = [
+    'params' => ['id'],
+    'uparams' => ['csfr'],
+    'functions' => ['configuration']
+];
 
-$ViewList['incomingwebhooks'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'configuration' )
-);
+$ViewList['incomingwebhooks'] = [
+    'params' => [],
+    'uparams' => [],
+    'functions' => ['configuration']
+];
 
-$ViewList['dispatch'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'configuration' )
-);
+$ViewList['dispatch'] = [
+    'params' => [],
+    'uparams' => [],
+    'functions' => ['configuration']
+];
 
-$FunctionList['configuration'] = array('explain' => 'Webhooks module configuration');
-
-?>
+$FunctionList['configuration'] = ['explain' => 'Webhooks module configuration'];

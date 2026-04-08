@@ -28,17 +28,17 @@ class LHCRestAPI
      *
      * @return string
      */
-    private function executeRequest($function, $params, $uparams = array(), $method = 'GET', $manualAppend = '')
+    private function executeRequest($function, $params, $uparams = [], $method = 'GET', $manualAppend = '')
     {
         $ch = curl_init();
-        $headers = array('Accept' => 'application/json');
+        $headers = ['Accept' => 'application/json'];
 
         $uparamsArg = '';
 
         if (!empty($uparams) && is_array($uparams)) {
-            $parts = array();
+            $parts = [];
             foreach ($uparams as $param => $value) {
-                $parts[] = '/(' . $param . ')/' . $value;
+                $parts[] = "/($param)/$value";
             }
             $uparamsArg = implode('', $parts);
         }
@@ -60,8 +60,8 @@ class LHCRestAPI
         }
 
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        curl_setopt($ch, CURLOPT_USERPWD, $this->username . ':' . $this->apiKey);
-        curl_setopt($ch, CURLOPT_URL, $this->host . '/restapi/' . $function . $manualAppend . $uparamsArg . $requestArgs);
+        curl_setopt($ch, CURLOPT_USERPWD, "{$this->username}:{$this->apiKey}");
+        curl_setopt($ch, CURLOPT_URL, "{$this->host}/restapi/{$function}{$manualAppend}{$uparamsArg}{$requestArgs}");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
         curl_setopt($ch, CURLOPT_TIMEOUT, 5);
@@ -75,7 +75,7 @@ class LHCRestAPI
         return $content;
     }
 
-    public function execute($function, $params, $uparams = array(), $method = 'GET', $jsonObject = true, $manualAppend = '')
+    public function execute($function, $params, $uparams = [], $method = 'GET', $jsonObject = true, $manualAppend = '')
     {
         $response = $this->executeRequest($function, $params, $uparams, $method, $manualAppend);
 
@@ -87,10 +87,8 @@ class LHCRestAPI
         if ($jsonData !== null) {
             return $jsonData;
         } else {
-            throw new Exception('Could not parse response - ' . $response);
+            throw new Exception("Could not parse response - $response");
         }
     }
 
 }
-
-?>
