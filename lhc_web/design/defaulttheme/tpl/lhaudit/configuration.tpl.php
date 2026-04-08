@@ -181,13 +181,13 @@ try {
 
 <table class="table table-sm table-hover">
     <tr>
-        <th>Variables</th>
+        <th width="1%">Variables</th>
         <th>Value</th>
     </tr>
     <?php foreach ($rows as $row) : ?>
         <tr>
             <td><?php echo htmlspecialchars($row['variable_name'])?></td>
-            <td><?php echo htmlspecialchars($row['value'])?></td>
+            <td><span class="d-inline-block text-truncate" style="max-width: 500px;"><?php echo htmlspecialchars($row['value'])?></span></td>
         </tr>
     <?php endforeach;?>
 </table>
