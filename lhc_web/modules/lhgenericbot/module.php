@@ -1,434 +1,364 @@
 <?php
 
-$Module = array( "name" => "Generic Bot",
-				 'variable_params' => true );
-
-$ViewList = array();
-
-$ViewList['bot'] = array(
-    'params' => array('id'),
-    'uparams' => array('type'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['initbot'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['testpattern'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'test_pattern' )
-);
-
-$ViewList['commands'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['newcommand'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['triggersearch'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['usecases'] = array(
-    'params' => array('type','id'),
-    'uparams' => array('arg1','arg2'),
-    'functions' => array( 'use_cases' )
-);
-
-$ViewList['editcommand'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['help'] = array(
-    'params' => array('context'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['addpayload'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['loadusecases'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['downloadbot'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['downloadbotgroup'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['import'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['botimportgroup'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['triggersbybot'] = array(
-    'params' => array('id','trigger_id'),
-    'uparams' => array('preview','element','asarg'),
-    'functions' => array( 'use_operator' )
-);
-
-$ViewList['getpayloads'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['argumenttemplates'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['nodegroups'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['list'] = array(
-    'params' => array(),
-    'uparams' => array('name'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['listrestapi'] = array(
-    'params' => array(),
-    'uparams' => array('name'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['restapimethods'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['listexceptions'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['listtranslations'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use_individualization' )
-);
-
-$ViewList['listtranslationsitems'] = array(
-    'params' => array(),
-    'uparams' => array('group_id'),
-    'functions' => array( 'use_individualization' )
-);
-
-$ViewList['new'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['newrestapi'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['newexception'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['newtrgroup'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use_individualization' )
-);
-
-$ViewList['newtritem'] = array(
-    'params' => array(),
-    'uparams' => array('group_id'),
-    'functions' => array( 'use_individualization' )
-);
-
-$ViewList['edittrgroup'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use_individualization' )
-);
-
-$ViewList['edittritem'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use_individualization' )
-);
-
-$ViewList['editrestapi'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['editexception'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['edit'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['delete'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['deletecommand'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['deleterestapi'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['deleteexception'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['deletetritem'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use_individualization' )
-);
-
-$ViewList['deletetrgroup'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use_individualization' )
-);
-
-$ViewList['nodegrouptriggers'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['addgroup'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['updategroup'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['updatetrigger'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['savetrigger'] = array(
-    'params' => array(),
-    'uparams' => array('method'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['addtrigger'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['addtriggerevent'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['deletetriggerevent'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['deletegroup'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['updatetriggerevent'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['removetrigger'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['maketriggercopy'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['setdefaulttrigger'] = array(
-    'params' => array('id','default'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['setinprogresstrigger'] = array(
-    'params' => array('id','default'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['settriggerposition'] = array(
-    'params' => array('id','pos'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['setasargument'] = array(
-    'params' => array('id','default'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['settriggergroup'] = array(
-    'params' => array('id','group_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['setdefaultunknowntrigger'] = array(
-    'params' => array('id','default'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['setdefaultunknownbtntrigger'] = array(
-    'params' => array('id','default'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['setdefaultalwaystrigger'] = array(
-    'params' => array('id','default'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['nodetriggeractions'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['notifications'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use_operator' )
-);
-
-$ViewList['buttonclicked'] = array(
-    'params' => array('chat_id', 'hash' ),
-    'uparams' => array('type','theme')
-);
-
-$ViewList['updatebuttonclicked'] = array(
-    'params' => array('chat_id', 'hash'),
-    'uparams' => array()
-);
-
-$ViewList['chatactions'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'see_actions' )
-);
-
-$ViewList['conditions'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'manage_conditions' )
-);
-
-$ViewList['newcondition'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'manage_conditions' )
-);
-
-$ViewList['editcondition'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'manage_conditions' )
-);
-
-$ViewList['deletecondition'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'manage_conditions' )
-);
-
-$FunctionList['use'] = array('explain' => 'General permission to use generic bot module');
-$FunctionList['use_operator'] = array('explain' => 'Allow operator to change bot notifications settings');
-$FunctionList['see_actions'] = array('explain' => 'Allow operator to see chat actions');
-$FunctionList['use_individualization'] = array('explain' => 'Allow operator to change bot individualisation');
-$FunctionList['manage_conditions'] = array('explain' => 'Allow operator to manage conditions templates');
-$FunctionList['use_cases'] = array('explain' => 'Allow operator see use cases of the object');
-$FunctionList['test_pattern'] = array('explain' => 'Allow operator see use cases of the object');
-
-?>
+$Module = ['name' => 'Generic Bot', 'variable_params' => true];
+
+$ViewList = [
+    'bot' => [
+        'params' => ['id'],
+        'uparams' => ['type'],
+        'functions' => ['use'],
+    ],
+    'initbot' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'testpattern' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['test_pattern'],
+    ],
+    'commands' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'newcommand' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'triggersearch' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'usecases' => [
+        'params' => ['type', 'id'],
+        'uparams' => ['arg1', 'arg2'],
+        'functions' => ['use_cases'],
+    ],
+    'editcommand' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'help' => [
+        'params' => ['context'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'addpayload' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'loadusecases' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'downloadbot' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'downloadbotgroup' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'import' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'botimportgroup' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'triggersbybot' => [
+        'params' => ['id', 'trigger_id'],
+        'uparams' => ['preview', 'element', 'asarg'],
+        'functions' => ['use_operator'],
+    ],
+    'getpayloads' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'argumenttemplates' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'nodegroups' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'list' => [
+        'params' => [],
+        'uparams' => ['name'],
+        'functions' => ['use'],
+    ],
+    'listrestapi' => [
+        'params' => [],
+        'uparams' => ['name'],
+        'functions' => ['use'],
+    ],
+    'restapimethods' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'listexceptions' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'listtranslations' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use_individualization'],
+    ],
+    'listtranslationsitems' => [
+        'params' => [],
+        'uparams' => ['group_id'],
+        'functions' => ['use_individualization'],
+    ],
+    'new' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'newrestapi' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'newexception' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'newtrgroup' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use_individualization'],
+    ],
+    'newtritem' => [
+        'params' => [],
+        'uparams' => ['group_id'],
+        'functions' => ['use_individualization'],
+    ],
+    'edittrgroup' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use_individualization'],
+    ],
+    'edittritem' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use_individualization'],
+    ],
+    'editrestapi' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'editexception' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'edit' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'delete' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use'],
+    ],
+    'deletecommand' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use'],
+    ],
+    'deleterestapi' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use'],
+    ],
+    'deleteexception' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use'],
+    ],
+    'deletetritem' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use_individualization'],
+    ],
+    'deletetrgroup' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use_individualization'],
+    ],
+    'nodegrouptriggers' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'addgroup' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'updategroup' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'updatetrigger' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'savetrigger' => [
+        'params' => [],
+        'uparams' => ['method'],
+        'functions' => ['use'],
+    ],
+    'addtrigger' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'addtriggerevent' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'deletetriggerevent' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'deletegroup' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'updatetriggerevent' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'removetrigger' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'maketriggercopy' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'setdefaulttrigger' => [
+        'params' => ['id', 'default'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'setinprogresstrigger' => [
+        'params' => ['id', 'default'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'settriggerposition' => [
+        'params' => ['id', 'pos'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'setasargument' => [
+        'params' => ['id', 'default'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'settriggergroup' => [
+        'params' => ['id', 'group_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'setdefaultunknowntrigger' => [
+        'params' => ['id', 'default'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'setdefaultunknownbtntrigger' => [
+        'params' => ['id', 'default'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'setdefaultalwaystrigger' => [
+        'params' => ['id', 'default'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'nodetriggeractions' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'notifications' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use_operator'],
+    ],
+    'buttonclicked' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => ['type', 'theme'],
+    ],
+    'updatebuttonclicked' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => [],
+    ],
+    'chatactions' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['see_actions'],
+    ],
+    'conditions' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['manage_conditions'],
+    ],
+    'newcondition' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['manage_conditions'],
+    ],
+    'editcondition' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['manage_conditions'],
+    ],
+    'deletecondition' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['manage_conditions'],
+    ],
+];
+
+$FunctionList = [
+    'use' => ['explain' => 'General permission to use generic bot module'],
+    'use_operator' => ['explain' => 'Allow operator to change bot notifications settings'],
+    'see_actions' => ['explain' => 'Allow operator to see chat actions'],
+    'use_individualization' => ['explain' => 'Allow operator to change bot individualisation'],
+    'manage_conditions' => ['explain' => 'Allow operator to manage conditions templates'],
+    'use_cases' => ['explain' => 'Allow operator see use cases of the object'],
+    'test_pattern' => ['explain' => 'Allow operator see use cases of the object'],
+];

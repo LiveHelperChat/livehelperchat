@@ -104,7 +104,7 @@ $session = erLhcoreClassFaq::getSession();
 $q = $session->database->createSelectQuery();
 $q->select( "COUNT(id)" )->from( "lh_faq" );
 
-$whereConditions = array();
+$whereConditions = [];
 $whereConditions[] = $q->expr->eq( 'active', 1 );
 $whereConditions[] = $q->expr->lOr(
 							$q->expr->eq( 'url', $q->bindValue('') ),
@@ -137,7 +137,7 @@ if (isset($_GET['doSearch'])) {
     $dynamic_url_append .= '/(search)/'.rawurlencode($searchString);
 }
 
-$tpl->set('keyword', str_replace(array('}}','{{'),'',$keywordSearch));
+$tpl->set('keyword', str_replace(['}}','{{'],'',$keywordSearch));
 
 $q->where($whereConditions);
 
@@ -152,11 +152,11 @@ $pages->serverURL = erLhcoreClassDesign::baseurl('faq/faqwidget').$dynamic_url_a
 $pages->items_total = $result;
 $pages->setItemsPerPage(5);
 $pages->paginate();
-$items = array();
+$items = [];
 
 if ($pages->items_total > 0) {
 	$q = $session->createFindQuery( 'erLhcoreClassModelFaq' );
-	$whereConditions = array();
+	$whereConditions = [];
 	$whereConditions[] = $q->expr->eq( 'active', 1 );
 	$whereConditions[] = $q->expr->lOr(
 					$q->expr->eq( 'url', $q->bindValue('') ),
@@ -187,14 +187,14 @@ $item_new = new erLhcoreClassModelFaq();
 if ( isset($_POST['send']) )
 {
 
-	$definition = array(
+	$definition = [
 			'question' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'),
 			'email' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'),
 			'url' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
-	);
+	];
 
 	if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
 		// Start session if required only
@@ -209,7 +209,7 @@ if ( isset($_POST['send']) )
 	$definition[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
 	
 	$form = new ezcInputForm( INPUT_POST, $definition );
-	$Errors = array();
+	$Errors = [];
 
 	if ( !$form->hasValidData( 'question' ) || $form->question == '') {
 		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Please enter a question!');
@@ -247,7 +247,7 @@ if ( isset($_POST['send']) )
 		$item_new->url = $dynamic_url;
 	}
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('faq.before_filled_by_user', array('faq' => & $item_new, 'errors' => & $Errors));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('faq.before_filled_by_user', ['faq' => & $item_new, 'errors' => & $Errors]);
 
 	if (count($Errors) == 0) {
 		$item_new->active = 0;
@@ -256,7 +256,7 @@ if ( isset($_POST['send']) )
 		$item_new = new erLhcoreClassFaq();
 		$tpl->set('success',true);
 
-		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('faq.filled_by_user', array('faq' => & $item_new));
+		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('faq.filled_by_user', ['faq' => & $item_new]);
 		
 		if (isset($_SESSION[erLhcoreClassIPDetect::getIP()]['form'])) {
 			unset($_SESSION[erLhcoreClassIPDetect::getIP()]['form']);
@@ -283,4 +283,3 @@ if ($embedMode == true) {
 	$Result['dynamic_height_message'] = 'lhc_sizing_faq_embed';
 	$Result['pagelayout_css_append'] = 'embed-widget embed-fixed';
 }
-

@@ -12,14 +12,14 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 
     if ( ezcInputForm::hasPostData() ) {
 
-        $validationFields = array();
+        $validationFields = [];
 
         foreach ($command->fields_array as $fieldIndex => $field) {
             $validationFields['field_' . $fieldIndex] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw');
         }
 
         $form = new ezcInputForm(INPUT_POST, $validationFields);
-        $Errors = array();
+        $Errors = [];
 
         $commandArguments = [];
 
@@ -54,5 +54,3 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 }
 
 exit;
-
-?>

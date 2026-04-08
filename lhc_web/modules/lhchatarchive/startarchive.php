@@ -1,23 +1,23 @@
 <?php
 
 if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-	echo json_encode(array('error' => 'true', 'result' => 'Invalid CSFR Token' ));
+	echo json_encode(['error' => 'true', 'result' => 'Invalid CSFR Token']);
 	exit;
 }
 
 $archive = new erLhcoreClassModelChatArchiveRange();
 
-$definition = array(
+$definition = [
 		'RangeFrom' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'string'
 		),
 		'RangeTo' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'string'
 		)
-);
+];
 
 $form = new ezcInputForm( INPUT_POST, $definition );
-$Errors = array();
+$Errors = [];
 
 if ( !$form->hasValidData( 'RangeFrom' ) || $form->RangeFrom == '' )
 {
@@ -46,12 +46,10 @@ if ( !$form->hasValidData( 'RangeTo' ) || $form->RangeTo == '' )
 if (count($Errors) == 0)
 {
 	try {
-		echo json_encode(array('error' => 'false','id' => $archive->createArchive()));
+		echo json_encode(['error' => 'false','id' => $archive->createArchive()]);
 	} catch (Exception $e) {
-		echo json_encode(array('error' => 'true','msg' => $e->getMessage()));
+		echo json_encode(['error' => 'true','msg' => $e->getMessage()]);
 	}
 }
 
 exit;
-
-?>

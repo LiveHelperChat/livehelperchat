@@ -2,37 +2,34 @@
 
 $Module = ['name' => 'Voice & Video & ScreenShare'];
 
-$ViewList = [];
-
-$ViewList['configuration'] = [
-    'params' => [],
-    'functions' => ['configuration']
+$ViewList = [
+    'configuration' => [
+        'params' => [],
+        'functions' => ['configuration'],
+    ],
+    'sessions' => [
+        'params' => [],
+        'functions' => ['configuration'],
+    ],
+    'call' => [
+        'params' => ['id', 'hash'],
+    ],
+    'join' => [
+        'params' => ['id', 'hash'],
+        'uparams' => ['action'],
+    ],
+    'joinop' => [
+        'params' => ['id'],
+        'uparams' => ['action'],
+        'functions' => ['use'],
+    ],
+    'joinoperator' => [
+        'params' => ['id'],
+        'functions' => ['use'],
+    ],
 ];
 
-$ViewList['sessions'] = [
-    'params' => [],
-    'functions' => ['configuration']
+$FunctionList = [
+    'configuration' => ['explain' => 'Voice & Video & ScreenShare module configuration'],
+    'use' => ['explain' => 'Allow operator to use Voice & Video & ScreenShare calls'],
 ];
-
-$ViewList['call'] = [
-    'params' => ['id', 'hash']
-];
-
-$ViewList['join'] = [
-    'params' => ['id', 'hash'],
-    'uparams' => ['action'],
-];
-
-$ViewList['joinop'] = [
-    'params' => ['id'],
-    'uparams' => ['action'],
-    'functions' => ['use']
-];
-
-$ViewList['joinoperator'] = [
-    'params' => ['id'],
-    'functions' => ['use']
-];
-
-$FunctionList['configuration'] = ['explain' => 'Voice & Video & ScreenShare module configuration'];
-$FunctionList['use'] = ['explain' => 'Allow operator to use Voice & Video & ScreenShare calls'];

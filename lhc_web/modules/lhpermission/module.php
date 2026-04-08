@@ -1,84 +1,72 @@
 <?php
 
-$Module = array( "name" => "Permissions configuration");
+$Module = ['name' => 'Permissions configuration'];
 
-$ViewList = array();
+$ViewList = [
+    'roles' => [
+        'params' => [],
+        'functions' => ['list'],
+    ],
+    'newrole' => [
+        'script' => 'newrole.php',
+        'params' => [],
+        'functions' => ['new'],
+    ],
+    'editrole' => [
+        'params' => ['role_id'],
+        'functions' => ['edit'],
+    ],
+    'clonerole' => [
+        'params' => ['role_id'],
+        'uparams' => ['csfr'],
+        'functions' => ['edit'],
+    ],
+    'editfunction' => [
+        'params' => ['function_id'],
+        'functions' => ['edit'],
+    ],
+    'getpermissionsummary' => [
+        'params' => ['user_id'],
+        'functions' => ['see_permissions'],
+    ],
+    'request' => [
+        'params' => ['permissions'],
+        'functions' => ['see_permissions'],
+    ],
+    'modulefunctions' => [
+        'params' => ['module_path'],
+        'functions' => ['edit'],
+    ],
+    'deleterole' => [
+        'params' => ['role_id'],
+        'uparams' => ['csfr'],
+        'functions' => ['delete'],
+    ],
+    'groupassignrole' => [
+        'params' => ['group_id'],
+        'functions' => ['delete'],
+    ],
+    'roleassigngroup' => [
+        'params' => ['role_id'],
+        'functions' => ['delete'],
+    ],
+    'explorer' => [
+        'params' => [],
+        'uparams' => ['action'],
+        'functions' => ['explorer'],
+    ],
+    'whogrants' => [
+        'params' => ['user_id', 'module_check', 'function_check'],
+        'functions' => ['list'],
+    ],
+];
 
-$ViewList['roles'] = array(
-    'params' => array(),
-    'functions' => array( 'list' )
-);
-
-$ViewList['newrole'] = array(
-    'script' => 'newrole.php',
-    'params' => array(),
-    'functions' => array( 'new' )
-);
-
-$ViewList['editrole'] = array(
-    'params' => array('role_id'),
-    'functions' => array( 'edit' )
-);
-
-$ViewList['clonerole'] = array(
-    'params' => array('role_id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'edit' )
-);
-
-$ViewList['editfunction'] = array(
-    'params' => array('function_id'),
-    'functions' => array( 'edit' )
-);
-
-$ViewList['getpermissionsummary'] = array(
-    'params' => array('user_id'),
-    'functions' => array( 'see_permissions' )
-);
-
-$ViewList['request'] = array(
-    'params' => array('permissions'),
-    'functions' => array( 'see_permissions' )
-);
-
-$ViewList['modulefunctions'] = array(
-    'params' => array('module_path'),
-    'functions' => array( 'edit' )
-);
-
-$ViewList['deleterole'] = array(
-    'params' => array('role_id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'delete' )
-);
-
-$ViewList['groupassignrole'] = array(
-    'params' => array('group_id'),
-    'functions' => array( 'delete' )
-);
-
-$ViewList['roleassigngroup'] = array(
-    'params' => array('role_id'),
-    'functions' => array( 'delete' )
-);
-
-$ViewList['explorer'] = array(
-    'params' => array(),
-    'uparams' => array('action'),
-    'functions' => array( 'explorer' )
-);
-
-$ViewList['whogrants'] = array(
-    'params' => array('user_id','module_check','function_check'),
-    'functions' => array( 'list' )
-);
-
-$FunctionList['edit'] = array('explain' => 'Access to edit role');
-$FunctionList['delete'] = array('explain' => 'Access to delete role');
-$FunctionList['list'] = array('explain' => 'Access to list roles');
-$FunctionList['new'] = array('explain' => 'Access to create new role');
-$FunctionList['see_permissions'] = array('explain' => 'Allow operator to see their permissions');
-$FunctionList['see_permissions_users'] = array('explain' => 'Allow operator to see all users permissions');
-$FunctionList['explorer'] = array('explain' => 'Permissions explorer');
-
-?>
+$FunctionList = [
+    'edit' => ['explain' => 'Access to edit role'],
+    'delete' => ['explain' => 'Access to delete role'],
+    'list' => ['explain' => 'Access to list roles'],
+    'new' => ['explain' => 'Access to create new role'],
+    'see_permissions' => ['explain' => 'Allow operator to see their permissions'],
+    'see_permissions_users' => ['explain' => 'Allow operator to see all users permissions'],
+    'explorer' => ['explain' => 'Permissions explorer'],
+];

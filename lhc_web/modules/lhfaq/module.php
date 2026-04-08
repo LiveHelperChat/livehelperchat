@@ -1,58 +1,49 @@
 <?php
 
-$Module = array( "name" => "FAQ");
+$Module = ['name' => 'FAQ'];
 
-$ViewList = array();
+$ViewList = [
+    'list' => [
+        'params' => [],
+        'functions' => ['manage_faq'],
+    ],
+    'delete' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['manage_faq'],
+    ],
+    'view' => [
+        'params' => ['id'],
+        'functions' => ['manage_faq'],
+    ],
+    'new' => [
+        'params' => ['id'],
+        'functions' => ['manage_faq'],
+    ],
+    'faqwidget' => [
+        'params' => [],
+        'uparams' => ['theme', 'url', 'mode', 'identifier', 'search'],
+    ],
+    'getstatus' => [
+        'params' => [],
+        'functions' => [],
+        'uparams' => ['theme', 'noresponse', 'position', 'top', 'units'],
+    ],
+    'embed' => [
+        'params' => [],
+        'uparams' => ['theme'],
+        'functions' => [],
+    ],
+    'embedcode' => [
+        'params' => [],
+        'functions' => ['manage_faq'],
+    ],
+    'htmlcode' => [
+        'params' => [],
+        'functions' => ['manage_faq'],
+    ],
+];
 
-$ViewList['list'] = array(
-    'params' => array(),
-	'functions' => array( 'manage_faq' )
-);
-
-$ViewList['delete'] = array(
-		'params' => array('id'),
-		'uparams' => array('csfr'),
-		'functions' => array( 'manage_faq' )
-);
-
-$ViewList['view'] = array(
-		'params' => array('id'),
-		'functions' => array( 'manage_faq' )
-);
-
-$ViewList['new'] = array(
-		'params' => array('id'),
-		'functions' => array( 'manage_faq' )
-);
-
-$ViewList['faqwidget'] = array(
-		'params' => array(),
-		'uparams' => array('theme','url','mode','identifier','search'),
-);
-
-$ViewList['getstatus'] = array(
-		'params' => array(),
-		'functions' => array( ),
-		'uparams' => array('theme','noresponse','position','top','units')
-);
-
-$ViewList['embed'] = array(
-		'params' => array(),
-		'uparams' => array('theme'),
-		'functions' => array()
-);
-
-$ViewList['embedcode'] = array(
-		'params' => array(),
-		'functions' => array('manage_faq')
-);
-
-$ViewList['htmlcode'] = array(
-		'params' => array(),
-		'functions' => array( 'manage_faq' )
-);
-
-$FunctionList = array();
-$FunctionList['manage_faq'] = array('explain' => 'Allow user to manage FAQ');
-
-?>
+$FunctionList = [
+    'manage_faq' => ['explain' => 'Allow user to manage FAQ'],
+];
