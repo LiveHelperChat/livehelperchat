@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Колко време трябва да изчакаме, преди да информираме оператора за неотговорен чат.</translation>
     </message>
@@ -894,6 +898,18 @@
       <translation>Стил на съобщенията на оператора</translation>
     </message>
     <message>
+      <source>Delivered messages indicators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat input fields coloring</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Icons coloring</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New message separator style</source>
       <translation>Нов стил на разделителя на съобщенията</translation>
     </message>
@@ -955,6 +971,10 @@
     </message>
     <message>
       <source>Some changes might take effect after you save a widget theme or department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time taken to render till this moment</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1922,6 +1942,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Initial user message height in pixels</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget position from right to append in invitation</source>
       <translation>Позиция на джаджата отдясно за добавяне в поканата</translation>
     </message>
@@ -2014,6 +2038,26 @@
       <translation>Показване на бутона за преминаване към проучване при затваряне на чата</translation>
     </message>
     <message>
+      <source>No border under a profile in start chat form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Enable reactions for visitor</source>
       <translation>Разрешаване на реакции за посетителя</translation>
     </message>
@@ -2058,6 +2102,18 @@
       <translation>Съобщения в стил балон</translation>
     </message>
     <message>
+      <source>Hide message delivery status icons</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Keep seen message indicator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show message that chat is using translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide chat status block</source>
       <translation>Скриване на блока за състоянието на чата</translation>
     </message>
@@ -2084,6 +2140,58 @@
     <message>
       <source>Header icons color</source>
       <translation>Цвят на иконите на заглавието</translation>
+    </message>
+    <message>
+      <source>Operator/chat status background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages area background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator profile text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Input field label color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Input field background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Input field polaceholder text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not active input field border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active input field border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings and send icons color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings and send icons hover color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Input field shadow color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Input field text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send message area background color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Offline widget background color</source>
@@ -2156,6 +2264,10 @@
     <message>
       <source>Reaction to visitor message bubble background color</source>
       <translation>Реакция на балона със съобщението на посетителя - цвят на фона</translation>
+    </message>
+    <message>
+      <source>Delivered message double tick color</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reaction to visitor message bubble icon color</source>
@@ -5155,6 +5267,18 @@
   <context>
     <name>chat/startchatformsettings</name>
     <message>
+      <source>Remove space after operator profile</source>
+      <translation>Премахване на разстоянието след профила на оператора</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Показване на полето за съобщения над полетата за въвеждане, полезно за комбинации на UX.</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Скриване на бутона за стартиране на чата. Usefull ако в темата изберете бот и се задейства с бутони.</translation>
+    </message>
+    <message>
       <source>Add event</source>
       <translation>Добавяне на събитие</translation>
     </message>
@@ -5165,6 +5289,10 @@
     <message>
       <source>Remove</source>
       <translation>Премахване</translation>
+    </message>
+    <message>
+      <source>Migrated from start chat form</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Start a chat form settings</source>
@@ -5399,36 +5527,36 @@
       <translation>Разрешаване на прикачването на файл</translation>
     </message>
     <message>
-      <source>Show operator profile above input fields</source>
-      <translation>Покажи профила на оператора над полетата за въвеждане</translation>
+      <source>Deprecated - Migrated to Widget Theme</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Remove space after operator profile</source>
-      <translation>Премахване на разстоянието след профила на оператора</translation>
+      <source>Show operator profile above input fields</source>
+      <translation>Покажи профила на оператора над полетата за въвеждане</translation>
     </message>
     <message>
       <source>Hide message label</source>
       <translation>Скрий етикета на съобщението</translation>
     </message>
     <message>
-      <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation>Показване на полето за съобщения над полетата за въвеждане, полезно за комбинации на UX.</translation>
+      <source>Show messages box above input fields, useful for UX combinations.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
-      <translation>Скриване на бутона за стартиране на чата. Usefull ако в темата изберете бот и се задейства с бутони.</translation>
+      <source>Hide start chat button. Useful if in the theme you choose bot and trigger with a buttons.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>No border under a profile</source>
       <translation>Без рамка под профил</translation>
     </message>
     <message>
-      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
-      <translation>Лениво зареждане на съдържанието на джаджата. Съдържанието на уиджета ще бъде заредено само ако посетителят кликне върху икона на състоянието.</translation>
-    </message>
-    <message>
       <source>Initial user message height in pixels</source>
       <translation>Височина в пиксели на първоначалното потребителско съобщение </translation>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <translation>Лениво зареждане на съдържанието на джаджата. Съдържанието на уиджета ще бъде заредено само ако посетителят кликне върху икона на състоянието.</translation>
     </message>
     <message>
       <source>Department settings</source>
@@ -7170,6 +7298,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Exclude from chats auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include to auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications only for pending chats assigned to the operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications for all pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Username</source>
       <translation>Потребителско име</translation>
     </message>
@@ -8587,6 +8731,14 @@
     </message>
     <message>
       <source>Your language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic translation is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please note that a translation tool is being used to support this conversation.</source>
       <translation type="unfinished"/>
     </message>
     <message>

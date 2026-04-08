@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Скільки часу ми маємо чекати, перш ніж повідомимо оператора про чат без відповіді.</translation>
     </message>
@@ -894,6 +898,18 @@
       <translation>Стиль повідомлень оператора</translation>
     </message>
     <message>
+      <source>Delivered messages indicators</source>
+      <translation>Індикатори доставлених повідомлень</translation>
+    </message>
+    <message>
+      <source>Start chat input fields coloring</source>
+      <translation>Почніть чат розфарбовувати поля введення</translation>
+    </message>
+    <message>
+      <source>Icons coloring</source>
+      <translation>Розфарбування іконок</translation>
+    </message>
+    <message>
       <source>New message separator style</source>
       <translation>Новий стиль роздільника повідомлень</translation>
     </message>
@@ -956,6 +972,10 @@
     <message>
       <source>Some changes might take effect after you save a widget theme or department!</source>
       <translation>Віджет Деякі зміни можуть набути чинності після того, як ви Зберегти тему або відділ!</translation>
+    </message>
+    <message>
+      <source>Time taken to render till this moment</source>
+      <translation>Час, витрачений на рендеринг до цього моменту</translation>
     </message>
     <message>
       <source>Clear cookies and reload</source>
@@ -1922,6 +1942,10 @@
       <translation>Віджет позиція зверху донизу</translation>
     </message>
     <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Початкова висота повідомлення користувача у пікселях</translation>
+    </message>
+    <message>
       <source>Widget position from right to append in invitation</source>
       <translation>Позиція віджета справа для додавання в запрошення</translation>
     </message>
@@ -2014,6 +2038,26 @@
       <translation>Показати кнопку перейти до опитування при закритті чату</translation>
     </message>
     <message>
+      <source>No border under a profile in start chat form</source>
+      <translation>Відсутність рамки під профілем у початковій формі чат </translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Приховати мітку повідомлення</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Показати профіль Оператор над полями введення</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Приховати кнопку запуску чат. Корисно, якщо в темі ви обираєте бота і запускаєте його кнопкою.</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Показувати повідомлення над полями введення, корисно для комбінацій UX.</translation>
+    </message>
+    <message>
       <source>Enable reactions for visitor</source>
       <translation>Увімкнути реакції для відвідувача</translation>
     </message>
@@ -2058,6 +2102,18 @@
       <translation>Повідомлення в стилі бульбашки</translation>
     </message>
     <message>
+      <source>Hide message delivery status icons</source>
+      <translation>Приховати піктограми стану доставки повідомлень</translation>
+    </message>
+    <message>
+      <source>Keep seen message indicator</source>
+      <translation>Індикатор збереження переглянутих повідомлень</translation>
+    </message>
+    <message>
+      <source>Show message that chat is using translation service</source>
+      <translation>Показати повідомлення про те, що чат використовує службу перекладу</translation>
+    </message>
+    <message>
       <source>Hide chat status block</source>
       <translation>Приховати блок статусу чату</translation>
     </message>
@@ -2084,6 +2140,58 @@
     <message>
       <source>Header icons color</source>
       <translation>Колір піктограм заголовка</translation>
+    </message>
+    <message>
+      <source>Operator/chat status background color</source>
+      <translation>Оператор/чат колір фону статусу</translation>
+    </message>
+    <message>
+      <source>Messages area background color</source>
+      <translation>Колір фону області повідомлень</translation>
+    </message>
+    <message>
+      <source>Operator profile text color</source>
+      <translation>Оператор колір тексту профілю</translation>
+    </message>
+    <message>
+      <source>Input field label color</source>
+      <translation>Колір мітки поля вводу</translation>
+    </message>
+    <message>
+      <source>Input field background color</source>
+      <translation>Колір фону поля введення</translation>
+    </message>
+    <message>
+      <source>Input field polaceholder text color</source>
+      <translation>Поле вводу кольору тексту поляризатора</translation>
+    </message>
+    <message>
+      <source>Not active input field border color</source>
+      <translation>Неактивний колір межі поля введення</translation>
+    </message>
+    <message>
+      <source>Active input field border color</source>
+      <translation>Активний колір межі поля введення</translation>
+    </message>
+    <message>
+      <source>Settings and send icons color</source>
+      <translation>Налаштування та колір іконок відправки</translation>
+    </message>
+    <message>
+      <source>Settings and send icons hover color</source>
+      <translation>Налаштування та колір наведення іконок відправки</translation>
+    </message>
+    <message>
+      <source>Input field shadow color</source>
+      <translation>Колір тіні поля введення</translation>
+    </message>
+    <message>
+      <source>Input field text color</source>
+      <translation>Колір тексту поля введення</translation>
+    </message>
+    <message>
+      <source>Send message area background color</source>
+      <translation>Колір фону області надсилання повідомлення</translation>
     </message>
     <message>
       <source>Offline widget background color</source>
@@ -2156,6 +2264,10 @@
     <message>
       <source>Reaction to visitor message bubble background color</source>
       <translation>Реакція на колір фону бульбашки повідомлення відвідувача</translation>
+    </message>
+    <message>
+      <source>Delivered message double tick color</source>
+      <translation>Доставлене повідомлення подвійного кольору галочки</translation>
     </message>
     <message>
       <source>Reaction to visitor message bubble icon color</source>
@@ -5155,6 +5267,18 @@
   <context>
     <name>chat/startchatformsettings</name>
     <message>
+      <source>Remove space after operator profile</source>
+      <translation>Видалити пробіл після профілю оператора</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Показати вікно повідомлень над полями введення, корисне для комбінацій UX.</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Приховати кнопку початку чату. Корисно, якщо в темі ви обираєте бота і запускаєте за допомогою кнопок.</translation>
+    </message>
+    <message>
       <source>Add event</source>
       <translation>Додати подію</translation>
     </message>
@@ -5165,6 +5289,10 @@
     <message>
       <source>Remove</source>
       <translation>Видалити</translation>
+    </message>
+    <message>
+      <source>Migrated from start chat form</source>
+      <translation>Перенесено зі стартової форми чат </translation>
     </message>
     <message>
       <source>Start a chat form settings</source>
@@ -5399,36 +5527,36 @@
       <translation>Дозволити прикріпити файл</translation>
     </message>
     <message>
-      <source>Show operator profile above input fields</source>
-      <translation>Показати профіль оператора над полями введення</translation>
+      <source>Deprecated - Migrated to Widget Theme</source>
+      <translation>Застаріла - перенесена на Віджет Тема</translation>
     </message>
     <message>
-      <source>Remove space after operator profile</source>
-      <translation>Видалити пробіл після профілю оператора</translation>
+      <source>Show operator profile above input fields</source>
+      <translation>Показати профіль оператора над полями введення</translation>
     </message>
     <message>
       <source>Hide message label</source>
       <translation>Приховати мітку повідомлення</translation>
     </message>
     <message>
-      <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation>Показати вікно повідомлень над полями введення, корисне для комбінацій UX.</translation>
+      <source>Show messages box above input fields, useful for UX combinations.</source>
+      <translation>Показувати повідомлення над полями введення, корисно для комбінацій UX.</translation>
     </message>
     <message>
-      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
-      <translation>Приховати кнопку початку чату. Корисно, якщо в темі ви обираєте бота і запускаєте за допомогою кнопок.</translation>
+      <source>Hide start chat button. Useful if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Приховати кнопку запуску чат. Корисно, якщо в темі ви обираєте бота і запускаєте його кнопкою.</translation>
     </message>
     <message>
       <source>No border under a profile</source>
       <translation>Немає кордону під профілем</translation>
     </message>
     <message>
-      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
-      <translation>Вміст віджета віджета відкладеного завантаження. Вміст віджета буде завантажено, лише якщо відвідувач натисне значок статусу.</translation>
-    </message>
-    <message>
       <source>Initial user message height in pixels</source>
       <translation>Висота початкового повідомлення користувача в пікселях</translation>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <translation>Вміст віджета віджета відкладеного завантаження. Вміст віджета буде завантажено, лише якщо відвідувач натисне значок статусу.</translation>
     </message>
     <message>
       <source>Department settings</source>
@@ -7170,6 +7298,22 @@
       <translation>Не показувати сповіщення про перенесені чати</translation>
     </message>
     <message>
+      <source>Exclude from chats auto assign workflow</source>
+      <translation>Виключити з чатів автоматичне призначення робочого процесу</translation>
+    </message>
+    <message>
+      <source>Include to auto assign workflow</source>
+      <translation>Включити для автоматичного призначення робочого процесу</translation>
+    </message>
+    <message>
+      <source>Show notifications only for pending chats assigned to the operator</source>
+      <translation>Показувати сповіщення лише для незавершених чатів, призначених на Оператор</translation>
+    </message>
+    <message>
+      <source>Show notifications for all pending chats</source>
+      <translation>Показувати сповіщення для всіх незавершених чатів</translation>
+    </message>
+    <message>
       <source>Username</source>
       <translation>Користувач</translation>
     </message>
@@ -8588,6 +8732,14 @@
     <message>
       <source>Your language</source>
       <translation>Ваша мова</translation>
+    </message>
+    <message>
+      <source>Automatic translation is active</source>
+      <translation>Автоматичний переклад активовано</translation>
+    </message>
+    <message>
+      <source>Please note that a translation tool is being used to support this conversation.</source>
+      <translation>Зверніть увагу, що для підтримки цієї розмови використовується інструмент перекладу.</translation>
     </message>
     <message>
       <source>Choose your language</source>

@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Jak dlouho máme čekat, než operátora informujeme o nezodpovězeném chatu.</translation>
     </message>
@@ -894,6 +898,18 @@
       <translation>Styl zpráv operátora</translation>
     </message>
     <message>
+      <source>Delivered messages indicators</source>
+      <translation>Indikátory doručených zpráv</translation>
+    </message>
+    <message>
+      <source>Start chat input fields coloring</source>
+      <translation>Spuštění chatu vybarvení vstupních polí</translation>
+    </message>
+    <message>
+      <source>Icons coloring</source>
+      <translation>Ikony zbarvení</translation>
+    </message>
+    <message>
       <source>New message separator style</source>
       <translation>Nový styl oddělovače zpráv</translation>
     </message>
@@ -956,6 +972,10 @@
     <message>
       <source>Some changes might take effect after you save a widget theme or department!</source>
       <translation>Některé změny se mohou projevit až po uložení motivu widgetu nebo oddělení!</translation>
+    </message>
+    <message>
+      <source>Time taken to render till this moment</source>
+      <translation>Čas potřebný k vykreslení do tohoto okamžiku</translation>
     </message>
     <message>
       <source>Clear cookies and reload</source>
@@ -1922,6 +1942,10 @@
       <translation>Pozice widgetu od horního okraje po připojení</translation>
     </message>
     <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Počáteční výška zprávy uživatele v pixelech</translation>
+    </message>
+    <message>
       <source>Widget position from right to append in invitation</source>
       <translation>Pozice widgetu zprava pro přidání do pozvánky</translation>
     </message>
@@ -2014,6 +2038,26 @@
       <translation>Zobrazit tlačítko přejít na průzkum při ukončení chatu</translation>
     </message>
     <message>
+      <source>No border under a profile in start chat form</source>
+      <translation>Žádný rámeček pod profilem ve formuláři pro spuštění chatu</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Skrýt štítek zprávy</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Zobrazit profil operátora nad vstupními poli</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Skrýt tlačítko pro spuštění chatu. Usefull pokud v tématu zvolíte bot a spouštění s tlačítky.</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Zobrazení pole se zprávami nad vstupními poli, užitečné pro kombinace UX.</translation>
+    </message>
+    <message>
       <source>Enable reactions for visitor</source>
       <translation>Povolení reakcí pro návštěvníka</translation>
     </message>
@@ -2058,6 +2102,18 @@
       <translation>Bublinový styl zpráv</translation>
     </message>
     <message>
+      <source>Hide message delivery status icons</source>
+      <translation>Skrytí ikon stavu doručení zprávy</translation>
+    </message>
+    <message>
+      <source>Keep seen message indicator</source>
+      <translation>Udržovat indikátor viděné zprávy</translation>
+    </message>
+    <message>
+      <source>Show message that chat is using translation service</source>
+      <translation>Zobrazení zprávy, že chat používá překladatelskou službu</translation>
+    </message>
+    <message>
       <source>Hide chat status block</source>
       <translation>Skrýt blok stavu chatu</translation>
     </message>
@@ -2084,6 +2140,58 @@
     <message>
       <source>Header icons color</source>
       <translation>Barva ikon záhlaví</translation>
+    </message>
+    <message>
+      <source>Operator/chat status background color</source>
+      <translation>Barva pozadí stavu operátora/chatu</translation>
+    </message>
+    <message>
+      <source>Messages area background color</source>
+      <translation>Barva pozadí oblasti zpráv</translation>
+    </message>
+    <message>
+      <source>Operator profile text color</source>
+      <translation>Barva textu profilu operátora</translation>
+    </message>
+    <message>
+      <source>Input field label color</source>
+      <translation>Barva popisku vstupního pole</translation>
+    </message>
+    <message>
+      <source>Input field background color</source>
+      <translation>Barva pozadí vstupního pole</translation>
+    </message>
+    <message>
+      <source>Input field polaceholder text color</source>
+      <translation>Barva textu polaceholderu vstupního pole</translation>
+    </message>
+    <message>
+      <source>Not active input field border color</source>
+      <translation>Neaktivní barva okraje vstupního pole</translation>
+    </message>
+    <message>
+      <source>Active input field border color</source>
+      <translation>Barva rámečku aktivního vstupního pole</translation>
+    </message>
+    <message>
+      <source>Settings and send icons color</source>
+      <translation>Nastavení a barva odesílání ikon</translation>
+    </message>
+    <message>
+      <source>Settings and send icons hover color</source>
+      <translation>Barva ikon nastavení a odesílání po najetí</translation>
+    </message>
+    <message>
+      <source>Input field shadow color</source>
+      <translation>Barva stínu vstupního pole</translation>
+    </message>
+    <message>
+      <source>Input field text color</source>
+      <translation>Barva textu vstupního pole</translation>
+    </message>
+    <message>
+      <source>Send message area background color</source>
+      <translation>Barva pozadí oblasti odesílání zpráv</translation>
     </message>
     <message>
       <source>Offline widget background color</source>
@@ -2156,6 +2264,10 @@
     <message>
       <source>Reaction to visitor message bubble background color</source>
       <translation>Reakce na barvu pozadí bubliny zprávy návštěvníka</translation>
+    </message>
+    <message>
+      <source>Delivered message double tick color</source>
+      <translation>Doručená zpráva s dvojitým zaškrtnutím</translation>
     </message>
     <message>
       <source>Reaction to visitor message bubble icon color</source>
@@ -5155,6 +5267,18 @@
   <context>
     <name>chat/startchatformsettings</name>
     <message>
+      <source>Remove space after operator profile</source>
+      <translation>Odstranit mezeru za profilem operátora</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Zobrazit pole zprávy nad poli, užitečné pro UX kombinace.</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Skrýt tlačítko pro spuštění chatu. Usefull pokud v tématu zvolíte bot a spouštění s tlačítky.</translation>
+    </message>
+    <message>
       <source>Add event</source>
       <translation>Přidat událost</translation>
     </message>
@@ -5165,6 +5289,10 @@
     <message>
       <source>Remove</source>
       <translation>Odstranit</translation>
+    </message>
+    <message>
+      <source>Migrated from start chat form</source>
+      <translation>Migrováno z formuláře start chatu</translation>
     </message>
     <message>
       <source>Start a chat form settings</source>
@@ -5399,36 +5527,36 @@
       <translation>Umožnit přiložení souboru</translation>
     </message>
     <message>
-      <source>Show operator profile above input fields</source>
-      <translation>Zobrazit profil operátora nad vstupními poli</translation>
+      <source>Deprecated - Migrated to Widget Theme</source>
+      <translation>Zastaralé - přesunuto do Widget Theme</translation>
     </message>
     <message>
-      <source>Remove space after operator profile</source>
-      <translation>Odstranit mezeru za profilem operátora</translation>
+      <source>Show operator profile above input fields</source>
+      <translation>Zobrazit profil operátora nad vstupními poli</translation>
     </message>
     <message>
       <source>Hide message label</source>
       <translation>Skrýt popisek zprávy</translation>
     </message>
     <message>
-      <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation>Zobrazit pole zprávy nad poli, užitečné pro UX kombinace.</translation>
+      <source>Show messages box above input fields, useful for UX combinations.</source>
+      <translation>Zobrazení pole se zprávami nad vstupními poli, užitečné pro kombinace UX.</translation>
     </message>
     <message>
-      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
-      <translation>Skrýt tlačítko pro spuštění chatu. Usefull pokud v tématu zvolíte bot a spouštění s tlačítky.</translation>
+      <source>Hide start chat button. Useful if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Skrýt tlačítko pro spuštění chatu. Užitečné, pokud v tématu zvolíte bota a spouštění pomocí tlačítek.</translation>
     </message>
     <message>
       <source>No border under a profile</source>
       <translation>Žádný rámeček pod profilem</translation>
     </message>
     <message>
-      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
-      <translation>Líné načítání obsahu widgetu. Obsah widgetu se načte pouze v případě, že návštěvník klikne na ikonu stavu.</translation>
-    </message>
-    <message>
       <source>Initial user message height in pixels</source>
       <translation>Uvodní výška zprávy uživatele v pixelech</translation>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <translation>Líné načítání obsahu widgetu. Obsah widgetu se načte pouze v případě, že návštěvník klikne na ikonu stavu.</translation>
     </message>
     <message>
       <source>Department settings</source>
@@ -7170,6 +7298,22 @@
       <translation>Nezobrazovat upozornění na přenesené chaty</translation>
     </message>
     <message>
+      <source>Exclude from chats auto assign workflow</source>
+      <translation>Vyloučit z chatů automatické přiřazení pracovního postupu</translation>
+    </message>
+    <message>
+      <source>Include to auto assign workflow</source>
+      <translation>Zahrnout do automatického přiřazení pracovního postupu</translation>
+    </message>
+    <message>
+      <source>Show notifications only for pending chats assigned to the operator</source>
+      <translation>Zobrazení oznámení pouze pro čekající chaty přiřazené operátorovi.</translation>
+    </message>
+    <message>
+      <source>Show notifications for all pending chats</source>
+      <translation>Zobrazení oznámení pro všechny čekající chaty</translation>
+    </message>
+    <message>
       <source>Username</source>
       <translation>Uživatelské jméno</translation>
     </message>
@@ -8588,6 +8732,14 @@
     <message>
       <source>Your language</source>
       <translation>Váš jazyk</translation>
+    </message>
+    <message>
+      <source>Automatic translation is active</source>
+      <translation>Automatický překlad je aktivní</translation>
+    </message>
+    <message>
+      <source>Please note that a translation tool is being used to support this conversation.</source>
+      <translation>Vezměte prosím na vědomí, že k podpoře této konverzace se používá překladatelský nástroj.</translation>
     </message>
     <message>
       <source>Choose your language</source>

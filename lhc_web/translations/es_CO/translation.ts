@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Qué tanto debemos esperar antes de informar al operador sobre un chat no respondido</translation>
     </message>
@@ -894,6 +898,18 @@
       <translation>Estilo de mensajes de asesor</translation>
     </message>
     <message>
+      <source>Delivered messages indicators</source>
+      <translation>Indicadores de mensajes entregados</translation>
+    </message>
+    <message>
+      <source>Start chat input fields coloring</source>
+      <translation>Comienza a colorear los campos de entrada del chat</translation>
+    </message>
+    <message>
+      <source>Icons coloring</source>
+      <translation>Iconos para colorear</translation>
+    </message>
+    <message>
       <source>New message separator style</source>
       <translation>Nuevo estilo de separador de mensajes</translation>
     </message>
@@ -956,6 +972,10 @@
     <message>
       <source>Some changes might take effect after you save a widget theme or department!</source>
       <translation>Es posible que algunos cambios surtan efecto después de guardar un tema o departamento de widgets.</translation>
+    </message>
+    <message>
+      <source>Time taken to render till this moment</source>
+      <translation>Tiempo empleado en renderizar hasta este momento</translation>
     </message>
     <message>
       <source>Clear cookies and reload</source>
@@ -1922,6 +1942,10 @@
       <translation>Posición del widget desde arriba para añadir</translation>
     </message>
     <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Altura inicial del mensaje de usuario en píxeles</translation>
+    </message>
+    <message>
       <source>Widget position from right to append in invitation</source>
       <translation>Posición del widget desde la derecha para agregar en invitación</translation>
     </message>
@@ -2014,6 +2038,26 @@
       <translation>Mostrar el botón ir a la encuesta al cerrar el chat</translation>
     </message>
     <message>
+      <source>No border under a profile in start chat form</source>
+      <translation>No hay borde debajo de un perfil en el formulario de chat de inicio</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Ocultar etiqueta de mensaje</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Mostrar el perfil del operador sobre los campos de entrada</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Ocultar boton de inicio de chat. Útil si en el tema que elija bot y disparar con un botones.</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Mostrar cuadro de mensajes por encima de los campos de entrada, útil para combinaciones UX.</translation>
+    </message>
+    <message>
       <source>Enable reactions for visitor</source>
       <translation>Habilitar reacciones para el visitante</translation>
     </message>
@@ -2058,6 +2102,18 @@
       <translation>Mensajes estilo burbuja</translation>
     </message>
     <message>
+      <source>Hide message delivery status icons</source>
+      <translation>Ocultar los iconos de estado de entrega de los mensajes</translation>
+    </message>
+    <message>
+      <source>Keep seen message indicator</source>
+      <translation>Indicador de mensaje &quot;Mantener visto</translation>
+    </message>
+    <message>
+      <source>Show message that chat is using translation service</source>
+      <translation>Mostrar mensaje de que el chat está utilizando el servicio de traducción</translation>
+    </message>
+    <message>
       <source>Hide chat status block</source>
       <translation>Ocultar bloque de estado de chat</translation>
     </message>
@@ -2084,6 +2140,58 @@
     <message>
       <source>Header icons color</source>
       <translation>Color de los iconos de cabecera</translation>
+    </message>
+    <message>
+      <source>Operator/chat status background color</source>
+      <translation>Color de fondo del estado del operador/chat</translation>
+    </message>
+    <message>
+      <source>Messages area background color</source>
+      <translation>Color de fondo del área de mensajes</translation>
+    </message>
+    <message>
+      <source>Operator profile text color</source>
+      <translation>Color del texto del perfil del operador</translation>
+    </message>
+    <message>
+      <source>Input field label color</source>
+      <translation>Color de la etiqueta del campo de entrada</translation>
+    </message>
+    <message>
+      <source>Input field background color</source>
+      <translation>Color de fondo del campo de entrada</translation>
+    </message>
+    <message>
+      <source>Input field polaceholder text color</source>
+      <translation>Color del texto del marcador de posición del campo de entrada</translation>
+    </message>
+    <message>
+      <source>Not active input field border color</source>
+      <translation>Color del borde del campo de entrada no activo</translation>
+    </message>
+    <message>
+      <source>Active input field border color</source>
+      <translation>Color del borde del campo de entrada activo</translation>
+    </message>
+    <message>
+      <source>Settings and send icons color</source>
+      <translation>Ajustes y color de los iconos de envío</translation>
+    </message>
+    <message>
+      <source>Settings and send icons hover color</source>
+      <translation>Color de los iconos de configuración y envío</translation>
+    </message>
+    <message>
+      <source>Input field shadow color</source>
+      <translation>Color de la sombra del campo de entrada</translation>
+    </message>
+    <message>
+      <source>Input field text color</source>
+      <translation>Color del texto del campo de entrada</translation>
+    </message>
+    <message>
+      <source>Send message area background color</source>
+      <translation>Color de fondo del área de envío de mensajes</translation>
     </message>
     <message>
       <source>Offline widget background color</source>
@@ -2156,6 +2264,10 @@
     <message>
       <source>Reaction to visitor message bubble background color</source>
       <translation>Reacción al color de fondo de la burbuja de mensaje del visitante</translation>
+    </message>
+    <message>
+      <source>Delivered message double tick color</source>
+      <translation>Mensaje entregado color doble tick</translation>
     </message>
     <message>
       <source>Reaction to visitor message bubble icon color</source>
@@ -5155,6 +5267,18 @@
   <context>
     <name>chat/startchatformsettings</name>
     <message>
+      <source>Remove space after operator profile</source>
+      <translation>Remover espacio después del perfil de asesor</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Mostrar la ventanta de mensajes sobre campos a rellenar, útil para combinaciones de usabilidad (UX) </translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Ocultar el botón de inicio de chat. Útil si en el tema eliges bot y trigger con botones.</translation>
+    </message>
+    <message>
       <source>Add event</source>
       <translation>Añadir evento</translation>
     </message>
@@ -5165,6 +5289,10 @@
     <message>
       <source>Remove</source>
       <translation>Quitar</translation>
+    </message>
+    <message>
+      <source>Migrated from start chat form</source>
+      <translation>Migrado del formulario de chat de inicio</translation>
     </message>
     <message>
       <source>Start a chat form settings</source>
@@ -5399,36 +5527,36 @@
       <translation>Permitir adjuntar un archivo</translation>
     </message>
     <message>
-      <source>Show operator profile above input fields</source>
-      <translation>Mostrar perfil de asesor sobre los campos del chat</translation>
+      <source>Deprecated - Migrated to Widget Theme</source>
+      <translation>Obsoleto - Migrado a Widget Theme</translation>
     </message>
     <message>
-      <source>Remove space after operator profile</source>
-      <translation>Remover espacio después del perfil de asesor</translation>
+      <source>Show operator profile above input fields</source>
+      <translation>Mostrar perfil de asesor sobre los campos del chat</translation>
     </message>
     <message>
       <source>Hide message label</source>
       <translation>Ocultar etiqueta de mensaje</translation>
     </message>
     <message>
-      <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation>Mostrar la ventanta de mensajes sobre campos a rellenar, útil para combinaciones de usabilidad (UX) </translation>
+      <source>Show messages box above input fields, useful for UX combinations.</source>
+      <translation>Mostrar cuadro de mensajes encima de los campos de entrada, útil para combinaciones UX.</translation>
     </message>
     <message>
-      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
-      <translation>Ocultar el botón de inicio de chat. Útil si en el tema eliges bot y trigger con botones.</translation>
+      <source>Hide start chat button. Useful if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Ocultar botón de inicio de chat. Útil si en el tema que elija bot y disparar con un botones.</translation>
     </message>
     <message>
       <source>No border under a profile</source>
       <translation>Sin bordes bajo un perfil</translation>
     </message>
     <message>
-      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
-      <translation>Carga diferida del contenido del widget. El contenido del widget se cargará sólo si el visitante hace clic en un icono de estado.</translation>
-    </message>
-    <message>
       <source>Initial user message height in pixels</source>
       <translation>Altura inicial del mensaje de usuario en pixels</translation>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <translation>Carga diferida del contenido del widget. El contenido del widget se cargará sólo si el visitante hace clic en un icono de estado.</translation>
     </message>
     <message>
       <source>Department settings</source>
@@ -7170,6 +7298,22 @@
       <translation>No mostrar alertas de chats transferidos</translation>
     </message>
     <message>
+      <source>Exclude from chats auto assign workflow</source>
+      <translation>Excluir de chats autoasignar flujo de trabajo</translation>
+    </message>
+    <message>
+      <source>Include to auto assign workflow</source>
+      <translation>Incluir para autoasignar el flujo de trabajo</translation>
+    </message>
+    <message>
+      <source>Show notifications only for pending chats assigned to the operator</source>
+      <translation>Mostrar notificaciones sólo para los chats pendientes asignados al operador</translation>
+    </message>
+    <message>
+      <source>Show notifications for all pending chats</source>
+      <translation>Mostrar notificaciones de todos los chats pendientes</translation>
+    </message>
+    <message>
       <source>Username</source>
       <translation>Nombre de usuario</translation>
     </message>
@@ -8588,6 +8732,14 @@
     <message>
       <source>Your language</source>
       <translation>Su idioma</translation>
+    </message>
+    <message>
+      <source>Automatic translation is active</source>
+      <translation>La traducción automática está activada</translation>
+    </message>
+    <message>
+      <source>Please note that a translation tool is being used to support this conversation.</source>
+      <translation>Tenga en cuenta que se está utilizando una herramienta de traducción para apoyar esta conversación.</translation>
     </message>
     <message>
       <source>Choose your language</source>

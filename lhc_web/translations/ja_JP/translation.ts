@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>チャット 未回答の場合、オペレーターに連絡するまでにどのくらい待つべきか。</translation>
     </message>
@@ -894,6 +898,18 @@
       <translation>オペレータメッセージスタイル</translation>
     </message>
     <message>
+      <source>Delivered messages indicators</source>
+      <translation>配信メッセージ指標</translation>
+    </message>
+    <message>
+      <source>Start chat input fields coloring</source>
+      <translation>チャット 入力フィールドのカラーリング開始</translation>
+    </message>
+    <message>
+      <source>Icons coloring</source>
+      <translation>着色アイコン</translation>
+    </message>
+    <message>
       <source>New message separator style</source>
       <translation>新しいメッセージ区切りスタイル</translation>
     </message>
@@ -956,6 +972,10 @@
     <message>
       <source>Some changes might take effect after you save a widget theme or department!</source>
       <translation>いくつかの変更は、ウィジェットのテーマまたは部門を保存した後に有効になるかもしれません！</translation>
+    </message>
+    <message>
+      <source>Time taken to render till this moment</source>
+      <translation>この瞬間までのレンダリング時間</translation>
     </message>
     <message>
       <source>Clear cookies and reload</source>
@@ -1922,6 +1942,10 @@
       <translation>ウィジェットの先頭から追加する位置</translation>
     </message>
     <message>
+      <source>Initial user message height in pixels</source>
+      <translation>ユーザーメッセージの高さの初期値（ピクセル</translation>
+    </message>
+    <message>
       <source>Widget position from right to append in invitation</source>
       <translation>招待状に追加するウィジェットの右からの位置</translation>
     </message>
@@ -2014,6 +2038,26 @@
       <translation>チャット 閉じる</translation>
     </message>
     <message>
+      <source>No border under a profile in start chat form</source>
+      <translation>スタートチャット フォームでプロフィールの下にボーダーがない</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>メッセージラベルを隠す</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>オペレータ・プロファイルを入力フィールドの上に表示する</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>チャット の開始ボタンを隠す。テーマでbot を選択し、ボタンでトリガーする場合に便利です。</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>入力フィールドの上にメッセージボックスを表示する。</translation>
+    </message>
+    <message>
       <source>Enable reactions for visitor</source>
       <translation>訪問者のリアクションを有効にする</translation>
     </message>
@@ -2058,6 +2102,18 @@
       <translation>バブルスタイルのメッセージ</translation>
     </message>
     <message>
+      <source>Hide message delivery status icons</source>
+      <translation>メッセージの配信状況アイコンを隠す</translation>
+    </message>
+    <message>
+      <source>Keep seen message indicator</source>
+      <translation>メッセージ表示</translation>
+    </message>
+    <message>
+      <source>Show message that chat is using translation service</source>
+      <translation>チャット が翻訳サービスを使用していることを示すメッセージを表示</translation>
+    </message>
+    <message>
       <source>Hide chat status block</source>
       <translation>チャット ステータスブロックを隠す</translation>
     </message>
@@ -2084,6 +2140,58 @@
     <message>
       <source>Header icons color</source>
       <translation>ヘッダーアイコン色</translation>
+    </message>
+    <message>
+      <source>Operator/chat status background color</source>
+      <translation>オペレーター/チャット ステータス背景色</translation>
+    </message>
+    <message>
+      <source>Messages area background color</source>
+      <translation>メッセージエリア背景色</translation>
+    </message>
+    <message>
+      <source>Operator profile text color</source>
+      <translation>オペレーター・プロフィール・テキスト色</translation>
+    </message>
+    <message>
+      <source>Input field label color</source>
+      <translation>入力フィールドのラベル色</translation>
+    </message>
+    <message>
+      <source>Input field background color</source>
+      <translation>入力フィールド背景色</translation>
+    </message>
+    <message>
+      <source>Input field polaceholder text color</source>
+      <translation>入力フィールドのポールホルダーテキスト色</translation>
+    </message>
+    <message>
+      <source>Not active input field border color</source>
+      <translation>アクティブ 入力フィールドボーダー色</translation>
+    </message>
+    <message>
+      <source>Active input field border color</source>
+      <translation>アクティブ 入力フィールドボーダー色</translation>
+    </message>
+    <message>
+      <source>Settings and send icons color</source>
+      <translation>設定と送信アイコン色</translation>
+    </message>
+    <message>
+      <source>Settings and send icons hover color</source>
+      <translation>設定と送信アイコンのホバー色</translation>
+    </message>
+    <message>
+      <source>Input field shadow color</source>
+      <translation>入力フィールドの影色</translation>
+    </message>
+    <message>
+      <source>Input field text color</source>
+      <translation>入力フィールドのテキスト色</translation>
+    </message>
+    <message>
+      <source>Send message area background color</source>
+      <translation>メッセージ送信エリア背景色</translation>
     </message>
     <message>
       <source>Offline widget background color</source>
@@ -2156,6 +2264,10 @@
     <message>
       <source>Reaction to visitor message bubble background color</source>
       <translation>メッセージバブルへの反応背景色</translation>
+    </message>
+    <message>
+      <source>Delivered message double tick color</source>
+      <translation>配信メッセージダブルティック色</translation>
     </message>
     <message>
       <source>Reaction to visitor message bubble icon color</source>
@@ -5155,6 +5267,18 @@
   <context>
     <name>chat/startchatformsettings</name>
     <message>
+      <source>Remove space after operator profile</source>
+      <translation>オペレータプロフィールの後のスペース削除</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>入力フィールドの上にメッセージボックス表示、UXのコンビネーションに有用です。</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>チャット の開始ボタンを隠す。テーマでbot を選択し、ボタンでトリガーする場合に便利です。</translation>
+    </message>
+    <message>
       <source>Add event</source>
       <translation>イベント追加</translation>
     </message>
@@ -5165,6 +5289,10 @@
     <message>
       <source>Remove</source>
       <translation>削除</translation>
+    </message>
+    <message>
+      <source>Migrated from start chat form</source>
+      <translation>チャット フォームから移行</translation>
     </message>
     <message>
       <source>Start a chat form settings</source>
@@ -5399,23 +5527,23 @@
       <translation>ファイルの添付を許可する</translation>
     </message>
     <message>
-      <source>Show operator profile above input fields</source>
-      <translation>オペレータプロフィールを入力フィールドの上に表示</translation>
+      <source>Deprecated - Migrated to Widget Theme</source>
+      <translation>非推奨 - ウィジェットテーマに移行</translation>
     </message>
     <message>
-      <source>Remove space after operator profile</source>
-      <translation>オペレータプロフィールの後のスペース削除</translation>
+      <source>Show operator profile above input fields</source>
+      <translation>オペレータプロフィールを入力フィールドの上に表示</translation>
     </message>
     <message>
       <source>Hide message label</source>
       <translation>メッセージラベル隠す</translation>
     </message>
     <message>
-      <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation>入力フィールドの上にメッセージボックス表示、UXのコンビネーションに有用です。</translation>
+      <source>Show messages box above input fields, useful for UX combinations.</source>
+      <translation>入力フィールドの上にメッセージボックスを表示します。</translation>
     </message>
     <message>
-      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <source>Hide start chat button. Useful if in the theme you choose bot and trigger with a buttons.</source>
       <translation>チャット の開始ボタンを隠す。テーマでbot を選択し、ボタンでトリガーする場合に便利です。</translation>
     </message>
     <message>
@@ -5423,12 +5551,12 @@
       <translation>プロフィールの下にボーダーがない</translation>
     </message>
     <message>
-      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
-      <translation>ウィジェットコンテンツの遅延ロード。ウィジェットコンテンツは、訪問者がステータスアイコンをクリックした場合にのみロードされます。</translation>
-    </message>
-    <message>
       <source>Initial user message height in pixels</source>
       <translation>初期ユーザーメッセージの高さ（ピクセル）</translation>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <translation>ウィジェットコンテンツの遅延ロード。ウィジェットコンテンツは、訪問者がステータスアイコンをクリックした場合にのみロードされます。</translation>
     </message>
     <message>
       <source>Department settings</source>
@@ -7170,6 +7298,22 @@
       <translation>転送されたチャットのアラートを表示しない</translation>
     </message>
     <message>
+      <source>Exclude from chats auto assign workflow</source>
+      <translation>チャットから除外する自動割り当てワークフロー</translation>
+    </message>
+    <message>
+      <source>Include to auto assign workflow</source>
+      <translation>ワークフローの自動割り当てに含める</translation>
+    </message>
+    <message>
+      <source>Show notifications only for pending chats assigned to the operator</source>
+      <translation>オペレータに割り当てられた保留中のチャットにのみ通知を表示する。</translation>
+    </message>
+    <message>
+      <source>Show notifications for all pending chats</source>
+      <translation>保留中のチャットの通知を表示する</translation>
+    </message>
+    <message>
       <source>Username</source>
       <translation>ユーザー名</translation>
     </message>
@@ -8588,6 +8732,14 @@
     <message>
       <source>Your language</source>
       <translation>あなたの言語</translation>
+    </message>
+    <message>
+      <source>Automatic translation is active</source>
+      <translation>自動翻訳はアクティブ</translation>
+    </message>
+    <message>
+      <source>Please note that a translation tool is being used to support this conversation.</source>
+      <translation>この会話をサポートするために翻訳ツールが使用されていることにご留意ください。</translation>
     </message>
     <message>
       <source>Choose your language</source>

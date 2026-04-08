@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Mennyi idő elteltével kapjon az operátor értesítést egy megválaszolatlan üzenetről?</translation>
     </message>
@@ -894,6 +898,18 @@
       <translation>Operátori üzenetek stílusa</translation>
     </message>
     <message>
+      <source>Delivered messages indicators</source>
+      <translation>Delivered üzenetek mutatók</translation>
+    </message>
+    <message>
+      <source>Start chat input fields coloring</source>
+      <translation>beszélgetésindítás beviteli mezők színezése</translation>
+    </message>
+    <message>
+      <source>Icons coloring</source>
+      <translation>Ikonok színezés</translation>
+    </message>
+    <message>
       <source>New message separator style</source>
       <translation>Az újüzenet-elválasztó stílusa</translation>
     </message>
@@ -956,6 +972,10 @@
     <message>
       <source>Some changes might take effect after you save a widget theme or department!</source>
       <translation>Néhány módosítás csak a widget-téma vagy a részleg mentése után lép érvénybe</translation>
+    </message>
+    <message>
+      <source>Time taken to render till this moment</source>
+      <translation>idő a jelen pillanatig</translation>
     </message>
     <message>
       <source>Clear cookies and reload</source>
@@ -1023,7 +1043,7 @@
     </message>
     <message>
       <source>Nick template</source>
-      <translation>becenév sablon</translation>
+      <translation>Becenévsablon</translation>
     </message>
     <message>
       <source>My messages bubble background color</source>
@@ -1922,6 +1942,10 @@
       <translation>A hozzáadandó widget pozíciója fentről</translation>
     </message>
     <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Kezdeti felhasználói magasság üzenet pixelben</translation>
+    </message>
+    <message>
       <source>Widget position from right to append in invitation</source>
       <translation>A hozzáadandó widget pozíciója jobbról egy meghívóban</translation>
     </message>
@@ -2014,6 +2038,26 @@
       <translation>Egy beszélgetés lezárásakor a felmérés gomb megjelenítése</translation>
     </message>
     <message>
+      <source>No border under a profile in start chat form</source>
+      <translation>Nincs keret a profil alatt a beszélgetésindítás űrlapon</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>üzenet címke elrejtése</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>A Operátor profil megjelenítése a beviteli mezők felett</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>A beszélgetésindítás gomb elrejtése. Hasznos, ha a téma -ban a bot és a eseményindító gombokkal választja ki a -t.</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Mutasd meg a üzenetpanel címet a beviteli mezők felett, hasznos az UX kombinációkhoz.</translation>
+    </message>
+    <message>
       <source>Enable reactions for visitor</source>
       <translation>Reakciók engedélyezése a látogatók számára</translation>
     </message>
@@ -2058,6 +2102,18 @@
       <translation>Az üzenetek szövegbuborékának stílusa</translation>
     </message>
     <message>
+      <source>Hide message delivery status icons</source>
+      <translation>üzenet szállítás állapot ikonok elrejtése</translation>
+    </message>
+    <message>
+      <source>Keep seen message indicator</source>
+      <translation>Tartsa a megtekintve üzenet jelzőt</translation>
+    </message>
+    <message>
+      <source>Show message that chat is using translation service</source>
+      <translation>Mutasd meg a üzenet, hogy a Beszélgetés fordítási szolgáltatást használ.</translation>
+    </message>
+    <message>
       <source>Hide chat status block</source>
       <translation>A beszélgetésállapotot jelző blokk elrejtése</translation>
     </message>
@@ -2084,6 +2140,58 @@
     <message>
       <source>Header icons color</source>
       <translation>Fejlécikonok színe</translation>
+    </message>
+    <message>
+      <source>Operator/chat status background color</source>
+      <translation>Operátor/Beszélgetés állapot háttérszín</translation>
+    </message>
+    <message>
+      <source>Messages area background color</source>
+      <translation>üzenetek terület háttérszín</translation>
+    </message>
+    <message>
+      <source>Operator profile text color</source>
+      <translation>Operátor profil szövegszín</translation>
+    </message>
+    <message>
+      <source>Input field label color</source>
+      <translation>Beviteli mező címkéje szín</translation>
+    </message>
+    <message>
+      <source>Input field background color</source>
+      <translation>Beviteli mező háttérszín</translation>
+    </message>
+    <message>
+      <source>Input field polaceholder text color</source>
+      <translation>Bemeneti mező polctartó szövegszín</translation>
+    </message>
+    <message>
+      <source>Not active input field border color</source>
+      <translation>Nem aktív beviteli mező keretszín</translation>
+    </message>
+    <message>
+      <source>Active input field border color</source>
+      <translation>aktív beviteli mező keretszín</translation>
+    </message>
+    <message>
+      <source>Settings and send icons color</source>
+      <translation>beállítások és küldjön ikonokat szín</translation>
+    </message>
+    <message>
+      <source>Settings and send icons hover color</source>
+      <translation>beállítások és küldjön ikonokat rámutatás(kor) szín</translation>
+    </message>
+    <message>
+      <source>Input field shadow color</source>
+      <translation>Beviteli mező árnyéka szín</translation>
+    </message>
+    <message>
+      <source>Input field text color</source>
+      <translation>Beviteli mező szövegszín</translation>
+    </message>
+    <message>
+      <source>Send message area background color</source>
+      <translation>Küldés üzenet terület háttérszín</translation>
     </message>
     <message>
       <source>Offline widget background color</source>
@@ -2156,6 +2264,10 @@
     <message>
       <source>Reaction to visitor message bubble background color</source>
       <translation>A látogatói üzenetre reagálás buborékjának háttérszíne</translation>
+    </message>
+    <message>
+      <source>Delivered message double tick color</source>
+      <translation>Delivered üzenet dupla pipa szín</translation>
     </message>
     <message>
       <source>Reaction to visitor message bubble icon color</source>
@@ -3181,7 +3293,7 @@
     </message>
     <message>
       <source>Message ID</source>
-      <translation>üzenet Azon.</translation>
+      <translation>Üzenetazon.</translation>
     </message>
   </context>
   <context>
@@ -3424,11 +3536,11 @@
     </message>
     <message>
       <source>Switch to form data if there is file attached to a message.</source>
-      <translation>Váltás űrlapadatokra, ha van egy fájl csatolva a üzenet.</translation>
+      <translation>Váltás „form-data” típusra, ha egy üzenethez fájl van csatolva</translation>
     </message>
     <message>
       <source>Files will be attached as [data+n] post fields. First level JSON attributes will become POST vars.</source>
-      <translation>A fájlokat [data+n] poszt mezőként csatoljuk. Az első szintű JSON attribútumok POST varsokká válnak.</translation>
+      <translation>A fájlokat „data” előtagú számozott kulcsokkal (pl.: „data0”) csatolja a rendszer a „postfields”-hez. Az első szintű JSON-attribútumok szintén POST-változók lesznek</translation>
     </message>
     <message>
       <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
@@ -4834,11 +4946,11 @@
     </message>
     <message>
       <source>Dropdown</source>
-      <translation>Dropdown</translation>
+      <translation>Legördülő lista</translation>
     </message>
     <message>
       <source>value||Label one per line</source>
-      <translation>value|||Címke soronként egy</translation>
+      <translation>Érték||Címke (soronként egy)</translation>
     </message>
     <message>
       <source>Number of rows in case Text area field tye is chosen</source>
@@ -5155,6 +5267,18 @@
   <context>
     <name>chat/startchatformsettings</name>
     <message>
+      <source>Remove space after operator profile</source>
+      <translation>Az operátori profil utáni szóköz eltávolítása</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Üzenetpanel megjelenítése a beviteli mezők felett; hasznos lehet a felhasználóiélmény-kombinációkhoz</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>A beszélgetésindító gomb elrejtése. Hasznos, ha a témabeállításoknál botot, ill. gombokkal kiváltható eseményindítót választasz</translation>
+    </message>
+    <message>
       <source>Add event</source>
       <translation>Esemény hozzáadása</translation>
     </message>
@@ -5165,6 +5289,10 @@
     <message>
       <source>Remove</source>
       <translation>Eltávolítás</translation>
+    </message>
+    <message>
+      <source>Migrated from start chat form</source>
+      <translation>A beszélgetésindítás űrlapról áttelepítve</translation>
     </message>
     <message>
       <source>Start a chat form settings</source>
@@ -5399,36 +5527,36 @@
       <translation>Fájlcsatolás engedélyezése</translation>
     </message>
     <message>
-      <source>Show operator profile above input fields</source>
-      <translation>Az operátori profil megjelenítése a beviteli mezők felett</translation>
+      <source>Deprecated - Migrated to Widget Theme</source>
+      <translation>Elavult - áttelepült a widget oldalra. téma</translation>
     </message>
     <message>
-      <source>Remove space after operator profile</source>
-      <translation>Az operátori profil utáni szóköz eltávolítása</translation>
+      <source>Show operator profile above input fields</source>
+      <translation>Az operátori profil megjelenítése a beviteli mezők felett</translation>
     </message>
     <message>
       <source>Hide message label</source>
       <translation>Üzenetcímke elrejtése</translation>
     </message>
     <message>
-      <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation>Üzenetpanel megjelenítése a beviteli mezők felett; hasznos lehet a felhasználóiélmény-kombinációkhoz</translation>
+      <source>Show messages box above input fields, useful for UX combinations.</source>
+      <translation>A üzenetpanel megjelenítése a beviteli mezők felett, hasznos az UX kombinációkhoz.</translation>
     </message>
     <message>
-      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
-      <translation>A beszélgetésindító gomb elrejtése. Hasznos, ha a témabeállításoknál botot, ill. gombokkal kiváltható eseményindítót választasz</translation>
+      <source>Hide start chat button. Useful if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>A beszélgetésindítás gomb elrejtése. Hasznos, ha a téma -ban a bot és a eseményindító gombokkal választja ki.</translation>
     </message>
     <message>
       <source>No border under a profile</source>
       <translation>Ne legyen keret a profilkép alatt</translation>
     </message>
     <message>
-      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
-      <translation>A widget-tartalom késleltetett betöltése (lazy load). A widget tartalma csak akkor töltődik be, ha a látogató rákattint egy állapotikonra</translation>
-    </message>
-    <message>
       <source>Initial user message height in pixels</source>
       <translation>A felhasználói üzenet(mező) kezdeti magassága pixelben</translation>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <translation>A widget-tartalom késleltetett betöltése (lazy load). A widget tartalma csak akkor töltődik be, ha a látogató rákattint egy állapotikonra</translation>
     </message>
     <message>
       <source>Department settings</source>
@@ -5735,7 +5863,7 @@
     </message>
     <message>
       <source>Include archived</source>
-      <translation>befoglalás(a vminek) archivált</translation>
+      <translation>Archiváltak befoglalása</translation>
     </message>
     <message>
       <source>Delete all items</source>
@@ -6219,11 +6347,11 @@
     </message>
     <message>
       <source>Highest total number of messages</source>
-      <translation>A legmagasabb összesített üzenetek</translation>
+      <translation>Az össz. üzenetek legmagasabb száma</translation>
     </message>
     <message>
       <source>Lowest total number of messages</source>
-      <translation>A legalacsonyabb összes üzenetek</translation>
+      <translation>Az össz. üzenetek legalacsonyabb száma</translation>
     </message>
     <message>
       <source>20 items per page</source>
@@ -7015,7 +7143,7 @@
     </message>
     <message>
       <source>Average chat length (agent)</source>
-      <translation>Átlagos hossz Beszélgetés (szer)</translation>
+      <translation>Átlagos beszélgetéshossz (ügynök)</translation>
     </message>
     <message>
       <source>Average of first response time (agent)</source>
@@ -7170,6 +7298,22 @@
       <translation>Ne legyenek értesítések megjelenítve az átadott beszélgetésekről</translation>
     </message>
     <message>
+      <source>Exclude from chats auto assign workflow</source>
+      <translation>Automatikus kizárás a csevegésekből (hozzá)rendel(ve) munkafolyamat</translation>
+    </message>
+    <message>
+      <source>Include to auto assign workflow</source>
+      <translation>befoglalás(a vminek) az automatikus (hozzá)rendel(ve) munkafolyamat</translation>
+    </message>
+    <message>
+      <source>Show notifications only for pending chats assigned to the operator</source>
+      <translation>A értesítések csak a függőben lévő csevegéseknél jelenik meg (hozzá)rendel(ve) a Operátor</translation>
+    </message>
+    <message>
+      <source>Show notifications for all pending chats</source>
+      <translation>értesítések megjelenítése az összes függőben lévő csevegéshez</translation>
+    </message>
+    <message>
       <source>Username</source>
       <translation>Felhasználónév</translation>
     </message>
@@ -7279,11 +7423,11 @@
     </message>
     <message>
       <source>Select all</source>
-      <translation>Válasszon ki mindent</translation>
+      <translation>Az összes kiválasztása</translation>
     </message>
     <message>
       <source>Un-select all</source>
-      <translation>Törölje az összes kiválasztást</translation>
+      <translation>Az összes kiválasztás törlése</translation>
     </message>
     <message>
       <source>Till now</source>
@@ -8341,7 +8485,7 @@
     </message>
     <message>
       <source>Archived subjects are hidden from subject pickers and all filtering dropdowns</source>
-      <translation>Az archivált témák el vannak rejtve a témakör választók és az összes szűrő legördülő menüpont elől.</translation>
+      <translation>Az archivált témaköröket elrejti a rendszer a témakörválasztók és az összes legördülőlista-alapú szűrő elől.</translation>
     </message>
     <message>
       <source>Internal</source>
@@ -8588,6 +8732,14 @@
     <message>
       <source>Your language</source>
       <translation>Az Ön nyelve</translation>
+    </message>
+    <message>
+      <source>Automatic translation is active</source>
+      <translation>Az automatikus fordítás aktív</translation>
+    </message>
+    <message>
+      <source>Please note that a translation tool is being used to support this conversation.</source>
+      <translation>Felhívjuk figyelmét, hogy a beszélgetés támogatására fordítási eszközt használunk.</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -9055,7 +9207,7 @@
     </message>
     <message>
       <source>Enter your</source>
-      <translation>adja meg a</translation>
+      <translation>Adja meg a következőt:</translation>
     </message>
     <message>
       <source>There was a problem sending your request. Please try again later!</source>
@@ -10057,7 +10209,7 @@
     </message>
     <message>
       <source>Mobile is disabled in the main settings file (settings.ini.php). Mobile notifications will not work.</source>
-      <translation>A mobil a letiltva a fő beállítások fájlban (beállítások.ini.php). A mobil értesítések nem fog működni.</translation>
+      <translation>A mobil le van tiltva a fő beállításfájlban (settings.ini.php). A mobilértesítések nem fognak működni</translation>
     </message>
     <message>
       <source>If you do not choose any department from below we will track all departments.</source>
@@ -10374,7 +10526,7 @@
     </message>
     <message>
       <source>Object is assigned to mails or chats!</source>
-      <translation>Az objektum (hozzá)rendel(ve) a levelekre vagy chatekre!</translation>
+      <translation>Az objektum hozzá van rendelve levelekhez vagy beszélgetésekhez</translation>
     </message>
     <message>
       <source>Bots</source>
@@ -16231,7 +16383,7 @@
     <name>chat/list</name>
     <message>
       <source>Sorting by number of messages requires a date range of 31 days or less to be set.</source>
-      <translation>A -nként (felhasználónként) rendezéshez a üzenetek számának beállításához 31 napos vagy annál rövidebb dátumtartományt kell beállítani.</translation>
+      <translation>Az üzenetek száma szerinti rendezéshez 31 napos vagy ennél rövidebb dátumtartományt kell beállítani</translation>
     </message>
     <message>
       <source>chats were selected for deletion, and</source>
@@ -16379,7 +16531,7 @@
     </message>
     <message>
       <source>Messages count</source>
-      <translation>üzenetek Számolj</translation>
+      <translation>Üzenetek száma</translation>
     </message>
   </context>
   <context>
@@ -19005,7 +19157,7 @@
     </message>
     <message>
       <source>Allowed files types for users while in bot status. You can have custom file types allowed while chat is in bot status.</source>
-      <translation>Engedélyezett fájltípusok a felhasználók számára a bot állapot . A egyéni fájltípusok engedélyezettek, míg a Beszélgetés a bot állapot .</translation>
+      <translation>A felhasználók számára engedélyezett fájltípusok a botokkal folytatott beszélgetések során. Egyéni fájltípusokat is engedélyezhetsz a botokkal folytatott beszélgetésekhez</translation>
     </message>
     <message>
       <source>Maximum file size in KB</source>
@@ -19576,7 +19728,7 @@
     </message>
     <message>
       <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
-      <translation>Azt írja le, hogy mennyi ideig tartott a Beszélgetés, mielőtt lezárult. Beszélgetés időtartam a idő közötti üzenetek közötti költésen alapul ügynökönként.</translation>
+      <translation>Annak leírása, hogy mennyi ideig tartott a beszélgetés, mielőtt lezárták volna. A beszélgetés időtartama az ügynökönkénti üzenetek között eltelt időn alapul</translation>
     </message>
     <message>
       <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
@@ -24132,7 +24284,7 @@
     </message>
     <message>
       <source>Nick template</source>
-      <translation>becenév sablon</translation>
+      <translation>Becenévsablon</translation>
     </message>
     <message>
       <source>Static content</source>
@@ -24152,7 +24304,7 @@
     </message>
     <message>
       <source>E.g {lhc.nick} [{lhc.add.surname_name}] [{lhc.var.user_id}] or just {args.chat.id}</source>
-      <translation>Pl. {LHC.becenév} [{LHC.add.surname_name}] [{LHC.var.user_id}] vagy csak {args.Beszélgetés.Azon.}</translation>
+      <translation>Pl.: {lhc.nick} [{lhc.add.surname_name}] [{lhc.var.user_id}] vagy csak {args.chat.id}</translation>
     </message>
     <message>
       <source>Header content</source>
@@ -25459,111 +25611,111 @@
     </message>
     <message>
       <source>Chat operator</source>
-      <translation>Beszélgetés Operátor</translation>
+      <translation>A beszélgetés operátora</translation>
     </message>
     <message>
       <source>Chat operator Name</source>
-      <translation>Beszélgetés Operátor Név</translation>
+      <translation>A beszélgetés operátorának neve</translation>
     </message>
     <message>
       <source>Operator 1 Name</source>
-      <translation>Operátor 1 Név</translation>
+      <translation>1. operátor neve</translation>
     </message>
     <message>
       <source>Operator 2 Name</source>
-      <translation>Operátor 2 Név</translation>
+      <translation>2. operátor neve</translation>
     </message>
     <message>
       <source>Operator 3 Name</source>
-      <translation>Operátor 3 Név</translation>
+      <translation>3. operátor neve</translation>
     </message>
     <message>
       <source>Operator 4 Name</source>
-      <translation>Operátor 4 Név</translation>
+      <translation>4. operátor neve</translation>
     </message>
     <message>
       <source>Operator 5 Name</source>
-      <translation>Operátor 5 Név</translation>
+      <translation>5. operátor neve</translation>
     </message>
     <message>
       <source>Duration (Operator 1)</source>
-      <translation>Időtartam (Operátor 1)</translation>
+      <translation>Időtartam (1. operátor)</translation>
     </message>
     <message>
       <source>Duration (Operator 2)</source>
-      <translation>Időtartam (Operátor 2)</translation>
+      <translation>Időtartam (2. operátor)</translation>
     </message>
     <message>
       <source>Duration (Operator 3)</source>
-      <translation>Időtartam (Operátor 3)</translation>
+      <translation>Időtartam (3. operátor)</translation>
     </message>
     <message>
       <source>Duration (Operator 4)</source>
-      <translation>Időtartam (Operátor 4)</translation>
+      <translation>Időtartam (4. operátor)</translation>
     </message>
     <message>
       <source>Duration (Operator 5)</source>
-      <translation>Időtartam (Operátor 5)</translation>
+      <translation>Időtartam (5. operátor)</translation>
     </message>
     <message>
       <source>Avg Response Time (Operator 1)</source>
-      <translation>Avg Response idő (Operátor 1)</translation>
+      <translation>Átlagos válaszidő (1. operátor)</translation>
     </message>
     <message>
       <source>Avg Response Time (Operator 2)</source>
-      <translation>Avg Response idő (Operátor 2)</translation>
+      <translation>Átlagos válaszidő (2. operátor)</translation>
     </message>
     <message>
       <source>Avg Response Time (Operator 3)</source>
-      <translation>Avg Response idő (Operátor 3)</translation>
+      <translation>Átlagos válaszidő (3. operátor)</translation>
     </message>
     <message>
       <source>Avg Response Time (Operator 4)</source>
-      <translation>Avg Response idő (Operátor 4)</translation>
+      <translation>Átlagos válaszidő (4. operátor)</translation>
     </message>
     <message>
       <source>Avg Response Time (Operator 5)</source>
-      <translation>Avg Response idő (Operátor 5)</translation>
+      <translation>Átlagos válaszidő (5. operátor)</translation>
     </message>
     <message>
       <source>First Response Time (Operator 1)</source>
-      <translation>First Response idő (Operátor 1)</translation>
+      <translation>Első válaszidő (1. operátor)</translation>
     </message>
     <message>
       <source>First Response Time (Operator 2)</source>
-      <translation>First Response idő (Operátor 2)</translation>
+      <translation>Első válaszidő (2. operátor)</translation>
     </message>
     <message>
       <source>First Response Time (Operator 3)</source>
-      <translation>First Response idő (Operátor 3)</translation>
+      <translation>Első válaszidő (3. operátor)</translation>
     </message>
     <message>
       <source>First Response Time (Operator 4)</source>
-      <translation>First Response idő (Operátor 4)</translation>
+      <translation>Első válaszidő (4. operátor)</translation>
     </message>
     <message>
       <source>First Response Time (Operator 5)</source>
-      <translation>First Response idő (Operátor 5)</translation>
+      <translation>Első válaszidő (5. operátor)</translation>
     </message>
     <message>
       <source>Max Response Time (Operator 1)</source>
-      <translation>Maximális válasz idő (Operátor 1)</translation>
+      <translation>Leghosszabb válaszidő (1. operátor)</translation>
     </message>
     <message>
       <source>Max Response Time (Operator 2)</source>
-      <translation>Maximális válasz idő (Operátor 2)</translation>
+      <translation>Leghosszabb válaszidő (2. operátor)</translation>
     </message>
     <message>
       <source>Max Response Time (Operator 3)</source>
-      <translation>Maximális válasz idő (Operátor 3)</translation>
+      <translation>Leghosszabb válaszidő (3. operátor)</translation>
     </message>
     <message>
       <source>Max Response Time (Operator 4)</source>
-      <translation>Maximális válasz idő (Operátor 4)</translation>
+      <translation>Leghosszabb válaszidő (4. operátor)</translation>
     </message>
     <message>
       <source>Max Response Time (Operator 5)</source>
-      <translation>Maximális válasz idő (Operátor 5)</translation>
+      <translation>Leghosszabb válaszidő (5. operátor)</translation>
     </message>
     <message>
       <source>Department</source>
@@ -25579,15 +25731,15 @@
     </message>
     <message>
       <source>Vote: None</source>
-      <translation>Szavazás: Nincs</translation>
+      <translation>Szavazat: nincs</translation>
     </message>
     <message>
       <source>Vote: Up</source>
-      <translation>Szavazás: Up</translation>
+      <translation>Szavazat: fel („tetszik”)</translation>
     </message>
     <message>
       <source>Vote: Down</source>
-      <translation>Szavazás: Le</translation>
+      <translation>Szavazat: le („nem tetszik”)</translation>
     </message>
     <message>
       <source>Subjects</source>
@@ -25595,11 +25747,11 @@
     </message>
     <message>
       <source>Tagged</source>
-      <translation>Tagged</translation>
+      <translation>Felcímkézve</translation>
     </message>
     <message>
       <source>Not Tagged</source>
-      <translation>Nincs megjelölve</translation>
+      <translation>Nincs felcímkézve</translation>
     </message>
     <message>
       <source>Mail send</source>
@@ -25823,7 +25975,7 @@
     </message>
     <message>
       <source>Average chat length (participation)</source>
-      <translation>Átlagos hossz Beszélgetés (részvétel)</translation>
+      <translation>Átlagos beszélgetéshossz (részvételek)</translation>
     </message>
     <message>
       <source>Average first response time</source>

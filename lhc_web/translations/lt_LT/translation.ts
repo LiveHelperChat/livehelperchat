@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Kiek laiko turėtume laukti prieš informuodami operatorių apie neatsakytą pokalbį.</translation>
     </message>
@@ -894,6 +898,18 @@
       <translation>Operatoriaus pranešimų stilius</translation>
     </message>
     <message>
+      <source>Delivered messages indicators</source>
+      <translation>Pristatytų pranešimų rodikliai</translation>
+    </message>
+    <message>
+      <source>Start chat input fields coloring</source>
+      <translation>Pradėti pokalbių įvesties laukų spalvinimą</translation>
+    </message>
+    <message>
+      <source>Icons coloring</source>
+      <translation>Ikonų spalvinimas</translation>
+    </message>
+    <message>
       <source>New message separator style</source>
       <translation>Naujas pranešimų skirtuko stilius</translation>
     </message>
@@ -956,6 +972,10 @@
     <message>
       <source>Some changes might take effect after you save a widget theme or department!</source>
       <translation>Kai kurie pakeitimai gali įsigalioti po to, kai išsaugosite valdiklio temą arba skyrių!</translation>
+    </message>
+    <message>
+      <source>Time taken to render till this moment</source>
+      <translation>Laikas, reikalingas atvaizduoti iki šios akimirkos</translation>
     </message>
     <message>
       <source>Clear cookies and reload</source>
@@ -1922,6 +1942,10 @@
       <translation>Valdiklio padėtis nuo viršaus iki pridėjimo</translation>
     </message>
     <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Pradinis naudotojo pranešimo aukštis pikseliais</translation>
+    </message>
+    <message>
       <source>Widget position from right to append in invitation</source>
       <translation>Rodyklės padėtis iš dešinės, kad būtų galima pridėti kvietime</translation>
     </message>
@@ -2014,6 +2038,26 @@
       <translation>Rodyti eiti į apklausą mygtuką pokalbio uždarymo metu</translation>
     </message>
     <message>
+      <source>No border under a profile in start chat form</source>
+      <translation>Pradžios pokalbio formoje po profiliu nėra rėmelio</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Paslėpti pranešimo etiketę</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Rodyti operatoriaus profilį virš įvesties laukų</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Paslėpti pokalbio pradžios mygtuką. Naudinga, jei temoje pasirenkate botą ir paleidžiate su mygtukais.</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Rodyti pranešimų langelį virš įvesties laukų, naudingas UX deriniams.</translation>
+    </message>
+    <message>
       <source>Enable reactions for visitor</source>
       <translation>Įgalinti lankytojo reakcijas</translation>
     </message>
@@ -2058,6 +2102,18 @@
       <translation>Burbulo stiliaus pranešimai</translation>
     </message>
     <message>
+      <source>Hide message delivery status icons</source>
+      <translation>Paslėpti pranešimų pristatymo būsenos piktogramas</translation>
+    </message>
+    <message>
+      <source>Keep seen message indicator</source>
+      <translation>Išlaikyti matomo pranešimo indikatorių</translation>
+    </message>
+    <message>
+      <source>Show message that chat is using translation service</source>
+      <translation>Rodyti pranešimą, kad pokalbyje naudojama vertimo paslauga</translation>
+    </message>
+    <message>
       <source>Hide chat status block</source>
       <translation>Paslėpti pokalbio būsenos bloką</translation>
     </message>
@@ -2084,6 +2140,58 @@
     <message>
       <source>Header icons color</source>
       <translation>Antraštės piktogramų spalva</translation>
+    </message>
+    <message>
+      <source>Operator/chat status background color</source>
+      <translation>Operatoriaus / pokalbio būsenos fono spalva</translation>
+    </message>
+    <message>
+      <source>Messages area background color</source>
+      <translation>Pranešimų srities fono spalva</translation>
+    </message>
+    <message>
+      <source>Operator profile text color</source>
+      <translation>Operatoriaus profilio teksto spalva</translation>
+    </message>
+    <message>
+      <source>Input field label color</source>
+      <translation>Įvesties lauko etiketės spalva</translation>
+    </message>
+    <message>
+      <source>Input field background color</source>
+      <translation>Įvesties lauko fono spalva</translation>
+    </message>
+    <message>
+      <source>Input field polaceholder text color</source>
+      <translation>Įvesties lauko polaceholderio teksto spalva</translation>
+    </message>
+    <message>
+      <source>Not active input field border color</source>
+      <translation>Neaktyvaus įvesties lauko rėmelio spalva</translation>
+    </message>
+    <message>
+      <source>Active input field border color</source>
+      <translation>Aktyvaus įvesties lauko rėmelio spalva</translation>
+    </message>
+    <message>
+      <source>Settings and send icons color</source>
+      <translation>Nustatymai ir siunčiamų piktogramų spalva</translation>
+    </message>
+    <message>
+      <source>Settings and send icons hover color</source>
+      <translation>Nustatymų ir siuntimo piktogramų rodyklės spalva</translation>
+    </message>
+    <message>
+      <source>Input field shadow color</source>
+      <translation>Įvesties lauko šešėlio spalva</translation>
+    </message>
+    <message>
+      <source>Input field text color</source>
+      <translation>Įvesties lauko teksto spalva</translation>
+    </message>
+    <message>
+      <source>Send message area background color</source>
+      <translation>Siųsti pranešimo srities fono spalva</translation>
     </message>
     <message>
       <source>Offline widget background color</source>
@@ -2156,6 +2264,10 @@
     <message>
       <source>Reaction to visitor message bubble background color</source>
       <translation>Reakcija į lankytojo pranešimo burbulo fono spalvą</translation>
+    </message>
+    <message>
+      <source>Delivered message double tick color</source>
+      <translation>Pristatytas pranešimas dvigubos varnelės spalva</translation>
     </message>
     <message>
       <source>Reaction to visitor message bubble icon color</source>
@@ -5155,6 +5267,18 @@
   <context>
     <name>chat/startchatformsettings</name>
     <message>
+      <source>Remove space after operator profile</source>
+      <translation>Pašalinti tarpą po operatoriaus profiliu</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Rodyti pranešimų langelį virš įvesties laukų, naudingas UX deriniams.</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Paslėpti pokalbio pradžios mygtuką. Naudinga, jei temoje pasirenkate botą ir paleidžiate su mygtukais.</translation>
+    </message>
+    <message>
       <source>Add event</source>
       <translation>Pridėti įvykį</translation>
     </message>
@@ -5165,6 +5289,10 @@
     <message>
       <source>Remove</source>
       <translation>Pašalinti</translation>
+    </message>
+    <message>
+      <source>Migrated from start chat form</source>
+      <translation>Perkelta iš pradžios pokalbio forma</translation>
     </message>
     <message>
       <source>Start a chat form settings</source>
@@ -5399,36 +5527,36 @@
       <translation>Leidimas pridėti failą</translation>
     </message>
     <message>
-      <source>Show operator profile above input fields</source>
-      <translation>Rodyti operatoriaus profilį virš įvedimo laukų</translation>
+      <source>Deprecated - Migrated to Widget Theme</source>
+      <translation>Pasenęs - perkeltas į Widget temą</translation>
     </message>
     <message>
-      <source>Remove space after operator profile</source>
-      <translation>Pašalinti tarpą po operatoriaus profiliu</translation>
+      <source>Show operator profile above input fields</source>
+      <translation>Rodyti operatoriaus profilį virš įvedimo laukų</translation>
     </message>
     <message>
       <source>Hide message label</source>
       <translation>Slėpti žinutės lauko pavadinimą</translation>
     </message>
     <message>
-      <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation>Rodyti pranešimų langelį virš įvesties laukų, naudingas UX deriniams.</translation>
+      <source>Show messages box above input fields, useful for UX combinations.</source>
+      <translation>Rodyti pranešimų langą virš įvesties laukų, naudingas UX deriniams.</translation>
     </message>
     <message>
-      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
-      <translation>Paslėpti pokalbio pradžios mygtuką. Naudinga, jei temoje pasirenkate botą ir paleidžiate su mygtukais.</translation>
+      <source>Hide start chat button. Useful if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Paslėpti pokalbio pradžios mygtuką. Naudinga, jei temoje pasirinksite botą ir paleisti su mygtukais.</translation>
     </message>
     <message>
       <source>No border under a profile</source>
       <translation>Jokio krašto po profiliu</translation>
     </message>
     <message>
-      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
-      <translation>Tingus valdiklio turinio įkėlimas. Valdiklio turinys bus įkeltas tik tada, jei lankytojas paspaus būsenos piktogramą.</translation>
-    </message>
-    <message>
       <source>Initial user message height in pixels</source>
       <translation>Žinutės įvėdimo aukštis pokalbio pradžios formoje</translation>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <translation>Tingus valdiklio turinio įkėlimas. Valdiklio turinys bus įkeltas tik tada, jei lankytojas paspaus būsenos piktogramą.</translation>
     </message>
     <message>
       <source>Department settings</source>
@@ -7170,6 +7298,22 @@
       <translation>Nerodyti perspėjimų apie perduotus pokalbius</translation>
     </message>
     <message>
+      <source>Exclude from chats auto assign workflow</source>
+      <translation>Neįtraukti į pokalbius automatiškai priskirti darbo eigą</translation>
+    </message>
+    <message>
+      <source>Include to auto assign workflow</source>
+      <translation>Įtraukti į automatinį darbo eigos priskyrimą</translation>
+    </message>
+    <message>
+      <source>Show notifications only for pending chats assigned to the operator</source>
+      <translation>Rodyti tik operatoriui priskirtų laukiančių pokalbių pranešimus</translation>
+    </message>
+    <message>
+      <source>Show notifications for all pending chats</source>
+      <translation>Rodyti pranešimus apie visus laukiančius pokalbius</translation>
+    </message>
+    <message>
       <source>Username</source>
       <translation>Vartotojo vardas</translation>
     </message>
@@ -8588,6 +8732,14 @@
     <message>
       <source>Your language</source>
       <translation>Jūsų kalba</translation>
+    </message>
+    <message>
+      <source>Automatic translation is active</source>
+      <translation>Automatinis vertimas yra aktyvus</translation>
+    </message>
+    <message>
+      <source>Please note that a translation tool is being used to support this conversation.</source>
+      <translation>Atkreipkite dėmesį, kad šiam pokalbiui palaikyti naudojama vertimo priemonė.</translation>
     </message>
     <message>
       <source>Choose your language</source>

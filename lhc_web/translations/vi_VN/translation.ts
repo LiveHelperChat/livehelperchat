@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -894,6 +898,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Delivered messages indicators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start chat input fields coloring</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Icons coloring</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New message separator style</source>
       <translation type="unfinished"/>
     </message>
@@ -955,6 +971,10 @@
     </message>
     <message>
       <source>Some changes might take effect after you save a widget theme or department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time taken to render till this moment</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1922,6 +1942,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Initial user message height in pixels</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Widget position from right to append in invitation</source>
       <translation type="unfinished"/>
     </message>
@@ -2014,6 +2038,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>No border under a profile in start chat form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Enable reactions for visitor</source>
       <translation type="unfinished"/>
     </message>
@@ -2058,6 +2102,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hide message delivery status icons</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Keep seen message indicator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show message that chat is using translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide chat status block</source>
       <translation type="unfinished"/>
     </message>
@@ -2083,6 +2139,58 @@
     </message>
     <message>
       <source>Header icons color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator/chat status background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages area background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator profile text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Input field label color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Input field background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Input field polaceholder text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not active input field border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active input field border color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings and send icons color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings and send icons hover color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Input field shadow color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Input field text color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send message area background color</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2155,6 +2263,10 @@
     </message>
     <message>
       <source>Reaction to visitor message bubble background color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delivered message double tick color</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5155,6 +5267,18 @@
   <context>
     <name>chat/startchatformsettings</name>
     <message>
+      <source>Remove space after operator profile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Add event</source>
       <translation type="unfinished"/>
     </message>
@@ -5164,6 +5288,10 @@
     </message>
     <message>
       <source>Remove</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Migrated from start chat form</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5399,11 +5527,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show operator profile above input fields</source>
+      <source>Deprecated - Migrated to Widget Theme</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Remove space after operator profile</source>
+      <source>Show operator profile above input fields</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5411,11 +5539,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <source>Show messages box above input fields, useful for UX combinations.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <source>Hide start chat button. Useful if in the theme you choose bot and trigger with a buttons.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5423,11 +5551,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <source>Initial user message height in pixels</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Initial user message height in pixels</source>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7170,6 +7298,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Exclude from chats auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include to auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications only for pending chats assigned to the operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications for all pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Username</source>
       <translation type="unfinished"/>
     </message>
@@ -8587,6 +8731,14 @@
     </message>
     <message>
       <source>Your language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic translation is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please note that a translation tool is being used to support this conversation.</source>
       <translation type="unfinished"/>
     </message>
     <message>

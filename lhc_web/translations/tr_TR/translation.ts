@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Cevaplanmayan konuşma hakkında Operatör &apos;u bilgilendirmeden önce ne kadar beklemeliyiz?</translation>
     </message>
@@ -894,6 +898,18 @@
       <translation>Operatör Mesaj Stili</translation>
     </message>
     <message>
+      <source>Delivered messages indicators</source>
+      <translation>İletilen mesaj göstergeleri</translation>
+    </message>
+    <message>
+      <source>Start chat input fields coloring</source>
+      <translation>konuşma giriş alanlarını renklendirmeye başlayın</translation>
+    </message>
+    <message>
+      <source>Icons coloring</source>
+      <translation>Simgeler boyama</translation>
+    </message>
+    <message>
       <source>New message separator style</source>
       <translation>Yeni mesaj ayırıcı stili</translation>
     </message>
@@ -956,6 +972,10 @@
     <message>
       <source>Some changes might take effect after you save a widget theme or department!</source>
       <translation>Bazı değişiklikler Kaydet a aracı tasarım veya departman adresinden sonra etkili olabilir!</translation>
+    </message>
+    <message>
+      <source>Time taken to render till this moment</source>
+      <translation>zaman bu ana kadar</translation>
     </message>
     <message>
       <source>Clear cookies and reload</source>
@@ -1922,6 +1942,10 @@
       <translation>aracı eklemek için üstten konum</translation>
     </message>
     <message>
+      <source>Initial user message height in pixels</source>
+      <translation>Piksel cinsinden ilk kullanıcı mesajı yüksekliği</translation>
+    </message>
+    <message>
       <source>Widget position from right to append in invitation</source>
       <translation>aracı davetiyeye eklemek için sağdan konum</translation>
     </message>
@@ -2014,6 +2038,26 @@
       <translation>Sohbette ankete git düğmesini göster kapat</translation>
     </message>
     <message>
+      <source>No border under a profile in start chat form</source>
+      <translation>Başlangıç konuşma formunda bir profilin altında kenarlık yok</translation>
+    </message>
+    <message>
+      <source>Hide message label</source>
+      <translation>Mesaj etiketini gizle</translation>
+    </message>
+    <message>
+      <source>Show operator profile above input fields</source>
+      <translation>Giriş alanlarının üzerinde Operatör profilini göster</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>konuşma başlat düğmesini gizle. tasarım içinde bot ve zamanlayıcı düğmelerini seçerseniz kullanışlıdır.</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Giriş alanlarının üzerinde mesaj kutusunu göster, UX kombinasyonları için kullanışlıdır.</translation>
+    </message>
+    <message>
       <source>Enable reactions for visitor</source>
       <translation>aktif et için reaksiyonlar ziyaretçi</translation>
     </message>
@@ -2058,6 +2102,18 @@
       <translation>Baloncuk tarzı mesajlar</translation>
     </message>
     <message>
+      <source>Hide message delivery status icons</source>
+      <translation>Mesaj teslim durumu simgelerini gizleme</translation>
+    </message>
+    <message>
+      <source>Keep seen message indicator</source>
+      <translation>Mesajı görmeye devam et göstergesi</translation>
+    </message>
+    <message>
+      <source>Show message that chat is using translation service</source>
+      <translation>konuşma adresinin çeviri hizmetini kullandığına dair mesaj göster</translation>
+    </message>
+    <message>
       <source>Hide chat status block</source>
       <translation>Sohbet durum bloğunu gizle</translation>
     </message>
@@ -2084,6 +2140,58 @@
     <message>
       <source>Header icons color</source>
       <translation>Başlık simgeleri rengi</translation>
+    </message>
+    <message>
+      <source>Operator/chat status background color</source>
+      <translation>Operatör/konuşma durum arkaplan rengi</translation>
+    </message>
+    <message>
+      <source>Messages area background color</source>
+      <translation>Mesajlar alanı arkaplan rengi</translation>
+    </message>
+    <message>
+      <source>Operator profile text color</source>
+      <translation>Operatör profil yazı rengi</translation>
+    </message>
+    <message>
+      <source>Input field label color</source>
+      <translation>Giriş alanı etiketi rengi</translation>
+    </message>
+    <message>
+      <source>Input field background color</source>
+      <translation>Giriş alanı arkaplan rengi</translation>
+    </message>
+    <message>
+      <source>Input field polaceholder text color</source>
+      <translation>Giriş alanı polaceholder yazı rengi</translation>
+    </message>
+    <message>
+      <source>Not active input field border color</source>
+      <translation>Not aktif giriş alanı çerçeve rengi</translation>
+    </message>
+    <message>
+      <source>Active input field border color</source>
+      <translation>aktif giriş alanı çerçeve rengi</translation>
+    </message>
+    <message>
+      <source>Settings and send icons color</source>
+      <translation>ayarlar ve simgeleri gönder rengi</translation>
+    </message>
+    <message>
+      <source>Settings and send icons hover color</source>
+      <translation>ayarlar ve üzerine gelinen simgeleri gönder rengi</translation>
+    </message>
+    <message>
+      <source>Input field shadow color</source>
+      <translation>Giriş alanı gölgesi rengi</translation>
+    </message>
+    <message>
+      <source>Input field text color</source>
+      <translation>Giriş alanı yazı rengi</translation>
+    </message>
+    <message>
+      <source>Send message area background color</source>
+      <translation>Mesaj gönderme alanı arkaplan rengi</translation>
     </message>
     <message>
       <source>Offline widget background color</source>
@@ -2156,6 +2264,10 @@
     <message>
       <source>Reaction to visitor message bubble background color</source>
       <translation>ziyaretçi mesaj balonuna tepki arkaplan rengi</translation>
+    </message>
+    <message>
+      <source>Delivered message double tick color</source>
+      <translation>Teslim edilen mesaj çift tik rengi</translation>
     </message>
     <message>
       <source>Reaction to visitor message bubble icon color</source>
@@ -5155,6 +5267,18 @@
   <context>
     <name>chat/startchatformsettings</name>
     <message>
+      <source>Remove space after operator profile</source>
+      <translation>Operatör profilinden sonra alanı kaldırın</translation>
+    </message>
+    <message>
+      <source>Show messages box above input fields, usefull for UX combinations.</source>
+      <translation>Giriş alanlarının üstündeki ileti kutusunu göster, UX kombinasyonları için yararlı.</translation>
+    </message>
+    <message>
+      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>Sohbeti başlat düğmesini gizle. Temada bot seçip bir düğme ile tetiklerseniz kullanışlıdır.</translation>
+    </message>
+    <message>
       <source>Add event</source>
       <translation>Etkinlik ekle</translation>
     </message>
@@ -5165,6 +5289,10 @@
     <message>
       <source>Remove</source>
       <translation>Kaldır</translation>
+    </message>
+    <message>
+      <source>Migrated from start chat form</source>
+      <translation>Başlangıç konuşma formundan taşındı</translation>
     </message>
     <message>
       <source>Start a chat form settings</source>
@@ -5399,36 +5527,36 @@
       <translation>Dosya eklemeye izin ver</translation>
     </message>
     <message>
-      <source>Show operator profile above input fields</source>
-      <translation>Giriş alanlarının üstünde operatör profilini göster</translation>
+      <source>Deprecated - Migrated to Widget Theme</source>
+      <translation>Kullanımdan kaldırıldı - aracı adresine taşındı tasarım</translation>
     </message>
     <message>
-      <source>Remove space after operator profile</source>
-      <translation>Operatör profilinden sonra alanı kaldırın</translation>
+      <source>Show operator profile above input fields</source>
+      <translation>Giriş alanlarının üstünde operatör profilini göster</translation>
     </message>
     <message>
       <source>Hide message label</source>
       <translation>Mesaj etiketini gizle</translation>
     </message>
     <message>
-      <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation>Giriş alanlarının üstündeki ileti kutusunu göster, UX kombinasyonları için yararlı.</translation>
+      <source>Show messages box above input fields, useful for UX combinations.</source>
+      <translation>Giriş alanlarının üzerinde mesaj kutusunu gösterin, UX kombinasyonları için kullanışlıdır.</translation>
     </message>
     <message>
-      <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
-      <translation>Sohbeti başlat düğmesini gizle. Temada bot seçip bir düğme ile tetiklerseniz kullanışlıdır.</translation>
+      <source>Hide start chat button. Useful if in the theme you choose bot and trigger with a buttons.</source>
+      <translation>konuşma başlat düğmesini gizle. tasarım içinde bir düğme ile bot ve zamanlayıcı seçerseniz kullanışlıdır.</translation>
     </message>
     <message>
       <source>No border under a profile</source>
       <translation>Profilin altında kenarlık yok</translation>
     </message>
     <message>
-      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
-      <translation>aracı içeriğini tembel olarak yükleyin. aracı içeriği yalnızca ziyaretçi bir durum simgesine tıkladığında yüklenecektir.</translation>
-    </message>
-    <message>
       <source>Initial user message height in pixels</source>
       <translation>Kullanıcı mesaj alanı yüksekliği (px)</translation>
+    </message>
+    <message>
+      <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
+      <translation>aracı içeriğini tembel olarak yükleyin. aracı içeriği yalnızca ziyaretçi bir durum simgesine tıkladığında yüklenecektir.</translation>
     </message>
     <message>
       <source>Department settings</source>
@@ -7170,6 +7298,22 @@
       <translation>Aktarılan sohbetler için uyarıları gösterme</translation>
     </message>
     <message>
+      <source>Exclude from chats auto assign workflow</source>
+      <translation>Sohbetlerden hariç tut otomatik atama iş akışı</translation>
+    </message>
+    <message>
+      <source>Include to auto assign workflow</source>
+      <translation>Otomatik atama iş akışına dahil et</translation>
+    </message>
+    <message>
+      <source>Show notifications only for pending chats assigned to the operator</source>
+      <translation>Yalnızca şu adrese atanmış bekleyen sohbetler için bildirimler adresini göster Operatör</translation>
+    </message>
+    <message>
+      <source>Show notifications for all pending chats</source>
+      <translation>Bekleyen tüm sohbetler için bildirimler adresini göster</translation>
+    </message>
+    <message>
       <source>Username</source>
       <translation>Kullanıcı adı</translation>
     </message>
@@ -8588,6 +8732,14 @@
     <message>
       <source>Your language</source>
       <translation>Senin Dil</translation>
+    </message>
+    <message>
+      <source>Automatic translation is active</source>
+      <translation>Otomatik çeviri aktif</translation>
+    </message>
+    <message>
+      <source>Please note that a translation tool is being used to support this conversation.</source>
+      <translation>Bu görüşmeyi desteklemek için bir çeviri aracı kullanıldığını lütfen unutmayın.</translation>
     </message>
     <message>
       <source>Choose your language</source>
