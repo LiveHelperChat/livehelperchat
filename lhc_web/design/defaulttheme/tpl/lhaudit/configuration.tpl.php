@@ -276,6 +276,47 @@ try {
     <li>Is the zip extension detected - <?php echo extension_loaded ('zip' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
 </ul>
 
+
+<?php
+$logFiles = array(
+    'workflow.log' => 'workflow.log',
+    'transfer.log' => 'transfer.log',
+    'webhook.log' => 'webhook.log',
+    'cron_1m.log' => 'cron_1m.log',
+    'cron_5m.log' => 'cron_5m.log',
+    'cron_6h.log' => 'cron_6h.log',
+    'cron_8h.log' => 'cron_8h.log',
+);
+
+$availableLogs = array();
+foreach ($logFiles as $file => $label) {
+    if (file_exists('cache/' . $file)) {
+        $availableLogs[$file] = $label;
+    }
+}
+
+if (!empty($availableLogs)) : ?>
+    <h4>Log files</h4>
+    <ul class="nav nav-tabs" role="tablist">
+        <?php $first = true; foreach ($availableLogs as $file => $label) : $tabId = 'log-'.md5($file); ?>
+            <li class="nav-item">
+                <a class="nav-link <?php if ($first) { echo 'active'; $first = false; } ?>" data-bs-toggle="tab" href="#<?php echo $tabId?>" role="tab"><?php echo htmlspecialchars($label)?></a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+
+    <div class="tab-content p-3 border border-top-0">
+        <?php $first = true; foreach ($availableLogs as $file => $label) : $tabId = 'log-'.md5($file); ?>
+            <div class="tab-pane fade <?php if ($first) { echo 'show active'; $first = false; } ?>" id="<?php echo $tabId?>" role="tabpanel">
+                <h5><?php echo htmlspecialchars($label)?></h5>
+                <textarea rows="20" class="fs12 mb-4 form-control"><?php echo htmlspecialchars(file_get_contents('cache/' . $file))?></textarea>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+
+
+
 <h4>phpinfo</h4>
     <?php
 
