@@ -36,7 +36,7 @@ if ( isset($objectData->has_filter) &&  $objectData->has_filter === true ) {
 
 $filterObject = array();
 if ( method_exists($objectData,'getFilter') ) {
-	$filterObject = $objectData->getFilter();
+	$filterObject = $objectData->getFilter($filterParams['input_form']);
 }
 
 $tpl->set('filterObject',$filterObject);
@@ -144,7 +144,7 @@ try {
     $pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : call_user_func($objectClass.'::getCount',$filterParamsCount);
     $pages->translationContext = 'abstract/list';
     $pages->serverURL = erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'].$append;
-    $pages->setItemsPerPage(20);
+    $pages->setItemsPerPage(3);
     $pages->paginate();
 
     $tpl->set('pages',$pages);
