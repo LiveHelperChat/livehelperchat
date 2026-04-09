@@ -1,4 +1,4 @@
-<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Describes the maximum time the agent takes to reply a message to the visitor.');?></p>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'MART (Maximum Agent Response Time) describes the maximum time the agent takes to reply a message to the visitor.');?></p>
 
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'For each participant, we calculate all valid reply times. MART is not an average, it is the single highest response time from that participant.');?></p>
 

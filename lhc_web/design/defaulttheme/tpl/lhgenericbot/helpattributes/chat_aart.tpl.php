@@ -1,6 +1,4 @@
-<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.');?></p>
-
-<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'For each participant, we collect all their valid reply times, add them together, and divide by how many replies they made. Result is rounded to full seconds.');?></p>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("genericbot/helpattributes", "AART (Average Agent Response Time) measures the average of operator replies from start to close across the full message timeline. It doesn't include bot messages, and it starts when the agent accepts the chat.");?></p>
 
 <ul>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Formula (per participant): AART = round(sum of that participant response times / number of that participant responses).');?></li>

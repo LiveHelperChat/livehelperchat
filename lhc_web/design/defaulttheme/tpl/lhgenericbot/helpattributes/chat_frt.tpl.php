@@ -1,4 +1,4 @@
-<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.');?></p>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("genericbot/helpattributes", "FRT (First Response Time) is the average time from the accept action event to the agent's first real reply. It specifically excludes queue time before acceptance and starts when the agent accepts the chat.");?></p>
 
 <ul>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'FRT is created when there is a pending visitor-side start point and then a real operator message arrives (operator user_id > 0, and message is not a meta/system action).');?></li>
