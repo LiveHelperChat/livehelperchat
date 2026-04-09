@@ -21,6 +21,11 @@
             <?php ;
             break;
 
+        case 'contentchunk': ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/contentchunk.tpl.php')); ?>
+            <?php ;
+            break;
+
         default:
             ;
             break;

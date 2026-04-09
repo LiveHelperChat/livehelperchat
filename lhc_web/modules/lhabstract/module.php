@@ -25,8 +25,9 @@ $ViewList['list'] = array(
         'message',
         'timefrom','timefrom_hours','timefrom_seconds','timefrom_minutes',
         'timeto', 'timeto_minutes', 'timeto_seconds', 'timeto_hours',
-        'action','csfr','include_archive'
-        )
+        'action','csfr','include_archive','dep_id','object_identifier'
+        ),
+        'multiple_arguments' => array('dep_id')
 );
 
 $ViewList['downloadbinnary'] = array(

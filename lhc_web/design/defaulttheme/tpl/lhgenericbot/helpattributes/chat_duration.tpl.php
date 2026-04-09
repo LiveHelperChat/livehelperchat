@@ -1,6 +1,8 @@
-<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Describes how long chat took before it was closed. Chat duration is based on time spend between messages.');?></p>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Measures the total duration of the chat from start to close across the full message timeline, regardless of ownership. It includes user, agent, and bot messages and begins counting when the chat starts');?></p>
 
 <ul>
+    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Abbreviations used here: FRT = First Response Time, AART = Average Agent Response Time, MART = Maximum Agent Response Time.');?></li>
+    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Chat duration start form chat start event and till last operator/bot/visitor message.');?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Chat duration is calculated as a sum of time gaps between consecutive kept messages in chat timeline order.');?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'The first kept message only sets the starting point. Counting begins from the next message, where each next gap is evaluated.');?></li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'A gap is added only if it is greater than 0 and smaller than the timeout for the current message author. If it is too large, that gap is skipped.');?></li>
