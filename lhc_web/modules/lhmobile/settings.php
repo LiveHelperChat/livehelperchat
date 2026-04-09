@@ -3,16 +3,16 @@
 $tpl = erLhcoreClassTemplate::getInstance('lhmobile/settings.tpl.php');
 
 $mbOptions = erLhcoreClassModelChatConfig::fetch('mobile_options');
-$data = (array)$mbOptions->data;
+$data = (array) $mbOptions->data;
 
-if ( isset($_POST['StoreOptions']) ) {
+if (isset($_POST['StoreOptions'])) {
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
         erLhcoreClassModule::redirect('mobile/settings');
         exit;
     }
 
-    $definition = array(
+    $definition = [
         'fcm_key' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -23,41 +23,41 @@ if ( isset($_POST['StoreOptions']) ) {
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
         'limit_p' => new ezcInputFormDefinitionElement( // Pending chats
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0]
         ),
         'limit_a' => new ezcInputFormDefinitionElement(  // Active chats
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0]
         ),
         'limit_c' => new ezcInputFormDefinitionElement(  // Closed chats
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0]
         ),
         'limit_b' => new ezcInputFormDefinitionElement(  // Bot chats
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0]
         ),
         'limit_ov' => new ezcInputFormDefinitionElement( // Online visitors
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0]
         ),
         'limit_op' => new ezcInputFormDefinitionElement( // Online operators
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0]
         )
-    );
+    ];
 
-    $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $form = new ezcInputForm(INPUT_POST, $definition);
+    $Errors = [];
 
-    if ( $form->hasValidData( 'notifications' ) && $form->notifications == true ) {
+    if ($form->hasValidData('notifications') && $form->notifications == true) {
         $data['notifications'] = 1;
     } else {
         $data['notifications'] = 0;
     }
 
-    if ( $form->hasValidData( 'fcm_key' )) {
-        $data['fcm_key'] = $form->fcm_key ;
+    if ($form->hasValidData('fcm_key')) {
+        $data['fcm_key'] = $form->fcm_key;
     } else {
         $data['fcm_key'] = '';
     }
 
-    if ( $form->hasValidData( 'use_local_service_file' ) && $form->use_local_service_file == true ) {
+    if ($form->hasValidData('use_local_service_file') && $form->use_local_service_file == true) {
         if ($data['use_local_service_file'] != 1) { // Reset FCM key so we generate it next time
             $data['fcm_key'] = '';
         }
@@ -70,7 +70,7 @@ if ( isset($_POST['StoreOptions']) ) {
     }
 
     foreach (['limit_p','limit_a','limit_c','limit_b','limit_ov','limit_op'] as $field) {
-        if ( $form->hasValidData( $field )) {
+        if ( $form->hasValidData($field)) {
             $data[$field] = $form->$field ;
         } elseif (isset($data[$field])) {
             unset($data[$field]);
@@ -87,21 +87,19 @@ if ( isset($_POST['StoreOptions']) ) {
     $CacheManager = erConfigClassLhCacheConfig::getInstance();
     $CacheManager->expireCache(true);
 
-    $tpl->set('updated','done');
+    $tpl->set('updated', 'done');
 }
 
-$tpl->set('mb_options',$data);
+$tpl->set('mb_options', $data);
 
 $Result['content'] = $tpl->fetch();
 
-$Result['path'] = array(
-    array(
+$Result['path'] = [
+    [
         'url' => erLhcoreClassDesign::baseurl('system/configuration'),
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('mobile/settings', 'Settings')
-    ),
-    array(
+    ],
+    [
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('mobile/settings', 'Mobile')
-    )
-);
-
-?>
+    ]
+];

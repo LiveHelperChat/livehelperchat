@@ -13,21 +13,21 @@ if (isset($_POST['UploadFileAction'])) {
 
     $errors = [];
 
-    if (!erLhcoreClassSearchHandler::isFile('files',array('csv')) || !mb_check_encoding(file_get_contents($_FILES['files']["tmp_name"]), 'UTF-8')) {
+    if (!erLhcoreClassSearchHandler::isFile('files',['csv']) || !mb_check_encoding(file_get_contents($_FILES['files']["tmp_name"]), 'UTF-8')) {
         $errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('canned/import','File is not UTF-8 encoded!');
     }
 
     if (empty($errors)) {
 
         $dir = 'var/tmpfiles/';
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath', array('dir' => & $dir));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath', ['dir' => & $dir]);
 
         erLhcoreClassFileUpload::mkdirRecursive( $dir );
 
         $filename = erLhcoreClassSearchHandler::moveUploadedFile('files', $dir);
 
         $header = NULL;
-        $data = array();
+        $data = [];
 
         if (($handle = fopen($dir . $filename, 'r')) !== FALSE)
         {
@@ -48,16 +48,16 @@ if (isset($_POST['UploadFileAction'])) {
         $canned[] = 'tags_plain';
         $canned[] = 'department_ids_front';
 
-        $stats = array(
+        $stats = [
             'updated' => 0,
             'imported' => 0,
             'removed' => 0,
-        );
+        ];
 
         if ($canned === $header) {
 
             if (isset($_POST['remove_old']) && $_POST['remove_old'] == true) {
-                foreach (erLhcoreClassModelCannedMsg::getList(array('limit' => false)) as $oldCanned) {
+                foreach (erLhcoreClassModelCannedMsg::getList(['limit' => false]) as $oldCanned) {
                     $oldCanned->removeThis();
                     $stats['removed']++;
                 }
@@ -68,7 +68,7 @@ if (isset($_POST['UploadFileAction'])) {
                 $cannedMessage = null;
 
                 if (!empty($item['unique_id'])) {
-                    $cannedMessage = erLhcoreClassModelCannedMsg::findOne(array('filter' => array('unique_id' => $item['unique_id'])));
+                    $cannedMessage = erLhcoreClassModelCannedMsg::findOne(['filter' => ['unique_id' => $item['unique_id']]]);
                 }
 
                 if (!($cannedMessage instanceof erLhcoreClassModelCannedMsg)) {
@@ -101,7 +101,7 @@ if (isset($_POST['UploadFileAction'])) {
                         $subjectsPlain[$subjectIndex] = trim($subject);
                     }
 
-                    $subjects = erLhAbstractModelSubject::getList(array('limit' => false, 'filterin' => array('name' => $subjectsPlain)));
+                    $subjects = erLhAbstractModelSubject::getList(['limit' => false, 'filterin' => ['name' => $subjectsPlain]]);
                     foreach ($subjects as $subject) {
                         $cannedSubject = new erLhcoreClassModelCannedMsgSubject();
                         $cannedSubject->canned_id = $cannedMessage->id;
@@ -124,5 +124,3 @@ if (isset($_POST['UploadFileAction'])) {
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';
-
-?>

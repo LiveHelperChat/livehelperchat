@@ -7,7 +7,7 @@ $tpl->set('tracking_enabled',erLhcoreClassModelChatConfig::fetch('track_online_v
 /**
  * Append user departments filter
  * */
-$departmentParams = array();
+$departmentParams = [];
 $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
 if ($userDepartments !== true) {
     $departmentParams['filterin']['id'] = $userDepartments;
@@ -32,5 +32,3 @@ $Result['content'] = $tpl->fetch();
 /*$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js;vendor/jqueryui/core.min.js;vendor/jqueryui/mouse.min.js;vendor/jqueryui/widget.min.js;vendor/jqueryui/sortable.min.js;js/lhc.dashboard.min.js').'"></script>';*/
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('vendor/jqueryui/core.min.js;vendor/jqueryui/mouse.min.js;vendor/jqueryui/widget.min.js;vendor/jqueryui/sortable.min.js;js/lhc.dashboard.min.js').'"></script>';
 $Result['additional_footer_js'] .= '<script type="module" src="'.erLhcoreClassDesign::designJSStatic('js/svelte/public/build/onlinevisitors.js').'"></script>';
-
-?>

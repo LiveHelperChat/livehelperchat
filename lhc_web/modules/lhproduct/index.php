@@ -7,18 +7,18 @@ $attr2 = erLhcoreClassModelChatConfig::fetch('product_show_departament');
 
 if ( ezcInputForm::hasPostData() ) {
 
-    $definition = array(
+    $definition = [
         'product_enabled_moduleValueParam' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
         'product_show_departamentValueParam' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
-    );
+    ];
 
     $form = new ezcInputForm( INPUT_POST, $definition );
     
-    $Errors = array();
+    $Errors = [];
 
     if ( $form->hasValidData( 'product_enabled_moduleValueParam' ) && $form->product_enabled_moduleValueParam == true ) {
         $attr->value = 1;
@@ -41,6 +41,4 @@ if ( ezcInputForm::hasPostData() ) {
 }
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','Products')));
-
-?>
+$Result['path'] = [['title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index', 'Products')]];
