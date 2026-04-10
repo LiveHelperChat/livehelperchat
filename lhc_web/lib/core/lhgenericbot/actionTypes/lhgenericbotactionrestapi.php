@@ -1951,6 +1951,16 @@ class erLhcoreClassGenericBotActionRestapi
         }
 
         if (!empty($responseContent)) {
+            // Let's do final replacement before storing anything from stream
+            if (!empty($responseContent['success_preg_replace'])) {
+                $replaceRules = explode("\n", $responseContent['success_preg_replace']);
+                foreach ($replaceRules as $replaceRule) {
+                    $replaceRuleOptions = explode('==>',$replaceRule);
+                    for ($i = 1; $i <= 6; $i++) {
+                        $responseContent['content' . ($i > 1 ? '_' . $i : '')] = preg_replace('/'.$replaceRuleOptions[0].'/uis',(isset($replaceRuleOptions[1]) ? $replaceRuleOptions[1] : ''), $responseContent['content' . ($i > 1 ? '_' . $i : '')]);
+                    }
+                }
+            }
             return $responseContent;
         }
 
@@ -2179,6 +2189,7 @@ class erLhcoreClassGenericBotActionRestapi
 
                     if (isset($outputCombination['success_preg_replace']) && $outputCombination['success_preg_replace'] != '') {
                         $replaceRules = explode("\n", $outputCombination['success_preg_replace']);
+                        $responseFormatted['success_preg_replace'] = $outputCombination['success_preg_replace'];
                         foreach ($replaceRules as $replaceRule) {
                             $replaceRuleOptions = explode('==>',$replaceRule);
                             for ($i = 1; $i <= 6; $i++) {
