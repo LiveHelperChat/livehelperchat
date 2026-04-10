@@ -4,18 +4,18 @@ $departament = erLhcoreClassModelDepartament::fetch((int)$Params['user_parameter
 
 if (isset($departament->product_configuration_array['products_enabled']) && $departament->product_configuration_array['products_enabled'] == 1)
 {
-    $items = erLhAbstractModelProductDepartament::getList(array('filter' => array('departament_id' => $departament->id)));
+    $items = erLhAbstractModelProductDepartament::getList(['filter' => ['departament_id' => $departament->id]]);
 
     // Collect products id's
-    $productsIds = array();    
+    $productsIds = [];    
     foreach ($items as $item) {
         $productsIds[] = $item->product_id;
     }
     
-    $products = array();
+    $products = [];
     
     if (!empty($productsIds)) {
-        $products = erLhAbstractModelProduct::getList(array('sort' => 'priority ASC, name ASC', 'filter' => array('disabled' => 0), 'filterin' => array('id' => $productsIds)));
+        $products = erLhAbstractModelProduct::getList(['sort' => 'priority ASC, name ASC', 'filter' => ['disabled' => 0], 'filterin' => ['id' => $productsIds]]);
     }
        
     $tpl = erLhcoreClassTemplate::getInstance('lhproduct/getproducts.tpl.php');
@@ -23,14 +23,10 @@ if (isset($departament->product_configuration_array['products_enabled']) && $dep
     $tpl->set('product_id', (int)$Params['user_parameters']['product_id']);
     $tpl->set('required',isset($departament->product_configuration_array['products_required']) && $departament->product_configuration_array['products_required'] == 1);
     
-    echo json_encode(array('result' => $tpl->fetch()));
+    echo json_encode(['result' => $tpl->fetch()]);
     
 } else {
-    echo json_encode(array('result' => ''));
+    echo json_encode(['result' => '']);
 }
 
-
-
 exit;
-
-?>

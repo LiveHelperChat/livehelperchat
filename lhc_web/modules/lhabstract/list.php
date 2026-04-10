@@ -1,6 +1,6 @@
 <?php
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.list_'.strtolower($Params['user_parameters']['identifier']).'_general', array());
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.list_'.strtolower($Params['user_parameters']['identifier']).'_general', []);
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhabstract/list.tpl.php');
 $tpl->set('extension','');
@@ -26,15 +26,15 @@ if (isset($object_trans['permission']) && !$currentUser->hasAccessTo($object_tra
 }
 
 $append = '';
-$filterParams['filter'] = array();
+$filterParams['filter'] = [];
 
 if ( isset($objectData->has_filter) &&  $objectData->has_filter === true ) {
-    $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'abstract', 'module_file' => $objectData->filter_name, 'format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'abstract', 'module_file' => $objectData->filter_name, 'format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']]);
     $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
     $tpl->set('filter', $objectData->filter_name);
 }
 
-$filterObject = array();
+$filterObject = [];
 if ( method_exists($objectData,'getFilter') ) {
 	$filterObject = $objectData->getFilter($filterParams['input_form']);
 }
@@ -192,13 +192,13 @@ if (isset($object_trans['path'])){
         $Result['path'] = $object_trans['path'];
     }
 
-    $Result['path'][] = array('title' => $object_trans['name']);
+    $Result['path'][] = ['title' => $object_trans['name']];
 
 } else {
-	$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
-			array('title' => $object_trans['name'])
-	);
+    $Result['path'] = [
+        ['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode', 'System configuration')],
+        ['title' => $object_trans['name']]
+    ];
 };
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.list_'.strtolower($Params['user_parameters']['identifier']).'_path', array('result' => & $Result));
-?>
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.list_'.strtolower($Params['user_parameters']['identifier']).'_path', ['result' => & $Result]);

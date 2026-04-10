@@ -1,6 +1,6 @@
 <?php
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.delete_'.strtolower($Params['user_parameters']['identifier']).'_general', array());
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.delete_'.strtolower($Params['user_parameters']['identifier']).'_general', []);
 
 if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
 	die('Invalid CSFR Token');
@@ -62,15 +62,15 @@ if ( method_exists($ObjectData,'confirmDialog') ) {
 
 $ObjectData->removeThis();
 
-erLhcoreClassLog::logObjectChange(array(
+erLhcoreClassLog::logObjectChange([
     'object' => $ObjectData,
     'check_log' => true,
     'action' => 'Delete',
-    'msg' => array(
+    'msg' => [
         'delete' => $ObjectData->getState(),
         'user_id' => $currentUser->getUserID()
-    )
-));
+    ]
+]);
 
 $cache = CSCacheAPC::getMem();
 $cache->increaseCacheVersion('site_attributes_version');
@@ -82,5 +82,3 @@ if ($confirmDialog === true) {
     erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier'] . $extension);
 }
 exit;
-
-?>

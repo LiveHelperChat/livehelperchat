@@ -16,11 +16,11 @@ $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
 $q = (isset($_GET['q']) ? $_GET['q'] : '');
 
-$canned_options = erLhcoreClassModelCannedMsg::groupItems(erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id, erLhcoreClassUser::instance()->getUserID(), array(
+$canned_options = erLhcoreClassModelCannedMsg::groupItems(erLhcoreClassModelCannedMsg::getCannedMessages($chat->dep_id, erLhcoreClassUser::instance()->getUserID(), [
     'q' => $q
-)), $chat, erLhcoreClassUser::instance()->getUserData(true));
+]), $chat, erLhcoreClassUser::instance()->getUserData(true));
 
-$cannedMessagesFormated = array();
+$cannedMessagesFormated = [];
 
 $itemSelected = false;
 $expandAll = $q != '';
@@ -40,34 +40,33 @@ foreach ($canned_options as $depId => $group) {
         $typeTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Global');
     }
 
-     $items = array();
+     $items = [];
 
      foreach ($group as $item) {
          $selected = $itemSelected == false;
          $itemSelected = true;
 
-         $items[] = array(
+         $items[] = [
                  'msg' => $item->msg_to_user,
                  'delay' => $item->delay,
                  'message_title' => $item->message_title,
                  'id' => $item->id,
                  'subject_ids' => (is_array($item->subjects_ids) ? implode(',',$item->subjects_ids) : null),
                  'current' => $selected
-         );
+         ];
      }
 
-     $cannedMessagesFormated[] = array(
+     $cannedMessagesFormated[] = [
         'messages' => $items,
         'title' => $typeTitle,
         'expanded' => ($expandAll || $expandedDefault == false)
-     );
+     ];
 
     $expandedDefault = true;
 }
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('cannedmsg.filter',array('q' => $q, 'cannedmessages' => & $cannedMessagesFormated, 'chat' => & $chat));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('cannedmsg.filter', ['q' => $q, 'cannedmessages' => & $cannedMessagesFormated, 'chat' => & $chat]);
 
 echo json_encode($cannedMessagesFormated);
 
 exit;
-?>

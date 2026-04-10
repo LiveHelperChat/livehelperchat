@@ -3,10 +3,10 @@
 $tpl = erLhcoreClassTemplate::getInstance( 'lhcannedmsg/listreplace.tpl.php');
 
 if (isset($_GET['doSearch'])) {
-    $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'departament','module_file' => 'dep_list','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'departament','module_file' => 'dep_list','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']]);
     $filterParams['is_search'] = true;
 } else {
-    $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'departament','module_file' => 'dep_list','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+    $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'departament','module_file' => 'dep_list','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']]);
     $filterParams['is_search'] = false;
 }
 
@@ -18,9 +18,9 @@ $pages->items_total = erLhcoreClassModelCannedMsgReplace::getCount($filterParams
 $pages->setItemsPerPage(20);
 $pages->paginate();
 
-$items = array();
+$items = [];
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassModelCannedMsgReplace::getList(array_merge($filterParams['filter'],array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'identifier ASC, id ASC')));
+    $items = erLhcoreClassModelCannedMsgReplace::getList(array_merge($filterParams['filter'],['offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'identifier ASC, id ASC']));
 }
 
 $tpl->set('items',$items);
@@ -31,8 +31,7 @@ $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('cannedm
 $tpl->set('input',$filterParams['input_form']);
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(
-    array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
-    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Replaceable variables')));
-
-?>
+$Result['path'] = [
+    ['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments', 'System configuration')],
+    ['title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments', 'Replaceable variables')]
+];

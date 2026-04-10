@@ -42,7 +42,7 @@ if (!$currentUser->isLogged() || !$currentUser->hasAccessTo('lhstatistic','views
 
             erLhcoreClassChat::updateActiveChats($user->id);
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed', array('user' => & $user, 'reason' => 'user_action'));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed', ['user' => & $user, 'reason' => 'user_action']);
 
 
         } else {
@@ -65,10 +65,10 @@ if (!$currentUser->isLogged() || !$currentUser->hasAccessTo('lhstatistic','views
  * This is optional if some extension AH decides to block usage of this module function completely
  * We don't do redirect here
  * */
-$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.statistic', array());
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.statistic', []);
 
 // Custom Unordered Parameters
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.uparams_append',array('uparams' => & $Params['user_parameters_unordered']));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.uparams_append',['uparams' => & $Params['user_parameters_unordered']]);
 
 try {
     $dt = new DateTime();
@@ -112,11 +112,11 @@ try {
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
-$validTabs = array('visitors','active','last24','chatsstatistic','agentstatistic','performance','departments','configuration','mail');
+$validTabs = ['visitors','active','last24','chatsstatistic','agentstatistic','performance','departments','configuration','mail'];
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.valid_tabs', array(
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.valid_tabs', [
     'valid_tabs' => & $validTabs
-));
+]);
 
 $tab = isset($Params['user_parameters_unordered']['tab']) && in_array($Params['user_parameters_unordered']['tab'],$validTabs) ? $Params['user_parameters_unordered']['tab'] : 'active';
 
@@ -144,10 +144,13 @@ function reportModal($filterParams, $Params, $tab, $currentUser) {
     $tpl->set('action_url', erLhcoreClassDesign::baseurl('statistic/statistic').'/(tab)/'. $tab . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
     if (ezcInputForm::hasPostData()) {
 
-        $Errors = \LiveHelperChat\Validators\ReportValidator::validateReport($savedSearch, array(
+        $Errors = \LiveHelperChat\Validators\ReportValidator::validateReport(
+            $savedSearch,
+            [
                 'filter' => $filterParams['filter'],
                 'tab' => $tab,
-                'input_form' => $filterParams['input_form'])
+                'input_form' => $filterParams['input_form']
+            ]
         );
 
         if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
@@ -166,10 +169,10 @@ function reportModal($filterParams, $Params, $tab, $currentUser) {
         }
 
     } elseif ($savedSearch->id === null) {
-        $savedSearch->params = json_encode(array(
+        $savedSearch->params = json_encode([
                 'filter' => $filterParams['filter'],
                 'tab' => 'active',
-                'input_form' => $filterParams['input_form'])
+                'input_form' => $filterParams['input_form']]
         );
     }
 
@@ -183,11 +186,11 @@ if ($tab == 'active') {
     $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
 
     if (isset($_GET['doSearch'])) {
-    	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    	$filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']]);
     } else {
-    	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+    	$filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']]);
         if (empty($filterParams['input_form']->chart_type)) {
-            $filterParams['input_form']->chart_type = isset($configuration['statistic']) ? $configuration['statistic'] : array();
+            $filterParams['input_form']->chart_type = isset($configuration['statistic']) ? $configuration['statistic'] : [];
         }
     }
 
@@ -203,7 +206,7 @@ if ($tab == 'active') {
         if (isset($filterParams['filter']['filterin']['lh_chat.dep_id'])) {
             $filterParams['filter']['filterin']['lh_chat.dep_id'] = array_values(array_intersect($filterParams['filter']['filterin']['lh_chat.dep_id'],$departmentFilter['filterin']['id']));
             if (empty($filterParams['filter']['filterin']['lh_chat.dep_id'])) {
-                $filterParams['filter']['filterin']['lh_chat.dep_id'] = array(-1);
+                $filterParams['filter']['filterin']['lh_chat.dep_id'] = [-1];
             }
         } else {
             $filterParams['filter']['filterin']['lh_chat.dep_id'] = array_values($departmentFilter['filterin']['id']);
@@ -221,7 +224,7 @@ if ($tab == 'active') {
         }
     }
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.active_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.active_filter',['filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']]);
 
     if ($filterParams['input_form']->op_msg_count !== false && is_numeric($filterParams['input_form']->op_msg_count)) {
         $n = (int)$filterParams['input_form']->op_msg_count;
@@ -266,16 +269,16 @@ if ($tab == 'active') {
 
     if (isset($_GET['doSearch'])) {
 
-        $activeStats = array(
-            'userStats' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('thumbs',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getRatingByUser(30,$filterParams['filter']) : array()),
-            'countryStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('country',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getTopChatsByCountry(30,$filterParams['filter']) : array()),
-            'userChatsStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('chatbyuser',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterParams['filter']) : array()),
-            'userChatsParticipantStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('chatbyuserparticipant',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfChatsDialogsByUserParticipant(30,$filterParams['filter']) : array()),
+        $activeStats = [
+            'userStats' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('thumbs',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getRatingByUser(30,$filterParams['filter']) : []),
+            'countryStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('country',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getTopChatsByCountry(30,$filterParams['filter']) : []),
+            'userChatsStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('chatbyuser',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterParams['filter']) : []),
+            'userChatsParticipantStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('chatbyuserparticipant',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfChatsDialogsByUserParticipant(30,$filterParams['filter']) : []),
 
-            'userTransferChatsStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('chatbytransferuser',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterParams['filter'],'transfer_uid') : array()),
-            'depChatsStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('chatbydep',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfChatsDialogsByDepartment(30,$filterParams['filter']) : array()),
-            'userChatsAverageStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('avgdurationop',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::averageOfChatsDialogsByUser(30,$filterParams['filter']) : array()),
-            'userWaitTimeByOperator' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitbyoperator',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::avgWaitTimeyUser(30,$filterParams['filter']) : array()),
+            'userTransferChatsStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('chatbytransferuser',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filterParams['filter'],'transfer_uid') : []),
+            'depChatsStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('chatbydep',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfChatsDialogsByDepartment(30,$filterParams['filter']) : []),
+            'userChatsAverageStats' => ((is_array($filterParams['input_form']->chart_type) && in_array('avgdurationop',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::averageOfChatsDialogsByUser(30,$filterParams['filter']) : []),
+            'userWaitTimeByOperator' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitbyoperator',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::avgWaitTimeyUser(30,$filterParams['filter']) : []),
 
             'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
@@ -287,25 +290,25 @@ if ($tab == 'active') {
                     in_array('msgdelbot',$filterParams['input_form']->chart_type) ||
                     in_array('devicetype',$filterParams['input_form']->chart_type)
                 )
-            ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter'], array('charttypes' => $filterParams['input_form']->chart_type, 'comparetopast' => $filterParams['input']->comparetopast)) : array()),
+            ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter'], ['charttypes' => $filterParams['input_form']->chart_type, 'comparetopast' => $filterParams['input']->comparetopast]) : []),
 
-            'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']) : array()),
-            'numberOfChatsPerHour' => ((is_array($filterParams['input_form']->chart_type) && in_array('avgduration',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getWorkLoadStatistic(30, $filterParams['filter']) : array()),
-            'averageChatTime' => ((is_array($filterParams['input_form']->chart_type) && in_array('avgduration',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getAverageChatduration(30,$filterParams['filter']) : array()),
-            'numberOfMsgByUser' => ((is_array($filterParams['input_form']->chart_type) && in_array('usermsg',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfMessagesByUser(30,$filterParams['filter']) : array()),
-            'subjectsStatistic' => ((is_array($filterParams['input_form']->chart_type) && in_array('subject',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::subjectsStatistic(30,$filterParams['filter']) : array()),
-            'cannedStatistic' => ((is_array($filterParams['input_form']->chart_type) && in_array('canned',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::cannedStatistic(30,$filterParams['filter']) : array()),
+            'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']) : []),
+            'numberOfChatsPerHour' => ((is_array($filterParams['input_form']->chart_type) && in_array('avgduration',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getWorkLoadStatistic(30, $filterParams['filter']) : []),
+            'averageChatTime' => ((is_array($filterParams['input_form']->chart_type) && in_array('avgduration',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getAverageChatduration(30,$filterParams['filter']) : []),
+            'numberOfMsgByUser' => ((is_array($filterParams['input_form']->chart_type) && in_array('usermsg',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfMessagesByUser(30,$filterParams['filter']) : []),
+            'subjectsStatistic' => ((is_array($filterParams['input_form']->chart_type) && in_array('subject',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::subjectsStatistic(30,$filterParams['filter']) : []),
+            'cannedStatistic' => ((is_array($filterParams['input_form']->chart_type) && in_array('canned',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::cannedStatistic(30,$filterParams['filter']) : []),
 
-            'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDate(30,$filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field)) : array()),
-            'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNick(30,$filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field)) : array()),
+            'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDate(30,$filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field]) : []),
+            'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNick(30,$filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field]) : []),
 
             'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-        );
+        ];
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_active_tab', array(
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_active_tab', [
             'active_stats' => & $activeStats,
             'filter_params' => $filterParams
-        ));
+        ]);
 
         if (isset($_GET['reportType']) && $_GET['reportType'] != 'live') {
             erLhcoreClassChatStatistic::exportCSV($activeStats, $_GET['reportType']);
@@ -318,12 +321,12 @@ if ($tab == 'active') {
 } elseif ($tab == 'mail') {
 
     if (isset($_GET['doSearch'])) {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'mailconv','module_file' => 'mailstatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'mailconv','module_file' => 'mailstatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']]);
     } else {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'mailconv','module_file' => 'mailstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'mailconv','module_file' => 'mailstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']]);
         if (empty($filterParams['input_form']->chart_type)) {
             $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
-            $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : array();
+            $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : [];
         }
     }
 
@@ -342,7 +345,7 @@ if ($tab == 'active') {
         if (isset($filterParams['filter']['filterin']['lhc_mailconv_msg.dep_id'])) {
             $filterParams['filter']['filterin']['lhc_mailconv_msg.dep_id'] = array_intersect($filterParams['filter']['filterin']['lhc_mailconv_msg.dep_id'],$departmentFilter['filterin']['id']);
             if (empty($filterParams['filter']['filterin']['lhc_mailconv_msg.dep_id'])) {
-                $filterParams['filter']['filterin']['lhc_mailconv_msg.dep_id'] = array(-1);
+                $filterParams['filter']['filterin']['lhc_mailconv_msg.dep_id'] = [-1];
             }
         } else {
             $filterParams['filter']['filterin']['lhc_mailconv_msg.dep_id'] = $departmentFilter['filterin']['id'];
@@ -394,7 +397,7 @@ if ($tab == 'active') {
 
     if (is_array($filterParams['input_form']->subject_ids) && !empty($filterParams['input_form']->subject_ids)) {
         erLhcoreClassChat::validateFilterIn($filterParams['input_form']->subject_ids);
-        $filterParams['filter']['innerjoin']['lhc_mailconv_msg_subject'] = array('`lhc_mailconv_msg_subject`.`message_id`','`lhc_mailconv_msg` . `id`');
+        $filterParams['filter']['innerjoin']['lhc_mailconv_msg_subject'] = ['`lhc_mailconv_msg_subject`.`message_id`','`lhc_mailconv_msg` . `id`'];
         $filterParams['filter']['filterin']['`lhc_mailconv_msg_subject`.`subject_id`'] = $filterParams['input_form']->subject_ids;
     }
 
@@ -406,39 +409,39 @@ if ($tab == 'active') {
     }
 
     if (isset($_GET['doSearch'])) {
-        $activeStats = array(
+        $activeStats = [
             'mmsgperinterval' =>  ((is_array($filterParams['input_form']->chart_type) && (in_array('mmsgperinterval',$filterParams['input_form']->chart_type) || in_array('mavgwaittime',$filterParams['input_form']->chart_type))) ? erLhcoreClassMailconvStatistic::messagesPerInterval($filterParams['filter'], [
                 'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
-                'group_by' => $filterParams['input_form']->groupby]) : array()
+                'group_by' => $filterParams['input_form']->groupby]) : []
             ),
             'mmsgperuser' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmsgperuser',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::messagesPerUser($filterParams['filter'], [
                 'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
-                'group_by' => $filterParams['input_form']->groupby]) : array()
+                'group_by' => $filterParams['input_form']->groupby]) : []
             ),
             'mmsgperdep' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmsgperdep',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::messagesPerDep($filterParams['filter'], [
                 'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
                 'group_by' => $filterParams['input_form']->groupby
-             ]) : array()),
+             ]) : []),
             'mmintperdep' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmintperdep',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::avgInteractionPerDep($filterParams['filter'], [
                 'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
                 'group_by' => $filterParams['input_form']->groupby
-             ]) : array()),
+             ]) : []),
             'mmintperuser' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmintperuser',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::avgInteractionPerUser($filterParams['filter'], [
                 'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
                 'group_by' => $filterParams['input_form']->groupby
-            ]) : array()),
-            'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('mattrgroup',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::attrByPerInterval($filterParams['filter'], array(
+            ]) : []),
+            'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('mattrgroup',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::attrByPerInterval($filterParams['filter'], [
                 'group_by' => $filterParams['input_form']->groupby, 
                 'group_field' => $filterParams['input']->group_field,
                 'group_limit' => $filterParams['input']->group_limit,
                 'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
-            )) : array()),
+            ]) : []),
             'msgperhour' => ((is_array($filterParams['input_form']->chart_type) && in_array('msgperhour',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::messagesPerHour($filterParams['filter'], [
                     'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
                     'group_by' => $filterParams['input_form']->groupby
-             ]) : array()),
+             ]) : []),
             'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-        );
+        ];
 
         if (isset($_GET['reportType']) && $_GET['reportType'] != 'live') {
             erLhcoreClassMailconvStatistic::exportCSV($activeStats, $_GET['reportType']);
@@ -451,12 +454,12 @@ if ($tab == 'active') {
 } elseif ($tab == 'chatsstatistic') {
 
     if (isset($_GET['doSearch'])) {
-    	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'chatsstatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    	$filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'chatsstatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']]);
     } else {
-    	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'chatsstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+    	$filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'chatsstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']]);
         if (empty($filterParams['input_form']->chart_type)) {
             $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
-            $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : array();
+            $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : [];
         }
     }
     
@@ -469,7 +472,7 @@ if ($tab == 'active') {
         if (isset($filterParams['filter']['filterin']['lh_chat.dep_id'])) {
             $filterParams['filter']['filterin']['lh_chat.dep_id'] = array_values(array_intersect($filterParams['filter']['filterin']['lh_chat.dep_id'],$departmentFilter['filterin']['id']));
             if (empty($filterParams['filter']['filterin']['lh_chat.dep_id'])) {
-                $filterParams['filter']['filterin']['lh_chat.dep_id'] = array(-1);
+                $filterParams['filter']['filterin']['lh_chat.dep_id'] = [-1];
             }
         } else {
             $filterParams['filter']['filterin']['lh_chat.dep_id'] = array_values($departmentFilter['filterin']['id']);
@@ -487,7 +490,7 @@ if ($tab == 'active') {
         }
     }
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.chatsstatistic_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.chatsstatistic_filter',['filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']]);
 
     if ($filterParams['input_form']->op_msg_count !== false && is_numeric($filterParams['input_form']->op_msg_count)) {
         $n = (int)$filterParams['input_form']->op_msg_count;
@@ -529,7 +532,7 @@ if ($tab == 'active') {
     if (isset($_GET['doSearch'])) {
 
         if ($filterParams['input_form']->groupby == 1) {
-            $activeStats = array(
+            $activeStats = [
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
@@ -540,17 +543,17 @@ if ($tab == 'active') {
                         in_array('msgdelop',$filterParams['input_form']->chart_type) ||
                         in_array('msgdelbot',$filterParams['input_form']->chart_type)
                     )
-                ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerDay($filterParams['filter'], array('charttypes' => $filterParams['input_form']->chart_type)) : array()),
-                'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerDay($filterParams['filter']): array()),
+                ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerDay($filterParams['filter'], ['charttypes' => $filterParams['input_form']->chart_type]) : []),
+                'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerDay($filterParams['filter']): []),
 
-                'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateDay($filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field)) : array()),
-                'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNickDay($filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field)) : array()),
-                'by_channel' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('by_channel',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::byChannel($filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'groupby' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field)) : array()),
+                'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateDay($filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field]) : []),
+                'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNickDay($filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field]) : []),
+                'by_channel' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('by_channel',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::byChannel($filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'groupby' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field]) : []),
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-            );
+            ];
         } elseif ($filterParams['input_form']->groupby == 2) {
-            $activeStats = array(
-                'by_channel' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('by_channel',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::byChannel($filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'groupby' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field)) : array()),
+            $activeStats = [
+                'by_channel' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('by_channel',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::byChannel($filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'groupby' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field]) : []),
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
@@ -561,17 +564,17 @@ if ($tab == 'active') {
                         in_array('msgdelop',$filterParams['input_form']->chart_type) ||
                         in_array('msgdelbot',$filterParams['input_form']->chart_type)
                     )
-                ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerWeek($filterParams['filter'], array('charttypes' => $filterParams['input_form']->chart_type)): array()),
-                'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerWeek($filterParams['filter']): array()),
+                ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerWeek($filterParams['filter'], ['charttypes' => $filterParams['input_form']->chart_type]): []),
+                'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerWeek($filterParams['filter']): []),
 
-                'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateWeek($filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field)) : array()),
-                'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNickWeek($filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field)) : array()),
+                'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateWeek($filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field]) : []),
+                'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNickWeek($filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field]) : []),
 
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-            );
+            ];
         } elseif ($filterParams['input_form']->groupby == 3) {
-            $activeStats = array(
-                'by_channel' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('by_channel',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::byChannel($filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'groupby' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field)) : array()),
+            $activeStats = [
+                'by_channel' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('by_channel',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::byChannel($filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'groupby' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field]) : []),
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
@@ -582,17 +585,17 @@ if ($tab == 'active') {
                         in_array('msgdelop',$filterParams['input_form']->chart_type) ||
                         in_array('msgdelbot',$filterParams['input_form']->chart_type)
                     )
-                ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerWeekDay($filterParams['filter'], array('charttypes' => $filterParams['input_form']->chart_type)): array()),
-                'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerWeekDay($filterParams['filter']): array()),
+                ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerWeekDay($filterParams['filter'], ['charttypes' => $filterParams['input_form']->chart_type]): []),
+                'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTimePerWeekDay($filterParams['filter']): []),
 
-                'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateWeekDay($filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field)) : array()),
-                'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNickWeekDay($filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field)) : array()),
+                'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateWeekDay($filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field]) : []),
+                'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNickWeekDay($filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field]) : []),
 
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-            );
+            ];
         } else {
-            $activeStats = array(
-                'by_channel' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('by_channel',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::byChannel($filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'groupby' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field)) : array()),
+            $activeStats = [
+                'by_channel' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('by_channel',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::byChannel($filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'groupby' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field]) : []),
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
@@ -603,14 +606,14 @@ if ($tab == 'active') {
                         in_array('msgdelop',$filterParams['input_form']->chart_type) ||
                         in_array('msgdelbot',$filterParams['input_form']->chart_type)
                     )
-                ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter'], array('charttypes' => $filterParams['input_form']->chart_type)) : array()),
-                'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']) : array()),
+                ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter'], ['charttypes' => $filterParams['input_form']->chart_type]) : []),
+                'numberOfChatsPerWaitTimeMonth' => ((is_array($filterParams['input_form']->chart_type) && in_array('waitmonth',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getNumberOfChatsWaitTime($filterParams['filter']) : []),
 
-                'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDate(30,$filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field)) : array()),
-                'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNick(30,$filterParams['filter'], array('group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field)) : array()),
+                'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDate(30,$filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field]) : []),
+                'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNick(30,$filterParams['filter'], ['group_limit' => $filterParams['input']->group_limit, 'group_field' => $filterParams['input']->group_field]) : []),
 
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-            );
+            ];
         }
 
         if (isset($_GET['reportType']) && $_GET['reportType'] != 'live') {
@@ -624,15 +627,15 @@ if ($tab == 'active') {
 } else if ($tab == 'last24') {
     
     if (isset($_GET['doSearch'])) {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'last24statistic','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'last24statistic','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']]);
     } else {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'last24statistic','format_filter' => true, 'uparams' => array()));
+        $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'last24statistic','format_filter' => true, 'uparams' => []]);
     }
 
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
     
     if (empty($filterParams['filter'])) {
-        $filter24 = array('filtergte' => array('time' => (time()-(24*3600))));
+        $filter24 = ['filtergte' => ['time' => (time()-(24*3600))]];
     } else {
         $filter24 = $filterParams['filter'];
     }
@@ -643,7 +646,7 @@ if ($tab == 'active') {
         if (isset($filter24['filterin']['lh_chat.dep_id'])) {
             $filter24['filterin']['lh_chat.dep_id'] = array_values(array_intersect($filter24['filterin']['lh_chat.dep_id'],$departmentFilter['filterin']['id']));
             if (empty($filter24['filterin']['lh_chat.dep_id'])) {
-                $filter24['filterin']['lh_chat.dep_id'] = array(-1);
+                $filter24['filterin']['lh_chat.dep_id'] = [-1];
             }
         } else {
             $filter24['filterin']['lh_chat.dep_id'] = array_values($departmentFilter['filterin']['id']);
@@ -673,9 +676,9 @@ if ($tab == 'active') {
 } else if ($tab == 'agentstatistic') {
 
     if (isset($_GET['doSearch'])) {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'agent_statistic','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'agent_statistic','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']]);
     } else {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'agent_statistic','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'agent_statistic','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']]);
     }
 
     $userFilterDefault = erLhcoreClassGroupUser::getConditionalUserFilter();
@@ -700,7 +703,7 @@ if ($tab == 'active') {
     if (isset($_GET['doSearch'])) {
         $agentStatistic = erLhcoreClassChatStatistic::getAgentStatistic(30, $filterParams['filter'], $filterParams['input']);
     } else {
-        $agentStatistic = array();
+        $agentStatistic = [];
     }
 
     $tpl->set('input',$filterParams['input_form']);
@@ -711,9 +714,9 @@ if ($tab == 'active') {
 } else if ($tab == 'performance') {
 
     if (isset($_GET['doSearch'])) {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat', 'module_file' => 'performance_statistic', 'format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat', 'module_file' => 'performance_statistic', 'format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']]);
     } else {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat', 'module_file' => 'performance_statistic', 'format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat', 'module_file' => 'performance_statistic', 'format_filter' => true, 'uparams' => $Params['user_parameters_unordered']]);
     }
 
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
@@ -731,7 +734,7 @@ if ($tab == 'active') {
     if (isset($_GET['doSearch'])) {
         $performanceStatistic = erLhcoreClassChatStatistic::getPerformanceStatistic(30, $filterParams['filter'], $filterParams);
     } else {
-        $performanceStatistic = array();
+        $performanceStatistic = [];
     }
 
     $tpl->set('input', $filterParams['input_form']);
@@ -740,9 +743,9 @@ if ($tab == 'active') {
 } else if ($tab == 'departments') {
 
     if (isset($_GET['doSearch'])) {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'departments_statistic','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'departments_statistic','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']]);
     } else {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'departments_statistic','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'departments_statistic','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']]);
     }
 
     erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lh_departament_availability');
@@ -758,7 +761,7 @@ if ($tab == 'active') {
     if (isset($_GET['doSearch']) || $Params['user_parameters_unordered']['xls'] == 1) {
         $departmentstats = erLhcoreClassChatStatistic::getDepartmentsStatistic(30, $filterParams['filter'], $filterParams);
     } else {
-        $departmentstats = array();
+        $departmentstats = [];
     }
 
     if ($Params['user_parameters_unordered']['xls'] == 1) {
@@ -777,11 +780,11 @@ if ($tab == 'active') {
     $statisticOptions = erLhcoreClassModelChatConfig::fetch('statistic_options');
     $configuration = (array)$statisticOptions->data;
     if (!isset($configuration['statistic'])) {
-        $configuration['statistic'] = array();
+        $configuration['statistic'] = [];
     }
 
     if (!isset($configuration['chat_statistic'])) {
-        $configuration['chat_statistic'] = array();
+        $configuration['chat_statistic'] = [];
     }
 
     if (!isset($configuration['work_hours_starts'])) {
@@ -799,7 +802,7 @@ if ($tab == 'active') {
             exit;
         }
 
-        $definition = array(
+        $definition = [
             'chart_type' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL,  'string', null,FILTER_REQUIRE_ARRAY
             ),
@@ -810,21 +813,21 @@ if ($tab == 'active') {
                 ezcInputFormDefinitionElement::OPTIONAL,  'string',null,FILTER_REQUIRE_ARRAY
             ),
             'work_hours_starts' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL,  'int', array('min_range' => 0, 'max_range' => 23)
+                ezcInputFormDefinitionElement::OPTIONAL,  'int', ['min_range' => 0, 'max_range' => 23]
             ),
             'work_hours_ends' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL,  'int', array('min_range' => 0, 'max_range' => 23)
+                ezcInputFormDefinitionElement::OPTIONAL,  'int', ['min_range' => 0, 'max_range' => 23]
             ),
             'avg_wait_time' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL,  'int', array('min_range' => 5*60, 'max_range' => 4*7*24*3600)
+                ezcInputFormDefinitionElement::OPTIONAL,  'int', ['min_range' => 5*60, 'max_range' => 4*7*24*3600]
             ),
             'avg_chat_duration' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL,  'int', array('min_range' => 5*60, 'max_range' => 4*7*24*3600)
+                ezcInputFormDefinitionElement::OPTIONAL,  'int', ['min_range' => 5*60, 'max_range' => 4*7*24*3600]
             )
-        );
+        ];
 
         $form = new ezcInputForm( INPUT_POST, $definition );
-        $Errors = array();
+        $Errors = [];
 
         if ($form->hasValidData('chart_type')) {
             $configuration['statistic'] = $form->chart_type;
@@ -879,11 +882,11 @@ if ($tab == 'active') {
 } else if ($tab == 'visitors') {
 
     if (isset($_GET['doSearch'])) {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'visitorsstatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'visitorsstatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']]);
     } else {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'visitorsstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+        $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'visitorsstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']]);
         $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
-        $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : array();
+        $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : [];
     }
 
     erLhcoreClassChatStatistic::formatUserFilter($filterParams,'lh_chat_online_user');
@@ -899,30 +902,29 @@ if ($tab == 'active') {
 
     if (isset($_GET['doSearch'])) {
 
-        $visitors_statistic = erLhcoreClassChatStatistic::getVisitorsStatistic($filterParams['filter'], array('groupby' => $filterParams['input_form']->groupby,'charttypes' => $filterParams['input_form']->chart_type));
+        $visitors_statistic = erLhcoreClassChatStatistic::getVisitorsStatistic($filterParams['filter'], ['groupby' => $filterParams['input_form']->groupby,'charttypes' => $filterParams['input_form']->chart_type]);
 
         if (isset($_GET['reportType']) && $_GET['reportType'] != 'live') {
             erLhcoreClassChatStatistic::exportCSV($visitors_statistic, $_GET['reportType']);
             exit;
         }
 
-        $tpl->setArray(array(
+        $tpl->setArray([
             'visitors_statistic' => $visitors_statistic,
             'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-        ));
+        ]);
     }
 } else {
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_tab', array(
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.process_tab', [
         'tpl' => & $tpl,
         'params' => $Params
-    ));
+    ]);
 }
 
 $tpl->set('tab',$tab);
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Statistic')));
-$Result['additional_header_js'] = '<script type="text/javascript" src="'.erLhcoreClassDesign::design('js/Chart.bundle.min.js').'"></script>';
+$Result['path'] = [['title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic', 'Statistic')]];
+$Result['additional_header_js'] = '<script type="text/javascript" src="' . erLhcoreClassDesign::design('js/Chart.bundle.min.js') . '"></script>';
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.statistic_path',array('result' => & $Result));
-?>
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.statistic_path',['result' => & $Result]);

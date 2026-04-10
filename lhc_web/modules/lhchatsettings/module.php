@@ -1,79 +1,66 @@
 <?php
 
-$Module = array( "name" => "Chat settings",
-				 'variable_params' => true );
+$Module = ['name' => 'Chat settings', 'variable_params' => true];
 
-$ViewList = array();
+$ViewList = [
+    'startsettingslist' => [
+        'params' => [],
+        'functions' => ['administrate'],
+    ],
+    'newstartsettings' => [
+        'params' => [],
+        'functions' => ['administrate'],
+    ],
+    'copyfrom' => [
+        'params' => ['from'],
+        'uparams' => ['csfr'],
+        'functions' => ['administrate'],
+    ],
+    'editstartsettings' => [
+        'params' => ['id'],
+        'functions' => ['administrate'],
+    ],
+    'deletestartsettings' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['administrate'],
+    ],
+    'startchatformsettings' => [
+        'params' => [],
+        'functions' => ['administrate'],
+    ],
+    'startchatformsettingsindex' => [
+        'params' => [],
+        'functions' => ['administrate'],
+    ],
+    'testencryption' => [
+        'params' => [],
+        'functions' => ['administrate'],
+    ],
+    'editeventsettings' => [
+        'params' => ['id'],
+        'functions' => ['events'],
+    ],
+    'eventlist' => [
+        'params' => [],
+        'functions' => ['events'],
+    ],
+    'neweventsettings' => [
+        'params' => [],
+        'functions' => ['events'],
+    ],
+    'eventindex' => [
+        'params' => [],
+        'functions' => ['events'],
+    ],
+    'deleteevent' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['administrate'],
+    ],
+];
 
-$ViewList['startsettingslist'] = array(
-    'params' => array(),
-    'functions' => array( 'administrate' )
-);
-
-$ViewList['newstartsettings'] = array(
-    'params' => array(),
-    'functions' => array( 'administrate' )
-);
-
-$ViewList['copyfrom'] = array(
-    'params' => array('from'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'administrate' )
-);
-
-$ViewList['editstartsettings'] = array(
-    'params' => array('id'),
-    'functions' => array( 'administrate' )
-);
-
-$ViewList['deletestartsettings'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'administrate' )
-);
-
-$ViewList['startchatformsettings'] = array(
-    'params' => array(),
-    'functions' => array( 'administrate' )
-);
-
-$ViewList['startchatformsettingsindex'] = array(
-    'params' => array(),
-    'functions' => array( 'administrate' )
-);
-
-$ViewList['testencryption'] = array(
-    'params' => array(),
-    'functions' => array( 'administrate' )
-);
-
-$ViewList['editeventsettings'] = array(
-    'params' => array('id'),
-    'functions' => array( 'events' )
-);
-
-$ViewList['eventlist'] = array(
-    'params' => array(),
-    'functions' => array( 'events' )
-);
-
-$ViewList['neweventsettings'] = array(
-    'params' => array(),
-    'functions' => array( 'events' )
-);
-
-$ViewList['eventindex'] = array(
-    'params' => array(),
-    'functions' => array( 'events' )
-);
-
-$ViewList['deleteevent'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'administrate' )
-);
-
-$FunctionList['administrate'] = array('explain' => 'Allow to configure chat start form');
-$FunctionList['events'] = array('explain' => 'Allow to configure events tracking');
-
-?>
+$FunctionList = [
+    'administrate' => ['explain' => 'Allow to configure chat start form'],
+    'events' => ['explain' => 'Allow to configure events tracking'],
+];

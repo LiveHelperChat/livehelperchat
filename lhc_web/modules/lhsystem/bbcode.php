@@ -20,14 +20,14 @@ if ( isset($_POST['StoreOptions']) ) {
         exit;
     }
 
-    $definition = array(
+    $definition = [
         'enabled_visitor' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'string', null,FILTER_REQUIRE_ARRAY),
         'enabled_operator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'string', null,FILTER_REQUIRE_ARRAY),
         'url_whitelist' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'),
-    );
+    ];
 
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
 
     if ($form->hasValidData('enabled_visitor')) {
         $data['div'] = $form->enabled_visitor;
@@ -63,14 +63,12 @@ if ( isset($_POST['StoreOptions']) ) {
 $tpl->set('bbcode_options',$data);
 $Result['content'] = $tpl->fetch();
 
-$Result['path'] = array(
-    array(
+$Result['path'] = [
+    [
         'url' => erLhcoreClassDesign::baseurl('system/configuration'),
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/settings', 'System configuration')
-    ),
-    array(
+    ],
+    [
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'BBCode configuration')
-    )
-);
-
-?>
+    ]
+];

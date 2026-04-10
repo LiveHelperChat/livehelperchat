@@ -1,130 +1,112 @@
 <?php
 
-$Module = array( "name" => "System configuration");
+$Module = ['name' => 'System configuration'];
 
-$ViewList = array();
+$ViewList = [
+    'htmlcode' => [
+        'params' => [],
+        'functions' => ['generatejs'],
+    ],
+    'htmlcodebeta' => [
+        'params' => [],
+        'functions' => ['generatejs'],
+    ],
+    'embedcode' => [
+        'params' => [],
+        'functions' => ['generatejs'],
+    ],
+    'configuration' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'offlinesettings' => [
+        'params' => [],
+        'functions' => ['offlinesettings'],
+    ],
+    'usersactions' => [
+        'params' => [],
+        'functions' => ['usersactions'],
+    ],
+    'expirecache' => [
+        'params' => [],
+        'functions' => ['expirecache'],
+        'uparams' => ['csfr'],
+    ],
+    'smtp' => [
+        'params' => [],
+        'functions' => ['configuresmtp'],
+    ],
+    'recaptcha' => [
+        'params' => [],
+        'functions' => ['configurerecaptcha'],
+    ],
+    'timezone' => [
+        'params' => [],
+        'functions' => ['timezone'],
+    ],
+    'languages' => [
+        'params' => [],
+        'uparams' => ['updated', 'sa'],
+        'functions' => ['changelanguage'],
+    ],
+    'update' => [
+        'params' => [],
+        'uparams' => ['action', 'scope'],
+        'functions' => ['performupdate'],
+    ],
+    'ga' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['ga_configuration'],
+    ],
+    'transferconfiguration' => [
+        'params' => [],
+        'uparams' => ['action'],
+        'functions' => ['transferconfiguration'],
+    ],
+    'autodbupdate' => [
+        'params' => ['hash'],
+        'uparams' => [],
+    ],
+    'singlesetting' => [
+        'params' => ['identifier'],
+        'uparams' => [],
+        'functions' => ['singlesetting'],
+    ],
+    'bbcode' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['messagecontentprotection'],
+    ],
+    'notice' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['notice'],
+    ],
+    'confirmdialog' => [
+        'params' => [],
+        'uparams' => [],
+    ],
+];
 
-$ViewList['htmlcode'] = array(
-    'params' => array(),
-    'functions' => array( 'generatejs' )
-);
-
-$ViewList['htmlcodebeta'] = array(
-    'params' => array(),
-    'functions' => array( 'generatejs' )
-);
-
-$ViewList['embedcode'] = array(
-    'params' => array(),
-    'functions' => array( 'generatejs' )
-);
-
-$ViewList['configuration'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['offlinesettings'] = array(
-    'params' => array(),
-    'functions' => array( 'offlinesettings' )
-);
-
-$ViewList['usersactions'] = array(
-    'params' => array(),
-    'functions' => array( 'usersactions' )
-);
-
-$ViewList['expirecache'] = array(
-    'params' => array(),
-    'functions' => array( 'expirecache' ),
-    'uparams' => array('csfr')
-);
-
-$ViewList['smtp'] = array(
-    'params' => array(),
-    'functions' => array( 'configuresmtp' )
-);
-
-$ViewList['recaptcha'] = array(
-    'params' => array(),
-    'functions' => array( 'configurerecaptcha' )
-);
-
-$ViewList['timezone'] = array(
-    'params' => array(),
-    'functions' => array( 'timezone' )
-);
-
-$ViewList['languages'] = array(
-    'params' => array(),
-    'uparams' => array('updated','sa'),
-    'functions' => array( 'changelanguage' )
-);
-
-$ViewList['update'] = array(
-    'params' => array(),
-    'uparams' => array('action','scope'),
-    'functions' => array( 'performupdate' )
-);
-
-$ViewList['ga'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'ga_configuration' )
-);
-
-$ViewList['transferconfiguration'] = array(
-    'params' => array(),
-    'uparams' => array('action'),
-    'functions' => array( 'transferconfiguration' )
-);
-
-$ViewList['autodbupdate'] = array(
-    'params' => array('hash'),
-    'uparams' => array()
-);
-
-$ViewList['singlesetting'] = array(
-    'params' => array('identifier'),
-    'uparams' => array(),
-    'functions' => array( 'singlesetting' )
-);
-
-$ViewList['bbcode'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'messagecontentprotection' )
-);
-
-$ViewList['notice'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'notice' )
-);
-
-$ViewList['confirmdialog'] = array(
-    'params' => array(),
-    'uparams' => array()
-);
-
-$FunctionList['use'] = array('explain' => 'Allow user to see configuration links');
-$FunctionList['expirecache'] = array('explain' => 'Allow user to clear cache');
-$FunctionList['generatejs'] = array('explain' => 'Allow user to access HTML generation');
-$FunctionList['configuresmtp'] = array('explain' => 'Allow user to configure SMTP');
-$FunctionList['configurelanguages'] = array('explain' => 'Allow user to configure languages');
-$FunctionList['changelanguage'] = array('explain' => 'Allow user to change their languages');
-$FunctionList['timezone'] = array('explain' => 'Allow user to change global time zone');
-$FunctionList['performupdate'] = array('explain' => 'Allow user to update Live Helper Chat');
-$FunctionList['changetemplates'] = array('explain' => 'Allow user to change e-mail templates');
-$FunctionList['generate_js_tab'] = array('explain' => 'User can see embed code tab');
-$FunctionList['transferconfiguration'] = array('explain' => 'User can configure transfer options');
-$FunctionList['offlinesettings'] = array('explain' => 'Allow user to change offline settings');
-$FunctionList['configurerecaptcha'] = array('explain' => 'Allow user to configure recaptcha');
-$FunctionList['auditlog'] = array('explain' => 'Allow user to see audit log');
-$FunctionList['usersactions'] = array('explain' => 'Allow user to see operators real time chats statistic');
-$FunctionList['ga_configuration'] = array('explain' => 'Allow user to configure Events Tracking');
-$FunctionList['singlesetting'] = array('explain' => 'Allow user to change app settings');
-$FunctionList['messagecontentprotection'] = array('explain' => 'Allow user to configure message content protection');
-$FunctionList['notice'] = array('explain' => 'Allow operator to configure static notice message');
-
-?>
+$FunctionList = [
+    'use' => ['explain' => 'Allow user to see configuration links'],
+    'expirecache' => ['explain' => 'Allow user to clear cache'],
+    'generatejs' => ['explain' => 'Allow user to access HTML generation'],
+    'configuresmtp' => ['explain' => 'Allow user to configure SMTP'],
+    'configurelanguages' => ['explain' => 'Allow user to configure languages'],
+    'changelanguage' => ['explain' => 'Allow user to change their languages'],
+    'timezone' => ['explain' => 'Allow user to change global time zone'],
+    'performupdate' => ['explain' => 'Allow user to update Live Helper Chat'],
+    'changetemplates' => ['explain' => 'Allow user to change e-mail templates'],
+    'generate_js_tab' => ['explain' => 'User can see embed code tab'],
+    'transferconfiguration' => ['explain' => 'User can configure transfer options'],
+    'offlinesettings' => ['explain' => 'Allow user to change offline settings'],
+    'configurerecaptcha' => ['explain' => 'Allow user to configure recaptcha'],
+    'auditlog' => ['explain' => 'Allow user to see audit log'],
+    'usersactions' => ['explain' => 'Allow user to see operators real time chats statistic'],
+    'ga_configuration' => ['explain' => 'Allow user to configure Events Tracking'],
+    'singlesetting' => ['explain' => 'Allow user to change app settings'],
+    'messagecontentprotection' => ['explain' => 'Allow user to configure message content protection'],
+    'notice' => ['explain' => 'Allow operator to configure static notice message'],
+];
