@@ -14,9 +14,19 @@
 </div>
 
 <div class="form-group">
-    <label><?php echo $fields['identifier']['trans']; ?> <small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/contentchunk', 'Used as {chunk_implode__identifier__glue} in replaceable variables'); ?></small></label>
+    <label><?php echo $fields['identifier']['trans']; ?> </label>
     <?php echo erLhcoreClassAbstract::renderInput('identifier', $fields['identifier'], $object) ?>
 </div>
+
+<p class="text-muted fs12">
+    <ul>
+        <li><small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("abstract/contentchunk", "Used as {chunk_implode__identifier__glue<__prefix__,><suffix__,>} in Replaceable variables"); ?></small></li>
+        <li>E.g <small class="text-muted">{chunk_implode__function__,}</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("abstract/contentchunk", "Will implode all text chunks with identifier 'function' using ',' as glue."); ?></li>
+        <li>E.g <small class="text-muted">{chunk_implode__function__,__suffix__,}</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("abstract/contentchunk", "Will implode all text chunks with identifier 'function' using ',' as glue. Will append ',' if at least one element is found."); ?></li>
+        <li>E.g <small class="text-muted">{chunk_implode__function__,__prefix__,}</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("abstract/contentchunk", "Will implode all text chunks with identifier 'function' using ',' as glue. Will prepend ',' if at least one element is found."); ?></li>
+        <li>E.g <small class="text-muted">{chunk_implode__function__,__suffix__,__prefix__,}</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("abstract/contentchunk", "Will implode all text chunks with identifier 'function' using ',' as glue. Will prepend and append ',' if at least one element is found."); ?></li>
+    </ul>
+</p>
 
 <div class="form-group">
     <label><?php echo $fields['content']['trans']; ?></label>
