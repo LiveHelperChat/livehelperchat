@@ -1,0 +1,3 @@
+CREATE TABLE `lh_abstract_content_chunk` (`id` bigint(20) NOT NULL AUTO_INCREMENT, `name` varchar(250) NOT NULL, `in_active` tinyint(1) NOT NULL DEFAULT 0, `identifier` varchar(50) NOT NULL, `content` longtext NOT NULL, PRIMARY KEY (`id`), KEY `identifier` (`identifier`, `in_active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `lh_abstract_content_chunk_dep` (`id` bigint(20) NOT NULL AUTO_INCREMENT, `chunk_id` bigint(20) NOT NULL, `dep_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `chunk_id` (`chunk_id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+UPDATE `lh_chat_config` SET value = '351' WHERE `identifier` = 'version_updates' LIMIT 1;

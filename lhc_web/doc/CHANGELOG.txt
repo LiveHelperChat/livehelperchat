@@ -1,3 +1,20 @@
+4.84v
+
+1. Notable changes since 4.83v
+   - REST API and bot workflow: improved REST API trigger execution and request body handling with attachment support; added skipped-body debug preview; enhanced chat locking behavior for streaming and chunked responses while preserving typing indicators.
+   - Widget and UI: expanded widget theme customization options (including color controls), applied theme colors to offline form, improved message delivery indicator styling, fixed height adjustments and zoom/icon interaction issues, and added support for custom nick from admin themes.
+   - Notifications and operator workflow: added assignment notification preferences (assigned pending chats vs all pending chats), quick action for auto-assignment, and persistent disabling of mobile notifications.
+   - Chat filters and analytics: added participant filters to chat search, improved filters and restored pagination behavior, added participant-aware export enhancements, and introduced average chat duration by agent/participant.
+   - File validation and security hardening: expanded MIME type handling for common file types and strengthened uploaded file verification (including file preview upload flow).
+   - Translation and UX polish: improved translation error handling and transaction flow, added operator notice for active chat translation state, and updated translations across modules.
+   - Core/codebase maintenance: added new tables and schema updates, improved error/log reporting and timing diagnostics (render and DB connection timing), and modernized PHP code style in core files.
+
+2. Summary
+   - This release focuses on reliability and operator experience: stronger REST API/bot handling, better widget customization and messaging UX, richer notification controls, and improved chat search/export analytics.
+   - It also includes security-oriented file validation improvements, translation workflow refinements, and core maintenance updates for better observability and long-term stability.
+
+execute doc/update_db/update_351.sql for update
+
 4.83v
 
 1. Notable changes since 4.82v

@@ -1,7 +1,13 @@
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header pt-1 pb-1 ps-2 pe-2">
-            <h4 class="modal-title" id="myModalLabel">Usage Help</h4>
+            <h4 class="modal-title" id="myModalLabel">
+            <?php if (preg_match('/^[a-z0-9-]+/i', $context) &&($pathDynamic = erLhcoreClassDesign::designtpldynamic('lhgenericbot/helpattributes/' . $context . '_title.tpl.php')) && $pathDynamic !== null && $pathDynamic != 'design/defaulttheme/tpl/lhkernel/missing_template.tpl.php' ) : ?>
+                <?php include $pathDynamic;?>
+            <?php else : ?>
+                    Usage Help
+            <?php endif; ?>
+            </h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

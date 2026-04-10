@@ -361,7 +361,32 @@ class erLhcoreClassModelCannedMsgReplace
             }
         }
 
-        if (strpos($value,'{') !== false) {
+        if (strpos($value, '{chunk_implode__') !== false) {
+            preg_match_all('/\{chunk_implode__(.+?)__(.*?)(?:__suffix__(.*?))?(?:__prefix__(.*?))?\}/', $value, $chunkMatches, PREG_SET_ORDER);
+            foreach ($chunkMatches as $cm) {
+                $chunkIdentifier = $cm[1];
+                $chunkGlue = $cm[2];
+                $chunkSuffix = isset($cm[3]) ? $cm[3] : '';
+                $chunkPrefix = isset($cm[4]) ? $cm[4] : '';
+                $db = ezcDbInstance::get();
+                $stmt = $db->prepare(
+                    "SELECT c.`content` FROM `lh_abstract_content_chunk` c " .
+                    "INNER JOIN `lh_abstract_content_chunk_dep` d ON c.`id` = d.`chunk_id` " .
+                    "WHERE c.`identifier` = :identifier AND d.`dep_id` = :dep_id AND c.`in_active` = 0"
+                );
+                $stmt->bindValue(':identifier', $chunkIdentifier, PDO::PARAM_STR);
+                $stmt->bindValue(':dep_id', (int)$params['chat']->dep_id, PDO::PARAM_INT);
+                $stmt->execute();
+                $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                $imploded = implode($chunkGlue, $rows);
+                if (!empty($rows)) {
+                    $imploded = $chunkPrefix . $imploded . $chunkSuffix;
+                }
+                $value = str_replace($cm[0], $imploded, $value);
+            }
+        }
+
+        if (preg_match('/\{[a-zA-Z0-9_]/', $value)) {
             return erLhcoreClassGenericBotWorkflow::translateMessage($value, array('chat' => $params['chat'], 'args' => $params));
         } else {
             return $value;

@@ -16,7 +16,7 @@
                     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhgenericbot','use_cases')) : ?>
                         <button type="button" id="btn-use-cases" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Investigate places where this variable is used');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Use cases');?></button>
                     <?php endif; ?>
-                    <div id="output-test" class="ps-1 pt-1"></div>
+                    <code id="output-test" class="w-100 mt-1 ps-1 pt-1"></code>
                 <?php endif; ?>
             </div>
         </div>

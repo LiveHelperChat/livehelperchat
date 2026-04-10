@@ -1,0 +1,1 @@
+Average of first response time (agent)
