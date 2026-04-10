@@ -17,7 +17,9 @@ $ViewList = [
             'timefrom_seconds', 'timefrom_minutes',
             'timeto', 'timeto_minutes', 'timeto_seconds',
             'timeto_hours', 'action', 'csfr', 'include_archive',
+            'dep_id', 'object_identifier',
         ],
+        'multiple_arguments' => ['dep_id'],
     ],
     'downloadbinnary' => $default + [
         'params' => ['identifier', 'object_id'],
