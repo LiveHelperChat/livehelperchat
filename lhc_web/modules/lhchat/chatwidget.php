@@ -68,10 +68,10 @@ if ((string)$Params['user_parameters_unordered']['phash'] != '' && (string)$Para
         $modeAppendTheme .= '/(survey)/' . $Params['user_parameters_unordered']['survey'];
     };
 
-    $paidChatSettings = erLhcoreClassChatPaid::paidChatWorkflow(array(
+    $paidChatSettings = erLhcoreClassChatPaid::paidChatWorkflow([
         'uparams' => $Params['user_parameters_unordered'],
         'append_mode' => $modeAppend . $modeAppendTheme . $sound
-    ));
+    ]);
 
     if (isset($paidChatSettings['need_store']) && $paidChatSettings['need_store'] == true) {
         $modeAppendTheme .= '/(phash)/'.htmlspecialchars($Params['user_parameters_unordered']['phash']).'/(pvhash)/'.htmlspecialchars($Params['user_parameters_unordered']['pvhash']);
@@ -133,7 +133,7 @@ if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClas
         $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
         $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
 
-		$departments = erLhcoreClassModelDepartament::getList(array('filterin' => array('id' => $Params['user_parameters_unordered']['department'])));
+		$departments = erLhcoreClassModelDepartament::getList(['filterin' => ['id' => $Params['user_parameters_unordered']['department']]]);
 		
 		$disabledAll = true;
 		foreach ($departments as $department){
@@ -169,7 +169,7 @@ if (is_array($Params['user_parameters_unordered']['department']) && count($Param
     $inputData->departament_id = 0;
 }
 
-if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && ($startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("((`dep_ids` != '' AND JSON_CONTAINS(`dep_ids`,'" . (int)$inputData->departament_id . "','$')) OR department_id = " . (int)$inputData->departament_id . ")" )))) !== false) {
+if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && ($startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(['customfilter' => ["((`dep_ids` != '' AND JSON_CONTAINS(`dep_ids`,'" . (int)$inputData->departament_id . "','$')) OR department_id = " . (int)$inputData->departament_id . ")" ]])) !== false) {
 	$startDataFields = $startDataDepartment->data_array;
 } else {
 	// Start chat field options
@@ -178,7 +178,7 @@ if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && 
 }
 
 // Allow extension override start chat fields
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidget_data_field',array('data_fields' => & $startDataFields, 'params' => $Params));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidget_data_field', ['data_fields' => & $startDataFields, 'params' => $Params]);
 
 if (is_array($Params['user_parameters_unordered']['department'])) {
     $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
@@ -238,15 +238,15 @@ $inputData->question = isset($_GET['prefill']['question']) ? (string)$_GET['pref
 $inputData->email = isset($_GET['prefill']['email']) ? (string)$_GET['prefill']['email'] : $inputData->email;
 $inputData->phone = isset($_GET['prefill']['phone']) ? (string)$_GET['prefill']['phone'] : $inputData->phone;
 $inputData->validate_start_chat = false;
-$inputData->name_items = array();
-$inputData->value_items = array();
-$inputData->value_sizes = array();
-$inputData->value_types = array();
-$inputData->value_items_admin = array(); // These variables get's filled from start chat form settings
-$inputData->hattr = array();
-$inputData->jsvar = array();
-$inputData->encattr = array();
-$inputData->via_encrypted = array();
+$inputData->name_items = [];
+$inputData->value_items = [];
+$inputData->value_sizes = [];
+$inputData->value_types = [];
+$inputData->value_items_admin = []; // These variables get's filled from start chat form settings
+$inputData->hattr = [];
+$inputData->jsvar = [];
+$inputData->encattr = [];
+$inputData->via_encrypted = [];
 $inputData->ua = $Params['user_parameters_unordered']['ua'];
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
@@ -268,7 +268,7 @@ if ((string)$Params['user_parameters_unordered']['vid'] != '') {
 }
 
 // Reopen chat automatically if possible
-if ( erLhcoreClassModelChatConfig::fetch('automatically_reopen_chat')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($reopenData = erLhcoreClassChat::canReopenDirectly(array('reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value))) !== false ) {
+if ( erLhcoreClassModelChatConfig::fetch('automatically_reopen_chat')->current_value == 1 && erLhcoreClassModelChatConfig::fetch('reopen_chat_enabled')->current_value == 1 && ($reopenData = erLhcoreClassChat::canReopenDirectly(['reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value])) !== false ) {
     $sound = is_numeric($Params['user_parameters_unordered']['sound']) ? '/(sound)/'.$Params['user_parameters_unordered']['sound'] : '';
     erLhcoreClassModule::redirect('chat/reopen','/' . $reopenData['id'] . '/' . $reopenData['hash'] . '/(mode)/widget' . $modeAppendDisplay . $modeAppendTheme . $sound );
 	exit;
@@ -288,7 +288,7 @@ if ($inputData->departament_id > 0) {
 $leaveamessage = ((string)$Params['user_parameters_unordered']['leaveamessage'] == 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true)) ? true : false;
 
 $tpl->set('forceoffline',false);
-$additionalParams = array();
+$additionalParams = [];
 if ((string)$Params['user_parameters_unordered']['offline'] == 'true' && $leaveamessage == true) {
 	$additionalParams['offline'] = true;
 	$tpl->set('forceoffline',true);
@@ -304,7 +304,7 @@ if (isset($Result['theme'])) {
 
 if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
     // To track online users
-    $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('check_message_operator' => true, 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $Params['user_parameters_unordered']['vid']));
+    $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(['check_message_operator' => true, 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $Params['user_parameters_unordered']['vid']]);
 }
 
 if (empty($Errors) && isset($startDataFields['pre_conditions']) && !empty($startDataFields['pre_conditions'])) {
@@ -333,7 +333,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
         erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 &&
         ($chat->nick == 'Visitor' || empty($chat->nick)) && isset($inputData->vid) && !empty($inputData->vid) &&
         ($onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($inputData->vid)) instanceof erLhcoreClassModelChatOnlineUser && $onlineUser->nick &&
-        $onlineUser->has_nick && erLhcoreClassModelChatBlockedUser::isBlocked(array('ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $onlineUser->nick))
+        $onlineUser->has_nick && erLhcoreClassModelChatBlockedUser::isBlocked(['ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $onlineUser->nick])
     ) {
         $Errors['blocked_user'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.');
     }
@@ -342,7 +342,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
         $Errors['blocked_user'] = $outcome['message'];
     }
 
-	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started', array('chat' => & $chat, 'errors' => & $Errors, 'offline' => (isset($additionalParams['offline']) && $additionalParams['offline'] == true)));
+	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started', ['chat' => & $chat, 'errors' => & $Errors, 'offline' => (isset($additionalParams['offline']) && $additionalParams['offline'] == true)]);
 
    if (count($Errors) == 0 && !isset($_POST['switchLang']))
    {   	
@@ -359,34 +359,36 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
    		
    		if ((isset($additionalParams['offline']) && $additionalParams['offline'] == true) || $statusGeoAdjustment['status'] == 'offline') {
 
-   		    $attributePresend = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request_presend',array(
-   		        'input_data' => $inputData,
-   		        'chat' => $chat,
-   		        'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
+			$attributePresend = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request_presend', [
+				'input_data' => $inputData,
+				'chat' => $chat,
+				'prefill' => ['chatprefill' => isset($chatPrefill) ? $chatPrefill : false]
+			]);
 
    		    if (!isset($attributePresend['status']) || $attributePresend['status'] !== erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {   		    
-   			     erLhcoreClassChatMail::sendMailRequest($inputData, $chat, array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
+   			     erLhcoreClassChatMail::sendMailRequest($inputData, $chat, ['chatprefill' => isset($chatPrefill) ? $chatPrefill : false]);
    		    }
 
-   			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request',array(
-   			'input_data' => $inputData,
-   			'chat' => $chat,
-   			'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
+			erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request', [
+				'input_data' => $inputData,
+				'chat' => $chat,
+				'prefill' => ['chatprefill' => isset($chatPrefill) ? $chatPrefill : false]
+			]);
 
             try {
                 $db = ezcDbInstance::get();
                 $db->beginTransaction();
 
-                $requestSaved = erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'question' => $inputData->question, 'chatprefill' => (isset($chatPrefill) ? $chatPrefill : false)));
+                $requestSaved = erLhcoreClassChatValidator::saveOfflineRequest(['chat' => & $chat, 'question' => $inputData->question, 'chatprefill' => (isset($chatPrefill) ? $chatPrefill : false)]);
 
                 $db->commit();
 
                 // Remove out of transaction scope
                 // Same as start chat workflow
                 if ($requestSaved === true) {
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request_saved', array(
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request_saved', [
                         'chat' =>  & $chat
-                    ));
+                    ]);
                 }
 
             } catch (Exception $e) {
@@ -420,7 +422,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	       // Assign chat to user
     	       if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
     	            // To track online users
-    	            $userInstance = isset($userInstance) ? $userInstance : erLhcoreClassModelChatOnlineUser::handleRequest(array('check_message_operator' => true, 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $Params['user_parameters_unordered']['vid']));
+    	            $userInstance = isset($userInstance) ? $userInstance : erLhcoreClassModelChatOnlineUser::handleRequest(['check_message_operator' => true, 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'vid' => $Params['user_parameters_unordered']['vid']]);
     
     	            if ($userInstance !== false) {
     	                $userInstance->chat_id = $chat->id;
@@ -456,7 +458,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     
     	       $messageInitial = false;
 
-               $paramsExecution = array();
+               $paramsExecution = [];
                
     	       // Store message if required
     	       if (isset($startDataFields['message_visible_in_page_widget']) && $startDataFields['message_visible_in_page_widget'] == true) {
@@ -473,7 +475,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	               	               
     	               $chat->unanswered_chat = 1;
     	               $chat->last_msg_id = $msg->id;
-    	               $chat->updateThis(array('update' => array('unanswered_chat','last_msg_id')));
+    	               $chat->updateThis(['update' => ['unanswered_chat','last_msg_id']]);
     	           }
     	       }
 
@@ -492,8 +494,8 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
         	       $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
         
         	       if ($responder instanceof erLhAbstractModelAutoResponder) {
-    				   $beforeAutoResponderErrors = array();
-    				   erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered',array('chat' => & $chat, 'errors' => & $beforeAutoResponderErrors));
+    				   $beforeAutoResponderErrors = [];
+    				   erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered', ['chat' => & $chat, 'errors' => & $beforeAutoResponderErrors]);
     
     				   if (empty($beforeAutoResponderErrors)) {
     				       
@@ -505,15 +507,15 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     				       
     				       $chat->auto_responder_id = $responderChat->id;
 
-                           erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_message',array('chat' => & $chat, 'responder' => & $responder));
+                           erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_message', ['chat' => & $chat, 'responder' => & $responder]);
 
                            if ($chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT) {
                                $messageText = '';
 
-                               if ($responder->offline_message != '' && !erLhcoreClassChat::isOnline($chat->dep_id, false, array(
+                               if ($responder->offline_message != '' && !erLhcoreClassChat::isOnline($chat->dep_id, false, [
                                        'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
                                        'ignore_user_status' => false
-                                   ))) {
+                                   ])) {
                                    $messageText = $responder->offline_message;
                                } else {
                                    $messageText = $responder->wait_message;
@@ -537,7 +539,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     
     					   $chat->saveThis();
     
-    					   erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered', array('chat' => & $chat));
+    					   erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered', ['chat' => & $chat]);
     				   } else {
     					   $msg = new erLhcoreClassModelmsg();
     					   $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Auto responder got error').': '.implode('; ', $beforeAutoResponderErrors);
@@ -561,15 +563,15 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 
     	       // Paid chat settings
                if (isset($paidChatSettings)) {
-                   erLhcoreClassChatPaid::processPaidChatWorkflow(array(
+                   erLhcoreClassChatPaid::processPaidChatWorkflow([
                        'chat' => $chat,
                        'paid_chat_params' => $paidChatSettings,
-                   ));
+                   ]);
                }
 
     	       $db->commit();
 
-    	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started',array('chat' => & $chat, 'msg' => $messageInitial));
+    	       erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', ['chat' => & $chat, 'msg' => $messageInitial]);
         	       	       
 	       } catch (Exception $e) {
 	          $db->rollback();
@@ -582,7 +584,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 	       
            if ($Params['user_parameters_unordered']['ajaxmode'] == 'true') {
                header ( 'content-type: application/json; charset=utf-8' );
-               echo json_encode(array('location' => erLhcoreClassDesign::baseurl('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme . '/(cstarted)/online_chat_started_cb'));
+               echo json_encode(['location' => erLhcoreClassDesign::baseurl('chat/chatwidgetchat') . '/' . $chat->id . '/' . $chat->hash . $modeAppend . $modeAppendTheme . '/(cstarted)/online_chat_started_cb']);
                exit;
            } else {
                // Redirect user
@@ -603,7 +605,7 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 
 $tpl->set('start_data_fields',$startDataFields);
 
-$definition = array(
+$definition = [
 		'name'  => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',
 				null,
@@ -664,7 +666,7 @@ $definition = array(
             null,
             FILTER_REQUIRE_ARRAY
         ),
-);
+];
 
 $form = new ezcInputForm( INPUT_GET, $definition );
 
@@ -757,7 +759,7 @@ if (isset($Params['user_parameters_unordered']['survey']) && is_numeric($Params[
 
 if (!isset($additionalParams['offline'])) {
     // Auto start chat
-    $autoStartResult = erLhcoreClassChatValidator::validateAutoStart(array(
+    $autoStartResult = erLhcoreClassChatValidator::validateAutoStart([
         'params' => $Params,
         'inputData' => $inputData,
         'chat' => $chat,
@@ -765,7 +767,7 @@ if (!isset($additionalParams['offline'])) {
         'modeAppend' => $modeAppend,
         'modeAppendTheme' => $modeAppendTheme,
         'bot_id' => $inputData->bot_id
-    ));
+    ]);
 
     if ($autoStartResult !== false) {
         $Result = $autoStartResult;
@@ -774,7 +776,7 @@ if (!isset($additionalParams['offline'])) {
 }
 
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidget',array('result' => & $Result, 'tpl' => & $tpl, 'params' => & $Params, 'inputData' => & $inputData));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidget',['result' => & $Result, 'tpl' => & $tpl, 'params' => & $Params, 'inputData' => & $inputData]);
 
 if (isset($Params['user_parameters_unordered']['sdemo']) && (int)$Params['user_parameters_unordered']['sdemo'] == 'true') {
     $tpl->set('show_demo',true);
@@ -795,7 +797,7 @@ $Result['dynamic_height'] = true;
 $Result['dynamic_height_message'] = 'lhc_sizing_chat';
 $Result['pagelayout_css_append'] = 'widget-chat';
 
-$chatInitData = array();
+$chatInitData = [];
 
 if (isset($inputData->vid) && !empty($inputData->vid)) {
     $chatInitData['vid'] = $inputData->vid;
@@ -821,6 +823,3 @@ if ($embedMode == true) {
 	$Result['dynamic_height_message'] = 'lhc_sizing_chat_page';
 	$Result['pagelayout_css_append'] = 'embed-widget';
 }
-
-
-?>
