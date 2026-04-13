@@ -626,13 +626,13 @@ if (!isset($restAPI)) {
             fastcgi_finish_request();
         }
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array('chat' => & $chat, 'msg' => $messageInitial));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array('request_payload' => $requestPayload, 'chat' => & $chat, 'msg' => $messageInitial));
     }
 
     exit;
 } else {
     if ($validStart === true) {
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array('chat' => & $chat, 'msg' => $messageInitial));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array('request_payload' => $requestPayload, 'chat' => & $chat, 'msg' => $messageInitial));
     }
 }
 
