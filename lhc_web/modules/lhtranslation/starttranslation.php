@@ -24,7 +24,16 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
             unset($chatVariablesArray['lhc_live_trans']);
             $chat->chat_variables_array = $chatVariablesArray;
             $chat->chat_variables = json_encode($chatVariablesArray);
-            $chat->updateThis(['update' => ['chat_variables']]);
+            
+            $msgStop = new erLhcoreClassModelmsg();
+            $msgStop->chat_id = $chat->id;
+            $msgStop->user_id = -1;
+            $msgStop->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Automatic translation stopped');
+            $msgStop->time = time();
+            $msgStop->saveThis();
+
+            $chat->last_msg_id = $msgStop->id;
+            $chat->updateThis(['update' => ['chat_variables','last_msg_id']]);
         }
 
         try {
@@ -41,7 +50,17 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
                 $chatVariablesArray['lhc_live_trans'] = true;
                 $chat->chat_variables_array = $chatVariablesArray;
                 $chat->chat_variables = json_encode($chatVariablesArray);
-                $chat->updateThis(['update' => ['chat_variables']]);
+                
+                $msgStart = new erLhcoreClassModelmsg();
+                $msgStart->chat_id = $chat->id;
+                $msgStart->user_id = -1;
+                $msgStart->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Automatic translation started') . ' [' . $chat->chat_locale . '] => [' . $chat->chat_locale_to . ']';
+                $msgStart->time = time();
+                $msgStart->saveThis();
+
+                $chat->last_msg_id = $msgStart->id;
+                $chat->updateThis(['update' => ['chat_variables','last_msg_id']]);
+
             }
 
             echo json_encode($data);
