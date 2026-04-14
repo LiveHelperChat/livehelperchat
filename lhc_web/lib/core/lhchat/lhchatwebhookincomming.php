@@ -97,12 +97,16 @@ class erLhcoreClassChatWebhookIncoming {
                     $chatIdExternal = $chatIdExternal . '__' . $chatIdExternal2;
                 }
 
-                $eChat = erLhcoreClassModelChatIncoming::findOne(array(
-                    'filter' => array(
-                        'chat_external_id' => $chatIdExternal,
-                        'incoming_id' => $incomingWebhook->id
-                    )
-                ));
+                if ($chatIdExternal != '') {
+                    $eChat = erLhcoreClassModelChatIncoming::findOne(array(
+                        'filter' => array(
+                            'chat_external_id' => $chatIdExternal,
+                            'incoming_id' => $incomingWebhook->id
+                        )
+                    ));
+                } else {
+                    $eChat = false;
+                }
 
                 $statusMap = [
                     'sent' => erLhcoreClassModelmsg::STATUS_SENT,
@@ -141,7 +145,7 @@ class erLhcoreClassChatWebhookIncoming {
                     }
                 }
 
-                if (is_object($msgReplyTo) && isset($chat) && is_object($chat) && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+                if (isset($msgReplyTo) && is_object($msgReplyTo) && isset($chat) && is_object($chat) && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
                     if (key_exists($mainConditionStatus,$statusMap) && $msgReplyTo->del_st != erLhcoreClassModelmsg::STATUS_READ) {
                         $msgReplyTo->del_st = max($statusMap[$mainConditionStatus],$msgReplyTo->del_st);
                         $msgReplyTo->updateThis(['update' => ['del_st']]);

@@ -936,6 +936,11 @@
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_sent_chat_id_2" value="" />
                 </div>
             </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_sent_use_msg_id" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Try to find chat by message id if we chat was not found by id');?></label>
+                </div>
+            </div>
         </div>
 
         <h5>Delivered</h5>
@@ -964,6 +969,11 @@
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_delivered_chat_id_2" value="" />
                 </div>
             </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_delivered_use_msg_id" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Try to find chat by message id if we chat was not found by id');?></label>
+                </div>
+            </div>
         </div>
 
         <h5>Deleted</h5>
@@ -990,6 +1000,11 @@
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID 2 field location');?></label>
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_deleted_chat_id_2" value="" />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_deleted_use_msg_id" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Try to find chat by message id if we chat was not found by id');?></label>
                 </div>
             </div>
         </div>
@@ -1026,6 +1041,11 @@
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_read_chat_id_2" value="" />
                 </div>
             </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_read_use_msg_id" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Try to find chat by message id if we chat was not found by id');?></label>
+                </div>
+            </div>
         </div>
 
         <h5>Rejected</h5>
@@ -1052,6 +1072,11 @@
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID 2 field location');?></label>
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_rejected_chat_id_2" value="" />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_rejected_use_msg_id" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Try to find chat by message id if we chat was not found by id');?></label>
                 </div>
             </div>
         </div>
@@ -1087,6 +1112,11 @@
                 <div class="form-group">
                     <label>Text message new content location</label>
                     <input type="text" class="form-control form-control-sm ng-pristine ng-valid ng-not-empty ng-touched" ng-model="webhookincomingsctl.conditions.msg_delivery_edited_location" value="">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_edited_use_msg_id" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Try to find chat by message id if we chat was not found by id');?></label>
                 </div>
             </div>
         </div>
