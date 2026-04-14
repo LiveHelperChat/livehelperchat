@@ -1147,6 +1147,11 @@ class erLhcoreClassTranslate
 
             // Remove old Translation
             $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
+
+            // Skip translation if message contains only [img] tags
+            if (trim(preg_replace('#\[img[^\]]*\].*?\[/img\]#is', '', $msg->msg)) === '') {
+                return;
+            }
             
             $translation = self::translateTo($msg->msg, $chat->chat_locale_to, $chat->chat_locale);
             
@@ -1196,6 +1201,11 @@ class erLhcoreClassTranslate
 
             // Remove old Translation
             $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
+
+            // Skip translation if message contains only [img] tags
+            if (trim(preg_replace('#\[img[^\]]*\].*?\[/img\]#is', '', $msg->msg)) === '') {
+                return;
+            }
             
             $translation = self::translateTo($msg->msg, $chat->chat_locale, $chat->chat_locale_to);
             

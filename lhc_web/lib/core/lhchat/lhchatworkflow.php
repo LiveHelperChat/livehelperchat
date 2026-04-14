@@ -18,7 +18,14 @@ class erLhcoreClassChatWorkflow {
             $msg->user_id = -2;
             $msg->time = time();
             $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
-            
+
+            if ($chat->chat_locale != '' && $chat->chat_locale_to != '' &&
+                isset($chat->chat_variables_array['lhc_live_trans']) &&
+                $chat->chat_variables_array['lhc_live_trans'] === true
+            ) {
+                erLhcoreClassTranslate::translateChatMsgOperator($chat, $msg);
+            }
+
             \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat));
 
             $msg->saveThis();

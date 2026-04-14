@@ -51,6 +51,13 @@ class erLhAbstractModelAutoResponderChat
 
                 \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => $this->chat));
 
+                if ($this->chat->chat_locale != '' && $this->chat->chat_locale_to != '' &&
+                    isset($this->chat->chat_variables_array['lhc_live_trans']) &&
+                    $this->chat->chat_variables_array['lhc_live_trans'] === true
+                ) {
+                    erLhcoreClassTranslate::translateChatMsgOperator($this->chat, $msg);
+                }
+
                 $msg->saveThis();
                 $this->chat->last_msg_id = $msg->id;
                 $this->chat->updateThis(array('update' => array('last_msg_id')));
@@ -157,6 +164,13 @@ class erLhAbstractModelAutoResponderChat
                                     $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
 
                                     \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
+
+                                    if ($this->chat->chat_locale != '' && $this->chat->chat_locale_to != '' &&
+                                        isset($this->chat->chat_variables_array['lhc_live_trans']) &&
+                                        $this->chat->chat_variables_array['lhc_live_trans'] === true
+                                    ) {
+                                        erLhcoreClassTranslate::translateChatMsgOperator($this->chat, $msg);
+                                    }
 
                                     $msg->saveThis();
 
@@ -295,6 +309,13 @@ class erLhAbstractModelAutoResponderChat
 
                                     \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
 
+                                    if ($this->chat->chat_locale != '' && $this->chat->chat_locale_to != '' &&
+                                        isset($this->chat->chat_variables_array['lhc_live_trans']) &&
+                                        $this->chat->chat_variables_array['lhc_live_trans'] === true
+                                    ) {
+                                        erLhcoreClassTranslate::translateChatMsgOperator($this->chat, $msg);
+                                    }
+
                                     $msg->saveThis();
                                     $this->chat->last_msg_id = $msg->id;
                                     $this->chat->updateThis(array('update' => array('last_msg_id')));
@@ -342,6 +363,13 @@ class erLhAbstractModelAutoResponderChat
                                     $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
 
                                     \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
+
+                                    if ($this->chat->chat_locale != '' && $this->chat->chat_locale_to != '' &&
+                                        isset($this->chat->chat_variables_array['lhc_live_trans']) &&
+                                        $this->chat->chat_variables_array['lhc_live_trans'] === true
+                                    ) {
+                                        erLhcoreClassTranslate::translateChatMsgOperator($this->chat, $msg);
+                                    }
 
                                     $msg->saveThis();
                                     $this->chat->last_msg_id = $msg->id;
@@ -393,6 +421,13 @@ class erLhAbstractModelAutoResponderChat
                                 $msg->meta_msg = json_encode(['content' => ['auto_responder' => true]]);
                                 
                                 \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $this->chat));
+
+                                if ($this->chat->chat_locale != '' && $this->chat->chat_locale_to != '' &&
+                                    isset($this->chat->chat_variables_array['lhc_live_trans']) &&
+                                    $this->chat->chat_variables_array['lhc_live_trans'] === true
+                                ) {
+                                    erLhcoreClassTranslate::translateChatMsgOperator($this->chat, $msg);
+                                }
 
                                 $msg->saveThis();
                                 $this->chat->last_msg_id = $msg->id;

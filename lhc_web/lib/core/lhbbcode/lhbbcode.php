@@ -1145,6 +1145,9 @@ class erLhcoreClassBBCode
            $replacer = '';
        }
 
+        // Remove [translation] blocks that contain only image(s) — they should not be split or rendered separately
+        $msg = preg_replace('#\[translation\]\s*(?:\[img[^\]]*\].*?\[/img\]\s*)+\[/translation\]#is', '', $msg);
+
         // Links wraps images
        $msg = preg_replace('#\[url\="?(.*?)"?\]\[file="?(.*?)_img"?\]\[\/url\]#is','[file=\2_img link=\1]',$msg);
 
