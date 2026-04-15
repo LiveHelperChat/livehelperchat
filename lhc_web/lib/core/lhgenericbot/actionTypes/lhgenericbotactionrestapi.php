@@ -2443,8 +2443,25 @@ class erLhcoreClassGenericBotActionRestapi
                     if (str_contains($foreachCycleParseTemplate,'{include_previous}') === true) {
                         $foreachCycleParseTemplate = str_replace('{include_previous}','',$foreachCycleParseTemplate);
                         if ($userData['chat']->online_user_id > 0) {
-                            $previousChatIds = erLhcoreClassModelChat::getList(['sort' => 'id DESC', 'limit' => 5, 'filter' => ['online_user_id' => $userData['chat']->online_user_id]]);
+                            $previousChatIds = erLhcoreClassModelChat::getList(['sort' => 'id DESC', 'limit' => 20, 'filter' => ['online_user_id' => $userData['chat']->online_user_id]]);
                             $chatIdFilter = array_merge($chatIdFilter, array_keys($previousChatIds));
+                        }
+                    } else if (str_contains($foreachCycleParseTemplate,'{include_previous_email}') === true) {
+                        $foreachCycleParseTemplate = str_replace('{include_previous_email}','',$foreachCycleParseTemplate);
+                        $previousChatIds = [];
+
+                        if ($userData['chat']->online_user_id > 0) {
+                            $previousChatsByOnlineUser = erLhcoreClassModelChat::getList(['sort' => 'id DESC', 'limit' => 20, 'filter' => ['online_user_id' => $userData['chat']->online_user_id]]);
+                            $previousChatIds = array_merge($previousChatIds, array_keys($previousChatsByOnlineUser));
+                        }
+
+                        if (trim($userData['chat']->email) != '') {
+                            $previousChatsByEmail = erLhcoreClassModelChat::getList(['sort' => 'id DESC', 'limit' => 20, 'filter' => ['email' => $userData['chat']->email]]);
+                            $previousChatIds = array_merge($previousChatIds, array_keys($previousChatsByEmail));
+                        }
+
+                        if (!empty($previousChatIds)) {
+                            $chatIdFilter = array_merge($chatIdFilter, array_unique($previousChatIds));
                         }
                     }
           
