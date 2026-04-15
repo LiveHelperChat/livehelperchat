@@ -2438,7 +2438,17 @@ class erLhcoreClassGenericBotActionRestapi
 
                     $foreachCycleParseTemplate = $matchesValues[3][$indexElement];
 
-                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => ((int)$matchesValues[1][$indexElement] + 1), 'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                    $chatIdFilter = [$userData['chat']->id];
+
+                    if (str_contains($foreachCycleParseTemplate,'{include_previous}') === true) {
+                        $foreachCycleParseTemplate = str_replace('{include_previous}','',$foreachCycleParseTemplate);
+                        if ($userData['chat']->online_user_id > 0) {
+                            $previousChatIds = erLhcoreClassModelChat::getList(['sort' => 'id DESC', 'limit' => 5, 'filter' => ['online_user_id' => $userData['chat']->online_user_id]]);
+                            $chatIdFilter = array_merge($chatIdFilter, array_keys($previousChatIds));
+                        }
+                    }
+          
+                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => ((int)$matchesValues[1][$indexElement] + 1), 'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $chatIdFilter))));
 
                     $totalElements = count($messages);
                     $userMessageStarted = $totalElements <= (int)$matchesValues[1][$indexElement];
