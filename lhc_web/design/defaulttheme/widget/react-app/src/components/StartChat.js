@@ -111,35 +111,37 @@ class StartChat extends Component {
         fields['user_timezone'] = helperFunctions.getTimeZone();
         fields['URLRefer'] = '';
 
-        try {
-            var iframeMode = window.parent.location !== window.parent.parent.location;
-            var popupMode = typeof window.lhcChat != 'undefined' && (window.lhcChat['mode'] == 'popup' || window.lhcChat['mode'] == 'embed') && (window.opener !== null || window.parent.opener !== null);
-
-            if (iframeMode) {
-                fields['URLRefer'] = parent.location.href.substring(parent.location.protocol.length);
-            } else {
-                var instWindow = null;
-                if (window.opener !== null) {
-                    instWindow = window.opener;
-                } else {
-                    instWindow = window.parent;
-                }
-                fields['URLRefer'] = instWindow.location.href.substring(instWindow.location.protocol.length);
-            }
-
-        } catch (e) {
+        if (!this.props.chatwidget.get('do_not_track_url')) {
             try {
-                fields['URLRefer'] = String(window.document.location);
+                var iframeMode = window.parent.location !== window.parent.parent.location;
+                var popupMode = typeof window.lhcChat != 'undefined' && (window.lhcChat['mode'] == 'popup' || window.lhcChat['mode'] == 'embed') && (window.opener !== null || window.parent.opener !== null);
+
+                if (iframeMode) {
+                    fields['URLRefer'] = parent.location.href.substring(parent.location.protocol.length);
+                } else {
+                    var instWindow = null;
+                    if (window.opener !== null) {
+                        instWindow = window.opener;
+                    } else {
+                        instWindow = window.parent;
+                    }
+                    fields['URLRefer'] = instWindow.location.href.substring(instWindow.location.protocol.length);
+                }
+
             } catch (e) {
-                // Do nothing
+                try {
+                    fields['URLRefer'] = String(window.document.location);
+                } catch (e) {
+                    // Do nothing
+                }
             }
-        }
 
-        if (fields['URLRefer'] == 'blank') {
-            fields['URLRefer'] = ''
-        }
+            if (fields['URLRefer'] == 'blank') {
+                fields['URLRefer'] = ''
+            }
 
-        fields['r'] = this.props.chatwidget.get('ses_ref');
+            fields['r'] = this.props.chatwidget.get('ses_ref');
+        }
 
         if (this.props.chatwidget.get('subject_id') != '') {
             fields['subject_id'] = this.props.chatwidget.get('subject_id');
@@ -419,8 +421,12 @@ class StartChat extends Component {
             fields['captcha_' + props.chatwidget.getIn(['captcha','hash'])] = props.chatwidget.getIn(['captcha','ts']);
             fields['tscaptcha'] = props.chatwidget.getIn(['captcha','ts']);
             fields['user_timezone'] = helperFunctions.getTimeZone();
-            fields['URLRefer'] = window.location.href.substring(window.location.protocol.length);
-            fields['r'] = props.chatwidget.get('ses_ref');
+            if (!props.chatwidget.get('do_not_track_url')) {
+                fields['URLRefer'] = window.location.href.substring(window.location.protocol.length);
+                fields['r'] = props.chatwidget.get('ses_ref');
+            } else {
+                fields['URLRefer'] = '';
+            }
 
             if (props.chatwidget.get('bot_id') != '') {
                 fields['bot_id'] = props.chatwidget.get('bot_id');

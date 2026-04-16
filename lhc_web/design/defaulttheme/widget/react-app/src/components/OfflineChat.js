@@ -75,35 +75,38 @@ class OfflineChat extends Component {
         fields['tscaptcha'] = this.props.chatwidget.getIn(['captcha','ts']);
         fields['user_timezone'] = helperFunctions.getTimeZone();
         fields['URLRefer'] = '';
-        try {
-            var iframeMode = window.parent.location !== window.parent.parent.location;
-            var popupMode = typeof window.lhcChat != 'undefined' && (window.lhcChat['mode'] == 'popup' || window.lhcChat['mode'] == 'embed') && (window.opener !== null || window.parent.opener !== null);
 
-            if (iframeMode) {
-                fields['URLRefer'] = parent.location.href.substring(parent.location.protocol.length);
-            } else {
-                var instWindow = null;
-                if (window.opener !== null) {
-                    instWindow = window.opener;
-                } else {
-                    instWindow = window.parent;
-                }
-                fields['URLRefer'] = instWindow.location.href.substring(instWindow.location.protocol.length);
-            }
-
-        } catch (e) {
+        if (!this.props.chatwidget.get('do_not_track_url')) {
             try {
-                fields['URLRefer'] = String(window.document.location);
+                var iframeMode = window.parent.location !== window.parent.parent.location;
+                var popupMode = typeof window.lhcChat != 'undefined' && (window.lhcChat['mode'] == 'popup' || window.lhcChat['mode'] == 'embed') && (window.opener !== null || window.parent.opener !== null);
+
+                if (iframeMode) {
+                    fields['URLRefer'] = parent.location.href.substring(parent.location.protocol.length);
+                } else {
+                    var instWindow = null;
+                    if (window.opener !== null) {
+                        instWindow = window.opener;
+                    } else {
+                        instWindow = window.parent;
+                    }
+                    fields['URLRefer'] = instWindow.location.href.substring(instWindow.location.protocol.length);
+                }
+
             } catch (e) {
-                // Do nothing
+                try {
+                    fields['URLRefer'] = String(window.document.location);
+                } catch (e) {
+                    // Do nothing
+                }
             }
-        }
 
-        if (fields['URLRefer'] == 'blank') {
-            fields['URLRefer'] = ''
-        }
+            if (fields['URLRefer'] == 'blank') {
+                fields['URLRefer'] = ''
+            }
 
-        fields['r'] = this.props.chatwidget.get('ses_ref');
+            fields['r'] = this.props.chatwidget.get('ses_ref');
+        }
 
         if (this.props.chatwidget.get('operator') != '') {
             fields['operator'] = this.props.chatwidget.get('operator');

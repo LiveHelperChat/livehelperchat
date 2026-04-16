@@ -149,8 +149,12 @@ class chatEventsHandler {
             attr['attr_prefill_admin'] = prefilOptionsList;
         }
 
-        if (this.attributes['userSession'].getSessionReferrer() !== null) {
+        if (this.attributes['userSession'].getSessionReferrer() !== null && !this.attributes['do_not_track_url']) {
             attr['ses_ref'] = this.attributes['userSession'].getSessionReferrer()
+        }
+
+        if (this.attributes['do_not_track_url']) {
+            attr['do_not_track_url'] = true;
         }
 
         return attr;
