@@ -33,12 +33,20 @@ class ChatDuration
 
             $metaAction = false;
             $userLastMessage = false;
+            $hasVisitorMessages = false;
+
+            if ($row['user_id'] == 0) {
+                $hasVisitorMessages = true;
+            }
+
+            $metaData = [];
 
             if ($row['user_id'] == -1 && $row['meta_msg'] != '') {
-
                 $metaData = json_decode($row['meta_msg'],true);
-
                 if (isset($metaData['content']['accept_action']['user_id'])) {
+                    if ($hasVisitorMessages === false) {
+                        continue; // It was only accept action, ignore this as there are no visitor messages before that
+                    }
                     $row['user_id'] = $metaData['content']['accept_action']['user_id'];
                     $userLastMessage = true;
                     $metaAction = true;
@@ -61,7 +69,7 @@ class ChatDuration
                     continue; // Not supported
                 }
 
-            } elseif ($row['user_id'] == -1) { // Some other system message
+            } elseif ($row['user_id'] == -1 || (isset($metaData['content']['auto_responder']) && isset($metaData['content']['auto_send']))) { // Some other system message OR it was auto responder message
                 continue;
             }
 
