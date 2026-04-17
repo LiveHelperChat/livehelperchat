@@ -7,7 +7,7 @@ class ChatDuration
     public static function getChatDurationToUpdateChatID($chat, $updateParticipants = false, & $logDuration = [], & $mainStats = []) {
 
         //@todo Include meta messages
-        $sql = 'SELECT `lh_msg`.`time`, `lh_msg`.`user_id`, `lh_msg`.`meta_msg` FROM `lh_msg` WHERE `lh_msg`.`chat_id` = :chat_id /*AND lh_msg.user_id != -1*/  ORDER BY `id` ASC';// AND lh_msg.id >= 2878699
+        $sql = 'SELECT `lh_msg`.`time`, `lh_msg`.`user_id`, `lh_msg`.`meta_msg` FROM `lh_msg` WHERE `lh_msg`.`chat_id` = :chat_id ORDER BY `id` ASC';// AND lh_msg.id >= 2878699
         $db = \ezcDbInstance::get();
         $stmt = $db->prepare($sql, array(\PDO::ATTR_CURSOR => \PDO::CURSOR_SCROLL));
         $stmt->bindValue(':chat_id',$chat->id);
