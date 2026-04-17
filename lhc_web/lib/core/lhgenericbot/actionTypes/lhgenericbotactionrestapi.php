@@ -2478,6 +2478,38 @@ class erLhcoreClassGenericBotActionRestapi
                     $content = '';
                     $counter = 0;
 
+                    if (str_contains($foreachCycleParseTemplate, '{history_as_summary}')) {
+                        $foreachCycleParseTemplate = str_replace('{history_as_summary}', '', $foreachCycleParseTemplate);
+                        $currentChatId = $userData['chat']->id;
+                        $previousMsgs = array_filter($messages, function($msg) use ($currentChatId) { return $msg->chat_id != $currentChatId; });
+                        if (!empty($previousMsgs)) {
+                            $summaryLines = '';
+                            $lastSummaryChatId = null;
+                            foreach ($previousMsgs as $prevMsg) {
+                                if ($lastSummaryChatId !== $prevMsg->chat_id) {
+                                    $lastSummaryChatId = $prevMsg->chat_id;
+                                    $summaryLines .= 'Chat history: ' . gmdate('Y-m-d H:i:s', $prevMsg->time) . " UTC\n";
+                                }
+                                if ($prevMsg->user_id == 0) {
+                                    $summaryLines .= 'user: ' . $prevMsg->msg . "\n";
+                                } elseif ($prevMsg->user_id > 0 || $prevMsg->user_id == -2) {
+                                    $summaryLines .= 'Assistant: ' . $prevMsg->msg . "\n";
+                                }
+                            }
+                            if (trim($summaryLines) !== '') {
+                                $summaryMsg = new erLhcoreClassModelmsg();
+                                $summaryMsg->user_id = 0;
+                                $summaryMsg->chat_id = $currentChatId;
+                                $summaryMsg->msg = "<previous_conversations>\n" . trim($summaryLines) . "\n</previous_conversations>";
+                                $summaryMsg->time = reset($previousMsgs)->time;
+                                array_unshift($messages, $summaryMsg);
+                            }
+                        }
+                        $messages = array_values(array_filter($messages, function($msg) use ($currentChatId) { return $msg->chat_id == $currentChatId; }));
+                        $totalElements = count($messages);
+                        $userMessageStarted = $totalElements <= (int)$matchesValues[1][$indexElement];
+                    }
+
                     foreach ($messages as $message) {
 
                         $foreachCycleParse = $foreachCycleParseTemplate;
