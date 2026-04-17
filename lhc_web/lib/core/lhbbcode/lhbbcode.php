@@ -1145,10 +1145,29 @@ class erLhcoreClassBBCode
            $replacer = '';
        }
 
-        // Remove [translation] blocks that contain only image(s) — they should not be split or rendered separately
-        $msg = preg_replace('#\[translation\]\s*(?:\[img[^\]]*\].*?\[/img\]\s*)+\[/translation\]#is', '', $msg);
+       if (strpos($msg,'[translation]') !== false) {
+            // For the admin we show original and translated text
+            if (isset($paramsMessage['html_as_text']) && $paramsMessage['html_as_text'] == true) {
+                $replacer = '';
+            } else {
+                // This is visitor translated message. We show original message for the visitor
+                if (isset($paramsMessage['sender']) && $paramsMessage['sender'] > 0) {
+                    // This is admin message. We show translated content only
+                    $translations = array();
+                    preg_match('#\[translation\](.*?)\[/translation\]#is',$msg, $translations);
+                    if (isset($translations[1])) {
+                        $msg = $translations[1];
+                    }
+                } else {
+                    $msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg);
+                }
+            }
+        }
 
-        // Links wraps images
+       // Remove [translation] blocks that contain only image(s) — they should not be split or rendered separately
+       $msg = preg_replace('#\[translation\]\s*(?:\[img[^\]]*\].*?\[/img\]\s*)+\[/translation\]#is', '', $msg);
+
+       // Links wraps images
        $msg = preg_replace('#\[url\="?(.*?)"?\]\[file="?(.*?)_img"?\]\[\/url\]#is','[file=\2_img link=\1]',$msg);
 
        // pure files

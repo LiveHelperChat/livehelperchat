@@ -20,7 +20,7 @@
 			<?php echo erLhcoreClassRenderHelper::renderCombobox(array(
 				'input_name'     => 'LanguageTo',
 				'css_class'      => 'form-control',
-				'selected_id'    => '',
+				'selected_id'    => $_POST['LanguageTo'] ?? '',
 				'list_function'  => 'erLhcoreClassTranslate::getSupportedLanguages'
 			)); ?>
 
@@ -42,6 +42,7 @@
 			<input type="submit" class="btn btn-secondary" name="DetectLanguage" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Detect language'); ?>" />
 			<input type="submit" class="btn btn-secondary" name="TranslateToLanguage" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Translate'); ?>" />
 		</div>
+		<span class="ms-1 text-muted"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'While testing please disable respose cache.'); ?></small></span>
 	</div>
 
 </form>
@@ -200,9 +201,20 @@
 							<input ng-non-bindable class="form-control" type="text" name="deepl_api_key" value="" />
 						</div>
 
+						<div class="form-group">
+							<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Formality'); ?></label>
+							<select class="form-control" name="deepl_formality">
+								<option value="default" <?php if (!isset($translation_data['deepl_formality']) || $translation_data['deepl_formality'] == 'default') : ?>selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'default'); ?></option>
+								<option value="prefer_more" <?php if (isset($translation_data['deepl_formality']) && $translation_data['deepl_formality'] == 'prefer_more') : ?>selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'prefer_more - more formal if available, otherwise default'); ?></option>
+								<option value="prefer_less" <?php if (isset($translation_data['deepl_formality']) && $translation_data['deepl_formality'] == 'prefer_less') : ?>selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'prefer_less - more informal if available, otherwise default'); ?></option>
+							</select>
+							<a class="fs14" target="_blank" href="https://developers.deepl.com/api-reference/translate?search=region#param-formality"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'More information about formality'); ?></a>
+						</div>
+
 						<div class="btn-group" role="group" aria-label="...">
 							<input type="submit" class="btn btn-secondary" name="StoreLanguageSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons', 'Save'); ?>" />
 						</div>
+
 					</div>
 				</div>
 			</div>

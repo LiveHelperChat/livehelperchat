@@ -379,9 +379,9 @@ class erLhcoreClassTranslate
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
                         
                         if ($msg->user_id == 0 || $msg->user_id == -2) {
-                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
+                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to, $translationData['deepl_formality'] ?? 'default');
                         } else { // Operator message
-                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
+                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale, $translationData['deepl_formality'] ?? 'default');
                         }
                         
                         // If translation was successfull store it
@@ -946,11 +946,10 @@ class erLhcoreClassTranslate
 
         if (isset($translationData['translation_handler'])) {
 
-            $key = erLhcoreClassModelChat::multi_implode(',', $text) . $translateFrom . '_' . $translateTo;
             $useCache = isset($translationData['use_cache']) && $translationData['use_cache'] == true;
 
-            if ($useCache && ($responseCache = erLhcoreClassModelGenericBotRestAPICache::findOne(['sort' => false, 'filter' => ['hash' => md5($key), 'rest_api_id' => 0]])) && $responseCache instanceof erLhcoreClassModelGenericBotRestAPICache) {
-                return json_decode($responseCache->response,true);
+            if (($cached = self::getCachedTranslation($useCache, $text, $translateFrom, $translateTo)) !== null) {
+                return $cached;
             }
 
             $translatedItem = null;
@@ -991,6 +990,10 @@ class erLhcoreClassTranslate
                     }
                 }
 
+                if (($cached = self::getCachedTranslation($useCache, $text, $translateFrom, $translateTo)) !== null) {
+                    return $cached;
+                }
+
                 $translatedItem = erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $text, $translateFrom, $translateTo);
                 
             } elseif ($translationData['translation_handler'] == 'google') {
@@ -1019,6 +1022,10 @@ class erLhcoreClassTranslate
                     }
                 }
 
+                if (($cached = self::getCachedTranslation($useCache, $text, $translateFrom, $translateTo)) !== null) {
+                    return $cached;
+                }
+
                 $translatedItem = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $text, $translateFrom, $translateTo, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
             } elseif ($translationData['translation_handler'] == 'aws') {
 
@@ -1045,6 +1052,10 @@ class erLhcoreClassTranslate
                     } else {
                         throw new Exception(self::generateErrorMessage($translateFrom, $translateTo, $messageOwner));
                     }
+                }
+
+                if (($cached = self::getCachedTranslation($useCache, $text, $translateFrom, $translateTo)) !== null) {
+                    return $cached;
                 }
 
                 $translatedItem =  erLhcoreClassTranslateAWS::translate([
@@ -1079,6 +1090,10 @@ class erLhcoreClassTranslate
                     }
                 }
 
+                if (($cached = self::getCachedTranslation($useCache, $text, $translateFrom, $translateTo)) !== null) {
+                    return $cached;
+                }
+
                 $translatedItem =  erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $text, $translateFrom, $translateTo);
 
             } elseif ($translationData['translation_handler'] == 'deepl') {
@@ -1107,18 +1122,44 @@ class erLhcoreClassTranslate
                     }
                 }
 
-                $translatedItem =  erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $text, $translateFrom, $translateTo);
+                if (($cached = self::getCachedTranslation($useCache, $text, $translateFrom, $translateTo)) !== null) {
+                    return $cached;
+                }
+
+                $translatedItem =  erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $text, $translateFrom, $translateTo, $translationData['deepl_formality'] ?? 'default');
             }
 
-            if ($useCache) {
-                $translationCache = new erLhcoreClassModelGenericBotRestAPICache();
-                $translationCache->hash = md5($key);
-                $translationCache->response = json_encode($translatedItem);
-                $translationCache->saveThis();
-            }
+            self::storeCachedTranslation($useCache, $text, $translateFrom, $translateTo, $translatedItem);
 
             return $translatedItem;
         }
+    }
+
+    private static function getCachedTranslation($useCache, $text, $translateFrom, $translateTo)
+    {
+        if (!$useCache || $translateFrom === false) {
+            return null;
+        }
+
+        $key = erLhcoreClassModelChat::multi_implode(',', $text) . $translateFrom . '_' . $translateTo;
+
+        $responseCache = erLhcoreClassModelGenericBotRestAPICache::findOne(['sort' => false, 'filter' => ['hash' => md5($key), 'rest_api_id' => 0]]);
+        if ($responseCache instanceof erLhcoreClassModelGenericBotRestAPICache) {
+            return json_decode($responseCache->response, true);
+        }
+        return null;
+    }
+
+    private static function storeCachedTranslation($useCache, $text, $translateFrom, $translateTo, $translatedItem)
+    {
+        if (!$useCache) {
+            return;
+        }
+        $key = erLhcoreClassModelChat::multi_implode(',', $text) . $translateFrom . '_' . $translateTo;
+        $translationCache = new erLhcoreClassModelGenericBotRestAPICache();
+        $translationCache->hash = md5($key);
+        $translationCache->response = json_encode($translatedItem);
+        $translationCache->saveThis();
     }
 
     protected static function generateErrorMessage($translateFrom, $translateTo, $messageOwner = self::MESSAGE_OPERATOR) {
