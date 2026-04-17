@@ -4,7 +4,7 @@ namespace LiveHelperChat\Helpers;
 
 class ChatDuration
 {
-    public static function getChatDurationToUpdateChatID($chat, $updateParticipants = false, & $logDuration = [], & $mainStats = []) {
+    public static function getChatDurationToUpdateChatID($chat, $updateParticipants = false, & $logDuration = [], & $mainStats = [], & $logSatusOperator = []) {
 
         //@todo Include meta messages
         $sql = 'SELECT `lh_msg`.`time`, `lh_msg`.`user_id`, `lh_msg`.`meta_msg` FROM `lh_msg` WHERE `lh_msg`.`chat_id` = :chat_id ORDER BY `id` ASC';// AND lh_msg.id >= 2878699
@@ -28,12 +28,12 @@ class ChatDuration
 
         $previousOwner = null;
         $statusOperators = [];
+        $hasVisitorMessages = false;
 
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC, \PDO::FETCH_ORI_NEXT)) {
 
             $metaAction = false;
             $userLastMessage = false;
-            $hasVisitorMessages = false;
 
             if ($row['user_id'] == 0) {
                 $hasVisitorMessages = true;
@@ -47,6 +47,7 @@ class ChatDuration
                     if ($hasVisitorMessages === false) {
                         continue; // It was only accept action, ignore this as there are no visitor messages before that
                     }
+                    $operatorAcceptTime = $row['time'];
                     $row['user_id'] = $metaData['content']['accept_action']['user_id'];
                     $userLastMessage = true;
                     $metaAction = true;
@@ -61,7 +62,7 @@ class ChatDuration
                     $metaAction = true;
                 } elseif (isset($metaData['content']['transfer_action_user']['user_id'])) {
                     $row['user_id'] = $metaData['content']['transfer_action_user']['user_id'];
-                    $metaAction = true;
+                    //$metaAction = true;
                 } elseif (isset($metaData['content']['assign_action']['user_id']) && $chat->user_id != $metaData['content']['assign_action']['user_id']) {
                     $row['user_id'] = $metaData['content']['assign_action']['user_id'];
                     $metaAction = true;
@@ -107,7 +108,9 @@ class ChatDuration
 
             // calculations below this point
             if ($lastVisitorMessage !== null && $row['user_id'] > 0 && $metaAction === false &&/*$ownerChanged === false &&*/ $row['time'] > ($chat->pnd_time + $chat->wait_time) ) {
-                $responseTime = $row['time'] - ($lastVisitorMessage['time'] < ($chat->pnd_time + $chat->wait_time) ? ($chat->pnd_time + $chat->wait_time) : $lastVisitorMessage['time']);
+                $responseTime = $row['time'] - ($lastVisitorMessage['time'] < ($chat->pnd_time + $chat->wait_time) ? ($chat->pnd_time + $chat->wait_time) :
+                        (isset($operatorAcceptTime) && $operatorAcceptTime > $lastVisitorMessage['time'] ? $operatorAcceptTime : $lastVisitorMessage['time'])
+                    );
                 $mainStats['response_times'][$row['user_id']][] = $responseTime;
                 $mainStats['response_times_total'][] = $responseTime;
                 $lastVisitorMessage = null;
@@ -175,6 +178,8 @@ class ChatDuration
                 }
             }
         }
+
+        $logSatusOperator = $statusOperators;
 
         return $timeToAdd;
     }
