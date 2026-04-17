@@ -140,6 +140,11 @@ class ChatDuration
 
         if ($updateParticipants === true) {
             for ( $i = 0; $i < 3; $i++) {
+
+                if (empty($statusOperators) && $chat->user_id > 0) {
+                    $statusOperators[$chat->user_id] = 0;
+                }
+
                 try {
                     $db->beginTransaction();
                     $db->query('DELETE FROM `lh_chat_participant` WHERE `chat_id` = ' . (int)$chat->id);
