@@ -111,9 +111,12 @@ class ChatDuration
                 $responseTime = $row['time'] - ($lastVisitorMessage['time'] < ($chat->pnd_time + $chat->wait_time) ? ($chat->pnd_time + $chat->wait_time) :
                         (isset($operatorAcceptTime) && $operatorAcceptTime > $lastVisitorMessage['time'] ? $operatorAcceptTime : $lastVisitorMessage['time'])
                     );
-                $mainStats['response_times'][$row['user_id']][] = $responseTime;
-                $mainStats['response_times_total'][] = $responseTime;
-                $lastVisitorMessage = null;
+                if ($responseTime > 0)
+                {
+                    $mainStats['response_times'][$row['user_id']][] = $responseTime;
+                    $mainStats['response_times_total'][] = $responseTime;
+                    $lastVisitorMessage = null;
+                }
             }
 
             $diff = $row['time'] - $previousMessage['time'];
