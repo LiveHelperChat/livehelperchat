@@ -2540,6 +2540,8 @@ class erLhcoreClassGenericBotWorkflow {
             return $message;
         }
 
+        $messageOriginal = $message;
+
         $depId = 0;
         $locale = null;
         if (isset($params['chat'])) {
@@ -2960,7 +2962,9 @@ class erLhcoreClassGenericBotWorkflow {
                     if ($replaceRule->is_active) {
                         $message = str_replace(
                             '{' . $replaceRule->identifier . '}',
-                            ((isset($params['as_json']) && $params['as_json'] == true) ? json_encode($replaceRule->getValueReplace(['chat' => $params['chat']])) : $replaceRule->getValueReplace(['chat' => $params['chat']]))
+                            ((isset($params['as_json']) && $params['as_json'] == true) ?
+                                (str_contains($messageOriginal,'{' . $replaceRule->identifier . '}') ? json_encode($replaceRule->getValueReplace(['chat' => $params['chat']])) : erLhcoreClassGenericBotActionRestapi::trimOnce(json_encode($replaceRule->getValueReplace(['chat' => $params['chat']]))))
+                                : $replaceRule->getValueReplace(['chat' => $params['chat']]))
                             ,$message);
                     }
                 }

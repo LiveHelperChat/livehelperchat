@@ -145,7 +145,7 @@ export class mainWidgetPopup {
                 urlArgumetns = urlArgumetns + "/(leaveamessage)/true";
             }
 
-            if (this.attributes['userSession'].getSessionReferrer() !== null && this.attributes['userSession'].getSessionReferrer() != '') {
+            if (!this.attributes['do_not_track_url'] && this.attributes['userSession'].getSessionReferrer() !== null && this.attributes['userSession'].getSessionReferrer() != '') {
                 urlArgumetns = urlArgumetns + '?ses_ref=' + this.attributes['userSession'].getSessionReferrer() + this.parseOptions();
             } else {
                 urlArgumetns = urlArgumetns + '?' + this.parseOptions();

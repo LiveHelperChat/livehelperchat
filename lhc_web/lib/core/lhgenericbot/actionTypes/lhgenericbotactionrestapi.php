@@ -1951,6 +1951,16 @@ class erLhcoreClassGenericBotActionRestapi
         }
 
         if (!empty($responseContent)) {
+            // Let's do final replacement before storing anything from stream
+            if (!empty($responseContent['success_preg_replace'])) {
+                $replaceRules = explode("\n", $responseContent['success_preg_replace']);
+                foreach ($replaceRules as $replaceRule) {
+                    $replaceRuleOptions = explode('==>',$replaceRule);
+                    for ($i = 1; $i <= 6; $i++) {
+                        $responseContent['content' . ($i > 1 ? '_' . $i : '')] = preg_replace('/'.$replaceRuleOptions[0].'/uis',(isset($replaceRuleOptions[1]) ? $replaceRuleOptions[1] : ''), $responseContent['content' . ($i > 1 ? '_' . $i : '')]);
+                    }
+                }
+            }
             return $responseContent;
         }
 
@@ -2179,6 +2189,7 @@ class erLhcoreClassGenericBotActionRestapi
 
                     if (isset($outputCombination['success_preg_replace']) && $outputCombination['success_preg_replace'] != '') {
                         $replaceRules = explode("\n", $outputCombination['success_preg_replace']);
+                        $responseFormatted['success_preg_replace'] = $outputCombination['success_preg_replace'];
                         foreach ($replaceRules as $replaceRule) {
                             $replaceRuleOptions = explode('==>',$replaceRule);
                             for ($i = 1; $i <= 6; $i++) {
@@ -2427,7 +2438,34 @@ class erLhcoreClassGenericBotActionRestapi
 
                     $foreachCycleParseTemplate = $matchesValues[3][$indexElement];
 
-                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => ((int)$matchesValues[1][$indexElement] + 1), 'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                    $chatIdFilter = [$userData['chat']->id];
+
+                    if (str_contains($foreachCycleParseTemplate,'{include_previous}') === true) {
+                        $foreachCycleParseTemplate = str_replace('{include_previous}','',$foreachCycleParseTemplate);
+                        if ($userData['chat']->online_user_id > 0) {
+                            $previousChatIds = erLhcoreClassModelChat::getList(['sort' => 'id DESC', 'limit' => 20, 'filter' => ['online_user_id' => $userData['chat']->online_user_id]]);
+                            $chatIdFilter = array_merge($chatIdFilter, array_keys($previousChatIds));
+                        }
+                    } else if (str_contains($foreachCycleParseTemplate,'{include_previous_email}') === true) {
+                        $foreachCycleParseTemplate = str_replace('{include_previous_email}','',$foreachCycleParseTemplate);
+                        $previousChatIds = [];
+
+                        if ($userData['chat']->online_user_id > 0) {
+                            $previousChatsByOnlineUser = erLhcoreClassModelChat::getList(['sort' => 'id DESC', 'limit' => 20, 'filter' => ['online_user_id' => $userData['chat']->online_user_id]]);
+                            $previousChatIds = array_merge($previousChatIds, array_keys($previousChatsByOnlineUser));
+                        }
+
+                        if (trim($userData['chat']->email) != '') {
+                            $previousChatsByEmail = erLhcoreClassModelChat::getList(['sort' => 'id DESC', 'limit' => 20, 'filter' => ['email' => $userData['chat']->email]]);
+                            $previousChatIds = array_merge($previousChatIds, array_keys($previousChatsByEmail));
+                        }
+
+                        if (!empty($previousChatIds)) {
+                            $chatIdFilter = array_merge($chatIdFilter, array_unique($previousChatIds));
+                        }
+                    }
+          
+                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => ((int)$matchesValues[1][$indexElement] + 1), 'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $chatIdFilter))));
 
                     $totalElements = count($messages);
                     $userMessageStarted = $totalElements <= (int)$matchesValues[1][$indexElement];
@@ -2439,6 +2477,38 @@ class erLhcoreClassGenericBotActionRestapi
                     
                     $content = '';
                     $counter = 0;
+
+                    if (str_contains($foreachCycleParseTemplate, '{history_as_summary}')) {
+                        $foreachCycleParseTemplate = str_replace('{history_as_summary}', '', $foreachCycleParseTemplate);
+                        $currentChatId = $userData['chat']->id;
+                        $previousMsgs = array_filter($messages, function($msg) use ($currentChatId) { return $msg->chat_id != $currentChatId; });
+                        if (!empty($previousMsgs)) {
+                            $summaryLines = '';
+                            $lastSummaryChatId = null;
+                            foreach ($previousMsgs as $prevMsg) {
+                                if ($lastSummaryChatId !== $prevMsg->chat_id) {
+                                    $lastSummaryChatId = $prevMsg->chat_id;
+                                    $summaryLines .= 'Chat history: ' . gmdate('Y-m-d H:i:s', $prevMsg->time) . " UTC\n";
+                                }
+                                if ($prevMsg->user_id == 0) {
+                                    $summaryLines .= 'user: ' . $prevMsg->msg . "\n";
+                                } elseif ($prevMsg->user_id > 0 || $prevMsg->user_id == -2) {
+                                    $summaryLines .= 'Assistant: ' . $prevMsg->msg . "\n";
+                                }
+                            }
+                            if (trim($summaryLines) !== '') {
+                                $summaryMsg = new erLhcoreClassModelmsg();
+                                $summaryMsg->user_id = 0;
+                                $summaryMsg->chat_id = $currentChatId;
+                                $summaryMsg->msg = "<previous_conversations>\n" . trim($summaryLines) . "\n</previous_conversations>";
+                                $summaryMsg->time = reset($previousMsgs)->time;
+                                array_unshift($messages, $summaryMsg);
+                            }
+                        }
+                        $messages = array_values(array_filter($messages, function($msg) use ($currentChatId) { return $msg->chat_id == $currentChatId; }));
+                        $totalElements = count($messages);
+                        $userMessageStarted = $totalElements <= (int)$matchesValues[1][$indexElement];
+                    }
 
                     foreach ($messages as $message) {
 

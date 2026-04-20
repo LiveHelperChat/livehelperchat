@@ -160,7 +160,9 @@ class _proactiveChat {
                 params['lang'] = this.attributes['langOverride']
             }
 
-            params['l'] = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
+            if (!this.attributes['do_not_track_url']) {
+                params['l'] = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
+            }
             params['dt'] = encodeURIComponent(document.title);
             params['init'] = this.initCall == true ? 1 : init;
 

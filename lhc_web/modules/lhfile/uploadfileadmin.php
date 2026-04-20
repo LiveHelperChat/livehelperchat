@@ -32,7 +32,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhf
 
         if ($upload_handler->uploadedFile instanceof erLhcoreClassModelChatFile) {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfileadmin.file_store', array('chat'=> $chat, 'chat_file' => $upload_handler->uploadedFile));
-            $msg = '[file=' . $upload_handler->uploadedFile->id . '_' . $upload_handler->uploadedFile->security_hash . ']';
+            $msg = '[file=' . $upload_handler->uploadedFile->id . '_' . $upload_handler->uploadedFile->security_hash . (in_array($upload_handler->uploadedFile->extension,['jfif','jpg','jpeg','png']) ? '_img' : '') . ']';
         } elseif (is_object($upload_handler->uploadedFile)) {
             echo json_encode(array('error' => 'true', 'error_msg' => $upload_handler->uploadedFile->error ));
             exit;

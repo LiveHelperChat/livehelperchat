@@ -97,12 +97,16 @@ class erLhcoreClassChatWebhookIncoming {
                     $chatIdExternal = $chatIdExternal . '__' . $chatIdExternal2;
                 }
 
-                $eChat = erLhcoreClassModelChatIncoming::findOne(array(
-                    'filter' => array(
-                        'chat_external_id' => $chatIdExternal,
-                        'incoming_id' => $incomingWebhook->id
-                    )
-                ));
+                if ($chatIdExternal != '') {
+                    $eChat = erLhcoreClassModelChatIncoming::findOne(array(
+                        'filter' => array(
+                            'chat_external_id' => $chatIdExternal,
+                            'incoming_id' => $incomingWebhook->id
+                        )
+                    ));
+                } else {
+                    $eChat = false;
+                }
 
                 $statusMap = [
                     'sent' => erLhcoreClassModelmsg::STATUS_SENT,
@@ -141,7 +145,7 @@ class erLhcoreClassChatWebhookIncoming {
                     }
                 }
 
-                if (is_object($msgReplyTo) && isset($chat) && is_object($chat) && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+                if (isset($msgReplyTo) && is_object($msgReplyTo) && isset($chat) && is_object($chat) && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
                     if (key_exists($mainConditionStatus,$statusMap) && $msgReplyTo->del_st != erLhcoreClassModelmsg::STATUS_READ) {
                         $msgReplyTo->del_st = max($statusMap[$mainConditionStatus],$msgReplyTo->del_st);
                         $msgReplyTo->updateThis(['update' => ['del_st']]);
@@ -1120,67 +1124,133 @@ class erLhcoreClassChatWebhookIncoming {
 
                     if ($typeMessage == 'img' || $typeMessage == 'img_2' || $typeMessage == 'img_3' || $typeMessage == 'img_4' || $typeMessage == 'img_5' || $typeMessage == 'img_6' || $typeMessage == 'attachments') {
                         if (isset($conditions['msg_cond_' . $typeMessage . '_url_decode']) && $conditions['msg_cond_' . $typeMessage . '_url_decode'] != '') {
-                            $file = self::parseFilesDecode(array(
-                                'msg' => $payloadMessage,
-                                'url' => $conditions['msg_cond_' . $typeMessage . '_url_decode'],
-                                'body_post' => (isset($conditions['msg_cond_' . $typeMessage . '_url_decode_content']) ? $conditions['msg_cond_' . $typeMessage . '_url_decode_content'] : ''),
-                                'response_location' => (isset($conditions['msg_cond_' . $typeMessage . '_url_decode_output']) ? $conditions['msg_cond_' . $typeMessage . '_url_decode_output'] : ''),
-                                'request_headers' => (isset($conditions['msg_cond_' . $typeMessage . '_url_headers_content']) ? $conditions['msg_cond_' . $typeMessage . '_url_headers_content'] : ''),
-                                'incoming_webhook' => $incomingWebhook,
-                                'remote_request_headers' => (isset($conditions['msg_cond_' . $typeMessage . '_url_remote_headers_content']) ? $conditions['msg_cond_' . $typeMessage . '_url_remote_headers_content'] : ''),
-                                'is_remote_location' =>  (isset($conditions['msg_cond_' . $typeMessage . '_url_remote_location']) ? $conditions['msg_cond_' . $typeMessage . '_url_remote_location'] : ''),
-                                'file_name_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_file_name']) ? $conditions['msg_cond_' . $typeMessage . '_file_name'] : ''),
-                                'file_size_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_file_size']) ? $conditions['msg_cond_' . $typeMessage . '_file_size'] : '')
-                            ), $chat);
 
-                            if (!empty($file)) {
-                                $payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']] = $file;
+                            $arrayRootKey = 'msg_cond_' . $typeMessage . '_array';
+                            $arrayRoot = isset($conditions[$arrayRootKey]) && $conditions[$arrayRootKey] != '' ? trim($conditions[$arrayRootKey]) : '';
+                            $iterationCount = 1;
+
+                            if ($arrayRoot != '') {
+                                $rootArrayValue = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $arrayRoot, '.');
+                                if ($rootArrayValue['found'] == true && is_array($rootArrayValue['value'])) {
+                                    $iterationCount = count($rootArrayValue['value']);
+                                }
+                            }
+
+                            $filesCollected = [];
+
+                            for ($arrIdx = 0; $arrIdx < $iterationCount; $arrIdx++) {
+
+                                $conditionsIdx = $conditions;
+                                if ($arrayRoot != '' && $iterationCount > 1) {
+                                    $searchPattern = $arrayRoot . '.0';
+                                    $replacePattern = $arrayRoot . '.' . $arrIdx;
+                                    foreach (['_url_decode', '_url_decode_content', '_url_decode_output', '_url_headers_content', '_url_remote_headers_content', '_file_name', '_file_size', '_body'] as $sfx) {
+                                        $k = 'msg_cond_' . $typeMessage . $sfx;
+                                        if (isset($conditionsIdx[$k]) && $conditionsIdx[$k] != '') {
+                                            $conditionsIdx[$k] = str_replace($searchPattern, $replacePattern, $conditionsIdx[$k]);
+                                        }
+                                    }
+                                }
+
+                                $file = self::parseFilesDecode(array(
+                                    'msg' => $payloadMessage,
+                                    'url' => $conditionsIdx['msg_cond_' . $typeMessage . '_url_decode'],
+                                    'body_post' => (isset($conditionsIdx['msg_cond_' . $typeMessage . '_url_decode_content']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_url_decode_content'] : ''),
+                                    'response_location' => (isset($conditionsIdx['msg_cond_' . $typeMessage . '_url_decode_output']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_url_decode_output'] : ''),
+                                    'request_headers' => (isset($conditionsIdx['msg_cond_' . $typeMessage . '_url_headers_content']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_url_headers_content'] : ''),
+                                    'incoming_webhook' => $incomingWebhook,
+                                    'remote_request_headers' => (isset($conditionsIdx['msg_cond_' . $typeMessage . '_url_remote_headers_content']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_url_remote_headers_content'] : ''),
+                                    'is_remote_location' =>  (isset($conditionsIdx['msg_cond_' . $typeMessage . '_url_remote_location']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_url_remote_location'] : ''),
+                                    'file_name_attr' => (isset($conditionsIdx['msg_cond_' . $typeMessage . '_file_name']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_file_name'] : ''),
+                                    'file_size_attr' => (isset($conditionsIdx['msg_cond_' . $typeMessage . '_file_size']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_file_size'] : '')
+                                ), $chat);
+
+                                if (!empty($file)) {
+                                    $filesCollected[] = $file;
+                                }
+                            }
+
+                            if (!empty($filesCollected)) {
+                                $payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']] = implode("\n", $filesCollected);
                             }
 
                         } else if (isset($conditions['msg_' . $typeMessage . '_download']) && $conditions['msg_' . $typeMessage . '_download'] == true) {
 
-                            $overrideAttributes = [];
+                            $arrayRootKey = 'msg_cond_' . $typeMessage . '_array';
+                            $arrayRoot = isset($conditions[$arrayRootKey]) && $conditions[$arrayRootKey] != '' ? trim($conditions[$arrayRootKey]) : '';
+                            $iterationCount = 1;
 
-                            if ((isset($conditions['msg_cond_' . $typeMessage . '_file_name']) ? $conditions['msg_cond_' . $typeMessage . '_file_name'] : '')){
-                                $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_file_name'], '.');
-                                if ($fileNameAttribute['found'] == true && is_string($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
-                                    $overrideAttributes['upload_name'] = $fileNameAttribute['value'];
+                            if ($arrayRoot != '') {
+                                $rootArrayValue = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $arrayRoot, '.');
+                                if ($rootArrayValue['found'] == true && is_array($rootArrayValue['value'])) {
+                                    $iterationCount = count($rootArrayValue['value']);
                                 }
                             }
 
-                            $headers = [];
-                            if ((isset($conditions['msg_cond_' . $typeMessage . '_url_headers_content']) ? $conditions['msg_cond_' . $typeMessage . '_url_headers_content'] : '')) {
-                                $paramsHeader = $payloadMessage;
-                                $paramsHeader['incoming_webhook'] = $incomingWebhook;
-                                $paramsHeader['incoming_webhook'] ->chat = $chat;
-                                $headersParsed = self::extractMessageBody(trim($conditions['msg_cond_' . $typeMessage . '_url_headers_content']), $paramsHeader);
-                                $headersItems = explode("\n",trim($headersParsed));
-                                foreach ($headersItems as $header) {
-                                    $headers[] = $header;
+                            $filesCollected = [];
+
+                            for ($arrIdx = 0; $arrIdx < $iterationCount; $arrIdx++) {
+
+                                $conditionsIdx = $conditions;
+                                if ($arrayRoot != '' && $iterationCount > 1) {
+                                    $searchPattern = $arrayRoot . '.0';
+                                    $replacePattern = $arrayRoot . '.' . $arrIdx;
+                                    foreach (['_body', '_file_name', '_file_size', '_mime_type', '_url_headers_content'] as $sfx) {
+                                        $k = 'msg_cond_' . $typeMessage . $sfx;
+                                        if (isset($conditionsIdx[$k]) && $conditionsIdx[$k] != '') {
+                                            $conditionsIdx[$k] = str_replace($searchPattern, $replacePattern, $conditionsIdx[$k]);
+                                        }
+                                    }
+                                }
+
+                                $overrideAttributes = [];
+
+                                if ((isset($conditionsIdx['msg_cond_' . $typeMessage . '_file_name']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_file_name'] : '')){
+                                    $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsIdx['msg_cond_' . $typeMessage . '_file_name'], '.');
+                                    if ($fileNameAttribute['found'] == true && is_string($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
+                                        $overrideAttributes['upload_name'] = $fileNameAttribute['value'];
+                                    }
+                                }
+
+                                $headers = [];
+                                if ((isset($conditionsIdx['msg_cond_' . $typeMessage . '_url_headers_content']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_url_headers_content'] : '')) {
+                                    $paramsHeader = $payloadMessage;
+                                    $paramsHeader['incoming_webhook'] = $incomingWebhook;
+                                    $paramsHeader['incoming_webhook'] ->chat = $chat;
+                                    $headersParsed = self::extractMessageBody(trim($conditionsIdx['msg_cond_' . $typeMessage . '_url_headers_content']), $paramsHeader);
+                                    $headersItems = explode("\n",trim($headersParsed));
+                                    foreach ($headersItems as $header) {
+                                        $headers[] = $header;
+                                    }
+                                }
+
+                                if ((isset($conditionsIdx['msg_cond_' . $typeMessage . '_mime_type']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_mime_type'] : '')){
+                                    $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsIdx['msg_cond_' . $typeMessage . '_mime_type'], '.');
+                                    if ($fileNameAttribute['found'] == true && is_string($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
+                                        $overrideAttributes['mime_type'] = $fileNameAttribute['value'];
+                                    }
+                                }
+
+                                $file = self::parseFiles(
+                                    self::extractAttribute(
+                                        'msg_cond_' . $typeMessage . '_body',
+                                        $conditionsIdx,
+                                        $payloadMessage,
+                                        (isset($payloadMessage[$conditionsIdx['msg_cond_' . $typeMessage . '_body']]) ? $payloadMessage[$conditionsIdx['msg_cond_' . $typeMessage . '_body']] : '')),
+                                    $chat,
+                                    $headers,
+                                    $overrideAttributes
+                                );
+
+                                if (!empty($file)) {
+                                    $filesCollected[] = $file;
                                 }
                             }
 
-                            if ((isset($conditions['msg_cond_' . $typeMessage . '_mime_type']) ? $conditions['msg_cond_' . $typeMessage . '_mime_type'] : '')){
-                                $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_mime_type'], '.');
-                                if ($fileNameAttribute['found'] == true && is_string($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
-                                    $overrideAttributes['mime_type'] = $fileNameAttribute['value'];
-                                }
+                            if (!empty($filesCollected)) {
+                                self::array_set_value($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_body'], implode("\n", $filesCollected));
                             }
 
-                            $file = self::parseFiles(
-                                self::extractAttribute(
-                                    'msg_cond_' . $typeMessage . '_body',
-                                    $conditions,
-                                    $payloadMessage,
-                                    (isset($payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']]) ? $payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']] : '')),
-                                $chat,
-                                $headers,
-                                $overrideAttributes
-                            );
-
-                            if (!empty($file)) {
-                                self::array_set_value($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_body'], $file);
-                            }
 
                         } else if (
                             // base64 encoded file

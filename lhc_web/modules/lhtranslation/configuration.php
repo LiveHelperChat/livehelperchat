@@ -68,6 +68,9 @@ if (isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSetting
         'deepl_api_key' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'deepl_formality' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
         'hide_translate_button' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
@@ -154,6 +157,12 @@ if (isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSetting
     
     if ($form->hasValidData('deepl_api_key') && $form->deepl_api_key != '') {
         $data['deepl_api_key'] = $form->deepl_api_key;
+    }
+
+    if ($form->hasValidData('deepl_formality') && in_array($form->deepl_formality, ['default', 'prefer_more', 'prefer_less'])) {
+        $data['deepl_formality'] = $form->deepl_formality;
+    } else {
+        $data['deepl_formality'] = 'default';
     }
 
     if ($form->hasValidData('hide_translate_button') && $form->hide_translate_button == true) {

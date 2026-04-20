@@ -337,6 +337,11 @@
         </div>
 
         <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','If there can be more than one element define root element location');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_array" value="" />
+        </div>
+
+        <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Image body attributes. URL or base64 encoded content');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_body" value="" />
         </div>
@@ -468,6 +473,11 @@
         </div>
 
         <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','If there can be more than one element define root element location');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_array" value="" />
+        </div>
+
+        <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Image body attributes. URL or base64 encoded content');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_body" value="" />
         </div>
@@ -542,6 +552,11 @@
         </div>
 
         <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','If there can be more than one element define root element location');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_2_array" value="" />
+        </div>
+
+        <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Image body attributes. URL or base64 encoded content');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_2_body" value="" />
         </div>
@@ -613,6 +628,11 @@
 
         <div class="form-group">
             <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_img_3_download" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Download image instead of using external URL');?></label>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','If there can be more than one element define root element location');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_3_array" value="" />
         </div>
 
         <div class="form-group">
@@ -691,6 +711,11 @@
         </div>
 
         <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','If there can be more than one element define root element locationn');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_array" value="" />
+        </div>
+
+        <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Image body attributes. URL or base64 encoded content');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_body" value="" />
         </div>
@@ -766,6 +791,11 @@
         </div>
 
         <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','If there can be more than one element define root element location');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_5_array" value="" />
+        </div>
+
+        <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Image body attributes. URL or base64 encoded content');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_5_body" value="" />
         </div>
@@ -838,6 +868,11 @@
 
         <div class="form-group">
             <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_img_6_download" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Download image instead of using external URL');?></label>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','If there can be more than one element define root element location');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_6_array" value="" />
         </div>
 
         <div class="form-group">
@@ -936,6 +971,11 @@
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_sent_chat_id_2" value="" />
                 </div>
             </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_sent_use_msg_id" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Try to find chat by message id if we chat was not found by id');?></label>
+                </div>
+            </div>
         </div>
 
         <h5>Delivered</h5>
@@ -964,6 +1004,11 @@
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_delivered_chat_id_2" value="" />
                 </div>
             </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_delivered_use_msg_id" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Try to find chat by message id if we chat was not found by id');?></label>
+                </div>
+            </div>
         </div>
 
         <h5>Deleted</h5>
@@ -990,6 +1035,11 @@
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID 2 field location');?></label>
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_deleted_chat_id_2" value="" />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_deleted_use_msg_id" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Try to find chat by message id if we chat was not found by id');?></label>
                 </div>
             </div>
         </div>
@@ -1026,6 +1076,11 @@
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_read_chat_id_2" value="" />
                 </div>
             </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_read_use_msg_id" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Try to find chat by message id if we chat was not found by id');?></label>
+                </div>
+            </div>
         </div>
 
         <h5>Rejected</h5>
@@ -1052,6 +1107,11 @@
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID 2 field location');?></label>
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_delivery_rejected_chat_id_2" value="" />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_rejected_use_msg_id" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Try to find chat by message id if we chat was not found by id');?></label>
                 </div>
             </div>
         </div>
@@ -1087,6 +1147,11 @@
                 <div class="form-group">
                     <label>Text message new content location</label>
                     <input type="text" class="form-control form-control-sm ng-pristine ng-valid ng-not-empty ng-touched" ng-model="webhookincomingsctl.conditions.msg_delivery_edited_location" value="">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_delivery_edited_use_msg_id" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Try to find chat by message id if we chat was not found by id');?></label>
                 </div>
             </div>
         </div>

@@ -111,6 +111,14 @@ try {
 
                     $msg = new erLhcoreClassModelmsg();
                     $msg->msg = $msgText;
+
+                    if ($chat->chat_locale != '' && $chat->chat_locale_to != '' &&
+                        isset($chat->chat_variables_array['lhc_live_trans']) &&
+                        $chat->chat_variables_array['lhc_live_trans'] === true
+                    ) {
+                        erLhcoreClassTranslate::translateChatMsgOperator($chat, $msg);
+                    }
+
                     $msg->chat_id = $chat->id;
                     $msg->user_id = $currentUser->getUserID();
                     $msg->time = time();
