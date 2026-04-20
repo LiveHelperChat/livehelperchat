@@ -23,4 +23,3 @@ interface ezcDbSchemaDiffFileReader extends ezcDbSchemaDiffReader
      */
     public function loadDiffFromFile( $file );
 }
-?>

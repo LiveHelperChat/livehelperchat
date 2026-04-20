@@ -60,4 +60,3 @@ $Result['path'] = array(
     )
 );
 
-?>

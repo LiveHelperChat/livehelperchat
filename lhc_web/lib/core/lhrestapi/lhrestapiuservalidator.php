@@ -426,4 +426,4 @@ class erLhcoreClassRestAPIUserValidator
     }
 }
 
-?>
+

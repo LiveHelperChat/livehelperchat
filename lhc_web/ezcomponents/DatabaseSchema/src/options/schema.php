@@ -103,5 +103,3 @@ class ezcDbSchemaOptions extends ezcBaseOptions
         }
     }
 }
-
-?>

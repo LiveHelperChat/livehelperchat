@@ -1226,5 +1226,3 @@ class ezcGraphSvgDriver extends ezcGraphDriver
         return $this->dom;
     }
 }
-
-?>

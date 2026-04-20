@@ -492,4 +492,3 @@ class ezcBaseFile
         return false;
     }
 }
-?>

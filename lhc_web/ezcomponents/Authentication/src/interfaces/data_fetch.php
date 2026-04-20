@@ -56,4 +56,3 @@ interface ezcAuthenticationDataFetch
      */
     public function fetchData();
 }
-?>

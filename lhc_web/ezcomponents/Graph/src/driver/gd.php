@@ -1232,5 +1232,3 @@ class ezcGraphGdDriver extends ezcGraphDriver
         return $this->image;
     }
 }
-
-?>

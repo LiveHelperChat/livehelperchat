@@ -1462,4 +1462,4 @@ class erLhcoreClassTranslate
     }
 }
 
-?>
+

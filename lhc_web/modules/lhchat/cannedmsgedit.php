@@ -86,4 +86,3 @@ array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation(
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.cannedmsgedit_path',array('result' => & $Result));
 
-?>

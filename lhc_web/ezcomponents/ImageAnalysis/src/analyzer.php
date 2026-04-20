@@ -351,4 +351,3 @@ class ezcImageAnalyzer
         throw new ezcImageAnalyzerFileNotProcessableException( $this->filePath, "No handler found to analyze MIME type '{$this->mime}'." );
     }
 }
-?>

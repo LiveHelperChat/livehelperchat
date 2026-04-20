@@ -18,4 +18,3 @@
 abstract class ezcConfigurationException extends ezcBaseException
 {
 }
-?>

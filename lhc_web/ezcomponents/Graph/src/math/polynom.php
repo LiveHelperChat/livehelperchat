@@ -256,4 +256,3 @@ class ezcGraphPolynom
         return trim( $string );
     }
 }
-?>

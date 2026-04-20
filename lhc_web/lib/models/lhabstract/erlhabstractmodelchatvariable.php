@@ -146,4 +146,3 @@ class erLhAbstractModelChatVariable
     public $hide_delete = false;
 }
 
-?>

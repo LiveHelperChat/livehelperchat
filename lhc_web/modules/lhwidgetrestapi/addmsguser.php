@@ -267,7 +267,3 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && mb_strlen($payload[
     echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));
     exit;
 }
-
-
-
-?>

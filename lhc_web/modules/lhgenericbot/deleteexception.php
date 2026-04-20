@@ -11,4 +11,3 @@ $gbot->removeThis();
 erLhcoreClassModule::redirect('genericbot/listexceptions');
 exit;
 
-?>

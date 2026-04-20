@@ -595,4 +595,3 @@ class ezcDbSchemaSqliteWriter extends ezcDbSchemaCommonSqlWriter
         $this->queries[] = "DROP INDEX '$indexName'";
     }
 }
-?>

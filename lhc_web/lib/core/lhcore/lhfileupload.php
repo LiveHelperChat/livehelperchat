@@ -278,4 +278,3 @@ class erLhcoreClassFileUpload extends UploadHandler
     }
 }
 
-?>

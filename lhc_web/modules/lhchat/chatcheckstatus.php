@@ -73,4 +73,3 @@ if (erLhcoreClassModelChatConfig::fetch('track_is_online')->current_value && $Pa
 }
 
 exit;
-?>

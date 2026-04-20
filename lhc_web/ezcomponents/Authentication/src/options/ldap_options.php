@@ -85,4 +85,3 @@ class ezcAuthenticationLdapOptions extends ezcAuthenticationFilterOptions
         }
     }
 }
-?>

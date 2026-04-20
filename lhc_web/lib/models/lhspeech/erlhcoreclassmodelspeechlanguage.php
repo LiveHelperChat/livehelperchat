@@ -46,4 +46,3 @@ class erLhcoreClassModelSpeechLanguage
     public $siteaccess = '';
 }
 
-?>

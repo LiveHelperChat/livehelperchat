@@ -213,5 +213,3 @@ class ezcConsoleMenuDialog implements ezcConsoleDialog
         return array_key_exists( $propertyName, $this->properties );
     }
 }
-
-?>

@@ -24,4 +24,3 @@ if ($Params['user_parameters_unordered']['department'] === null) {
 
 include 'modules/lhchat/start.php';
 
-?>

@@ -26,4 +26,3 @@ $tpl->set('chat', $chat);
 print $tpl->fetch();
 exit;
 
-?>

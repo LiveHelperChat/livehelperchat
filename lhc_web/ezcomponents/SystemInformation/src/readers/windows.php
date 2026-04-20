@@ -232,4 +232,4 @@ class ezcSystemInfoWindowsReader extends ezcSystemInfoReader
         return $this->memorySize;
     }
 }
-?>
+

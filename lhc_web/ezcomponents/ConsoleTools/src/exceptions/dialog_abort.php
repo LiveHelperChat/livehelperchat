@@ -27,4 +27,3 @@ class ezcConsoleDialogAbortException extends ezcConsoleException
         parent::__construct( "User send EOF." );
     }
 }
-?>

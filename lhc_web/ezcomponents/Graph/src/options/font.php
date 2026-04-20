@@ -308,5 +308,3 @@ class ezcGraphFontOptions extends ezcBaseOptions
         }
     }
 }
-
-?>

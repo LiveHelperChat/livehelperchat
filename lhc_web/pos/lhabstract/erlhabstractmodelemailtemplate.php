@@ -90,5 +90,3 @@ $def->properties['bcc_recipients']->propertyName = 'bcc_recipients';
 $def->properties['bcc_recipients']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

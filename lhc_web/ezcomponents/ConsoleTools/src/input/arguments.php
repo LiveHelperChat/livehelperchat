@@ -243,4 +243,3 @@ class ezcConsoleArguments implements ArrayAccess, Iterator, Countable
         return count( $this->ordered );
     }
 }
-?>

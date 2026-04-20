@@ -17,4 +17,3 @@ if (is_numeric($Params['user_parameters']['chat_id']))
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'cobrowse';
 
-?>

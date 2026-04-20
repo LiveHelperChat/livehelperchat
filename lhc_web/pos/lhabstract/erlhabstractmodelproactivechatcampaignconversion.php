@@ -30,5 +30,3 @@ foreach (['conv_event','unique_id'] as $posAttr) {
 // 3 - Chat started
 
 return $def;
-
-?>

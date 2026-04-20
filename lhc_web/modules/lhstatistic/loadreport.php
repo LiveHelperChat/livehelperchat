@@ -5,4 +5,3 @@ $report = \LiveHelperChat\Models\Statistic\SavedReport::fetch((int)$Params['user
 header('Location: '.$report->generateURL());
 exit;
 
-?>

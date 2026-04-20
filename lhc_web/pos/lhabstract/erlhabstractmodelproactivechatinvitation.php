@@ -24,5 +24,3 @@ foreach (['repetitiveness','active_to','active_from','parent_id','campaign_id','
 }
 
 return $def;
-
-?>

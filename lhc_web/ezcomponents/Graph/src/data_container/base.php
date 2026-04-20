@@ -222,4 +222,3 @@ class ezcGraphChartDataContainer implements ArrayAccess, Iterator, Countable
         return count( $this->data );
     }
 }
-?>

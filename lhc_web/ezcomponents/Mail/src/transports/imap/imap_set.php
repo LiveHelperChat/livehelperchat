@@ -372,4 +372,3 @@ class ezcMailImapSet implements ezcMailParserSet
         return $this->messages;
     }
 }
-?>

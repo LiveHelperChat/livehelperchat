@@ -35,4 +35,3 @@ $Result['path'] = array(
     array('url' =>erLhcoreClassDesign::baseurl('mobile/sessions'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('mobile/sessions','Sessions'))
 );
 
-?>

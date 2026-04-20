@@ -264,4 +264,3 @@ class erLhcoreClassChatStatsResque {
 
 }
 
-?>

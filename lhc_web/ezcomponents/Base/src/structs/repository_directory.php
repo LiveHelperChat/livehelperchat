@@ -80,4 +80,3 @@ class ezcBaseRepositoryDirectory extends ezcBaseStruct
         return new ezcBaseRepositoryDirectory( $array['type'], $array['basePath'], $array['autoloadPath'] );
     }
 }
-?>

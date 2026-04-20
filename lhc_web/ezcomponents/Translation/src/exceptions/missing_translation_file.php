@@ -26,4 +26,4 @@ class ezcTranslationMissingTranslationFileException extends ezcTranslationExcept
         parent::__construct( "The translation file '{$fileName}' does not exist." );
     }
 }
-?>
+

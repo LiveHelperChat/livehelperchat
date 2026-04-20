@@ -53,5 +53,3 @@ interface ezcConsoleDialogValidator
     public function fixup( $result );
 
 }
-
-?>

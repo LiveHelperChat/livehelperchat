@@ -957,4 +957,3 @@ class erLhcoreClassFormRenderer {
     
 }
 
-?>

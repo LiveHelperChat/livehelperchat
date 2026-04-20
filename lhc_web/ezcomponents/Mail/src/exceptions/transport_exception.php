@@ -27,4 +27,3 @@ class ezcMailTransportException extends ezcMailException
         parent::__construct( "An error occured while sending or receiving mail. " . $message );
     }
 }
-?>

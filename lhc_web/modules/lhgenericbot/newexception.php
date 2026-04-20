@@ -40,6 +40,5 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/new','System configuration')),
     array('url' => erLhcoreClassDesign::baseurl('genericbot/listexceptions'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/new','Responses for API error')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/new','New')),
-)
+);
 
-?>

@@ -13,4 +13,3 @@ $Departament->saveThis();
 erLhcoreClassModule::redirect('department/departments');
 exit;
 
-?>

@@ -397,4 +397,3 @@ class ezcDbSchemaXmlWriter implements ezcDbSchemaFileWriter, ezcDbSchemaDiffFile
         $this->writer->endDocument();
     }
 }
-?>

@@ -258,4 +258,4 @@ class ezcPersistentObjectProperty
      */
     const VISIBILITY_PROPERTY = 4;
 }
-?>
+

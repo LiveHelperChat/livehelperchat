@@ -32,4 +32,3 @@ if ($Params['user_parameters']['validation_hash'] == sha1(sha1($Params['user_par
 erLhcoreClassModule::redirect('user/login');
 exit;
 
-?>

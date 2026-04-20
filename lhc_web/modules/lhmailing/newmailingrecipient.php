@@ -33,4 +33,3 @@ $Result['content'] = $tpl->fetch();
 echo $tpl->fetch();
 exit;
 
-?>

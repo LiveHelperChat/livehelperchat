@@ -46,4 +46,4 @@ class ezcPersistentIdentityRelatedObjectAlreadyExistsException extends ezcPersis
         );
     }
 }
-?>
+

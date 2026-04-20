@@ -135,4 +135,3 @@ class ezcCacheStorageApcOptions extends ezcBaseOptions
         $this->storageOptions = $options;
     }
 }
-?>

@@ -356,4 +356,4 @@ class ezcPersistentDeleteHandler extends ezcPersistentSessionHandler
     }
 }
 
-?>
+

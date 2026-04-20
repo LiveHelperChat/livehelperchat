@@ -49,4 +49,3 @@ echo json_encode(array('arguments' => $arguments));
         )
     )*/
 exit;
-?>

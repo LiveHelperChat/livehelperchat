@@ -51,10 +51,10 @@ if ( isset($_POST['StoreMailSettings']) || isset($_POST['StoreMailSettingsTest']
         exit;
     }
     
-    $Errors = array();
+    $Errors = [];
     
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
     
     if ( $form->hasValidData( 'sender' )) {
         $data['sender'] = $form->sender;
@@ -133,5 +133,3 @@ $tpl->set('tab', $tab);
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Mail settings')));
-
-?>

@@ -7,4 +7,3 @@ $tpl->set('user_id',(int)$Params['user_parameters']['user_id']);
 
 echo $tpl->fetch();
 exit;
-?>

@@ -163,4 +163,3 @@ class ezcAuthenticationMath
         return $result;
     }
 }
-?>

@@ -60,5 +60,3 @@ $def->properties['last_error']->propertyName = 'last_error';
 $def->properties['last_error']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

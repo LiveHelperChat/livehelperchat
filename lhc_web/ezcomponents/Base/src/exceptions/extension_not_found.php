@@ -35,4 +35,3 @@ class ezcBaseExtensionNotFoundException extends ezcBaseException
         }
     }
 }
-?>

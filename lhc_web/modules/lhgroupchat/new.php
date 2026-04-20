@@ -42,6 +42,5 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','System configuration')),
     array('url' => erLhcoreClassDesign::baseurl('groupchat/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('groupchat/group','Group chats')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('groupchat/group','New group chat')),
-)
+);
 
-?>

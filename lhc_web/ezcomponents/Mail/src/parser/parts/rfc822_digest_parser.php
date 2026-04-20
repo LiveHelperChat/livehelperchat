@@ -79,4 +79,3 @@ class ezcMailRfc822DigestParser extends ezcMailPartParser
         return $digest;
     }
 }
-?>

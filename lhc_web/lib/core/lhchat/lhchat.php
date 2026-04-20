@@ -2717,4 +2717,3 @@ class erLhcoreClassChat {
    private static $persistentSession;
 }
 
-?>

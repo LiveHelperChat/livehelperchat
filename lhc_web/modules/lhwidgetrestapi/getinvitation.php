@@ -213,7 +213,7 @@ if ($outputResponse['invitation_id'] > 0) {
         }
 
         if (isset($invitation->design_data_array['mobile_style']) && $invitation->design_data_array['mobile_style'] != '') {
-            $replaceStyleArray = array();
+            $replaceStyleArray = [];
             for ($i = 1; $i < 5; $i++) {
                 $replaceStyleArray['{proactive_img_' . $i . '}'] = erLhcoreClassSystem::getHost() . $invitation->{'design_data_img_' . $i . '_url'};
             }
@@ -303,4 +303,3 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvi
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;
-?>

@@ -37,4 +37,4 @@ $Result['path'] = array(
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Bot individualization'))
 );
 
-?>
+

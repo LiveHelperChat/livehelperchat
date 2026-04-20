@@ -29,5 +29,3 @@ class ezcGraphInvalidArrayDataSourceException extends ezcGraphException
         parent::__construct( "The array dataset can only use arrays and iterators, but you supplied '{$type}'." );
     }
 }
-
-?>

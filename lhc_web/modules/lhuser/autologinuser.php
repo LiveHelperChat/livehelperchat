@@ -50,5 +50,3 @@ if (is_array($autologinConfiguration)) {
     $Result['pagelayout'] = 'login';
     return $Result;
 }
-
-?>

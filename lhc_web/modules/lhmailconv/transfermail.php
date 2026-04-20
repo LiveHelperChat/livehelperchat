@@ -10,4 +10,3 @@ $tpl->set('transferMode','mail');
 print $tpl->fetch();
 exit;
 
-?>

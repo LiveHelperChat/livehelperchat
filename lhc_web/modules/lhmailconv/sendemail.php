@@ -126,4 +126,3 @@ $tpl->set('Result',['popup' => isset($Result['pagelayout']), 'path' => array(
 $Result['content'] = $tpl->fetch();
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJSStatic('js/tinymce/js/tinymce/tinymce.min.js').'"></script>';
 
-?>

@@ -851,4 +851,4 @@ class ezcUrl
         $this->query = $query;
     }
 }
-?>
+

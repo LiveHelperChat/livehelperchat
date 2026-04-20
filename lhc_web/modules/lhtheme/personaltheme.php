@@ -71,5 +71,3 @@ $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','System configuration')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhtheme/admin','Personal theme')));
-
-?>

@@ -28,5 +28,3 @@ class ezcConsoleOptionMissingValueException extends ezcConsoleOptionException
         parent::__construct( "The option '{$option->long}' expects a value, but none was submitted." );
     }
 }
-
-?>

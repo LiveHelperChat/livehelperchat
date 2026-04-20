@@ -26,4 +26,4 @@ class ezcTranslationReaderNotInitializedException extends ezcTranslationExceptio
         parent::__construct( "The reader is not initialized with the initReader() method." );
     }
 }
-?>
+

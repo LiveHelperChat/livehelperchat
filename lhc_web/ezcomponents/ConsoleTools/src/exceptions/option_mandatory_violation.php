@@ -28,5 +28,3 @@ class ezcConsoleOptionMandatoryViolationException extends ezcConsoleOptionExcept
         parent::__construct( "Option with long name '{$option->long}' is mandatory but was not submitted." );
     }
 }
-
-?>

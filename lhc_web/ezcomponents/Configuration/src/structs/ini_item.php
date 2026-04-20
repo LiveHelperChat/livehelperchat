@@ -120,4 +120,3 @@ class ezcConfigurationIniItem extends ezcBaseStruct
         );
     }
 }
-?>

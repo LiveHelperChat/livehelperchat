@@ -292,5 +292,3 @@ abstract class ezcGraphChart
      */
     abstract public function renderToOutput( $width, $height );
 }
-
-?>

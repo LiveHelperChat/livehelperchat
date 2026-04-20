@@ -22,4 +22,3 @@ return array(
     'ezcInputForm'                            => 'UserInput/input_form.php',
     'ezcInputFormDefinitionElement'           => 'UserInput/structs/definition_element.php',
 );
-?>

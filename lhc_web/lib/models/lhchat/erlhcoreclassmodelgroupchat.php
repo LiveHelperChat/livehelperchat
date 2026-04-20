@@ -155,4 +155,3 @@ class erLhcoreClassModelGroupChat
     public $type = self::PUBLIC_CHAT;
 }
 
-?>

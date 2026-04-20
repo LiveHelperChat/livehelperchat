@@ -17,4 +17,3 @@ $tpl->set('user_id',$currentUser->getUserID());
 print $tpl->fetch();
 exit;
 
-?>

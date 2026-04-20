@@ -509,4 +509,3 @@ class ezcGraphAxisRotatedLabelRenderer extends ezcGraphAxisLabelRenderer
         );
     }
 }
-?>

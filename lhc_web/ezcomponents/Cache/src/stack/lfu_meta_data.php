@@ -38,5 +38,3 @@ class ezcCacheStackLfuMetaData extends ezcCacheStackBaseMetaData
         ++$this->replacementData[$itemId];
     }
 }
-
-?>

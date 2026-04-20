@@ -44,4 +44,4 @@ $Result['path'] = array(
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('audit.login_history',array('result' => & $Result));
-?>
+

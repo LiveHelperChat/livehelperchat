@@ -26,5 +26,3 @@ class ezcConsoleNoPositionStoredException extends ezcConsoleException
         parent::__construct( 'Cannot restore position, if no position has been stored before.' );
     }
 }
-
-?>

@@ -126,4 +126,3 @@ class ezcMailStreamFile extends ezcMailFilePart
         return chunk_split( base64_encode( $contents ), 76, ezcMailTools::lineBreak() );
     }
 }
-?>

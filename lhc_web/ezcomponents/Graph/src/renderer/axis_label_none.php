@@ -41,4 +41,3 @@ class ezcGraphAxisNoLabelRenderer extends ezcGraphAxisLabelRenderer
         return true;
     }
 }
-?>

@@ -28,5 +28,3 @@ class ezcGraphToolsNotRenderedException extends ezcGraphException
         parent::__construct( "Chart is not yet rendered." );
     }
 }
-
-?>

@@ -65,4 +65,3 @@ class erLhcoreClassModelDepartamentAvailability {
     public $status = self::STATUS_ONLINE;
 }
 
-?>

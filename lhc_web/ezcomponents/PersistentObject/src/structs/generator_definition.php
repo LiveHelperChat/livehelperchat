@@ -67,4 +67,4 @@ class ezcPersistentGeneratorDefinition extends ezcBaseStruct
                                                      $array['params'] );
     }
 }
-?>
+

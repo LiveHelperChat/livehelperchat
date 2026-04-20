@@ -259,4 +259,3 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
 exit;
 
-?>

@@ -109,5 +109,3 @@ class ezcGraphOdometerChartOptions extends ezcGraphChartOptions
         }
     }
 }
-
-?>

@@ -25,5 +25,3 @@ $def->properties['configuration']->propertyName = 'configuration';
 $def->properties['configuration']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

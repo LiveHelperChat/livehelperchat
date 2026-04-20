@@ -91,4 +91,3 @@ class erLhcoreClassFaq {
    private static $persistentSession;
 }
 
-?>

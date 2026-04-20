@@ -12,4 +12,3 @@ if ( erLhcoreClassChat::hasAccessToRead($Chat) && erLhcoreClassChat::hasAccessTo
 }
 
 exit;
-?>

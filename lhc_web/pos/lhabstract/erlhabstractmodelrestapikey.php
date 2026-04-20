@@ -30,5 +30,3 @@ $def->properties['ip_restrictions']->propertyName = 'ip_restrictions';
 $def->properties['ip_restrictions']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

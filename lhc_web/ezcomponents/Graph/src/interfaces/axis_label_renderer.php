@@ -553,5 +553,3 @@ abstract class ezcGraphAxisLabelRenderer extends ezcBaseOptions
         ezcGraphChartElementAxis $axis
     );
 }
-
-?>

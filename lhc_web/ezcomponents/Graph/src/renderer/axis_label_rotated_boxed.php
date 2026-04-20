@@ -143,4 +143,3 @@ class ezcGraphAxisRotatedBoxedLabelRenderer extends ezcGraphAxisRotatedLabelRend
         );
     }
 }
-?>

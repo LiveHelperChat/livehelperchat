@@ -313,4 +313,3 @@ class ezcDbSchemaMysqlWriter extends ezcDbSchemaCommonSqlWriter implements ezcDb
         $this->queries[] = "ALTER TABLE `$tableName` DROP INDEX `$indexName`";
     }
 }
-?>

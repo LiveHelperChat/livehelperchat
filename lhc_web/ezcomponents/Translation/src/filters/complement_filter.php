@@ -65,4 +65,4 @@ class ezcTranslationComplementEmptyFilter implements ezcTranslationFilter
         }
     }
 }
-?>
+

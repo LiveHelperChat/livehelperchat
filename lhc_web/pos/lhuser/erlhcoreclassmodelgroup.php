@@ -25,5 +25,3 @@ $def->properties['required']->propertyName = 'required';
 $def->properties['required']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def; 
-
-?>

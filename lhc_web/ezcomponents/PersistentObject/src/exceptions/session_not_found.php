@@ -41,4 +41,4 @@ class ezcPersistentSessionNotFoundException extends ezcPersistentObjectException
         parent::__construct( $message );
     }
 }
-?>
+

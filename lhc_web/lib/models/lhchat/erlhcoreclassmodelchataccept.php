@@ -61,4 +61,3 @@ class erLhcoreClassModelChatAccept {
    public $wused = 0;
 }
 
-?>

@@ -10,4 +10,3 @@ class erLhcoreClassModelGroupMsgArchive extends erLhcoreClassModelGroupMsg {
     use erLhcoreClassDBTrait;
 }
 
-?>

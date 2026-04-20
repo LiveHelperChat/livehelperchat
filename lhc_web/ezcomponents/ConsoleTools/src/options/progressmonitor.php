@@ -53,5 +53,3 @@ class ezcConsoleProgressMonitorOptions extends ezcBaseOptions
         $this->properties[$key] = $value;
     }
 }
-
-?>

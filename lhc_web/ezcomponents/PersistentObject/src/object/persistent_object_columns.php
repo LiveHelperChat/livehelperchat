@@ -132,4 +132,4 @@ class ezcPersistentObjectColumns extends ArrayObject
     }
 }
 
-?>
+

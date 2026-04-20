@@ -25,5 +25,3 @@ $def->properties['created']->propertyName = 'created';
 $def->properties['created']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def; 
-
-?>

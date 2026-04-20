@@ -25,5 +25,3 @@ $def->properties['conversation_id']->propertyName = 'conversation_id';
 $def->properties['conversation_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
-
-?>

@@ -87,4 +87,3 @@ class erLhcoreClassModelChatWebhook {
     public $delay = 0;
 }
 
-?>

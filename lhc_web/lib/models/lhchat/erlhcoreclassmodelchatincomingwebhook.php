@@ -92,4 +92,3 @@ class erLhcoreClassModelChatIncomingWebhook {
     public $icon_color = '';
 }
 
-?>

@@ -30,5 +30,3 @@ $def->properties['counter']->propertyName = 'counter';
 $def->properties['counter']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
-
-?>

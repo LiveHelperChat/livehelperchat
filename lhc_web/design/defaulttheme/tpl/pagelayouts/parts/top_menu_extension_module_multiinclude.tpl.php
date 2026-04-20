@@ -1,1 +1,1 @@
-<?php $hasExtensionModule = isset($hasExtensionModule) ? $hasExtensionModule : false;?>
+<?php $hasExtensionModule = isset($hasExtensionModule) ? $hasExtensionModule : false;

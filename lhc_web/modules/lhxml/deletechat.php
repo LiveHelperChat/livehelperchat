@@ -23,4 +23,3 @@ if ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->has
 
 
 exit;
-?>

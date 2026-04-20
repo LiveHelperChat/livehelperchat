@@ -110,4 +110,4 @@ class ezcTranslationBorkFilter implements ezcTranslationFilter
         }
     }
 }
-?>
+

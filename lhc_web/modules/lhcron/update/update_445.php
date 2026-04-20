@@ -9,4 +9,3 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 echo "Finished update for 4.45v\n";
 
-?>

@@ -27,4 +27,3 @@ class ezcAuthenticationException extends ezcBaseException
         parent::__construct( $message );
     }
 }
-?>

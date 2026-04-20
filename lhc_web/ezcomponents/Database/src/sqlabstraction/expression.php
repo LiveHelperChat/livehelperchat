@@ -1091,4 +1091,3 @@ class ezcQueryExpression
         return $expr;
     }
 }
-?>

@@ -12,4 +12,3 @@
 return array(
     'ezcMvcTemplateViewHandler' => 'MvcTemplateTiein/viewhandlers/template.php',
 );
-?>

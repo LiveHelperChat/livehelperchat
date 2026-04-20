@@ -143,5 +143,3 @@ class ezcGraph
      */
     const VALUE = 1;
 }
-
-?>

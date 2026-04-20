@@ -123,5 +123,3 @@ class ezcConsoleProgressbarOptions extends ezcBaseOptions
         $this->properties[$key] = $value;
     }
 }
-
-?>

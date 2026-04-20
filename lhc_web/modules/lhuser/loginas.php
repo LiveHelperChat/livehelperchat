@@ -10,5 +10,3 @@ erLhcoreClassUser::instance()->logout();
 erLhcoreClassModule::redirect('user/loginasuser','/' . $user->id . '/(hash)/' . $hash . '/(ts)/' . $ts . '/(showlogin)/1');
 
 exit;
-
-?>

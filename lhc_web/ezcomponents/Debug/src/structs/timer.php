@@ -133,5 +133,3 @@ class ezcDebugTimerStruct extends ezcBaseStruct
         );
     }
 }
-
-?>

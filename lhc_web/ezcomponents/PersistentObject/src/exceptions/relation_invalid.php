@@ -29,4 +29,4 @@ class ezcPersistentRelationInvalidException extends ezcPersistentObjectException
         parent::__construct( "Class '{$class}' is not a valid relation defitinion class." );
     }
 }
-?>
+

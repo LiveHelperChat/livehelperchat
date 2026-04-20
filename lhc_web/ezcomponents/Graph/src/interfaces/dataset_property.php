@@ -205,5 +205,3 @@ abstract class ezcGraphDataSetProperty implements ArrayAccess
         }
     }
 }
-
-?>

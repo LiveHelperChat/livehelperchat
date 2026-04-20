@@ -26,7 +26,7 @@ $can_edit_groups = erLhcoreClassGroupRole::canEditUserGroups(erLhcoreClassUser::
 
 $groups_can_edit = erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'editusergroupall') == true ? true : erLhcoreClassGroupRole::getGroupsAccessedByUser(erLhcoreClassUser::instance()->getUserData());
 
-$userDataGroupsRead = array();
+$userDataGroupsRead = [];
 if ($groups_can_edit !== true) {
     $userDataGroupsRead = erLhcoreClassGroupRole::getGroupsAccessedByUser($UserData)['read'];
 }
@@ -294,7 +294,7 @@ if (isset($_POST['UpdateSpeech_account']) && $can_edit_groups === true) {
     $tpl->set('tab','tab_speech');
 }
 
-$userGroupFilter = $groups_can_edit === true ? array() : array('filterin' => array('id' => $groups_can_edit['groups']));
+$userGroupFilter = $groups_can_edit === true ? [] : array('filterin' => array('id' => $groups_can_edit['groups']));
 
 $tpl->set('user_groups_filter',$userGroupFilter);
 $tpl->set('can_edit_groups',$can_edit_groups);
@@ -319,5 +319,3 @@ $Result['path'] = array(
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit_path',array('result' => & $Result));
-
-?>

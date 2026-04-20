@@ -247,4 +247,3 @@ class ezcFeedCreativeCommonsModule extends ezcFeedModule
         return 'creativeCommons';
     }
 }
-?>

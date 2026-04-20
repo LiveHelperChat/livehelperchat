@@ -779,4 +779,3 @@ class ezcMailTools
         return $htmlText;
     }
 }
-?>

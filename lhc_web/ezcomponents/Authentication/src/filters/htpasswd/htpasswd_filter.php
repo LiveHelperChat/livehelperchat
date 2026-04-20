@@ -231,4 +231,3 @@ class ezcAuthenticationHtpasswdFilter extends ezcAuthenticationFilter
         return self::STATUS_USERNAME_INCORRECT;
     }
 }
-?>

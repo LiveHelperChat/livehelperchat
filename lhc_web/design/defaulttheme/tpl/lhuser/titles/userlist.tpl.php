@@ -1,1 +1,1 @@
-<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Users');?>
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Users');

@@ -455,4 +455,3 @@ class ezcImageAnalyzerPhpHandler extends ezcImageAnalyzerHandler
         return $dataStruct;
     }
 }
-?>

@@ -42,4 +42,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('genericbot/commands'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Commands')),
     array('title' => $command->command));
 
-?>

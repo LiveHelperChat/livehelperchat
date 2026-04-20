@@ -75,4 +75,4 @@ class ezcPersistentObjectSchemaTemplateFunctions implements ezcTemplateCustomFun
     }
 }
 
-?>
+

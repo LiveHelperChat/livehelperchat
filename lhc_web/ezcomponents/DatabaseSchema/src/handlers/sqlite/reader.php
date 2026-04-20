@@ -265,4 +265,3 @@ class ezcDbSchemaSqliteReader extends ezcDbSchemaCommonSqlReader implements ezcD
     }
 
 }
-?>

@@ -37,4 +37,3 @@ $tpl->set('campaign', $campaign);
 echo $tpl->fetch();
 exit;
 
-?>

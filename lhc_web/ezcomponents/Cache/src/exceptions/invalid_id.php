@@ -30,4 +30,3 @@ class ezcCacheInvalidIdException extends ezcCacheException
         parent::__construct( "No cache or cache configuration known with ID '{$id}'." );
     }
 }
-?>

@@ -301,4 +301,3 @@ class ezcGraphAxisExactLabelRenderer extends ezcGraphAxisLabelRenderer
         }
     }
 }
-?>

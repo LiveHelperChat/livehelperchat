@@ -40,4 +40,3 @@ return array(
     'ezcConfigurationValidationItem'                 => 'Configuration/structs/validation_item.php',
     'ezcConfigurationValidationResult'               => 'Configuration/validation_result.php',
 );
-?>

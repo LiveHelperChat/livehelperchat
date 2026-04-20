@@ -36,5 +36,3 @@ class ezcImageInvalidFilterParameterException extends ezcImageException
         parent::__construct( $message );
     }
 }
-
-?>

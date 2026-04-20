@@ -179,4 +179,3 @@ class ezcMailMultipartRelated extends ezcMailMultipart
         // 3. Substitute in this message.
     }
 }
-?>

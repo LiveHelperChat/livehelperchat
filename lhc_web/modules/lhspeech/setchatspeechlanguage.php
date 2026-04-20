@@ -55,4 +55,3 @@ echo $tpl->fetch();
 exit;
 
 
-?>

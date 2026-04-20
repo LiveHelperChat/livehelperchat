@@ -1464,4 +1464,3 @@ class erLhcoreClassUserValidator {
     }
 }
 
-?>

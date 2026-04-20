@@ -25,4 +25,4 @@ class ezcInputFormValidDataAvailableException extends ezcInputFormException
         parent::__construct( "You are not allowed to request RAW data for the '{$fieldName}' field which has valid data." );
     }
 }
-?>
+

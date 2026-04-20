@@ -28,4 +28,3 @@ class ezcAuthenticationTypekeyPublicKeysMissingException extends ezcAuthenticati
         parent::__construct( $message );
     }
 }
-?>

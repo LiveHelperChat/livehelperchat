@@ -26,5 +26,3 @@ $def->properties['response']->propertyName = 'response';
 $def->properties['response']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

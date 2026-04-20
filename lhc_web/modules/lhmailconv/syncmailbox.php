@@ -12,4 +12,3 @@ if ($worker == 'resque' && class_exists('erLhcoreClassExtensionLhcphpresque')) {
     erLhcoreClassMailconvParser::syncMailbox($item);
 }
 
-?>

@@ -35,4 +35,4 @@ function __autoload( $className )
 $generator = new ezcPersistentObjectSchemaGenerator();
 $generator->run();
 
-?>
+

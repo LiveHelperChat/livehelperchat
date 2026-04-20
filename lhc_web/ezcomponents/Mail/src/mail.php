@@ -544,4 +544,3 @@ class ezcMail extends ezcMailPart
         $context->appendPart( $mail );
     }
 }
-?>

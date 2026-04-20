@@ -22,5 +22,3 @@ foreach (['chat_id','online_user_id','vtime'] as $posAttr) {
 }
 
 return $def;
-
-?>

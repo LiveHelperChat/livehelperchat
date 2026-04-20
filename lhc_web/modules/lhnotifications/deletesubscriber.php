@@ -11,4 +11,3 @@ $subscriber->removeThis();
 erLhcoreClassModule::redirect('notifications/list');
 exit;
 
-?>

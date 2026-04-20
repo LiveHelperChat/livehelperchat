@@ -7,4 +7,3 @@ $tpl->set('message_body',isset($_POST['msg_body']));
 echo $tpl->fetch();
 exit;
 
-?>

@@ -14,4 +14,3 @@ if ($rtemplate instanceof erLhcoreClassModelMailconvResponseTemplate)
 echo $tpl->fetch();
 exit;
 
-?>

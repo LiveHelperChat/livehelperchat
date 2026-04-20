@@ -17,4 +17,3 @@
 abstract class ezcGraphException extends ezcBaseException
 {
 }
-?>

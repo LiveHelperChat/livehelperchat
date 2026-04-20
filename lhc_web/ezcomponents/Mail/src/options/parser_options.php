@@ -129,4 +129,3 @@ class ezcMailParserOptions extends ezcBaseOptions
         }
     }
 }
-?>

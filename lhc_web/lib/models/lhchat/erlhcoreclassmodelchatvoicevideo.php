@@ -82,4 +82,3 @@ class erLhcoreClassModelChatVoiceVideo {
     public $token = '';
 }
 
-?>

@@ -88,4 +88,3 @@ if (isset($data['automatic_archiving']) && $data['automatic_archiving'] == 1) {
 
 include "modules/lhcron/util/maintain_files.php";
 
-?>

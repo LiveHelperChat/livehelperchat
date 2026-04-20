@@ -321,4 +321,3 @@ class ezcAuthentication
         return $this->status->get();
     }
 }
-?>

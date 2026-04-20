@@ -24,6 +24,3 @@ foreach (['filter','filter_input'] as $posAttr) {
 }
 
 return $def;
-
-?>
-

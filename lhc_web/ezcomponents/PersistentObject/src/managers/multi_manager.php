@@ -81,4 +81,4 @@ class ezcPersistentMultiManager extends ezcPersistentDefinitionManager
         throw new ezcPersistentDefinitionNotFoundException( $class, $errors );
     }
 }
-?>
+

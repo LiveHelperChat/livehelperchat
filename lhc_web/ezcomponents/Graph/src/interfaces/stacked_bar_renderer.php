@@ -42,5 +42,3 @@ interface ezcGraphStackedBarsRenderer
         $axisPosition = 0.
     );
 }
-
-?>

@@ -66,5 +66,3 @@ interface ezcImageThumbnailFilters
      */
     public function filledThumbnail( $width, $height, $color = array() );
 }
-
-?>

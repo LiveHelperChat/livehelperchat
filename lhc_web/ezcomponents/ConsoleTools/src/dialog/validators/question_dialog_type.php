@@ -223,5 +223,3 @@ class ezcConsoleQuestionDialogTypeValidator implements ezcConsoleQuestionDialogV
         return array_key_exists( $propertyName, $this->properties );
     }
 }
-
-?>

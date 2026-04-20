@@ -210,5 +210,3 @@ if (empty($Errors)) {
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse, 'json', isset($optionsJson) ? $optionsJson : 0);
 exit;
-
-?>

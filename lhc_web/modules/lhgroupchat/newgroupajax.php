@@ -46,4 +46,3 @@ if (isset($payload['name']) && $payload['name'] != '') {
 
 exit;
 
-?>

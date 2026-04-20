@@ -85,4 +85,4 @@ class ezcPersistentRelationFindDefinition extends ezcBaseStruct
     }
 }
 
-?>
+

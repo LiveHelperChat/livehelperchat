@@ -33,5 +33,3 @@ class ezcGraphDataSetStringProperty extends ezcGraphDataSetProperty
         return true;
     }
 }
-
-?>

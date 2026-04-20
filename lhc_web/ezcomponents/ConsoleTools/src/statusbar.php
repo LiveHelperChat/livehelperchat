@@ -258,4 +258,3 @@ class ezcConsoleStatusbar
         return $this->counter[false];
     }
 }
-?>

@@ -77,4 +77,3 @@ return array(
     'ezcPersistentSingleTableMap'                              => 'PersistentObject/structs/single_table_map.php',
     'ezcPersistentStateTransformer'                            => 'PersistentObject/internal/state_transformer.php',
 );
-?>

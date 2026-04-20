@@ -71,4 +71,3 @@ class erLhcoreClassModelDepartamentLimitGroup
     public $pending_max = 0;
 }
 
-?>

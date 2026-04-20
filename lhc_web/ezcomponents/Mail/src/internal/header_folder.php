@@ -143,4 +143,3 @@ class ezcMailHeaderFolder
         return $folded;
     }
 }
-?>

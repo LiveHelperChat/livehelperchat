@@ -464,4 +464,3 @@ abstract class ezcMailPart
         $this->headerCharsets[$name] = $value;
     }
 }
-?>

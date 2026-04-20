@@ -280,4 +280,3 @@ class ezcMailParser
         return self::$tmpDir;
     }
 }
-?>

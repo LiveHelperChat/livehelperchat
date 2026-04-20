@@ -317,4 +317,3 @@ class ezcDbSchemaPgsqlReader extends ezcDbSchemaCommonSqlReader implements ezcDb
     }
 
 }
-?>

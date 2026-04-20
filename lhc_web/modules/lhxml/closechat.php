@@ -28,4 +28,3 @@ if ($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lh
 }
 
 exit;
-?>

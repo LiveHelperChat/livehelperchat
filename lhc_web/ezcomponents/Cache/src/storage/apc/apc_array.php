@@ -507,4 +507,3 @@ class ezcCacheStorageFileApcArray extends ezcCacheStorageApc
         }
     }
 }
-?>

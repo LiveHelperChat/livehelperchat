@@ -11,4 +11,3 @@ $item->removeThis();
 erLhcoreClassModule::redirect('chatsettings/startsettingslist');
 exit;
 
-?>

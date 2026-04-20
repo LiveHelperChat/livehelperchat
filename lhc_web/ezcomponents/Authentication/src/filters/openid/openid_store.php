@@ -98,4 +98,3 @@ abstract class ezcAuthenticationOpenidStore
      */
     abstract public function removeAssociation( $url );
 }
-?>

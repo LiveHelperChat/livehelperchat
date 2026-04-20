@@ -30,4 +30,3 @@ class ezcLogWrongSeverityException extends ezcBaseException
         parent::__construct( "There is no severity named '{$severity}'." );
     }
 }
-?>

@@ -516,5 +516,3 @@ class ezcGraphChartElementLabeledAxis extends ezcGraphChartElementAxis
         return !$step;
     }
 }
-
-?>

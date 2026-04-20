@@ -23,4 +23,3 @@ interface ezcDbSchemaFileWriter extends ezcDbSchemaWriter
      */
     public function saveToFile( $file, ezcDbSchema $schema );
 }
-?>

@@ -26,4 +26,4 @@ class ezcTranslationContextNotAvailableException extends ezcTranslationException
         parent::__construct( "The context '{$contextName}' does not exist." );
     }
 }
-?>
+

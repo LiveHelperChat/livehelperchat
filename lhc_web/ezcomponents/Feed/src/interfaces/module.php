@@ -177,4 +177,3 @@ abstract class ezcFeedModule
      */
     abstract public function parse( $name, DOMElement $node );
 }
-?>

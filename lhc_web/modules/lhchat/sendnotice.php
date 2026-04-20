@@ -244,4 +244,3 @@ if ( isset($_POST['SendMessage']) ) {
 echo $tpl->fetch();
 exit;
 
-?>

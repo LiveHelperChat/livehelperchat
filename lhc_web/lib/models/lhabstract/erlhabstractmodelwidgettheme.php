@@ -667,4 +667,3 @@ class erLhAbstractModelWidgetTheme {
 	public $hide_delete = false;
 }
 
-?>

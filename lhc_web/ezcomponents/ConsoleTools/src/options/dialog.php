@@ -66,5 +66,3 @@ class ezcConsoleDialogOptions extends ezcBaseOptions
         $this->properties[$propertyName] = $propertyValue;
     }
 }
-
-?>

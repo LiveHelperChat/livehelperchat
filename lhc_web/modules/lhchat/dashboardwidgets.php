@@ -181,4 +181,3 @@ $tpl->setArray(array(
 echo $tpl->fetch();
 exit();
 
-?>

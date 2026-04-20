@@ -132,4 +132,4 @@ class ezcPersistentObjectRelations extends ArrayObject
     }
 }
 
-?>
+

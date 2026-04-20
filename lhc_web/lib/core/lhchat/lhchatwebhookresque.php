@@ -169,4 +169,3 @@ class erLhcoreClassChatWebhookResque {
 
 }
 
-?>

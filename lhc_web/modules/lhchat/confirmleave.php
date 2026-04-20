@@ -6,4 +6,3 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/confirmleave.tpl.php');
 echo $tpl->fetch();
 exit;
 
-?>

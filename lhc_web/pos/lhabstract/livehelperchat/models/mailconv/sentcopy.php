@@ -24,6 +24,3 @@ foreach (['mailbox_id','status'] as $posAttr) {
 }
 
 return $def;
-
-?>
-

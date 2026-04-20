@@ -160,4 +160,3 @@ class ezcMailMboxSet implements ezcMailParserSet
         return array_keys( $this->messagePositions );
     }
 }
-?>

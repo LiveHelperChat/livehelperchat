@@ -22,5 +22,3 @@ foreach (array('chat_id','user_id','op_status','vi_status','status','voice','vid
 }
 
 return $def;
-
-?>

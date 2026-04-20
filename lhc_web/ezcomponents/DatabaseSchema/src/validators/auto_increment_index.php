@@ -61,4 +61,3 @@ class ezcDbSchemaAutoIncrementIndexValidator
         return $errors;
     }
 }
-?>

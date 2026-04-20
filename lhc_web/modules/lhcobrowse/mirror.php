@@ -5,4 +5,3 @@ echo $tpl->fetch();
 
 exit;
 
-?>

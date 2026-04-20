@@ -10,4 +10,3 @@ $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/conf
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('paidchat.removedpaidchat_path',array('result' => & $Result));
 
-?>

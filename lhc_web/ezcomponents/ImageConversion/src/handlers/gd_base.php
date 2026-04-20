@@ -293,5 +293,3 @@ class ezcImageGdBaseHandler extends ezcImageMethodcallHandler
 
     
 }
-
-?>

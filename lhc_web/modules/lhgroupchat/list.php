@@ -36,4 +36,4 @@ $Result['path'] = array(
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('group_chat.list_path',array('result' => & $Result));
-?>
+

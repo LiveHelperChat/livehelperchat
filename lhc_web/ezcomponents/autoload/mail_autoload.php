@@ -79,4 +79,3 @@ return array(
     'ezcMailVariableSet'                => 'Mail/transports/variable/var_set.php',
     'ezcMailVirtualFile'                => 'Mail/parts/fileparts/virtual_file.php',
 );
-?>

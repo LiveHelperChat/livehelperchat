@@ -20,5 +20,3 @@ $def->properties['dep_group_id']->propertyName = 'dep_group_id';
 $def->properties['dep_group_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
-
-?>

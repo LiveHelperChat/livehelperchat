@@ -109,5 +109,3 @@ class ezcDebugOptions extends ezcBaseOptions
         $this->properties[$propertyName] = $propertyValue;
     }
 }
-
-?>

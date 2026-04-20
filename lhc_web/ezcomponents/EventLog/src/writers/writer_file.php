@@ -311,4 +311,3 @@ abstract class ezcLogFileWriter implements ezcLogWriter
 
     }
 }
-?>

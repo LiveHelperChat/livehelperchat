@@ -43,4 +43,3 @@ if (($handle = fopen("doc/translation_default/locales.csv", "r")) !== FALSE) {
     fclose($handle);
 }
 
-?>

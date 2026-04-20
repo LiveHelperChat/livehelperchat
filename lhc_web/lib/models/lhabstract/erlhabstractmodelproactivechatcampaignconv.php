@@ -81,4 +81,3 @@ class erLhAbstractModelProactiveChatCampaignConversion
     public $unique_id = '';
 }
 
-?>

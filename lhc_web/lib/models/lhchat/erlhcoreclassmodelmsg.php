@@ -95,4 +95,3 @@ class erLhcoreClassModelmsg
     public $del_st = SELF::STATUS_PENDING;
 }
 
-?>

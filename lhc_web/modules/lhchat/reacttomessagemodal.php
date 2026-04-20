@@ -16,4 +16,3 @@ if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcore
 
 exit;
 
-?>

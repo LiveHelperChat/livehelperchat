@@ -382,4 +382,3 @@ abstract class ezcCacheStorage
         return array_key_exists( $propertyName, $this->properties );
     }
 }
-?>

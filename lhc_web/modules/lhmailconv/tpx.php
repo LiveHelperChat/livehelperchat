@@ -53,4 +53,3 @@ $lastMessage->conversation->updateThis(['update' => ['opened_at']]);
 exit;
 
 
-?>

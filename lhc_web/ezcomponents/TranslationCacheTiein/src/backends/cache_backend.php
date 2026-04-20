@@ -213,4 +213,3 @@ class ezcTranslationCacheBackend implements ezcTranslationBackend, ezcTranslatio
         $cachedContext = $this->cache->store( "{$this->writeLocale}/$context" , $data );
     }
 }
-?>

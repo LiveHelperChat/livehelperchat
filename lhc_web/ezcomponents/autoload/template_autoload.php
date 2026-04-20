@@ -296,4 +296,3 @@ return array(
     'ezcTemplateWhitespaceRemoval'                       => 'Template/parsers/tst_to_tst/implementations/whitespace_removal.php',
     'ezcTemplateXhtmlContext'                            => 'Template/contexts/xhtml_context.php',
 );
-?>

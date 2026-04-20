@@ -306,4 +306,3 @@ ENDT;
         $element[$timeStruct->name]->switchTime = $timeStruct->switchTime;
     }
 }
-?>

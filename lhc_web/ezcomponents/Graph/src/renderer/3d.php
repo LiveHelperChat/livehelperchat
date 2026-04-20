@@ -2420,5 +2420,3 @@ class ezcGraphRenderer3d
         $this->axisLabels          = array();
     }
 }
-
-?>

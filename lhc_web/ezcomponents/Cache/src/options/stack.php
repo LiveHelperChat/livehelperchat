@@ -145,5 +145,3 @@ class ezcCacheStackOptions extends ezcBaseOptions
         $this->properties[$propertyName] = $propertyValue;
     }
 }
-
-?>
