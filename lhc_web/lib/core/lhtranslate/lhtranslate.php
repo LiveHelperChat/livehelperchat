@@ -1126,7 +1126,7 @@ class erLhcoreClassTranslate
                     return $cached;
                 }
 
-                $translatedItem =  erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $text, $translateFrom, $translateTo, $translationData['deepl_formality'] ?? 'default');
+                $translatedItem = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $text, $translateFrom, $translateTo, $translationData['deepl_formality'] ?? 'default');
             }
 
             self::storeCachedTranslation($useCache, $text, $translateFrom, $translateTo, $translatedItem);
@@ -1219,7 +1219,11 @@ class erLhcoreClassTranslate
                 
                 $msg->msg .= "[translation]{$translation}[/translation]";
             }
-        } catch (Exception $e) {}
+        } catch (Exception $e) {
+            $metaExisting = $msg->meta_msg != '' ? json_decode($msg->meta_msg, true) : array();
+            $metaExisting['content']['warning']['content'] = $e->getMessage();
+            $msg->meta_msg = json_encode($metaExisting);
+        }
     }
 
     /**
@@ -1273,7 +1277,11 @@ class erLhcoreClassTranslate
                 
                 $msg->msg .= "[translation]{$translation}[/translation]";
             }
-        } catch (Exception $e) {}
+        } catch (Exception $e) {
+            $metaExisting = $msg->meta_msg != '' ? json_decode($msg->meta_msg, true) : array();
+            $metaExisting['content']['warning']['content'] = $e->getMessage();
+            $msg->meta_msg = json_encode($metaExisting);
+        }
     }
     
     public static function translateBotMessage(erLhcoreClassModelChat $chat, erLhcoreClassModelmsg & $msg, erLhcoreClassModelGenericBotTrGroup $translationGroup)

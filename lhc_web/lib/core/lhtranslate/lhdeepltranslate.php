@@ -35,6 +35,7 @@ class erLhcoreClassTranslateDeepL {
         'en-us' => 'en-US',
         'en' => 'en-US',
         'en-gb' => 'en-GB',
+        'pt' => 'pt-PT'
     ];
 
     public static function translate($apiKey, $text, $fromLanguage, $toLanguage, $formality = 'default') {
@@ -74,7 +75,7 @@ class erLhcoreClassTranslateDeepL {
             return $dataTranslated->text;
 
         } catch (Exception $e) {
-            throw new RuntimeException("Failed translate from {$fromLanguage} to {$toLanguage}. ", 0, $e);
+            throw new RuntimeException("Failed translate from {$fromLanguage} to {$toLanguage}. ".ucfirst($e->getMessage()), 0, $e);
         }
     }
 }
