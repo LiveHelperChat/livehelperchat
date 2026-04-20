@@ -110,7 +110,26 @@ class erConfigClassLhConfig
 
     public function save()
     {
-        file_put_contents('settings/settings.ini.php',"<?php\n return ".var_export($this->conf,true).";\n?>");
+        file_put_contents('settings/settings.ini.php', "<?php\nreturn " . $this->exportArray($this->conf) . ";\n");
+    }
+
+    private function exportArray($data, $indent = 0): string
+    {
+        if (!is_array($data)) {
+            return var_export($data, true);
+        }
+        $pad = str_repeat('    ', $indent);
+        $inner = str_repeat('    ', $indent + 1);
+        $isList = array_keys($data) === range(0, count($data) - 1);
+        $items = [];
+        foreach ($data as $k => $v) {
+            $key = $isList ? '' : var_export($k, true) . ' => ';
+            $items[] = $inner . $key . $this->exportArray($v, $indent + 1);
+        }
+        if (empty($items)) {
+            return "[]";
+        }
+        return "[\n" . implode(",\n", $items) . ",\n" . $pad . "]";
     }
 }
 
