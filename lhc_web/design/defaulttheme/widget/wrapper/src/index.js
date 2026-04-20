@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 272;
+            lhc.version = 273;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -109,10 +109,13 @@
                     storageHandler.setCookiePerPage(LHC_API.args.cookie_per_page);
                 }
 
-                var referrer = (document.referrer) ? document.referrer.substr(document.referrer.indexOf('://') + 1) : '';
-                var location = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : '';
+                var doNotTrackUrl = LHC_API.args.do_not_track_url || false;
+                var referrer = doNotTrackUrl ? '' : ((document.referrer) ? document.referrer.substr(document.referrer.indexOf('://') + 1) : '');
+                var location = doNotTrackUrl ? '' : ((document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : '');
 
-                storageHandler.setSessionReferer(referrer);
+                if (!doNotTrackUrl) {
+                    storageHandler.setSessionReferer(referrer);
+                }
 
                 referrer = referrer ? encodeURIComponent(referrer) : '';
 
@@ -208,6 +211,7 @@
                     staticJS: {},
                     nh : null, // Need help data
                     full_invitation: false,
+                    do_not_track_url: LHC_API.args.do_not_track_url || false,
                     init_calls: [],
                     childCommands: [],
                     childExtCommands: [],

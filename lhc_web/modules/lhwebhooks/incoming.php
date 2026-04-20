@@ -62,7 +62,7 @@ try {
         header('Content-Type: application/json');
         echo erLhcoreClassRestAPIHandler::outputResponse(array(
             'error' => false,
-            'result' => ['chat_id' => erLhcoreClassChatWebhookIncoming::$chatInstance->id]
+            'result' => ['chat_id' => is_object(erLhcoreClassChatWebhookIncoming::$chatInstance) ? erLhcoreClassChatWebhookIncoming::$chatInstance->id : null]
         ));
     }
 

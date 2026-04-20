@@ -58,6 +58,7 @@ const initialState = fromJS({
     operator : '',
     priority : null,
     ses_ref : null,
+    do_not_track_url : false,
     captcha : {},
     validationErrors : {},
 })
@@ -115,6 +116,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         case 'bot_id':
         case 'trigger_id':
         case 'priority':
+        case 'do_not_track_url':
         case 'position_placement':
         case 'expand_mode':
         case 'position_placement_original':
