@@ -959,5 +959,3 @@ class ezcQuerySelect extends ezcQuery
     }
 
 }
-
-?>

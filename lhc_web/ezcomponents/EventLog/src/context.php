@@ -153,4 +153,3 @@ class ezcLogContext
         return array_merge( $a, $b );
     }
 }
-?>

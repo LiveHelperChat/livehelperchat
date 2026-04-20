@@ -43,4 +43,3 @@ class ezcAuthenticationLdapException extends ezcAuthenticationException
         parent::__construct( $exMessage );
     }
 }
-?>

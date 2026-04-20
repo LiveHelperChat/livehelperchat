@@ -68,4 +68,3 @@ class ezcFeedSkipDaysElement extends ezcFeedElement
         }
     }
 }
-?>

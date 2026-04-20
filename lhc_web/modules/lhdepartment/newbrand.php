@@ -41,4 +41,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('department/brands'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Brands')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','New brand')));
 
-?>

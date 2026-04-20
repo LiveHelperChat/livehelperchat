@@ -29,5 +29,3 @@ class ezcGraphErrorParsingDateException extends ezcGraphException
         parent::__construct( "Could not parse date '{$value}' of type '{$type}'." );
     }
 }
-
-?>

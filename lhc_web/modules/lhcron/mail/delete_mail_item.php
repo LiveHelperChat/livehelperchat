@@ -40,4 +40,4 @@ if (\LiveHelperChat\Models\mailConv\Delete\DeleteItem::estimateRows() > 0)
 flock($fp, LOCK_UN); // release the lock
 fclose($fp);
 
-?>
+

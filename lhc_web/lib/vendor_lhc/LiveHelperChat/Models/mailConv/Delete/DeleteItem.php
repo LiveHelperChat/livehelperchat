@@ -35,4 +35,3 @@ class DeleteItem
     public $filter_id = null;
 }
 
-?>

@@ -77,4 +77,3 @@ class erLhcoreClassModelUserSession
     public $notifications_status = 1;
 }
 
-?>

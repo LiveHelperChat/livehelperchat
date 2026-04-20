@@ -1,16 +1,15 @@
 <?php
 
-$Module = array( "name" => "Chat commands",
-				 'variable_params' => true );
+$Module = ['name' => 'Chat commands', 'variable_params' => true];
 
-$ViewList = array();
+$ViewList = [
+    'command' => [
+        'params' => ['chat_id', 'command_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+];
 
-$ViewList['command'] = array(
-    'params' => array('chat_id','command_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$FunctionList['use'] = array('explain' => 'Allow operator to use chat commands defined in bot commands section');
-
-?>
+$FunctionList = [
+    'use' => ['explain' => 'Allow operator to use chat commands defined in bot commands section'],
+];

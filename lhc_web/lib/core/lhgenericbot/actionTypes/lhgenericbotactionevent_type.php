@@ -35,4 +35,3 @@ class erLhcoreClassGenericBotActionEvent_type {
     }
 }
 
-?>

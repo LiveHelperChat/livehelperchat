@@ -36,4 +36,4 @@ class ezcPersistentDefinitionNotFoundException extends ezcPersistentObjectExcept
         parent::__construct( $info );
     }
 }
-?>
+

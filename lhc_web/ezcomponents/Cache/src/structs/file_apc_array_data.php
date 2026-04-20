@@ -69,4 +69,3 @@ class ezcCacheStorageFileApcArrayDataStruct extends ezcBaseStruct
         $this->time = time();
     }
 }
-?>

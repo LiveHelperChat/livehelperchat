@@ -21,4 +21,3 @@ if ( erLhcoreClassChat::hasAccessToRead($mail) )
 echo $tpl->fetch();
 exit;
 
-?>

@@ -26,4 +26,3 @@ class ezcBaseInvalidParentClassException extends ezcBaseException
         parent::__construct( "Class '{$customClass}' does not exist, or does not inherit from the '{$expectedParentClass}' class." );
     }
 }
-?>

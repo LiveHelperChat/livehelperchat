@@ -679,5 +679,3 @@ class ezcPersistentLoadHandler extends ezcPersistentSessionHandler
         }
     }
 }
-
-?>

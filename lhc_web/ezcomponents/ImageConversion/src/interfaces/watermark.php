@@ -71,4 +71,3 @@ interface ezcImageWatermarkFilters
      */
     public function watermarkAbsolute( $image, $posX, $posY, $width = false, $height = false );
 }
-?>

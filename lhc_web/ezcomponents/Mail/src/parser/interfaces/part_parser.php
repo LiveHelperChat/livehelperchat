@@ -257,5 +257,3 @@ abstract class ezcMailPartParser
         }
     }
 }
-
-?>

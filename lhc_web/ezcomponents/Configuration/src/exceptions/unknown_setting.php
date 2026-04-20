@@ -28,4 +28,3 @@ class ezcConfigurationUnknownSettingException extends ezcConfigurationException
         parent::__construct( "The setting '{$groupName}', '{$settingName}' does not exist." );
     }
 }
-?>

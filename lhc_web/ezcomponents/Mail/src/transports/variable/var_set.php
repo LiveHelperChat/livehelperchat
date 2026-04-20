@@ -91,4 +91,4 @@ class ezcMailVariableSet implements ezcMailParserSet
         return ( count( $this->mail ) > 1 );
     }
 }
-?>
+

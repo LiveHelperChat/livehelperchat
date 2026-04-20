@@ -32,4 +32,3 @@ if ($paramsFormatted['input_form']['timeto'] != ''){
 echo $outputString;
 
 exit;
-?>

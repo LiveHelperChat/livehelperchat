@@ -872,4 +872,3 @@ class ezcConsoleTable implements Countable, Iterator, ArrayAccess
         }
     }
 }
-?>

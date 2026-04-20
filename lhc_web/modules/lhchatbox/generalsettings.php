@@ -80,4 +80,3 @@ $Result['path'] = array(
 		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/generalsettings','Chatbox settings')));
 
 
-?>

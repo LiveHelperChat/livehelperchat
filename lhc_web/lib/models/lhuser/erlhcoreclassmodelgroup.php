@@ -51,4 +51,3 @@ class erLhcoreClassModelGroup
     public $required = 0;
 }
 
-?>

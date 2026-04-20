@@ -39,5 +39,3 @@ $tpl->set('prefix',$prefix);
 
 echo $tpl->fetch();
 exit();
-
-?>

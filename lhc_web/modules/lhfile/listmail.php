@@ -52,4 +52,4 @@ array('url' => erLhcoreClassDesign::baseurl('file/listmail'),'title' => erTransl
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.listmail_path', array('result' => & $Result));
 
-?>
+

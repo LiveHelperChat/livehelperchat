@@ -82,4 +82,3 @@ class ezcFeedLinkElement extends ezcFeedElement
         return $this->href . '';
     }
 }
-?>

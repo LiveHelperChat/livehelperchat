@@ -62,4 +62,3 @@ class ezcAuthenticationStatus
         return $this->statuses;
     }
 }
-?>

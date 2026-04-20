@@ -88,4 +88,4 @@ class ezcPersistentRelationFindQuery extends ezcPersistentFindQuery
     }
 }
 
-?>
+

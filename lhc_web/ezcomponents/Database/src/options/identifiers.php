@@ -109,5 +109,3 @@ class ezcDbMssqlOptions extends ezcBaseOptions
         }
     }
 }
-
-?>

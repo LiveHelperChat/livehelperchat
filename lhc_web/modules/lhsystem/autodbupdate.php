@@ -23,4 +23,3 @@ if ($ipUpdate != '' && erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::g
 exit;
 
 
-?>

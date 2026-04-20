@@ -120,4 +120,3 @@ class ezcMailSmtpTransportOptions extends ezcMailTransportOptions
         }
     }
 }
-?>

@@ -110,5 +110,3 @@ class ezcGraphPaletteBlack extends ezcGraphPalette
      */
     protected $margin = 1;
 }
-
-?>

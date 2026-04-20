@@ -28,5 +28,3 @@ class ezcGraphInvalidStepSizeException extends ezcGraphException
         parent::__construct( "Invalid step size on numeric axis: {$message}." );
     }
 }
-
-?>

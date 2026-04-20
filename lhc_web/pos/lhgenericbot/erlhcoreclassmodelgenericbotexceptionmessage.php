@@ -35,5 +35,3 @@ $def->properties['priority']->propertyName = 'priority';
 $def->properties['priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
-
-?>

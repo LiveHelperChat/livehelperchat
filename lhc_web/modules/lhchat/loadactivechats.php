@@ -9,4 +9,3 @@ echo json_encode(array('result' => array_values($chats)));
 
 exit;
 
-?>

@@ -12,7 +12,7 @@ if ( isset($_POST['StoreOptions']) ) {
         exit;
     }
 
-    $definition = array(
+    $definition = [
         'ga' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
@@ -25,10 +25,10 @@ if ( isset($_POST['StoreOptions']) ) {
         'js_static' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
-        'ga_dep' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY)
-    );
+        'ga_dep' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 1], FILTER_REQUIRE_ARRAY)
+    ];
     
-    $optionsEvents = array(
+    $optionsEvents = [
         'showWidget',
         'closeWidget',
         'openPopup',
@@ -46,7 +46,7 @@ if ( isset($_POST['StoreOptions']) ) {
         'readInvitation',
         'clickAction',
         'botTrigger',
-    );
+    ];
 
     foreach ($optionsEvents as $event){
         $definition[$event . '_category'] = new ezcInputFormDefinitionElement(
@@ -64,7 +64,7 @@ if ( isset($_POST['StoreOptions']) ) {
     }
 
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
 
     if ($form->hasValidData( 'ga' ) && $form->ga == true ) {
         $data['ga_enabled'] = 1;
@@ -135,18 +135,16 @@ $tpl->set('tab','');
 
 $Result['content'] = $tpl->fetch();
 
-$Result['path'] = array(
-    array(
+$Result['path'] = [
+    [
         'url' => erLhcoreClassDesign::baseurl('system/configuration'),
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/settings', 'System configuration')
-    ),
-    array(
+    ],
+    [
         'url' => erLhcoreClassDesign::baseurl('chatsettings/eventindex'),
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Events tracking')
-    ),
-    array(
+    ],
+    [
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Default settings')
-    )
-);
-
-?>
+    ]
+];

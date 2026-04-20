@@ -468,4 +468,3 @@ class erLhcoreClassModelChatArchiveRange
     public static $archiveChatSubjectTable;
 }
 
-?>

@@ -292,4 +292,3 @@ class ezcDbSchemaXmlReader implements ezcDbSchemaFileReader, ezcDbSchemaDiffFile
         return $this->parseDiffXml( $xml );
     }
 }
-?>

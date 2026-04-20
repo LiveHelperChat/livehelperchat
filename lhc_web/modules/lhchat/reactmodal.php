@@ -23,4 +23,3 @@ if ($message instanceof erLhcoreClassModelmsg &&
 
 exit;
 
-?>

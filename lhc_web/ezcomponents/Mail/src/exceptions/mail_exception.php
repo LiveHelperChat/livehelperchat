@@ -26,4 +26,3 @@ class ezcMailException extends ezcBaseException
         parent::__construct( $message );
     }
 }
-?>

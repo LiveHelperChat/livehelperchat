@@ -93,4 +93,3 @@ interface ezcDbSchemaHandlerDataTransfer
      */
     public function saveRow( $row );
 }
-?>

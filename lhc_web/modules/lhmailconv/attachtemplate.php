@@ -25,4 +25,3 @@ if (is_numeric($Params['user_parameters']['id'])) {
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';
 
-?>

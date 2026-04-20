@@ -93,4 +93,3 @@ class ezcDebugStructure
         return $str;
     }
 }
-?>

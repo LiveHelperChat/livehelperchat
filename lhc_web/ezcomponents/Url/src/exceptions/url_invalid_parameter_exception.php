@@ -27,4 +27,4 @@ class ezcUrlInvalidParameterException extends ezcUrlException
         parent::__construct( $message );
     }
 }
-?>
+

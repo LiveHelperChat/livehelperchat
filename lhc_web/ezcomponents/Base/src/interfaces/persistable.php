@@ -37,4 +37,3 @@ interface ezcBasePersistable
      */
     public function setState( array $properties );
 }
-?>

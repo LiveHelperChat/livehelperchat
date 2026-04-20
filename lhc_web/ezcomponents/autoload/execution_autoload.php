@@ -19,4 +19,3 @@ return array(
     'ezcExecution'                            => 'Execution/execution.php',
     'ezcExecutionBasicErrorHandler'           => 'Execution/handlers/basic_handler.php',
 );
-?>

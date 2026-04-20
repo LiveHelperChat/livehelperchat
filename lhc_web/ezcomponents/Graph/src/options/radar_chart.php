@@ -168,5 +168,3 @@ class ezcGraphRadarChartOptions extends ezcGraphChartOptions
         }
     }
 }
-
-?>

@@ -91,4 +91,3 @@ if ($Params['user_parameters_unordered']['mode'] == '' || $Params['user_paramete
 }
 
 exit;
-?>

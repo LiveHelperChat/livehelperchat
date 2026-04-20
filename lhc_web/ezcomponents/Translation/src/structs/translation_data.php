@@ -123,4 +123,4 @@ class ezcTranslationData extends ezcBaseStruct
         return new ezcTranslationData( $array['original'], $array['translation'], $array['comment'], $array['status'], $array['filename'], $array['line'], $array['column'] );
     }
 }
-?>
+

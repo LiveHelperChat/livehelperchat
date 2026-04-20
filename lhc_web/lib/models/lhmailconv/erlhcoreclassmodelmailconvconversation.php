@@ -344,4 +344,3 @@ class erLhcoreClassModelMailconvConversation
     public $ignore_imap = false;
 }
 
-?>

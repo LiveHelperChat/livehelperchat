@@ -32,5 +32,3 @@ foreach ($workWith as $work) {
 
 erLhcoreClassModule::redirect('user/grouplist');
 exit;
-
-?>

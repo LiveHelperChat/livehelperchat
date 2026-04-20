@@ -162,4 +162,3 @@ class ezcMailRfc822Parser extends ezcMailPartParser
         return $mail;
     }
 }
-?>

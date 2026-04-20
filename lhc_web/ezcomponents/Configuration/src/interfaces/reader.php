@@ -159,4 +159,3 @@ abstract class ezcConfigurationReader
      */
     abstract public function validate( $strict = false );
 }
-?>

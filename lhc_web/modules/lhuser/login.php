@@ -19,7 +19,7 @@ $isExternalRequest = (isset($Params['user_parameters_unordered']['external_reque
 
 $currentUser = erLhcoreClassUser::instance();
 
-$possibleLoginSiteAccess = array();
+$possibleLoginSiteAccess = [];
 
 $adminSiteAccess = $configInstance->getSetting('site', 'default_admin_site_access', false);
 
@@ -95,7 +95,7 @@ if (isset($_POST['Login']))
         exit;
     }
 
-    $beforeLoginAuthenticateErrors = array();
+    $beforeLoginAuthenticateErrors = [];
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_before_authenticate', array('errors' => & $beforeLoginAuthenticateErrors, 'tpl' => & $tpl));
 

@@ -138,5 +138,3 @@ class ezcCacheStackStorageConfiguration
         throw new ezcBasePropertyNotFoundException( $propertyName );
     }
 }
-
-?>

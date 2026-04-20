@@ -118,4 +118,3 @@ $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('genericbot/
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';
 
-?>

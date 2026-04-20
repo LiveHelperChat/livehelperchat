@@ -50,4 +50,3 @@ try {
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'userchat';
-?>

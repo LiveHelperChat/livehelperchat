@@ -28,4 +28,3 @@ class ezcBaseInitCallbackConfiguredException extends ezcBaseException
         parent::__construct( "The '{$identifier}' is already configured with callback class '{$originalCallbackClassName}'." );
     }
 }
-?>

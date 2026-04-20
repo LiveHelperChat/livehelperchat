@@ -27,4 +27,3 @@ class ezcBasePropertyNotFoundException extends ezcBaseException
         parent::__construct( "No such property name '{$name}'." );
     }
 }
-?>

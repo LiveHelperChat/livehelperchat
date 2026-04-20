@@ -35,4 +35,3 @@ interface ezcDbSchemaDiffDbWriter extends ezcDbSchemaDiffWriter
      */
     public function convertDiffToDDL( ezcDbSchemaDiff $schemaDiff );
 }
-?>

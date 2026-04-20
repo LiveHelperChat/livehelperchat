@@ -7,4 +7,3 @@ class erLhcoreClassModelChatArchiveAction extends erLhcoreClassModelChatAction
     public static $dbTable = null;
 }
 
-?>

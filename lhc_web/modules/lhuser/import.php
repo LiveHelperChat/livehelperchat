@@ -60,5 +60,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('user/userlist'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Users')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','Import'))
 );
-
-?>

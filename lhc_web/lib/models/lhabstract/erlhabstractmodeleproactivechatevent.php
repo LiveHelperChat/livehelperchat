@@ -94,4 +94,3 @@ class erLhAbstractModelProactiveChatEvent
     public $hide_delete = false;
 }
 
-?>

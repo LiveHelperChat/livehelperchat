@@ -29,4 +29,3 @@ class ezcConfigurationInvalidSuffixException extends ezcConfigurationException
         parent::__construct( "The path '{$path}' has an invalid suffix (should be '{$expectedSuffix}')." );
     }
 }
-?>

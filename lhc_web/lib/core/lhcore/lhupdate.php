@@ -354,4 +354,4 @@ class erLhcoreClassUpdate
 	}
 }
 
-?>
+

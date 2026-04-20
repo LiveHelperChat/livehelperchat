@@ -30,4 +30,3 @@ class ezcDbException extends ezcBaseException
         parent::__construct( $message  );
     }
 }
-?>

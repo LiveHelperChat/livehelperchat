@@ -27,4 +27,3 @@ class ezcAuthenticationOpenidRedirectException extends ezcAuthenticationOpenidEx
         parent::__construct( "Could not redirect to '{$url}'. Most probably your browser does not support redirection or JavaScript." );
     }
 }
-?>

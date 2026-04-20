@@ -27,5 +27,3 @@ class ezcGraphInvalidImageFileException extends ezcGraphException
         parent::__construct( "File '{$image}' is not a valid image." );
     }
 }
-
-?>

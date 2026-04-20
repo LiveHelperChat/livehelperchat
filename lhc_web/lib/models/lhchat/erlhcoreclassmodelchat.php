@@ -899,4 +899,3 @@ class erLhcoreClassModelChat {
    public $updateIgnoreColumns = array();
 }
 
-?>

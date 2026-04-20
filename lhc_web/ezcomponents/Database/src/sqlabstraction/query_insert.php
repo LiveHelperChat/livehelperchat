@@ -137,4 +137,3 @@ class ezcQueryInsert extends ezcQuery
         return $query;
     }
 }
-?>

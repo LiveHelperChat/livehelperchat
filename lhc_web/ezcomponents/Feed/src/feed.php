@@ -1151,4 +1151,3 @@ class ezcFeed
         self::registerModule( 'iTunes', 'ezcFeedITunesModule', 'itunes' );
     }
 }
-?>

@@ -445,4 +445,3 @@ class ezcConfigurationIniParser implements Iterator
         return !feof( $this->fp ) || $this->itemFound;
     }
 }
-?>

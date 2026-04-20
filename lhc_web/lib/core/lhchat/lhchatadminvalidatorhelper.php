@@ -1710,4 +1710,3 @@ class erLhcoreClassAdminChatValidatorHelper {
 
 }
 
-?>

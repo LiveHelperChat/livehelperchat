@@ -62,4 +62,3 @@ if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status
 
 exit;
 
-?>

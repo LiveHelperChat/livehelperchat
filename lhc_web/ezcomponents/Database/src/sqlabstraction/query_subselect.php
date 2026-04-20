@@ -239,4 +239,3 @@ class ezcQuerySubSelect extends ezcQuerySelect
     }
 
 }
-?>

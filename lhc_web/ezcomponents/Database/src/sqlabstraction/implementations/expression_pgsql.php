@@ -230,4 +230,3 @@ class ezcQueryExpressionPgsql extends ezcQueryExpression
         return " EXTRACT( {$type} FROM {$column} ) ";
     }
 }
-?>

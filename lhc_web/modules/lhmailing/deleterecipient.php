@@ -16,4 +16,3 @@ try {
     $Result['content'] = $tpl->fetch();
 }
 
-?>

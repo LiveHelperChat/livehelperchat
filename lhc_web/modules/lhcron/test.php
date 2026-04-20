@@ -6,4 +6,3 @@
  * For various testing purposes
  *
  * */
-?>

@@ -205,4 +205,4 @@ class ezcMailStorageSet implements ezcMailParserSet
         return $this->files;
     }
 }
-?>
+

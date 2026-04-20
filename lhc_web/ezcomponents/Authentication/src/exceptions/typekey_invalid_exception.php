@@ -28,4 +28,3 @@ class ezcAuthenticationTypekeyPublicKeysInvalidException extends ezcAuthenticati
         parent::__construct( $message );
     }
 }
-?>

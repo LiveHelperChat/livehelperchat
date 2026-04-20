@@ -17,5 +17,3 @@ foreach (['invitation_id','dep_id'] as $posAttr) {
 }
 
 return $def;
-
-?>

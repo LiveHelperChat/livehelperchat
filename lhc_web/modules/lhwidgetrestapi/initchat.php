@@ -260,7 +260,7 @@ try {
 
                 if (isset($theme->bot_configuration_array['icons_order']) && $theme->bot_configuration_array['icons_order'] != '') {
                     $icons = explode(',',str_replace(' ','',$theme->bot_configuration_array['icons_order']));
-                    $outputResponse['chat_ui']['header_buttons'] = array();
+                    $outputResponse['chat_ui']['header_buttons'] = [];
                     foreach ($icons as $icon) {
                         $paramsIcon = explode('_',$icon);
                         $outputResponse['chat_ui']['header_buttons'][] = array(
@@ -406,5 +406,3 @@ try {
     erLhcoreClassLog::write(print_r($e,true));
 }
 exit;
-
-?>

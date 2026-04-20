@@ -169,4 +169,3 @@ class ezcCacheStorageMemcacheOptions extends ezcBaseOptions
         $this->storageOptions = $options;
     }
 }
-?>

@@ -27,4 +27,3 @@ class ezcMailNoSuchMessageException extends ezcMailException
         parent::__construct( "The message with ID '{$messageId}' could not be found." );
     }
 }
-?>

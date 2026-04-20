@@ -12,4 +12,3 @@ header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
 // Perhaps in the feature i will add more actions there, like marking visited chats etc.
 
 exit;
-?>

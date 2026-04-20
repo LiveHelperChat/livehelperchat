@@ -114,4 +114,3 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 
 exit;
 
-?>

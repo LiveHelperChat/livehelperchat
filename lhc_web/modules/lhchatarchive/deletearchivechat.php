@@ -16,4 +16,3 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.archive_deleted'
 erLhcoreClassModule::redirect('chatarchive/listarchivechats','/'.$archive->id);
 exit;
 
-?>

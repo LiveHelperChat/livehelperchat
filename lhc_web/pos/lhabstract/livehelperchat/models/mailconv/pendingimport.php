@@ -26,5 +26,5 @@ foreach (['mailbox_id','uid','status','attempt','created_at','updated_at'] as $p
 return $def;
 
 
-?>
+
 

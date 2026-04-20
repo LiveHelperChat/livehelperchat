@@ -16,4 +16,3 @@ if (key_exists($Params['user_parameters']['sound'], $validSound)) {
 }
 
 exit;
-?>

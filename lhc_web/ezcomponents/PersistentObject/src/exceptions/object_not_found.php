@@ -28,4 +28,4 @@ class ezcPersistentObjectNotFoundException extends ezcPersistentQueryException
     }
 }
 
-?>
+

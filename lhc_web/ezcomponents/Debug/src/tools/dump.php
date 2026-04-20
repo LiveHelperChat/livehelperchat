@@ -280,5 +280,3 @@ class ezcDebugVariableDumpTool
         return self::dumpVariable( $value, $maxData, $maxChildren, $maxDepth );
     }
 }
-
-?>

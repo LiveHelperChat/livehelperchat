@@ -143,4 +143,3 @@ class erLhAbstractModelChatPriority
     public $hide_delete = false;
 }
 
-?>

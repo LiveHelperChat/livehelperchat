@@ -13,4 +13,3 @@ echo erLhcoreClassRenderHelper::renderCombobox(array(
 ));
 
 exit;
-?>

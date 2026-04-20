@@ -88,4 +88,4 @@ class ezcTranslationLeetFilter implements ezcTranslationFilter
         }
     }
 }
-?>
+

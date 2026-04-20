@@ -33,4 +33,4 @@ class ezcPersistentObjectException extends ezcBaseException
         parent::__construct( $message );
     }
 }
-?>
+

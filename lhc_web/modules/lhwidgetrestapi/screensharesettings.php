@@ -23,5 +23,3 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.screens
 
 erLhcoreClassRestAPIHandler::outputResponse($settings);
 exit();
-
-?>

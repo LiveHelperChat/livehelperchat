@@ -46,6 +46,5 @@ $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('chat/listchatconfig'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','List chat configuration')),
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/editchatconfig','Edit')))
+array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/editchatconfig','Edit')));
 
-?>

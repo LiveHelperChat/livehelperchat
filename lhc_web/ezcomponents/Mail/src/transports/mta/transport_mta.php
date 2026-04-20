@@ -18,4 +18,4 @@
 class ezcMailTransportMta extends ezcMailMtaTransport
 {
 }
-?>
+

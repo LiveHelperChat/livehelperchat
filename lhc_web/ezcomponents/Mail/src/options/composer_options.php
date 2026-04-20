@@ -80,4 +80,3 @@ class ezcMailComposerOptions extends ezcMailOptions
         }
     }
 }
-?>

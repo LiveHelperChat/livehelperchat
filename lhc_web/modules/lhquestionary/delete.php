@@ -10,4 +10,3 @@ $question->removeThis();
 
 erLhcoreClassModule::redirect('questionary/list');
 exit;
-?>

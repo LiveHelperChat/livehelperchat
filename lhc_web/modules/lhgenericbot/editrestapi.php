@@ -58,4 +58,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('genericbot/listrestapi'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Rest API Calls')),
     array('title' => $botRestAPI->name));
 
-?>

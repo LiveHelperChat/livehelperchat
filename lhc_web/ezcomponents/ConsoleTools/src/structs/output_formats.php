@@ -177,5 +177,3 @@ class ezcConsoleOutputFormats implements Iterator, Countable
     }
 
 }
-
-?>

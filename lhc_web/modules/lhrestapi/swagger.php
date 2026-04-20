@@ -66,4 +66,3 @@ echo str_replace(
     , $content);
 exit;
 
-?>

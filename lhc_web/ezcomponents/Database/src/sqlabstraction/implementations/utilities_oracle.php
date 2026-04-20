@@ -136,4 +136,3 @@ class ezcDbUtilitiesOracle extends ezcDbUtilities
         $this->db->exec( "DROP TABLE $tableName" );
     }
 }
-?>

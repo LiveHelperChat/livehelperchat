@@ -93,4 +93,3 @@ if ($message instanceof erLhcoreClassModelMailconvMessage && $message->conversat
 }
 
 exit;
-?>

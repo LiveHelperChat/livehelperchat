@@ -27,4 +27,4 @@ class ezcConfigurationUnknownConfigException extends ezcConfigurationException
         parent::__construct( "The configuration '{$configurationName}' does not exist." );
     }
 }
-?>
+

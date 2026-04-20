@@ -26,4 +26,3 @@ class ezcBaseSettingNotFoundException extends ezcBaseException
         parent::__construct( "The setting '{$settingName}' is not a valid configuration setting." );
     }
 }
-?>

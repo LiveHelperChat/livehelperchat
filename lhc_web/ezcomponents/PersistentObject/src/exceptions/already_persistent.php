@@ -29,4 +29,4 @@ class ezcPersistentObjectAlreadyPersistentException extends ezcPersistentObjectE
         parent::__construct( "The object of type $class is already persistent." );
     }
 }
-?>
+

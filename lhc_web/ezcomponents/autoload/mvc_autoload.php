@@ -69,4 +69,3 @@ return array(
     'ezcMvcRoutingInformation'               => 'MvcTools/structs/routing_information.php',
     'ezcMvcView'                             => 'MvcTools/view.php',
 );
-?>

@@ -30,5 +30,3 @@ $def->properties['filter_val']->propertyName = 'filter_val';
 $def->properties['filter_val']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
-
-?>

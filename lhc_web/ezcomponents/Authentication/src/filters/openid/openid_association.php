@@ -90,4 +90,3 @@ class ezcAuthenticationOpenidAssociation extends ezcBaseStruct
         return new ezcAuthenticationOpenidAssociation( $array['handle'], $array['secret'], $array['issued'], $array['validity'], $array['type'] );
     }
 }
-?>

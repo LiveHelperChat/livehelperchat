@@ -736,5 +736,3 @@ abstract class ezcGraphDriver
      */
     abstract public function render( $file );
 }
-
-?>

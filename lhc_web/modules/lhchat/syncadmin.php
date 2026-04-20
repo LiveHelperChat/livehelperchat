@@ -241,4 +241,3 @@ if (!empty($chatsGone)) {
 
 echo erLhcoreClassChat::safe_json_encode($response);
 exit;
-?>

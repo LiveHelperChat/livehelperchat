@@ -26,4 +26,4 @@ class ezcTranslationKeyNotAvailableException extends ezcTranslationException
         parent::__construct( "The key '{$keyName}' does not exist in the translation map." );
     }
 }
-?>
+

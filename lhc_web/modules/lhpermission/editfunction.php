@@ -56,4 +56,3 @@ $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/conf
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('permission.editrole_path', array('result' => & $Result));
 
-?>

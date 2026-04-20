@@ -1311,4 +1311,3 @@ class ezcFeedAtom extends ezcFeedProcessor implements ezcFeedParser
         }
     }
 }
-?>

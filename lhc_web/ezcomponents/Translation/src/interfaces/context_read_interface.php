@@ -61,4 +61,3 @@ interface ezcTranslationContextRead extends Iterator
      */
     public function deinitReader();
 }
-?>

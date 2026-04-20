@@ -44,5 +44,3 @@ $def->properties['first_id']->propertyName = 'first_id';
 $def->properties['first_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
-
-?>

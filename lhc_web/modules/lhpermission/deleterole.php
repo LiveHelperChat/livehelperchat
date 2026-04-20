@@ -37,4 +37,3 @@ erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 erLhcoreClassModule::redirect('permission/roles');
 exit;
 
-?>

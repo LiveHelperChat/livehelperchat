@@ -16,4 +16,3 @@ return array(
     'ezcGraphDatabaseTooManyColumnsException'       => 'GraphDatabaseTiein/exceptions/too_many_columns.php',
     'ezcGraphDatabaseDataSet'                       => 'GraphDatabaseTiein/dataset.php',
 );
-?>

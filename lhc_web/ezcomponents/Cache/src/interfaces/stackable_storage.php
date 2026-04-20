@@ -65,5 +65,3 @@ interface ezcCacheStackableStorage
      */
     public function reset();
 }
-
-?>

@@ -180,4 +180,3 @@ class ezcAuthenticationGmpLibrary extends ezcAuthenticationBignumLibrary
         return gmp_strval( $a );
     }
 }
-?>

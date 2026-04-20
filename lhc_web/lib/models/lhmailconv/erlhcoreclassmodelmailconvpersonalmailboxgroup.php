@@ -58,4 +58,3 @@ class erLhcoreClassModelMailconvPersonalMailboxGroup
     public $active = 0;
 }
 
-?>

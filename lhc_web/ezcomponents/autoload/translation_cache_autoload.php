@@ -12,4 +12,3 @@
 return array(
     'ezcTranslationCacheBackend' => 'TranslationCacheTiein/backends/cache_backend.php',
 );
-?>

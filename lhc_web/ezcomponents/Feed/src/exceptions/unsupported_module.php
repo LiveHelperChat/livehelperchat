@@ -27,4 +27,3 @@ class ezcFeedUnsupportedModuleException extends ezcFeedException
         parent::__construct( "The module '{$module}' is not supported." );
     }
 }
-?>

@@ -11,4 +11,3 @@ $usession->removeThis();
 erLhcoreClassModule::redirect('mobile/sessions');
 exit;
 
-?>

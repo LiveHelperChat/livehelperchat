@@ -387,4 +387,3 @@ class ezcAuthenticationLdapFilter extends ezcAuthenticationFilter implements ezc
         return $this->data;
     }
 }
-?>

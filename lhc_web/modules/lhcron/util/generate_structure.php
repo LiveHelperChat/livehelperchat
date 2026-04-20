@@ -80,4 +80,3 @@ foreach ($structureTables as $table) {
 
 echo json_encode($structuresTablesData,JSON_PRETTY_PRINT);
 
-?>

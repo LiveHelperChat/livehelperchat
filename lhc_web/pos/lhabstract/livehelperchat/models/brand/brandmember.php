@@ -25,5 +25,3 @@ foreach (['dep_id','brand_id'] as $posAttr) {
 
 
 return $def;
-
-?>

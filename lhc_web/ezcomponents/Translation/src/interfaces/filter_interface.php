@@ -40,4 +40,4 @@ interface ezcTranslationFilter
      */
     public function runFilter( array $context );
 }
-?>
+

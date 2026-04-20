@@ -185,4 +185,3 @@ class ezcMailText extends ezcMailPart
         }
     }
 }
-?>

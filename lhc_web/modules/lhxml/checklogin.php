@@ -41,4 +41,3 @@ if ($currentUser->authenticate($_POST['username'],$_POST['password']))
   
 
 exit;
-?>

@@ -148,4 +148,3 @@ class ezcQueryDelete extends ezcQuery
         return $query;
     }
 }
-?>

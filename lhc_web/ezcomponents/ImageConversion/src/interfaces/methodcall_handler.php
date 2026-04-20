@@ -570,4 +570,3 @@ abstract class ezcImageMethodcallHandler extends ezcImageHandler
         unset( $this->references[$reference] );
     }
 }
-?>

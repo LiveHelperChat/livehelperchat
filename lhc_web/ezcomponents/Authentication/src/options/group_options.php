@@ -98,4 +98,3 @@ class ezcAuthenticationGroupOptions extends ezcAuthenticationFilterOptions
         }
     }
 }
-?>

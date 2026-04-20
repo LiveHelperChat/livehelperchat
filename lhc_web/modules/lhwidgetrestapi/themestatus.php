@@ -23,4 +23,3 @@ $tpl->set('theme',$theme);
 echo $tpl->fetch();
 
 exit;
-?>

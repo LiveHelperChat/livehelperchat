@@ -112,4 +112,4 @@ class ezcPersistentSequenceGenerator extends ezcPersistentIdentifierGenerator
     }
 }
 
-?>
+

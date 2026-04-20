@@ -800,4 +800,3 @@ class erLhcoreClassChatCommand
     }
 }
 
-?>

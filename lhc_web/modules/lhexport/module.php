@@ -1,28 +1,24 @@
 <?php
 
-$Module = array( "name" => "Chats export module");
+$Module = ['name' => 'Chats export module'];
 
-$ViewList = array();
+$ViewList = [
+    'getchat' => [
+        'params' => ['hash', 'chat_id'],
+        'uparams' => ['format'],
+    ],
+    'getcount' => [
+        'script' => 'getcount.php',
+        'params' => ['hash'],
+        'multiple_arguments' => ['status'],
+        'uparams' => ['format', 'status'],
+    ],
+    'getlist' => [
+        'params' => ['hash'],
+        'uparams' => ['limit', 'format', 'status'],
+        'functions' => [],
+        'multiple_arguments' => ['status'],
+    ],
+];
 
-$ViewList['getchat'] = array(
-    'params' => array('hash','chat_id'),
-	'uparams' => array('format')
-);
-
-$ViewList['getcount'] = array(
-    'script' => 'getcount.php',
-    'params' => array('hash'),
-	'multiple_arguments' => array('status'),
-    'uparams' => array('format','status')
-);
-
-$ViewList['getlist'] = array(
-    'params' => array('hash'),
-    'uparams' => array('limit','format','status'),
-    'functions' => array(),
-	'multiple_arguments' => array('status')
-);
-
-$FunctionList = array();
-
-?>
+$FunctionList = [];

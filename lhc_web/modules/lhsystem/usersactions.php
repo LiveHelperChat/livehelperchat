@@ -46,5 +46,3 @@ array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => e
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Users Actions')));
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.userlist_path',array('result' => & $Result));
-
-?>

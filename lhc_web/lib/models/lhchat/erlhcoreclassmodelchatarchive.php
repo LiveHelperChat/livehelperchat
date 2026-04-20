@@ -41,4 +41,3 @@ class erLhcoreClassModelChatArchive extends erLhcoreClassModelChat
     }
 }
 
-?>

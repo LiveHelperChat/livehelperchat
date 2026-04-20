@@ -350,4 +350,3 @@ class erLhcoreClassNotifications {
     private static $instance = null;
 }
 
-?>

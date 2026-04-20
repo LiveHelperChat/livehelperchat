@@ -37,4 +37,3 @@ class erLhcoreClassModelCannedMsgTag
     public $cnt = 0;    
 }
 
-?>

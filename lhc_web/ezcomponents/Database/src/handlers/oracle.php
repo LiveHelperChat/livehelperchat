@@ -152,4 +152,3 @@ class ezcDbHandlerOracle extends ezcDbHandler
         return "'$str'";
     }
 }
-?>

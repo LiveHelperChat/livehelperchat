@@ -1,6 +1,6 @@
 <?php 
 
-$departmentParams = array();
+$departmentParams = [];
 $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
 if ($userDepartments !== true){
     $departmentParams['filterin']['id'] = $userDepartments;
@@ -14,5 +14,3 @@ $departmentParams['sort'] = 'pending_chats_counter DESC';
 
 erLhcoreClassChatExport::exportDepartmentStats(erLhcoreClassModelDepartament::getList($departmentParams));
 exit;
-
-?>

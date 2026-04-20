@@ -1,1 +1,1 @@
-<?php $pagelayouts_parts_modules_menu_faq_enabled = true?>
+<?php $pagelayouts_parts_modules_menu_faq_enabled = true;

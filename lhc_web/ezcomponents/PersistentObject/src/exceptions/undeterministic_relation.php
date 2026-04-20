@@ -29,4 +29,4 @@ class ezcPersistentUndeterministicRelationException extends ezcPersistentObjectE
         parent::__construct( "There are multiple relations defined for class $class, but the neccessary relation name was missing for the desired operation." );
     }
 }
-?>
+

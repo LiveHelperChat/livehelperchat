@@ -44,5 +44,3 @@ interface ezcGraphHorizontalBarRenderer
         $axisPosition = 0.
     );
 }
-
-?>

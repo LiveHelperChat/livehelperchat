@@ -94,4 +94,3 @@ class ezcDbSchemaField extends ezcBaseStruct
         );
     }
 }
-?>

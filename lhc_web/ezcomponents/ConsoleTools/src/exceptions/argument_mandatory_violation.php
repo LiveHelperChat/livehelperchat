@@ -29,5 +29,3 @@ class ezcConsoleArgumentMandatoryViolationException extends ezcConsoleArgumentEx
         parent::__construct( "Argument with name '{$arg->name}' is mandatory but was not submitted." );
     }
 }
-
-?>

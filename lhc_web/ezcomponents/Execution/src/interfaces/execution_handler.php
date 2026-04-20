@@ -32,4 +32,3 @@ interface ezcExecutionErrorHandler
      */
     static public function onError( ?Exception $e = null );
 }
-?>

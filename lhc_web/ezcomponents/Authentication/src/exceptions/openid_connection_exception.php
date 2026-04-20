@@ -35,4 +35,3 @@ class ezcAuthenticationOpenidConnectionException extends ezcAuthenticationOpenid
         parent::__construct( $message );
     }
 }
-?>

@@ -111,4 +111,3 @@ $tpl->set('item', $itemDefault);
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';
 
-?>

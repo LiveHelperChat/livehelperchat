@@ -183,4 +183,3 @@ echo json_encode(array('items' => $return, 'items_names' => $returnNames, 'props
 
 exit;
 
-?>

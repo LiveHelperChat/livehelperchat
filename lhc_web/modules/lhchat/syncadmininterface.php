@@ -1045,4 +1045,3 @@ erLhcoreClassModule::logSlowRequest($startTimeRequest, microtime(), $currentUser
 ]);
 
 exit;
-?>

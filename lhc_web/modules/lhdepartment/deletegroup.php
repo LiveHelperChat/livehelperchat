@@ -13,4 +13,3 @@ erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 erLhcoreClassModule::redirect('department/group');
 exit;
 
-?>

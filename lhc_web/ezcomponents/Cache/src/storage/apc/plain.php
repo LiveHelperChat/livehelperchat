@@ -63,4 +63,3 @@ class ezcCacheStorageApcPlain extends ezcCacheStorageApc
         return new ezcCacheStorageMemoryDataStruct( $data, $this->properties['location'] );
     }
 }
-?>

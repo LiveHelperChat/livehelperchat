@@ -35,4 +35,3 @@ class erLhcoreClassModelGroupChatArchive extends erLhcoreClassModelGroupChat
 
 }
 
-?>

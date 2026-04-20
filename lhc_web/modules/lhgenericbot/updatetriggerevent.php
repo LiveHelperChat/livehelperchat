@@ -14,4 +14,3 @@ erLhcoreClassGenericBotValidator::validateTriggerEvent($requestData);
 echo json_encode(array('error' => false));
 exit;
 
-?>

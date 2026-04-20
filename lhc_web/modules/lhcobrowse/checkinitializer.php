@@ -25,4 +25,3 @@ if (is_numeric($Params['user_parameters']['chat_id']))
 }
 
 exit;
-?>

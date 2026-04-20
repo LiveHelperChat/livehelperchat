@@ -27,5 +27,3 @@ class ezcGraphInvalidAssignementException extends ezcGraphException
         parent::__construct( "This cannot be set on data points, but only for data sets." );
     }
 }
-
-?>

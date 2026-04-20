@@ -27,4 +27,3 @@ class ezcConfigurationWriteFailedException extends ezcConfigurationException
         parent::__construct( "The file could not be stored in '{$path}'." );
     }
 }
-?>

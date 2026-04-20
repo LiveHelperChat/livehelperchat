@@ -18,4 +18,3 @@ $tpl->set('file_exists', file_exists($file->file_path_server));
 echo $tpl->fetch();
 exit;
 
-?>

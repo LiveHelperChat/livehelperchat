@@ -26,10 +26,10 @@ if ($currentUser->hasAccessTo('lhsurvey','delete_collected') && is_numeric($Para
 }
 
 if (isset($_GET['doSearch'])) {
-    $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'survey','module_file' => 'survey_search','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'survey','module_file' => 'survey_search','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']]);
     $filterParams['is_search'] = true;
 } else {
-    $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'survey','module_file' => 'survey_search','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+    $filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'survey','module_file' => 'survey_search','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']]);
     $filterParams['is_search'] = false;
 }
 
@@ -53,7 +53,7 @@ if ($limitation !== false) {
 if ($filterParams['input_form']->group_results == true) {
     $filterSearch['group'] = 'user_id';
     $filterSearch['sort'] = 'total_stars DESC';
-    $filterSearch['select_columns'] = array('count(id) as chats_number','SUM(max_stars_1) as total_stars');
+    $filterSearch['select_columns'] = ['count(id) as chats_number','SUM(max_stars_1) as total_stars'];
     
     if (is_numeric($filterParams['input_form']->minimum_chats) && $filterParams['input_form']->minimum_chats > 0) {
         $filterSearch['having'] = 'count(id) > ' . (int)$filterParams['input_form']->minimum_chats ;
@@ -61,33 +61,33 @@ if ($filterParams['input_form']->group_results == true) {
 }
 
 if ($Params['user_parameters_unordered']['xls'] == 1) {
-    erLhcoreClassSurveyExporter::exportXLS(erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000))));
+    erLhcoreClassSurveyExporter::exportXLS(erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,['offset' => 0, 'limit' => 100000])));
 	exit;
 }
 
 if ($Params['user_parameters_unordered']['csvlist'] == 1) {
-    erLhcoreClassSurveyExporter::exportCSV(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000)), $survey);
+    erLhcoreClassSurveyExporter::exportCSV(array_merge($filterSearch,['offset' => 0, 'limit' => 100000]), $survey);
 	exit;
 }
 
 if ($Params['user_parameters_unordered']['xlslist'] == 1) {
-    erLhcoreClassSurveyExporter::exportXLSList(erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000))),$survey);
+    erLhcoreClassSurveyExporter::exportXLSList(erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,['offset' => 0, 'limit' => 100000])),$survey);
 	exit;
 }
 
 if ($Params['user_parameters_unordered']['json'] == 1) {
-    erLhcoreClassSurveyExporter::exportJSON(erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000))),$survey);
+    erLhcoreClassSurveyExporter::exportJSON(erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,['offset' => 0, 'limit' => 100000])),$survey);
 	exit;
 }
 
 if ($Params['user_parameters_unordered']['xml'] == 1) {
-    erLhcoreClassSurveyExporter::exportJSON(erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000))),$survey,'xml');
+    erLhcoreClassSurveyExporter::exportJSON(erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,['offset' => 0, 'limit' => 100000])),$survey,'xml');
 	exit;
 }
 
 if ($Params['user_parameters_unordered']['print'] == 1) {
     $tpl = erLhcoreClassTemplate::getInstance('lhsurvey/printsurvey.tpl.php');
-    $items = erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000)));        
+    $items = erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,['offset' => 0, 'limit' => 100000]));        
     $tpl->set('items',$items);
     $tpl->set('survey',$survey);
     $Result['content'] = $tpl->fetch();
@@ -109,9 +109,9 @@ if ($filterParams['input_form']->group_results == true) {
 $pages->setItemsPerPage(20);
 $pages->paginate();
 
-$items = array();
+$items = [];
 if ($pages->items_total > 0) {
-	$items = erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => $pages->low, 'limit' => $pages->items_per_page)));
+	$items = erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,['offset' => $pages->low, 'limit' => $pages->items_per_page]));
 }
 
 $tpl->set('items',$items);
@@ -131,7 +131,5 @@ $Result['additional_header_js'] = '<script type="text/javascript" src="'.erLhcor
 
 $object_trans = $survey->getModuleTranslations();
 
-$Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/Survey','title' => $object_trans['name']);
-$Result['path'][] = array('title' => (string)$survey);
-
-?>
+$Result['path'][] = ['url' => erLhcoreClassDesign::baseurl('abstract/list').'/Survey','title' => $object_trans['name']];
+$Result['path'][] = ['title' => (string)$survey];

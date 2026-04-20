@@ -12,7 +12,7 @@ if ( isset($_POST['StoreOptions']) ) {
         exit;
     }
 
-    $definition = array(
+    $definition = [
         'enabled' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
@@ -43,10 +43,10 @@ if ( isset($_POST['StoreOptions']) ) {
         'private_key' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )
-    );
+    ];
 
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
 
     if ( $form->hasValidData( 'enabled' ) && $form->enabled == true ) {
         $data['enabled'] = 1;
@@ -124,15 +124,13 @@ $tpl->set('n_settings',$data);
 
 $Result['content'] = $tpl->fetch();
 
-$Result['path'] = array(
-    array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System configuration')),
-    array(
+$Result['path'] = [
+    ['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration', 'System configuration')],
+    [
         'url' => erLhcoreClassDesign::baseurl('notifications/index'),
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/index', 'Notifications')
-    ),
-    array(
+    ],
+    [
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/index', 'Operators settings')
-    )
-);
-
-?>
+    ]
+];

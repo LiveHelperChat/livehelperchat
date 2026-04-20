@@ -55,4 +55,3 @@ array('url' => erLhcoreClassDesign::baseurl('file/new'),'title' => erTranslation
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.new_path', array('result' => & $Result));
 
-?>

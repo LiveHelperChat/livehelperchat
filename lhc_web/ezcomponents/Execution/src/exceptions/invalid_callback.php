@@ -25,4 +25,3 @@ class ezcExecutionInvalidCallbackException extends ezcExecutionException
         parent::__construct( "Class '{$callbackClassName}' does not exist." );
     }
 }
-?>

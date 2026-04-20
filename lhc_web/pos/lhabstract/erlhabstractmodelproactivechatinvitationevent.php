@@ -30,5 +30,3 @@ $def->properties['during_seconds']->propertyName = 'during_seconds';
 $def->properties['during_seconds']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

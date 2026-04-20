@@ -27,5 +27,3 @@ class ezcGraphDatabaseStatementNotExecutedException extends ezcGraphDatabaseExce
         parent::__construct( "Empty result set. Execute the statement before using with ezcGraphDatabaseTiein." );
     }
 }
-
-?>

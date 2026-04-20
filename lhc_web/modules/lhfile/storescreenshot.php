@@ -182,4 +182,3 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 
 echo json_encode(array('stored' => 'false'));
 exit;
-?>

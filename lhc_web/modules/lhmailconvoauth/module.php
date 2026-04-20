@@ -1,25 +1,22 @@
 <?php
 
-$Module = array( "name" => "Mail conversation OAuth module");
+$Module = ['name' => 'Mail conversation OAuth module'];
 
-$ViewList = array();
+$ViewList = [
+    'mslogin' => [
+        'params' => ['id'],
+        'functions' => ['use_admin'],
+    ],
+    'options' => [
+        'params' => [],
+        'functions' => ['manage_oauth'],
+    ],
+    'msoauth' => [
+        'params' => [],
+    ],
+];
 
-$ViewList['mslogin'] = array(
-    'params' => array('id'),
-    'functions' => array( 'use_admin' )
-);
-
-$ViewList['options'] = array(
-    'params' => array(),
-    'functions' => array( 'manage_oauth' )
-);
-
-$ViewList['msoauth'] = array(
-    'params' => array()
-);
-
-$FunctionList = array();
-$FunctionList['use_admin'] = array('explain' => 'Permission to use mail conversation OAuth module');
-$FunctionList['manage_oauth'] = array('explain' => 'Permission to use mail conversation OAuth module');
-
-?>
+$FunctionList = [
+    'use_admin' => ['explain' => 'Permission to use mail conversation OAuth module'],
+    'manage_oauth' => ['explain' => 'Permission to use mail conversation OAuth module'],
+];

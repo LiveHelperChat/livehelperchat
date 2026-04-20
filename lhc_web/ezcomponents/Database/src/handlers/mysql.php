@@ -168,4 +168,3 @@ class ezcDbHandlerMysql extends ezcDbHandler
         return new ezcDbUtilitiesMysql( $this );
     }
 }
-?>

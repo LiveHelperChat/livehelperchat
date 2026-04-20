@@ -18,4 +18,3 @@ if (isset($_GET['react'])){
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;
-?>

@@ -54,4 +54,3 @@ class erLhcoreClassModelMailconvMessageSubject
     public $is_archive = false;
 }
 
-?>

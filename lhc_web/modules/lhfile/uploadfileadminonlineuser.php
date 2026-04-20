@@ -34,4 +34,3 @@ if ( $currentUser->hasAccessTo('lhfile','use_operator') === true )
 
 exit;
 
-?>

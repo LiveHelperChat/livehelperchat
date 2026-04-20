@@ -673,4 +673,3 @@ trait erLhcoreClassDBTrait
     }
 }
 
-?>

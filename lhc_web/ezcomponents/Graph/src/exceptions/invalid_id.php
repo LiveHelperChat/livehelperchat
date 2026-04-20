@@ -28,5 +28,3 @@ class ezcGraphSvgDriverInvalidIdException extends ezcGraphException
         parent::__construct( "Could not find element with id '{$id}' in SVG document." );
     }
 }
-
-?>

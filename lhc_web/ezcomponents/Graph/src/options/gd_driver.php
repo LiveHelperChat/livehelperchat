@@ -177,5 +177,3 @@ class ezcGraphGdDriverOptions extends ezcGraphDriverOptions
         }
     }
 }
-
-?>

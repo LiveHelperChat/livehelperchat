@@ -922,4 +922,3 @@ class erLhAbstractModelAutoResponder {
 
 }
 
-?>

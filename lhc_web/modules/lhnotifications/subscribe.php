@@ -100,4 +100,3 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '' && $subscription 
 }
 
 exit;
-?>

@@ -64,5 +64,3 @@ class ezcMailMultipartAlternativeParser extends ezcMailMultipartParser
         return $this->part;
     }
 }
-
-?>

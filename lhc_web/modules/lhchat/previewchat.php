@@ -54,4 +54,3 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
     $Result['pagelayout'] = 'modal';
 }
 
-?>

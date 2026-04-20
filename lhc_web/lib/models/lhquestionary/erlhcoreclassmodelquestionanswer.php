@@ -58,4 +58,3 @@ class erLhcoreClassModelQuestionAnswer {
    public $ctime = null;
 }
 
-?>

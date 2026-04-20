@@ -32,5 +32,3 @@ foreach (array(
 }
 
 return $def;
-
-?>

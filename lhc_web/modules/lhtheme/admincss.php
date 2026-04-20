@@ -12,5 +12,3 @@ if ($adminTheme instanceof erLhAbstractModelAdminTheme) {
 }
 
 exit;
-
-?>

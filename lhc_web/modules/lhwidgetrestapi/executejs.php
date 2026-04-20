@@ -31,4 +31,3 @@ $tpl->set('ext',$Params['user_parameters_unordered']['ext']);
 echo $tpl->fetch();
 
 exit;
-?>

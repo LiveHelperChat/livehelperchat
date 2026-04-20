@@ -31,4 +31,3 @@ class ezcMailTransportSmtpException extends ezcMailException
         parent::__construct( $message );
     }
 }
-?>

@@ -137,4 +137,3 @@ class erLhAbstractModelChatColumn
     public $hide_delete = false;
 }
 
-?>

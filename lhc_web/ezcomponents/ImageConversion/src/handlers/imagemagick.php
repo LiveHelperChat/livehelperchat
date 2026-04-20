@@ -766,4 +766,3 @@ class ezcImageImagemagickHandler extends ezcImageImagemagickBaseHandler
         return $dirMod;
     }
 }
-?>

@@ -1492,4 +1492,3 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
         );
     }
 }
-?>

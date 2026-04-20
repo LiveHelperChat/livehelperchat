@@ -769,4 +769,4 @@ class erLhcoreClassChatExport {
     }
 }
 
-?>
+

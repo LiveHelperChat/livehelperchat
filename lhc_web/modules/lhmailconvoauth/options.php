@@ -3,16 +3,16 @@
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconvoauth/options.tpl.php');
 
 $ms_options = erLhcoreClassModelChatConfig::fetch('mailconv_oauth_options');
-$data = (array)$ms_options->data;
+$data = (array) $ms_options->data;
 
-if ( isset($_POST['StoreOptions']) ) {
+if (isset($_POST['StoreOptions'])) {
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
         erLhcoreClassModule::redirect('mailconv/optionsgeneral');
         exit;
     }
 
-    $definition = array(
+    $definition = [
         'ms_tenant_id' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -22,24 +22,24 @@ if ( isset($_POST['StoreOptions']) ) {
         'ms_secret' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )
-    );
+    ];
 
-    $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $form = new ezcInputForm(INPUT_POST, $definition);
+    $Errors = [];
 
-    if ( $form->hasValidData( 'ms_tenant_id' ) ) {
+    if ($form->hasValidData('ms_tenant_id')) {
         $data['ms_tenant_id'] = $form->ms_tenant_id;
     } else {
         $data['ms_tenant_id'] = '';
     }
 
-    if ( $form->hasValidData( 'ms_client_id' )) {
+    if ($form->hasValidData('ms_client_id')) {
         $data['ms_client_id'] = $form->ms_client_id;
     } else {
         $data['ms_client_id'] = '';
     }
 
-    if ( $form->hasValidData( 'ms_secret' )) {
+    if ($form->hasValidData('ms_secret')) {
         $data['ms_secret'] = $form->ms_secret;
     } else {
         $data['ms_secret'] = '';
@@ -59,14 +59,12 @@ $tpl->set('ms_options',$data);
 
 $Result['content'] = $tpl->fetch();
 
-$Result['path'] = array(
-    array(
+$Result['path'] = [
+    [
         'url' => erLhcoreClassDesign::baseurl('system/configuration') . '#!#mailconv',
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhelasticsearch/module', 'System configuration')
-    ),
-    array(
+    ],
+    [
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhelasticsearch/module', 'Options')
-    )
-);
-
-?>
+    ]
+];

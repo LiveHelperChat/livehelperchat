@@ -108,4 +108,3 @@ class ezcMailTextParser extends ezcMailPartParser
         return $part;
     }
 }
-?>

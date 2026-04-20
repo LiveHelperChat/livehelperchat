@@ -542,4 +542,3 @@ class ezcConfigurationManager
         return $reader->configExists();
     }
 }
-?>

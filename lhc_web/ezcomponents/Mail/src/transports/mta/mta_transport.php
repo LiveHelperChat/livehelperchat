@@ -62,4 +62,3 @@ class ezcMailMtaTransport implements ezcMailTransport
         }
     }
 }
-?>

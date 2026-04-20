@@ -133,4 +133,3 @@ abstract class ezcConfigurationWriter
      */
     abstract public function setOptions( $options );
 }
-?>

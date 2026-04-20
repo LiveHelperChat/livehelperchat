@@ -61,4 +61,3 @@ class erLhcoreClassModelSpeechLanguageDialect
     public $short_code = NULL;
 }
 
-?>

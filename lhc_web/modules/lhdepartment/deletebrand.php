@@ -11,4 +11,3 @@ $brand->removeThis();
 erLhcoreClassModule::redirect('department/brands');
 exit;
 
-?>

@@ -325,4 +325,3 @@ class ezcQueryExpressionOracle extends ezcQueryExpression
         }
     }
 }
-?>

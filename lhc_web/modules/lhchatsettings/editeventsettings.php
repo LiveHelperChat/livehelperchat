@@ -65,5 +65,4 @@ $Result['path'] = array(
     array(
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Edit event tracking')
     )
-)
-?>
+);

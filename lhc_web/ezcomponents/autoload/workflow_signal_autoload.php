@@ -14,4 +14,3 @@ return array(
     'ezcWorkflowSignalSlotPluginOptions' => 'WorkflowSignalSlotTiein/options/plugin.php',
     'ezcWorkflowSignalSlotReturnValue'   => 'WorkflowSignalSlotTiein/structs/return_value.php',
 );
-?>

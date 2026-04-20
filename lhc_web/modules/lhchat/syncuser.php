@@ -271,4 +271,3 @@ $responseArray['blocked'] = $blocked;
 echo erLhcoreClassChat::safe_json_encode($responseArray);
 exit;
 
-?>

@@ -19,8 +19,4 @@ $def->properties['attribute']->columnName   = 'attribute';
 $def->properties['attribute']->propertyName = 'attribute';
 $def->properties['attribute']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING; 
 
-
-
 return $def; 
-
-?>
