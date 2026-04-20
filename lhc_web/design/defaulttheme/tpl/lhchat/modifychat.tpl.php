@@ -163,11 +163,14 @@ setTimeout(function() {
             </ul>
 
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Duration calculation log');?></h6>
-            <?php $logDuration = []; $mainStats = []; \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, false, $logDuration, $mainStats);?>
+            <?php $logDuration = []; $mainStats = []; $mainDuration = []; \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, false, $logDuration, $mainStats, $mainDuration);?>
             <pre class="fs11"><?php print_r($logDuration);?></pre>
 
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Agents response times calculation log');?></h6>
             <pre class="fs11"><?php print_r($mainStats);?></pre>
+
+            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Duration per agent');?></h6>
+            <pre class="fs11"><?php print_r($mainDuration);?></pre>
 
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Chat auto responder');?></h6>
             <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->auto_responder, JSON_PRETTY_PRINT));?></pre>
