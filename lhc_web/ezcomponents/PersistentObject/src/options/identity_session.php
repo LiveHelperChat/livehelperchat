@@ -77,4 +77,4 @@ class ezcPersistentSessionIdentityDecoratorOptions extends ezcBaseOptions
     }
 }
 
-?>
+

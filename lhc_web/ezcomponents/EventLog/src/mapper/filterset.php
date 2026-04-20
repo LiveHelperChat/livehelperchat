@@ -114,4 +114,3 @@ class ezcLogFilterSet implements ezcLogMapper
         $this->cache = array();
     }
 }
-?>

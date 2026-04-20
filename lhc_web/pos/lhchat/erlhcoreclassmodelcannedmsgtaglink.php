@@ -20,5 +20,3 @@ $def->properties['canned_id']->propertyName = 'canned_id';
 $def->properties['canned_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

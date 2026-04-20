@@ -485,4 +485,3 @@ class ezcAuthenticationTypekeyFilter extends ezcAuthenticationFilter implements 
         return $this->data;
     }
 }
-?>

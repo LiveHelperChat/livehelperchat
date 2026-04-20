@@ -354,4 +354,3 @@ class ezcDbSchema
         return new $className( $sorting );
     }
 }
-?>

@@ -74,5 +74,3 @@ interface ezcCacheStackMetaDataStorage
      */
     public function unlock();
 }
-
-?>

@@ -36,5 +36,3 @@ class ezcConsoleArgumentTypeViolationException extends ezcConsoleArgumentExcepti
         parent::__construct( "The argument '{$arg->name}' expects a value of type '{$typeName}', but received the value '{$value}'." );
     }
 }
-
-?>

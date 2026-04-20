@@ -45,4 +45,3 @@ class ezcQueryVariableParameterException extends ezcQueryException
         parent::__construct( $info );
     }
 }
-?>

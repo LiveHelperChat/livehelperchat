@@ -83,4 +83,3 @@ $Result['path'] = array(
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('webhooks.list_path',array('result' => & $Result));
-?>

@@ -18,4 +18,3 @@
 abstract class ezcFeedException extends ezcBaseException
 {
 }
-?>

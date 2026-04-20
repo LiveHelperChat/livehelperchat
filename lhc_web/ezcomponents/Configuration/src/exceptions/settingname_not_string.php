@@ -28,4 +28,3 @@ class ezcConfigurationSettingnameNotStringException extends ezcConfigurationExce
         parent::__construct( "The setting name that was passed is not a string, but an '{$settingNameType}'." );
     }
 }
-?>

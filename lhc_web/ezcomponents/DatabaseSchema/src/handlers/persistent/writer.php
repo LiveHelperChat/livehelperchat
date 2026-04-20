@@ -269,4 +269,3 @@ class ezcDbSchemaPersistentWriter implements ezcDbSchemaFileWriter
         return $primaries;
     }
 }
-?>

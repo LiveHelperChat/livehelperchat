@@ -25,4 +25,4 @@ class ezcInputFormUnknownFieldException extends ezcInputFormException
         parent::__construct( "The field '{$fieldName}' is not defined." );
     }
 }
-?>
+

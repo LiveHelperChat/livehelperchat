@@ -100,4 +100,3 @@ class ezcAuthenticationLdapInfo extends ezcBaseStruct
         return new ezcAuthenticationLdapInfo( $array['host'], $array['format'], $array['base'], $array['port'], $array['protocol'] );
     }
 }
-?>

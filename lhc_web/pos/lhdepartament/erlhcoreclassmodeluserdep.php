@@ -21,5 +21,3 @@ foreach (['user_id','dep_id','last_activity','lastd_activity','hide_online_ts','
 }
 
 return $def; 
-
-?>

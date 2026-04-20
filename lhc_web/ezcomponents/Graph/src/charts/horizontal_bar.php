@@ -289,4 +289,3 @@ class ezcGraphHorizontalBarChart extends ezcGraphBarChart
         $this->elements['yAxis']->calculateAxisBoundings();
     }
 }
-?>

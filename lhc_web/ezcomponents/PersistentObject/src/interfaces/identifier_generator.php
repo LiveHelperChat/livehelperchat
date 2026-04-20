@@ -83,4 +83,4 @@ abstract class ezcPersistentIdentifierGenerator
     abstract public function postSave( ezcPersistentObjectDefinition $def, ezcDbHandler $db );
 }
 
-?>
+

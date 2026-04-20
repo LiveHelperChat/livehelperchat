@@ -47,4 +47,4 @@ interface ezcPersistentObject
     public function setState( array $state );
 }
 
-?>
+

@@ -759,4 +759,3 @@ return array (
         ),
     'comments' => NULL,
 );
-?>

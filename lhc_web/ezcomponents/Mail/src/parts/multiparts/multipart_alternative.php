@@ -81,4 +81,3 @@ class ezcMailMultipartAlternative extends ezcMailMultipart
         return "alternative";
     }
 }
-?>

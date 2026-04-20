@@ -112,5 +112,3 @@ class ezcConsoleMenuDialogOptions extends ezcConsoleDialogOptions
         $this->properties[$propertyName] = $propertyValue;
     }
 }
-
-?>

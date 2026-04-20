@@ -397,4 +397,4 @@ return array_merge(array (
 include('var/autoloads/lhextension_autoload.php')
 );
 
-?>
+

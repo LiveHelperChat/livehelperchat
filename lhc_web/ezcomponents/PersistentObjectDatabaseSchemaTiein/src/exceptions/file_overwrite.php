@@ -28,4 +28,4 @@ class ezcPersistentObjectSchemaOverwriteException extends ezcBaseFileException
     }
 }
 
-?>
+

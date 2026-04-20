@@ -306,4 +306,3 @@ class ezcMailFileParser extends ezcMailPartParser
         return $filePart;
     }
 }
-?>

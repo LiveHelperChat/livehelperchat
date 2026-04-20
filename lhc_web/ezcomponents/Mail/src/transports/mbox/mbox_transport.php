@@ -192,4 +192,3 @@ class ezcMailMboxTransport
         return new ezcMailMboxSet( $this->fh, $range );
     }
 }
-?>

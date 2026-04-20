@@ -41,4 +41,3 @@ class ezcDbHandlerNotFoundException extends ezcDbException
         parent::__construct( $message );
     }
 }
-?>

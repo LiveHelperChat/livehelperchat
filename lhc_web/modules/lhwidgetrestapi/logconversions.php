@@ -20,4 +20,3 @@ try {
 exit ();
 
 exit;
-?>

@@ -17,4 +17,3 @@
 abstract class ezcDbSchemaException extends ezcBaseException
 {
 }
-?>

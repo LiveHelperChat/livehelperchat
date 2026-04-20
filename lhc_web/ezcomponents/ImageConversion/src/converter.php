@@ -524,4 +524,3 @@ class ezcImageConverter
         throw new ezcImageHandlerNotAvailableException( 'unknown' );
     }
 }
-?>

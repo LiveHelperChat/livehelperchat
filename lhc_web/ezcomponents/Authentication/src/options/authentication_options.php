@@ -51,4 +51,3 @@ class ezcAuthenticationOptions extends ezcBaseOptions
         }
     }
 }
-?>

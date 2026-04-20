@@ -25,4 +25,3 @@ foreach ($campaignValid as $campaign) {
     }
 }
 
-?>

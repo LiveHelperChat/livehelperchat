@@ -17,4 +17,3 @@ return array(
     'ezcSignalCollectionOptions'     => 'SignalSlot/options/options.php',
     'ezcSignalStaticConnections'     => 'SignalSlot/static_connections.php',
 );
-?>

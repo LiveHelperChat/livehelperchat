@@ -43,4 +43,3 @@ class erLhcoreClassModelMailconvMessageOpen
     public $hash = null;
 }
 
-?>

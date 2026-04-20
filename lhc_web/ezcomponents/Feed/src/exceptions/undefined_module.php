@@ -27,4 +27,3 @@ class ezcFeedUndefinedModuleException extends ezcFeedException
         parent::__construct( "The module '{$module}' is not defined yet." );
     }
 }
-?>

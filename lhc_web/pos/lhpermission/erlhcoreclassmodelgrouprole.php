@@ -20,5 +20,3 @@ $def->properties['role_id']->propertyName = 'role_id';
 $def->properties['role_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT; 
 
 return $def; 
-
-?>

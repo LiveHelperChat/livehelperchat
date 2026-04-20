@@ -185,5 +185,3 @@ class ezcGraphRenderer3dOptions extends ezcGraphRendererOptions
         }
     }
 }
-
-?>

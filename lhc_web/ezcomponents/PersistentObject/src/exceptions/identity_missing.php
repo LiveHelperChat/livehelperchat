@@ -39,4 +39,4 @@ class ezcPersistentIdentityMissingException extends ezcPersistentObjectException
         );
     }
 }
-?>
+

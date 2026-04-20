@@ -218,4 +218,3 @@ class ezcImageAnalyzerData extends ezcBaseStruct
         $this->isAnimated = $isAnimated;
     }
 }
-?>

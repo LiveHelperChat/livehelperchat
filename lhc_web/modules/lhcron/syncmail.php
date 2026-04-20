@@ -28,4 +28,3 @@ if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
     \erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_imap_copy', '\LiveHelperChat\mailConv\workers\SentCopyWorker', array('inst_id' => $inst_id));
 }
 
-?>

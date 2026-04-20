@@ -139,4 +139,3 @@ class erLhcoreClassGenericBotActionMatch_actions {
     }
 }
 
-?>

@@ -120,4 +120,3 @@ class ezcFeedDateElement extends ezcFeedElement
         }
     }
 }
-?>

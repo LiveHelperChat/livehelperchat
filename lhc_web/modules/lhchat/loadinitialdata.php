@@ -285,4 +285,3 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.loadinitialdata'
 echo json_encode($response);
 exit;
 
-?>

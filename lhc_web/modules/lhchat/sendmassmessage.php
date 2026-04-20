@@ -292,4 +292,3 @@ $tpl->set('departmentParams',$departmentParams);
 
 echo $tpl->fetch();
 exit;
-?>

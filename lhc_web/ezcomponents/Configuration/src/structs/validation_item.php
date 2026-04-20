@@ -133,4 +133,3 @@ class ezcConfigurationValidationItem extends ezcBaseStruct
         );
     }
 }
-?>

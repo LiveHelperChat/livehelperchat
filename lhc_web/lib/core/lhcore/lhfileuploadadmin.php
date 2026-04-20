@@ -139,4 +139,3 @@ class erLhcoreClassFileUploadAdmin extends erLhcoreClassFileUpload
     }
 }
 
-?>

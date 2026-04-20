@@ -24,5 +24,3 @@ foreach (['last_visit_prev','chat_time','conversion_id','reopen_chat','invitatio
 }
 
 return $def;
-
-?>

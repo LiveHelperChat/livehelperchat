@@ -410,4 +410,3 @@ class erLhcoreClassModelCannedMsgReplace
 
 }
 
-?>

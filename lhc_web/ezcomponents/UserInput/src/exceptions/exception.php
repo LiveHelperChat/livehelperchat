@@ -15,4 +15,4 @@
 abstract class ezcInputFormException extends ezcBaseException
 {
 }
-?>
+

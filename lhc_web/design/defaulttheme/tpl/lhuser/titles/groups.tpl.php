@@ -1,1 +1,1 @@
-<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Groups');?>
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Groups');

@@ -28,4 +28,3 @@ class ezcConfigurationGroupExistsAlreadyException extends ezcConfigurationExcept
         parent::__construct( "The settings group '{$groupName}' exists already." );
     }
 }
-?>

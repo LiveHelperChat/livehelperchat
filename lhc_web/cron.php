@@ -171,5 +171,3 @@ if ($extensionPartOption->value) {
 } else {
 	include_once('modules/lh'.$cronjobPartOption->value.'.php');
 }
-
-?>

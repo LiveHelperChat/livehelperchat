@@ -86,4 +86,3 @@ class ezcDbSchemaTableDiff extends ezcBaseStruct
         );
     }
 }
-?>

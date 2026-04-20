@@ -12,4 +12,3 @@
 return array(
     'ezcMvcFeedViewHandler' => 'MvcFeedTiein/view_handlers/feed.php',
 );
-?>

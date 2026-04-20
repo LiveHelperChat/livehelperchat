@@ -209,4 +209,3 @@ echo erLhcoreClassRestAPIHandler::outputResponse($responseArray);
 }
 
 exit;
-?>

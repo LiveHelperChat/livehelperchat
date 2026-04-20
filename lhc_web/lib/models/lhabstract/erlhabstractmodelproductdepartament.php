@@ -74,4 +74,3 @@ class erLhAbstractModelProductDepartament {
 	public $departament_id = 0;
 }
 
-?>

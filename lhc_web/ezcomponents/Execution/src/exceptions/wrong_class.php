@@ -26,4 +26,3 @@ class ezcExecutionWrongClassException extends ezcExecutionException
         parent::__construct( "The class '{$callbackClassName}' does not implement the 'ezcExecutionErrorHandler' interface." );
     }
 }
-?>

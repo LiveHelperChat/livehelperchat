@@ -7,4 +7,3 @@ $Auth->loginAction($mailbox);
 
 exit;
 
-?>

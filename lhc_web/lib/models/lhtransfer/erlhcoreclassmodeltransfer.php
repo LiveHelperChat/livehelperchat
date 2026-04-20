@@ -47,4 +47,3 @@ class erLhcoreClassModelTransfer
     public $transfer_scope = self::SCOPE_CHAT;
 }
 
-?>

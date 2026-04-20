@@ -27,5 +27,3 @@ class ezcConsoleOptionAlreadyRegisteredException extends ezcConsoleException
         parent::__construct( "An option with the name '{$name}' is already registered." );
     }
 }
-
-?>

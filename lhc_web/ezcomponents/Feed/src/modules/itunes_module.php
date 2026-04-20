@@ -498,4 +498,3 @@ class ezcFeedITunesModule extends ezcFeedModule
         return 'itunes';
     }
 }
-?>

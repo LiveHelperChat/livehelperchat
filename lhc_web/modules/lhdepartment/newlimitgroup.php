@@ -43,4 +43,3 @@ array('url' => erLhcoreClassDesign::baseurl('department/index'),'title' => erTra
 array('url' => erLhcoreClassDesign::baseurl('department/limitgroup'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Departments limit groups')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','New department limit group')));
 
-?>

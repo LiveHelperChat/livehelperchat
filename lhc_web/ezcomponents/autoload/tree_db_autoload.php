@@ -18,4 +18,3 @@ return array(
     'ezcTreeDbMaterializedPath'       => 'TreeDatabaseTiein/backends/db_materialized_path.php',
     'ezcTreeDbNestedSet'              => 'TreeDatabaseTiein/backends/db_nested_set.php',
 );
-?>

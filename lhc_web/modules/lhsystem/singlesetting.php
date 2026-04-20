@@ -33,5 +33,3 @@ if ($config->identifier == $Params['user_parameters']['identifier'])
 
 echo $tpl->fetch();
 exit;
-
-?>

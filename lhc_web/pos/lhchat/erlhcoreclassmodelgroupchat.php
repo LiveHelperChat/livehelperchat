@@ -25,5 +25,3 @@ foreach (['status','time','user_id','last_msg_op_id','last_user_msg_time','last_
 
 
 return $def;
-
-?>

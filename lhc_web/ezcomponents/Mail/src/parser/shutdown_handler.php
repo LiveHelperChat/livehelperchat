@@ -113,5 +113,3 @@ class ezcMailParserShutdownHandler
         return $returnVar;
     }
 }
-
-?>

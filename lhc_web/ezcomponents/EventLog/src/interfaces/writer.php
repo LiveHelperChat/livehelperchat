@@ -42,4 +42,3 @@ interface ezcLogWriter
      */
     public function writeLogMessage( $message, $severity, $source, $category, $optional = array() );
 }
-?>

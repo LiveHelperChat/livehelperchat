@@ -7,4 +7,3 @@ class erLhcoreClassModelGroupChatMemberArchive extends erLhcoreClassModelGroupCh
     public static $dbTable = null;
 }
 
-?>

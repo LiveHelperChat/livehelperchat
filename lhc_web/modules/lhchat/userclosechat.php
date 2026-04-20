@@ -95,4 +95,3 @@ erLhcoreClassRestAPIHandler::setHeaders();
 echo json_encode(array('error' => 'false', 'result' => 'ok'));
 exit;
 
-?>

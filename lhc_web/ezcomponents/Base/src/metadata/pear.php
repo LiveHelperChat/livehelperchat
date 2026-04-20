@@ -126,4 +126,3 @@ class ezcBaseMetaDataPearReader
         return array();
     }
 }
-?>

@@ -130,4 +130,3 @@ class ezcDbHandlerSqlite extends ezcDbHandler
         return new ezcDbUtilitiesSqlite( $this );
     }
 }
-?>

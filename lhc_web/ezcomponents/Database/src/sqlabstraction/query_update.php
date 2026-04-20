@@ -193,4 +193,3 @@ class ezcQueryUpdate extends ezcQuery
         return $query;
     }
 }
-?>

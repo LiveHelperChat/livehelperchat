@@ -338,5 +338,3 @@ abstract class ezcGraphChartElement extends ezcBaseOptions
         }
     }
 }
-
-?>

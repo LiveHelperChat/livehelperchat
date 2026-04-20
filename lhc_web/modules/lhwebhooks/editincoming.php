@@ -44,5 +44,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','System configuration')),
     array('url' => erLhcoreClassDesign::baseurl('webhooks/incomingwebhooks'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Incoming webhooks')),
     array('title' => $item->name));
-
-?>

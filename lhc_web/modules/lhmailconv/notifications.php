@@ -50,4 +50,3 @@ $tpl->setArray(array('subject_id' => json_decode(erLhcoreClassModelUserSetting::
 echo $tpl->fetch();
 exit();
 
-?>

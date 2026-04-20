@@ -268,5 +268,3 @@ class ezcGraphSvgDriverOptions extends ezcGraphDriverOptions
         }
     }
 }
-
-?>

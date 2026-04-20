@@ -30,5 +30,3 @@ class ezcGraphToolsIncompatibleDriverException extends ezcGraphException
         parent::__construct( "Incompatible driver used. Driver '{$driverClass}' is not an instance of '{$accepted}'." );
     }
 }
-
-?>

@@ -107,5 +107,3 @@ class ezcConsoleOutputOptions extends ezcBaseOptions
         $this->properties[$propertyName] = $val;
     }
 }
-
-?>

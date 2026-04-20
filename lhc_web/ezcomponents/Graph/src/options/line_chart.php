@@ -211,5 +211,3 @@ class ezcGraphLineChartOptions extends ezcGraphChartOptions
         }
     }
 }
-
-?>

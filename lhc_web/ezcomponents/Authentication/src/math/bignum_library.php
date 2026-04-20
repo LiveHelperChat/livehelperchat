@@ -233,4 +233,3 @@ abstract class ezcAuthenticationBignumLibrary
         return $this->mod( $n, $stop );
     }
 }
-?>

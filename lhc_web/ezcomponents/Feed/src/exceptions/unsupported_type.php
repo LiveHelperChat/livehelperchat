@@ -27,4 +27,3 @@ class ezcFeedUnsupportedTypeException extends ezcFeedException
         parent::__construct( "The feed type '{$type}' is not supported." );
     }
 }
-?>

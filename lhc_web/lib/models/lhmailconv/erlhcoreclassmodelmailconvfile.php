@@ -101,4 +101,3 @@ class erLhcoreClassModelMailconvFile
     public $is_archive = false;
 }
 
-?>

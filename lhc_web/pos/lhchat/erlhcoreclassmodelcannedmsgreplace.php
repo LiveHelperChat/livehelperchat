@@ -25,5 +25,3 @@ foreach (['active_from','active_to','repetitiveness' // Stores period and activi
 }
 
 return $def;
-
-?>

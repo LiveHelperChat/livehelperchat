@@ -27,5 +27,3 @@ class ezcGraphDatasetAverageInvalidKeysException extends ezcGraphException
         parent::__construct( "You can not use non numeric keys with Average datasets." );
     }
 }
-
-?>

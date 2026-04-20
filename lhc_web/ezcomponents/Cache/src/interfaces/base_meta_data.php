@@ -225,5 +225,3 @@ abstract class ezcCacheStackBaseMetaData implements ezcCacheStackMetaData
         $this->storageData     = $data['storageData'];
     }
 }
-
-?>

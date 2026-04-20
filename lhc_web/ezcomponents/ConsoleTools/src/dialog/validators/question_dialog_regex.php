@@ -165,5 +165,3 @@ class ezcConsoleQuestionDialogRegexValidator implements ezcConsoleQuestionDialog
         return array_key_exists( $propertyName, $this->properties );
     }
 }
-
-?>

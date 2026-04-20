@@ -40,4 +40,3 @@ abstract class ezcBaseException extends Exception
         }
     }
 }
-?>

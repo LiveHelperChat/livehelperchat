@@ -28,4 +28,3 @@ $tpl->set('chat',$mail);
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'print';
 
-?>

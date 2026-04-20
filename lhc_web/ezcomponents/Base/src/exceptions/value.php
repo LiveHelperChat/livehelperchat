@@ -40,4 +40,3 @@ class ezcBaseValueException extends ezcBaseException
         parent::__construct( $msg );
     }
 }
-?>

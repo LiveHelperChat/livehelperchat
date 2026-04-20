@@ -95,4 +95,3 @@ class ezcDbSchemaPhpArrayReader implements ezcDbSchemaFileReader, ezcDbSchemaDif
         return $schema;
     }
 }
-?>

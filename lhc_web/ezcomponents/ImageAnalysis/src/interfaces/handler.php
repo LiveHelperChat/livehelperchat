@@ -128,4 +128,3 @@ abstract class ezcImageAnalyzerHandler
      */
     abstract public function canAnalyze( $mime );
 }
-?>

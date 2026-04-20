@@ -23,4 +23,3 @@ interface ezcDbSchemaFileReader extends ezcDbSchemaReader
      */
     public function loadFromFile( $file );
 }
-?>

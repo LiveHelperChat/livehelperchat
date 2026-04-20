@@ -25,4 +25,3 @@ class ezcDbSchemaSqliteDropFieldException extends ezcDbSchemaException
         parent::__construct( "SQLite handler couldn't drop table field properly. $message" );
     }
 }
-?>

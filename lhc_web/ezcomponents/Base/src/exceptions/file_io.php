@@ -47,4 +47,3 @@ class ezcBaseFileIoException extends ezcBaseFileException
         parent::__construct( "$operation.$messagePart" );
     }
 }
-?>

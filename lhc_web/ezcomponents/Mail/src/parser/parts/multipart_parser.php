@@ -227,4 +227,3 @@ abstract class ezcMailMultipartParser extends ezcMailPartParser
      */
     abstract public function finishMultipart();
 }
-?>

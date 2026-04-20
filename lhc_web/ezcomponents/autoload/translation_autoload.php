@@ -31,4 +31,3 @@ return array(
     'ezcTranslationTsBackend'                       => 'Translation/backends/ts_backend.php',
     'ezcTranslationTsBackendOptions'                => 'Translation/options/ts_backend.php',
 );
-?>

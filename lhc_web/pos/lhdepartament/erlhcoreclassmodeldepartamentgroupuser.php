@@ -22,5 +22,3 @@ foreach ([
 }
 
 return $def;
-
-?>

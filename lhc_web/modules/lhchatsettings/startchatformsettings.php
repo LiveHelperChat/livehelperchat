@@ -54,4 +54,3 @@ $Result['path'] = array(
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchatformsettings_path',array('result' => & $Result));
 
-?>

@@ -57,5 +57,3 @@ class ezcConsoleStatusbarOptions extends ezcBaseOptions
         $this->properties[$key] = $value;
     }
 }
-
-?>

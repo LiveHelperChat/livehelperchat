@@ -85,4 +85,3 @@ class erLhcoreClassModelQuestion {
    public $revote = 0;
 }
 
-?>

@@ -183,4 +183,3 @@ class erLhcoreClassModelDepartamentGroupUser
     public $only_priority = 0;
 }
 
-?>

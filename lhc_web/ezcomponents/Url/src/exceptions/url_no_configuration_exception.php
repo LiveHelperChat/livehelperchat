@@ -27,4 +27,4 @@ class ezcUrlNoConfigurationException extends ezcUrlException
         parent::__construct( $message );
     }
 }
-?>
+

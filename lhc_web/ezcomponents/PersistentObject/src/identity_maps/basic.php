@@ -748,5 +748,3 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
         }
     }
 }
-
-?>

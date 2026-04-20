@@ -85,4 +85,4 @@ class ezcTranslationTsBackendOptions extends ezcBaseOptions
     }
 }
 
-?>
+

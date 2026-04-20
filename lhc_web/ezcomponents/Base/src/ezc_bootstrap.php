@@ -37,4 +37,3 @@ function __autoload( $className )
 {
 	ezcBase::autoload( $className );
 }
-?>

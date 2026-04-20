@@ -55,4 +55,3 @@ return array(
     'ezcAuthenticationTypekeyOptions'                    => 'Authentication/options/typekey_options.php',
     'ezcAuthenticationUrl'                               => 'Authentication/url/url.php',
 );
-?>

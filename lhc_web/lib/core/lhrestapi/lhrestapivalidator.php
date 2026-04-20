@@ -1052,4 +1052,4 @@ class erLhcoreClassRestAPIHandler
     private static $apiKey = null;
 }
 
-?>
+

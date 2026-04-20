@@ -277,4 +277,3 @@ abstract class ezcImageHandler
      */
     abstract public function convert( $image, $mime );
 }
-?>

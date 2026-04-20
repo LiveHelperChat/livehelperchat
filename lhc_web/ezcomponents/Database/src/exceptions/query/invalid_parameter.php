@@ -30,4 +30,3 @@ class ezcQueryInvalidParameterException extends ezcQueryException
         parent::__construct( $info );
     }
 }
-?>

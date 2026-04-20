@@ -80,5 +80,3 @@ class ezcImageSaveOptions extends ezcBaseOptions
         $this->properties[$propertyName] = $propertyValue;
     }
 }
-
-?>

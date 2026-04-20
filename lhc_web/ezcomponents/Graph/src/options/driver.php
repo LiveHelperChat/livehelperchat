@@ -168,5 +168,3 @@ abstract class ezcGraphDriverOptions extends ezcBaseOptions
         }
     }
 }
-
-?>

@@ -38,4 +38,3 @@ class ezcLogWriterException extends ezcBaseException
         parent::__construct( $e->getMessage() );
     }
 }
-?>

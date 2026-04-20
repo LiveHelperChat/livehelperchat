@@ -10,4 +10,3 @@ $chatbox->removeThis();
 erLhcoreClassModule::redirect('chatbox/list');
 exit;
 
-?>

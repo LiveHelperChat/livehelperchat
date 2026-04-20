@@ -152,5 +152,3 @@ $Result['path'] = array(
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.new_path', array('result' => & $Result));
-
-?>

@@ -25,5 +25,3 @@ if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status
 } else {
     $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');
 }
-
-?>

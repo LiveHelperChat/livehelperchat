@@ -145,5 +145,3 @@ class ezcQuerySelectMssql extends ezcQuerySelect
         return $query;
     }
 }
-
-?>

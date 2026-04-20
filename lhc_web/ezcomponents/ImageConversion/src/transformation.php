@@ -398,4 +398,3 @@ class ezcImageTransformation
         $this->saveOptions = $options;
     }
 }
-?>

@@ -68,4 +68,3 @@ class ezcImageConverterSettings extends ezcBaseStruct
         $this->conversions = $conversions;
     }
 }
-?>

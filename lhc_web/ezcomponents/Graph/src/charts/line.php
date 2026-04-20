@@ -714,4 +714,3 @@ class ezcGraphLineChart extends ezcGraphChart
         $this->renderer->render( null );
     }
 }
-?>

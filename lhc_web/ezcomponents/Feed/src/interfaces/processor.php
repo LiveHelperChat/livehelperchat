@@ -374,4 +374,3 @@ abstract class ezcFeedProcessor
      */
     abstract public function generate();
 }
-?>

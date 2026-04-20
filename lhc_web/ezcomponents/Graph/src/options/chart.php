@@ -103,5 +103,3 @@ class ezcGraphChartOptions extends ezcBaseOptions
         }
     }
 }
-
-?>

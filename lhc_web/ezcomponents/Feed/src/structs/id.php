@@ -46,4 +46,3 @@ class ezcFeedIdElement extends ezcFeedElement
         return $this->id . '';
     }
 }
-?>

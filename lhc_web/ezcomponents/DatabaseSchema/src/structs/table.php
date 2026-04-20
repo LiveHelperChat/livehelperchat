@@ -52,4 +52,3 @@ class ezcDbSchemaTable extends ezcBaseStruct
         );
     }
 }
-?>

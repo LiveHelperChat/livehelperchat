@@ -64,4 +64,3 @@ class ezcCacheStorageFileApcArrayOptions extends ezcCacheStorageApcOptions
         $this->properties[$name] = $value;
     }
 }
-?>

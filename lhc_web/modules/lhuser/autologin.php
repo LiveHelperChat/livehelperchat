@@ -8,7 +8,7 @@ $instance = erLhcoreClassSystem::instance();
 
 $configInstance = erConfigClassLhConfig::getInstance();
 
-$possibleLoginSiteAccess = array();
+$possibleLoginSiteAccess = [];
 
 $adminSiteAccess = $configInstance->getSetting('site', 'default_admin_site_access', false);
 
@@ -113,4 +113,3 @@ if ($data['enabled'] == 1) {
 }
 
 exit;
-?>

@@ -49,4 +49,3 @@ if ( is_object($Chat) && erLhcoreClassChat::hasAccessToRead($Chat) )
     echo json_encode(array('error' => 'true', 'result' => $errorTpl->fetch()),\JSON_INVALID_UTF8_IGNORE);
     exit;
 }
-?>

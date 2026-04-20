@@ -32,4 +32,3 @@ class erLhcoreClassModelRoleFunction
     public $type = 0;
 }
 
-?>

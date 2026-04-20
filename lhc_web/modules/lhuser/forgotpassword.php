@@ -4,7 +4,7 @@ header('X-Frame-Options: DENY');
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/forgotpassword.tpl.php');
 
-$possibleLoginSiteAccess = array();
+$possibleLoginSiteAccess = [];
 
 $configInstance = erConfigClassLhConfig::getInstance();
 
@@ -41,7 +41,7 @@ if (isset($_POST['Forgotpassword'])) {
 
     $form = new ezcInputForm( INPUT_POST, $definition );
 
-    $Errors = array();
+    $Errors = [];
     
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
         erLhcoreClassModule::redirect('user/forgotpassword');
@@ -111,5 +111,3 @@ if (isset($_POST['Forgotpassword'])) {
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'login';
-
-?>

@@ -955,4 +955,3 @@ class ezcImageGdHandler extends ezcImageGdBaseHandler
         $this->setActiveResource( $newResource );
     }
 }
-?>

@@ -287,4 +287,4 @@ class ezcSystemInfoMacReader extends ezcSystemInfoReader
         return $this->memorySize;
     }
 }
-?>
+

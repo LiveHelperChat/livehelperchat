@@ -29,5 +29,3 @@ interface ezcBaseExportable
      */
     public static function __set_state( array $state );
 }
-
-?>

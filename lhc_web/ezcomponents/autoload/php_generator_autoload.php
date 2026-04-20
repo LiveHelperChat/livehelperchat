@@ -16,4 +16,3 @@ return array(
     'ezcPhpGeneratorParameter'     => 'PhpGenerator/structs/php_generator_parameter.php',
     'ezcPhpGeneratorReturnData'    => 'PhpGenerator/structs/php_generator_return_data.php',
 );
-?>

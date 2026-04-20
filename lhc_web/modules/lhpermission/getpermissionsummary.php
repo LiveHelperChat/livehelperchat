@@ -14,4 +14,3 @@ if ($user->id == $currentUser->getUserID() || $currentUser->hasAccessTo('lhchat'
 
 exit;
 
-?>

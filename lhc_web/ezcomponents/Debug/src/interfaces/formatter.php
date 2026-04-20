@@ -25,5 +25,3 @@ interface ezcDebugOutputFormatter
      */
     function generateOutput( array $timerData, array $writerData );
 }
-
-?>

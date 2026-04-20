@@ -43,4 +43,3 @@ return array(
     'ezcArchiveStatMode'                  => 'Archive/utils/stat_mode.php',
     'ezcArchiveZip'                       => 'Archive/zip/zip.php',
 );
-?>

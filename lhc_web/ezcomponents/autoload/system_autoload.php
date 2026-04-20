@@ -20,4 +20,3 @@ return array(
     'ezcSystemInfoMacReader'                 => 'SystemInformation/readers/mac.php',
     'ezcSystemInfoWindowsReader'             => 'SystemInformation/readers/windows.php',
 );
-?>

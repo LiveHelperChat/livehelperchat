@@ -51,4 +51,3 @@ class ezcCacheStorageMemoryDataStruct extends ezcBaseStruct
         $this->time = time();
     }
 }
-?>

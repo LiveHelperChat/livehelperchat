@@ -1532,4 +1532,4 @@ class erLhcoreClassBBCode
 }
 
 
-?>
+

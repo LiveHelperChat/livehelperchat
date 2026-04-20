@@ -166,5 +166,3 @@ interface ezcConsoleInputHelpGenerator
      */
     public function generateSynopsis( ?array $optionFilter = null );
 }
-
-?>

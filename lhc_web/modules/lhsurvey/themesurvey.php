@@ -21,4 +21,3 @@ if ($theme->modified > 0) {
 echo $theme->bot_configuration_array['custom_survey_css'];
 
 exit;
-?>

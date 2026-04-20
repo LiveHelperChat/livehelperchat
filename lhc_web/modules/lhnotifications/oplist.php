@@ -39,4 +39,4 @@ $Result['path'] = array(
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('notifications.list_path',array('result' => & $Result));
-?>
+

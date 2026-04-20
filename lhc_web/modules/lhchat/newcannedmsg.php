@@ -62,4 +62,3 @@ array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation(
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.newcannedmsg_path',array('result' => & $Result));
-?>

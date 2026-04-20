@@ -78,5 +78,3 @@ interface ezcConsoleDialog
      */
     public function reset();
 }
-
-?>

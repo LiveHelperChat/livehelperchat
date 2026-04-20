@@ -34,4 +34,4 @@ class ezcPersistentIdentifierGenerationException extends ezcPersistentObjectExce
         parent::__construct( $info );
     }
 }
-?>
+

@@ -50,10 +50,10 @@ if ( isset($_POST['StorePasswordSettings']) ) {
         exit;
     }
 
-    $Errors = array();
+    $Errors = [];
 
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
 
     if ( $form->hasValidData( 'length' ) ) {
         $data['length'] = $form->length;
@@ -142,5 +142,3 @@ $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')), array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Password requirements')));
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.autologinconfig_path', array('result' => & $Result));
-
-?>

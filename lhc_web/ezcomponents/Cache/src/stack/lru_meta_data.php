@@ -33,5 +33,3 @@ class ezcCacheStackLruMetaData extends ezcCacheStackBaseMetaData
         $this->replacementData[$itemId] = time();
     }
 }
-
-?>

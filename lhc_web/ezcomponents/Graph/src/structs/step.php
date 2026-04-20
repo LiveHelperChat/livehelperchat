@@ -102,5 +102,3 @@ class ezcGraphAxisStep
         $this->isLast = $properties['isLast'];
     }
 }
-
-?>

@@ -24,5 +24,3 @@ foreach (['size','chat_id','online_user_id','user_id','date','persistent','width
 }
 
 return $def;
-
-?>

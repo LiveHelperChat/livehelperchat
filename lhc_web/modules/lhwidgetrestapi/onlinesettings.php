@@ -53,8 +53,8 @@ if (!isset($Params['user_parameters_unordered']['online'])) {
     $Params['user_parameters_unordered']['online'] = 1;
 }
 
-$chat_ui = array();
-$paidSettings = array();
+$chat_ui = [];
+$paidSettings = [];
 
 $theme = false;
 
@@ -130,21 +130,21 @@ if (is_array($Params['user_parameters_unordered']['department']) && !empty($Para
         $depIds[] = $departament_id;
     }
 
-    $jsVars = array();
+    $jsVars = [];
 
     foreach (erLhAbstractModelChatVariable::getList(array('ignore_fields' => array('dep_id','var_name','var_identifier','type'), 'customfilter' => array('dep_id = 0 OR dep_id IN (' . implode(',',$depIds) .')'))) as $jsVar) {
         $jsVars[] = array('id' => $jsVar->id,'var' => $jsVar->js_variable);
     }
 
 } else {
-    $jsVars = array();
+    $jsVars = [];
     foreach (erLhAbstractModelChatVariable::getList(array('ignore_fields' => array('dep_id','var_name','var_identifier','type'), 'filter' => array('dep_id' => 0))) as $jsVar) {
         $jsVars[] = array('id' => $jsVar->id, 'var' => $jsVar->js_variable);
     }
 }
 
 
-$departament_id_array = array();
+$departament_id_array = [];
 
 if (is_array($Params['user_parameters_unordered']['department'])) {
     $departament_id_array = $Params['user_parameters_unordered']['department'];
@@ -245,7 +245,7 @@ if ($Params['user_parameters_unordered']['online'] == '0') {
     }
 }
 
-$fields = array();
+$fields = [];
 
 if ($Params['user_parameters_unordered']['online'] == '0')
 {
@@ -634,7 +634,7 @@ if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fie
                 );
 
                 if ($fieldData['type'] == 'dropdown') {
-                    $fieldData['options'] = array();
+                    $fieldData['options'] = [];
                     $defaultValue = null;
                      $optionsRaw = explode("\n",$adminField['options']);
                      foreach ($optionsRaw as $optionRaw) {
@@ -716,7 +716,7 @@ if (is_numeric($departament_id) && $departament_id > 0) {
         $departament_id_alias = $departmentItem->alias;
     }
 
-    $departmentsOptions = array('departments' => array(array('value' => $departament_id_alias)), 'settings' => array());
+    $departmentsOptions = array('departments' => array(array('value' => $departament_id_alias)), 'settings' => []);
 } else {
     $filter = array('filter' => array('disabled' => 0, 'hidden' => 0));
 
@@ -728,7 +728,7 @@ if (is_numeric($departament_id) && $departament_id > 0) {
 
     $departments = erLhcoreClassModelDepartament::getList($filter);
 
-    $departmentsOptions = array('departments' => array(), 'settings' => array());
+    $departmentsOptions = array('departments' => [], 'settings' => []);
 
     if (count($departments) > 1) {
         $departments = erLhcoreClassDepartament::sortByStatus($departments);
@@ -781,7 +781,7 @@ if (erLhcoreClassModelChatConfig::fetch('product_enabled_module')->current_value
 
         if (!empty($products)) {
             $departmentsOptions['settings']['hide_department'] = true;
-            $departmentsOptions['products'] = array();
+            $departmentsOptions['products'] = [];
             foreach ($products as $product) {
                 $departmentsOptions['products'][] = array(
                     'value'=> $product->id,
@@ -1175,7 +1175,7 @@ $chat_ui['header_buttons'] = array(
 
 if ($theme !== false && isset($theme->bot_configuration_array['icons_order']) && $theme->bot_configuration_array['icons_order'] != '') {
     $icons = explode(',',str_replace(' ','',$theme->bot_configuration_array['icons_order']));
-    $chat_ui['header_buttons'] = array();
+    $chat_ui['header_buttons'] = [];
     foreach ($icons as $icon) {
         $paramsIcon = explode('_',$icon);
         $chat_ui['header_buttons'][] = array(

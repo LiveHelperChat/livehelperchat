@@ -72,5 +72,3 @@ class ezcGraphCoordinate extends ezcBaseStruct
         return sprintf( '( %.2f, %.2f )', $this->x, $this->y );
     }
 }
-
-?>

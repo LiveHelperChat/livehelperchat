@@ -20,5 +20,3 @@ $def->properties['pending_max']->propertyName = 'pending_max';
 $def->properties['pending_max']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

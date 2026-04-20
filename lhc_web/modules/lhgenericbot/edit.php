@@ -65,4 +65,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('genericbot/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Bot constructor')),
     array('title' => $bot->name));
 
-?>

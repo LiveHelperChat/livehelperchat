@@ -95,7 +95,7 @@ if ($Params['user_parameters_unordered']['export'] == 'quick_actions' && erLhcor
 
         foreach ($settingActions as $postKey => $action) {
             if (isset($_POST[$postKey]) && $_POST[$postKey] == 'on') {
-                $userIds = array();
+                $userIds = [];
                 foreach (erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'], array('limit' => false))) as $userItem) {
                     $userIds[] = $userItem->id;
                 }
@@ -162,5 +162,3 @@ array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => e
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Users')));
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.userlist_path',array('result' => & $Result));
-
-?>

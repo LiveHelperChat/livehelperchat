@@ -2,4 +2,3 @@
 /*
  * Override for custom column content
  * */
-?>

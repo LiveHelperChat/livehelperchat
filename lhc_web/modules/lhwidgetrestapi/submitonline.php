@@ -61,7 +61,7 @@ if (isset($requestPayload['theme']) && ($themeId = erLhcoreClassChat::extractThe
     $additionalParams['theme'] = erLhAbstractModelWidgetTheme::fetch($themeId);
 }
 
-$additionalParams['payload_data'] = isset($requestPayload['fields']) ? $requestPayload['fields'] : array();
+$additionalParams['payload_data'] = isset($requestPayload['fields']) ? $requestPayload['fields'] : [];
 
 if (isset($requestPayload['bpayload']['payload'])) {
     $additionalParams['bpayload'] = $requestPayload['bpayload'];
@@ -209,7 +209,7 @@ if (empty($Errors)) {
             erLhcoreClassRestAPIHandler::importMessages($chat, $requestPayload['messages']);
         }
 
-        $paramsExecution = array();
+        $paramsExecution = [];
 
         // Handle subject
         if (isset($requestPayload['fields']['subject_id']) && is_numeric($requestPayload['fields']['subject_id'])) {
@@ -496,7 +496,7 @@ if (empty($Errors)) {
         }
 
         if (isset($responder) && $responder instanceof erLhAbstractModelAutoResponder && $responder->disabled == 0) {
-            $beforeAutoResponderErrors = array();
+            $beforeAutoResponderErrors = [];
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered',array('chat' => & $chat, 'errors' => & $beforeAutoResponderErrors));
 
             if (empty($beforeAutoResponderErrors)) {
@@ -635,6 +635,3 @@ if (!isset($restAPI)) {
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_started', array('request_payload' => $requestPayload, 'chat' => & $chat, 'msg' => $messageInitial));
     }
 }
-
-
-?>

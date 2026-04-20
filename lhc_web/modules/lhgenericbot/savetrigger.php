@@ -45,4 +45,3 @@ if ($Params['user_parameters_unordered']['method'] == 'template') {
 echo json_encode(array('error' => false));
 exit;
 
-?>

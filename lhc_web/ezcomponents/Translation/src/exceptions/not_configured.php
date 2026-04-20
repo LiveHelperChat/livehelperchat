@@ -26,4 +26,4 @@ class ezcTranslationNotConfiguredException extends ezcTranslationException
         parent::__construct( "Location '{$location}' is invalid." );
     }
 }
-?>
+

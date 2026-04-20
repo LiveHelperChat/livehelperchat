@@ -179,5 +179,3 @@ class ezcGraphTools
         $dom->save( $fileName );
     }
 }
-
-?>

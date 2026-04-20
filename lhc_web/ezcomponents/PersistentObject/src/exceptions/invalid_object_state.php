@@ -34,4 +34,4 @@ class ezcPersistentInvalidObjectStateException extends ezcPersistentObjectExcept
     }
 }
 
-?>
+

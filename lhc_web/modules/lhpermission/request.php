@@ -65,4 +65,3 @@ $tpl->set('users',erLhcoreClassModelUser::getUserList(array('limit' => 100,'filt
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';
 
-?>

@@ -19,7 +19,7 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/checkchatstatus.tpl.php');
 $tpl->set('theme',false);
 $tpl->set('react',true);
 
-$responseArray = array();
+$responseArray = [];
 
 try {
     
@@ -200,4 +200,3 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.checkchatstatus'
 
 echo json_encode($responseArray);
 exit;
-?>

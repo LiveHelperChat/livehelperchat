@@ -24,5 +24,3 @@ foreach (['ip','nick'] as $posAttr) {
 }
 
 return $def; 
-
-?>

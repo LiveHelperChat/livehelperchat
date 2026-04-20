@@ -133,4 +133,3 @@ class erLhcoreClassModelDepartamentGroupMember
     public $dep_group_id = 0;
 }
 
-?>

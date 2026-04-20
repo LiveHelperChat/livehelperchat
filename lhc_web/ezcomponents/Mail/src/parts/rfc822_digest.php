@@ -123,4 +123,3 @@ class ezcMailRfc822Digest extends ezcMailPart
         return $this->mail->generate();
     }
 }
-?>

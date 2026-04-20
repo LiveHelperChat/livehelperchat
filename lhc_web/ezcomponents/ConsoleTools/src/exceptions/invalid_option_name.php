@@ -28,5 +28,3 @@ class ezcConsoleInvalidOptionNameException extends ezcConsoleException
         parent::__construct( "The option name '{$name}' is invalid." );
     }
 }
-
-?>

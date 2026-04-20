@@ -59,4 +59,3 @@ class erLhcoreClassModelQuestionOptionAnswer {
    public $ctime = 0;
 }
 
-?>

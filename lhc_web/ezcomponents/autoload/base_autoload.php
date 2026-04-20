@@ -44,4 +44,3 @@ return array(
     'ezcBasePersistable'                          => 'Base/interfaces/persistable.php',
     'ezcBaseRepositoryDirectory'                  => 'Base/structs/repository_directory.php',
 );
-?>

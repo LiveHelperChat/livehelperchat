@@ -27,4 +27,4 @@ class ezcTranslationParameterMissingException extends ezcTranslationException
         parent::__construct( "The parameter '%{$parameterName}' does not exist." );
     }
 }
-?>
+

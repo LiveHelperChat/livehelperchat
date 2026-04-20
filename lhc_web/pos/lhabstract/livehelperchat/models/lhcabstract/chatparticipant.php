@@ -22,4 +22,3 @@ foreach (['chat_id', 'user_id', 'duration', 'time', 'dep_id',
 
 return $def;
 
-?>

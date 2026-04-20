@@ -27,5 +27,3 @@ foreach (['type','disabled','bot_id_alt','trigger_id_alt','bot_id','trigger_id',
 }
 
 return $def;
-
-?>

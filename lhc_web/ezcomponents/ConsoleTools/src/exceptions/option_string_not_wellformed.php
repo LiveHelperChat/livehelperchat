@@ -27,5 +27,3 @@ class ezcConsoleOptionStringNotWellformedException extends ezcConsoleException
         parent::__construct( "The provided option defintion string was not well formed. " . $reason );
     }
 }
-
-?>

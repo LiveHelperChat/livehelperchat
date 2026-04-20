@@ -25,5 +25,3 @@ foreach (['gbot_id','invitation_id','anonymized','cls_time','pnd_time','auto_res
 }
 
 return $def;
-
-?>

@@ -22,4 +22,3 @@ if (erLhcoreClassModelChat::findOne(['filter' => ['gbot_id' => $Params['user_par
 
 
 
-?>

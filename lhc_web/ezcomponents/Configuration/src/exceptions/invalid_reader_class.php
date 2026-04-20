@@ -27,4 +27,3 @@ class ezcConfigurationInvalidReaderClassException extends ezcConfigurationExcept
         parent::__construct( "Class '{$readerClass}' does not exist, or does not implement the 'ezcConfigurationReader' interface." );
     }
 }
-?>

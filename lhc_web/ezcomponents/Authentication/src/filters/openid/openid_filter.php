@@ -1248,4 +1248,3 @@ class ezcAuthenticationOpenidFilter extends ezcAuthenticationFilter implements e
         return $this->setupUrl;
     }
 }
-?>

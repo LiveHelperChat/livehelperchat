@@ -19,4 +19,3 @@ $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'print';
 
 
-?>

@@ -55,4 +55,3 @@ class ezcFeedPersonElement extends ezcFeedElement
         return $this->name . '';
     }
 }
-?>

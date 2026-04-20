@@ -28,4 +28,3 @@ class ezcBaseInitInvalidCallbackClassException extends ezcBaseException
         parent::__construct( "Class '{$callbackClass}' does not exist, or does not implement the 'ezcBaseConfigurationInitializer' interface." );
     }
 }
-?>

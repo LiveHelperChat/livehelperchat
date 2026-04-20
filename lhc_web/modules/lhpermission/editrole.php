@@ -232,4 +232,3 @@ array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation(
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('permission.editrole_path', array('result' => & $Result));
 
-?>

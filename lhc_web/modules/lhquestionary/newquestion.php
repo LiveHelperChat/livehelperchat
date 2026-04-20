@@ -92,6 +92,5 @@ $tpl->set('question',$Data);
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
 		array('url' => erLhcoreClassDesign::baseurl('questionary/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','Questionary')),
-		array('url' => erLhcoreClassDesign::baseurl('questionary/newquestion'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/newquestion','New question')))
+		array('url' => erLhcoreClassDesign::baseurl('questionary/newquestion'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/newquestion','New question')));
 
-?>

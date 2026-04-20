@@ -976,4 +976,3 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
         return true;
     }
 }
-?>

@@ -52,4 +52,3 @@ if ( erLhcoreClassChat::hasAccessToRead($Chat) )
     echo json_encode(array('error' => 'true', 'result' => $errorTpl->fetch()));
     exit;
 }
-?>

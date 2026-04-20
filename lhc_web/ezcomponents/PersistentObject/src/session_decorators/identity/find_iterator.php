@@ -126,4 +126,4 @@ class ezcPersistentIdentityFindIterator extends ezcPersistentFindIterator
         return $this->object;
     }
 }
-?>
+

@@ -28,4 +28,3 @@ class ezcDbTransactionException extends ezcDbException
         parent::__construct( $message );
     }
 }
-?>

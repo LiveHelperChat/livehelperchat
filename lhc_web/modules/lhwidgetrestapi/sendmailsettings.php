@@ -60,5 +60,3 @@ if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $Params['user_par
 }
 
 exit;
-
-?>

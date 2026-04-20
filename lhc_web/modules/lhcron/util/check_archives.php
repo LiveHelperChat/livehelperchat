@@ -15,4 +15,3 @@ foreach (erLhcoreClassModelChatArchiveRange::getList() as $archiveRange) {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.check_archive', array('archive' => $archiveRange));
 }
 
-?>

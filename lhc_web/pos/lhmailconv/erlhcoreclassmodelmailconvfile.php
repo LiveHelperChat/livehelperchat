@@ -24,5 +24,3 @@ foreach (['message_id','width','height','size','conversation_id'] as $posAttr) {
 }
 
 return $def;
-
-?>

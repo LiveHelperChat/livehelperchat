@@ -19,5 +19,3 @@ foreach (array(
 }
 
 return $def;
-
-?>

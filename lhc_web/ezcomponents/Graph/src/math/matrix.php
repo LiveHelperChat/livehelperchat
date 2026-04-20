@@ -508,4 +508,3 @@ class ezcGraphMatrix
         return $string;
     }
 }
-?>

@@ -30,4 +30,4 @@ class ezcPersistentRelatedObjectNotFoundException extends ezcPersistentObjectExc
         parent::__construct( "No related object found with class '{$relatedClass}' for object of class '" . get_class( $object ) . "'." );
     }
 }
-?>
+

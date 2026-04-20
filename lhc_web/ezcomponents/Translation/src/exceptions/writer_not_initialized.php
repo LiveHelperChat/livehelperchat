@@ -26,4 +26,4 @@ class ezcTranslationWriterNotInitializedException extends ezcTranslationExceptio
         parent::__construct( "The writer is not initialized with the initWriter() method." );
     }
 }
-?>
+

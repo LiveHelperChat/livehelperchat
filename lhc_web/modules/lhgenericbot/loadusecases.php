@@ -7,4 +7,3 @@ $trigger = erLhcoreClassModelGenericBotTrigger::fetch($Params['user_parameters']
 echo json_encode(erLhcoreClassGenericBotValidator::getUseCases($trigger));
 
 exit;
-?>

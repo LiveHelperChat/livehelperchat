@@ -33,5 +33,3 @@ class ezcGraphDataSetColorProperty extends ezcGraphDataSetProperty
         return true;
     }
 }
-
-?>

@@ -1274,4 +1274,3 @@ class erLhcoreClassModelChatOnlineUser
 
 }
 
-?>

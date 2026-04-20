@@ -27,5 +27,3 @@ class ezcGraphReducementFailedException extends ezcGraphException
         parent::__construct( "Reducement of shape failed, because it was already too small." );
     }
 }
-
-?>

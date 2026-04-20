@@ -54,4 +54,3 @@ interface ezcDbSchemaDbWriter extends ezcDbSchemaWriter
      */
     public function isQueryAllowed( ezcDbHandler $db, $query );
 }
-?>

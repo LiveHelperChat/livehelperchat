@@ -13,4 +13,3 @@ return array(
     'ezcMvcAuthenticationFilter'        => 'MvcAuthenticationTiein/filter.php',
     'ezcMvcAuthenticationFilterOptions' => 'MvcAuthenticationTiein/options/filter-options.php',
 );
-?>

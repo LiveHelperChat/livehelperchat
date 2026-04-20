@@ -193,4 +193,3 @@ abstract class ezcMailMultipart extends ezcMailPart
         return date( "YmdGHjs" ) . ':' . getmypid() . ':' . self::$counter++;
     }
 }
-?>

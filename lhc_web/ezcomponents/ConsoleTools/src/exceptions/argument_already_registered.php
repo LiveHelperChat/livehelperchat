@@ -51,4 +51,3 @@ class ezcConsoleArgumentAlreadyRegisteredException extends ezcConsoleException
         parent::__construct( $message );
     }
 }
-?>

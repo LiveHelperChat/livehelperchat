@@ -5,4 +5,3 @@
 $CacheManager = erConfigClassLhCacheConfig::getInstance();
 $CacheManager->expireCache(true);
 echo "Finished clearing cache\n";
-?>

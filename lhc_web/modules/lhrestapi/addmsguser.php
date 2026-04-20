@@ -114,4 +114,3 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 
 
 
-?>

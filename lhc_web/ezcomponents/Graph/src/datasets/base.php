@@ -298,5 +298,3 @@ abstract class ezcGraphDataSet implements ArrayAccess, Iterator, Countable
         $this->current = 0;
     }
 }
-
-?>

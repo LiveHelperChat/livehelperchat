@@ -45,4 +45,3 @@ class ezcFeedEnclosureElement extends ezcFeedElement
      */
     public $type;
 }
-?>

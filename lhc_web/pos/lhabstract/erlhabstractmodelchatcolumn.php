@@ -24,5 +24,3 @@ foreach (['icon_mode','position','enabled','chat_enabled','mail_enabled','online
 }
 
 return $def;
-
-?>

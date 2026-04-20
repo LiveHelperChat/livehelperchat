@@ -52,4 +52,3 @@ class ezcCacheMemoryVarStruct extends ezcBaseStruct
 		$this->ttl = $ttl;
     }
 }
-?>

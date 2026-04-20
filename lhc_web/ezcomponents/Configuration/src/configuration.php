@@ -756,4 +756,3 @@ class ezcConfiguration
         return $this->isModified;
     }
 }
-?>

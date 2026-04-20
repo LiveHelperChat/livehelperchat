@@ -215,4 +215,3 @@ class ezcGraphAxisBoxedLabelRenderer extends ezcGraphAxisLabelRenderer
         );
     }
 }
-?>

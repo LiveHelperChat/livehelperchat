@@ -56,5 +56,3 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_inactiv
 echo json_encode(array('error' => false, 'active' => false));
 
 exit;
-
-?>

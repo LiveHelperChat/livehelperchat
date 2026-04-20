@@ -30,4 +30,3 @@ interface ezcDbSchemaReader
      */
     public function getReaderType();
 }
-?>

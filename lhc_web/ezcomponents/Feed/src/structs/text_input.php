@@ -64,4 +64,3 @@ class ezcFeedTextInputElement extends ezcFeedElement
      */
     public $about;
 }
-?>

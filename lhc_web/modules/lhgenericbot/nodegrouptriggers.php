@@ -11,4 +11,3 @@ $triggers = erLhcoreClassModelGenericBotTrigger::getList(array(
 echo json_encode(array_values($triggers));
 
 exit;
-?>

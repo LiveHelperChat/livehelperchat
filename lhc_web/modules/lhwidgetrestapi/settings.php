@@ -66,7 +66,7 @@ $fullHeight = (isset($Params['user_parameters_unordered']['fullheight']) && $Par
 
 if ((!isset($_GET['debug']) || $_GET['debug'] === 'false') && ($ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip)))) {
 
-    $jsVars = array();
+    $jsVars = [];
 
     $mapFieldsToPrefill = [
         'lhc.email' => 'Email',
@@ -112,7 +112,7 @@ if ((!isset($_GET['debug']) || $_GET['debug'] === 'false') && ($ignorable_ip == 
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatcheckoperatormessage', array('proactive_active' => & $proactiveInviteActive));
 
-    $injectInvitation = array();
+    $injectInvitation = [];
 
     if ((isset($_GET['cd']) && $_GET['cd'] == 1) || erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value != 1) {
         $userInstance = false;

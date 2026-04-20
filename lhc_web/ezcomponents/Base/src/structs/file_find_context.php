@@ -69,4 +69,3 @@ class ezcBaseFileFindContext extends ezcBaseStruct
         return new ezcBaseFileFindContext( $array['elements'], $array['count'], $array['size'] );
     }
 }
-?>

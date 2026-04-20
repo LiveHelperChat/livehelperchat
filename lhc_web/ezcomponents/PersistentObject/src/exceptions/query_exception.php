@@ -33,4 +33,4 @@ class ezcPersistentQueryException extends ezcPersistentObjectException
         );
     }
 }
-?>
+

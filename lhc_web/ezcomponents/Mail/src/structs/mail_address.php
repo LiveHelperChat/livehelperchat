@@ -87,4 +87,3 @@ class ezcMailAddress extends ezcBaseStruct
         return ( !empty( $this->name ) ? "{$this->name} " : "" ) . "<{$this->email}>";
     }
 }
-?>

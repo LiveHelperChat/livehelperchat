@@ -292,4 +292,3 @@ class ezcAuthenticationOpenidDbStore extends ezcAuthenticationOpenidStore
         return true;
     }
 }
-?>

@@ -65,4 +65,3 @@ class ezcLogStackWriter implements ezcLogWriter, IteratorAggregate
         return new ArrayObject( $this->entries );
     }
 }
-?>

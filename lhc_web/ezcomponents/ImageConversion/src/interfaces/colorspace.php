@@ -66,4 +66,3 @@ interface ezcImageColorspaceFilters
      */
     function colorspace( $space );
 }
-?>

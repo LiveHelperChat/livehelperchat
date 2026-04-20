@@ -26,4 +26,3 @@ class ezcDbSchemaInvalidSchemaException extends ezcDbSchemaException
         parent::__construct( "The schema is invalid.$messagePart" );
     }
 }
-?>

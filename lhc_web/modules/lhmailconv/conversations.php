@@ -438,4 +438,3 @@ $tpl->set('can_close',$currentUser->hasAccessTo('lhmailconv','close_all_conversa
 
 $Result['content'] = $tpl->fetch();
 
-?>

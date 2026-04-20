@@ -113,4 +113,3 @@ class erLhcoreClassModelUserSetting
     public $value = '';
 }
 
-?>

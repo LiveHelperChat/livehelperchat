@@ -65,4 +65,3 @@ class erLhcoreClassModelQuestionOption {
    public $priority = 0;
 }
 
-?>

@@ -57,5 +57,3 @@ class ezcGraphGdDriverUnsupportedImageTypeException extends ezcGraphException
         parent::__construct( "Unsupported image format '{$type}'." );
     }
 }
-
-?>

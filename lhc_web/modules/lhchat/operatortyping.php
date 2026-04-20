@@ -26,4 +26,3 @@ if (is_numeric($Params['user_parameters']['chat_id']))
 
 echo json_encode(array());
 exit;
-?>

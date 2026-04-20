@@ -175,4 +175,3 @@ class ezcMailDeliveryStatus extends ezcMailPart
         return $result;
     }
 }
-?>

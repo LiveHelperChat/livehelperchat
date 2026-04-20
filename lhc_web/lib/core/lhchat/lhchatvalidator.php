@@ -2924,4 +2924,3 @@ class erLhcoreClassChatValidator {
     }
 }
 
-?>

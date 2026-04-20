@@ -46,4 +46,4 @@ class ezcPersistentIdentityRelatedObjectsInconsistentException extends ezcPersis
         );
     }
 }
-?>
+

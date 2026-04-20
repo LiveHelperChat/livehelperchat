@@ -27,5 +27,3 @@ class ezcGraphTooManyDataSetsExceptions extends ezcGraphException
         parent::__construct( "You tried to insert to many datasets." );
     }
 }
-
-?>

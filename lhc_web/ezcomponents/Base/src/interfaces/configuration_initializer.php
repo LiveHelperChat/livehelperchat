@@ -29,4 +29,3 @@ interface ezcBaseConfigurationInitializer
      */
     static public function configureObject( $object );
 }
-?>

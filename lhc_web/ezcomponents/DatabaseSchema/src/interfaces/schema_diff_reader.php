@@ -34,4 +34,3 @@ interface ezcDbSchemaDiffReader
      */
     public function getDiffReaderType();
 }
-?>
