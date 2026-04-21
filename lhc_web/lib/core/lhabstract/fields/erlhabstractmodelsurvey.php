@@ -67,6 +67,26 @@ $surveyFields = array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
+    'no_return_chat' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Do not allow visitor return to chat if survey is filled.'),
+        'required' => false,
+        'hidden' => true,
+        'nginit' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'close_widget_survey' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Close widget for user also after survey is filled.'),
+        'required' => false,
+        'hidden' => true,
+        'nginit' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     'disable_chat_download' => array(
         'type' => 'checkbox',
         'main_attr' => 'configuration_array',

@@ -35,8 +35,9 @@ if ( isset($objectData->has_filter) &&  $objectData->has_filter === true ) {
 }
 
 $filterObject = array();
+
 if ( method_exists($objectData,'getFilter') ) {
-	$filterObject = $objectData->getFilter($filterParams['input_form']);
+	$filterObject = $objectData->getFilter(isset($filterParams['input_form']) ? $filterParams['input_form'] : null);
 }
 
 $tpl->set('filterObject',$filterObject);
