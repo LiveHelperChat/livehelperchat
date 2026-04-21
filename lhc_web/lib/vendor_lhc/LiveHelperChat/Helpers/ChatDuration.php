@@ -28,11 +28,16 @@ class ChatDuration
 
         $previousOwner = null;
         $statusOperators = [];
+        $hasUserMessage = false;
 
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC, \PDO::FETCH_ORI_NEXT)) {
 
             $metaAction = false;
             $userLastMessage = false;
+
+            if ($row['user_id'] == 0) {
+                $hasUserMessage = true;
+            }
 
             $metaData = [];
 
@@ -45,6 +50,9 @@ class ChatDuration
                     $operatorAcceptTime = $row['time'];
                     $row['user_id'] = $metaData['content']['accept_action']['user_id'];
                     $metaAction = true;
+                    if ($hasUserMessage === true) {
+                        $userLastMessage = true;
+                    }
                 } elseif (isset($metaData['content']['transfer_action_dep']['user_id'])) {
                     $row['user_id'] = $metaData['content']['transfer_action_dep']['user_id'];
                     $metaAction = true;
