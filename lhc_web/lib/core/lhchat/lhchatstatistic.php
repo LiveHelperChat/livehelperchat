@@ -2352,16 +2352,48 @@ class erLhcoreClassChatStatistic {
     public static function totalHoursOfOnlineDialogsByUser($days = 30, $filter = array(), $limit = 40)
     {
         if (empty($filter)) {
-            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+            $filter['filtergte']['time'] = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
         }
 
-        return erLhcoreClassChat::getCount($filter,'lh_users_online_session','SUM(duration)');
+        // Overlapping logic: session [time, lactivity] overlaps range [rangeStart, rangeEnd]
+        // Fractional overlap: only count the portion of the session that falls within the range.
+        $rangeStart = null;
+        $rangeEnd = null;
+
+        if (isset($filter['filtergte']['time'])) {
+            $rangeStart = (int)$filter['filtergte']['time'];
+            unset($filter['filtergte']['time']);
+        }
+
+        if (isset($filter['filterlte']['time'])) {
+            $rangeEnd = (int)$filter['filterlte']['time'];
+            unset($filter['filterlte']['time']);
+        }
+
+        if ($rangeStart !== null && $rangeEnd !== null) {
+            // Session must overlap the range: started before rangeEnd AND ended after rangeStart
+            $filter['filtergte']['lactivity'] = $rangeStart;
+            $filter['filterlte']['time'] = $rangeEnd;
+            $operation = 'SUM(LEAST(lactivity, ' . $rangeEnd . ') - GREATEST(time, ' . $rangeStart . '))';
+        } elseif ($rangeStart !== null) {
+            // Session must have ended after rangeStart; clip session start to rangeStart
+            $filter['filtergte']['lactivity'] = $rangeStart;
+            $operation = 'SUM(lactivity - GREATEST(time, ' . $rangeStart . '))';
+        } elseif ($rangeEnd !== null) {
+            // Session must have started before rangeEnd; clip session end to rangeEnd
+            $filter['filterlte']['time'] = $rangeEnd;
+            $operation = 'SUM(LEAST(lactivity, ' . $rangeEnd . ') - time)';
+        } else {
+            $operation = 'SUM(duration)';
+        }
+
+        return erLhcoreClassChat::getCount($filter,'lh_users_online_session', $operation);
     }
 
     public static function totalHoursOfDialogsByUserParticipant($days = 30, $filter = array(), $limit = 40)
     {
         if (empty($filter)) {
-            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+            $filter['filtergt']['time'] = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
         }
 
         return erLhcoreClassChat::getCount($filter,'lh_chat_participant','SUM(duration)');
