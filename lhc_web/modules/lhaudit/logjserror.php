@@ -18,8 +18,11 @@ if (isset($_POST['data'])) {
             $referrer .= 'L: ' . $dataLog['location'] . "\n";
         }
 
+        $user_id = 0;
+
         if (session_status() == 2 && erLhcoreClassUser::instance()->isLogged()) {
             $referrer .= "User ID: " . erLhcoreClassUser::instance()->getUserID() . "\n";
+            $user_id = erLhcoreClassUser::instance()->getUserID();
         }
 
         $messageLog = $referrer . erLhcoreClassIPDetect::getIP() . "\n" . trim((isset($dataLog['message']) ? $dataLog['message'] : '') . "\n" . json_decode($dataLog['stack'],true));
@@ -36,7 +39,8 @@ if (isset($_POST['data'])) {
                 'category' => 'js',
                 'line' => (isset($dataLog['line']) ? (int)$dataLog['line'] : 0),
                 'file' => (isset($dataLog['file']) ? $dataLog['file'] : ''),
-                'object_id' => isset($dataLog['column']) ? (int)$dataLog['column'] : 0
+                'object_id' => isset($dataLog['column']) ? (int)$dataLog['column'] : 0,
+                'user_id' => $user_id
             )
         );
     }

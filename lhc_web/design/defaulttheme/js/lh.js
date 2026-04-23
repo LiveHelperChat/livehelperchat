@@ -1022,9 +1022,7 @@ function lh(){
 	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend+'/(arg)/'+backgroundType, name, chat_id, false);
 	    	ee.emitEvent('chatStartBackground', [chat_id,{name:name}]);
 	    	return true;
-    	} else {
-            this.animateClick(chat_id);
-        }
+    	}
     	
     	return false;
     };
