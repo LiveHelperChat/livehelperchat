@@ -280,7 +280,14 @@ if (empty($Errors)) {
                     }
 
                     $msg->chat_id = $chat->id;
-                    $msg->name_support = $userInstance->operator_user !== false ? trim($userInstance->operator_user->name_support) : (!empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
+
+                    if (($userOperator = $userInstance->operator_user) !== false) {
+                        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('chat' => $userInstance, 'user' => & $userOperator, 'scope' => 'invitation'));
+                        $msg->name_support = trim($userOperator->name_support);
+                    } else {
+                        $msg->name_support = !empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+                    }
+
                     $msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : -2;
                     $msg->time = time();
 

@@ -87,7 +87,7 @@ class UserDepAlias {
     public static function getAlias($params) {
         static $cacheAlias = [];
 
-        if ((isset($params['scope']) && in_array($params['scope'],['as_string','typing','msg','canned_replace','invitation'])) || (!isset($params['scope']) && $params['chat']->user_id > 0)) {
+        if ((isset($params['scope']) && in_array($params['scope'],['msg_media','as_string','typing','msg','canned_replace','invitation'])) || (!isset($params['scope']) && $params['chat']->user_id > 0)) {
 
             if (!isset($params['scope'])) {
                 $params['scope'] = 'chat';
@@ -95,7 +95,7 @@ class UserDepAlias {
 
             if ($params['scope'] == 'typing') {
                 $userId = $params['chat']->operator_typing_user->id;
-            } elseif ($params['scope'] == 'canned_replace' || $params['scope'] == 'invitation') {
+            } elseif ($params['scope'] == 'canned_replace' || $params['scope'] == 'invitation' || $params['scope'] == 'msg_media') {
                 if (!isset($params['user']) || !is_object($params['user'])) {
                     return;
                 }

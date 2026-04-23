@@ -50,6 +50,9 @@ if (($user = $onlineUser->operator_user) !== false) {
     if ($user->has_photo) {
         $outputResponse['photo'] = $user->photo_path;
         $outputResponse['photo_title'] = $user->name_support;
+    } else if ( $user->avatar != '') {
+        $outputResponse['photo'] = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar') .'/'. htmlspecialchars($user->avatar);
+        $outputResponse['photo_title'] = $user->name_support;
     }
 
 } else {
