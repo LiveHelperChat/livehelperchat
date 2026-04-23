@@ -6,7 +6,7 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?></label>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text" class="form-control form-control-sm" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input_form->timefrom != '' ? $input_form->timefrom : date('Y-m-d', time()-24*3600))?>" />
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input_form->timefrom != '' ? $input_form->timefrom : date('Y-m-d', time()-24*3600))?>" />
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range to');?></label>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text" class="form-control form-control-sm" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input_form->timeto)?>" />
+                    <input type="text" autocomplete="off" class="form-control form-control-sm" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input_form->timeto)?>" />
                 </div>
             </div>
         </div>

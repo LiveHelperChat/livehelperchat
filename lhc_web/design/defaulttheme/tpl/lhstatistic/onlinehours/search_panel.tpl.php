@@ -8,7 +8,7 @@
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?></label>
 			<div class="row">
 				<div class="col-md-12">
-					<input type="text" class="form-control form-control-sm" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
+					<input type="text" class="form-control form-control-sm" name="timefrom" id="id_timefrom" autocomplete="off" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
 				</div>							
 			</div>
 		</div>
@@ -43,7 +43,7 @@
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range to');?></label>
 			<div class="row">
 				<div class="col-md-12">
-					<input type="text" class="form-control form-control-sm" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
+					<input type="text" class="form-control form-control-sm" name="timeto" id="id_timeto" autocomplete="off" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
 				</div>							
 			</div>
 		</div>
