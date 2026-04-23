@@ -38,6 +38,8 @@ $outputResponse = array('status' => true);
 
 if (($user = $onlineUser->operator_user) !== false) {
 
+    \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('chat' => $onlineUser, 'user' => & $user, 'scope' => 'invitation'));
+
     $outputResponse['invitation_name'] = $outputResponse['name_support'] = $user->name_support;
     $outputResponse['extra_profile'] = $user->job_title != '' ? htmlspecialchars($user->job_title) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Personal assistant');
 
@@ -51,7 +53,7 @@ if (($user = $onlineUser->operator_user) !== false) {
     }
 
 } else {
-    $outputResponse['name_support'] = $onlineUser->operator_user !== false ? htmlspecialchars($onlineUser->operator_user->name_support) : (!empty($onlineUser->operator_user_proactive) ? htmlspecialchars($onlineUser->operator_user_proactive) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
+    $outputResponse['name_support'] = !empty($onlineUser->operator_user_proactive) ? htmlspecialchars($onlineUser->operator_user_proactive) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
 }
 
 if (isset($onlineUser->online_attr_system_array['lhcinv_exp'])) {
