@@ -135,6 +135,8 @@ if ((!isset($_GET['debug']) || $_GET['debug'] === 'false') && ($ignorable_ip == 
 
     if ($userInstance !== false) {
 
+        $outputResponse['vid'] = $userInstance->vid;
+
         if (erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1 && erLhcoreClassModelChatOnlineUser::getReferer() != '') {
             erLhcoreClassModelChatOnlineUserFootprint::addPageView($userInstance);
         }
