@@ -18,8 +18,8 @@ class erLhcoreClassChatStatsResque {
         }
 
         if ($this->args['type'] == 'dep') {
-            $dep = erLhcoreClassModelDepartament::fetch($this->args['id']);
-            if (is_object($dep)) {
+            $dep = erLhcoreClassModelDepartament::fetch($this->args['id'], false);
+            if (is_object($dep) && $dep->id !== null) {
                 self::updateStats($dep);
             }
         }
@@ -27,7 +27,7 @@ class erLhcoreClassChatStatsResque {
 
     public static function updateStats($dep)
     {
-        if (!is_object($dep)) {
+        if (!is_object($dep) || $dep->id === null) {
             return;
         }
 
@@ -37,7 +37,7 @@ class erLhcoreClassChatStatsResque {
         $depGroups = erLhcoreClassModelDepartamentGroupMember::getList(array('filter' => array('dep_id' => $dep->id)));
 
         foreach ($depGroups as $depGroup) {
-            $depGroupObj = erLhcoreClassModelDepartamentGroup::fetch($depGroup->dep_group_id);
+            $depGroupObj = erLhcoreClassModelDepartamentGroup::fetch($depGroup->dep_group_id, false);
             if ($depGroupObj instanceof erLhcoreClassModelDepartamentGroup) {
                 self::updateDepartmentGroupStats($depGroupObj);
             }
@@ -111,10 +111,14 @@ class erLhcoreClassChatStatsResque {
 
     public static function updateDepartmentStats($dep, $update = true)
     {
+        // E.g chat department is deleted
+        if ($dep->id === null) {
+            return;
+        }
+
         $db = ezcDbInstance::get();
 
         // Get max load for a specific department
-
         $stmt = $db->prepare('SELECT SUM(max_chats) as max_chats, COUNT(`user_id`) AS `max_load_op` FROM (SELECT MAX(max_chats) as max_chats,`user_id` FROM `lh_userdep` WHERE `ro` = 0 AND `dep_id` = :dep_id AND `last_activity` > :last_activity AND (`hide_online` = 0 OR `hide_online_ts` > :hide_online_ts) GROUP BY `user_id`) as tmp;');
         $stmt->bindValue(':dep_id',$dep->id,PDO::PARAM_INT);
         $stmt->bindValue(':last_activity',time()-600, PDO::PARAM_INT);
@@ -146,18 +150,20 @@ class erLhcoreClassChatStatsResque {
 
         $dep->inactive_chats_cnt = $dep->bot_chats_counter = $dep->pending_chats_counter = $dep->active_chats_counter = 0;
 
-        foreach ($statsChats as $statsChat) {
-            if ($statsChat['status'] == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
-                $dep->active_chats_counter += (int)$statsChat['total'];
-            } elseif ($statsChat['status'] == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
-                $dep->pending_chats_counter += (int)$statsChat['total'];
-            } elseif ($statsChat['status'] == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
-                $dep->bot_chats_counter += (int)$statsChat['total'];
-            }
+        if (!empty($statsChats)) {
+            foreach ($statsChats as $statsChat) {
+                if ($statsChat['status'] == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
+                    $dep->active_chats_counter += (int)$statsChat['total'];
+                } elseif ($statsChat['status'] == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+                    $dep->pending_chats_counter += (int)$statsChat['total'];
+                } elseif ($statsChat['status'] == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+                    $dep->bot_chats_counter += (int)$statsChat['total'];
+                }
 
-            // Add to inactive chats if it's conditions matches
-            if (in_array((int)$statsChat['status'],array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) && in_array((int)$statsChat['status_sub'],array(erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW))) {
-                $dep->inactive_chats_cnt += $statsChat['total'];
+                // Add to inactive chats if it's conditions matches
+                if (in_array((int)$statsChat['status'],array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) && in_array((int)$statsChat['status_sub'],array(erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW))) {
+                    $dep->inactive_chats_cnt += $statsChat['total'];
+                }
             }
         }
 
@@ -187,11 +193,13 @@ class erLhcoreClassChatStatsResque {
 
         $dep->active_mails_counter = $dep->pending_mails_counter = 0;
 
-        foreach ($statsMails as $statsMail) {
-            if ($statsMail['status'] == erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) {
-                $dep->active_mails_counter += (int)$statsMail['total'];
-            } elseif ($statsMail['status'] == erLhcoreClassModelMailconvConversation::STATUS_PENDING) {
-                $dep->pending_mails_counter += (int)$statsMail['total'];
+        if (!empty($statsMails)) {
+            foreach ($statsMails as $statsMail) {
+                if ($statsMail['status'] == erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) {
+                    $dep->active_mails_counter += (int)$statsMail['total'];
+                } elseif ($statsMail['status'] == erLhcoreClassModelMailconvConversation::STATUS_PENDING) {
+                    $dep->pending_mails_counter += (int)$statsMail['total'];
+                }
             }
         }
 
