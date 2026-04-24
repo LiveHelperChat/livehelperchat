@@ -38,7 +38,7 @@ class erLhcoreClassTranslateDeepL {
         'pt' => 'pt-PT'
     ];
 
-    public static function translate($apiKey, $text, $fromLanguage, $toLanguage, $formality = 'default') {
+    public static function translate($apiKey, $text, $fromLanguage, $toLanguage, $formality = 'default', $modelType = 'default') {
         if (empty($text)){
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Missing text to translate'));
         }
@@ -64,9 +64,12 @@ class erLhcoreClassTranslateDeepL {
                 $toLanguage = self::$validMapping[$toLanguage];
             }
 
-            $dataTranslated = self::getTranslator($apiKey)->translateText($text, $fromLanguage, $toLanguage, [
-                'formality' => $formality,
-            ]);
+            $options = ['formality' => $formality];
+            if ($modelType !== 'default') {
+                $options['model_type'] = $modelType;
+            }
+
+            $dataTranslated = self::getTranslator($apiKey)->translateText($text, $fromLanguage, $toLanguage, $options);
 
             //if ($dataTranslated->detectedSourceLang != $fromLanguage) {
             //    throw new RuntimeException("Detected langauge " . $dataTranslated->detectedSourceLang . " and provided from langauges [" . $fromLanguage . "] should be different");

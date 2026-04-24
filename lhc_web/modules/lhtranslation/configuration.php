@@ -71,6 +71,9 @@ if (isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSetting
         'deepl_formality' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
+        'deepl_model_type' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
         'hide_translate_button' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
@@ -163,6 +166,12 @@ if (isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSetting
         $data['deepl_formality'] = $form->deepl_formality;
     } else {
         $data['deepl_formality'] = 'default';
+    }
+
+    if ($form->hasValidData('deepl_model_type') && in_array($form->deepl_model_type, ['default', 'quality_optimized', 'latency_optimized'])) {
+        $data['deepl_model_type'] = $form->deepl_model_type;
+    } else {
+        $data['deepl_model_type'] = 'default';
     }
 
     if ($form->hasValidData('hide_translate_button') && $form->hide_translate_button == true) {

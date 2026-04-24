@@ -379,9 +379,9 @@ class erLhcoreClassTranslate
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
                         
                         if ($msg->user_id == 0 || $msg->user_id == -2) {
-                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to, $translationData['deepl_formality'] ?? 'default');
+                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to, $translationData['deepl_formality'] ?? 'default', $translationData['deepl_model_type'] ?? 'default');
                         } else { // Operator message
-                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale, $translationData['deepl_formality'] ?? 'default');
+                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale, $translationData['deepl_formality'] ?? 'default', $translationData['deepl_model_type'] ?? 'default');
                         }
                         
                         // If translation was successfull store it
@@ -1126,7 +1126,7 @@ class erLhcoreClassTranslate
                     return $cached;
                 }
 
-                $translatedItem = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $text, $translateFrom, $translateTo, $translationData['deepl_formality'] ?? 'default');
+                $translatedItem = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $text, $translateFrom, $translateTo, $translationData['deepl_formality'] ?? 'default', $translationData['deepl_model_type'] ?? 'default');
             }
 
             self::storeCachedTranslation($useCache, $text, $translateFrom, $translateTo, $translatedItem);
