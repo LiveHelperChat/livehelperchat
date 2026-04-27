@@ -2953,8 +2953,8 @@ class erLhcoreClassGenericBotActionRestapi
                 $conditions = explode('=', str_replace(['[',']'],'',$part));
 
                 $foundConditions = false;
-                foreach ($partData as $partItem) {
-                    if ($partItem[$conditions[0]] == $conditions[1]) {
+                foreach ($partData as $partItemKey => $partItem) {
+                    if (($conditions[1] === '__EXIST__' && isset($partItem[$conditions[0]])) || (isset($partItem[$conditions[0]]) && $partItem[$conditions[0]] == $conditions[1])) {
                         $partData = $partItem;
                         $foundConditions = true;
                         continue;
