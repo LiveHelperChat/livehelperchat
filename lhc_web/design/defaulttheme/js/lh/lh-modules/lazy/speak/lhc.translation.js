@@ -49,12 +49,11 @@ module.exports = (function() {
 				if (data.translation_status === true) // User started translation process
 				{				
 					// Clear current chat messages
-					jQuery('#messagesBlock-'+params['chat_id']).html('');
-					
-					// Just let the core to do the hard job
-					lhinst.updateChatLastMessageID(params['chat_id'],0);
-					lhinst.syncadmincall();	
-					
+                    $.postJSON(WWW_DIR_JAVASCRIPT + 'chat/syncadmin/' ,{ 'chats[]': [params['chat_id']+',0'], 'active_chat_id': params['chat_id'] }, function(data) {
+                        jQuery('#messagesBlock-' + params['chat_id']).html(data.result[0].content);
+                        lhinst.updateChatLastMessageID(params['chat_id'],data.result[0].message_id);
+                    });
+
 					// Restore button
 					jQuery('.translate-button-'+params['chat_id']).addClass('btn-outline-success');		
 				} else { // User stopped translation process

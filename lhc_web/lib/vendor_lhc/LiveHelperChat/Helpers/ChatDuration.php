@@ -28,7 +28,7 @@ class ChatDuration
 
         $previousOwner = null;
         $statusOperators = [];
-        $hasVisitorMessages = false;
+        $hasUserMessage = false;
 
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC, \PDO::FETCH_ORI_NEXT)) {
 
@@ -36,21 +36,23 @@ class ChatDuration
             $userLastMessage = false;
 
             if ($row['user_id'] == 0) {
-                $hasVisitorMessages = true;
+                $hasUserMessage = true;
             }
 
             $metaData = [];
 
-            if ($row['user_id'] == -1 && $row['meta_msg'] != '') {
+            if (!empty($row['meta_msg'])){
                 $metaData = json_decode($row['meta_msg'],true);
+            }
+
+            if ($row['user_id'] == -1 && $row['meta_msg'] != '') {
                 if (isset($metaData['content']['accept_action']['user_id'])) {
-                    if ($hasVisitorMessages === false) {
-                        continue; // It was only accept action, ignore this as there are no visitor messages before that
-                    }
                     $operatorAcceptTime = $row['time'];
                     $row['user_id'] = $metaData['content']['accept_action']['user_id'];
-                    $userLastMessage = true;
                     $metaAction = true;
+                    if ($hasUserMessage === true) {
+                        $userLastMessage = true;
+                    }
                 } elseif (isset($metaData['content']['transfer_action_dep']['user_id'])) {
                     $row['user_id'] = $metaData['content']['transfer_action_dep']['user_id'];
                     $metaAction = true;
@@ -80,6 +82,7 @@ class ChatDuration
 
             if ($previousMessage === null) {
                 $previousMessage = $row;
+                $previousOwner = $row['user_id'];
                 continue;
             }
 
@@ -111,18 +114,23 @@ class ChatDuration
                 $responseTime = $row['time'] - ($lastVisitorMessage['time'] < ($chat->pnd_time + $chat->wait_time) ? ($chat->pnd_time + $chat->wait_time) :
                         (isset($operatorAcceptTime) && $operatorAcceptTime > $lastVisitorMessage['time'] ? $operatorAcceptTime : $lastVisitorMessage['time'])
                     );
-                $mainStats['response_times'][$row['user_id']][] = $responseTime;
-                $mainStats['response_times_total'][] = $responseTime;
-                $lastVisitorMessage = null;
+                if ($responseTime > 0)
+                {
+                    $mainStats['response_times'][$row['user_id']][] = $responseTime;
+                    $mainStats['response_times_total'][] = $responseTime;
+                    $lastVisitorMessage = null;
+                }
             }
 
             $diff = $row['time'] - $previousMessage['time'];
+
 
             if ($diff < $timeout && $diff > 0) {
 
                 $logDuration[] = 'CHAT_DURATION - [' .  date('H:i:s',$row['time']) . ' - ' .  date('H:i:s',$previousMessage['time']) . ' = ' . $diff . " < " . $timeout . "]"; // @debug
 
                 $timeToAdd += $diff;
+
                 if ($ownerChanged === false) {
                     $timeToAddParticipant += $diff;
                 }
@@ -134,6 +142,7 @@ class ChatDuration
 
                 // Valid message
                 $statusOperators[$previousOwner] = $timeToAddParticipant;
+
             } else { // Message author changed, reset spend time
                 $timeToAddParticipant = 0;
             }

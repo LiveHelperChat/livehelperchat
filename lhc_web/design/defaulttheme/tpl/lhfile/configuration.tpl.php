@@ -188,7 +188,7 @@
             <label><input type="checkbox" name="typeDelete[]" <?php if (isset($file_data['mtype_delete']) && in_array('operators',$file_data['mtype_delete'])) : ?>checked="checked"<?php endif;?> value="operators"> Operators</label>
         </div>
         <div class="col-4">
-            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','if file is (OR)'); ?></p>
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Delete only those type of files. Choose only one or none to delete all files.'); ?></p>
             <label><input type="checkbox" name="typeChatDelete[]" <?php if (isset($file_data['mtype_cdelete']) && in_array('unassigned',$file_data['mtype_cdelete'])) : ?>checked="checked"<?php endif;?> value="unassigned"> Unassigned to chat</label><br/>
             <label><input type="checkbox" name="typeChatDelete[]" <?php if (isset($file_data['mtype_cdelete']) && in_array('assigned',$file_data['mtype_cdelete'])) : ?>checked="checked"<?php endif;?> value="assigned"> Assigned to chat</label><br/>
         </div>

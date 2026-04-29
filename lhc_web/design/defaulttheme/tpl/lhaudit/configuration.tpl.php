@@ -276,7 +276,6 @@ try {
     <li>Is the zip extension detected - <?php echo extension_loaded ('zip' ) ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'; ?></li>
 </ul>
 
-
 <?php
 $logFiles = array(
     'workflow.log' => 'workflow.log',
@@ -287,6 +286,15 @@ $logFiles = array(
     'cron_6h.log' => 'cron_6h.log',
     'cron_8h.log' => 'cron_8h.log',
 );
+
+if (erConfigClassLhConfig::getInstance()->getSetting('site','debug_view', false) === true) {
+    $logFiles['default.log'] = 'default.log';
+    $logFiles['default.log.1'] = 'default.log.1';
+    $logFiles['default.log.2'] = 'default.log.2';
+    $logFiles['default.log.3'] = 'default.log.3';
+    $logFiles['default.log.4'] = 'default.log.4';
+    $logFiles['default.log.5'] = 'default.log.5';
+}
 
 $availableLogs = array();
 foreach ($logFiles as $file => $label) {

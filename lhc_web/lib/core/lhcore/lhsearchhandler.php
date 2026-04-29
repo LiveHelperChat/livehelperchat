@@ -149,6 +149,7 @@ class erLhcoreClassSearchHandler
                     } elseif ($field['filter_type'] == 'filtergte' || $field['filter_type'] == 'filtergt' || $field['filter_type'] == 'filtergtenbind') {
 
                         $filterType = $field['filter_type'];
+                        $filterTableField = isset($field['overlapping']) ? $field['overlapping'] : $field['filter_table_field'];
 
                         if (isset($field['datatype']) && $field['datatype'] == 'hourminuteutc') {
 
@@ -203,14 +204,14 @@ class erLhcoreClassSearchHandler
                             
                             $dateFormated = self::formatDateToTimestamp($inputParams->$key);
                             if ($dateFormated != false) {
-                                $filter[$filterType][$field['filter_table_field']] = $dateFormated;
+                                $filter[$filterType][$filterTableField] = $dateFormated;
                             }
                         } elseif (isset($field['datatype']) && $field['datatype'] == 'date_ymd') {
                             
                             $dateFormated = self::formatDateToDateYmd($inputParams->$key);
                             
                             if ($dateFormated != false) {
-                                $filter[$filterType][$field['filter_table_field']] = $dateFormated;
+                                $filter[$filterType][$filterTableField] = $dateFormated;
                             }
                         } elseif (isset($field['datatype']) && $field['datatype'] == 'datetime') {
                             
@@ -265,11 +266,11 @@ class erLhcoreClassSearchHandler
                                     $valueFilter = date('\'Y-m-d H:i:s\'',$valueFilter);
                                 }
 
-                                $filter[$filterType][$field['filter_table_field']] = $valueFilter;
+                                $filter[$filterType][$filterTableField] = $valueFilter;
                             }
                             
                         } else {
-                            $filter[$filterType][$field['filter_table_field']] = $inputParams->$key;
+                            $filter[$filterType][$filterTableField] = $inputParams->$key;
                         }
 
                     } elseif ($field['filter_type'] == 'filterlte' || $field['filter_type'] == 'filterlt' || $field['filter_type'] == 'filterltenbind') {

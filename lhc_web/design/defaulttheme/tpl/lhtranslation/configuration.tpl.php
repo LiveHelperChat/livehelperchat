@@ -210,7 +210,15 @@
 							</select>
 							<a class="fs14" target="_blank" href="https://developers.deepl.com/api-reference/translate?search=region#param-formality"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'More information about formality'); ?></a>
 						</div>
-
+					<div class="form-group">
+						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Model type'); ?></label>
+						<select class="form-control" name="deepl_model_type">
+							<option value="default" <?php if (!isset($translation_data['deepl_model_type']) || $translation_data['deepl_model_type'] == 'default') : ?>selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Default'); ?></option>
+							<option value="quality_optimized" <?php if (isset($translation_data['deepl_model_type']) && $translation_data['deepl_model_type'] == 'quality_optimized') : ?>selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Quality optimized'); ?></option>
+							<option value="latency_optimized" <?php if (isset($translation_data['deepl_model_type']) && $translation_data['deepl_model_type'] == 'latency_optimized') : ?>selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Latency optimized'); ?></option>
+						</select>
+						<a class="fs14" target="_blank" href="https://developers.deepl.com/docs/api-reference/translate#param-model-type"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'More information about model type'); ?></a>
+					</div>
 						<div class="btn-group" role="group" aria-label="...">
 							<input type="submit" class="btn btn-secondary" name="StoreLanguageSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons', 'Save'); ?>" />
 						</div>

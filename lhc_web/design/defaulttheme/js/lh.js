@@ -1022,9 +1022,7 @@ function lh(){
 	    	this.addTab(tabs, this.wwwDir +'chat/adminchat/'+chat_id+rememberAppend+'/(arg)/'+backgroundType, name, chat_id, false);
 	    	ee.emitEvent('chatStartBackground', [chat_id,{name:name}]);
 	    	return true;
-    	} else {
-            this.animateClick(chat_id);
-        }
+    	}
     	
     	return false;
     };
@@ -2824,7 +2822,7 @@ function lh(){
                     textArea.attr('placeholder',placeholerOriginal);
 
                     if (textArea.prop('nodeName') == 'LHC-EDITOR') {
-                        textArea[0].insertConent(pdata.msg,{"convert_bbcode" : true});
+                        textArea[0].insertContent(pdata.msg,{"convert_bbcode" : true});
                     } else {
                         textArea.val(textArea.val() + ' ' + pdata.msg);
                     }

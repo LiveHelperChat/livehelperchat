@@ -2465,7 +2465,7 @@ class erLhcoreClassGenericBotActionRestapi
                         }
                     }
           
-                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => ((int)$matchesValues[1][$indexElement] + 1), 'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $chatIdFilter))));
+                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('filternotlikefields' => [['meta_msg' => '"debug":true'],['meta_msg' => '{"content":{"typing"'],['meta_msg' => '{"content":{"execute_js"']], 'limit' => ((int)$matchesValues[1][$indexElement] + 1), 'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $chatIdFilter))));
 
                     $totalElements = count($messages);
                     $userMessageStarted = $totalElements <= (int)$matchesValues[1][$indexElement];
@@ -2603,12 +2603,23 @@ class erLhcoreClassGenericBotActionRestapi
                             }
                         }
 
-                        if ($message->user_id == -1 && !(isset($message->meta_msg_array['content']['attr_options']['process_as_visitor']) && $message->meta_msg_array['content']['attr_options']['process_as_visitor'] === true)) {
+                        if ($message->user_id == -1 && !(
+                                (isset($message->meta_msg_array['content']['attr_options']['process_as_visitor']) && $message->meta_msg_array['content']['attr_options']['process_as_visitor'] === true) ||
+                                (isset($message->meta_msg_array['content']['attr_options']['process_as_operator']) && $message->meta_msg_array['content']['attr_options']['process_as_operator'] === true)
+                            )) {
                             $totalElements--;
                             continue;
                         }
 
-                        if ($message->user_id == -2 && isset($message->meta_msg_array['content']['typing'])) {
+                        if (isset($message->meta_msg_array['content']['attr_options']['process_as_operator']) && $message->meta_msg_array['content']['attr_options']['process_as_operator'] === true) {
+                            $message->user_id = -2;
+                        }
+
+                        if (!empty($message->meta_msg_array['content']['attr_options']['api_message'])) {
+                            $message->msg = $message->meta_msg_array['content']['attr_options']['api_message'];
+                        }
+
+                        if ($message->user_id == -2 && (isset($message->meta_msg_array['content']['typing']) || isset($message->meta_msg_array['content']['execute_js']))) {
                             $totalElements--;
                             continue;
                         }
@@ -2953,8 +2964,8 @@ class erLhcoreClassGenericBotActionRestapi
                 $conditions = explode('=', str_replace(['[',']'],'',$part));
 
                 $foundConditions = false;
-                foreach ($partData as $partItem) {
-                    if ($partItem[$conditions[0]] == $conditions[1]) {
+                foreach ($partData as $partItemKey => $partItem) {
+                    if (($conditions[1] === '__EXIST__' && isset($partItem[$conditions[0]])) || (isset($partItem[$conditions[0]]) && $partItem[$conditions[0]] == $conditions[1])) {
                         $partData = $partItem;
                         $foundConditions = true;
                         continue;
