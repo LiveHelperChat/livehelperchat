@@ -32,11 +32,14 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
     const getStyleObjectFromString = str => {
         const style = {};
         str.split(";").forEach(el => {
-            const [property, value] = el.split(":");
-            if (!property) return;
+            const colonIndex = el.indexOf(":");
+            if (colonIndex === -1) return;
+            const property = el.slice(0, colonIndex).trim();
+            const value = el.slice(colonIndex + 1).trim();
+            if (!property || property.startsWith('--')) return;
 
-            const formattedProperty = formatStringToCamelCase(property.trim());
-            style[formattedProperty] = value.trim();
+            const formattedProperty = formatStringToCamelCase(property);
+            style[formattedProperty] = value;
         });
 
         return style;

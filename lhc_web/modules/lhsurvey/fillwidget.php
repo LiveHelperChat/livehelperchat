@@ -83,7 +83,14 @@ try {
             }
 
             if (($collectedSurvey === true || $surveyItem->is_filled == true) && $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
-                $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED;
+                if (isset($survey->configuration_array['no_return_chat']) && $survey->configuration_array['no_return_chat'] == true) {
+                    if (isset($survey->configuration_array['close_widget_survey']) && $survey->configuration_array['close_widget_survey'] == true) {
+                        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED;
+                        $chat->user_status = erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT;
+                    }
+                } else {
+                    $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED;
+                }
                 // They are equal now in priority for the auto responder
                 $chat->last_op_msg_time = $chat->last_user_msg_time = time();
                 $chat->saveThis();

@@ -65,7 +65,11 @@ if ($assignWorkflowTimeout > 0) {
                 echo "[".$chat->id."] processed, but was not auto assigned ".date('Y-m-d H:i:s') . " " . erLhcoreClassChatWorkflow::$lastError . "\n";
             }
         } catch (Exception $e) {
-            $db->rollback();
+            try {
+                $db->rollback();
+            } catch (Exception $e) {
+
+            }
             throw $e;
         }
     }
@@ -79,7 +83,11 @@ if ($assignWorkflowTimeout > 0) {
             }
             $db->commit();
         } catch (Exception $e) {
-            $db->rollback();
+            try {
+                $db->rollback();
+            } catch (Exception $e) {
+
+            }
             throw $e;
         }
     }
@@ -102,7 +110,11 @@ foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'li
             echo "[".$chat->id."] processed, but was not auto assigned at ".date('Y-m-d H:i:s') . " " . erLhcoreClassChatWorkflow::$lastError . "\n";
         }
     } catch (Exception $e) {
-        $db->rollback();
+        try {
+            $db->rollback();
+        } catch (Exception $e) {
+
+        }
         throw $e;
     }
 }
@@ -116,7 +128,11 @@ foreach (erLhcoreClassModelMailconvConversation::getList(array('sort' => 'priori
             }
         $db->commit();
     } catch (Exception $e) {
-        $db->rollback();
+        try {
+            $db->rollback();
+        } catch (Exception $e) {
+
+        }
         throw $e;
     }
 }
@@ -149,7 +165,11 @@ foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'li
 
         $db->commit();
     } catch (Exception $e) {
-        $db->rollback();
+        try {
+            $db->rollback();
+        } catch (Exception $e) {
+
+        }
         throw $e;
     }
 }

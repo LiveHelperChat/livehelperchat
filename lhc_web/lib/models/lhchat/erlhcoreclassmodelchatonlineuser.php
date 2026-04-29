@@ -918,6 +918,10 @@ class erLhcoreClassModelChatOnlineUser
                 return false;
             }
 
+            if (strlen($item->vid) <= 20) {
+                $item->vid = bin2hex(random_bytes(16));
+            }
+
             $ip = isset($paramsHandle['ip']) ? $paramsHandle['ip'] : erLhcoreClassIPDetect::getIP();
             
             if ($item->ip != $ip || $detectLocation == true) {

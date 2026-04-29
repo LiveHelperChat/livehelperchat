@@ -54,7 +54,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
                 $msgStart = new erLhcoreClassModelmsg();
                 $msgStart->chat_id = $chat->id;
                 $msgStart->user_id = -1;
-                $msgStart->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Automatic translation started') . ' [' . $chat->chat_locale . '] => [' . $chat->chat_locale_to . ']';
+                $msgStart->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Automatic translation started') . ' [' . $chat->chat_locale . '] => [' . $chat->chat_locale_to . '].' . (isset($_POST['translate_old']) && $_POST['translate_old'] == 'true' ? ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Old messages will be translated.') : '' );
                 $msgStart->time = time();
                 $msgStart->saveThis();
 

@@ -41,12 +41,22 @@
     <label><?php echo erLhcoreClassAbstract::renderInput('disable_chat_download', $fields['disable_chat_download'], $object)?> <?php echo $fields['disable_chat_download']['trans'];?></label>
 </div>
 
-<div class="form-group">
-    <label><?php echo erLhcoreClassAbstract::renderInput('return_on_close', $fields['return_on_close'], $object)?> <?php echo $fields['return_on_close']['trans'];?></label>
+<div class="row">
+    <div class="col-6">
+		<div class="form-group">
+			<label><?php echo erLhcoreClassAbstract::renderInput('return_on_close', $fields['return_on_close'], $object)?> <?php echo $fields['return_on_close']['trans'];?></label>
+		</div>
+	</div>
+    <div class="col-6">
+		<div class="form-group">
+			<label><?php echo erLhcoreClassAbstract::renderInput('no_return_chat', $fields['no_return_chat'], $object)?> <?php echo $fields['no_return_chat']['trans'];?></label>
+		</div>
+		<div class="form-group ps-4">
+			<label><?php echo erLhcoreClassAbstract::renderInput('close_widget_survey', $fields['close_widget_survey'], $object)?> <?php echo $fields['close_widget_survey']['trans'];?></label>
+		</div>
+	</div>
 </div>
-
 <hr>
-
 
 <?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));?>
 

@@ -1572,7 +1572,7 @@
                                     if (jQuery('#chat-tab-link-' + chat.id).length == 0) {
 
                                         if (tabs.length > 0 && lhinst.disableremember == false) {
-                                            lhinst.addOpenTrace('auto_accept');
+                                            lhinst.addOpenTrace('auto_accept_' + chat.id);
                                             lhinst.removeSynchroChat(chat.id);
                                             lhinst.startChatBackground(chat.id, tabs, truncate((chat.nick || 'Visitor'), 10));
                                             // We auto open only auto assigned chats
@@ -1590,7 +1590,7 @@
                             item.list.forEach(function (chat) {
                                 if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && (confLH.accept_chats == 1 || jQuery('#chat-tab-link-' + chat.id).length > 0)) {
                                     if (tabs.length > 0 && lhinst.disableremember == false) {
-                                        lhinst.addOpenTrace('auto_accept_transfer');
+                                        lhinst.addOpenTrace('auto_accept_transfer_' + chat.id);
                                         lhinst.startChatTransfer(chat.id,tabs,truncate((chat.nick || 'Visitor'),10),chat.transfer_id, jQuery('#chat-tab-link-' + chat.id).length == 0);
 
                                         // Auto open transfered chats in all tabs

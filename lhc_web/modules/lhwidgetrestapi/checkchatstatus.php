@@ -133,13 +133,12 @@ try {
 	    	if ($department !== false) {
 	    		$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? 'chat/chatwidget' : 'chat/startchat';
                 $responseArray['offline_mode'] = true;
-
-	    		$msg = new erLhcoreClassModelmsg();
+	    		/*$msg = new erLhcoreClassModelmsg();
 	    		$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Visitor has been redirected to contact form [because of chat status]');
 	    		$msg->chat_id = $chat->id;
 	    		$msg->user_id = -1;
 	    		$msg->time = time();
-	    		erLhcoreClassChat::getSession()->save($msg);
+	    		erLhcoreClassChat::getSession()->save($msg);*/
 	    		// We do not store last msg time for chat here, because in any case none of opeators has opened it
 	    	}
 	    }

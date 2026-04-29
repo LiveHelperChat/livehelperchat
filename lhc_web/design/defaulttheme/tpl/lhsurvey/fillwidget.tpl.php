@@ -10,7 +10,7 @@
 
             <div class="row mt-2">
                 <div class="col ps-2">
-                <?php if ($survey_item->is_filled == true && ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED)))) : ?>
+                <?php if ($survey_item->is_filled == true && ((isset($survey->configuration_array['no_return_chat']) && $survey->configuration_array['no_return_chat'] == true) || $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED)))) : ?>
                     <input type="button" class="btn btn-sm w-100 btn-primary mb-1" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
                 <?php endif;?>
 
@@ -33,7 +33,12 @@
                 /**
                  * Because user filled a survey we have to redirect it back to chat
                  * */
-                if (($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT || (isset($survey->configuration_array['return_on_close']) && $survey->configuration_array['return_on_close'] == true)) && in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED))) : ?>
+                if (
+                    (
+                        ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT && !(isset($survey->configuration_array['no_return_chat']) && $survey->configuration_array['no_return_chat'] == true))
+                        || 
+                        (isset($survey->configuration_array['return_on_close']) && $survey->configuration_array['return_on_close'] == true)) && in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED))
+                ) : ?>
                 <div class="col">
                     <input type="button" class="btn btn-sm btn-success mb-1 float-end return-chat-button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Back to chat')?>" onclick="return lhinst.continueChatFromSurvey('<?php echo $survey->id?>');" />
                 </div>

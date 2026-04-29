@@ -10,6 +10,7 @@ $fieldsSearch['timefrom'] = array (
     'datatype' => 'datetime',
     'filter_type' => 'filtergte',
     'filter_table_field' => 'time',
+    'overlapping' => 'lactivity',
     'validation_definition' => new ezcInputFormDefinitionElement (
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
     )

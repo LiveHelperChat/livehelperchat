@@ -38,8 +38,17 @@ try {
                 $msgAppend = '[survey="'. $surveyItem->survey_id . '_' . $surveyItem->id .'"]';
             }
             
+            $closed = (isset($survey->configuration_array['no_return_chat']) && $survey->configuration_array['no_return_chat'] == true) || !(isset($survey->configuration_array['return_on_close']) && $survey->configuration_array['return_on_close'] == true) && $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
+
             $msg = new erLhcoreClassModelmsg();
-            $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/backtochat', 'Visitor has been redirected back to chat!') . " " . $msgAppend;
+
+            if ($closed === true) {
+                $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED;
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/backtochat', 'Visitor completed survey!') . " " . $msgAppend;
+            } else {
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/backtochat', 'Visitor has been redirected back to chat!') . " " . $msgAppend;
+            }
+ 
             $msg->chat_id = $chat->id;
             $msg->user_id = - 1;
             
@@ -59,10 +68,10 @@ try {
             }
             
             $chat->has_unread_messages = 1;
-            
+ 
             $chat->saveThis();
 
-            echo json_encode(array('result' => true, 'closed' => !(isset($survey->configuration_array['return_on_close']) && $survey->configuration_array['return_on_close'] == true) && $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT));
+            echo json_encode(array('result' => true, 'closed' => $closed));
 
             flush();
 

@@ -1146,6 +1146,8 @@ class erLhcoreClassBBCode
        }
 
        if (strpos($msg,'[translation]') !== false) {
+            // Add space to avoid breaking links in translations
+            $msg = str_replace('[translation]',' [translation]', $msg);
             // For the admin we show original and translated text
             if (isset($paramsMessage['html_as_text']) && $paramsMessage['html_as_text'] == true) {
                 $replacer = '';
@@ -1162,6 +1164,7 @@ class erLhcoreClassBBCode
                     $msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg);
                 }
             }
+            $msg = trim($msg);
         }
 
        // Remove [translation] blocks that contain only image(s) — they should not be split or rendered separately
