@@ -2465,7 +2465,7 @@ class erLhcoreClassGenericBotActionRestapi
                         }
                     }
           
-                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => ((int)$matchesValues[1][$indexElement] + 1), 'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $chatIdFilter))));
+                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('filternotlikefields' => [['meta_msg' => '"debug":true'],['meta_msg' => '{"content":{"typing"'],['meta_msg' => '{"content":{"execute_js"']], 'limit' => ((int)$matchesValues[1][$indexElement] + 1), 'offset' => ($matchesValues[2][$indexElement] && is_numeric($matchesValues[2][$indexElement]) ? (int)$matchesValues[2][$indexElement] : 0), 'sort' => 'id DESC', 'filter' => array('chat_id' => $chatIdFilter))));
 
                     $totalElements = count($messages);
                     $userMessageStarted = $totalElements <= (int)$matchesValues[1][$indexElement];
@@ -2608,7 +2608,7 @@ class erLhcoreClassGenericBotActionRestapi
                             continue;
                         }
 
-                        if ($message->user_id == -2 && isset($message->meta_msg_array['content']['typing'])) {
+                        if ($message->user_id == -2 && (isset($message->meta_msg_array['content']['typing']) || isset($message->meta_msg_array['content']['execute_js']))) {
                             $totalElements--;
                             continue;
                         }
