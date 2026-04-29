@@ -2611,7 +2611,7 @@ class erLhcoreClassGenericBotActionRestapi
                             continue;
                         }
 
-                        if ($message->meta_msg_array['content']['attr_options']['process_as_operator'] && $message->meta_msg_array['content']['attr_options']['process_as_operator'] === true) {
+                        if (isset($message->meta_msg_array['content']['attr_options']['process_as_operator']) && $message->meta_msg_array['content']['attr_options']['process_as_operator'] === true) {
                             $message->user_id = -2;
                         }
 
