@@ -2603,9 +2603,20 @@ class erLhcoreClassGenericBotActionRestapi
                             }
                         }
 
-                        if ($message->user_id == -1 && !(isset($message->meta_msg_array['content']['attr_options']['process_as_visitor']) && $message->meta_msg_array['content']['attr_options']['process_as_visitor'] === true)) {
+                        if ($message->user_id == -1 && !(
+                                (isset($message->meta_msg_array['content']['attr_options']['process_as_visitor']) && $message->meta_msg_array['content']['attr_options']['process_as_visitor'] === true) ||
+                                (isset($message->meta_msg_array['content']['attr_options']['process_as_operator']) && $message->meta_msg_array['content']['attr_options']['process_as_operator'] === true)
+                            )) {
                             $totalElements--;
                             continue;
+                        }
+
+                        if ($message->meta_msg_array['content']['attr_options']['process_as_operator'] && $message->meta_msg_array['content']['attr_options']['process_as_operator'] === true) {
+                            $message->user_id = -2;
+                        }
+
+                        if (!empty($message->meta_msg_array['content']['attr_options']['api_message'])) {
+                            $message->msg = $message->meta_msg_array['content']['attr_options']['api_message'];
                         }
 
                         if ($message->user_id == -2 && (isset($message->meta_msg_array['content']['typing']) || isset($message->meta_msg_array['content']['execute_js']))) {

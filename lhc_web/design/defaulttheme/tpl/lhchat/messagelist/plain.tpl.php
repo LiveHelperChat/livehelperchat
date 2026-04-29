@@ -41,7 +41,7 @@ foreach ($messages as $msg ) :
                         $metaRenderedAppend .= $valMessage . $separatorMessage;
                     }
                 } elseif ( $type == 'execute_js' ) {
-                    $metaRenderedAppend .= '('. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/plain','execute javascript').') ' .  $metaMessage['payload'] . $separatorMessage;
+                    $metaRenderedAppend .= '('. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/plain','execute javascript').') ' .  ($metaMessage['payload'] ?? '') . $separatorMessage;
                 } elseif ( $type == 'typing' ) {
                     $valMessage = '(' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/plain','typing') . ') ' .  $metaMessage['text'];
                     if (isset($render_as_html_params['bot_attr_html'])) {
