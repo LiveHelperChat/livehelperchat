@@ -1,5 +1,6 @@
 import {settings} from '../settings.js';
 import {UIConstructorIframe} from '../UIConstructorIframe';
+import {policyStore} from '../../util/policyStore';
 import {helperFunctions} from '../helperFunctions';
 
 export class msgSnippetWidget{
@@ -38,6 +39,7 @@ export class msgSnippetWidget{
 
         this.cont.bodyId = 'msgsnippet';
 
+        this.cont.trustedHtmlPolicy = policyStore.get(this.attributes);
         if (this.cont.constructUIIframe('', this.attributes.staticJS['dir']) === null){
             return null;
         }

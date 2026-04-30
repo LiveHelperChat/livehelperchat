@@ -1,5 +1,6 @@
 import {settings} from '../settings.js';
 import {helperFunctions} from '../helperFunctions';
+import {policyStore} from '../../util/policyStore';
 
 class LHCStatusWidget extends HTMLElement {
     constructor() {
@@ -58,9 +59,13 @@ class LHCStatusWidget extends HTMLElement {
         this.style[attr] = style;
     };
 
+    set trustedHtmlPolicy(p) {
+        this._trustedHtmlPolicy = p;
+    }
+
     setContent(content) {
         let contentShadow = document.createElement('div');
-        var policy = window['_' + (this.getAttribute('prefix') || 'lhc') + 'TrustedHtml'];
+        var policy = this._trustedHtmlPolicy || null;
         contentShadow.innerHTML = policy ? policy.createHTML(content) : content;
         this.shadowRoot.appendChild(contentShadow.firstChild);
     }
@@ -429,6 +434,7 @@ export class statusWidget{
 
         this.cont.massRestyle(placement);
 
+        this.cont.trustedHtmlPolicy = policyStore.get(attributes);
         this.cont.setContent('<div id="lhc_status_container" class="notranslate ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none;pointer-events: none;""><i style="display: none" title="New messages" id="unread-msg-number">!</i><a aria-label="Show or hide widget" href="#" tabindex="0" target="_blank" id="status-icon" class="offline-status"></a></div>');
 
         this.cont.className = this.attributes.isMobile === true ? 'notranslate lhc-mobile' : 'notranslate lhc-desktop';

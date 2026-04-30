@@ -1,5 +1,6 @@
 import {settings} from '../settings.js';
 import {UIConstructorIframe} from '../UIConstructorIframe';
+import {policyStore} from '../../util/policyStore';
 import {helperFunctions} from '../helperFunctions';
 
 export class needhelpWidget{
@@ -55,6 +56,7 @@ export class needhelpWidget{
         this.cont.tmpl = settings['html'].replace('{dev_type}',(this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop'));
         this.cont.bodyId = 'need-help';
         
+        this.cont.trustedHtmlPolicy = policyStore.get(this.attributes);
         if (this.cont.constructUIIframe('', this.attributes.staticJS['dir']) === null){
             return null;
         }

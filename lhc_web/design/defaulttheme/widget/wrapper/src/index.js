@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 273;
+            lhc.version = 274;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -80,6 +80,7 @@
                 var storageHandler = require('./util/storageHandler').storageHandler;
                 var chatNotifications = require('./lib/chatNotifications').chatNotifications;
                 var chatEventsHandler = require('./util/chatEventsHandler').chatEventsHandler;
+                var policyStore = require('./util/policyStore').policyStore;
 
                 LHC_API.args = LHC_API.args || {};
 
@@ -87,10 +88,10 @@
                     lhc.isMobile = isMobile = LHC_API.args.mobile_view;
                 }
 
-                if (LHC_API.args.csp) {
-                    window['_' + scopeScript.toLowerCase() + 'TrustedHtml'] = (window.trustedTypes && window.trustedTypes.createPolicy)
-                    ? window.trustedTypes.createPolicy(scopeScript.toLowerCase() + '-widget-html', {createHTML: function (s) { return s; }})
+                const trustedHtmlPolicy = (LHC_API.args.csp && window.trustedTypes && window.trustedTypes.createPolicy)
+                    ? Object.freeze(window.trustedTypes.createPolicy(scopeScript.toLowerCase() + '-widget-html', {createHTML: function (s) { return s; }}))
                     : null;
+                if (LHC_API.args.csp) {
                     window['_' + scopeScript.toLowerCase() + 'TrustedJS'] = LHC_API.args.csp;
                 } 
 
@@ -228,6 +229,8 @@
                     ignoreVars : false,
                     debug : LHC_API.args.debug || false
                 };
+
+                policyStore.set(attributesWidget, trustedHtmlPolicy);
 
                 attributesWidget.widgetDimesions = new BehaviorSubject({
                     sright: (LHC_API.args.sright || 0),

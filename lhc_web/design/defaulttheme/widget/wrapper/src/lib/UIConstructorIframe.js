@@ -27,7 +27,7 @@ export class UIConstructorIframe extends UIConsturctor {
 
         try {
             var _headHtml = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="googlebot" content="notranslate" />'+(disableViewPort !== true ? '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />' : '')+header;
-            var _headPolicy = window['_' + this._prefix + 'TrustedHtml'];
+            var _headPolicy = this.trustedHtmlPolicy || null;
             this.elmDomDoc.getElementsByTagName("head")[0].innerHTML = _headPolicy ? _headPolicy.createHTML(_headHtml) : _headHtml;
 
             if (this.bodyId != '') {
@@ -59,7 +59,7 @@ export class UIConstructorIframe extends UIConsturctor {
     };
 
     insertContent () {
-        var _policy = window['_' + this._prefix + 'TrustedHtml'];
+        var _policy = this.trustedHtmlPolicy || null;
         this.elmDomDoc.body.innerHTML = _policy ? _policy.createHTML(this.tmpl) : this.tmpl;
     };
 };

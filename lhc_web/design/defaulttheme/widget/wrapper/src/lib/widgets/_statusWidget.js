@@ -1,5 +1,6 @@
 import {settings} from '../settings.js';
 import {UIConstructorIframe} from '../UIConstructorIframe';
+import {policyStore} from '../../util/policyStore';
 import {helperFunctions} from '../helperFunctions';
 
 export class statusWidget{
@@ -70,6 +71,7 @@ export class statusWidget{
 
         this.cont.tmpl = '<div id="lhc_status_container" class="notranslate ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none"><i title="New messages" id="unread-msg-number">!</i><a aria-label="Show or hide widget" href="#" tabindex="0" target="_blank" id="status-icon" class="offline-status"></a></div>';
 
+        this.cont.trustedHtmlPolicy = policyStore.get(this.attributes);
         if (this.cont.constructUIIframe('') === null) {
             return null;
         }
