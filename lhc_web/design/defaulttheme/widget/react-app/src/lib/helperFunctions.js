@@ -14,6 +14,14 @@ class _helperFunctions {
         this.eventEmitter = new EventEmitter();
 
         try {
+            this.trustedHtml = (window.trustedTypes && window.trustedTypes.createPolicy)
+                ? window.trustedTypes.createPolicy(this.prefix + '-react-html', {createHTML: function(s) { return s; }})
+                : null;
+        } catch (e) {
+            this.trustedHtml = null;
+        }
+
+        try {
             this.hasSessionStorage = !!window.sessionStorage;
         } catch (e) {
             this.hasSessionStorage = false;

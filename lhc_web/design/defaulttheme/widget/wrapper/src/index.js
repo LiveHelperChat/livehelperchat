@@ -87,6 +87,13 @@
                     lhc.isMobile = isMobile = LHC_API.args.mobile_view;
                 }
 
+                if (LHC_API.args.csp) {
+                    window['_' + scopeScript.toLowerCase() + 'TrustedHtml'] = (window.trustedTypes && window.trustedTypes.createPolicy)
+                    ? window.trustedTypes.createPolicy(scopeScript.toLowerCase() + '-widget-html', {createHTML: function (s) { return s; }})
+                    : null;
+                    window['_' + scopeScript.toLowerCase() + 'TrustedJS'] = LHC_API.args.csp;
+                } 
+
                 const prefixLowercase = scopeScript.toLowerCase();
                 const prefixStorage = (prefixLowercase && LHC_API.args.scope_storage ? prefixLowercase : 'lhc');
                 const cookieEnabledUser = typeof LHC_API.args.cookie_enabled !== 'undefined' ? LHC_API.args.cookie_enabled : true;

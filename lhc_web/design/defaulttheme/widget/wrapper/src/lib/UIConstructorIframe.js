@@ -26,7 +26,9 @@ export class UIConstructorIframe extends UIConsturctor {
         if (this.elmDomDoc === null) return null;
 
         try {
-            this.elmDomDoc.getElementsByTagName("head")[0].innerHTML = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="googlebot" content="notranslate" />'+(disableViewPort !== true ? '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />' : '')+header;
+            var _headHtml = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="googlebot" content="notranslate" />'+(disableViewPort !== true ? '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />' : '')+header;
+            var _headPolicy = window['_' + this._prefix + 'TrustedHtml'];
+            this.elmDomDoc.getElementsByTagName("head")[0].innerHTML = _headPolicy ? _headPolicy.createHTML(_headHtml) : _headHtml;
 
             if (this.bodyId != '') {
                 this.elmDomDoc.body.id = this.bodyId;
@@ -57,7 +59,8 @@ export class UIConstructorIframe extends UIConsturctor {
     };
 
     insertContent () {
-        this.elmDomDoc.body.innerHTML = this.tmpl
+        var _policy = window['_' + this._prefix + 'TrustedHtml'];
+        this.elmDomDoc.body.innerHTML = _policy ? _policy.createHTML(this.tmpl) : this.tmpl;
     };
 };
 

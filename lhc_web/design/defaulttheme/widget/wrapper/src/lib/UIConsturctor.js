@@ -16,6 +16,8 @@ export class UIConsturctor {
 
         this.elementId && (this.attributes.id = this.elementId);
 
+        this._prefix = (typeof this.elementId === 'string' ? this.elementId.split('_')[0] : null) || 'lhc';
+
         attributes && Object.keys(attributes).forEach(function (attr) {
             f.attributes[attr] = attributes[attr]
         })
@@ -95,7 +97,9 @@ export class UIConsturctor {
             }
 
             e.crossOrigin = "*";
-            e.src = src;
+
+            e.src = window['_' + this._prefix + 'TrustedJS']  ? window['_' + this._prefix + 'TrustedJS'].createScriptURL(src) : src;
+
 
             if (loadcb) {
                 e.onload = loadcb;

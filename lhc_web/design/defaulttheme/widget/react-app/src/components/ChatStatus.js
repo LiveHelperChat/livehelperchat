@@ -75,6 +75,7 @@ class ChatStatus extends PureComponent {
     }
 
     render() {
+         // var status = helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.status) : this.props.status;
          return parse(this.props.status, {
             replace: domNode => {
                 if (domNode.attribs && domNode.attribs.onclick) {

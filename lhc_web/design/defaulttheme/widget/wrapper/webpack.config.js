@@ -26,7 +26,11 @@ module.exports = {
         filename: 'index.js',
         publicPath: config.get('publicPath'),
         chunkFilename: "[contenthash].js",
-        crossOriginLoading: "anonymous"
+        crossOriginLoading: "anonymous",
+        trustedTypes: {
+            policyName: 'lhc-widget-loader',
+            onPolicyCreationFailure: 'continue'
+        }
     },
     optimization: {
         splitChunks: {

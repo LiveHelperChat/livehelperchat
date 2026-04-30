@@ -14,7 +14,7 @@ class chatEventsHandler {
 
             for (var index in jsVars) {
                 try {
-                    currentVar = eval('window.'+jsVars[index].var);
+                    currentVar = jsVars[index].var.split('.').reduce((obj, key) => obj && obj[key], window);
                     if (typeof currentVar !== 'undefined' && currentVar !== null && currentVar !== '') {
                         js_args[jsVars[index].id] = currentVar;
                     }

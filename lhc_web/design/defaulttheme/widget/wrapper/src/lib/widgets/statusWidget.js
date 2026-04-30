@@ -60,7 +60,8 @@ class LHCStatusWidget extends HTMLElement {
 
     setContent(content) {
         let contentShadow = document.createElement('div');
-        contentShadow.innerHTML = content;
+        var policy = window['_' + (this.getAttribute('prefix') || 'lhc') + 'TrustedHtml'];
+        contentShadow.innerHTML = policy ? policy.createHTML(content) : content;
         this.shadowRoot.appendChild(contentShadow.firstChild);
     }
 
@@ -346,6 +347,7 @@ export class statusWidget{
 
         Object.entries({
             "id" : (prefix || 'lhc')+'_status_widget_v2',
+            "prefix" : (prefix || 'lhc'),
             "vertical-placement" : "bottom",
             "horizontal-placement" : "right",
             "horizontal-space" : "0",
