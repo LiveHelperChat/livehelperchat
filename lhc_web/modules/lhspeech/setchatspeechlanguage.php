@@ -5,7 +5,7 @@ $tpl = erLhcoreClassTemplate::getInstance('lhspeech/setchatspeechlanguage.tpl.ph
 if (is_numeric($Params['user_parameters']['chat_id']))
 {
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
-    if ( erLhcoreClassChat::hasAccessToRead($chat) )
+    if ( erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToWrite($chat) )
     {
          $tpl->set('chat',$chat);          
          $chatSpeech = erLhcoreClassSpeech::getSpeechInstance($chat);

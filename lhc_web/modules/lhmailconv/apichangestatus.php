@@ -13,7 +13,7 @@ try {
 
     $conv = erLhcoreClassModelMailconvConversation::fetchAndLock($Params['user_parameters']['id']);
 
-    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToWrite($conv) )
+    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToWrite($conv) && erLhcoreClassChat::hasAccessToRead($conv) )
     {
         if ((int)$Params['user_parameters']['status'] == 1) {
             $conv->status = erLhcoreClassModelMailconvConversation::STATUS_ACTIVE;

@@ -4,7 +4,7 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/changestatus.tpl.php');
 $chat = erLhcoreClassChat::getSession()->load('erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 $tpl->set('chat', $chat);
 
-if (erLhcoreClassChat::hasAccessToRead($chat)) {
+if (erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToWrite($chat)) {
     $currentUser = erLhcoreClassUser::instance();
     
     if (isset($_POST['ChatStatus']) && is_numeric($_POST['ChatStatus'])) {

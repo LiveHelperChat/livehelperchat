@@ -16,7 +16,7 @@ if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],
 
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
-if ( erLhcoreClassChat::hasAccessToRead($chat) )
+if ( erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToWrite($chat) )
 {
 		// If status is pending change status to active		
         $operatorAccepted = false;

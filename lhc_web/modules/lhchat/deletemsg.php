@@ -5,7 +5,7 @@ header('Content-type: application/json');
 try {
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
-    if ( erLhcoreClassChat::hasAccessToRead($chat) )
+    if (erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToWrite($chat))
     {
         if ($Params['user_parameters']['msg_id']) {
             $removeMessage = erLhcoreClassModelmsg::fetch($Params['user_parameters']['msg_id']);

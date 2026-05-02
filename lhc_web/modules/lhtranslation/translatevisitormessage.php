@@ -4,7 +4,7 @@ header ( 'content-type: application/json; charset=utf-8' );
 
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
-if (erLhcoreClassChat::hasAccessToRead($chat)) {
+if (erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToWrite($chat)) {
     try {
 
         if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {

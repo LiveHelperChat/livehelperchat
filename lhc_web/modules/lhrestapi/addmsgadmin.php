@@ -60,7 +60,7 @@ try {
 
             // Has access to read, chat
             //FIXME create permission to add message...
-            if ( erLhcoreClassRestAPIHandler::hasAccessToWrite($Chat) )
+            if ( erLhcoreClassRestAPIHandler::hasAccessToWrite($Chat) && erLhcoreClassRestAPIHandler::hasAccessToRead($Chat) )
             {
                 $userData = erLhcoreClassRestAPIHandler::getUser();
                 $lastMessageId = $Chat->last_msg_id;

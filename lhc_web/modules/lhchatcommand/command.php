@@ -2,7 +2,7 @@
 
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
-if ( erLhcoreClassChat::hasAccessToRead($chat) )
+if ( erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToWrite($chat) )
 {
     $command = erLhcoreClassModelGenericBotCommand::fetch($Params['user_parameters']['command_id']);
 

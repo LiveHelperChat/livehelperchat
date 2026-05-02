@@ -48,7 +48,7 @@ try
             throw new Exception('Chat could not be found!');
         }
 
-        if (!erLhcoreClassRestAPIHandler::hasAccessToWrite($chat)) {
+        if (!erLhcoreClassRestAPIHandler::hasAccessToWrite($chat) || !erLhcoreClassRestAPIHandler::hasAccessToRead($chat)) {
             throw new Exception('You do not have permission. Please check that current user has permission to write to selected department.');
         }
 
@@ -67,7 +67,7 @@ try
         }
 
         if (
-            erLhcoreClassRestAPIHandler::hasAccessToWrite($chat) &&
+            erLhcoreClassRestAPIHandler::hasAccessToWrite($chat) && erLhcoreClassRestAPIHandler::hasAccessToRead($chat) &&
             (erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','deleteglobalchat') || (erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','deletechat') && $chat->user_id == erLhcoreClassRestAPIHandler::getUserId()))
         ) {
             $chat->removeThis();

@@ -2,7 +2,7 @@
 
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
-if (!erLhcoreClassChat::hasAccessToRead($chat)) {
+if (!erLhcoreClassChat::hasAccessToRead($chat) || !erLhcoreClassChat::hasAccessToWrite($chat)) {
     $tpl = erLhcoreClassTemplate::getInstance('lhkernel/error_modal.tpl.php');
     $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat', 'No permission to access this chat.'));
     print $tpl->fetch();

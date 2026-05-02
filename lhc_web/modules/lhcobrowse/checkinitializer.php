@@ -4,7 +4,7 @@ header('Content-type: application/json');
 if (is_numeric($Params['user_parameters']['chat_id']))
 {
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
-    if ( erLhcoreClassChat::hasAccessToRead($chat) )
+    if ( erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToWrite($chat) )
     {
          $browse = erLhcoreClassCoBrowse::getBrowseInstance($chat);
          

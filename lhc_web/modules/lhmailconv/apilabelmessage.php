@@ -5,7 +5,7 @@ try {
 
     $conv = $message->conversation;
 
-    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
+    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) && erLhcoreClassChat::hasAccessToWrite($conv) )
     {
         if (ezcInputForm::hasPostData()) {
 

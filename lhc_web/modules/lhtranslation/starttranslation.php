@@ -7,7 +7,7 @@ $operatorLanguage = (string) $Params['user_parameters']['operator_language'];
 
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
-if ( erLhcoreClassChat::hasAccessToRead($chat) )
+if ( erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToWrite($chat) )
 {
     $errors = [];
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.before_messagetranslated', ['chat' => & $chat, 'errors' => & $errors]);

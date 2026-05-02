@@ -18,7 +18,7 @@ if (is_numeric($Params['user_parameters']['chat_id']) && is_numeric($Params['use
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_transfered', array('chat' => & $Chat, 'errors' => & $errors, 'scope' => $transferScope));
 
-        if ( erLhcoreClassChat::hasAccessToRead($Chat) && empty($errors) )
+        if (erLhcoreClassChat::hasAccessToRead($Chat) && erLhcoreClassChat::hasAccessToWrite($Chat) && empty($errors))
         {
             $currentUser = erLhcoreClassUser::instance();
 

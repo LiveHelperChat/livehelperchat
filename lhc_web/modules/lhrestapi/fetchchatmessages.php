@@ -22,11 +22,11 @@ try {
         $chat->archive = null;
     }
 
-    if (erLhcoreClassRestAPIHandler::hasAccessToRead($chat) == true) {
+    if (erLhcoreClassRestAPIHandler::hasAccessToRead($chat)) {
 
         $saveChat = false;
 
-        if (isset($_GET['workflow']) && $_GET['workflow'] == true && $chat->archive === null) {
+        if (isset($_GET['workflow']) && $_GET['workflow'] == true && $chat->archive === null && erLhcoreClassRestAPIHandler::hasAccessToWrite($chat)) {
             // Auto responder
             if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->wait_timeout_send <= 0 && $chat->wait_timeout > 0 && !empty($chat->timeout_message) && (time() - $chat->time) > ($chat->wait_timeout*($chat->wait_timeout_repeat-(abs($chat->wait_timeout_send))))) {
                 $errors = array();

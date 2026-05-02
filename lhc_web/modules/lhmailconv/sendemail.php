@@ -12,7 +12,7 @@ if (is_numeric($Params['user_parameters_unordered']['chat_id'])) {
 
     $chat = erLhcoreClassModelChat::fetch($Params['user_parameters_unordered']['chat_id']);
 
-    if (!erLhcoreClassChat::hasAccessToRead($chat)) {
+    if (!erLhcoreClassChat::hasAccessToRead($chat) || !erLhcoreClassChat::hasAccessToWrite($chat)) {
         $tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');
         echo $tpl->fetch();
         exit;

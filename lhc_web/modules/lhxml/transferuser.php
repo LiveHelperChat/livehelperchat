@@ -14,7 +14,7 @@ if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],
 
 $Chat = erLhcoreClassChat::getSession()->load('erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
-if (erLhcoreClassChat::hasAccessToRead($Chat))
+if (erLhcoreClassChat::hasAccessToRead($Chat) && erLhcoreClassChat::hasAccessToWrite($Chat))
 {
 	if (is_numeric($Params['user_parameters']['chat_id']) && is_numeric($Params['user_parameters']['user_id']))
 	{

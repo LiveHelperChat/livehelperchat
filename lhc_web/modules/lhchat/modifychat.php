@@ -9,7 +9,7 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/modifychat.tpl.php');
 
 session_write_close();
 
-if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhchat','modifychatcore') ) {
+if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhchat','modifychatcore') && erLhcoreClassChat::hasAccessToWrite($chat) ) {
     if (ezcInputForm::hasPostData() && isset($_POST['UpdateChatCore'])) {
 
         $db = ezcDbInstance::get();
@@ -72,7 +72,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhc
 }
 
 // Chat can be closed only by owner
-if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhchat','modifychat') ) {
+if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhchat','modifychat') && erLhcoreClassChat::hasAccessToWrite($chat) ) {
 
   if (ezcInputForm::hasPostData() && isset($_POST['UpdateChat'])) {
 

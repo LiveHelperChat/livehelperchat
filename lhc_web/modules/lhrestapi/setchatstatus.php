@@ -14,7 +14,7 @@ try {
         throw new Exception('You do not have permission. `lhchat`, `use` is required.');
     }
 
-    if (!erLhcoreClassRestAPIHandler::hasAccessToWrite($chat)) {
+    if (!erLhcoreClassRestAPIHandler::hasAccessToRead($chat) || !erLhcoreClassRestAPIHandler::hasAccessToWrite($chat)) {
         throw new Exception('You do not have permission to modify this chat. Make sure you have assigned department');
     }
 

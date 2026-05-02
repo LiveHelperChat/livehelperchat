@@ -19,7 +19,7 @@ if (trim($form->msg) != '')
 
     $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
-    if ( erLhcoreClassChat::hasAccessToRead($Chat) )
+    if ( erLhcoreClassChat::hasAccessToRead($Chat) && erLhcoreClassChat::hasAccessToWrite($Chat) )
     {
         $currentUser = erLhcoreClassUser::instance();
         $userData = $currentUser->getUserData();
