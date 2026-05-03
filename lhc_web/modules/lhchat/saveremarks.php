@@ -17,7 +17,7 @@ $form = new ezcInputForm( INPUT_POST, $definition );
 $Chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 $errorTpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error.tpl.php');
 
-if ( erLhcoreClassChat::hasAccessToRead($Chat) )
+if ( erLhcoreClassChat::hasAccessToRead($Chat) && erLhcoreClassChat::hasAccessToWrite($Chat) )
 {
 	if ($form->hasInputField('data') && $form->hasValidData('data')) {
 	    $errors = array();

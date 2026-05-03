@@ -30,7 +30,7 @@ if (trim($form->operation) != '')
 
     if(empty($errors)) {
         // Has access to read, chat && billing success
-        if (erLhcoreClassChat::hasAccessToRead($Chat)) {
+        if (erLhcoreClassChat::hasAccessToRead($Chat) && erLhcoreClassChat::hasAccessToWrite($Chat)) {
             $currentUser = erLhcoreClassUser::instance();
 
             if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
