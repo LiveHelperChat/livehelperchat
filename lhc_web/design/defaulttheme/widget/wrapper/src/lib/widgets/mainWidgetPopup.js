@@ -204,7 +204,7 @@ export class mainWidgetPopup {
         var currentVar = null;
         for (var index in js_vars) {
             try {
-                currentVar = eval(js_vars[index].var);
+                currentVar = js_vars[index].var.split('.').reduce((obj, key) => obj && obj[key], window);
                 if (typeof currentVar !== 'undefined' && currentVar !== null && currentVar !== '') {
                     js_args[js_vars[index].id] = currentVar;
                 }

@@ -1,4 +1,5 @@
 import {helperFunctions} from '../lib/helperFunctions';
+import {policyStore} from './policyStore';
 
 class _zoomImage {
     constructor() {
@@ -73,7 +74,8 @@ class _zoomImage {
     appendHTML(htmlStr) {
         var frag = document.createDocumentFragment(),
             temp = document.createElement('div');
-        temp.innerHTML = htmlStr;
+        var policy = this.attributes ? policyStore.get(this.attributes) : null;
+        temp.innerHTML = policy ? policy.createHTML(htmlStr) : htmlStr;
         while (temp.firstChild) {
             frag.appendChild(temp.firstChild);
         };

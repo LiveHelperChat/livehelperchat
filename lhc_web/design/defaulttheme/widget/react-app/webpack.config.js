@@ -12,7 +12,11 @@ const config = {
     filename: 'react.app.js',
     publicPath: "./",
     chunkFilename: "[name].[contenthash].js",
-    crossOriginLoading: "anonymous"
+    crossOriginLoading: "anonymous",
+    trustedTypes: {
+        policyName: 'lhc-widget-loader',
+        onPolicyCreationFailure: 'continue'
+    }
   },
   optimization: {
     splitChunks: {

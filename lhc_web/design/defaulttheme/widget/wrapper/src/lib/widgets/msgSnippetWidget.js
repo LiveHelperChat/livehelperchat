@@ -154,10 +154,11 @@ export class msgSnippetWidget{
             this.hidden = false;
             this.show();
         }
-        this.cont.elmDomDoc.getElementById('messages-scroll').innerHTML = data.msg_body;
+        var policy = policyStore.get(this.attributes);
+        this.cont.elmDomDoc.getElementById('messages-scroll').innerHTML = policy ? policy.createHTML(data.msg_body) : data.msg_body;
 
         if (data.operator_profile) {
-            this.cont.elmDomDoc.getElementById('operator-profile-snippet').innerHTML = data.operator_profile;
+            this.cont.elmDomDoc.getElementById('operator-profile-snippet').innerHTML = policy ? policy.createHTML(data.operator_profile) : data.operator_profile;
         }
 
         this.fitContent();
