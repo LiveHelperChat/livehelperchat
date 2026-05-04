@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import axios from "axios";
 import { withTranslation } from 'react-i18next';
+import { helperFunctions } from "../lib/helperFunctions";
 
 class MailModal extends PureComponent {
 
@@ -67,7 +68,7 @@ class MailModal extends PureComponent {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col-12">
-                                        {this.state.errors && <div className="mb-0" dangerouslySetInnerHTML={{__html:this.state.errors}}></div>}
+                                        {this.state.errors && <div className="mb-0" dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.state.errors) : this.state.errors}}></div>}
                                         <div className="mb-0">
                                             <form onSubmit={this.sendMail}>
                                                 <p className="mail-explain">

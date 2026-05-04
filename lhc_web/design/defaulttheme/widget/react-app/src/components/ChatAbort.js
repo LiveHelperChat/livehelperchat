@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { helperFunctions } from "../lib/helperFunctions";
 
 class ChatAbort extends PureComponent {
 
@@ -12,7 +13,7 @@ class ChatAbort extends PureComponent {
             <div role="dialog" id="dialog-content" aria-modal="true" className="fade modal show d-block p-2" tabIndex="-1">
                 <div className={"modal-content p-2 "+(this.props.full_height ? 'h-100' : '')}>
 
-                    {this.props.as_html && <div className={this.props.full_height ? 'h-100' : ''} dangerouslySetInnerHTML={{__html:this.props.text}}></div>}
+                    {this.props.as_html && <div className={this.props.full_height ? 'h-100' : ''} dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.text) : this.props.text}}></div>}
                     {!this.props.as_html && <p>{this.props.text}</p>}
 
                     <div className="modal-footer">

@@ -26,7 +26,7 @@ class ChatStatusContainer extends React.PureComponent {
         const className = "p-2" + (this.props.npBorder ? '' : ' border-bottom');
 
         return (
-            <div id="lhc-profile-body"><div id="chat-status-container" className={className} dangerouslySetInnerHTML={{__html: html}}></div></div>
+            <div id="lhc-profile-body"><div id="chat-status-container" className={className} dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(html) : html}}></div></div>
         );
     }
 }
@@ -590,7 +590,7 @@ class StartChat extends Component {
                             </div>
                         </div>
 
-                        {(!this.props.chatwidget.getIn(['proactive','has']) || this.props.chatwidget.getIn(['chat_ui','custom_html_priority']) === 1) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div className={"custom-html-container "+(this.state.Question != "" ? "visitor-started-type" : "")} dangerouslySetInnerHTML={{__html:this.getCustomHtmlWidget() }}></div>}
+                        {(!this.props.chatwidget.getIn(['proactive','has']) || this.props.chatwidget.getIn(['chat_ui','custom_html_priority']) === 1) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div className={"custom-html-container "+(this.state.Question != "" ? "visitor-started-type" : "")} dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.getCustomHtmlWidget()) : this.getCustomHtmlWidget() }}></div>}
 
                         {(this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 || (this.props.chatwidget.getIn(['onlineData','fields_visible']) == 0 && !this.props.chatwidget.hasIn(['chat_ui','hstr_btn']))) && this.state.textAreaHidden === false && <div className="d-flex flex-row border-top position-relative message-send-area">
 
@@ -660,7 +660,7 @@ class StartChat extends Component {
 
                         <ChatErrorList errors={this.props.chatwidget.get('validationErrors')} />
 
-                        {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div className="custom-html-container" dangerouslySetInnerHTML={{__html:this.getCustomHtmlWidget()}}></div>}
+                        {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div className="custom-html-container" dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.getCustomHtmlWidget()) : this.getCustomHtmlWidget()}}></div>}
 
                         <form onSubmit={this.handleSubmit}>
                             <div className="row pt-2">

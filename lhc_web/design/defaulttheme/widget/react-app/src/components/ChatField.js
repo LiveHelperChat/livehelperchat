@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withTranslation } from 'react-i18next';
+import { helperFunctions } from "../lib/helperFunctions";
 
 class ChatField extends Component {
 
@@ -188,7 +189,7 @@ class ChatField extends Component {
                     <div className="form-group">
                         <div className="form-check">
                             <input className={classNameInput.join(' ')} id={"check-for-"+this.props.field.get('name')} defaultChecked={this.props.field.get('default')} type="checkbox" value="on" onInvalid={(e) => e.target.setCustomValidity(this.props.field.get('required_msg') || '')} onChange={(e) => { e.target.setCustomValidity(''); this.onchangeAttr({'value' : e.target.checked}); }} required={required} name={this.props.field.get('name')} />
-                            <label className="form-check-label" for={'check-for-'+this.props.field.get('name')} dangerouslySetInnerHTML={{ __html:this.props.field.get('label')}}></label>
+                            <label className="form-check-label" for={'check-for-'+this.props.field.get('name')} dangerouslySetInnerHTML={{ __html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.field.get('label')) : this.props.field.get('label')}}></label>
                             {this.props.validationError === true ? <div class="invalid-feedback">{this.props.validationError}</div> : ''}
                         </div>
                     </div>

@@ -156,7 +156,7 @@ class HeaderChat extends Component {
 
         return (
             <div id="widget-header-content" className={className}>
-                {hasHeader && <div className="lhc-custom-header-inside" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header_body'])}}></div>}
+                {hasHeader && <div className="lhc-custom-header-inside" dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.chatwidget.getIn(['chat_ui','custom_html_header_body'])) : this.props.chatwidget.getIn(['chat_ui','custom_html_header_body'])}}></div>}
                 {(iconsNumber > 0 || dropdownNumber > 0) && <div className="col-12 px-1 widget-header-menu">
                         {headerIconsBeforeDropdown === true && headerIcons}
                         {dropdownNumber > 0 && <div className="float-end position-relative">

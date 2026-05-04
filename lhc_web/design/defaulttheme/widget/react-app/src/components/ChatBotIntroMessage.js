@@ -49,7 +49,8 @@ class ChatBotIntroMessage extends PureComponent {
 
         if (attrs["data-no-msg"] && !attrs["data-no-change"] && attrs.type == 'button') {
             element.setAttribute("disabled","disabled");
-            element.innerHTML = "<i class=\"material-icons\">&#xf113;</i>" + element.innerHTML;
+            const spinHtml = "<i class=\"material-icons\">&#xf113;</i>" + element.innerHTML;
+            element.innerHTML = helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(spinHtml) : spinHtml;
         }
     }
 
@@ -124,6 +125,7 @@ class ChatBotIntroMessage extends PureComponent {
     render() {
 
         let content = parse(this.props.content, {
+            trustedTypePolicy : helperFunctions.trustedHtml ? helperFunctions.trustedHtml : null,
             replace: domNode => {
                 if (domNode.attribs) {
 

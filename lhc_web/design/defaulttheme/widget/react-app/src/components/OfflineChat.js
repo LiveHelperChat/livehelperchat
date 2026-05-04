@@ -17,7 +17,7 @@ class OfflineIntroOperator extends React.PureComponent {
 
         if (!html) return null;
 
-        return <div className="py-2 px-3 offline-intro-operator" dangerouslySetInnerHTML={{__html: html}}></div>;
+        return <div className="py-2 px-3 offline-intro-operator" dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(html) : html}}></div>;
     }
 }
 
@@ -237,7 +237,7 @@ class OfflineChat extends Component {
                                     <div id="id-container-fluid">
                                         {this.props.chatwidget.get('leave_message') && <OfflineIntroOperator preChatHtml={this.props.chatwidget.getIn(['chat_ui','pre_chat_html'])} operatorProfile={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} />}
 
-                    {this.props.chatwidget.get('leave_message') && this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && this.props.chatwidget.getIn(['chat_ui','offline_intro']) != '' && <p className="pb-1 mb-0 pt-2 px-3 fw-bold offline-intro" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
+                    {this.props.chatwidget.get('leave_message') && this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && this.props.chatwidget.getIn(['chat_ui','offline_intro']) != '' && <p className="pb-1 mb-0 pt-2 px-3 fw-bold offline-intro" dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.chatwidget.getIn(['chat_ui','offline_intro'])) : this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
 
                     {!this.props.chatwidget.get('leave_message') && <p className="pb-1 mb-0 pt-2 px-3 fw-bold offline-intro">{this.props.chatwidget.getIn(['chat_ui','chat_unavailable'])}</p>}
 
@@ -271,12 +271,12 @@ class OfflineChat extends Component {
 
                 <OfflineIntroOperator operatorProfile={this.props.chatwidget.getIn(['chat_ui','operator_profile'])} />
 
-                {this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && this.props.chatwidget.getIn(['chat_ui','offline_intro']) != '' && <p className="pb-1 mb-0 pt-2 px-3 fw-bold offline-intro offline-intro-filled" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
+                {this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && this.props.chatwidget.getIn(['chat_ui','offline_intro']) != '' && <p className="pb-1 mb-0 pt-2 px-3 fw-bold offline-intro offline-intro-filled" dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.chatwidget.getIn(['chat_ui','offline_intro'])) : this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
 
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-12">
-                                <p className="pt-2" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','thank_feedback']) || t('start_chat.thank_you_for_feedback')}}></p>
+                                <p className="pt-2" dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.chatwidget.getIn(['chat_ui','thank_feedback']) || t('start_chat.thank_you_for_feedback')) : (this.props.chatwidget.getIn(['chat_ui','thank_feedback']) || t('start_chat.thank_you_for_feedback'))}}></p>
                             </div>
                         </div>
                     </div>

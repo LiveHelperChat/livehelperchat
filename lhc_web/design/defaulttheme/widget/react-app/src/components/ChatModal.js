@@ -4,6 +4,7 @@ import parse, { domToReact } from 'html-react-parser';
 import { withTranslation } from 'react-i18next';
 import Xwiper from 'xwiper';
 import { flushSync } from 'react-dom';
+import { helperFunctions } from "../lib/helperFunctions";
 
 class ChatModal extends PureComponent {
 
@@ -89,6 +90,7 @@ class ChatModal extends PureComponent {
             <React.Fragment>
                 {this.state.body !== null && <div className="fade modal-backdrop show"></div>}
                 {this.state.body !== null && <div role="dialog" id="dialog-content" aria-modal="true" className="fade modal show d-block" tabIndex="-1">{parse(this.state.body, {
+                        trustedTypePolicy : helperFunctions.trustedHtml ? helperFunctions.trustedHtml : null,
                         replace: domNode => {
 
                             if (domNode.attribs && domNode.attribs.id === 'react-close-modal') {

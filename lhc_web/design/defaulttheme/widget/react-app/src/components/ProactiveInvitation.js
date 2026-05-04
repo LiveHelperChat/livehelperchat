@@ -77,7 +77,7 @@ class ProactiveInvitation extends Component {
 
     appendCSS(styleContent, id) {
         const style = document.createElement('style');
-        style.innerHTML = styleContent;
+        style.textContent = styleContent;
         style.id = id;
         document.body.appendChild(style);
     }
@@ -166,7 +166,7 @@ class ProactiveInvitation extends Component {
                                     <b>{this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])}</b>
                                 </div>}
                                 <div id="inv-msg-wrapper">
-                                    <p className="fs13 mb-0 inv-msg-cnt" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['proactive','data','message'])}}></p>
+                                    <p className="fs13 mb-0 inv-msg-cnt" dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.chatwidget.getIn(['proactive','data','message'])) : this.props.chatwidget.getIn(['proactive','data','message'])}}></p>
                                     {this.props.chatwidget.hasIn(['proactive','data','bot_intro']) && <ChatBotIntroMessage printButton={false} setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['proactive','data','message_full'])} />}
                                 </div>
                             </div>
@@ -185,7 +185,7 @@ class ProactiveInvitation extends Component {
                                     {!this.props.chatwidget.hasIn(['proactive','data','hide_op_name']) && <b>{this.props.chatwidget.getIn(['proactive', 'data', 'name_support']) || this.props.chatwidget.getIn(['proactive', 'data', 'extra_profile'])}</b>}
                                 </div>
                                 <div id="inv-msg-wrapper">
-                                    <p className="fs13 mb-0 inv-msg-cnt" dangerouslySetInnerHTML={{__html: this.props.chatwidget.getIn(['proactive', 'data', 'message'])}}></p>
+                                    <p className="fs13 mb-0 inv-msg-cnt" dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.chatwidget.getIn(['proactive', 'data', 'message'])) : this.props.chatwidget.getIn(['proactive', 'data', 'message'])}}></p>
                                     {this.props.chatwidget.hasIn(['proactive','data','bot_intro']) && <ChatBotIntroMessage printButton={false} setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['proactive', 'data', 'message_full'])} />}
                                 </div>
                             </div>

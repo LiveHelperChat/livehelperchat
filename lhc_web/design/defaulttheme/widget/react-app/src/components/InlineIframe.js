@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { updateMessageData } from "../actions/chatActions";
+import { helperFunctions } from "../lib/helperFunctions";
 
 @connect((store) => {
     return {
@@ -70,7 +71,8 @@ class InlineIframe extends Component {
     prepareIframe(iframe) {
         let documentFrame = this.getDocument(iframe);
 
-        documentFrame.getElementsByTagName("head")[0].innerHTML = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />';
+        const headHtml = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />';
+        documentFrame.getElementsByTagName("head")[0].innerHTML = helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(headHtml) : headHtml;
 
         var html = documentFrame.getElementsByTagName("html")[0];
         html.setAttribute("lang", 'en');
@@ -100,7 +102,7 @@ class InlineIframe extends Component {
             });
         }
 
-        documentFrame.body.innerHTML = this.props['data-body'];
+        documentFrame.body.innerHTML = helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props['data-body']) : this.props['data-body'];
 
         return documentFrame;
     }

@@ -94,6 +94,7 @@ class CustomHTML extends Component {
         return (
             <React.Fragment>
                 {parse(html, {
+                    trustedTypePolicy : helperFunctions.trustedHtml ? helperFunctions.trustedHtml : null,
                     replace: domNode => {
                         var cloneAttr = Object.assign({}, domNode.attribs);
                         if (domNode.attribs) {

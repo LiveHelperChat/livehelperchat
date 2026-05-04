@@ -27,7 +27,7 @@ class ChatInvitationMessage extends PureComponent {
                              </i>}
                             {!this.props.invitation.bubble && (this.props.invitation.name_support || this.props.invitation.extra_profile)}
                          </span>
-                        <div className="msg-body" dangerouslySetInnerHTML={{__html:this.props.invitation.message}}></div>
+                        <div className="msg-body" dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.invitation.message) : this.props.invitation.message}}></div>
                    </div>}
 
                    {this.props.invitation.message_full && <ChatBotIntroMessage printButton={false} setBotPayload={this.props.setBotPayload} content={this.props.invitation.message_full} />}
@@ -44,7 +44,7 @@ class ChatInvitationMessage extends PureComponent {
                              </div>
                              <div className="p-1 ps-2 w-100">
                                  {this.props.invitation.name_support && !this.props.invitation.hide_name && <div className="fw-bold">{this.props.invitation.name_support}</div>}
-                                 {this.props.invitation.extra_profile && <div dangerouslySetInnerHTML={{__html:this.props.invitation.extra_profile}}></div>}
+                                 {this.props.invitation.extra_profile && <div dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.invitation.extra_profile) : this.props.invitation.extra_profile}}></div>}
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ class ChatInvitationMessage extends PureComponent {
                     <div id="messagesBlock">
                         <div className="bottom-message position-relative">
                             <div className="message-row message-admin pt-1 text-left ms-3">
-                                <div className="msg-body" dangerouslySetInnerHTML={{__html:this.props.invitation.message}}></div>
+                                <div className="msg-body" dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.invitation.message) : this.props.invitation.message}}></div>
                             </div>
                         </div>
                     </div>}

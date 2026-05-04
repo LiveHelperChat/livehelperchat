@@ -376,7 +376,7 @@ class OnlineChat extends Component {
                                 // Move msg to be the last one again because chat is still locked
                                 const msgBody = msg.querySelector('.msg-body');
                                 if (msgBody && msgBody.dataset.originalContent !== undefined) {
-                                    msgBody.innerHTML = msgBody.dataset.originalContent;
+                                    msgBody.innerHTML = helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(msgBody.dataset.originalContent) : msgBody.dataset.originalContent;
                                     msgBody.parentElement.classList.remove('message-row-typing-stream');
                                 }
                                 const lastAdminMsg = adminMessages[adminMessages.length - 1];
@@ -1187,7 +1187,7 @@ class OnlineChat extends Component {
                         {this.props.chatwidget.hasIn(['chat_ui','after_chat_status']) && this.props.chatwidget.getIn(['chat_ui','after_chat_status']) != '' && <Suspense fallback=""><CustomHTML setStateParent={(state) => this.setState(state)} has_new={this.state.hasNew && this.state.otm > 0} attr="after_chat_status" /></Suspense>}
 
                         <div className={bottom_messages} id="messages-scroll" style={fontSizeStyle} ref={this.messagesAreaRef}>
-                            {this.props.chatwidget.hasIn(['chat_ui','prev_chat']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','prev_chat'])}}></div>}
+                            {this.props.chatwidget.hasIn(['chat_ui','prev_chat']) && <div dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.chatwidget.getIn(['chat_ui','prev_chat'])) : this.props.chatwidget.getIn(['chat_ui','prev_chat'])}}></div>}
                             {messages}
                             {this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) && this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size > 0 && this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).map((msg, index) =>
                                 <div data-op-id="0" className="message-row response msg-to-store">
@@ -1202,7 +1202,7 @@ class OnlineChat extends Component {
                     </div>
 
                     {this.props.chatwidget.getIn(['chatLiveData','trc']) &&
-                        <div dangerouslySetInnerHTML={{__html: this.props.chatwidget.getIn(['chatLiveData','trc'])}} />
+                        <div dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.chatwidget.getIn(['chatLiveData','trc'])) : this.props.chatwidget.getIn(['chatLiveData','trc'])}} />
                     }
                 
                     {/* File Preview Section */}

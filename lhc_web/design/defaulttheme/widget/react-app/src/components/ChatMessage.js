@@ -64,7 +64,8 @@ class ChatMessage extends PureComponent {
 
         if (!attrs['data-keep'] && !attrs["data-no-change"] && attrs.type == 'button' && element) {
             element.setAttribute("disabled","disabled");
-            element.innerHTML = "<i class=\"material-icons lhc-spin\">&#xf113;</i>" + element.innerHTML;
+            const spinHtml = "<i class=\"material-icons lhc-spin\">&#xf113;</i>" + element.innerHTML;
+            element.innerHTML = helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(spinHtml) : spinHtml;
         }
     }
 
@@ -117,7 +118,7 @@ class ChatMessage extends PureComponent {
             } else if (attrs.onclick.indexOf('notificationsLHC.sendNotification') !== -1) {
 
                 this.props.dispatch(subscribeNotifications());
-                e.target.innerHTML = t('notifications.subscribing');
+                e.target.textContent = t('notifications.subscribing');
                 setTimeout(() => {
                     this.removeMetaMessage(attrs['data-id']);
                 }, 500);
@@ -305,7 +306,7 @@ class ChatMessage extends PureComponent {
         }
 
         var messages = parse(this.props.msg['msg'], {
-
+            trustedTypePolicy : helperFunctions.trustedHtml ? helperFunctions.trustedHtml : null,
             replace: domNode => {
 
                 if (domNode.attribs) {

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { helperFunctions } from "../lib/helperFunctions";
 import SharedTextarea from './SharedTextarea';
 
 class ChatIntroStatus extends PureComponent {
@@ -16,8 +17,8 @@ class ChatIntroStatus extends PureComponent {
 
     render() {
         return <React.Fragment>
-            {this.props.profileBefore !== null && <div dangerouslySetInnerHTML={{__html:this.props.profileBefore}}></div>}
-            <div className={this.props.msg_expand} id="messagesBlock" dangerouslySetInnerHTML={{__html:this.props.messagesBefore}}></div>
+            {this.props.profileBefore !== null && <div dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.profileBefore) : this.props.profileBefore}}></div>}
+            <div className={this.props.msg_expand} id="messagesBlock" dangerouslySetInnerHTML={{__html: helperFunctions.trustedHtml ? helperFunctions.trustedHtml.createHTML(this.props.messagesBefore) : this.props.messagesBefore}}></div>
             {!this.props.hideMessageField && <div className="d-flex flex-row border-top position-relative message-send-area">
                 <div className="btn-group dropup disable-select ps-1 pt-2"><button type="button" class="border-0 p-0 material-icons settings text-muted" id="chat-dropdown-options" role="button" data-bs-toggle="dropdown" tabindex="0" aria-haspopup="true" aria-expanded="false">&#xf100;</button></div>
                 <div className="mx-auto w-100">

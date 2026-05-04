@@ -82,6 +82,7 @@ class InlineSurvey extends Component {
             <div>
 
                 {this.state.is_valid === false && parse(this.state.feedback_text, {
+                    trustedTypePolicy : helperFunctions.trustedHtml ? helperFunctions.trustedHtml : null,
                     replace: domNode => {
                         if (domNode.attribs) {
                             if (domNode.name && domNode.name === 'button') {
@@ -90,10 +91,11 @@ class InlineSurvey extends Component {
                         }
                     }})}
                 {this.state.is_valid === true && <div>
-                    {parse(this.state.feedback_text)}
+                    {parse(this.state.feedback_text,{trustedTypePolicy : helperFunctions.trustedHtml ? helperFunctions.trustedHtml : null})}
                 </div>}
 
                 {this.state.is_valid !== true && domToReact(this.props.surveyOptions,{
+                    trustedTypePolicy : helperFunctions.trustedHtml ? helperFunctions.trustedHtml : null,
                     replace: domNode => {
                         if (!domNode.attribs) {
                             return;
