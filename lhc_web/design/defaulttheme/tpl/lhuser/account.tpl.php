@@ -351,7 +351,7 @@
 
 	  	<?php $dataSpeech = array(
 	  	        'language' => (int)erLhcoreClassModelUserSetting::getSetting('speech_language',''),
-	  	        'dialect' => (int)erLhcoreClassModelUserSetting::getSetting('speech_dialect',''),
+	  	        'dialect' => erLhcoreClassModelUserSetting::getSetting('speech_dialect',''),
 	  	        'optional' => true,
 	  	    );
 	  	?>
