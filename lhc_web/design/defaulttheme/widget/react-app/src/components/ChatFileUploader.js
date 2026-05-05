@@ -257,10 +257,13 @@ class ChatFileUploader extends PureComponent {
     render() {
         if (this.props.link) {
             const { t } = this.props;
+            const linkClassName = this.props.linkClassName ? 'file-uploader ' + this.props.linkClassName : 'file-uploader';
+            const iClassName = this.props.iClassName ? 'material-icons settings text-muted attach-ico ' + this.props.iClassName : 'material-icons chat-setting-item text-muted attach-ico';
+
             return (
                 <React.Fragment>
                     <input onChange={this.onFilesAddedUI} ref={this.fileInputRef} id="fileupload" type="file" name="files[]" multiple={!this.props.fileOptions.has('one_file_upload')} className="d-none" />
-                    <a tabIndex="0" title={t('file.attachment')} onKeyPress={(e) => { e.key === "Enter" ? this.openFileDialog() : '' }} className="file-uploader" onClick={this.openFileDialog}><i className="material-icons chat-setting-item text-muted attach-ico">&#xf10e;</i></a>
+                    <a tabIndex="0" title={t('file.attachment')} onKeyPress={(e) => { e.key === "Enter" ? this.openFileDialog() : '' }} className={linkClassName} onClick={this.openFileDialog}><i className={iClassName}>&#xf10e;</i></a>
                 </React.Fragment>
             );
         }

@@ -111,6 +111,7 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         <?php endif;?>
          
         <?php if (isset($Result['theme']->bot_configuration_array['send_icons_clr_hover']) && $Result['theme']->bot_configuration_array['send_icons_clr_hover'] != '') : ?>
+        a.direct-action-icon i.direct-icon:hover,
         #ChatSendButtonContainer .text-muted:hover,
         #chat-dropdown-options-wrapper #chat-dropdown-options:hover{
             color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['send_icons_clr_hover']);?>!important;
@@ -118,6 +119,7 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         <?php endif;?>
         
         <?php if (isset($Result['theme']->bot_configuration_array['send_icons_clr']) && $Result['theme']->bot_configuration_array['send_icons_clr'] != '') : ?>
+        a.direct-action-icon i.direct-icon,
         #ChatSendButtonContainer .text-muted,
         #chat-dropdown-options-wrapper #chat-dropdown-options{
             color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['send_icons_clr']);?>!important;
