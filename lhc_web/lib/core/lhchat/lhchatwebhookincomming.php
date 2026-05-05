@@ -2395,7 +2395,9 @@ class erLhcoreClassChatWebhookIncoming {
 
             if (isset($overrideAttributes['mime_type']) && !empty($overrideAttributes['mime_type']) && ($file_extension_mime = self::getExtensionByMime($overrideAttributes['mime_type'])) !== false) {
                 $file_extension = $file_extension_mime;
-                $upload_name = str_replace('.','_',$upload_name) . '.' . $file_extension;
+                if (!str_ends_with(strtolower($upload_name), '.' . strtolower($file_extension))) {
+                    $upload_name = str_replace('.','_',$upload_name) . '.' . $file_extension;
+                }
             }
 
             // We want to validate is extension valid one from our defined one
