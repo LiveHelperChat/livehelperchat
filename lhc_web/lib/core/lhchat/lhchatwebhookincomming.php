@@ -1162,7 +1162,8 @@ class erLhcoreClassChatWebhookIncoming {
                                     'remote_request_headers' => (isset($conditionsIdx['msg_cond_' . $typeMessage . '_url_remote_headers_content']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_url_remote_headers_content'] : ''),
                                     'is_remote_location' =>  (isset($conditionsIdx['msg_cond_' . $typeMessage . '_url_remote_location']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_url_remote_location'] : ''),
                                     'file_name_attr' => (isset($conditionsIdx['msg_cond_' . $typeMessage . '_file_name']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_file_name'] : ''),
-                                    'file_size_attr' => (isset($conditionsIdx['msg_cond_' . $typeMessage . '_file_size']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_file_size'] : '')
+                                    'file_size_attr' => (isset($conditionsIdx['msg_cond_' . $typeMessage . '_file_size']) ? $conditionsIdx['msg_cond_' . $typeMessage . '_file_size'] : ''),
+                                    'mime_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_mime_type']) ? $conditions['msg_cond_' . $typeMessage . '_mime_type'] : '')
                                 ), $chat);
 
                                 if (!empty($file)) {
@@ -1786,7 +1787,8 @@ class erLhcoreClassChatWebhookIncoming {
                                 'remote_request_headers' => (isset($conditions['msg_cond_' . $typeMessage . '_url_remote_headers_content']) ? $conditions['msg_cond_' . $typeMessage . '_url_remote_headers_content'] : ''),
                                 'is_remote_location' =>  (isset($conditions['msg_cond_' . $typeMessage . '_url_remote_location']) ? $conditions['msg_cond_' . $typeMessage . '_url_remote_location'] : ''),
                                 'file_name_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_file_name']) ? $conditions['msg_cond_' . $typeMessage . '_file_name'] : ''),
-                                'file_size_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_file_size']) ? $conditions['msg_cond_' . $typeMessage . '_file_size'] : '')
+                                'file_size_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_file_size']) ? $conditions['msg_cond_' . $typeMessage . '_file_size'] : ''),
+                                'mime_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_mime_type']) ? $conditions['msg_cond_' . $typeMessage . '_mime_type'] : '')
                             ), $chat);
                             if (!empty($file)) {
                                 $payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']] = $file;
@@ -2391,6 +2393,11 @@ class erLhcoreClassChatWebhookIncoming {
             $partsExtension = explode('.',strtok($url, '?'));
             $file_extension = array_pop($partsExtension);
 
+            if (isset($overrideAttributes['mime_type']) && !empty($overrideAttributes['mime_type']) && ($file_extension_mime = self::getExtensionByMime($overrideAttributes['mime_type'])) !== false) {
+                $file_extension = $file_extension_mime;
+                $upload_name = str_replace('.','_',$upload_name) . '.' . $file_extension;
+            }
+
             // We want to validate is extension valid one from our defined one
             if (self::getExtensionByMime($file_extension, true) === false) {
                 $file_extension = 'bin';
@@ -2627,6 +2634,13 @@ class erLhcoreClassChatWebhookIncoming {
                     $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['msg'], $params['file_size_attr'], '.');
                     if ($fileNameAttribute['found'] == true && is_numeric($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
                         $overrideAttributes['file_size'] = $fileNameAttribute['value'];
+                    }
+                }
+
+                if (isset($params['mime_attr']) && $params['mime_attr'] != '') {
+                    $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['msg'], $params['mime_attr'], '.');
+                    if ($fileNameAttribute['found'] == true) {
+                        $overrideAttributes['mime_type'] = $fileNameAttribute['value'];
                     }
                 }
 

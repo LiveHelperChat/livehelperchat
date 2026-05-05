@@ -15,7 +15,8 @@ class VoiceMessage extends PureComponent {
         isPlaying: false,
         recording: null,
         audioDuration: 0,
-        currentTime: 0
+        currentTime: 0,
+        isTranscribing: false
     };
 
     constructor(props) {
@@ -26,9 +27,14 @@ class VoiceMessage extends PureComponent {
         this.stopPlayRecord = this.stopPlayRecord.bind(this);
         this.sendRecord = this.sendRecord.bind(this);
 
+        this.startWebkitRecording = this.startWebkitRecording.bind(this);
+        this.stopWebkitRecording = this.stopWebkitRecording.bind(this);
+        this.toggleWebkitRecording = this.toggleWebkitRecording.bind(this);
+
         // Intervals
         this.durationInterval = null;
         this.playInterval = null;
+        this.recognition = null;
     }
 
     async startRecording() {
@@ -110,8 +116,68 @@ class VoiceMessage extends PureComponent {
         req.send(formData);
     }
 
-    componentDidMount() {
+    startWebkitRecording() {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) {
+            alert('Speech recognition is not supported in your browser!');
+            this.props.cancel();
+            return;
+        }
 
+        this.recognition = new SpeechRecognition();
+        this.recognition.continuous = true;
+        this.recognition.interimResults = true;
+        if (this.props.lang) {
+            this.recognition.lang = this.props.lang;
+        }
+
+        this.recognition.onresult = (event) => {
+            let transcript = '';
+            for (let i = 0; i < event.results.length; i++) {
+                transcript += event.results[i][0].transcript;
+            }
+            this.props.setText(transcript);
+        };
+
+        this.recognition.onerror = () => {
+            this.recognition = null;
+            this.setState({ isTranscribing: false });
+            this.props.cancel();
+        };
+
+        this.recognition.onend = () => {
+            this.recognition = null;
+            this.setState({ isTranscribing: false });
+            this.props.cancel();
+        };
+
+        this.recognition.start();
+        this.setState({ isTranscribing: true });
+    }
+
+    stopWebkitRecording() {
+        if (this.recognition) {
+            this.recognition.onend = null;
+            this.recognition.onerror = null;
+            this.recognition.stop();
+            this.recognition = null;
+        }
+        this.setState({ isTranscribing: false });
+        this.props.cancel();
+    }
+
+    toggleWebkitRecording() {
+        if (this.state.isTranscribing) {
+            this.stopWebkitRecording();
+        } else {
+            this.startWebkitRecording();
+        }
+    }
+
+    componentDidMount() {
+        if (this.props.voice_engine == 1) {
+            this.startWebkitRecording();
+        }
     }
 
     componentWillUnmount() {
@@ -119,9 +185,17 @@ class VoiceMessage extends PureComponent {
         // Stop playing if anything is playing
         this.stopPlayRecord();
 
-        // Stop recordng if it's recording
+        // Stop recording if it's recording
         if (this.state.isRecording) {
             recorder.stopRecording();
+        }
+
+        // Stop webkit recognition if active
+        if (this.recognition) {
+            this.recognition.onend = null;
+            this.recognition.onerror = null;
+            this.recognition.stop();
+            this.recognition = null;
         }
     }
 
@@ -131,9 +205,15 @@ class VoiceMessage extends PureComponent {
 
     render() {
 
-        const {isLoading, isRecording, recording, isPlaying } = this.state;
+        const {isLoading, isRecording, recording, isPlaying, isTranscribing } = this.state;
 
         const { t } = this.props;
+
+        if (this.props.voice_engine == 1) {
+            return <div className="text-nowrap voice-message-container">
+                <button type="button" tabIndex="0" className={"material-icons material-icons-button fs25 pointer me-0 " + (isTranscribing ? 'text-danger' : 'text-muted')} title={isTranscribing ? t('voice.stop_recording') : t('voice.record_voice_message')} onClick={this.toggleWebkitRecording}>&#xf10b;</button>
+            </div>;
+        }
 
         return <div className="text-nowrap voice-message-container">
             <button type="button" tabIndex="0" className="material-icons material-icons-button pointer text-danger fs25" title={t('voice.cancel_voice_message')} onClick={() => this.props.cancel()}>&#xf10a;</button>

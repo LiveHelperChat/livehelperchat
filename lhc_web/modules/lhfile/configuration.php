@@ -80,6 +80,9 @@ if (isset($_POST['StoreFileConfiguration'])) {
         'soundMessagesOp' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'sound_messages_engine' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
+        ),
         'chat_file_policy_v' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 2)
         ),
@@ -226,6 +229,12 @@ if (isset($_POST['StoreFileConfiguration'])) {
         $data['sound_messages_op'] = true;
     } else {
         $data['sound_messages_op'] = false;
+    }
+
+    if ($form->hasValidData('sound_messages_engine')) {
+        $data['sound_messages_engine'] = $form->sound_messages_engine;
+    } else {
+        $data['sound_messages_engine'] = 0;
     }
 
     if ($form->hasValidData('soundLength')) {

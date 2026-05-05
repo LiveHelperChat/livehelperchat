@@ -379,6 +379,13 @@ try {
 
         if (isset($fileData['sound_messages']) && $fileData['sound_messages'] == true) {
             $outputResponse['chat_ui']['voice_message'] = $fileData['sound_length'];
+            
+            if (isset($fileData['sound_messages_engine']) && is_numeric($fileData['sound_messages_engine'])) {
+                $outputResponse['chat_ui']['voice_engine'] = $fileData['sound_messages_engine'];
+            }
+
+            $outputResponse['chat_ui']['speech_lang'] = str_replace('_','-',erConfigClassLhConfig::getInstance()->getDirLanguage('locale'));
+
         }
 
         $voiceData = (array)erLhcoreClassModelChatConfig::fetch('vvsh_configuration')->data;

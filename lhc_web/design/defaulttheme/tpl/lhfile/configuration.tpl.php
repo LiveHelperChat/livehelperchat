@@ -159,6 +159,14 @@
                     <input type="checkbox" name="soundMessages" value="on" <?php isset($file_data['sound_messages']) && ($file_data['sound_messages'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Voice messages for visitors is active'); ?>
                 </label>
             </div>
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Voice messages engine'); ?></label>
+                <div>
+                    <label class="d-block"><input type="radio" name="sound_messages_engine" value="0" <?php if (!isset($file_data['sound_messages_engine']) || $file_data['sound_messages_engine'] == 0) : ?>checked="checked"<?php endif; ?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','File'); ?></label>
+                    <label class="d-block"><input type="radio" name="sound_messages_engine" value="1" <?php if (isset($file_data['sound_messages_engine']) && $file_data['sound_messages_engine'] == 1) : ?>checked="checked"<?php endif; ?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','WebKit dictate'); ?></label>
+                    <label class="d-block text-muted"><input type="radio" name="sound_messages_engine" value="2" disabled> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','LLM (Disabled at the moment)'); ?></label>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-6">
@@ -173,6 +181,7 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Voice message max length in seconds'); ?></label>
             <input type="text" class="form-control" name="soundLength" value="<?php isset($file_data['sound_length']) ? print $file_data['sound_length'] : print '30' ?>" />
         </div>
+
     </div>
 
     <hr>
