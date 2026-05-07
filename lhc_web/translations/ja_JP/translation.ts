@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>チャット 未回答の場合、オペレーターに連絡するまでにどのくらい待つべきか。</translation>
     </message>
@@ -32,6 +36,14 @@
     <message>
       <source>Which ip should not be allowed to be blocked</source>
       <translation>どのIPをブロックしてはいけないか</translation>
+    </message>
+    <message>
+      <source>How many days keep records of online users.</source>
+      <translation>オンラインユーザーを何日間保持しますか？</translation>
+    </message>
+    <message>
+      <source>How many days keep records of users footprint.</source>
+      <translation>何日ユーザーの足跡記録を保存する？</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -62,14 +74,6 @@
       <translation>サイト上でのユーザーアクティビティをトラッキングしますか？</translation>
     </message>
     <message>
-      <source>How many days keep records of online users.</source>
-      <translation>オンラインユーザーを何日間保持しますか？</translation>
-    </message>
-    <message>
-      <source>How many days keep records of users footprint.</source>
-      <translation>何日ユーザーの足跡記録を保存する？</translation>
-    </message>
-    <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
       <translation>ユーザーがオフラインの部署を選択したとき、メッセージを残すように提案する</translation>
     </message>
@@ -78,12 +82,12 @@
       <translation>チャットへ招待された際、音楽を再生する。</translation>
     </message>
     <message>
-      <source>Show users option to switch language at widget</source>
-      <translation>ウィジェットで、言語切替オプションをユーザーに表示する</translation>
-    </message>
-    <message>
       <source>Between what languages user should be able to switch</source>
       <translation>ユーザーが切替可能な言語</translation>
+    </message>
+    <message>
+      <source>Show users option to switch language at widget</source>
+      <translation>ウィジェットで、言語切替オプションをユーザーに表示する</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
@@ -162,12 +166,12 @@
       <translation>すでに閉じたチャット を何秒以内に開けなければならないか。</translation>
     </message>
     <message>
-      <source>On chat close exit chat</source>
-      <translation>チャットをクローズするとチャットを終了</translation>
-    </message>
-    <message>
       <source/>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On chat close exit chat</source>
+      <translation>チャットをクローズするとチャットを終了</translation>
     </message>
     <message>
       <source>Cookie should be valid only for domain where Javascript is embedded</source>
@@ -202,6 +206,10 @@
       <translation>最大メッセージ文字数</translation>
     </message>
     <message>
+      <source>Default number of online operators to show</source>
+      <translation>表示するオンライン・オペレーターのデフォルト数</translation>
+    </message>
+    <message>
       <source>List unread chats, disabled for high performance</source>
       <translation>未読のチャットをリストアップする。</translation>
     </message>
@@ -212,10 +220,6 @@
     <message>
       <source>List closed chats, disabled for high performance</source>
       <translation>クローズされたチャットをリストアップ。</translation>
-    </message>
-    <message>
-      <source>Default number of online operators to show</source>
-      <translation>表示するオンライン・オペレーターのデフォルト数</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
@@ -1374,6 +1378,14 @@
       <translation>チャット 、閉鎖されていたとしても、ビジターが戻ることができるようにする。</translation>
     </message>
     <message>
+      <source>Do not allow visitor return to chat if survey is filled.</source>
+      <translation>アンケートに回答した場合、訪問者がチャット に戻ることを認めない。</translation>
+    </message>
+    <message>
+      <source>Close widget for user also after survey is filled.</source>
+      <translation>アンケートが完了したら、ウィジェットを閉じる。</translation>
+    </message>
+    <message>
       <source>Disable chat download</source>
       <translation>チャット ダウンロードを無効にする</translation>
     </message>
@@ -2044,6 +2056,10 @@
     <message>
       <source>Hide message label</source>
       <translation>メッセージラベルを隠す</translation>
+    </message>
+    <message>
+      <source>Show files attachement button next to settings</source>
+      <translation>設定の横にファイル添付ボタンを表示</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
@@ -3770,6 +3786,18 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
+      <source>Department</source>
+      <translation>部署</translation>
+    </message>
+    <message>
+      <source>Check</source>
+      <translation>チェック</translation>
+    </message>
+    <message>
+      <source>Uncheck</source>
+      <translation>チェックを外す</translation>
+    </message>
+    <message>
       <source>You can make this canned message available only for certain period of times.</source>
       <translation>この定型文は、特定の期間だけ利用できるようにすることができます。</translation>
     </message>
@@ -3798,24 +3826,12 @@
       <translation>アクティブ への</translation>
     </message>
     <message>
-      <source>Department</source>
-      <translation>部署</translation>
-    </message>
-    <message>
       <source>Check all departments from selected department group</source>
       <translation>選択した部門グループからすべての部門をチェックする</translation>
     </message>
     <message>
-      <source>Check</source>
-      <translation>チェック</translation>
-    </message>
-    <message>
       <source>Uncheck all departments from selected department group</source>
       <translation>選択した部門グループからすべての部門のチェックを外す</translation>
-    </message>
-    <message>
-      <source>Uncheck</source>
-      <translation>チェックを外す</translation>
     </message>
     <message>
       <source>If you do not select a custom or default auto-responder, proactive chats will not have an auto-responder assigned.</source>
@@ -4261,6 +4277,14 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Choose department group</source>
+      <translation>部門グループを選択</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>いずれも</translation>
+    </message>
+    <message>
       <source>Work hours, 24 hours format, 0 - 23, minutes format 0 - 59</source>
       <translation>勤務時間、24時間フォーマット0～23、分フォーマット0～59</translation>
     </message>
@@ -4307,14 +4331,6 @@
     <message>
       <source>Time to</source>
       <translation>時間</translation>
-    </message>
-    <message>
-      <source>Choose department group</source>
-      <translation>部門グループを選択</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>いずれも</translation>
     </message>
     <message>
       <source>Your time zone</source>
@@ -5846,12 +5862,20 @@
       <translation>個人的な回答は除く</translation>
     </message>
     <message>
-      <source>ID</source>
-      <translation>身分証明書</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>名</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>部署</translation>
+    </message>
+    <message>
+      <source>Reset</source>
+      <translation>リセット</translation>
+    </message>
+    <message>
+      <source>ID</source>
+      <translation>身分証明書</translation>
     </message>
     <message>
       <source>Show only pinned</source>
@@ -5920,10 +5944,6 @@
     <message>
       <source>Fallback message</source>
       <translation>フォールバックメッセージ</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>部署</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -6396,10 +6416,6 @@
     <message>
       <source>Save as view</source>
       <translation>ビューとして保存</translation>
-    </message>
-    <message>
-      <source>Reset</source>
-      <translation>リセット</translation>
     </message>
     <message>
       <source>Choose status</source>
@@ -9200,6 +9216,14 @@
     <message>
       <source>Stop playing recorded audio</source>
       <translation>録音した音声の再生を停止する</translation>
+    </message>
+    <message>
+      <source>Dictate</source>
+      <translation>ディクテーション</translation>
+    </message>
+    <message>
+      <source>Stop</source>
+      <translation>ストップ</translation>
     </message>
     <message>
       <source>You must accept terms</source>
@@ -14052,6 +14076,10 @@
       <translation>翻訳</translation>
     </message>
     <message>
+      <source>While testing please disable respose cache.</source>
+      <translation>テスト中はレスポンスキャッシュを無効にしてください。</translation>
+    </message>
+    <message>
       <source>Enable translation response cache</source>
       <translation>翻訳応答キャッシュを有効にする</translation>
     </message>
@@ -14140,6 +14168,46 @@
       <translation>DeepLサービスの利用</translation>
     </message>
     <message>
+      <source>Formality</source>
+      <translation>フォーマル</translation>
+    </message>
+    <message>
+      <source>default</source>
+      <translation>デフォルト</translation>
+    </message>
+    <message>
+      <source>prefer_more - more formal if available, otherwise default</source>
+      <translation>prefer_more - よりフォーマルなものがあればそれを選ぶ。</translation>
+    </message>
+    <message>
+      <source>prefer_less - more informal if available, otherwise default</source>
+      <translation>prefer_less - 利用可能であればよりインフォーマルに、そうでなければデフォルトにする。</translation>
+    </message>
+    <message>
+      <source>More information about formality</source>
+      <translation>フォーマルについての詳細</translation>
+    </message>
+    <message>
+      <source>Model type</source>
+      <translation>モデルタイプ</translation>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation>デフォルト</translation>
+    </message>
+    <message>
+      <source>Quality optimized</source>
+      <translation>最適化された品質</translation>
+    </message>
+    <message>
+      <source>Latency optimized</source>
+      <translation>レイテンシーの最適化</translation>
+    </message>
+    <message>
+      <source>More information about model type</source>
+      <translation>モデルタイプの詳細</translation>
+    </message>
+    <message>
       <source>Hide translate single message button.</source>
       <translation>単一メッセージボタンの翻訳を隠す。</translation>
     </message>
@@ -14180,6 +14248,10 @@
       <translation>言語を検出できません</translation>
     </message>
     <message>
+      <source>From and To langauges should be different</source>
+      <translation>送信元と宛先の言語は異なるはずです。</translation>
+    </message>
+    <message>
       <source>We could not detect operator language</source>
       <translation>オペレーターの言語は検出できなかった</translation>
     </message>
@@ -14200,8 +14272,20 @@
       <translation>翻訳設定</translation>
     </message>
     <message>
+      <source>Automatic translation stopped</source>
+      <translation>自動翻訳停止</translation>
+    </message>
+    <message>
       <source>Settings has been saved</source>
       <translation>設定が保存されました</translation>
+    </message>
+    <message>
+      <source>Automatic translation started</source>
+      <translation>自動翻訳開始</translation>
+    </message>
+    <message>
+      <source>Old messages will be translated.</source>
+      <translation>古いメッセージは翻訳されます。</translation>
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
@@ -15649,6 +15733,10 @@
       <translation>エージェントの応答時間計算ログ</translation>
     </message>
     <message>
+      <source>Duration per agent</source>
+      <translation>代理店ごとの期間</translation>
+    </message>
+    <message>
       <source>Chat auto responder</source>
       <translation>チャット オートレスポンダー</translation>
     </message>
@@ -15850,6 +15938,10 @@
     <message>
       <source>Replaceable variables</source>
       <translation>交換可能な変数</translation>
+    </message>
+    <message>
+      <source>Content chunks</source>
+      <translation>コンテンツ・チャンク</translation>
     </message>
     <message>
       <source>Chat</source>
@@ -19148,6 +19240,10 @@
   <context>
     <name>file/configuration</name>
     <message>
+      <source>if file is (OR)</source>
+      <translation>ファイルが(OR)の場合</translation>
+    </message>
+    <message>
       <source>Allowed files types for operators</source>
       <translation>オペレータへの許可されるファイルタイプ</translation>
     </message>
@@ -19268,6 +19364,22 @@
       <translation>ボイスメッセージ</translation>
     </message>
     <message>
+      <source>Voice messages engine</source>
+      <translation>音声メッセージエンジン</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>ファイル</translation>
+    </message>
+    <message>
+      <source>WebKit dictate</source>
+      <translation>WebKitディクテート</translation>
+    </message>
+    <message>
+      <source>LLM (Disabled at the moment)</source>
+      <translation>LLM（現時点では無効）</translation>
+    </message>
+    <message>
       <source>Voice message max length in seconds</source>
       <translation>音声メッセージの最大長（秒</translation>
     </message>
@@ -19284,8 +19396,8 @@
       <translation>ファイルの削除</translation>
     </message>
     <message>
-      <source>if file is (OR)</source>
-      <translation>ファイルが(OR)の場合</translation>
+      <source>Delete only those type of files. Choose only one or none to delete all files.</source>
+      <translation>これらのタイプのファイルのみを削除します。すべてのファイルを削除する場合は、「1つだけ」または「なし」を選択します。</translation>
     </message>
     <message>
       <source>And operator file is older than n days</source>
@@ -19611,6 +19723,26 @@
   <context>
     <name>genericbot/helpattributes</name>
     <message>
+      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
+      <translation>エージェントが訪問者にメッセージを返信するのにかかる平均時間を表します。</translation>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
+      <translation>チャット がクローズされるまでに要した時間を記述する。チャット 持続時間はメッセージ間の時間に基づいている。</translation>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
+      <translation>チャット がクローズされるまでの時間を記述する。チャット duration は、エージェントごとのメッセージ間の時間に基づいている。</translation>
+    </message>
+    <message>
+      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
+      <translation>チャット 受付後、エージェントが訪問者に最初のメッセージを返信するまでの時間を記述します。</translation>
+    </message>
+    <message>
+      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <translation>エージェントが訪問者にメッセージを返信するのにかかる最大時間を記述します。</translation>
+    </message>
+    <message>
       <source>Conditions explain</source>
       <translation>条件を説明する</translation>
     </message>
@@ -19719,24 +19851,184 @@
       <translation>あなたの回答はここに表示されます！</translation>
     </message>
     <message>
-      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
-      <translation>エージェントが訪問者にメッセージを返信するのにかかる平均時間を表します。</translation>
+      <source>Formula (per participant): AART = round(sum of that participant response times / number of that participant responses).</source>
+      <translation>計算式（参加者ごとに）：AART = round(その参加者の回答時間の合計 / その参加者の回答数)。</translation>
     </message>
     <message>
-      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
-      <translation>チャット がクローズされるまでに要した時間を記述する。チャット 持続時間はメッセージ間の時間に基づいている。</translation>
+      <source>A response time starts when a visitor message appears.</source>
+      <translation>応答時間は、訪問者のメッセージが表示されたときに開始されます。</translation>
     </message>
     <message>
-      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
-      <translation>チャット がクローズされるまでの時間を記述する。チャット duration は、エージェントごとのメッセージ間の時間に基づいている。</translation>
+      <source>Consecutive visitor messages do not reset response start point. While waiting for operator reply, only the first pending visitor start is used; later visitor messages do not replace it.</source>
+      <translation>連続した訪問者メッセージは、応答開始ポイントをリセットしません。オペレータの応答を待っている間、保留中の最初の訪問者開始のみが使用されます。</translation>
     </message>
     <message>
-      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
-      <translation>チャット 受付後、エージェントが訪問者に最初のメッセージを返信するまでの時間を記述します。</translation>
+      <source>A response time ends when that same participant sends the next real operator message.</source>
+      <translation>応答時間は、同じ参加者が次の実オペレーターメッセージを送信したときに終了する。</translation>
     </message>
     <message>
-      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
-      <translation>エージェントが訪問者にメッセージを返信するのにかかる最大時間を記述します。</translation>
+      <source>Only positive delays are used. If there is no valid reply for a visitor message, nothing is added.</source>
+      <translation>正の遅延のみが使用される。ビジターメッセージに対する有効な返答がない場合、何も追加されない。</translation>
+    </message>
+    <message>
+      <source>The first part of pending state is ignored: replies must happen after (pending time + wait time).</source>
+      <translation>保留状態の最初の部分は無視される：返信は（保留時間＋待機時間）の後に行われなければならない。</translation>
+    </message>
+    <message>
+      <source>If visitor message was before that start point, calculation starts from (pending time + wait time), not from visitor message time.</source>
+      <translation>ビジターメッセージがその開始点より前にあった場合は、ビジターメッセージの時間からではなく、（保留時間＋待ち時間）から計算を開始する。</translation>
+    </message>
+    <message>
+      <source>Included messages for response timing: visitor messages and normal operator messages.</source>
+      <translation>応答タイミングに含まれるメッセージ：ビジターメッセージと通常のオペレータメッセージ。</translation>
+    </message>
+    <message>
+      <source>Excluded from response timing: plain system messages that are not supported actions, meta actions (assign/transfer/change owner/change department/accept), and bot messages.</source>
+      <translation>応答タイミングから除外されるもの：サポートされていないアクション、メタ・アクション（assign/transfer/change owner/change department/accept）、およびbot メッセージ。</translation>
+    </message>
+    <message>
+      <source>If participant has no valid response times, their AART stays 0.</source>
+      <translation>参加者に有効な応答時間がない場合、AARTは0のままとなる。</translation>
+    </message>
+    <message>
+      <source>Measures the total duration of the chat from start to close across the full message timeline, regardless of ownership. It includes user, agent, and bot messages and begins counting when the chat starts</source>
+      <translation>所有者に関係なく、メッセージのタイムライン全体にわたって、開始から終了までのチャット の総時間を測定する。ユーザ、エージェント、bot メッセージが含まれ、チャット が開始した時点からカウントを開始する。</translation>
+    </message>
+    <message>
+      <source>Abbreviations used here: FRT = First Response Time, AART = Average Agent Response Time, MART = Maximum Agent Response Time.</source>
+      <translation>ここで使用される略語：FRT = 最初の応答時間、AART = 平均エージェント応答時間、MART = 最大エージェント応答時間。</translation>
+    </message>
+    <message>
+      <source>Chat duration start form chat start event and till last operator/bot/visitor message.</source>
+      <translation>チャット 期間開始フォームチャット 開始イベントと最後のオペレータ/bot/訪問者メッセージまで。</translation>
+    </message>
+    <message>
+      <source>Chat duration is calculated as a sum of time gaps between consecutive kept messages in chat timeline order.</source>
+      <translation>チャット durationは、チャット 時系列で連続するキープメッセージ間のタイムギャップの合計として計算される。</translation>
+    </message>
+    <message>
+      <source>The first kept message only sets the starting point. Counting begins from the next message, where each next gap is evaluated.</source>
+      <translation>最初のキープメッセージは開始点を設定するだけである。カウントは次のメッセージから始まり、次のギャップが評価される。</translation>
+    </message>
+    <message>
+      <source>A gap is added only if it is greater than 0 and smaller than the timeout for the current message author. If it is too large, that gap is skipped.</source>
+      <translation>ギャップは0より大きく、現在のメッセージ作成者のタイムアウトより小さい 場合にのみ追加される。大きすぎる場合、そのギャップはスキップされます。</translation>
+    </message>
+    <message>
+      <source>System messages (user_id = -1) are skipped, except supported meta actions (accept, transfer, owner/department change, assign), which are converted to operator events and kept in timeline.</source>
+      <translation>システムメッセージ(user_id = -1)は、サポートされているメタアクション(accept、 transfer、owner/department change、assign)を除いてスキップされます。</translation>
+    </message>
+    <message>
+      <source>Consecutive visitor messages are evaluated as normal consecutive timeline gaps: each visitor-to-visitor or visitor-to-next-kept-message gap is checked against timeout and added only if it is below limit.</source>
+      <translation>連続したビジターメッセージは、通常の連続したタイムラインギャップとして評価される。各ビジターからビジター、またはビジターから次のキープメッセージギャップは、タイムアウトに対してチェックされ、制限を下回っている場合にのみ追加される。</translation>
+    </message>
+    <message>
+      <source>For response metrics in the same calculation flow (FRT/AART/MART), consecutive visitor messages do not reset pending visitor start marker. That marker is replaced only after a valid operator reply closes current pending window.</source>
+      <translation>同じ計算フロー(FRT/AART/MART)内のレスポンス・メトリクスの場合、連続した訪問者メッセージは保留中の訪問者開始マーカーをリセットしない。このマーカは、有効なオペレータ応答が現在の保留ウィンドウを閉じた後にのみ置き換えられます。</translation>
+    </message>
+    <message>
+      <source>Acceptance or transfer meta events do not reset total chat duration; they are just timeline events. Duration continues from previous kept message using the same gap rule.</source>
+      <translation>受諾または移籍のメタ・イベントは、チャット の合計継続時間をリセットしない。継続時間は、同じギャップルールを使用して、前のキープメッセージから継続する。</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder messages are not used as agent owners, but in total chat duration timeline they still follow the same gap-and-timeout rule if they are present as kept messages.</source>
+      <translation>bot/自動応答メッセージは、エージェントのオーナーとしては使用されないが、チャット 継続時間のタイムライン全体では、キープメッセージとして存在する場合と同じギャップ&amp;タイムアウトのルールに従う。</translation>
+    </message>
+    <message>
+      <source>Scenario: visitor writes after first acceptance. The gap from that visitor message to the next kept message is added only if it is below timeout.</source>
+      <translation>シナリオ：ビジターが最初のアクセプト後に書き込む。そのビジターメッセージから次のキープメッセージまでのギャップは、タイムアウト以下の場合のみ追加されます。</translation>
+    </message>
+    <message>
+      <source>Scenario: chat is transferred and accepted by another operator. Duration is not reset; it continues on the same message timeline with the same timeout checks.</source>
+      <translation>シナリオ:チャット が別のオペレータに転送され、受け入れられた。持続時間はリセットされず、同じタイムアウトチェックで同じメッセージタイムラインを継続する。</translation>
+    </message>
+    <message>
+      <source>minutes — the maximum gap allowed after a visitor message. If the operator replies later than this, that wait time is skipped.</source>
+      <translation>分 - 訪問者メッセージの後に許される最大間隔。オペレーターからの返信がこれより遅い場合、その待ち時間はスキップされます。</translation>
+    </message>
+    <message>
+      <source>minutes — the maximum gap allowed when the current message is treated as operator side (non-visitor).</source>
+      <translation>minutes - 現在のメッセージがオペレーター側(非訪問者)として扱われる場合に許される最大ギャップ。</translation>
+    </message>
+    <message>
+      <source>Measures the average chat duration from the accept action event through the full message timeline. It does NOT include bot messages, and it begins counting when the agent accepts the chat.</source>
+      <translation>アクセプトアクションイベントから全メッセージタイムラインまでの平均チャット 時間を測定する。bot メッセージは含まず、エージェントがチャット を受諾した時点からカウントを開始する。</translation>
+    </message>
+    <message>
+      <source>An agent becomes active owner when a supported operator event/message appears (accept, transfer, owner/department change, assign, or operator message).</source>
+      <translation>エージェントは、サポートされているオペレータイベント/メッセージ（受諾、転送、所有者/部門変更、割り当て、またはオペレータメッセージ）が表示されたときに、アクティブ 所有者になります。</translation>
+    </message>
+    <message>
+      <source>For response metrics tied to participants (FRT/AART/MART), consecutive visitor messages also do not reset pending visitor start marker. Start remains first pending point until valid operator reply.</source>
+      <translation>参加者に関連付けられた応答メトリクス（FRT/AART/MART）の場合、連続した訪問者メッセージは、保留中の訪問者開始マーカーもリセットしません。有効なオペレータからの返信があるまで、開始は保留中の最初のポイントのままです。</translation>
+    </message>
+    <message>
+      <source>Accept/transfer/owner-change meta events can switch owner context, but they do not count as visitor replies. They only affect which human owner receives later eligible gaps.</source>
+      <translation>Accept/transfer/owner-changeメタ・イベントは、オーナー・コンテキストを切り替えることができるが、ビジターの返信としてはカウントされない。それらは、どの人間のオーナーが後に適格なギャップを受け取るかにのみ影響する。</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder side is not tracked as a human participant owner, so it does not create a separate human agent duration entry.</source>
+      <translation>bot/自動応答側は、人間の参加者の所有者として追跡されないため、人間のエージェントの持続時間エントリーを別途作成することはない。</translation>
+    </message>
+    <message>
+      <source>Scenario: visitor writes after first acceptance. That visitor-to-next-message gap is added to accepted agent only if it is below timeout.</source>
+      <translation>シナリオ: ビジターは、最初の受理後に書き込む。訪問者から次のメッセージまでのギャップがタイムアウト以下の場合のみ、受理されたエージェントに追加されます。</translation>
+    </message>
+    <message>
+      <source>Scenario: chat is transferred and accepted by another operator. After acceptance, visitor gaps are added to new owner; previous owner remains frozen.</source>
+      <translation>シナリオ：チャット が譲渡され、別のオペレーターに受け入れられる。受け入れ後、ビジターのギャップは新しい所有者に追加され、前の所有者は凍結されたままです。</translation>
+    </message>
+    <message>
+      <source>minutes — max gap allowed after a visitor message. If the agent replied later than this, that waiting time is ignored.</source>
+      <translation>分 - 訪問者メッセージの後に許される最大間隔。エージェントがこれより遅く返信した場合、その待ち時間は無視されます。</translation>
+    </message>
+    <message>
+      <source>minutes — max gap allowed after an agent message. If the visitor replied later than this, that waiting time is ignored.</source>
+      <translation>分 - エージェントメッセージの後に許可される最大間隔。訪問者の返信がこれより遅い場合、その待ち時間は無視されます。</translation>
+    </message>
+    <message>
+      <source>FRT is created when there is a pending visitor-side start point and then a real operator message arrives (operator user_id &gt; 0, and message is not a meta/system action).</source>
+      <translation>FRTは、保留中の訪問者側開始点があるときに、実際のオペレータメッセージが到着すると作成される(オペレータuser_id &gt; 0、メッセージはメタ/システムアクションではない)。</translation>
+    </message>
+    <message>
+      <source>Start point is stored in two cases: (1) first visitor message after previous FRT was closed, or (2) accept_action meta event.</source>
+      <translation>開始点は、(1)前のFRTが閉じられた後の最初の訪問者のメッセージ、または、(2)accept_actionメタ・イベントの2つの場合に格納される。</translation>
+    </message>
+    <message>
+      <source>Consecutive visitor messages do not move the start point forward. Internally, visitor start is set only when there is no active pending visitor start; after that, extra visitor messages are ignored for start-point update until a valid operator reply happens.</source>
+      <translation>連続したビジター・メッセージは、開始点を前進させない。内部的には、ビジターの開始は、アクティブ ペンディング中のビジターの開始がない場合にのみ設定されます。その後、有効なオペレータからの返信があるまで、開始点の更新のために余分なビジターメッセージは無視されます。</translation>
+    </message>
+    <message>
+      <source>When operator reply arrives, FRT is calculated as reply_time minus max(start_point_time, pending_start_time), where pending_start_time = pnd_time + wait_time. This removes queue waiting before acceptance.</source>
+      <translation>ここで、pending_start_time = pnd_time + wait_time。 オペレータからの応答が到着すると、FRTは、reply_timeからmax(start_point_time, pending_start_time)を引いた値として計算される。これにより、受付前の待ち行列が取り除かれる。</translation>
+    </message>
+    <message>
+      <source>Meta actions (accept, transfer, owner change, department change, assign) do not close FRT window by themselves. They are not counted as operator reply messages.</source>
+      <translation>メタアクション(受諾、移譲、所有者変更、部門変更、割り当て)は、それ自体ではFRTウインドウを閉じない。これらは、オペレータからの返信メッセージとしてはカウントされません。</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder messages do not create FRT reply events because reply event requires operator user_id &gt; 0.</source>
+      <translation>bot/なぜなら、返信イベントにはオペレータのuser_id &gt; 0が必要だからである。</translation>
+    </message>
+    <message>
+      <source>For participant stats, each operator has their own first FRT value. For chat-level FRT, system stores the first FRT from the full timeline (response_times_total[0]).</source>
+      <translation>参加者の統計については、各オペレータは、独自の最初のFRT値を持っている。チャット-レベルのFRTについては、システムは完全なタイムラインからの最初のFRTを保存する(response_times_total[0])。</translation>
+    </message>
+    <message>
+      <source>MART (Maximum Agent Response Time) describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <translation>MART（Maximum Agent Response Time）は、エージェントが訪問者にメッセージを返信するのにかかる最大時間を表します。</translation>
+    </message>
+    <message>
+      <source>For each participant, we calculate all valid reply times. MART is not an average, it is the single highest response time from that participant.</source>
+      <translation>各参加者について、有効なすべての返信時間を計算する。MARTは平均値ではなく、その参加者の最も高い応答時間です。</translation>
+    </message>
+    <message>
+      <source>Formula (per participant): MART = max(that participant response times).</source>
+      <translation>計算式（参加者ごとに）：MART = max(その参加者の応答時間)。</translation>
+    </message>
+    <message>
+      <source>If participant has no valid response times, their MART stays 0.</source>
+      <translation>参加者に有効な応答時間がない場合、その参加者のMARTは0のままである。</translation>
     </message>
     <message>
       <source>You can have custom JS execution on click event. In combination with</source>
@@ -21917,6 +22209,10 @@
       <translation>外部URLの代わりに添付ファイルをダウンロード</translation>
     </message>
     <message>
+      <source>If there can be more than one element define root element location</source>
+      <translation>複数の要素が存在する場合は、ルート要素の位置を定義する。</translation>
+    </message>
+    <message>
       <source>Image body attributes. URL or base64 encoded content</source>
       <translation>画像本体の属性。URLまたはbase64エンコードされたコンテンツ</translation>
     </message>
@@ -21989,8 +22285,16 @@
       <translation>画像とみなされるメッセージは、次の属性値を持っている必要があります。</translation>
     </message>
     <message>
+      <source>If there can be more than one element define root element locationn</source>
+      <translation>複数の要素がある場合は、ルート要素 locationn を定義する。</translation>
+    </message>
+    <message>
       <source>Message ID location</source>
       <translation>メッセージIDの場所</translation>
+    </message>
+    <message>
+      <source>Try to find chat by message id if we chat was not found by id</source>
+      <translation>チャット がidで見つからなかった場合、チャット をメッセージidで探してみる。</translation>
     </message>
     <message>
       <source>For message being considered deleted, message should have attribute value equal to</source>
@@ -22019,10 +22323,6 @@
     <message>
       <source>Reaction emoji location</source>
       <translation>リアクション絵文字の場所</translation>
-    </message>
-    <message>
-      <source>Try to find chat by message id if we chat was not found by id</source>
-      <translation>チャット がidで見つからなかった場合、チャット をメッセージidで探してみる。</translation>
     </message>
     <message>
       <source>Reaction is a standalone unicode character</source>
@@ -26715,6 +27015,10 @@
   <context>
     <name>chat/backtochat</name>
     <message>
+      <source>Visitor completed survey!</source>
+      <translation>来場者がアンケートに回答！</translation>
+    </message>
+    <message>
       <source>Visitor has been redirected back to chat!</source>
       <translation>訪問者はチャット にリダイレクトされました！</translation>
     </message>
@@ -26757,6 +27061,29 @@
     <message>
       <source>Deny screen share</source>
       <translation>画面共有を拒否する</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/contentchunk</name>
+    <message>
+      <source>Identifier</source>
+      <translation>識別子</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>名称</translation>
+    </message>
+    <message>
+      <source>Content, checked against JSON format</source>
+      <translation>コンテンツ、JSONフォーマットと照合</translation>
+    </message>
+    <message>
+      <source>In-Active. Do not use in replaceable variables</source>
+      <translation>アクティブ.置換可能な変数では使用しないでください。</translation>
+    </message>
+    <message>
+      <source>Content Chunk</source>
+      <translation>コンテンツ・チャンク</translation>
     </message>
   </context>
 </TS>

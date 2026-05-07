@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -31,6 +35,14 @@
     </message>
     <message>
       <source>Which ip should not be allowed to be blocked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many days keep records of online users.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many days keep records of users footprint.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -62,14 +74,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How many days keep records of online users.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>How many days keep records of users footprint.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
       <translation type="unfinished"/>
     </message>
@@ -78,11 +82,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show users option to switch language at widget</source>
+      <source>Between what languages user should be able to switch</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Between what languages user should be able to switch</source>
+      <source>Show users option to switch language at widget</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -162,11 +166,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>On chat close exit chat</source>
+      <source/>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source/>
+      <source>On chat close exit chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -202,6 +206,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Default number of online operators to show</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>List unread chats, disabled for high performance</source>
       <translation type="unfinished"/>
     </message>
@@ -211,10 +219,6 @@
     </message>
     <message>
       <source>List closed chats, disabled for high performance</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default number of online operators to show</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1374,6 +1378,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Do not allow visitor return to chat if survey is filled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close widget for user also after survey is filled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable chat download</source>
       <translation type="unfinished"/>
     </message>
@@ -2043,6 +2055,10 @@
     </message>
     <message>
       <source>Hide message label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show files attachement button next to settings</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3770,6 +3786,18 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
+      <source>Department</source>
+      <translation>Departament</translation>
+    </message>
+    <message>
+      <source>Check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Uncheck</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can make this canned message available only for certain period of times.</source>
       <translation type="unfinished"/>
     </message>
@@ -3798,23 +3826,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Department</source>
-      <translation>Departament</translation>
-    </message>
-    <message>
       <source>Check all departments from selected department group</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Check</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Uncheck all departments from selected department group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Uncheck</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4261,6 +4277,14 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Choose department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Ndonje/Cilido</translation>
+    </message>
+    <message>
       <source>Work hours, 24 hours format, 0 - 23, minutes format 0 - 59</source>
       <translation type="unfinished"/>
     </message>
@@ -4307,14 +4331,6 @@
     <message>
       <source>Time to</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose department group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Ndonje/Cilido</translation>
     </message>
     <message>
       <source>Your time zone</source>
@@ -5846,11 +5862,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>ID</source>
+      <source>Name</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Name</source>
+      <source>Department</source>
+      <translation>Departament</translation>
+    </message>
+    <message>
+      <source>Reset</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ID</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5920,10 +5944,6 @@
     <message>
       <source>Fallback message</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departament</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -6395,10 +6415,6 @@
     </message>
     <message>
       <source>Save as view</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Reset</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9199,6 +9215,14 @@
     </message>
     <message>
       <source>Stop playing recorded audio</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dictate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stop</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14053,6 +14077,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>While testing please disable respose cache.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Enable translation response cache</source>
       <translation type="unfinished"/>
     </message>
@@ -14141,6 +14169,46 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Formality</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>prefer_more - more formal if available, otherwise default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>prefer_less - more informal if available, otherwise default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>More information about formality</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Model type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Quality optimized</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Latency optimized</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>More information about model type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide translate single message button.</source>
       <translation type="unfinished"/>
     </message>
@@ -14181,6 +14249,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>From and To langauges should be different</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>We could not detect operator language</source>
       <translation type="unfinished"/>
     </message>
@@ -14201,7 +14273,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Automatic translation stopped</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Settings has been saved</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Automatic translation started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Old messages will be translated.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -15650,6 +15734,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Duration per agent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat auto responder</source>
       <translation type="unfinished"/>
     </message>
@@ -15850,6 +15938,10 @@
     </message>
     <message>
       <source>Replaceable variables</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Content chunks</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19149,6 +19241,10 @@
   <context>
     <name>file/configuration</name>
     <message>
+      <source>if file is (OR)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Allowed files types for operators</source>
       <translation type="unfinished"/>
     </message>
@@ -19269,6 +19365,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Voice messages engine</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>WebKit dictate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>LLM (Disabled at the moment)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Voice message max length in seconds</source>
       <translation type="unfinished"/>
     </message>
@@ -19285,7 +19397,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>if file is (OR)</source>
+      <source>Delete only those type of files. Choose only one or none to delete all files.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19612,6 +19724,26 @@
   <context>
     <name>genericbot/helpattributes</name>
     <message>
+      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Conditions explain</source>
       <translation type="unfinished"/>
     </message>
@@ -19720,23 +19852,183 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
+      <source>Formula (per participant): AART = round(sum of that participant response times / number of that participant responses).</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
+      <source>A response time starts when a visitor message appears.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
+      <source>Consecutive visitor messages do not reset response start point. While waiting for operator reply, only the first pending visitor start is used; later visitor messages do not replace it.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
+      <source>A response time ends when that same participant sends the next real operator message.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <source>Only positive delays are used. If there is no valid reply for a visitor message, nothing is added.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>The first part of pending state is ignored: replies must happen after (pending time + wait time).</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If visitor message was before that start point, calculation starts from (pending time + wait time), not from visitor message time.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Included messages for response timing: visitor messages and normal operator messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Excluded from response timing: plain system messages that are not supported actions, meta actions (assign/transfer/change owner/change department/accept), and bot messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If participant has no valid response times, their AART stays 0.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Measures the total duration of the chat from start to close across the full message timeline, regardless of ownership. It includes user, agent, and bot messages and begins counting when the chat starts</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Abbreviations used here: FRT = First Response Time, AART = Average Agent Response Time, MART = Maximum Agent Response Time.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration start form chat start event and till last operator/bot/visitor message.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration is calculated as a sum of time gaps between consecutive kept messages in chat timeline order.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>The first kept message only sets the starting point. Counting begins from the next message, where each next gap is evaluated.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>A gap is added only if it is greater than 0 and smaller than the timeout for the current message author. If it is too large, that gap is skipped.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System messages (user_id = -1) are skipped, except supported meta actions (accept, transfer, owner/department change, assign), which are converted to operator events and kept in timeline.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Consecutive visitor messages are evaluated as normal consecutive timeline gaps: each visitor-to-visitor or visitor-to-next-kept-message gap is checked against timeout and added only if it is below limit.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For response metrics in the same calculation flow (FRT/AART/MART), consecutive visitor messages do not reset pending visitor start marker. That marker is replaced only after a valid operator reply closes current pending window.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Acceptance or transfer meta events do not reset total chat duration; they are just timeline events. Duration continues from previous kept message using the same gap rule.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot/auto-responder messages are not used as agent owners, but in total chat duration timeline they still follow the same gap-and-timeout rule if they are present as kept messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scenario: visitor writes after first acceptance. The gap from that visitor message to the next kept message is added only if it is below timeout.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scenario: chat is transferred and accepted by another operator. Duration is not reset; it continues on the same message timeline with the same timeout checks.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes — the maximum gap allowed after a visitor message. If the operator replies later than this, that wait time is skipped.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes — the maximum gap allowed when the current message is treated as operator side (non-visitor).</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Measures the average chat duration from the accept action event through the full message timeline. It does NOT include bot messages, and it begins counting when the agent accepts the chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>An agent becomes active owner when a supported operator event/message appears (accept, transfer, owner/department change, assign, or operator message).</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For response metrics tied to participants (FRT/AART/MART), consecutive visitor messages also do not reset pending visitor start marker. Start remains first pending point until valid operator reply.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Accept/transfer/owner-change meta events can switch owner context, but they do not count as visitor replies. They only affect which human owner receives later eligible gaps.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot/auto-responder side is not tracked as a human participant owner, so it does not create a separate human agent duration entry.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scenario: visitor writes after first acceptance. That visitor-to-next-message gap is added to accepted agent only if it is below timeout.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Scenario: chat is transferred and accepted by another operator. After acceptance, visitor gaps are added to new owner; previous owner remains frozen.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes — max gap allowed after a visitor message. If the agent replied later than this, that waiting time is ignored.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes — max gap allowed after an agent message. If the visitor replied later than this, that waiting time is ignored.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>FRT is created when there is a pending visitor-side start point and then a real operator message arrives (operator user_id &gt; 0, and message is not a meta/system action).</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start point is stored in two cases: (1) first visitor message after previous FRT was closed, or (2) accept_action meta event.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Consecutive visitor messages do not move the start point forward. Internally, visitor start is set only when there is no active pending visitor start; after that, extra visitor messages are ignored for start-point update until a valid operator reply happens.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>When operator reply arrives, FRT is calculated as reply_time minus max(start_point_time, pending_start_time), where pending_start_time = pnd_time + wait_time. This removes queue waiting before acceptance.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Meta actions (accept, transfer, owner change, department change, assign) do not close FRT window by themselves. They are not counted as operator reply messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot/auto-responder messages do not create FRT reply events because reply event requires operator user_id &gt; 0.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For participant stats, each operator has their own first FRT value. For chat-level FRT, system stores the first FRT from the full timeline (response_times_total[0]).</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>MART (Maximum Agent Response Time) describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For each participant, we calculate all valid reply times. MART is not an average, it is the single highest response time from that participant.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Formula (per participant): MART = max(that participant response times).</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If participant has no valid response times, their MART stays 0.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -21918,6 +22210,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>If there can be more than one element define root element location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Image body attributes. URL or base64 encoded content</source>
       <translation type="unfinished"/>
     </message>
@@ -21990,7 +22286,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>If there can be more than one element define root element locationn</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Message ID location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Try to find chat by message id if we chat was not found by id</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -22019,10 +22323,6 @@
     </message>
     <message>
       <source>Reaction emoji location</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Try to find chat by message id if we chat was not found by id</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -26716,6 +27016,10 @@
   <context>
     <name>chat/backtochat</name>
     <message>
+      <source>Visitor completed survey!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor has been redirected back to chat!</source>
       <translation type="unfinished"/>
     </message>
@@ -26757,6 +27061,29 @@
     </message>
     <message>
       <source>Deny screen share</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/contentchunk</name>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Content, checked against JSON format</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In-Active. Do not use in replaceable variables</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Content Chunk</source>
       <translation type="unfinished"/>
     </message>
   </context>

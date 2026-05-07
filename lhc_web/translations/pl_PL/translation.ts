@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Jak długo mamy czekać zanim poinformujemy operatora o czacie bez odpowiedzi</translation>
     </message>
@@ -32,6 +36,14 @@
     <message>
       <source>Which ip should not be allowed to be blocked</source>
       <translation>Które ip nie powinny być blokowane?</translation>
+    </message>
+    <message>
+      <source>How many days keep records of online users.</source>
+      <translation>Przez ile dni przechowywać zapisy o użytkownikach online.</translation>
+    </message>
+    <message>
+      <source>How many days keep records of users footprint.</source>
+      <translation>Przez ile dni przechowywać informacje o użytkownikach.</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -62,14 +74,6 @@
       <translation>Śledzić aktywność użytkownika na stronie?</translation>
     </message>
     <message>
-      <source>How many days keep records of online users.</source>
-      <translation>Przez ile dni przechowywać zapisy o użytkownikach online.</translation>
-    </message>
-    <message>
-      <source>How many days keep records of users footprint.</source>
-      <translation>Przez ile dni przechowywać informacje o użytkownikach.</translation>
-    </message>
-    <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
       <translation>Zaproponuj użytkownikowi pozostawienie wiadomości, gdy wybierze dział, którego pracownicy są offline</translation>
     </message>
@@ -78,12 +82,12 @@
       <translation>Odtwarzaj dźwięk przy zaproszeniu do rozmowy.</translation>
     </message>
     <message>
-      <source>Show users option to switch language at widget</source>
-      <translation>Wyświetl użytkownikom opcję zmiany języka</translation>
-    </message>
-    <message>
       <source>Between what languages user should be able to switch</source>
       <translation>Pomiędzy jakimi językami użytkownik powinien móc się przełączać</translation>
+    </message>
+    <message>
+      <source>Show users option to switch language at widget</source>
+      <translation>Wyświetl użytkownikom opcję zmiany języka</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
@@ -162,12 +166,12 @@
       <translation>Ile sekund klient musi otworzyć już zamknięty czat.</translation>
     </message>
     <message>
-      <source>On chat close exit chat</source>
-      <translation>Wyjdź z czatu po zamknięciu okna</translation>
-    </message>
-    <message>
       <source/>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On chat close exit chat</source>
+      <translation>Wyjdź z czatu po zamknięciu okna</translation>
     </message>
     <message>
       <source>Cookie should be valid only for domain where Javascript is embedded</source>
@@ -202,6 +206,10 @@
       <translation>Maksymalna ilość znaków w wiadomości</translation>
     </message>
     <message>
+      <source>Default number of online operators to show</source>
+      <translation>Domyslna liczba operatoró online do pokazania</translation>
+    </message>
+    <message>
       <source>List unread chats, disabled for high performance</source>
       <translation>Listuj nieprzeczytane czaty, wyłącz dla lepszej wydajnosci</translation>
     </message>
@@ -212,10 +220,6 @@
     <message>
       <source>List closed chats, disabled for high performance</source>
       <translation>Listuj zamknięte czaty, wyłącz dla lepszej wydajnosci</translation>
-    </message>
-    <message>
-      <source>Default number of online operators to show</source>
-      <translation>Domyslna liczba operatoró online do pokazania</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
@@ -1374,6 +1378,14 @@
       <translation>Zezwalaj odwiedzającym na powrót do czatu, nawet jeśli został on zamknięty.</translation>
     </message>
     <message>
+      <source>Do not allow visitor return to chat if survey is filled.</source>
+      <translation>Nie zezwalaj odwiedzającemu na powrót do czatu po wypełnieniu ankiety.</translation>
+    </message>
+    <message>
+      <source>Close widget for user also after survey is filled.</source>
+      <translation>Widżet zamknięcia dla użytkownika również po wypełnieniu ankiety.</translation>
+    </message>
+    <message>
       <source>Disable chat download</source>
       <translation>Wyłącz pobieranie czatu</translation>
     </message>
@@ -2044,6 +2056,10 @@
     <message>
       <source>Hide message label</source>
       <translation>Ukryj etykietę wiadomości</translation>
+    </message>
+    <message>
+      <source>Show files attachement button next to settings</source>
+      <translation>Pokaż przycisk dołączania plików obok ustawień</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
@@ -3770,6 +3786,18 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
+      <source>Department</source>
+      <translation>Dział</translation>
+    </message>
+    <message>
+      <source>Check</source>
+      <translation>Sprawdź</translation>
+    </message>
+    <message>
+      <source>Uncheck</source>
+      <translation>Odznacz</translation>
+    </message>
+    <message>
       <source>You can make this canned message available only for certain period of times.</source>
       <translation>Wiadomość ta może być dostępna tylko przez określony czas.</translation>
     </message>
@@ -3798,24 +3826,12 @@
       <translation>Aktywny do</translation>
     </message>
     <message>
-      <source>Department</source>
-      <translation>Dział</translation>
-    </message>
-    <message>
       <source>Check all departments from selected department group</source>
       <translation>Zaznacz wszystkie działy z wybranej grupy działów</translation>
     </message>
     <message>
-      <source>Check</source>
-      <translation>Sprawdź</translation>
-    </message>
-    <message>
       <source>Uncheck all departments from selected department group</source>
       <translation>Usuń zaznaczenie wszystkich działów z wybranej grupy działów</translation>
-    </message>
-    <message>
-      <source>Uncheck</source>
-      <translation>Odznacz</translation>
     </message>
     <message>
       <source>If you do not select a custom or default auto-responder, proactive chats will not have an auto-responder assigned.</source>
@@ -4261,6 +4277,14 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Choose department group</source>
+      <translation>Wybierz grupę działów</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Dowolny</translation>
+    </message>
+    <message>
       <source>Work hours, 24 hours format, 0 - 23, minutes format 0 - 59</source>
       <translation>Godziny pracy, format 24-godzinny, 0-23, format minutowy 0-59</translation>
     </message>
@@ -4307,14 +4331,6 @@
     <message>
       <source>Time to</source>
       <translation>Czas na</translation>
-    </message>
-    <message>
-      <source>Choose department group</source>
-      <translation>Wybierz grupę działów</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Dowolny</translation>
     </message>
     <message>
       <source>Your time zone</source>
@@ -5846,12 +5862,20 @@
       <translation>Wyklucz odpowiedzi osobiste</translation>
     </message>
     <message>
-      <source>ID</source>
-      <translation>ID</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>Imię</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Dział</translation>
+    </message>
+    <message>
+      <source>Reset</source>
+      <translation>Reset</translation>
+    </message>
+    <message>
+      <source>ID</source>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Show only pinned</source>
@@ -5920,10 +5944,6 @@
     <message>
       <source>Fallback message</source>
       <translation>Komunikat awaryjny</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Dział</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -6396,10 +6416,6 @@
     <message>
       <source>Save as view</source>
       <translation>Zapisz jako widok</translation>
-    </message>
-    <message>
-      <source>Reset</source>
-      <translation>Reset</translation>
     </message>
     <message>
       <source>Choose status</source>
@@ -9199,6 +9215,14 @@
     </message>
     <message>
       <source>Stop playing recorded audio</source>
+      <translation>Stop</translation>
+    </message>
+    <message>
+      <source>Dictate</source>
+      <translation>Dyktowanie</translation>
+    </message>
+    <message>
+      <source>Stop</source>
       <translation>Stop</translation>
     </message>
     <message>
@@ -14052,6 +14076,10 @@
       <translation>Tłumacz</translation>
     </message>
     <message>
+      <source>While testing please disable respose cache.</source>
+      <translation>Podczas testowania należy wyłączyć pamięć podręczną respose.</translation>
+    </message>
+    <message>
       <source>Enable translation response cache</source>
       <translation>Włącz pamięć podręczną odpowiedzi tłumaczenia</translation>
     </message>
@@ -14140,6 +14168,46 @@
       <translation>Korzystanie z serwisu DeepL</translation>
     </message>
     <message>
+      <source>Formality</source>
+      <translation>Formalność</translation>
+    </message>
+    <message>
+      <source>default</source>
+      <translation>domyślny</translation>
+    </message>
+    <message>
+      <source>prefer_more - more formal if available, otherwise default</source>
+      <translation>prefer_more - bardziej formalne, jeśli dostępne, w przeciwnym razie domyślne</translation>
+    </message>
+    <message>
+      <source>prefer_less - more informal if available, otherwise default</source>
+      <translation>prefer_less - bardziej nieformalny, jeśli dostępny, w przeciwnym razie domyślny</translation>
+    </message>
+    <message>
+      <source>More information about formality</source>
+      <translation>Więcej informacji na temat formalności</translation>
+    </message>
+    <message>
+      <source>Model type</source>
+      <translation>Typ modelu</translation>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation>Domyślne</translation>
+    </message>
+    <message>
+      <source>Quality optimized</source>
+      <translation>Zoptymalizowana jakość</translation>
+    </message>
+    <message>
+      <source>Latency optimized</source>
+      <translation>Zoptymalizowane opóźnienia</translation>
+    </message>
+    <message>
+      <source>More information about model type</source>
+      <translation>Więcej informacji o typie modelu</translation>
+    </message>
+    <message>
       <source>Hide translate single message button.</source>
       <translation>Ukryj przycisk tłumaczenia pojedynczej wiadomości.</translation>
     </message>
@@ -14180,6 +14248,10 @@
       <translation>Nie można wykryć języka</translation>
     </message>
     <message>
+      <source>From and To langauges should be different</source>
+      <translation>Języki From i To powinny być różne</translation>
+    </message>
+    <message>
       <source>We could not detect operator language</source>
       <translation>Nie mogliśmy wykryć języka operatora</translation>
     </message>
@@ -14200,8 +14272,20 @@
       <translation>Ustawienia tłumaczeń</translation>
     </message>
     <message>
+      <source>Automatic translation stopped</source>
+      <translation>Automatyczne tłumaczenie zostało zatrzymane</translation>
+    </message>
+    <message>
       <source>Settings has been saved</source>
       <translation>Ustawienia zostały zapisane</translation>
+    </message>
+    <message>
+      <source>Automatic translation started</source>
+      <translation>Rozpoczęto automatyczne tłumaczenie</translation>
+    </message>
+    <message>
+      <source>Old messages will be translated.</source>
+      <translation>Stare wiadomości zostaną przetłumaczone.</translation>
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
@@ -15649,6 +15733,10 @@
       <translation>Dziennik obliczeń czasów odpowiedzi agentów</translation>
     </message>
     <message>
+      <source>Duration per agent</source>
+      <translation>Czas trwania na agenta</translation>
+    </message>
+    <message>
       <source>Chat auto responder</source>
       <translation>Automatyczna odpowiedź na czacie</translation>
     </message>
@@ -15850,6 +15938,10 @@
     <message>
       <source>Replaceable variables</source>
       <translation>Zmienne wymienne</translation>
+    </message>
+    <message>
+      <source>Content chunks</source>
+      <translation>Fragmenty zawartości</translation>
     </message>
     <message>
       <source>Chat</source>
@@ -19148,6 +19240,10 @@
   <context>
     <name>file/configuration</name>
     <message>
+      <source>if file is (OR)</source>
+      <translation>gdy plik jest (LUB)</translation>
+    </message>
+    <message>
       <source>Allowed files types for operators</source>
       <translation>Dozwolone typy plików dla operatorów</translation>
     </message>
@@ -19268,6 +19364,22 @@
       <translation>Wiadomości głosowe</translation>
     </message>
     <message>
+      <source>Voice messages engine</source>
+      <translation>Silnik wiadomości głosowych</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Plik</translation>
+    </message>
+    <message>
+      <source>WebKit dictate</source>
+      <translation>WebKit dictate</translation>
+    </message>
+    <message>
+      <source>LLM (Disabled at the moment)</source>
+      <translation>LLM (obecnie wyłączony)</translation>
+    </message>
+    <message>
       <source>Voice message max length in seconds</source>
       <translation>Maksymalna długość wiadomości głosowej w sekundach</translation>
     </message>
@@ -19284,8 +19396,8 @@
       <translation>Usuń pliki</translation>
     </message>
     <message>
-      <source>if file is (OR)</source>
-      <translation>gdy plik jest (LUB)</translation>
+      <source>Delete only those type of files. Choose only one or none to delete all files.</source>
+      <translation>Usuń tylko te typy plików. Wybierz tylko jeden lub żaden, aby usunąć wszystkie pliki.</translation>
     </message>
     <message>
       <source>And operator file is older than n days</source>
@@ -19611,6 +19723,26 @@
   <context>
     <name>genericbot/helpattributes</name>
     <message>
+      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
+      <translation>Opisuje średni czas potrzebny agentowi na udzielenie odpowiedzi na wiadomość odwiedzającemu, biorąc pod uwagę całą konwersację.</translation>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
+      <translation>Opisuje, jak długo trwał czat, zanim został zamknięty. Czas trwania czatu jest oparty na czasie spędzonym między wiadomościami.</translation>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
+      <translation>Opisuje, jak długo trwał czat, zanim został zamknięty. Czas trwania czatu jest oparty na czasie spędzonym między wiadomościami na agenta.</translation>
+    </message>
+    <message>
+      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
+      <translation>Opisuje, ile czasu zajmuje agentowi udzielenie odpowiedzi na pierwszą wiadomość odwiedzającemu po zaakceptowaniu czatu.</translation>
+    </message>
+    <message>
+      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <translation>Opisuje maksymalny czas potrzebny agentowi na udzielenie odpowiedzi na wiadomość odwiedzającemu.</translation>
+    </message>
+    <message>
       <source>Conditions explain</source>
       <translation>Warunki wyjaśniają</translation>
     </message>
@@ -19719,24 +19851,184 @@
       <translation>Twoja odpowiedź pojawi się tutaj!</translation>
     </message>
     <message>
-      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
-      <translation>Opisuje średni czas potrzebny agentowi na udzielenie odpowiedzi na wiadomość odwiedzającemu, biorąc pod uwagę całą konwersację.</translation>
+      <source>Formula (per participant): AART = round(sum of that participant response times / number of that participant responses).</source>
+      <translation>Wzór (na uczestnika): AART = round(suma czasów odpowiedzi tego uczestnika / liczba odpowiedzi tego uczestnika).</translation>
     </message>
     <message>
-      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
-      <translation>Opisuje, jak długo trwał czat, zanim został zamknięty. Czas trwania czatu jest oparty na czasie spędzonym między wiadomościami.</translation>
+      <source>A response time starts when a visitor message appears.</source>
+      <translation>Czas odpowiedzi rozpoczyna się w momencie pojawienia się wiadomości od odwiedzającego.</translation>
     </message>
     <message>
-      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
-      <translation>Opisuje, jak długo trwał czat, zanim został zamknięty. Czas trwania czatu jest oparty na czasie spędzonym między wiadomościami na agenta.</translation>
+      <source>Consecutive visitor messages do not reset response start point. While waiting for operator reply, only the first pending visitor start is used; later visitor messages do not replace it.</source>
+      <translation>Kolejne wiadomości od odwiedzających nie resetują punktu początkowego odpowiedzi. Podczas oczekiwania na odpowiedź operatora używany jest tylko pierwszy oczekujący punkt startowy odwiedzającego; późniejsze komunikaty odwiedzającego nie zastępują go.</translation>
     </message>
     <message>
-      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
-      <translation>Opisuje, ile czasu zajmuje agentowi udzielenie odpowiedzi na pierwszą wiadomość odwiedzającemu po zaakceptowaniu czatu.</translation>
+      <source>A response time ends when that same participant sends the next real operator message.</source>
+      <translation>Czas odpowiedzi kończy się, gdy ten sam uczestnik wysyła następny rzeczywisty komunikat operatora.</translation>
     </message>
     <message>
-      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
-      <translation>Opisuje maksymalny czas potrzebny agentowi na udzielenie odpowiedzi na wiadomość odwiedzającemu.</translation>
+      <source>Only positive delays are used. If there is no valid reply for a visitor message, nothing is added.</source>
+      <translation>Używane są tylko pozytywne opóźnienia. Jeśli nie ma prawidłowej odpowiedzi na wiadomość gościa, nic nie jest dodawane.</translation>
+    </message>
+    <message>
+      <source>The first part of pending state is ignored: replies must happen after (pending time + wait time).</source>
+      <translation>Pierwsza część stanu oczekiwania jest ignorowana: odpowiedzi muszą nastąpić po (czas oczekiwania + czas oczekiwania).</translation>
+    </message>
+    <message>
+      <source>If visitor message was before that start point, calculation starts from (pending time + wait time), not from visitor message time.</source>
+      <translation>Jeśli wiadomość odwiedzającego była przed tym punktem początkowym, obliczenia rozpoczynają się od (czas oczekiwania + czas oczekiwania), a nie od czasu wiadomości odwiedzającego.</translation>
+    </message>
+    <message>
+      <source>Included messages for response timing: visitor messages and normal operator messages.</source>
+      <translation>Uwzględniono komunikaty dotyczące czasu odpowiedzi: komunikaty dla odwiedzających i zwykłe komunikaty operatora.</translation>
+    </message>
+    <message>
+      <source>Excluded from response timing: plain system messages that are not supported actions, meta actions (assign/transfer/change owner/change department/accept), and bot messages.</source>
+      <translation>Wyłączone z czasu odpowiedzi: zwykłe komunikaty systemowe, które nie są obsługiwanymi akcjami, meta-akcje (przypisanie/przekazanie/zmiana właściciela/zmiana działu/akceptacja) oraz komunikaty botów.</translation>
+    </message>
+    <message>
+      <source>If participant has no valid response times, their AART stays 0.</source>
+      <translation>Jeśli uczestnik nie ma prawidłowych czasów odpowiedzi, jego AART wynosi 0.</translation>
+    </message>
+    <message>
+      <source>Measures the total duration of the chat from start to close across the full message timeline, regardless of ownership. It includes user, agent, and bot messages and begins counting when the chat starts</source>
+      <translation>Mierzy całkowity czas trwania czatu od rozpoczęcia do zakończenia na całej osi czasu wiadomości, niezależnie od właściciela. Obejmuje wiadomości użytkownika, agenta i bota i zaczyna być liczony w momencie rozpoczęcia czatu</translation>
+    </message>
+    <message>
+      <source>Abbreviations used here: FRT = First Response Time, AART = Average Agent Response Time, MART = Maximum Agent Response Time.</source>
+      <translation>Stosowane skróty: FRT = czas pierwszej odpowiedzi, AART = średni czas odpowiedzi agenta, MART = maksymalny czas odpowiedzi agenta.</translation>
+    </message>
+    <message>
+      <source>Chat duration start form chat start event and till last operator/bot/visitor message.</source>
+      <translation>Czas trwania czatu rozpoczyna się od zdarzenia rozpoczęcia czatu i trwa do ostatniej wiadomości operatora/bota/gościa.</translation>
+    </message>
+    <message>
+      <source>Chat duration is calculated as a sum of time gaps between consecutive kept messages in chat timeline order.</source>
+      <translation>Czas trwania czatu jest obliczany jako suma przerw czasowych między kolejnymi przechowywanymi wiadomościami w kolejności na osi czasu czatu.</translation>
+    </message>
+    <message>
+      <source>The first kept message only sets the starting point. Counting begins from the next message, where each next gap is evaluated.</source>
+      <translation>Pierwsza zachowana wiadomość wyznacza jedynie punkt początkowy. Zliczanie rozpoczyna się od następnej wiadomości, w której oceniana jest każda kolejna luka.</translation>
+    </message>
+    <message>
+      <source>A gap is added only if it is greater than 0 and smaller than the timeout for the current message author. If it is too large, that gap is skipped.</source>
+      <translation>Odstęp jest dodawany tylko wtedy, gdy jest większy niż 0 i mniejszy niż limit czasu dla bieżącego autora wiadomości. Jeśli jest zbyt duża, przerwa jest pomijana.</translation>
+    </message>
+    <message>
+      <source>System messages (user_id = -1) are skipped, except supported meta actions (accept, transfer, owner/department change, assign), which are converted to operator events and kept in timeline.</source>
+      <translation>Komunikaty systemowe (user_id = -1) są pomijane, z wyjątkiem obsługiwanych meta-akcji (akceptacja, przeniesienie, zmiana właściciela/działu, przypisanie), które są konwertowane na zdarzenia operatora i przechowywane na osi czasu.</translation>
+    </message>
+    <message>
+      <source>Consecutive visitor messages are evaluated as normal consecutive timeline gaps: each visitor-to-visitor or visitor-to-next-kept-message gap is checked against timeout and added only if it is below limit.</source>
+      <translation>Kolejne wiadomości od odwiedzających są oceniane jak zwykłe kolejne luki na osi czasu: każda luka między odwiedzającym a odwiedzającym lub między odwiedzającym a następną zachowaną wiadomością jest sprawdzana pod kątem limitu czasu i dodawana tylko wtedy, gdy jest poniżej limitu.</translation>
+    </message>
+    <message>
+      <source>For response metrics in the same calculation flow (FRT/AART/MART), consecutive visitor messages do not reset pending visitor start marker. That marker is replaced only after a valid operator reply closes current pending window.</source>
+      <translation>W przypadku metryk odpowiedzi w tym samym przepływie obliczeń (FRT/AART/MART), kolejne komunikaty dla odwiedzających nie resetują znacznika rozpoczęcia oczekującego odwiedzającego. Znacznik ten jest zastępowany dopiero po tym, jak prawidłowa odpowiedź operatora zamknie bieżące oczekujące okno.</translation>
+    </message>
+    <message>
+      <source>Acceptance or transfer meta events do not reset total chat duration; they are just timeline events. Duration continues from previous kept message using the same gap rule.</source>
+      <translation>Zdarzenia meta akceptacji lub transferu nie resetują całkowitego czasu trwania czatu; są to tylko zdarzenia na osi czasu. Czas trwania jest kontynuowany od poprzedniej przechowywanej wiadomości przy użyciu tej samej reguły odstępu.</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder messages are not used as agent owners, but in total chat duration timeline they still follow the same gap-and-timeout rule if they are present as kept messages.</source>
+      <translation>Wiadomości botów/auto-odpowiedzi nie są używane jako właściciele agentów, ale w całkowitym czasie trwania czatu nadal przestrzegają tej samej zasady przerwy i limitu czasu, jeśli są obecne jako przechowywane wiadomości.</translation>
+    </message>
+    <message>
+      <source>Scenario: visitor writes after first acceptance. The gap from that visitor message to the next kept message is added only if it is below timeout.</source>
+      <translation>Scenariusz: odwiedzający pisze po pierwszej akceptacji. Odstęp od tej wiadomości odwiedzającego do następnej przechowywanej wiadomości jest dodawany tylko wtedy, gdy jest poniżej limitu czasu.</translation>
+    </message>
+    <message>
+      <source>Scenario: chat is transferred and accepted by another operator. Duration is not reset; it continues on the same message timeline with the same timeout checks.</source>
+      <translation>Scenariusz: czat został przeniesiony i zaakceptowany przez innego operatora. Czas trwania nie jest resetowany; jest kontynuowany na tej samej osi czasu wiadomości z tymi samymi kontrolami limitu czasu.</translation>
+    </message>
+    <message>
+      <source>minutes — the maximum gap allowed after a visitor message. If the operator replies later than this, that wait time is skipped.</source>
+      <translation>minut - maksymalna dozwolona przerwa po wiadomości od odwiedzającego. Jeśli operator odpowie później, czas oczekiwania zostanie pominięty.</translation>
+    </message>
+    <message>
+      <source>minutes — the maximum gap allowed when the current message is treated as operator side (non-visitor).</source>
+      <translation>minut - maksymalna dozwolona przerwa, gdy bieżąca wiadomość jest traktowana jako po stronie operatora (nie odwiedzającego).</translation>
+    </message>
+    <message>
+      <source>Measures the average chat duration from the accept action event through the full message timeline. It does NOT include bot messages, and it begins counting when the agent accepts the chat.</source>
+      <translation>Mierzy średni czas trwania czatu od zdarzenia akceptacji akcji do pełnej osi czasu wiadomości. Nie obejmuje wiadomości od botów i zaczyna się liczyć, gdy agent zaakceptuje czat.</translation>
+    </message>
+    <message>
+      <source>An agent becomes active owner when a supported operator event/message appears (accept, transfer, owner/department change, assign, or operator message).</source>
+      <translation>Agent staje się aktywnym właścicielem, gdy pojawi się obsługiwane zdarzenie/komunikat operatora (akceptacja, przeniesienie, zmiana właściciela/działu, przypisanie lub komunikat operatora).</translation>
+    </message>
+    <message>
+      <source>For response metrics tied to participants (FRT/AART/MART), consecutive visitor messages also do not reset pending visitor start marker. Start remains first pending point until valid operator reply.</source>
+      <translation>W przypadku metryk odpowiedzi powiązanych z uczestnikami (FRT/AART/MART), kolejne komunikaty dla odwiedzających również nie resetują znacznika początku oczekującego odwiedzającego. Start pozostaje pierwszym oczekującym punktem do momentu uzyskania prawidłowej odpowiedzi operatora.</translation>
+    </message>
+    <message>
+      <source>Accept/transfer/owner-change meta events can switch owner context, but they do not count as visitor replies. They only affect which human owner receives later eligible gaps.</source>
+      <translation>Zdarzenia meta akceptacji/przekazania/zmiany właściciela mogą zmienić kontekst właściciela, ale nie liczą się jako odpowiedzi odwiedzających. Wpływają one tylko na to, który właściciel otrzyma później kwalifikujące się luki.</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder side is not tracked as a human participant owner, so it does not create a separate human agent duration entry.</source>
+      <translation>Strona bota/autoodpowiedzi nie jest śledzona jako właściciel ludzkiego uczestnika, więc nie tworzy osobnego wpisu czasu trwania ludzkiego agenta.</translation>
+    </message>
+    <message>
+      <source>Scenario: visitor writes after first acceptance. That visitor-to-next-message gap is added to accepted agent only if it is below timeout.</source>
+      <translation>Scenariusz: odwiedzający pisze po pierwszej akceptacji. Odstęp między odwiedzającym a następną wiadomością jest dodawany do zaakceptowanego agenta tylko wtedy, gdy jest poniżej limitu czasu.</translation>
+    </message>
+    <message>
+      <source>Scenario: chat is transferred and accepted by another operator. After acceptance, visitor gaps are added to new owner; previous owner remains frozen.</source>
+      <translation>Scenariusz: czat został przeniesiony i zaakceptowany przez innego operatora. Po akceptacji luki odwiedzających są dodawane do nowego właściciela; poprzedni właściciel pozostaje zamrożony.</translation>
+    </message>
+    <message>
+      <source>minutes — max gap allowed after a visitor message. If the agent replied later than this, that waiting time is ignored.</source>
+      <translation>minut - maksymalna dozwolona przerwa po wiadomości od odwiedzającego. Jeśli agent odpowiedział później, czas oczekiwania jest ignorowany.</translation>
+    </message>
+    <message>
+      <source>minutes — max gap allowed after an agent message. If the visitor replied later than this, that waiting time is ignored.</source>
+      <translation>minut - maksymalna dozwolona przerwa po wiadomości agenta. Jeśli odwiedzający odpowiedział później, czas oczekiwania jest ignorowany.</translation>
+    </message>
+    <message>
+      <source>FRT is created when there is a pending visitor-side start point and then a real operator message arrives (operator user_id &gt; 0, and message is not a meta/system action).</source>
+      <translation>FRT jest tworzony, gdy istnieje oczekujący punkt startowy po stronie odwiedzającego, a następnie nadejdzie prawdziwy komunikat operatora (operator user_id &gt; 0, a komunikat nie jest akcją meta/systemową).</translation>
+    </message>
+    <message>
+      <source>Start point is stored in two cases: (1) first visitor message after previous FRT was closed, or (2) accept_action meta event.</source>
+      <translation>Punkt początkowy jest zapisywany w dwóch przypadkach: (1) pierwsza wiadomość od odwiedzającego po zamknięciu poprzedniego FRT lub (2) zdarzenie meta accept_action.</translation>
+    </message>
+    <message>
+      <source>Consecutive visitor messages do not move the start point forward. Internally, visitor start is set only when there is no active pending visitor start; after that, extra visitor messages are ignored for start-point update until a valid operator reply happens.</source>
+      <translation>Kolejne komunikaty od odwiedzających nie przesuwają punktu początkowego do przodu. Wewnętrznie, start gościa jest ustawiany tylko wtedy, gdy nie ma aktywnego oczekującego startu gościa; po tym dodatkowe komunikaty gościa są ignorowane w celu aktualizacji punktu startowego, dopóki nie nastąpi prawidłowa odpowiedź operatora.</translation>
+    </message>
+    <message>
+      <source>When operator reply arrives, FRT is calculated as reply_time minus max(start_point_time, pending_start_time), where pending_start_time = pnd_time + wait_time. This removes queue waiting before acceptance.</source>
+      <translation>Gdy nadejdzie odpowiedź operatora, FRT jest obliczany jako reply_time minus max(start_point_time, pending_start_time), gdzie pending_start_time = pnd_time + wait_time. Usuwa to kolejkę oczekiwania przed akceptacją.</translation>
+    </message>
+    <message>
+      <source>Meta actions (accept, transfer, owner change, department change, assign) do not close FRT window by themselves. They are not counted as operator reply messages.</source>
+      <translation>Akcje meta (akceptacja, przeniesienie, zmiana właściciela, zmiana działu, przypisanie) same w sobie nie zamykają okna FRT. Nie są one liczone jako odpowiedzi operatora.</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder messages do not create FRT reply events because reply event requires operator user_id &gt; 0.</source>
+      <translation>Wiadomości bota/autoodpowiedzi nie tworzą zdarzeń odpowiedzi FRT, ponieważ zdarzenie odpowiedzi wymaga user_id operatora &gt; 0.</translation>
+    </message>
+    <message>
+      <source>For participant stats, each operator has their own first FRT value. For chat-level FRT, system stores the first FRT from the full timeline (response_times_total[0]).</source>
+      <translation>W przypadku statystyk uczestników każdy operator ma własną pierwszą wartość FRT. W przypadku FRT na poziomie czatu system przechowuje pierwszy FRT z pełnej osi czasu (response_times_total[0]).</translation>
+    </message>
+    <message>
+      <source>MART (Maximum Agent Response Time) describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <translation>MART (maksymalny czas odpowiedzi agenta) opisuje maksymalny czas, jaki agent potrzebuje, aby odpowiedzieć na wiadomość odwiedzającemu.</translation>
+    </message>
+    <message>
+      <source>For each participant, we calculate all valid reply times. MART is not an average, it is the single highest response time from that participant.</source>
+      <translation>Dla każdego uczestnika obliczamy wszystkie prawidłowe czasy odpowiedzi. MART nie jest średnią, jest to pojedynczy najwyższy czas odpowiedzi od danego uczestnika.</translation>
+    </message>
+    <message>
+      <source>Formula (per participant): MART = max(that participant response times).</source>
+      <translation>Wzór (na uczestnika): MART = max(czas odpowiedzi uczestnika).</translation>
+    </message>
+    <message>
+      <source>If participant has no valid response times, their MART stays 0.</source>
+      <translation>Jeśli uczestnik nie ma prawidłowych czasów odpowiedzi, jego MART wynosi 0.</translation>
     </message>
     <message>
       <source>You can have custom JS execution on click event. In combination with</source>
@@ -21917,6 +22209,10 @@
       <translation>Pobieranie załącznika zamiast korzystania z zewnętrznego adresu URL</translation>
     </message>
     <message>
+      <source>If there can be more than one element define root element location</source>
+      <translation>Jeśli może być więcej niż jeden element, zdefiniuj lokalizację elementu głównego</translation>
+    </message>
+    <message>
       <source>Image body attributes. URL or base64 encoded content</source>
       <translation>Atrybuty treści obrazu. Adres URL lub zawartość zakodowana w base64</translation>
     </message>
@@ -21989,8 +22285,16 @@
       <translation>Aby wiadomość była traktowana jako obraz, powinna mieć wartość atrybutu równą</translation>
     </message>
     <message>
+      <source>If there can be more than one element define root element locationn</source>
+      <translation>Jeśli może być więcej niż jeden element, zdefiniuj lokalizację elementu głównegon</translation>
+    </message>
+    <message>
       <source>Message ID location</source>
       <translation>Lokalizacja identyfikatora wiadomości</translation>
+    </message>
+    <message>
+      <source>Try to find chat by message id if we chat was not found by id</source>
+      <translation>Spróbuj znaleźć czat według identyfikatora wiadomości, jeśli czat nie został znaleziony według identyfikatora</translation>
     </message>
     <message>
       <source>For message being considered deleted, message should have attribute value equal to</source>
@@ -22019,10 +22323,6 @@
     <message>
       <source>Reaction emoji location</source>
       <translation>Lokalizacja emoji reakcji</translation>
-    </message>
-    <message>
-      <source>Try to find chat by message id if we chat was not found by id</source>
-      <translation>Spróbuj znaleźć czat według identyfikatora wiadomości, jeśli czat nie został znaleziony według identyfikatora</translation>
     </message>
     <message>
       <source>Reaction is a standalone unicode character</source>
@@ -26715,6 +27015,10 @@
   <context>
     <name>chat/backtochat</name>
     <message>
+      <source>Visitor completed survey!</source>
+      <translation>Odwiedzający wypełnił ankietę!</translation>
+    </message>
+    <message>
       <source>Visitor has been redirected back to chat!</source>
       <translation>Użytkownik został przekierowany z powrotem do czatu!</translation>
     </message>
@@ -26757,6 +27061,29 @@
     <message>
       <source>Deny screen share</source>
       <translation>Odmowa udostępniania ekranu</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/contentchunk</name>
+    <message>
+      <source>Identifier</source>
+      <translation>Identyfikator</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nazwa</translation>
+    </message>
+    <message>
+      <source>Content, checked against JSON format</source>
+      <translation>Zawartość sprawdzana pod kątem formatu JSON</translation>
+    </message>
+    <message>
+      <source>In-Active. Do not use in replaceable variables</source>
+      <translation>In-Active. Nie używać w zmiennych wymiennych</translation>
+    </message>
+    <message>
+      <source>Content Chunk</source>
+      <translation>Fragment zawartości</translation>
     </message>
   </context>
 </TS>

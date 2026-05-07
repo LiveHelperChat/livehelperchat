@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Kiek laiko turėtume laukti prieš informuodami operatorių apie neatsakytą pokalbį.</translation>
     </message>
@@ -32,6 +36,14 @@
     <message>
       <source>Which ip should not be allowed to be blocked</source>
       <translation>Kurių ip neturėtų būti leidžiama blokuoti</translation>
+    </message>
+    <message>
+      <source>How many days keep records of online users.</source>
+      <translation>Kiek dienų saugoti prisijungusių vartotojų įrašus.</translation>
+    </message>
+    <message>
+      <source>How many days keep records of users footprint.</source>
+      <translation>Kiek dienų saugokite naudotojų pėdsakų įrašus.</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -62,14 +74,6 @@
       <translation>Stebėti naudotojų veiklą svetainėje?</translation>
     </message>
     <message>
-      <source>How many days keep records of online users.</source>
-      <translation>Kiek dienų saugoti prisijungusių vartotojų įrašus.</translation>
-    </message>
-    <message>
-      <source>How many days keep records of users footprint.</source>
-      <translation>Kiek dienų saugokite naudotojų pėdsakų įrašus.</translation>
-    </message>
-    <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
       <translation>Siūlyti vartotojui palikti žinutę, kai vartotojas pasirenką neprisijungusį departamentą</translation>
     </message>
@@ -78,12 +82,12 @@
       <translation>Paleisti garso signama, kai suveikia pakvietimas pokalbiui.</translation>
     </message>
     <message>
-      <source>Show users option to switch language at widget</source>
-      <translation>Rodyti vartotojams galimybę perjungti kalbą puslapyje</translation>
-    </message>
-    <message>
       <source>Between what languages user should be able to switch</source>
       <translation>Tarp kokių kalbų vartotojas turėtų galėti perjungti kalbą</translation>
+    </message>
+    <message>
+      <source>Show users option to switch language at widget</source>
+      <translation>Rodyti vartotojams galimybę perjungti kalbą puslapyje</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
@@ -162,12 +166,12 @@
       <translation>Kiek sekundžių klientas turi atidaryti jau uždarytą pokalbį.</translation>
     </message>
     <message>
-      <source>On chat close exit chat</source>
-      <translation>Pokalbyje uždaryti išeiti iš pokalbio</translation>
-    </message>
-    <message>
       <source/>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On chat close exit chat</source>
+      <translation>Pokalbyje uždaryti išeiti iš pokalbio</translation>
     </message>
     <message>
       <source>Cookie should be valid only for domain where Javascript is embedded</source>
@@ -202,6 +206,10 @@
       <translation>Maksimalus žinutės ilgi ženklais</translation>
     </message>
     <message>
+      <source>Default number of online operators to show</source>
+      <translation>Numatytasis rodomų interneto operatorių skaičius</translation>
+    </message>
+    <message>
       <source>List unread chats, disabled for high performance</source>
       <translation>Neskaitytų pokalbių sąrašas, išjungtas dėl didelio našumo</translation>
     </message>
@@ -212,10 +220,6 @@
     <message>
       <source>List closed chats, disabled for high performance</source>
       <translation>Uždarytų pokalbių sąrašas, išjungtas, kad būtų užtikrintas aukštas našumas</translation>
-    </message>
-    <message>
-      <source>Default number of online operators to show</source>
-      <translation>Numatytasis rodomų interneto operatorių skaičius</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
@@ -1374,6 +1378,14 @@
       <translation>Leisti lankytojui grįžti į pokalbį, net jei jis buvo uždarytas.</translation>
     </message>
     <message>
+      <source>Do not allow visitor return to chat if survey is filled.</source>
+      <translation>Neleiskite lankytojui grįžti į pokalbį, jei apklausa užpildyta.</translation>
+    </message>
+    <message>
+      <source>Close widget for user also after survey is filled.</source>
+      <translation>Uždaryti valdiklį naudotojui, taip pat ir užpildžius apklausą.</translation>
+    </message>
+    <message>
       <source>Disable chat download</source>
       <translation>Išjungti pokalbių atsisiuntimą</translation>
     </message>
@@ -2044,6 +2056,10 @@
     <message>
       <source>Hide message label</source>
       <translation>Paslėpti pranešimo etiketę</translation>
+    </message>
+    <message>
+      <source>Show files attachement button next to settings</source>
+      <translation>Rodyti failų prisegimo mygtuką šalia nustatymų</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
@@ -3770,6 +3786,18 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
+      <source>Department</source>
+      <translation>Departamentas</translation>
+    </message>
+    <message>
+      <source>Check</source>
+      <translation>Patikrinkite</translation>
+    </message>
+    <message>
+      <source>Uncheck</source>
+      <translation>Panaikinkite žymėjimą</translation>
+    </message>
+    <message>
       <source>You can make this canned message available only for certain period of times.</source>
       <translation>Šį konservuotą pranešimą galite pateikti tik tam tikrą laiką.</translation>
     </message>
@@ -3798,24 +3826,12 @@
       <translation>Aktyvus į</translation>
     </message>
     <message>
-      <source>Department</source>
-      <translation>Departamentas</translation>
-    </message>
-    <message>
       <source>Check all departments from selected department group</source>
       <translation>Patikrinkite visus pasirinktos departamentų grupės skyrius</translation>
     </message>
     <message>
-      <source>Check</source>
-      <translation>Patikrinkite</translation>
-    </message>
-    <message>
       <source>Uncheck all departments from selected department group</source>
       <translation>Panaikinkite visų pasirinktų departamentų grupės žymėjimą</translation>
-    </message>
-    <message>
-      <source>Uncheck</source>
-      <translation>Panaikinkite žymėjimą</translation>
     </message>
     <message>
       <source>If you do not select a custom or default auto-responder, proactive chats will not have an auto-responder assigned.</source>
@@ -4261,6 +4277,14 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Choose department group</source>
+      <translation>Pasirinkite departamento grupę</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Bet kuris</translation>
+    </message>
+    <message>
       <source>Work hours, 24 hours format, 0 - 23, minutes format 0 - 59</source>
       <translation>Darbo valandos, 24 valandų formatas, 0 - 23, minučių formatas 0 - 59</translation>
     </message>
@@ -4307,14 +4331,6 @@
     <message>
       <source>Time to</source>
       <translation>Laikas</translation>
-    </message>
-    <message>
-      <source>Choose department group</source>
-      <translation>Pasirinkite departamento grupę</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Bet kuris</translation>
     </message>
     <message>
       <source>Your time zone</source>
@@ -5846,12 +5862,20 @@
       <translation>Neįtraukti asmeninių atsakymų</translation>
     </message>
     <message>
-      <source>ID</source>
-      <translation>ID</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>Pavadinimas</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamentas</translation>
+    </message>
+    <message>
+      <source>Reset</source>
+      <translation>Iš naujo nustatyti</translation>
+    </message>
+    <message>
+      <source>ID</source>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Show only pinned</source>
@@ -5920,10 +5944,6 @@
     <message>
       <source>Fallback message</source>
       <translation>Atsarginis pranešimas</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamentas</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -6396,10 +6416,6 @@
     <message>
       <source>Save as view</source>
       <translation>Išsaugoti kaip vaizdą</translation>
-    </message>
-    <message>
-      <source>Reset</source>
-      <translation>Iš naujo nustatyti</translation>
     </message>
     <message>
       <source>Choose status</source>
@@ -9200,6 +9216,14 @@
     <message>
       <source>Stop playing recorded audio</source>
       <translation>Nustoti groti įrašytą garsą</translation>
+    </message>
+    <message>
+      <source>Dictate</source>
+      <translation>Diktatas</translation>
+    </message>
+    <message>
+      <source>Stop</source>
+      <translation>Sustabdyti</translation>
     </message>
     <message>
       <source>You must accept terms</source>
@@ -14052,6 +14076,10 @@
       <translation>Versti</translation>
     </message>
     <message>
+      <source>While testing please disable respose cache.</source>
+      <translation>Bandymo metu išjunkite &quot;Respose&quot; spartinančiąją atmintinę.</translation>
+    </message>
+    <message>
       <source>Enable translation response cache</source>
       <translation>Įjungti vertimo atsakymų talpyklą</translation>
     </message>
@@ -14140,6 +14168,46 @@
       <translation>Naudokite DeepL paslaugą</translation>
     </message>
     <message>
+      <source>Formality</source>
+      <translation>Formalumas</translation>
+    </message>
+    <message>
+      <source>default</source>
+      <translation>numatytasis</translation>
+    </message>
+    <message>
+      <source>prefer_more - more formal if available, otherwise default</source>
+      <translation>prefer_more - oficialiau, jei yra, kitaip pagal numatytuosius nustatymus</translation>
+    </message>
+    <message>
+      <source>prefer_less - more informal if available, otherwise default</source>
+      <translation>prefer_less - neformalesnis, jei yra, kitaip pagal numatytuosius nustatymus</translation>
+    </message>
+    <message>
+      <source>More information about formality</source>
+      <translation>Daugiau informacijos apie oficialumą</translation>
+    </message>
+    <message>
+      <source>Model type</source>
+      <translation>Modelio tipas</translation>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation>Numatytoji</translation>
+    </message>
+    <message>
+      <source>Quality optimized</source>
+      <translation>Optimizuota kokybė</translation>
+    </message>
+    <message>
+      <source>Latency optimized</source>
+      <translation>Optimizuotas vėlavimas</translation>
+    </message>
+    <message>
+      <source>More information about model type</source>
+      <translation>Daugiau informacijos apie modelio tipą</translation>
+    </message>
+    <message>
       <source>Hide translate single message button.</source>
       <translation>Paslėpti vieno pranešimo vertimo mygtuką.</translation>
     </message>
@@ -14180,6 +14248,10 @@
       <translation>Negalėjome nustatyti kalbos</translation>
     </message>
     <message>
+      <source>From and To langauges should be different</source>
+      <translation>Iš ir Į kalbos turėtų būti skirtingos</translation>
+    </message>
+    <message>
       <source>We could not detect operator language</source>
       <translation>Nepavyko aptikti operatoriaus kalbos</translation>
     </message>
@@ -14200,8 +14272,20 @@
       <translation>Vertimų nustatymai</translation>
     </message>
     <message>
+      <source>Automatic translation stopped</source>
+      <translation>Automatinis vertimas sustabdytas</translation>
+    </message>
+    <message>
       <source>Settings has been saved</source>
       <translation>Nustatymai buvo išsaugoti</translation>
+    </message>
+    <message>
+      <source>Automatic translation started</source>
+      <translation>Pradėtas automatinis vertimas</translation>
+    </message>
+    <message>
+      <source>Old messages will be translated.</source>
+      <translation>Seni pranešimai bus išversti.</translation>
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
@@ -15649,6 +15733,10 @@
       <translation>Agentų atsako laiko skaičiavimo žurnalas</translation>
     </message>
     <message>
+      <source>Duration per agent</source>
+      <translation>Trukmė vienam darbuotojui</translation>
+    </message>
+    <message>
       <source>Chat auto responder</source>
       <translation>Pokalbių automatinis atsakiklis</translation>
     </message>
@@ -15850,6 +15938,10 @@
     <message>
       <source>Replaceable variables</source>
       <translation>Keičiami kintamieji</translation>
+    </message>
+    <message>
+      <source>Content chunks</source>
+      <translation>Turinio dalys</translation>
     </message>
     <message>
       <source>Chat</source>
@@ -19148,6 +19240,10 @@
   <context>
     <name>file/configuration</name>
     <message>
+      <source>if file is (OR)</source>
+      <translation>jei failas yra (ARBA)</translation>
+    </message>
+    <message>
       <source>Allowed files types for operators</source>
       <translation>Leistini failų tipai operatoriams</translation>
     </message>
@@ -19268,6 +19364,22 @@
       <translation>Balso pranešimai</translation>
     </message>
     <message>
+      <source>Voice messages engine</source>
+      <translation>Balso pranešimų variklis</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Failas</translation>
+    </message>
+    <message>
+      <source>WebKit dictate</source>
+      <translation>&quot;WebKit&quot; diktatas</translation>
+    </message>
+    <message>
+      <source>LLM (Disabled at the moment)</source>
+      <translation>LLM (šiuo metu negalioja)</translation>
+    </message>
+    <message>
       <source>Voice message max length in seconds</source>
       <translation>Maksimali balso žinutės trukmė sekundėmis</translation>
     </message>
@@ -19284,8 +19396,8 @@
       <translation>Ištrinti failus</translation>
     </message>
     <message>
-      <source>if file is (OR)</source>
-      <translation>jei failas yra (ARBA)</translation>
+      <source>Delete only those type of files. Choose only one or none to delete all files.</source>
+      <translation>Ištrinkite tik tokio tipo failus. Norėdami ištrinti visus failus, pasirinkite tik vieną arba nė vieno.</translation>
     </message>
     <message>
       <source>And operator file is older than n days</source>
@@ -19611,6 +19723,26 @@
   <context>
     <name>genericbot/helpattributes</name>
     <message>
+      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
+      <translation>Apibūdina vidutinį laiką, per kurį agentas atsako lankytojui į žinutę, atsižvelgiant į visą pokalbį.</translation>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
+      <translation>Aprašoma, kiek laiko užtruko pokalbis, kol jis buvo uždarytas. Pokalbio trukmė nustatoma pagal laiką, praleistą tarp žinučių.</translation>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
+      <translation>Aprašoma, kiek laiko užtruko pokalbis, kol jis buvo uždarytas. Pokalbio trukmė apskaičiuojama pagal laiką, praleistą tarp pranešimų vienam agentui.</translation>
+    </message>
+    <message>
+      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
+      <translation>Apibūdina, per kiek laiko agentas atsako į pirmąją žinutę lankytojui po pokalbio patvirtinimo.</translation>
+    </message>
+    <message>
+      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <translation>Apibūdina maksimalų laiką, per kurį agentas atsako lankytojui į žinutę.</translation>
+    </message>
+    <message>
       <source>Conditions explain</source>
       <translation>Sąlygų paaiškinimas</translation>
     </message>
@@ -19719,24 +19851,184 @@
       <translation>Jūsų atsakymas pasirodys čia!</translation>
     </message>
     <message>
-      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
-      <translation>Apibūdina vidutinį laiką, per kurį agentas atsako lankytojui į žinutę, atsižvelgiant į visą pokalbį.</translation>
+      <source>Formula (per participant): AART = round(sum of that participant response times / number of that participant responses).</source>
+      <translation>Formulė (vienam dalyviui): AART = apvalus (to dalyvio atsakymų laikų suma / to dalyvio atsakymų skaičius).</translation>
     </message>
     <message>
-      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
-      <translation>Aprašoma, kiek laiko užtruko pokalbis, kol jis buvo uždarytas. Pokalbio trukmė nustatoma pagal laiką, praleistą tarp žinučių.</translation>
+      <source>A response time starts when a visitor message appears.</source>
+      <translation>Atsakymo laikas prasideda, kai pasirodo lankytojo pranešimas.</translation>
     </message>
     <message>
-      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
-      <translation>Aprašoma, kiek laiko užtruko pokalbis, kol jis buvo uždarytas. Pokalbio trukmė apskaičiuojama pagal laiką, praleistą tarp pranešimų vienam agentui.</translation>
+      <source>Consecutive visitor messages do not reset response start point. While waiting for operator reply, only the first pending visitor start is used; later visitor messages do not replace it.</source>
+      <translation>Vienas po kito einantys lankytojų pranešimai neatstato atsakymo pradžios taško. Laukiant operatoriaus atsakymo, naudojama tik pirmoji laukianti lankytojo pradžia; vėlesni lankytojo pranešimai jos nepakeičia.</translation>
     </message>
     <message>
-      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
-      <translation>Apibūdina, per kiek laiko agentas atsako į pirmąją žinutę lankytojui po pokalbio patvirtinimo.</translation>
+      <source>A response time ends when that same participant sends the next real operator message.</source>
+      <translation>Atsakymo laikas baigiasi, kai tas pats dalyvis išsiunčia kitą tikrojo operatoriaus pranešimą.</translation>
     </message>
     <message>
-      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
-      <translation>Apibūdina maksimalų laiką, per kurį agentas atsako lankytojui į žinutę.</translation>
+      <source>Only positive delays are used. If there is no valid reply for a visitor message, nothing is added.</source>
+      <translation>Naudojami tik teigiami vėlavimai. Jei nėra galiojančio atsakymo į lankytojo pranešimą, nieko nepridedama.</translation>
+    </message>
+    <message>
+      <source>The first part of pending state is ignored: replies must happen after (pending time + wait time).</source>
+      <translation>Pirmoji laukimo būsenos dalis ignoruojama: atsakymai turi būti pateikti po (laukimo laikas + laukimo laikas).</translation>
+    </message>
+    <message>
+      <source>If visitor message was before that start point, calculation starts from (pending time + wait time), not from visitor message time.</source>
+      <translation>Jei lankytojo žinutė buvo išsiųsta prieš šį pradžios tašką, skaičiavimas pradedamas nuo (laukimo laikas + laukimo laikas), o ne nuo lankytojo žinutės laiko.</translation>
+    </message>
+    <message>
+      <source>Included messages for response timing: visitor messages and normal operator messages.</source>
+      <translation>Įtraukti pranešimai atsakymo laikui: lankytojų pranešimai ir įprasti operatoriaus pranešimai.</translation>
+    </message>
+    <message>
+      <source>Excluded from response timing: plain system messages that are not supported actions, meta actions (assign/transfer/change owner/change department/accept), and bot messages.</source>
+      <translation>Į atsakymo laiką neįtraukiami: paprasti sistemos pranešimai, kurie nėra palaikomi veiksmai, meta veiksmai (priskirti / perduoti / pakeisti savininką / pakeisti skyrių / priimti) ir botų pranešimai.</translation>
+    </message>
+    <message>
+      <source>If participant has no valid response times, their AART stays 0.</source>
+      <translation>Jei dalyvis neturi galiojančio atsako laiko, jo AART lieka 0.</translation>
+    </message>
+    <message>
+      <source>Measures the total duration of the chat from start to close across the full message timeline, regardless of ownership. It includes user, agent, and bot messages and begins counting when the chat starts</source>
+      <translation>Matuoja bendrą pokalbio trukmę nuo pradžios iki pabaigos per visą pranešimo laiko juostą, nepriklausomai nuo nuosavybės. Ji apima naudotojo, agento ir boto žinutes ir pradedama skaičiuoti, kai pokalbis prasideda.</translation>
+    </message>
+    <message>
+      <source>Abbreviations used here: FRT = First Response Time, AART = Average Agent Response Time, MART = Maximum Agent Response Time.</source>
+      <translation>Čia vartojamos santrumpos: FRT = pirmojo atsako laikas, AART = vidutinis agento atsako laikas, MART = maksimalus agento atsako laikas.</translation>
+    </message>
+    <message>
+      <source>Chat duration start form chat start event and till last operator/bot/visitor message.</source>
+      <translation>Pokalbio trukmė prasideda nuo pokalbio pradžios įvykio ir tęsiasi iki paskutinio operatoriaus / roboto / lankytojo pranešimo.</translation>
+    </message>
+    <message>
+      <source>Chat duration is calculated as a sum of time gaps between consecutive kept messages in chat timeline order.</source>
+      <translation>Pokalbio trukmė apskaičiuojama kaip laiko tarpų tarp viena po kitos einančių žinučių suma pokalbio laiko juostoje.</translation>
+    </message>
+    <message>
+      <source>The first kept message only sets the starting point. Counting begins from the next message, where each next gap is evaluated.</source>
+      <translation>Pirmuoju išsaugotu pranešimu nustatomas tik pradinis taškas. Skaičiavimas pradedamas nuo kito pranešimo, kuriame įvertinamas kiekvienas kitas tarpas.</translation>
+    </message>
+    <message>
+      <source>A gap is added only if it is greater than 0 and smaller than the timeout for the current message author. If it is too large, that gap is skipped.</source>
+      <translation>Atotrūkis pridedamas tik tada, jei jis yra didesnis už 0 ir mažesnis už dabartinio pranešimo autoriaus laiko tarpą. Jei jis per didelis, tarpas praleidžiamas.</translation>
+    </message>
+    <message>
+      <source>System messages (user_id = -1) are skipped, except supported meta actions (accept, transfer, owner/department change, assign), which are converted to operator events and kept in timeline.</source>
+      <translation>Sisteminiai pranešimai (user_id = -1) praleidžiami, išskyrus palaikomus metaklausimus (priimti, perduoti, savininko / skyriaus pakeitimas, priskirti), kurie konvertuojami į operatoriaus įvykius ir saugomi laiko juostoje.</translation>
+    </message>
+    <message>
+      <source>Consecutive visitor messages are evaluated as normal consecutive timeline gaps: each visitor-to-visitor or visitor-to-next-kept-message gap is checked against timeout and added only if it is below limit.</source>
+      <translation>Iš eilės einantys lankytojų pranešimai vertinami kaip įprasti iš eilės einantys laiko juostos tarpai: kiekvienas lankytojo ir lankytojo arba lankytojo ir kito saugomo pranešimo tarpas tikrinamas pagal laiko limitą ir pridedamas tik tuo atveju, jei jis neviršija limito.</translation>
+    </message>
+    <message>
+      <source>For response metrics in the same calculation flow (FRT/AART/MART), consecutive visitor messages do not reset pending visitor start marker. That marker is replaced only after a valid operator reply closes current pending window.</source>
+      <translation>Tame pačiame skaičiavimo sraute (FRT/AART/MART) esančių atsako metrikų atveju iš eilės einantys lankytojo pranešimai neatstato laukiančio lankytojo pradžios žymeklio. Šis žymeklis pakeičiamas tik po to, kai galiojančiu operatoriaus atsakymu uždaromas esamas laukimo langas.</translation>
+    </message>
+    <message>
+      <source>Acceptance or transfer meta events do not reset total chat duration; they are just timeline events. Duration continues from previous kept message using the same gap rule.</source>
+      <translation>Priėmimo arba perkėlimo metaįvykiai neatstato bendros pokalbio trukmės; tai tik laiko juostos įvykiai. Trukmė tęsiasi nuo ankstesnės žinutės, taikant tą pačią tarpo taisyklę.</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder messages are not used as agent owners, but in total chat duration timeline they still follow the same gap-and-timeout rule if they are present as kept messages.</source>
+      <translation>Boto/automatinio atsakiklio pranešimai nenaudojami kaip agento savininkai, tačiau bendroje pokalbio trukmės laiko juostoje jiems vis tiek taikoma ta pati pertraukos ir laiko limito taisyklė, jei jie yra kaip nuolatiniai pranešimai.</translation>
+    </message>
+    <message>
+      <source>Scenario: visitor writes after first acceptance. The gap from that visitor message to the next kept message is added only if it is below timeout.</source>
+      <translation>Scenarijus: lankytojas rašo po pirmojo priėmimo. Atotrūkis nuo to lankytojo pranešimo iki kito saugomo pranešimo pridedamas tik tuo atveju, jei jis neviršija laiko limito.</translation>
+    </message>
+    <message>
+      <source>Scenario: chat is transferred and accepted by another operator. Duration is not reset; it continues on the same message timeline with the same timeout checks.</source>
+      <translation>Scenarijus: pokalbį perduoda ir priima kitas operatorius. Trukmė neatstatoma; ji tęsiama toje pačioje pranešimo laiko juostoje su tais pačiais laiko patikrinimais.</translation>
+    </message>
+    <message>
+      <source>minutes — the maximum gap allowed after a visitor message. If the operator replies later than this, that wait time is skipped.</source>
+      <translation>minučių - didžiausias leidžiamas laiko tarpas po lankytojo pranešimo. Jei operatorius atsako vėliau, šis laukimo laikas praleidžiamas.</translation>
+    </message>
+    <message>
+      <source>minutes — the maximum gap allowed when the current message is treated as operator side (non-visitor).</source>
+      <translation>minutes - didžiausias leidžiamas laiko tarpas, kai dabartinis pranešimas laikomas operatoriaus pusės (ne lankytojo).</translation>
+    </message>
+    <message>
+      <source>Measures the average chat duration from the accept action event through the full message timeline. It does NOT include bot messages, and it begins counting when the agent accepts the chat.</source>
+      <translation>Matuoja vidutinę pokalbio trukmę nuo veiksmo priėmimo įvykio per visą pranešimo laiko juostą. Į šią reikšmę NĖRA įskaičiuojami botų pranešimai ir ji pradedama skaičiuoti, kai agentas priima pokalbį.</translation>
+    </message>
+    <message>
+      <source>An agent becomes active owner when a supported operator event/message appears (accept, transfer, owner/department change, assign, or operator message).</source>
+      <translation>Agentas tampa aktyviu savininku, kai pasirodo palaikomas operatoriaus įvykis / pranešimas (priimti, perduoti, pakeisti savininką / skyrių, priskirti arba operatoriaus pranešimas).</translation>
+    </message>
+    <message>
+      <source>For response metrics tied to participants (FRT/AART/MART), consecutive visitor messages also do not reset pending visitor start marker. Start remains first pending point until valid operator reply.</source>
+      <translation>Su dalyviais susietų atsako rodiklių (FRT / AART / MART) atveju nuoseklūs lankytojų pranešimai taip pat neatstato laukiančio lankytojo pradžios žymeklio. Pradžia lieka pirmuoju laukiančiuoju tašku, kol operatorius pateikia galiojantį atsakymą.</translation>
+    </message>
+    <message>
+      <source>Accept/transfer/owner-change meta events can switch owner context, but they do not count as visitor replies. They only affect which human owner receives later eligible gaps.</source>
+      <translation>Priėmimo / perdavimo / savininko keitimo metaįvykiai gali pakeisti savininko kontekstą, tačiau jie nėra laikomi lankytojo atsakymais. Jie turi įtakos tik tam, kuris žmogus savininkas gaus vėliau reikalavimus atitinkančias spragas.</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder side is not tracked as a human participant owner, so it does not create a separate human agent duration entry.</source>
+      <translation>Botas / automatinio atsakiklio pusė nėra stebima kaip žmogiškojo dalyvio savininkas, todėl nesukuriamas atskiras žmogiškojo agento trukmės įrašas.</translation>
+    </message>
+    <message>
+      <source>Scenario: visitor writes after first acceptance. That visitor-to-next-message gap is added to accepted agent only if it is below timeout.</source>
+      <translation>Scenarijus: lankytojas rašo po pirmojo priėmimo. Šis lankytojo ir kito pranešimo tarpas pridedamas prie priimto agento tik tuo atveju, jei jis yra mažesnis už laiko limitą.</translation>
+    </message>
+    <message>
+      <source>Scenario: chat is transferred and accepted by another operator. After acceptance, visitor gaps are added to new owner; previous owner remains frozen.</source>
+      <translation>Scenarijus: pokalbį perduoda ir priima kitas operatorius. Po priėmimo lankytojų spragos pridedamos naujam savininkui; ankstesnis savininkas lieka įšaldytas.</translation>
+    </message>
+    <message>
+      <source>minutes — max gap allowed after a visitor message. If the agent replied later than this, that waiting time is ignored.</source>
+      <translation>minutės - maksimalus leidžiamas laiko tarpas po lankytojo pranešimo. Jei agentas atsakė vėliau, į šį laukimo laiką neatsižvelgiama.</translation>
+    </message>
+    <message>
+      <source>minutes — max gap allowed after an agent message. If the visitor replied later than this, that waiting time is ignored.</source>
+      <translation>minutės - maksimalus leidžiamas tarpas po agento pranešimo. Jei lankytojas atsakė vėliau, į šį laukimo laiką neatsižvelgiama.</translation>
+    </message>
+    <message>
+      <source>FRT is created when there is a pending visitor-side start point and then a real operator message arrives (operator user_id &gt; 0, and message is not a meta/system action).</source>
+      <translation>FRT sukuriama, kai yra laukiamas lankytojo pusės pradžios taškas ir gaunamas tikras operatoriaus pranešimas (operatoriaus user_id &gt; 0, o pranešimas nėra meta/sistemos veiksmas).</translation>
+    </message>
+    <message>
+      <source>Start point is stored in two cases: (1) first visitor message after previous FRT was closed, or (2) accept_action meta event.</source>
+      <translation>Pradžios taškas saugomas dviem atvejais: (1) pirmasis lankytojo pranešimas po to, kai buvo uždarytas ankstesnis FRT, arba (2) accept_action metaįvykis.</translation>
+    </message>
+    <message>
+      <source>Consecutive visitor messages do not move the start point forward. Internally, visitor start is set only when there is no active pending visitor start; after that, extra visitor messages are ignored for start-point update until a valid operator reply happens.</source>
+      <translation>Vienas po kito einantys lankytojų pranešimai pradžios taško į priekį neperkelia. Viduje lankytojo pradžios taškas nustatomas tik tada, kai nėra aktyvaus laukiančio lankytojo pradžios taško; po to papildomi lankytojo pranešimai ignoruojami atnaujinant pradžios tašką, kol gaunamas galiojantis operatoriaus atsakymas.</translation>
+    </message>
+    <message>
+      <source>When operator reply arrives, FRT is calculated as reply_time minus max(start_point_time, pending_start_time), where pending_start_time = pnd_time + wait_time. This removes queue waiting before acceptance.</source>
+      <translation>Kai gaunamas operatoriaus atsakymas, FRT apskaičiuojamas kaip atsakymo_laikas minus max(start_point_time, pending_start_time), kur pending_start_time = pnd_time + wait_time. Taip pašalinamas eilės laukimas prieš priėmimą.</translation>
+    </message>
+    <message>
+      <source>Meta actions (accept, transfer, owner change, department change, assign) do not close FRT window by themselves. They are not counted as operator reply messages.</source>
+      <translation>Meta veiksmai (priėmimas, perdavimas, savininko keitimas, skyriaus keitimas, priskyrimas) savaime neuždaro FRT lango. Jie neskaičiuojami kaip operatoriaus atsakymo pranešimai.</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder messages do not create FRT reply events because reply event requires operator user_id &gt; 0.</source>
+      <translation>Boto/automatinio atsakiklio pranešimai nesukuria FRT atsakymo įvykių, nes atsakymo įvykiui reikia operatoriaus user_id &gt; 0.</translation>
+    </message>
+    <message>
+      <source>For participant stats, each operator has their own first FRT value. For chat-level FRT, system stores the first FRT from the full timeline (response_times_total[0]).</source>
+      <translation>Dalyvių statistikai kiekvienas operatorius turi savo pirmąją FRT vertę. Pokalbių lygio FRT sistema išsaugo pirmąją FRT iš visos laiko juostos (response_times_total[0]).</translation>
+    </message>
+    <message>
+      <source>MART (Maximum Agent Response Time) describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <translation>MART (maksimalus agento atsakymo laikas) apibūdina maksimalų laiką, per kurį agentas atsako į lankytojo pranešimą.</translation>
+    </message>
+    <message>
+      <source>For each participant, we calculate all valid reply times. MART is not an average, it is the single highest response time from that participant.</source>
+      <translation>Kiekvienam dalyviui apskaičiuojame visus galiojančius atsakymų laikus. MART nėra vidurkis, tai vienintelis didžiausias to dalyvio atsakymo laikas.</translation>
+    </message>
+    <message>
+      <source>Formula (per participant): MART = max(that participant response times).</source>
+      <translation>Formulė (vienam dalyviui): MART = max(to dalyvio atsako laikas).</translation>
+    </message>
+    <message>
+      <source>If participant has no valid response times, their MART stays 0.</source>
+      <translation>Jei dalyvis neturi galiojančio atsako laiko, jo MART lieka 0.</translation>
     </message>
     <message>
       <source>You can have custom JS execution on click event. In combination with</source>
@@ -21917,6 +22209,10 @@
       <translation>Priedo atsisiuntimas vietoj išorinio URL adreso</translation>
     </message>
     <message>
+      <source>If there can be more than one element define root element location</source>
+      <translation>Jei gali būti daugiau nei vienas elementas, apibrėžkite šakninio elemento vietą</translation>
+    </message>
+    <message>
       <source>Image body attributes. URL or base64 encoded content</source>
       <translation>Vaizdo kūno atributai. URL arba base64 koduotas turinys</translation>
     </message>
@@ -21989,8 +22285,16 @@
       <translation>Kad pranešimas būtų laikomas paveikslėliu, pranešimo atributo vertė turi būti lygi</translation>
     </message>
     <message>
+      <source>If there can be more than one element define root element locationn</source>
+      <translation>Jei gali būti daugiau nei vienas elementas, apibrėžkite šakninio elemento vietąn</translation>
+    </message>
+    <message>
       <source>Message ID location</source>
       <translation>Pranešimo ID vieta</translation>
+    </message>
+    <message>
+      <source>Try to find chat by message id if we chat was not found by id</source>
+      <translation>Pabandykite rasti pokalbį pagal pranešimo id, jei pokalbis nebuvo rastas pagal id</translation>
     </message>
     <message>
       <source>For message being considered deleted, message should have attribute value equal to</source>
@@ -22019,10 +22323,6 @@
     <message>
       <source>Reaction emoji location</source>
       <translation>Reakcijos emoji vieta</translation>
-    </message>
-    <message>
-      <source>Try to find chat by message id if we chat was not found by id</source>
-      <translation>Pabandykite rasti pokalbį pagal pranešimo id, jei pokalbis nebuvo rastas pagal id</translation>
     </message>
     <message>
       <source>Reaction is a standalone unicode character</source>
@@ -26715,6 +27015,10 @@
   <context>
     <name>chat/backtochat</name>
     <message>
+      <source>Visitor completed survey!</source>
+      <translation>Lankytojas užpildė apklausą!</translation>
+    </message>
+    <message>
       <source>Visitor has been redirected back to chat!</source>
       <translation>Lankytojas buvo nukreiptas atgal į pokalbį!</translation>
     </message>
@@ -26757,6 +27061,29 @@
     <message>
       <source>Deny screen share</source>
       <translation>Atsisakyti bendrinti ekraną</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/contentchunk</name>
+    <message>
+      <source>Identifier</source>
+      <translation>Identifikatorius</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Pavadinimas</translation>
+    </message>
+    <message>
+      <source>Content, checked against JSON format</source>
+      <translation>Turinys, patikrintas pagal JSON formatą</translation>
+    </message>
+    <message>
+      <source>In-Active. Do not use in replaceable variables</source>
+      <translation>Neaktyvus. Nenaudoti keičiamuose kintamuosiuose</translation>
+    </message>
+    <message>
+      <source>Content Chunk</source>
+      <translation>Turinio dalis</translation>
     </message>
   </context>
 </TS>

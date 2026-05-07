@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Mennyi idő elteltével kapjon az operátor értesítést egy megválaszolatlan üzenetről?</translation>
     </message>
@@ -32,6 +36,14 @@
     <message>
       <source>Which ip should not be allowed to be blocked</source>
       <translation>Mely IP-cím(ek) NE legyen(ek) korlátozva?</translation>
+    </message>
+    <message>
+      <source>How many days keep records of online users.</source>
+      <translation>Hány napig őrizhetők meg az online felhasználók adatai?</translation>
+    </message>
+    <message>
+      <source>How many days keep records of users footprint.</source>
+      <translation>Hány napig őrizhetők meg a felhasználói lábnyomok?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -62,14 +74,6 @@
       <translation>Nyomon követhető a felhasználói aktivitás az oldalon?</translation>
     </message>
     <message>
-      <source>How many days keep records of online users.</source>
-      <translation>Hány napig őrizhetők meg az online felhasználók adatai?</translation>
-    </message>
-    <message>
-      <source>How many days keep records of users footprint.</source>
-      <translation>Hány napig őrizhetők meg a felhasználói lábnyomok?</translation>
-    </message>
-    <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
       <translation>Javasoljuk a felhasználónak, hogy hagyjon üzenetet, majd ezt elfogadva választhat egy offline részleget</translation>
     </message>
@@ -78,12 +82,12 @@
       <translation>Hangjelzés új beszélgetési meghívás esetén</translation>
     </message>
     <message>
-      <source>Show users option to switch language at widget</source>
-      <translation>Nyelvváltási lehetőség megjelenítése a felhasználók számára a widgeten belül</translation>
-    </message>
-    <message>
       <source>Between what languages user should be able to switch</source>
       <translation>Milyen nyelvek közül választhat a felhasználó?</translation>
+    </message>
+    <message>
+      <source>Show users option to switch language at widget</source>
+      <translation>Nyelvváltási lehetőség megjelenítése a felhasználók számára a widgeten belül</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
@@ -162,12 +166,12 @@
       <translation>Hány másodperce van az ügyfélnek egy lezárt beszélgetés újranyitására?</translation>
     </message>
     <message>
-      <source>On chat close exit chat</source>
-      <translation>Egy beszélgetés bezárásakor kilépés a beszélgetésből</translation>
-    </message>
-    <message>
       <source/>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On chat close exit chat</source>
+      <translation>Egy beszélgetés bezárásakor kilépés a beszélgetésből</translation>
     </message>
     <message>
       <source>Cookie should be valid only for domain where Javascript is embedded</source>
@@ -202,6 +206,10 @@
       <translation>Az üzenetek maximális hossza karakterekben</translation>
     </message>
     <message>
+      <source>Default number of online operators to show</source>
+      <translation>A megjelenítendő online operátorok alapértelmezett száma</translation>
+    </message>
+    <message>
       <source>List unread chats, disabled for high performance</source>
       <translation>Az olvasatlan beszélgetések megjelenítése – kikapcsolható a jobb teljesítmény érdekében</translation>
     </message>
@@ -212,10 +220,6 @@
     <message>
       <source>List closed chats, disabled for high performance</source>
       <translation>A lezárt beszélgetések megjelenítése – kikapcsolható a jobb teljesítmény érdekében</translation>
-    </message>
-    <message>
-      <source>Default number of online operators to show</source>
-      <translation>A megjelenítendő online operátorok alapértelmezett száma</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
@@ -899,15 +903,15 @@
     </message>
     <message>
       <source>Delivered messages indicators</source>
-      <translation>Delivered üzenetek mutatók</translation>
+      <translation>A kézbesített üzenetek jelzői</translation>
     </message>
     <message>
       <source>Start chat input fields coloring</source>
-      <translation>beszélgetésindítás beviteli mezők színezése</translation>
+      <translation>A beszélgetésindító mezők színezése</translation>
     </message>
     <message>
       <source>Icons coloring</source>
-      <translation>Ikonok színezés</translation>
+      <translation>Ikonszínek</translation>
     </message>
     <message>
       <source>New message separator style</source>
@@ -975,7 +979,7 @@
     </message>
     <message>
       <source>Time taken to render till this moment</source>
-      <translation>idő a jelen pillanatig</translation>
+      <translation>Renderelési idő jelen pillanatig</translation>
     </message>
     <message>
       <source>Clear cookies and reload</source>
@@ -1372,6 +1376,14 @@
     <message>
       <source>Allow visitor return to chat even if it was closed.</source>
       <translation>A látogatók akkor is visszatérhetnek a beszélgetésekhez, ha azok már le lettek zárva</translation>
+    </message>
+    <message>
+      <source>Do not allow visitor return to chat if survey is filled.</source>
+      <translation>Ne engedje, hogy a látogató visszatérjen a Beszélgetés címre, ha a felmérés kitöltésre került.</translation>
+    </message>
+    <message>
+      <source>Close widget for user also after survey is filled.</source>
+      <translation>A widget bezárása a felhasználó számára a felmérés kitöltése után is.</translation>
     </message>
     <message>
       <source>Disable chat download</source>
@@ -1943,7 +1955,7 @@
     </message>
     <message>
       <source>Initial user message height in pixels</source>
-      <translation>Kezdeti felhasználói magasság üzenet pixelben</translation>
+      <translation>A felhasználói üzenet kezdeti magassága pixelben</translation>
     </message>
     <message>
       <source>Widget position from right to append in invitation</source>
@@ -2039,23 +2051,27 @@
     </message>
     <message>
       <source>No border under a profile in start chat form</source>
-      <translation>Nincs keret a profil alatt a beszélgetésindítás űrlapon</translation>
+      <translation>Ne legyen keret a profil alatt a beszélgetésindítási űrlapon</translation>
     </message>
     <message>
       <source>Hide message label</source>
-      <translation>üzenet címke elrejtése</translation>
+      <translation>Üzenetcímke elrejtése</translation>
+    </message>
+    <message>
+      <source>Show files attachement button next to settings</source>
+      <translation>Fájlok megjelenítése csatolmány gomb a beállítások</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
-      <translation>A Operátor profil megjelenítése a beviteli mezők felett</translation>
+      <translation>Operátori profil megjelenítése a beviteli mezők felett</translation>
     </message>
     <message>
       <source>Hide start chat button. Usefull if in the theme you choose bot and trigger with a buttons.</source>
-      <translation>A beszélgetésindítás gomb elrejtése. Hasznos, ha a téma -ban a bot és a eseményindító gombokkal választja ki a -t.</translation>
+      <translation>A beszélgetésindító gomb elrejtése. Hasznos, ha a témában botot és gombokkal történő eseményindítást választasz</translation>
     </message>
     <message>
       <source>Show messages box above input fields, usefull for UX combinations.</source>
-      <translation>Mutasd meg a üzenetpanel címet a beviteli mezők felett, hasznos az UX kombinációkhoz.</translation>
+      <translation>Az üzenetek dobozának megjelenítése a beviteli mezők felett – UX-kombinációkhoz hasznos</translation>
     </message>
     <message>
       <source>Enable reactions for visitor</source>
@@ -2103,15 +2119,15 @@
     </message>
     <message>
       <source>Hide message delivery status icons</source>
-      <translation>üzenet szállítás állapot ikonok elrejtése</translation>
+      <translation>Üzenetkézbesítési állapotikonok elrejtése</translation>
     </message>
     <message>
       <source>Keep seen message indicator</source>
-      <translation>Tartsa a megtekintve üzenet jelzőt</translation>
+      <translation>A „Megtekintve” üzenetjelző megőrzése</translation>
     </message>
     <message>
       <source>Show message that chat is using translation service</source>
-      <translation>Mutasd meg a üzenet, hogy a Beszélgetés fordítási szolgáltatást használ.</translation>
+      <translation>Üzenet megjelenítése, ha a beszélgetés fordítási szolgáltatást használ</translation>
     </message>
     <message>
       <source>Hide chat status block</source>
@@ -2143,55 +2159,55 @@
     </message>
     <message>
       <source>Operator/chat status background color</source>
-      <translation>Operátor/Beszélgetés állapot háttérszín</translation>
+      <translation>Az operátor/beszélgetési állapot háttérszíne</translation>
     </message>
     <message>
       <source>Messages area background color</source>
-      <translation>üzenetek terület háttérszín</translation>
+      <translation>Az üzenetterületek háttérszíne</translation>
     </message>
     <message>
       <source>Operator profile text color</source>
-      <translation>Operátor profil szövegszín</translation>
+      <translation>Az operátori profil szövegszíne</translation>
     </message>
     <message>
       <source>Input field label color</source>
-      <translation>Beviteli mező címkéje szín</translation>
+      <translation>A beviteli mezők címkéjének színe</translation>
     </message>
     <message>
       <source>Input field background color</source>
-      <translation>Beviteli mező háttérszín</translation>
+      <translation>A beviteli mezők háttérszíne</translation>
     </message>
     <message>
       <source>Input field polaceholder text color</source>
-      <translation>Bemeneti mező polctartó szövegszín</translation>
+      <translation>A beviteli mezők helyőrzőjének (placeholder) szövegszíne</translation>
     </message>
     <message>
       <source>Not active input field border color</source>
-      <translation>Nem aktív beviteli mező keretszín</translation>
+      <translation>A nem aktív beviteli mezők keretszíne</translation>
     </message>
     <message>
       <source>Active input field border color</source>
-      <translation>aktív beviteli mező keretszín</translation>
+      <translation>Az aktív beviteli mezők keretszíne</translation>
     </message>
     <message>
       <source>Settings and send icons color</source>
-      <translation>beállítások és küldjön ikonokat szín</translation>
+      <translation>A beállítások és a küldés ikonjainak színe</translation>
     </message>
     <message>
       <source>Settings and send icons hover color</source>
-      <translation>beállítások és küldjön ikonokat rámutatás(kor) szín</translation>
+      <translation>A beállítások és a küldés ikonjainak színe rámutatáskor</translation>
     </message>
     <message>
       <source>Input field shadow color</source>
-      <translation>Beviteli mező árnyéka szín</translation>
+      <translation>A beviteli mezők árnyékának színe</translation>
     </message>
     <message>
       <source>Input field text color</source>
-      <translation>Beviteli mező szövegszín</translation>
+      <translation>A beviteli mezők szövegszíne</translation>
     </message>
     <message>
       <source>Send message area background color</source>
-      <translation>Küldés üzenet terület háttérszín</translation>
+      <translation>Az üzenetküldési terület háttérszíne</translation>
     </message>
     <message>
       <source>Offline widget background color</source>
@@ -2267,7 +2283,7 @@
     </message>
     <message>
       <source>Delivered message double tick color</source>
-      <translation>Delivered üzenet dupla pipa szín</translation>
+      <translation>A kézbesített üzenetet jelző dupla pipa színe</translation>
     </message>
     <message>
       <source>Reaction to visitor message bubble icon color</source>
@@ -3770,6 +3786,18 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
+      <source>Department</source>
+      <translation>Részleg</translation>
+    </message>
+    <message>
+      <source>Check</source>
+      <translation>Kijelölés</translation>
+    </message>
+    <message>
+      <source>Uncheck</source>
+      <translation>Kijelölés törlése</translation>
+    </message>
+    <message>
       <source>You can make this canned message available only for certain period of times.</source>
       <translation>Beállíthatod, hogy ez az üzenetsablon csak bizonyos ideig legyen elérhető</translation>
     </message>
@@ -3798,24 +3826,12 @@
       <translation>Aktív eddig</translation>
     </message>
     <message>
-      <source>Department</source>
-      <translation>Részleg</translation>
-    </message>
-    <message>
       <source>Check all departments from selected department group</source>
       <translation>A kiválasztott részlegcsoport összes részlegének bejelölése</translation>
     </message>
     <message>
-      <source>Check</source>
-      <translation>Kijelölés</translation>
-    </message>
-    <message>
       <source>Uncheck all departments from selected department group</source>
       <translation>A kiválasztott részlegcsoportban az összes (részlegekhez kapcsolódó) bejelölés megszűntetése</translation>
-    </message>
-    <message>
-      <source>Uncheck</source>
-      <translation>Kijelölés törlése</translation>
     </message>
     <message>
       <source>If you do not select a custom or default auto-responder, proactive chats will not have an auto-responder assigned.</source>
@@ -4261,6 +4277,14 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Choose department group</source>
+      <translation>– Kérjük, válassz részlegcsoportot –</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Bármelyik</translation>
+    </message>
+    <message>
       <source>Work hours, 24 hours format, 0 - 23, minutes format 0 - 59</source>
       <translation>Munkaidő, 24 órás formátumban; óra: 0–23 • perc: 0–59</translation>
     </message>
@@ -4307,14 +4331,6 @@
     <message>
       <source>Time to</source>
       <translation>Befejezőidő</translation>
-    </message>
-    <message>
-      <source>Choose department group</source>
-      <translation>– Kérjük, válassz részlegcsoportot –</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Bármelyik</translation>
     </message>
     <message>
       <source>Your time zone</source>
@@ -5292,7 +5308,7 @@
     </message>
     <message>
       <source>Migrated from start chat form</source>
-      <translation>A beszélgetésindítás űrlapról áttelepítve</translation>
+      <translation>A beszélgetésindítási űrlapról migrálva</translation>
     </message>
     <message>
       <source>Start a chat form settings</source>
@@ -5528,7 +5544,7 @@
     </message>
     <message>
       <source>Deprecated - Migrated to Widget Theme</source>
-      <translation>Elavult - áttelepült a widget oldalra. téma</translation>
+      <translation>Elavult – widgettémába migrálva</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
@@ -5540,11 +5556,11 @@
     </message>
     <message>
       <source>Show messages box above input fields, useful for UX combinations.</source>
-      <translation>A üzenetpanel megjelenítése a beviteli mezők felett, hasznos az UX kombinációkhoz.</translation>
+      <translation>Az üzenetek dobozának megjelenítése a beviteli mezők felett – UX-kombinációkhoz hasznos</translation>
     </message>
     <message>
       <source>Hide start chat button. Useful if in the theme you choose bot and trigger with a buttons.</source>
-      <translation>A beszélgetésindítás gomb elrejtése. Hasznos, ha a téma -ban a bot és a eseményindító gombokkal választja ki.</translation>
+      <translation>A beszélgetésindító gomb elrejtése. Hasznos, ha a témában botot és gombokkal történő eseményindítást választasz</translation>
     </message>
     <message>
       <source>No border under a profile</source>
@@ -5846,12 +5862,20 @@
       <translation>A személyes válaszok kihagyása</translation>
     </message>
     <message>
-      <source>ID</source>
-      <translation>Azon.</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>Név</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Részleg</translation>
+    </message>
+    <message>
+      <source>Reset</source>
+      <translation>Visszaállítás</translation>
+    </message>
+    <message>
+      <source>ID</source>
+      <translation>Azon.</translation>
     </message>
     <message>
       <source>Show only pinned</source>
@@ -5920,10 +5944,6 @@
     <message>
       <source>Fallback message</source>
       <translation>Tartaléküzenet</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Részleg</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -6396,10 +6416,6 @@
     <message>
       <source>Save as view</source>
       <translation>Mentés áttekintésként</translation>
-    </message>
-    <message>
-      <source>Reset</source>
-      <translation>Visszaállítás</translation>
     </message>
     <message>
       <source>Choose status</source>
@@ -7299,19 +7315,19 @@
     </message>
     <message>
       <source>Exclude from chats auto assign workflow</source>
-      <translation>Automatikus kizárás a csevegésekből (hozzá)rendel(ve) munkafolyamat</translation>
+      <translation>Kihagyás az automatikus munkafolyamat-hozzárendelésű beszélgetésekből</translation>
     </message>
     <message>
       <source>Include to auto assign workflow</source>
-      <translation>befoglalás(a vminek) az automatikus (hozzá)rendel(ve) munkafolyamat</translation>
+      <translation>Befoglalás az automatikus hozzárendelési munkafolyamatba</translation>
     </message>
     <message>
       <source>Show notifications only for pending chats assigned to the operator</source>
-      <translation>A értesítések csak a függőben lévő csevegéseknél jelenik meg (hozzá)rendel(ve) a Operátor</translation>
+      <translation>Csak az operátorhoz rendelt függőben lévő beszélgetések értesítéseinek megjelenítése</translation>
     </message>
     <message>
       <source>Show notifications for all pending chats</source>
-      <translation>értesítések megjelenítése az összes függőben lévő csevegéshez</translation>
+      <translation>Értesítések megjelenítése az összes függőben lévő beszélgetésről</translation>
     </message>
     <message>
       <source>Username</source>
@@ -8739,7 +8755,7 @@
     </message>
     <message>
       <source>Please note that a translation tool is being used to support this conversation.</source>
-      <translation>Felhívjuk figyelmét, hogy a beszélgetés támogatására fordítási eszközt használunk.</translation>
+      <translation>Felhívjuk figyelmét, hogy a beszélgetés támogatására fordítási eszközt használunk</translation>
     </message>
     <message>
       <source>Choose your language</source>
@@ -9200,6 +9216,14 @@
     <message>
       <source>Stop playing recorded audio</source>
       <translation>Felvett hang lejátszásának leállítása</translation>
+    </message>
+    <message>
+      <source>Dictate</source>
+      <translation>Diktáljon</translation>
+    </message>
+    <message>
+      <source>Stop</source>
+      <translation>Stop</translation>
     </message>
     <message>
       <source>You must accept terms</source>
@@ -14052,6 +14076,10 @@
       <translation>Fordítás</translation>
     </message>
     <message>
+      <source>While testing please disable respose cache.</source>
+      <translation>A tesztelés során kérjük, hogy letiltás respose cache.</translation>
+    </message>
+    <message>
       <source>Enable translation response cache</source>
       <translation>A lefordított válasz gyorsítótárazásának engedélyezése</translation>
     </message>
@@ -14140,6 +14168,46 @@
       <translation>A DeepL szolgáltatásának használata</translation>
     </message>
     <message>
+      <source>Formality</source>
+      <translation>Formaság</translation>
+    </message>
+    <message>
+      <source>default</source>
+      <translation>alapértelmezett</translation>
+    </message>
+    <message>
+      <source>prefer_more - more formal if available, otherwise default</source>
+      <translation>prefer_more - formálisabb, ha rendelkezésre áll, egyébként alapértelmezett</translation>
+    </message>
+    <message>
+      <source>prefer_less - more informal if available, otherwise default</source>
+      <translation>prefer_less - kötetlenebb, ha rendelkezésre áll, egyébként alapértelmezett</translation>
+    </message>
+    <message>
+      <source>More information about formality</source>
+      <translation>További információ a formalitásról</translation>
+    </message>
+    <message>
+      <source>Model type</source>
+      <translation>Modell típusa</translation>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation>alapértelmezett</translation>
+    </message>
+    <message>
+      <source>Quality optimized</source>
+      <translation>Optimalizált minőség</translation>
+    </message>
+    <message>
+      <source>Latency optimized</source>
+      <translation>Késleltetés optimalizált</translation>
+    </message>
+    <message>
+      <source>More information about model type</source>
+      <translation>További információ a modelltípusról</translation>
+    </message>
+    <message>
       <source>Hide translate single message button.</source>
       <translation>Az egyes üzenetek fordítási gombjának elrejtése</translation>
     </message>
@@ -14180,6 +14248,10 @@
       <translation>Nem ismerhető fel a nyelv</translation>
     </message>
     <message>
+      <source>From and To langauges should be different</source>
+      <translation>A From és To nyelveknek különbözőnek kell lenniük.</translation>
+    </message>
+    <message>
       <source>We could not detect operator language</source>
       <translation>Nem ismerhető fel az operátor nyelve</translation>
     </message>
@@ -14200,8 +14272,20 @@
       <translation>Fordítási beállítások</translation>
     </message>
     <message>
+      <source>Automatic translation stopped</source>
+      <translation>Az automatikus fordítás leállt</translation>
+    </message>
+    <message>
       <source>Settings has been saved</source>
       <translation>A beállítások mentve</translation>
+    </message>
+    <message>
+      <source>Automatic translation started</source>
+      <translation>Automatikus fordítás indult</translation>
+    </message>
+    <message>
+      <source>Old messages will be translated.</source>
+      <translation>A régi üzenetek le lesz fordítva.</translation>
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
@@ -15649,6 +15733,10 @@
       <translation>Az ügynökök válaszidejének kiszámítási naplója</translation>
     </message>
     <message>
+      <source>Duration per agent</source>
+      <translation>Időtartam per ügynök</translation>
+    </message>
+    <message>
       <source>Chat auto responder</source>
       <translation>Automatikus beszélgetési válaszok</translation>
     </message>
@@ -15850,6 +15938,10 @@
     <message>
       <source>Replaceable variables</source>
       <translation>Behelyettesíthető változók</translation>
+    </message>
+    <message>
+      <source>Content chunks</source>
+      <translation>Tartalom darabok</translation>
     </message>
     <message>
       <source>Chat</source>
@@ -19148,6 +19240,10 @@
   <context>
     <name>file/configuration</name>
     <message>
+      <source>if file is (OR)</source>
+      <translation>…ha a fájlra az alábbi jellemző (VAGY-kapcsolattal)… („[Un]assigned to chat”: [Nincs] hozzárendelve beszélgetéshez)</translation>
+    </message>
+    <message>
       <source>Allowed files types for operators</source>
       <translation>Az operátorok számára engedélyezett fájltípusok</translation>
     </message>
@@ -19268,6 +19364,22 @@
       <translation>Hangüzenetek</translation>
     </message>
     <message>
+      <source>Voice messages engine</source>
+      <translation>Hang üzenetek motor</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Fájl</translation>
+    </message>
+    <message>
+      <source>WebKit dictate</source>
+      <translation>WebKit diktátum</translation>
+    </message>
+    <message>
+      <source>LLM (Disabled at the moment)</source>
+      <translation>LLM (letiltva jelenleg)</translation>
+    </message>
+    <message>
       <source>Voice message max length in seconds</source>
       <translation>A hangüzenetek maximális hossza (másodpercekben)</translation>
     </message>
@@ -19284,8 +19396,8 @@
       <translation>Az alábbi személyek fájljainak törlése… („Visitors”: Látogatók • „Operators”: Operátorok)</translation>
     </message>
     <message>
-      <source>if file is (OR)</source>
-      <translation>…ha a fájlra az alábbi jellemző (VAGY-kapcsolattal)… („[Un]assigned to chat”: [Nincs] hozzárendelve beszélgetéshez)</translation>
+      <source>Delete only those type of files. Choose only one or none to delete all files.</source>
+      <translation>Csak az ilyen típusú fájlokat törölje. Válassza ki a Csak egy vagy Egyik sem lehetőséget az összes fájl törléséhez.</translation>
     </message>
     <message>
       <source>And operator file is older than n days</source>
@@ -19611,6 +19723,26 @@
   <context>
     <name>genericbot/helpattributes</name>
     <message>
+      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
+      <translation>Megmutatja azt az átlagos időt, amely alatt az ügynök válaszolt egy-egy látogatói üzenetre, a teljes beszélgetést figyelembe véve</translation>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
+      <translation>Annak leírása, hogy mennyi ideig tartott a beszélgetés, mielőtt lezárták volna. A beszélgetés időtartama az üzenetek között eltelt időn alapul</translation>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
+      <translation>Annak leírása, hogy mennyi ideig tartott a beszélgetés, mielőtt lezárták volna. A beszélgetés időtartama az ügynökönkénti üzenetek között eltelt időn alapul</translation>
+    </message>
+    <message>
+      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
+      <translation>Megmutatja, hogy a beszélgetés elfogadása után mennyi időbe telt, amíg az ügynök válaszolt a látogató első üzenetére</translation>
+    </message>
+    <message>
+      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <translation>Megmutatja azt a leghosszabb időt, amelyre az ügynöknek szüksége volt ahhoz, hogy válaszoljon egy látogatói üzenetre</translation>
+    </message>
+    <message>
       <source>Conditions explain</source>
       <translation>A feltételek magyarázata</translation>
     </message>
@@ -19719,24 +19851,184 @@
       <translation>Itt jelenik meg a válaszod</translation>
     </message>
     <message>
-      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
-      <translation>Megmutatja azt az átlagos időt, amely alatt az ügynök válaszolt egy-egy látogatói üzenetre, a teljes beszélgetést figyelembe véve</translation>
+      <source>Formula (per participant): AART = round(sum of that participant response times / number of that participant responses).</source>
+      <translation>Képlet (résztvevőnként): AART = kerek(az adott résztvevő válaszidejének összege / az adott résztvevő válaszainak száma).</translation>
     </message>
     <message>
-      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
-      <translation>Annak leírása, hogy mennyi ideig tartott a beszélgetés, mielőtt lezárták volna. A beszélgetés időtartama az üzenetek között eltelt időn alapul</translation>
+      <source>A response time starts when a visitor message appears.</source>
+      <translation>A válasz idő akkor indul el, amikor megjelenik a látogató üzenet .</translation>
     </message>
     <message>
-      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
-      <translation>Annak leírása, hogy mennyi ideig tartott a beszélgetés, mielőtt lezárták volna. A beszélgetés időtartama az ügynökönkénti üzenetek között eltelt időn alapul</translation>
+      <source>Consecutive visitor messages do not reset response start point. While waiting for operator reply, only the first pending visitor start is used; later visitor messages do not replace it.</source>
+      <translation>Az egymást követő látogató üzenetek  nem visszaállítás válasz kezdőpontja. A Operátor válaszra várva csak az első függőben lévő látogató kezdőpontot használják; a későbbi látogató üzenetek nem helyettesítik azt.</translation>
     </message>
     <message>
-      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
-      <translation>Megmutatja, hogy a beszélgetés elfogadása után mennyi időbe telt, amíg az ügynök válaszolt a látogató első üzenetére</translation>
+      <source>A response time ends when that same participant sends the next real operator message.</source>
+      <translation>A válasz idő akkor ér véget, amikor ugyanez a résztvevő elküldi a következő valódi Operátor üzenet  .</translation>
     </message>
     <message>
-      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
-      <translation>Megmutatja azt a leghosszabb időt, amelyre az ügynöknek szüksége volt ahhoz, hogy válaszoljon egy látogatói üzenetre</translation>
+      <source>Only positive delays are used. If there is no valid reply for a visitor message, nothing is added.</source>
+      <translation>Csak pozitív késleltetéseket használnak. Ha nincs érvényes válasz a látogató üzenet címre, a rendszer nem ad hozzá semmit.</translation>
+    </message>
+    <message>
+      <source>The first part of pending state is ignored: replies must happen after (pending time + wait time).</source>
+      <translation>A függőben lévő állapot első részét figyelmen kívül hagyjuk: a válaszoknak a (függőben lévő idő + várakozás idő) után kell megtörténniük.</translation>
+    </message>
+    <message>
+      <source>If visitor message was before that start point, calculation starts from (pending time + wait time), not from visitor message time.</source>
+      <translation>Ha a látogató üzenet  a kezdőpont előtt volt, a számítás a (függőben lévő idő + várakozás idő), nem pedig a látogató üzenet idő .</translation>
+    </message>
+    <message>
+      <source>Included messages for response timing: visitor messages and normal operator messages.</source>
+      <translation>A válaszidőzítéshez bevont üzenetek: látogató üzenetek és normál Operátor üzenetek .</translation>
+    </message>
+    <message>
+      <source>Excluded from response timing: plain system messages that are not supported actions, meta actions (assign/transfer/change owner/change department/accept), and bot messages.</source>
+      <translation>A válasz időzítéséből kizártak: egyszerű (szöveg) rendszer üzenetek, amelyek nem támogatott műveletek, meta műveletek ((hozzá)rendel(ve)/átadás/Váltás owner/Váltás részleg /accept), és bot üzenetek .</translation>
+    </message>
+    <message>
+      <source>If participant has no valid response times, their AART stays 0.</source>
+      <translation>Ha a résztvevőnek nincs érvényes válaszideje, az AART értéke 0 marad.</translation>
+    </message>
+    <message>
+      <source>Measures the total duration of the chat from start to close across the full message timeline, regardless of ownership. It includes user, agent, and bot messages and begins counting when the chat starts</source>
+      <translation>A Beszélgetés teljes időtartamát méri a kezdettől a lezárásig a üzenet teljes idővonala alatt, függetlenül a tulajdonviszonyoktól. Tartalmazza a felhasználót, a ügynök és a bot üzenetek                  Beszélgetés </translation>
+    </message>
+    <message>
+      <source>Abbreviations used here: FRT = First Response Time, AART = Average Agent Response Time, MART = Maximum Agent Response Time.</source>
+      <translation>Itt használt rövidítések: FRT = First Response idő, AART = Average ügynök Response idő, MART = maximum ügynök Response idő.</translation>
+    </message>
+    <message>
+      <source>Chat duration start form chat start event and till last operator/bot/visitor message.</source>
+      <translation>Beszélgetés időtartam kezdődik a Beszélgetés kezdő eseménytől és az utolsóig Operátor/bot/látogató üzenet .</translation>
+    </message>
+    <message>
+      <source>Chat duration is calculated as a sum of time gaps between consecutive kept messages in chat timeline order.</source>
+      <translation>Beszélgetés az időtartamot az egymást követő, Beszélgetés idősor szerinti sorrendben megtartott üzenetek idő közötti hézagok összegeként számítják ki.</translation>
+    </message>
+    <message>
+      <source>The first kept message only sets the starting point. Counting begins from the next message, where each next gap is evaluated.</source>
+      <translation>Az első megtartott üzenet csak a kiindulópontot határozza meg. A számlálás a következő üzenet-től kezdődik, ahol minden következő rés kiértékelésre kerül.</translation>
+    </message>
+    <message>
+      <source>A gap is added only if it is greater than 0 and smaller than the timeout for the current message author. If it is too large, that gap is skipped.</source>
+      <translation>A rés csak akkor kerül hozzáadásra, ha nagyobb, mint 0 és kisebb, mint a időtúllépés (lejárati idő – eddig aktív értelemben) az aktuális üzenet szerző számára. Ha túl nagy, a rés kihagyásra kerül.</translation>
+    </message>
+    <message>
+      <source>System messages (user_id = -1) are skipped, except supported meta actions (accept, transfer, owner/department change, assign), which are converted to operator events and kept in timeline.</source>
+      <translation>A rendszer üzenetek (user_id = -1) kihagyásra kerül, kivéve a támogatott meta műveleteket (accept, átadás, owner/részleg Váltás , (hozzá)rendel(ve)), amelyek Operátor eseményekké alakulnak át és az idővonalban maradnak.</translation>
+    </message>
+    <message>
+      <source>Consecutive visitor messages are evaluated as normal consecutive timeline gaps: each visitor-to-visitor or visitor-to-next-kept-message gap is checked against timeout and added only if it is below limit.</source>
+      <translation>Az egymás utáni látogató üzenetek értékelésekor az egymás utáni idővonalbeli hézagokat normál módon értékeljük: minden egyes látogató-to-látogató vagy látogató-to-következő megtartott-üzenet hézagot ellenőrizzük a időtúllépés (lejárati idő – eddig aktív értelemben) ellenében, és csak akkor adjuk hozzá, ha az a határérték alatt van.</translation>
+    </message>
+    <message>
+      <source>For response metrics in the same calculation flow (FRT/AART/MART), consecutive visitor messages do not reset pending visitor start marker. That marker is replaced only after a valid operator reply closes current pending window.</source>
+      <translation>Az azonos számítási folyamattal (FRT/AART/MART) rendelkező válaszmetrikák esetében az egymást követő látogató üzenetek  nem visszaállítás függőben lévő látogató kezdőjelző. Ez a jelölő csak azután kerül lecserélésre, hogy egy érvényes Operátor válasz lezárja az aktuális függőben lévő ablakot.</translation>
+    </message>
+    <message>
+      <source>Acceptance or transfer meta events do not reset total chat duration; they are just timeline events. Duration continues from previous kept message using the same gap rule.</source>
+      <translation>Az elfogadás vagy a átadás metaesemények nem visszaállítás a Beszélgetés teljes időtartama; ezek csak idővonalbeli események. Az időtartam az előző megtartott üzenet időtartamból folytatódik, ugyanazt a hézagszabályt alkalmazva.</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder messages are not used as agent owners, but in total chat duration timeline they still follow the same gap-and-timeout rule if they are present as kept messages.</source>
+      <translation>bot/automatikus válaszok üzenetek nem használnak ügynök tulajdonosként, de a teljes Beszélgetés időtartam idővonalban még mindig ugyanazt a hézag- ésidőtúllépés (lejárati idő – eddig aktív értelemben) szabályt követik, ha jelen vannak, mint megtartott üzenetek.</translation>
+    </message>
+    <message>
+      <source>Scenario: visitor writes after first acceptance. The gap from that visitor message to the next kept message is added only if it is below timeout.</source>
+      <translation>Forgatókönyv: látogató ír az első elfogadás után. Az adott látogató üzenet és a következő üzenet közötti különbség csak akkor adódik hozzá, ha az a időtúllépés (lejárati idő – eddig aktív értelemben) alatt van.</translation>
+    </message>
+    <message>
+      <source>Scenario: chat is transferred and accepted by another operator. Duration is not reset; it continues on the same message timeline with the same timeout checks.</source>
+      <translation>Forgatókönyv: Beszélgetés a átirányítva és elfogadta -nként (felhasználónként) egy másik Operátor. Az időtartam nem visszaállítás; ugyanabban a üzenet idősávban folytatódik, ugyanazokkal a időtúllépés (lejárati idő – eddig aktív értelemben) ellenőrzésekkel.</translation>
+    </message>
+    <message>
+      <source>minutes — the maximum gap allowed after a visitor message. If the operator replies later than this, that wait time is skipped.</source>
+      <translation>percek - a maximum megengedett különbség a látogató üzenet  után. Ha a Operátor ennél később válaszol, a idő várakozás kihagyásra kerül.</translation>
+    </message>
+    <message>
+      <source>minutes — the maximum gap allowed when the current message is treated as operator side (non-visitor).</source>
+      <translation>perc - a maximum megengedett különbség, amikor az aktuális üzenet oldalt Operátor oldalnak tekintik (nemlátogató).</translation>
+    </message>
+    <message>
+      <source>Measures the average chat duration from the accept action event through the full message timeline. It does NOT include bot messages, and it begins counting when the agent accepts the chat.</source>
+      <translation>A Beszélgetés átlagos időtartamát méri a üzenet teljes idővonalon keresztül az akció esemény elfogadásától a oldalon. NEM befoglalás(a vminek) bot üzenetek   , és a számlálás akkor kezdődik, amikor a ügynök elfogadja a Beszélgetés.</translation>
+    </message>
+    <message>
+      <source>An agent becomes active owner when a supported operator event/message appears (accept, transfer, owner/department change, assign, or operator message).</source>
+      <translation>Egy ügynök akkor válik aktív tulajdonossá, ha egy támogatott Operátor esemény/üzenet megjelenik (accept, átadás, owner/részleg Váltás , (hozzá)rendel(ve), vagy Operátor üzenet ).</translation>
+    </message>
+    <message>
+      <source>For response metrics tied to participants (FRT/AART/MART), consecutive visitor messages also do not reset pending visitor start marker. Start remains first pending point until valid operator reply.</source>
+      <translation>A résztvevőkhöz kötött válaszmetrikák (FRT/AART/MART) esetében az egymást követő látogató üzenetek  szintén nem visszaállítás függő látogató start marker. A start az első függő pont marad, amíg érvényes Operátor válasz nem érkezik.</translation>
+    </message>
+    <message>
+      <source>Accept/transfer/owner-change meta events can switch owner context, but they do not count as visitor replies. They only affect which human owner receives later eligible gaps.</source>
+      <translation>Az Accept/átadás/owner-Váltás metaesemények tulajdonosi kontextust válthatnak, de nem számítanak látogató válasznak. Ezek csak azt befolyásolják, hogy melyik emberi tulajdonos kapja meg a későbbi jogosult réseket.</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder side is not tracked as a human participant owner, so it does not create a separate human agent duration entry.</source>
+      <translation>bot/automatikus válaszok oldal nem követhető nyomon emberi résztvevő tulajdonosként, így nem hoz létre külön emberi ügynök időtartam bejegyzést.</translation>
+    </message>
+    <message>
+      <source>Scenario: visitor writes after first acceptance. That visitor-to-next-message gap is added to accepted agent only if it is below timeout.</source>
+      <translation>Forgatókönyv: látogató ír az első elfogadás után. Az a látogató-to-következő-üzenet rés csak akkor adódik hozzá az elfogadott ügynök -hoz, ha az a időtúllépés (lejárati idő – eddig aktív értelemben) alatt van.</translation>
+    </message>
+    <message>
+      <source>Scenario: chat is transferred and accepted by another operator. After acceptance, visitor gaps are added to new owner; previous owner remains frozen.</source>
+      <translation>Forgatókönyv: Beszélgetés a átirányítva és elfogadta -nként (felhasználónként) egy másik Operátor. Az elfogadás után a látogató hiányosságok az új tulajdonoshoz kerülnek; az előző tulajdonos befagyasztva marad.</translation>
+    </message>
+    <message>
+      <source>minutes — max gap allowed after a visitor message. If the agent replied later than this, that waiting time is ignored.</source>
+      <translation>perc - a látogató üzenet után megengedett maximális időköz  . Ha a ügynök ennél később válaszol, akkor a várakozó idő figyelmen kívül marad.</translation>
+    </message>
+    <message>
+      <source>minutes — max gap allowed after an agent message. If the visitor replied later than this, that waiting time is ignored.</source>
+      <translation>perc - a megengedett legnagyobb távolság a ügynök üzenet . Ha a látogató ennél később válaszol, akkor a várakozó idő figyelmen kívül marad.</translation>
+    </message>
+    <message>
+      <source>FRT is created when there is a pending visitor-side start point and then a real operator message arrives (operator user_id &gt; 0, and message is not a meta/system action).</source>
+      <translation>FRT akkor jön létre, ha van egy függőben lévő látogató-oldali startpont, majd megérkezik egy valódi Operátor üzenet (Operátor user_id &gt; 0, és a üzenet nem meta/rendszer akció).</translation>
+    </message>
+    <message>
+      <source>Start point is stored in two cases: (1) first visitor message after previous FRT was closed, or (2) accept_action meta event.</source>
+      <translation>A kezdőpont két esetben kerül tárolásra: (1) első látogató üzenet  az előző FRT lezárása után, vagy (2) accept_action meta esemény.</translation>
+    </message>
+    <message>
+      <source>Consecutive visitor messages do not move the start point forward. Internally, visitor start is set only when there is no active pending visitor start; after that, extra visitor messages are ignored for start-point update until a valid operator reply happens.</source>
+      <translation>Az egymást követő látogató üzenetek  nem mozdítja előre a kezdőpontot. Belsőleg a látogató start csak akkor kerül beállításra, ha nincs aktív várakozó látogató start; ezt követően a látogató üzenetek extra a startpont frissítésénél figyelmen kívül hagyásra kerül, amíg érvényes Operátor válasz nem érkezik.</translation>
+    </message>
+    <message>
+      <source>When operator reply arrives, FRT is calculated as reply_time minus max(start_point_time, pending_start_time), where pending_start_time = pnd_time + wait_time. This removes queue waiting before acceptance.</source>
+      <translation>Amikor a Operátor válasz megérkezik, az FRT-t úgy számítják ki, hogy reply_time mínusz max(start_point_time, pending_start_time), ahol pending_start_time = pnd_time + wait_time. Ez megszünteti a sorban várakozást az elfogadás előtt.</translation>
+    </message>
+    <message>
+      <source>Meta actions (accept, transfer, owner change, department change, assign) do not close FRT window by themselves. They are not counted as operator reply messages.</source>
+      <translation>A meta-akciók (accept, átadás, owner Váltás, részleg Váltás , (hozzá)rendel(ve)) nem zárják be a -nként (felhasználónként) FRT ablakot. Ezek nem számítanak Operátor válasznak üzenetek.</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder messages do not create FRT reply events because reply event requires operator user_id &gt; 0.</source>
+      <translation>bot/automatikus válaszok üzenetek nem hoz létre FRT válaszeseményeket, mert a válaszeseményhez Operátor user_id &gt; 0 kell.</translation>
+    </message>
+    <message>
+      <source>For participant stats, each operator has their own first FRT value. For chat-level FRT, system stores the first FRT from the full timeline (response_times_total[0]).</source>
+      <translation>A résztvevői statisztikák esetében minden egyes Operátor saját első FRT-értékkel rendelkezik. A Beszélgetés-szintű FRT esetében a rendszer a teljes idővonal első FRT értékét tárolja (response_times_total[0]).</translation>
+    </message>
+    <message>
+      <source>MART (Maximum Agent Response Time) describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <translation>MART (maximum ügynök  válasz idő) leírja a maximum idő a ügynök veszi, hogy válaszoljon egy üzenet a látogató.</translation>
+    </message>
+    <message>
+      <source>For each participant, we calculate all valid reply times. MART is not an average, it is the single highest response time from that participant.</source>
+      <translation>Minden egyes résztvevő esetében kiszámítjuk az összes érvényes válaszadási időt. A MART nem egy átlag, hanem az adott résztvevőtől származó egyetlen legmagasabb válasz idő.</translation>
+    </message>
+    <message>
+      <source>Formula (per participant): MART = max(that participant response times).</source>
+      <translation>Képlet (résztvevőnként): MART = max(a résztvevő válaszideje).</translation>
+    </message>
+    <message>
+      <source>If participant has no valid response times, their MART stays 0.</source>
+      <translation>Ha a résztvevőnek nincs érvényes válaszideje, a MART értéke 0 marad.</translation>
     </message>
     <message>
       <source>You can have custom JS execution on click event. In combination with</source>
@@ -21917,6 +22209,10 @@
       <translation>Melléklet letöltése külső URL-cím használata helyett</translation>
     </message>
     <message>
+      <source>If there can be more than one element define root element location</source>
+      <translation>Ha egynél több elem lehet, határozza meg a gyökérelem helyét</translation>
+    </message>
+    <message>
       <source>Image body attributes. URL or base64 encoded content</source>
       <translation>A kép törzsének tulajdonságai. URL-cím vagy Base64-kódolású tartalom</translation>
     </message>
@@ -21989,8 +22285,16 @@
       <translation>Ahhoz, hogy egy üzenet képnek minősüljön, a tulajdonsága értékének meg kell egyeznie a következővel</translation>
     </message>
     <message>
+      <source>If there can be more than one element define root element locationn</source>
+      <translation>Ha egynél több elem lehet, határozza meg a gyökérelem helyétn</translation>
+    </message>
+    <message>
       <source>Message ID location</source>
       <translation>Üzenetazonosító helye</translation>
+    </message>
+    <message>
+      <source>Try to find chat by message id if we chat was not found by id</source>
+      <translation>Beszélgetések keresése üzenetazonosítók alapján, ha beszélgetésazonosítók alapján nem találhatók</translation>
     </message>
     <message>
       <source>For message being considered deleted, message should have attribute value equal to</source>
@@ -22019,10 +22323,6 @@
     <message>
       <source>Reaction emoji location</source>
       <translation>A reakció-emoji helye</translation>
-    </message>
-    <message>
-      <source>Try to find chat by message id if we chat was not found by id</source>
-      <translation>Beszélgetések keresése üzenetazonosítók alapján, ha beszélgetésazonosítók alapján nem találhatók</translation>
     </message>
     <message>
       <source>Reaction is a standalone unicode character</source>
@@ -26715,6 +27015,10 @@
   <context>
     <name>chat/backtochat</name>
     <message>
+      <source>Visitor completed survey!</source>
+      <translation>látogató elkészült felmérés!</translation>
+    </message>
+    <message>
       <source>Visitor has been redirected back to chat!</source>
       <translation>A látogató visszairányítva a beszélgetéshez</translation>
     </message>
@@ -26757,6 +27061,29 @@
     <message>
       <source>Deny screen share</source>
       <translation>Képernyő megosztás elutasítása</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/contentchunk</name>
+    <message>
+      <source>Identifier</source>
+      <translation>azonosító</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Név</translation>
+    </message>
+    <message>
+      <source>Content, checked against JSON format</source>
+      <translation>Tartalom, JSON formátummal összevetve</translation>
+    </message>
+    <message>
+      <source>In-Active. Do not use in replaceable variables</source>
+      <translation>In-aktív. Ne használja cserélhető változókban</translation>
+    </message>
+    <message>
+      <source>Content Chunk</source>
+      <translation>Content Chunk</translation>
     </message>
   </context>
 </TS>

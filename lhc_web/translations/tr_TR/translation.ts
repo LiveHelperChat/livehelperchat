@@ -6,6 +6,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Cevaplanmayan konuşma hakkında Operatör &apos;u bilgilendirmeden önce ne kadar beklemeliyiz?</translation>
     </message>
@@ -32,6 +36,14 @@
     <message>
       <source>Which ip should not be allowed to be blocked</source>
       <translation>Hangi ip&apos;nin engellenmesine izin verilmemelidir</translation>
+    </message>
+    <message>
+      <source>How many days keep records of online users.</source>
+      <translation>Çevrimiçi kullanıcı kayıtlarını kaç gün tutalım?</translation>
+    </message>
+    <message>
+      <source>How many days keep records of users footprint.</source>
+      <translation>Kullanıcıların gezinti kayıtları kaç gün saklansın?</translation>
     </message>
     <message>
       <source>Enable online site visitors tracking</source>
@@ -62,14 +74,6 @@
       <translation>Kullanıcıların etkinlikleri izlensin mi?</translation>
     </message>
     <message>
-      <source>How many days keep records of online users.</source>
-      <translation>Çevrimiçi kullanıcı kayıtlarını kaç gün tutalım?</translation>
-    </message>
-    <message>
-      <source>How many days keep records of users footprint.</source>
-      <translation>Kullanıcıların gezinti kayıtları kaç gün saklansın?</translation>
-    </message>
-    <message>
       <source>Suggest user to leave a message then user chooses offline department</source>
       <translation>Kullanıcıya departman seçebilmesi mesaj bırakmasını önerin.</translation>
     </message>
@@ -78,12 +82,12 @@
       <translation>Görüşmeye davette ses oynat</translation>
     </message>
     <message>
-      <source>Show users option to switch language at widget</source>
-      <translation>Widget dilini değiştirmek için kullanıcı seçeneğini göster</translation>
-    </message>
-    <message>
       <source>Between what languages user should be able to switch</source>
       <translation>Kullanıcı hangi diller arasında geçiş yapabilmeli.</translation>
+    </message>
+    <message>
+      <source>Show users option to switch language at widget</source>
+      <translation>Widget dilini değiştirmek için kullanıcı seçeneğini göster</translation>
     </message>
     <message>
       <source>Host where NodeJs is running</source>
@@ -162,12 +166,12 @@
       <translation>Ziyaretçi kapatılan aktif sohbet ekranına kaç saniyeye kadar ulaşabilsin?</translation>
     </message>
     <message>
-      <source>On chat close exit chat</source>
-      <translation>Sohbet sonlandığında konuşma kapatılsın.</translation>
-    </message>
-    <message>
       <source/>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On chat close exit chat</source>
+      <translation>Sohbet sonlandığında konuşma kapatılsın.</translation>
     </message>
     <message>
       <source>Cookie should be valid only for domain where Javascript is embedded</source>
@@ -202,6 +206,10 @@
       <translation>Karakter olarak maksimum mesaj uzunluğu</translation>
     </message>
     <message>
+      <source>Default number of online operators to show</source>
+      <translation>Varsayılan kaç operatör aktif olarak gösterilsin</translation>
+    </message>
+    <message>
       <source>List unread chats, disabled for high performance</source>
       <translation>Okunmamış sohbetleri listele, yüksek performans için kapatın</translation>
     </message>
@@ -212,10 +220,6 @@
     <message>
       <source>List closed chats, disabled for high performance</source>
       <translation>Kapanmış sohbetleri listele, yüksek performans için kapalı</translation>
-    </message>
-    <message>
-      <source>Default number of online operators to show</source>
-      <translation>Varsayılan kaç operatör aktif olarak gösterilsin</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
@@ -1374,6 +1378,14 @@
       <translation>Kapalı olsa bile ziyaretçi &apos;un konuşma &apos;a dönmesine izin verin.</translation>
     </message>
     <message>
+      <source>Do not allow visitor return to chat if survey is filled.</source>
+      <translation>Anketin doldurulması halinde ziyaretçi adresinin konuşma adresine geri dönmesine izin vermeyin.</translation>
+    </message>
+    <message>
+      <source>Close widget for user also after survey is filled.</source>
+      <translation>Anket doldurulduktan sonra da kullanıcı için aracı adresini kapatın.</translation>
+    </message>
+    <message>
       <source>Disable chat download</source>
       <translation>pasif konuşma İndir</translation>
     </message>
@@ -2044,6 +2056,10 @@
     <message>
       <source>Hide message label</source>
       <translation>Mesaj etiketini gizle</translation>
+    </message>
+    <message>
+      <source>Show files attachement button next to settings</source>
+      <translation>Dosya ekini göster düğmesinin yanında ayarlar</translation>
     </message>
     <message>
       <source>Show operator profile above input fields</source>
@@ -3770,6 +3786,18 @@
   <context>
     <name>chat/cannedmsg</name>
     <message>
+      <source>Department</source>
+      <translation>Departman</translation>
+    </message>
+    <message>
+      <source>Check</source>
+      <translation>Kontrol et</translation>
+    </message>
+    <message>
+      <source>Uncheck</source>
+      <translation>İşareti kaldırın</translation>
+    </message>
+    <message>
       <source>You can make this canned message available only for certain period of times.</source>
       <translation>Bu hazır mesajı yalnızca belirli bir süre için kullanılabilir hale getirebilirsiniz.</translation>
     </message>
@@ -3798,24 +3826,12 @@
       <translation>aktif için</translation>
     </message>
     <message>
-      <source>Department</source>
-      <translation>Departman</translation>
-    </message>
-    <message>
       <source>Check all departments from selected department group</source>
       <translation>Seçilen departman grubundaki tüm departmanları kontrol edin</translation>
     </message>
     <message>
-      <source>Check</source>
-      <translation>Kontrol et</translation>
-    </message>
-    <message>
       <source>Uncheck all departments from selected department group</source>
       <translation>Seçilen departman grubundaki tüm departmanların işaretini kaldırın</translation>
-    </message>
-    <message>
-      <source>Uncheck</source>
-      <translation>İşareti kaldırın</translation>
     </message>
     <message>
       <source>If you do not select a custom or default auto-responder, proactive chats will not have an auto-responder assigned.</source>
@@ -4261,6 +4277,14 @@
   <context>
     <name>department/edit</name>
     <message>
+      <source>Choose department group</source>
+      <translation>departman grubunu seçin</translation>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>Tümü</translation>
+    </message>
+    <message>
       <source>Work hours, 24 hours format, 0 - 23, minutes format 0 - 59</source>
       <translation>Çalışma saatleri, 24 saat formatı, 0 - 23, dakika formatı 0 - 59</translation>
     </message>
@@ -4307,14 +4331,6 @@
     <message>
       <source>Time to</source>
       <translation>zaman için</translation>
-    </message>
-    <message>
-      <source>Choose department group</source>
-      <translation>departman grubunu seçin</translation>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>Tümü</translation>
     </message>
     <message>
       <source>Your time zone</source>
@@ -5846,12 +5862,20 @@
       <translation>Kişisel yanıtları hariç tutma</translation>
     </message>
     <message>
-      <source>ID</source>
-      <translation>ID</translation>
-    </message>
-    <message>
       <source>Name</source>
       <translation>İsim</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departman</translation>
+    </message>
+    <message>
+      <source>Reset</source>
+      <translation>Sıfırla</translation>
+    </message>
+    <message>
+      <source>ID</source>
+      <translation>ID</translation>
     </message>
     <message>
       <source>Show only pinned</source>
@@ -5920,10 +5944,6 @@
     <message>
       <source>Fallback message</source>
       <translation>geri çekilme mesajı</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departman</translation>
     </message>
     <message>
       <source>Subject</source>
@@ -6396,10 +6416,6 @@
     <message>
       <source>Save as view</source>
       <translation>Kaydet görünüm olarak</translation>
-    </message>
-    <message>
-      <source>Reset</source>
-      <translation>Sıfırla</translation>
     </message>
     <message>
       <source>Choose status</source>
@@ -9200,6 +9216,14 @@
     <message>
       <source>Stop playing recorded audio</source>
       <translation>Oynatmayı durdur</translation>
+    </message>
+    <message>
+      <source>Dictate</source>
+      <translation>Dikte et</translation>
+    </message>
+    <message>
+      <source>Stop</source>
+      <translation>Dur</translation>
     </message>
     <message>
       <source>You must accept terms</source>
@@ -14054,6 +14078,10 @@
       <translation>Çevir</translation>
     </message>
     <message>
+      <source>While testing please disable respose cache.</source>
+      <translation>Test ederken lütfen pasif yanıt önbelleği.</translation>
+    </message>
+    <message>
       <source>Enable translation response cache</source>
       <translation>aktif et çeviri yanıtı önbelleği</translation>
     </message>
@@ -14142,6 +14170,46 @@
       <translation>DeepL hizmetini kullanın</translation>
     </message>
     <message>
+      <source>Formality</source>
+      <translation>Resmiyet</translation>
+    </message>
+    <message>
+      <source>default</source>
+      <translation>varsayılan</translation>
+    </message>
+    <message>
+      <source>prefer_more - more formal if available, otherwise default</source>
+      <translation>prefer_more - mevcutsa daha resmi, aksi takdirde varsayılan</translation>
+    </message>
+    <message>
+      <source>prefer_less - more informal if available, otherwise default</source>
+      <translation>prefer_less - mevcutsa daha gayri resmi, aksi takdirde varsayılan</translation>
+    </message>
+    <message>
+      <source>More information about formality</source>
+      <translation>Resmiyet hakkında daha fazla bilgi</translation>
+    </message>
+    <message>
+      <source>Model type</source>
+      <translation>Model tipi</translation>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation>varsayılan</translation>
+    </message>
+    <message>
+      <source>Quality optimized</source>
+      <translation>Kalite optimize edildi</translation>
+    </message>
+    <message>
+      <source>Latency optimized</source>
+      <translation>Gecikme süresi optimize edildi</translation>
+    </message>
+    <message>
+      <source>More information about model type</source>
+      <translation>Model tipi hakkında daha fazla bilgi</translation>
+    </message>
+    <message>
       <source>Hide translate single message button.</source>
       <translation>Tek mesaj çevir düğmesini gizle.</translation>
     </message>
@@ -14182,6 +14250,10 @@
       <translation>Dil algılanamıyor</translation>
     </message>
     <message>
+      <source>From and To langauges should be different</source>
+      <translation>Kimden ve Kime dilleri farklı olmalıdır</translation>
+    </message>
+    <message>
       <source>We could not detect operator language</source>
       <translation>Operatör adresini tespit edemedik. Dil</translation>
     </message>
@@ -14202,8 +14274,20 @@
       <translation>Çeviri ayarı</translation>
     </message>
     <message>
+      <source>Automatic translation stopped</source>
+      <translation>Otomatik çeviri durduruldu</translation>
+    </message>
+    <message>
       <source>Settings has been saved</source>
       <translation>ayarlar kurtarıldı</translation>
+    </message>
+    <message>
+      <source>Automatic translation started</source>
+      <translation>Otomatik çeviri başladı</translation>
+    </message>
+    <message>
+      <source>Old messages will be translated.</source>
+      <translation>Eski mesajlar çevrilecektir.</translation>
     </message>
     <message>
       <source>Please choose translation languages manually and click Auto translate</source>
@@ -15651,6 +15735,10 @@
       <translation>Temsilcilerin yanıt süreleri hesaplama günlüğü</translation>
     </message>
     <message>
+      <source>Duration per agent</source>
+      <translation>Temsilci başına süre</translation>
+    </message>
+    <message>
       <source>Chat auto responder</source>
       <translation>konuşma otomatik yanıtlayıcı</translation>
     </message>
@@ -15852,6 +15940,10 @@
     <message>
       <source>Replaceable variables</source>
       <translation>Değiştirilebilir değişkenler</translation>
+    </message>
+    <message>
+      <source>Content chunks</source>
+      <translation>İçerik parçaları</translation>
     </message>
     <message>
       <source>Chat</source>
@@ -19150,6 +19242,10 @@
   <context>
     <name>file/configuration</name>
     <message>
+      <source>if file is (OR)</source>
+      <translation>dosya (VEYA) ise</translation>
+    </message>
+    <message>
       <source>Allowed files types for operators</source>
       <translation>Operatörler için izin verilen dosya türleri</translation>
     </message>
@@ -19270,6 +19366,22 @@
       <translation>Sesli mesajlar</translation>
     </message>
     <message>
+      <source>Voice messages engine</source>
+      <translation>Sesli mesaj motoru</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Dosya</translation>
+    </message>
+    <message>
+      <source>WebKit dictate</source>
+      <translation>WebKit dikte</translation>
+    </message>
+    <message>
+      <source>LLM (Disabled at the moment)</source>
+      <translation>LLM (pasif edildi şu anda)</translation>
+    </message>
+    <message>
       <source>Voice message max length in seconds</source>
       <translation>Saniye cinsinden maksimum sesli mesaj uzunluğu</translation>
     </message>
@@ -19286,8 +19398,8 @@
       <translation>Dosyaları sil</translation>
     </message>
     <message>
-      <source>if file is (OR)</source>
-      <translation>dosya (VEYA) ise</translation>
+      <source>Delete only those type of files. Choose only one or none to delete all files.</source>
+      <translation>Yalnızca bu tür dosyaları silin. Tüm dosyaları silmek için yalnızca birini veya hiçbirini seçin.</translation>
     </message>
     <message>
       <source>And operator file is older than n days</source>
@@ -19613,6 +19725,26 @@
   <context>
     <name>genericbot/helpattributes</name>
     <message>
+      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
+      <translation>Temsilcinin ziyaretçi adresine bir mesajı yanıtlamak için harcadığı ortalama zaman süresini açıklar, tüm konuşmayı dikkate alır.</translation>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
+      <translation>Kapatılmadan önce konuşma adresinin ne kadar sürdüğünü açıklar. konuşma süresi zaman adresinin mesajlar arasında geçirdiği süreye dayanır.</translation>
+    </message>
+    <message>
+      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
+      <translation>Kapatılmadan önce konuşma adresinin ne kadar sürdüğünü açıklar. konuşma süresi, aracı başına mesajlar arasında harcanan zaman süresine dayanır.</translation>
+    </message>
+    <message>
+      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
+      <translation>Temsilcinin konuşma kabulünden sonra ilk mesajı ziyaretçi adresine ne kadar sürede yanıtlayacağını açıklar.</translation>
+    </message>
+    <message>
+      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <translation>Temsilcinin ziyaretçi adresine bir mesajı yanıtlamak için aldığı maksimum zaman süresini açıklar.</translation>
+    </message>
+    <message>
       <source>Conditions explain</source>
       <translation>Koşullar açıklanıyor</translation>
     </message>
@@ -19721,24 +19853,184 @@
       <translation>Yanıtınız burada görünecektir!</translation>
     </message>
     <message>
-      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
-      <translation>Temsilcinin ziyaretçi adresine bir mesajı yanıtlamak için harcadığı ortalama zaman süresini açıklar, tüm konuşmayı dikkate alır.</translation>
+      <source>Formula (per participant): AART = round(sum of that participant response times / number of that participant responses).</source>
+      <translation>Formül (katılımcı başına): AART = yuvarlak (o katılımcının yanıt sürelerinin toplamı / o katılımcının yanıt sayısı).</translation>
     </message>
     <message>
-      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages.</source>
-      <translation>Kapatılmadan önce konuşma adresinin ne kadar sürdüğünü açıklar. konuşma süresi zaman adresinin mesajlar arasında geçirdiği süreye dayanır.</translation>
+      <source>A response time starts when a visitor message appears.</source>
+      <translation>Bir ziyaretçi mesajı göründüğünde zaman yanıtı başlar.</translation>
     </message>
     <message>
-      <source>Describes how long chat took before it was closed. Chat duration is based on time spend between messages per agent.</source>
-      <translation>Kapatılmadan önce konuşma adresinin ne kadar sürdüğünü açıklar. konuşma süresi, aracı başına mesajlar arasında harcanan zaman süresine dayanır.</translation>
+      <source>Consecutive visitor messages do not reset response start point. While waiting for operator reply, only the first pending visitor start is used; later visitor messages do not replace it.</source>
+      <translation>Ardışık ziyaretçi mesajları yanıt başlangıç noktasını sıfırlamaz. Operatör yanıtı beklenirken, yalnızca bekleyen ilk ziyaretçi başlangıcı kullanılır; sonraki ziyaretçi iletileri bunun yerini almaz.</translation>
     </message>
     <message>
-      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
-      <translation>Temsilcinin konuşma kabulünden sonra ilk mesajı ziyaretçi adresine ne kadar sürede yanıtlayacağını açıklar.</translation>
+      <source>A response time ends when that same participant sends the next real operator message.</source>
+      <translation>Bir yanıt zaman aynı katılımcı bir sonraki gerçek Operatör mesajını gönderdiğinde sona erer.</translation>
     </message>
     <message>
-      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
-      <translation>Temsilcinin ziyaretçi adresine bir mesajı yanıtlamak için aldığı maksimum zaman süresini açıklar.</translation>
+      <source>Only positive delays are used. If there is no valid reply for a visitor message, nothing is added.</source>
+      <translation>Sadece pozitif gecikmeler kullanılır. Bir ziyaretçi mesajı için geçerli bir yanıt yoksa, hiçbir şey eklenmez.</translation>
+    </message>
+    <message>
+      <source>The first part of pending state is ignored: replies must happen after (pending time + wait time).</source>
+      <translation>Bekleme durumunun ilk kısmı göz ardı edilir: yanıtlar ( zaman bekleme + zaman bekleme) sonrasında gerçekleşmelidir.</translation>
+    </message>
+    <message>
+      <source>If visitor message was before that start point, calculation starts from (pending time + wait time), not from visitor message time.</source>
+      <translation>ziyaretçi mesajı bu başlangıç noktasından önceyse, hesaplama ziyaretçi mesajından zaman değil, (bekleyen zaman + bekle zaman)&apos;den başlar.</translation>
+    </message>
+    <message>
+      <source>Included messages for response timing: visitor messages and normal operator messages.</source>
+      <translation>Yanıt zamanlaması için dahil edilen mesajlar: ziyaretçi mesajları ve normal Operatör mesajları.</translation>
+    </message>
+    <message>
+      <source>Excluded from response timing: plain system messages that are not supported actions, meta actions (assign/transfer/change owner/change department/accept), and bot messages.</source>
+      <translation>Yanıt zamanlamasından hariç tutulanlar: desteklenmeyen eylemler olan düz sistem mesajları, meta eylemler (ata/aktar/sahip değiştir/değiştir departman/kabul et) ve bot mesajları.</translation>
+    </message>
+    <message>
+      <source>If participant has no valid response times, their AART stays 0.</source>
+      <translation>Eğer katılımcının geçerli bir yanıt süresi yoksa, AART 0 olarak kalır.</translation>
+    </message>
+    <message>
+      <source>Measures the total duration of the chat from start to close across the full message timeline, regardless of ownership. It includes user, agent, and bot messages and begins counting when the chat starts</source>
+      <translation>Sahiplikten bağımsız olarak tüm mesaj zaman çizelgesi boyunca başlangıçtan kapanışa kadar konuşma &apos;un toplam süresini ölçer. Kullanıcı, aracı ve bot mesajlarını içerir ve konuşma başladığında saymaya başlar</translation>
+    </message>
+    <message>
+      <source>Abbreviations used here: FRT = First Response Time, AART = Average Agent Response Time, MART = Maximum Agent Response Time.</source>
+      <translation>Burada kullanılan kısaltmalar: FRT = İlk Yanıt zaman, AART = Ortalama Ajan Yanıtı zaman, MART = maksimum Ajan Yanıtı zaman.</translation>
+    </message>
+    <message>
+      <source>Chat duration start form chat start event and till last operator/bot/visitor message.</source>
+      <translation>konuşma süre konuşma başlangıç olayından başlar ve son Operatör/bot/ziyaretçi mesajına kadar devam eder.</translation>
+    </message>
+    <message>
+      <source>Chat duration is calculated as a sum of time gaps between consecutive kept messages in chat timeline order.</source>
+      <translation>konuşma süre, konuşma zaman çizelgesi sırasına göre ardışık tutulan mesajlar arasındaki zaman boşlukların toplamı olarak hesaplanır.</translation>
+    </message>
+    <message>
+      <source>The first kept message only sets the starting point. Counting begins from the next message, where each next gap is evaluated.</source>
+      <translation>İlk tutulan mesaj sadece başlangıç noktasını belirler. Sayım, her bir sonraki boşluğun değerlendirildiği bir sonraki mesajdan itibaren başlar.</translation>
+    </message>
+    <message>
+      <source>A gap is added only if it is greater than 0 and smaller than the timeout for the current message author. If it is too large, that gap is skipped.</source>
+      <translation>Bir boşluk yalnızca 0&apos;dan büyük ve geçerli mesaj yazarının zaman aşımından küçükse eklenir. Çok büyükse, bu boşluk atlanır.</translation>
+    </message>
+    <message>
+      <source>System messages (user_id = -1) are skipped, except supported meta actions (accept, transfer, owner/department change, assign), which are converted to operator events and kept in timeline.</source>
+      <translation>Sistem mesajları (user_id = -1), Operatör olaylarına dönüştürülen ve zaman çizelgesinde tutulan desteklenen meta eylemler (kabul, aktarım, sahip/departman değişikliği, atama) dışında atlanır.</translation>
+    </message>
+    <message>
+      <source>Consecutive visitor messages are evaluated as normal consecutive timeline gaps: each visitor-to-visitor or visitor-to-next-kept-message gap is checked against timeout and added only if it is below limit.</source>
+      <translation>Ardışık ziyaretçi mesajları normal ardışık zaman çizelgesi boşlukları olarak değerlendirilir: her ziyaretçi-to-ziyaretçi veya ziyaretçi-to-next-kept-message boşluğu zaman aşımına karşı kontrol edilir ve yalnızca sınırın altındaysa eklenir.</translation>
+    </message>
+    <message>
+      <source>For response metrics in the same calculation flow (FRT/AART/MART), consecutive visitor messages do not reset pending visitor start marker. That marker is replaced only after a valid operator reply closes current pending window.</source>
+      <translation>Aynı hesaplama akışındaki (FRT/AART/MART) yanıt ölçümleri için, ardışık ziyaretçi mesajları bekleyen ziyaretçi başlangıç işaretleyicisini sıfırlamaz. Bu işaretleyici ancak geçerli bir Operatör yanıtı geçerli bekleyen pencereyi kapattıktan sonra değiştirilir.</translation>
+    </message>
+    <message>
+      <source>Acceptance or transfer meta events do not reset total chat duration; they are just timeline events. Duration continues from previous kept message using the same gap rule.</source>
+      <translation>Kabul veya transfer meta olayları toplam konuşma süresini sıfırlamaz; bunlar sadece zaman çizelgesi olaylarıdır. Süre, aynı boşluk kuralı kullanılarak önceki tutulan mesajdan devam eder.</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder messages are not used as agent owners, but in total chat duration timeline they still follow the same gap-and-timeout rule if they are present as kept messages.</source>
+      <translation>bot/auto-responder mesajları temsilci sahibi olarak kullanılmaz, ancak toplam konuşma süre zaman çizelgesinde, tutulan mesajlar olarak mevcutlarsa yine de aynı boşluk ve zaman aşımı kuralını izlerler.</translation>
+    </message>
+    <message>
+      <source>Scenario: visitor writes after first acceptance. The gap from that visitor message to the next kept message is added only if it is below timeout.</source>
+      <translation>Senaryo: ziyaretçi ilk kabulden sonra yazar. Bu ziyaretçi mesajından bir sonraki tutulan mesaja kadar olan boşluk, yalnızca zaman aşımının altındaysa eklenir.</translation>
+    </message>
+    <message>
+      <source>Scenario: chat is transferred and accepted by another operator. Duration is not reset; it continues on the same message timeline with the same timeout checks.</source>
+      <translation>Senaryo: konuşma aktarılır ve başka bir Operatör tarafından kabul edilir. Süre sıfırlanmaz; aynı mesaj zaman çizelgesinde aynı zaman aşımı kontrolleriyle devam eder.</translation>
+    </message>
+    <message>
+      <source>minutes — the maximum gap allowed after a visitor message. If the operator replies later than this, that wait time is skipped.</source>
+      <translation>dakika - bir ziyaretçi mesajından sonra izin verilen maksimum boşluk. Eğer Operatör bundan daha geç yanıt verirse, zaman bekleme süresi atlanır.</translation>
+    </message>
+    <message>
+      <source>minutes — the maximum gap allowed when the current message is treated as operator side (non-visitor).</source>
+      <translation>dakika - mevcut mesaj Operatör tarafı (ziyaretçi olmayan) olarak ele alındığında izin verilen maksimum boşluğu.</translation>
+    </message>
+    <message>
+      <source>Measures the average chat duration from the accept action event through the full message timeline. It does NOT include bot messages, and it begins counting when the agent accepts the chat.</source>
+      <translation>Kabul eylemi olayından tüm mesaj zaman çizelgesi boyunca ortalama konuşma süresini ölçer. bot mesajlarını İÇERMEZ ve müşteri temsilcisi konuşma&apos;u kabul ettiğinde saymaya başlar.</translation>
+    </message>
+    <message>
+      <source>An agent becomes active owner when a supported operator event/message appears (accept, transfer, owner/department change, assign, or operator message).</source>
+      <translation>Desteklenen bir Operatör olayı/mesajı göründüğünde (kabul, transfer, sahip/departman değişikliği, atama veya Operatör mesajı) bir temsilci aktif sahibi olur.</translation>
+    </message>
+    <message>
+      <source>For response metrics tied to participants (FRT/AART/MART), consecutive visitor messages also do not reset pending visitor start marker. Start remains first pending point until valid operator reply.</source>
+      <translation>Katılımcılara bağlı yanıt ölçümleri için (FRT/AART/MART), ardışık ziyaretçi mesajları da bekleyen ziyaretçi başlangıç işaretleyicisini sıfırlamaz. Başlangıç, geçerli Operatör yanıtına kadar bekleyen ilk nokta olarak kalır.</translation>
+    </message>
+    <message>
+      <source>Accept/transfer/owner-change meta events can switch owner context, but they do not count as visitor replies. They only affect which human owner receives later eligible gaps.</source>
+      <translation>Kabul/transfer/sahip değiştirme meta olayları sahip bağlamını değiştirebilir, ancak ziyaretçi yanıtları olarak sayılmazlar. Yalnızca hangi insan sahibinin daha sonra uygun boşlukları alacağını etkilerler.</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder side is not tracked as a human participant owner, so it does not create a separate human agent duration entry.</source>
+      <translation>bot/otomatik yanıtlayıcı tarafı bir insan katılımcı sahibi olarak izlenmez, bu nedenle ayrı bir insan aracı süresi girişi oluşturmaz.</translation>
+    </message>
+    <message>
+      <source>Scenario: visitor writes after first acceptance. That visitor-to-next-message gap is added to accepted agent only if it is below timeout.</source>
+      <translation>Senaryo: ziyaretçi ilk kabulden sonra yazar. Bu ziyaretçi-to-next-message boşluğu, yalnızca zaman aşımının altındaysa kabul edilen aracıya eklenir.</translation>
+    </message>
+    <message>
+      <source>Scenario: chat is transferred and accepted by another operator. After acceptance, visitor gaps are added to new owner; previous owner remains frozen.</source>
+      <translation>Senaryo: konuşma başka bir Operatör tarafından devredilir ve kabul edilir. Kabul edildikten sonra ziyaretçi boşlukları yeni sahibine eklenir; önceki sahibi dondurulmuş olarak kalır.</translation>
+    </message>
+    <message>
+      <source>minutes — max gap allowed after a visitor message. If the agent replied later than this, that waiting time is ignored.</source>
+      <translation>dakika - bir ziyaretçi mesajından sonra izin verilen maksimum boşluk. Temsilci bundan daha geç yanıt verirse, bu bekleme zaman göz ardı edilir.</translation>
+    </message>
+    <message>
+      <source>minutes — max gap allowed after an agent message. If the visitor replied later than this, that waiting time is ignored.</source>
+      <translation>dakika - bir temsilci mesajından sonra izin verilen maksimum boşluk. ziyaretçi bundan daha geç yanıt verirse, bekleyen zaman yok sayılır.</translation>
+    </message>
+    <message>
+      <source>FRT is created when there is a pending visitor-side start point and then a real operator message arrives (operator user_id &gt; 0, and message is not a meta/system action).</source>
+      <translation>FRT, bekleyen bir ziyaretçi tarafı başlangıç noktası olduğunda ve ardından gerçek bir Operatör mesajı geldiğinde oluşturulur (Operatör user_id &gt; 0 ve mesaj bir meta/sistem eylemi değildir).</translation>
+    </message>
+    <message>
+      <source>Start point is stored in two cases: (1) first visitor message after previous FRT was closed, or (2) accept_action meta event.</source>
+      <translation>Başlangıç noktası iki durumda saklanır: (1) önceki FRT kapatıldıktan sonraki ilk ziyaretçi mesajı veya (2) accept_action meta olayı.</translation>
+    </message>
+    <message>
+      <source>Consecutive visitor messages do not move the start point forward. Internally, visitor start is set only when there is no active pending visitor start; after that, extra visitor messages are ignored for start-point update until a valid operator reply happens.</source>
+      <translation>Ardışık ziyaretçi mesajları başlangıç noktasını ileriye taşımaz. Dahili olarak, ziyaretçi başlangıcı yalnızca aktif bekleyen ziyaretçi başlangıcı olmadığında ayarlanır; bundan sonra, geçerli bir Operatör yanıtı olana kadar başlangıç noktası güncellemesi için ekstra ziyaretçi iletileri yok sayılır.</translation>
+    </message>
+    <message>
+      <source>When operator reply arrives, FRT is calculated as reply_time minus max(start_point_time, pending_start_time), where pending_start_time = pnd_time + wait_time. This removes queue waiting before acceptance.</source>
+      <translation>Operatör yanıtı geldiğinde FRT, yanıt_zamanı eksi maks(başlangıç_noktası_zamanı, bekleyen_başlangıç_zamanı) olarak hesaplanır; burada bekleyen_başlangıç_zamanı = pnd_zamanı + bekleme_zamanı&apos;dır. Bu, kabulden önce kuyrukta beklemeyi ortadan kaldırır.</translation>
+    </message>
+    <message>
+      <source>Meta actions (accept, transfer, owner change, department change, assign) do not close FRT window by themselves. They are not counted as operator reply messages.</source>
+      <translation>Meta eylemler (kabul, transfer, sahip değişikliği, departman değişikliği, atama) FRT penceresini kendi başlarına kapatmaz. Bunlar Operatör yanıt mesajları olarak sayılmazlar.</translation>
+    </message>
+    <message>
+      <source>Bot/auto-responder messages do not create FRT reply events because reply event requires operator user_id &gt; 0.</source>
+      <translation>bot/auto-responder mesajları FRT yanıt olayları oluşturmaz çünkü yanıt olayı Operatör user_id &gt; 0 gerektirir.</translation>
+    </message>
+    <message>
+      <source>For participant stats, each operator has their own first FRT value. For chat-level FRT, system stores the first FRT from the full timeline (response_times_total[0]).</source>
+      <translation>Katılımcı istatistikleri için, her Operatör kendi ilk FRT değerine sahiptir. konuşma düzeyinde FRT için, sistem tam zaman çizelgesindeki ilk FRT değerini depolar (response_times_total[0]).</translation>
+    </message>
+    <message>
+      <source>MART (Maximum Agent Response Time) describes the maximum time the agent takes to reply a message to the visitor.</source>
+      <translation>MART (maksimum Temsilci Yanıtı zaman), temsilcinin ziyaretçi&apos;a bir mesajı yanıtlamak için kullandığı maksimum zaman yöntemini tanımlar.</translation>
+    </message>
+    <message>
+      <source>For each participant, we calculate all valid reply times. MART is not an average, it is the single highest response time from that participant.</source>
+      <translation>Her katılımcı için tüm geçerli yanıt sürelerini hesaplıyoruz. MART bir ortalama değildir, o katılımcıdan gelen en yüksek tek yanıttır zaman.</translation>
+    </message>
+    <message>
+      <source>Formula (per participant): MART = max(that participant response times).</source>
+      <translation>Formül (katılımcı başına): MART = maks(o katılımcının yanıt süreleri).</translation>
+    </message>
+    <message>
+      <source>If participant has no valid response times, their MART stays 0.</source>
+      <translation>Eğer katılımcının geçerli bir yanıt süresi yoksa, MART&apos;ı 0 olarak kalır.</translation>
     </message>
     <message>
       <source>You can have custom JS execution on click event. In combination with</source>
@@ -21919,6 +22211,10 @@
       <translation>Harici URL kullanmak yerine eki indirin</translation>
     </message>
     <message>
+      <source>If there can be more than one element define root element location</source>
+      <translation>Birden fazla eleman olabiliyorsa kök eleman konumunu tanımlayın</translation>
+    </message>
+    <message>
       <source>Image body attributes. URL or base64 encoded content</source>
       <translation>Resim gövdesi öznitelikleri. URL veya base64 kodlu içerik</translation>
     </message>
@@ -21991,8 +22287,16 @@
       <translation>Mesajın görüntü olarak kabul edilmesi için mesajın öznitelik değeri şu değere eşit olmalıdır</translation>
     </message>
     <message>
+      <source>If there can be more than one element define root element locationn</source>
+      <translation>Birden fazla eleman olabiliyorsa kök eleman konumunu tanımlayınn</translation>
+    </message>
+    <message>
       <source>Message ID location</source>
       <translation>Mesaj ID konum</translation>
+    </message>
+    <message>
+      <source>Try to find chat by message id if we chat was not found by id</source>
+      <translation>konuşma tarafından bulunamadıysa ID mesajıyla konuşma adresini bulmaya çalışın ID</translation>
     </message>
     <message>
       <source>For message being considered deleted, message should have attribute value equal to</source>
@@ -22021,10 +22325,6 @@
     <message>
       <source>Reaction emoji location</source>
       <translation>Tepki emojisi konumu</translation>
-    </message>
-    <message>
-      <source>Try to find chat by message id if we chat was not found by id</source>
-      <translation>konuşma tarafından bulunamadıysa ID mesajıyla konuşma adresini bulmaya çalışın ID</translation>
     </message>
     <message>
       <source>Reaction is a standalone unicode character</source>
@@ -26717,6 +27017,10 @@
   <context>
     <name>chat/backtochat</name>
     <message>
+      <source>Visitor completed survey!</source>
+      <translation>ziyaretçi anket tamamlandi!</translation>
+    </message>
+    <message>
       <source>Visitor has been redirected back to chat!</source>
       <translation>ziyaretçi konuşma adresine geri yönlendirildi!</translation>
     </message>
@@ -26759,6 +27063,29 @@
     <message>
       <source>Deny screen share</source>
       <translation>Ekran paylaşımını reddet</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/contentchunk</name>
+    <message>
+      <source>Identifier</source>
+      <translation>Tanımlayıcı</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Adı</translation>
+    </message>
+    <message>
+      <source>Content, checked against JSON format</source>
+      <translation>İçerik, JSON formatına göre kontrol edildi</translation>
+    </message>
+    <message>
+      <source>In-Active. Do not use in replaceable variables</source>
+      <translation>In-aktif. Değiştirilebilir değişkenlerde kullanmayın</translation>
+    </message>
+    <message>
+      <source>Content Chunk</source>
+      <translation>İçerik Yığını</translation>
     </message>
   </context>
 </TS>
