@@ -1526,6 +1526,8 @@ class erLhcoreClassGenericBotActionRestapi
                                 'stream_event' => $streamEvent
                             ]);
 
+                            //$streamLines[] = self::getCurrentTimeWithMilliseconds().' [trigger exec] - [' . $trigger->name . '] [' . $trigger->id . ']';
+
                             if (isset($responseStream['content']) && $responseStream['content'] != '' && isset($responseStream['conditions_met']) && $responseStream['conditions_met'] == 1 &&
                                 isset($responseStream['stream_execute_trigger']) && $responseStream['stream_execute_trigger'] == true &&
                                 !(isset($responseStream['final_match']) && $responseStream['final_match'] == true) &&
@@ -1654,7 +1656,14 @@ class erLhcoreClassGenericBotActionRestapi
                                     (isset($responseStream['stream_content']) && $responseStream['stream_content'] == true && empty($responseContent)) ||
                                     (isset($responseStream['stream_final']) && $responseStream['stream_final'] == true)
                                 ) {
-                                    $responseContent = $responseStream;
+
+                                    //$streamLines[] = self::getCurrentTimeWithMilliseconds().' [stream matched] \n PREV - ' . json_encode($responseContent)."\n CURR - ".json_encode($responseStream);
+
+                                    if (isset($responseStream['merge_stream_values']) && $responseStream['merge_stream_values'] == true && !empty($responseContent)) {
+                                        $responseContent = self::recursiveChunkMerge($responseContent, $responseStream, ['content', 'content_2', 'content_3', 'content_4', 'content_5', 'content_6']);
+                                    } else {
+                                        $responseContent = $responseStream;
+                                    }
 
                                     if (isset($responseStream['final_match_stream']) && $responseStream['final_match_stream'] == true && $lockMatchedOutput !== true) {
                                         $lockMatchedOutput = true;
@@ -2001,6 +2010,41 @@ class erLhcoreClassGenericBotActionRestapi
         // Print the time with milliseconds
         return $timeWithMilliseconds;
     }
+
+    /**
+     * Recursively merges two arrays by appending string values from $curr to $prev.
+     *
+     * @param array $prev The base array (accumulator)
+     * @param array $curr The new chunk containing fragments
+     * @param array|null $limitKeys If provided, only these top-level keys are processed
+     * @return array
+     */
+    public static function recursiveChunkMerge(array $prev, array $curr, ?array $limitKeys = null): array {
+        // Determine which keys to iterate over
+        $keysToProcess = $limitKeys ?? array_keys($curr);
+
+        foreach ($keysToProcess as $key) {
+            if (!isset($curr[$key])) {
+                continue;
+            }
+
+            // Case 1: Both are arrays - Dig deeper (Recursion)
+            if (is_array($curr[$key]) && isset($prev[$key]) && is_array($prev[$key])) {
+                $prev[$key] = self::recursiveChunkMerge($prev[$key], $curr[$key]);
+            }
+            // Case 2: Both are strings - Append (Leaf node)
+            elseif (is_string($curr[$key]) && isset($prev[$key]) && is_string($prev[$key])) {
+                $prev[$key] .= $curr[$key];
+            }
+            // Case 3: Key exists in curr but not in prev - Initialize/Copy
+            elseif (!isset($prev[$key])) {
+                $prev[$key] = $curr[$key];
+            }
+        }
+
+        return $prev;
+    }
+
     public static function parseContentOutput($processOutputParams) {
 
         extract($processOutputParams);
@@ -2184,6 +2228,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'stream_as_html' => (isset($outputCombination['stream_as_html']) && $outputCombination['stream_as_html'] == true),
                         'stream_execute_trigger' => (isset($outputCombination['stream_execute_trigger']) && $outputCombination['stream_execute_trigger'] == true),
                         'stream_final' => (isset($outputCombination['stream_final']) && $outputCombination['stream_final'] == true),
+                        'merge_stream_values' => (isset($outputCombination['merge_stream_values']) && $outputCombination['merge_stream_values'] == true),
                         'as_failed_request' => (isset($outputCombination['as_failed_request']) && $outputCombination['as_failed_request'] == true)
                     );
 

@@ -643,6 +643,7 @@
                                         <label class="d-block"><input type="checkbox" ng-model="paramOutput.stream_execute_trigger" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Execute trigger on matched content. Stream will continue afterwards.');?></label>
                                         <label class="d-block"><input type="checkbox" ng-model="paramOutput.stream_final" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If matched use response as final response.');?></label>
                                         <div class="ps-2"><label class="d-block"><input ng-disabled="!paramOutput.stream_final" type="checkbox" ng-model="paramOutput.final_match_stream" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','No other stream event can be parsed after this type is matched.');?></label></div>
+                                        <div class="ps-2"><label class="d-block"><input ng-disabled="!paramOutput.stream_final" type="checkbox" ng-model="paramOutput.merge_stream_values" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Merge values if multiple times matched same output.');?></label></div>
                                     </div>
                                 </div>
 
