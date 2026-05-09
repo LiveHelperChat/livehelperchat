@@ -1636,6 +1636,8 @@ class erLhcoreClassGenericBotActionRestapi
                                         $responseContent['content_6'] = '';
                                         $lockMatchedOutput = true;
 
+                                        $currentMatchedOutput = null;
+
                                     } else {
                                         $streamLines[] = self::getCurrentTimeWithMilliseconds().' SKIPPING - [' . $streamEvent . '] - ' . $streamBuffer;
                                         continue;
@@ -1659,7 +1661,7 @@ class erLhcoreClassGenericBotActionRestapi
 
                                     //$streamLines[] = self::getCurrentTimeWithMilliseconds().' [stream matched] \n PREV - ' . json_encode($responseContent)."\n CURR - ".json_encode($responseStream);
 
-                                    if (isset($responseStream['merge_stream_values']) && $responseStream['merge_stream_values'] == true && !empty($responseContent)) {
+                                    if (isset($responseStream['merge_stream_values']) && $responseStream['merge_stream_values'] == true && $currentMatchedOutput == $responseStream['id']) {
                                         $responseContent = self::recursiveChunkMerge($responseContent, $responseStream, ['content', 'content_2', 'content_3', 'content_4', 'content_5', 'content_6']);
                                     } else {
                                         $responseContent = $responseStream;
