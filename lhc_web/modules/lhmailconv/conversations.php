@@ -21,7 +21,9 @@ if ($currentUser->hasAccessTo('lhmailconv','delete_conversation')) {
         if ( $form->hasValidData( 'ConversationID' ) && !empty($form->ConversationID) ) {
             $chats = erLhcoreClassModelMailconvConversation::getList(array('filterin' => array('id' => $form->ConversationID)));
             foreach ($chats as $chatToDelete) {
-                $chatToDelete->removeThis();
+                if (erLhcoreClassChat::hasAccessToWrite($chatToDelete) && erLhcoreClassChat::hasAccessToRead($chatToDelete)){
+                    $chatToDelete->removeThis();
+                }
             }
         }
     }
@@ -162,7 +164,7 @@ if (!empty($filterParams['input_form']->message_id)) {
 }
 
 if (in_array($Params['user_parameters_unordered']['export'], array(1)) && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','export_mails')) {
-    if (ezcInputForm::hasPostData()) {
+    if (ezcInputForm::hasPostData() && isset($_POST['csfr_token']) && $currentUser->validateCSFRToken($_POST['csfr_token'])) {
         session_write_close();
         if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions') && count($filterParams['filter']) > 1) { // One element is always a sort. We want at-least one real filter.
             erLhcoreClassLog::write(erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']),
@@ -203,6 +205,11 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
     $tpl->set('input', $filterParams['input_form']);
     if (ezcInputForm::hasPostData()) {
         $Errors = erLhcoreClassAdminChatValidatorHelper::validateSavedSearch($savedSearch, array('filter' => $filterParams['filter'], 'input_form' => $filterParams['input_form']));
+
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            $Errors[] = 'Invalid CSRF token!';
+        }
+
         if (empty($Errors)) {
             $savedSearch->user_id = $currentUser->getUserID();
             $savedSearch->scope = 'mail';
@@ -217,36 +224,55 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
     exit;
 }
 
-
-
 if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 3 && $currentUser->hasAccessTo('lhmailconv','quick_actions')) {
     $tpl = erLhcoreClassTemplate::getInstance('lhviews/quick_actions.tpl.php');
     $tpl->set('action_url', erLhcoreClassDesign::baseurl('mailconv/conversations') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
     $tpl->set('update_records',erLhcoreClassModelMailconvConversation::getCount($filterParams['filter']));
 
     if (ezcInputForm::hasPostData()) {
-        if (isset($_POST['new_user_id']) && is_numeric($_POST['new_user_id']) && $_POST['new_user_id'] > 0) {
+
+        $errors = [];
+        if (!(isset($_POST['new_user_id']) && is_numeric($_POST['new_user_id']) && $_POST['new_user_id'] > 0)) {
+            $errors[] = 'Please choose an operator';
+        }
+
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            $errors[] = 'Invalid CSRF token';
+        }
+
+        if (empty($errors)) {
             $q = ezcDbInstance::get()->createUpdateQuery();
             $conditions = erLhcoreClassModelMailconvConversation::getConditions($filterParams['filter'], $q);
+
             $q->update( 'lhc_mailconv_conversation' )
                 ->set( 'user_id',  (int)$_POST['new_user_id'] )
-                ->where(
+                ;
+
+            if (!empty($conditions)){
+                $q->where(
                     $conditions
                 );
+            }   
+
             $stmt = $q->prepare();
             $stmt->execute();
             $tpl->set('updated', true);
         } else {
-            $tpl->set('errors', ['Please choose an operator']);
+            $tpl->set('errors', $errors);
         }
     }
     echo $tpl->fetch();
     exit;
 }
 
-if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 4) {
+if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 4 && $currentUser->hasAccessTo('lhmailconv','delete_conversation')) {
     $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/delete_conversations.tpl.php');
     $tpl->set('action_url', erLhcoreClassDesign::baseurl('mailconv/conversations') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+
+    $dep = erLhcoreClassUserDep::getUserReadDepartments();
+    if (!empty($dep)){
+        $filterParams['filter']['filternot']['dep_id'] = $dep;
+    }
 
     if (ezcInputForm::hasPostData()) {
         session_write_close();
@@ -266,7 +292,6 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
             $deleteFilter->delete_policy = (isset($_POST['delete_policy']) && $_POST['delete_policy'] === 'true') ? 0 : 1;
             $deleteFilter->saveThis();
             echo json_encode(['result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Scheduled delete flow with ID') . ' - ' . $deleteFilter->id]);
-
         } else {
             $filterParams['filter']['limit'] = 20;
             $filterParams['filter']['offset'] = 0;
@@ -287,9 +312,14 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
     exit;
 }
 
-if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 5) {
+if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 5 && $currentUser->hasAccessTo('lhmailconv','delete_conversation')) {
     $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/delete_conversations_archive.tpl.php');
     $tpl->set('action_url', erLhcoreClassDesign::baseurl('mailconv/conversations') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+
+    $dep = erLhcoreClassUserDep::getUserReadDepartments();
+    if (!empty($dep)){
+        $filterParams['filter']['filternot']['dep_id'] = $dep;
+    }
 
     if (ezcInputForm::hasPostData() && isset($_GET['archive_id'])) {
         session_write_close();

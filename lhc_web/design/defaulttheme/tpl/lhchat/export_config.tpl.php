@@ -10,6 +10,9 @@ $appendPrintExportURL = '';
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel_append_print_multiinclude.tpl.php'));?>
 
 <form action="<?php echo htmlspecialchars($action_url)?>/(export)/1?<?php echo htmlspecialchars(isset($query_url) ? $query_url : '')?><?php echo !empty($appendPrintExportURL) ? '&amp;' . $appendPrintExportURL : ''?>" method="post" target="_blank">
+
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <div class="modal-body">
         <div class="row">
             <div class="col-6">

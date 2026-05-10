@@ -197,7 +197,7 @@ if ($Params['user_parameters_unordered']['print'] == 1) {
 }
 
 if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 1 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','export_chats')) {
-    if (ezcInputForm::hasPostData()) {
+    if (ezcInputForm::hasPostData() && isset($_POST['csfr_token']) && $currentUser->validateCSFRToken($_POST['csfr_token'])) {
         session_write_close();
         if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions') && count($filterParams['filter']) > 1) { // One element is always a sort. We want at-least one real filter.
             erLhcoreClassLog::write(erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']),
@@ -262,18 +262,22 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
     exit;
 }
 
-if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 3) {
+if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 3 && (erLhcoreClassUser::instance()->hasAccessTo('lhchat','deleteglobalchat') || erLhcoreClassUser::instance()->hasAccessTo('lhchat','deletechat'))) {
+
     $tpl = erLhcoreClassTemplate::getInstance('lhchat/delete_chats.tpl.php');
     $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/list') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
 
-    if (ezcInputForm::hasPostData()) {
+    if (ezcInputForm::hasPostData() && isset($_SERVER['HTTP_X_CSRFTOKEN']) && $currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
         session_write_close();
         $filterParams['filter']['limit'] = 20;
         $filterParams['filter']['offset'] = 0;
 
         foreach (erLhcoreClassModelChat::getList($filterParams['filter']) as $item){
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete', array('chat' => & $item, 'user' => $currentUser));
-            $item->removeThis();
+            if (erLhcoreClassChat::hasAccessToWrite($item) && erLhcoreClassChat::hasAccessToRead($item) && ($currentUser->hasAccessTo('lhchat','deleteglobalchat') || ($currentUser->hasAccessTo('lhchat','deletechat') && $item->user_id == $currentUser->getUserID())))
+            {
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.delete', array('chat' => & $item, 'user' => $currentUser));
+                $item->removeThis();
+            }
         }
 
         erLhcoreClassRestAPIHandler::setHeaders();
