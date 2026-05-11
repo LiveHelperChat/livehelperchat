@@ -56,7 +56,7 @@ class ChatStatus extends PureComponent {
         };
 
         if (shouldShowButton) {
-            axios.get(`${window.lhcChat['base_url']}restapi/isonlinechat/${this.props.chat.get('id')}?exclude_bot=true`)
+            axios.get(`${window.lhcChat['base_url']}restapi/isonlinechat/${this.props.chat.get('id')}?exclude_bot=true&event=switch_to_human`)
                 .then(response => {
                     toggleTransferButton(response.data.isonline);
                 })

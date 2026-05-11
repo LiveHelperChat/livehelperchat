@@ -2519,6 +2519,14 @@
             "format": "int32"
           },
           {
+            "name": "event",
+            "in": "query",
+            "description": "Event to",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
             "name": "ignore_user_status",
             "in": "query",
             "description": "Ignore user status",
