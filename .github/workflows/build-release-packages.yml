@@ -1,0 +1,63 @@
+name: Build Release Packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to use in archive names, for example v1.0.0
+        required: true
+        type: string
+
+jobs:
+  build-release-packages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository into livehelperchat-master
+        uses: actions/checkout@v4
+        with:
+          path: livehelperchat-master
+
+      - name: Create and push release tag
+        working-directory: livehelperchat-master
+        run: |
+          TAG="${{ inputs.tag }}"
+          if git ls-remote --tags origin "refs/tags/${TAG}" | grep -q "refs/tags/${TAG}$"; then
+            echo "Tag ${TAG} already exists on origin"
+            exit 1
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag "${TAG}"
+          git push origin "refs/tags/${TAG}"
+
+      - name: Setup PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          tools: composer
+          coverage: none
+
+      - name: Install Composer dependencies in lhc_web
+        working-directory: livehelperchat-master/lhc_web
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Build release archives
+        run: |
+          tar czfv "${{ inputs.tag }}-with-dependencies.tgz" livehelperchat-master/
+          zip -r "${{ inputs.tag }}-with-dependencies.zip" livehelperchat-master/
+
+      - name: Upload tgz artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "${{ inputs.tag }}-with-dependencies-tgz"
+          path: "${{ inputs.tag }}-with-dependencies.tgz"
+
+      - name: Upload zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "${{ inputs.tag }}-with-dependencies-zip"
+          path: "${{ inputs.tag }}-with-dependencies.zip"
