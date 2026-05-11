@@ -1,3 +1,22 @@
+4.85v
+
+1. Notable changes since 4.84v
+   - Security and access control: tightened chat operation permissions by requiring proper read/write access checks; additional permission hardening was applied across related flows.
+   - CSP and policy handling: completed CSP parser integration and follow-up fixes, including policy exposure hardening and parser/library alignment.
+   - Voice messaging and widget UX: improved voice-message flow and UX, updated voice app behavior, kept cursor focus on desktop, and added a widget-theme option to disable voice messages.
+   - Translation workflow: improved automatic translation reliability, added DeepL model/formality options, enhanced metadata/error handling, and refined start/stop and old-message translation flows.
+   - Analytics and timing metrics: improved chat duration/response-time calculations, participant timing accounting, and operator duration output in reports.
+   - REST API and diagnostics: added optional custom REST API messages, improved exception visibility/traceback details, and enabled direct log viewing from back office.
+   - Invitations and online-hours logic: enhanced invitation alias/profile handling and improved overlapping online-hours period calculations.
+   - UI/translations/dependencies: updated translations, refreshed JS dependencies (including html-react-parser migration), and applied multiple package/security updates.
+   - Misc fixes: delivered issue-specific fixes and regressions cleanup (including #2378, #2379, #2382), plus release workflow updates.
+
+2. Summary
+   - This release focuses on security hardening, CSP maturity, and operator productivity, while also improving voice messaging UX and translation automation quality.
+   - It also improves chat/mail timing metrics and diagnostics, with additional stability updates across UI, dependencies, and release automation.
+
+No new DB migration script required for this release.
+
 4.84v
 
 1. Notable changes since 4.83v
