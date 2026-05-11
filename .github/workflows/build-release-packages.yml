@@ -7,6 +7,10 @@ on:
         description: Tag to use in archive names, for example v1.0.0
         required: true
         type: string
+      release_name:
+        description: Release title shown in the GitHub Releases page
+        required: true
+        type: string
 
 jobs:
   build-release-packages:
@@ -49,6 +53,15 @@ jobs:
         run: |
           tar czfv "${{ inputs.tag }}-with-dependencies.tgz" livehelperchat-master/
           zip -r "${{ inputs.tag }}-with-dependencies.zip" livehelperchat-master/
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "${{ inputs.tag }}"
+          name: "${{ inputs.release_name }}"
+          files: |
+            ${{ inputs.tag }}-with-dependencies.tgz
+            ${{ inputs.tag }}-with-dependencies.zip
 
       - name: Upload tgz artifact
         uses: actions/upload-artifact@v4
