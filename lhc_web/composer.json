@@ -13,6 +13,9 @@
     "vendor-dir": "lib/vendor",
     "allow-plugins": {
       "php-http/discovery": true
+    },
+    "platform": {
+      "php": "8.2.0"
     }
   },
   "description": "Live Helper Chat - live support for your website. Featuring web and desktop clients. Compatible Windows, Linux, Mac. Desktop client powered by QT. Supports mobile phones based on XMPP service providers (GTalk, Xabber, Mono etc.)",
