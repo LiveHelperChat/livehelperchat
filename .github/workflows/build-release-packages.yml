@@ -51,8 +51,12 @@ jobs:
 
       - name: Build release archives
         run: |
-          tar czfv "${{ inputs.tag }}-with-dependencies.tgz" livehelperchat-master/
-          zip -r "${{ inputs.tag }}-with-dependencies.zip" livehelperchat-master/
+          tar czfv "${{ inputs.tag }}-with-dependencies.tgz" \
+            --exclude='livehelperchat-master/.git' \
+            --exclude='livehelperchat-master/.github' \
+            livehelperchat-master/
+          zip -r "${{ inputs.tag }}-with-dependencies.zip" livehelperchat-master/ \
+            -x 'livehelperchat-master/.git/*' 'livehelperchat-master/.github/*'
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
