@@ -19,8 +19,7 @@ try {
                 );
 
         if (!empty($_GET['event'])) {
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('api.fetchchat', array('chat' => & $chat));
-            $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('api.isonlinechat',array('params_execution' => $paramsOnline, 'event' => $_GET['event']));
+            $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('api.isonlinechat',array('chat' => & $chat, 'params_execution' => $paramsOnline, 'event' => $_GET['event']));
         }
 
         if ($statusWorkflow === false) {
