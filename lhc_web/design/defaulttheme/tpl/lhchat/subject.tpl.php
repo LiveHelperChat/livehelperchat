@@ -1,4 +1,4 @@
-<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Set a subject')?>
+<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Set a subject'); $modalSize = 'xl';?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
     <div role="alert" class="alert alert-info alert-dismissible m-0 mb-2 p-1 fade show">
