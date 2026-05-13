@@ -11,11 +11,11 @@
         }
         if (!empty($idsUnique)) : ?>
         <h6>
-            <input type="button" class="btn btn-xs btn-secondary" value="Show/Hide" onclick="$('#dep-group-filter-id-<?php echo $depGroupItem->id?>').toggle()">&nbsp;<?php echo htmlspecialchars($depGroupItem->name)?>
+            <input type="button" class="btn btn-xs btn-secondary" value="Show/Hide" onclick="$('#dep-group-filter-id-<?php echo $depGroupItem->id?>').toggle()"><span class="ms-1 material-icons">account_balance</span><?php echo htmlspecialchars($depGroupItem->name)?>
         </h6>
         <div id="dep-group-filter-id-<?php echo $depGroupItem->id?>" style="display: none">
             <?php foreach (erLhcoreClassModelDepartament::getList(array('sort' => 'sort_priority ASC, name ASC','filterin' => array('id' => $idsUnique))) as $depGroup) : ?>
-                <div class="checkbox"><label><input type="radio" name="DepartamentID<?php echo $departments_filter['chat_id']?>" value="<?php echo $depGroup->id?>"/>&nbsp;<?php echo htmlspecialchars($depGroup->name)?><?php if ($depGroup->id == $departments_filter['dep_id']) : ?>&nbsp;<b>[<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','current');?>]</b><?php endif;?></label></div>
+                <div class="checkbox"><label><input type="radio" name="DepartamentID<?php echo $departments_filter['chat_id']?>" value="<?php echo $depGroup->id?>"/>&nbsp; <?php echo htmlspecialchars($depGroup->name)?><?php if ($depGroup->id == $departments_filter['dep_id']) : ?>&nbsp;<b>[<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','current');?>]</b><?php endif;?></label></div>
             <?php endforeach; ?>
         </div>
     <?php endif; endforeach; ?>
@@ -47,7 +47,7 @@
     <?php endforeach; ?>
 
     <h6 class="border-top pt-2">
-        <input type="button" class="btn btn-xs btn-secondary" value="Show/Hide" onclick="$('#online-transfer-dep').toggle()">&nbsp;<span class="label label-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Online');?></span>
+        <input type="button" class="btn btn-xs btn-secondary" value="Show/Hide" onclick="$('#online-transfer-dep').toggle()"><span class="ms-1 material-icons text-success">flash_on</span><span class="label text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Online');?></span>
         </h6>
     <div id="online-transfer-dep" style="display: <?php $hasMembers == true ? print 'none' : 'block'?>">
     <?php
@@ -59,7 +59,7 @@
     </div>
 
     <h6 class="border-top pt-2">
-        <input type="button" class="btn btn-xs btn-secondary" value="Show/Hide" onclick="$('#offline-transfer-dep').toggle()">&nbsp;<span class="label label-default"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Offline');?></span>
+        <input type="button" class="btn btn-xs btn-secondary" value="Show/Hide" onclick="$('#offline-transfer-dep').toggle()"><span class="ms-1 material-icons text-danger">flash_off</span><span class="label text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Offline');?></span>
     </h6>
     <div id="offline-transfer-dep" style="display: none">
     <?php foreach ($departments as $departament) : if (!in_array($departament->id, $onlineDepartments)) : ?>
