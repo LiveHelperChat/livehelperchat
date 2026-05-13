@@ -378,7 +378,7 @@ try {
         }
 
         if (isset($fileData['sound_messages']) && $fileData['sound_messages'] == true && 
-            !($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['no_voice_messages']) && $theme->bot_configuration_array['no_voice_messages'] == true)) {
+            !(isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['no_voice_messages']) && $theme->bot_configuration_array['no_voice_messages'] == true)) {
             $outputResponse['chat_ui']['voice_message'] = $fileData['sound_length'];
             
             if (isset($fileData['sound_messages_engine']) && is_numeric($fileData['sound_messages_engine'])) {

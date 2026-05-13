@@ -12,7 +12,7 @@ $validTabs = array(
     'notifications' => 'tab_notifications'
 );
 
-$tpl->set('tab',key_exists($Params['user_parameters_unordered']['tab'], $validTabs) ? $validTabs[$Params['user_parameters_unordered']['tab']] : '');
+$tpl->set('tab',key_exists((string)$Params['user_parameters_unordered']['tab'], $validTabs) ? $validTabs[$Params['user_parameters_unordered']['tab']] : '');
 $tpl->set('paramsRequest',$Params);
 
 if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmode') && isset($_POST['UpdatePending_account'])) {
