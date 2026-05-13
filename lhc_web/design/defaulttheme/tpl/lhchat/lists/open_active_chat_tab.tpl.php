@@ -16,12 +16,14 @@
                         <?php endif; ?>
 
 
+                <?php if ($currentUser->hasAccessTo('lhfront', 'switch_editor')) : ?>
                 <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Switch between old and new editor')?>" class="dropdown-item csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/new_editor"><i class="material-icons">draw</i>
-                    <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_editor', 0) == 1) : ?>
+                    <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_editor', 1) == 1) : ?>
                         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Switch to old editor'); ?></a>
                     <?php else : ?>
                         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Switch to new editor'); ?></a>
                     <?php endif; ?>
+                <?php endif; ?>
 
 
                 <a onclick="<?php if ((int)erLhcoreClassModelUserSetting::getSetting('column_chats', 0) == 1) : ?>ee.emitEvent('svelteRemoveLocalSetting',['lhc_rch'])<?php else : ?>ee.emitEvent('svelteStoreLocalSetting',['lhc_rch',1])<?php endif;?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Click to switch modes')?>" class="dropdown-item csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/column_chats">

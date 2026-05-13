@@ -31,5 +31,6 @@ $ViewList['switchdashboard'] = array(
 
 $FunctionList['use'] = array('explain' => 'General frontpage use permission');  
 $FunctionList['switch_dashboard'] = array('explain' => 'Allow operator to switch between new/old dashboards');
+$FunctionList['switch_editor'] = array('explain' => 'Allow operators to switch between new and old editors in the chat window');
 
 ?>
