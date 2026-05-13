@@ -19,7 +19,7 @@ $validTabs = [
     'opactions' => 'tab_opactions'
 ];
 
-$tpl->set('tab',key_exists($Params['user_parameters_unordered']['tab'],$validTabs) ? $validTabs[$Params['user_parameters_unordered']['tab']] : '');
+$tpl->set('tab',key_exists((string)$Params['user_parameters_unordered']['tab'],$validTabs) ? $validTabs[$Params['user_parameters_unordered']['tab']] : '');
 $tpl->set('paramsRequest',$Params);
 
 $can_edit_groups = erLhcoreClassGroupRole::canEditUserGroups(erLhcoreClassUser::instance()->getUserData(), $UserData);
