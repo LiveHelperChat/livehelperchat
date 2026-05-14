@@ -90,11 +90,16 @@ if (ezcInputForm::hasPostData()) {
             $response['errors'][] = $e->getMessage();
         }
 
-        if ($response['send'] === true) {
+        if (isset($response['send']) && $response['send'] === true) {
             $tpl->set('updated',true);
             $tpl->set('outcome',$response);
             $tpl->set('item',$item);
         } else {
+            if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+                foreach($response['errors'] as $index => $error) {
+                    $response['errors'][$index] = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($error, array('dep_id' => 0));
+                }
+            }
             $tpl->set('errors',$response['errors']);
         }
 

@@ -52,7 +52,14 @@ try {
 
 } catch (Exception $e) {
     http_response_code(400);
-    echo json_encode(['send_tried' => true, 'errors' => ['general' => $e->getMessage()]]);
+
+    $errorMessage = $e->getMessage();
+
+    if (is_object($message) && !erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+        $errorMessage = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($errorMessage, array('dep_id' => $message->dep_id));
+    }
+    
+    echo json_encode(['send_tried' => true, 'errors' => ['general' => $errorMessage]]);
 }
 
 exit;
