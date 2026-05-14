@@ -6,6 +6,8 @@ $hash = $Params['user_parameters']['hash'];
 
 if ($hash != '') {
 
+    erLhcoreClassModelForgotPassword::deleteExpiredHashes();
+
     $hashData = erLhcoreClassModelForgotPassword::checkHash($hash);
 
     if ($hashData) {
