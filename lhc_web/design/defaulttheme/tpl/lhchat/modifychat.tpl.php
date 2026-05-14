@@ -178,6 +178,10 @@ setTimeout(function() {
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Auto responder object');?></h6>
             <pre class="fs11"><?php echo htmlspecialchars(json_encode(is_object($chat->auto_responder) ? $chat->auto_responder?->auto_responder : null, JSON_PRETTY_PRINT));?></pre>
 
+             <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhaudit','preview_messages')) : ?>
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','ChatML');?></h6>
+                <pre class="fs11"><?php echo htmlspecialchars(json_encode(LiveHelperChat\Helpers\Export\ChatML::fromChat($chat), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));?></pre>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 

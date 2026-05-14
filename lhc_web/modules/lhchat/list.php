@@ -215,7 +215,18 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
         $ignoreFields = (new erLhcoreClassModelChat)->getState();
         unset($ignoreFields['id']);
         $ignoreFields = array_keys($ignoreFields);
-        erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassModelChat::getList(array_merge($filterParams['filter'], array('limit' => 100000, 'offset' => 0, 'ignore_fields' => $ignoreFields))), array('csv' => isset($_POST['CSV']), 'type' => (isset($_POST['exportOptions']) ? $_POST['exportOptions'] : [])));
+        erLhcoreClassChatExport::chatListExportXLS(
+            erLhcoreClassModelChat::getList(array_merge($filterParams['filter'], array('limit' => 100000, 'offset' => 0, 'ignore_fields' => $ignoreFields))),
+            array(
+                'chatml' => isset($_POST['ChatML']),
+                'csv' => isset($_POST['CSV']),
+                'type' => (isset($_POST['exportOptions']) ? $_POST['exportOptions'] : []),
+                'system_prompt' => isset($_POST['system_prompt']) ? trim((string)$_POST['system_prompt']) : '',
+                'last_messages' => (isset($_POST['last_n_messages']) && is_numeric($_POST['last_n_messages']) && (int)$_POST['last_n_messages'] > 0) ? (int)$_POST['last_n_messages'] : 15,
+                'exclude_operator_messages' => isset($_POST['exclude_operator_messages']),
+                'only_with_tool_calls' => isset($_POST['only_with_tool_calls'])
+            )
+        );
         exit;
     } else {
         $tpl = erLhcoreClassTemplate::getInstance('lhchat/export_config.tpl.php');

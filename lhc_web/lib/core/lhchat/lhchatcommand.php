@@ -148,6 +148,8 @@ class erLhcoreClassChatCommand
 
                     $argumentsTrigger['replace_array']['{arg_command_title}'] = $argumentsTrigger['arg_command_title'] = $command->name;
 
+                    $argumentsTrigger['override_gbot_id'] = $trigger->bot_id;
+
                     $responseData['last_message'] = erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $argumentsTrigger));
 
                     // Not always bot returns last message

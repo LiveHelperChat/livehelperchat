@@ -327,6 +327,10 @@ class erLhcoreClassChatExport {
 
 	public static function chatListExportXLS($chats, $params = array()) {
 
+        if (isset($params['chatml']) && $params['chatml'] == true) {
+            \LiveHelperChat\Helpers\Export\ChatML::exportChats($chats, $params);
+        }
+
 		include 'lib/core/lhform/PHPExcel.php';
 		$cacheMethod = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
 		$cacheSettings = array( 'memoryCacheSize ' => '64MB');
