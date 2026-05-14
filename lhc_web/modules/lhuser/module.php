@@ -11,7 +11,7 @@ $ViewList['login'] = array(
 
 $ViewList['autologin'] = array(
     'params' => array('hash'),
-    'uparams' => array('r','u','l','t'),
+    'uparams' => array('r','u','l','t','n'),
 );
 
 $ViewList['autologinuser'] = array(

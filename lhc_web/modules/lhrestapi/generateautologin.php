@@ -54,15 +54,19 @@ try
             throw new Exception('Username or User ID has to be provided');
         }
 
-        $ts = time() + $params['t'];
+        // One-time nonce — prevents replay within the validity window
+        $nonce = bin2hex(random_bytes(16));
+        $dataRequest['n'] = $nonce;
+        $dataRequestAppend[] = '/(n)/'.rawurlencode($nonce);
 
-        // Expire time for link
-        if (isset($params['t'])) {
-            $dataRequest['t'] = $ts;
-            $dataRequestAppend[] = '/(t)/'.rawurlencode($ts);
-        }
+        // Expire time for link — mandatory, default 300 s, capped at 3600 s
+        $ttl = isset($params['t']) && is_numeric($params['t']) ? (int)$params['t'] : 300;
+        $ttl = max(1, min($ttl, 3600));
+        $ts = time() + $ttl;
+        $dataRequest['t'] = $ts;
+        $dataRequestAppend[] = '/(t)/'.rawurlencode($ts);
 
-        $hashValidation = sha1($params['secret_hash'].sha1($params['secret_hash'].implode(',', $dataRequest)));
+        $hashValidation = hash_hmac('sha256', implode(',', $dataRequest), $params['secret_hash']);
 
         $configInstance = erConfigClassLhConfig::getInstance();
 
