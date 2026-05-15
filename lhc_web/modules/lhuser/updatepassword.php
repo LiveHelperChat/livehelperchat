@@ -9,7 +9,7 @@ $hash = $Params['user_parameters']['hash'];
 if ($ts > time()) {
 
     $secretHash = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' );
-    $hashToVerify = sha1($secretHash.sha1($secretHash.implode(',', array($userId,$ts))));
+    $hashToVerify = hash_hmac('sha256', implode(',', array($userId,$ts)), $secretHash);
 
     if ($hashToVerify == $hash) {
 

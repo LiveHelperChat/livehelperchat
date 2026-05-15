@@ -32,7 +32,7 @@ if (is_array($adminSiteAccess)) {
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_site_access', array('loginSiteAccess' => & $possibleLoginSiteAccess));
 
 // We want cookie to be cross domain
-if ($currentUser->isLogged() && $crossDomainCookie === true && isset($_GET['ts']) && isset($_GET['token']) && ($_GET['ts'] > time() - 10 * 60) && sha1(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ).sha1(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ).'_external_login_' . $_GET['ts'])) == $_GET['token']) {
+if ($currentUser->isLogged() && $crossDomainCookie === true && isset($_GET['ts']) && isset($_GET['token']) && ($_GET['ts'] > time() - 10 * 60) && hash_hmac('sha256', '_external_login_' . $_GET['ts'], erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )) == $_GET['token']) {
     $currentUser->logout();
     header('Location: ' .erLhcoreClassDesign::baseurldirect('') . $possibleLoginSiteAccess[0] . '/user/login'.'?cookie=crossdomain&logout=1');
     exit;
@@ -201,7 +201,7 @@ if (isset($_POST['Login']))
 
                        $secretHash = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' );
                        $ts = time()+600; // Visitor has 10 minutes to change password until link is expired
-                       $hash = sha1($secretHash.sha1($secretHash.implode(',', array($userData->id,$ts))));
+                       $hash = hash_hmac('sha256', implode(',', array($userData->id,$ts)), $secretHash);
 
                        erLhcoreClassModule::redirect('user/updatepassword','/' . $userData->id . '/' . $ts . '/' . $hash);
                        exit;
