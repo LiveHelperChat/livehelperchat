@@ -156,10 +156,8 @@ class InlineIframe extends Component {
                 }
             }
 
-            let elmScroll = document.getElementById('messages-scroll');
-            if (elmScroll !== null) {
-                elmScroll.scrollTop = elmScroll.scrollHeight + 1000;
-            }
+            // We are the last message, scroll into it only in that scenario
+            this.props['data-id'] == this.props.chatwidget.getIn(['chatLiveData','lfmsgid']) && document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']))?.scrollIntoView();
 
             if (!this.props['data-form'] && this.props['data-js-body']) {
                 let js = documentFrame.createElement("script");
