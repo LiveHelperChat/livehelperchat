@@ -319,7 +319,11 @@ class erLhcoreClassChatValidator {
         if ( $ignorable_ip != '' && erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
         	$Errors['blocked_user'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.');
         }
-       
+
+        if ($form->hasValidData( 'trigger_id' )) {
+        	$inputForm->trigger_id = $form->trigger_id;
+        }
+
         if (!isset($additionalParams['ignore_captcha']) || $additionalParams['ignore_captcha'] == false)
         {
             if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
@@ -355,8 +359,6 @@ class erLhcoreClassChatValidator {
             }
         }
 
-
-
         if ( isset($validationFields['Email']) ) {
             if ( (!$form->hasValidData( 'Email' ) && $start_data_fields['email_require_option'] == 'required' && !isset($additionalParams['offline'])) || (!$form->hasValidData( 'Email' ) && isset($additionalParams['offline']) && (!isset($start_data_fields['offline_email_require_option']) || $start_data_fields['offline_email_require_option'] == 'required'))) {
 
@@ -374,7 +376,7 @@ class erLhcoreClassChatValidator {
         // Validate question
         if (isset($validationFields['Question'])) {
             if ( !$form->hasValidData('keyUpStarted') && (!$form->hasValidData( 'Question' ) || (trim($form->Question) == '' && (($start_data_fields['message_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required'))))) {
-                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['message_hidden_bot']) && $start_data_fields['message_hidden_bot'] == true) && !isset($additionalParams['ignore_required']) && !isset($additionalParams['bpayload']['payload'])) {
+                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['message_hidden_bot']) && $start_data_fields['message_hidden_bot'] == true) && !is_numeric($inputForm->trigger_id) && !isset($additionalParams['ignore_required']) && !isset($additionalParams['bpayload']['payload'])) {
                     $Errors['question'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
                 }
             } elseif ($form->hasValidData( 'Question' )) {
@@ -468,10 +470,6 @@ class erLhcoreClassChatValidator {
 
         if ($form->hasValidData( 'bot_id' )) {
         	$inputForm->bot_id = $form->bot_id;
-        }
-
-        if ($form->hasValidData( 'trigger_id' )) {
-        	$inputForm->trigger_id = $form->trigger_id;
         }
 
         if ($form->hasValidData( 'ProductIDDefined' )) {

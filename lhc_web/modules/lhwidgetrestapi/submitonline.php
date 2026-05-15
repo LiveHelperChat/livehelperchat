@@ -486,6 +486,17 @@ if (empty($Errors)) {
             $paramsExecution['processed'] = $requestPayload['bpayload']['processed'];
         } else if (is_numeric($inputData->trigger_id)) {
             $paramsExecution['trigger_id'] = $inputData->trigger_id;
+
+            if (isset($requestPayload['fields']['trigger_args']) && is_array($requestPayload['fields']['trigger_args'])) {
+                if (!isset($paramsExecution['replace_array'])) {
+                    $paramsExecution['replace_array'] = [];
+                }
+                foreach ($requestPayload['fields']['trigger_args'] as $argKey => $argVal) {
+                    if (preg_match('/^\{message_invisible_([1-9]|10)\}$/', $argKey) && (is_int($argVal) || is_string($argVal))) {
+                        $paramsExecution['replace_array'][$argKey] = $argVal;
+                    }
+                }
+            }
         }
 
         if (
