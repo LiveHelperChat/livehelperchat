@@ -105,6 +105,8 @@ if (isset($_POST['Forgotpassword'])) {
 			$tpl = erLhcoreClassTemplate::getInstance( 'lhuser/forgotpasswordsent.tpl.php');
 
 		} else {
+            // Constant-time response: random delay between 2 and 3 seconds to match the time taken when a user is found and an e-mail is sent
+            usleep(random_int(2000000, 3000000));
             $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/forgotpasswordsent.tpl.php');
 		}
 

@@ -94,6 +94,7 @@ class erLhcoreClassUser{
 		));  
 
 		if ($user === false) {
+            password_verify($password, '$2y$10$TSJv59MKTA7CjWa2EdecfOwsw9omyl1IHMfCLD8x9VuPaFpO4V4m2');
             return false;
 		} else {
             $fieldAuthentificated = $user->email == $username ? 'email' : 'username';
