@@ -9,8 +9,8 @@ if ((int)erLhcoreClassModelChatConfig::fetch('disable_print')->current_value == 
 try {
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
     if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT || erLhcoreClassChat::canReopen($chat,true) || ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->time > time()-1800))) {
-        $errors = array();
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_print',array('chat' => & $chat, 'errors' => & $errors));
+        $errors = [];
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_print', ['chat' => & $chat, 'errors' => & $errors]);
 
         if(empty($errors)) {
             erLhcoreClassChat::setTimeZoneByChat($chat);
@@ -30,5 +30,3 @@ try {
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'print';
-
-?>

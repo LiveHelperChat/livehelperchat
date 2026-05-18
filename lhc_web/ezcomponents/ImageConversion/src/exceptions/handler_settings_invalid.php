@@ -27,5 +27,3 @@ class ezcImageHandlerSettingsInvalidException extends ezcImageException
         parent::__construct( "Invalid handler settings." );
     }
 }
-
-?>

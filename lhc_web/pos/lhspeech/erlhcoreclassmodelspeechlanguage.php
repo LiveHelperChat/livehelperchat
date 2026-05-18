@@ -20,5 +20,3 @@ $def->properties['siteaccess']->propertyName = 'siteaccess';
 $def->properties['siteaccess']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

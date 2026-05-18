@@ -90,4 +90,3 @@ return array(
     'ezcWorkflowVisitorVisualization'             => 'Workflow/visitors/visualization.php',
     'ezcWorkflowVisitorVisualizationOptions'      => 'Workflow/options/visitor_visualization.php',
 );
-?>

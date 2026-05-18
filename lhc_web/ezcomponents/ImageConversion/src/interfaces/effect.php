@@ -87,4 +87,3 @@ interface ezcImageEffectFilters
      */
     function border( $width, array $color );
 }
-?>

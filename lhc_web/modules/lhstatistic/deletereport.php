@@ -16,4 +16,3 @@ if ($currentUser->getUserID() == $report->user_id) {
 echo "ok";
 exit;
 
-?>

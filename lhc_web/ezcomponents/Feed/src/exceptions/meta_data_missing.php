@@ -27,4 +27,3 @@ class ezcFeedRequiredMetaDataMissingException extends ezcFeedException
         parent::__construct( "There is no data for required element '{$attribute}'." );
     }
 }
-?>

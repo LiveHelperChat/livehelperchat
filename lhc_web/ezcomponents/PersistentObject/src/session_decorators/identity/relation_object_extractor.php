@@ -366,4 +366,4 @@ class ezcPersistentIdentityRelationObjectExtractor
     }
 }
 
-?>
+

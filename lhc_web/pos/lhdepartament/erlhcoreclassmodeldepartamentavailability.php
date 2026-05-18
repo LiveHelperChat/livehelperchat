@@ -17,5 +17,3 @@ foreach (['dep_id','hourminute','hour','minute','time','status','ymdhi','ymd'] a
 }
 
 return $def;
-
-?>

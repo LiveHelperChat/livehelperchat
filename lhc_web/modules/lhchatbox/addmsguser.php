@@ -74,4 +74,3 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->m
 
 
 
-?>

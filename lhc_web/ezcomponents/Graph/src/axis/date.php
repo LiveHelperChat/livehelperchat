@@ -629,5 +629,3 @@ class ezcGraphChartElementDateAxis extends ezcGraphChartElementAxis
         return ( $step == 0 );
     }
 }
-
-?>

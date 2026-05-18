@@ -744,4 +744,3 @@ class ezcTranslationTsBackend implements ezcTranslationBackend, ezcTranslationCo
     }
 
 }
-?>

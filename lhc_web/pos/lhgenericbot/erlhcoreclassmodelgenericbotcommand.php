@@ -24,5 +24,3 @@ foreach (['bot_id','trigger_id','dep_id','enabled_display','position'] as $posAt
 }
 
 return $def;
-
-?>

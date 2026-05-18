@@ -10,4 +10,3 @@ array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation(
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('permission.roles_path', array('result' => & $Result));
-?>

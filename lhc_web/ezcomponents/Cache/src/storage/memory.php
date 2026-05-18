@@ -702,4 +702,3 @@ abstract class ezcCacheStorageMemory extends ezcCacheStorage implements ezcCache
         return $itemArr;
     }
 }
-?>

@@ -15,4 +15,3 @@ return array(
     'ezcWorkflowDatabaseOptions'           => 'WorkflowDatabaseTiein/options/database.php',
     'ezcWorkflowDatabaseUtil'              => 'WorkflowDatabaseTiein/util.php',
 );
-?>

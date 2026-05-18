@@ -25,4 +25,3 @@ foreach (['nick','filepath','filename','avatar','job_title'] as $posAttr) {
 
 return $def;
 
-?>

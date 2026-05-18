@@ -339,4 +339,3 @@ abstract class ezcDbSchemaCommonSqlWriter implements ezcDbSchemaDbWriter, ezcDbS
      */
     protected abstract function generateDropIndexSql( $tableName, $indexName );
 }
-?>

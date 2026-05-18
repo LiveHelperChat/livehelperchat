@@ -86,5 +86,3 @@ class ezcGraphPaletteEzBlue extends ezcGraphPalette
      */
     protected $margin = 0;
 }
-
-?>

@@ -28,5 +28,3 @@ class ezcGraphInvalidDataException extends ezcGraphException
         parent::__construct( "You provided unusable data: '$message'." );
     }
 }
-
-?>

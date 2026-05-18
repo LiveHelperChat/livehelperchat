@@ -11,4 +11,3 @@ $command->removeThis();
 erLhcoreClassModule::redirect('genericbot/commands');
 exit;
 
-?>

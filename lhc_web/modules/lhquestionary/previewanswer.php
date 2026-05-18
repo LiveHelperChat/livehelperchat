@@ -8,4 +8,3 @@ $tpl->set('answer',$answer);
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';
 
-?>

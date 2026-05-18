@@ -16,4 +16,3 @@ return array(
     'ezcMvcMailRawRequest'            => 'MvcMailTiein/structs/request_raw_mail.php',
     'ezcMvcMailRequestParser'         => 'MvcMailTiein/request_parsers/mail.php',
 );
-?>

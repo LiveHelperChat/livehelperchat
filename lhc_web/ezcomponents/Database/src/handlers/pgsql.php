@@ -108,4 +108,3 @@ class ezcDbHandlerPgsql extends ezcDbHandler
         return new ezcDbUtilitiesPgsql( $this );
     }
 }
-?>

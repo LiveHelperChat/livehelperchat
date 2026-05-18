@@ -24,5 +24,3 @@ foreach (['name','params','scope','description'] as $posAttr) {
 }
 
 return $def;
-
-?>

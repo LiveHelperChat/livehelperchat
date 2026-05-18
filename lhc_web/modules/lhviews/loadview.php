@@ -37,21 +37,21 @@ if ($search->scope == 'chat') {
     $pages->serverURL = erLhcoreClassDesign::baseurl('views/loadview').'/'.$search->id;
     $pages->paginate();
     $tpl->set('pages',$pages);
-    $filter = array_merge_recursive($filterSearch, array('limit' => $pages->items_per_page, 'offset' => $pages->low));
+    $filter = array_merge_recursive($filterSearch, ['limit' => $pages->items_per_page, 'offset' => $pages->low]);
     $items = erLhcoreClassModelChat::getList($filter);
-    $iconsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_identifier','enabled'), 'sort' => false, 'filter' => array('icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1)));
-    erLhcoreClassChat::prefillGetAttributes($items, array(), array(), array('additional_columns' => $iconsAdditional, 'do_not_clean' => true));
+    $iconsAdditional = erLhAbstractModelChatColumn::getList(['ignore_fields' => ['position','conditions','column_identifier','enabled'], 'sort' => false, 'filter' => ['icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1]]);
+    erLhcoreClassChat::prefillGetAttributes($items, [], [], ['additional_columns' => $iconsAdditional, 'do_not_clean' => true]);
     $tpl->set('icons_additional',$iconsAdditional);
 
     if (!empty($items)) {
-        $subjectsChats = erLhAbstractModelSubjectChat::getList(array('filterin' => array('chat_id' => array_keys($items))));
-        erLhcoreClassChat::prefillObjects($subjectsChats, array(
-            array(
+        $subjectsChats = erLhAbstractModelSubjectChat::getList(['filterin' => ['chat_id' => array_keys($items)]]);
+        erLhcoreClassChat::prefillObjects($subjectsChats, [
+            [
                 'subject_id',
                 'subject',
                 'erLhAbstractModelSubject::getList'
-            ),
-        ));
+            ],
+        ]);
         foreach ($subjectsChats as $chatSubject) {
             if (!is_array($items[$chatSubject->chat_id]->subjects)) {
                 $items[$chatSubject->chat_id]->subjects = [];
@@ -96,18 +96,18 @@ if ($search->scope == 'chat') {
     $pages->serverURL = erLhcoreClassDesign::baseurl('views/loadview').'/'.$search->id;
     $pages->paginate();
     $tpl->set('pages', $pages);
-    $filter = array_merge_recursive($filterSearch, array('limit' => $pages->items_per_page, 'offset' => $pages->low));
+    $filter = array_merge_recursive($filterSearch, ['limit' => $pages->items_per_page, 'offset' => $pages->low]);
     $items = erLhcoreClassModelMailconvConversation::getList($filter);
 
     if (!empty($items)) {
-        $subjectsChats = erLhcoreClassModelMailconvMessageSubject::getList(array('filterin' => array('conversation_id' => array_keys($items))));
-        erLhcoreClassChat::prefillObjects($subjectsChats, array(
-            array(
+        $subjectsChats = erLhcoreClassModelMailconvMessageSubject::getList(['filterin' => ['conversation_id' => array_keys($items)]]);
+        erLhcoreClassChat::prefillObjects($subjectsChats, [
+            [
                 'subject_id',
                 'subject',
                 'erLhAbstractModelSubject::getList'
-            ),
-        ));
+            ],
+        ]);
         foreach ($subjectsChats as $chatSubject) {
             if (!is_array($items[$chatSubject->conversation_id]->subjects)) {
                 $items[$chatSubject->conversation_id]->subjects = [];
@@ -128,12 +128,12 @@ if ($search->scope == 'chat') {
     $content = $tpl->fetch();
 
 } else {
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('views.loadview', array(
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('views.loadview', [
         'total_records' => & $totalRecords,
         'content' => & $content,
         'search' => $search,
         'uparams' => $Params['user_parameters_unordered']
-    ));
+    ]);
 }
 
 echo json_encode(['body' => $content, 'view_id' => $search->id, 'total_records' => (int)$totalRecords]);
@@ -141,5 +141,3 @@ echo json_encode(['body' => $content, 'view_id' => $search->id, 'total_records' 
 erLhcoreClassModule::logSlowRequest($startTimeRequest, microtime(), $currentUser->getUserID(), ['loadview' => $Params['user_parameters']['id']]);
 
 exit;
-
-?>

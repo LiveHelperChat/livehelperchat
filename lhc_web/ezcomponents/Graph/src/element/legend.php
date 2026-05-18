@@ -335,5 +335,3 @@ class ezcGraphChartElementLegend extends ezcGraphChartElement
         return $boundings;  
     }
 }
-
-?>

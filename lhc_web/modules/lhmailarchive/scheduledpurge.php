@@ -22,4 +22,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/archive','Scheduled purge')));
 
-?>

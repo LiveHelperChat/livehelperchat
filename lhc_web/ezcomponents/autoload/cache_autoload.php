@@ -62,4 +62,3 @@ return array(
     'ezcCacheStorageMemoryRegisterStruct'    => 'Cache/structs/memory_register.php',
     'ezcCacheStorageOptions'                 => 'Cache/options/storage.php',
 );
-?>

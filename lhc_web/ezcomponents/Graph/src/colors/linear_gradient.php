@@ -144,4 +144,3 @@ class ezcGraphLinearGradient extends ezcGraphColor
         );
     }
 }
-?>

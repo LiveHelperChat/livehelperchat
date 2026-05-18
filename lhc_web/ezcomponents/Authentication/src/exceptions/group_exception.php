@@ -28,4 +28,3 @@ class ezcAuthenticationGroupException extends ezcAuthenticationException
         parent::__construct( $message );
     }
 }
-?>

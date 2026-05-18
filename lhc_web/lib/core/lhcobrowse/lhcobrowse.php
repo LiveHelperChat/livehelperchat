@@ -123,4 +123,3 @@ class erLhcoreClassCoBrowse {
 	private static $persistentSession;
 }
 
-?>

@@ -118,5 +118,3 @@ class ezcDbUtilities
         throw new ezcDbException( "Not implemented" );
     }
 }
-
-?>

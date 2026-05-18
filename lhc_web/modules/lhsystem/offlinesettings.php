@@ -27,10 +27,10 @@ if ( isset($_POST['saveSettings']) ) {
         exit;
     }
 
-    $Errors = array();
+    $Errors = [];
 
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
 
     if ( $form->hasValidData( 'doNotsaveOffline' ) && $form->doNotsaveOffline == true) {
         $data['do_not_save_offline'] = 1;
@@ -69,6 +69,4 @@ if ( isset($_POST['saveSettings']) ) {
 $tpl->set('settings',$data);
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System configuration')))
-
-?>
+$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System configuration')));

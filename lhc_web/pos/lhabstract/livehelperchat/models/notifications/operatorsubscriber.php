@@ -24,6 +24,3 @@ foreach (['params','last_error','subscriber_hash'] as $posAttr) {
 }
 
 return $def;
-
-?>
-

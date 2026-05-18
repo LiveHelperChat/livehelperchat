@@ -31,4 +31,3 @@ class ezcBaseDoubleClassRepositoryPrefixException extends ezcBaseException
         parent::__construct( "The class repository in '{$basePath}' (with autoload dir '{$autoloadDirPath}') can not be added because another class repository already uses the prefix '{$prefix}'." );
     }
 }
-?>

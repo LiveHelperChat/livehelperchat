@@ -35,4 +35,3 @@ class ezcBaseAutoloadException extends ezcBaseException
         parent::__construct( "Could not find a class to file mapping for '{$className}'. Searched for ". implode( ', ', $files ) . " in: " . implode( ', ', $paths ) );
     }
 }
-?>

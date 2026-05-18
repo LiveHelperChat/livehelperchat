@@ -22,5 +22,3 @@ erLhcoreClassUser::getSession()->update($userData);
 
 echo json_encode(array('error' => false));
 exit;
-
-?>

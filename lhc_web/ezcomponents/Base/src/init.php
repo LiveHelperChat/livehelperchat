@@ -122,4 +122,3 @@ class ezcBaseInit
         return null;
     }
 }
-?>

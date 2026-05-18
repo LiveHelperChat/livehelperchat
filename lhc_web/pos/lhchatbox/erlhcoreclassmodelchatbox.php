@@ -30,5 +30,3 @@ $def->properties['active']->propertyName = 'active';
 $def->properties['active']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
-
-?>

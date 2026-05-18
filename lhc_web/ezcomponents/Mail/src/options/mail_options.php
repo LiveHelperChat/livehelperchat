@@ -81,4 +81,3 @@ class ezcMailOptions extends ezcBaseOptions
         }
     }
 }
-?>

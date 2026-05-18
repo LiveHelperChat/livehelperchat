@@ -25,4 +25,4 @@ class ezcInputFormNoValidDataException extends ezcInputFormException
         parent::__construct( "Invalid field name '{$fieldName}' requested." );
     }
 }
-?>
+

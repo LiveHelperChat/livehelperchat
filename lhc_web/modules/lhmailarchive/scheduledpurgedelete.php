@@ -20,4 +20,3 @@ if ($className == 'LiveHelperChat\Models\mailConv\Delete\DeleteFilter') {
 echo "ok";
 exit;
 
-?>

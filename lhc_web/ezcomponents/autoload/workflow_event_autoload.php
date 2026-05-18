@@ -13,4 +13,3 @@
 return array(
     'ezcWorkflowEventLogListener' => 'WorkflowEventLogTiein/listener.php',
 );
-?>

@@ -29,4 +29,3 @@ class ezcConsoleInvalidOutputTargetException extends ezcConsoleException
     }
 
 }
-?>

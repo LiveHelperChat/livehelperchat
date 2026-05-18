@@ -87,4 +87,3 @@ class erLhcoreClassModelUserLogin {
     public $msg = '';
 }
 
-?>

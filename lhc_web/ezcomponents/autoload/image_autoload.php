@@ -42,4 +42,3 @@ return array(
     'ezcImageSaveOptions'                          => 'ImageConversion/options/save_options.php',
     'ezcImageTransformation'                       => 'ImageConversion/transformation.php',
 );
-?>

@@ -45,4 +45,3 @@ foreach (erLhcoreClassModelMailconvMailbox::getList(['limit' => false, 'filter' 
 flock($fp, LOCK_UN); // release the lock
 fclose($fp);
 
-?>

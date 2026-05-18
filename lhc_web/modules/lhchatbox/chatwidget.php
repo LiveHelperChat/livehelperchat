@@ -86,4 +86,3 @@ if (($Result = $cache->restore($cacheKey)) === false)
 
     $cache->store($cacheKey,$Result);
 }
-?>

@@ -39,4 +39,4 @@ class ezcPersistentIdentityAlreadyExistsException extends ezcPersistentObjectExc
         );
     }
 }
-?>
+

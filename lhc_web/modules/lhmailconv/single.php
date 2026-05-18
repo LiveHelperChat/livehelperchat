@@ -32,4 +32,3 @@ $Result['path'] = array(
     )
 );
 
-?>

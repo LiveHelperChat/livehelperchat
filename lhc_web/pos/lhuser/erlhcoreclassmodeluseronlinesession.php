@@ -17,5 +17,3 @@ foreach (['type','duration','lactivity','time','user_id'] as $posAttr) {
 }
 
 return $def; 
-
-?>

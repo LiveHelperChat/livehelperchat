@@ -24,6 +24,3 @@ foreach (['name'] as $posAttr) {
 }
 
 return $def;
-
-?>
-

@@ -162,4 +162,3 @@ class ezcConfigurationValidationResult
         return $this->errorCount;
     }
 }
-?>

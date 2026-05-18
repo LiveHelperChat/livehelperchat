@@ -38,4 +38,3 @@ class erLhcoreClassModelMailconvResponseTemplateSubject
     public $subject_id = 0;
 }
 
-?>

@@ -26,4 +26,3 @@ interface ezcConsoleMenuDialogValidator extends ezcConsoleQuestionDialogValidato
 
 }
 
-?>

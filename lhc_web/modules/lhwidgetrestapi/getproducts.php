@@ -6,40 +6,36 @@ $departament = erLhcoreClassModelDepartament::fetch((int)$Params['user_parameter
 
 if (isset($departament->product_configuration_array['products_enabled']) && $departament->product_configuration_array['products_enabled'] == 1)
 {
-    $items = erLhAbstractModelProductDepartament::getList(array('filter' => array('departament_id' => $departament->id)));
+    $items = erLhAbstractModelProductDepartament::getList(['filter' => ['departament_id' => $departament->id]]);
 
     // Collect products id's
-    $productsIds = array();
+    $productsIds = [];
     foreach ($items as $item) {
         $productsIds[] = $item->product_id;
     }
 
-    $products = array();
+    $products = [];
 
     if (!empty($productsIds)) {
-        $products = erLhAbstractModelProduct::getList(array('sort' => 'priority ASC, name ASC', 'filter' => array('disabled' => 0), 'filterin' => array('id' => $productsIds)));
+        $products = erLhAbstractModelProduct::getList(['sort' => 'priority ASC, name ASC', 'filter' => ['disabled' => 0], 'filterin' => ['id' => $productsIds]]);
     }
 
-    $returnProduct = array();
+    $returnProduct = [];
 
     foreach ($products as $product) {
-        $returnProduct[] = array(
+        $returnProduct[] = [
             'value' => $product->id,
             'name' => $product->name
-        );
+        ];
     }
 
-    echo json_encode(array(
+    echo json_encode([
         'required' => (isset($departament->product_configuration_array['products_required']) && $departament->product_configuration_array['products_required'] == 1),
         'products' => $returnProduct
-    ));
+    ]);
 
 } else {
-    echo json_encode(array('products' => []));
+    echo json_encode(['products' => []]);
 }
 
-
-
 exit;
-
-?>

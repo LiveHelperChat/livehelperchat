@@ -18,7 +18,7 @@ $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
 $data = (array)$auditOptions->data;
 
 if ( isset($_POST['ReloadOperatorsBackOffice']) ) {
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.reload_backoffice',array());
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.reload_backoffice',[]);
 }
 
 if ( isset($_POST['StoreOptions']) ) {
@@ -28,7 +28,7 @@ if ( isset($_POST['StoreOptions']) ) {
         exit;
     }
     
-    $definition = array(
+    $definition = [
         'days_log' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int'),
         'log_js' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
         'log_user' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
@@ -37,10 +37,10 @@ if ( isset($_POST['StoreOptions']) ) {
         'log_routing' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
         'log_custom_reply' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
         'log_objects' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
-    );
+    ];
 
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
 
     if ( $form->hasValidData( 'days_log' )) {
         $data['days_log'] = $form->days_log ;
@@ -51,7 +51,7 @@ if ( isset($_POST['StoreOptions']) ) {
     if ( $form->hasValidData( 'log_objects' )) {
         $data['log_objects'] = $form->log_objects ;
     } else {
-        $data['log_objects'] = array();
+        $data['log_objects'] = [];
     }
 
     if ( $form->hasValidData( 'log_js' )) {
@@ -104,11 +104,9 @@ $tpl->set('audit_options',$data);
 
 $Result['content'] = $tpl->fetch();
 
-$Result['path'] = array(
-    array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','System configuration')),
-    array(
+$Result['path'] = [
+    ['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit', 'System configuration')],
+    [
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('audit/options', 'Options')
-    )
-);
-
-?>
+    ]
+];

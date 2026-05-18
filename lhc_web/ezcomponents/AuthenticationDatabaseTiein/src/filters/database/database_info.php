@@ -70,4 +70,3 @@ class ezcAuthenticationDatabaseInfo extends ezcBaseStruct
         return new ezcAuthenticationDatabaseInfo( $array['instance'], $array['table'], $array['fields'] );
     }
 }
-?>

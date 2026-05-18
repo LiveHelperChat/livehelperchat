@@ -54,4 +54,3 @@ class erLhcoreClassModelSpeechChatLanguage {
 	public $dialect = NULL;
 }
 
-?>

@@ -112,7 +112,7 @@ function constructCurlCommandFromJson(string $jsonInput): string
             }
 
             if ($method !== null) {
-                $headers = array();
+                $headers = [];
 
                 // Add custom headers from method configuration
                 if (isset($method['header']) && !empty($method['header'])) {
@@ -312,4 +312,3 @@ if (!isset($_GET['json_view'])) {
 
 echo $tpl->fetch();
 exit;
-?>

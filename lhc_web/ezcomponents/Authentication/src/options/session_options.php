@@ -96,4 +96,3 @@ class ezcAuthenticationSessionOptions extends ezcBaseOptions
         }
     }
 }
-?>

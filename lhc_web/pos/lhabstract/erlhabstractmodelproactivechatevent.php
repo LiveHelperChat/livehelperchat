@@ -30,5 +30,3 @@ $def->properties['val']->propertyName = 'val';
 $def->properties['val']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

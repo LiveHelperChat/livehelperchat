@@ -393,4 +393,3 @@ class erLhcoreClassGenericBotActionText {
     }
 }
 
-?>

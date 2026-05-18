@@ -103,4 +103,3 @@ class ezcLogEntry extends ezcBaseStruct
             $array['timestamp'] );
     }
 }
-?>

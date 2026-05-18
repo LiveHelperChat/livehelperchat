@@ -13,4 +13,3 @@ if ($bot instanceof erLhcoreClassModelGenericBotBot) {
 }
 
 exit;
-?>

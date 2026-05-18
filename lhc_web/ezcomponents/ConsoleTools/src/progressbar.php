@@ -459,4 +459,3 @@ class ezcConsoleProgressbar
         return preg_replace( '/\033\[[0-9a-f;]*m/i', '', $str  );
     }
 }
-?>

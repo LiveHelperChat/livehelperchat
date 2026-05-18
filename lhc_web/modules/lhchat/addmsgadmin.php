@@ -398,4 +398,3 @@ if (trim($form->msg) != '')
 
 exit;
 
-?>

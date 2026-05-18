@@ -154,4 +154,4 @@ class ezcPersistentOneToOneRelation extends ezcPersistentRelation
     }
 }
 
-?>
+

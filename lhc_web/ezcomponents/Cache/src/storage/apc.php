@@ -142,4 +142,3 @@ abstract class ezcCacheStorageApc extends ezcCacheStorageMemory
         }
     }
 }
-?>

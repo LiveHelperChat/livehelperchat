@@ -15,4 +15,3 @@ header("Content-Transfer-Encoding: binary");
 echo $tpl->fetch();
 
 exit;
-?>

@@ -46,4 +46,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('genericbot/listtranslationsitems') . '/(group_id)/' . $item->group_id, 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Translations items')),
     array('title' => $item->identifier));
 
-?>

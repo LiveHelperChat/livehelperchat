@@ -115,4 +115,3 @@ class DeleteFilter
     public $status = self::STATUS_PENDING;
 }
 
-?>

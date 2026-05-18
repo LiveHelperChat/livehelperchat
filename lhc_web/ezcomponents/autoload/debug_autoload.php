@@ -26,4 +26,3 @@ return array(
     'ezcDebugVariableDumpTool'               => 'Debug/tools/dump.php',
     'ezcDebugXdebugStacktraceIterator'       => 'Debug/stacktrace/xdebug_iterator.php',
 );
-?>

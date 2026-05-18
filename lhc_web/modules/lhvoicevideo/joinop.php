@@ -90,6 +90,3 @@ if (is_numeric($Params['user_parameters']['id']))
 }
 
 exit;
-
-
-?>

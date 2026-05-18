@@ -30,4 +30,3 @@ return array(
     'ezcQuerySubSelect'              => 'Database/sqlabstraction/query_subselect.php',
     'ezcQueryUpdate'                 => 'Database/sqlabstraction/query_update.php',
 );
-?>

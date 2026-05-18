@@ -27,4 +27,3 @@ class ezcConfigurationUnknownGroupException extends ezcConfigurationException
         parent::__construct( "The settings group '{$groupName}' does not exist." );
     }
 }
-?>

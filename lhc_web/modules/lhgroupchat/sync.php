@@ -171,4 +171,3 @@ if (is_array($payload) && count($payload) > 0)
 
 echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','uw' => $userOwner, 'result_status' => $content_status, 'result' => $content ));
 exit;
-?>

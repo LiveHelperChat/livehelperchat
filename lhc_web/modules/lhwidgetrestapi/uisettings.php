@@ -29,11 +29,11 @@ try {
 
     if ($chat->hash === $requestPayload['hash'])
     {
-        $outputResponse = array(
+        $outputResponse = [
             'operator' => 'operator',
-            'chat_ui' => array(),
-            'chat_ui_remove' => array(),
-        );
+            'chat_ui' => [],
+            'chat_ui_remove' => [],
+    ];
 
         $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
 
@@ -41,10 +41,10 @@ try {
 
         if ((isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true) || (isset($chatVariables['lhc_fu']) && $chatVariables['lhc_fu'] == 1)) {
             $outputResponse['chat_ui']['file'] = true;
-            $outputResponse['chat_ui']['file_options'] = array(
+            $outputResponse['chat_ui']['file_options'] = [
                 'fs' => $fileData['fs_max']*1024,
                 'ft_us' => $fileData['ft_us'],
-            );
+            ];
 
             if (isset($fileData['one_file_upload']) && $fileData['one_file_upload'] == true) {
                 $outputResponse['chat_ui']['file_options']['one_file_upload'] = true;
@@ -63,7 +63,7 @@ try {
             $outputResponse['chat_ui_remove'][] = ['chat_ui','file_options'];
         }
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.uisettings', array('output' => & $outputResponse, 'chat' => $chat));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.uisettings', ['output' => & $outputResponse, 'chat' => $chat]);
 
         echo erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
     }
@@ -73,5 +73,3 @@ try {
 }
 
 exit;
-
-?>

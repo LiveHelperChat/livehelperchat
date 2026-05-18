@@ -199,4 +199,3 @@ class ezcAuthenticationTokenFilter extends ezcAuthenticationFilter
         return self::STATUS_TOKEN_INCORRECT;
     }
 }
-?>

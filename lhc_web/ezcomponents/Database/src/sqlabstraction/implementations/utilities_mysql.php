@@ -52,5 +52,3 @@ class ezcDbUtilitiesMysql extends ezcDbUtilities
         $this->db->commit();
     }
 }
-
-?>

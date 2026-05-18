@@ -127,4 +127,3 @@ return array(
     'ezcGraphVector'                                => 'Graph/math/vector.php',
     'ezcGraphVerboseDriver'                         => 'Graph/driver/verbose.php',
 );
-?>

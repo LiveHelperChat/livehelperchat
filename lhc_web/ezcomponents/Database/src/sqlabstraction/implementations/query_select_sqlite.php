@@ -303,4 +303,3 @@ class ezcQuerySelectSqlite extends ezcQuerySelect
         return $this;
     }
 }
-?>

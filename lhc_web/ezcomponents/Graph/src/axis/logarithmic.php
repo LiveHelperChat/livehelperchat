@@ -337,5 +337,3 @@ class ezcGraphChartElementLogarithmicalAxis extends ezcGraphChartElementAxis
         return ( $step == 0 );
     }
 }
-
-?>

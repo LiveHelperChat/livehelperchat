@@ -51,4 +51,3 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfer_ac
 
 echo json_encode(array('error' => 'false'));
 exit;
-?>

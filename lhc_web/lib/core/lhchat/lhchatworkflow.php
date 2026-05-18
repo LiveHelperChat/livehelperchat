@@ -1473,4 +1473,4 @@ class erLhcoreClassChatWorkflow {
     }
 }
 
-?>
+

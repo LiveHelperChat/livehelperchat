@@ -46,4 +46,3 @@ class erLhcoreClassModelMailconvMailingListRecipient
     public $mailing_recipient_id = null;
 }
 
-?>

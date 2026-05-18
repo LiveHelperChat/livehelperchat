@@ -565,4 +565,3 @@ class ezcFeedRss1 extends ezcFeedProcessor implements ezcFeedParser
         }
     }
 }
-?>

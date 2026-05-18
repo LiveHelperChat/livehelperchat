@@ -120,4 +120,4 @@ class ezcPersistentRelationCollection extends ArrayObject
     }
 }
 
-?>
+

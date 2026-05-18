@@ -195,5 +195,3 @@ class ezcConsoleMenuDialogDefaultValidator implements ezcConsoleMenuDialogValida
         return array_key_exists( $propertyName, $this->properties );
     }
 }
-
-?>

@@ -17,5 +17,3 @@ foreach (['canned_id','ctime','user_id','chat_id'] as $posAttr) {
 }
 
 return $def;
-
-?>

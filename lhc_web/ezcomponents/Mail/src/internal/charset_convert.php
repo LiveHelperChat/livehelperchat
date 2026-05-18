@@ -126,4 +126,3 @@ class ezcMailCharsetConverter
         return iconv( $originalCharset, 'utf-8', $text );
     }
 }
-?>

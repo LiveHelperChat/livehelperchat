@@ -73,4 +73,3 @@ class ezcMailMultipartMixed extends ezcMailMultipart
         return "mixed";
     }
 }
-?>

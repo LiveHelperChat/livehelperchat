@@ -26,4 +26,3 @@ try {
 echo json_encode(array('error' => 't'));
 exit;
 
-?>

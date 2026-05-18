@@ -28,4 +28,3 @@ class ezcAuthenticationTypekeyException extends ezcAuthenticationException
         parent::__construct( $message );
     }
 }
-?>

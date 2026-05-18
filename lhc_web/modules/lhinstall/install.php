@@ -4,13 +4,13 @@ try {
 
     $cfgSite = erConfigClassLhConfig::getInstance();
 
-    if ($cfgSite->getSetting( 'site', 'installed' ) == true)
+    if ($cfgSite->getSetting('site', 'installed') == true)
     {
-        $Params['module']['functions'] = array('install');
+        $Params['module']['functions'] = ['install'];
         include_once('modules/lhkernel/nopermission.php');
 
         $Result['pagelayout'] = 'install';
-        $Result['path'] = array(array('title' => 'Live helper chat installation'));
+        $Result['path'] = [['title' => 'Live helper chat installation']];
         return $Result;
 
         exit;
@@ -19,16 +19,16 @@ try {
     $instance = erLhcoreClassSystem::instance();
 
     if ($instance->SiteAccess != 'site_admin') {
-        header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/install/install') );
+        header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/install/install'));
         exit;
     }
 
-    $tpl = new erLhcoreClassTemplate( 'lhinstall/install1.tpl.php');
+    $tpl = new erLhcoreClassTemplate('lhinstall/install1.tpl.php');
 
     switch ((int)$Params['user_parameters']['step_id']) {
 
         case '1':
-            $Errors = array();
+            $Errors = [];
             if (!is_writable("cache/cacheconfig"))
                 $Errors[] = "cache/cacheconfig is not writable";
 
@@ -99,9 +99,9 @@ try {
             break;
 
         case '2':
-            $Errors = array();
+            $Errors = [];
 
-            $definition = array(
+            $definition = [
                 'DatabaseUsername' => new ezcInputFormDefinitionElement(
                     ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
                 ),
@@ -117,7 +117,7 @@ try {
                 'DatabaseDatabaseName' => new ezcInputFormDefinitionElement(
                     ezcInputFormDefinitionElement::REQUIRED, 'string'
                 ),
-            );
+            ];
 
             $form = new ezcInputForm( INPUT_POST, $definition );
 
@@ -183,11 +183,11 @@ try {
 
         case '3':
 
-            $Errors = array();
+            $Errors = [];
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST')
             {
-                $definition = array(
+                $definition = [
                     'AdminUsername' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
                     ),
@@ -209,7 +209,7 @@ try {
                     'DefaultDepartament' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::REQUIRED, 'string'
                     )
-                );
+                ];
 
                 $form = new ezcInputForm( INPUT_POST, $definition );
 
@@ -2951,73 +2951,73 @@ try {
                     erLhcoreClassRole::getSession()->save($RoleFunction);
 
                     // Operators rules and functions
-                    $permissionsArray = array(
-                        array('module' => 'lhuser',  'function' => 'selfedit'),
-                        array('module' => 'lhuser',  'function' => 'change_chat_nickname'),
-                        array('module' => 'lhuser',  'function' => 'changephoto'),
-                        array('module' => 'lhuser',  'function' => 'change_job_title'),
-                        array('module' => 'lhuser',  'function' => 'change_core_attributes'),
-                        array('module' => 'lhuser',  'function' => 'change_name_surname'),
-                        array('module' => 'lhuser',  'function' => 'selfedit'),
-                        array('module' => 'lhuser',  'function' => 'changeonlinestatus'),
-                        array('module' => 'lhuser',  'function' => 'changeskypenick'),
-                        array('module' => 'lhuser',  'function' => 'personalcannedmsg'),
-                        array('module' => 'lhuser',  'function' => 'change_visibility_list'),
-                        array('module' => 'lhuser',  'function' => 'see_assigned_departments'),
-                        array('module' => 'lhuser',  'function' => 'canseedepartmentstats'),
-                        array('module' => 'lhchat',  'function' => 'use'),
-                        array('module' => 'lhchat',  'function' => 'open_all'),
-                        array('module' => 'lhchat',  'function' => 'chattabschrome'),
-                        array('module' => 'lhchat',  'function' => 'singlechatwindow'),
-                        array('module' => 'lhchat',  'function' => 'allowopenremotechat'),
-                        array('module' => 'lhchat',  'function' => 'writeremotechat'),
-                        array('module' => 'lhchat',  'function' => 'allowchattabs'),
-                        array('module' => 'lhchat',  'function' => 'use_onlineusers'),
-                        array('module' => 'lhchat',  'function' => 'take_screenshot'),
-                        array('module' => 'lhchat',  'function' => 'editprevious'),
-                        array('module' => 'lhfront', 'function' => 'use'),
-                        array('module' => 'lhsystem','function' => 'use'),
-                        array('module' => 'lhtranslation','function' => 'use'),
-                        array('module' => 'lhchat',  'function' => 'allowblockusers'),
-                        array('module' => 'lhsystem','function' => 'generatejs'),
-                        array('module' => 'lhsystem','function' => 'changelanguage'),
-                        array('module' => 'lhchat',  'function' => 'allowredirect'),
-                        array('module' => 'lhchat',  'function' => 'allowtransfer'),
-                        array('module' => 'lhchat',  'function' => 'allowtransferdirectly'),
-                        array('module' => 'lhchat',  'function' => 'administratecannedmsg'),
-                        array('module' => 'lhchat',  'function' => 'explorecannedmsg'),
-                        array('module' => 'lhchat',  'function' => 'sees_all_online_visitors'),
-                        array('module' => 'lhchat',  'function' => 'list_all_chats'),
-                        array('module' => 'lhchat',  'function' => 'use_unhidden_phone'),
-                        array('module' => 'lhchat',  'function' => 'chat_see_email'),
-                        array('module' => 'lhchat',  'function' => 'chat_see_unhidden_email'),
-                        array('module' => 'lhchat',  'function' => 'see_sensitive_information'),
-                        array('module' => 'lhchat',  'function' => 'whispermode'),
-                        array('module' => 'lhpermission',   'function' => 'see_permissions'),
-                        array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
-                        array('module' => 'lhfaq',   		'function' => 'manage_faq'),
-                        array('module' => 'lhchatbox',   	'function' => 'manage_chatbox'),
-                        array('module' => 'lhbrowseoffer',  'function' => 'manage_bo'),
-                        array('module' => 'lhxml',   		'function' => '*'),
-                        array('module' => 'lhcobrowse',   	'function' => 'browse'),
-                        array('module' => 'lhfile',   		'function' => 'use_operator'),
-                        array('module' => 'lhfile',   		'function' => 'file_delete_chat'),
-                        array('module' => 'lhstatistic',   	'function' => 'use'),
-                        array('module' => 'lhspeech', 'function' => 'changedefaultlanguage'),
-                        array('module' => 'lhspeech', 'function' => 'use'),
-                        array('module' => 'lhcannedmsg', 'function' => 'use'),
-                        array('module' => 'lhcannedmsg', 'function' => 'see_global'),
-                        array('module' => 'lhchat', 'function' => 'prev_chats'),
-                        array('module' => 'lhchat', 'function' => 'allowopenclosedchats'),
-                        array('module' => 'lhtheme', 'function' => 'personaltheme'),
-                        array('module' => 'lhuser', 'function' => 'userlistonline'),
-                        array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),
-                        array('module' => 'lhgroupchat', 'function' => 'use'),
-                        array('module' => 'lhuser', 'function' => 'see_all_group_users'),
-                        array('module' => 'lhvoicevideo', 'function' => 'use'),
-                        array('module' => 'lhtheme', 'function' => 'use_operator'),
-                        array('module' => 'lhgenericbot', 'function' => 'use_operator'),
-                    );
+                    $permissionsArray = [
+                        ['module' => 'lhuser',        'function' => 'selfedit'],
+                        ['module' => 'lhuser',        'function' => 'change_chat_nickname'],
+                        ['module' => 'lhuser',        'function' => 'changephoto'],
+                        ['module' => 'lhuser',        'function' => 'change_job_title'],
+                        ['module' => 'lhuser',        'function' => 'change_core_attributes'],
+                        ['module' => 'lhuser',        'function' => 'change_name_surname'],
+                        ['module' => 'lhuser',        'function' => 'selfedit'],
+                        ['module' => 'lhuser',        'function' => 'changeonlinestatus'],
+                        ['module' => 'lhuser',        'function' => 'changeskypenick'],
+                        ['module' => 'lhuser',        'function' => 'personalcannedmsg'],
+                        ['module' => 'lhuser',        'function' => 'change_visibility_list'],
+                        ['module' => 'lhuser',        'function' => 'see_assigned_departments'],
+                        ['module' => 'lhuser',        'function' => 'canseedepartmentstats'],
+                        ['module' => 'lhchat',        'function' => 'use'],
+                        ['module' => 'lhchat',        'function' => 'open_all'],
+                        ['module' => 'lhchat',        'function' => 'chattabschrome'],
+                        ['module' => 'lhchat',        'function' => 'singlechatwindow'],
+                        ['module' => 'lhchat',        'function' => 'allowopenremotechat'],
+                        ['module' => 'lhchat',        'function' => 'writeremotechat'],
+                        ['module' => 'lhchat',        'function' => 'allowchattabs'],
+                        ['module' => 'lhchat',        'function' => 'use_onlineusers'],
+                        ['module' => 'lhchat',        'function' => 'take_screenshot'],
+                        ['module' => 'lhchat',        'function' => 'editprevious'],
+                        ['module' => 'lhfront',       'function' => 'use'],
+                        ['module' => 'lhsystem',      'function' => 'use'],
+                        ['module' => 'lhtranslation', 'function' => 'use'],
+                        ['module' => 'lhchat',        'function' => 'allowblockusers'],
+                        ['module' => 'lhsystem',      'function' => 'generatejs'],
+                        ['module' => 'lhsystem',      'function' => 'changelanguage'],
+                        ['module' => 'lhchat',        'function' => 'allowredirect'],
+                        ['module' => 'lhchat',        'function' => 'allowtransfer'],
+                        ['module' => 'lhchat',        'function' => 'allowtransferdirectly'],
+                        ['module' => 'lhchat',        'function' => 'administratecannedmsg'],
+                        ['module' => 'lhchat',        'function' => 'explorecannedmsg'],
+                        ['module' => 'lhchat',        'function' => 'sees_all_online_visitors'],
+                        ['module' => 'lhchat',        'function' => 'list_all_chats'],
+                        ['module' => 'lhchat',        'function' => 'use_unhidden_phone'],
+                        ['module' => 'lhchat',        'function' => 'chat_see_email'],
+                        ['module' => 'lhchat',        'function' => 'chat_see_unhidden_email'],
+                        ['module' => 'lhchat',        'function' => 'see_sensitive_information'],
+                        ['module' => 'lhchat',        'function' => 'whispermode'],
+                        ['module' => 'lhpermission',  'function' => 'see_permissions'],
+                        ['module' => 'lhquestionary', 'function' => 'manage_questionary'],
+                        ['module' => 'lhfaq',   	  'function' => 'manage_faq'],
+                        ['module' => 'lhchatbox',     'function' => 'manage_chatbox'],
+                        ['module' => 'lhbrowseoffer', 'function' => 'manage_bo'],
+                        ['module' => 'lhxml',   	  'function' => '*'],
+                        ['module' => 'lhcobrowse',    'function' => 'browse'],
+                        ['module' => 'lhfile',   	  'function' => 'use_operator'],
+                        ['module' => 'lhfile',   	  'function' => 'file_delete_chat'],
+                        ['module' => 'lhstatistic',   'function' => 'use'],
+                        ['module' => 'lhspeech',      'function' => 'changedefaultlanguage'],
+                        ['module' => 'lhspeech',      'function' => 'use'],
+                        ['module' => 'lhcannedmsg',   'function' => 'use'],
+                        ['module' => 'lhcannedmsg',   'function' => 'see_global'],
+                        ['module' => 'lhchat',        'function' => 'prev_chats'],
+                        ['module' => 'lhchat',        'function' => 'allowopenclosedchats'],
+                        ['module' => 'lhtheme',       'function' => 'personaltheme'],
+                        ['module' => 'lhuser',        'function' => 'userlistonline'],
+                        ['module' => 'lhspeech',      'function' => 'change_chat_recognition'],
+                        ['module' => 'lhgroupchat',   'function' => 'use'],
+                        ['module' => 'lhuser',        'function' => 'see_all_group_users'],
+                        ['module' => 'lhvoicevideo',  'function' => 'use'],
+                        ['module' => 'lhtheme',       'function' => 'use_operator'],
+                        ['module' => 'lhgenericbot',  'function' => 'use_operator'],
+                    ];
 
                     foreach ($permissionsArray as $paramsPermission) {
                         $RoleFunctionOperator = new erLhcoreClassModelRoleFunction();
@@ -3066,7 +3066,7 @@ try {
 
     $Result['content'] = $tpl->fetch();
     $Result['pagelayout'] = 'install';
-    $Result['path'] = array(array('title' => 'Live helper chat installation'));
+    $Result['path'] = [['title' => 'Live helper chat installation']];
 
 } catch (Exception $e) {
     echo "Make sure that &quot;cache/*&quot; is writable and then <a href=\"".erLhcoreClassDesign::baseurl('install/install')."\">try again</a>";
@@ -3076,4 +3076,3 @@ try {
     echo "</pre>";
     exit;
 }
-?>

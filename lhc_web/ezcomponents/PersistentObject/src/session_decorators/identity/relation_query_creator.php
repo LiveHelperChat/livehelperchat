@@ -485,4 +485,4 @@ class ezcPersistentIdentityRelationQueryCreator
     }
 }
 
-?>
+

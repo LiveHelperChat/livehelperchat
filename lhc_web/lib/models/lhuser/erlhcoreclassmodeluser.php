@@ -265,4 +265,3 @@ class erLhcoreClassModelUser {
     public $attr_int_3 = 0;
 }
 
-?>

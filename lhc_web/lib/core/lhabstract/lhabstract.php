@@ -525,4 +525,3 @@ class erLhcoreClassAbstract
     private static $instance = null;
 }
 
-?>

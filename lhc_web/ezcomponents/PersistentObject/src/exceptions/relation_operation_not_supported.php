@@ -36,4 +36,4 @@ class ezcPersistentRelationOperationNotSupportedException extends ezcPersistentO
         );
     }
 }
-?>
+

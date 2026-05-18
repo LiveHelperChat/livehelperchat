@@ -9,4 +9,3 @@ $Result['path'] = array(
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/archive','Mail archive')));
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailarchive.archive_path',array('result' => & $Result));
-?>

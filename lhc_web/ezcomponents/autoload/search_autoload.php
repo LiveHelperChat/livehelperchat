@@ -50,4 +50,3 @@ return array(
     'ezcSearchXmlManager'                        => 'Search/managers/xml_manager.php',
     'ezcSearchZendLuceneHandler'                 => 'Search/handlers/zend_lucene.php',
 );
-?>

@@ -23,5 +23,3 @@
 interface ezcCacheStackMetaData extends ezcBasePersistable
 {
 }
-
-?>

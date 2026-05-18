@@ -42,4 +42,3 @@ $Result['path'] = array (
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mailing recipient'))
 );
 
-?>

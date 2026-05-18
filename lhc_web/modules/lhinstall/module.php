@@ -1,14 +1,12 @@
 <?php
 
-$Module = array( "name" => "Live helper Chat installer");
+$Module = ['name' => 'Live helper Chat installer'];
 
-$ViewList = array();
+$ViewList = [
+    'install' => [
+        'script' => 'install.php',
+        'params' => ['step_id'],
+    ],
+];
 
-$ViewList['install'] = array(
-    'script' => 'install.php',
-    'params' => array('step_id')
-);
-
-$FunctionList = array();
-
-?>
+$FunctionList = [];

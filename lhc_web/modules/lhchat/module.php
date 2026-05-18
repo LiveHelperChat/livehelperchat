@@ -1,844 +1,680 @@
 <?php
 
-$Module = array( "name" => "Chat");
-
-$ViewList = array();
-
-$ViewList['adminchat'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array('remember','arg','ol'),
-    'functions' => array( 'use' ),
-    'multiple_arguments' => array('arg','ol')
-);
-
-$ViewList['getchatdata'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['verifytoken'] = array(
-    'params' => array(),
-    'uparams' => array()
-);
-
-$ViewList['icondetailed'] = array(
-    'params' => array('chat_id','column_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['relatedactions'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['chathistory'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['sendmassmessage'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['singleaction'] = array(
-    'params' => array('chat_id','action'),
-    'uparams' => array(),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['subjectwidget'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'subject_chats_options' ),
-);
-
-$ViewList['loadoperatorjs'] = array(
-    'params' => array(),
-    'uparams' => array('type','id'),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['loadmaindata'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['loadpreviousmessages'] = array(
-    'params' => array('chat_id','message_id'),
-    'uparams' => array('initial','original'),
-    'functions' => array( 'use' ),
-    'multiple_arguments' => array()
-);
-
-$ViewList['subject'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array('subject','status'),
-    'functions' => array( 'setsubject' )
-);
-
-$ViewList['getnotificationsdata'] = array(
-    'params' => array(),
-    'uparams' => array('id'),
-    'ajax' => true,
-    'functions' => array( 'use' ),
-    'multiple_arguments' => array ( 'id')
-);
-
-$ViewList['getcannedfiltered'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['holdaction'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'holduse' )
-);
-
-$ViewList['copymessages'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['updateattribute'] = array(
-		'params' => array(),
-		'uparams' => array('hash','hash_resume','vid'),
-);
-
-$ViewList['updatejsvars'] = array(
-		'params' => array(),
-		'uparams' => array('hash','hash_resume','vid','userinit','encrypted'),
-);
-
-$ViewList['logevent'] = array(
-		'params' => array(),
-		'uparams' => array('hash','hash_resume','vid'),
-);
-
-$ViewList['setnewvid'] = array(
-		'params' => array(),
-		'uparams' => array(),
-);
-
-$ViewList['redirectcontact'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'redirectcontact' )
-);
-
-$ViewList['changestatus'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'canchangechatstatus' )
-);
-
-$ViewList['editprevious'] = array(
-    'params' => array('chat_id','msg_id'),
-    'uparams' => array(),
-    'functions' => array( 'editprevious' )
-);
-
-$ViewList['deletemsg'] = array(
-    'params' => array('chat_id','msg_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['quotemessage'] = array(
-    'params' => array('id'),
-    'uparams' => array('type'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['updatemsg'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['updatemessagedata'] = array(
-    'params' => array('chat_id', 'hash', 'msg_id'),
-    'uparams' => array(),
-    'functions' => array(  )
-);
-
-$ViewList['printchatadmin'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['loadactivechats'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['previewchat'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['previewmessage'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['closechatadmin'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['abstractclick'] = array(
-    'params' => array('msg_id','payload'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['setsubstatus'] = array(
-    'params' => array('chat_id','substatus'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['notificationsettings'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['startchatwithoperator'] = array(
-    'params' => array('user_id'),
-    'uparams' => array('mode'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['closechat'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['sendmail'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'sendmail' )
-);
-
-$ViewList['modifychat'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array('pos'),
-    'functions' => array( 'modifychat' )
-);
-
-$ViewList['transferchat'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'allowtransfer' )
-);
-
-$ViewList['accepttransfer'] = array(
-    'params' => array('transfer_id'),
-    'uparams' => array('postaction','mode','scope'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['deletechatadmin'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'deletechat' )
-);
-
-$ViewList['delete'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'deletechat' )
-);
-
-$ViewList['syncadmininterface'] = array(
-    'params' => array(),
-    'uparams' => array(
-        'on_opf',
-        'mmd',
-        'mmdgroups',
-        'limitmm',
-        'bcs',
-        'oopu',
-        'oopugroups',
-        'subjectd',
-        'limits',
-        'sdgroups',
-        'subjectdprod',
-        'subjectu',
-        'sugroups',
-        'limitam','pmd','pendingmu','pendingmd','pmug','amd','activemu','limitalm','activemd','almd','almug','limitpm','amug','alarmmd','alarmmu','hsub','lda','bdgroups','botdprod','w','clcs','limitgc','limitb','botd','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups','adgroups','pugroups','augroups','onop', 'acs', 'mcd', 'limitmc', 'mcdprod','activeu','pendingu','topen','departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd','activedprod','unreaddprod','pendingdprod','closeddprod','psort'),
-    'ajax' => true,
-    'functions' => array( 'use' ),
-    'multiple_arguments' => array (
-        'mmd',
-        'mmdgroups',
-        'oopu',
-        'oopugroups',
-        'subjectd',
-        'sdgroups',
-        'subjectdprod',
-        'subjectu',
-        'sugroups',
-        'pmd','pendingmu','pendingmd','pmug','amd','activemu','activemd','almd','almug','amug','alarmmd','alarmmu','hsub','bdgroups','botdprod','botd','w','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups', 'adgroups', 'pugroups','augroups','mcd','operatord','mcdprod', 'activeu', 'pendingu', 'actived', 'closedd' , 'pendingd', 'unreadd','departmentd','activedprod','unreaddprod','pendingdprod','closeddprod')
-);
-
-$ViewList['loadinitialdata'] = array(
-    'params' => array(),
-    'uparams' => array('chatopen','chatgopen','chatmopen'),
-    'ajax' => true,
-    'functions' => array( 'use' ),
-    'multiple_arguments' => array('chatopen','chatgopen','chatmopen')
-);
-
-$ViewList['list'] = array(
-    'params' => array(),
-    'uparams' => array('cls_time','sortby','timefrom_type','timefromts','transfer_happened','phone','not_invitation','proactive_chat','view','dropped_chat','abandoned_chat','country_ids','has_unread_op_messages','cls_us','export','chat_status_ids','cf','with_bot','no_operator','has_operator','without_bot','bot_ids','ip','department_ids','department_group_ids','user_ids','group_ids','subject_id','anonymized','una','chat_duration_from','chat_duration_till','wait_time_from','wait_time_till','chat_id','nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id','timefrom','timefrom_seconds','timefrom_minutes','timefrom_hours','timeto', 'timeto_minutes', 'timeto_seconds', 'timeto_hours', 'department_group_id', 'group_id', 'invitation_id',
-        'country_ids',
-        'region',
-        'iwh_ids',
-        'theme_ids',
-        'frt_from',
-        'frt_till',
-        'mart_from',
-        'mart_till',
-        'aart_till',
-        'aart_from',
-        'priority_from',
-        'priority_till',
-        'ipp',
-        'op_msg_count',
-        'vi_msg_count',
-        'bot_msg_count',
-        'all_msg_count',
-        'all_msg_count_till',
-        'as_participant',
-        'participant_not_owner'
-        ),
-    'functions' => array( 'use' ),
-    'multiple_arguments' => array(
-        'department_ids',
-        'department_group_ids',
-        'user_ids',
-        'group_ids',
-        'bot_ids',
-        'subject_id',
-        'country_ids',
-        'chat_status_ids',
-        'cf',
-        'country_ids',
-        'iwh_ids',
-        'theme_ids'
-    )
-);
-
-$ViewList['dashboardwidgets'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['chattabs'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'allowchattabs' )
-    );
-
-$ViewList['chattabschrome'] = array(
-    'params' => array(),
-    'uparams' => array('mode'),
-    'functions' => array( )
-);
-
-$ViewList['single'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'singlechatwindow' )
-);
-
-$ViewList['chatfootprint'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['refreshonlineinfo'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['checkscreenshot'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['checkscreenshotonline'] = array(
-    'params' => array('online_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['operatortyping'] = array(
-    'params' => array('chat_id','status'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['syncadmin'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['addmsgadmin'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['reactmodal'] = array(
-    'params' => array('msg_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['updatechatstatus'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['addoperation'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['refreshcustomfields'] = array(
-    'params' => array(),
-    'uparams' => array('vid','hash','hash_resume'),
-);
-
-$ViewList['addonlineoperation'] = array(
-    'params' => array('online_user_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['addonlineoperationiframe'] = array(
-    'params' => array('online_user_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['saveremarks'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['reaction'] = array(
-    'params' => array('msg_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['saveonlinenotes'] = array(
-    'params' => array('online_user_id'),
-    'functions' => array( 'use' )
-);
-
-/* Anonymous functions */
-$ViewList['addmsguser'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array('mode'),
-);
-
-$ViewList['editprevioususer'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array(),
-);
-
-$ViewList['updatemsguser'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array('mode'),
-);
-
-$ViewList['getmessage'] = array(
-    'params' => array('chat_id','hash','msgid'),
-    'uparams' => array('mode'),
-);
-
-$ViewList['getmessageadmin'] = array(
-    'params' => array('chat_id','msgid'),
-    'uparams' => array(),
-	'functions' => array( 'use' )
-);
-
-$ViewList['voteaction'] = array(
-    'params' => array('chat_id','hash','type'),
-    'uparams' => array(),
-);
-
-$ViewList['syncuser'] = array(
-    'params' => array('chat_id','message_id','hash'),
-	'uparams' => array('mode','ot','theme','modeembed')
-);
-
-$ViewList['transfertohuman'] = array(
-    'params' => array('chat_id','hash'),
-	'uparams' => array()
-);
-
-$ViewList['editnick'] = array(
-    'params' => array('chat_id','hash'),
-	'uparams' => array()
-);
-
-$ViewList['usertyping'] = array(
-    'params' => array('chat_id','hash','status'),
-	'uparams' => array()
-);
-
-$ViewList['checkchatstatus'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array('mode','theme','dot')
-);
-
-$ViewList['transferuser'] = array(
-    'params' => array('chat_id','item_id'),
-    'functions' => array( 'allowtransfer' )
-    );
-
-$ViewList['blockuser'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'allowblockusers' )
-);
-
-$ViewList['blockedusers'] = array(
-    'params' => array(),
-    'uparams' => array('remove_block','csfr','ip','nick'),
-    'functions' => array( 'allowblockusers' )
-);
-
-$ViewList['getstatus'] = array(
-    'params' => array(),
-    'uparams' => array('fresh','ua','ma','operator','theme','priority','disable_pro_active','click','position','hide_offline','check_operator_messages','top','units','leaveamessage','department','identifier','survey','dot','bot_id'),
-	'multiple_arguments' => array ( 'department', 'ua' )
-);
-
-$ViewList['htmlsnippet'] = array(
-    'params' => array('id','type','sub_id'),
-    'uparams' => array('hash'),
-	'multiple_arguments' => array ( 'department', 'ua' )
-);
-
-$ViewList['chatcheckstatus'] = array(
-    'params' => array(),
-    'uparams' => array('status','department','vid','uactiv','wopen','uaction','hash','hash_resume','dot','hide_offline','isproactive'),
-	'multiple_arguments' => array ( 'department' )
-);
-
-$ViewList['getstatusembed'] = array (
-    'params' => array(),
-    'uparams' => array('fresh','ua','operator','theme','hide_offline','leaveamessage','department','priority','survey','bot_id'),
-	'multiple_arguments' => array ( 'department','ua' )
-);
-
-$ViewList['startchat'] = array (
-    'params' => array(),
-    'uparams' => array('ua','switchform','operator','theme','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill','survey','prod','phash','pvhash','ajaxmode'),
-	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
-);
-
-$ViewList['start'] = array (
-    'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger','encrypted'),
-	'multiple_arguments' => array('department')
-);
-
-$ViewList['begin'] = array (
-    'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger','encrypted'),
-	'multiple_arguments' => array('department')
-);
-
-$ViewList['modal'] = array (
-    'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger','encrypted'),
-	'multiple_arguments' => array('department')
-);
-
-$ViewList['demo'] = array (
-    'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger','encrypted','debug'),
-	'multiple_arguments' => array('department'),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['chatwidget'] = array (
-    'params' => array(),
-    'uparams' => array('mobile','bot_id','ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod','phash','pvhash','fullheight','ajaxmode'),
-	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
-);
-
-$ViewList['reopen'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array('mode','embedmode','theme','fullheight'),
-);
-
-$ViewList['readoperatormessage'] = array(
-    'params' => array(),
-    'uparams' => array('operator','theme','priority','vid','department','playsound','ua','survey','fullheight','inv','tag'),
-	'multiple_arguments' => array ( 'department', 'ua' )
-);
-
-$ViewList['chatcheckoperatormessage'] = array(
-    'params' => array(),
-    'uparams' => array('tz','operator','theme','priority','vid','count_page','identifier','department','ua','survey','uactiv','wopen','fullheight','dyn'),
-	'multiple_arguments' => array ( 'department','ua','dyn' )
-);
-
-$ViewList['extendcookie'] = array(
-    'params' => array('vid'),
-    'uparams' => array()
-);
-
-$ViewList['logpageview'] = array(
-    'params' => array(),
-    'uparams' => array('tz','vid','identifier','department','ua','uactiv','wopen'),
-	'multiple_arguments' => array ( 'department','ua' )
-);
-
-$ViewList['chatwidgetclosed'] = array(
-    'params' => array(),
-    'uparams' => array('vid','hash','eclose','close','conversion'),
-);
-
-$ViewList['chat'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array('theme','er','survey','cstarted')
-);
-
-$ViewList['printchat'] = array(
-    'params' => array('chat_id','hash')
-);
-
-$ViewList['downloadtxt'] = array(
-    'params' => array('chat_id','hash')
-);
-
-$ViewList['readchatmail'] = array(
-    'params' => array('chat_id','hash')
-);
-
-$ViewList['chatpreview'] = array(
-    'params' => array('chat_id','hash')
-);
-
-$ViewList['bbcodeinsert'] = array(
-	'params' => array('chat_id'),
-	'uparams' => array('mode')
-);
-
-$ViewList['chatwidgetchat'] = array(
-    'params' => array('chat_id','hash'),
-	'uparams' => array('mobile','sound','mode','theme','cstarted','survey','pchat','fullheight')
-);
-
-$ViewList['userclosechat'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array('eclose'),
-);
-
-$ViewList['onlineusers'] = array(
-    'params' => array(),
-    'ajax' => true,
-    'uparams' => array('clear_list','method','deletevisitor','timeout','csfr','department','maxrows','country','timeonsite','department_dpgroups','nochat'),
-    'functions' => array( 'use_onlineusers' ),
-    'multiple_arguments' => array(
-        'department',
-        'department_dpgroups'
-    )
-);
-
-$ViewList['jsononlineusers'] = array(
-    'params' => array(),
-    'uparams' => array('department','maxrows','timeout','department_dpgroups'),
-    'functions' => array( 'use_onlineusers' ),
-    'multiple_arguments' => array(
-        'department',
-        'department_dpgroups'
-    )
-);
-
-$ViewList['getonlineuserinfo'] = array(
-    'params' => array('id'),
-    'uparams' => array('tab','chat_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['sendnotice'] = array(
-    'params' => array('online_id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['geoconfiguration'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'administrategeoconfig' )
-);
-
-$ViewList['listchatconfig'] = array(
-    'params' => array(),
-    'functions' => array( 'administrateconfig' )
-);
-
-$ViewList['editchatconfig'] = array(
-    'params' => array('config_id'),
-    'functions' => array( 'administrateconfig' )
-);
-
-$ViewList['syncandsoundesetting'] = array(
-    'params' => array(),
-    'functions' => array( 'administratesyncsound' )
-);
-
-$ViewList['cannedmsg'] = array(
-    'params' => array(),
-    'uparams' => array('action','id','csfr','message','title','fmsg','department_id','subject_id','tab','user_id','timefrom','timeto','sortby','export','used_freq','group_ids','user_ids','department_group_ids','department_ids'),
-    'functions' => array( 'explorecannedmsg' ),
-    'multiple_arguments' => array(
-        'department_id',
-        'subject_id',
-        'user_id',
-        'department_ids',
-        'department_group_ids',
-        'user_ids',
-        'group_ids',
-    )
-);
-
-$ViewList['maintenance'] = array(
-    'params' => array(),
-    'uparams' => array('csfr','action'),
-    'functions' => array( 'maintenance' )
-);
-
-$ViewList['newcannedmsg'] = array(
-    'params' => array(),
-    'functions' => array( 'administratecannedmsg' )
-);
-
-$ViewList['cannedmsgedit'] = array(
-    'params' => array('id'),
-    'functions' => array( 'explorecannedmsg' )
-);
-
-$ViewList['geoadjustment'] = array(
-    'params' => array(),
-    'functions' => array( 'geoadjustment' )
-);
-
-$ViewList['accept'] = array(
-    'params' => array('hash','validation_hash','email')
-);
-
-$ViewList['confirmleave'] = array(
-    'params' => array('chat_id','hash')
-);
-
-$ViewList['reacttomessagemodal'] = array(
-    'params' => array('message_id'),
-    'uparams' => array('theme')
-);
-
-$ViewList['sendchat'] = array(
-		'params' => array('chat_id','hash')
-);
-
-$ViewList['transferchatrefilter'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array('mode','obj'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['searchprovider'] = array(
-    'params' => array('scope'),
-    'functions' => array( 'use' )
-);
-
-$FunctionList['use'] = array('explain' => 'General permission to use chat module');
-$FunctionList['open_all'] = array('explain' => 'Allow operator to open all pending chats, not only assigned to him');
-$FunctionList['changeowner'] = array('explain' => 'Allow operator to change chat owner');
-$FunctionList['singlechatwindow'] = array('explain' =>'Allow operator to use single chat window functionality');
-$FunctionList['allowchattabs'] = array('explain' =>'Allow operator to user chat rooms functionality');
-$FunctionList['deletechat'] = array('explain' =>'Allow operator to delete their own chats');
-$FunctionList['deleteglobalchat'] = array('explain' =>'Allow to delete all chats');
-$FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user/department');
-$FunctionList['allowcloseremote'] = array('explain' =>'Allow operator to close another operator chat');
-$FunctionList['allowblockusers'] = array('explain' =>'Allow operator to block visitors');
-$FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat config');
-$FunctionList['allowclearonlinelist'] = array('explain' =>'Allow operator to clean online users list');
-$FunctionList['administratecannedmsg'] = array('explain' =>'Allow operator change canned messages');
-$FunctionList['explorecannedmsg'] = array('explain' =>'Allow operator to explore canned messages. They will see canned messages based on departments they are a member of.');
-$FunctionList['explorecannedmsg_all'] = array('explain' =>'Allow operator to explore canned messages. They will see all departments canned messages.');
-$FunctionList['allowopenremotechat'] = array('explain' =>'Allow operator to open other operators chats from same department');
-$FunctionList['writeremotechat'] = array('explain' =>'Allow operator to write to another operator chat');
-$FunctionList['allowreopenremote'] = array('explain' =>'Allow operator to reopen other operators chats');
-$FunctionList['allowtransfertoanyuser'] = array('explain' =>'Allow operator to transfer chat to any online operator, not only their own department users');
-$FunctionList['allowtransferdirectly'] = array('explain' =>'Allow operator to transfer chat directly to other operator');
-$FunctionList['use_onlineusers'] = array('explain' =>'Allow operator to view online visitors');
-$FunctionList['chattabschrome'] = array('explain' =>'Allow operator to use chrome extension');
-$FunctionList['canchangechatstatus'] = array('explain' =>'Allow operator to change chat status');
-$FunctionList['administrateinvitations'] = array('explain' =>'Allow operator to change pro active invitations');
-$FunctionList['administratecampaigs'] = array('explain' =>'Allow operator to change pro active campaigns');
-$FunctionList['administratechatevents'] = array('explain' =>'Allow operator to change pro active chat events');
-$FunctionList['administratechatvariables'] = array('explain' =>'Allow operator to change pro active chat variables');
-$FunctionList['administrateresponder'] = array('explain' =>'Allow operator to change auto responder');
-$FunctionList['maintenance'] = array('explain' =>'Allow operator to run maintenance');
-$FunctionList['sees_all_online_visitors'] = array('explain' =>'Operator can see all online visitors, not only their department');
-$FunctionList['geoadjustment'] = array('explain' => 'Allow operator to edit geo adjustment for chat status');
-$FunctionList['take_screenshot'] = array('explain' => 'Allow operator to take visitor browser page screenshots');
-$FunctionList['modifychat'] = array('explain' => 'Allow operator modify main chat information');
-$FunctionList['allowredirect'] = array('explain' => 'Allow operator to redirect user to another page');
-$FunctionList['administrategeoconfig'] = array('explain' => 'Allow operator to edit geo detection configuration');
-$FunctionList['manage_product'] = array('explain' => 'Allow operator to manage products');
-$FunctionList['administratesubject'] = array('explain' => 'Allow operator to manage subjects');
-$FunctionList['modifychatcore'] = array('explain' => 'Allow operator to change chat core attributes');
-$FunctionList['sendmail'] = array('explain' => 'Allow operator to send e-mail to visitor from chat window');
-$FunctionList['redirectcontact'] = array('explain' => 'Allow operator to redirect visitor to contact form');
-$FunctionList['holduse'] = array('explain' => 'Allow operator to use hold/unhold functionality');
-$FunctionList['setsubject'] = array('explain' => 'Allow operator to use set chat subject');
-$FunctionList['administratecolumn'] = array('explain' => 'Allow operator to configure chat columns');
-$FunctionList['administratechatvariable'] = array('explain' => 'Allow operator to configure chat custom variables');
-$FunctionList['administratechatpriority'] = array('explain' => 'Allow operator to configure chat priority by custom variables');
-$FunctionList['administratesyncsound'] = array('explain' => 'Allow operator to configure chat sound and sync settings');
-$FunctionList['voicemessages'] = array('explain' => 'Allow operator to send voice messages');
-$FunctionList['chatdebug'] = array('explain' => 'Allow operator to see raw chat details in chat edit window');
-$FunctionList['administrate_alert_icon'] = array('explain' => 'Allow operator to manage alert icons list');
-$FunctionList['prev_chats'] = array('explain' => 'Allow operator to see previous chats from visitor');
-$FunctionList['changedepartment'] = array('explain' => 'Allow operator to change chat department');
-$FunctionList['subject_chats'] = array('explain' => 'Allow operator see subject filtered chats');
-$FunctionList['subject_chats_options'] = array('explain' => 'Allow operator to choose what subjects should be applied as filter');
-$FunctionList['export_chats'] = array('explain' => 'Allow operator to export filtered chats');
-$FunctionList['htmlbbcodeenabled'] = array('explain' => 'Allow operator to use [html] bbcode.');
-$FunctionList['metamsgenabled'] = array('explain' => 'Allow operator to use meta_msg in message add interface.');
-$FunctionList['seeip'] = array('explain' => 'Allow operator to see full IP');
-$FunctionList['editprevious'] = array('explain' => 'Allow operator to edit their previous message.');
-$FunctionList['editpreviousop'] = array('explain' => 'Allow operator to edit other operators previous messages');
-$FunctionList['editpreviouvis'] = array('explain' => 'Allow operator to edit visitors previous messages');
-$FunctionList['editpreviousall'] = array('explain' => 'Allow operator to edit all their previous messages.');
-$FunctionList['impersonate'] = array('explain' => 'Allow operator to impersonate another operator on joining chat window');
-$FunctionList['whispermode'] = array('explain' => 'Allow operator to use whisper mode');
-$FunctionList['allowtransfertoanydep'] = array('explain' => 'Allow operator to transfer chat to any department.');
-$FunctionList['list_all_chats'] = array('explain' => 'Allow operator to list all chats independently of operator and status.');
-$FunctionList['list_my_chats'] = array('explain' => 'Allow operator to list chats they are owner of');
-$FunctionList['list_pending_chats'] = array('explain' => 'Allow operator to list chats without an owner and in status pending.');
-$FunctionList['use_unhidden_phone'] = array('explain' => 'Allow operator to see full phone number');
-$FunctionList['chat_see_email'] = array('explain' => 'Allow operator to see e-mail of the visitor');
-$FunctionList['chat_see_unhidden_email'] = array('explain' => 'Allow operator to see full e-mail address of the visitor');
-$FunctionList['chat_export_email'] = array('explain' => 'Allow operator to see e-mail address in exported file');
-$FunctionList['chat_export_phone'] = array('explain' => 'Allow operator to see phone in exported file');
-$FunctionList['see_sensitive_information'] = array('explain' => 'Allow operator to see sensitive information in the messages');
-$FunctionList['my_chats_filter'] = array('explain' => 'Allow operator to see department filter for my active pending chats widget');
-$FunctionList['allowopenclosedchats'] = array('explain' => 'Allow operator to open closed chats');
-$FunctionList['removemsgop'] = array('explain' => 'Allow to remove operator any operator message');
-$FunctionList['removemsgvi'] = array('explain' => 'Allow to remove operator any visitor message');
-$FunctionList['no_edit_history'] = array('explain' => 'Do not store message edit history if edited by chat owner');
-$FunctionList['see_operator_name'] = array('explain' => 'Allow operator to see chat message real operator name');
-$FunctionList['open_unassigned_chat'] = array('explain' => 'Allow operator to open unassigned pending chat and become an owner of it.')
-
-?>
+$Module = ['name' => 'Chat'];
+
+$ViewList = [
+    'adminchat' => [
+        'params' => ['chat_id'],
+        'uparams' => ['remember', 'arg', 'ol'],
+        'functions' => ['use'],
+        'multiple_arguments' => ['arg', 'ol'],
+    ],
+    'getchatdata' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'verifytoken' => [
+        'params' => [],
+        'uparams' => [],
+    ],
+    'icondetailed' => [
+        'params' => ['chat_id', 'column_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'relatedactions' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'chathistory' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'sendmassmessage' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'singleaction' => [
+        'params' => ['chat_id', 'action'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'subjectwidget' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['subject_chats_options'],
+    ],
+    'loadoperatorjs' => [
+        'params' => [],
+        'uparams' => ['type', 'id'],
+        'functions' => ['use'],
+    ],
+    'loadmaindata' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'loadpreviousmessages' => [
+        'params' => ['chat_id', 'message_id'],
+        'uparams' => ['initial', 'original'],
+        'functions' => ['use'],
+        'multiple_arguments' => [],
+    ],
+    'subject' => [
+        'params' => ['chat_id'],
+        'uparams' => ['subject', 'status'],
+        'functions' => ['setsubject'],
+    ],
+    'getnotificationsdata' => [
+        'params' => [],
+        'uparams' => ['id'],
+        'ajax' => true,
+        'functions' => ['use'],
+        'multiple_arguments' => ['id'],
+    ],
+    'getcannedfiltered' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'holdaction' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['holduse'],
+    ],
+    'copymessages' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'updateattribute' => [
+        'params' => [],
+        'uparams' => ['hash', 'hash_resume', 'vid'],
+    ],
+    'updatejsvars' => [
+        'params' => [],
+        'uparams' => ['hash', 'hash_resume', 'vid', 'userinit', 'encrypted'],
+    ],
+    'logevent' => [
+        'params' => [],
+        'uparams' => ['hash', 'hash_resume', 'vid'],
+    ],
+    'setnewvid' => [
+        'params' => [],
+        'uparams' => [],
+    ],
+    'redirectcontact' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['redirectcontact'],
+    ],
+    'changestatus' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['canchangechatstatus'],
+    ],
+    'editprevious' => [
+        'params' => ['chat_id', 'msg_id'],
+        'uparams' => [],
+        'functions' => ['editprevious'],
+    ],
+    'deletemsg' => [
+        'params' => ['chat_id', 'msg_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'quotemessage' => [
+        'params' => ['id'],
+        'uparams' => ['type'],
+        'functions' => ['use'],
+    ],
+    'updatemsg' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'updatemessagedata' => [
+        'params' => ['chat_id', 'hash', 'msg_id'],
+        'uparams' => [],
+        'functions' => [],
+    ],
+    'printchatadmin' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'loadactivechats' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'previewchat' => [
+        'params' => ['chat_id'],
+        'functions' => ['use'],
+    ],
+    'previewmessage' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'closechatadmin' => [
+        'params' => ['chat_id'],
+        'functions' => ['use'],
+    ],
+    'abstractclick' => [
+        'params' => ['msg_id', 'payload'],
+        'functions' => ['use'],
+    ],
+    'setsubstatus' => [
+        'params' => ['chat_id', 'substatus'],
+        'functions' => ['use'],
+    ],
+    'notificationsettings' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'startchatwithoperator' => [
+        'params' => ['user_id'],
+        'uparams' => ['mode'],
+        'functions' => ['use'],
+    ],
+    'closechat' => [
+        'params' => ['chat_id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use'],
+    ],
+    'sendmail' => [
+        'params' => ['chat_id'],
+        'functions' => ['sendmail'],
+    ],
+    'modifychat' => [
+        'params' => ['chat_id'],
+        'uparams' => ['pos'],
+        'functions' => ['modifychat'],
+    ],
+    'transferchat' => [
+        'params' => ['chat_id'],
+        'functions' => ['allowtransfer'],
+    ],
+    'accepttransfer' => [
+        'params' => ['transfer_id'],
+        'uparams' => ['postaction', 'mode', 'scope'],
+        'functions' => ['use'],
+    ],
+    'deletechatadmin' => [
+        'params' => ['chat_id'],
+        'functions' => ['deletechat'],
+    ],
+    'delete' => [
+        'params' => ['chat_id'],
+        'uparams' => ['csfr'],
+        'functions' => ['deletechat'],
+    ],
+    'syncadmininterface' => [
+        'params' => [],
+        'uparams' => [
+            'on_opf', 'mmd', 'mmdgroups', 'limitmm', 'bcs', 'oopu', 'oopugroups', 'subjectd', 'limits', 'sdgroups',
+            'subjectdprod', 'subjectu', 'sugroups', 'limitam', 'pmd', 'pendingmu', 'pendingmd', 'pmug', 'amd',
+            'activemu', 'limitalm', 'activemd', 'almd', 'almug', 'limitpm', 'amug', 'alarmmd', 'alarmmu', 'hsub',
+            'lda', 'bdgroups', 'botdprod', 'w', 'clcs', 'limitgc', 'limitb', 'botd', 'odpgroups', 'ddgroups',
+            'udgroups', 'mdgroups', 'cdgroups', 'pdgroups', 'adgroups', 'pugroups', 'augroups', 'onop', 'acs',
+            'mcd', 'limitmc', 'mcdprod', 'activeu', 'pendingu', 'topen', 'departmentd', 'operatord', 'actived',
+            'pendingd', 'closedd', 'unreadd', 'limita', 'limitp', 'limitc', 'limitu', 'limito', 'limitd',
+            'activedprod', 'unreaddprod', 'pendingdprod', 'closeddprod', 'psort',
+        ],
+        'ajax' => true,
+        'functions' => ['use'],
+        'multiple_arguments' => [
+            'mmd', 'mmdgroups', 'oopu', 'oopugroups', 'subjectd', 'sdgroups', 'subjectdprod', 'subjectu',
+            'sugroups', 'pmd', 'pendingmu', 'pendingmd', 'pmug', 'amd', 'activemu', 'activemd', 'almd', 'almug',
+            'amug', 'alarmmd', 'alarmmu', 'hsub', 'bdgroups', 'botdprod', 'botd', 'w', 'odpgroups', 'ddgroups',
+            'udgroups', 'mdgroups', 'cdgroups', 'pdgroups', 'adgroups', 'pugroups', 'augroups', 'mcd', 'operatord',
+            'mcdprod', 'activeu', 'pendingu', 'actived', 'closedd', 'pendingd', 'unreadd', 'departmentd',
+            'activedprod', 'unreaddprod', 'pendingdprod', 'closeddprod',
+        ],
+    ],
+    'loadinitialdata' => [
+        'params' => [],
+        'uparams' => ['chatopen', 'chatgopen', 'chatmopen'],
+        'ajax' => true,
+        'functions' => ['use'],
+        'multiple_arguments' => ['chatopen', 'chatgopen', 'chatmopen'],
+    ],
+    'list' => [
+        'params' => [],
+        'uparams' => [
+            'cls_time', 'sortby', 'timefrom_type', 'timefromts', 'transfer_happened', 'phone', 'not_invitation',
+            'proactive_chat', 'view', 'dropped_chat', 'abandoned_chat', 'country_ids', 'has_unread_op_messages',
+            'cls_us', 'export', 'chat_status_ids', 'cf', 'with_bot', 'no_operator', 'has_operator', 'without_bot',
+            'bot_ids', 'ip', 'department_ids', 'department_group_ids', 'user_ids', 'group_ids', 'subject_id',
+            'anonymized', 'una', 'chat_duration_from', 'chat_duration_till', 'wait_time_from', 'wait_time_till',
+            'chat_id', 'nick', 'email', 'timefrom', 'timeto', 'department_id', 'user_id', 'print', 'xls', 'fbst',
+            'chat_status', 'hum', 'product_id', 'timefrom', 'timefrom_seconds', 'timefrom_minutes', 'timefrom_hours',
+            'timeto', 'timeto_minutes', 'timeto_seconds', 'timeto_hours', 'department_group_id', 'group_id',
+            'invitation_id', 'country_ids', 'region', 'iwh_ids', 'theme_ids', 'frt_from', 'frt_till', 'mart_from',
+            'mart_till', 'aart_till', 'aart_from', 'priority_from', 'priority_till', 'ipp', 'op_msg_count',
+            'vi_msg_count', 'bot_msg_count', 'all_msg_count', 'all_msg_count_till', 'as_participant',
+            'participant_not_owner',
+        ],
+        'functions' => ['use'],
+        'multiple_arguments' => [
+            'department_ids', 'department_group_ids', 'user_ids', 'group_ids', 'bot_ids', 'subject_id',
+            'country_ids', 'chat_status_ids', 'cf', 'country_ids', 'iwh_ids', 'theme_ids',
+        ],
+    ],
+    'dashboardwidgets' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'chattabs' => [
+        'params' => ['chat_id'],
+        'functions' => ['allowchattabs'],
+    ],
+    'chattabschrome' => [
+        'params' => [],
+        'uparams' => ['mode'],
+        'functions' => [],
+    ],
+    'single' => [
+        'params' => ['chat_id'],
+        'functions' => ['singlechatwindow'],
+    ],
+    'chatfootprint' => [
+        'params' => ['chat_id'],
+        'functions' => ['use'],
+    ],
+    'refreshonlineinfo' => [
+        'params' => ['chat_id'],
+        'functions' => ['use'],
+    ],
+    'checkscreenshot' => [
+        'params' => ['chat_id'],
+        'functions' => ['use'],
+    ],
+    'checkscreenshotonline' => [
+        'params' => ['online_id'],
+        'functions' => ['use'],
+    ],
+    'operatortyping' => [
+        'params' => ['chat_id', 'status'],
+        'functions' => ['use'],
+    ],
+    'syncadmin' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'addmsgadmin' => [
+        'params' => ['chat_id'],
+        'functions' => ['use'],
+    ],
+    'reactmodal' => [
+        'params' => ['msg_id'],
+        'functions' => ['use'],
+    ],
+    'updatechatstatus' => [
+        'params' => ['chat_id'],
+        'functions' => ['use'],
+    ],
+    'addoperation' => [
+        'params' => ['chat_id'],
+        'functions' => ['use'],
+    ],
+    'refreshcustomfields' => [
+        'params' => [],
+        'uparams' => ['vid', 'hash', 'hash_resume'],
+    ],
+    'addonlineoperation' => [
+        'params' => ['online_user_id'],
+        'functions' => ['use'],
+    ],
+    'addonlineoperationiframe' => [
+        'params' => ['online_user_id'],
+        'functions' => ['use'],
+    ],
+    'saveremarks' => [
+        'params' => ['chat_id'],
+        'functions' => ['use'],
+    ],
+    'reaction' => [
+        'params' => ['msg_id'],
+        'functions' => ['use'],
+    ],
+    'saveonlinenotes' => [
+        'params' => ['online_user_id'],
+        'functions' => ['use'],
+    ],
+    'addmsguser' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => ['mode'],
+    ],
+    'editprevioususer' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => [],
+    ],
+    'updatemsguser' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => ['mode'],
+    ],
+    'getmessage' => [
+        'params' => ['chat_id', 'hash', 'msgid'],
+        'uparams' => ['mode'],
+    ],
+    'getmessageadmin' => [
+        'params' => ['chat_id', 'msgid'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'voteaction' => [
+        'params' => ['chat_id', 'hash', 'type'],
+        'uparams' => [],
+    ],
+    'syncuser' => [
+        'params' => ['chat_id', 'message_id', 'hash'],
+        'uparams' => ['mode', 'ot', 'theme', 'modeembed'],
+    ],
+    'transfertohuman' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => [],
+    ],
+    'editnick' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => [],
+    ],
+    'usertyping' => [
+        'params' => ['chat_id', 'hash', 'status'],
+        'uparams' => [],
+    ],
+    'checkchatstatus' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => ['mode', 'theme', 'dot'],
+    ],
+    'transferuser' => [
+        'params' => ['chat_id', 'item_id'],
+        'functions' => ['allowtransfer'],
+    ],
+    'blockuser' => [
+        'params' => ['chat_id'],
+        'functions' => ['allowblockusers'],
+    ],
+    'blockedusers' => [
+        'params' => [],
+        'uparams' => ['remove_block', 'csfr', 'ip', 'nick'],
+        'functions' => ['allowblockusers'],
+    ],
+    'getstatus' => [
+        'params' => [],
+        'uparams' => ['fresh', 'ua', 'ma', 'operator', 'theme', 'priority', 'disable_pro_active', 'click', 'position', 'hide_offline', 'check_operator_messages', 'top', 'units', 'leaveamessage', 'department', 'identifier', 'survey', 'dot', 'bot_id'],
+        'multiple_arguments' => ['department', 'ua'],
+    ],
+    'htmlsnippet' => [
+        'params' => ['id', 'type', 'sub_id'],
+        'uparams' => ['hash'],
+        'multiple_arguments' => ['department', 'ua'],
+    ],
+    'chatcheckstatus' => [
+        'params' => [],
+        'uparams' => ['status', 'department', 'vid', 'uactiv', 'wopen', 'uaction', 'hash', 'hash_resume', 'dot', 'hide_offline', 'isproactive'],
+        'multiple_arguments' => ['department'],
+    ],
+    'getstatusembed' => [
+        'params' => [],
+        'uparams' => ['fresh', 'ua', 'operator', 'theme', 'hide_offline', 'leaveamessage', 'department', 'priority', 'survey', 'bot_id'],
+        'multiple_arguments' => ['department', 'ua'],
+    ],
+    'startchat' => [
+        'params' => [],
+        'uparams' => ['ua', 'switchform', 'operator', 'theme', 'er', 'vid', 'hash_resume', 'sound', 'hash', 'offline', 'leaveamessage', 'department', 'priority', 'chatprefill', 'survey', 'prod', 'phash', 'pvhash', 'ajaxmode'],
+        'multiple_arguments' => ['department', 'ua', 'prod'],
+    ],
+    'start' => [
+        'params' => [],
+        'uparams' => ['sound', 'id', 'hash', 'department', 'theme', 'mobile', 'vid', 'identifier', 'inv', 'survey', 'priority', 'operator', 'leaveamessage', 'mode', 'bot', 'scope', 'fs', 'trigger', 'encrypted'],
+        'multiple_arguments' => ['department'],
+    ],
+    'begin' => [
+        'params' => [],
+        'uparams' => ['sound', 'id', 'hash', 'department', 'theme', 'mobile', 'vid', 'identifier', 'inv', 'survey', 'priority', 'operator', 'leaveamessage', 'mode', 'bot', 'scope', 'fs', 'trigger', 'encrypted'],
+        'multiple_arguments' => ['department'],
+    ],
+    'modal' => [
+        'params' => [],
+        'uparams' => ['sound', 'id', 'hash', 'department', 'theme', 'mobile', 'vid', 'identifier', 'inv', 'survey', 'priority', 'operator', 'leaveamessage', 'mode', 'bot', 'scope', 'fs', 'trigger', 'encrypted'],
+        'multiple_arguments' => ['department'],
+    ],
+    'demo' => [
+        'params' => [],
+        'uparams' => ['sound', 'id', 'hash', 'department', 'theme', 'mobile', 'vid', 'identifier', 'inv', 'survey', 'priority', 'operator', 'leaveamessage', 'mode', 'bot', 'scope', 'fs', 'trigger', 'encrypted', 'debug'],
+        'multiple_arguments' => ['department'],
+        'functions' => ['use'],
+    ],
+    'chatwidget' => [
+        'params' => [],
+        'uparams' => ['mobile', 'bot_id', 'ua', 'switchform', 'operator', 'theme', 'vid', 'sound', 'hash', 'hash_resume', 'mode', 'offline', 'leaveamessage', 'department', 'priority', 'chatprefill', 'survey', 'sdemo', 'prod', 'phash', 'pvhash', 'fullheight', 'ajaxmode'],
+        'multiple_arguments' => ['department', 'ua', 'prod'],
+    ],
+    'reopen' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => ['mode', 'embedmode', 'theme', 'fullheight'],
+    ],
+    'readoperatormessage' => [
+        'params' => [],
+        'uparams' => ['operator', 'theme', 'priority', 'vid', 'department', 'playsound', 'ua', 'survey', 'fullheight', 'inv', 'tag'],
+        'multiple_arguments' => ['department', 'ua'],
+    ],
+    'chatcheckoperatormessage' => [
+        'params' => [],
+        'uparams' => ['tz', 'operator', 'theme', 'priority', 'vid', 'count_page', 'identifier', 'department', 'ua', 'survey', 'uactiv', 'wopen', 'fullheight', 'dyn'],
+        'multiple_arguments' => ['department', 'ua', 'dyn'],
+    ],
+    'extendcookie' => [
+        'params' => ['vid'],
+        'uparams' => [],
+    ],
+    'logpageview' => [
+        'params' => [],
+        'uparams' => ['tz', 'vid', 'identifier', 'department', 'ua', 'uactiv', 'wopen'],
+        'multiple_arguments' => ['department', 'ua'],
+    ],
+    'chatwidgetclosed' => [
+        'params' => [],
+        'uparams' => ['vid', 'hash', 'eclose', 'close', 'conversion'],
+    ],
+    'chat' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => ['theme', 'er', 'survey', 'cstarted'],
+    ],
+    'printchat' => [
+        'params' => ['chat_id', 'hash'],
+    ],
+    'downloadtxt' => [
+        'params' => ['chat_id', 'hash'],
+    ],
+    'readchatmail' => [
+        'params' => ['chat_id', 'hash'],
+    ],
+    'chatpreview' => [
+        'params' => ['chat_id', 'hash'],
+    ],
+    'bbcodeinsert' => [
+        'params' => ['chat_id'],
+        'uparams' => ['mode'],
+    ],
+    'chatwidgetchat' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => ['mobile', 'sound', 'mode', 'theme', 'cstarted', 'survey', 'pchat', 'fullheight'],
+    ],
+    'userclosechat' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => ['eclose'],
+    ],
+    'onlineusers' => [
+        'params' => [],
+        'ajax' => true,
+        'uparams' => ['clear_list', 'method', 'deletevisitor', 'timeout', 'csfr', 'department', 'maxrows', 'country', 'timeonsite', 'department_dpgroups', 'nochat'],
+        'functions' => ['use_onlineusers'],
+        'multiple_arguments' => ['department', 'department_dpgroups'],
+    ],
+    'jsononlineusers' => [
+        'params' => [],
+        'uparams' => ['department', 'maxrows', 'timeout', 'department_dpgroups'],
+        'functions' => ['use_onlineusers'],
+        'multiple_arguments' => ['department', 'department_dpgroups'],
+    ],
+    'getonlineuserinfo' => [
+        'params' => ['id'],
+        'uparams' => ['tab', 'chat_id'],
+        'functions' => ['use'],
+    ],
+    'sendnotice' => [
+        'params' => ['online_id'],
+        'functions' => ['use'],
+    ],
+    'geoconfiguration' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['administrategeoconfig'],
+    ],
+    'listchatconfig' => [
+        'params' => [],
+        'functions' => ['administrateconfig'],
+    ],
+    'editchatconfig' => [
+        'params' => ['config_id'],
+        'functions' => ['administrateconfig'],
+    ],
+    'syncandsoundesetting' => [
+        'params' => [],
+        'functions' => ['administratesyncsound'],
+    ],
+    'cannedmsg' => [
+        'params' => [],
+        'uparams' => ['action', 'id', 'csfr', 'message', 'title', 'fmsg', 'department_id', 'subject_id', 'tab', 'user_id', 'timefrom', 'timeto', 'sortby', 'export', 'used_freq', 'group_ids', 'user_ids', 'department_group_ids', 'department_ids'],
+        'functions' => ['explorecannedmsg'],
+        'multiple_arguments' => ['department_id', 'subject_id', 'user_id', 'department_ids', 'department_group_ids', 'user_ids', 'group_ids'],
+    ],
+    'maintenance' => [
+        'params' => [],
+        'uparams' => ['csfr', 'action'],
+        'functions' => ['maintenance'],
+    ],
+    'newcannedmsg' => [
+        'params' => [],
+        'functions' => ['administratecannedmsg'],
+    ],
+    'cannedmsgedit' => [
+        'params' => ['id'],
+        'functions' => ['explorecannedmsg'],
+    ],
+    'geoadjustment' => [
+        'params' => [],
+        'functions' => ['geoadjustment'],
+    ],
+    'accept' => [
+        'params' => ['hash', 'validation_hash', 'email'],
+    ],
+    'confirmleave' => [
+        'params' => ['chat_id', 'hash'],
+    ],
+    'reacttomessagemodal' => [
+        'params' => ['message_id'],
+        'uparams' => ['theme'],
+    ],
+    'sendchat' => [
+        'params' => ['chat_id', 'hash'],
+    ],
+    'transferchatrefilter' => [
+        'params' => ['chat_id'],
+        'uparams' => ['mode', 'obj'],
+        'functions' => ['use'],
+    ],
+    'searchprovider' => [
+        'params' => ['scope'],
+        'functions' => ['use'],
+    ],
+];
+
+$FunctionList = [
+    'use' => ['explain' => 'General permission to use chat module'],
+    'open_all' => ['explain' => 'Allow operator to open all pending chats, not only assigned to him'],
+    'changeowner' => ['explain' => 'Allow operator to change chat owner'],
+    'singlechatwindow' => ['explain' => 'Allow operator to use single chat window functionality'],
+    'allowchattabs' => ['explain' => 'Allow operator to user chat rooms functionality'],
+    'deletechat' => ['explain' => 'Allow operator to delete their own chats'],
+    'deleteglobalchat' => ['explain' => 'Allow to delete all chats'],
+    'allowtransfer' => ['explain' => 'Allow user to transfer chat to another user/department'],
+    'allowcloseremote' => ['explain' => 'Allow operator to close another operator chat'],
+    'allowblockusers' => ['explain' => 'Allow operator to block visitors'],
+    'administrateconfig' => ['explain' => 'Allow to change chat config'],
+    'allowclearonlinelist' => ['explain' => 'Allow operator to clean online users list'],
+    'administratecannedmsg' => ['explain' => 'Allow operator change canned messages'],
+    'explorecannedmsg' => ['explain' => 'Allow operator to explore canned messages. They will see canned messages based on departments they are a member of.'],
+    'explorecannedmsg_all' => ['explain' => 'Allow operator to explore canned messages. They will see all departments canned messages.'],
+    'allowopenremotechat' => ['explain' => 'Allow operator to open other operators chats from same department'],
+    'writeremotechat' => ['explain' => 'Allow operator to write to another operator chat'],
+    'allowreopenremote' => ['explain' => 'Allow operator to reopen other operators chats'],
+    'allowtransfertoanyuser' => ['explain' => 'Allow operator to transfer chat to any online operator, not only their own department users'],
+    'allowtransferdirectly' => ['explain' => 'Allow operator to transfer chat directly to other operator'],
+    'use_onlineusers' => ['explain' => 'Allow operator to view online visitors'],
+    'chattabschrome' => ['explain' => 'Allow operator to use chrome extension'],
+    'canchangechatstatus' => ['explain' => 'Allow operator to change chat status'],
+    'administrateinvitations' => ['explain' => 'Allow operator to change pro active invitations'],
+    'administratecampaigs' => ['explain' => 'Allow operator to change pro active campaigns'],
+    'administratechatevents' => ['explain' => 'Allow operator to change pro active chat events'],
+    'administratechatvariables' => ['explain' => 'Allow operator to change pro active chat variables'],
+    'administrateresponder' => ['explain' => 'Allow operator to change auto responder'],
+    'maintenance' => ['explain' => 'Allow operator to run maintenance'],
+    'sees_all_online_visitors' => ['explain' => 'Operator can see all online visitors, not only their department'],
+    'geoadjustment' => ['explain' => 'Allow operator to edit geo adjustment for chat status'],
+    'take_screenshot' => ['explain' => 'Allow operator to take visitor browser page screenshots'],
+    'modifychat' => ['explain' => 'Allow operator modify main chat information'],
+    'allowredirect' => ['explain' => 'Allow operator to redirect user to another page'],
+    'administrategeoconfig' => ['explain' => 'Allow operator to edit geo detection configuration'],
+    'manage_product' => ['explain' => 'Allow operator to manage products'],
+    'administratesubject' => ['explain' => 'Allow operator to manage subjects'],
+    'modifychatcore' => ['explain' => 'Allow operator to change chat core attributes'],
+    'sendmail' => ['explain' => 'Allow operator to send e-mail to visitor from chat window'],
+    'redirectcontact' => ['explain' => 'Allow operator to redirect visitor to contact form'],
+    'holduse' => ['explain' => 'Allow operator to use hold/unhold functionality'],
+    'setsubject' => ['explain' => 'Allow operator to use set chat subject'],
+    'administratecolumn' => ['explain' => 'Allow operator to configure chat columns'],
+    'administratechatvariable' => ['explain' => 'Allow operator to configure chat custom variables'],
+    'administratechatpriority' => ['explain' => 'Allow operator to configure chat priority by custom variables'],
+    'administratesyncsound' => ['explain' => 'Allow operator to configure chat sound and sync settings'],
+    'voicemessages' => ['explain' => 'Allow operator to send voice messages'],
+    'chatdebug' => ['explain' => 'Allow operator to see raw chat details in chat edit window'],
+    'administrate_alert_icon' => ['explain' => 'Allow operator to manage alert icons list'],
+    'prev_chats' => ['explain' => 'Allow operator to see previous chats from visitor'],
+    'changedepartment' => ['explain' => 'Allow operator to change chat department'],
+    'subject_chats' => ['explain' => 'Allow operator see subject filtered chats'],
+    'subject_chats_options' => ['explain' => 'Allow operator to choose what subjects should be applied as filter'],
+    'export_chats' => ['explain' => 'Allow operator to export filtered chats'],
+    'htmlbbcodeenabled' => ['explain' => 'Allow operator to use [html] bbcode.'],
+    'metamsgenabled' => ['explain' => 'Allow operator to use meta_msg in message add interface.'],
+    'seeip' => ['explain' => 'Allow operator to see full IP'],
+    'editprevious' => ['explain' => 'Allow operator to edit their previous message.'],
+    'editpreviousop' => ['explain' => 'Allow operator to edit other operators previous messages'],
+    'editpreviouvis' => ['explain' => 'Allow operator to edit visitors previous messages'],
+    'editpreviousall' => ['explain' => 'Allow operator to edit all their previous messages.'],
+    'impersonate' => ['explain' => 'Allow operator to impersonate another operator on joining chat window'],
+    'whispermode' => ['explain' => 'Allow operator to use whisper mode'],
+    'allowtransfertoanydep' => ['explain' => 'Allow operator to transfer chat to any department.'],
+    'list_all_chats' => ['explain' => 'Allow operator to list all chats independently of operator and status.'],
+    'list_my_chats' => ['explain' => 'Allow operator to list chats they are owner of'],
+    'list_pending_chats' => ['explain' => 'Allow operator to list chats without an owner and in status pending.'],
+    'use_unhidden_phone' => ['explain' => 'Allow operator to see full phone number'],
+    'chat_see_email' => ['explain' => 'Allow operator to see e-mail of the visitor'],
+    'chat_see_unhidden_email' => ['explain' => 'Allow operator to see full e-mail address of the visitor'],
+    'chat_export_email' => ['explain' => 'Allow operator to see e-mail address in exported file'],
+    'chat_export_phone' => ['explain' => 'Allow operator to see phone in exported file'],
+    'see_sensitive_information' => ['explain' => 'Allow operator to see sensitive information in the messages'],
+    'my_chats_filter' => ['explain' => 'Allow operator to see department filter for my active pending chats widget'],
+    'allowopenclosedchats' => ['explain' => 'Allow operator to open closed chats'],
+    'removemsgop' => ['explain' => 'Allow to remove operator any operator message'],
+    'removemsgvi' => ['explain' => 'Allow to remove operator any visitor message'],
+    'no_edit_history' => ['explain' => 'Do not store message edit history if edited by chat owner'],
+    'see_operator_name' => ['explain' => 'Allow operator to see chat message real operator name'],
+    'open_unassigned_chat' => ['explain' => 'Allow operator to open unassigned pending chat and become an owner of it.'],
+];

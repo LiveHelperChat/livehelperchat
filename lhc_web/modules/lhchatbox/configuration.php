@@ -7,4 +7,3 @@ $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chatbox.c
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/list','Chatbox')));
 
-?>

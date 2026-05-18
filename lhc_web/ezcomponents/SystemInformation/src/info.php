@@ -383,4 +383,4 @@ class ezcSystemInfo
         throw new ezcBasePropertyNotFoundException( $property );
     }
 }
-?>
+

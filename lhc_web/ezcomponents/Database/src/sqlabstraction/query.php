@@ -505,4 +505,3 @@ abstract class ezcQuery
      */
     abstract public function getQuery();
 }
-?>

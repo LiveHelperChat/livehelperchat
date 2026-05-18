@@ -19,4 +19,3 @@ return array(
     'ezcImageAnalyzerImagemagickHandler'          => 'ImageAnalysis/handlers/imagemagick.php',
     'ezcImageAnalyzerPhpHandler'                  => 'ImageAnalysis/handlers/php.php',
 );
-?>

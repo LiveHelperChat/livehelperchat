@@ -21,5 +21,3 @@ foreach ([
 }
 
 return $def;
-
-?>

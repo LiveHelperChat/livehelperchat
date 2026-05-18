@@ -924,4 +924,3 @@ abstract class ezcCacheStorageFile extends ezcCacheStorage implements ezcCacheSt
         }
     }
 }
-?>

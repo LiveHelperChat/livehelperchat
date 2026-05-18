@@ -51,4 +51,3 @@ if ($nickChanged === true) {
 
 exit;
 
-?>

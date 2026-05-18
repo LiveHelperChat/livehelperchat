@@ -12,4 +12,3 @@
 return array(
     'ezcLogDatabaseWriter' => 'EventLogDatabaseTiein/writers/writer_database.php',
 );
-?>

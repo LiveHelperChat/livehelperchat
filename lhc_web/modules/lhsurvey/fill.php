@@ -91,4 +91,3 @@ $Result['pagelayout'] = 'userchat';
 $Result['show_switch_language'] = true;
 $Result['scope'] = 'survey';
 
-?>

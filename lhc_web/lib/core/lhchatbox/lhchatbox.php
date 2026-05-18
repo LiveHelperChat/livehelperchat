@@ -423,4 +423,3 @@ class erLhcoreClassChatbox {
    private static $persistentSession;
 }
 
-?>

@@ -79,4 +79,4 @@ class ezcSystemInfoAccelerator extends ezcBaseStruct
         $this->versionString = $versionString;
     }
 }
-?>
+

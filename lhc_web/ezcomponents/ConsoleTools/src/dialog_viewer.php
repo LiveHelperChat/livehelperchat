@@ -64,5 +64,3 @@ class ezcConsoleDialogViewer
         return $res;
     }
 }
-
-?>

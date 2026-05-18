@@ -137,4 +137,3 @@ class ezcMailFile extends ezcMailFilePart
         return chunk_split( base64_encode( file_get_contents( $this->fileName ) ), 76, ezcMailTools::lineBreak() );
     }
 }
-?>

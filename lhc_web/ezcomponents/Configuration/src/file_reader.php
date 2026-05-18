@@ -235,4 +235,3 @@ abstract class ezcConfigurationFileReader extends ezcConfigurationReader
         return file_exists( $this->path );
     }
 }
-?>

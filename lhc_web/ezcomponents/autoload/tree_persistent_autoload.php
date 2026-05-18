@@ -12,4 +12,3 @@
 return array(
     'ezcTreePersistentObjectDataStore' => 'TreePersistentObjectTiein/stores/persistent_object.php',
 );
-?>

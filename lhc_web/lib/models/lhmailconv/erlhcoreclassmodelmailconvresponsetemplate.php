@@ -111,4 +111,3 @@ class erLhcoreClassModelMailconvResponseTemplate
     public $disabled = 0;
 }
 
-?>

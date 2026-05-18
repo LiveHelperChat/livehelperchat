@@ -29,4 +29,3 @@ if (file_exists($cronjobPathOption->value)) {
     echo "File not found\n";
 }
 
-?>

@@ -27,4 +27,3 @@ class ezcFeedOnlyOneValueAllowedException extends ezcFeedException
         parent::__construct( "The element '{$attribute}' cannot appear more than once." );
     }
 }
-?>

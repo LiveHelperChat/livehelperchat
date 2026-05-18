@@ -538,4 +538,3 @@ return array(
     'ezcDocumentXhtmlTextToParagraphFilter'              => 'Document/document/xml/xhtml/filter/element/text.php',
     'ezcDocumentXhtmlXpathFilter'                        => 'Document/document/xml/xhtml/filter/xpath.php',
 );
-?>

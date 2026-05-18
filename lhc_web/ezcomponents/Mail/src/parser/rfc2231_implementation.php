@@ -189,4 +189,3 @@ class ezcMailRfc2231Implementation
         return $cd;
     }
 }
-?>

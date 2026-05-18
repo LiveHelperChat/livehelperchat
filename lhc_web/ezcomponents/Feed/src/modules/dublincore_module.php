@@ -419,4 +419,3 @@ class ezcFeedDublinCoreModule extends ezcFeedModule
         return 'dc';
     }
 }
-?>

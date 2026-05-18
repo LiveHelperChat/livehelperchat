@@ -266,4 +266,3 @@ class ezcFeedGeoModule extends ezcFeedModule
         return 'geo';
     }
 }
-?>

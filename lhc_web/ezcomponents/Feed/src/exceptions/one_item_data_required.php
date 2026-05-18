@@ -29,4 +29,3 @@ class ezcFeedAtLeastOneItemDataRequiredException extends ezcFeedException
         parent::__construct( "At least one of these elements is required: {$attributes}." );
     }
 }
-?>

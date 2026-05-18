@@ -52,5 +52,3 @@ class ezcDbUtilitiesSqlite extends ezcDbUtilities
         $this->db->commit();
     }
 }
-
-?>

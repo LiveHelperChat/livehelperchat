@@ -39,5 +39,3 @@ foreach (array('mod','tud','wed','thd','frd','sad','sud') as $dayShort) {
 }
 
 return $def;
-
-?>

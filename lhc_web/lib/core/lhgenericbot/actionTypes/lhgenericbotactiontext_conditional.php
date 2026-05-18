@@ -86,4 +86,3 @@ class erLhcoreClassGenericBotActionText_conditional {
     }
 }
 
-?>

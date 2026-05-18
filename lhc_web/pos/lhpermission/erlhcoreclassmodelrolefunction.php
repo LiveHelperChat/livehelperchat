@@ -24,5 +24,3 @@ foreach (array('role_id','type') as $attr) {
 }
 
 return $def; 
-
-?>

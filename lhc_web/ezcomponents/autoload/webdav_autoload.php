@@ -166,4 +166,3 @@ return array(
     'ezcWebdavXmlDisplayInformation'                    => 'Webdav/structs/display_information_xml.php',
     'ezcWebdavXmlTool'                                  => 'Webdav/tools/xml.php',
 );
-?>

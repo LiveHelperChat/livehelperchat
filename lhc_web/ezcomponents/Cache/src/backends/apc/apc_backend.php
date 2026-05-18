@@ -126,4 +126,3 @@ class ezcCacheApcBackend extends ezcCacheMemoryBackend
         apc_delete( $key );
     }
 }
-?>

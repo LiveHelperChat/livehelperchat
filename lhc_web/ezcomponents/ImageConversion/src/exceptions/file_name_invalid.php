@@ -27,5 +27,3 @@ class ezcImageFileNameInvalidException extends ezcImageException
         parent::__construct( "The file name '{$file}' contains an illegal character (', \", $)." );
     }
 }
-
-?>

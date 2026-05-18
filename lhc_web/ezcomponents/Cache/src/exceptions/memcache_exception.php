@@ -26,4 +26,3 @@ class ezcCacheMemcacheException extends ezcBaseException
         parent::__construct( $message );
     }
 }
-?>

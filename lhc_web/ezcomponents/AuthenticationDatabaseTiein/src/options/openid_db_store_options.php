@@ -92,4 +92,3 @@ class ezcAuthenticationOpenidDbStoreOptions extends ezcAuthenticationOpenidStore
         }
     }
 }
-?>

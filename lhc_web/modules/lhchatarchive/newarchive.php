@@ -11,17 +11,17 @@ if (isset($_POST['Cancel_archive']) )
 
 if (isset($_POST['Save_archive']))
 {
-	$definition = array(
+	$definition = [
 			'RangeFrom' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'string'
 			),
 			'RangeTo' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'string'
 			)
-	);
+	];
 
 	$form = new ezcInputForm( INPUT_POST, $definition );
-	$Errors = array();
+	$Errors = [];
 
 	if ( !$form->hasValidData( 'RangeFrom' ) || $form->RangeFrom == '' )
 	{
@@ -65,9 +65,8 @@ $tpl->set('archive',$archive);
 
 $Result['content'] = $tpl->fetch();
 
-$Result['path'] = array(
-		array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
-		array('url' => erLhcoreClassDesign::baseurl('chatarchive/archive'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/archive','Chat archive')));
-$Result['path'][] = array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','New archive'));
-
-?>
+$Result['path'] = [
+	['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments', 'System configuration')],
+	['url' => erLhcoreClassDesign::baseurl('chatarchive/archive'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/archive', 'Chat archive')]
+];
+$Result['path'][] = ['title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive', 'New archive')];

@@ -79,5 +79,3 @@ $def->properties['theme_id']->propertyName = 'theme_id';
 $def->properties['theme_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

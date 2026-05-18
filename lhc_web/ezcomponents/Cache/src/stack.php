@@ -644,5 +644,3 @@ class ezcCacheStack extends ezcCacheStorage
         $this->properties[$propertyName] = $propertyValue;
     }
 }
-
-?>

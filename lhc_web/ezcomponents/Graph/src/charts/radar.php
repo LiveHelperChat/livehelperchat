@@ -454,4 +454,3 @@ class ezcGraphRadarChart extends ezcGraphChart
         $this->renderer->render( null );
     }
 }
-?>

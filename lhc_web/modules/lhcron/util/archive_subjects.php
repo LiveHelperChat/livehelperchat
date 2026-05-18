@@ -34,4 +34,3 @@ foreach (erLhcoreClassModelChatArchiveRange::getList() as $archiveRange) {
     }
 }
 
-?>

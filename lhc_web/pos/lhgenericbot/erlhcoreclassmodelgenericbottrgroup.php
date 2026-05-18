@@ -22,5 +22,3 @@ $def->properties['use_translation_service']->propertyName = 'use_translation_ser
 $def->properties['use_translation_service']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
-
-?>

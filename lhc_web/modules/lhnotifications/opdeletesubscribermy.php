@@ -17,4 +17,3 @@ $subscriber->removeThis();
 erLhcoreClassModule::redirect('user/account','/(tab)/notifications');
 exit;
 
-?>

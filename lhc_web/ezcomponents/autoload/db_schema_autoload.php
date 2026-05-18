@@ -66,4 +66,3 @@ return array(
     'ezcDbSchemaXmlReader'                       => 'DatabaseSchema/handlers/xml/reader.php',
     'ezcDbSchemaXmlWriter'                       => 'DatabaseSchema/handlers/xml/writer.php',
 );
-?>

@@ -27,4 +27,4 @@ class ezcUrlException extends ezcBaseException
         parent::__construct( $message );
     }
 }
-?>
+

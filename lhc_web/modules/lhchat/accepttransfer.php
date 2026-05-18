@@ -182,4 +182,3 @@ if ($Params['user_parameters_unordered']['postaction'] == 'singlewindow') {
 
 echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'chat_id' => $chat->id, 'scope' => $chatTransfer->transfer_scope));
 exit;
-?>

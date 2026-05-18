@@ -27,5 +27,3 @@ class ezcGraphFlashBitmapTypeException extends ezcGraphException
         parent::__construct( "Flash can only read JPEGs and PNGs." );
     }
 }
-
-?>

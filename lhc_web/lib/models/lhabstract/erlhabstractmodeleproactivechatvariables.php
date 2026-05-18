@@ -70,4 +70,3 @@ class erLhAbstractModelProactiveChatVariables{
 	public $hide_delete = false;
 }
 
-?>

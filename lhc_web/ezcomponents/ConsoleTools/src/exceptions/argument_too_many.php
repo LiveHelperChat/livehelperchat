@@ -29,5 +29,3 @@ class ezcConsoleTooManyArgumentsException extends ezcConsoleArgumentException
         parent::__construct( "Only " . ( $i - 1 ) . " arguments are expected, but " . ( count( $args ) - 1 ) . " were submitted." );
     }
 }
-
-?>

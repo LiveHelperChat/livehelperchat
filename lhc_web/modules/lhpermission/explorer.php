@@ -141,4 +141,4 @@ if ($Params['user_parameters_unordered']['action'] == 3) {
 
 $Result['content'] = $tpl->fetch();
 
-?>
+

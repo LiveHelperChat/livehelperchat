@@ -17,4 +17,3 @@
 abstract class ezcCacheException extends ezcBaseException
 {
 }
-?>

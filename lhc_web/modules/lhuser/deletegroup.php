@@ -27,5 +27,3 @@ erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 
 erLhcoreClassModule::redirect('user/grouplist');
 exit;
-
-?>

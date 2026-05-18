@@ -61,4 +61,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('genericbot/listexceptions'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Responses for API error')),
     array('title' => $botException->name));
 
-?>

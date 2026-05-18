@@ -221,4 +221,4 @@ interface ezcPersistentIdentityMap
     public function reset();
 }
 
-?>
+

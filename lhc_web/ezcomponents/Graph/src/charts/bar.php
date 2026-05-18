@@ -91,4 +91,3 @@ class ezcGraphBarChart extends ezcGraphLineChart
         return ezcGraph::BAR;
     }
 }
-?>

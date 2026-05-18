@@ -42,5 +42,3 @@ class ezcGraphInvalidDisplayTypeException extends ezcGraphException
         parent::__construct( "Invalid data set display type '$type' ('$chartTypeName') for current chart." );
     }
 }
-
-?>

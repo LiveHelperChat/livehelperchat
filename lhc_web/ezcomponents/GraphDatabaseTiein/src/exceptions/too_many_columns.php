@@ -29,5 +29,3 @@ class ezcGraphDatabaseTooManyColumnsException extends ezcGraphDatabaseException
         parent::__construct( "'{$columnCount}' columns are too many in a result." );
     }
 }
-
-?>

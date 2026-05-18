@@ -11,4 +11,3 @@ $groups = erLhcoreClassModelGenericBotGroup::getList(array(
 
 echo json_encode(array_values($groups));
 exit;
-?>

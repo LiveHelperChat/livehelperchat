@@ -52,4 +52,3 @@ if ($theme->need_help_close_hover_bg != '') {
 echo $theme->custom_widget_css;
 
 exit;
-?>

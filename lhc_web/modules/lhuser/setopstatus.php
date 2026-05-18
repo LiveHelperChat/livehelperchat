@@ -1,16 +1,17 @@
 <?php
+
 $tpl = erLhcoreClassTemplate::getInstance('lhuser/setopstatus.tpl.php');
 
 $user = erLhcoreClassModelUser::fetch($Params['user_parameters']['user_id']);
 
 if (ezcInputForm::hasPostData()) {
 
-    $definition = array(
+    $definition = [
         'onlineStatus' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
-    );
+    ];
 
     $form = new ezcInputForm(INPUT_POST, $definition);
-    $Errors = array();
+    $Errors = [];
 
     if ($form->hasValidData('onlineStatus') && $form->onlineStatus == 1) {
         $status = 0;
@@ -37,7 +38,7 @@ if (ezcInputForm::hasPostData()) {
 
         $currentUser->updateLastVisit(time(), $user->hide_online == 1 ? 2 : 1, $user->id); // Went offline OR went online
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $user, 'reason' => 'user_action'));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed', ['user' => & $user, 'reason' => 'user_action']);
 
         $db->commit();
 
@@ -49,11 +50,9 @@ if (ezcInputForm::hasPostData()) {
     }
 }
 
-$tpl->setArray(array(
+$tpl->setArray([
     'user' => $user
-));
+]);
 
 echo $tpl->fetch();
 exit();
-
-?>

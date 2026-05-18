@@ -387,5 +387,3 @@ class ezcConsoleInputStandardHelpGenerator implements ezcConsoleInputHelpGenerat
         return implode( " ", $synopsises );
     }
 }
-
-?>

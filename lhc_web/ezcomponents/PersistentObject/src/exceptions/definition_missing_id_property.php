@@ -27,4 +27,4 @@ class ezcPersistentDefinitionMissingIdPropertyException extends ezcPersistentObj
         parent::__construct( "The persistent object definition for the class '$class' does not have an 'idProperty' attribute defined." );
     }
 }
-?>
+

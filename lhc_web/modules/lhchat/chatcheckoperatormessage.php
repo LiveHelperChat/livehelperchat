@@ -103,4 +103,3 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 	}
 }
 exit;
-?>

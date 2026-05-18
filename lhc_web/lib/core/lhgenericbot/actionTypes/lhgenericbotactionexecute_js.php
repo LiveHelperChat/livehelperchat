@@ -75,4 +75,3 @@ class erLhcoreClassGenericBotActionExecute_js {
     }
 }
 
-?>

@@ -79,4 +79,3 @@ class ezcCacheStorageFileArray extends ezcCacheStorageFile
         return "<?php\nreturn " . var_export( $data, true ) . ";\n?>\n";
     }
 }
-?>

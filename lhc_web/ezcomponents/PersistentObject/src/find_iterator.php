@@ -195,4 +195,4 @@ class ezcPersistentFindIterator implements Iterator
         $this->stmt->closeCursor();
     }
 }
-?>
+

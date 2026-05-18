@@ -11,4 +11,3 @@ if ($online_user !== false)
 }
 
 exit;
-?>

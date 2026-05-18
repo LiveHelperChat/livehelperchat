@@ -12,4 +12,3 @@
 return array(
     'ezcFile' => 'File/file.php',
 );
-?>

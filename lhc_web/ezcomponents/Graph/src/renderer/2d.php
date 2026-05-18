@@ -1897,5 +1897,3 @@ class ezcGraphRenderer2d
         );
     }
 }
-
-?>

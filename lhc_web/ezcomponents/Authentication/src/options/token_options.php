@@ -51,4 +51,3 @@ class ezcAuthenticationTokenOptions extends ezcAuthenticationFilterOptions
         }
     }
 }
-?>

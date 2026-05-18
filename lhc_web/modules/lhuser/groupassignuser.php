@@ -72,7 +72,7 @@ if (isset($_POST['AssignUsers']) && isset($_POST['UserID']) && count($_POST['Use
         $users = $session->find( $q );
         $tpl->set('users',$users);
     } else {
-        $tpl->set('users',array());
+        $tpl->set('users',[]);
     }
 }
 $Result['content'] = $tpl->fetch();

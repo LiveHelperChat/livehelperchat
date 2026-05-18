@@ -49,4 +49,3 @@ return array(
     'ezcFeedSourceElement'                       => 'Feed/structs/source.php',
     'ezcFeedTextInputElement'                    => 'Feed/structs/text_input.php',
 );
-?>

@@ -27,5 +27,3 @@ class ezcImageTransformationAlreadyExistsException extends ezcImageException
         parent::__construct( "Transformation '{$name}' already exists." );
     }
 }
-
-?>

@@ -63,4 +63,3 @@ class ezcFeedCloudElement extends ezcFeedElement
      */
     public $protocol;
 }
-?>

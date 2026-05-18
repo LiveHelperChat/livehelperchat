@@ -11,4 +11,3 @@ $item->removeThis();
 erLhcoreClassModule::redirect('genericbot/listtranslationsitems','/(group_id)/' . $item->group_id);
 exit;
 
-?>

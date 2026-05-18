@@ -26,5 +26,3 @@ foreach (['hide_op_ts','widget_pright','widget_popheight','widget_popwidth','wid
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.posdefinition',array('def' => & $def));
 
 return $def;
-
-?>

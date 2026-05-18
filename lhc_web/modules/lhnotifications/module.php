@@ -1,106 +1,89 @@
 <?php
 
-$Module = array( "name" => "Notifications" );
+$Module = ['name' => 'Notifications'];
 
-$ViewList = array();
+$ViewList = [
+    'subscribe' => [
+        'params' => [],
+        'uparams' => ['hash', 'vid', 'hash_resume', 'theme', 'action'],
+    ],
+    'subscribeop' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'list' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'oplist' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'index' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'read' => [
+        'params' => [],
+        'uparams' => ['id', 'hash', 'theme', 'mode', 'hashread'],
+    ],
+    'editsubscriber' => [
+        'params' => ['id'],
+        'functions' => ['use'],
+    ],
+    'editsubscriberop' => [
+        'params' => ['id'],
+        'functions' => ['use'],
+    ],
+    'downloadworker' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'downloadworkerop' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'settings' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'opsettings' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'deletesubscriber' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use'],
+    ],
+    'opdeletesubscriber' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use'],
+    ],
+    'serviceworkerop' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'opdeletesubscribermy' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use_operator'],
+    ],
+    'sendtest' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use_operator'],
+    ],
+    'loadsubscriptions' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use_operator'],
+    ],
+];
 
-$ViewList['subscribe'] = array(
-    'params' => array(),
-    'uparams' => array('hash','vid','hash_resume','theme','action')
-);
-
-$ViewList['subscribeop'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['list'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['oplist'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['index'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['read'] = array(
-    'params' => array(),
-    'uparams' => array('id','hash','theme','mode','hashread'),
-);
-
-$ViewList['editsubscriber'] = array(
-    'params' => array('id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['editsubscriberop'] = array(
-    'params' => array('id'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['downloadworker'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['downloadworkerop'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['settings'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['opsettings'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['deletesubscriber'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['opdeletesubscriber'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['serviceworkerop'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['opdeletesubscribermy'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use_operator' )
-);
-
-$ViewList['sendtest'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use_operator' )
-);
-
-$ViewList['loadsubscriptions'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use_operator' )
-);
-
-$FunctionList['use'] = array('explain' => 'Notifications module');
-$FunctionList['use_operator'] = array('explain' => 'Allow operator to use push notifications');
-
-?>
+$FunctionList = [
+    'use' => ['explain' => 'Notifications module'],
+    'use_operator' => ['explain' => 'Allow operator to use push notifications'],
+];

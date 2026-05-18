@@ -56,4 +56,3 @@ $tpl->set('debug_invitation', $debug);
 
 echo json_encode(['data' => $tpl->fetch()]);
 exit;
-?>

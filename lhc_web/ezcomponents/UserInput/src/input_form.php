@@ -577,4 +577,3 @@ class ezcInputForm
         return $this->allElementsValid;
     }
 }
-?>

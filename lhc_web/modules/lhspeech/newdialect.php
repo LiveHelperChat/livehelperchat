@@ -38,4 +38,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('speech/dialects'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Dialects')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit dialect')));
 
-?>

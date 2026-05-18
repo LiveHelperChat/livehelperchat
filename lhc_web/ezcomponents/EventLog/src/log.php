@@ -606,4 +606,3 @@ class ezcLog
         }
     }
 }
-?>

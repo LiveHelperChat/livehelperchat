@@ -34,4 +34,3 @@ class ezcQueryInvalidException extends ezcQueryException
         parent::__construct( $message );
     }
 }
-?>

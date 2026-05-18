@@ -216,4 +216,3 @@ foreach ($items as $item) {
 echo erLhcoreClassChat::safe_json_encode($returnArray);
 
 exit();
-?>

@@ -26,4 +26,3 @@ return array(
     'ezcLogSyslogWriter'           => 'EventLog/writers/writer_syslog.php',
     'ezcLogUnixFileWriter'         => 'EventLog/writers/writer_unix_file.php',
 );
-?>

@@ -25,4 +25,3 @@ foreach (['pattern','v_warning','name','dep_ids','languages'] as $posAttr) {
 
 return $def;
 
-?>

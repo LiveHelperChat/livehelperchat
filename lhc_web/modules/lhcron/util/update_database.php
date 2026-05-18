@@ -43,4 +43,3 @@ if (is_array($jsonObject)) {
     echo "Failed to fetch database structure...\n";
 }
 
-?>

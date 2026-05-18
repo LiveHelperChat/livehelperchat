@@ -92,4 +92,3 @@ class ezcFeedImageElement extends ezcFeedElement
         return $this->link . '';
     }
 }
-?>

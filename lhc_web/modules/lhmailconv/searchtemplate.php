@@ -94,4 +94,3 @@ $tpl->set('items', $items);
 echo $tpl->fetch();
 exit;
 
-?>

@@ -83,4 +83,3 @@ abstract class ezcDbSchemaCommonSqlReader implements ezcDbSchemaDbReader
     }
 
 }
-?>

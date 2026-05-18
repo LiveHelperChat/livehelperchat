@@ -121,4 +121,4 @@ class ezcUrlCreator
         return self::$urls[$name];
     }
 }
-?>
+

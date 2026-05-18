@@ -36,4 +36,3 @@ class ezcConsoleOptionExclusionViolationException extends ezcConsoleOptionExcept
         parent::__construct( $message );
     }
 }
-?>

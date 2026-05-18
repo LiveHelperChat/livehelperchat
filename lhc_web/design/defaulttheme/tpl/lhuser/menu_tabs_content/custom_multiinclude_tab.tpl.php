@@ -2,4 +2,3 @@
 /**
  * Menu tabs content
  * */
-?>

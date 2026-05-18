@@ -24,5 +24,3 @@ foreach (['dep_id','priority','sort_priority','dest_dep_id','skip_bot'] as $posA
 }
 
 return $def;
-
-?>

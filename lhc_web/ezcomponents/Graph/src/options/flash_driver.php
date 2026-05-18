@@ -103,5 +103,3 @@ class ezcGraphFlashDriverOptions extends ezcGraphDriverOptions
         }
     }
 }
-
-?>

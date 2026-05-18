@@ -106,4 +106,3 @@ if (empty($Errors)) {
 
 exit;
 
-?>

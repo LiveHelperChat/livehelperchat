@@ -78,4 +78,3 @@ class ezcMailPop3TransportOptions extends ezcMailTransportOptions
         }
     }
 }
-?>

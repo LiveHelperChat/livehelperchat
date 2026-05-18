@@ -34,5 +34,3 @@ class ezcDebugOperationNotPermittedException extends ezcDebugException
         );
     }
 }
-
-?>

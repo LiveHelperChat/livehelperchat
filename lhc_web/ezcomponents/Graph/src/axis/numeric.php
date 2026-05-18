@@ -501,5 +501,3 @@ class ezcGraphChartElementNumericAxis extends ezcGraphChartElementAxis
         return ( $this->getLabel( $step ) == 0 );
     }
 }
-
-?>

@@ -39,4 +39,3 @@ class ezcBaseSettingValueException extends ezcBaseException
         parent::__construct( $msg );
     }
 }
-?>

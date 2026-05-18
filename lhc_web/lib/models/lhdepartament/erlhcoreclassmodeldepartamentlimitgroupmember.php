@@ -55,4 +55,3 @@ class erLhcoreClassModelDepartamentLimitGroupMember
     public $dep_limit_group_id = 0;
 }
 
-?>

@@ -37,4 +37,3 @@ class ezcBaseWhateverException extends ezcBaseException
         parent::__construct( "Thanks for using eZ components. Hope you like it! Greetings from Amos, Derick, El Frederico, Ray and Toby." );
     }
 }
-?>

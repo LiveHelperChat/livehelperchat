@@ -42,4 +42,3 @@ class erLhcoreClassModelChatPaid {
    public $updateIgnoreColumns = array();
 }
 
-?>

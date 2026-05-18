@@ -24,5 +24,3 @@ foreach (['group_id','bot_id','default','default_unknown','default_always','defa
 }
 
 return $def;
-
-?>

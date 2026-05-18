@@ -47,5 +47,3 @@ interface ezcGraphOdometerRenderer
         $width
     );
 }
-
-?>

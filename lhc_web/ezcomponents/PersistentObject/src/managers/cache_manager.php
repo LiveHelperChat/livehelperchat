@@ -68,4 +68,4 @@ class ezcPersistentCacheManager extends ezcPersistentDefinitionManager
         return $def;
     }
 }
-?>
+

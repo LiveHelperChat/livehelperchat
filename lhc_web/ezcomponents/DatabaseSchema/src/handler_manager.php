@@ -270,4 +270,3 @@ class ezcDbSchemaHandlerManager
         self::$diffWriteHandlers[$type] = $writerClass;
     }
 }
-?>

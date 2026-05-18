@@ -558,4 +558,3 @@ class ezcDbSchemaOracleWriter extends ezcDbSchemaCommonSqlWriter implements ezcD
         }
     }
 }
-?>

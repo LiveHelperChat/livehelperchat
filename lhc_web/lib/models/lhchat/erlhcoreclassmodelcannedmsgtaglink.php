@@ -270,4 +270,3 @@ class erLhcoreClassModelCannedMsgTagLink
     public $canned_id = 0;
 }
 
-?>

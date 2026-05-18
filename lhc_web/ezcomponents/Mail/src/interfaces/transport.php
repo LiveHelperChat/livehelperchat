@@ -25,4 +25,3 @@ interface ezcMailTransport
      */
     public function send( ezcMail $mail );
 }
-?>

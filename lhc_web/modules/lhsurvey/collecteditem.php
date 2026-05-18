@@ -18,4 +18,3 @@ echo $tpl->fetch();
 
 exit;
 
-?>

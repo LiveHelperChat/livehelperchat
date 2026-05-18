@@ -222,4 +222,3 @@ class ezcMailMultipartReport extends ezcMailMultipart
         return "report";
     }
 }
-?>

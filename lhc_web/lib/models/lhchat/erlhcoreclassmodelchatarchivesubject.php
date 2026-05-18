@@ -10,4 +10,3 @@ class erLhAbstractModelChatArchiveSubject extends erLhAbstractModelSubjectChat  
     use erLhcoreClassDBTrait;
 }
 
-?>

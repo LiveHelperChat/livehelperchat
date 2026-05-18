@@ -32,10 +32,10 @@ if ( isset($_POST['StoreRecaptchaSettings']) ) {
         exit;
     }
 
-    $Errors = array();
+    $Errors = [];
 
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
 
     if ( $form->hasValidData( 'provider' ) && in_array($form->provider, array('google', 'turnstile'))) {
         $data['provider'] = $form->provider;
@@ -83,5 +83,3 @@ $tpl->set('rc_data',$data);
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Captcha settings')));
-
-?>

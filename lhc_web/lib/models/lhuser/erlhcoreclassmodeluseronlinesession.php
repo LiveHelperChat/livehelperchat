@@ -133,4 +133,3 @@ class erLhcoreClassModelUserOnlineSession
     public $chatsOffline = 0;
 }
 
-?>

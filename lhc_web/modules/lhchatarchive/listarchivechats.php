@@ -64,4 +64,3 @@ $Result['path'][] = array('title' => erTranslationClassLhTranslation::getInstanc
 
 
 
-?>

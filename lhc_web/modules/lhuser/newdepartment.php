@@ -302,5 +302,3 @@ if ($user instanceof erLhcoreClassModelUser) {
 }
 
 exit;
-
-?>

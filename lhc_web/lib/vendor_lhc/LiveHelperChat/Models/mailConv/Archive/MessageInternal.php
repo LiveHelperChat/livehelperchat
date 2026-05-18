@@ -23,4 +23,3 @@ class MessageInternal extends \erLhcoreClassModelMailconvMessageInternal
 
 }
 
-?>

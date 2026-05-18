@@ -17,6 +17,3 @@ foreach (['conversation_id','filter_id','status'] as $posAttr) {
 }
 
 return $def;
-
-?>
-

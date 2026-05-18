@@ -177,5 +177,3 @@ class ezcQuerySelectOracle extends ezcQuerySelect
     }
 
 }
-
-?>

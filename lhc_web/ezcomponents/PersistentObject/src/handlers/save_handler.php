@@ -633,4 +633,4 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
     }
 }
 
-?>
+

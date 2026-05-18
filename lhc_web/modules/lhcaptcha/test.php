@@ -10,4 +10,3 @@ echo $tpl->fetch();
 
 exit;
 
-?>

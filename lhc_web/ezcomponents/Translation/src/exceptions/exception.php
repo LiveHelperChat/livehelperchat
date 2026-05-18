@@ -16,4 +16,4 @@
 abstract class ezcTranslationException extends ezcBaseException
 {
 }
-?>
+

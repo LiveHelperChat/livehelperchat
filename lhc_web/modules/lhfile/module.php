@@ -1,151 +1,127 @@
 <?php
 
-$Module = array( "name" => "Files module");
+$Module = ['name' => 'Files module'];
 
-$ViewList = array();
+$ViewList = [
+    'configuration' => [
+        'params' => [],
+        'functions' => ['use'],
+    ],
+    'uploadfile' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => [],
+    ],
+    'fileoptions' => [
+        'params' => ['chat_id', 'hash'],
+        'uparams' => [],
+    ],
+    'uploadfileonline' => [
+        'params' => ['vid'],
+        'uparams' => [],
+    ],
+    'chatfileslist' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['use_operator'],
+    ],
+    'onlinefileslist' => [
+        'params' => ['online_user_id'],
+        'uparams' => [],
+        'functions' => ['use_operator'],
+    ],
+    'useronlinefileslist' => [
+        'params' => ['vid'],
+        'uparams' => [],
+        'functions' => [],
+    ],
+    'removepreview' => [
+        'params' => [],
+        'uparams' => [],
+    ],
+    'downloadfile' => [
+        'params' => ['file_id', 'hash'],
+        'uparams' => ['inline', 'vhash', 'vts'],
+    ],
+    'verifyaccess' => [
+        'params' => ['file_id', 'hash'],
+        'uparams' => ['reverify'],
+        'functions' => ['verify_file'],
+    ],
+    'uploadfileadmin' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['use_operator'],
+    ],
+    'uploadfileadminonlineuser' => [
+        'params' => ['online_user_id'],
+        'uparams' => [],
+        'functions' => ['use_operator'],
+    ],
+    'new' => [
+        'params' => [],
+        'uparams' => ['mode', 'persistent'],
+        'functions' => ['upload_new_file'],
+    ],
+    'attatchfile' => [
+        'params' => ['chat_id'],
+        'uparams' => ['user_id'],
+        'functions' => ['use_operator'],
+    ],
+    'attatchfileimg' => [
+        'params' => [],
+        'uparams' => ['persistent', 'user_id', 'visitor', 'upload_name', 'replace', 'file_id'],
+        'functions' => ['use_operator'],
+    ],
+    'attatchfilemail' => [
+        'params' => [],
+        'uparams' => ['mode', 'user_id'],
+        'functions' => ['use_operator'],
+    ],
+    'list' => [
+        'params' => [],
+        'uparams' => ['chat_id', 'user_ids', 'user_id', 'visitor', 'persistent', 'upload_name'],
+        'functions' => ['file_list'],
+        'multiple_arguments' => ['user_ids'],
+    ],
+    'listmail' => [
+        'params' => [],
+        'uparams' => ['conversation_id', 'message_id', 'user_id', 'visitor', 'persistent', 'upload_name'],
+        'functions' => ['file_list_mail'],
+    ],
+    'editmail' => [
+        'params' => ['file_id'],
+        'functions' => ['file_list_mail'],
+    ],
+    'delete' => [
+        'params' => ['file_id'],
+        'uparams' => ['csfr'],
+        'functions' => ['file_delete'],
+    ],
+    'edit' => [
+        'params' => ['file_id'],
+        'uparams' => [],
+        'functions' => ['use_operator'],
+    ],
+    'deletechatfile' => [
+        'params' => ['file_id'],
+        'uparams' => ['csfr'],
+        'functions' => ['file_delete_chat'],
+    ],
+    'storescreenshot' => [
+        'params' => [],
+        'uparams' => ['vid', 'hash', 'hash_resume'],
+    ],
+];
 
-$ViewList['configuration'] = array(
-    'params' => array(),
-    'functions' => array( 'use' )
-);
-
-$ViewList['uploadfile'] = array(
-		'params' => array('chat_id','hash'),
-		'uparams' => array(),
-);
-
-$ViewList['fileoptions'] = array(
-		'params' => array('chat_id','hash'),
-		'uparams' => array(),
-);
-
-$ViewList['uploadfileonline'] = array(
-		'params' => array('vid'),
-		'uparams' => array(),
-);
-
-$ViewList['chatfileslist'] = array(
-		'params' => array('chat_id'),
-		'uparams' => array(),
-		'functions' => array( 'use_operator' )
-);
-
-$ViewList['onlinefileslist'] = array(
-		'params' => array('online_user_id'),
-		'uparams' => array(),
-		'functions' => array( 'use_operator' )
-);
-
-$ViewList['useronlinefileslist'] = array(
-		'params' => array('vid'),
-		'uparams' => array(),
-		'functions' => array( )
-);
-
-$ViewList['removepreview'] = array(
-		'params' => array(),
-		'uparams' => array(),
-);
-
-$ViewList['downloadfile'] = array(
-		'params' => array('file_id','hash'),
-		'uparams' => array('inline','vhash','vts'),
-);
-
-$ViewList['verifyaccess'] = array(
-		'params' => array('file_id','hash'),
-		'uparams' => array('reverify'),
-		'functions' => array('verify_file')
-);
-
-$ViewList['uploadfileadmin'] = array(
-		'params' => array('chat_id'),
-		'uparams' => array(),
-		'functions' => array( 'use_operator' )
-);
-
-$ViewList['uploadfileadminonlineuser'] = array(
-		'params' => array('online_user_id'),
-		'uparams' => array(),
-		'functions' => array( 'use_operator' )
-);
-
-$ViewList['new'] = array(
-		'params' => array(),
-		'uparams' => array('mode','persistent'),
-		'functions' => array( 'upload_new_file' )
-);
-
-$ViewList['attatchfile'] = array(
-		'params' => array('chat_id'),
-		'uparams' => array('user_id'),
-		'functions' => array( 'use_operator' )
-);
-
-$ViewList['attatchfileimg'] = array(
-		'params' => array(),
-		'uparams' => array('persistent','user_id','visitor','upload_name','replace','file_id'),
-		'functions' => array( 'use_operator' )
-);
-
-$ViewList['attatchfilemail'] = array(
-		'params' => array(),
-		'uparams' => array('mode','user_id'),
-		'functions' => array( 'use_operator' )
-);
-
-$ViewList['list'] = array(
-        'params' => array(),
-        'uparams' => array('chat_id', 'user_ids', 'user_id', 'visitor', 'persistent', 'upload_name'),
-        'functions' => array( 'file_list' ),
-        'multiple_arguments' => array(
-            'user_ids'
-        )
-);
-
-$ViewList['listmail'] = array(
-    'params' => array(),
-    'uparams' => array('conversation_id', 'message_id', 'user_id', 'visitor', 'persistent','upload_name'),
-    'functions' => array( 'file_list_mail' )
-);
-
-$ViewList['editmail'] = array(
-    'params' => array('file_id'),
-    'functions' => array( 'file_list_mail' )
-);
-
-$ViewList['delete'] = array(
-		'params' => array('file_id'),
-		'uparams' => array('csfr'),
-		'functions' => array( 'file_delete' )
-);
-
-$ViewList['edit'] = array(
-		'params' => array('file_id'),
-		'uparams' => array(),
-		'functions' => array( 'use_operator' )
-);
-
-$ViewList['deletechatfile'] = array(
-		'params' => array('file_id'),
-		'uparams' => array('csfr'),
-		'functions' => array( 'file_delete_chat' )
-);
-
-$ViewList['storescreenshot'] = array(
-		'params' => array(),
-		'uparams' => array('vid','hash','hash_resume'),
-);
-
-$FunctionList['use'] = array('explain' => 'Allow user to configure files upload');
-$FunctionList['use_operator'] = array('explain' => 'Allow operators to send files to visitor');
-$FunctionList['upload_new_file'] = array('explain' => 'Allow operator to upload new file');
-$FunctionList['file_list'] = array('explain' => 'Allow operators to list all uploaded files');
-$FunctionList['file_delete'] = array('explain' => 'Allow operators to delete all files');
-$FunctionList['file_delete_chat'] = array('explain' => 'Allow operators to delete their chat files');
-$FunctionList['download_unverified'] = array('explain' => 'Allow operators to download unverified files');
-$FunctionList['download_verified'] = array('explain' => 'Allow operators to download verified, but sensitive files');
-$FunctionList['verify_file'] = array('explain' => 'Allow to verify access to files');
-$FunctionList['file_list_mail'] = array('explain' => 'Allow to list mail messages files');
-
-?>
+$FunctionList = [
+    'use' => ['explain' => 'Allow user to configure files upload'],
+    'use_operator' => ['explain' => 'Allow operators to send files to visitor'],
+    'upload_new_file' => ['explain' => 'Allow operator to upload new file'],
+    'file_list' => ['explain' => 'Allow operators to list all uploaded files'],
+    'file_delete' => ['explain' => 'Allow operators to delete all files'],
+    'file_delete_chat' => ['explain' => 'Allow operators to delete their chat files'],
+    'download_unverified' => ['explain' => 'Allow operators to download unverified files'],
+    'download_verified' => ['explain' => 'Allow operators to download verified, but sensitive files'],
+    'verify_file' => ['explain' => 'Allow to verify access to files'],
+    'file_list_mail' => ['explain' => 'Allow to list mail messages files'],
+];

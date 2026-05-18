@@ -331,4 +331,3 @@ class ezcLogDatabaseWriter implements ezcLogWriter
         $this->map->appendRule( new ezcLogFilterRule( $logFilter, $tableName, true ) );
     }
 }
-?>

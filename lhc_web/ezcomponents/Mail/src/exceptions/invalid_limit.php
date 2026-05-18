@@ -28,4 +28,3 @@ class ezcMailInvalidLimitException extends ezcMailException
         parent::__construct( "The message count '{$count}' is not allowed for the message subset '{$offset}', '{$count}'." );
     }
 }
-?>

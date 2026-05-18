@@ -70,4 +70,3 @@ class erLhcoreClassModelChatAction {
     public $body = null;
 }
 
-?>

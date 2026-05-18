@@ -465,4 +465,3 @@ class ezcDbSchemaPgsqlWriter extends ezcDbSchemaCommonSqlWriter implements ezcDb
         }
     }
 }
-?>

@@ -1,47 +1,41 @@
 <?php
 
-$Module = array( "name" => "Browse offers");
+$Module = ['name' => 'Browse offers'];
 
-$ViewList = array();
+$ViewList = [
+    'getstatus' => [
+        'script' => 'getstatus.php',
+        'params' => [],
+        'functions' => [],
+        'uparams' => ['size', 'units', 'identifier', 'height', 'canreopen', 'showoverlay', 'timeout'],
+    ],
+    'htmlcode' => [
+        'script' => 'htmlcode.php',
+        'params' => [],
+        'functions' => ['manage_bo'],
+    ],
+    'index' => [
+        'script' => 'index.php',
+        'params' => [],
+        'functions' => ['manage_bo'],
+    ],
+    'widget' => [
+        'script' => 'widget.php',
+        'params' => ['hash'],
+        'functions' => [],
+    ],
+    'widgetclosed' => [
+        'script' => 'widgetclosed.php',
+        'params' => ['id'],
+        'functions' => [],
+    ],
+    'addhit' => [
+        'script' => 'addhit.php',
+        'params' => ['hash'],
+        'functions' => [],
+    ],
+];
 
-$ViewList['getstatus'] = array(
-		'script' => 'getstatus.php',
-		'params' => array(),
-		'functions' => array( ),
-		'uparams' => array('size','units','identifier','height','canreopen','showoverlay','timeout')
-);
-
-$ViewList['htmlcode'] = array(
-		'script' => 'htmlcode.php',
-		'params' => array(),
-		'functions' => array( 'manage_bo' )
-);
-
-$ViewList['index'] = array(
-		'script' => 'index.php',
-		'params' => array(),
-		'functions' => array( 'manage_bo' )
-);
-
-$ViewList['widget'] = array(
-		'script' => 'widget.php',
-		'params' => array('hash'),
-		'functions' => array( )
-);
-
-$ViewList['widgetclosed'] = array(
-		'script' => 'widgetclosed.php',
-		'params' => array('id'),
-		'functions' => array( )
-);
-
-$ViewList['addhit'] = array(
-		'script' => 'addhit.php',
-		'params' => array('hash'),
-		'functions' => array( )
-);
-
-$FunctionList = array();
-$FunctionList['manage_bo'] = array('explain' => 'Allow user to manage browse offers');
-
-?>
+$FunctionList = [
+    'manage_bo' => ['explain' => 'Allow user to manage browse offers'],
+];

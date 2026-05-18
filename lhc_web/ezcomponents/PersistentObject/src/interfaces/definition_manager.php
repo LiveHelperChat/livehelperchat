@@ -53,4 +53,4 @@ abstract class ezcPersistentDefinitionManager
         return $def;
     }
 }
-?>
+

@@ -130,4 +130,3 @@ class ezcConfigurationArrayReader extends ezcConfigurationFileReader
         return $validationResult;
     }
 }
-?>

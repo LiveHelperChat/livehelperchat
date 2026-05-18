@@ -497,4 +497,3 @@ class erLhcoreClassModelCannedMsg
 
 }
 
-?>

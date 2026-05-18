@@ -194,4 +194,4 @@ class ezcTranslation
         return (string) preg_replace( '@%(([A-Za-z][a-z_]*[a-z])|[1-9])@e', '$this->parameterCallbackCompile("\\1", $params)', $translatedString );
     }
 }
-?>
+

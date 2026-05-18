@@ -19,4 +19,3 @@ return array(
     'ezcUrlCreator'                   => 'Url/url_creator.php',
     'ezcUrlTools'                     => 'Url/url_tools.php',
 );
-?>

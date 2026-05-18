@@ -148,4 +148,3 @@ array('url' => erLhcoreClassDesign::baseurl('department/index'),'title' => erTra
 array('url' => erLhcoreClassDesign::baseurl('department/departments'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Departments list')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Edit a department').' - '.$Departament->name));
 
-?>

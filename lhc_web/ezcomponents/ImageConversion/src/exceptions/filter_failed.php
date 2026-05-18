@@ -33,5 +33,3 @@ class ezcImageFilterFailedException extends ezcImageException
         parent::__construct( "The filter '{$filterName}' failed.{$reasonPart}" );
     }
 }
-
-?>

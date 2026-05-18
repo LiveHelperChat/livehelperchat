@@ -19,4 +19,3 @@ try {
 erLhcoreClassModule::redirect('groupchat/list');
 exit;
 
-?>

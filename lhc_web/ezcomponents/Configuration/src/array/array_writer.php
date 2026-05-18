@@ -76,4 +76,3 @@ class ezcConfigurationArrayWriter extends ezcConfigurationFileWriter
         fwrite( $fp, "?>\n" );
     }
 }
-?>

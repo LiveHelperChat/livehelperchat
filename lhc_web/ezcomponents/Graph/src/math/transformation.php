@@ -92,5 +92,3 @@ class ezcGraphTransformation extends ezcGraphMatrix
         return new ezcGraphCoordinate( $vector->get( 0, 0 ), $vector->get( 1, 0 ) );
     }
 }
-
-?>

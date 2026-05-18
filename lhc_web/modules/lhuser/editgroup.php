@@ -22,7 +22,7 @@ if (isset($_POST['Update_group']) )
     );
    
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
     	erLhcoreClassModule::redirect('user/userlist');
@@ -175,7 +175,7 @@ $tpl->set('pages',$pages);
 if ($pages->items_total > 0) {
     $tpl->set('users',erLhcoreClassModelGroupUser::getList(array('filter' => array('group_id' => $Group->id),'offset' => $pages->low, 'limit' => $pages->items_per_page )));
 } else {
-    $tpl->set('users',array());
+    $tpl->set('users',[]);
 }
 
 
@@ -197,4 +197,3 @@ array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation(
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.editgroup_path',array('result' => & $Result));
-?>

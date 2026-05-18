@@ -15,4 +15,3 @@ header('Content-type: text/plain');
 echo $mail->rfc822_body;
 
 exit;
-?>

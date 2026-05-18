@@ -60,4 +60,4 @@ class ezcPersistentSingleTableMap extends ezcBaseStruct
     }
 }
 
-?>
+

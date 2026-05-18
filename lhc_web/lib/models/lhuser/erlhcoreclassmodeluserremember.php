@@ -148,4 +148,3 @@ class erLhcoreClassModelUserRemember {
    public $mtime = null;
 }
 
-?>

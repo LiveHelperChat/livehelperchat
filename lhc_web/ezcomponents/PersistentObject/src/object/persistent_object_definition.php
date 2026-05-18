@@ -245,4 +245,4 @@ class ezcPersistentObjectDefinition
         return $def;
     }
 }
-?>
+

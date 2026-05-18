@@ -190,5 +190,3 @@ class ezcGraphVector extends ezcGraphCoordinate
         return $this;
     }
 }
-
-?>

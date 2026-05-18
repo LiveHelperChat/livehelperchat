@@ -29,4 +29,4 @@ class ezcSystemInfoReaderCantScanOSException extends ezcSystemInfoException
         parent::__construct( $msg );
     }
 }
-?>
+

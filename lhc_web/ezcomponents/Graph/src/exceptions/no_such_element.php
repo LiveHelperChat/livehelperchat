@@ -27,5 +27,3 @@ class ezcGraphNoSuchElementException extends ezcGraphException
         parent::__construct( "No chart element with name '{$name}' found." );
     }
 }
-
-?>

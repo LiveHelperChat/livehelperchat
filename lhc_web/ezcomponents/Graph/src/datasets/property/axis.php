@@ -58,5 +58,3 @@ class ezcGraphDataSetAxisProperty extends ezcGraphDataSetProperty
     }
 
 }
-
-?>

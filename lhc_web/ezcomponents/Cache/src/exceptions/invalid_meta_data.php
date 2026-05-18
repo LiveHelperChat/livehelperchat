@@ -35,4 +35,3 @@ class ezcCacheInvalidMetaDataException extends ezcCacheException
         );
     }
 }
-?>

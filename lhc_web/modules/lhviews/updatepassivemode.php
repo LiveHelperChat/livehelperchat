@@ -15,5 +15,3 @@ if ($search->user_id == $currentUser->getUserID()) {
 }
 
 exit;
-
-?>

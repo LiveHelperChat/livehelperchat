@@ -328,4 +328,3 @@ class erLhcoreClassMailconvMailingValidator {
     }
 }
 
-?>

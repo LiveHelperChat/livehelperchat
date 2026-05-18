@@ -237,4 +237,3 @@ class ezcAuthenticationUrl
         return $headers . "\n" . $contents;
     }
 }
-?>

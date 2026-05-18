@@ -457,5 +457,3 @@ class ezcImageImagemagickBaseHandler extends ezcImageMethodcallHandler
         return new ezcImageHandlerSettings( 'ImageMagick', 'ezcImageImagemagickHandler' );
     }
 }
-
-?>

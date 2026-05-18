@@ -24,5 +24,3 @@ foreach (['dep_id','type','persistent','inv','try_decrypt','case_insensitive'] a
 }
 
 return $def;
-
-?>

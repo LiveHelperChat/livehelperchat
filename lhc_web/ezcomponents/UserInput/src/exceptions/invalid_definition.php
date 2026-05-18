@@ -25,4 +25,4 @@ class ezcInputFormInvalidDefinitionException extends ezcInputFormException
         parent::__construct( "Invalid definition array: {$validationMessage}." );
     }
 }
-?>
+

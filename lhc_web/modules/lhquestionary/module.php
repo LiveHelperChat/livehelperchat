@@ -1,94 +1,82 @@
 <?php
 
-$Module = array( "name" => "Questionary/Voting");
+$Module = ['name' => 'Questionary/Voting'];
 
-$ViewList = array();
+$ViewList = [
+    'newquestion' => [
+        'script' => 'newquestion.php',
+        'params' => [],
+        'functions' => ['manage_questionary'],
+    ],
+    'list' => [
+        'script' => 'list.php',
+        'params' => [],
+        'functions' => ['manage_questionary'],
+    ],
+    'delete' => [
+        'script' => 'delete.php',
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['manage_questionary'],
+    ],
+    'deleteanswer' => [
+        'script' => 'deleteanswer.php',
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['manage_questionary'],
+    ],
+    'deleteoption' => [
+        'script' => 'deleteoption.php',
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['manage_questionary'],
+    ],
+    'htmlcode' => [
+        'script' => 'htmlcode.php',
+        'params' => [],
+        'functions' => ['manage_questionary'],
+    ],
+    'getstatus' => [
+        'script' => 'getstatus.php',
+        'params' => [],
+        'functions' => [],
+        'uparams' => ['theme', 'noresponse', 'position', 'expand', 'top', 'units', 'width', 'height'],
+    ],
+    'votingwidget' => [
+        'script' => 'votingwidget.php',
+        'params' => [],
+        'uparams' => ['theme', 'mode'],
+        'functions' => [],
+    ],
+    'votingwidgetclosed' => [
+        'script' => 'votingwidgetclosed.php',
+        'params' => [],
+        'functions' => [],
+    ],
+    'previewanswer' => [
+        'script' => 'previewanswer.php',
+        'params' => ['id'],
+        'functions' => ['manage_questionary'],
+    ],
+    'edit' => [
+        'script' => 'edit.php',
+        'params' => ['id'],
+        'uparams' => ['tab', 'option_id'],
+        'functions' => ['manage_questionary'],
+    ],
+    'embed' => [
+        'script' => 'embed.php',
+        'params' => [],
+        'uparams' => ['theme'],
+        'functions' => [],
+    ],
+    'embedcode' => [
+        'script' => 'embedcode.php',
+        'params' => [],
+        'functions' => ['manage_questionary'],
+    ],
+];
 
-$ViewList['newquestion'] = array(
-		'script' => 'newquestion.php',
-		'params' => array(),
-		'functions' => array( 'manage_questionary' )
-);
-
-$ViewList['list'] = array(
-		'script' => 'list.php',
-		'params' => array(),
-		'functions' => array( 'manage_questionary' )
-);
-
-$ViewList['delete'] = array(
-		'script' => 'delete.php',
-		'params' => array('id'),
-		'uparams' => array('csfr'),
-		'functions' => array( 'manage_questionary' )
-);
-
-$ViewList['deleteanswer'] = array(
-		'script' => 'deleteanswer.php',
-		'params' => array('id'),
-		'uparams' => array('csfr'),
-		'functions' => array( 'manage_questionary' )
-);
-
-$ViewList['deleteoption'] = array(
-		'script' => 'deleteoption.php',
-		'params' => array('id'),
-		'uparams' => array('csfr'),
-		'functions' => array( 'manage_questionary' )
-);
-
-$ViewList['htmlcode'] = array(
-		'script' => 'htmlcode.php',
-		'params' => array(),
-		'functions' => array( 'manage_questionary' )
-);
-
-$ViewList['getstatus'] = array(
-		'script' => 'getstatus.php',
-		'params' => array(),
-		'functions' => array( ),
-		'uparams' => array('theme','noresponse','position','expand','top','units','width','height')
-);
-
-$ViewList['votingwidget'] = array(
-		'script' => 'votingwidget.php',
-		'params' => array(),
-		'uparams' => array('theme','mode'),
-		'functions' => array()
-);
-
-$ViewList['votingwidgetclosed'] = array(
-		'script' => 'votingwidgetclosed.php',
-		'params' => array(),
-		'functions' => array( )
-);
-
-$ViewList['previewanswer'] = array(
-		'script' => 'previewanswer.php',
-		'params' => array('id'),
-		'functions' => array( 'manage_questionary' )
-);
-
-$ViewList['edit'] = array(
-		'script' => 'edit.php',
-		'params' => array('id',),
-		'uparams' => array('tab','option_id'),
-		'functions' => array( 'manage_questionary' )
-);
-
-$ViewList['embed'] = array(
-		'script' => 'embed.php',
-		'params' => array(),
-		'uparams' => array('theme'),
-		'functions' => array()
-);
-
-$ViewList['embedcode'] = array(
-		'script' => 'embedcode.php',
-		'params' => array(),
-		'functions' => array('manage_questionary')
-);
-
-$FunctionList['manage_questionary'] = array('explain' => 'Allow user to manage questionary');
-
-?>
+$FunctionList = [
+    'manage_questionary' => ['explain' => 'Allow user to manage questionary'],
+];

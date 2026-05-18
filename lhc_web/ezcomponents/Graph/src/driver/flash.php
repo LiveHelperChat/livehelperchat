@@ -968,5 +968,3 @@ class ezcGraphFlashDriver extends ezcGraphDriver
         return $this->movie;
     }
 }
-
-?>

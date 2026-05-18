@@ -28,4 +28,3 @@ class erLhcoreClassModelGroupWork
     public $group_work_id = 0;
 }
 
-?>

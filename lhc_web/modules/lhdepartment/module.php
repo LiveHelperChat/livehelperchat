@@ -1,114 +1,97 @@
 <?php
 
-$Module = array( "name" => "Departments configuration");
+$Module = ['name' => 'Departments configuration'];
 
-$ViewList = array();
+$ViewList = [
+    'departments' => [
+        'params' => [],
+        'uparams' => ['visible_if_online', 'hidden', 'disabled', 'name', 'export', 'alias', 'identifier', 'empty_alias', 'empty_identifier'],
+        'functions' => ['list'],
+    ],
+    'new' => [
+        'params' => [],
+        'functions' => ['create'],
+    ],
+    'edit' => [
+        'params' => ['departament_id'],
+        'uparams' => ['action'],
+        'functions' => ['edit'],
+    ],
+    'clone' => [
+        'params' => ['departament_id'],
+        'functions' => ['edit'],
+        'uparams' => ['csfr'],
+    ],
+    'index' => [
+        'params' => [],
+        'functions' => ['list'],
+    ],
+    'brands' => [
+        'params' => [],
+        'functions' => ['managebrands'],
+    ],
+    'newbrand' => [
+        'params' => [],
+        'functions' => ['managebrands'],
+    ],
+    'editbrand' => [
+        'params' => ['id'],
+        'functions' => ['managebrands'],
+    ],
+    'group' => [
+        'params' => [],
+        'functions' => ['managegroups'],
+    ],
+    'limitgroup' => [
+        'params' => [],
+        'functions' => ['managegroups'],
+    ],
+    'newgroup' => [
+        'params' => [],
+        'functions' => ['managegroups'],
+    ],
+    'newlimitgroup' => [
+        'params' => [],
+        'functions' => ['managegroups'],
+    ],
+    'editlimitgroup' => [
+        'params' => ['id'],
+        'functions' => ['managegroups'],
+    ],
+    'editgroup' => [
+        'params' => ['id'],
+        'uparams' => ['action'],
+        'functions' => ['managegroups'],
+    ],
+    'deletegroup' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['managegroups'],
+    ],
+    'deletebrand' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['managebrands'],
+    ],
+    'deletelimitgroup' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['managegroups'],
+    ],
+];
 
-$ViewList['departments'] = array(
-    'params' => array(),
-    'uparams' => array('visible_if_online','hidden','disabled','name','export','alias','identifier','empty_alias','empty_identifier'),
-    'functions' => array( 'list' )
-    );
-
-$ViewList['new'] = array(
-    'params' => array(),
-    'functions' => array( 'create' )
-);
-
-$ViewList['edit'] = array(
-    'params' => array('departament_id'),
-    'uparams' => array('action'),
-    'functions' => array( 'edit' )
-);
-
-$ViewList['clone'] = array(
-    'params' => array('departament_id'),
-    'functions' => array( 'edit' ),
-    'uparams' => array('csfr'),
-);
-
-$ViewList['index'] = array(
-    'params' => array(),
-    'functions' => array( 'list' )
-);
-
-$ViewList['brands'] = array(
-    'params' => array(),
-    'functions' => array( 'managebrands' )
-);
-
-$ViewList['newbrand'] = array(
-    'params' => array(),
-    'functions' => array( 'managebrands' )
-);
-
-$ViewList['editbrand'] = array(
-    'params' => array('id'),
-    'functions' => array( 'managebrands' )
-);
-
-$ViewList['group'] = array(
-    'params' => array(),
-    'functions' => array( 'managegroups' )
-);
-
-$ViewList['limitgroup'] = array(
-    'params' => array(),
-    'functions' => array( 'managegroups' )
-);
-
-$ViewList['newgroup'] = array(
-    'params' => array(),
-    'functions' => array( 'managegroups' )
-);
-
-$ViewList['newlimitgroup'] = array(
-    'params' => array(),
-    'functions' => array( 'managegroups' )
-);
-
-$ViewList['editlimitgroup'] = array(
-    'params' => array('id'),
-    'functions' => array( 'managegroups' )
-);
-
-$ViewList['editgroup'] = array(
-    'params' => array('id'),
-    'uparams' => array('action'),
-    'functions' => array( 'managegroups' )
-);
-
-$ViewList['deletegroup'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'managegroups' )
-);
-
-$ViewList['deletebrand'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'managebrands' )
-);
-
-$ViewList['deletelimitgroup'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'managegroups' )
-);
-
-$FunctionList['list'] = array('explain' => 'Access to list departments');
-$FunctionList['create'] = array('explain' => 'Permission to create a new department');
-$FunctionList['edit'] = array('explain' => 'Permission to edit department');
-$FunctionList['delete'] = array('explain' => 'Permission to delete department');
-$FunctionList['see_all'] = array('explain' => 'Allow user to see all departments. Even if they do not have permission to see chats.');
-$FunctionList['actworkflow'] = array('explain' => 'Allow user to change transfer workflow');
-$FunctionList['actautoassignment'] = array('explain' => 'Allow user to change auto assignment');
-$FunctionList['manageall'] = array('explain' => 'Allow user to manage all departments, not only assigned to him');
-$FunctionList['managegroups'] = array('explain' => 'Allow user to manage all department groups, not only assigned to him');
-$FunctionList['managesurvey'] = array('explain' => 'Allow operator to change department surveys');
-$FunctionList['managealias'] = array('explain' => 'Allow operator to change department alias');
-$FunctionList['managedesign'] = array('explain' => 'Allow operator to change design section');
-$FunctionList['managebrands'] = array('explain' => 'Allow operator to manage brands');
-
-
-?>
+$FunctionList = [
+    'list' => ['explain' => 'Access to list departments'],
+    'create' => ['explain' => 'Permission to create a new department'],
+    'edit' => ['explain' => 'Permission to edit department'],
+    'delete' => ['explain' => 'Permission to delete department'],
+    'see_all' => ['explain' => 'Allow user to see all departments. Even if they do not have permission to see chats.'],
+    'actworkflow' => ['explain' => 'Allow user to change transfer workflow'],
+    'actautoassignment' => ['explain' => 'Allow user to change auto assignment'],
+    'manageall' => ['explain' => 'Allow user to manage all departments, not only assigned to him'],
+    'managegroups' => ['explain' => 'Allow user to manage all department groups, not only assigned to him'],
+    'managesurvey' => ['explain' => 'Allow operator to change department surveys'],
+    'managealias' => ['explain' => 'Allow operator to change department alias'],
+    'managedesign' => ['explain' => 'Allow operator to change design section'],
+    'managebrands' => ['explain' => 'Allow operator to manage brands'],
+];

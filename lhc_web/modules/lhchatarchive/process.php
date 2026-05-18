@@ -14,4 +14,3 @@ $Result['path'] = array(
 $Result['path'][] = array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/process','Process'));
 
 
-?>

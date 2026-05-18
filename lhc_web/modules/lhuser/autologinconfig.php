@@ -45,10 +45,10 @@ if ( isset($_POST['StoreAutologinSettings']) ) {
         exit;
     }
     
-    $Errors = array();
+    $Errors = [];
     
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
     
     try {    
         if ( $form->hasValidData( 'secret_hash' ) && strlen($form->secret_hash) >= 10 ) {
@@ -63,7 +63,7 @@ if ( isset($_POST['StoreAutologinSettings']) ) {
             $data['enabled'] = 0;
         }
 
-        $data['autologin_options'] = array();
+        $data['autologin_options'] = [];
         if ( $form->hasValidData( 'UserID' ) && !empty($form->UserID)) {
             foreach ($form->UserID as $key => $userId) {
                 $data['autologin_options'][] = array(
@@ -98,5 +98,3 @@ $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/conf
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Auto login settings')));
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.autologinconfig_path', array('result' => & $Result));
-
-?>

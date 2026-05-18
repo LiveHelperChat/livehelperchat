@@ -577,4 +577,3 @@ class ezcConsoleOutput
     }
 
 }
-?>

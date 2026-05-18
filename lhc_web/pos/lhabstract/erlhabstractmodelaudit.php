@@ -24,5 +24,3 @@ foreach (['time','source','severity','message','file','category'] as $posAttr) {
 }
 
 return $def;
-
-?>

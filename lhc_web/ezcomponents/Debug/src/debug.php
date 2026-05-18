@@ -448,4 +448,3 @@ class ezcDebug
         );
     }
 }
-?>

@@ -24,4 +24,3 @@ foreach ($template->subjects as $subject) {
 
 exit;
 
-?>

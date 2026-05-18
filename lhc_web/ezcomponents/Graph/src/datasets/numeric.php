@@ -284,4 +284,3 @@ class ezcGraphNumericDataSet extends ezcGraphDataSet
         return $this->resolution + 1;
     }
 }
-?>

@@ -2,7 +2,7 @@
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhdepartment/group.tpl.php');
 
-$departmentParams = array();
+$departmentParams = [];
 
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('department/group');
@@ -10,19 +10,17 @@ $pages->items_total = erLhcoreClassModelDepartamentGroup::getCount($departmentPa
 $pages->setItemsPerPage(20);
 $pages->paginate();
 
-$items = array();
+$items = [];
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassModelDepartamentGroup::getList(array_merge($departmentParams,array('offset' => $pages->low, 'limit' => $pages->items_per_page, 'sort' => 'id ASC')));
+    $items = erLhcoreClassModelDepartamentGroup::getList(array_merge($departmentParams, ['offset' => $pages->low, 'limit' => $pages->items_per_page, 'sort' => 'id ASC']));
 }
 
 $tpl->set('items',$items);
 $tpl->set('pages',$pages);
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(
-array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
-array('url' => erLhcoreClassDesign::baseurl('department/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Departments')),
-array('url' => erLhcoreClassDesign::baseurl('department/departments'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Departments groups'))
-)
-
-?>
+$Result['path'] = [
+    ['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments', 'System configuration')],
+    ['url' => erLhcoreClassDesign::baseurl('department/index'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments', 'Departments')],
+    ['url' => erLhcoreClassDesign::baseurl('department/departments'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments', 'Departments groups')]
+];

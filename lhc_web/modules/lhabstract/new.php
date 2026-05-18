@@ -1,6 +1,6 @@
 <?php
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.new_'.strtolower($Params['user_parameters']['identifier']).'_general', array());
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.new_'.strtolower($Params['user_parameters']['identifier']).'_general', []);
 
 $tpl = erLhcoreClassTemplate::getInstance('lhabstract/new.tpl.php');
 $extension = '';
@@ -42,7 +42,7 @@ if ( isset($_POST['SaveClient']) || isset($_POST['UpdateClient']) ) {
 
 	$Errors = erLhcoreClassAbstract::validateInput($objectData);
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.before_created.'.strtolower($objectClass),array('object' => & $objectData, 'errors' => & $Errors));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.before_created.'.strtolower($objectClass), ['object' => & $objectData, 'errors' => & $Errors]);
 
     if (count($Errors) == 0)
     {
@@ -57,16 +57,16 @@ if ( isset($_POST['SaveClient']) || isset($_POST['UpdateClient']) ) {
             erLhcoreClassAbstract::getSession()->update($objectData);
         }
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.created.'.strtolower($objectClass),array('object' => & $objectData));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.created.'.strtolower($objectClass), ['object' => & $objectData]);
 
-        erLhcoreClassLog::logObjectChange(array(
+        erLhcoreClassLog::logObjectChange([
             'object' => $objectData,
             'check_log' => true,
-            'msg' => array(
+            'msg' => [
                 'new' => $objectData->getState(),
                 'user_id' => $currentUser->getUserID()
-            )
-        ));
+            ]
+        ]);
 
         if ( isset($_POST['SaveClient']) ) {
         	erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier'] . $extension);
@@ -116,13 +116,14 @@ if (isset($object_trans['path'])){
     } else {
         $Result['path'] = $object_trans['path'];
     }
-	$Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'], 'title' => $object_trans['name']);	
-	$Result['path'][] = array('title' =>erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New'));
+    $Result['path'][] = ['url' => erLhcoreClassDesign::baseurl('abstract/list') . '/' . $Params['user_parameters']['identifier'], 'title' => $object_trans['name']];
+    $Result['path'][] = ['title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons', 'New')];
 } else {
-	$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','System configuration')),
-			array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'], 'title' => $object_trans['name']),
-			array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New'))
-	);
+    $Result['path'] = [
+        ['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode', 'System configuration')],
+        ['url' => erLhcoreClassDesign::baseurl('abstract/list') . '/' . $Params['user_parameters']['identifier'], 'title' => $object_trans['name']],
+        ['title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons', 'New')]
+    ];
 }
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.new_'.strtolower($Params['user_parameters']['identifier']).'_path', array('result' => & $Result));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.new_'.strtolower($Params['user_parameters']['identifier']).'_path', ['result' => & $Result]);

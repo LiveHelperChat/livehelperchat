@@ -179,5 +179,3 @@ class ezcCacheStorageFileOptions extends ezcBaseOptions
         $this->storageOptions = $options;
     }
 }
-
-?>

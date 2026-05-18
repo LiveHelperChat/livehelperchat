@@ -246,5 +246,3 @@ abstract class ezcDebugStacktraceIterator implements Iterator, ArrayAccess, Coun
         return count( $this->stackTrace );
     }
 }
-
-?>

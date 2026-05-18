@@ -13,7 +13,7 @@ try {
 
 	if ( sha1('getcount'.$hashSecret) == $hash ) {
 
-		$filter = array();
+		$filter = [];
 
 		if (is_array($Params['user_parameters_unordered']['status'])){
 			foreach ($Params['user_parameters_unordered']['status'] as $status) {
@@ -25,7 +25,7 @@ try {
 
 		if ($format =='json') {
 			header('Content-type: application/json');
-			echo json_encode(array('count' => $totalChats));			
+			echo json_encode(['count' => $totalChats]);			
 			exit;
 		} else {
 			header('Content-type: text/xml');
@@ -41,7 +41,7 @@ try {
 
 	if ($format =='json') {
 		header('Content-type: application/json');
-		echo json_encode(array('error' => $e->getMessage()));
+		echo json_encode(['error' => $e->getMessage()]);
 		exit;
 	} else {
 		header('Content-type: text/xml');
@@ -51,5 +51,3 @@ try {
 }
 
 exit;
-
-?>

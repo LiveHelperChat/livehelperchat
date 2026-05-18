@@ -17,4 +17,3 @@
 abstract class ezcImageException extends ezcBaseException
 {
 }
-?>

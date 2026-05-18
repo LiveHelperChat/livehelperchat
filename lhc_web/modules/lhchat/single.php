@@ -25,7 +25,6 @@ $Result['body_class'] = 'h-100 dashboard-height';
 
 $title = isset($chat) ? $chat->nick : '.';
 
-$Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/single','Chat started with').' - '.$title))
+$Result['path'] = array(array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/single','Chat started with').' - '.$title));
 
 
-?>

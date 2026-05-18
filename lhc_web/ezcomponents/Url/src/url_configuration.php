@@ -314,4 +314,4 @@ class ezcUrlConfiguration
         }
     }
 }
-?>
+

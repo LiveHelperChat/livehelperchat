@@ -24,5 +24,3 @@ foreach (['max_active_mails','exclude_autoasign_mails','hide_online','all_depart
 }
 
 return $def;
-
-?>

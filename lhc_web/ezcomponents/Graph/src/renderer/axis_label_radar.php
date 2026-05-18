@@ -319,4 +319,3 @@ class ezcGraphAxisRadarLabelRenderer extends ezcGraphAxisLabelRenderer
         );
     }
 }
-?>

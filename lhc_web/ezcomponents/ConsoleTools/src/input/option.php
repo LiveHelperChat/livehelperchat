@@ -581,5 +581,3 @@ class ezcConsoleOption
         return true;
     }
 }
-
-?>

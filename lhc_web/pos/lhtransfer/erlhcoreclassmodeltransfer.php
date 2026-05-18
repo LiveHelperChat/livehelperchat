@@ -51,5 +51,3 @@ $def->properties['transfer_scope']->propertyName = 'transfer_scope';
 $def->properties['transfer_scope']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
-
-?>

@@ -26,4 +26,3 @@ class ezcConfigurationManagerNotInitializedException extends ezcConfigurationExc
         parent::__construct( "The manager has not been initialized." );
     }
 }
-?>

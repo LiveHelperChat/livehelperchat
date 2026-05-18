@@ -632,4 +632,3 @@ class erLhcoreClassMailconvStatistic {
 
 }
 
-?>

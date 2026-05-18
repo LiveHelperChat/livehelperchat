@@ -7,4 +7,4 @@ $tpl->set('functions',erLhcoreClassModules::getModuleFunctions($Params['user_par
 echo json_encode(array('error' => 'false', 'result' => $tpl->fetch()));
 exit;
 
-?>
+

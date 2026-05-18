@@ -1,73 +1,64 @@
 <?php
 
-$Module = array( "name" => "Canned Messages");
+$Module = ['name' => 'Canned Messages'];
 
-$ViewList = array();
+$ViewList = [
+    'showsuggester' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'subject' => [
+        'params' => ['canned_id'],
+        'uparams' => ['subject', 'status'],
+        'functions' => ['use'],
+    ],
+    'clonereplace' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use_replace'],
+    ],
+    'filter' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['use'],
+    ],
+    'listreplace' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use_replace'],
+    ],
+    'newreplace' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use_replace'],
+    ],
+    'editreplace' => [
+        'params' => ['id'],
+        'uparams' => [],
+        'functions' => ['use_replace'],
+    ],
+    'deletereplace' => [
+        'params' => ['id'],
+        'uparams' => ['csfr'],
+        'functions' => ['use_replace'],
+    ],
+    'import' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['use_import'],
+    ],
+    'suggesterconfiguration' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => ['suggesterconfig'],
+    ],
+];
 
-$ViewList['showsuggester'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['subject'] = array(
-    'params' => array('canned_id'),
-    'uparams' => array('subject','status'),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['clonereplace'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use_replace' ),
-);
-
-$ViewList['filter'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['listreplace'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use_replace' ),
-);
-
-$ViewList['newreplace'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use_replace' ),
-);
-
-$ViewList['editreplace'] = array(
-    'params' => array('id'),
-    'uparams' => array(),
-    'functions' => array( 'use_replace' ),
-);
-
-$ViewList['deletereplace'] = array(
-    'params' => array('id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'use_replace' ),
-);
-
-$ViewList['import'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'use_import' ),
-);
-
-$ViewList['suggesterconfiguration'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'suggesterconfig' ),
-);
-
-$FunctionList['use'] = array('explain' => 'General permission to use canned messages module');
-$FunctionList['see_global'] = array('explain' => 'Allow operator to see global canned messages');
-$FunctionList['use_import'] = array('explain' => 'Allow operator to import canned messages');
-$FunctionList['use_replace'] = array('explain' => 'Allow operator manage replaceable variables');
-$FunctionList['suggesterconfig'] = array('explain' => 'Allow operator configure canned messages suggester');
-
-?>
+$FunctionList = [
+    'use' => ['explain' => 'General permission to use canned messages module'],
+    'see_global' => ['explain' => 'Allow operator to see global canned messages'],
+    'use_import' => ['explain' => 'Allow operator to import canned messages'],
+    'use_replace' => ['explain' => 'Allow operator manage replaceable variables'],
+    'suggesterconfig' => ['explain' => 'Allow operator configure canned messages suggester'],
+];

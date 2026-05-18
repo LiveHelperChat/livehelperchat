@@ -46,4 +46,3 @@ class ezcFeedTextElement extends ezcFeedElement
         return $this->text . '';
     }
 }
-?>

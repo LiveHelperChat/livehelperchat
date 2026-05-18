@@ -18,4 +18,3 @@ foreach (['invitation_id', 'vid_id'] as $posAttr) {
 
 return $def;
 
-?>

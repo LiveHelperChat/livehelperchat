@@ -655,4 +655,3 @@ class ezcBase
         return self::$libraryMode;
     }
 }
-?>

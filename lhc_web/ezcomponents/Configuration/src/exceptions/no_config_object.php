@@ -27,4 +27,3 @@ class ezcConfigurationNoConfigObjectException extends ezcConfigurationException
         parent::__construct( 'There is no config object to save.' );
     }
 }
-?>

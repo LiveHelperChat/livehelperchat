@@ -24,4 +24,3 @@ foreach ($roleFunctions as $roleFunction) {
 erLhcoreClassModule::redirect('permission/roles');
 exit;
 
-?>

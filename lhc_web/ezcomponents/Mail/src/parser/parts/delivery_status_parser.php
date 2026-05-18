@@ -112,4 +112,3 @@ class ezcMailDeliveryStatusParser extends ezcMailPartParser
         return $this->part;
     }
 }
-?>

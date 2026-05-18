@@ -26,4 +26,3 @@ abstract class ezcAuthenticationCredentials extends ezcBaseStruct
      */
     abstract public function __toString();
 }
-?>

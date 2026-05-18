@@ -88,5 +88,3 @@ class ezcGraphContext extends ezcBaseStruct
         }
     }
 }
-
-?>

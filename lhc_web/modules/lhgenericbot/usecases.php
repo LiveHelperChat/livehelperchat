@@ -168,4 +168,3 @@ SELECT id, \'proactive_invitation\' AS \'type\' FROM `lh_abstract_proactive_chat
 
 exit;
 
-?>

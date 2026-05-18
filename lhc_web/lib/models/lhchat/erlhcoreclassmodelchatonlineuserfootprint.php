@@ -197,4 +197,3 @@ class erLhcoreClassModelChatOnlineUserFootprint {
    public $vtime = '';
 }
 
-?>

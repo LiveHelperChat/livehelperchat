@@ -18,4 +18,4 @@
 class ezcMailTransportSmtp extends ezcMailSmtpTransport
 {
 }
-?>
+

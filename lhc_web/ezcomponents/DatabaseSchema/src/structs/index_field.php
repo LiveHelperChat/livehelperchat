@@ -42,4 +42,3 @@ class ezcDbSchemaIndexField extends ezcBaseStruct
         );
     }
 }
-?>

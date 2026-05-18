@@ -442,4 +442,3 @@ class erLhcoreClassSpeech {
 	private static $persistentSession;
 }
 
-?>

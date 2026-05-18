@@ -851,4 +851,4 @@ class ezcMailPop3Transport
         return false;
     }
 }
-?>
+

@@ -18,4 +18,4 @@
 abstract class ezcSystemInfoException extends ezcBaseException
 {
 }
-?>
+

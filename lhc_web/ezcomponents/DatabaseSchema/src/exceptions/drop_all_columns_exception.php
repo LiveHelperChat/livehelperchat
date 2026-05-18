@@ -25,4 +25,3 @@ class ezcDbSchemaDropAllColumnsException extends ezcDbSchemaException
         parent::__construct( "Couldn't drop all columns in table. {$message}" );
     }
 }
-?>

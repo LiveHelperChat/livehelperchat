@@ -29,4 +29,3 @@ class ezcQueryException extends ezcBaseException
         parent::__construct( $message );
     }
 }
-?>

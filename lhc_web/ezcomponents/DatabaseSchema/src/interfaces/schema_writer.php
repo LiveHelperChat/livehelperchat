@@ -30,4 +30,3 @@ interface ezcDbSchemaWriter
      */
     public function getWriterType();
 }
-?>

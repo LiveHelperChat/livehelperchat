@@ -43,4 +43,3 @@ $Result['path'] = array(
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.edit_path', array('result' => & $Result));
 
-?>

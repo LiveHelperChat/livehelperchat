@@ -95,5 +95,3 @@ class ezcGraphRotation extends ezcGraphTransformation
         return $this->center;
     }
 }
-
-?>

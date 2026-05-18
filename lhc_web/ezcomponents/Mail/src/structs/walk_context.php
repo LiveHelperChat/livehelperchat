@@ -185,4 +185,3 @@ class ezcMailPartWalkContext
         return $this->parts;
     }
 }
-?>

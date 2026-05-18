@@ -119,4 +119,3 @@ class erLhcoreClassModelMailconvMatchRule
     public $priority_rule = 0;
 }
 
-?>

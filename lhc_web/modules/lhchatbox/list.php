@@ -1,8 +1,8 @@
 <?php
 
-$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chatbox.list', array());
+$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chatbox.list', []);
 
-$tpl = erLhcoreClassTemplate::getInstance( 'lhchatbox/list.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance('lhchatbox/list.tpl.php');
 
 $pages = new lhPaginator();
 $pages->items_total = erLhcoreClassChatbox::getCount();
@@ -12,8 +12,7 @@ $pages->paginate();
 $tpl->set('pages',$pages);
 $Result['content'] = $tpl->fetch();
 
-$Result['path'] = array(
-array('url' =>erLhcoreClassDesign::baseurl('chatbox/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/configuration','Chatbox')),
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/list','Chatbox list')));
-
-?>
+$Result['path'] = [
+    ['url' => erLhcoreClassDesign::baseurl('chatbox/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/configuration', 'Chatbox')],
+    ['title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/list', 'Chatbox list')]
+];

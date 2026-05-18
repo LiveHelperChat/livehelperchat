@@ -25,5 +25,3 @@ foreach (['internal','widgets','pinned','archive'] as $posAttr) {
 
 
 return $def;
-
-?>

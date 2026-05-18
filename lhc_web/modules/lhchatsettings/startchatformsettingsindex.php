@@ -7,4 +7,3 @@ $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/conf
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Start chat form settings')));
 
 
-?>

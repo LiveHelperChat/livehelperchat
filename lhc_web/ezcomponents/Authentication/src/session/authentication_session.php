@@ -284,4 +284,3 @@ class ezcAuthenticationSession
         return $this->options;
     }
 }
-?>

@@ -288,4 +288,3 @@ $Result['additional_footer_js'] = '<script type="module" src="'.erLhcoreClassDes
 
 
 
-?>

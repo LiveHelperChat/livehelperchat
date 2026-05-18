@@ -317,4 +317,3 @@ abstract class ezcDbHandler extends PDO
         return $identifier;
     }
 }
-?>

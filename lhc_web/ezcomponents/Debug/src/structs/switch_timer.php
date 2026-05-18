@@ -33,4 +33,3 @@ class ezcDebugSwitchTimerStruct extends ezcBaseStruct
      */
     public $time;   
 }
-?>

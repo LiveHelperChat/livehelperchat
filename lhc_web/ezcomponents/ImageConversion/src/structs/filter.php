@@ -78,4 +78,3 @@ class ezcImageFilter extends ezcBaseStruct
         $this->options = $options;
     }
 }
-?>

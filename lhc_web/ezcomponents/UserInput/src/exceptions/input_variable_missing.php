@@ -25,4 +25,4 @@ class ezcInputFormVariableMissingException extends ezcInputFormException
         parent::__construct( "Required input field '{$fieldName}' missing." );
     }
 }
-?>
+

@@ -176,4 +176,3 @@ class ezcQueryExpressionSqlite extends ezcQueryExpression
         return " strftime( '{$type}', {$column} ) ";
     }
 }
-?>

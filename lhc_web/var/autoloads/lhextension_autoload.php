@@ -4,7 +4,4 @@
  *
  */
 
-return array(	
-    );
-
-?>
+return [];

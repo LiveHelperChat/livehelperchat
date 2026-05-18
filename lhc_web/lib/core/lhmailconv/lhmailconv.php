@@ -111,4 +111,3 @@ class erLhcoreClassMailconv {
     private static $persistentSession;
 }
 
-?>

@@ -156,4 +156,4 @@ class ezcPersistentManyToManyRelation extends ezcPersistentRelation
     }
 }
 
-?>
+

@@ -157,5 +157,3 @@ class ezcTranslationManager
         return $returnContext;
     }
 }
-
-?>

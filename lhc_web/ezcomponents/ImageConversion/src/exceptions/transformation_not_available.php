@@ -27,5 +27,3 @@ class ezcImageTransformationNotAvailableException extends ezcImageException
         parent::__construct( "Transformation '{$name}' does not exists." );
     }
 }
-
-?>

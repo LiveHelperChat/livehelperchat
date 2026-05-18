@@ -55,4 +55,3 @@ ImageJpeg($image,null, 95);
 ImageDestroy($image);
 exit;
 
-?>

@@ -57,4 +57,3 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 }
 
 exit;
-?>

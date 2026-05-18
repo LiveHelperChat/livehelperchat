@@ -28,4 +28,3 @@ if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat
 echo json_encode($response,\JSON_INVALID_UTF8_IGNORE);
 exit;
 
-?>

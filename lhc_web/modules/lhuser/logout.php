@@ -22,5 +22,3 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_logout',ar
 
 erLhcoreClassModule::redirect('user/login');
 exit;
-
-?>

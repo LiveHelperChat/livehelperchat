@@ -12,5 +12,3 @@ $def->idProperty->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentManualGenerator' );
 
 return $def;
-
-?>

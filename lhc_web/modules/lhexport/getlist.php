@@ -13,7 +13,7 @@ try {
 
 	if ( sha1('getlist'.$hashSecret) == $hash ) {
 
-		$filter = array();
+		$filter = [];
 
 		if (is_array($Params['user_parameters_unordered']['status'])){
 			foreach ($Params['user_parameters_unordered']['status'] as $status) {
@@ -28,11 +28,11 @@ try {
 		$pages->setItemsPerPage(is_numeric($Params['user_parameters_unordered']['limit']) ? (int)$Params['user_parameters_unordered']['limit'] : 100);
 		$pages->paginate();
 
-		$list = erLhcoreClassChat::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC'),$filter));
+		$list = erLhcoreClassChat::getList(array_merge(['offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC'],$filter));
 
 		if ($format =='json') {
 			header('Content-type: application/json');
-			echo json_encode(array('list' => array_keys($list)));
+			echo json_encode(['list' => array_keys($list)]);
 			exit;
 		} else {
 			header('Content-type: text/xml');
@@ -52,7 +52,7 @@ try {
 
 	if ($format =='json') {
 		header('Content-type: application/json');
-		echo json_encode(array('error' => $e->getMessage()));		
+		echo json_encode(['error' => $e->getMessage()]);		
 		exit;
 	} else {
 		header('Content-type: text/xml');
@@ -62,5 +62,3 @@ try {
 }
 
 exit;
-
-?>

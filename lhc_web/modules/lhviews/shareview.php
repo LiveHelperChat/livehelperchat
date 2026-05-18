@@ -12,18 +12,18 @@ if (ezcInputForm::hasPostData()) {
         exit;
     }
 
-    $definition = array(
+    $definition = [
         'name' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'description' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
-        'user_ids' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY)
-    );
+        'user_ids' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 1],FILTER_REQUIRE_ARRAY)
+    ];
 
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
 
     if ( !$form->hasValidData( 'name' ) || $form->name == '' ) {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter a name');

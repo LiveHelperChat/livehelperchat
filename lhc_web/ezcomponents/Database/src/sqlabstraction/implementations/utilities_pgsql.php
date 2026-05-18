@@ -68,5 +68,3 @@ class ezcDbUtilitiesPgsql extends ezcDbUtilities
         $this->db->commit();
     }
 }
-
-?>

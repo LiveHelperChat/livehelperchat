@@ -27,5 +27,3 @@ class ezcImageFilterNotAvailableException extends ezcImageException
         parent::__construct( "Filter '{$filterName}' does not exist." );
     }
 }
-
-?>

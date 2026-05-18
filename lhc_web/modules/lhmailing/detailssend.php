@@ -13,4 +13,3 @@ $tpl->set('item', $recipient);
 echo $tpl->fetch();
 exit;
 
-?>

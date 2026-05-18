@@ -26,4 +26,3 @@ $tpl->set('chat',$conv);
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'print';
 
-?>

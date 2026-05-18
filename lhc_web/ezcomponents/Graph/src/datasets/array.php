@@ -67,5 +67,3 @@ class ezcGraphArrayDataSet extends ezcGraphDataSet
         return count( $this->data );
     }
 }
-
-?>

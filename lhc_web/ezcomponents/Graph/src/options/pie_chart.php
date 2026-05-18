@@ -147,5 +147,3 @@ class ezcGraphPieChartOptions extends ezcGraphChartOptions
         }
     }
 }
-
-?>

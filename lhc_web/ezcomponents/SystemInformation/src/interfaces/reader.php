@@ -57,4 +57,4 @@ abstract class ezcSystemInfoReader
      */
     abstract public function memorySize();
 }
-?>
+

@@ -14,4 +14,3 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 echo $tpl->fetch();
 exit;
 
-?>

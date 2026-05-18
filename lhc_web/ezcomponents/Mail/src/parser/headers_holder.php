@@ -126,4 +126,4 @@ class ezcMailHeadersHolder implements ArrayAccess
         return $this->map;
     }
 }
-?>
+

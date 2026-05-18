@@ -51,4 +51,3 @@ abstract class ezcCacheMemoryBackend
      */
     abstract public function delete( $key );
 }
-?>

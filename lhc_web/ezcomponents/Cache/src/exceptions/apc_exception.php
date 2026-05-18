@@ -26,4 +26,3 @@ class ezcCacheApcException extends ezcBaseException
         parent::__construct( $message );
     }
 }
-?>

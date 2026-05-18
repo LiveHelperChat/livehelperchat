@@ -180,7 +180,6 @@ $tpl->set('option',$Option);
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
 		array('url' => erLhcoreClassDesign::baseurl('questionary/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/list','Questionary')),
-		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit a question')))
+		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit a question')));
 
 
-?>

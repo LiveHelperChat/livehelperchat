@@ -12,23 +12,23 @@ if (isset($_POST['StoreOptions']) ) {
         exit;
     }
 
-    $definition = array(
+    $definition = [
         'first_n_letters' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1, 'max_range' => 5)
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 1, 'max_range' => 5]
         ),
         'min_percentage' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0,'max_range' => 90)
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0,'max_range' => 90]
         ),
         'top_n_match' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1,'max_range' => 5)
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 1,'max_range' => 5]
         ),
         'max_result' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 50, 'max_range' => 5000)
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 50, 'max_range' => 5000]
         )
-    );
+    ];
 
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
 
     if ($form->hasValidData( 'first_n_letters' )) {
         $data['first_n_letters'] = $form->first_n_letters;
@@ -66,8 +66,7 @@ if (isset($_POST['StoreOptions']) ) {
 $tpl->set('sc_options',$data);
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(
-    array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','System configuration')),
-    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Canned messages suggester configuration')));
-
-?>
+$Result['path'] = [
+    ['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg', 'System configuration')],
+    ['title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg', 'Canned messages suggester configuration')]
+];

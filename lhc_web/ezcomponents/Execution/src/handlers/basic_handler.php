@@ -45,4 +45,3 @@ Have a nice day!
 END;
     }
 }
-?>

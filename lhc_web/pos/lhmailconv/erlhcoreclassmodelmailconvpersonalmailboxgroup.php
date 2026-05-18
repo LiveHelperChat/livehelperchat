@@ -24,5 +24,3 @@ foreach (array('active') as $attr) {
 }
 
 return $def;
-
-?>

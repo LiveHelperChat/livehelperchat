@@ -43,5 +43,3 @@ class ezcGraphTranslation extends ezcGraphTransformation
         ) );
     }
 }
-
-?>

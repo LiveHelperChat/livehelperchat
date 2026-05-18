@@ -259,4 +259,3 @@ class erLhcoreClassModelChatBlockedUser
     public $online_user_id = 0;
 }
 
-?>

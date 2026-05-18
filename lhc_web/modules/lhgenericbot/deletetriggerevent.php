@@ -13,4 +13,3 @@ $triggerEvent->removeThis();
 echo json_encode(array('errors' => 'false'));
 exit;
 
-?>

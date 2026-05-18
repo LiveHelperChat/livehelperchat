@@ -217,5 +217,3 @@ class ezcGraphAxisContainer
         return count( $this->data );
     }
 }
-
-?>

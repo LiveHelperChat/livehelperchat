@@ -30,4 +30,3 @@ class ezcConfigurationParseErrorException extends ezcConfigurationException
         parent::__construct( "{$description} in '{$fileName}', line '{$lineNr}'." );
     }
 }
-?>

@@ -10,4 +10,3 @@ erLhcoreClassFaq::getSession()->delete($faq);
 
 erLhcoreClassModule::redirect('faq/list');
 exit;
-?>

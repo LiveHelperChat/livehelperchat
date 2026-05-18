@@ -33,5 +33,3 @@ class ezcImageFileNotProcessableException extends ezcImageException
         parent::__construct( "File '{$file}' could not be processed.{$reasonPart}" );
     }
 }
-
-?>

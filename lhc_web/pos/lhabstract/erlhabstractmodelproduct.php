@@ -30,5 +30,3 @@ $def->properties['disabled']->propertyName = 'disabled';
 $def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
-
-?>

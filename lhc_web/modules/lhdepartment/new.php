@@ -34,7 +34,7 @@ if (isset($_POST['Save_departament']) || isset($_POST['Update_departament']))
         
         erLhcoreClassDepartament::validateDepartmentProducts($Departament);
         
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('department.modified',array('department' => $Departament));
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('department.modified',['department' => $Departament]);
 
         erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
         
@@ -51,17 +51,15 @@ if (isset($_POST['Save_departament']) || isset($_POST['Update_departament']))
 }
 
 $tpl->set('departament',$Departament);
-$tpl->set('departamentCustomWorkHours', json_encode(array(), JSON_HEX_APOS));
-$tpl->set('limitDepartments',$userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array());
+$tpl->set('departamentCustomWorkHours', json_encode([], JSON_HEX_APOS));
+$tpl->set('limitDepartments',$userDepartments !== true ? ['filterin' => ['id' => $userDepartments]] : []);
 
 $Result['content'] = $tpl->fetch();
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/lhc.customdepartmentperiodgenerator.js').'"></script>';
 
-$Result['path'] = array(
-array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','System configuration')),
-array('url' => erLhcoreClassDesign::baseurl('department/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Departments')),
-array('url' => erLhcoreClassDesign::baseurl('department/departments'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Departments list')),
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','New department')),
-)
-
-?>
+$Result['path'] = [
+    ['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new', 'System configuration')],
+    ['url' => erLhcoreClassDesign::baseurl('department/index'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments', 'Departments')],
+    ['url' => erLhcoreClassDesign::baseurl('department/departments'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments', 'Departments list')],
+    ['title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new', 'New department')],
+];

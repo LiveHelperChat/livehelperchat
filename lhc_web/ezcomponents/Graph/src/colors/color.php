@@ -286,5 +286,3 @@ class ezcGraphColor extends ezcBaseOptions
         return $color;
     }
 }
-
-?>

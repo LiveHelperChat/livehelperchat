@@ -33,4 +33,3 @@ $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
 		array('url' =>erLhcoreClassDesign::baseurl('faq/list'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('faq/list','FAQ')),
 		array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('faq/view','FAQ description')));
-?>

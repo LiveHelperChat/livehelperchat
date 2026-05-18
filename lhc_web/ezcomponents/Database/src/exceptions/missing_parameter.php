@@ -27,4 +27,3 @@ class ezcDbMissingParameterException extends ezcDbException
         parent::__construct( "The option '{$option}' is required in the parameter '{$variableName}'." );
     }
 }
-?>

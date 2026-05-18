@@ -23,4 +23,3 @@ class Conversation extends \erLhcoreClassModelMailconvConversation
 
 }
 
-?>

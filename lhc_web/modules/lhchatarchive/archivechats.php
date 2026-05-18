@@ -33,4 +33,3 @@ if ( !$form->hasValidData( 'id' ) ) {
 
 exit;
 
-?>

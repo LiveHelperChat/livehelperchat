@@ -624,4 +624,3 @@ class erLhcoreClassLHCMobile {
 
 }
 
-?>

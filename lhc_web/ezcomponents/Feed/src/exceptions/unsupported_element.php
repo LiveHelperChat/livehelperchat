@@ -27,4 +27,3 @@ class ezcFeedUnsupportedElementException extends ezcFeedException
         parent::__construct( "The feed element '{$name}' is not supported." );
     }
 }
-?>

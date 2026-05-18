@@ -26,4 +26,3 @@ if ($chat instanceof erLhcoreClassModelGroupChat)
 
 exit;
 
-?>

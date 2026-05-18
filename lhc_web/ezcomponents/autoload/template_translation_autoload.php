@@ -17,4 +17,3 @@ return array(
     'ezcTemplateTranslationProvider'                      => 'TemplateTranslationTiein/provider.php',
     'ezcTemplateTranslationStringExtracter'               => 'TemplateTranslationTiein/visitors/string_extracter.php',
 );
-?>

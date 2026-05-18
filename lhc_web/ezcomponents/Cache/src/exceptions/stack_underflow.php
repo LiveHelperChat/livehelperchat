@@ -30,4 +30,3 @@ class ezcCacheStackUnderflowException extends ezcCacheException
         parent::__construct( "No storages in stack." );
     }
 }
-?>

@@ -2725,4 +2725,3 @@ class ezcMailImapTransport
         return $size;
     }
 }
-?>

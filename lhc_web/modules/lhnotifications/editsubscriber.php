@@ -64,4 +64,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('notifications/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/index','Subscribers list')),
     array('title' => $subscriber->id));
 
-?>

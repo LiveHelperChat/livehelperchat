@@ -91,4 +91,3 @@ class ezcMailMultipartReportParser extends ezcMailMultipartParser
         return $this->report;
     }
 }
-?>

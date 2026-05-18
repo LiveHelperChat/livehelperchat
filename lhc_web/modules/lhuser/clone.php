@@ -63,5 +63,3 @@ $db->commit();
 echo json_encode(['location' => erLhcoreClassDesign::baseurl('user/edit') .'/'. $user->id]);
 
 exit;
-
-?>

@@ -10,4 +10,3 @@ $question->removeThis();
 
 erLhcoreClassModule::redirect('questionary/edit',"/{$question->question_id}/(tab)/answers");
 exit;
-?>

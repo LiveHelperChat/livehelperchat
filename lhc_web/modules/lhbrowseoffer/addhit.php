@@ -18,4 +18,3 @@ if (!empty($invitation)){
 }
 
 exit;
-?>

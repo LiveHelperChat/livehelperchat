@@ -51,4 +51,3 @@ array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation(
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.listchatconfig_path',array('result' => & $Result));
 
-?>

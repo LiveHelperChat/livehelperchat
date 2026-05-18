@@ -138,5 +138,3 @@ class ezcConsoleQuestionDialogMappingValidator extends ezcConsoleQuestionDialogC
         $this->properties[$propertyName] = $propertyValue;
     }
 }
-
-?>

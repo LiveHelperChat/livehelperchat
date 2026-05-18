@@ -93,4 +93,4 @@ class ezcPersistentObjectTemplateSchemaWriterOptions extends ezcBaseOptions
     }
 }
 
-?>
+

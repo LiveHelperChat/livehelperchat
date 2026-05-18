@@ -528,4 +528,4 @@ interface ezcPersistentSessionFoundation
     function getColumnsFromDefinition( ezcPersistentObjectDefinition $def, $prefixTableName = true );
 }
 
-?>
+

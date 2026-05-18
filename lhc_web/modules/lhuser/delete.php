@@ -96,5 +96,3 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.deleted',array('
 
 erLhcoreClassModule::redirect('user/userlist');
 exit;
-
-?>

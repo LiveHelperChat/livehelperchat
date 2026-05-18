@@ -51,4 +51,4 @@ interface ezcTranslationBackend
      */
     public function getContext( $locale, $context );
 }
-?>
+

@@ -31,4 +31,3 @@ class ezcConfigurationSettingWrongTypeException extends ezcConfigurationExceptio
         parent::__construct( "The expected type for the setting '{$groupName}', '{$settingName}' is '{$expectedType}'. The setting was of type '{$settingType}'." );
     }
 }
-?>

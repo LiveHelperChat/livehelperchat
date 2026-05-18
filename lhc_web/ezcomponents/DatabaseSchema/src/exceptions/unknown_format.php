@@ -27,4 +27,3 @@ class ezcDbSchemaUnknownFormatException extends ezcDbSchemaException
         parent::__construct( "There is no '{$type}' handler available for the '{$format}' format." );
     }
 }
-?>

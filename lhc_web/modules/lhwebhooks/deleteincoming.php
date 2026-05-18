@@ -10,5 +10,3 @@ $webhook->removeThis();
 
 erLhcoreClassModule::redirect('webhooks/incomingwebhooks');
 exit;
-
-?>

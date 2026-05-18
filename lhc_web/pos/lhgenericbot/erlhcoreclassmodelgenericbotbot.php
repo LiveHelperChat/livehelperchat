@@ -17,5 +17,3 @@ foreach (['name','short_name','nick','avatar','configuration','attr_str_1','attr
 }
 
 return $def;
-
-?>

@@ -23,5 +23,3 @@ foreach (['achats_cnt','inachats_cnt','pchats_cnt','bchats_cnt','inopchats_cnt',
 }
 
 return $def;
-
-?>

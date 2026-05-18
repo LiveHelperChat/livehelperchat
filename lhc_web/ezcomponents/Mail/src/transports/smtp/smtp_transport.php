@@ -1276,4 +1276,3 @@ class ezcMailSmtpTransport implements ezcMailTransport
                pack( 'V', $offset );
     }
 }
-?>

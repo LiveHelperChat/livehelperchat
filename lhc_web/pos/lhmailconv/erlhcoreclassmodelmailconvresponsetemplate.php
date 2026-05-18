@@ -24,5 +24,3 @@ foreach (array('disabled','dep_id') as $attr) {
 }
 
 return $def;
-
-?>

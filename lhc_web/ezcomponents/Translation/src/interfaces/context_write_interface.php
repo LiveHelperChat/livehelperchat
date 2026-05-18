@@ -61,4 +61,4 @@ interface ezcTranslationContextWrite
      */
     public function storeContext( $context, array $data );
 }
-?>
+

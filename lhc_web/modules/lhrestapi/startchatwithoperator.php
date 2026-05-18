@@ -105,4 +105,3 @@ HAVING
 }
 exit;
 
-?>

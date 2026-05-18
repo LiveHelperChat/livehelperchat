@@ -47,4 +47,3 @@ interface ezcFeedParser
      */
     public function parse( DOMDocument $xml );
 }
-?>

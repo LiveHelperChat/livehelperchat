@@ -23,4 +23,3 @@ if ($form->hasValidData('data')) {
 
 echo json_encode(array());
 exit;
-?>

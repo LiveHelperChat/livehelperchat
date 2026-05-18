@@ -76,4 +76,3 @@ class ezcMailImapTransportOptions extends ezcMailTransportOptions
         }
     }
 }
-?>

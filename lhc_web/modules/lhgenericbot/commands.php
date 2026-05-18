@@ -38,4 +38,4 @@ $Result['path'] = array(
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('bot.list_commands',array('result' => & $Result));
-?>
+

@@ -86,4 +86,4 @@ class ezcPersistentDoubleTableMap extends ezcBaseStruct
     }
 }
 
-?>
+

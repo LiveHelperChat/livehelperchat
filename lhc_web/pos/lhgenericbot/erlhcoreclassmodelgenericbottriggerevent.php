@@ -24,5 +24,3 @@ foreach (['trigger_id','bot_id','type','on_start_type','priority','skip'] as $po
 }
 
 return $def;
-
-?>

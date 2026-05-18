@@ -27,5 +27,3 @@ class ezcGraphUnregularStepsException extends ezcGraphException
         parent::__construct( "Bar charts do not support axis with unregular steps sizes." );
     }
 }
-
-?>

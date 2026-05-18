@@ -6,14 +6,14 @@ $tpl = erLhcoreClassTemplate::getInstance('lhabstract/copyautoresponder.tpl.php'
 
 if (isset($_POST['CopyAction'])) {
 
-    $definition = array(
+    $definition = [
         'CopyDepartments' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', null, FILTER_REQUIRE_ARRAY
         )
-    );
+    ];
     
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
     
     if ( !$form->hasValidData( 'CopyDepartments' ) || empty($form->CopyDepartments))
     {
@@ -43,5 +43,3 @@ $tpl->set('autoresponder',$autoresponder);
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';
-
-?>

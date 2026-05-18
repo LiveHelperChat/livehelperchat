@@ -27,4 +27,4 @@ class ezcUrlNotRegisteredException extends ezcUrlException
         parent::__construct( $message );
     }
 }
-?>
+

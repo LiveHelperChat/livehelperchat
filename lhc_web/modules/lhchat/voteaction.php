@@ -35,4 +35,4 @@ if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhc
 echo erLhcoreClassChat::safe_json_encode(array('error' => 'true'));
 exit;
 
-?>
+

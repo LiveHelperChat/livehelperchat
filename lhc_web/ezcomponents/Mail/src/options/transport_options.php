@@ -75,4 +75,3 @@ class ezcMailTransportOptions extends ezcBaseOptions
         }
     }
 }
-?>

@@ -58,4 +58,3 @@ class erLhcoreClassModelMailconvMailingList
     public $user_id = 0;
 }
 
-?>

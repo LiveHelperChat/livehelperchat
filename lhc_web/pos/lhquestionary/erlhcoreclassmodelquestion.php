@@ -45,5 +45,3 @@ $def->properties['revote']->propertyName = 'revote';
 $def->properties['revote']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
-
-?>

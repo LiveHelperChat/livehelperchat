@@ -6,4 +6,3 @@ $tpl->set('items', erLhcoreClassChat::getList(array('filter' => array('online_us
 echo json_encode(array('result' => $tpl->fetch()));
 exit;
 
-?>

@@ -31,4 +31,3 @@ class ezcCacheInvalidStorageClassException extends ezcCacheException
         parent::__construct( "'{$storageClass}' is not a valid storage class. Storage classes must extend ezcCacheStorage." );
     }
 }
-?>

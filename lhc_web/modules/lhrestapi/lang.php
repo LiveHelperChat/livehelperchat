@@ -27,4 +27,3 @@ if ($Params['user_parameters']['ns'] == 'group_chat') {
 }
 
 exit;
-?>

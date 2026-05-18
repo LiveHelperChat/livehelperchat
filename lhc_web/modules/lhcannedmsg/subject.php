@@ -8,15 +8,15 @@ if ($canned instanceof erLhcoreClassModelCannedMsg)
     if (ezcInputForm::hasPostData()) {
 
         if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-            $response = array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token'));
+            $response = ['error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token')];
         }
 
         $db = ezcDbInstance::get();
         $db->beginTransaction();
-        $response = array();
+        $response = [];
         if (is_numeric($Params['user_parameters_unordered']['subject'])) {
             if ($Params['user_parameters_unordered']['status'] == 'true') {
-                $subjectChat = erLhcoreClassModelCannedMsgSubject::findOne(array('filter' => array('canned_id' => $canned->id, 'subject_id' => $Params['user_parameters_unordered']['subject'])));
+                $subjectChat = erLhcoreClassModelCannedMsgSubject::findOne(['filter' => ['canned_id' => $canned->id, 'subject_id' => $Params['user_parameters_unordered']['subject']]]);
 
                 if (!($subjectChat instanceof erLhcoreClassModelCannedMsgSubject)) {
                     $subjectChat = new erLhcoreClassModelCannedMsgSubject();
@@ -26,19 +26,19 @@ if ($canned instanceof erLhcoreClassModelCannedMsg)
                 $subjectChat->subject_id = $Params['user_parameters_unordered']['subject'];
                 $subjectChat->saveThis();
 
-                $response = array('error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Subject selected!'));
+                $response = ['error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Subject selected!')];
 
             } else {
-                $subjectChat = erLhcoreClassModelCannedMsgSubject::findOne(array('filter' => array('canned_id' => $canned->id, 'subject_id' => $Params['user_parameters_unordered']['subject'])));
+                $subjectChat = erLhcoreClassModelCannedMsgSubject::findOne(['filter' => ['canned_id' => $canned->id, 'subject_id' => $Params['user_parameters_unordered']['subject']]]);
 
                 if ($subjectChat instanceof erLhcoreClassModelCannedMsgSubject) {
                     $subjectChat->removeThis();
                 }
 
-                $response = array('error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Subject unselected!'));
+                $response = ['error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Subject unselected!')];
             }
         } else {
-            $response = array('error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Please choose a subject'));
+            $response = ['error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Please choose a subject')];
         }
 
         $db->commit();
@@ -67,5 +67,3 @@ if ($canned instanceof erLhcoreClassModelCannedMsg)
 }
 
 exit;
-
-?>

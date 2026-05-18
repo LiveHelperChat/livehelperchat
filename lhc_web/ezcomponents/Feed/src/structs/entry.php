@@ -372,4 +372,3 @@ class ezcFeedEntryElement extends ezcFeedElement
         return $this->modules;
     }
 }
-?>

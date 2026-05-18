@@ -17,5 +17,3 @@ foreach (['subject_id','canned_id'] as $posAttr) {
 }
 
 return $def;
-
-?>

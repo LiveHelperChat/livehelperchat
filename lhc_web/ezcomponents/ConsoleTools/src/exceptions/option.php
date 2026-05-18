@@ -19,4 +19,3 @@
 abstract class ezcConsoleOptionException extends ezcConsoleException
 {
 }
-?>

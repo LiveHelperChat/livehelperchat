@@ -269,4 +269,4 @@ class ezcSystemInfoLinuxReader extends ezcSystemInfoReader
         return $this->memorySize;
     }
 }
-?>
+

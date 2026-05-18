@@ -75,4 +75,3 @@ class ezcDbSchemaPhpArrayWriter implements ezcDbSchemaFileWriter, ezcDbSchemaDif
         }
     }
 }
-?>

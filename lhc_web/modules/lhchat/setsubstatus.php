@@ -19,4 +19,3 @@ if ($chat->user_id == $currentUser->getUserID())
 
 exit;
 
-?>

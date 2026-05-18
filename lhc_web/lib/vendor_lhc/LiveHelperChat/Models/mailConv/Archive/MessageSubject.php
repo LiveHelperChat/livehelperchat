@@ -23,4 +23,3 @@ class MessageSubject extends \erLhcoreClassModelMailconvMessageSubject
 
 }
 
-?>

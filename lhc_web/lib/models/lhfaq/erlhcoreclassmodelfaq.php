@@ -163,4 +163,3 @@ class erLhcoreClassModelFaq {
 	public $identifier = '';	
 }
 
-?>

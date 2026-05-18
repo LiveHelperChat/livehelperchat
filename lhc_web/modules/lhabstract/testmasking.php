@@ -14,4 +14,3 @@ if (isset($_POST['messages'])) {
 echo $tpl->fetch();
 exit;
 
-?>

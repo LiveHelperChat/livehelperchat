@@ -25,4 +25,3 @@ class ezcDbSchemaInvalidWriterClassException extends ezcDbSchemaException
         parent::__construct( "Class '{$writerClass}' does not exist, or does not implement the 'ezcDbSchemaWriter' interface." );
     }
 }
-?>

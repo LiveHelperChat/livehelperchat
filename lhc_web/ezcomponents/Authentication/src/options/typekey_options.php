@@ -150,4 +150,3 @@ class ezcAuthenticationTypekeyOptions extends ezcAuthenticationFilterOptions
         }
     }
 }
-?>

@@ -170,4 +170,3 @@ $Result['path'] = array(
     )
 );
 
-?>

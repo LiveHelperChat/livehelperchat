@@ -27,4 +27,3 @@ class ezcFeedContentElement extends ezcFeedTextElement
      */
     public $src;
 }
-?>

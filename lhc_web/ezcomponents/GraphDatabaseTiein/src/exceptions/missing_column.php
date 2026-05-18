@@ -27,5 +27,3 @@ class ezcGraphDatabaseMissingColumnException extends ezcGraphDatabaseException
         parent::__construct( "Missing column '{$column}' in result set." );
     }
 }
-
-?>

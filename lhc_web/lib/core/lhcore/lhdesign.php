@@ -680,4 +680,3 @@ class erLhcoreClassDesign
     private static $moduleTranslations = null;
 }
 
-?>

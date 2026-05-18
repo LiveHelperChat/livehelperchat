@@ -167,4 +167,3 @@ class ezcConfigurationIniWriter extends ezcConfigurationFileWriter
         }
     }
 }
-?>

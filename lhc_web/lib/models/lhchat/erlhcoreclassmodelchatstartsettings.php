@@ -64,4 +64,3 @@ class erLhcoreClassModelChatStartSettings
     public $department_id = 0;
 }
 
-?>

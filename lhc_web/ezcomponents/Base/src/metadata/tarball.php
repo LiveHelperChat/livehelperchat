@@ -150,4 +150,3 @@ class ezcBaseMetaDataTarballReader
         return $deps;
     }
 }
-?>

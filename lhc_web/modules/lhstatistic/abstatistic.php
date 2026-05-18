@@ -9,4 +9,3 @@ $tpl->set('stats',erLhcoreClassChatStatistic::getProactiveStatistic(array('filte
 echo $tpl->fetch();
 exit;
 
-?>

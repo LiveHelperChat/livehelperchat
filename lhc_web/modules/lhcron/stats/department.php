@@ -86,4 +86,3 @@ foreach (erLhcoreClassModelDepartament::getList(array('filter' => array('archive
     $stats->saveThis();
 }
 
-?>

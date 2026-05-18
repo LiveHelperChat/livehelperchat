@@ -70,4 +70,3 @@ class ezcDbSchemaValidator
         return $validationErrors;
     }
 }
-?>

@@ -82,5 +82,3 @@ class ezcDebugPhpStacktraceIterator extends ezcDebugStacktraceIterator
         return $params;
     }
 }
-
-?>

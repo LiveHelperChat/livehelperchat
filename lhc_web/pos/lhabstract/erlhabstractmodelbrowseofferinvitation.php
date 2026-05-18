@@ -111,5 +111,3 @@ $def->properties['unit']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_S
 
 
 return $def;
-
-?>

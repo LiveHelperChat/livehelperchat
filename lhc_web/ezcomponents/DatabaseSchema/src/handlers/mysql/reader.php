@@ -276,4 +276,3 @@ class ezcDbSchemaMysqlReader extends ezcDbSchemaCommonSqlReader implements ezcDb
     }
 
 }
-?>

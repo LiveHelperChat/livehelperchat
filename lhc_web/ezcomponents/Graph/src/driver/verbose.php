@@ -238,5 +238,3 @@ class ezcGraphVerboseDriver extends ezcGraphDriver
         printf( "Render image.\n" );
     }
 }
-
-?>

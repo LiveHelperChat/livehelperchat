@@ -107,4 +107,3 @@ class ezcLogUnixFileWriter extends ezcLogFileWriter
         return substr( $total, strlen( $splitEntry ) );
     }
 }
-?>

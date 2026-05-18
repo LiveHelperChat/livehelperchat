@@ -3,21 +3,21 @@
 $tpl = erLhcoreClassTemplate::getInstance('lhchatsettings/startsettingslist.tpl.php');
 
 if (isset($_GET['doSearch'])) {
-    $filterParams = erLhcoreClassSearchHandler::getParams(array(
+    $filterParams = erLhcoreClassSearchHandler::getParams([
         'module' => 'chat',
         'module_file' => 'start_list',
         'format_filter' => true,
         'use_override' => true,
         'uparams' => $Params['user_parameters_unordered']
-    ));
+    ]);
     $filterParams['is_search'] = true;
 } else {
-    $filterParams = erLhcoreClassSearchHandler::getParams(array(
+    $filterParams = erLhcoreClassSearchHandler::getParams([
         'module' => 'chat',
         'module_file' => 'start_list',
         'format_filter' => true,
         'uparams' => $Params['user_parameters_unordered']
-    ));
+    ]);
     $filterParams['is_search'] = false;
 }
 
@@ -27,13 +27,13 @@ $pages->items_total = erLhcoreClassModelChatStartSettings::getCount($filterParam
 $pages->setItemsPerPage(20);
 $pages->paginate();
 
-$items = array();
+$items = [];
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassModelChatStartSettings::getList(array_merge($filterParams['filter'], array(
+    $items = erLhcoreClassModelChatStartSettings::getList(array_merge($filterParams['filter'], [
         'offset' => $pages->low,
         'limit' => $pages->items_per_page,
         'sort' => 'id ASC'
-    )));
+    ]));
 }
 
 $tpl->set('items', $items);
@@ -44,17 +44,16 @@ $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chatset
 $tpl->set('input', $filterParams['input_form']);
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(
-    array(
+$Result['path'] = [
+    [
         'url' => erLhcoreClassDesign::baseurl('system/configuration'),
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments', 'System configuration')
-    ),
-    array(
+    ],
+    [
         'url' => erLhcoreClassDesign::baseurl('chatsettings/startchatformsettingsindex'),
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhchatsettings/startchat', 'Start chat form settings')
-    ),
-    array(
+    ],
+    [
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhchatsettings/startchat', 'Start chat settings list')
-    )
-);
-?>
+    ]
+];

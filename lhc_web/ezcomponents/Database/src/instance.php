@@ -171,5 +171,3 @@ class ezcDbInstance
         self::resetDefault();
     }
 }
-
-?>

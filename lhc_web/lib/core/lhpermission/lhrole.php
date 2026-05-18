@@ -131,4 +131,3 @@ class erLhcoreClassRole{
     private static $persistentSession;
 }
 
-?>

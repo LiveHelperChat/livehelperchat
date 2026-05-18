@@ -52,5 +52,3 @@ if ($user instanceof erLhcoreClassModelUser && $hash == sha1($user->id . '_' . $
     $Result['content'] = $tpl->fetch();
     $Result['pagelayout'] = 'login';
 }
-
-?>

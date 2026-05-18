@@ -70,4 +70,3 @@ class erLhcoreClassModelGroupMsg
     public $meta_msg = '';
 }
 
-?>

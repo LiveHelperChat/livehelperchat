@@ -6,4 +6,3 @@ $tpl->set('module_name',self::$currentModuleName);
 
 $Result['content'] = $tpl->fetch();
 
-?>

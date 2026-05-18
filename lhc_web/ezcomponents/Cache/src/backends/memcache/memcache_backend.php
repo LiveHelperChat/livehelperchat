@@ -256,4 +256,3 @@ class ezcCacheMemcacheBackend extends ezcCacheMemoryBackend
     }
 
 }
-?>

@@ -146,5 +146,3 @@ class ezcGraphChartElementText extends ezcGraphChartElement
         return $boundings;
     }
 }
-
-?>

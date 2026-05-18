@@ -544,4 +544,3 @@ class ezcMailComposer extends ezcMail
         return $result;
     }
 }
-?>

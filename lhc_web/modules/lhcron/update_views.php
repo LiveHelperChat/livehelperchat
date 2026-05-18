@@ -22,4 +22,3 @@ foreach (erLhAbstractModelSavedSearch::getList([
     }
 }
 
-?>

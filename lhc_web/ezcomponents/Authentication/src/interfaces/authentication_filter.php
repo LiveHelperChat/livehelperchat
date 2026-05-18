@@ -66,4 +66,3 @@ abstract class ezcAuthenticationFilter
      */
     abstract public function run( $credentials );
 }
-?>

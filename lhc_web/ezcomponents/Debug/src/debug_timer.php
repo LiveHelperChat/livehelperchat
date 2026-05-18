@@ -213,5 +213,3 @@ class ezcDebugTimer
         return $this->timers;
     }
 }
-
-?>

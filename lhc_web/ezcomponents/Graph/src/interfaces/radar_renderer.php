@@ -50,5 +50,3 @@ interface ezcGraphRadarRenderer
         $thickness = 1.
     );
 }
-
-?>

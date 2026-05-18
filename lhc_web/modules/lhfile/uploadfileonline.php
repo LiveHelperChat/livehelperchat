@@ -59,4 +59,3 @@ if ($online_user !== false && isset($online_user->online_attr_system_array['isha
 
 exit;
 
-?>

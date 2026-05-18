@@ -21,5 +21,3 @@ $def->properties['group_work_id']->propertyType = ezcPersistentObjectProperty::P
 
 
 return $def; 
-
-?>

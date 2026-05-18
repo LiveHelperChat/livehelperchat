@@ -174,4 +174,3 @@ interface ezcImageGeometryFilters
      */
     function crop( $x, $y, $width, $height );
 }
-?>

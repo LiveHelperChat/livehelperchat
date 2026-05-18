@@ -138,5 +138,3 @@ interface ezcCacheStackReplacementStrategy
      */
     public static function createMetaData();
 }
-
-?>

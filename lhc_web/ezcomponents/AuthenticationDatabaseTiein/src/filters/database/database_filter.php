@@ -306,4 +306,3 @@ class ezcAuthenticationDatabaseFilter extends ezcAuthenticationFilter implements
         return $this->data;
     }
 }
-?>

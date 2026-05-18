@@ -243,4 +243,3 @@ class ezcFeedContentModule extends ezcFeedModule
         return 'content';
     }
 }
-?>

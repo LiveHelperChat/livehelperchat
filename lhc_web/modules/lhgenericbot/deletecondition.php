@@ -11,4 +11,3 @@ $condition->removeThis();
 erLhcoreClassModule::redirect('genericbot/conditions');
 exit;
 
-?>

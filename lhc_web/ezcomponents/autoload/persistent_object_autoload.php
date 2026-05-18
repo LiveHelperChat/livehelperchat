@@ -16,4 +16,3 @@ return array(
     'ezcPersistentObjectTemplateSchemaWriter'        => 'PersistentObjectDatabaseSchemaTiein/template_writer.php',
     'ezcPersistentObjectTemplateSchemaWriterOptions' => 'PersistentObjectDatabaseSchemaTiein/options/template_writer_options.php',
 );
-?>

@@ -242,4 +242,4 @@ class ezcSystemInfoFreeBsdReader extends ezcSystemInfoReader
         return $this->memorySize;
     }
 }
-?>
+

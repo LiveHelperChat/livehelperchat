@@ -25,4 +25,3 @@ $tpl->set('popup',$Params['user_parameters_unordered']['p'] == 1);
 echo $tpl->fetch();
 
 exit;
-?>

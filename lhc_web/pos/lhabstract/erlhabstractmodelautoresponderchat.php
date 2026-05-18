@@ -17,5 +17,3 @@ foreach (['chat_id','auto_responder_id','wait_timeout_send','pending_send_status
 }
 
 return $def;
-
-?>

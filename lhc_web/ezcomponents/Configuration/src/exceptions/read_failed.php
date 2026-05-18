@@ -17,4 +17,3 @@
 class ezcConfigurationReadFailedException extends ezcConfigurationException
 {
 }
-?>

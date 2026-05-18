@@ -160,4 +160,4 @@ class Roster {
 		return $this->roster_array;
 	}
 }
-?>
+

@@ -103,4 +103,3 @@ $Result['path'] = array(
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.geoadjustment_path',array('result' => & $Result));
 
-?>

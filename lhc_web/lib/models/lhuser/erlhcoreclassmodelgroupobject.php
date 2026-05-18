@@ -71,4 +71,3 @@ class erLhcoreClassModelGroupObject
     public $type = 0;
 }
 
-?>

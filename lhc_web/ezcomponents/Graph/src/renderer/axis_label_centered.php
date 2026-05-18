@@ -263,4 +263,3 @@ class ezcGraphAxisCenteredLabelRenderer extends ezcGraphAxisLabelRenderer
         }
     }
 }
-?>

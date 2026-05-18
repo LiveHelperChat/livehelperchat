@@ -22,4 +22,3 @@ if (!$report->isSuccess()) {
 
 exit;
 
-?>

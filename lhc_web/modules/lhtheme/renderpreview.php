@@ -9,4 +9,3 @@ if ($trigger instanceof erLhcoreClassModelGenericBotTrigger){
 }
 
 exit;
-?>

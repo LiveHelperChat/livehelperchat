@@ -282,4 +282,3 @@ class ezcDbSchemaOracleReader extends ezcDbSchemaCommonSqlReader implements ezcD
         return $indexes;
     }
 }
-?>

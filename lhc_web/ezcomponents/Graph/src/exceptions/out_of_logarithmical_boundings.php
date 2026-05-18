@@ -28,5 +28,3 @@ class ezcGraphOutOfLogithmicalBoundingsException extends ezcGraphException
         parent::__construct( "Value '$minimum' exceeds displayable values on a logarithmical scaled axis." );
     }
 }
-
-?>

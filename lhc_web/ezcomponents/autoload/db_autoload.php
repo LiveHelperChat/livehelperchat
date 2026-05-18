@@ -29,4 +29,3 @@ return array(
     'ezcDbUtilitiesPgsql'            => 'Database/sqlabstraction/implementations/utilities_pgsql.php',
     'ezcDbUtilitiesSqlite'           => 'Database/sqlabstraction/implementations/utilities_sqlite.php',
 );
-?>

@@ -276,4 +276,3 @@ class ezcDbHandlerMssql extends ezcDbHandler
         return true;
     }
 }
-?>

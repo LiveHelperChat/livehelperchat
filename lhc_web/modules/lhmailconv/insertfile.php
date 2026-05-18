@@ -6,4 +6,3 @@ echo json_encode(['result' => str_replace(erLhcoreClassBBCode::getHost() , '',er
 
 exit;
 
-?>

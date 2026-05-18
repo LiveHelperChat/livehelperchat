@@ -65,4 +65,3 @@ class erLhcoreClassModelDepartamentCustomWorkHours
     public $repetitiveness = 0;
 }
 
-?>

@@ -104,4 +104,3 @@ $tpl->set('input_data', $inputData);
 print $tpl->fetch();
 exit;
 
-?>

@@ -51,4 +51,3 @@ if ($sessionData) {
 }
 
 exit;
-?>

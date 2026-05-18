@@ -36,5 +36,3 @@ Possible solutions to solve this problem:
     - Use a font which consumes less space for each character." );
     }
 }
-
-?>

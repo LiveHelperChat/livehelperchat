@@ -45,4 +45,3 @@ class ezcFeedGeneratorElement extends ezcFeedElement
      */
     public $url;
 }
-?>

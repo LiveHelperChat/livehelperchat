@@ -62,4 +62,3 @@ if ($item instanceof erLhcoreClassModelMailconvResponseTemplate)
 
 exit;
 
-?>

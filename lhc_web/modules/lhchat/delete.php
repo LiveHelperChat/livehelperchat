@@ -17,4 +17,3 @@ if (($chat->can_edit_chat && ($currentUser->hasAccessTo('lhchat', 'deleteglobalc
 echo "ok";
 exit;
 
-?>

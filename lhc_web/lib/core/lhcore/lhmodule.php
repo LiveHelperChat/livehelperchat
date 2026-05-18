@@ -722,4 +722,4 @@ class erLhcoreClassModule{
     public static $validIframeDomains = NULL;
 }
 
-?>
+

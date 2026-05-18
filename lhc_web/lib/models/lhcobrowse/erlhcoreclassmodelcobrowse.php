@@ -177,4 +177,3 @@ class erLhcoreClassModelCoBrowse {
 	public $y = 0;
 }
 
-?>

@@ -11,4 +11,3 @@ $tpl->set('nsettings',$data);
 echo $tpl->fetch();
 
 exit;
-?>

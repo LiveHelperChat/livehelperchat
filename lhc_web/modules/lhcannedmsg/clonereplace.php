@@ -13,4 +13,3 @@ $Departament->saveThis();
 erLhcoreClassModule::redirect('cannedmsg/listreplace');
 exit;
 
-?>

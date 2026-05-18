@@ -38,4 +38,3 @@ interface ezcConsoleInputValidator
     // @TODO: validateArguments();
 }
 
-?>

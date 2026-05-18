@@ -28,5 +28,3 @@ class ezcConsoleOptionArgumentsViolationException extends ezcConsoleOptionExcept
         parent::__construct( "The option with long name '{$option->long}' excludes the usage of arguments, but arguments have been submitted." );
     }
 }
-
-?>

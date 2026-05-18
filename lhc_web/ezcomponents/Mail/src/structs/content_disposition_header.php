@@ -188,5 +188,3 @@ class ezcMailContentDispositionHeader extends ezcBaseStruct
                                                     );
     }
 }
-
-?>

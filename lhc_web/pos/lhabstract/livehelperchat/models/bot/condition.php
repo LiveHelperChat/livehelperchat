@@ -17,5 +17,3 @@ foreach (['name','configuration','identifier'] as $posAttr) {
 }
 
 return $def;
-
-?>

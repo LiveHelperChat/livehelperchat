@@ -21,7 +21,7 @@ $startDataDepartment = false;
 
 if (is_array($dep) && !empty($dep) && count($dep) == 1) {
     $dep_id = $dep[0];
-    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("((`dep_ids` != '' AND JSON_CONTAINS(`dep_ids`,'" . (int)$dep_id . "','$')) OR department_id = " . (int)$dep_id . ")" )));
+    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(['customfilter' => ["((`dep_ids` != '' AND JSON_CONTAINS(`dep_ids`,'" . (int)$dep_id . "','$')) OR department_id = " . (int)$dep_id . ")" ]]);
     if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
         $startDataFields = $startDataDepartment->data_array;
     }
@@ -77,7 +77,7 @@ if (empty($vid) && !((isset($_GET['cd']) && $_GET['cd'] == 1) || erLhcoreClassMo
     }
 
     setcookie("lhc_vid", $vid, time()+60*60*24*365, '/', '', erLhcoreClassSystem::$httpsMode, true);
-    $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('tag' => isset($_GET['tag']) ? $_GET['tag'] : false, 'uactiv' => 1, 'wopen' => 0, 'tpl' => & $tpl, 'tz' => (isset($_GET['tz']) ? $_GET['tz'] : null), 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' =>( is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array()), 'identifier' => (isset($_GET['idnt']) ? (string)$_GET['idnt'] : ''), 'pages_count' => true, 'vid' => $vid, 'check_message_operator' => false, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => false));
+    $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(['tag' => isset($_GET['tag']) ? $_GET['tag'] : false, 'uactiv' => 1, 'wopen' => 0, 'tpl' => & $tpl, 'tz' => (isset($_GET['tz']) ? $_GET['tz'] : null), 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' =>( is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : []), 'identifier' => (isset($_GET['idnt']) ? (string)$_GET['idnt'] : ''), 'pages_count' => true, 'vid' => $vid, 'check_message_operator' => false, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => false]);
 } elseif (!empty($vid)) {
     $userInstance = erLhcoreClassModelChatOnlineUser::fetchByVid($vid);
 }
@@ -153,14 +153,14 @@ if (!is_numeric($Params['user_parameters_unordered']['theme'])) {
     }
 }
 
-$online = erLhcoreClassChat::isOnline($dep, false, array(
+$online = erLhcoreClassChat::isOnline($dep, false, [
     'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
     'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
-));
+]);
 
 $leaveamessage = $Params['user_parameters_unordered']['leaveamessage'] === 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true);
 $tpl->set('leaveamessage',$leaveamessage);
-$tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $parametersDepartment['argument'] : array());
+$tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $parametersDepartment['argument'] : []);
 $tpl->set('id',$Params['user_parameters_unordered']['id'] > 0 ? (int)$Params['user_parameters_unordered']['id'] : null);
 $tpl->set('hash',$Params['user_parameters_unordered']['hash'] != '' ? $Params['user_parameters_unordered']['hash'] : null);
 $detect = new Mobile_Detect;
@@ -188,10 +188,10 @@ if ($Params['user_parameters_unordered']['scope'] != ''){
 }
 
 $ts = time();
-$tpl->set('captcha',array(
+$tpl->set('captcha',[
     'hash' => sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )),
     'ts' => $ts
-));
+]);
 
 $referrer = erLhcoreClassModelChatOnlineUser::getReferer();
 
@@ -206,33 +206,33 @@ if (!empty($referrer)) {
 
 // Prefill by get
 if (isset($_GET['prefill']) && is_array($_GET['prefill']) && !empty($_GET['prefill'])) {
-    $prefillOptions = array();
+    $prefillOptions = [];
     foreach ($_GET['prefill'] as $field => $value) {
         if ($field == 'email') {
-            $prefillOptions[] = array('Email' => $value);
+            $prefillOptions[] = ['Email' => $value];
         } else if ($field == 'username') {
-            $prefillOptions[] = array('Username' => $value);
+            $prefillOptions[] = ['Username' => $value];
         }else if ($field == 'phone') {
-            $prefillOptions[] = array('Phone' => $value);
+            $prefillOptions[] = ['Phone' => $value];
         } else if ($field == 'question') {
-            $prefillOptions[] = array('Question' => $value);
+            $prefillOptions[] = ['Question' => $value];
         }
     }
     $tpl->set('prefill',$prefillOptions);
 }
 
 if (isset($_GET['value_items_admin']) && is_array($_GET['value_items_admin']) && !empty($_GET['value_items_admin'])) {
-    $options = array();
+    $options = [];
     foreach ($_GET['value_items_admin'] as $field => $value) {
-        $options[] = array('index' => $field, 'value' => $value);
+        $options[] = ['index' => $field, 'value' => $value];
     }
     $tpl->set('prefill_admin',$options);
 }
 
 if (isset($_GET['name']) && is_array($_GET['name']) && !empty($_GET['name'])) {
-    $attributes = array();
+    $attributes = [];
     foreach ($_GET['name'] as $index => $value) {
-        $attributes[] = array(
+        $attributes[] = [
             'show' => (((isset($_GET['sh'][$index]) && ($_GET['sh'][$index] == 'on' || $_GET['sh'][$index] == 'off')) ? $_GET['sh'][$index] : 'b')),
             'value' => $_GET['value'][$index],
             'index' => $index,
@@ -245,7 +245,7 @@ if (isset($_GET['name']) && is_array($_GET['name']) && !empty($_GET['name'])) {
             'encrypted' => (isset($_GET['encattr'][$index]) && $_GET['encattr'][$index] === 't'),
             'required' => (isset($_GET['req'][$index]) && $_GET['req'][$index] === 't'),
             'label' => $value,
-        );
+        ];
     }
 
     $tpl->set('custom_fields',$attributes);
@@ -294,6 +294,3 @@ if ($leaveamessage === false && $online === false){
 if (isset($pagelayoutOverride)) {
     $Result['pagelayout'] = $pagelayoutOverride;
 }
-
-
-?>

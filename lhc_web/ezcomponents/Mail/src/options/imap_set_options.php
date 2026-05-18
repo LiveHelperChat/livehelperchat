@@ -64,4 +64,3 @@ class ezcMailImapSetOptions extends ezcBaseOptions
         }
     }
 }
-?>

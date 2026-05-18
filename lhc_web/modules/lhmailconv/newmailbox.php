@@ -47,4 +47,3 @@ $Result['path'] = array(
     )
 );
 
-?>

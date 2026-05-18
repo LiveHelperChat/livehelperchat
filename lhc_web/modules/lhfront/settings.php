@@ -46,4 +46,3 @@ if (isset($payload['attr']) && is_string($payload['attr']) && $payload['attr'] !
 echo json_encode(true);
 
 exit;
-?>

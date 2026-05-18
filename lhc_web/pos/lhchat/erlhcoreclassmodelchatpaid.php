@@ -20,5 +20,3 @@ $def->properties['hash']->propertyName = 'hash';
 $def->properties['hash']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

@@ -68,4 +68,3 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 echo json_encode(array());
 exit;
 
-?>

@@ -22,4 +22,3 @@ class File extends \erLhcoreClassModelMailconvFile
     public $is_archive = true;
 }
 
-?>

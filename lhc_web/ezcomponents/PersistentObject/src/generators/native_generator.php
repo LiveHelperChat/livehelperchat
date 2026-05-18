@@ -58,4 +58,4 @@ class ezcPersistentNativeGenerator extends ezcPersistentIdentifierGenerator
     }
 }
 
-?>
+

@@ -10,4 +10,3 @@ class erLhcoreClassModelChatArchiveParticipant extends \LiveHelperChat\Models\LH
     use erLhcoreClassDBTrait;
 }
 
-?>

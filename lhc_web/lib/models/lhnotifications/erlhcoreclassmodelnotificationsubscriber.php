@@ -111,4 +111,3 @@ class erLhcoreClassModelNotificationSubscriber{
     public $theme_id = 0;
 }
 
-?>

@@ -43,5 +43,3 @@ interface ezcCacheStackConfigurator
      */
     public static function configure( ezcCacheStack $stack );
 }
-
-?>

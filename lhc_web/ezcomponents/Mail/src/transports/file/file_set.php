@@ -185,4 +185,3 @@ class ezcMailFileSet implements ezcMailParserSet
         return false;
     }
 }
-?>

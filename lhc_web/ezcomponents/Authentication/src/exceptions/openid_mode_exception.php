@@ -28,4 +28,3 @@ class ezcAuthenticationOpenidModeNotSupportedException extends ezcAuthentication
         parent::__construct( "OpenID request not supported: 'openid_mode = {$mode}'." );
     }
 }
-?>

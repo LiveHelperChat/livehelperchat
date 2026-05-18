@@ -61,4 +61,3 @@ class ezcCacheStorageMemoryRegisterStruct extends ezcBaseStruct
         $this->location = $location;
     }
 }
-?>

@@ -36,4 +36,3 @@ if ($identifier !== null) {
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;
 
-?>

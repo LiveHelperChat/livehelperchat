@@ -11,4 +11,3 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 }
 
 exit();
-?>

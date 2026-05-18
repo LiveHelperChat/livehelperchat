@@ -2,4 +2,3 @@
 /**
  * Override me
  */
-?>

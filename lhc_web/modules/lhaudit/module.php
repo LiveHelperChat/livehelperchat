@@ -1,62 +1,54 @@
 <?php
 
-$Module = array( "name" => "Audit",
-				 'variable_params' => true );
+$Module = ['name' => 'Audit', 'variable_params' => true];
 
-$ViewList = array();
+$ViewList = [
+    'configuration' => [
+        'params' => [],
+        'uparams' => ['csfr', 'action', 'id'],
+        'functions' => ['use'],
+    ],
+    'loginhistory' => [
+        'params' => [],
+        'uparams' => ['user_id'],
+        'functions' => ['use'],
+    ],
+    'debuginvitation' => [
+        'params' => ['ouser_id', 'invitation_id', 'tag'],
+        'uparams' => ['action'],
+        'functions' => ['use'],
+    ],
+    'logrecord' => [
+        'params' => ['id'],
+        'functions' => ['log_preview'],
+    ],
+    'logjserror' => [
+        'params' => [],
+        'uparams' => [],
+        'functions' => [],
+    ],
+    'test' => [
+        'params' => [],
+        'uparams' => [],
+    ],
+    'copycurl' => [
+        'params' => ['id', 'scope'],
+        'uparams' => [],
+        'functions' => ['see_audit_system'],
+    ],
+    'previewmessages' => [
+        'params' => ['chat_id'],
+        'uparams' => [],
+        'functions' => ['preview_messages'],
+    ],
+];
 
-$ViewList['configuration'] = array(
-    'params' => array(),
-    'uparams' => array('csfr','action','id'),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['loginhistory'] = array(
-    'params' => array(),
-    'uparams' => array('user_id'),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['debuginvitation'] = array(
-    'params' => array('ouser_id','invitation_id','tag'),
-    'uparams' => array('action'),
-    'functions' => array( 'use' ),
-);
-
-$ViewList['logrecord'] = array(
-    'params' => array('id'),
-    'functions' => array( 'log_preview' ),
-);
-
-$ViewList['logjserror'] = array(
-    'params' => array(),
-    'uparams' => array(),
-    'functions' => array(  ),
-);
-
-$ViewList['test'] = array(
-    'params' => array(),
-    'uparams' => array()
-);
-
-$ViewList['copycurl'] = array(
-    'params' => array('id','scope'),
-    'uparams' => array(),
-    'functions' => array( 'see_audit_system' ),
-);
-
-$ViewList['previewmessages'] = array(
-    'params' => array('chat_id'),
-    'uparams' => array(),
-    'functions' => array( 'preview_messages' ),
-);
-
-$FunctionList['use'] = array('explain' => 'Allow operator to configure audit module');
-$FunctionList['log_preview'] = array('explain' => 'Allow operator to preview log record');
-$FunctionList['see_system'] = array('explain' => 'Allow operator to see system status');
-$FunctionList['see_audit_system'] = array('explain' => 'Allow operator to see audit system messages');
-$FunctionList['ignore_view_actions'] = array('explain' => 'Do not log view actions from operator');
-$FunctionList['see_op_actions'] = array('explain' => 'Allow operator to see other operator logged actions');
-$FunctionList['preview_messages'] = array('explain' => 'Allow operator to preview chat messages as visitor');
-
-?>
+$FunctionList = [
+    'use' => ['explain' => 'Allow operator to configure audit module'],
+    'log_preview' => ['explain' => 'Allow operator to preview log record'],
+    'see_system' => ['explain' => 'Allow operator to see system status'],
+    'see_audit_system' => ['explain' => 'Allow operator to see audit system messages'],
+    'ignore_view_actions' => ['explain' => 'Do not log view actions from operator'],
+    'see_op_actions' => ['explain' => 'Allow operator to see other operator logged actions'],
+    'preview_messages' => ['explain' => 'Allow operator to preview chat messages as visitor'],
+];

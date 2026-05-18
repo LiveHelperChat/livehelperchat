@@ -400,4 +400,3 @@ class ezcAuthenticationGroupFilter extends ezcAuthenticationFilter
         }
     }
 }
-?>

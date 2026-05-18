@@ -540,5 +540,3 @@ abstract class ezcGraphChartElementAxis extends ezcGraphChartElement
         return $boundings;   
     }
 }
-
-?>

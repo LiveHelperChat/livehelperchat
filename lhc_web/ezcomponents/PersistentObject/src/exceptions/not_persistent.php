@@ -29,4 +29,4 @@ class ezcPersistentObjectNotPersistentException extends ezcPersistentObjectExcep
         parent::__construct( "The object of type $class is not persistent." );
     }
 }
-?>
+

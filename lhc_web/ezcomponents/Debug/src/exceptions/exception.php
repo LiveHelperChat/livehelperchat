@@ -19,5 +19,3 @@
 abstract class ezcDebugException extends ezcBaseException
 {
 }
-
-?>

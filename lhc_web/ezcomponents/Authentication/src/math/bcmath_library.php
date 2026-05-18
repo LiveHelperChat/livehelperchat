@@ -214,4 +214,3 @@ class ezcAuthenticationBcmathLibrary extends ezcAuthenticationBignumLibrary
         return $number;
     }
 }
-?>

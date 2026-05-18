@@ -26,4 +26,3 @@ class ezcDbSchemaUnsupportedTypeException extends ezcDbSchemaException
         parent::__construct( "The field type '{$type}' is not supported with the '{$dbType}' handler." );
     }
 }
-?>

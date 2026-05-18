@@ -41,4 +41,3 @@ if (isset($_GET['ajax_search'])) {
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';
 
-?>

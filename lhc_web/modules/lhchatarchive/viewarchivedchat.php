@@ -29,4 +29,3 @@ $Result['content'] = $tpl->fetch();
 $Result['body_class'] = 'h-100 dashboard-height';
 
 
-?>

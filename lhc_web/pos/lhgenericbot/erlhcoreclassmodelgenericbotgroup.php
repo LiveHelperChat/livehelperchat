@@ -30,5 +30,3 @@ $def->properties['pos']->propertyName = 'pos';
 $def->properties['pos']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def;
-
-?>

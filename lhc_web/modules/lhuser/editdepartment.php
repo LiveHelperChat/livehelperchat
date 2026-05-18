@@ -283,5 +283,3 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
 }
 
 exit;
-
-?>

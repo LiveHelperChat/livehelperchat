@@ -272,4 +272,3 @@ class ezcFeedSourceElement extends ezcFeedElement
         return $this->source . '';
     }
 }
-?>

@@ -19,4 +19,3 @@ do {
     $offset += 100;
 } while (count($users) === 100);
 
-?>

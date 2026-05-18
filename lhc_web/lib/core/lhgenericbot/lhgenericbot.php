@@ -630,4 +630,3 @@ class erLhcoreClassGenericBot {
     private static $persistentSession;
 }
 
-?>

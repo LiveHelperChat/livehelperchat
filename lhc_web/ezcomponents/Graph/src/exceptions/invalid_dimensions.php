@@ -31,5 +31,3 @@ class ezcGraphMatrixInvalidDimensionsException extends ezcGraphException
         parent::__construct( "Matrix '{$dRows}, {$dColumns}' is incompatible with matrix '{$rows}, {$columns}' for requested operation." );
     }
 }
-
-?>

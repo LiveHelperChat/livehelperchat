@@ -28,4 +28,3 @@ class ezcBaseFunctionalityNotSupportedException extends ezcBaseException
         parent::__construct( "{$message} is not supported. Reason: {$reason}." );
     }
 }
-?>

@@ -83,4 +83,3 @@ class erLhcoreClassModelDepartamentGroup
     public $max_load_op_h = 0;
 }
 
-?>

@@ -42,7 +42,7 @@ $proactiveInviteActive = erLhcoreClassModelChatConfig::fetch('pro_active_invite'
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatcheckoperatormessage', array('proactive_active' => & $proactiveInviteActive));
 
-$injectInvitation = array();
+$injectInvitation = [];
 
 $paramsRequest = array(
     'inject_html' => & $injectInvitation,
@@ -89,7 +89,7 @@ $dynamicEveryTime = $userInstance->invitation instanceof erLhAbstractModelProact
 
 if ($dynamic == true && $userInstance->message_seen == 0 && ($userInstance->operator_message == '' || $dynamicEveryTime == true) && !isset($_GET['wopen'])) {
     if (isset($_GET['init']) && $_GET['init'] == 1) {
-        $dynamicProcessed = isset($_GET['dyn']) ? explode(',', $_GET['dyn']) : array();
+        $dynamicProcessed = isset($_GET['dyn']) ? explode(',', $_GET['dyn']) : [];
         $dynamic_invitation = erLhcoreClassModelChatOnlineUser::getDynamicInvitation(array('online_user' => $userInstance, 'tag' => isset($_GET['tag']) ? $_GET['tag'] : false));
         foreach ($dynamic_invitation as $dynamicInvitation) {
             if (in_array($dynamicInvitation->id, $dynamicProcessed)) {
@@ -131,7 +131,7 @@ if (isset($reopen_chat)) {
 
             if (isset($userInstance->invitation->design_data_array['mobile_style']) && $userInstance->invitation->design_data_array['mobile_style'] != '') {
 
-                $replaceStyleArray = array();
+                $replaceStyleArray = [];
 
                 for ($i = 1; $i < 5; $i++) {
                     $replaceStyleArray['{proactive_img_' . $i . '}'] = erLhcoreClassSystem::getHost() . $userInstance->invitation->{'design_data_img_' . $i . '_url'};
@@ -196,5 +196,3 @@ $outputResponse['qinv'] = isset($userInstance->online_attr_system_array['qinv'])
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;
-
-?>

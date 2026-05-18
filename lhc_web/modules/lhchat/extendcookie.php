@@ -13,4 +13,3 @@ header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.extendcookie', array('vid' => (string)$Params['user_parameters']['vid']));
 
 exit;
-?>

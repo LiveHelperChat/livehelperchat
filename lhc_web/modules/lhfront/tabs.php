@@ -8,21 +8,21 @@ if (is_array($id)) {
     erLhcoreClassChat::validateFilterIn($id);
 }
 
-$response = array();
+$response = [];
 $scope = 'chats';
 $chats = [];
 
 if (!empty($id)) {
 
-    $icons_additional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position', 'conditions', 'column_identifier', 'enabled'), 'sort' => false, 'filter' => array('icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1)));
+    $icons_additional = erLhAbstractModelChatColumn::getList(['ignore_fields' => ['position', 'conditions', 'column_identifier', 'enabled'], 'sort' => false, 'filter' => ['icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1]]);
 
-    $chats = erLhcoreClassModelChat::getList(array('sort' => 'id ASC', 'filterin' => array('id' => $id)));
+    $chats = erLhcoreClassModelChat::getList(['sort' => 'id ASC', 'filterin' => ['id' => $id]]);
 
     if (!empty($icons_additional)) {
-        erLhcoreClassChat::prefillGetAttributes($chats, array(), array(), array('additional_columns' => $icons_additional, 'do_not_clean' => true));
+        erLhcoreClassChat::prefillGetAttributes($chats, [], [], ['additional_columns' => $icons_additional, 'do_not_clean' => true]);
     }
 
-    if (!((int)erLhcoreClassModelUserSetting::getSetting('admin_theme_enabled', 0) == 1 && ($personalAdminTheme = erLhAbstractModelAdminTheme::findOne(array('filter' => array('user_id' => erLhcoreClassUser::instance()->getUserID())))) instanceof erLhAbstractModelAdminTheme)) {
+    if (!((int)erLhcoreClassModelUserSetting::getSetting('admin_theme_enabled', 0) == 1 && ($personalAdminTheme = erLhAbstractModelAdminTheme::findOne(['filter' => ['user_id' => erLhcoreClassUser::instance()->getUserID()]])) instanceof erLhAbstractModelAdminTheme)) {
         $adminThemeId = erLhcoreClassModelChatConfig::fetch('default_admin_theme_id')->current_value;
         if ($adminThemeId > 0) {
             $personalAdminTheme = erLhAbstractModelAdminTheme::fetch($adminThemeId);
@@ -33,16 +33,16 @@ if (!empty($id)) {
         $msgVisitor = erLhcoreClassChat::getGetLastChatMessagePending($chat->id, true, 3, ' » ');
 
         if ((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1 && !$currentUser->hasAccessTo('lhchat','see_sensitive_information')) {
-            $msgVisitor = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgVisitor, array('dep_id' => $chat->dep_id));
+            $msgVisitor = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgVisitor, ['dep_id' => $chat->dep_id]);
         }
 
         $nick = $chat->nick;
         
         if ($personalAdminTheme instanceof erLhAbstractModelAdminTheme && !empty($personalAdminTheme->css_attributes_array['nick_template'])) {
-            $nick = erLhcoreClassGenericBotWorkflow::translateMessage($personalAdminTheme->css_attributes_array['nick_template'], array('chat' => $chat, 'args' => ['chat' => $chat]));
+            $nick = erLhcoreClassGenericBotWorkflow::translateMessage($personalAdminTheme->css_attributes_array['nick_template'], ['chat' => $chat, 'args' => ['chat' => $chat]]);
         }
 
-        $item = array(
+        $item = [
             'id' => $chat->id,
             'nick' => $nick,
             'cs' => $chat->status,
@@ -57,7 +57,7 @@ if (!empty($id)) {
             'cc' => ($chat->country_code != '' ? erLhcoreClassDesign::design('images/flags') . '/' . (string)$chat->country_code . '.png' : ''),
             'msg' => $msgVisitor,
             'vwa' => ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->last_user_msg_time > ($chat->last_op_msg_time > 0 ? $chat->last_op_msg_time : $chat->pnd_time) && (time() - $chat->last_user_msg_time > (int)erLhcoreClassModelChatConfig::fetchCache('vwait_to_long')->current_value) ? erLhcoreClassChat::formatSeconds(time() - $chat->last_user_msg_time) : null)
-        );
+        ];
 
         $chatIcons = [];
         foreach ($icons_additional as $iconAdditional) {
@@ -96,7 +96,7 @@ if (is_array($id)) {
     erLhcoreClassChat::validateFilterIn($id);
 
     if (!empty($id)) {
-        $chats = erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id DESC', 'filterin' => array('id' => $id)));
+        $chats = erLhcoreClassModelMailconvConversation::getList(['sort' => 'id DESC', 'filterin' => ['id' => $id]]);
 
         $sensitive = false;
         if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
@@ -105,7 +105,7 @@ if (is_array($id)) {
 
         $idFound = [];
         foreach ($chats as $chat) {
-            $item = array(
+            $item = [
                 'id' => $chat->id,
                 'from_name' => $chat->from_name,
                 'from_address' => ($sensitive === true ? \LiveHelperChat\Helpers\Anonymizer::maskEmail($chat->from_address) : $chat->from_address),
@@ -113,7 +113,7 @@ if (is_array($id)) {
                 'cs' => $chat->status,
                 'co' => $chat->user_id,
                 'dep' => (string)$chat->department
-            );
+            ];
             $response[] = $item;
             $idFound[] = $chat->id;
         }
@@ -123,7 +123,7 @@ if (is_array($id)) {
             if (!in_array($idMail, $idFound)) {
                 $mailData = \LiveHelperChat\mailConv\Archive\Archive::fetchMailById($idMail);
                 if (isset($mailData['mail'])) {
-                    $item = array(
+                    $item = [
                         'id' => $mailData['mail']->id,
                         'from_name' => $mailData['mail']->from_name,
                         'from_address' =>  ($sensitive === true ? \LiveHelperChat\Helpers\Anonymizer::maskEmail($mailData['mail']->from_address) : $mailData['mail']->from_address),
@@ -131,7 +131,7 @@ if (is_array($id)) {
                         'cs' => $mailData['mail']->status,
                         'co' => $mailData['mail']->user_id,
                         'dep' => (string)$mailData['mail']->department
-                    );
+                    ];
                     $response[] = $item;
                 }
             }
@@ -139,9 +139,8 @@ if (is_array($id)) {
     }
 }
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.front_tabs',array('scope' => $scope, 'items' => & $response, 'objects' => $chats));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.front_tabs',['scope' => $scope, 'items' => & $response, 'objects' => $chats]);
 
 echo json_encode($response);
 
 exit;
-?>

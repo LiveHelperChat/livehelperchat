@@ -69,4 +69,3 @@ class ezcFeedSkipHoursElement extends ezcFeedElement
         }
     }
 }
-?>

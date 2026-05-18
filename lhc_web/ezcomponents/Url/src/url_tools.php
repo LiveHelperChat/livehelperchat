@@ -170,4 +170,4 @@ class ezcUrlTools
         return $url;
     }
 }
-?>
+

@@ -9,4 +9,3 @@ $tpl->set('object', $log);
 echo $tpl->fetch();
 exit;
 
-?>

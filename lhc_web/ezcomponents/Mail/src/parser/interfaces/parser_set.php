@@ -46,4 +46,3 @@ interface ezcMailParserSet
      */
     public function hasData();
 }
-?>

@@ -12,4 +12,3 @@ echo json_encode(array(
 ));
 
 exit;
-?>

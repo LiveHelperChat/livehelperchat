@@ -32,4 +32,3 @@ $tpl->setArray(array('numberOfMessages' => 3));
 echo $tpl->fetch();
 exit();
 
-?>

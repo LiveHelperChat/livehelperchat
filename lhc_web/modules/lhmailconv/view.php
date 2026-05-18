@@ -10,4 +10,3 @@ $tpl->setArray(array(
 
 $Result['content'] = $tpl->fetch();
 
-?>

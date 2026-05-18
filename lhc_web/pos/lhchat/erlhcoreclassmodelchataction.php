@@ -24,5 +24,3 @@ foreach (['chat_id','created_at'] as $posAttr) {
 }
 
 return $def;
-
-?>

@@ -39,7 +39,4 @@ $Result['path'] = array (
     array('url' => erLhcoreClassDesign::baseurl('theme/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','Themes')),
     array('url' => erLhcoreClassDesign::baseurl('theme/adminthemes'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhtheme/admin','Admin themes')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhtheme/admin','New admin theme'))
-)
-
-
-?>
+);

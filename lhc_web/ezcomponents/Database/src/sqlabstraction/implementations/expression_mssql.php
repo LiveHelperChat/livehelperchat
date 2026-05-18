@@ -227,4 +227,3 @@ class ezcQueryExpressionMssql extends ezcQueryExpression
         return " DATEPART( {$type}, {$column} ) ";
     }
 }
-?>

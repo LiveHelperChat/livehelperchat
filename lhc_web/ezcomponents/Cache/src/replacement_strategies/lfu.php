@@ -180,5 +180,3 @@ class ezcCacheStackLfuReplacementStrategy extends ezcCacheStackBaseReplacementSt
         }
     }
 }
-
-?>

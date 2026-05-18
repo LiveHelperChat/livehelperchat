@@ -1,83 +1,70 @@
 <?php
 
-$Module = array( "name" => "Chat archive module");
+$Module = ['name' => 'Chat archive module'];
 
-$ViewList = array();
+$ViewList = [
+    'archive' => [
+        'params' => [],
+        'functions' => ['archive'],
+    ],
+    'newarchive' => [
+        'params' => [],
+        'functions' => ['configuration'],
+    ],
+    'configuration' => [
+        'params' => [],
+        'functions' => ['configuration'],
+    ],
+    'startarchive' => [
+        'params' => [],
+        'functions' => ['configuration'],
+    ],
+    'archivechats' => [
+        'params' => [],
+        'functions' => ['configuration'],
+    ],
+    'list' => [
+        'params' => [],
+        'functions' => ['archive'],
+    ],
+    'listarchivechats' => [
+        'params' => ['id'],
+        'uparams' => ['chat_duration_from', 'chat_duration_till', 'wait_time_from', 'wait_time_till', 'chat_id', 'nick', 'email', 'timefrom', 'timeto', 'department_id', 'user_id', 'print', 'xls', 'fbst', 'chat_status', 'hum', 'product_id', 'timefrom', 'timefrom_minutes', 'timefrom_hours', 'timeto', 'timeto_minutes', 'timeto_hours'],
+        'functions' => ['archive'],
+    ],
+    'edit' => [
+        'params' => ['id'],
+        'functions' => ['configuration'],
+    ],
+    'viewarchivedchat' => [
+        'params' => ['archive_id', 'chat_id'],
+        'uparams' => ['mode'],
+        'functions' => ['archive'],
+    ],
+    'previewchat' => [
+        'params' => ['archive_id', 'chat_id'],
+        'functions' => ['archive'],
+    ],
+    'printchatadmin' => [
+        'params' => ['archive_id', 'chat_id'],
+        'functions' => ['archive'],
+    ],
+    'sendmail' => [
+        'params' => ['archive_id', 'chat_id'],
+        'functions' => ['archive'],
+    ],
+    'deletearchivechat' => [
+        'params' => ['archive_id', 'chat_id'],
+        'uparams' => ['csfr'],
+        'functions' => ['configuration'],
+    ],
+    'process' => [
+        'params' => ['id'],
+        'functions' => ['configuration'],
+    ],
+];
 
-$ViewList['archive'] = array(
-    'params' => array(),
-    'functions' => array( 'archive' )
-);
-
-$ViewList['newarchive'] = array(
-    'params' => array(),
-    'functions' => array( 'configuration' )
-);
-
-$ViewList['configuration'] = array(
-    'params' => array(),
-    'functions' => array( 'configuration' )
-);
-
-$ViewList['startarchive'] = array(
-    'params' => array(),
-    'functions' => array( 'configuration' )
-);
-
-$ViewList['archivechats'] = array(
-    'params' => array(),
-    'functions' => array( 'configuration' )
-);
-
-$ViewList['list'] = array(
-    'params' => array(),
-    'functions' => array( 'archive' )
-);
-
-$ViewList['listarchivechats'] = array(
-    'params' => array('id'),
-    'uparams' => array('chat_duration_from','chat_duration_till','wait_time_from','wait_time_till','chat_id','nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timeto','timeto_minutes','timeto_hours'),
-    'functions' => array( 'archive' )
-);
-
-$ViewList['edit'] = array(
-    'params' => array('id'),
-    'functions' => array( 'configuration' )
-);
-
-$ViewList['viewarchivedchat'] = array(
-    'params' => array('archive_id','chat_id'),
-    'uparams' => array('mode'),
-    'functions' => array( 'archive' )
-);
-
-$ViewList['previewchat'] = array(
-    'params' => array('archive_id','chat_id'),
-    'functions' => array( 'archive' )
-);
-
-$ViewList['printchatadmin'] = array(
-    'params' => array('archive_id','chat_id'),
-    'functions' => array( 'archive' )
-);
-
-$ViewList['sendmail'] = array(
-    'params' => array('archive_id','chat_id'),
-    'functions' => array( 'archive' )
-);
-
-$ViewList['deletearchivechat'] = array(
-    'params' => array('archive_id','chat_id'),
-    'uparams' => array('csfr'),
-    'functions' => array( 'configuration' )
-);
-
-$ViewList['process'] = array(
-    'params' => array('id'),
-    'functions' => array( 'configuration' )
-);
-
-$FunctionList['archive'] = array('explain' => 'Allow user to use archive functionality');
-$FunctionList['configuration'] = array('explain' => 'Allow user to configure archive');
-
-?>
+$FunctionList = [
+    'archive' => ['explain' => 'Allow user to use archive functionality'],
+    'configuration' => ['explain' => 'Allow user to configure archive'],
+];

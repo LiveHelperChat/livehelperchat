@@ -102,4 +102,3 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
 
 
 
-?>

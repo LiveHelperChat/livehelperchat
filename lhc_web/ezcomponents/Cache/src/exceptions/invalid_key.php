@@ -35,5 +35,3 @@ class ezcCacheInvalidKeyException extends ezcCacheException
         );
     }
 }
-
-?>

@@ -24,5 +24,3 @@ foreach (['incoming_id','chat_id','utime'] as $posAttr) {
 }
 
 return $def;
-
-?>

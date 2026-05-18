@@ -95,5 +95,3 @@ class ezcPersistentCodeManager extends ezcPersistentDefinitionManager
         return $definition;
     }
 }
-
-?>

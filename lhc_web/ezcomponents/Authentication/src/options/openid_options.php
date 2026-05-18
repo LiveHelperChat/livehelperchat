@@ -197,4 +197,3 @@ class ezcAuthenticationOpenidOptions extends ezcAuthenticationFilterOptions
         }
     }
 }
-?>

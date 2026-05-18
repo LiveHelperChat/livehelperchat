@@ -46,4 +46,3 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhf
 
 exit;
 
-?>

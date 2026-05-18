@@ -116,4 +116,3 @@ if (isset($_POST['UploadFileAction'])) {
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';
 
-?>

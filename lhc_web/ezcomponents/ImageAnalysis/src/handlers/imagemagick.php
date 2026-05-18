@@ -634,4 +634,3 @@ class ezcImageAnalyzerImagemagickHandler extends ezcImageAnalyzerHandler
         return proc_close( $process );
     }
 }
-?>

@@ -15,5 +15,3 @@ $def->properties['tag']->propertyName = 'tag';
 $def->properties['tag']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

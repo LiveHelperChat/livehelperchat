@@ -249,5 +249,3 @@ abstract class ezcCacheStackBaseReplacementStrategy implements ezcCacheStackRepl
      */
 /*   abstract protected static function checkMetaData( ezcCacheStackMetaData $metaData ) */
 }
-
-?>

@@ -40,10 +40,10 @@ if ( isset($_POST['StoreUserSettingsAction']) ) {
 		exit;
 	}
 
-	$Errors = array();
+	$Errors = [];
 
 	$form = new ezcInputForm( INPUT_POST, $definition );
-	$Errors = array();
+	$Errors = [];
 
     $languagesValid = [];
     foreach (erLhcoreClassSiteaccessGenerator::getLanguages() as $language) {
@@ -88,10 +88,10 @@ if ($currentUser->hasAccessTo('lhsystem','configurelanguages')){
 			exit;
 		}
 
-		$Errors = array();
+		$Errors = [];
 
 		$form = new ezcInputForm( INPUT_POST, $definition );
-		$Errors = array();
+		$Errors = [];
 
 		if ($form->hasValidData( 'siteaccess' ) && in_array($input->siteaccess, $siteAccessAvailable)) {
 			$input->siteaccess = $form->siteaccess;
@@ -159,6 +159,4 @@ $tpl->set('currentUser',$currentUser);
 $tpl->set('tab',$tab);
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Languages configuration')))
-
-?>
+$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Languages configuration')));

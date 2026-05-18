@@ -371,5 +371,3 @@ $responseArray['messages'] = trim($content);
 
 echo erLhcoreClassChat::safe_json_encode($responseArray);
 exit;
-
-?>

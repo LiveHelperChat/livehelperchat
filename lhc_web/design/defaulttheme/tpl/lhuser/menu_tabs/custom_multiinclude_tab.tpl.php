@@ -2,4 +2,3 @@
 /**
  * Custom menu tabs
  * */
-?>

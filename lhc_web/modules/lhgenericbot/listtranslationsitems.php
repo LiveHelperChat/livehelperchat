@@ -36,4 +36,4 @@ $Result['path'] = array(
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Translations items')),
 );
 
-?>
+

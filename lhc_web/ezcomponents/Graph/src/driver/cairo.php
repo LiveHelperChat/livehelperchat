@@ -1006,5 +1006,3 @@ class ezcGraphCairoDriver extends ezcGraphDriver
         );
     }
 }
-
-?>

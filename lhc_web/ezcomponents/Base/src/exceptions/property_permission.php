@@ -39,4 +39,3 @@ class ezcBasePropertyPermissionException extends ezcBaseException
             "-only." );
     }
 }
-?>

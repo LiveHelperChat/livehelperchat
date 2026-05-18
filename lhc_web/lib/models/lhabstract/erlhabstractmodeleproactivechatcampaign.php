@@ -79,4 +79,3 @@ class erLhAbstractModelProactiveChatCampaign
     public $hide_delete = false;
 }
 
-?>

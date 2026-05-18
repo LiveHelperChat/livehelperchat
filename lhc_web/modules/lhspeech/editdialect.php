@@ -44,4 +44,3 @@ $Result['path'] = array(
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.cannedmsgedit_path',array('result' => & $Result));
 
-?>

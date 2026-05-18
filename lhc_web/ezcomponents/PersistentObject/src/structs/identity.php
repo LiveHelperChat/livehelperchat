@@ -119,5 +119,3 @@ class ezcPersistentIdentity extends ezcBaseStruct
         );
     }
 }
-
-?>

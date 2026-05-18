@@ -75,4 +75,3 @@ class erLhAbstractModelChatAlertIcon
     public $hide_delete = false;
 }
 
-?>

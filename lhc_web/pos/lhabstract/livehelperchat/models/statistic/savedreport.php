@@ -24,5 +24,3 @@ foreach (['name','params','description','date_type','recurring_options','send_lo
 }
 
 return $def;
-
-?>

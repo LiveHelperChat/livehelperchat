@@ -62,4 +62,3 @@ class ezcDbSchemaOracleHelper
         return $ident;
     }
 }
-?>

@@ -37,4 +37,3 @@ class ezcFeedParseErrorException extends ezcFeedException
         }
     }
 }
-?>

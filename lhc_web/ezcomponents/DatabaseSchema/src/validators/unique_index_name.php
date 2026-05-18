@@ -51,4 +51,3 @@ class ezcDbSchemaUniqueIndexNameValidator
         return $errors;
     }
 }
-?>

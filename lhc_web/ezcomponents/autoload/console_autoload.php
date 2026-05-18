@@ -73,4 +73,3 @@ return array(
     'ezcConsoleTableOptions'                        => 'ConsoleTools/options/table.php',
     'ezcConsoleTableRow'                            => 'ConsoleTools/table/row.php',
 );
-?>

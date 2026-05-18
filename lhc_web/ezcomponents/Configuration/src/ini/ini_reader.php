@@ -185,4 +185,3 @@ class ezcConfigurationIniReader extends ezcConfigurationFileReader
         return $validationResult;
     }
 }
-?>

@@ -15,14 +15,15 @@ $stmt->execute();
 
 $views = erLhAbstractModelSavedSearch::getList(['limit' => false, 'filter' => ['status' => erLhAbstractModelSavedSearch::ACTIVE, 'user_id' =>  erLhcoreClassUser::instance()->getUserID()]]);
 
-erLhcoreClassChat::prefillGetAttributes($views, array(
+erLhcoreClassChat::prefillGetAttributes($views, [
     'id',
     'name',
     'description',
     'scope',
     'passive',
     'total_records',
-    'updated_ago'), array(), array('remove_all' => true));
+    'updated_ago'
+], [], ['remove_all' => true]);
 
 $response = [
     'views' => array_values($views),
@@ -32,5 +33,3 @@ $response = [
 echo json_encode($response);
 
 exit;
-
-?>

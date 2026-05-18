@@ -3,10 +3,10 @@
 $tpl = erLhcoreClassTemplate::getInstance( 'lhfile/list.tpl.php');
 
 if (isset($_GET['doSearch'])) {
-	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'filelist','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+	$filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'filelist','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']]);
 	$filterParams['is_search'] = true;
 } else {
-	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'filelist','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+	$filterParams = erLhcoreClassSearchHandler::getParams(['module' => 'chat','module_file' => 'filelist','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']]);
 	$filterParams['is_search'] = false;
 }
 
@@ -26,9 +26,9 @@ $pages->items_total = erLhcoreClassModelChatFile::getCount($filterParams['filter
 $pages->setItemsPerPage(20);
 $pages->paginate();
 
-$items = array();
+$items = [];
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassModelChatFile::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC'),$filterParams['filter']));
+    $items = erLhcoreClassModelChatFile::getList(array_merge(['offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC'],$filterParams['filter']));
 }
 
 $tpl->set('items',$items);
@@ -38,10 +38,8 @@ $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('file/li
 $tpl->set('input',$filterParams['input_form']);
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(
-array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System configuration')),
-array('url' => erLhcoreClassDesign::baseurl('file/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of chat files')));
+$Result['path'] = [
+['url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','System configuration')],
+['url' => erLhcoreClassDesign::baseurl('file/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of chat files')]];
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.list_path', array('result' => & $Result));
-
-?>
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.list_path', ['result' => & $Result]);

@@ -34,5 +34,3 @@ foreach (['online_user_id','status','ftime','dep_id','user_id','chat_id','survey
 }
 
 return $def;
-
-?>

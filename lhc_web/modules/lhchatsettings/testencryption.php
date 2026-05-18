@@ -89,4 +89,3 @@ if (isset($_POST['op']) && isset($_POST['key']) && isset($_POST['val'])) {
 echo $response;
 
 exit;
-?>

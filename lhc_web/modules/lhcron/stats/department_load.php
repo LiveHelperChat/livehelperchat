@@ -18,4 +18,3 @@ foreach (erLhcoreClassModelDepartamentGroup::getList() as $departmentGroup) {
     erLhcoreClassChatStatsResque::updateDepartmentGroupStats($departmentGroup);
 }
 
-?>

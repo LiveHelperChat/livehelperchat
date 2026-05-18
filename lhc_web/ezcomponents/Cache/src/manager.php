@@ -295,4 +295,3 @@ class ezcCacheManager
         return self::$caches[$id];
     }
 }
-?>

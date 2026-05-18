@@ -73,4 +73,3 @@ class ezcLogFilter extends ezcBaseStruct
        $this->category = $category;
    }
 }
-?>

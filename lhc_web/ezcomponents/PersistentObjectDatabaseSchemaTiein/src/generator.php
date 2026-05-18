@@ -501,4 +501,4 @@ class ezcPersistentObjectSchemaGenerator
         exit( -1 );
     }
 }
-?>
+

@@ -27,5 +27,3 @@ class ezcGraphNoSuchDataSetException extends ezcGraphException
         parent::__construct( "No dataset with identifier '{$name}' could be found." );
     }
 }
-
-?>

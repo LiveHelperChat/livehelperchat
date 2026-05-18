@@ -56,4 +56,3 @@ class erLhcoreClassModelChatEventTrack
     public $department_id = 0;
 }
 
-?>

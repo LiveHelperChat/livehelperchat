@@ -28,5 +28,3 @@ class ezcGraphUnknownFontTypeException extends ezcGraphException
         parent::__construct( "Unknown font type '{$extension}' of file '{$file}'." );
     }
 }
-
-?>

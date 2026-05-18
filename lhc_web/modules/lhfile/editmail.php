@@ -15,4 +15,4 @@ $Result['path'] = array(
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.editmail_path', array('result' => & $Result));
 
-?>
+

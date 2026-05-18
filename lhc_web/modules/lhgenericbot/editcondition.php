@@ -44,4 +44,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('genericbot/conditions'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Conditions')),
     array('title' => $condition->name));
 
-?>

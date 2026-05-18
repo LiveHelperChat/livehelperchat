@@ -96,4 +96,4 @@ class ezcPersistentPropertyDateTimeConverter implements ezcPersistentPropertyCon
     }
 }
 
-?>
+

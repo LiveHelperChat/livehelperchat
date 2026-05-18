@@ -54,4 +54,3 @@ if (count($Errors) == 0)
 
 exit;
 
-?>

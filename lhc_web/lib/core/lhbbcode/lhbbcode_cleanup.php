@@ -1073,4 +1073,3 @@ class erLhcoreClassBBCodePlain
 }
 
 
-?>

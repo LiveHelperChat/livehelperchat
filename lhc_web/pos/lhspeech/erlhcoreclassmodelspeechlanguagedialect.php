@@ -30,5 +30,3 @@ $def->properties['short_code']->propertyName = 'short_code';
 $def->properties['short_code']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

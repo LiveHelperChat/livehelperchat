@@ -324,4 +324,3 @@ abstract class ezcConfigurationFileWriter extends ezcConfigurationWriter
         }
     }
 }
-?>

@@ -20,5 +20,3 @@ $def->properties['mtime']->propertyName = 'mtime';
 $def->properties['mtime']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 return $def; 
-
-?>

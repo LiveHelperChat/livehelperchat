@@ -35,5 +35,3 @@ if ($search->scope == 'chat') {
 }
 
 exit;
-
-?>

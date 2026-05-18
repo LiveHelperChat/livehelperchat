@@ -71,6 +71,3 @@ class ezcCacheStorageOptions extends ezcBaseOptions
         $this->properties[$key] = $value;
     }
 }
-
-
-?>

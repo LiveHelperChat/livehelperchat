@@ -22,7 +22,7 @@ if (isset($_POST['Save_group']) || isset($_POST['Save_group_and_assign_user']))
         );
 
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
 
     if ( !$form->hasValidData( 'Name' ) || $form->Name == '' )
     {
@@ -90,4 +90,3 @@ array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation(
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.newgroup_path', array('result' => & $Result));
-?>

@@ -32,4 +32,3 @@ interface ezcLogMapper
      */
     public function get( $severity, $source, $category );
 }
-?>

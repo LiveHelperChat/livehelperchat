@@ -208,4 +208,3 @@ class ezcLogFilterRule
         return $result;
     }
 }
-?>

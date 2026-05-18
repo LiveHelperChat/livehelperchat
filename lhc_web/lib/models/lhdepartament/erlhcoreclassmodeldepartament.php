@@ -341,4 +341,3 @@ class erLhcoreClassModelDepartament {
     public $delay_lm = 0;
 }
 
-?>

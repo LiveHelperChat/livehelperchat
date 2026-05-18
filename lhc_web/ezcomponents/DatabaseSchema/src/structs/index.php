@@ -58,4 +58,3 @@ class ezcDbSchemaIndex extends ezcBaseStruct
         );
     }
 }
-?>

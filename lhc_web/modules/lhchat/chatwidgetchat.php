@@ -182,4 +182,3 @@ if ($embedMode == true) {
 	$Result['pagelayout_css_append'] = 'embed-widget';
 }
 
-?>

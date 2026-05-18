@@ -54,4 +54,3 @@ array('url' => erLhcoreClassDesign::baseurl('department/index'),'title' => erTra
 array('url' => erLhcoreClassDesign::baseurl('department/group'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Departments groups')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','New department group')));
 
-?>

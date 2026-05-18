@@ -86,5 +86,3 @@ class ezcGraphPaletteEzRed extends ezcGraphPalette
      */
     protected $margin = 0;
 }
-
-?>

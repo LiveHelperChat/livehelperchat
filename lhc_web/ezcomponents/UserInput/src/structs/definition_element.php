@@ -108,4 +108,4 @@ class ezcInputFormDefinitionElement extends ezcBaseStruct
         return new ezcInputFormDefinitionElement( $array['type'], $array['filterName'], $array['options'], $array['flags'], $array['hint'] );
     }
 }
-?>
+

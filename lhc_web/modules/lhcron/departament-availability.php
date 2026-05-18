@@ -48,4 +48,3 @@ foreach ($departmentList as $department) {
     }
 }
 
-?>

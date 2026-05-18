@@ -136,4 +136,3 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
     public $attr_str_6 = '';
 }
 
-?>

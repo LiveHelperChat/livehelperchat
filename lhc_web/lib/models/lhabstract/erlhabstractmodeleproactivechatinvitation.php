@@ -1298,4 +1298,4 @@ class erLhAbstractModelProactiveChatInvitation {
 
 }
 
-?>
+

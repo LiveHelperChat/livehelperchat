@@ -50,4 +50,3 @@ array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => e
 array('url' => erLhcoreClassDesign::baseurl('statistic/statistic'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Statistic')),
 array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/onlinehours','Online Hours')));
 
-?>

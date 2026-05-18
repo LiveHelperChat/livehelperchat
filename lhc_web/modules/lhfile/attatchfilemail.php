@@ -35,4 +35,3 @@ $tpl->set('input',$filterParams['input_form']);
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';
   
-?>

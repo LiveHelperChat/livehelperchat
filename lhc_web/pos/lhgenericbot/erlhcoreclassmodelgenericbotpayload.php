@@ -30,5 +30,3 @@ $def->properties['trigger_id']->propertyName = 'trigger_id';
 $def->properties['trigger_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 return $def;
-
-?>

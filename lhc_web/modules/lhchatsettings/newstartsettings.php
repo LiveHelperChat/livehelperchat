@@ -67,5 +67,4 @@ $Result['path'] = array(
     array(
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhchatsettings/startchat', 'New start chat settings')
     )
-)
-?>
+);

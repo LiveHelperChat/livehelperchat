@@ -241,4 +241,3 @@ class ezcDbSchemaComparator
         return false;
     }
 }
-?>

@@ -24,4 +24,3 @@ if (isset($Params['user_parameters_unordered']['type']) && $Params['user_paramet
 
 exit;
 
-?>

@@ -152,4 +152,3 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 
 echo json_encode(array('error' => true, 'items' => $items, 'data_ext' => $data_ext));
 exit;
-?>

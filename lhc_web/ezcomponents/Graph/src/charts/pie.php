@@ -304,5 +304,3 @@ class ezcGraphPieChart extends ezcGraphChart
         $this->renderer->render( null );
     }
 }
-
-?>

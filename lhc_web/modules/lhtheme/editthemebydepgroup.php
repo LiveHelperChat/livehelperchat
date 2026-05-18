@@ -60,5 +60,3 @@ if (!empty($themes)) {
 
 $Result['pagelayout'] = 'chattabs';
 $Result['content'] = $tpl->fetch();
-
-?>

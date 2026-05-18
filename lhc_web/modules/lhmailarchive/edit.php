@@ -108,4 +108,3 @@ $Result['path'] = array(
 		array('url' => erLhcoreClassDesign::baseurl('mailarchive/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Archives list')));
 $Result['path'][] = array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/editarchive','Edit archive'));
 
-?>

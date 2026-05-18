@@ -292,5 +292,3 @@ class ezcGraphOdometerChart extends ezcGraphChart
         $this->renderer->render( null );
     }
 }
-
-?>

@@ -80,4 +80,3 @@ class ezcAuthenticationHtpasswdOptions extends ezcAuthenticationFilterOptions
         }
     }
 }
-?>

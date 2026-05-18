@@ -232,4 +232,3 @@ abstract class ezcMailFilePart extends ezcMailPart
         return parent::generate();
     }
 }
-?>

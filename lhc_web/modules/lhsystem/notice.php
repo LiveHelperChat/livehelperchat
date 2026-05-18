@@ -24,10 +24,10 @@ if ( isset($_POST['StoreUserSettingsAction']) ) {
         )
     );
 
-    $Errors = array();
+    $Errors = [];
 
     $form = new ezcInputForm( INPUT_POST, $definition );
-    $Errors = array();
+    $Errors = [];
 
     if ( $form->hasValidData( 'message' ) ) {
         $data['message'] = $form->message;
@@ -54,7 +54,7 @@ if ( isset($_POST['StoreUserSettingsAction']) ) {
     $esOptions->value = serialize($data);
     $esOptions->saveThis();
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.notice_update',array());
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.notice_update',[]);
 
     $tpl->set('updated','done');
 }
@@ -62,6 +62,4 @@ if ( isset($_POST['StoreUserSettingsAction']) ) {
 $tpl->set('data',$data);
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Notice messages')))
-
-?>
+$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Notice messages')));

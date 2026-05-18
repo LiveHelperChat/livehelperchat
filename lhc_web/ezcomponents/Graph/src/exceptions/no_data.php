@@ -26,5 +26,3 @@ class ezcGraphNoDataException extends ezcGraphException
         parent::__construct( "No data sets assigned to chart." );
     }
 }
-
-?>

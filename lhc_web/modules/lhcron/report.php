@@ -11,4 +11,3 @@ echo "Starting report sending\n";
 
 echo "Ended report sending\n";
 
-?>

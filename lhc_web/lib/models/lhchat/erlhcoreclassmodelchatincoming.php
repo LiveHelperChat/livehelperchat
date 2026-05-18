@@ -85,4 +85,3 @@ class erLhcoreClassModelChatIncoming {
     public $utime = 0;
 }
 
-?>

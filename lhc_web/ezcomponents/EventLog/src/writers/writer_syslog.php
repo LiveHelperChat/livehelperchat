@@ -171,4 +171,3 @@ class ezcLogSyslogWriter implements ezcLogWriter
         return substr( $total, strlen( $splitEntry ) );
     }
 }
-?>

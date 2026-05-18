@@ -282,4 +282,3 @@ class ezcAuthenticationOpenidFileStore extends ezcAuthenticationOpenidStore
         return $result;
     }
 }
-?>

@@ -714,4 +714,3 @@ abstract class ezcGraphRenderer
         $this->resetRenderer();
     }
 }
-?>

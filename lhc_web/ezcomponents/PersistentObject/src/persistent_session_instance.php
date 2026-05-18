@@ -145,4 +145,4 @@ class ezcPersistentSessionInstance
         self::$instances = array();
     }
 }
-?>
+

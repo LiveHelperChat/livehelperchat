@@ -45,6 +45,4 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/new','System configuration')),
     array('url' => erLhcoreClassDesign::baseurl('genericbot/listtranslations'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/new','Bot individualization')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/new','New')),
-)
-
-?>
+);

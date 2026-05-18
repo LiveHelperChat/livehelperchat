@@ -26,5 +26,3 @@ interface ezcConsoleQuestionDialogValidator extends ezcConsoleDialogValidator
      */
     public function getResultString();
 }
-
-?>

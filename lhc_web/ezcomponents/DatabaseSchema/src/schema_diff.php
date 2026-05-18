@@ -169,4 +169,3 @@ class ezcDbSchemaDiff
         return $writer->convertDiffToDDL( $this );
     }
 }
-?>

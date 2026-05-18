@@ -1,6 +1,7 @@
 <?php
+
 header ( 'content-type: application/json; charset=utf-8' );
-$filter = array('offset' => 0, 'limit' => (int)$Params['user_parameters_unordered']['maxrows'],'sort' => 'last_visit DESC');
+$filter = ['offset' => 0, 'limit' => (int)$Params['user_parameters_unordered']['maxrows'],'sort' => 'last_visit DESC'];
 
 $department = isset($Params['user_parameters_unordered']['department']) && is_array($Params['user_parameters_unordered']['department']) && !empty($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : false;
 if ($department !== false) {
@@ -16,7 +17,7 @@ if ($timeout > 0) {
 /**
  * Append user departments filter
  * */
-$departmentParams = array();
+$departmentParams = [];
 $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
 if ($userDepartments !== true){
 	$departmentParams['filterin']['id'] = $userDepartments;
@@ -41,7 +42,7 @@ if ($departmentGroups !== false) {
     }
 }
 
-$statusDispatch = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.online_users_get_list', array('filter' => $filter));
+$statusDispatch = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.online_users_get_list', ['filter' => $filter]);
 
 if ($statusDispatch === false) {
     $items = erLhcoreClassModelChatOnlineUser::getList($filter);
@@ -49,7 +50,7 @@ if ($statusDispatch === false) {
     $items = $statusDispatch['list'];
 }
 
-$returnItems = array();
+$returnItems = [];
 
 foreach ($items as $item) {
 			if ($item->lat != 0 && $item->lon != 0) {
@@ -62,6 +63,6 @@ foreach ($items as $item) {
 			}
 }
 
-echo erLhcoreClassChat::safe_json_encode(array('result' => $returnItems));
+echo erLhcoreClassChat::safe_json_encode(['result' => $returnItems]);
 
 exit();

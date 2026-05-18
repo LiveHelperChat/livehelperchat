@@ -284,4 +284,4 @@ class ezcAuthenticationDatabaseCredentialFilter extends ezcAuthenticationFilter 
         return $this->data;
     }
 }
-?>
+

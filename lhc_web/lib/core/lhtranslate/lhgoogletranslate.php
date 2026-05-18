@@ -124,4 +124,4 @@ class erLhcoreClassTranslateGoogle {
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Could not translate').' - '.$rsp);
         }
     }
-?>
+

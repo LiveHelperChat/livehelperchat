@@ -62,4 +62,3 @@ class ezcCacheStorageMemcachePlain extends ezcCacheStorageMemcache
         return new ezcCacheStorageMemoryDataStruct( $data, $this->properties['location'] );
     }
 }
-?>

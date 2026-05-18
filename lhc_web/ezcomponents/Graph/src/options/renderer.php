@@ -244,5 +244,3 @@ class ezcGraphRendererOptions extends ezcGraphChartOptions
         }
     }
 }
-
-?>

@@ -86,4 +86,3 @@ if (isset($data['automatic_archiving']) && $data['automatic_archiving'] == 1) {
     echo "Automatic mail archiving is not setup\n";
 }
 
-?>

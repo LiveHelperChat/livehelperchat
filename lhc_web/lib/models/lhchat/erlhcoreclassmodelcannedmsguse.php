@@ -45,4 +45,3 @@ class erLhcoreClassModelCannedMsgUse
     public $chat_id = null;
 }
 
-?>

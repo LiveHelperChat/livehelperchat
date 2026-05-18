@@ -362,4 +362,3 @@ class ezcBaseFeatures
         self::$os            = null;
     }
 }
-?>

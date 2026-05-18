@@ -38,4 +38,3 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('groupchat/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Group chats')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Edit a group chat').' - '.$item->name));
 
-?>

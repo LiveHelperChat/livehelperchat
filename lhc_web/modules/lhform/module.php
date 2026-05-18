@@ -1,72 +1,52 @@
 <?php
 
-$Module = array( "name" => "Forms module");
+$Module = ['name' => 'Forms module'];
 
-$ViewList = array();
+$ViewList = [
+    'index' => [
+        'params' => [],
+        'functions' => ['manage_fm'],
+    ],
+    'fill' => [
+        'params' => ['form_id'],
+        'functions' => [],
+    ],
+    'collected' => [
+        'params' => ['form_id'],
+        'uparams' => ['action', 'id', 'csfr'],
+        'functions' => ['manage_fm'],
+    ],
+    'viewcollected' => [
+        'params' => ['collected_id'],
+        'functions' => ['manage_fm'],
+    ],
+    'embedcode' => [
+        'params' => [],
+        'functions' => ['generate_js'],
+    ],
+    'downloadcollected' => [
+        'params' => ['form_id'],
+        'functions' => ['manage_fm'],
+    ],
+    'downloaditem' => [
+        'params' => ['collected_id'],
+        'functions' => ['manage_fm'],
+    ],
+    'download' => [
+        'params' => ['collected_id', 'attr_name'],
+        'functions' => ['manage_fm'],
+    ],
+    'embed' => [
+        'params' => ['form_id'],
+        'functions' => [],
+    ],
+    'formwidget' => [
+        'params' => ['form_id'],
+    ],
+];
 
-$ViewList['index'] = array(
-		'params' => array(),
-		'functions' => array( 'manage_fm' )
-);
-
-$ViewList['fill'] = array(
-		'params' => array('form_id'),
-		'functions' => array(  )
-);
-
-$ViewList['collected'] = array(
-		'params' => array('form_id'),
-		'uparams' => array('action','id','csfr'),
-		'functions' => array(  'manage_fm' )
-);
-
-$ViewList['viewcollected'] = array(
-		'params' => array('collected_id'),
-		'functions' => array(  'manage_fm' )
-);
-
-$ViewList['embedcode'] = array(
-		'params' => array(),
-		'functions' => array('generate_js')
-);
-
-/*
- * XLS file with all files
-*
-* */
-$ViewList['downloadcollected'] = array(
-		'params' => array('form_id'),
-		'functions' => array(  'manage_fm' )
-);
-
-/*
- * zip file with XLS file and documents
- *  
- * */
-$ViewList['downloaditem'] = array(
-		'params' => array('collected_id'),
-		'functions' => array('manage_fm')
-);
-
-/*
- * single attribute download
- * 
- * */
-$ViewList['download'] = array(
-		'params' => array('collected_id','attr_name'),
-		'functions' => array('manage_fm')
-);
-
-$ViewList['embed'] = array(	
-		'params' => array('form_id'),
-		'functions' => array()
-);
-
-$ViewList['formwidget'] = array(
-		'params' => array('form_id')
-);
-
-$FunctionList = array();
-$FunctionList['manage_fm'] = array('explain'   => 'Allow user to manage form module');
-$FunctionList['delete_fm'] = array('explain'   => 'Allow user to delete forms');
-$FunctionList['generate_js'] = array('explain' => 'Allow user to generate page embed js');
+$FunctionList = [
+    'manage_fm' => ['explain' => 'Allow user to manage form module'],
+    'delete_fm' => ['explain' => 'Allow user to delete forms'],
+    'generate_js' => ['explain' => 'Allow user to generate page embed js'],
+];

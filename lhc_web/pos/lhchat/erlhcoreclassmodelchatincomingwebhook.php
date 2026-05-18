@@ -24,5 +24,3 @@ foreach (['disabled','dep_id','log_incoming','log_failed_parse'] as $posAttr) {
 }
 
 return $def;
-
-?>

@@ -74,4 +74,3 @@ class ezcAuthenticationPasswordCredentials extends ezcAuthenticationCredentials
         return $this->id;
     }
 }
-?>

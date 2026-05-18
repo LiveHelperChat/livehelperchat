@@ -36,4 +36,3 @@ if (trim($form->operation) != '') {
 
 exit();
 
-?>

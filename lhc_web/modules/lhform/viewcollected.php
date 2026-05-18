@@ -23,4 +23,3 @@ $Result['path'][] = array('title' => erTranslationClassLhTranslation::getInstanc
 $Result['additional_header_css'] = '<link rel="stylesheet" type="text/css" href="'.erLhcoreClassDesign::designCSS('css/jquery-ui-1.10.4.custom.css').'" />';
 $Result['additional_header_js'] = '<script type="text/javascript" language="javascript" src="'.erLhcoreClassDesign::designJS('js/jquery-ui-1.10.4.custom.min.js').'"></script>';
 
-?>

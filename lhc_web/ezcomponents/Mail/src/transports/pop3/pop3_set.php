@@ -179,4 +179,3 @@ class ezcMailPop3Set implements ezcMailParserSet
         return $this->messages;
     }
 }
-?>

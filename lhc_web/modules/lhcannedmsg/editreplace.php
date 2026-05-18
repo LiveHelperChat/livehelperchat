@@ -58,6 +58,5 @@ $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','System configuration')),
     array('url' => erLhcoreClassDesign::baseurl('cannedmsg/listreplace'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Replaceable variables')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','Edit')),
-)
+);
 
-?>

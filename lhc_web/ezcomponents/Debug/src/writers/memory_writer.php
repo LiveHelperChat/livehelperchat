@@ -96,4 +96,3 @@ class ezcDebugMemoryWriter implements ezcLogWriter
         return $this->logData;
     }
 }
-?>

@@ -154,4 +154,3 @@ abstract class ezcCacheStorageMemcache extends ezcCacheStorageMemory
         }
     }
 }
-?>

@@ -14,4 +14,3 @@ if (is_numeric($Params['user_parameters']['online_id']))
 	} 
 }
 exit;
-?>

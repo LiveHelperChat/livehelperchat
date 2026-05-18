@@ -33,5 +33,3 @@ class ezcImageHandlerNotAvailableException extends ezcImageException
         parent::__construct( "Handler class '{$handlerClass}' not found.{$reasonPart}" );
     }
 }
-
-?>

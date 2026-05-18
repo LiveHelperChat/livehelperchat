@@ -102,4 +102,3 @@ class erLhcoreClassGenericBotActionAlert_icon
     }
 }
 
-?>

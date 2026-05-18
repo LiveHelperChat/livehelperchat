@@ -40,4 +40,3 @@ class ezcBaseFileNotFoundException extends ezcBaseFileException
         parent::__construct( "The {$typePart}file '{$path}' could not be found.$messagePart" );
     }
 }
-?>
