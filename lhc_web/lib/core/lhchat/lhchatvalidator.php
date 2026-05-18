@@ -1176,6 +1176,7 @@ class erLhcoreClassChatValidator {
         $additionalDataArray = $chat->additional_data_array;
         $chatVariablesDataArray = $chat->chat_variables_array;
         $needUpdate = false;
+        $varsValuesChanged = [];
 
         if ( !empty($data))
         {
@@ -1264,6 +1265,9 @@ class erLhcoreClassChatValidator {
                                 if ($jsVar->change_message != '') {
                                     $messagesSave[] = str_replace(['{old_val}','{new_val}'],[$chat->{$lhcVar},$val],$jsVar->change_message);
                                 }
+
+                                $varsValuesChanged[str_replace('.','_',$jsVar->var_identifier)] = ['old' => $chat->{$lhcVar}, 'new' => $val];
+
                                 $chat->{$lhcVar} = $val;
                             }
 
@@ -1305,6 +1309,8 @@ class erLhcoreClassChatValidator {
                                 if ($jsVar->change_message != '') {
                                     $messagesSave[] = str_replace(['{old_val}','{new_val}'],[(isset($chatVariablesDataArray[$jsVar->var_identifier]) ? $chatVariablesDataArray[$jsVar->var_identifier] : '...'), $val],$jsVar->change_message);
                                 }
+
+                                $varsValuesChanged[str_replace('.','_',$jsVar->var_identifier)] = [ 'old' => (isset($chatVariablesDataArray[$jsVar->var_identifier]) ? $chatVariablesDataArray[$jsVar->var_identifier] : ''), 'new' => $val];
 
                                 $chatVariablesDataArray[$jsVar->var_identifier] = $val;
                                 if ($secure === true) {
@@ -1426,7 +1432,7 @@ class erLhcoreClassChatValidator {
             }
         }
 
-        return $needUpdate;
+        return ['need_update' => $needUpdate, 'vars_changed' => $varsValuesChanged];
     }
 
     public static function updateAdditionalVariables($chat) {

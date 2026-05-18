@@ -66,12 +66,20 @@ try {
  
             $statusNew = $chat->getState();
 
-            if ($needUpdate === true) {
+            if (is_array($needUpdate) && $needUpdate['need_update'] === true) {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.modified', array(
                     'log_data' => [
                         'file' => 'updatejsvars.php', 
                         'changes' => erLhcoreClassChat::getStateDiff($state, $statusNew)
                     ], 'chat' => & $chat, 'params' => array()));
+
+                // Dispatch event for strictly vars change    
+                if (!empty($needUpdate['vars_changed'])) {
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_variables_changed', array(
+                        'vars' => $needUpdate['vars_changed'],
+                        'chat' => & $chat
+                    ));
+                }
             }
 
             // Force operators to check for new messages
