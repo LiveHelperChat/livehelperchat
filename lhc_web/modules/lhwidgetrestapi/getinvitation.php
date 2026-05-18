@@ -308,4 +308,3 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvi
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;
-?>

@@ -82,5 +82,3 @@ class erLhcoreClassModelForgotPassword {
     public $email = '';
     public $lastactivity = '';
 }
-
-?>

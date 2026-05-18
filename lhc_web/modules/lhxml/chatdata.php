@@ -88,4 +88,3 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessTo
 }
 
 exit;
-?>

@@ -772,5 +772,3 @@ class erLhcoreClassChatExport {
         exit;
     }
 }
-
-?>

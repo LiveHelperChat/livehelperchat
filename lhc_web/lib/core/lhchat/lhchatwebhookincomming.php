@@ -2769,5 +2769,3 @@ class erLhcoreClassChatWebhookIncoming {
     }
 
 }
-
-?>

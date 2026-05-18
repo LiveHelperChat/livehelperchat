@@ -47,5 +47,3 @@ if (erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToW
 } else {
     exit;
 }
-
-?>

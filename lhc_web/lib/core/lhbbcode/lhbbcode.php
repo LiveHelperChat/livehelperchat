@@ -1533,6 +1533,3 @@ class erLhcoreClassBBCode
    }
 
 }
-
-
-?>

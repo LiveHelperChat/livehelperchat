@@ -3,11 +3,11 @@ header('content-type: application/json; charset=utf-8');
 /**
  * These operations are executed directly in an iframe. Most of the time it's postMessage
  * */
-$definition = array(
+$definition = [
     'operation' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
     )
-);
+];
 
 $form = new ezcInputForm( INPUT_POST, $definition );
 
@@ -17,14 +17,14 @@ if (trim($form->operation) != '')
     $db->beginTransaction();
 
     $Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
-    $errors = array();
+    $errors = [];
 
     switch ($form->operation) {
         case 'lhc_screenshot':
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.before_screenshot_addoperacion',array('chat' => & $Chat, 'errors' => & $errors));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.before_screenshot_addoperacion',['chat' => & $Chat, 'errors' => & $errors]);
             break;
         case (preg_match('/^lhc_cobrowse/', $form->operation) ? true : false):
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('cobrowse.before_started',array('chat' => & $Chat, 'errors' => & $errors));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('cobrowse.before_started',['chat' => & $Chat, 'errors' => & $errors]);
             break;
     }
 
@@ -34,26 +34,24 @@ if (trim($form->operation) != '')
             $currentUser = erLhcoreClassUser::instance();
 
             if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-                echo json_encode(array('error' => 'true', 'result' => 'Invalid CSRF Token'));
+                echo json_encode(['error' => 'true', 'result' => 'Invalid CSRF Token']);
                 exit;
             }
 
             $Chat->operation .= $form->operation . "\n";
-            $Chat->updateThis(array('update' => array('operation')));
+            $Chat->updateThis(['update' => ['operation']]);
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.added_operation',array('chat' => & $Chat));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.added_operation',['chat' => & $Chat]);
 
-            echo json_encode(array('error' => 'false'));
+            echo json_encode(['error' => 'false']);
         }
     } else {
-        echo json_encode(array('error' => 'true', 'errors' => $errors ));
+        echo json_encode(['error' => 'true', 'errors' => $errors ]);
     }
 
     $db->commit();
 } else {
-    echo json_encode(array('error' => 'true'));
+    echo json_encode(['error' => 'true']);
 }
 
 exit;
-
-?>

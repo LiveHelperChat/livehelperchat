@@ -4804,5 +4804,3 @@ class erLhcoreClassChatStatistic {
     }
 
 }
-
-?>

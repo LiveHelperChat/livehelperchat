@@ -168,4 +168,3 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.checkchatstatus'
 
 echo json_encode($responseArray);
 exit;
-?>

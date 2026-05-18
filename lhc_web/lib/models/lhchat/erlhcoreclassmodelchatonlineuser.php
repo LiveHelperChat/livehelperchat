@@ -1277,5 +1277,3 @@ class erLhcoreClassModelChatOnlineUser
     public $invitation_assigned = false;
 
 }
-
-?>

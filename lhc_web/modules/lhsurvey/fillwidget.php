@@ -126,5 +126,3 @@ if ($embedMode == true) {
 	$Result['dynamic_height_message'] = 'lhc_sizing_chat_page';
 	$Result['pagelayout_css_append'] = 'embed-widget';
 }
-
-?>

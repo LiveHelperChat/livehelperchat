@@ -3073,5 +3073,3 @@ class erLhcoreClassGenericBotActionRestapi
     }
 
 }
-
-?>

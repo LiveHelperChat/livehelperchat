@@ -61,5 +61,3 @@ if (erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToW
 
 print $tpl->fetch();
 exit();
-
-?>

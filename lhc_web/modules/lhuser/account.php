@@ -247,7 +247,7 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']) && ($c
 
         if ($currentUser->hasAccessTo('lhuser', 'see_assigned_departments')) {
 
-            $globalDepartament = array();
+            $globalDepartament = [];
 
             if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'self_all_departments'))
             {
@@ -468,5 +468,3 @@ $Result['additional_footer_js'] =
     '<script type="module" src="'.erLhcoreClassDesign::designJSStatic('js/svelte/public/build/languages.js').'"></script>';
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account_result', array('result' => & $Result));
-
-?>

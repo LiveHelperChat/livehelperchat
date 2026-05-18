@@ -597,6 +597,3 @@ class erLhcoreClassUser{
    public $cache_version = 0;
 
 }
-
-
-?>

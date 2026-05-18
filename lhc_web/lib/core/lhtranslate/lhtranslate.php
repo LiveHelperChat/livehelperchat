@@ -1469,5 +1469,3 @@ class erLhcoreClassTranslate
         $msg->meta_msg = json_encode($elements);
     }
 }
-
-?>

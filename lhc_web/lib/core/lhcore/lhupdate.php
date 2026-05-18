@@ -353,5 +353,3 @@ class erLhcoreClassUpdate
 		return $tablesStatus;
 	}
 }
-
-?>

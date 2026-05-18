@@ -9,7 +9,7 @@
  * @package Authentication
  */
 
-return array(
+return [
     'ezcAuthenticationException'                         => 'Authentication/exceptions/authentication_exception.php',
     'ezcAuthenticationOpenidException'                   => 'Authentication/exceptions/openid_exception.php',
     'ezcAuthenticationTypekeyException'                  => 'Authentication/exceptions/typekey_exception.php',
@@ -51,5 +51,4 @@ return array(
     'ezcAuthenticationTypekeyFilter'                     => 'Authentication/filters/typekey/typekey_filter.php',
     'ezcAuthenticationTypekeyOptions'                    => 'Authentication/options/typekey_options.php',
     'ezcAuthenticationUrl'                               => 'Authentication/url/url.php',
-);
-?>
+];

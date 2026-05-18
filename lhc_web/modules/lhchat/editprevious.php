@@ -52,6 +52,3 @@ try {
 	echo json_encode(array('error' => 't', 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Message could not be found!')));
 }
 exit;
-
-
-?>

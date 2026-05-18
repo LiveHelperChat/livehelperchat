@@ -110,4 +110,3 @@ $translations = array(
 echo json_encode($translations);
 
 exit;
-?>

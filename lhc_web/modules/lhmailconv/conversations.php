@@ -467,5 +467,3 @@ $tpl->set('can_delete',$currentUser->hasAccessTo('lhmailconv','delete_conversati
 $tpl->set('can_close',$currentUser->hasAccessTo('lhmailconv','close_all_conversation'));
 
 $Result['content'] = $tpl->fetch();
-
-?>

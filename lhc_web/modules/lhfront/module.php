@@ -1,36 +1,33 @@
 <?php
 
-$Module = array( "name" => "Frontpage");
+$Module = ['name' => 'Frontpage'];
 
-$ViewList = array();
-   
-$ViewList['default'] = array( 
-    'params' => array(),
-    'uparams' => array('cid','mid'),
-    'functions' => array( 'use' )
-);
+$ViewList = [
+    'default' => [
+        'params' => [],
+        'uparams' => ['cid', 'mid'],
+        'functions' => ['use'],
+    ],
+    'settings' => [
+        'params' => [],
+        'uparams' => ['action', 'csfr'],
+        'functions' => ['use'],
+    ],
+    'tabs' => [
+        'params' => [],
+        'uparams' => ['id', 'idmail'],
+        'functions' => ['use'],
+        'multiple_arguments' => ['id', 'idmail'],
+    ],
+    'switchdashboard' => [
+        'params' => [],
+        'uparams' => ['action', 'csfr'],
+        'functions' => ['use'],
+    ],
+];
 
-$ViewList['settings'] = array(
-    'params' => array(),
-    'uparams' => array('action','csfr'),
-    'functions' => array( 'use' )
-);
-
-$ViewList['tabs'] = array(
-    'params' => array(),
-    'uparams' => array('id','idmail'),
-    'functions' => array('use'),
-    'multiple_arguments' => array('id','idmail')
-);
-
-$ViewList['switchdashboard'] = array(
-    'params' => array(),
-    'uparams' => array('action','csfr'),
-    'functions' => array('use')
-);
-
-$FunctionList['use'] = array('explain' => 'General frontpage use permission');  
-$FunctionList['switch_dashboard'] = array('explain' => 'Allow operator to switch between new/old dashboards');
-$FunctionList['switch_editor'] = array('explain' => 'Allow operators to switch between new and old editors in the chat window');
-
-?>
+$FunctionList = [
+    'use' => ['explain' => 'General frontpage use permission'],
+    'switch_dashboard' => ['explain' => 'Allow operator to switch between new/old dashboards'],
+    'switch_editor' => ['explain' => 'Allow operators to switch between new and old editors in the chat window'],
+];

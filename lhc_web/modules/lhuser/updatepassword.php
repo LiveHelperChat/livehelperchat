@@ -91,5 +91,3 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.updatepassword',
 $pagelayout = erConfigClassLhConfig::getInstance()->getOverrideValue('site','login_pagelayout');
 if ($pagelayout != null)
     $Result['pagelayout'] = 'login';
-
-?>

@@ -57,7 +57,7 @@ if ($hash != '') {
 
                     $form = new ezcInputForm(INPUT_POST, $definition);
 
-                    $Errors = array();
+                    $Errors = [];
 
                     if (!$form->hasValidData('Password1') || !$form->hasValidData('Password2')) {
                         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Please enter a password!');
@@ -98,5 +98,3 @@ if ($hash != '') {
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'login';
-
-?>

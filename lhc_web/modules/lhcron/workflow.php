@@ -204,5 +204,3 @@ erLhcoreClassChatCleanup::cleanupCannedMessages();
 echo "Ended chat/workflow at ".date('Y-m-d H:i:s')."\n";
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow',array());
-
-?>
