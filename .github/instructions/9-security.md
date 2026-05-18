@@ -15,12 +15,12 @@ class erLhcoreClassUser {
     public function authenticate($username, $password)
     {
         // Find user by username or email
-        $user = erLhcoreClassModelUser::findOne(array(
-            'filterlorf' => array(
-                $username => array('username', 'email')
-            ),
-            'filter' => array('disabled' => 0)
-        ));
+        $user = erLhcoreClassModelUser::findOne([
+            'filterlorf' => [
+                $username => ['username', 'email']
+            ],
+            'filter' => ['disabled' => 0]
+        ]);
         
         if (!$user) {
             $this->logFailedAttempt($username);
@@ -122,19 +122,19 @@ public static function validateRequest()
 
 public static function validateApiKey($username, $apiKey)
 {
-    $user = erLhcoreClassModelUser::findOne(array(
-        'filter' => array('username' => $username, 'disabled' => 0)
-    ));
+    $user = erLhcoreClassModelUser::findOne([
+        'filter' => ['username' => $username, 'disabled' => 0]
+    ]);
     
     if (!$user) return false;
     
-    $key = erLhAbstractModelRestAPIKey::findOne(array(
-        'filter' => array(
+    $key = erLhAbstractModelRestAPIKey::findOne([
+        'filter' => [
             'api_key' => $apiKey,
             'user_id' => $user->id,
             'active' => 1
-        )
-    ));
+        ]
+    ]);
     
     if (!$key) return false;
     
@@ -171,14 +171,14 @@ public static function validateApiKey($username, $apiKey)
 public function hasAccessTo($module, $functions, $returnLimitation = false)
 {
     if (!is_array($functions)) {
-        $functions = array($functions);
+        $functions = [$functions];
     }
     
     // Get user's groups
     $groups = $this->getUserGroups();
     
     // Get roles from groups
-    $roles = array();
+    $roles = [];
     foreach ($groups as $group) {
         $groupRoles = erLhcoreClassGroupRole::getGroupRoles($group->id);
         $roles = array_merge($roles, $groupRoles);
@@ -187,13 +187,13 @@ public function hasAccessTo($module, $functions, $returnLimitation = false)
     // Check each function
     foreach ($functions as $function) {
         foreach ($roles as $role) {
-            $roleFunction = erLhcoreClassRoleFunction::findOne(array(
-                'filter' => array(
+            $roleFunction = erLhcoreClassRoleFunction::findOne([
+                'filter' => [
                     'role_id' => $role->id,
                     'module' => $module,
                     'function' => $function
-                )
-            ));
+                ]
+            ]);
             
             if ($roleFunction) {
                 if ($returnLimitation) {
@@ -212,13 +212,13 @@ public function hasAccessTo($module, $functions, $returnLimitation = false)
 
 ```php
 // modules/lhchat/module.php
-$FunctionList = array();
-$FunctionList['use'] = array('explain' => 'General chat access');
-$FunctionList['allowcloseremote'] = array('explain' => 'Allow close any chat');
-$FunctionList['allowtransfer'] = array('explain' => 'Allow transfer chats');
-$FunctionList['takeown'] = array('explain' => 'Allow take ownership');
-$FunctionList['deletechat'] = array('explain' => 'Allow delete chats');
-$FunctionList['allowblockuser'] = array('explain' => 'Allow block users');
+$FunctionList = [];
+$FunctionList['use'] = ['explain' => 'General chat access'];
+$FunctionList['allowcloseremote'] = ['explain' => 'Allow close any chat'];
+$FunctionList['allowtransfer'] = ['explain' => 'Allow transfer chats'];
+$FunctionList['takeown'] = ['explain' => 'Allow take ownership'];
+$FunctionList['deletechat'] = ['explain' => 'Allow delete chats'];
+$FunctionList['allowblockuser'] = ['explain' => 'Allow block users'];
 // ...
 
 // Usage in controller
@@ -236,11 +236,11 @@ class erLhcoreClassUserDep {
     public static function getUserReadDepartments($userId)
     {
         // Get departments where user is member
-        $userDeps = erLhcoreClassModelUserDep::getList(array(
-            'filter' => array('user_id' => $userId)
-        ));
+        $userDeps = erLhcoreClassModelUserDep::getList([
+            'filter' => ['user_id' => $userId]
+        ]);
         
-        $depIds = array();
+        $depIds = [];
         foreach ($userDeps as $ud) {
             $depIds[] = $ud->dep_id;
         }
@@ -277,10 +277,10 @@ $stmt->bindValue(':hash', $hash, PDO::PARAM_STR);
 $stmt->execute();
 
 // Model queries use parameter binding automatically
-$chats = erLhcoreClassModelChat::getList(array(
-    'filter' => array('status' => $status),  // Safe - bound
-    'filterlike' => array('nick' => $search)  // Safe - bound with %
-));
+$chats = erLhcoreClassModelChat::getList([
+    'filter' => ['status' => $status],  // Safe - bound
+    'filterlike' => ['nick' => $search]  // Safe - bound with %
+]);
 ```
 
 ### XSS Prevention
@@ -325,7 +325,7 @@ public static function validateUpload($file)
     }
     
     // Check extension whitelist
-    $allowedExtensions = array('jpg', 'jpeg', 'png', 'gif', 'pdf', 'doc', 'docx');
+    $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'pdf', 'doc', 'docx'];
     $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     
     if (!in_array($extension, $allowedExtensions)) {
@@ -336,10 +336,10 @@ public static function validateUpload($file)
     $finfo = new finfo(FILEINFO_MIME_TYPE);
     $mimeType = $finfo->file($file['tmp_name']);
     
-    $allowedMimes = array(
+    $allowedMimes = [
         'image/jpeg', 'image/png', 'image/gif',
         'application/pdf', 'application/msword'
-    );
+    ];
     
     if (!in_array($mimeType, $allowedMimes)) {
         throw new Exception('Invalid file type');
@@ -358,12 +358,12 @@ public static function validateUpload($file)
 $chat->hash = sha1(microtime() . mt_rand() . uniqid('', true));
 
 // Visitor must provide correct hash to access chat
-$chat = erLhcoreClassModelChat::findOne(array(
-    'filter' => array(
+$chat = erLhcoreClassModelChat::findOne([
+    'filter' => [
         'id' => $chatId,
         'hash' => $hash
-    )
-));
+    ]
+]);
 
 if (!$chat) {
     throw new Exception('Invalid chat access');
@@ -410,9 +410,9 @@ public function anonymize()
     $this->updateThis();
     
     // Anonymize messages
-    $messages = erLhcoreClassModelmsg::getList(array(
-        'filter' => array('chat_id' => $this->id)
-    ));
+    $messages = erLhcoreClassModelmsg::getList([
+        'filter' => ['chat_id' => $this->id]
+    ]);
     
     foreach ($messages as $msg) {
         $msg->msg = '[Content removed]';
@@ -429,10 +429,10 @@ class erLhcoreClassModelChatBlockedUser {
     
     public static function isBlocked($ip, $onlineUserId = null)
     {
-        $filter = array('ip' => $ip);
+        $filter = ['ip' => $ip];
         
         // Check IP block
-        $block = self::findOne(array('filter' => $filter));
+        $block = self::findOne(['filter' => $filter]);
         
         if ($block && ($block->expires == 0 || $block->expires > time())) {
             return true;
@@ -440,9 +440,9 @@ class erLhcoreClassModelChatBlockedUser {
         
         // Check online user block
         if ($onlineUserId) {
-            $block = self::findOne(array(
-                'filter' => array('online_user_id' => $onlineUserId)
-            ));
+            $block = self::findOne([
+                'filter' => ['online_user_id' => $onlineUserId]
+            ]);
             
             if ($block && ($block->expires == 0 || $block->expires > time())) {
                 return true;

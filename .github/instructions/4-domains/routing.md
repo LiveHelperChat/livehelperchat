@@ -28,8 +28,8 @@ ezcBaseInit::setCallback(
     'erLhcoreClassLazyDatabaseConfiguration'
 );
 
-set_exception_handler(array('erLhcoreClassModule', 'defaultExceptionHandler'));
-set_error_handler(array('erLhcoreClassModule', 'defaultWarningHandler'));
+set_exception_handler(['erLhcoreClassModule', 'defaultExceptionHandler']);
+set_error_handler(['erLhcoreClassModule', 'defaultWarningHandler']);
 
 $Result = erLhcoreClassModule::moduleInit();
 
@@ -44,27 +44,27 @@ Each module has a `module.php` file that defines available views:
 
 ```php
 // modules/lhchat/module.php
-$Module = array("name" => "Chat");
+$Module = ["name" => "Chat"];
 
-$ViewList = array();
+$ViewList = [];
 
-$ViewList['adminchat'] = array(
-    'params' => array('chat_id'),              // Required URL parameters
-    'uparams' => array('remember', 'arg'),     // Optional unordered parameters
-    'functions' => array('use'),               // Required permissions
-    'multiple_arguments' => array('arg')       // Parameters accepting multiple values
-);
+$ViewList['adminchat'] = [
+    'params' => ['chat_id'],              // Required URL parameters
+    'uparams' => ['remember', 'arg'],     // Optional unordered parameters
+    'functions' => ['use'],               // Required permissions
+    'multiple_arguments' => ['arg']       // Parameters accepting multiple values
+];
 
-$ViewList['single'] = array(
-    'params' => array('chat_id'),
-    'functions' => array('use')
-);
+$ViewList['single'] = [
+    'params' => ['chat_id'],
+    'functions' => ['use']
+];
 
-$ViewList['startchat'] = array(
-    'params' => array(),
-    'uparams' => array('hash', 'hash_resume', 'vid'),
+$ViewList['startchat'] = [
+    'params' => [],
+    'uparams' => ['hash', 'hash_resume', 'vid'],
     // No 'functions' = public access
-);
+];
 ```
 
 ## Module Runner
@@ -75,7 +75,7 @@ The `erLhcoreClassModule::runModule()` handles parameter extraction and permissi
 // lib/core/lhcore/lhmodule.php
 static function runModule()
 {
-    $Params = array();
+    $Params = [];
     $Params['module'] = self::$currentModule[self::$currentView];
     $Params['module']['name'] = self::$currentModule;
     $Params['module']['view'] = self::$currentView;
@@ -133,10 +133,10 @@ Siteaccesses are defined in settings:
 // settings/settings.ini.default.php
 'default_site_access' => 'eng',
 'default_admin_site_access' => ['site_admin'],
-'available_site_access' => array(
+'available_site_access' => [
     'eng', 'lit', 'esp', 'por', 'ger', 'fre', 
     'site_admin'  // Admin interface
-),
+],
 ```
 
 ## URL Generation
@@ -173,12 +173,12 @@ Extensions can override module controllers:
 
 ```php
 // extension/customext/modules/lhchat/module.php
-$Module = array("name" => "Chat module");
-$ViewList = array();
-$ViewList['single'] = array(
-    'params' => array('chat_id'),
-    'functions' => array('use')
-);
+$Module = ["name" => "Chat module"];
+$ViewList = [];
+$ViewList['single'] = [
+    'params' => ['chat_id'],
+    'functions' => ['use']
+];
 
 // extension/customext/modules/lhchat/single.php
 // Custom implementation
@@ -190,29 +190,29 @@ Common permission function patterns:
 
 ```php
 // modules/lhchat/module.php
-$FunctionList = array();
-$FunctionList['use'] = array('explain' => 'General permission to use chat');
-$FunctionList['allowopenremote'] = array('explain' => 'Allow to open remote chats');
-$FunctionList['allowcloseremote'] = array('explain' => 'Allow to close remote chats');
-$FunctionList['allowtransfer'] = array('explain' => 'Allow to transfer chats');
+$FunctionList = [];
+$FunctionList['use'] = ['explain' => 'General permission to use chat'];
+$FunctionList['allowopenremote'] = ['explain' => 'Allow to open remote chats'];
+$FunctionList['allowcloseremote'] = ['explain' => 'Allow to close remote chats'];
+$FunctionList['allowtransfer'] = ['explain' => 'Allow to transfer chats'];
 ```
 
 ## Best Practices
 
 1. **Always define permissions for admin views:**
    ```php
-   $ViewList['adminview'] = array(
-       'params' => array(),
-       'functions' => array('use')  // Require authentication
-   );
+   $ViewList['adminview'] = [
+       'params' => [],
+       'functions' => ['use']  // Require authentication
+   ];
    ```
 
 2. **Use unordered params for optional filters:**
    ```php
-   $ViewList['list'] = array(
-       'params' => array(),
-       'uparams' => array('status', 'department', 'user'),
-   );
+   $ViewList['list'] = [
+       'params' => [],
+       'uparams' => ['status', 'department', 'user'],
+   ];
    ```
 
 3. **Handle missing parameters gracefully:**
@@ -227,9 +227,9 @@ $FunctionList['allowtransfer'] = array('explain' => 'Allow to transfer chats');
    ```php
    $Result['content'] = $tpl->fetch();
    $Result['pagelayout'] = 'popup';  // Or 'login', default, etc.
-   $Result['path'] = array(
-       array('title' => 'Chats', 'url' => erLhcoreClassDesign::baseurl('chat/list')),
-       array('title' => $chat->nick)
-   );
+   $Result['path'] = [
+       ['title' => 'Chats', 'url' => erLhcoreClassDesign::baseurl('chat/list')],
+       ['title' => $chat->nick]
+   ];
    return $Result;
    ```

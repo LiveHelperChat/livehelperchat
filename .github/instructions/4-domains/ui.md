@@ -49,9 +49,9 @@ Controllers return a `$Result` array that specifies the page layout:
 // From any controller file
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'login';  // Uses pagelayouts/login.php
-$Result['path'] = array(
-    array('title' => 'System', 'url' => erLhcoreClassDesign::baseurl('system/configuration'))
-);
+$Result['path'] = [
+    ['title' => 'System', 'url' => erLhcoreClassDesign::baseurl('system/configuration')]
+];
 ```
 
 ## Client-Side: React Widget

@@ -25,7 +25,7 @@ class erLhcoreClassModelChat {
     
     public function getState()
     {
-        return array(
+        return [
             'id' => $this->id,
             'nick' => $this->nick,
             'status' => $this->status,
@@ -33,7 +33,7 @@ class erLhcoreClassModelChat {
             'user_id' => $this->user_id,
             'dep_id' => $this->dep_id,
             // ... all persisted fields
-        );
+        ];
     }
 }
 ```
@@ -94,9 +94,9 @@ $chat = erLhcoreClassModelChat::fetch($chatId, true, true);  // Throw exception 
 $chat = erLhcoreClassModelChat::fetchCache($chatId);
 
 // Find one with conditions
-$chat = erLhcoreClassModelChat::findOne(array(
-    'filter' => array('hash' => $hash)
-));
+$chat = erLhcoreClassModelChat::findOne([
+    'filter' => ['hash' => $hash]
+]);
 ```
 
 ### Update
@@ -124,84 +124,84 @@ $chat->removeThis();
 
 ```php
 // Basic list
-$chats = erLhcoreClassModelChat::getList(array(
+$chats = erLhcoreClassModelChat::getList([
     'limit' => 50,
     'offset' => 0
-));
+]);
 
 // With filters
-$chats = erLhcoreClassModelChat::getList(array(
-    'filter' => array(
+$chats = erLhcoreClassModelChat::getList([
+    'filter' => [
         'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT,
         'dep_id' => $departmentId
-    ),
+    ],
     'limit' => 20
-));
+]);
 
 // Multiple values (IN clause)
-$chats = erLhcoreClassModelChat::getList(array(
-    'filterin' => array(
-        'status' => array(0, 1),
-        'dep_id' => array(1, 2, 3)
-    )
-));
+$chats = erLhcoreClassModelChat::getList([
+    'filterin' => [
+        'status' => [0, 1],
+        'dep_id' => [1, 2, 3]
+    ]
+]);
 
 // LIKE search
-$chats = erLhcoreClassModelChat::getList(array(
-    'filterlike' => array('nick' => 'John')
-));
+$chats = erLhcoreClassModelChat::getList([
+    'filterlike' => ['nick' => 'John']
+]);
 
 // Comparison operators
-$chats = erLhcoreClassModelChat::getList(array(
-    'filtergt' => array('time' => $startTime),
-    'filterlt' => array('time' => $endTime)
-));
+$chats = erLhcoreClassModelChat::getList([
+    'filtergt' => ['time' => $startTime],
+    'filterlt' => ['time' => $endTime]
+]);
 
 // NOT conditions
-$chats = erLhcoreClassModelChat::getList(array(
-    'filternot' => array('status' => 2),
-    'filternotin' => array('dep_id' => array(10, 20))
-));
+$chats = erLhcoreClassModelChat::getList([
+    'filternot' => ['status' => 2],
+    'filternotin' => ['dep_id' => [10, 20]]
+]);
 
 // Custom SQL conditions
-$chats = erLhcoreClassModelChat::getList(array(
-    'customfilter' => array(
+$chats = erLhcoreClassModelChat::getList([
+    'customfilter' => [
         '(nick != "" OR email != "")'
-    )
-));
+    ]
+]);
 
 // Sorting
-$chats = erLhcoreClassModelChat::getList(array(
+$chats = erLhcoreClassModelChat::getList([
     'sort' => 'priority DESC, time ASC'
-));
+]);
 
 // Joins
-$chats = erLhcoreClassModelChat::getList(array(
-    'innerjoin' => array(
-        'lh_departament' => array('lh_chat.dep_id', 'lh_departament.id')
-    ),
-    'filter' => array('lh_departament.disabled' => 0)
-));
+$chats = erLhcoreClassModelChat::getList([
+    'innerjoin' => [
+        'lh_departament' => ['lh_chat.dep_id', 'lh_departament.id']
+    ],
+    'filter' => ['lh_departament.disabled' => 0]
+]);
 ```
 
 ### getCount()
 
 ```php
 // Simple count
-$count = erLhcoreClassModelChat::getCount(array(
-    'filter' => array('status' => 0)
-));
+$count = erLhcoreClassModelChat::getCount([
+    'filter' => ['status' => 0]
+]);
 
 // Count with specific field
 $count = erLhcoreClassModelChat::getCount(
-    array('filter' => array('status' => 1)),
+    ['filter' => ['status' => 1]],
     'COUNT',           // Operation
     'DISTINCT user_id' // Field
 );
 
 // Sum operation
 $total = erLhcoreClassModelChat::getCount(
-    array('filter' => array('status' => 2)),
+    ['filter' => ['status' => 2]],
     'SUM',
     'chat_duration'
 );
@@ -213,7 +213,7 @@ $total = erLhcoreClassModelChat::getCount(
 class erLhcoreClassModelChat {
     use erLhcoreClassDBTrait;
     
-    public function beforeSave($params = array())
+    public function beforeSave($params = [])
     {
         if (!$this->id) {
             $this->time = time();
@@ -221,16 +221,16 @@ class erLhcoreClassModelChat {
         }
     }
     
-    public function afterSave($params = array())
+    public function afterSave($params = [])
     {
         // Dispatch event
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch(
             'chat.chat_saved',
-            array('chat' => &$this)
+            ['chat' => &$this]
         );
     }
     
-    public function beforeUpdate($params = array())
+    public function beforeUpdate($params = [])
     {
         $this->lsync = time();
     }
@@ -268,7 +268,7 @@ $stmt->execute();
 
 // Fetch results
 $stmt = $db->prepare('SELECT * FROM lh_chat WHERE status = ?');
-$stmt->execute(array($status));
+$stmt->execute([$status]);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ```
 
@@ -282,29 +282,29 @@ $chat = erLhcoreClassModelChat::fetchAndLock($chatId);
 $chat->syncAndLock('status, user_id');
 
 // Lock in getList
-$chats = erLhcoreClassModelChat::getList(array(
-    'filter' => array('status' => 0),
+$chats = erLhcoreClassModelChat::getList([
+    'filter' => ['status' => 0],
     'lock' => true,
     'limit' => 1
-));
+]);
 ```
 
 ## Caching
 
 ```php
 // Enable SQL cache
-$chats = erLhcoreClassModelChat::getList(array(
-    'filter' => array('status' => 1),
+$chats = erLhcoreClassModelChat::getList([
+    'filter' => ['status' => 1],
     'enable_sql_cache' => true,
     'sql_cache_timeout' => 300  // 5 minutes
-));
+]);
 
 // Custom cache key
-$chats = erLhcoreClassModelChat::getList(array(
-    'filter' => array('dep_id' => $depId),
+$chats = erLhcoreClassModelChat::getList([
+    'filter' => ['dep_id' => $depId],
     'enable_sql_cache' => true,
     'cache_key' => 'dep_chats_' . $depId
-));
+]);
 ```
 
 ## Best Practices
@@ -313,30 +313,30 @@ $chats = erLhcoreClassModelChat::getList(array(
    ```php
    public function getState()
    {
-       return array(
+       return [
            // Only include fields that should be persisted
            'id' => $this->id,
            'name' => $this->name,
-       );
+       ];
    }
    ```
 
 2. **Use filters for performance:**
    ```php
    // Good - uses index
-   $chats = erLhcoreClassModelChat::getList(array(
-       'filter' => array('status' => 0),
+   $chats = erLhcoreClassModelChat::getList([
+       'filter' => ['status' => 0],
        'use_index' => 'status'
-   ));
+   ]);
    ```
 
 3. **Limit result sets:**
    ```php
    // Always set reasonable limits
-   $chats = erLhcoreClassModelChat::getList(array(
+   $chats = erLhcoreClassModelChat::getList([
        'limit' => 100,
        'offset' => ($page - 1) * 100
-   ));
+   ]);
    ```
 
 4. **Use transactions for related operations:**

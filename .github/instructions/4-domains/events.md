@@ -12,8 +12,8 @@ Live Helper Chat uses an event-driven architecture via `erLhcoreClassChatEventDi
 // lib/core/lhchat/lhchateventdispatcher.php
 class erLhcoreClassChatEventDispatcher {
     
-    private $listeners = array();
-    private $finishListeners = array();
+    private $listeners = [];
+    private $finishListeners = [];
     
     const STOP_WORKFLOW = 1;
     
@@ -41,7 +41,7 @@ erLhcoreClassChatEventDispatcher::getInstance()->listen(
 // Multiple listeners for same event
 erLhcoreClassChatEventDispatcher::getInstance()->listen(
     'chat.chat_started',
-    array($object, 'handleChatStarted')
+    [$object, 'handleChatStarted']
 );
 ```
 
@@ -51,13 +51,13 @@ erLhcoreClassChatEventDispatcher::getInstance()->listen(
 // Dispatch an event
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch(
     'chat.chat_started',
-    array('chat' => &$chat, 'msg' => &$msg)
+    ['chat' => &$chat, 'msg' => &$msg]
 );
 
 // Dispatch and check for workflow stop
 $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch(
     'chat.before_chat_started',
-    array('chat' => &$chat, 'input' => $inputData)
+    ['chat' => &$chat, 'input' => $inputData]
 );
 
 if (isset($response['status']) && $response['status'] === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
@@ -80,7 +80,7 @@ class MyExtension {
         
         // Optionally stop workflow
         if ($shouldStop) {
-            return array('status' => erLhcoreClassChatEventDispatcher::STOP_WORKFLOW);
+            return ['status' => erLhcoreClassChatEventDispatcher::STOP_WORKFLOW];
         }
         
         return null;
@@ -138,7 +138,7 @@ Built-in global listeners are set automatically:
 
 ```php
 // lib/core/lhchat/lhchateventdispatcher.php
-public function setGlobalListeners($event = null, $param = array())
+public function setGlobalListeners($event = null, $param = [])
 {
     if ($this->globalListenersSet == false) {
         $this->globalListenersSet = true;
@@ -163,11 +163,11 @@ public function setGlobalListeners($event = null, $param = array())
 
 ```php
 // settings/settings.ini.php
-'webhooks' => array(
+'webhooks' => [
     'enabled' => true,
     'worker' => 'http',       // 'http', 'resque', etc.
     'single_event' => false   // Process one event at a time
-),
+],
 ```
 
 ### Webhook Model
@@ -199,12 +199,12 @@ class erLhcoreClassChatWebhookHttp {
     
     public function processEvent($event, $param, $singleEvent = false)
     {
-        $webhooks = erLhcoreClassModelWebhook::getList(array(
-            'filter' => array(
+        $webhooks = erLhcoreClassModelWebhook::getList([
+            'filter' => [
                 'event' => $event,
                 'disabled' => 0
-            )
-        ));
+            ]
+        ]);
         
         foreach ($webhooks as $webhook) {
             if ($webhook->type == 1) {
@@ -225,7 +225,7 @@ class erLhcoreClassChatWebhookHttp {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
         curl_exec($ch);
         curl_close($ch);
     }
@@ -240,7 +240,7 @@ For low-priority tasks executed after response is sent:
 // Add finish request callback
 erLhcoreClassChatEventDispatcher::getInstance()->addFinishRequestEvent(
     'MyClass::cleanup',
-    array('chat_id' => $chatId)
+    ['chat_id' => $chatId]
 );
 
 // Executed in index.php after output
@@ -264,7 +264,7 @@ $dispatcher->listen('chat.chat_closed', 'erLhcoreClassExtMyext::onChatClosed');
    ```php
    erLhcoreClassChatEventDispatcher::getInstance()->dispatch(
        'chat.before_save',
-       array('chat' => &$chat)  // Pass by reference
+       ['chat' => &$chat]  // Pass by reference
    );
    ```
 
@@ -274,10 +274,10 @@ $dispatcher->listen('chat.chat_closed', 'erLhcoreClassExtMyext::onChatClosed');
    {
        $msg = $params['msg'];
        if (containsSpam($msg)) {
-           return array(
+           return [
                'status' => erLhcoreClassChatEventDispatcher::STOP_WORKFLOW,
                'error' => 'Message contains spam'
-           );
+           ];
        }
    }
    ```
@@ -289,7 +289,7 @@ $dispatcher->listen('chat.chat_closed', 'erLhcoreClassExtMyext::onChatClosed');
    {
        erLhcoreClassChatEventDispatcher::getInstance()->addFinishRequestEvent(
            'self::sendAnalytics',
-           array('chat' => $params['chat'])
+           ['chat' => $params['chat']]
        );
    }
    ```

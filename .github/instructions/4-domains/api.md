@@ -51,18 +51,18 @@ public static function validateRequest()
         $auth = base64_decode(substr($headers['Authorization'], 6));
         list($username, $apiKey) = explode(':', $auth, 2);
         
-        $user = erLhcoreClassModelUser::findOne(array(
-            'filter' => array('username' => $username, 'disabled' => 0)
-        ));
+        $user = erLhcoreClassModelUser::findOne([
+            'filter' => ['username' => $username, 'disabled' => 0]
+        ]);
         
         if ($user) {
-            $key = erLhAbstractModelRestAPIKey::findOne(array(
-                'filter' => array(
+            $key = erLhAbstractModelRestAPIKey::findOne([
+                'filter' => [
                     'api_key' => $apiKey,
                     'user_id' => $user->id,
                     'active' => 1
-                )
-            ));
+                ]
+            ]);
             
             if ($key) {
                 // Check IP restrictions
@@ -87,13 +87,13 @@ public static function validateRequest()
 
 ```php
 // modules/lhrestapi/module.php
-$ViewList['chats'] = array('params' => array());
-$ViewList['chat'] = array('params' => array('id'));
-$ViewList['fetchchat'] = array('params' => array());
-$ViewList['fetchchatmessages'] = array('params' => array());
-$ViewList['addmsgadmin'] = array('params' => array());
-$ViewList['closechat'] = array('params' => array('chat_id'));
-$ViewList['transferchat'] = array('params' => array('chat_id'));
+$ViewList['chats'] = ['params' => []];
+$ViewList['chat'] = ['params' => ['id']];
+$ViewList['fetchchat'] = ['params' => []];
+$ViewList['fetchchatmessages'] = ['params' => []];
+$ViewList['addmsgadmin'] = ['params' => []];
+$ViewList['closechat'] = ['params' => ['chat_id']];
+$ViewList['transferchat'] = ['params' => ['chat_id']];
 ```
 
 ### API Controller Pattern
@@ -105,10 +105,10 @@ erLhcoreClassRestAPIHandler::setHeaders();
 $userData = erLhcoreClassRestAPIHandler::validateRequest();
 
 if ($userData === false) {
-    echo erLhcoreClassRestAPIHandler::outputResponse(array(
+    echo erLhcoreClassRestAPIHandler::outputResponse([
         'error' => true,
         'message' => 'Invalid API key'
-    ));
+    ]);
     exit;
 }
 
@@ -117,7 +117,7 @@ $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 50;
 $offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
 $status = isset($_GET['status']) ? (int)$_GET['status'] : null;
 
-$filter = array('limit' => $limit, 'offset' => $offset);
+$filter = ['limit' => $limit, 'offset' => $offset];
 
 if ($status !== null) {
     $filter['filter']['status'] = $status;
@@ -133,21 +133,21 @@ if ($limitation !== false && $limitation !== true) {
 
 $chats = erLhcoreClassModelChat::getList($filter);
 
-$output = array();
+$output = [];
 foreach ($chats as $chat) {
-    $output[] = array(
+    $output[] = [
         'id' => $chat->id,
         'nick' => $chat->nick,
         'status' => $chat->status,
         'time' => $chat->time,
         // ...
-    );
+    ];
 }
 
-echo erLhcoreClassRestAPIHandler::outputResponse(array(
+echo erLhcoreClassRestAPIHandler::outputResponse([
     'error' => false,
     'chats' => $output
-));
+]);
 exit;
 ```
 
@@ -160,10 +160,10 @@ erLhcoreClassRestAPIHandler::setHeaders();
 $userData = erLhcoreClassRestAPIHandler::validateRequest();
 
 if ($userData === false) {
-    echo erLhcoreClassRestAPIHandler::outputResponse(array(
+    echo erLhcoreClassRestAPIHandler::outputResponse([
         'error' => true,
         'message' => 'Unauthorized'
-    ));
+    ]);
     exit;
 }
 
@@ -173,10 +173,10 @@ $message = isset($_POST['msg']) ? $_POST['msg'] : '';
 $chat = erLhcoreClassModelChat::fetch($chatId);
 
 if (!$chat) {
-    echo erLhcoreClassRestAPIHandler::outputResponse(array(
+    echo erLhcoreClassRestAPIHandler::outputResponse([
         'error' => true,
         'message' => 'Chat not found'
-    ));
+    ]);
     exit;
 }
 
@@ -191,7 +191,7 @@ $msg->name_support = $userData->name_support;
 // Dispatch event before save
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch(
     'chat.before_msg_admin_saved',
-    array('msg' => &$msg, 'chat' => &$chat)
+    ['msg' => &$msg, 'chat' => &$chat]
 );
 
 $msg->saveThis();
@@ -204,13 +204,13 @@ $chat->updateThis();
 // Dispatch event after save
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch(
     'chat.web_add_msg_admin',
-    array('msg' => &$msg, 'chat' => &$chat)
+    ['msg' => &$msg, 'chat' => &$chat]
 );
 
-echo erLhcoreClassRestAPIHandler::outputResponse(array(
+echo erLhcoreClassRestAPIHandler::outputResponse([
     'error' => false,
     'message_id' => $msg->id
-));
+]);
 exit;
 ```
 
@@ -227,43 +227,43 @@ $chatId = isset($_POST['chat_id']) ? (int)$_POST['chat_id'] : 0;
 $lastMessageId = isset($_POST['lmid']) ? (int)$_POST['lmid'] : 0;
 
 // Validate hash
-$chat = erLhcoreClassModelChat::findOne(array(
-    'filter' => array(
+$chat = erLhcoreClassModelChat::findOne([
+    'filter' => [
         'id' => $chatId,
         'hash' => $hash
-    )
-));
+    ]
+]);
 
 if (!$chat) {
-    erLhcoreClassRestAPIHandler::outputResponse(array(
+    erLhcoreClassRestAPIHandler::outputResponse([
         'error' => true
-    ));
+    ]);
     exit;
 }
 
 // Fetch new messages
-$messages = erLhcoreClassModelmsg::getList(array(
-    'filter' => array('chat_id' => $chatId),
-    'filtergt' => array('id' => $lastMessageId),
+$messages = erLhcoreClassModelmsg::getList([
+    'filter' => ['chat_id' => $chatId],
+    'filtergt' => ['id' => $lastMessageId],
     'sort' => 'id ASC'
-));
+]);
 
-$output = array();
+$output = [];
 foreach ($messages as $msg) {
-    $output[] = array(
+    $output[] = [
         'id' => $msg->id,
         'msg' => $msg->msg,
         'time' => $msg->time,
         'user_id' => $msg->user_id,
         'name_support' => $msg->name_support
-    );
+    ];
 }
 
-erLhcoreClassRestAPIHandler::outputResponse(array(
+erLhcoreClassRestAPIHandler::outputResponse([
     'error' => false,
     'messages' => $output,
     'chat_status' => $chat->status
-));
+]);
 ```
 
 ## Swagger/OpenAPI Documentation
@@ -280,14 +280,14 @@ $content = ob_get_clean();
 $append_definitions = '';
 $append_paths = '';
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('restapi.swagger', array(
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('restapi.swagger', [
     'append_definitions' => &$append_definitions,
     'append_paths' => &$append_paths,
-));
+]);
 
 echo str_replace(
-    array('{{base_path}}', '{{append_definitions}}', '{{append_paths}}'),
-    array(erLhcoreClassDesign::baseurldirect(), $append_definitions, $append_paths),
+    ['{{base_path}}', '{{append_definitions}}', '{{append_paths}}'],
+    [erLhcoreClassDesign::baseurldirect(), $append_definitions, $append_paths],
     $content
 );
 ```
@@ -301,8 +301,8 @@ $apiKey = erLhAbstractModelRestAPIKeyRemote::fetch($keyId);
 $response = erLhcoreClassRestAPIHandler::executeRequest(
     $apiKey,
     'restapi/chats',           // Endpoint
-    array('status' => 1),      // Parameters
-    array(),                   // URL parameters
+    ['status' => 1],      // Parameters
+    [],                   // URL parameters
     'GET'                      // Method
 );
 
@@ -315,10 +315,10 @@ $data = json_decode($response, true);
    ```php
    $chatId = filter_input(INPUT_POST, 'chat_id', FILTER_VALIDATE_INT);
    if (!$chatId) {
-       echo erLhcoreClassRestAPIHandler::outputResponse(array(
+       echo erLhcoreClassRestAPIHandler::outputResponse([
            'error' => true,
            'message' => 'Invalid chat_id'
-       ));
+       ]);
        exit;
    }
    ```
@@ -327,7 +327,7 @@ $data = json_decode($response, true);
    ```php
    if (!$authenticated) {
        http_response_code(401);
-       echo json_encode(array('error' => 'Unauthorized'));
+       echo json_encode(['error' => 'Unauthorized']);
        exit;
    }
    ```
@@ -340,7 +340,7 @@ $data = json_decode($response, true);
    
    if ($requests > 100) {
        http_response_code(429);
-       echo json_encode(array('error' => 'Rate limit exceeded'));
+       echo json_encode(['error' => 'Rate limit exceeded']);
        exit;
    }
    
@@ -350,23 +350,23 @@ $data = json_decode($response, true);
 4. **Document API responses:**
    ```php
    // Success response
-   array(
+   [
        'error' => false,
        'data' => $result
-   )
+   ]
    
    // Error response
-   array(
+   [
        'error' => true,
        'message' => 'Human readable error',
        'code' => 'ERROR_CODE'
-   )
+   ]
    ```
 
 5. **Handle CORS properly:**
    ```php
    // For specific origins
-   $allowedOrigins = array('https://example.com', 'https://app.example.com');
+   $allowedOrigins = ['https://example.com', 'https://app.example.com'];
    $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
    
    if (in_array($origin, $allowedOrigins)) {

@@ -54,7 +54,7 @@ class erLhcoreClassUser {
     
     private $userid = false;
     private $userData = false;
-    private $userGroups = array();
+    private $userGroups = [];
     
     /**
      * Singleton instance
@@ -119,12 +119,12 @@ class erLhcoreClassUser {
 public function authenticate($username, $password)
 {
     // Find user
-    $user = erLhcoreClassModelUser::findOne(array(
-        'filterlorf' => array(
-            $username => array('username', 'email')
-        ),
-        'filter' => array('disabled' => 0)
-    ));
+    $user = erLhcoreClassModelUser::findOne([
+        'filterlorf' => [
+            $username => ['username', 'email']
+        ],
+        'filter' => ['disabled' => 0]
+    ]);
     
     if (!$user) {
         $this->logLogin($username, 0, 'User not found');
@@ -170,15 +170,15 @@ public function logout()
     // Clear remember token
     if (isset($_COOKIE['lhc_remember'])) {
         $token = $_COOKIE['lhc_remember'];
-        erLhcoreClassModelUserRemember::findOne(array(
-            'filter' => array('user_id' => $this->userid)
-        ))?->removeThis();
+        erLhcoreClassModelUserRemember::findOne([
+            'filter' => ['user_id' => $this->userid]
+        ])?->removeThis();
         
         setcookie('lhc_remember', '', time() - 3600, '/');
     }
     
     // Destroy session
-    $_SESSION = array();
+    $_SESSION = [];
     session_destroy();
     
     $this->userid = false;
@@ -194,7 +194,7 @@ public function logout()
 public function hasAccessTo($module, $functions, $returnLimitation = false)
 {
     if (!is_array($functions)) {
-        $functions = array($functions);
+        $functions = [$functions];
     }
     
     // Get all role functions for user
@@ -225,11 +225,11 @@ private function getRoleFunctions()
         $groups = erLhcoreClassGroupUser::getGroupsByUserId($this->userid);
         
         // Get roles from groups
-        $roleIds = array();
+        $roleIds = [];
         foreach ($groups as $group) {
-            $groupRoles = erLhcoreClassGroupRole::getList(array(
-                'filter' => array('group_id' => $group->group_id)
-            ));
+            $groupRoles = erLhcoreClassGroupRole::getList([
+                'filter' => ['group_id' => $group->group_id]
+            ]);
             foreach ($groupRoles as $gr) {
                 $roleIds[] = $gr->role_id;
             }
@@ -237,11 +237,11 @@ private function getRoleFunctions()
         
         // Get role functions
         if (!empty($roleIds)) {
-            $functions = erLhcoreClassRoleFunction::getList(array(
-                'filterin' => array('role_id' => array_unique($roleIds))
-            ));
+            $functions = erLhcoreClassRoleFunction::getList([
+                'filterin' => ['role_id' => array_unique($roleIds)]
+            ]);
         } else {
-            $functions = array();
+            $functions = [];
         }
         
         $cache->store($cacheKey, $functions, 300);
@@ -268,11 +268,11 @@ private function parseLimitation($limitation)
     
     $limits = json_decode($limitation, true);
     
-    return array(
+    return [
         'department' => $limits['department'] ?? null,
         'own_only' => $limits['own_only'] ?? false,
         'read_only' => $limits['read_only'] ?? false
-    );
+    ];
 }
 ```
 
@@ -316,11 +316,11 @@ class erLhcoreClassUserDep {
         }
         
         // Get individual assignments
-        $userDeps = erLhcoreClassModelUserDep::getList(array(
-            'filter' => array('user_id' => $userId)
-        ));
+        $userDeps = erLhcoreClassModelUserDep::getList([
+            'filter' => ['user_id' => $userId]
+        ]);
         
-        $depIds = array();
+        $depIds = [];
         foreach ($userDeps as $ud) {
             $depIds[] = $ud->dep_id;
         }
@@ -334,12 +334,12 @@ class erLhcoreClassUserDep {
     public static function getUserWriteDepartments($userId)
     {
         // Similar to read, but excludes read-only assignments
-        $userDeps = erLhcoreClassModelUserDep::getList(array(
-            'filter' => array(
+        $userDeps = erLhcoreClassModelUserDep::getList([
+            'filter' => [
                 'user_id' => $userId,
                 'ro' => 0
-            )
-        ));
+            ]
+        ]);
         
         // ...
     }
@@ -352,9 +352,9 @@ class erLhcoreClassUserDep {
 // Set operator online
 public function setOnline($depId = null)
 {
-    $userDeps = erLhcoreClassModelUserDep::getList(array(
-        'filter' => array('user_id' => $this->userid)
-    ));
+    $userDeps = erLhcoreClassModelUserDep::getList([
+        'filter' => ['user_id' => $this->userid]
+    ]);
     
     foreach ($userDeps as $ud) {
         if ($depId === null || $ud->dep_id == $depId) {
@@ -367,16 +367,16 @@ public function setOnline($depId = null)
     // Dispatch event
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch(
         'user.set_online',
-        array('user_id' => $this->userid, 'dep_id' => $depId)
+        ['user_id' => $this->userid, 'dep_id' => $depId]
     );
 }
 
 // Set operator offline
 public function setOffline()
 {
-    $userDeps = erLhcoreClassModelUserDep::getList(array(
-        'filter' => array('user_id' => $this->userid)
-    ));
+    $userDeps = erLhcoreClassModelUserDep::getList([
+        'filter' => ['user_id' => $this->userid]
+    ]);
     
     foreach ($userDeps as $ud) {
         $ud->hide_online = 1;
@@ -391,19 +391,19 @@ public static function isOnline($userId, $depId = null)
     $config = erConfigClassLhConfig::getInstance();
     $timeout = $config->getSetting('chat', 'online_timeout', 300);
     
-    $filter = array(
+    $filter = [
         'user_id' => $userId,
         'hide_online' => 0
-    );
+    ];
     
     if ($depId) {
         $filter['dep_id'] = $depId;
     }
     
-    $userDep = erLhcoreClassModelUserDep::findOne(array(
+    $userDep = erLhcoreClassModelUserDep::findOne([
         'filter' => $filter,
-        'filtergt' => array('last_activity' => time() - $timeout)
-    ));
+        'filtergt' => ['last_activity' => time() - $timeout]
+    ]);
     
     return $userDep !== false;
 }
@@ -422,12 +422,12 @@ class erLhcoreClassModelUserSetting {
         
         $value = $cache->restore($cacheKey);
         if ($value === false) {
-            $setting = self::findOne(array(
-                'filter' => array(
+            $setting = self::findOne([
+                'filter' => [
                     'user_id' => $userId,
                     'identifier' => $identifier
-                )
-            ));
+                ]
+            ]);
             
             $value = $setting ? $setting->value : $default;
             $cache->store($cacheKey, $value);
@@ -438,12 +438,12 @@ class erLhcoreClassModelUserSetting {
     
     public static function setSetting($userId, $identifier, $value)
     {
-        $setting = self::findOne(array(
-            'filter' => array(
+        $setting = self::findOne([
+            'filter' => [
                 'user_id' => $userId,
                 'identifier' => $identifier
-            )
-        ));
+            ]
+        ]);
         
         if ($setting) {
             $setting->value = $value;

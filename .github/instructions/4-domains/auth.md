@@ -59,12 +59,12 @@ function authenticate($username, $password, $remember = false)
     session_regenerate_id(true);
     $this->session->destroy();
 
-    $user = erLhcoreClassModelUser::findOne(array(
-        'filterlor' => array(
-            'username' => array($username),
-            'email' => array($username)
-        )
-    ));
+    $user = erLhcoreClassModelUser::findOne([
+        'filterlor' => [
+            'username' => [$username],
+            'email' => [$username]
+        ]
+    ]);
 
     if ($user === false) {
         return false;
@@ -124,7 +124,7 @@ $currentUser = erLhcoreClassUser::instance();
 $hasAccess = $currentUser->hasAccessTo('lhchat', 'use');
 
 // Check with limitation return
-$limitation = $currentUser->hasAccessTo('lhchat', array('use'), true);
+$limitation = $currentUser->hasAccessTo('lhchat', ['use'], true);
 if ($limitation === false) {
     // No permission
 } elseif ($limitation === true) {
@@ -138,13 +138,13 @@ if ($limitation === false) {
 
 ```php
 // modules/lhchat/module.php
-$FunctionList = array();
-$FunctionList['use'] = array('explain' => 'General chat module usage');
-$FunctionList['allowopenremote'] = array('explain' => 'Open chats from other operators');
-$FunctionList['allowcloseremote'] = array('explain' => 'Close chats from other operators');
-$FunctionList['allowtransfer'] = array('explain' => 'Transfer chats');
-$FunctionList['allowblockusers'] = array('explain' => 'Block visitors');
-$FunctionList['setsubject'] = array('explain' => 'Set chat subjects');
+$FunctionList = [];
+$FunctionList['use'] = ['explain' => 'General chat module usage'];
+$FunctionList['allowopenremote'] = ['explain' => 'Open chats from other operators'];
+$FunctionList['allowcloseremote'] = ['explain' => 'Close chats from other operators'];
+$FunctionList['allowtransfer'] = ['explain' => 'Transfer chats'];
+$FunctionList['allowblockusers'] = ['explain' => 'Block visitors'];
+$FunctionList['setsubject'] = ['explain' => 'Set chat subjects'];
 ```
 
 ### Department-Based Permissions
@@ -181,17 +181,17 @@ public static function validateRequest()
         $auth = base64_decode(substr($headers['Authorization'], 6));
         list($username, $apiKey) = explode(':', $auth);
         
-        $user = erLhcoreClassModelUser::findOne(array(
-            'filter' => array('username' => $username)
-        ));
+        $user = erLhcoreClassModelUser::findOne([
+            'filter' => ['username' => $username]
+        ]);
         
-        $key = erLhAbstractModelRestAPIKey::findOne(array(
-            'filter' => array(
+        $key = erLhAbstractModelRestAPIKey::findOne([
+            'filter' => [
                 'api_key' => $apiKey,
                 'user_id' => $user->id,
                 'active' => 1
-            )
-        ));
+            ]
+        ]);
         
         if ($key) {
             return $user;
@@ -208,14 +208,14 @@ public static function validateRequest()
 // In REST API controller
 $userData = erLhcoreClassRestAPIHandler::validateRequest();
 if ($userData === false) {
-    echo json_encode(array('error' => true, 'message' => 'Invalid API key'));
+    echo json_encode(['error' => true, 'message' => 'Invalid API key']);
     exit;
 }
 
 // User is authenticated, proceed with API logic
-$chats = erLhcoreClassModelChat::getList(array(
-    'filter' => array('user_id' => $userData->id)
-));
+$chats = erLhcoreClassModelChat::getList([
+    'filter' => ['user_id' => $userData->id]
+]);
 ```
 
 ## Session Management

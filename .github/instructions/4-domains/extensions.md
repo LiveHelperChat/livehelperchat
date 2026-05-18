@@ -39,12 +39,12 @@ extension/
 
 ```php
 // settings/settings.ini.php
-'site' => array(
-    'extensions' => array(
+'site' => [
+    'extensions' => [
         'myextension',
         'anotherextension'
-    ),
-),
+    ],
+],
 ```
 
 ## Bootstrap Class Pattern (Production Style)
@@ -64,10 +64,10 @@ class erLhcoreClassExtensionMyextension
         $dispatcher = erLhcoreClassChatEventDispatcher::getInstance();
 
         // Register event listeners
-        $dispatcher->listen('chat.chat_started', array($this, 'onChatStarted'));
-        $dispatcher->listen('chat.addmsguser', array($this, 'onMessageReceived'));
-        $dispatcher->listen('chat.web_add_msg_admin', array($this, 'onOperatorMessage'));
-        $dispatcher->listen('chat.chat_closed', array($this, 'onChatClosed'));
+        $dispatcher->listen('chat.chat_started', [$this, 'onChatStarted']);
+        $dispatcher->listen('chat.addmsguser', [$this, 'onMessageReceived']);
+        $dispatcher->listen('chat.web_add_msg_admin', [$this, 'onOperatorMessage']);
+        $dispatcher->listen('chat.chat_closed', [$this, 'onChatClosed']);
         
         // Include extension classes
         include_once __DIR__ . '/../classes/autoload.php';
@@ -110,25 +110,25 @@ class erLhcoreClassExtensionMyextension
 ```php
 // extension/myextension/modules/lhchat/module.php
 <?php
-$Module = array("name" => "Chat module");
+$Module = ["name" => "Chat module"];
 
-$ViewList = array();
+$ViewList = [];
 
 // Override existing view
-$ViewList['single'] = array(
-    'params' => array('chat_id'),
-    'functions' => array('use')
-);
+$ViewList['single'] = [
+    'params' => ['chat_id'],
+    'functions' => ['use']
+];
 
 // Add new view
-$ViewList['mycustom'] = array(
-    'params' => array('id'),
-    'uparams' => array('tab'),
-    'functions' => array('use')
-);
+$ViewList['mycustom'] = [
+    'params' => ['id'],
+    'uparams' => ['tab'],
+    'functions' => ['use']
+];
 
-$FunctionList = array();
-$FunctionList['myfunction'] = array('explain' => 'My custom permission');
+$FunctionList = [];
+$FunctionList['myfunction'] = ['explain' => 'My custom permission'];
 ```
 
 ### Controller File
@@ -194,12 +194,12 @@ class erLhcoreClassExtMyExtension {
         erLhcoreClassLog::write('Extension: Chat started - ' . $chat->id);
         
         // Store custom data
-        $customData = array(
+        $customData = [
             'extension_version' => '1.0',
             'started_at' => time()
-        );
+        ];
         
-        $chatVars = json_decode($chat->chat_variables, true) ?? array();
+        $chatVars = json_decode($chat->chat_variables, true) ?? [];
         $chatVars['myextension'] = $customData;
         $chat->chat_variables = json_encode($chatVars);
         $chat->updateThis();
@@ -207,8 +207,8 @@ class erLhcoreClassExtMyExtension {
     
     public static function getCustomData($chat)
     {
-        $chatVars = json_decode($chat->chat_variables, true) ?? array();
-        return $chatVars['myextension'] ?? array();
+        $chatVars = json_decode($chat->chat_variables, true) ?? [];
+        return $chatVars['myextension'] ?? [];
     }
     
     public static function extendSwagger($params)
@@ -232,13 +232,13 @@ class erLhcoreClassExtMyExtension {
 ```php
 // extension/myextension/settings/settings.ini.php
 <?php
-return array(
-    'myextension' => array(
+return [
+    'myextension' => [
         'enabled' => true,
         'api_key' => '',
         'custom_option' => 'value'
-    )
-);
+    ]
+];
 ```
 
 ### Accessing Settings
@@ -258,9 +258,9 @@ erConfigClassLhConfig::getInstance()->conf()->getSetting('myextension', 'api_key
 
 ```php
 // lhc_web/lib/autoloads/lhautoload.php
-$classes = array(
+$classes = [
     // ... existing classes ...
-);
+];
 
 // Extension classes can be added here
 // But dynamic loading in bootstrap is preferred
@@ -373,13 +373,13 @@ class erLhcoreClassModelMyextensionData
 
     public function getState()
     {
-        return array(
+        return [
             'id' => $this->id,
             'chat_id' => $this->chat_id,
             'external_id' => $this->external_id,
             'data' => $this->data,
             'ctime' => $this->ctime
-        );
+        ];
     }
     
     public function __toString()
@@ -453,8 +453,8 @@ Use `doc/structure.json` for declarative schema definition:
 ```php
 <?php
 // extension/myextension/settings/settings.ini.default.php
-return array(
-    'myextension' => array(
+return [
+    'myextension' => [
         'enabled' => true,
         // Support environment variables with fallback defaults
         'api_key' => getenv('MYEXT_API_KEY') ?: '',
@@ -462,8 +462,8 @@ return array(
         'webhook_url' => getenv('MYEXT_WEBHOOK_URL') ?: '',
         'debug_mode' => getenv('MYEXT_DEBUG') ?: false,
         'verify_token' => getenv('MYEXT_VERIFY_TOKEN') ?: '',
-    )
-);
+    ]
+];
 ```
 
 ## Best Practices

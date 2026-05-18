@@ -18,9 +18,9 @@ class CSCacheAPC {
     public $cacheGlobalKey = null;
     
     // Cache version keys for invalidation
-    public $cacheKeys = array(
+    public $cacheKeys = [
         'site_version'
-    );
+    ];
 
     function __construct()
     {
@@ -82,10 +82,10 @@ $cache->delete('key2');
 ```php
 $cache = CSCacheAPC::getMem();
 
-$keys = array('key1', 'key2', 'key3');
+$keys = ['key1', 'key2', 'key3'];
 $values = $cache->restoreMulti($keys);
 
-// Returns: array('key1' => $value1, 'key2' => $value2, ...)
+// Returns: ['key1' => $value1, 'key2' => $value2, ...]
 ```
 
 ## Session Caching
@@ -176,18 +176,18 @@ public function clearCache()
 
 ```php
 // Enable caching in getList
-$departments = erLhcoreClassModelDepartament::getList(array(
-    'filter' => array('disabled' => 0),
+$departments = erLhcoreClassModelDepartament::getList([
+    'filter' => ['disabled' => 0],
     'enable_sql_cache' => true,
     'sql_cache_timeout' => 300  // 5 minutes
-));
+]);
 
 // With custom cache key
-$chats = erLhcoreClassModelChat::getList(array(
-    'filter' => array('dep_id' => $depId),
+$chats = erLhcoreClassModelChat::getList([
+    'filter' => ['dep_id' => $depId],
     'enable_sql_cache' => true,
     'cache_key' => 'dep_' . $depId . '_chats'
-));
+]);
 
 // With automatic versioning
 $cache = CSCacheAPC::getMem();
@@ -258,22 +258,22 @@ class erLhcoreClassTemplate {
 
 ```php
 // settings/settings.ini.php
-'cacheEngine' => array(
+'cacheEngine' => [
     'className' => 'lhRedis',  // or 'lhMemcache', 'lhApc', false
     'cache_global_key' => 'lhc_unique_key_here'
-),
+],
 
-'redis' => array(
+'redis' => [
     'host' => '127.0.0.1',
     'port' => 6379,
     'password' => '',
     'db' => 0
-),
+],
 
-'memcache' => array(
+'memcache' => [
     'host' => 'localhost',
     'port' => 11211
-),
+],
 ```
 
 ## Object-Level Caching

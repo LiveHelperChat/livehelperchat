@@ -110,15 +110,15 @@ class erLhcoreClassDepartament {
         $currentTime = $currentHour * 100 + $currentMinute;  // HHMM format
         
         // Map day to field names
-        $dayMap = array(
-            'mon' => array('mod_start_hour', 'mod_end_hour'),
-            'tue' => array('tud_start_hour', 'tud_end_hour'),
-            'wed' => array('wed_start_hour', 'wed_end_hour'),
-            'thu' => array('thd_start_hour', 'thd_end_hour'),
-            'fri' => array('frd_start_hour', 'frd_end_hour'),
-            'sat' => array('sad_start_hour', 'sad_end_hour'),
-            'sun' => array('sud_start_hour', 'sud_end_hour')
-        );
+        $dayMap = [
+            'mon' => ['mod_start_hour', 'mod_end_hour'],
+            'tue' => ['tud_start_hour', 'tud_end_hour'],
+            'wed' => ['wed_start_hour', 'wed_end_hour'],
+            'thu' => ['thd_start_hour', 'thd_end_hour'],
+            'fri' => ['frd_start_hour', 'frd_end_hour'],
+            'sat' => ['sad_start_hour', 'sad_end_hour'],
+            'sun' => ['sud_start_hour', 'sud_end_hour']
+        ];
         
         $fields = $dayMap[$dayOfWeek];
         $startHour = $dep->{$fields[0]};
@@ -144,15 +144,15 @@ class erLhcoreClassDepartament {
         $config = erConfigClassLhConfig::getInstance();
         $timeout = $config->getSetting('chat', 'online_timeout', 300);
         
-        $onlineOperator = erLhcoreClassModelUserDep::findOne(array(
-            'filter' => array(
+        $onlineOperator = erLhcoreClassModelUserDep::findOne([
+            'filter' => [
                 'dep_id' => $depId,
                 'hide_online' => 0
-            ),
-            'filtergt' => array(
+            ],
+            'filtergt' => [
                 'last_activity' => time() - $timeout
-            )
-        ));
+            ]
+        ]);
         
         return $onlineOperator !== false;
     }
@@ -179,17 +179,17 @@ public static function getCustomWorkHours($depId, $date)
 {
     $timestamp = $date->getTimestamp();
     
-    $custom = erLhcoreClassModelDepartamentCustomWorkHours::findOne(array(
-        'filter' => array('dep_id' => $depId),
-        'filterlte' => array('date_from' => $timestamp),
-        'filtergte' => array('date_to' => $timestamp)
-    ));
+    $custom = erLhcoreClassModelDepartamentCustomWorkHours::findOne([
+        'filter' => ['dep_id' => $depId],
+        'filterlte' => ['date_from' => $timestamp],
+        'filtergte' => ['date_to' => $timestamp]
+    ]);
     
     if ($custom) {
-        return array(
+        return [
             'start' => $custom->start_hour,
             'end' => $custom->end_hour
-        );
+        ];
     }
     
     return false;
@@ -276,17 +276,17 @@ public static function getAvailableOperators($dep)
     $config = erConfigClassLhConfig::getInstance();
     $timeout = $config->getSetting('chat', 'online_timeout', 300);
     
-    return erLhcoreClassModelUserDep::getList(array(
-        'filter' => array(
+    return erLhcoreClassModelUserDep::getList([
+        'filter' => [
             'dep_id' => $dep->id,
             'hide_online' => 0,
             'exclude_autoasign' => 0
-        ),
-        'filtergt' => array(
+        ],
+        'filtergt' => [
             'last_activity' => time() - $timeout
-        ),
+        ],
         'sort' => 'last_accepted ASC, active_chats ASC'
-    ));
+    ]);
 }
 ```
 
@@ -310,12 +310,12 @@ class erLhAbstractModelChatPriority {
 // Apply priority rules
 public static function applyPriorityRules($chat)
 {
-    $rules = erLhAbstractModelChatPriority::getList(array(
-        'filterin' => array(
-            'dep_id' => array(0, $chat->dep_id)  // Global or department-specific
-        ),
+    $rules = erLhAbstractModelChatPriority::getList([
+        'filterin' => [
+            'dep_id' => [0, $chat->dep_id]  // Global or department-specific
+        ],
         'sort' => 'sort_priority ASC'
-    ));
+    ]);
     
     foreach ($rules as $rule) {
         if (self::matchesRule($chat, $rule)) {
@@ -355,9 +355,9 @@ class erLhcoreClassModelDepartamentAvailability {
 // Track availability (called by cron)
 public static function trackAvailability()
 {
-    $departments = erLhcoreClassModelDepartament::getList(array(
-        'filter' => array('disabled' => 0)
-    ));
+    $departments = erLhcoreClassModelDepartament::getList([
+        'filter' => ['disabled' => 0]
+    ]);
     
     $now = time();
     $ymd = date('Ymd', $now);
@@ -384,15 +384,15 @@ public static function trackAvailability()
 
 ```php
 // Get departments for widget
-public static function getDepartmentsForWidget($filter = array())
+public static function getDepartmentsForWidget($filter = [])
 {
-    $defaultFilter = array(
-        'filter' => array(
+    $defaultFilter = [
+        'filter' => [
             'disabled' => 0,
             'hidden' => 0
-        ),
+        ],
         'sort' => 'sort_priority ASC, name ASC'
-    );
+    ];
     
     $filter = array_merge($defaultFilter, $filter);
     
@@ -444,9 +444,9 @@ public static function isOverLimit($depId)
     }
     
     // Check limit groups
-    $limitGroups = erLhcoreClassModelDepartamentLimitGroupMember::getList(array(
-        'filter' => array('dep_id' => $depId)
-    ));
+    $limitGroups = erLhcoreClassModelDepartamentLimitGroupMember::getList([
+        'filter' => ['dep_id' => $depId]
+    ]);
     
     foreach ($limitGroups as $lgm) {
         $group = erLhcoreClassModelDepartamentLimitGroup::fetch($lgm->dep_limit_group_id);
@@ -477,7 +477,7 @@ public static function updateDepartmentCounters($depId)
          (SELECT COUNT(*) FROM lh_chat WHERE dep_id = :dep AND status = 0)
          WHERE id = :dep'
     );
-    $stmt->execute(array(':dep' => $depId));
+    $stmt->execute([':dep' => $depId]);
     
     // Active count
     $stmt = $db->prepare(
@@ -485,7 +485,7 @@ public static function updateDepartmentCounters($depId)
          (SELECT COUNT(*) FROM lh_chat WHERE dep_id = :dep AND status = 1)
          WHERE id = :dep'
     );
-    $stmt->execute(array(':dep' => $depId));
+    $stmt->execute([':dep' => $depId]);
     
     // Bot count
     $stmt = $db->prepare(
@@ -493,6 +493,6 @@ public static function updateDepartmentCounters($depId)
          (SELECT COUNT(*) FROM lh_chat WHERE dep_id = :dep AND status = 5)
          WHERE id = :dep'
     );
-    $stmt->execute(array(':dep' => $depId));
+    $stmt->execute([':dep' => $depId]);
 }
 ```

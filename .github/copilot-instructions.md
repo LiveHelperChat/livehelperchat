@@ -81,118 +81,118 @@ See: `.github/instructions/10-summary.json` for primary entities overview
 * `filter` - Exact match conditions
   ```php
   // Example: Get chats with specific status
-  $chats = erLhcoreClassModelChat::getList(array(
-      'filter' => array('status' => 1)
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'filter' => ['status' => 1]
+  ]);
   ```
 * `filterfields` - Multiple filter combinations
   ```php
   // Example: Multiple filter combinations for different conditions
-  $chats = erLhcoreClassModelChat::getList(array(
-      'filterfields' => array(
-          array('status' => 1, 'dep_id' => 5),
-          array('status' => 2, 'dep_id' => 10)
-      )
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'filterfields' => [
+          ['status' => 1, 'dep_id' => 5],
+          ['status' => 2, 'dep_id' => 10]
+      ]
+  ]);
   ```
 * `filterin` - IN clause conditions
   ```php
   // Example: Get chats from multiple departments
-  $chats = erLhcoreClassModelChat::getList(array(
-      'filterin' => array('dep_id' => array(1, 2, 3, 4))
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'filterin' => ['dep_id' => [1, 2, 3, 4]]
+  ]);
   ```
 * `filterinfields` - Multiple IN clause combinations
   ```php
   // Example: Multiple IN clause combinations for different conditions
-  $chats = erLhcoreClassModelChat::getList(array(
-      'filterinfields' => array(
-          array('dep_id' => array(1, 2, 3)),
-          array('status' => array(0, 1))
-      )
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'filterinfields' => [
+          ['dep_id' => [1, 2, 3]],
+          ['status' => [0, 1]]
+      ]
+  ]);
   ```
 * `filterlike` - LIKE conditions with wildcards (%value%)
   ```php
   // Example: Search chats by visitor nick containing text
-  $chats = erLhcoreClassModelChat::getList(array(
-      'filterlike' => array('nick' => 'John')
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'filterlike' => ['nick' => 'John']
+  ]);
   ```
 * `filterlikefields` - Multiple LIKE combinations
   ```php
   // Example: Multiple LIKE combinations for different conditions
-  $chats = erLhcoreClassModelChat::getList(array(
-      'filterlikefields' => array(
-          array('nick' => 'John', 'email' => 'gmail'),
-          array('phone' => '555', 'referrer' => 'google')
-      )
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'filterlikefields' => [
+          ['nick' => 'John', 'email' => 'gmail'],
+          ['phone' => '555', 'referrer' => 'google']
+      ]
+  ]);
   ```
 * `filterlikeright` - Right LIKE conditions (value%)
   ```php
   // Example: Search for emails starting with specific text
-  $chats = erLhcoreClassModelChat::getList(array(
-      'filterlikeright' => array('email' => 'admin@')
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'filterlikeright' => ['email' => 'admin@']
+  ]);
   ```
 * `filternotlikefields` - NOT LIKE conditions
 * `filtergt/filterlt/filtergte/filterlte` - Comparison operators
   ```php
   // Example: Get chats newer than timestamp
-  $chats = erLhcoreClassModelChat::getList(array(
-      'filtergt' => array('time' => time() - 3600)
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'filtergt' => ['time' => time() - 3600]
+  ]);
   ```
 * `filtergtfields/filterltfields/filtergtefields/filterltefields` - Multiple comparison combinations
 * `filtergtenbind/filterltenbind` - Comparison without parameter binding
 * `filternot` - NOT conditions
   ```php
   // Example: Get chats not in pending status
-  $chats = erLhcoreClassModelChat::getList(array(
-      'filternot' => array('status' => 0)
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'filternot' => ['status' => 0]
+  ]);
   ```
 * `filternotfields` - Multiple NOT combinations
 * `filternotin` - NOT IN conditions
   ```php
   // Example: Exclude specific departments
-  $chats = erLhcoreClassModelChat::getList(array(
-      'filternotin' => array('dep_id' => array(1, 2))
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'filternotin' => ['dep_id' => [1, 2]]
+  ]);
   ```
 * `filterall` - ALL IN conditions
 * `filterlor` - OR conditions across same field
   ```php
   // Example: Get chats with multiple status values using OR
-  $chats = erLhcoreClassModelChat::getList(array(
-      'filterlor' => array('status' => array(1, 2))
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'filterlor' => ['status' => [1, 2]]
+  ]);
   ```
 * `filterlorf` - OR conditions across different fields
 * `leftjoin/innerjoin/leftouterjoin` - JOIN operations
   ```php
   // Example: Join with department table
-  $chats = erLhcoreClassModelChat::getList(array(
-      'leftjoin' => array('lh_departament' => array('lh_chat.dep_id', 'lh_departament.id'))
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'leftjoin' => ['lh_departament' => ['lh_chat.dep_id', 'lh_departament.id']]
+  ]);
   ```
 * `leftjoinraw` - Raw LEFT JOIN with custom conditions
 * `innerjoinsame` - INNER JOIN with table alias
 * `sort` - ORDER BY clause
   ```php
   // Example: Sort by creation time descending
-  $chats = erLhcoreClassModelChat::getList(array(
+  $chats = erLhcoreClassModelChat::getList([
       'sort' => 'time DESC'
-  ));
+  ]);
   ```
 * `limit/offset` - LIMIT/OFFSET for pagination
   ```php
   // Example: Get 20 chats starting from position 40
-  $chats = erLhcoreClassModelChat::getList(array(
+  $chats = erLhcoreClassModelChat::getList([
       'limit' => 20,
       'offset' => 40
-  ));
+  ]);
   ```
 * `group/having` - GROUP BY/HAVING clauses
 * `use_index` - Force index usage
@@ -200,41 +200,41 @@ See: `.github/instructions/10-summary.json` for primary entities overview
 * `lock` - Enable FOR UPDATE locking
   ```php
   // Example: Lock records for update
-  $chats = erLhcoreClassModelChat::getList(array(
+  $chats = erLhcoreClassModelChat::getList([
       'lock' => true,
-      'filter' => array('status' => 0)
-  ));
+      'filter' => ['status' => 0]
+  ]);
   ```
 * `ignore_fields` - Fields to ignore in SELECT
 * `enable_sql_cache` - Enable query result caching
   ```php
   // Example: Enable caching with custom timeout
-  $chats = erLhcoreClassModelChat::getList(array(
+  $chats = erLhcoreClassModelChat::getList([
       'enable_sql_cache' => true,
       'sql_cache_timeout' => 3600
-  ));
+  ]);
   ```
 * `cache_key` - Custom cache key
 * `sql_cache_timeout` - Cache timeout duration
 * `filter_custom/customfilter` - Raw custom conditions
   ```php
   // Example: Custom SQL condition
-  $chats = erLhcoreClassModelChat::getList(array(
-      'customfilter' => array('(nick != "" OR email != "")')
-  ));
+  $chats = erLhcoreClassModelChat::getList([
+      'customfilter' => ['(nick != "" OR email != "")']
+  ]);
   ```
 * `prefill_attributes` - Auto-populate related objects
   ```php
   // Example: Prefill department objects
-  $chats = erLhcoreClassModelChat::getList(array(
-      'prefill_attributes' => array(
-          'department' => array(
+  $chats = erLhcoreClassModelChat::getList([
+      'prefill_attributes' => [
+          'department' => [
               'attr_id' => 'dep_id',
               'attr_name' => 'department',
               'function' => 'erLhcoreClassModelDepartament::getList'
-          )
-      )
-  ));
+          ]
+      ]
+  ]);
   ```
 
 ### Lifecycle Hooks
@@ -261,14 +261,14 @@ Let say you have extension `customstatus` and want to override `chat/start` URL.
 * Module definition file `extension/customstatus/modules/lhchat/module.php` with content of
 ```php
 <?php
-$Module = array( "name" => "Chat module");
-$ViewList = array();
-$ViewList['start'] = array(
-    'params' => array(),
-    'uparams' => array()
-);
-$FunctionList = array();
-$FunctionList['my_cystom_function'] = array('explain' => 'My custom permission if required');
+$Module = [ "name" => "Chat module"];
+$ViewList = [];
+$ViewList['start'] = [
+    'params' => [],
+    'uparams' => []
+];
+$FunctionList = [];
+$FunctionList['my_cystom_function'] = ['explain' => 'My custom permission if required'];
 ```
 
 # How is a template path determined?
@@ -360,12 +360,12 @@ class erLhcoreClassModelChat {
     // ... other properties
     
     public function getState() {
-        return array(
+        return [
             'id' => $this->id,
             'nick' => $this->nick,
             'status' => $this->status,
             // ... map all properties
-        );
+        ];
     }
 }
 ```
@@ -401,7 +401,7 @@ $Result['pagelayout'] = 'pagelayouts/parts/main.php';
 // Dispatch events for extensibility
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch(
     'chat.chat_started',
-    array('chat' => &$chat, 'msg' => &$msg)
+    ['chat' => &$chat, 'msg' => &$msg]
 );
 
 // Listen for events (in extension bootstrap.php)
@@ -436,7 +436,7 @@ if (!$currentUser->hasAccessTo('lhchat', 'allowcloseremote')) {
 }
 
 // Check with limitation return
-$limitation = $currentUser->hasAccessTo('lhchat', array('allowcloseremote'), true);
+$limitation = $currentUser->hasAccessTo('lhchat', ['allowcloseremote'], true);
 if ($limitation === false) {
     // Check if user owns the resource
     if ($chat->user_id != $currentUser->getUserID()) {
@@ -455,18 +455,18 @@ erLhcoreClassRestAPIHandler::setHeaders();
 
 $userData = erLhcoreClassRestAPIHandler::validateRequest();
 if ($userData === false) {
-    echo erLhcoreClassRestAPIHandler::outputResponse(array(
+    echo erLhcoreClassRestAPIHandler::outputResponse([
         'error' => true,
         'message' => 'Unauthorized'
-    ));
+    ]);
     exit;
 }
 
 $chats = erLhcoreClassModelChat::getList($filter);
-echo erLhcoreClassRestAPIHandler::outputResponse(array(
+echo erLhcoreClassRestAPIHandler::outputResponse([
     'error' => false,
     'chats' => $chats
-));
+]);
 ```
 
 # Primary Entities

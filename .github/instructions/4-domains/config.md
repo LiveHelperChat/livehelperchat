@@ -11,9 +11,9 @@ Live Helper Chat uses a cascading configuration system with settings stored in I
 ```php
 // settings/settings.ini.default.php
 <?php
-return array(
-    'settings' => array(
-        'site' => array(
+return [
+    'settings' => [
+        'site' => [
             'title' => 'Live Helper Chat',
             'locale' => 'en_EN',
             'theme' => 'defaulttheme',
@@ -22,29 +22,29 @@ return array(
             'templatecache' => false,
             'templatecompile' => false,
             'time_zone' => 'UTC',
-            'extensions' => array(),
+            'extensions' => [],
             // ...
-        ),
-        'webhooks' => array(
+        ],
+        'webhooks' => [
             'enabled' => false,
             'worker' => 'http',
-        ),
-        'chat' => array(
+        ],
+        'chat' => [
             'online_timeout' => 300,
             'back_office_sinterval' => 10,
             'chat_message_sinterval' => 3.5,
-        ),
-        'db' => array(
+        ],
+        'db' => [
             'host' => 'localhost',
             'database' => 'lhc',
             'port' => 3306,
-        ),
-        'cacheEngine' => array(
+        ],
+        'cacheEngine' => [
             'className' => false,
             'cache_global_key' => '',
-        ),
-    ),
-);
+        ],
+    ],
+];
 ```
 
 ### User Settings Override
@@ -52,25 +52,25 @@ return array(
 ```php
 // settings/settings.ini.php (created during installation, gitignored)
 <?php
-return array(
-    'settings' => array(
-        'site' => array(
+return [
+    'settings' => [
+        'site' => [
             'installed' => true,
             'secrethash' => 'random_generated_hash',
-            'extensions' => array('myextension'),
-        ),
-        'db' => array(
+            'extensions' => ['myextension'],
+        ],
+        'db' => [
             'host' => '127.0.0.1',
             'user' => 'lhc_user',
             'password' => 'secure_password',
             'database' => 'livehelperchat',
-        ),
-        'cacheEngine' => array(
+        ],
+        'cacheEngine' => [
             'className' => 'lhRedis',
             'cache_global_key' => 'lhc_prod_',
-        ),
-    ),
-);
+        ],
+    ],
+];
 ```
 
 ## Configuration Class
@@ -82,7 +82,7 @@ return array(
 class erConfigClassLhConfig {
     
     private static $instance = null;
-    private $settings = array();
+    private $settings = [];
     
     public static function getInstance()
     {
@@ -119,7 +119,7 @@ $timeout = $cfg->getSetting('chat', 'online_timeout', 300);
 $debugEnabled = $cfg->getSetting('site', 'debug_output', false);
 
 // Get nested array
-$extensions = $cfg->getSetting('site', 'extensions', array());
+$extensions = $cfg->getSetting('site', 'extensions', []);
 
 // Get database config
 $dbHost = $cfg->getSetting('db', 'host');
@@ -197,12 +197,12 @@ class erLhcoreClassModelUserSetting {
     
     public static function setSetting($user_id, $identifier, $value)
     {
-        $existing = self::findOne(array(
-            'filter' => array(
+        $existing = self::findOne([
+            'filter' => [
                 'user_id' => $user_id,
                 'identifier' => $identifier
-            )
-        ));
+            ]
+        ]);
         
         if ($existing) {
             $existing->value = $value;
@@ -229,12 +229,12 @@ class erLhcoreClassModelUserSetting {
         
         $value = $cache->restore($cacheKey);
         if ($value === false) {
-            $setting = self::findOne(array(
-                'filter' => array(
+            $setting = self::findOne([
+                'filter' => [
                     'user_id' => $user_id,
                     'identifier' => $identifier
-                )
-            ));
+                ]
+            ]);
             
             $value = $setting ? $setting->value : $default;
             $cache->store($cacheKey, $value);
@@ -270,17 +270,17 @@ erLhcoreClassModelUserSetting::setSetting(
 ```php
 // extension/myext/settings/settings.ini.php
 <?php
-return array(
-    'myext' => array(
+return [
+    'myext' => [
         'api_url' => 'https://api.example.com',
         'api_key' => '',
         'debug' => false,
-        'features' => array(
+        'features' => [
             'feature_a' => true,
             'feature_b' => false,
-        ),
-    ),
-);
+        ],
+    ],
+];
 ```
 
 ### Loading Extension Config
@@ -298,7 +298,7 @@ class erLhcoreClassExtMyExt {
             if (file_exists($settingsFile)) {
                 self::$settings = include $settingsFile;
             } else {
-                self::$settings = array('myext' => array());
+                self::$settings = ['myext' => []];
             }
         }
         return self::$settings['myext'];
@@ -361,16 +361,16 @@ class erLhcoreClassCacheStorage {
 
 $env = getenv('LHC_ENVIRONMENT') ?: 'production';
 
-$baseConfig = array(
-    'settings' => array(
-        'db' => array(
+$baseConfig = [
+    'settings' => [
+        'db' => [
             'host' => getenv('DB_HOST') ?: 'localhost',
             'database' => getenv('DB_NAME') ?: 'lhc',
             'user' => getenv('DB_USER') ?: 'root',
             'password' => getenv('DB_PASS') ?: '',
-        ),
-    ),
-);
+        ],
+    ],
+];
 
 // Environment-specific overrides
 if ($env === 'development') {
@@ -410,16 +410,16 @@ return $baseConfig;
 4. **Document configuration options:**
    ```php
    // In settings.ini.default.php
-   'option' => array(
+   'option' => [
        'my_setting' => true,  // Description of what this does
-   ),
+   ],
    ```
 
 5. **Validate configuration on load:**
    ```php
    public static function validateConfig($config)
    {
-       $required = array('db.host', 'db.database', 'site.secrethash');
+       $required = ['db.host', 'db.database', 'site.secrethash'];
        foreach ($required as $key) {
            $parts = explode('.', $key);
            if (!isset($config['settings'][$parts[0]][$parts[1]])) {

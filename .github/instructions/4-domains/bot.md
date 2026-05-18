@@ -97,13 +97,13 @@ class erLhcoreClassGenericBot {
     
     public static function findMatchingTrigger($bot, $message, $chat)
     {
-        $events = erLhcoreClassModelGenericBotTriggerEvent::getList(array(
-            'filter' => array(
+        $events = erLhcoreClassModelGenericBotTriggerEvent::getList([
+            'filter' => [
                 'bot_id' => $bot->id,
                 'skip' => 0
-            ),
+            ],
             'sort' => 'priority ASC'
-        ));
+        ]);
         
         foreach ($events as $event) {
             if (self::matchesPattern($event->pattern, $message)) {
@@ -220,11 +220,11 @@ public static function executeTextAction($action, $chat)
     
     // Handle rich content (buttons, cards, etc.)
     if (isset($action['content']['buttons'])) {
-        $msg->meta_msg = json_encode(array(
-            'content' => array(
+        $msg->meta_msg = json_encode([
+            'content' => [
                 'buttons' => $action['content']['buttons']
-            )
-        ));
+            ]
+        ]);
     }
     
     $msg->saveThis();
@@ -259,8 +259,8 @@ public static function executeRestApiAction($action, $chat)
     }
     
     // Headers
-    $headers = array();
-    foreach ($config['headers'] ?? array() as $header) {
+    $headers = [];
+    foreach ($config['headers'] ?? [] as $header) {
         $headers[] = $header['key'] . ': ' . self::processVariables($header['value'], $chat);
     }
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -305,7 +305,7 @@ public static function executeTransferAction($action, $chat)
     // Dispatch transfer event
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch(
         'chat.genericbot_chat_command_transfer',
-        array('chat' => &$chat)
+        ['chat' => &$chat]
     );
 }
 ```
@@ -324,7 +324,7 @@ public static function processVariables($text, $chat)
     $text = str_replace('{lhc.department}', $chat->department->name, $text);
     
     // Chat variables (from custom fields)
-    $chatVars = json_decode($chat->chat_variables, true) ?? array();
+    $chatVars = json_decode($chat->chat_variables, true) ?? [];
     foreach ($chatVars as $key => $value) {
         $text = str_replace('{chat.' . $key . '}', $value, $text);
     }
@@ -332,7 +332,7 @@ public static function processVariables($text, $chat)
     // Bot collected data
     $workflow = self::getChatWorkflow($chat);
     if ($workflow) {
-        $collected = json_decode($workflow->collected_data, true) ?? array();
+        $collected = json_decode($workflow->collected_data, true) ?? [];
         foreach ($collected as $key => $value) {
             $text = str_replace('{collected.' . $key . '}', $value, $text);
         }
@@ -372,7 +372,7 @@ $workflow->chat_id = $chat->id;
 $workflow->trigger_id = $trigger->id;
 $workflow->time = time();
 $workflow->status = 1;  // Active
-$workflow->collected_data = json_encode(array());
+$workflow->collected_data = json_encode([]);
 $workflow->saveThis();
 
 // Update collected data
@@ -444,12 +444,12 @@ class erLhcoreClassModelGenericBotTrItem {
 
 4. **Limit bot response frequency:**
    ```php
-   $lastResponse = erLhcoreClassModelGenericBotRepeatRestrict::findOne(array(
-       'filter' => array(
+   $lastResponse = erLhcoreClassModelGenericBotRepeatRestrict::findOne([
+       'filter' => [
            'chat_id' => $chat->id,
            'trigger_id' => $trigger->id
-       )
-   ));
+       ]
+   ]);
    
    if ($lastResponse && $lastResponse->counter >= $maxRepeats) {
        return; // Don't repeat same response
@@ -460,11 +460,11 @@ class erLhcoreClassModelGenericBotTrItem {
    ```php
    $event = new erLhcoreClassModelGenericBotChatEvent();
    $event->chat_id = $chat->id;
-   $event->content = json_encode(array(
+   $event->content = json_encode([
        'trigger' => $trigger->name,
        'input' => $msg->msg,
        'actions' => $actions
-   ));
+   ]);
    $event->ctime = time();
    $event->saveThis();
    ```

@@ -18,7 +18,7 @@
       "use_cases": ["All database entities", "Data persistence"],
       "example": {
         "file": "lib/models/lhchat/erlhcoreclassmodelchat.php",
-        "code": "class erLhcoreClassModelChat {\n    use erLhcoreClassDBTrait;\n    \n    public static $dbTable = 'lh_chat';\n    public static $dbTableId = 'id';\n    public static $dbSessionHandler = 'erLhcoreClassChat::getSession';\n    \n    public function getState() {\n        return array(\n            'id' => $this->id,\n            'nick' => $this->nick,\n            // ...\n        );\n    }\n}"
+        "code": "class erLhcoreClassModelChat {\n    use erLhcoreClassDBTrait;\n    \n    public static $dbTable = 'lh_chat';\n    public static $dbTableId = 'id';\n    public static $dbSessionHandler = 'erLhcoreClassChat::getSession';\n    \n    public function getState() {\n        return [\n            'id' => $this->id,\n            'nick' => $this->nick,\n            // ...\n        ];\n    }\n}"
       },
       "related_files": [
         "lib/core/lhcore/lhdbtrait.php",
@@ -42,7 +42,7 @@
       "use_cases": ["Webhooks", "Extension integration", "Mobile notifications", "Logging"],
       "example": {
         "file": "lib/core/lhchat/lhchat.php",
-        "code": "// Dispatch event with reference parameters\nerLhcoreClassChatEventDispatcher::getInstance()->dispatch(\n    'chat.chat_started',\n    array('chat' => &$chat, 'msg' => &$msg)\n);\n\n// Listen for event\n$dispatcher->listen('chat.chat_started', 'MyClass::handler');"
+        "code": "// Dispatch event with reference parameters\nerLhcoreClassChatEventDispatcher::getInstance()->dispatch(\n    'chat.chat_started',\n    ['chat' => &$chat, 'msg' => &$msg]\n);\n\n// Listen for event\n$dispatcher->listen('chat.chat_started', 'MyClass::handler');"
       },
       "related_files": [
         "lib/core/lhchat/lhchateventdispatcher.php",
@@ -54,7 +54,7 @@
       "use_cases": ["External integrations", "Widget API", "Mobile app API"],
       "example": {
         "file": "modules/lhrestapi/chats.php",
-        "code": "erLhcoreClassRestAPIHandler::setHeaders();\n\n$userData = erLhcoreClassRestAPIHandler::validateRequest();\nif ($userData === false) {\n    echo erLhcoreClassRestAPIHandler::outputResponse(array(\n        'error' => true,\n        'message' => 'Unauthorized'\n    ));\n    exit;\n}\n\n$chats = erLhcoreClassModelChat::getList($filter);\necho erLhcoreClassRestAPIHandler::outputResponse(array(\n    'error' => false,\n    'chats' => $chats\n));"
+        "code": "erLhcoreClassRestAPIHandler::setHeaders();\n\n$userData = erLhcoreClassRestAPIHandler::validateRequest();\nif ($userData === false) {\n    echo erLhcoreClassRestAPIHandler::outputResponse([\n        'error' => true,\n        'message' => 'Unauthorized'\n    ]);\n    exit;\n}\n\n$chats = erLhcoreClassModelChat::getList($filter);\necho erLhcoreClassRestAPIHandler::outputResponse([\n    'error' => false,\n    'chats' => $chats\n]);"
       },
       "related_files": [
         "lib/core/lhrestapi/lhrestapivalidator.php",
@@ -67,7 +67,7 @@
       "use_cases": ["Admin controllers", "API endpoints", "Feature access"],
       "example": {
         "file": "modules/lhchat/adminchat.php",
-        "code": "$currentUser = erLhcoreClassUser::instance();\n\n// Simple permission check\nif (!$currentUser->hasAccessTo('lhchat', 'use')) {\n    erLhcoreClassModule::redirect('user/login');\n    exit;\n}\n\n// Permission with limitation return\n$limitation = $currentUser->hasAccessTo('lhchat', array('allowcloseremote'), true);\nif ($limitation === false) {\n    // Check if user owns the chat\n    if ($chat->user_id != $currentUser->getUserID()) {\n        throw new Exception('No permission');\n    }\n}"
+        "code": "$currentUser = erLhcoreClassUser::instance();\n\n// Simple permission check\nif (!$currentUser->hasAccessTo('lhchat', 'use')) {\n    erLhcoreClassModule::redirect('user/login');\n    exit;\n}\n\n// Permission with limitation return\n$limitation = $currentUser->hasAccessTo('lhchat', ['allowcloseremote'], true);\nif ($limitation === false) {\n    // Check if user owns the chat\n    if ($chat->user_id != $currentUser->getUserID()) {\n        throw new Exception('No permission');\n    }\n}"
       },
       "related_files": [
         "lib/core/lhuser/lhuser.php",
@@ -79,7 +79,7 @@
       "use_cases": ["Data listing", "Filtering", "Pagination"],
       "example": {
         "file": "Various controllers",
-        "code": "$chats = erLhcoreClassModelChat::getList(array(\n    'filter' => array('status' => 1),\n    'filterin' => array('dep_id' => array(1, 2, 3)),\n    'filtergt' => array('time' => $startTime),\n    'filterlike' => array('nick' => $searchTerm),\n    'customfilter' => array('(user_id = 5 OR transfer_uid = 5)'),\n    'sort' => 'priority DESC, time ASC',\n    'limit' => 50,\n    'offset' => 0\n));"
+        "code": "$chats = erLhcoreClassModelChat::getList([\n    'filter' => ['status' => 1],\n    'filterin' => ['dep_id' => [1, 2, 3]],\n    'filtergt' => ['time' => $startTime],\n    'filterlike' => ['nick' => $searchTerm],\n    'customfilter' => ['(user_id = 5 OR transfer_uid = 5)'],\n    'sort' => 'priority DESC, time ASC',\n    'limit' => 50,\n    'offset' => 0\n]);"
       },
       "related_files": [
         "lib/core/lhcore/lhdbtrait.php"
@@ -101,7 +101,7 @@
       "use_cases": ["Audit logging", "Cache invalidation", "Event dispatch"],
       "example": {
         "file": "lib/models/lhchat/erlhcoreclassmodelchat.php",
-        "code": "public function beforeSave($params = array())\n{\n    if (!$this->id) {\n        $this->time = time();\n        $this->hash = sha1(microtime() . rand());\n    }\n}\n\npublic function afterSave($params = array())\n{\n    erLhcoreClassChatEventDispatcher::getInstance()->dispatch(\n        'chat.chat_saved',\n        array('chat' => &$this)\n    );\n}\n\npublic function beforeRemove()\n{\n    // Clean up related messages\n    $db = ezcDbInstance::get();\n    $stmt = $db->prepare('DELETE FROM lh_msg WHERE chat_id = :id');\n    $stmt->execute(array(':id' => $this->id));\n}"
+        "code": "public function beforeSave($params = [])\n{\n    if (!$this->id) {\n        $this->time = time();\n        $this->hash = sha1(microtime() . rand());\n    }\n}\n\npublic function afterSave($params = [])\n{\n    erLhcoreClassChatEventDispatcher::getInstance()->dispatch(\n        'chat.chat_saved',\n        ['chat' => &$this]\n    );\n}\n\npublic function beforeRemove()\n{\n    // Clean up related messages\n    $db = ezcDbInstance::get();\n    $stmt = $db->prepare('DELETE FROM lh_msg WHERE chat_id = :id');\n    $stmt->execute([':id' => $this->id]);\n}"
       },
       "related_files": [
         "lib/core/lhcore/lhdbtrait.php"
@@ -123,7 +123,7 @@
       "use_cases": ["Chat lists", "Statistics", "Reports"],
       "example": {
         "file": "modules/lhchat/list.php",
-        "code": "$currentUser = erLhcoreClassUser::instance();\n$departments = erLhcoreClassUserDep::getUserReadDepartments($currentUser->getUserID());\n\n$filter = array('limit' => 50);\n\n// Apply department limitation\n$limitation = erLhcoreClassChat::getDepartmentLimitation('lh_chat', $departments);\nif ($limitation !== false && $limitation !== true) {\n    $filter['customfilter'][] = $limitation;\n}\n\n$chats = erLhcoreClassModelChat::getList($filter);"
+        "code": "$currentUser = erLhcoreClassUser::instance();\n$departments = erLhcoreClassUserDep::getUserReadDepartments($currentUser->getUserID());\n\n$filter = ['limit' => 50];\n\n// Apply department limitation\n$limitation = erLhcoreClassChat::getDepartmentLimitation('lh_chat', $departments);\nif ($limitation !== false && $limitation !== true) {\n    $filter['customfilter'][] = $limitation;\n}\n\n$chats = erLhcoreClassModelChat::getList($filter);"
       },
       "related_files": [
         "lib/core/lhchat/lhchat.php",
