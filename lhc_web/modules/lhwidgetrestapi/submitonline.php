@@ -427,6 +427,7 @@ if (empty($Errors)) {
             && !empty($additionalParams['theme']->bot_configuration_array['trigger_id'])
             && $additionalParams['theme']->bot_configuration_array['trigger_id'] > 0
             && !isset($requestPayload['bpayload']['payload'])
+            && !is_numeric($inputData->trigger_id)
         ) {
             $trigger = erLhcoreClassModelGenericBotTrigger::fetch($additionalParams['theme']->bot_configuration_array['trigger_id']);
             $paramsExecution['trigger_id_executed'] = $additionalParams['theme']->bot_configuration_array['trigger_id'];
