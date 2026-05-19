@@ -140,4 +140,4 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
 
 ezcBaseInit::setCallback ( 'ezcInitLog', 'erLhcoreClassLog' );
 
-?>
+
