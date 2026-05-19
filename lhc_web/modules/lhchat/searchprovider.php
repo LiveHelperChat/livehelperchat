@@ -25,6 +25,8 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
         $filter['customfilter'] = array('(`lhc_mailconv_match_rule`.`name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `lh_departament`.`name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `lhc_mailconv_mailbox`.`mail` LIKE ('. $db->quote('%'.$search.'%')  .'))');
     }
 
+    $filter['group'] = '`lhc_mailconv_match_rule`.`id`';
+
     $items = erLhcoreClassModelMailconvMatchRule::getList($filter);
 
     foreach ($items as $item) {
