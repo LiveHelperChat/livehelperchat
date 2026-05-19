@@ -168,4 +168,3 @@ class erLhcoreClassURL extends ezcUrl {
     }
 
 }
-?>
