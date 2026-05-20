@@ -407,7 +407,8 @@ try {
                     `created_at` bigint(20) unsigned NOT NULL,
                     `data` longtext NOT NULL,
                     PRIMARY KEY (`id`),
-                    KEY `type_id` (`type`,`id` DESC)
+                    KEY `type_id` (`type`,`id` DESC),
+                    KEY `created_at` (`created_at`)
                     ) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_chat_start_settings` ( 

@@ -12426,6 +12426,14 @@
       "old" : [
 
       ]
+    },
+    "lh_abstract_performance" : {
+      "new" : {
+        "created_at" : "ALTER TABLE `lh_abstract_performance` ADD INDEX `created_at` (`created_at`);"
+      },
+      "old" : [
+
+      ]
     }
   },
   "version_updates" : {
@@ -12594,6 +12602,6 @@
     "lh_departament_group_user_disabled" : "CREATE TABLE `lh_departament_group_user_disabled` (\n                                             `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,`only_priority` tinyint(1) unsigned NOT NULL DEFAULT '0',\n                                             `dep_group_id` int(11) NOT NULL,\n                                             `user_id` int(11) NOT NULL,\n                                             `read_only` tinyint(1) unsigned NOT NULL DEFAULT 0,\n                                             `exc_indv_autoasign` tinyint(1) unsigned NOT NULL DEFAULT 0,\n                                             `assign_priority` int(11) NOT NULL DEFAULT 0,\n                                             `chat_min_priority` int(11) NOT NULL DEFAULT 0,\n                                             `chat_max_priority` int(11) NOT NULL DEFAULT 0,\n                                             PRIMARY KEY (`id`),\n                                             KEY `dep_group_id` (`dep_group_id`),\n                                             KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lhc_mailconv_pending_import" : "CREATE TABLE `lhc_mailconv_pending_import` (  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,  `uid` bigint(20) unsigned NOT NULL,  `mailbox_id` int(11) unsigned NOT NULL,  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,  `attempt` tinyint(1) unsigned NOT NULL DEFAULT 0,  `last_failure` text COLLATE utf8mb4_unicode_ci NOT NULL,  `created_at` int(11) unsigned NOT NULL,  `updated_at` int(11) unsigned NOT NULL,  PRIMARY KEY (`id`),  UNIQUE KEY `mailbox_id_uid` (`mailbox_id`,`uid`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_abstract_proactive_chat_invitation_one_time" : "CREATE TABLE `lh_abstract_proactive_chat_invitation_one_time` (  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,  `invitation_id` bigint(20) unsigned NOT NULL,  `vid_id` bigint(20) unsigned NOT NULL,  PRIMARY KEY (`id`),  KEY `invitation_id_vid_id` (`invitation_id`,`vid_id`),  KEY `vid_id` (`vid_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lh_abstract_performance" : "CREATE TABLE `lh_abstract_performance` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `type` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `created_at` bigint(20) unsigned NOT NULL,\n  `data` longtext NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `type_id` (`type`,`id` DESC)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
+    "lh_abstract_performance" : "CREATE TABLE `lh_abstract_performance` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `type` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `created_at` bigint(20) unsigned NOT NULL,\n  `data` longtext NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `created_at` (`created_at`), \n  KEY `type_id` (`type`,`id` DESC)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
   }
 }

@@ -355,7 +355,7 @@ class PerformanceStats {
                                     SUM(gap_end - gap_start) AS toff
                                 FROM gaps
                                 WHERE gap_end > gap_start
-                                AND (gap_end - gap_start) <= 5400
+                                AND (gap_end - gap_start) <= 18000
                                 AND (next_start IS NOT NULL OR (gap_end - gap_start) >= 30)  -- min 30s for the open-ended (last) gap
                                 GROUP BY user_id
                                 ORDER BY user_id;');
@@ -535,5 +535,23 @@ class PerformanceStats {
 PerformanceStats::departmentStats($regenerate);
 echo "\n";
 PerformanceStats::operatorsStats($regenerate);
+
+echo "-=Deleting older records than 30 days=-\n\n";
+try {
+    $db = ezcDbInstance::get();
+    $days = 30;
+    $cutoff = time() - ($days * 86400);
+    $table = 'lh_abstract_performance';
+
+    $stmt = $db->prepare('DELETE FROM ' . $table . ' WHERE created_at < :cutoff');
+    $stmt->bindValue(':cutoff', $cutoff, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $deleted = $stmt->rowCount();
+    echo "Deleted " . $deleted . " performance records older than " . $days . " days from table " . $table . "\n\n";
+
+} catch (Exception $e) {
+    echo "Error deleting old performance records: " . $e->getMessage() . "\n\n";
+}
 
 echo "\n-=Finished performance stats aggregation=-\n";

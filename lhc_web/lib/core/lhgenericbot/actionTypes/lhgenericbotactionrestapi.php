@@ -196,7 +196,7 @@ class erLhcoreClassGenericBotActionRestapi
                             )
                         );
                     }
-                    if (isset($restAPI->configuration_array['log_system']) && $restAPI->configuration_array['log_system'] && isset($chat) && is_object($chat)) {
+                    if (isset($restAPI->configuration_array['log_system']) && $restAPI->configuration_array['log_system'] && isset($chat) && is_object($chat) && $chat->id > 0) {
 
                         if (isset($response['params_request']['headers']) && is_array($response['params_request']['headers'])) {
                             foreach ($response['params_request']['headers'] as $keyHeader => $valueHeader) {
@@ -1363,12 +1363,12 @@ class erLhcoreClassGenericBotActionRestapi
                         'category' => 'rest_api',
                         'line' => __LINE__,
                         'file' => __FILE__,
-                        'object_id' => (isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat']) ? $paramsCustomer['chat']->id : 0)
+                        'object_id' => (isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat']) ? (int)$paramsCustomer['chat']->id : 0)
                     )
                 );
             }
 
-            if (isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'] && isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat'])) {
+            if (isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'] && isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat']) && $paramsCustomer['chat']->id > 0) {
                 $msgLog = new erLhcoreClassModelmsg();
                 $msgLog->user_id = -1;
                 $msgLog->chat_id = $paramsCustomer['chat']->id;
@@ -1916,7 +1916,10 @@ class erLhcoreClassGenericBotActionRestapi
                 );
             }
 
-            if ($validCode === true && isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'] && isset($paramsCustomer['chat']) && is_object($paramsCustomer['chat']) && $paramsCustomer['chat'] instanceof erLhcoreClassModelChat) {
+            if ($validCode === true && isset($paramsCustomer['rest_api']->configuration_array['log_system']) && $paramsCustomer['rest_api']->configuration_array['log_system'] && isset($paramsCustomer['chat']) && 
+            is_object($paramsCustomer['chat']) && 
+            $paramsCustomer['chat'] instanceof erLhcoreClassModelChat &&
+            $paramsCustomer['chat']->id > 0) {
 
                 if (isset($paramsRequestDebug['headers']) && is_array($paramsRequestDebug['headers'])) {
                     foreach ($paramsRequestDebug['headers'] as $keyHeader => $valueHeader) {
@@ -1989,7 +1992,7 @@ class erLhcoreClassGenericBotActionRestapi
         ]);
 
         // Save parsed output
-        if (isset($msgLog) && $msgLog instanceof erLhcoreClassModelmsg) {
+        if (isset($msgLog) && $msgLog instanceof erLhcoreClassModelmsg && $msgLog->chat_id > 0) {
             foreach (['content','content_2','content_3','content_4','content_5','content_6'] as $key) {
                 $msgLog->meta_msg_array[$key] = $responseNonStreaming[$key];
             }
