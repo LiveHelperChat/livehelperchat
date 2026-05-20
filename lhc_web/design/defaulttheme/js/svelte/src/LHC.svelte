@@ -790,6 +790,8 @@
             'limitam',
             'limitalm',
             'limitmm',
+            'limitdp',
+            'limitop',
         ];
 
         data.dw_filters && Object.keys(data.dw_filters).forEach(key => {
@@ -1066,6 +1068,8 @@
         filter += '/(limitpm)/'+parseInt($lhcList.limitpm);
         filter += '/(limitam)/'+parseInt($lhcList.limitam);
         filter += '/(limitalm)/'+parseInt($lhcList.limitalm);
+        filter += '/(limitdp)/'+parseInt($lhcList.limitdp);
+        filter += '/(limitop)/'+parseInt($lhcList.limitop);
 
         if (typeof $lhcList.widgetsActive == 'object' && $lhcList.widgetsActive.length > 0) {
             let map = {
@@ -1084,6 +1088,8 @@
                 'amails' : 11,
                 'malarms' : 12,
                 'my_mails' : 30,
+                'dep_performance' : 31,
+                'op_performance' : 32
             }
             let activeWidgets = [];
             $lhcList.widgetsActive.forEach(function(widget) {

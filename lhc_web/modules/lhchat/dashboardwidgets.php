@@ -89,6 +89,14 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_admin')) {
     }
 }
 
+if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic', 'dep_performance')) {
+    $supportedWidgets['dep_performance'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Department performance');
+}
+
+if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic', 'op_performance')) {
+    $supportedWidgets['op_performance'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Operator performance');
+}
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.dashboardwidgets',array('supported_widgets' => & $supportedWidgets));
 
 if (ezcInputForm::hasPostData()) {

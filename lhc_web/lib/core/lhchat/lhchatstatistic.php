@@ -606,8 +606,12 @@ class erLhcoreClassChatStatistic {
             $returnArray['total_closed_chats'] = erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))));
             $returnArray['total_unanswered_chat'] = erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('unanswered_chat' => 1))));
             $returnArray['chatbox_chats'] = erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_CHATBOX_CHAT))));
-            $returnArray['abandoned_chats'] = erLhcoreClassChat::getCount(array_merge_recursive($filter,array('customfilter' => ['((`lsync` < (`pnd_time` + `wait_time`) AND `wait_time` > 1) OR  (`lsync` > (`pnd_time` + `wait_time`) AND `wait_time` > 1 AND `user_id` = 0))'])));
-            $returnArray['dropped_chats'] = erLhcoreClassChat::getCount(array_merge_recursive($filter,array('customfilter' => ['(`lsync` > (`pnd_time` + `wait_time`) AND `has_unread_op_messages` = 1 AND `user_id` > 0)'])));
+
+            $abandoned_sql = (string)erLhcoreClassModelChatConfig::fetch('abandoned_sql')->current_value;
+            $dropped_sql = (string)erLhcoreClassModelChatConfig::fetch('dropped_sql')->current_value;
+
+            $returnArray['abandoned_chats'] = erLhcoreClassChat::getCount(array_merge_recursive($filter,array('customfilter' => [$abandoned_sql != '' ? $abandoned_sql : '((`lsync` < (`pnd_time` + `wait_time`) AND `wait_time` > 1) OR  (`lsync` > (`pnd_time` + `wait_time`) AND `wait_time` > 1 AND `user_id` = 0))'])));
+            $returnArray['dropped_chats'] = erLhcoreClassChat::getCount(array_merge_recursive($filter,array('customfilter' => [$dropped_sql != '' ? $dropped_sql : '(`lsync` > (`pnd_time` + `wait_time`) AND `has_unread_op_messages` = 1 AND `user_id` > 0)'])));
 
             // Total messages (including visitors, system and operators messages)
             $filterMsg = array_merge_recursive($filter,array('innerjoin' => array('lh_chat' => array('lh_msg.chat_id','lh_chat.id'))));
@@ -1304,7 +1308,17 @@ class erLhcoreClassChatStatistic {
                 $generalFilter = ' AND '.$generalFilter;
             }
 
-            $sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats, dep_id FROM lh_chat {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY dep_id ORDER BY number_of_chats DESC LIMIT 40";
+            $limit = '';
+
+            if (isset($filter['limit'])) {
+                if (is_numeric($filter['limit'])) {
+                    $limit = 'LIMIT ' . (int)$filter['limit'];
+                }
+            } else {
+                $limit = 'LIMIT 40';
+            }
+
+            $sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats, dep_id FROM lh_chat {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY dep_id ORDER BY number_of_chats DESC " . $limit;
 
             $db = ezcDbInstance::get();
             $stmt = $db->prepare($sql);
@@ -1466,10 +1480,18 @@ class erLhcoreClassChatStatistic {
             if ($groupField == 'transfer_uid') {
                 $column = '`transfer_uid` AS `user_id`';
             }
+            
+            $limit = '';
 
-        	$sql = "SELECT count(`lh_chat_participant`.`id`) AS number_of_chats,{$column} FROM lh_chat_participant {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY {$groupField} ORDER BY number_of_chats DESC LIMIT 40";
-
-            //echo $sql;
+            if (isset($filter['limit'])) {
+                if (is_numeric($filter['limit'])) {
+                    $limit = 'LIMIT ' . (int)$filter['limit'];
+                }
+            } else {
+                $limit = 'LIMIT 40';
+            }
+            
+        	$sql = "SELECT count(`lh_chat_participant`.`id`) AS number_of_chats,{$column} FROM lh_chat_participant {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY {$groupField} ORDER BY number_of_chats DESC " . $limit;
 
         	$db = ezcDbInstance::get();
         	$stmt = $db->prepare($sql);
@@ -1603,9 +1625,11 @@ class erLhcoreClassChatStatistic {
     public static function formatJoin($params) {
         $returnFilter = array();
         foreach ($params as $type => $params) {
-            foreach ($params as $field => $value) {
-                if ($type == 'innerjoin') {
-                    $returnFilter[] = ' INNER JOIN `'. $field . '` ON ' . $value[0] . ' = ' . $value[1];
+            if (is_array($params)){
+                foreach ($params as $field => $value) {
+                    if ($type == 'innerjoin') {
+                        $returnFilter[] = ' INNER JOIN `'. $field . '` ON ' . $value[0] . ' = ' . $value[1];
+                    }
                 }
             }
         }
@@ -1634,27 +1658,29 @@ class erLhcoreClassChatStatistic {
                     }
                 }
             } else {
-                foreach ($params as $field => $value) {
-                    if ($type == 'filter') {
-                        $returnFilter[] = $field.' = '.$db->quote($value);
-                    } elseif ($type == 'filterlte') {
-                        $returnFilter[] = $field.' <= '.$db->quote($value);
-                    } elseif ($type == 'filterlt') {
-                        $returnFilter[] = $field.' < '.$db->quote($value);
-                    } elseif ($type == 'filtergte') {
-                        $returnFilter[] = $field.' >= '.$db->quote($value);
-                    } elseif ($type == 'filtergt') {
-                        $returnFilter[] = $field.' > '.$db->quote($value);
-                    } elseif ($type == 'filterlike') {
-                        $returnFilter[] = $field.' LIKE (' . $db->quote('%'.$value.'%') . ')';
-                    } elseif ($type == 'filterin') {
-                        $valuesEscaped = [];
-                        foreach ($value as $valueItem) {
-                            $valuesEscaped[] = $db->quote($valueItem);
+                if (is_array($params)) {
+                    foreach ($params as $field => $value) {
+                        if ($type == 'filter') {
+                            $returnFilter[] = $field.' = '.$db->quote($value);
+                        } elseif ($type == 'filterlte') {
+                            $returnFilter[] = $field.' <= '.$db->quote($value);
+                        } elseif ($type == 'filterlt') {
+                            $returnFilter[] = $field.' < '.$db->quote($value);
+                        } elseif ($type == 'filtergte') {
+                            $returnFilter[] = $field.' >= '.$db->quote($value);
+                        } elseif ($type == 'filtergt') {
+                            $returnFilter[] = $field.' > '.$db->quote($value);
+                        } elseif ($type == 'filterlike') {
+                            $returnFilter[] = $field.' LIKE (' . $db->quote('%'.$value.'%') . ')';
+                        } elseif ($type == 'filterin') {
+                            $valuesEscaped = [];
+                            foreach ($value as $valueItem) {
+                                $valuesEscaped[] = $db->quote($valueItem);
+                            }
+                            $returnFilter[] = $field.' IN ( '. implode(',', $valuesEscaped) . ')';
+                        } elseif ($type == 'customfilter') {
+                            $returnFilter[] = $value;
                         }
-                        $returnFilter[] = $field.' IN ( '. implode(',', $valuesEscaped) . ')';
-                    } elseif ($type == 'customfilter') {
-                        $returnFilter[] = $value;
                     }
                 }
             }
@@ -4364,9 +4390,14 @@ class erLhcoreClassChatStatistic {
             $reformatResponse = [];
             // Reformat response to correctData
             foreach ($numberOfChats as $item){
-                $reformatResponse[$item['day']][$item['incoming_id']] = $item['total_records'];
-                if (!isset($webHooksDifference[$item['incoming_id']])) {
-                    $webHooksDifference[$item['incoming_id']] = 0;
+                // Ensure we don't use null as array offsets (deprecated in PHP)
+                $dayKey = isset($item['day']) ? $item['day'] : '';
+                $incomingKey = isset($item['incoming_id']) ? $item['incoming_id'] : '';
+
+                $reformatResponse[$dayKey][$incomingKey] = $item['total_records'];
+
+                if (!isset($webHooksDifference[$incomingKey])) {
+                    $webHooksDifference[$incomingKey] = 0;
                 }
             }
 

@@ -396,7 +396,19 @@ try {
         	       `lactivity` int(11) NOT NULL, 
         	       `type` tinyint(1) NOT NULL DEFAULT '0',
         	       PRIMARY KEY (`id`), 
-        	       KEY `user_id_lactivity` (`user_id`, `lactivity`), KEY `lactivity` (`lactivity`) ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+        	       KEY `user_id_lactivity` (`user_id`, `lactivity`), 
+                   KEY `user_id_time` (`user_id`, `time`),
+                   KEY `lactivity` (`lactivity`) ) 
+                   ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+                    $db->query("CREATE TABLE `lh_abstract_performance` (
+                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                    `type` tinyint(1) unsigned NOT NULL DEFAULT 0,
+                    `created_at` bigint(20) unsigned NOT NULL,
+                    `data` longtext NOT NULL,
+                    PRIMARY KEY (`id`),
+                    KEY `type_id` (`type`,`id` DESC)
+                    ) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_chat_start_settings` ( 
         	       `id` int(11) NOT NULL AUTO_INCREMENT, 

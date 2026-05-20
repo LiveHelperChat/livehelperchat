@@ -48,6 +48,22 @@ $transItems = array(
     'widget_title.alarm_mails' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Alarm mails'),
     'widget_title.pending_mails' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New mails'),
     'widget_title.onlineusers' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Online visitors'),
+    'widget_title.updated' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Updated'),
+    'widget_title.ago' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','ago'),
+
+    // Performance widgets
+    'widget_title.dep_performance' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Departments performance in the last 24 hours'),
+    'widget_title.op_performance' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Operators performance in the last 24 hours'),
+
+    'dep_performance.col_cr' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Chats received'),
+    'dep_performance.col_ca' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Chats answered'),
+    'dep_performance.col_wt' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Wait time'),
+    'dep_performance.col_frt' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','First response time'),
+    'dep_performance.col_aart' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Average response time'),
+    'dep_performance.col_tup' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Thumbs up'),
+    'dep_performance.col_tdown' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Thumbs down'),
+    'dep_performance.col_ton' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Time online'),
+    'dep_performance.col_toff' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Time offline'),
 
     // Group chat widget
     "group_chat.unread_messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','You have unread messages'),

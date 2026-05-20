@@ -1,1 +1,1 @@
-Performance
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Wait times');?>

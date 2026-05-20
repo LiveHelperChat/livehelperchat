@@ -99,6 +99,10 @@ $columnSize = 12 / $columnsTotal;
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/amails.tpl.php'));?>
                 <?php elseif ($wiget == 'malarms') : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/malarms.tpl.php'));?>
+                <?php elseif ($wiget == 'op_performance') : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/op_performance.tpl.php'));?>
+                <?php elseif ($wiget == 'dep_performance') : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/dep_performance.tpl.php'));?>
                 <?php else : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/extension_panel_multiinclude.tpl.php'));?>
                 <?php endif;?>

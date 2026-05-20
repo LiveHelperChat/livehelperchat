@@ -86,6 +86,8 @@ export const lhcList = writable({
     limitmc : "10",
     limitgc : "10",
     limits : "10",
+    limitdp : "10",
+    limitop : "10",
     new_group_type : "1",
     bot_st: {},
     departmentd_hide_dep : false,

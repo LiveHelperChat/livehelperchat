@@ -35,7 +35,7 @@
 
     export let override_item_open = null;
 
-    let check_row_class = !override_item_open && type !== "transfer_chats" && type !== "group_chats" && type !== "online_op" && type !== "depgroups_stats";
+    let check_row_class = !override_item_open && type !== "transfer_chats" && type !== "group_chats" && type !== "online_op" && type !== "depgroups_stats" && type !== "dep_performance" && type !== "op_performance";
     let check_online = !override_item_open && type !== "my_mails" && type !== "active_mails" && type !== "pending_mails" && type !== "alarm_mails";
 
     function openItem(chat) {
@@ -92,6 +92,10 @@
             </a>
 
                 {#if type == 'online_op'}<span class="text-success" title={$t("widget.online")}>{$lhcList[type].op_on}</span>{/if}
+            {:else if type == 'op_performance'}
+                <i title={$t("widget.operator")} class="material-icons">account_box</i>
+            {:else if type == 'dep_performance'}
+                <i title={$t("widget.department")} class="material-icons">home</i>
             {:else if type == 'depgroups_stats'}
                 <i title={$t("widget.dep_group")} class="material-icons">&#xE84F;</i>
             {:else if type == 'pending_chats'}
@@ -127,6 +131,12 @@
             {/each}
 
         </th>
+
+        {#if $lhcList[type].cl}
+            {#each $lhcList[type].cl as col}
+                <th title={$t("dep_performance.col_" + col)} class="abbr-list">{$t("dep_performance.col_" + col)}</th>
+            {/each}
+        {/if}
 
         {#if no_additional_column === false && check_row_class && $lhcList.additionalColumns}
             {#each $lhcList.additionalColumns as column}
@@ -365,7 +375,21 @@
         </tbody>
         {/if}
 
-
+    {:else if type == 'dep_performance' ||  type == 'op_performance'}
+        <tbody>
+        {#each $lhcList[type].list as chat}
+            <tr>
+                <td>
+                    {chat.name}
+                </td>
+                {#if $lhcList[type].cl}
+                    {#each $lhcList[type].cl as col}
+                        <td>{chat[col]}</td>
+                    {/each}
+                {/if}
+            </tr>
+        {/each}
+        </tbody>
     {:else if type == 'transfer_chats'}
 
         <tbody>

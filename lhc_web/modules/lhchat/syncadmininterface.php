@@ -83,6 +83,8 @@ $mapsWidgets = [
     'amails' => 11,
     'malarms' => 12,
     'my_mails' => 30,
+    'dep_performance' => 31,
+    'op_performance' => 32
 ];
 
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['subject_chats'],$Params['user_parameters_unordered']['w']) && $currentUser->hasAccessTo('lhchat', 'subject_chats') == true) {
@@ -485,6 +487,39 @@ if ($myChatsEnabled == true) {
     $timeLog['my_chats'] = $ReturnMessages['my_chats']['tt'];
 
     $chatsList[] = & $ReturnMessages['my_chats']['list'];
+}
+
+if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['op_performance'], $Params['user_parameters_unordered']['w']) && $currentUser->hasAccessTo('lhstatistic','op_performance') ) {
+    $limitList = is_numeric($Params['user_parameters_unordered']['limitop']) ? (int)$Params['user_parameters_unordered']['limitop'] : 10;
+    $startTimeRequestItem = microtime();
+
+    $ReturnMessages['op_performance'] = \LiveHelperChat\Models\Statistic\PerformanceWidgets::getOpPerformance([
+        'limit_list'               => $limitList,
+        'all_departments'          => $userData->all_departments == 1,
+        'can_list_online_all'      => $canListOnlineUsersAll,
+        'current_user_id'          => (int)$currentUser->getUserID(),
+        'cache_version'            => (int)$userData->cache_version,
+        'start_time'               => $startTimeRequestItem,
+        'stored_performance_config' => erLhcoreClassModelChatConfig::fetch('statistic_performance_op')->data_value,
+    ]);
+
+    $timeLog['op_performance'] = $ReturnMessages['op_performance']['tt'];
+}
+
+if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['dep_performance'], $Params['user_parameters_unordered']['w']) && $currentUser->hasAccessTo('lhstatistic','dep_performance')) {
+    $limitList = is_numeric($Params['user_parameters_unordered']['limitdp']) ? (int)$Params['user_parameters_unordered']['limitdp'] : 10;
+    $startTimeRequestItem = microtime();
+
+    $ReturnMessages['dep_performance'] = \LiveHelperChat\Models\Statistic\PerformanceWidgets::getDepPerformance([
+        'limit_list'               => $limitList,
+        'all_departments'          => $userData->all_departments == 1,
+        'current_user_id'          => (int)$currentUser->getUserID(),
+        'cache_version'            => (int)$userData->cache_version,
+        'start_time'               => $startTimeRequestItem,
+        'stored_performance_config' => erLhcoreClassModelChatConfig::fetch('statistic_performance')->data_value,
+    ]);
+
+    $timeLog['dep_performance'] = $ReturnMessages['dep_performance']['tt'];
 }
 
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['bot_chats'], $Params['user_parameters_unordered']['w']) && $botTabEnabled == true) {

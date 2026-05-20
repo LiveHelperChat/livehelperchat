@@ -118,6 +118,12 @@
             </span>
             {/if}
 
+            {#if $lhcList[type].up}
+                <span class="d-none d-xl-inline badge me-1 float-end text-muted pe-0 pt-1p5 fs11 fw-light">
+                    {$t("widget_title.updated")} {$lhcList[type].up} {$t("widget_title.ago")}.
+                </span>
+            {/if}
+
             {#if type == 'depgroups_stats' && $lhcList['departments_stats'].tt}
                 <span title={$t("widget.taken_time_dep")} class="d-none d-xl-inline badge me-1 float-end text-muted pe-0 pt-1p5 fs11 fw-light">
                     {$lhcList['departments_stats'].tt} s.

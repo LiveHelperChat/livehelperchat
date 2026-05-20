@@ -274,7 +274,7 @@ $ViewList['syncadmininterface'] = array(
         'subjectdprod',
         'subjectu',
         'sugroups',
-        'limitam','pmd','pendingmu','pendingmd','pmug','amd','activemu','limitalm','activemd','almd','almug','limitpm','amug','alarmmd','alarmmu','hsub','lda','bdgroups','botdprod','w','clcs','limitgc','limitb','botd','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups','adgroups','pugroups','augroups','onop', 'acs', 'mcd', 'limitmc', 'mcdprod','activeu','pendingu','topen','departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd','activedprod','unreaddprod','pendingdprod','closeddprod','psort'),
+        'limitam','pmd','pendingmu','pendingmd','limitop','limitdp','pmug','amd','activemu','limitalm','activemd','almd','almug','limitpm','amug','alarmmd','alarmmu','hsub','lda','bdgroups','botdprod','w','clcs','limitgc','limitb','botd','odpgroups','ddgroups','udgroups','mdgroups', 'cdgroups', 'pdgroups','adgroups','pugroups','augroups','onop', 'acs', 'mcd', 'limitmc', 'mcdprod','activeu','pendingu','topen','departmentd','operatord','actived','pendingd','closedd','unreadd','limita','limitp','limitc','limitu','limito','limitd','activedprod','unreaddprod','pendingdprod','closeddprod','psort'),
     'ajax' => true,
     'functions' => array( 'use' ),
     'multiple_arguments' => array (

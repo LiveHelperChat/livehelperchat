@@ -1,0 +1,5 @@
+<?php if ($currentUser->hasAccessTo('lhstatistic','dep_performance')) : ?>
+    <lhc-widget <?php if (isset($customCardNoId)) : ?>no_panel_id="true"<?php endif;?> <?php if (isset($customCardNoCollapse)) : ?>no_collapse="true"<?php endif; ?> column_1_width="15%" <?php if ($currentUser->hasAccessTo('lhstatistic','performance_settings')) : ?>custom_settings_url="statistic/performancesettings"<?php endif;?> card_icon="home" no_link="true" hide_2_column="true" no_counter="true" hide_third_column="true" <?php if (isset($rightPanelMode)) : ?>right_panel_mode="true"<?php endif; ?> <?php if (isset($hideCardHeader)) : ?>hide_header="true"<?php endif;?> sort_identifier="dep_performance_sort" icon_class="chat-active" limit_list_identifier="limitdp" type="dep_performance" expand_identifier="depp_widget_exp" list_identifier="dep-performance" height_identifier="depp_m_h" panel_list_identifier="depp-panel-list" optionsPanel='<?php echo json_encode(array('limitid' => 'limitdp', 'hide_department_filter' => true, 'limits_width' => 12))?>' www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>"></lhc-widget>
+<?php endif; ?>
+
+

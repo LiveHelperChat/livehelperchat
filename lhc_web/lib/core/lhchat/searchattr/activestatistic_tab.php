@@ -459,6 +459,7 @@ $fieldsSearch['no_operator'] = array (
     )
 );
 
+$abandoned_sql = (string)erLhcoreClassModelChatConfig::fetch('abandoned_sql')->current_value;
 
 $fieldsSearch['abandoned_chat'] = array (
     'type' => 'boolean',
@@ -466,11 +467,13 @@ $fieldsSearch['abandoned_chat'] = array (
     'required' => false,
     'valid_if_filled' => false,
     'filter_type' => 'manual',
-    'filter_table_field' => ['customfilter' => ['((`lsync` < (`pnd_time` + `wait_time`) AND `wait_time` > 1) OR  (`lsync` > (`pnd_time` + `wait_time`) AND `wait_time` > 1 AND `lh_chat`.`user_id` = 0))']],
+    'filter_table_field' => ['customfilter' => [$abandoned_sql != '' ? $abandoned_sql : '((`lsync` < (`pnd_time` + `wait_time`) AND `wait_time` > 1) OR  (`lsync` > (`pnd_time` + `wait_time`) AND `wait_time` > 1 AND `lh_chat`.`user_id` = 0))']],
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
     )
 );
+
+$dropped_sql = (string)erLhcoreClassModelChatConfig::fetch('dropped_sql')->current_value;
 
 $fieldsSearch['dropped_chat'] = array (
     'type' => 'boolean',
@@ -478,7 +481,7 @@ $fieldsSearch['dropped_chat'] = array (
     'required' => false,
     'valid_if_filled' => false,
     'filter_type' => 'manual',
-    'filter_table_field' => ['customfilter' => ['(`lsync` > (`pnd_time` + `wait_time`) AND `has_unread_op_messages` = 1 AND `lh_chat`.`user_id` > 0)']],
+    'filter_table_field' => ['customfilter' => [$dropped_sql != '' ? $dropped_sql : '(`lsync` > (`pnd_time` + `wait_time`) AND `has_unread_op_messages` = 1 AND `lh_chat`.`user_id` > 0)']],
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
     )

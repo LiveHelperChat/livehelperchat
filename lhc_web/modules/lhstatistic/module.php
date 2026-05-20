@@ -87,7 +87,9 @@ $ViewList['statistic'] = array(
         71 => 'vi_msg_count',
         72 => 'bot_msg_count',
         73 => 'all_msg_count',
-        74 => 'all_msg_count_till'
+        74 => 'all_msg_count_till',
+        75 => 'delete_item',
+        76 => 'csfr'
     ),
     'functions' => array( 'viewstatistic' ),
     'multiple_arguments' => array('bot_ids','subject_ids','department_ids','group_ids','user_ids','department_group_ids','invitation_ids','chart_type','country_ids','attr_int_1_multi')
@@ -146,10 +148,20 @@ $ViewList['onlinehours'] = array(
     'multiple_arguments' => array('user_id')
 );
 
+$ViewList['performancesettings'] = array(
+    'params' => array('scope'),
+    'uparams' => array(),
+    'functions' => array( 'performance_settings' ),
+    'multiple_arguments' => array()
+);
+
 $FunctionList['exportxls'] = array('explain' => 'Allow to operator to export departments statistic in XLS');
 $FunctionList['viewstatistic'] = array('explain' =>'Allow operator to view statistic');
 $FunctionList['configuration'] = array('explain' =>'Allow operator to configure statistic');
 $FunctionList['statisticdep'] = array('explain' =>'Allow operator to see departments/departments groups statistic in modal window');
 $FunctionList['userstats'] = array('explain' =>'Allow operator to see operator statistic in modal window');
+$FunctionList['dep_performance'] = array('explain' =>'Allow operator to see department performance in the last 24');
+$FunctionList['op_performance'] = array('explain' =>'Allow operator to see operators performance in the last 24');
+$FunctionList['performance_settings'] = array('explain' =>'Allow operator to configure performance widgets settings');
 
 ?>

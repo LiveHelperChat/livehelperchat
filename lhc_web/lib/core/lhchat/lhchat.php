@@ -1674,7 +1674,6 @@ class erLhcoreClassChat {
 	    $parts = array();
         $hasYears = false;
         $hasDays = false;
-        $hasHours = false;
 
 	    if ($y > 0)
 	    {
@@ -1691,7 +1690,6 @@ class erLhcoreClassChat {
 	    if ($h > 0 && $hasYears == false)
 	    {
 	    	$parts[] = $h . ' h.';
-            $hasHours = true;
 	    }
 
 	    if ($m > 0 && $hasDays == false && $hasYears == false)
@@ -1699,7 +1697,7 @@ class erLhcoreClassChat {
 	    	$parts[] = $m . ' m.';
 	    }
 
-	    if ($s > 0 && $hasHours == false && $hasDays == false && $hasYears == false)
+	    if ($s > 0 && $hasDays == false && $hasYears == false)
 	    {
 	    	$parts[] = $s . ' s.';
 	    }

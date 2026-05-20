@@ -113,7 +113,7 @@ try {
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/statistic.tpl.php');
 
-$validTabs = array('visitors','active','last24','chatsstatistic','agentstatistic','performance','departments','configuration','mail');
+$validTabs = array('visitors','active','last24','chatsstatistic','agentstatistic','performance','departments','configuration','mail','genericperf');
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.valid_tabs', array(
     'valid_tabs' => & $validTabs
@@ -709,6 +709,55 @@ if ($tab == 'active') {
     $tpl->set('agentStatistic_avg',erLhcoreClassChatStatistic::getAgentStatisticSummary($agentStatistic));
 
     
+} else if ($tab == 'genericperf') {
+
+    if (isset($_GET['doSearch'])) {
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat', 'module_file' => 'genericperf_statistic', 'format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    } else {
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat', 'module_file' => 'genericperf_statistic', 'format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
+    }
+
+    if (isset($Params['user_parameters_unordered']['delete_item']) && (int)$Params['user_parameters_unordered']['delete_item'] > 0) {
+        if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+            die('Invalid CSFR Token');
+        }
+        $deletePerf = \LiveHelperChat\Models\Statistic\Performance::fetch((int)$Params['user_parameters_unordered']['delete_item']);
+        if (is_object($deletePerf)) {
+            $deletePerf->removeThis();
+        }
+        erLhcoreClassModule::redirect('statistic/statistic', '/(tab)/genericperf');
+        exit;
+    }
+
+    if (isset($_GET['previewItem']) && (int)$_GET['previewItem'] > 0) {
+        $previewItem = \LiveHelperChat\Models\Statistic\Performance::fetch((int)$_GET['previewItem']);
+        if (is_object($previewItem)) {
+            $tplModal = erLhcoreClassTemplate::getInstance('lhstatistic/genericperf_preview.tpl.php');
+            $tplModal->set('item', $previewItem);
+            echo $tplModal->fetch();
+        }
+        exit;
+    }
+
+    $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
+
+    $pages = new lhPaginator();
+    $pages->items_total = \LiveHelperChat\Models\Statistic\Performance::getCount($filterParams['filter']);
+    $pages->translationContext = 'chat/pendingchats';
+    $pages->serverURL = erLhcoreClassDesign::baseurl('statistic/statistic') . '/(tab)/genericperf' . $append;
+    $pages->paginate();
+    $tpl->set('pages', $pages);
+
+    if ($pages->items_total > 0) {
+        $items = \LiveHelperChat\Models\Statistic\Performance::getList(array_merge($filterParams['filter'], array('limit' => $pages->items_per_page, 'offset' => $pages->low)));
+        $tpl->set('genericperfStatistic', $items);
+    } else {
+        $tpl->set('genericperfStatistic', array());
+    }
+
+    $tpl->set('input', $filterParams['input_form']);
+    $tpl->set('inputAppend', $append);
+
 } else if ($tab == 'performance') {
 
     if (isset($_GET['doSearch'])) {
