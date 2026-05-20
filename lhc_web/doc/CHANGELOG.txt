@@ -1,5 +1,20 @@
 4.86v
 
+1. Notable changes since 4.85v
+   - Performance statistics dashboard widgets: added new `dep_performance` and `op_performance` dashboard widgets that display real-time aggregated statistics for departments and operators respectively; widgets support configurable columns (chats received, chats answered, wait time, first/average response time, thumbs up/down, online/offline time) with configurable position and update intervals; new settings UI under Statistics for both department and operator performance configuration.
+   - Performance stats cron aggregator: new cron job (`cron/stats/performance`) aggregates department and operator performance data into the new `lh_abstract_performance` table; supports forced regeneration via `-p force`; configurable update interval and day range; cron respects sql_mode and local timezone settings.
+   - New `Performance` and `PerformanceWidgets` models: `Performance` model stores/retrieves serialized performance snapshots; `PerformanceWidgets` provides formatted data for dashboard sync, including per-department and per-operator stats with access-control filtering.
+   - Security and authentication hardening: improved password verification logic in REST API validator; added constant-time response delay in forgot-password flow to mitigate timing attacks; updated hashing methods for login and password update flows; implemented expired hash cleanup (deleteExpiredHashes) called from setRemindHash, remindpassword, and forgotpassword modules; removed LDAP authentication components; updated autologin with nonce support and improved hash validation; masked error messages for users without access to unhidden emails in send and reply APIs.
+   - Bot and event system: enhanced chat variable update handling and event dispatching; ignored default trigger message when a trigger is started manually; added support for invisible arguments in bot triggers; added event dispatch for transfer-to-human action; added event argument for custom is-online status checks.
+   - Editor and operator UI: added switch-editor option in active chat tab and a new permission for operators to toggle between new and old editors; added icons and colors to the transfer window; increased subject modal window width; fixed form loading scroll event; avoided null being displayed before a chat starts.
+   - Export and reports: enhanced export functionality with ChatML support and UI improvements; fixed compatibility with non-strict sql_mode for certain reports.
+   - Bug fixes: fixed matching rule search; minor fixes including string conversion and typo corrections.
+
+2. Summary
+   - This release introduces a new real-time performance dashboard with configurable department and operator widgets backed by a cron aggregator and a dedicated `lh_abstract_performance` table.
+   - Security is hardened across authentication flows: stronger hashing, timing-safe responses, expired hash cleanup, autologin nonce support, and LDAP removal.
+   - Operator productivity is improved with a switchable editor, richer transfer UI, and expanded bot/event capabilities. Export and report compatibility are also addressed.
+
 execute doc/update_db/update_352.sql for update
 
 4.85v
