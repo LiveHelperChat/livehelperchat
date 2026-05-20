@@ -39,6 +39,8 @@ $chatIdLabel = !empty($webhook_conditions['chat_id_name']) ? htmlspecialchars($w
 $chatId2Label = !empty($webhook_conditions['chat_id_2_name']) ? htmlspecialchars($webhook_conditions['chat_id_2_name']) : erTranslationClassLhTranslation::getInstance()->getTranslation('webhook/push', 'Chat ID 2') . ' (chat_id_2)';
 $chatIdList = !empty($webhook_conditions['chat_id_list']) ? array_filter(array_map('trim', explode("\n", $webhook_conditions['chat_id_list']))) : [];
 $chatId2List = !empty($webhook_conditions['chat_id_2_list']) ? array_filter(array_map('trim', explode("\n", $webhook_conditions['chat_id_2_list']))) : [];
+// If dataset for chat_id_2 is defined and item value is empty, use first dataset value as default
+$chatId2Default = !empty($item->chat_id_2) ? htmlspecialchars($item->chat_id_2) : (!empty($chatId2List) ? htmlspecialchars(array_values($chatId2List)[0]) : '');
 ?>
 
 <div class="row">
@@ -58,7 +60,7 @@ $chatId2List = !empty($webhook_conditions['chat_id_2_list']) ? array_filter(arra
     <div class="col-6">
         <div class="form-group">
             <label><?php echo $chatId2Label ?></label>
-            <input type="text" class="form-control form-control-sm" value="<?php echo htmlspecialchars($item->chat_id_2)?>" name="chat_id_2"<?php echo !empty($chatId2List) ? ' list="datalist_chat_id_2"' : ''?>>
+            <input type="text" class="form-control form-control-sm" value="<?php echo $chatId2Default?>" name="chat_id_2"<?php echo !empty($chatId2List) ? ' list="datalist_chat_id_2"' : ''?>>
             <?php if (!empty($chatId2List)) : ?>
             <datalist id="datalist_chat_id_2">
                 <?php foreach ($chatId2List as $chatId2Option) : ?>
