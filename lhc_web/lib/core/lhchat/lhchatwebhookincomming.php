@@ -2679,11 +2679,11 @@ class erLhcoreClassChatWebhookIncoming {
         try {
             $db->beginTransaction();
 
-            $incomingChat = erLhcoreClassModelChatIncoming::findOne(array('filter' => array('chat_external_id' => $item->chat_id)));
+            $incomingChat = erLhcoreClassModelChatIncoming::findOne(array('filter' => array('chat_external_id' => str_replace(['{chat_id}','{chat_id_2}'], [$item->chat_id, $item->chat_id_2], $incomingWebhook->conditions_array['chat_id_template']))));
 
             if (!($incomingChat instanceof erLhcoreClassModelChatIncoming)) {
                 $incomingChat = new erLhcoreClassModelChatIncoming();
-                $incomingChat->chat_external_id = str_replace('{chat_id}', $item->chat_id, $incomingWebhook->conditions_array['chat_id_template']);
+                $incomingChat->chat_external_id = str_replace(['{chat_id}','{chat_id_2}'], [$item->chat_id, $item->chat_id_2], $incomingWebhook->conditions_array['chat_id_template']);
                 $incomingChat->incoming_id = $incomingWebhook->id;
                 $incomingChat->utime = time();
                 $incomingChat->incoming = $incomingWebhook;
@@ -2707,6 +2707,14 @@ class erLhcoreClassChatWebhookIncoming {
             $chat->referrer = '';
             $chat->session_referrer = '';
             $chat->iwh_id = $incomingWebhook->id;
+
+            if (isset($incomingWebhook->conditions_array['add_field_value_placeholder']) && !empty($incomingWebhook->conditions_array['add_field_value_placeholder'])){
+                $chatVariables = [];
+                $chatVariables['iwh_field'] = str_replace(['{chat_id}','{chat_id_2}'], [$item->chat_id, $item->chat_id_2], $incomingWebhook->conditions_array['add_field_value_placeholder']);
+                if (!empty($chatVariables)) {
+                    $chat->chat_variables = json_encode($chatVariables);
+                }
+            }
 
             $msg = new erLhcoreClassModelmsg();
             $msg->msg = $item->message;

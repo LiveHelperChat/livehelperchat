@@ -219,12 +219,6 @@
                 </div>
             </div>
             <div class="col-6">
-                <div class="form-group">
-                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID Template for manual message sending. Use {chat_id} as placeholder');?></label>
-                    <input type="text" class="form-control form-control-sm" title="{chat_id}@c.us" placeholder="E.g {chat_id}@c.us" ng-model="webhookincomingsctl.conditions.chat_id_template" value="" />
-                </div>
-            </div>
-            <div class="col-6">
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
@@ -240,7 +234,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="row">
@@ -260,6 +253,50 @@
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Invisible additional field');?></label>
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.add_field_2_value" value="" />
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Manual push message')?></h4>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID Template for manual message sending. Use {chat_id} and {chat_id_2} as placeholder');?></label>
+                    <input type="text" class="form-control form-control-sm" title="{chat_id}@c.us" placeholder="E.g {chat_id}@c.us or {chat_id}__{chat_id_2}" ng-model="webhookincomingsctl.conditions.chat_id_template" value="" />
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Additional field placeholder.');?></label>
+                    <input type="text" class="form-control form-control-sm" placeholder="E.g {chat_id_2}" ng-model="webhookincomingsctl.conditions.add_field_value_placeholder" value="" />
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID name for our own purpose');?></label>
+                    <input type="text" class="form-control form-control-sm" title="{chat_id}@c.us" placeholder="E.g Recipient phone" ng-model="webhookincomingsctl.conditions.chat_id_name" value="" />
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID 2 name for our own purpose');?></label>
+                    <input type="text" class="form-control form-control-sm" placeholder="E.g {chat_id_2}" ng-model="webhookincomingsctl.conditions.chat_id_2_name" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Dataset list for chat_id');?></label>
+                    <textarea placeholder="One value per row" class="form-control" ng-model="webhookincomingsctl.conditions.chat_id_list" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Dataset list for chat_id_2');?></label>
+                    <textarea placeholder="One value per row" class="form-control" ng-model="webhookincomingsctl.conditions.chat_id_2_list" rows="5"></textarea>
                 </div>
             </div>
         </div>
