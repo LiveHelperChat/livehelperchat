@@ -80,13 +80,31 @@ class PerformanceStats {
                     foreach ($configuration['columns'] as $column) {
                         switch ($column) {
                             case 'cr':
-                                $result['cr'] = erLhcoreClassChatStatistic::numberOfChatsDialogsByDepartment($days, $filter);
+                                $filterAART = $filter;
+                                $filterAART['group'] = 'dep_id';
+                                $result['cr'] = erLhcoreClassModelChat::getCount(
+                                    $filterAART,                                // $params
+                                    '',                                         // $operattion
+                                    false,                                      // $field
+                                    'dep_id, count(`lh_chat`.`id`) AS number_of_chats',             // $rawSelect
+                                    false,                                      // $fetchColumn
+                                    true                                        // $fetchAll
+                                );
                                 break;
                             case 'ca':
                                 // Chats abandoned we calculate first
                                 // After a cycle chats answered is just cr - ca
                                 $abandoned_sql = (string)erLhcoreClassModelChatConfig::fetch('abandoned_sql')->current_value;
-                                $result['ca'] = erLhcoreClassChatStatistic::numberOfChatsDialogsByDepartment($days, array_merge($filter, ['customfilter' => ['abnd' => $abandoned_sql != '' ? $abandoned_sql : '((`lsync` < (`pnd_time` + `wait_time`) AND `wait_time` > 1) OR  (`lsync` > (`pnd_time` + `wait_time`) AND `wait_time` > 1 AND `user_id` = 0))']]));
+                                $filterAART = array_merge($filter, ['customfilter' => [$abandoned_sql != '' ? $abandoned_sql : '((`lsync` < (`pnd_time` + `wait_time`) AND `wait_time` > 1) OR  (`lsync` > (`pnd_time` + `wait_time`) AND `wait_time` > 1 AND `user_id` = 0))']]);
+                                $filterAART['group'] = 'dep_id';
+                                $result['ca'] = erLhcoreClassModelChat::getCount(
+                                    $filterAART,                                    // $params
+                                    '',                                   // $operation
+                                    false,                                    // $field
+                                    'dep_id, count(`lh_chat`.`id`) AS number_of_chats',             // $rawSelect
+                                    false,                                      // $fetchColumn
+                                    true                                        // $fetchAll
+                                );
                                 break;
                             case 'aart':
                                 // getCount($params = array(), $operation = 'COUNT', $field = false, $rawSelect = false, $fetchColumn = true, $fetchAll = false, $fetchColumnAll = false, $groupedCount = false)
@@ -95,7 +113,7 @@ class PerformanceStats {
                                 $filterAART['filtergt']['user_id'] = 0;
                                 $filterAART['filtergt']['aart'] = 0;
                                 $filterAART['filter']['status'] = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
-                                 $result['aart'] = erLhcoreClassModelChat::getCount(
+                                $result['aart'] = erLhcoreClassModelChat::getCount(
                                     $filterAART,                                // $params
                                     '',                                         // $operattion
                                     false,                                      // $field
@@ -117,6 +135,7 @@ class PerformanceStats {
                                     false,                                      // $fetchColumn
                                     true                                        // $fetchAll
                                 );
+                                break;
                             case 'frt':
                                 $filterAART = $filter;
                                 $filterAART['filtergt']['user_id'] = 0;
@@ -367,7 +386,16 @@ class PerformanceStats {
                                 $result['toff'] = $rows;
                                 break;
                             case 'ca':
-                                $result['ca'] = erLhcoreClassChatStatistic::numberOfChatsDialogsByUserParticipant($days, $filter);
+                                $filterAART = $filter;
+                                $filterAART['group'] = 'user_id';
+                                $result['ca'] = \LiveHelperChat\Models\LHCAbstract\ChatParticipant::getCount(
+                                    $filterAART,                                // $params
+                                    '',                                         // $operattion
+                                    false,                                      // $field
+                                    'user_id, count(`lh_chat_participant`.`id`) AS number_of_chats',               // $rawSelect
+                                    false,                                      // $fetchColumn
+                                    true                                        // $fetchAll
+                                );
                                 break;
                             case 'aart':
                                 $filterAART = $filter;
