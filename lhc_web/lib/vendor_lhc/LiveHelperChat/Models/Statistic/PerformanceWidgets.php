@@ -104,8 +104,8 @@ class PerformanceWidgets
             foreach ($performanceColumns as $columnPerformance) {
                 if (!isset($rowPerformance[$columnPerformance])) {
                     $rowPerformance[$columnPerformance] = '';
-                } elseif (($columnPerformance === 'ton' || $columnPerformance === 'toff') && $rowPerformance[$columnPerformance] !== '') {
-                    $rowPerformance[$columnPerformance] = \erLhcoreClassChat::formatSeconds((int)$rowPerformance[$columnPerformance]);
+                } elseif (in_array($columnPerformance,['ton','toff','aart','frt']) && $rowPerformance[$columnPerformance] !== '') {
+                    $rowPerformance[$columnPerformance] = \erLhcoreClassChat::formatSeconds((int)$rowPerformance[$columnPerformance], false, true);
                 }
             }
         }
@@ -217,6 +217,8 @@ class PerformanceWidgets
             foreach ($performanceColumns as $columnPerformance) {
                 if (!isset($rowPerformance[$columnPerformance])) {
                     $rowPerformance[$columnPerformance] = '';
+                } elseif (in_array($columnPerformance,['aart','frt','wt']) && $rowPerformance[$columnPerformance] !== '') {
+                    $rowPerformance[$columnPerformance] = \erLhcoreClassChat::formatSeconds((int)$rowPerformance[$columnPerformance], false, true);
                 }
             }
         }

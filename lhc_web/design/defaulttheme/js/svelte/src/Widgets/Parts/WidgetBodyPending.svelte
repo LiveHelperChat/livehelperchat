@@ -380,7 +380,9 @@
         {#each $lhcList[type].list as chat}
             <tr>
                 <td>
-                    {chat.name}
+                    <div class="abbr-list" title={chat.name}>
+                        {chat.name}
+                    </div>
                 </td>
                 {#if $lhcList[type].cl}
                     {#each $lhcList[type].cl as col}

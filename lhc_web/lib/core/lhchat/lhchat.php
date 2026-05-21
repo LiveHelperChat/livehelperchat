@@ -1663,7 +1663,7 @@ class erLhcoreClassChat {
        return true;
    }
 
-   public static function formatSeconds($seconds, $biggestReturn = false) {
+   public static function formatSeconds($seconds, $biggestReturn = false, $shortFormat = false) {
 
 	    $y = floor($seconds / (86400*365.25));
 	    $d = floor(($seconds - ($y*(86400*365.25))) / 86400);
@@ -1674,6 +1674,7 @@ class erLhcoreClassChat {
 	    $parts = array();
         $hasYears = false;
         $hasDays = false;
+        $hasHours = false;
 
 	    if ($y > 0)
 	    {
@@ -1690,6 +1691,7 @@ class erLhcoreClassChat {
 	    if ($h > 0 && $hasYears == false)
 	    {
 	    	$parts[] = $h . ' h.';
+            $hasHours = true;
 	    }
 
 	    if ($m > 0 && $hasDays == false && $hasYears == false)
@@ -1697,7 +1699,7 @@ class erLhcoreClassChat {
 	    	$parts[] = $m . ' m.';
 	    }
 
-	    if ($s > 0 && $hasDays == false && $hasYears == false)
+	    if ($s > 0 && $hasDays == false && $hasYears == false && ($shortFormat === false || $hasHours == false))
 	    {
 	    	$parts[] = $s . ' s.';
 	    }
