@@ -280,7 +280,9 @@
         $lhcList[listId + '_m_h'] = lhcServices.restoreLocalSetting(listId + '_m_h',null,false);
     });
 
-    $lhcList['onlineusers_m_h'] = lhcServices.restoreLocalSetting('onlineusers_m_h',null,false);
+    ['onlineusers_m_h', 'depp_m_h', 'opp_m_h'].forEach(function(key) {
+        $lhcList[key] = lhcServices.restoreLocalSetting(key, null, false);
+    });
 
     async function updateNoticeData(){
         const responseTrack = await fetch(WWW_DIR_JAVASCRIPT  + 'chat/loadinitialdata', {

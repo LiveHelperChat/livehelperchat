@@ -133,8 +133,20 @@
         </th>
 
         {#if $lhcList[type].cl}
-            {#each $lhcList[type].cl as col}
-                <th title={$t("dep_performance.col_" + col)} class="abbr-list">{$t("dep_performance.col_" + col)}</th>
+            {#each $lhcList[type].cl as col, colIndex}
+                <th title={$t("dep_performance.col_" + col)}>
+                    {#if no_expand === false && colIndex === $lhcList[type].cl.length - 1}
+                    <div class="float-end expand-actions">
+                        <a on:click={(e) => lhcServices.changeWidgetHeight(lhcList,panel_id,true)} class="text-muted disable-select">
+                            <i title={$t("widget.more_rows")}  class="material-icons">expand</i>
+                        </a>
+                        <a on:click={(e) => lhcServices.changeWidgetHeight(lhcList,panel_id,false)} class="text-muted disable-select">
+                            <i title={$t("widget.less_rows")} class="material-icons">compress</i>
+                        </a>
+                    </div>
+                    {/if}
+                    <div class="abbr-list">{$t("dep_performance.col_" + col)}</div>
+                </th>
             {/each}
         {/if}
 
