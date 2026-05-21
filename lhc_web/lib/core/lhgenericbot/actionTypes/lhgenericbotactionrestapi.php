@@ -229,7 +229,14 @@ class erLhcoreClassGenericBotActionRestapi
                                 'line' => __LINE__,
                             ],JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
                         $msgLog->msg = '(polling conditions failed) [' . $restAPI->name . ']  [' . $i . ' tries] [i]'.(isset($method['name']) ? $method['name'] : 'unknown_name').'[/i]';
-                        $msgLog->saveThis();
+
+                        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.log_msg', array(
+                            'msg' => $msgLog
+                        ));
+
+                        if ($statusWorkflow === false) {
+                            $msgLog->saveThis();
+                        }
                     }
                 }
 
@@ -1396,7 +1403,14 @@ class erLhcoreClassGenericBotActionRestapi
                         'line' => __LINE__,
                     ],JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
                 $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
-                $msgLog->saveThis();
+
+                $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.log_msg', array(
+                    'msg' => $msgLog
+                ));
+
+                if ($statusWorkflow === false) {
+                    $msgLog->saveThis();
+                }
             }
 
             return array(
@@ -1959,7 +1973,12 @@ class erLhcoreClassGenericBotActionRestapi
                     $msgLog->meta_msg = json_encode(['content' => ['html' => [
                         'debug' => true,
                         'content' => json_encode($msgLog->meta_msg_array,JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
-                    $msgLog->saveThis();
+
+                    $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.log_msg', array('msg' => $msgLog));
+
+                    if ($statusWorkflow === false) {
+                        $msgLog->saveThis();
+                    }
                 }
             }
         }
@@ -1999,7 +2018,12 @@ class erLhcoreClassGenericBotActionRestapi
             $msgLog->meta_msg = json_encode(['content' => ['html' => [
                 'debug' => true,
                 'content' => json_encode($msgLog->meta_msg_array,JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
-            $msgLog->saveThis();
+
+            $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.log_msg', array('msg' => $msgLog));
+
+            if ($statusWorkflow === false) {
+                $msgLog->saveThis();
+            }
         }
 
         return $responseNonStreaming;
