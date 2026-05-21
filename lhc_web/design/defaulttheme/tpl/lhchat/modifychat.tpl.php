@@ -155,11 +155,61 @@ setTimeout(function() {
             $debugString = ' ('.$chat->lsync .'[lsync] >  (' . $chat->pnd_time . '[pnd_time] + ' . $chat->wait_time . '[wait_time]) && ' . $chat->has_unread_op_messages.'[has_unread_op_messages] == 1 && ' . $chat->user_id. '[user_id] > 0 )';
             $patterns['drpd'] = '{debug.drpd} = ' . ($chat->lsync > ($chat->pnd_time + $chat->wait_time) && $chat->has_unread_op_messages == 1 && $chat->user_id > 0 ? 1 : 0) . $debugString . ' Visitor was online while chat was accepted, but left before operator replied';
 
+            $dropped_sql = (string)erLhcoreClassModelChatConfig::fetch('dropped_sql')->current_value;
+            $dropped_sql_result = null;
+            $dropped_sql_debug = '';
+            if (!empty($dropped_sql)) {
+                $chatState = $chat->getState();
+                $dropped_sql_debug = preg_replace_callback('/`([a-z_]+)`/', function($matches) use ($chatState) {
+                    $val = isset($chatState[$matches[1]]) ? $chatState[$matches[1]] : 0;
+                    return $val . '[' . $matches[1] . ']';
+                }, $dropped_sql);
+                $evalSql = preg_replace_callback('/`([a-z_]+)`/', function($matches) use ($chatState) {
+                    return isset($chatState[$matches[1]]) ? (int)$chatState[$matches[1]] : 0;
+                }, $dropped_sql);
+                $evalSql = preg_replace('/\bAND\b/i', '&&', $evalSql);
+                $evalSql = preg_replace('/\bOR\b/i',  '||', $evalSql);
+                $evalSql = preg_replace('/(?<![><!])=(?!=)/', '==', $evalSql);
+                try {
+                    $dropped_sql_result = eval('return (int)(bool)(' . $evalSql . ');');
+                } catch (\Throwable $e) {
+                    $dropped_sql_result = 'error: ' . $e->getMessage();
+                }
+            }
+
+            $abandoned_sql = (string)erLhcoreClassModelChatConfig::fetch('abandoned_sql')->current_value;
+            $abandoned_sql_result = null;
+            $abandoned_sql_debug = '';
+            if (!empty($abandoned_sql)) {
+                $chatState = $chat->getState();
+                $abandoned_sql_debug = preg_replace_callback('/`([a-z_]+)`/', function($matches) use ($chatState) {
+                    $val = isset($chatState[$matches[1]]) ? $chatState[$matches[1]] : 0;
+                    return $val . '[' . $matches[1] . ']';
+                }, $abandoned_sql);
+                $evalSql = preg_replace_callback('/`([a-z_]+)`/', function($matches) use ($chatState) {
+                    return isset($chatState[$matches[1]]) ? (int)$chatState[$matches[1]] : 0;
+                }, $abandoned_sql);
+                $evalSql = preg_replace('/\bAND\b/i', '&&', $evalSql);
+                $evalSql = preg_replace('/\bOR\b/i',  '||', $evalSql);
+                $evalSql = preg_replace('/(?<![><!])=(?!=)/', '==', $evalSql);
+                try {
+                    $abandoned_sql_result = eval('return (int)(bool)(' . $evalSql . ');');
+                } catch (\Throwable $e) {
+                    $abandoned_sql_result = 'error: ' . $e->getMessage();
+                }
+            }
+
             ?>
 
             <ul class="fs11">
-                <li><?php echo htmlspecialchars($patterns['abnd'])?></li>
-                <li><?php echo htmlspecialchars($patterns['drpd'])?></li>
+                <li><?php echo htmlspecialchars($patterns['abnd'])?> <br><b>((`lsync` < (`pnd_time` + `wait_time`) AND `wait_time` > 1) OR  (`lsync` > (`pnd_time` + `wait_time`) AND `wait_time` > 1 AND `user_id` = 0))</b></li>
+                <?php if (!empty($abandoned_sql)) : ?>
+                <li>{debug.abnd_custom} = <?php echo $abandoned_sql_result; ?> (<?php echo htmlspecialchars($abandoned_sql_debug); ?>)<br><b><?php echo htmlspecialchars($abandoned_sql);?></b></li>
+                <?php endif;?>
+                <li><?php echo htmlspecialchars($patterns['drpd'])?> <br><b>(`lsync` > (`pnd_time` + `wait_time`) AND `has_unread_op_messages` = 1 AND `user_id` > 0)</b></li>
+                <?php if (!empty($dropped_sql)) : ?>
+                <li>{debug.drpd_custom} = <?php echo $dropped_sql_result; ?> (<?php echo htmlspecialchars($dropped_sql_debug); ?>)<br><b><?php echo htmlspecialchars($dropped_sql);?></b></li>
+                <?php endif;?>
             </ul>
 
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Duration calculation log');?></h6>
