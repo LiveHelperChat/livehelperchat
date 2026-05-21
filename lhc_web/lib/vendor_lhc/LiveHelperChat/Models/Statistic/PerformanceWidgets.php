@@ -105,6 +105,8 @@ class PerformanceWidgets
 
         if (!empty($userIds)) {
             $usersQuery = [
+                'select_columns' => ['id','name','surname','chat_nickname'],
+                'ignore_fields' => ['all_columns'],
                 'filterin' => ['id' => $userIds],
                 'sort'     => 'name ASC, surname ASC',
                 'limit'    => $limitList > 0 ? $limitList : false,
@@ -225,10 +227,13 @@ class PerformanceWidgets
 
         if (!empty($depIds)) {
             $departments = \erLhcoreClassModelDepartament::getList([
+                'select_columns' => ['id','name'],
+                'ignore_fields' => ['all_columns'],
                 'filterin' => ['id' => $depIds],
                 'sort'     => 'name ASC',
                 'limit'    => $limitList > 0 ? $limitList : false,
             ]);
+
             foreach ($departments as $department) {
                 if (isset($depPerformanceRowsById[$department->id])) {
                     $row = $depPerformanceRowsById[$department->id];
