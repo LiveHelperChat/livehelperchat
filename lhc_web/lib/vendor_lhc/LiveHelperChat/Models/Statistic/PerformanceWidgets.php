@@ -99,8 +99,27 @@ class PerformanceWidgets
             }
         }
 
+        $userIds = array_column($depPerformanceRows, 'id');
+        $depPerformanceRowsById = array_column($depPerformanceRows, null, 'id');
+        $depPerformanceRows = [];
+
+        if (!empty($userIds)) {
+            $usersQuery = [
+                'filterin' => ['id' => $userIds],
+                'sort'     => 'name ASC, surname ASC',
+                'limit'    => $limitList > 0 ? $limitList : false,
+            ];
+            $users = \erLhcoreClassModelUser::getList($usersQuery);
+            foreach ($users as $user) {
+                if (isset($depPerformanceRowsById[$user->id])) {
+                    $row = $depPerformanceRowsById[$user->id];
+                    $row['name'] = $user->name_official;
+                    $depPerformanceRows[] = $row;
+                }
+            }
+        }
+
         foreach ($depPerformanceRows as &$rowPerformance) {
-            $rowPerformance['name'] = ($user = \erLhcoreClassModelUser::fetch($rowPerformance['id'], true)) ? $user->name_official : '';
             foreach ($performanceColumns as $columnPerformance) {
                 if (!isset($rowPerformance[$columnPerformance])) {
                     $rowPerformance[$columnPerformance] = '';
@@ -109,16 +128,7 @@ class PerformanceWidgets
                 }
             }
         }
-
-        usort($depPerformanceRows, function ($rowA, $rowB) {
-            $nameA = isset($rowA['name']) ? (string)$rowA['name'] : '';
-            $nameB = isset($rowB['name']) ? (string)$rowB['name'] : '';
-            return strcasecmp($nameA, $nameB);
-        });
-
-        if ($limitList > 0) {
-            $depPerformanceRows = array_slice($depPerformanceRows, 0, $limitList);
-        }
+        unset($rowPerformance);
 
         $performanceUpdateInterval = isset($storedPerformanceConfig['update_interval'])
             && in_array((int)$storedPerformanceConfig['update_interval'], self::VALID_UPDATE_INTERVALS)
@@ -130,7 +140,7 @@ class PerformanceWidgets
             'cl'   => $performanceColumns,
             'ui'   => $performanceUpdateInterval,
             'up'   => $updatedAt,
-            'tt'   => \erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()),
+            'tt_stat'   => \erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()),
         ];
     }
 
@@ -206,14 +216,29 @@ class PerformanceWidgets
             }
         }
 
+        $depIds = array_column($depPerformanceRows, 'id');
         if ($allowedDepIds !== null) {
-            $depPerformanceRows = array_values(array_filter($depPerformanceRows, function ($row) use ($allowedDepIds) {
-                return isset($row['id']) && in_array($row['id'], $allowedDepIds);
-            }));
+            $depIds = array_values(array_intersect($depIds, $allowedDepIds));
+        }
+        $depPerformanceRowsById = array_column($depPerformanceRows, null, 'id');
+        $depPerformanceRows = [];
+
+        if (!empty($depIds)) {
+            $departments = \erLhcoreClassModelDepartament::getList([
+                'filterin' => ['id' => $depIds],
+                'sort'     => 'name ASC',
+                'limit'    => $limitList > 0 ? $limitList : false,
+            ]);
+            foreach ($departments as $department) {
+                if (isset($depPerformanceRowsById[$department->id])) {
+                    $row = $depPerformanceRowsById[$department->id];
+                    $row['name'] = $department->name;
+                    $depPerformanceRows[] = $row;
+                }
+            }
         }
 
         foreach ($depPerformanceRows as &$rowPerformance) {
-            $rowPerformance['name'] = (string)\erLhcoreClassModelDepartament::fetch($rowPerformance['id'], true);
             foreach ($performanceColumns as $columnPerformance) {
                 if (!isset($rowPerformance[$columnPerformance])) {
                     $rowPerformance[$columnPerformance] = '';
@@ -222,16 +247,7 @@ class PerformanceWidgets
                 }
             }
         }
-
-        usort($depPerformanceRows, function ($rowA, $rowB) {
-            $nameA = isset($rowA['name']) ? (string)$rowA['name'] : '';
-            $nameB = isset($rowB['name']) ? (string)$rowB['name'] : '';
-            return strcasecmp($nameA, $nameB);
-        });
-
-        if ($limitList > 0) {
-            $depPerformanceRows = array_slice($depPerformanceRows, 0, $limitList);
-        }
+        unset($rowPerformance);
 
         $performanceUpdateInterval = isset($storedPerformanceConfig['update_interval'])
             && in_array((int)$storedPerformanceConfig['update_interval'], self::VALID_UPDATE_INTERVALS)
@@ -243,7 +259,7 @@ class PerformanceWidgets
             'cl'   => $performanceColumns,
             'ui'   => $performanceUpdateInterval,
             'up'   => $updatedAt,
-            'tt'   => \erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()),
+            'tt_stat'   => \erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()),
         ];
     }
 }

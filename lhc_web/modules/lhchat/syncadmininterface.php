@@ -503,7 +503,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
         'stored_performance_config' => erLhcoreClassModelChatConfig::fetch('statistic_performance_op')->data_value,
     ]);
 
-    $timeLog['op_performance'] = $ReturnMessages['op_performance']['tt'];
+    $timeLog['op_performance'] = $ReturnMessages['op_performance']['tt_stat'];
 }
 
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['dep_performance'], $Params['user_parameters_unordered']['w']) && $currentUser->hasAccessTo('lhstatistic','dep_performance')) {
@@ -519,7 +519,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
         'stored_performance_config' => erLhcoreClassModelChatConfig::fetch('statistic_performance')->data_value,
     ]);
 
-    $timeLog['dep_performance'] = $ReturnMessages['dep_performance']['tt'];
+    $timeLog['dep_performance'] = $ReturnMessages['dep_performance']['tt_stat'];
 }
 
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['bot_chats'], $Params['user_parameters_unordered']['w']) && $botTabEnabled == true) {
