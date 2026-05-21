@@ -1706,7 +1706,22 @@
                                         chatsToNotify.push(itemList.id + '__' + iconsMonitoring.join('__'));
                                     }
                                 }
-                            } else if (lhcLogic.isListLoaded == true && (chatsSkipped == 0 || itemList.status_sub_sub === 2) && (($lhcList.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && (userId == 0 || item.last_id_identifier == 'amails') && confLH.ownntfonly == 0) || ($lhcList.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
+                            } else if ( 
+                                lhcLogic.isListLoaded == true && 
+                                (item.last_id_identifier == 'bot_chats' || chatsSkipped == 0 || itemList.status_sub_sub === 2) && 
+                                (
+                                        (
+                                            $lhcList.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && 
+                                            (userId == 0 || item.last_id_identifier == 'amails') && 
+                                            confLH.ownntfonly == 0
+                                        ) 
+                                    || 
+                                        (
+                                            $lhcList.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && 
+                                            userId == confLH.user_id
+                                        )
+                                )
+                            ) {
                                 if (lhinst.chatsSynchronising.indexOf(parseInt(itemList.id)) === -1) { // Don't show notification if chat is under sync already
                                     chatsToNotify.push(itemList.id);
                                 }
