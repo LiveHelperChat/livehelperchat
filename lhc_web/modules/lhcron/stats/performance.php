@@ -109,7 +109,7 @@ class PerformanceStats {
                                 $filterAART['group'] = 'dep_id';
                                 $filterAART['filterlt']['wait_time'] = 600;
                                 $filterAART['filtergt']['user_id'] = 0;
-                                $result['aart'] = erLhcoreClassModelChat::getCount(
+                                $result['wt'] = erLhcoreClassModelChat::getCount(
                                     $filterAART,                                // $params
                                     '',                                         // $operattion
                                     false,                                      // $field
@@ -384,13 +384,13 @@ class PerformanceStats {
                                 break;
                             case 'frt':
                                 $filterAART = $filter;
-                                $filterAART['group'] = 'dep_id';
+                                $filterAART['group'] = 'user_id';
                                 $filterAART['filtergt']['frt'] = 0;
                                 $result['frt'] = \LiveHelperChat\Models\LHCAbstract\ChatParticipant::getCount(
                                     $filterAART,                                // $params
                                     '',                                         // $operattion
                                     false,                                      // $field
-                                    'dep_id, AVG(frt) as frt',                  // $rawSelect
+                                    'user_id, AVG(frt) as frt',                  // $rawSelect
                                     false,                                      // $fetchColumn
                                     true                                        // $fetchAll
                                 );
