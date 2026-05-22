@@ -5,6 +5,6 @@
  */
 
 /*
- * <li><a href="<?php echo erLhcoreClassDesign::baseurl('/')?>"><i class="material-icons md-18">home</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Dashboard')?></a></li>
+ * <li class="nav-item"><a class="nav-link" href="<?php echo erLhcoreClassDesign::baseurl('/')?>"><i class="material-icons md-18">home</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Dashboard')?></a></li>
  * */
 ?>

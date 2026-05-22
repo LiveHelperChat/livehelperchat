@@ -1,7 +1,8 @@
 <?php if ($currentUser->hasAccessTo('lhxmp','configurexmp') ||
     $currentUser->hasAccessTo('lhrestapi','use_admin') ||
     $currentUser->hasAccessTo('lhsystem','ga_configuration') ||
-    $currentUser->hasAccessTo('lhwebhooks','configuration')
+    $currentUser->hasAccessTo('lhwebhooks','configuration') || 
+    $currentUser->hasAccessTo('lhwebhooks','pushchat')
 ) : ?>
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Integration');?></h5>
 <ul>

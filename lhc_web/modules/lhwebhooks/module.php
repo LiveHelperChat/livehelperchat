@@ -12,7 +12,7 @@ $ViewList['configuration'] = [
 
 $ViewList['pushchat'] = [
     'params' => [],
-    'functions' => ['configuration']
+    'functions' => ['pushchat']
 ];
 
 $ViewList['new'] = [
@@ -65,3 +65,4 @@ $ViewList['dispatch'] = [
 ];
 
 $FunctionList['configuration'] = ['explain' => 'Webhooks module configuration'];
+$FunctionList['pushchat'] = ['explain' => 'Allow operator to push chat message via defined webhooks'];
