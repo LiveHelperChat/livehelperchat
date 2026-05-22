@@ -1,7 +1,8 @@
 <?php if (is_array($metaMessage)) : ?>
-
     <?php if (isset($metaMessage['debug']) && $metaMessage['debug']) : ?>
         <div class="msg-body msg-body-media">
+            [<?php print (is_object($msg) ? $msg->id : $msg['id'])?>]
+            <?php if (!empty($metaMessage['content'])) : ?>
             <?php $debugData = json_decode($metaMessage['content'],true);?>
             <?php if (isset($debugData['params_request'])) : ?>
                 <button class="btn btn-xs btn-outline-secondary" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('audit/copycurl')?>/<?php print (is_object($msg) ? $msg->id : $msg['id'])?>'});"  type="button">Copy as CURL</button>
@@ -24,7 +25,9 @@
                 } else {
                     echo htmlspecialchars($metaMessage['content']);
                 }?></pre>
-
+            <?php elseif (!empty($metaMessage['ex']) && preg_match('/^[a-z0-9-]+/i', $metaMessage['ex']) && ($pathDynamic = erLhcoreClassDesign::designtpldynamic('lhchat/part/debug_' . $metaMessage['ex'] . '.tpl.php')) && $pathDynamic !== null) : ?>
+                <?php include $pathDynamic;?>
+            <?php endif; ?>
         </div>
     <?php else : ?>
         <?php $msgBody = '[html]'.str_replace(["\r","\n"],["",""],$metaMessage['content']).'[/html]'; $paramsMessageRender = array('msg_body_class' => (isset($type) && $type === 'debug' ? 'bg-transparent text-muted' : ''), 'sender' => (is_object($msg) ? $msg->user_id : $msg['user_id']));?>
