@@ -2672,7 +2672,7 @@ class erLhcoreClassChatWebhookIncoming {
         return null;
     }
 
-    public static function sendMessage($incomingWebhook, $item) {
+    public static function sendMessage($incomingWebhook, $item, $userData) {
 
         $db = ezcDbInstance::get();
 
@@ -2692,7 +2692,17 @@ class erLhcoreClassChatWebhookIncoming {
                 $incomingChat->incoming_id = $incomingWebhook->id;
             }
 
-            $chat = new erLhcoreClassModelChat();
+            $vid = md5($incomingWebhook->id . '_' . $incomingChat->chat_external_id);
+
+            if (($onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($vid)) !== false) {
+                if (erLhcoreClassModelChatBlockedUser::isBlocked(['online_user_id' => $onlineUser->id])) {
+                    throw new Exception('Blocked by online visitor profile!');
+                }
+            }
+
+            if (($chat = $incomingChat->chat) === false || $chat->status === erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+                $chat = new erLhcoreClassModelChat();
+            }
 
             if ($item->dep_id > 0) {
                 $chat->dep_id = $item->dep_id;
@@ -2737,16 +2747,14 @@ class erLhcoreClassChatWebhookIncoming {
                 $msg->time = time();
                 $msg->saveThis();
 
-                if ($item->close_chat == 1) {
-                    $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
-                }
-
                 /**
                  * Set appropriate chat attributes
                  */
                 $chat->last_msg_id = $msg->id;
                 $chat->last_user_msg_time = $msg->time;
                 $chat->saveThis();
+
+                self::assignOnlineVisitor($chat, $incomingChat);
             }
 
             $incomingChat->chat_id = $chat->id;
@@ -2766,6 +2774,13 @@ class erLhcoreClassChatWebhookIncoming {
                     'chat' => & $chat,
                     'msg' => $msg
                 ));
+   	
+                if ($item->close_chat == 1) {
+                    erLhcoreClassChatHelper::closeChat(array(
+                        'user' => $userData,
+                        'chat' => $chat,
+                    ));
+                }
             }
 
         } catch (Exception $e) {

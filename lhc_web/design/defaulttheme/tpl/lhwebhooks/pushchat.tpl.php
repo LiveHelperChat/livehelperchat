@@ -8,7 +8,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<?php if (isset($chat)) : ?>
+<?php if (isset($chat) && $chat->id > 0) : ?>
     <a href="#/chat-id-<?php echo $chat->id?>" class="action-image" data-title="<?php echo erLhcoreClassDesign::shrt($chat->nick,10,'...',30,ENT_QUOTES);?>" onclick="lhinst.startChatNewWindow(<?php echo $chat->id?>,$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhook/push','Open chat')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhook/push','Open chat')?></a>
 <?php endif; ?>
 

@@ -97,7 +97,11 @@ if (ezcInputForm::hasPostData()) {
             $item->user_id = $userData->id;
             $item->name_support = (string)$userData->name_support;
 
-            $chat = erLhcoreClassChatWebhookIncoming::sendMessage(erLhcoreClassModelChatIncomingWebhook::fetch($item->incoming_api_id), $item);
+            $chat = erLhcoreClassChatWebhookIncoming::sendMessage(
+                erLhcoreClassModelChatIncomingWebhook::fetch($item->incoming_api_id), 
+                $item,
+                $userData
+            );
 
             $tpl->set('updated', true);
             $tpl->set('chat', $chat);
