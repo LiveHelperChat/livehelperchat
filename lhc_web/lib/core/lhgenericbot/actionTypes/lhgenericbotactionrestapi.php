@@ -5,6 +5,9 @@ class erLhcoreClassGenericBotActionRestapi
 
     public static function process($chat, $action, $trigger, $params)
     {
+        if (isset($params['do_not_save']) && $params['do_not_save'] === true) {
+            return null;
+        }
 
         $params['current_trigger'] = $trigger;
 
@@ -39,9 +42,7 @@ class erLhcoreClassGenericBotActionRestapi
                         )
                     )));
 
-                    if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
-                        $event->saveThis();
-                    }
+                    $event->saveThis();
 
                     return;
                 }
@@ -88,18 +89,16 @@ class erLhcoreClassGenericBotActionRestapi
                     )));
 
                     // Save only if user has resque extension
-                    if ((!isset($params['do_not_save']) || $params['do_not_save'] == false)) {
-                        $event->saveThis();
-                        $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
-                        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_api_queue', 'erLhcoreClassLHCBotWorker', array(
-                            'msg_id' => (isset($params['msg']) && is_object($params['msg']) ? $params['msg']->id : 0),
-                            'inst_id' => $inst_id,
-                            'chat_id' => $chat->id,
-                            'action' => 'rest_api',
-                            'event_id' => $event->id)
-                        );
-                        return ;
-                    }
+                    $event->saveThis();
+                    $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+                    erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_api_queue', 'erLhcoreClassLHCBotWorker', array(
+                        'msg_id' => (isset($params['msg']) && is_object($params['msg']) ? $params['msg']->id : 0),
+                        'inst_id' => $inst_id,
+                        'chat_id' => $chat->id,
+                        'action' => 'rest_api',
+                        'event_id' => $event->id)
+                    );
+                    return null;
                 }
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_before_request', array(
@@ -404,10 +403,8 @@ class erLhcoreClassGenericBotActionRestapi
                     $msg->meta_msg = (isset($response['meta']) && !empty($response['meta'])) ? json_encode($response['meta']) : '';
                     $msg->msg = $response['content'];
 
-                    if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
-                        if ($msg->chat_id > 0) {
-                            $msg->saveThis();
-                        }
+                    if ($msg->chat_id > 0) {
+                        $msg->saveThis();
                     }
 
                     return  $msg;
