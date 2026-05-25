@@ -33,6 +33,7 @@ class PerformanceWidgets
         $limitList              = (int)($params['limit_list'] ?? 10);
         $allDepartments         = (bool)($params['all_departments'] ?? false);
         $canListOnlineUsersAll  = (bool)($params['can_list_online_all'] ?? false);
+        $list_read_write        = (bool)($params['list_read_write'] ?? false);
         $currentUserId          = (int)($params['current_user_id'] ?? 0);
         $cacheVersion           = (int)($params['cache_version'] ?? 0);
         $startTimeRequestItem   = $params['start_time'] ?? microtime();
@@ -78,8 +79,26 @@ class PerformanceWidgets
             $updatedAt = \erLhcoreClassChat::formatSeconds(time() - $item->created_at);
         }
 
-        if (!$allDepartments && !$canListOnlineUsersAll) {
+        if (isset($params['user_id_filter']) && !empty($params['user_id_filter'])) {
+            $depPerformanceRows = array_values(array_filter($depPerformanceRows, function ($row) use ($params) {
+                return in_array($row['id'], $params['user_id_filter']);
+            }));
+        }
+
+        if ($params['myself'] === true) {
+            $depPerformanceRows = array_values(array_filter($depPerformanceRows, function ($row) use ($currentUserId) {
+                return (int)$row['id'] === $currentUserId;
+            }));
+        } else if (!$allDepartments && !$canListOnlineUsersAll) {
             $userDepartaments = \erLhcoreClassUserDep::getUserDepartaments($currentUserId, $cacheVersion);
+
+            if ($list_read_write === false) {
+                $userReadDepartments = \erLhcoreClassUserDep::getUserReadDepartments($currentUserId, $cacheVersion);
+                if (!empty($userReadDepartments) && is_array($userDepartaments)) {
+                    $userDepartaments = array_values(array_diff($userDepartaments, $userReadDepartments));
+                }
+            }
+            
             $index = array_search(-1, $userDepartaments);
             if ($index !== false) {
                 unset($userDepartaments[$index]);
@@ -89,8 +108,11 @@ class PerformanceWidgets
                     ['filterin' => ['dep_id' => $userDepartaments], 'limit' => false],
                     'COUNT', false,
                     'DISTINCT `lh_userdep`.`user_id`',
-                    false, true, true
+                    false, 
+                    true, 
+                    true
                 );
+                
                 $depPerformanceRows = array_values(array_filter($depPerformanceRows, function ($row) use ($visibleOpIds) {
                     return in_array($row['id'], $visibleOpIds);
                 }));
@@ -137,13 +159,19 @@ class PerformanceWidgets
             ? (int)$storedPerformanceConfig['update_interval']
             : 600;
 
-        return [
+        $dataReturn = [
             'list' => $depPerformanceRows,
             'cl'   => $performanceColumns,
             'ui'   => $performanceUpdateInterval,
             'up'   => $updatedAt,
             'tt_stat'   => \erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()),
         ];
+
+        if (isset($storedPerformanceConfig['wrap_headers']) && $storedPerformanceConfig['wrap_headers'] === true) {
+            $dataReturn['wrap_h'] = true;
+        }
+
+        return $dataReturn;
     }
 
     /**
@@ -259,12 +287,18 @@ class PerformanceWidgets
             ? (int)$storedPerformanceConfig['update_interval']
             : 600;
 
-        return [
+        $dataReturn = [
             'list' => $depPerformanceRows,
             'cl'   => $performanceColumns,
             'ui'   => $performanceUpdateInterval,
             'up'   => $updatedAt,
             'tt_stat'   => \erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()),
         ];
+
+        if (isset($storedPerformanceConfig['wrap_headers']) && $storedPerformanceConfig['wrap_headers'] === true) {
+            $dataReturn['wrap_h'] = true;
+        }
+
+        return $dataReturn;
     }
 }

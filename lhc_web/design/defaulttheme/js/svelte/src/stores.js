@@ -73,6 +73,8 @@ export const lhcList = writable({
     pendingu: [],
     subjectu: [],
     oopu: [],
+    oppu: [],
+    opp_ugroups: [],
     custom_extension_filter : '',
     depFilterText : '',
     userFilterText : '',

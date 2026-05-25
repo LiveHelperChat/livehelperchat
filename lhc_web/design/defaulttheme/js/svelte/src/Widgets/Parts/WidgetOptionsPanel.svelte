@@ -100,14 +100,15 @@
                     <li class="dropdown-result">
                         <ul class="list-unstyled dropdown-lhc">
 
-                            {#if optionsPanel.hasOwnProperty('custom_filters')}
+                            <li data-stopPropagation="true"><label><input bind:checked={$lhcList[optionsPanel['panelid'] + '_mslf']} on:change={(e) => {ee.emitEvent('svelteallDepartmentsChanged',[optionsPanel['panelid'],true])}} type="checkbox" ><i class="material-icons me-0">person</i>{$t("widget_options.assigned_to_me")}</label></li>
 
+                            {#if optionsPanel.hasOwnProperty('custom_filters')}
                                 {#each optionsPanel.custom_filters as custom_filter} 
                                     <li data-stopPropagation="true"><label title={custom_filter['title']}><input bind:checked={$lhcList[optionsPanel['panelid'] + '_' + custom_filter['field']]} on:change={(e) => {ee.emitEvent('svelteallDepartmentsChanged',[optionsPanel['panelid'],true])}} type="checkbox" ><i class="material-icons me-0">{custom_filter['icon']}</i>{custom_filter['label']}</label></li>
                                 {/each}
-
-                                <li class="border-bottom"></li>
                             {/if}
+
+                            <li class="border-bottom"></li>
 
                             {#each $lhcList.userList as userItem (userItem.id)}
                                 <li data-stopPropagation="true"><label><input bind:group={userList} on:change={(e) => {ee.emitEvent('svelteProductChanged',[optionsPanel['userid']])}} value={userItem.id} type="checkbox" ><i title="User" class="material-icons">account_box</i>{userItem.name || userItem.name_official}</label></li>

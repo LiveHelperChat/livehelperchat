@@ -1905,7 +1905,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             userProductNames.push(value.id);
         });
 
-        LiveHelperChatFactory.searchProvider('users_ids',_that.pendingu.join(',') +','+ _that.activeu.join(',')+','+ _that.subjectu.join(',')+','+ _that.pendingmu.join(',')+','+ _that.activemu.join(',')+','+ _that.alarmmu.join(',')+','+ _that.oopu.join(',')).then(function(data){
+        LiveHelperChatFactory.searchProvider('users_ids',_that.pendingu.join(',') +','+ _that.activeu.join(',')+','+ _that.subjectu.join(',')+','+ _that.pendingmu.join(',')+','+ _that.activemu.join(',')+','+ _that.alarmmu.join(',')+','+ _that.oopu.join(',')+','+ _that.oppu.join(',')).then(function(data){
             _that.userList = data.items;
 
             angular.forEach(_that.userList, function(value) {
@@ -1920,6 +1920,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
                 'pendingu' : userList,
                 'oopu' : userList,
+                'oppu' : userList,
                 'pendingd_ugroups' : userGroups,
                 'pendingd_dpgroups' : userDepartmentsGroups,
                 'pendingd_products' : userProductNames,
@@ -2078,6 +2079,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 'pendingu',
                 'oopu',
                 'subjectu',
+
+				'oppu',
 
                 'closedd',
                 'closedd_products',

@@ -161,7 +161,8 @@ $FunctionList['configuration'] = array('explain' =>'Allow operator to configure 
 $FunctionList['statisticdep'] = array('explain' =>'Allow operator to see departments/departments groups statistic in modal window');
 $FunctionList['userstats'] = array('explain' =>'Allow operator to see operator statistic in modal window');
 $FunctionList['dep_performance'] = array('explain' =>'Allow operator to see department performance in the last 24');
-$FunctionList['op_performance'] = array('explain' =>'Allow operator to see operators performance in the last 24');
+$FunctionList['op_performance'] = array('explain' =>'Allow an operator to view other operators performance across all departments they belong to (including departments where they only have read access)');
+$FunctionList['op_performance_write'] = array('explain' =>'Allow an operator to view other operators performance only for departments where they have write permission');
 $FunctionList['performance_settings'] = array('explain' =>'Allow operator to configure performance widgets settings');
 
 ?>

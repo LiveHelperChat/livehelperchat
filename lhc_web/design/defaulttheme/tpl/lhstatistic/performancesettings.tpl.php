@@ -74,15 +74,27 @@
                     $updateInterval = isset($updateInterval) ? (int)$updateInterval : 600;
                     $validUpdateIntervals = isset($validUpdateIntervals) && is_array($validUpdateIntervals) ? $validUpdateIntervals : array_keys($updateIntervalLabels);
                 ?>
-                <div class="mb-3">
-                    <label class="form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Update frequency')?></label>
-                    <select name="dep_performance_update_interval" class="form-select form-select-sm" style="width:auto">
-                        <?php foreach ($validUpdateIntervals as $intervalValue) : ?>
-                            <option value="<?php echo (int)$intervalValue?>" <?php if ($updateInterval === (int)$intervalValue) : ?>selected="selected"<?php endif; ?>>
-                                <?php echo isset($updateIntervalLabels[$intervalValue]) ? $updateIntervalLabels[$intervalValue] : $intervalValue . ' s' ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label class="form-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Update frequency')?></label>
+                            <select name="dep_performance_update_interval" class="form-select form-select-sm" style="width:auto">
+                                <?php foreach ($validUpdateIntervals as $intervalValue) : ?>
+                                    <option value="<?php echo (int)$intervalValue?>" <?php if ($updateInterval === (int)$intervalValue) : ?>selected="selected"<?php endif; ?>>
+                                        <?php echo isset($updateIntervalLabels[$intervalValue]) ? $updateIntervalLabels[$intervalValue] : $intervalValue . ' s' ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="dep_performance_wrap_headers" name="dep_performance_wrap_headers" value="1" <?php if (isset($wrapHeaders) && $wrapHeaders) : ?>checked="checked"<?php endif; ?> />
+                            <label class="form-check-label" for="dep_performance_wrap_headers"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Wrap header column values')?></label>
+                            <div class="form-text text-muted small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Allow header values to wrap onto multiple lines')?></div>
+                        </div>
+                    </div>
                 </div>
 
                 <input type="submit" class="btn btn-secondary btn-sm" name="updatePerformanceSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update')?>">

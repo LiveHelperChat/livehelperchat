@@ -127,6 +127,10 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
         }
     }
 
+    if ((int)$Params['user_parameters_unordered']['subjectd_mslf'] === 1) {
+        $filter['filter']['user_id'] = $currentUser->getUserID();
+    }
+
     $chats = erLhcoreClassChat::getSubjectChats($limitList, 0, $filter);
 
     if (!empty($chats)) {
@@ -330,6 +334,10 @@ if ($activeTabEnabled == true) {
         }
     }
 
+    if ((int)$Params['user_parameters_unordered']['actived_mslf'] === 1) {
+        $filter['filter']['user_id'] = $currentUser->getUserID();
+    }
+
 	$chats = erLhcoreClassChat::getActiveChats($limitList,0,$filter);
 
     if (!empty($chats)) {
@@ -489,17 +497,38 @@ if ($myChatsEnabled == true) {
     $chatsList[] = & $ReturnMessages['my_chats']['list'];
 }
 
-if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['op_performance'], $Params['user_parameters_unordered']['w']) && $currentUser->hasAccessTo('lhstatistic','op_performance') ) {
+if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['op_performance'], $Params['user_parameters_unordered']['w']) && (
+    $currentUser->hasAccessTo('lhstatistic','op_performance') || 
+    $currentUser->hasAccessTo('lhstatistic','op_performance_write')
+    ) ) {
     $limitList = is_numeric($Params['user_parameters_unordered']['limitop']) ? (int)$Params['user_parameters_unordered']['limitop'] : 10;
     $startTimeRequestItem = microtime();
 
+    $userIDFilter = [];
+
+    if (is_array($Params['user_parameters_unordered']['oppu']) && !empty($Params['user_parameters_unordered']['oppu'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['oppu']);
+        $userIDFilter = $Params['user_parameters_unordered']['oppu'];
+    }
+
+    if (is_array($Params['user_parameters_unordered']['oppugroups']) && !empty($Params['user_parameters_unordered']['oppugroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['oppugroups']);
+        $userIds = erLhcoreClassChat::getUserIDByGroup($Params['user_parameters_unordered']['oppugroups']);
+        if (!empty($userIds)) {
+            $userIDFilter = isset($userIDFilter) ? array_merge($userIDFilter,$userIds) : $userIds;
+        }
+    }
+
     $ReturnMessages['op_performance'] = \LiveHelperChat\Models\Statistic\PerformanceWidgets::getOpPerformance([
+        'user_id_filter'           => $userIDFilter,
         'limit_list'               => $limitList,
+        'list_read_write'          => $currentUser->hasAccessTo('lhstatistic','op_performance'),
         'all_departments'          => $userData->all_departments == 1,
         'can_list_online_all'      => $canListOnlineUsersAll,
         'current_user_id'          => (int)$currentUser->getUserID(),
         'cache_version'            => (int)$userData->cache_version,
         'start_time'               => $startTimeRequestItem,
+        'myself'                   => (int)$Params['user_parameters_unordered']['opp_mslf'] === 1,
         'stored_performance_config' => erLhcoreClassModelChatConfig::fetch('statistic_performance_op')->data_value,
     ]);
 
@@ -556,7 +585,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
     if (!empty($Params['user_parameters_unordered']['bcs']) && key_exists($Params['user_parameters_unordered']['bcs'], $sortArray)) {
         $filter['sort'] = $sortArray[$Params['user_parameters_unordered']['bcs']];
     }
-
+ 
     /**
      * Bot chats
      * */
@@ -644,6 +673,10 @@ if ($pendingTabEnabled == true) {
                 }
             }
         }
+    }
+
+    if ((int)$Params['user_parameters_unordered']['pendingd_mslf'] === 1) {
+        $additionalFilter['filter']['user_id'] = $currentUser->getUserID();
     }
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmininterface.pendingchats',array('additional_filter' => & $additionalFilter));
@@ -760,6 +793,10 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
         }
     }
 
+    if ((int)$Params['user_parameters_unordered']['operatord_mslf'] === 1) {
+        $filter['filter']['user_id'] = $currentUser->getUserID();
+    }
+    
     if (!empty($Params['user_parameters_unordered']['on_opf'])) {
         $filter['filter']['hide_online'] = 0;
     }
@@ -916,6 +953,10 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
             $additionalFilter['filterin']['dep_id'] = isset($additionalFilter['filterin']['dep_id']) ? array_merge($additionalFilter['filterin']['dep_id'],$depIds) : $depIds;
         }
     }
+    
+    if ((int)$Params['user_parameters_unordered']['pendingmd_mslf'] === 1) {
+        $additionalFilter['filter']['user_id'] = $currentUser->getUserID();
+    }
 
     $limitList = is_numeric($Params['user_parameters_unordered']['limitpm']) ? (int)$Params['user_parameters_unordered']['limitpm'] : 10;
 
@@ -969,6 +1010,10 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $filterAdditionalMainAttr['sort'] = 'priority ASC, id ASC';
 
+    if ((int)$Params['user_parameters_unordered']['activemd_mslf'] === 1) {
+        $additionalFilter['filter']['user_id'] = $currentUser->getUserID();
+    }
+  
     $activeMails = erLhcoreClassChat::getActiveMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr, ['check_list_permissions' => true, 'check_list_scope' => 'mails']);
 
     erLhcoreClassChat::prefillGetAttributes($activeMails, array('ctime_front','pnd_time_front','department_name','wait_time_pending','plain_user_name','from_name','from_address','subject_front'), array('body','department','time','status','user','subject'));

@@ -270,6 +270,8 @@
     widgetsItems.push('alarmmd');
     widgetsItems.push('mmd');
     widgetsItems.push('department_online');
+    widgetsItems.push('depp');
+    widgetsItems.push('opp');
 
     widgetsItems.forEach(function(listId) {
         $lhcList[listId + '_all_departments'] = lhcServices.restoreLocalSetting(listId + '_all_departments','false',false) != 'false';
@@ -278,9 +280,10 @@
         $lhcList[listId + '_only_online'] = lhcServices.restoreLocalSetting(listId + '_only_online','false',false) != 'false';
         $lhcList[listId + '_only_explicit_online'] = lhcServices.restoreLocalSetting(listId + '_only_explicit_online','false',false) != 'false';
         $lhcList[listId + '_m_h'] = lhcServices.restoreLocalSetting(listId + '_m_h',null,false);
+        $lhcList[listId + '_mslf'] = lhcServices.restoreLocalSetting(listId + '_mslf',null,false);
     });
 
-    ['onlineusers_m_h', 'depp_m_h', 'opp_m_h'].forEach(function(key) {
+    ['onlineusers_m_h'].forEach(function(key) {
         $lhcList[key] = lhcServices.restoreLocalSetting(key, null, false);
     });
 
@@ -431,6 +434,14 @@
             }
         }
 
+        if (typeof $lhcList[listId+'_mslf'] !== 'undefined') {
+            if ($lhcList[listId+'_mslf'] === true) {
+                storeLocalSetting(listId + '_mslf', true);
+            } else {
+                removeLocalSetting(listId + '_mslf');
+            }
+        }
+
         if (typeof $lhcList[listId+'_hide_dgroup'] !== 'undefined') {
             if ($lhcList[listId+'_hide_dgroup'] === true) {
                 storeLocalSetting(listId + '_hide_dgroup', true);
@@ -505,13 +516,15 @@
 
     function setDepartmentNames(listId) {
         $lhcList[listId + 'Names'] = [];
-        $lhcList[listId].forEach(function(value) {
+        if ($lhcList[listId]) {
+            $lhcList[listId].forEach(function(value) {
             if (typeof $lhcList.userDepartmentsNames !== 'undefined' && typeof $lhcList.userDepartmentsNames[value] !== 'undefined') {
                 $lhcList[listId + 'Names'].push($lhcList.userDepartmentsNames[value]);
             } else if (typeof $lhcList.userDepartmentsNames !== 'undefined') {
                 $lhcList[listId].splice($lhcList[listId].indexOf(value),1);
                 departmentChanged(listId);
             }});
+        }
     }
 
      function getOpenedChatIds (listId) {
@@ -716,6 +729,9 @@
             'oopu',
             'subjectu',
 
+            'oppu',
+            'opp_ugroups',
+
             'closedd',
             'closedd_products',
             'closedd_dpgroups',
@@ -883,7 +899,7 @@
             userProductNames.push(value.id);
         });
 
-        const responseTrack = await fetch(WWW_DIR_JAVASCRIPT  + 'chat/searchprovider/users_ids/?exclude_disabled=1&q=' + $lhcList.pendingu.join(',') +','+ $lhcList.activeu.join(',')+','+ $lhcList.subjectu.join(',')+','+ $lhcList.oopu.join(',')+','+$lhcList.pendingmu.join(',')+','+ $lhcList.activemu.join(',')+','+ $lhcList.alarmmu.join(','), {
+        const responseTrack = await fetch(WWW_DIR_JAVASCRIPT  + 'chat/searchprovider/users_ids/?exclude_disabled=1&q=' + $lhcList.pendingu.join(',') +','+ $lhcList.activeu.join(',')+','+ $lhcList.subjectu.join(',')+','+ $lhcList.oopu.join(',')+','+$lhcList.pendingmu.join(',')+','+ $lhcList.activemu.join(',')+','+ $lhcList.alarmmu.join(',')+','+ $lhcList.oppu.join(','), {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -911,6 +927,8 @@
 
                 'pendingu' : userList,
                 'oopu' : userList,
+                'oppu' : userList,
+                'opp_ugroups' : userGroups,
                 'pendingd_ugroups' : userGroups,
                 'operatord_ugroups' : userGroups,
                 'pendingd_dpgroups' : userDepartmentsGroups,
@@ -1056,22 +1074,10 @@
     {
         $lhcList.custom_extension_filter = '';
 
-        var filter = '/(limita)/'+parseInt($lhcList.limita);
-        filter += '/(limitu)/'+parseInt($lhcList.limitu);
-        filter += '/(limitp)/'+parseInt($lhcList.limitp);
-        filter += '/(limito)/'+parseInt($lhcList.limito);
-        filter += '/(limitc)/'+parseInt($lhcList.limitc);
-        filter += '/(limitd)/'+parseInt($lhcList.limitd);
-        filter += '/(limits)/'+parseInt($lhcList.limits);
-        filter += '/(limitmc)/'+parseInt($lhcList.limitmc);
-        filter += '/(limitb)/'+parseInt($lhcList.limitb);
-        filter += '/(limitgc)/'+parseInt($lhcList.limitgc);
-        filter += '/(limitmm)/'+parseInt($lhcList.limitmm);
-        filter += '/(limitpm)/'+parseInt($lhcList.limitpm);
-        filter += '/(limitam)/'+parseInt($lhcList.limitam);
-        filter += '/(limitalm)/'+parseInt($lhcList.limitalm);
-        filter += '/(limitdp)/'+parseInt($lhcList.limitdp);
-        filter += '/(limitop)/'+parseInt($lhcList.limitop);
+        var filter = '';
+        ['limita','limitu','limitp','limito','limitc','limitd','limits','limitmc','limitb','limitgc','limitmm','limitpm','limitam','limitalm','limitdp','limitop'].forEach(k => {
+            filter += '/(' + k + ')/' + parseInt($lhcList[k]);
+        });
 
         if (typeof $lhcList.widgetsActive == 'object' && $lhcList.widgetsActive.length > 0) {
             let map = {
@@ -1100,301 +1106,82 @@
             filter += '/(w)/'+activeWidgets.join('/');
         }
 
-        if (typeof $lhcList.activeu == 'object' && $lhcList.activeu.length > 0) {
-            filter += '/(activeu)/'+$lhcList.activeu.join('/');
-        }
+        [
+            ['activeu',             'activeu'],
+            ['pendingu',            'pendingu'],
+            ['pendingmu',           'pendingmu'],
+            ['activemu',            'activemu'],
+            ['alarmmu',             'alarmmu'],
+            ['oopu',                'oopu'],
+            ['oppu',                'oppu'],
+            ['opp_ugroups',         'oppugroups'],
+            ['subjectu',            'subjectu'],
+            ['actived_dpgroups',    'adgroups'],
+            ['pendingmd_dpgroups',  'pmd'],
+            ['activemd_dpgroups',   'amd'],
+            ['alarmmd_dpgroups',    'almd'],
+            ['pendingd_dpgroups',   'pdgroups'],
+            ['subjectd_dpgroups',   'sdgroups'],
+            ['closedd_dpgroups',    'cdgroups'],
+            ['botd_dpgroups',       'bdgroups'],
+            ['mcd_dpgroups',        'mdgroups'],
+            ['mmd_dpgroups',        'mmdgroups'],
+            ['unreadd_dpgroups',    'udgroups'],
+            ['departmentd_dpgroups','ddgroups'],
+            ['operatord_dpgroups',  'odpgroups'],
+            ['closedd',             'closedd'],
+            ['actived_products',    'activedprod'],
+            ['pendingd_ugroups',    'pugroups'],
+            ['operatord_ugroups',   'oopugroups'],
+            ['subjectd_ugroups',    'sugroups'],
+            ['actived_ugroups',     'augroups'],
+            ['pendingmd_ugroups',   'pmug'],
+            ['activemd_ugroups',    'amug'],
+            ['alarmmd_ugroups',     'almug'],
+            ['mcd_products',        'mcdprod'],
+            ['unreadd_products',    'unreaddprod'],
+            ['pendingd_products',   'pendingdprod'],
+            ['subjectd_products',   'subjectdprod'],
+            ['botd_products',       'botdprod'],
+            ['closedd_products',    'closeddprod'],
+        ].forEach(([key, param]) => {
+            if (typeof $lhcList[key] == 'object' && $lhcList[key].length > 0) {
+                filter += '/(' + param + ')/' + $lhcList[key].join('/');
+            }
+        });
 
-        if (typeof $lhcList.pendingu == 'object' && $lhcList.pendingu.length > 0) {
-            filter += '/(pendingu)/'+$lhcList.pendingu.join('/');
-        }
-
-        if (typeof $lhcList.pendingmu == 'object' && $lhcList.pendingmu.length > 0) {
-            filter += '/(pendingmu)/'+$lhcList.pendingmu.join('/');
-        }
-
-        if (typeof $lhcList.activemu == 'object' && $lhcList.activemu.length > 0) {
-            filter += '/(activemu)/'+$lhcList.activemu.join('/');
-        }
-
-        if (typeof $lhcList.alarmmu == 'object' && $lhcList.alarmmu.length > 0) {
-            filter += '/(alarmmu)/' + $lhcList.alarmmu.join('/');
-        }
-
-        if (typeof $lhcList.oopu == 'object' && $lhcList.oopu.length > 0) {
-            filter += '/(oopu)/'+$lhcList.oopu.join('/');
-        }
-
-        if (typeof $lhcList.subjectu == 'object' && $lhcList.subjectu.length > 0) {
-            filter += '/(subjectu)/'+$lhcList.subjectu.join('/');
-        }
-
-        if (typeof $lhcList.actived_dpgroups == 'object' && $lhcList.actived_dpgroups.length > 0) {
-            filter += '/(adgroups)/'+$lhcList.actived_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.pendingmd_dpgroups == 'object' && $lhcList.pendingmd_dpgroups.length > 0) {
-            filter += '/(pmd)/'+$lhcList.pendingmd_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.activemd_dpgroups == 'object' && $lhcList.activemd_dpgroups.length > 0) {
-            filter += '/(amd)/'+$lhcList.activemd_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.alarmmd_dpgroups == 'object' && $lhcList.alarmmd_dpgroups.length > 0) {
-            filter += '/(almd)/' + $lhcList.alarmmd_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.pendingd_dpgroups == 'object' && $lhcList.pendingd_dpgroups.length > 0) {
-            filter += '/(pdgroups)/'+$lhcList.pendingd_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.subjectd_dpgroups == 'object' && $lhcList.subjectd_dpgroups.length > 0) {
-            filter += '/(sdgroups)/'+$lhcList.subjectd_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.closedd_dpgroups == 'object' && $lhcList.closedd_dpgroups.length > 0) {
-            filter += '/(cdgroups)/'+$lhcList.closedd_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.botd_dpgroups == 'object' && $lhcList.botd_dpgroups.length > 0) {
-            filter += '/(bdgroups)/'+$lhcList.botd_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.mcd_dpgroups == 'object' && $lhcList.mcd_dpgroups.length > 0) {
-            filter += '/(mdgroups)/'+$lhcList.mcd_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.mmd_dpgroups == 'object' && $lhcList.mmd_dpgroups.length > 0) {
-            filter += '/(mmdgroups)/' + $lhcList.mmd_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.unreadd_dpgroups == 'object' && $lhcList.unreadd_dpgroups.length > 0) {
-            filter += '/(udgroups)/'+$lhcList.unreadd_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.departmentd_dpgroups == 'object' && $lhcList.departmentd_dpgroups.length > 0) {
-            filter += '/(ddgroups)/'+$lhcList.departmentd_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.operatord_dpgroups == 'object' && $lhcList.operatord_dpgroups.length > 0) {
-            filter += '/(odpgroups)/'+$lhcList.operatord_dpgroups.join('/');
-        }
-
-        if (typeof $lhcList.actived == 'object') {
-            if ($lhcList.actived.length > 0) {
-                filter += '/(actived)/'+$lhcList.actived.join('/');
-            } else {
-                let itemsFilter = manualFilterByFilter('actived');
-                if (itemsFilter.length > 0) {
-                    filter += '/(actived)/'+itemsFilter.join('/');
+        ['actived','subjectd','mcd','mmd','pendingmd','activemd','alarmmd','unreadd','botd','pendingd','operatord','departmentd'].forEach(key => {
+            if (typeof $lhcList[key] == 'object') {
+                const items = $lhcList[key].length > 0 ? $lhcList[key] : manualFilterByFilter(key);
+                if (items.length > 0) {
+                    filter += '/(' + key + ')/' + items.join('/');
+                }
+                if (key === 'pendingd' && $lhcList.toggleWidgetData['pending_chats_sort'] !== 'undefined' && $lhcList.toggleWidgetData['pending_chats_sort'] !== '') {
+                    filter += '/(psort)/' + $lhcList.toggleWidgetData['pending_chats_sort'];
                 }
             }
+        });
+
+        if ($lhcList.toggleWidgetData['track_open_chats'] == true) {
+            filter += '/(topen)/true';
         }
 
-        if (typeof $lhcList.subjectd == 'object') {
-            if ($lhcList.subjectd.length > 0) {
-                filter += '/(subjectd)/'+$lhcList.subjectd.join('/');
-            } else {
-                let itemsFilter = manualFilterByFilter('subjectd');
-                if (itemsFilter.length > 0) {
-                    filter += '/(subjectd)/'+itemsFilter.join('/');
-                }
+        [
+            ['active_chats_sort',  'acs'],
+            ['bot_chats_sort',     'bcs'],
+            ['closed_chats_sort',  'clcs'],
+            ['onop_sort',          'onop']
+        ].forEach(([key, param]) => {
+            if (typeof $lhcList.toggleWidgetData[key] !== 'undefined' && $lhcList.toggleWidgetData[key] !== '') {
+                filter += '/(' + param + ')/' + $lhcList.toggleWidgetData[key];
             }
-        }
+        });
 
-        if (typeof $lhcList.mcd == 'object') {
-            if ($lhcList.mcd.length > 0) {
-                filter += '/(mcd)/'+$lhcList.mcd.join('/');
-            } else {
-                let itemsFilter = manualFilterByFilter('mcd');
-                if (itemsFilter.length > 0) {
-                    filter += '/(mcd)/'+itemsFilter.join('/');
-                }
+        widgetsItems.forEach(function(listId) {
+            if ($lhcList[listId + '_mslf'] === 'true' || $lhcList[listId + '_mslf'] === true) {
+                filter += '/(' + listId + '_mslf' + ')/1';
             }
-        }
-
-        if (typeof $lhcList.mmd == 'object') {
-            if ($lhcList.mmd.length > 0) {
-                filter += '/(mmd)/'+$lhcList.mmd.join('/');
-            } else {
-                var itemsFilter = manualFilterByFilter('mmd');
-                if (itemsFilter.length > 0) {
-                    filter += '/(mmd)/'+itemsFilter.join('/');
-                }
-            }
-        }
-
-        if (typeof $lhcList.pendingmd == 'object') {
-            if ($lhcList.pendingmd.length > 0) {
-                filter += '/(pendingmd)/'+$lhcList.pendingmd.join('/');
-            } else {
-                var itemsFilter = manualFilterByFilter('pendingmd');
-                if (itemsFilter.length > 0) {
-                    filter += '/(pendingmd)/'+itemsFilter.join('/');
-                }
-            }
-        }
-
-        if (typeof $lhcList.activemd == 'object') {
-            if ($lhcList.activemd.length > 0) {
-                filter += '/(activemd)/'+$lhcList.activemd.join('/');
-            } else {
-                var itemsFilter = manualFilterByFilter('activemd');
-                if (itemsFilter.length > 0) {
-                    filter += '/(activemd)/'+itemsFilter.join('/');
-                }
-            }
-        }
-
-        if (typeof $lhcList.alarmmd == 'object') {
-            if ($lhcList.alarmmd.length > 0) {
-                filter += '/(alarmmd)/'+$lhcList.alarmmd.join('/');
-            } else {
-                var itemsFilter = manualFilterByFilter('alarmmd');
-                if (itemsFilter.length > 0) {
-                    filter += '/(alarmmd)/' + itemsFilter.join('/');
-                }
-            }
-        }
-
-        if (typeof $lhcList.unreadd == 'object') {
-            if ($lhcList.unreadd.length > 0) {
-                filter += '/(unreadd)/'+$lhcList.unreadd.join('/');
-            } else {
-                let itemsFilter = manualFilterByFilter('unreadd');
-                if (itemsFilter.length > 0) {
-                    filter += '/(unreadd)/'+itemsFilter.join('/');
-                }
-            }
-        }
-
-        if (typeof $lhcList.botd == 'object') {
-            if ($lhcList.botd.length > 0) {
-                filter += '/(botd)/'+$lhcList.botd.join('/');
-            } else {
-                let itemsFilter = manualFilterByFilter('botd');
-                if (itemsFilter.length > 0) {
-                    filter += '/(botd)/'+itemsFilter.join('/');
-                }
-            }
-        }
-
-        if (typeof $lhcList.pendingd == 'object') {
-            if ($lhcList.pendingd.length > 0) {
-                filter += '/(pendingd)/'+$lhcList.pendingd.join('/');
-            } else {
-                let itemsFilter = manualFilterByFilter('pendingd');
-                if (itemsFilter.length > 0) {
-                    filter += '/(pendingd)/'+itemsFilter.join('/');
-                }
-            }
-
-            if (typeof $lhcList.toggleWidgetData['pending_chats_sort'] !== 'undefined' && $lhcList.toggleWidgetData['pending_chats_sort'] !== '') {
-                filter += '/(psort)/' + $lhcList.toggleWidgetData['pending_chats_sort'];
-            }
-        }
-
-        if (typeof $lhcList.operatord == 'object') {
-            if ($lhcList.operatord.length > 0) {
-                filter += '/(operatord)/'+$lhcList.operatord.join('/');
-            } else {
-                let itemsFilter = manualFilterByFilter('operatord');
-                if (itemsFilter.length > 0) {
-                    filter += '/(operatord)/'+itemsFilter.join('/');
-                }
-            }
-        }
-
-        if (typeof $lhcList.closedd == 'object' && $lhcList.closedd.length > 0) {
-            filter += '/(closedd)/'+$lhcList.closedd.join('/');
-        }
-
-        if (typeof $lhcList.departmentd == 'object') {
-            if ($lhcList.departmentd.length > 0) {
-                filter += '/(departmentd)/'+$lhcList.departmentd.join('/');
-            } else {
-                let itemsFilter = manualFilterByFilter('departmentd');
-                if (itemsFilter.length > 0) {
-                    filter += '/(departmentd)/'+itemsFilter.join('/');
-                }
-            }
-        }
-
-        if (typeof $lhcList.actived_products == 'object' && $lhcList.actived_products.length > 0) {
-            filter += '/(activedprod)/'+$lhcList.actived_products.join('/');
-        }
-
-        if (typeof $lhcList.pendingd_ugroups == 'object' && $lhcList.pendingd_ugroups.length > 0) {
-            filter += '/(pugroups)/'+$lhcList.pendingd_ugroups.join('/');
-        }
-
-        if (typeof $lhcList.operatord_ugroups == 'object' && $lhcList.operatord_ugroups.length > 0) {
-            filter += '/(oopugroups)/'+$lhcList.operatord_ugroups.join('/');
-        }
-
-        if (typeof $lhcList.subjectd_ugroups == 'object' && $lhcList.subjectd_ugroups.length > 0) {
-            filter += '/(sugroups)/'+$lhcList.subjectd_ugroups.join('/');
-        }
-
-        if (typeof $lhcList.actived_ugroups == 'object' && $lhcList.actived_ugroups.length > 0) {
-            filter += '/(augroups)/'+$lhcList.actived_ugroups.join('/');
-        }
-
-        if (typeof $lhcList.pendingmd_ugroups == 'object' && $lhcList.pendingmd_ugroups.length > 0) {
-            filter += '/(pmug)/'+$lhcList.pendingmd_ugroups.join('/');
-        }
-
-        if (typeof $lhcList.activemd_ugroups == 'object' && $lhcList.activemd_ugroups.length > 0) {
-            filter += '/(amug)/'+$lhcList.activemd_ugroups.join('/');
-        }
-
-        if (typeof $lhcList.alarmmd_ugroups == 'object' && $lhcList.alarmmd_ugroups.length > 0) {
-            filter += '/(almug)/'+$lhcList.alarmmd_ugroups.join('/');
-        }
-
-        if (typeof $lhcList.mcd_products == 'object' && $lhcList.mcd_products.length > 0) {
-            filter += '/(mcdprod)/'+$lhcList.mcd_products.join('/');
-        }
-
-        if (typeof $lhcList.unreadd_products == 'object' && $lhcList.unreadd_products.length > 0) {
-            filter += '/(unreaddprod)/'+$lhcList.unreadd_products.join('/');
-        }
-
-        if (typeof $lhcList.pendingd_products == 'object' && $lhcList.pendingd_products.length > 0) {
-            filter += '/(pendingdprod)/'+$lhcList.pendingd_products.join('/');
-        }
-
-        if (typeof $lhcList.subjectd_products == 'object' && $lhcList.subjectd_products.length > 0) {
-            filter += '/(subjectdprod)/'+$lhcList.subjectd_products.join('/');
-        }
-
-        if (typeof $lhcList.botd_products == 'object' && $lhcList.botd_products.length > 0) {
-            filter += '/(botdprod)/'+$lhcList.botd_products.join('/');
-        }
-
-        if (typeof $lhcList.closedd_products == 'object' && $lhcList.closedd_products.length > 0) {
-            filter += '/(closeddprod)/'+$lhcList.closedd_products.join('/');
-        }
-
-        if (typeof $lhcList.toggleWidgetData['track_open_chats'] !== 'undefined' && $lhcList.toggleWidgetData['track_open_chats'] == true) {
-            filter += '/(topen)/true';$lhcList
-        }
-
-        if (typeof $lhcList.toggleWidgetData['active_chats_sort'] !== 'undefined' && $lhcList.toggleWidgetData['active_chats_sort'] !== '') {
-            filter += '/(acs)/'+$lhcList.toggleWidgetData['active_chats_sort'];
-        }
-
-        if (typeof $lhcList.toggleWidgetData['bot_chats_sort'] !== 'undefined' && $lhcList.toggleWidgetData['bot_chats_sort'] !== '') {
-            filter += '/(bcs)/'+$lhcList.toggleWidgetData['bot_chats_sort'];
-        }
-
-        if (typeof $lhcList.toggleWidgetData['closed_chats_sort'] !== 'undefined' && $lhcList.toggleWidgetData['closed_chats_sort'] !== '') {
-            filter += '/(clcs)/'+$lhcList.toggleWidgetData['closed_chats_sort'];
-        }
-
-        if (typeof $lhcList.toggleWidgetData['onop_sort'] !== 'undefined' && $lhcList.toggleWidgetData['onop_sort'] !== '') {
-            filter += '/(onop)/'+$lhcList.toggleWidgetData['onop_sort'];
-        }
+        });
 
         if (typeof $lhcList['optionsPanels'] !== 'undefined') {
             for (const [panelId, panel] of Object.entries($lhcList['optionsPanels'])) {

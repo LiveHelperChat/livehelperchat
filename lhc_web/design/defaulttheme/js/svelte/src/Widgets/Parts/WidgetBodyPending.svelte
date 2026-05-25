@@ -145,7 +145,7 @@
                         </a>
                     </div>
                     {/if}
-                    <div class="abbr-list">{$t("dep_performance.col_" + col)}</div>
+                    <div class={$lhcList[type]?.wrap_h ? "" : "abbr-list"}>{$t("dep_performance.col_" + col)}</div>
                 </th>
             {/each}
         {/if}

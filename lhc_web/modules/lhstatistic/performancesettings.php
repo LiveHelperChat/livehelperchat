@@ -33,6 +33,8 @@ $defaultColumnOrder = array_flip($defaultColumns);
 $validUpdateIntervals = \LiveHelperChat\Models\Statistic\PerformanceWidgets::VALID_UPDATE_INTERVALS;
 $storedConfig = (array)erLhcoreClassModelChatConfig::fetch($identifier)->data;
 
+$wrapHeaders = isset($storedConfig['wrap_headers']) ? (bool)$storedConfig['wrap_headers'] : false;
+
 $selectedColumns = array_values(array_intersect(
     isset($storedConfig['columns']) && is_array($storedConfig['columns']) ? $storedConfig['columns'] : $defaultColumns,
     $defaultColumns
@@ -81,12 +83,15 @@ if (ezcInputForm::hasPostData()) {
 
     $updateInterval = $postedInterval;
 
+    $postedWrap = isset($_POST['dep_performance_wrap_headers']) && $_POST['dep_performance_wrap_headers'] == '1' ? true : false;
+
     $configRecord = erLhcoreClassModelChatConfig::fetch($identifier);
     $configRecord->identifier = $identifier;
     $configRecord->value = serialize(array(
         'columns'         => $selectedColumns,
         'positions'       => $positions,
         'update_interval' => $updateInterval,
+        'wrap_headers'    => $postedWrap,
     ));
     $configRecord->type = 0;
     $configRecord->hidden = 1;
@@ -118,6 +123,7 @@ $tpl->setArray(array(
     'columnsForTemplate'  => $columnsForTemplate,
     'updateInterval'      => $updateInterval,
     'validUpdateIntervals' => $validUpdateIntervals,
+    'wrapHeaders'         => $wrapHeaders,
 ));
 
 echo $tpl->fetch();

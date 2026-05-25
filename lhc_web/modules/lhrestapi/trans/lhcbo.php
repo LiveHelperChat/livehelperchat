@@ -174,6 +174,7 @@ $transItems = array(
     "widget_options.page" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page'),
     "widget_options.only_connected" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show only connected'),
     "widget_options.delete" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete'),
+    "widget_options.assigned_to_me" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Assigned to me'),
 
     // Online visitors
     "widget.action" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Action'),
