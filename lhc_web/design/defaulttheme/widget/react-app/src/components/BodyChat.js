@@ -179,12 +179,14 @@ class BodyChat extends Component {
             return  <Suspense fallback="..."><ProactiveInvitation setBotPayload={this.setBotPayload} /></Suspense>
         }
 
-        var className = 'd-flex flex-column flex-grow-1 reset-container-margins';
+        var className = 'd-flex flex-column flex-grow-1 reset-container-margins widget-body';
 
         if (this.props.chatwidget.get('mode') == 'widget') {
             className = className + (this.props.chatwidget.get('isMobile') == true ? ' mobile-body' : ' desktop-body');
         } else if (this.props.chatwidget.get('mode') == 'embed') {
             className = className + (this.props.chatwidget.get('isMobile') == true ? ' mobile-embed-body' : ' desktop-embed-body');
+        } else {
+            className = className + " popup-body";
         }
 
         if (this.props.chatwidget.hasIn(['chat_ui','msg_expand']) && this.props.chatwidget.get('mode') == 'embed') {

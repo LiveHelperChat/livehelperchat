@@ -153,7 +153,7 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         <?php endif;?>
 
         <?php if (isset($Result['theme']->bot_configuration_array['send_area_background']) && $Result['theme']->bot_configuration_array['send_area_background'] != '') : ?>
-        .mobile-body, .desktop-body{
+        .widget-body{
             background-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['send_area_background']);?>!important;
         }
         <?php endif;?>
