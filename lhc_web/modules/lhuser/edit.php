@@ -59,6 +59,7 @@ if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_e
 	$params = array('can_edit_groups' => $can_edit_groups, 'groups_can_read' => $userDataGroupsRead, 'groups_can_edit' => ($groups_can_edit === true ? true : $groups_can_edit['groups']));
 
     $originalSettings['old'] = $UserData->getState();
+    $originalSettings['old_groups'] = $UserData->user_groups_id;
 
     $userDisabled = $UserData->disabled;
 
@@ -102,13 +103,16 @@ if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_e
         $data = (array)$auditOptions->data;
         if (isset($data['log_user']) && $data['log_user'] == 1) {
             $originalSettings['new'] = $UserData->getState();
+            $originalSettings['new_groups'] = $UserData->user_groups_id;
 
             erLhcoreClassLog::logObjectChange(array(
                 'object' => $UserData,
                 'msg' => array(
                     'action' => 'account_data',
                     'prev' => $originalSettings['old'],
+                    'prev_usr_groups' => $originalSettings['old_groups'],
                     'new' => $originalSettings['new'],
+                    'new_usr_groups' => $originalSettings['new_groups'],
                     'user_id' => $currentUser->getUserID()
                 )
             ));
