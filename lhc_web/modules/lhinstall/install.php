@@ -1546,6 +1546,8 @@ try {
 
                     $db->query("INSERT INTO `lh_chat_config` (`identifier`, `value`, `type`, `explain`, `hidden`) VALUES
                 ('tracked_users_cleanup',	'160',	0,	'How many days keep records of online users.',	0),
+                ('statistic_performance',	'a:4:{s:7:\"columns\";a:7:{i:0;s:2:\"cr\";i:1;s:2:\"ca\";i:2;s:2:\"wt\";i:3;s:3:\"frt\";i:4;s:4:\"aart\";i:5;s:3:\"tup\";i:6;s:5:\"tdown\";}s:9:\"positions\";a:7:{s:2:\"cr\";i:1;s:2:\"ca\";i:3;s:2:\"wt\";i:3;s:3:\"frt\";i:4;s:4:\"aart\";i:5;s:3:\"tup\";i:6;s:5:\"tdown\";i:7;}s:15:\"update_interval\";i:300;s:12:\"wrap_headers\";b:0;}',	0,	'ignore',	1),
+                ('statistic_performance_op',	'a:4:{s:7:\"columns\";a:7:{i:0;s:3:\"ton\";i:1;s:4:\"toff\";i:2;s:2:\"ca\";i:3;s:3:\"frt\";i:4;s:4:\"aart\";i:5;s:3:\"tup\";i:6;s:5:\"tdown\";}s:9:\"positions\";a:7:{s:3:\"ton\";i:1;s:4:\"toff\";i:2;s:2:\"ca\";i:3;s:3:\"frt\";i:4;s:4:\"aart\";i:5;s:3:\"tup\";i:6;s:5:\"tdown\";i:7;}s:15:\"update_interval\";i:300;s:12:\"wrap_headers\";b:0;}',	0,	'ignore',	1),
                 ('enable_status_cache',	'0',	0,	'Enable status check cache using Redis. PHPResque extension is required.',	0),
         	   	('list_online_operators', '1', '0', 'List online operators.', '0'),
         	   	('voting_days_limit',	'7',	0,	'How many days voting widget should not be expanded after last show',	0),
