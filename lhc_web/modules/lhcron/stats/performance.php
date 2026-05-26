@@ -44,8 +44,8 @@ class PerformanceStats {
                 $lastUpdateTime = isset($configuration['last_update_time']) ? (int)$configuration['last_update_time'] : 0;
                 $now = time();
 
-                // Prevent multiple updates within same interval window
-                if ($regenerate === true || $now - $lastUpdateTime >= $updateInterval) {
+                // Prevent multiple updates within same interval window (allow 30 seconds variation)
+                if ($regenerate === true || $now - $lastUpdateTime >= $updateInterval - 30) {
                     $updateStartedAt = microtime(true);
                     echo "Collecting performance stats at " . date('Y-m-d H:i:s') . "\n";
 
@@ -289,8 +289,8 @@ class PerformanceStats {
                 $lastUpdateTime = isset($configuration['last_update_time']) ? (int)$configuration['last_update_time'] : 0;
                 $now = time();
 
-                // Prevent multiple updates within same interval window
-                if ($regenerate === true || $now - $lastUpdateTime >= $updateInterval) {
+                // Prevent multiple updates within same interval window (allow 30 seconds variation)
+                if ($regenerate === true || $now - $lastUpdateTime >= $updateInterval - 30) {
                     $updateStartedAt = microtime(true);
                     echo "Collecting performance stats at " . date('Y-m-d H:i:s') . "\n";
 
