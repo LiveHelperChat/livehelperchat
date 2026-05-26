@@ -21,17 +21,7 @@ class erLhcoreClassGenericBotActionButtons {
                 if (!isset($button['content']['bot_condition']) || $button['content']['bot_condition'] == "") {
                     $buttonsValid[] = $button;
                 } else {
-                    $buttonRules = explode(",",$button['content']['bot_condition']);
-                    $allRulesValid = true;
-                    foreach ($buttonRules as $buttonRule) {
-                        $conditionsToValidate = \LiveHelperChat\Models\Bot\Condition::getList(['filter' => ['identifier' => trim($buttonRule)]]);
-                        foreach ($conditionsToValidate as $conditionToValidate) {
-                            if (!$conditionToValidate->isValid(['chat' => $chat, 'replace_array' => (isset($params['replace_array']) ? $params['replace_array'] : [])])) {
-                                $allRulesValid = false;
-                            }
-                        }
-                    }
-                    if ($allRulesValid === true) {
+                    if (erLhcoreClassGenericBotWorkflow::evaluateTriggerCondition($button['content']['bot_condition'], $chat, ['args' => $params])) {
                         $buttonsValid[] = $button;
                     }
                 }

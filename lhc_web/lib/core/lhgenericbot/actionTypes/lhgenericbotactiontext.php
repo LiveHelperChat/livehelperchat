@@ -110,17 +110,7 @@ class erLhcoreClassGenericBotActionText {
                     if (!isset($quickReply['content']['bot_condition']) || $quickReply['content']['bot_condition'] == "") {
                         $quickReplies[] = $quickReply;
                     } else {
-                        $buttonRules = explode(",",$quickReply['content']['bot_condition']);
-                        $allRulesValid = true;
-                        foreach ($buttonRules as $buttonRule) {
-                            $conditionsToValidate = \LiveHelperChat\Models\Bot\Condition::getList(['filter' => ['identifier' => trim($buttonRule)]]);
-                            foreach ($conditionsToValidate as $conditionToValidate) {
-                                if (!$conditionToValidate->isValid(['chat' => $chat, 'replace_array' => (isset($params['replace_array']) ? $params['replace_array'] : [])])) {
-                                    $allRulesValid = false;
-                                }
-                            }
-                        }
-                        if ($allRulesValid === true) {
+                        if (erLhcoreClassGenericBotWorkflow::evaluateTriggerCondition($quickReply['content']['bot_condition'], $chat, ['args' => $params])) {
                             $quickReplies[] = $quickReply;
                         }
                     }
