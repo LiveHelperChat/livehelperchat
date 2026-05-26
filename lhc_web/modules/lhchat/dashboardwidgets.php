@@ -93,7 +93,7 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic', 'dep_performance')
     $supportedWidgets['dep_performance'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Department performance');
 }
 
-if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic', 'op_performance')) {
+if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic', 'op_performance') || erLhcoreClassUser::instance()->hasAccessTo('lhstatistic', 'op_performance_write')) {
     $supportedWidgets['op_performance'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Operator performance');
 }
 
