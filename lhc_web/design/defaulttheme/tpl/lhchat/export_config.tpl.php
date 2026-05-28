@@ -1,7 +1,7 @@
 <?php
 $modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export XLS/CSV');
-$modalSize = 'md';
+$modalSize = 'xl';
 $modalBodyClass = 'p-1';
 $appendPrintExportURL = '';
 ?>
@@ -64,6 +64,8 @@ $appendPrintExportURL = '';
                     <textarea id="system_prompt" name="system_prompt" class="form-control form-control-sm" rows="7" placeholder="<?php echo htmlspecialchars(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','This will be added as a system message for ChatML export only.'))?>"></textarea>
                 </div>
 
+                <small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Leave empty to export without a system prompt.')?></small>
+
                 <div class="form-group mt-2">
                     <label for="last_n_messages"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Include first n messages')?></label>
                     <input type="number" min="1" step="1" id="last_n_messages" name="last_n_messages" class="form-control form-control-sm" value="15">
@@ -71,13 +73,14 @@ $appendPrintExportURL = '';
 
                 <div class="form-group mt-2">
                     <label><input type="checkbox" name="exclude_operator_messages" value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude operator messages')?></label>
+                    <small class="text-muted d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export stops at the first operator message. If the chat already contains bot replies, a transfer_to_operator tool call is added before stopping.')?></small>
                 </div>
 
                 <div class="form-group mt-2">
                     <label><input type="checkbox" name="only_with_tool_calls" value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export only chats with tool calls')?></label>
+                    <small class="text-muted d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats are skipped completely unless the exported conversation contains at least one tool call or tool result.')?></small>
                 </div>
 
-                <small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Leave empty to export without a system prompt.')?></small>
             </div>
         </div>
 

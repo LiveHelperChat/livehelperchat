@@ -58,6 +58,7 @@ class ChatML
 				$toolCallId = 'file_search_' . (int)$chat->id . '_' . (int)$message->id;
 				$currentTurn[] = array(
 					'role' => 'assistant',
+					'content' => '',
 					'tool_calls' => array(
 						array(
 							'id' => $toolCallId,
@@ -111,6 +112,7 @@ class ChatML
 					$toolCallId = 'transfer_to_operator_' . (int)$chat->id . '_' . (int)$message->id;
 					$currentTurn[] = array(
 						'role' => 'assistant',
+						'content' => '',
 						'tool_calls' => array(
 							array(
 								'id' => $toolCallId,
@@ -158,6 +160,7 @@ class ChatML
 					$toolCallId = 'transfer_to_operator_' . (int)$chat->id . '_' . (int)$message->id;
 					$currentTurn[] = array(
 						'role' => 'assistant',
+						'content' => '',
 						'tool_calls' => array(
 							array(
 								'id' => $toolCallId,
@@ -305,6 +308,7 @@ class ChatML
 
 				$result[] = array(
 					'role' => 'assistant',
+					'content' => '',
 					'tool_calls' => array(
 						array(
 							'id' => $callId,
