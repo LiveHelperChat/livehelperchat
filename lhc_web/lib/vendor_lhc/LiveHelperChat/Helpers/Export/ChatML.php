@@ -219,9 +219,46 @@ class ChatML
 			}
 		}
 
+		$chatMLMessages = self::removeDuplicateToolCalls($chatMLMessages);
+
 		$chatMLMessages = self::removeConsecutiveAssistantMessages($chatMLMessages);
 
 		return array('messages' => $chatMLMessages, 'tools' => $tools);
+	}
+
+	private static function removeDuplicateToolCalls($messages)
+	{
+		$seenToolCallIds = array();
+		$indicesToRemove = array();
+
+		for ($i = count($messages) - 1; $i >= 0; $i--) {
+			$message = $messages[$i];
+			if (!isset($message['role']) || $message['role'] !== 'assistant' || !isset($message['tool_calls']) || !is_array($message['tool_calls'])) {
+				continue;
+			}
+
+			foreach ($message['tool_calls'] as $toolCall) {
+				$callId = isset($toolCall['id']) ? (string)$toolCall['id'] : '';
+				if ($callId === '') {
+					continue;
+				}
+
+				if (isset($seenToolCallIds[$callId])) {
+					$indicesToRemove[$i] = true;
+					break;
+				}
+
+				$seenToolCallIds[$callId] = true;
+			}
+		}
+
+		if (empty($indicesToRemove)) {
+			return $messages;
+		}
+
+		return array_values(array_filter($messages, function($index) use ($indicesToRemove) {
+			return !isset($indicesToRemove[$index]);
+		}, ARRAY_FILTER_USE_KEY));
 	}
 
 	public static function exportChats($chats, $params = array())
@@ -343,16 +380,9 @@ class ChatML
 				foreach ($lastMessage['tool_calls'] as $toolCall) {
 					$normalizedMessages[] = array(
 						'role' => 'tool',
-						'content' => array(
-							array(
-								'type' => 'text',
-								'text' => json_encode(array(
-									'tool_name' => isset($toolCall['function']['name']) ? (string)$toolCall['function']['name'] : 'tool',
-									'tool_call_id' => isset($toolCall['id']) ? (string)$toolCall['id'] : '',
-									'tool_result' => '[response from tool]'
-								), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
-							)
-						),
+						'tool_call_id' => isset($toolCall['id']) ? (string)$toolCall['id'] : '',
+						'name' => isset($toolCall['function']['name']) ? (string)$toolCall['function']['name'] : 'tool',
+						'content' => '[response from tool]',
 						'train_on_turn' => false
 					);
 				}
