@@ -198,6 +198,30 @@ if ($Params['user_parameters_unordered']['print'] == 1) {
 
 if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 1 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','export_chats')) {
     if (ezcInputForm::hasPostData() && isset($_POST['csfr_token']) && $currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        $exportErrors = array();
+        $toolsDefinitions = array();
+
+        if (isset($_POST['ChatML']) && isset($_POST['tools_definitions']) && trim((string)$_POST['tools_definitions']) !== '') {
+            $toolsDefinitions = json_decode(trim((string)$_POST['tools_definitions']), true);
+
+            if (json_last_error() !== JSON_ERROR_NONE || !is_array($toolsDefinitions)) {
+                $exportErrors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Tools definitions must be a valid JSON array.');
+            }
+        }
+
+        if (!empty($exportErrors)) {
+            $tpl = erLhcoreClassTemplate::getInstance('lhchat/export_config.tpl.php');
+            $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/list') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+            $tpl->set('errors', $exportErrors);
+            $tpl->set('system_prompt_value', isset($_POST['system_prompt']) ? trim((string)$_POST['system_prompt']) : '');
+            $tpl->set('last_n_messages_value', (isset($_POST['last_n_messages']) && is_numeric($_POST['last_n_messages']) && (int)$_POST['last_n_messages'] > 0) ? (int)$_POST['last_n_messages'] : 15);
+            $tpl->set('exclude_operator_messages_value', isset($_POST['exclude_operator_messages']));
+            $tpl->set('only_with_tool_calls_value', isset($_POST['only_with_tool_calls']));
+            $tpl->set('tools_definitions_value', isset($_POST['tools_definitions']) ? trim((string)$_POST['tools_definitions']) : '');
+            echo $tpl->fetch();
+            exit;
+        }
+
         session_write_close();
         if (!$currentUser->hasAccessTo('lhaudit','ignore_view_actions') && count($filterParams['filter']) > 1) { // One element is always a sort. We want at-least one real filter.
             erLhcoreClassLog::write(erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']),
@@ -222,6 +246,7 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
                 'csv' => isset($_POST['CSV']),
                 'type' => (isset($_POST['exportOptions']) ? $_POST['exportOptions'] : []),
                 'system_prompt' => isset($_POST['system_prompt']) ? trim((string)$_POST['system_prompt']) : '',
+                'tools' => $toolsDefinitions,
                 'last_messages' => (isset($_POST['last_n_messages']) && is_numeric($_POST['last_n_messages']) && (int)$_POST['last_n_messages'] > 0) ? (int)$_POST['last_n_messages'] : 15,
                 'exclude_operator_messages' => isset($_POST['exclude_operator_messages']),
                 'only_with_tool_calls' => isset($_POST['only_with_tool_calls'])
@@ -231,6 +256,11 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
     } else {
         $tpl = erLhcoreClassTemplate::getInstance('lhchat/export_config.tpl.php');
         $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/list') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+        $tpl->set('system_prompt_value', '');
+        $tpl->set('last_n_messages_value', 15);
+        $tpl->set('exclude_operator_messages_value', false);
+        $tpl->set('only_with_tool_calls_value', false);
+        $tpl->set('tools_definitions_value', '');
         echo $tpl->fetch();
         exit;
     }

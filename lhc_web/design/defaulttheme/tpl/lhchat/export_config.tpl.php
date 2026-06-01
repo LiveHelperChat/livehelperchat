@@ -14,6 +14,14 @@ $appendPrintExportURL = '';
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <div class="modal-body">
+        <?php if (isset($errors)) : ?>
+            <div class="alert alert-danger mb-3">
+                <?php foreach ($errors as $error) : ?>
+                    <div><?php echo htmlspecialchars($error)?></div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+
         <ul class="nav nav-tabs" id="exportConfigTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="export-options-tab" data-bs-toggle="tab" data-bs-target="#export-options" type="button" role="tab" aria-controls="export-options" aria-selected="true">
@@ -61,23 +69,29 @@ $appendPrintExportURL = '';
             <div class="tab-pane fade" id="export-system" role="tabpanel" aria-labelledby="export-system-tab">
                 <div class="form-group">
                     <label for="system_prompt"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','System prompt (optional)')?></label>
-                    <textarea id="system_prompt" name="system_prompt" class="form-control form-control-sm" rows="7" placeholder="<?php echo htmlspecialchars(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','This will be added as a system message for ChatML export only.'))?>"></textarea>
+                    <textarea id="system_prompt" name="system_prompt" class="form-control form-control-sm" rows="7" placeholder="<?php echo htmlspecialchars(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','This will be added as a system message for ChatML export only.'))?>"><?php echo htmlspecialchars(isset($system_prompt_value) ? $system_prompt_value : '')?></textarea>
                 </div>
 
                 <small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Leave empty to export without a system prompt.')?></small>
 
-                <div class="form-group mt-2">
-                    <label for="last_n_messages"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Include first n messages')?></label>
-                    <input type="number" min="1" step="1" id="last_n_messages" name="last_n_messages" class="form-control form-control-sm" value="15">
+                <div class="form-group mt-3">
+                    <label for="tools_definitions"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Tools definitions')?></label>
+                    <textarea id="tools_definitions" name="tools_definitions" class="form-control form-control-sm" rows="7" placeholder="<?php echo htmlspecialchars(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Provide a JSON array of tool definitions to include in ChatML export.'))?>"><?php echo htmlspecialchars(isset($tools_definitions_value) ? $tools_definitions_value : '')?></textarea>
+                    <small class="text-muted d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','The value must be a valid JSON array. It will be exported as the top-level tools attribute.')?></small>
                 </div>
 
                 <div class="form-group mt-2">
-                    <label><input type="checkbox" name="exclude_operator_messages" value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude operator messages')?></label>
+                    <label for="last_n_messages"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Skip chats where messages number exceeds')?></label>
+                    <input type="number" min="1" step="1" id="last_n_messages" name="last_n_messages" class="form-control form-control-sm" value="<?php echo (int)(isset($last_n_messages_value) ? $last_n_messages_value : 15)?>">
+                </div>
+
+                <div class="form-group mt-2">
+                    <label><input type="checkbox" name="exclude_operator_messages" value="1"<?php echo !empty($exclude_operator_messages_value) ? ' checked' : ''?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude operator messages')?></label>
                     <small class="text-muted d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export stops at the first operator message. If the chat already contains bot replies, a transfer_to_operator tool call is added before stopping.')?></small>
                 </div>
 
                 <div class="form-group mt-2">
-                    <label><input type="checkbox" name="only_with_tool_calls" value="1"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export only chats with tool calls')?></label>
+                    <label><input type="checkbox" name="only_with_tool_calls" value="1"<?php echo !empty($only_with_tool_calls_value) ? ' checked' : ''?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export only chats with tool calls')?></label>
                     <small class="text-muted d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats are skipped completely unless the exported conversation contains at least one tool call or tool result.')?></small>
                 </div>
 

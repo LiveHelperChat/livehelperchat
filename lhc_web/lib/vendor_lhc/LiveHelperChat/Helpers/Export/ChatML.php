@@ -9,6 +9,7 @@ class ChatML
 		$lastMessages = isset($params['last_messages']) && (int)$params['last_messages'] > 0 ? (int)$params['last_messages'] : 15;
 		$excludeOperatorMessages = isset($params['exclude_operator_messages']) && $params['exclude_operator_messages'] == true;
 		$onlyWithToolCalls = isset($params['only_with_tool_calls']) && $params['only_with_tool_calls'] == true;
+		$tools = self::normalizeToolsDefinition(isset($params['tools']) ? $params['tools'] : array());
 		$toolCallNames = array();
 		$hasToolCallUsed = false;
 
@@ -19,9 +20,15 @@ class ChatML
 			'filter' => array('chat_id' => $chat->id)
 		));
 
+
 		$messages = array_values($messages);
 		if ($lastMessages > 0 && count($messages) > $lastMessages) {
-			$messages = array_slice($messages, 0, $lastMessages);
+			return array('messages' => [], 'tools' => []); // Avoid returning incomplete chats
+			//$messages = array_slice($messages, 0, $lastMessages);
+		}
+
+		if (empty($tools)) {
+			$tools = self::extractToolsDefinitionFromMessages($messages);
 		}
 
 		$turns = array();
@@ -33,7 +40,7 @@ class ChatML
 		foreach ($messages as $message) {
             $message->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $message->msg);
 
-			if ($includeNextBotMessageAfterFileSearch === true) {
+			/*if ($includeNextBotMessageAfterFileSearch === true) {
 				if ((int)$message->user_id === -2) {
 					$content = (string)$message->msg;
 					if ($content !== '') {
@@ -48,7 +55,7 @@ class ChatML
 				}
 
 				continue;
-			}
+			}*/
 
 			if (self::hasFileSearchCompletedEvent($message)) {
 				if ($currentTurn === null) {
@@ -65,7 +72,7 @@ class ChatML
 							'type' => 'function',
 							'function' => array(
 								'name' => 'file_search',
-								'arguments' => '{}'
+								'arguments' => '{"question":"[question query from visitor message]"}'
 							)
 						)
 					)
@@ -76,7 +83,7 @@ class ChatML
 					'role' => 'tool',
 					'tool_call_id' => $toolCallId,
 					'name' => 'file_search',
-					'content' => '{"status":"success","message":"content will be returned from file search"}'
+					'content' => '{"status":"success","message":"[content will be returned from file search]"}'
 				);
 
 				$includeNextBotMessageAfterFileSearch = true;
@@ -84,7 +91,7 @@ class ChatML
 			}
 
 			if (self::isJSONMetaMessage($message)) {
-				$jsonMessages = self::parseJsonMetaAsChatML($message, $toolCallNames, $hasToolCallUsed);
+				$jsonMessages = self::parseJsonMetaAsChatML($message, $toolCallNames, $hasToolCallUsed, $tools);
 				if (!empty($jsonMessages) && $currentTurn !== null) {
 					foreach ($jsonMessages as $jsonMessage) {
 						$currentTurn[] = $jsonMessage;
@@ -149,7 +156,7 @@ class ChatML
 
 			if ($role === 'user') {
 				if ($currentTurn !== null && !empty($currentTurn)) {
-					$turns[] = $currentTurn;
+					$turns[] = self::normalizeTurnMessages($currentTurn);
 				}
 
 				$currentTurn = array(
@@ -189,30 +196,32 @@ class ChatML
 		}
 
 		if ($currentTurn !== null && !empty($currentTurn)) {
-			$turns[] = $currentTurn;
+			$turns[] = self::normalizeTurnMessages($currentTurn);
 		}
 
 		if (empty($turns)) {
-			return array('messages' => array());
+			return array('messages' => array(), 'tools' => $tools);
 		}
 
 		if ($onlyWithToolCalls === true && $hasToolCallUsed === false) {
-			return array('messages' => array());
+			return array('messages' => array(), 'tools' => $tools);
 		}
 
 		$chatMLMessages = array();
 
 		if (isset($params['system_prompt']) && $params['system_prompt'] !== '') {
-			$chatMLMessages[] = array('role' => 'system', 'content' => (string)$params['system_prompt']);
+			$chatMLMessages[] = self::appendTrainOnTurn(array('role' => 'system', 'content' => (string)$params['system_prompt']));
 		}
 
 		foreach ($turns as $turn) {
 			foreach ($turn as $turnMessage) {
-				$chatMLMessages[] = $turnMessage;
+				$chatMLMessages[] = self::appendTrainOnTurn($turnMessage);
 			}
 		}
 
-		return array('messages' => $chatMLMessages);
+		$chatMLMessages = self::removeConsecutiveAssistantMessages($chatMLMessages);
+
+		return array('messages' => $chatMLMessages, 'tools' => $tools);
 	}
 
 	public static function exportChats($chats, $params = array())
@@ -235,6 +244,7 @@ class ChatML
 			}
 
 			$payload = self::fromChat($chatObject, $params);
+
 			if (empty($payload['messages'])) {
 				continue;
 			}
@@ -266,7 +276,7 @@ class ChatML
 		}
 
 		$metaMessage = json_decode((string)$message->meta_msg, true);
-		return isset($metaMessage['content']['attr_options']['as_json']) && $metaMessage['content']['attr_options']['as_json'] == true;
+		return (isset($metaMessage['content']['attr_options']['as_json']) && $metaMessage['content']['attr_options']['as_json'] == true) || ($metaMessage['content']['html']['debug']);
 	}
 
 	private static function hasFileSearchCompletedEvent($message)
@@ -274,13 +284,87 @@ class ChatML
 		return isset($message->meta_msg) && strpos((string)$message->meta_msg, 'response.file_search_call.completed') !== false;
 	}
 
-	private static function parseJsonMetaAsChatML($message, & $toolCallNames, & $hasToolCallUsed)
+	private static function normalizeTurnMessages($turn)
+	{
+		$normalizedTurn = array();
+
+		foreach ($turn as $turnMessage) {
+			if (
+				isset($turnMessage['role'], $turnMessage['tool_calls']) &&
+				$turnMessage['role'] === 'assistant' &&
+				(!isset($turnMessage['content']) || $turnMessage['content'] === '') &&
+				!empty($normalizedTurn)
+			) {
+				$previousMessage = $normalizedTurn[count($normalizedTurn) - 1];
+
+				if (
+					isset($previousMessage['role'], $previousMessage['content']) &&
+					$previousMessage['role'] === 'assistant' &&
+					!isset($previousMessage['tool_calls']) &&
+					$previousMessage['content'] !== ''
+				) {
+					$turnMessage['content'] = $previousMessage['content'];
+					$normalizedTurn[count($normalizedTurn) - 1] = $turnMessage;
+					continue;
+				}
+			}
+
+			$normalizedTurn[] = $turnMessage;
+		}
+
+		return $normalizedTurn;
+	}
+
+	private static function appendTrainOnTurn($message)
+	{
+		$message['train_on_turn'] = isset($message['role']) && $message['role'] === 'assistant';
+
+		return $message;
+	}
+
+	private static function removeConsecutiveAssistantMessages($messages)
+	{
+		$normalizedMessages = array();
+
+		foreach ($messages as $message) {
+			$lastMessage = !empty($normalizedMessages) ? $normalizedMessages[count($normalizedMessages) - 1] : null;
+
+			if (
+				isset($message['role']) &&
+				$message['role'] === 'assistant' &&
+				is_array($lastMessage) &&
+				isset($lastMessage['role']) &&
+				$lastMessage['role'] === 'assistant'
+			) {
+				continue;
+			}
+
+			$normalizedMessages[] = $message;
+		}
+
+		return $normalizedMessages;
+	}
+
+	private static function parseJsonMetaAsChatML($message, & $toolCallNames, & $hasToolCallUsed, & $tools = array())
 	{
   
 		$payload = json_decode((string)$message->msg, true);
 
 		if (!is_array($payload)) {
 			 $payload = json_decode((string)'['.$message->msg.']', true);
+		}
+
+		if (!is_array($payload)) {
+			$payload = json_decode($message->meta_msg,true);
+			if (isset($payload['content']['html']['debug'])){
+				$debugContent = json_decode($payload['content']['html']['content'],true);
+				if (empty($tools)) {
+					$tools = self::extractToolsDefinitionFromMessage($message);
+				}
+				if (isset($debugContent['return_content']['output'])){
+					$payload = $debugContent['return_content']['output'];
+				}
+			}
 		}
 
 		if (!is_array($payload)) {
@@ -340,6 +424,77 @@ class ChatML
 		}
 
 		return $result;
+	}
+
+	private static function extractToolsDefinitionFromMessages($messages)
+	{
+		foreach ($messages as $message) {
+			$tools = self::extractToolsDefinitionFromMessage($message);
+			if (!empty($tools)) {
+				return $tools;
+			}
+		}
+
+		return array();
+	}
+
+	private static function extractToolsDefinitionFromMessage($message)
+	{
+		if (!isset($message->meta_msg) || $message->meta_msg === '') {
+			return array();
+		}
+
+		$payload = json_decode((string)$message->meta_msg, true);
+		if (!is_array($payload) || !isset($payload['content']['html']['debug'])) {
+			return array();
+		}
+
+		$debugContent = json_decode((string)$payload['content']['html']['content'], true);
+		if (
+			!is_array($debugContent) ||
+			!isset($debugContent['params_request']['body']['tools']) ||
+			!is_array($debugContent['params_request']['body']['tools'])
+		) {
+			return array();
+		}
+
+		return self::normalizeToolsDefinition($debugContent['params_request']['body']['tools']);
+	}
+
+	private static function normalizeToolsDefinition($tools)
+	{
+		if (is_string($tools) && trim($tools) !== '') {
+			$decodedTools = json_decode($tools, true);
+			if (json_last_error() === JSON_ERROR_NONE && is_array($decodedTools)) {
+				$tools = $decodedTools;
+			}
+		}
+
+		if (is_array($tools)) {
+			foreach ($tools as & $tool) {
+				if (isset($tool['type']) && $tool['type'] === 'file_search') {
+					$tool = array(
+						'type' => 'function',
+						'name' => 'file_search',
+						'description' => 'Fetches information about visitor question from local knowledge base. Links should be in markdown style.',
+						'parameters' => array(
+							'type' => 'object',
+							'properties' => array(
+								'question' => array(
+									'type' => 'string',
+									'description' => 'Visitor question. Question should be translated to english by ai. Question should contain only main keywords you think should be relevant to question.'
+								)
+							),
+							'required' => array('question')
+						)
+					);
+				}
+			}
+
+			return array_values($tools);
+		}
+
+		return array();
 	}
 }
 
