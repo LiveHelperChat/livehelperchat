@@ -281,7 +281,7 @@ class ChatML
 
 	private static function hasFileSearchCompletedEvent($message)
 	{
-		return isset($message->meta_msg) && strpos((string)$message->meta_msg, 'response.file_search_call.completed') !== false;
+		return isset($message->meta_msg) && strpos((string)$message->meta_msg, 'response.file_search_call.completed') !== false && strpos((string)$message->meta_msg, 'response.function_call_arguments.done') === false;
 	}
 
 	private static function normalizeTurnMessages($turn)
@@ -328,13 +328,45 @@ class ChatML
 
 		foreach ($messages as $message) {
 			$lastMessage = !empty($normalizedMessages) ? $normalizedMessages[count($normalizedMessages) - 1] : null;
+			$insertedToolMessages = false;
 
 			if (
 				isset($message['role']) &&
 				$message['role'] === 'assistant' &&
 				is_array($lastMessage) &&
 				isset($lastMessage['role']) &&
-				$lastMessage['role'] === 'assistant'
+				$lastMessage['role'] === 'assistant' &&
+				isset($lastMessage['tool_calls']) &&
+				is_array($lastMessage['tool_calls']) &&
+				!empty($lastMessage['tool_calls'])
+			) {
+				foreach ($lastMessage['tool_calls'] as $toolCall) {
+					$normalizedMessages[] = array(
+						'role' => 'tool',
+						'content' => array(
+							array(
+								'type' => 'text',
+								'text' => json_encode(array(
+									'tool_name' => isset($toolCall['function']['name']) ? (string)$toolCall['function']['name'] : 'tool',
+									'tool_call_id' => isset($toolCall['id']) ? (string)$toolCall['id'] : '',
+									'tool_result' => '[response from tool]'
+								), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
+							)
+						),
+						'train_on_turn' => false
+					);
+				}
+
+				$insertedToolMessages = true;
+			}
+
+			if (
+				isset($message['role']) &&
+				$message['role'] === 'assistant' &&
+				is_array($lastMessage) &&
+				isset($lastMessage['role']) &&
+				$lastMessage['role'] === 'assistant' &&
+				$insertedToolMessages === false
 			) {
 				continue;
 			}
@@ -363,6 +395,11 @@ class ChatML
 				}
 				if (isset($debugContent['return_content']['output'])){
 					$payload = $debugContent['return_content']['output'];
+				} else if (isset($debugContent['stream']['content_raw'])) {
+					$debugContent = json_decode($debugContent['stream']['content_raw'],true);
+					if (isset($debugContent['item']['type'])) {
+						$payload = [$debugContent['item']];
+					}
 				}
 			}
 		}
