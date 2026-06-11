@@ -3,28 +3,34 @@
 /**
  * Export chats to ChatML (JSONL) format.
  *
- * php cron.php -s site_admin -c cron/util/export_chat_ml -p "<file_path>[|dep_id:<id>][|bot_id:<id>][|since:<YYYY-MM-DD>][|last_messages:<n>][|system_prompt:<text>][|only_with_tool_calls:1][|exclude_operator_messages:1]"
+ * php cron.php -s site_admin -c cron/util/export_chat_ml -p "<folder_path>[|dep_id:<id>][|bot_id:<id>][|since:<YYYY-MM-DD>][|last_messages:<n>][|system_prompt:<text>][|only_with_tool_calls:1][|exclude_operator_messages:1]"
+ *
+ * The first token is the output folder. The export file will be named automatically
+ * using a timestamp: export_YYYY-MM-DD_HH-MM-SS.jsonl
+ *
+ * If a file named system.md exists in the folder, its contents are used as the
+ * system prompt. The system_prompt parameter overrides system.md when both are present.
  *
  * Examples:
- *   php cron.php -s site_admin -c cron/util/export_chat_ml -p "/tmp/export.jsonl"
- *   php cron.php -s site_admin -c cron/util/export_chat_ml -p "/tmp/export.jsonl|dep_id:3|since:2026-01-01"
- *   php cron.php -s site_admin -c cron/util/export_chat_ml -p "/tmp/export.jsonl|dep_id:3|bot_id:5|since:2026-01-01|last_messages:20"
+ *   php cron.php -s site_admin -c cron/util/export_chat_ml -p "/tmp/exports"
+ *   php cron.php -s site_admin -c cron/util/export_chat_ml -p "/tmp/exports|dep_id:3|since:2026-01-01"
+ *   php cron.php -s site_admin -c cron/util/export_chat_ml -p "/tmp/exports|dep_id:3|bot_id:5|since:2026-01-01|last_messages:20"
  */
 
 $rawParam = isset($cronjobPathOption->value) ? (string)$cronjobPathOption->value : '';
 
 if ($rawParam === '') {
     echo "ERROR: No parameters provided.\n";
-    echo "Usage: -p \"<file_path>[|dep_id:<id>][|bot_id:<id>][|since:<YYYY-MM-DD>][|last_messages:<n>][|system_prompt:<text>][|only_with_tool_calls:1][|exclude_operator_messages:1]\"\n";
+    echo "Usage: -p \"<folder_path>[|dep_id:<id>][|bot_id:<id>][|since:<YYYY-MM-DD>][|last_messages:<n>][|system_prompt:<text>][|only_with_tool_calls:1][|exclude_operator_messages:1]\"\n";
     exit(1);
 }
 
-// Parse parameters – first token is the file path, rest are key:value pairs separated by |
+// Parse parameters – first token is the output folder, rest are key:value pairs separated by |
 $tokens = explode('|', $rawParam);
-$filePath = trim(array_shift($tokens));
+$folderPath = rtrim(trim(array_shift($tokens)), '/\\');
 
-if ($filePath === '') {
-    echo "ERROR: File path is required as the first parameter.\n";
+if ($folderPath === '') {
+    echo "ERROR: Folder path is required as the first parameter.\n";
     exit(1);
 }
 
@@ -82,14 +88,27 @@ foreach ($tokens as $token) {
     }
 }
 
-// Validate/create target directory
-$dir = dirname($filePath);
-if (!is_dir($dir)) {
-    echo "ERROR: Directory does not exist: {$dir}\n";
+// Validate output folder
+if (!is_dir($folderPath)) {
+    echo "ERROR: Directory does not exist: {$folderPath}\n";
     exit(1);
 }
 
+// Auto-generate timestamped file name
+$filePath = $folderPath . DIRECTORY_SEPARATOR . 'export_' . date('Y-m-d_H-i-s') . '.jsonl';
+
+// Load system prompt from system.md if present and not already set via parameter
+$systemMdPath = $folderPath . DIRECTORY_SEPARATOR . 'system.md';
+if ($systemPrompt === '' && is_file($systemMdPath)) {
+    $systemPromptFromFile = trim(file_get_contents($systemMdPath));
+    if ($systemPromptFromFile !== '') {
+        $systemPrompt = $systemPromptFromFile;
+        echo "  system.md : {$systemMdPath}\n";
+    }
+}
+
 echo "Starting ChatML export\n";
+echo "  Folder    : {$folderPath}\n";
 echo "  File      : {$filePath}\n";
 echo "  dep_id    : " . ($depId  !== null ? $depId  : 'any') . "\n";
 echo "  bot_id    : " . ($botId  !== null ? $botId  : 'any') . "\n";
