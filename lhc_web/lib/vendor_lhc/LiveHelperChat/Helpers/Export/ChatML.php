@@ -571,6 +571,15 @@ class ChatML
 						'function' => $functionDef
 					);
 				}
+
+				// Ensure `properties` is always a JSON object `{}`, never an array `[]`
+				if (
+					isset($tool['function']['parameters']['properties']) &&
+					is_array($tool['function']['parameters']['properties']) &&
+					empty($tool['function']['parameters']['properties'])
+				) {
+					$tool['function']['parameters']['properties'] = new \stdClass();
+				}
 			}
 
 			return array_values($tools);
