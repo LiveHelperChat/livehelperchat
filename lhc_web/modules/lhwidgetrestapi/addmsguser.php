@@ -60,6 +60,10 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && mb_strlen($payload[
 
         $chat = erLhcoreClassModelChat::fetchAndLock($payload['id']);
 
+        if (!is_object($chat)) {
+            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You cannot send messages to this chat. Chat has been closed.'), 100);
+        }
+
         if (isset($chat->chat_variables_array['bot_lock_msg']) && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
             $db->rollback();
             $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','We are still working on your previous request!');
@@ -230,6 +234,22 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && mb_strlen($payload[
         }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.addmsguser',$eventArgs);
+        exit;
+
+    } catch (ezcPersistentQueryException $e) {
+
+        erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString() . $statusString,
+            ezcLog::SUCCESS_AUDIT,
+            array(
+                'source' => 'lhc',
+                'category' => 'store',
+                'line' => $e->getLine(),
+                'file' => 'addmsguser.php',
+                'object_id' => $payload['id']
+            )
+        );
+
+        echo erLhcoreClassChat::safe_json_encode(array('error' => 'Internal system error', 'r' => $r));
         exit;
 
     } catch (Exception $e) {
