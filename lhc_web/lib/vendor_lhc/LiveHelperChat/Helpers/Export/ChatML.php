@@ -542,18 +542,33 @@ class ChatML
 				if (isset($tool['type']) && $tool['type'] === 'file_search') {
 					$tool = array(
 						'type' => 'function',
-						'name' => 'file_search',
-						'description' => 'Fetches information about visitor question from local knowledge base. Links should be in markdown style.',
-						'parameters' => array(
-							'type' => 'object',
-							'properties' => array(
-								'question' => array(
-									'type' => 'string',
-									'description' => 'Visitor question. Question should be translated to english by ai. Question should contain only main keywords you think should be relevant to question.'
-								)
-							),
-							'required' => array('question')
+						'function' => array(
+							'name' => 'file_search',
+							'description' => 'Fetches information about visitor question from local knowledge base. Links should be in markdown style.',
+							'parameters' => array(
+								'type' => 'object',
+								'properties' => array(
+									'question' => array(
+										'type' => 'string',
+										'description' => 'Visitor question. Question should be translated to english by ai. Question should contain only main keywords you think should be relevant to question.'
+									)
+								),
+								'required' => array('question')
+							)
 						)
+					);
+				} elseif (isset($tool['type']) && $tool['type'] === 'function' && !isset($tool['function']) && isset($tool['name'])) {
+					// Wrap flat function definition into the nested OpenAI-compatible format
+					$functionDef = array('name' => $tool['name']);
+					if (isset($tool['description'])) {
+						$functionDef['description'] = $tool['description'];
+					}
+					if (isset($tool['parameters'])) {
+						$functionDef['parameters'] = $tool['parameters'];
+					}
+					$tool = array(
+						'type' => 'function',
+						'function' => $functionDef
 					);
 				}
 			}
