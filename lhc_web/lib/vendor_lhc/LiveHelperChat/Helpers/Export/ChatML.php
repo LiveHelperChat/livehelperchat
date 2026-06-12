@@ -313,7 +313,7 @@ class ChatML
 		}
 
 		$metaMessage = json_decode((string)$message->meta_msg, true);
-		return (isset($metaMessage['content']['attr_options']['as_json']) && $metaMessage['content']['attr_options']['as_json'] == true) || ($metaMessage['content']['html']['debug']);
+		return (isset($metaMessage['content']['attr_options']['as_json']) && $metaMessage['content']['attr_options']['as_json'] == true) || isset($metaMessage['content']['html']['debug']);
 	}
 
 	private static function hasFileSearchCompletedEvent($message)
