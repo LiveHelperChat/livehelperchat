@@ -1,4 +1,12 @@
 <ul class="list-inline float-end user-settings-list">
-	<li class="li-icon list-inline-item"><a href="#" onclick="ee.emitEvent('svelteOnlineUserSetting',['disableNewUserSound'])" ng-click="online.disableNewUserSound()"><i class="material-icons" id="svelte-disableNewUserSound" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Enable/Disable sound about new visitor');?>"></i></a></li>
-	<li class="li-icon list-inline-item"><a href="#" onclick="ee.emitEvent('svelteOnlineUserSetting',['disableNewUserBNotif'])" ng-click="online.disableNewUserBNotif()"><i class="material-icons" id="svelte-disableNewUserBNotif" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Enable/Disable browser notifications about new visitor');?>">f'}}</i></a></li>
+	<li class="li-icon list-inline-item">
+        <a href="#" onclick="ee.emitEvent('svelteOnlineUserSetting',['disableNewUserSound'])" ng-click="online.disableNewUserSound()">
+            <i class="material-icons" id="svelte-disableNewUserSound" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Enable/Disable sound about new visitor');?>"></i>
+        </a>
+    </li>
+	<li class="li-icon list-inline-item">
+        <a href="#" onclick="ee.emitEvent('svelteOnlineUserSetting',['disableNewUserBNotif'])" ng-click="online.disableNewUserBNotif()">
+            <i class="material-icons" id="svelte-disableNewUserBNotif" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Enable/Disable browser notifications about new visitor');?>"></i>
+        </a>
+    </li>
 </ul>

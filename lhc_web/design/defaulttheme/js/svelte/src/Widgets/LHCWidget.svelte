@@ -133,7 +133,7 @@
         </div>
      {/if}
 
-        {#if no_collapse === true || $lhcList.toggleWidgetData[expand_identifier] !== true}
+        {#if no_collapse !== false || $lhcList.toggleWidgetData[expand_identifier] !== true}
             <div>
 
                 {#if !hide_filter_options}
