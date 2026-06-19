@@ -248,6 +248,23 @@ Table "lhc_mailconv_match_rule" {
   }
 }
 
+Table "lhc_mailconv_pending_import" {
+  "id" bigint(20) [pk, not null, increment, note: 'unsigned']
+  "uid" bigint(20) [not null, note: 'unsigned']
+  "mailbox_id" int(11) [not null, note: 'unsigned']
+  "status" tinyint(1) [not null, default: 0, note: 'unsigned']
+  "attempt" tinyint(1) [not null, default: 0, note: 'unsigned']
+  "last_failure" text [not null]
+  "created_at" int(11) [not null, note: 'unsigned']
+  "updated_at" int(11) [not null, note: 'unsigned']
+
+  Indexes {
+    (mailbox_id, uid) [unique, name: "mailbox_id_uid"]
+  }
+}
+
+Ref: "lhc_mailconv_mailbox"."id" < "lhc_mailconv_pending_import"."mailbox_id"
+
 Table "lhc_mailconv_msg" {
   "id" bigint(20) [pk, not null, increment]
   "status" int(11) [not null]
@@ -297,6 +314,7 @@ Table "lhc_mailconv_msg" {
   "conv_duration" int(11) [not null, default: 0]
   "has_attachment" tinyint(1) [not null, default: 0]
   "undelivered" tinyint(1) [not null, default: 0]
+  "auto_submitted" tinyint(1) [not null, default: 0]
   "rfc822_body" longtext [not null]
   "delivery_status" text [not null]
 
@@ -698,6 +716,7 @@ Table "lh_abstract_msg_protection" {
   "has_dep" tinyint(1) [not null, default: 0, note: 'unsigned']
   "name" varchar(100) [not null]
   "dep_ids" text [not null]
+  "languages" text [not null]
 
   Indexes {
     (enabled, rule_type) [name: "enabled_type"]
@@ -736,8 +755,23 @@ Table "lh_abstract_proactive_chat_campaign_conv" {
     unique_id [name: "unique_id"]
     conv_int_time [name: "conv_int_time"]
     (conv_event, vid_id) [name: "conv_event_vid_id"]
+    (invitation_id, invitation_status, vid_id) [name: "inv_vid"]
   }
 }
+
+Table "lh_abstract_proactive_chat_invitation_one_time" {
+  "id" bigint(20) [pk, not null, increment, note: 'unsigned']
+  "invitation_id" bigint(20) [not null, note: 'unsigned']
+  "vid_id" bigint(20) [not null, note: 'unsigned']
+
+  Indexes {
+    (invitation_id, vid_id) [name: "invitation_id_vid_id"]
+    vid_id [name: "vid_id"]
+  }
+}
+
+Ref: "lh_abstract_proactive_chat_invitation"."id" < "lh_abstract_proactive_chat_invitation_one_time"."invitation_id"
+Ref: "lh_chat_online_user"."id" < "lh_abstract_proactive_chat_invitation_one_time"."vid_id"
 
 Table "lh_abstract_proactive_chat_event" {
   "id" int(11) [pk, not null, increment]
@@ -955,11 +989,13 @@ Table "lh_abstract_subject" {
   "internal_type" varchar(50) [not null]
   "color" varchar(100) [not null]
   "pinned" tinyint(1) [not null, default: 0]
+  "archive" tinyint(1) [not null, default: 0]
   "widgets" int(11) [not null, default: 0]
 
   Indexes {
     internal [name: "internal"]
     internal_type [name: "internal_type"]
+    archive [name: "archive"]
     widgets [name: "widgets"]
   }
 }
@@ -1296,6 +1332,7 @@ Table "lh_canned_msg" {
   "repetitiveness" int(11) [not null, default: 0]
   "days_activity" text [not null]
   "delete_on_exp" tinyint(1) [not null, default: 0]
+  "activate_responder" tinyint(1) [not null, default: 0]
 
   Indexes {
     department_id [name: "department_id"]
@@ -1917,6 +1954,7 @@ Table "lh_departament_group_member" {
 
   Indexes {
     dep_group_id [name: "dep_group_id"]
+    (dep_group_id,dep_id) [name: "dep_group_id_dep_id"]
   }
 }
 
@@ -1926,6 +1964,7 @@ Table "lh_departament_group_user" {
   "user_id" int(11) [not null]
   "read_only" tinyint(1) [not null, default: 0]
   "exc_indv_autoasign" tinyint(1) [not null, default: 0]
+  "only_priority" tinyint(1) [not null, default: 0]
   "assign_priority" int(11) [not null, default: 0]
   "chat_min_priority" int(11) [not null, default: 0]
   "chat_max_priority" int(11) [not null, default: 0]
@@ -2569,7 +2608,6 @@ Table "lh_userdep" {
   "hide_online_ts" int(11) [not null, default: 0]
   "dep_group_id" int(11) [not null, default: 0]
   "always_on" tinyint(1) [not null, default: 0]
-  "only_priority" tinyint(1) [not null, default: 0, note: 'unsigned']
   "exclude_autoasign_mails" tinyint(1) [not null, default: 0]
   "active_mails" int(11) [not null, default: 0]
   "pending_mails" int(11) [not null, default: 0]
@@ -2578,6 +2616,7 @@ Table "lh_userdep" {
   "assign_priority" int(11) [not null, default: 0]
   "chat_max_priority" int(11) [not null, default: 0]
   "chat_min_priority" int(11) [not null, default: 0]
+  "only_priority" tinyint(1) [not null, default: 0, note: 'unsigned']
 
   Indexes {
     (last_activity, hide_online, dep_id) [name: "last_activity_hide_online_dep_id"]
@@ -2681,7 +2720,6 @@ Table lh_userdep_disabled {
   chat_max_priority int [not null, default: 0]
   chat_min_priority int [not null, default: 0]
   only_priority tinyint(1) [not null, default: 0, note: 'unsigned']
-
   Indexes {
     (dep_id) [name: 'dep_id']
     (user_id, type) [name: 'user_id_type']
@@ -2697,16 +2735,42 @@ Table lh_departament_group_user_disabled {
   user_id int [not null]
   read_only boolean [not null, default: false, note: 'unsigned']
   exc_indv_autoasign boolean [not null, default: false, note: 'unsigned']
-  only_priority tinyint(1) [not null, default: 0, note: 'unsigned']
-  assign_priority int [not null, default: 0, note: 'unsigned']
+  assign_priority int [not null, default: 0]
   chat_min_priority int [not null, default: 0]
   chat_max_priority int [not null, default: 0]
+  only_priority tinyint(1) [not null, default: 0, note: 'unsigned']
 
   Indexes {
     (dep_group_id) [name: 'dep_group_id']
     (user_id) [name: 'user_id']
   }
 }
+
+Table "lh_abstract_content_chunk" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(250) [not null]
+  "in_active" tinyint(1) [not null, default: 0]
+  "identifier" varchar(50) [not null]
+  "content" longtext [not null]
+
+  Indexes {
+    (identifier, in_active) [name: "identifier"]
+  }
+}
+
+Table "lh_abstract_content_chunk_dep" {
+  "id" bigint(20) [pk, not null, increment]
+  "chunk_id" bigint(20) [not null]
+  "dep_id" int(11) [not null]
+
+  Indexes {
+    chunk_id [name: "chunk_id"]
+    dep_id [name: "dep_id"]
+  }
+}
+
+Ref: "lh_abstract_content_chunk"."id" < "lh_abstract_content_chunk_dep"."chunk_id"
+Ref: "lh_departament"."id" < "lh_abstract_content_chunk_dep"."dep_id"
 
 Table "lh_users_login" {
   "id" bigint(20) [pk, not null, increment]
@@ -2732,7 +2796,19 @@ Table "lh_users_online_session" {
 
   Indexes {
     (user_id, lactivity) [name: "user_id_lactivity"]
+    (user_id, time) [name: "user_id_time"]
     lactivity [name: "lactivity"]
+  }
+}
+
+Table "lh_abstract_performance" {
+  "id" bigint(20) [pk, not null, increment]
+  "type" tinyint(1) [not null]
+  "created_at" bigint(20) [not null]
+  "data" longtext [not null]
+  Indexes {
+    (type, id) [name: "type_id"]
+    (created_at) [name: "created_at"]
   }
 }
 
