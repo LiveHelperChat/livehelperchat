@@ -126,6 +126,13 @@ do {
         break;
     }
 
+    // Check if API returned an error envelope
+    if (isset($response->error) && $response->error === true) {
+        $errorMsg = isset($response->result) ? $response->result : 'Unknown API error';
+        echo "API ERROR: {$errorMsg}\n";
+        break;
+    }
+
     if (!isset($response->list) || !is_array($response->list)) {
         echo "No list in response or unexpected format.\n";
         break;
