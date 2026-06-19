@@ -507,12 +507,12 @@ class erLhcoreClassSearchHandler
             }
             
             if (! isset($orderOptions['disabled'])) {
-                $keySort = key_exists($inputParams->{$orderOptions['field']}, $orderOptions['options']) ? $inputParams->{$orderOptions['field']} : $orderOptions['default'];
+                $keySort = !is_null($inputParams->{$orderOptions['field']}) && key_exists($inputParams->{$orderOptions['field']}, $orderOptions['options']) ? $inputParams->{$orderOptions['field']} : $orderOptions['default'];
                 $currentOrder = $orderOptions['options'][$keySort];
                 $filter['sort'] = $currentOrder['sort_column'];
                 $inputFrom->sortby = $keySort;
                 
-                if (key_exists($inputParams->{$orderOptions['field']}, $orderOptions['options']) && $orderOptions['default'] != $inputParams->{$orderOptions['field']}) {
+                if (!is_null($inputParams->{$orderOptions['field']}) && key_exists($inputParams->{$orderOptions['field']}, $orderOptions['options']) && $orderOptions['default'] != $inputParams->{$orderOptions['field']}) {
                     $inputParams->sortby = $keySort;
                 } else {
                     // Standard sort mode does not need any append in URL

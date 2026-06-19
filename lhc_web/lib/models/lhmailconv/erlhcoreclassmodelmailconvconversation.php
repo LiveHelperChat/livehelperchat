@@ -37,7 +37,6 @@ class erLhcoreClassModelMailconvConversation
             'date' => $this->date,
             'total_messages' => $this->total_messages,
             'match_rule_id' => $this->match_rule_id,
-
             'cls_time' => $this->cls_time,
             'pnd_time' => $this->pnd_time,
             'wait_time' => $this->wait_time,

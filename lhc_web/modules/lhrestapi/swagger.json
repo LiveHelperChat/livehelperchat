@@ -188,6 +188,15 @@
             "format": "int32"
           },
           {
+            "name": "sort",
+            "description": "Sort order. `id_desc` (default) or `id_asc`",
+            "required": false,
+            "type": "string",
+            "enum": ["id_desc", "id_asc"],
+            "default": "id_desc",
+            "in": "query"
+          },
+          {
             "name": "id_gt",
             "in": "query",
             "description": "ID greater than",
@@ -258,6 +267,306 @@
           {
             "name": "ignore_fields",
             "description": "What fields to skip E.g mail_variables_array, customer_email, interaction_time_duration, plain_user_name, user, last_mail_front, conv_duration_front, wait_time_response,wait_time_pending, department_name, subject_front, mailbox, department, pnd_time_front, ctime_front, udate_front, accept_time_front, cls_time_front, lr_time_front, pnd_time_front_ago, ctime_front_ago, udate_front_ago, accept_time_front_ago, cls_time_front_ago, lr_time_front_ago",
+            "required": false,
+            "type": "string",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch mail conversations list",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/conversationsmessages": {
+      "get": {
+        "tags": [
+          "mail"
+        ],
+        "summary": "Fetch mail messages list. One covnersations can have multiple messages.",
+        "description": "Required permissions - `lhmailconv`,`use_admin`. List content depends on assigned API user departments.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "department_ids[]",
+            "in": "query",
+            "description": "Department ID's",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "ids[]",
+            "in": "query",
+            "description": "Message IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "department_group_ids[]",
+            "in": "query",
+            "description": "Department group ID's",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "user_ids[]",
+            "in": "query",
+            "description": "User IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "mailbox_ids[]",
+            "in": "query",
+            "description": "Mailbox IDs",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "status_ids[]",
+            "in": "query",
+            "description": "Message status IDs. const STATUS_PENDING = 0; const STATUS_ACTIVE = 1; const STATUS_RESPONDED = 2;",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "subject_id[]",
+            "in": "query",
+            "description": "Subject ID",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "identifier[]",
+            "in": "query",
+            "description": "Department identifiers. Only plain string and numbers allowed.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "conversation_id",
+            "in": "query",
+            "description": "Filter by conversation ID (supports comma-separated list)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "message_id",
+            "in": "query",
+            "description": "Filter by exact Message-ID header value",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Message status. const STATUS_PENDING = 0; const STATUS_ACTIVE = 1; const STATUS_RESPONDED = 2;",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "User ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "department_id",
+            "in": "query",
+            "description": "Department ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "response_type",
+            "in": "query",
+            "description": "Response type. const RESPONSE_UNRESPONDED = 0; const RESPONSE_NOT_REQUIRED = 1; const RESPONSE_INTERNAL = 2; const RESPONSE_NORMAL = 3;",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "is_external",
+            "in": "query",
+            "description": "Is external message. 0 - internal, 1 - external",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "opened",
+            "in": "query",
+            "description": "Has message been opened. 0 - not opened, 1 - opened",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "undelivered",
+            "in": "query",
+            "description": "Is undelivered message",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "has_attachment",
+            "in": "query",
+            "description": "Has attachment. 0 - empty, 1 - inline, 2 - file, 3 - mix, 4 - no file attachment, 5 - no inline attachment",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "lang_ids[]",
+            "in": "query",
+            "description": "Language codes",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort order. `id_desc` (default) or `id_asc`",
+            "required": false,
+            "type": "string",
+            "enum": ["id_desc", "id_asc"],
+            "default": "id_desc",
+            "in": "query"
+          },
+          {
+            "name": "id_gt",
+            "in": "query",
+            "description": "ID greater than",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "timefromts",
+            "in": "query",
+            "description": "Time greater than. Unix timestamp. udate >=",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "timetots",
+            "in": "query",
+            "description": "Time less than. Unix timestamp. udate <=",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "include_conversations",
+            "description": "Include parent conversation objects within each message",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "count_records",
+            "description": "Count total records by filter",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "email",
+            "description": "Email (from_address exact match)",
+            "required": false,
+            "type": "string",
+            "in": "query"
+          },
+          {
+            "name": "subject",
+            "description": "Mail subject (LIKE %value%)",
+            "required": false,
+            "type": "string",
+            "in": "query"
+          },
+          {
+            "name": "prefill_fields",
+            "description": "What fields to prefill. E.g conversation, department, mailbox, user, plain_user_name, files, attachments, subjects, to_data_array, reply_to_data_array, cc_data_array, bcc_data_array, body_front, conv_duration_front, wait_time_pending, wait_time_response, interaction_time_duration, ctime_front, udate_front, accept_time_front, cls_time_front, lr_time_front, opened_at_front, udate_ago",
+            "required": false,
+            "type": "string",
+            "in": "query"
+          },
+          {
+            "name": "ignore_fields",
+            "description": "What fields to skip. E.g conversation, department, mailbox, user, plain_user_name, files, attachments, subjects, to_data_array, reply_to_data_array, cc_data_array, bcc_data_array, body_front, conv_duration_front, wait_time_pending, wait_time_response, interaction_time_duration, ctime_front, udate_front, accept_time_front, cls_time_front, lr_time_front, opened_at_front, udate_ago",
             "required": false,
             "type": "string",
             "in": "query"
@@ -553,6 +862,23 @@
             "in": "query"
           },
           {
+            "name": "count_records",
+            "description": "Count total records by filter",
+            "required": false,
+            "type": "boolean",
+            "default": true,
+            "in": "query"
+          },
+          {
+            "name": "sort",
+            "description": "Sort order. `id_desc` (default) or `id_asc`",
+            "required": false,
+            "type": "string",
+            "enum": ["id_desc", "id_asc"],
+            "default": "id_desc",
+            "in": "query"
+          },
+          {
             "name": "prefill_fields",
             "description": "What fields to prefill E.g messages_statistic, subject, link, time_created_front, department_name, plain_user_name, product_name, n_official, n_off_full, wait_time_pending, wait_time_seconds, cls_time_front, tatus_sub_sub, can_edit_chat, unread_time, chat_actions",
             "required": false,
@@ -722,6 +1048,15 @@
             "required": false,
             "type": "string",
             "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort order. `id_desc` (default) or `id_asc`",
+            "required": false,
+            "type": "string",
+            "enum": ["id_desc", "id_asc"],
+            "default": "id_desc",
+            "in": "query"
           },
           {
             "name": "group_by_nick",

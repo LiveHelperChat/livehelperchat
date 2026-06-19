@@ -7,7 +7,7 @@ try {
         throw new Exception('You do not have permission. `lhmailconv`, `use_admin` is required.');
     }
 
-    erLhcoreClassRestAPIHandler::outputResponse( \LiveHelperChat\mailConv\helpers\RestAPIValidator::validateConversationList(), 'json', \JSON_INVALID_UTF8_IGNORE);
+    erLhcoreClassRestAPIHandler::outputResponse( \LiveHelperChat\mailConv\helpers\RestAPIValidator::validateConversationMessagesList(), 'json', \JSON_INVALID_UTF8_IGNORE);
 
 } catch (Exception $e) {
     echo erLhcoreClassRestAPIHandler::outputResponse(array(

@@ -7,6 +7,11 @@ class LHCRestAPI
     private $username = null;
     private $apiKey = null;
 
+    public $lastHttpCode = 0;
+    public $lastRawResponse = '';
+    public $lastRequestUrl = '';
+    public $lastCurlError = '';
+
     /**
      *
      * @param string $host
@@ -59,35 +64,52 @@ class LHCRestAPI
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
         }
 
+        $requestUrl = "{$this->host}/restapi/{$function}{$manualAppend}{$uparamsArg}{$requestArgs}";
+
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
         curl_setopt($ch, CURLOPT_USERPWD, "{$this->username}:{$this->apiKey}");
-        curl_setopt($ch, CURLOPT_URL, "{$this->host}/restapi/{$function}{$manualAppend}{$uparamsArg}{$requestArgs}");
+        curl_setopt($ch, CURLOPT_URL, $requestUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces wargning...
+        $this->lastRequestUrl = $requestUrl;
         $content = curl_exec($ch);
+        if (curl_errno($ch)) {
+            $this->lastCurlError = curl_error($ch);
+            curl_close($ch);
+            throw new Exception('cURL error: ' . $this->lastCurlError);
+        }
+        $httpCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
 
-        return $content;
+        return ['http_code' => $httpCode, 'body' => $content, 'url' => $requestUrl];
     }
 
     public function execute($function, $params, $uparams = [], $method = 'GET', $jsonObject = true, $manualAppend = '')
     {
-        $response = $this->executeRequest($function, $params, $uparams, $method, $manualAppend);
+        $result = $this->executeRequest($function, $params, $uparams, $method, $manualAppend);
+
+        $this->lastHttpCode = $result['http_code'];
+        $this->lastRawResponse = $result['body'];
+        $this->lastRequestUrl = $result['url'];
 
         if ($jsonObject == false) {
-            return $response;
+            return $result;
         }
 
-        $jsonData = json_decode($response);
+        $jsonData = json_decode($result['body']);
         if ($jsonData !== null) {
             return $jsonData;
         } else {
-            throw new Exception("Could not parse response - $response");
+            $truncated = strlen($result['body']) > 500
+                ? substr($result['body'], 0, 500) . '...'
+                : $result['body'];
+            throw new Exception("HTTP {$result['http_code']} - Could not parse JSON response: {$truncated}");
         }
     }
 
