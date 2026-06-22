@@ -2775,7 +2775,7 @@ class erLhcoreClassGenericBotActionRestapi
             if (strpos($item,'{{msg_all_html}}') !== false && !in_array('{{msg_all_html}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all_html}}';
 
-                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 150,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
 
                 // Fetch chat messages
                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/full.tpl.php');
@@ -2787,7 +2787,7 @@ class erLhcoreClassGenericBotActionRestapi
             // Detect does customer want's somewhere all messages
             if (strpos($item,'{{msg_items}}') !== false && !in_array('{{msg_items}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_items}}';
-                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 150,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
                 $userData['dynamic_variables']['{{msg_items}}'] = $messages;
             }
 
@@ -2816,7 +2816,7 @@ class erLhcoreClassGenericBotActionRestapi
 
             if (strpos($item,'{{msg_all}}') !== false && !in_array('{{msg_all}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all}}';
-                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 150,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
                 // Fetch chat messages
                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
                 $tpl->set('chat', $userData['chat']);
@@ -2830,7 +2830,7 @@ class erLhcoreClassGenericBotActionRestapi
             ) {
                 $userData['required_vars'][] = '{{msg_all_conversation}}';
                 $userData['required_vars'][] = '{{msg_all_conversation_br}}';
-                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'filternot' => array('user_id' => -1), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 150, 'filternot' => array('user_id' => -1), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
                 // Fetch chat messages
                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
                 $tpl->set('chat', $userData['chat']);
@@ -2853,7 +2853,7 @@ class erLhcoreClassGenericBotActionRestapi
                  $media = array();
                  $mediaLinks = array();
                  $mediaLinksRaw = array();
-                 foreach (erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))) as $chatMessage) {
+                 foreach (erLhcoreClassModelmsg::getList(array('limit' => 150,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))) as $chatMessage) {
                      $chatMessageText = $chatMessage->msg;
                      $matches = array();
                      preg_match_all('/\[file="?(.*?)"?\]/', $chatMessageText, $matches);
@@ -2900,7 +2900,7 @@ class erLhcoreClassGenericBotActionRestapi
             if (strpos($item,'{{msg_all_content}}') !== false && !in_array('{{msg_all_content}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all_content}}';
 
-                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'filternot' => array('user_id' => -1), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 150, 'filternot' => array('user_id' => -1), 'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))));
 
                 // Fetch chat messages
                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
@@ -2917,7 +2917,7 @@ class erLhcoreClassGenericBotActionRestapi
             if (strpos($item,'{{msg_all_since_transfer_content}}') !== false && !in_array('{{msg_all_since_transfer_content}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all_since_transfer_content}}';
 
-                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'filternot' => array('user_id' => -1), 'sort' => 'id DESC','filter', 'filtergte' => array('time' => $userData['chat']->pnd_time), 'filter' => array('chat_id' => $userData['chat']->id))));
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 150, 'filternot' => array('user_id' => -1), 'sort' => 'id DESC','filter', 'filtergte' => array('time' => $userData['chat']->pnd_time), 'filter' => array('chat_id' => $userData['chat']->id))));
 
                 // Fetch chat messages
                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
@@ -2934,7 +2934,7 @@ class erLhcoreClassGenericBotActionRestapi
             if (strpos($item,'{{msg_all_since_transfer_content_date_nick}}') !== false && !in_array('{{msg_all_since_transfer_content_date_nick}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all_since_transfer_content_date_nick}}';
 
-                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'filternot' => array('user_id' => -1), 'sort' => 'id DESC','filter', 'filtergte' => array('time' => $userData['chat']->pnd_time), 'filter' => array('chat_id' => $userData['chat']->id))));
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 150, 'filternot' => array('user_id' => -1), 'sort' => 'id DESC','filter', 'filtergte' => array('time' => $userData['chat']->pnd_time), 'filter' => array('chat_id' => $userData['chat']->id))));
 
                 // Fetch chat messages
                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
@@ -2950,7 +2950,7 @@ class erLhcoreClassGenericBotActionRestapi
             if (strpos($item,'{{msg_all_op_msg_content}}') !== false && !in_array('{{msg_all_op_msg_content}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all_op_msg_content}}';
 
-                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'filtergt' => array('user_id' => 0), 'sort' => 'id DESC','filter' => array('chat_id' => $userData['chat']->id))));
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 150, 'filtergt' => array('user_id' => 0), 'sort' => 'id DESC','filter' => array('chat_id' => $userData['chat']->id))));
 
                 // Fetch chat messages
                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
@@ -2967,7 +2967,7 @@ class erLhcoreClassGenericBotActionRestapi
             if (strpos($item,'{{msg_all_vis_msg_content}}') !== false && !in_array('{{msg_all_vis_msg_content}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all_vis_msg_content}}';
 
-                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'sort' => 'id DESC','filter' => array('user_id' => 0, 'chat_id' => $userData['chat']->id))));
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 150, 'sort' => 'id DESC','filter' => array('user_id' => 0, 'chat_id' => $userData['chat']->id))));
 
                 // Fetch chat messages
                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
@@ -2983,7 +2983,7 @@ class erLhcoreClassGenericBotActionRestapi
             if (strpos($item,'{{msg_all_vis_since_transfer_content}}') !== false && !in_array('{{msg_all_vis_since_transfer_content}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all_vis_since_transfer_content}}';
 
-                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'sort' => 'id DESC', 'filtergte' => array('time' => $userData['chat']->pnd_time), 'filter' => array('user_id' => 0, 'chat_id' => $userData['chat']->id))));
+                $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 150, 'sort' => 'id DESC', 'filtergte' => array('time' => $userData['chat']->pnd_time), 'filter' => array('user_id' => 0, 'chat_id' => $userData['chat']->id))));
 
                 // Fetch chat messages
                 $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');

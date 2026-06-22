@@ -18,7 +18,7 @@ try {
             header("Content-type: text/plain");
             header("Content-Disposition: attachment; filename=chat-" . $chat->id . ".txt");
 
-            $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC','customfilter' => array('user_id != -1'), 'filter' => array('chat_id' => $chat->id))));
+            $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 1000, 'sort' => 'id DESC','customfilter' => array('user_id != -1'), 'filter' => array('chat_id' => $chat->id))));
 
             // Fetch chat messages
             $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain_download.tpl.php');

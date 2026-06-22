@@ -229,16 +229,16 @@ class erLhcoreClassChatExport {
                 $visitorMessagesBotCount = $visitorMessagesCount;
                 $itemData[] = $visitorMessagesBotCount;
                 // All interactions were with a bot
-                $botMessages = erLhcoreClassModelmsg::getList(array('limit' => false, 'filter' => array('chat_id' => $item->id)));
+                $botMessages = erLhcoreClassModelmsg::getList(array('limit' => 150, 'filter' => array('chat_id' => $item->id)));
             } else {
-                $botMessages = erLhcoreClassModelmsg::getList(array('limit' => false, 'filterlte' => array('time' => $item->pnd_time),'filter' => array('chat_id' => $item->id)));
-                $agentMessages =  erLhcoreClassModelmsg::getList(array('limit' => false, 'filtergt' => array('time' => $item->pnd_time),'filter' => array('chat_id' => $item->id)));
-                $visitorMessagesBotCount = erLhcoreClassModelmsg::getCount(array('limit' => false, 'filterlte' => array('time' => $item->pnd_time),'filter' => array('user_id' => 0, 'chat_id' => $item->id)));
+                $botMessages = erLhcoreClassModelmsg::getList(array('limit' => 150, 'filterlte' => array('time' => $item->pnd_time),'filter' => array('chat_id' => $item->id)));
+                $agentMessages =  erLhcoreClassModelmsg::getList(array('limit' => 150, 'filtergt' => array('time' => $item->pnd_time),'filter' => array('chat_id' => $item->id)));
+                $visitorMessagesBotCount = erLhcoreClassModelmsg::getCount(array('limit' => 150, 'filterlte' => array('time' => $item->pnd_time),'filter' => array('user_id' => 0, 'chat_id' => $item->id)));
                 $itemData[] = $visitorMessagesBotCount;
             }
         } else { // There was no bot assigned
             $itemData[] = 0;
-            $agentMessages = erLhcoreClassModelmsg::getList(array('limit' => false, 'filter' => array('chat_id' => $item->id)));
+            $agentMessages = erLhcoreClassModelmsg::getList(array('limit' => 150, 'filter' => array('chat_id' => $item->id)));
         }
 
         $itemData[] = $visitorMessagesCount - $visitorMessagesBotCount;
@@ -643,9 +643,9 @@ class erLhcoreClassChatExport {
                 if (isset($params['type']) && in_array(2,$params['type'])) {
 
                     if ($isArchive === true) {
-                        $messages = erLhcoreClassModelChatArchiveMsg::getList(array('limit' => 10000,'sort' => 'id ASC','filter' => array('chat_id' => $item->id)));
+                        $messages = erLhcoreClassModelChatArchiveMsg::getList(array('limit' => 150,'sort' => 'id ASC','filter' => array('chat_id' => $item->id)));
                     } else {
-                        $messages = erLhcoreClassModelmsg::getList(array('limit' => 10000,'sort' => 'id ASC','filter' => array('chat_id' => $item->id)));
+                        $messages = erLhcoreClassModelmsg::getList(array('limit' => 150,'sort' => 'id ASC','filter' => array('chat_id' => $item->id)));
                     }
 
                     $messagesContent = '';

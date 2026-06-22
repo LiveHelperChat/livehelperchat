@@ -84,7 +84,7 @@ class erLhcoreClassModelChatArchiveRange
                 $archive->setState(get_object_vars($item));
                 $archive->saveThis();
 
-                $messages = erLhcoreClassModelmsg::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
+                $messages = erLhcoreClassModelmsg::getList(array('filternotlikefields' => [['meta_msg' => '"debug":true'],['meta_msg' => '{"content":{"typing"'],['meta_msg' => '{"content":{"execute_js"']], 'limit' => 1000, 'filter' => array('chat_id' => $item->id)));
                 $messagesArchived += count($messages);
 
                 foreach ($messages as $msg) {

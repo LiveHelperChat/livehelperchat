@@ -352,9 +352,9 @@ class erLhcoreClassGenericBotActionCommand {
             }
 
             if (!empty($filterOR)) {
-                $messages = erLhcoreClassModelmsg::getList(array('ignore_fields' => ['msg', 'chat_id'], 'limit' => false, 'customfilter' => array( ' (' . implode(' OR ', $filterOR) . ') ' ), 'filter' => array('chat_id' => $chat->id)));
+                $messages = erLhcoreClassModelmsg::getList(array('ignore_fields' => ['msg', 'chat_id'], 'limit' => 150, 'customfilter' => array( ' (' . implode(' OR ', $filterOR) . ') ' ), 'filter' => array('chat_id' => $chat->id)));
             } elseif ($all === true) {
-                $messages = erLhcoreClassModelmsg::getList(array('ignore_fields' => ['msg', 'chat_id'], 'limit' => false, 'filternot' => array( 'user_id' => -1), 'filter' => array('chat_id' => $chat->id)));
+                $messages = erLhcoreClassModelmsg::getList(array('ignore_fields' => ['msg', 'chat_id'], 'limit' => 150, 'filternot' => array( 'user_id' => -1), 'filter' => array('chat_id' => $chat->id)));
             }
 
             if (

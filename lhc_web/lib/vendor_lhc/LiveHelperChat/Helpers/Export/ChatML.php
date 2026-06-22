@@ -15,7 +15,7 @@ class ChatML
 
 		$messages = \erLhcoreClassModelmsg::getList(array(
             'filternotlikefields' => [/*['meta_msg' => '"debug":true'],*/['meta_msg' => '{"content":{"typing"'],['meta_msg' => '{"content":{"execute_js"']],
-			'limit' => false,
+			'limit' => 150,
 			'sort' => 'id ASC',
 			'filter' => array('chat_id' => $chat->id)
 		));
