@@ -634,12 +634,21 @@ class erLhcoreClassGenericBotActionRestapi
         $file_mime = null;
 
         $file_api = false;
+        $canSendSingleFileWithText = false;
+
+        if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && count($files) == 1 && trim($msg_text_cleaned) != '' && strpos($methodSettings['body_raw_file'], '{{msg_clean}}') !== false) {
+            $captionUnsupportedExtensions = array();
+            if (isset($methodSettings['suburl_file_skip_ext']) && $methodSettings['suburl_file_skip_ext'] != '') {
+                $captionUnsupportedExtensions = explode(',',str_replace(' ','',strtolower($methodSettings['suburl_file_skip_ext'])));
+            }
+            $canSendSingleFileWithText = !in_array(strtolower($files[0]->extension), $captionUnsupportedExtensions);
+        }
 
         // We want files as attachements.
         if (isset($methodSettings['switch_form_data']) && $methodSettings['switch_form_data'] === true && count($files) == 1 && trim($msg_text_cleaned) == '') {
             $msg_text = '';
         // Switch to file API if it's only one file send
-        } else if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && count($files) == 1 && trim($msg_text_cleaned) == '') {
+        } else if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && count($files) == 1 && (trim($msg_text_cleaned) == '' || $canSendSingleFileWithText === true)) {
             foreach ($files as $mediaFile) {
 
                 $file_api = false;
