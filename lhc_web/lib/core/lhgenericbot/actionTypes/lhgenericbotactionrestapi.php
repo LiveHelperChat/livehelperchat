@@ -1518,11 +1518,11 @@ class erLhcoreClassGenericBotActionRestapi
                             json_decode($streamBuffer);
                             if (json_last_error() != JSON_ERROR_NONE) {
                                 if ($logRequest === true && $line != "") {
-                                    $streamLines[] = self::getCurrentTimeWithMilliseconds() . ' ' . $logChunk . ' [INVALID JSON] - [' . $streamEvent . '] - ' . $streamBuffer;
+                                    $streamLines[] = self::getCurrentTimeWithMilliseconds() . ' ' . $logChunk . ' [INVALID JSON] - [' . $streamEvent . '] BUFFER ' . $streamBuffer;
                                 }
                                 continue;
                             } elseif ($logRequest === true && $line != "") {
-                                $streamLines[] = self::getCurrentTimeWithMilliseconds() . ' ' . $logChunk . ' [VALID JSON] - [' . $streamEvent . '] - ' . $streamBuffer;
+                                $streamLines[] = self::getCurrentTimeWithMilliseconds() . ' ' . $logChunk . ' [VALID JSON] - ' . $streamBuffer;
                             }
 
                             $responseStream = self::parseContentOutput([
@@ -1601,40 +1601,43 @@ class erLhcoreClassGenericBotActionRestapi
                                         isset($responseStream['stream_final']) && $responseStream['stream_final'] == true &&
                                         isset($responseStream['final_match_stream']) && $responseStream['final_match_stream'] == true
                                     ) {
-                                                                                
-                                        $argsDefault = array(
-                                            'replace_array' => array(
-                                                '{content_1}' => $responseContent['content'],
-                                                '{content_2}' => $responseContent['content_2'],
-                                                '{content_3}' => $responseContent['content_3'],
-                                                '{content_4}' => $responseContent['content_4'],
-                                                '{content_5}' => $responseContent['content_5'],
-                                                '{content_6}' => $responseContent['content_6'],
-                                                '{content_1_json}' => json_encode($responseContent['content']),
-                                                '{content_2_json}' => json_encode($responseContent['content_2']),
-                                                '{content_3_json}' => json_encode($responseContent['content_3']),
-                                                '{content_4_json}' => json_encode($responseContent['content_4']),
-                                                '{content_5_json}' => json_encode($responseContent['content_5']),
-                                                '{content_6_json}' => json_encode($responseContent['content_6']),
-                                                '{http_code}' => $responseStream['http_code'],
-                                                '{http_error}' => $responseStream['http_error'],
-                                                '{content_raw}' => $responseStream['content_raw'],
-                                                '{http_data}' => $responseStream['http_data']
-                                            ),
-                                            'stream_context' => true
-                                        );
+                                        // Skip empty
+                                        if (!(is_string($responseContent['content']) && trim($responseContent['content']) == '')) {
+                                            $argsDefault = array(
+                                                'replace_array' => array(
+                                                    '{content_1}' => $responseContent['content'],
+                                                    '{content_2}' => $responseContent['content_2'],
+                                                    '{content_3}' => $responseContent['content_3'],
+                                                    '{content_4}' => $responseContent['content_4'],
+                                                    '{content_5}' => $responseContent['content_5'],
+                                                    '{content_6}' => $responseContent['content_6'],
+                                                    '{content_1_json}' => json_encode($responseContent['content']),
+                                                    '{content_2_json}' => json_encode($responseContent['content_2']),
+                                                    '{content_3_json}' => json_encode($responseContent['content_3']),
+                                                    '{content_4_json}' => json_encode($responseContent['content_4']),
+                                                    '{content_5_json}' => json_encode($responseContent['content_5']),
+                                                    '{content_6_json}' => json_encode($responseContent['content_6']),
+                                                    '{http_code}' => $responseStream['http_code'],
+                                                    '{http_error}' => $responseStream['http_error'],
+                                                    '{content_raw}' => $responseStream['content_raw'],
+                                                    '{http_data}' => $responseStream['http_data']
+                                                ),
+                                                'stream_context' => true
+                                            );
 
-                                        $trigger = erLhcoreClassModelGenericBotTrigger::fetch($paramsCustomer['action']['content']['rest_api_method_output'][$currentMatchedOutput]);
+                                            $trigger = erLhcoreClassModelGenericBotTrigger::fetch($paramsCustomer['action']['content']['rest_api_method_output'][$currentMatchedOutput]);
 
-                                        erLhcoreClassGenericBotWorkflow::processTrigger($paramsCustomer['chat'], $trigger, true, array('args' => $argsDefault));
+                                            erLhcoreClassGenericBotWorkflow::processTrigger($paramsCustomer['chat'], $trigger, true, array('args' => $argsDefault));
 
-                                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stream_chunk_finished', array(
-                                            'restapi' => $paramsCustomer['rest_api'],
-                                            'chat' => $paramsCustomer['chat'],
-                                            'response' => $responseContent
-                                        ));
-
-                                        $streamLines[] = self::getCurrentTimeWithMilliseconds().' EXECUTING_PREVIOUS [trigger exec] - [' . $trigger->name . '] [' . $trigger->id . '] with content ' . json_encode($responseContent);
+                                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.stream_chunk_finished', array(
+                                                'restapi' => $paramsCustomer['rest_api'],
+                                                'chat' => $paramsCustomer['chat'],
+                                                'response' => $responseContent
+                                            ));
+                                            $streamLines[] = self::getCurrentTimeWithMilliseconds().' EXECUTING_PREVIOUS [trigger exec] - [' . $trigger->name . '] [' . $trigger->id . '] with content ' . json_encode($responseContent);
+                                        } else {
+                                            $streamLines[] = self::getCurrentTimeWithMilliseconds().' EXECUTING_PREVIOUS [trigger skipped (no content)] - [' . $trigger->name . '] [' . $trigger->id . '] with content ' . json_encode($responseContent);
+                                        }
 
                                         // Switch to new lock stream item
                                         $responseContent = $responseStream;

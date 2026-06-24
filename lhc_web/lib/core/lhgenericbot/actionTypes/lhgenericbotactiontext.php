@@ -343,6 +343,8 @@ class erLhcoreClassGenericBotActionText {
             }
         }
 
+        $msg->msg = trim($msg->msg);
+
         if ((!isset($params['do_not_save']) || $params['do_not_save'] == false) && (!empty($msg->msg) || !empty($msg->meta_msg))) {
             $db = ezcDbInstance::get();
             $db->beginTransaction();

@@ -230,7 +230,7 @@
                         <input type="number" maxlength="250" class="form-control form-control-sm" name="reopen_timeout" value="<?php echo htmlspecialchars($item->reopen_timeout)?>" />
                     </div>
                     <div class="form-group">
-                        <label><input type="checkbox" name="reopen_reset" value="on" <?php if ($item->reopen_reset == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Un-assing operator on closed ticket re-open');?></label>
+                        <label><input type="checkbox" name="reopen_reset" value="on" <?php if ($item->reopen_reset == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Unassign operator on closed ticket re-open');?></label>
                     </div>
                 </div>
 
