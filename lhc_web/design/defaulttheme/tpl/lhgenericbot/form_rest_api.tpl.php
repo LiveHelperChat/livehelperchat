@@ -379,6 +379,10 @@
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Convert to multipart/form-data if one of those API is used. Post the file using multipart/form-data in the usual way that files are uploaded via the browser.');?> E.g mp3_m4a,tgs,file_api,image_api,video_api</label>
                             <input type="text" class="form-control form-control-sm" ng-model="param.suburl_file_convert" placeholder="mp3_m4a,tgs,file_api,image_api,video_api" value="" />
                         </div>
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Do not use file API with message text for these file extensions');?> E.g tgs,webp</label>
+                            <input type="text" class="form-control form-control-sm" ng-model="param.suburl_file_skip_ext" placeholder="tgs,webp" value="" />
+                        </div>
 
                     </div>
 
