@@ -5,8 +5,8 @@ if ($Params['user_parameters']['scope'] === 'op') {
     $identifier = 'statistic_performance_op';
     $defaultColumns = array('ton', 'toff', 'ca', 'frt', 'aart', 'tup', 'tdown');
     $columnTranslations = array(
-        'toff' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Total Online Time'),
-        'ton' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Total Offline Time'),
+        'toff' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Total Offline Time'),
+        'ton' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Total Online Time'),
         'ca' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Chats answered'),
         'frt' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','First response time (Agent)'),
         'aart' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Average response time (Agent)'),

@@ -15,15 +15,15 @@
             <?php
                 // Tooltip explanations for each metric identifier
                 $columnTooltips = array(
-                    'cr'   => 'Chats received: total number of chats started today in active, non-archived departments.',
-                    'ca'   => 'Chats answered: chats received minus abandoned chats.',
-                    'wt'   => 'Wait time: average time visitors waited before an operator accepted the chat. Only chats assigned to an operator and with a wait time under 10 minutes are included.',
-                    'frt'  => 'First response time: average time from when an operator accepted the chat until they sent their first message. Only closed chats where the operator actually replied (first response time > 0) are included.',
-                    'aart' => 'Average response time: average time operators took to reply to visitor messages throughout the conversation. Only closed chats where the operator sent at least one reply (response time > 0) are included.',
-                    'tup'  => 'Thumbs up: number of chats today where the visitor left a positive rating.',
-                    'tdown'=> 'Thumbs down: number of chats today where the visitor left a negative rating.',
-                    'ton'  => 'Total online time: total time the operator was logged in and active today, summed across all their online sessions.',
-                    'toff' => 'Total offline time: total time the operator was offline between sessions today. Gaps longer than 90 minutes are ignored (e.g. overnight). The last open gap is only counted if it is at least 30 seconds long.'
+                    'cr'   => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Chats received: total number of chats started today in active, non-archived departments.'),
+                    'ca'   => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Chats answered: chats received minus abandoned chats.'),
+                    'wt'   => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Wait time: average time visitors waited before an operator accepted the chat. Only chats assigned to an operator and with a wait time under 10 minutes are included.'),
+                    'frt'  => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','First response time: average time from when an operator accepted the chat until they sent their first message. Only closed chats where the operator actually replied (first response time > 0) are included.'),
+                    'aart' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Average response time: average time operators took to reply to visitor messages throughout the conversation. Only closed chats where the operator sent at least one reply (response time > 0) are included.'),
+                    'tup'  => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Thumbs up: number of chats today where the visitor left a positive rating.'),
+                    'tdown'=> erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Thumbs down: number of chats today where the visitor left a negative rating.'),
+                    'ton'  => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Total online time: total time the operator was logged in and active today, summed across all their online sessions.'),
+                    'toff' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Total offline time: total time the operator was offline between sessions today. Gaps longer than 90 minutes are ignored (e.g. overnight). The last open gap is only counted if it is at least 30 seconds long.')
                 );
             ?>
 
@@ -56,7 +56,7 @@
                                         <input type="checkbox" class="form-check-input me-1" name="dep_performance_columns[]" value="<?php echo htmlspecialchars($column['identifier'])?>" <?php if ($column['enabled']) : ?>checked="checked"<?php endif; ?> />
                                             <?php echo $column['translation']?>
                                             <?php if (isset($columnTooltips[$column['identifier']])) : ?>
-                                                &nbsp;<a class="live-help-tooltip" data-bs-placement="top" title="" data-bs-toggle="tooltip" data-bs-title="<?php echo htmlspecialchars($columnTooltips[$column['identifier']])?>"><i class="material-icons">info_outline</i></a>
+                                                &nbsp;<a class="live-help-tooltip" data-bs-placement="top" title="" data-bs-toggle="tooltip" data-bs-title="<?php echo $columnTooltips[$column['identifier']]?>"><i class="material-icons">info_outline</i></a>
                                             <?php endif; ?>
                                     </label>
                                 </td>

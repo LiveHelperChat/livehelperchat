@@ -1,0 +1,1 @@
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Total offline time: total time the operator was offline between sessions today. Gaps longer than 90 minutes are ignored (e.g. overnight). The last open gap is only counted if it is at least 30 seconds long.')?>
