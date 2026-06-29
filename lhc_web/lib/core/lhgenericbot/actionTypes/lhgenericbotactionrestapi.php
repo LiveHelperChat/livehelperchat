@@ -3098,7 +3098,20 @@ class erLhcoreClassGenericBotActionRestapi
                 if (isset($paramsOutput['implode'])) {
                     $output = "";
                     foreach ($partData as $partDataItem) {
-                        $output .= (strpos($paramsOutput['implode'],'{item}') === false ? (string)$partDataItem : '').str_replace(["{n}","{item}"],["\n",(string)$partDataItem],$paramsOutput['implode']);
+                        $template = $paramsOutput['implode'];
+                        $itemPathReplacements = [];
+
+                        // Support {item:path} syntax to extract nested attributes
+                        if (preg_match_all('/\{item:([^}]+)\}/', $template, $itemPathMatches) && !empty($itemPathMatches[0])) {
+                            foreach ($itemPathMatches[0] as $idx => $fullMatch) {
+                                $extracted = self::extractAttribute($partDataItem, $itemPathMatches[1][$idx]);
+                                $itemPathReplacements[$fullMatch] = ($extracted['found'] && (is_string($extracted['value']) || is_numeric($extracted['value']))) ? (string)$extracted['value'] : '';
+                            }
+                        }
+
+                        $replacePairs = array_merge($itemPathReplacements, ["{n}" => "\n", "{item}" => (string)$partDataItem]);
+                        $hasItemPattern = strpos($template, '{item}') !== false || !empty($itemPathReplacements);
+                        $output .= ($hasItemPattern ? '' : (string)$partDataItem) . str_replace(array_keys($replacePairs), array_values($replacePairs), $template);
                     }
                     $partData = trim($output);
                 }
