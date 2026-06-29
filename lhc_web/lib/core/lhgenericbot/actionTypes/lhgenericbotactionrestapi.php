@@ -897,6 +897,8 @@ class erLhcoreClassGenericBotActionRestapi
             $paramsCustomer['params']['chat'] = $paramsCustomer['chat'];
         }
 
+        $methodSettings['host_url'] = $host;
+       
         $dynamicParamsVariables = self::extractDynamicParams($methodSettings, $paramsCustomer['params']);
 
         $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat'], $paramsCustomer['params']);
@@ -1345,7 +1347,7 @@ class erLhcoreClassGenericBotActionRestapi
                 $replaceVariablesURL['urlencode_' . $keyVariable] = rawurlencode((string)$variableValue);
         }
 
-        $url = trim(rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables),str_replace(array_keys($replaceVariablesURL), array_values($replaceVariablesURL), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : ''))) . (!empty($queryArgsString) ? '?'.$queryArgsString : ''));
+        $url = trim(str_replace(array_keys($replaceVariables), array_values($replaceVariables), str_replace(array_keys($replaceVariablesURL), array_values($replaceVariablesURL), rtrim($host) . (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : ''))) . (!empty($queryArgsString) ? '?' . $queryArgsString : ''));
 
         if (!filter_var($url, FILTER_VALIDATE_URL)) {
 
