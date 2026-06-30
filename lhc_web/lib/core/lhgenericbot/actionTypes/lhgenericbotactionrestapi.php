@@ -3111,7 +3111,7 @@ class erLhcoreClassGenericBotActionRestapi
                             }
                         }
 
-                        $replacePairs = array_merge($itemPathReplacements, ["{n}" => "\n", "{item}" => (string)$partDataItem]);
+                        $replacePairs = array_merge($itemPathReplacements, ["{n}" => "\n", "{item}" => is_string($partDataItem) || is_numeric($partDataItem) ? (string)$partDataItem : '']);
                         $hasItemPattern = strpos($template, '{item}') !== false || !empty($itemPathReplacements);
                         $output .= ($hasItemPattern ? '' : (string)$partDataItem) . str_replace(array_keys($replacePairs), array_values($replacePairs), $template);
                     }
