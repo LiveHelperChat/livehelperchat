@@ -221,11 +221,13 @@
 </form>
 
 <?php if (!empty($agentStatistic)) : ?>
+<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/part/agentstatistic/table_header_collspans.tpl.php'));?>
+
 <table class="table statistic-table" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Agent');?></th>
-		<th colspan="<?php is_array($input->subject_ids) && !empty($input->subject_ids) ? print count($input->subject_ids) + 11 : print 11 ?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats');?></th>
-		<th colspan="6"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mails');?></th>
+		<th colspan="<?php is_array($input->subject_ids) && !empty($input->subject_ids) ? print count($input->subject_ids) + $agentsCollspans['chats'] : print $agentsCollspans['chats'] ?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats');?></th>
+		<th colspan="<?php echo $agentsCollspans['mails']?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mails');?></th>
 	</tr>
 	<tr>
         <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/part/agentstatistic/table_header.tpl.php'));?>
