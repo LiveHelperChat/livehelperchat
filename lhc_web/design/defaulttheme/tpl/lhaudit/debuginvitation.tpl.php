@@ -41,7 +41,7 @@
         $nextRunReason = 'timeout not passed – will be skipped (invitation_was_seen)';
     } else {
         // No invitation assigned yet – outcome depends on whether eligible invitations exist in the system
-        $nextRunTrigger = false;
+        $nextRunTrigger = true;
         $nextRunReason = 'no invitation assigned – depends on eligible invitations in the system';
     }
     ?>
