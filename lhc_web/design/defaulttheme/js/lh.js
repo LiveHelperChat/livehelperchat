@@ -521,6 +521,20 @@ function lh(){
         }
     }
 
+    this.addScrollHandler = function(id, chat_id) {
+
+        const child = document.getElementById('debug-message-' + id);
+
+        // Listen for the mouse wheel specifically on the child
+        child.addEventListener('wheel', (e) => {
+            // Prevent the child from responding to the wheel
+            e.preventDefault();
+
+            // Manually scroll the parent instead
+            document.getElementById('messagesBlock-' + chat_id).scrollTop += e.deltaY;
+        }, { passive: false });
+    }
+
     this.addQuateHandler = function(chat_id)
     {
         this.popoverShown = false;

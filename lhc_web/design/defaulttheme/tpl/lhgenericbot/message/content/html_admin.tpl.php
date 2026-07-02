@@ -7,7 +7,7 @@
             <?php if (isset($debugData['params_request'])) : ?>
                 <button class="btn btn-xs btn-outline-secondary" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('audit/copycurl')?>/<?php print (is_object($msg) ? $msg->id : $msg['id'])?>'});"  type="button">Copy as CURL</button>
             <?php endif; ?>
-            <pre class="blockquote blockquote-code" style="resize: vertical; height: 100px; min-height: 100px"><?php
+            <pre class="blockquote blockquote-code" id="debug-message-<?php print (is_object($msg) ? $msg->id : $msg['id'])?>" style="resize: vertical; height: 100px; min-height: 100px; "><?php
                 if (isset($debugData['params_request'])) {
                     if (isset($debugData['params_request']['body']) && !is_array($debugData['params_request']['body'])){
                         $bodyJSON = json_decode(str_replace(["\n","\r\n"],"",$debugData['params_request']['body']),true);
@@ -25,6 +25,7 @@
                 } else {
                     echo htmlspecialchars($metaMessage['content']);
                 }?></pre>
+            <script>lhinst.addScrollHandler(<?php print (is_object($msg) ? $msg->id : $msg['id'])?>,<?php print (is_object($msg) ? $msg->chat_id : $msg['chat_id'])?>);</script>
             <?php elseif (!empty($metaMessage['ex']) && preg_match('/^[a-z0-9-]+/i', $metaMessage['ex']) && ($pathDynamic = erLhcoreClassDesign::designtpldynamic('lhchat/part/debug_' . $metaMessage['ex'] . '.tpl.php')) && $pathDynamic !== null) : ?>
                 <?php include $pathDynamic;?>
             <?php endif; ?>
