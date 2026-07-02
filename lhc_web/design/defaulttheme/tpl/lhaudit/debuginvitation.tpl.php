@@ -46,7 +46,7 @@
     }
     ?>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Invitation can be shown')?>:
-        <strong>
+        <strong class="ps-1 pe-1">
         <?php if ($canShow) : ?>
             <span class="text-success">YES</span>
         <?php else: ?>
@@ -56,7 +56,7 @@
         <small class="text-muted">(msg_seen=<?php echo (int)$online_user->message_seen?>, can_reshow=<?php echo $canReshow ? 'Y' : 'N'?>, operator_message=<?php echo $online_user->operator_message != '' ? 'Y' : 'N'?>, expired=<?php echo $invExpired ? 'Y' : 'N'?>)</small>
     </li>
     <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Will trigger on next run')?>:
-        <strong>
+        <strong class="ps-1 pe-1">
         <?php if ($nextRunTrigger) : ?>
             <span class="text-success">YES</span>
         <?php else: ?>
