@@ -38,7 +38,7 @@ if (!empty($id)) {
 
         $nick = $chat->nick;
         
-        if ($personalAdminTheme instanceof erLhAbstractModelAdminTheme && !empty($personalAdminTheme->css_attributes_array['nick_template'])) {
+        if (isset($personalAdminTheme) && $personalAdminTheme instanceof erLhAbstractModelAdminTheme && !empty($personalAdminTheme->css_attributes_array['nick_template'])) {
             $nick = erLhcoreClassGenericBotWorkflow::translateMessage($personalAdminTheme->css_attributes_array['nick_template'], array('chat' => $chat, 'args' => ['chat' => $chat]));
         }
 
