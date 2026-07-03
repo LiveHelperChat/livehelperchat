@@ -312,6 +312,14 @@ class erLhcoreClassTemplate {
 				$contentFile = str_replace($Matches[0][$key],erLhcoreClassDesign::designJSStatic(trim($UrlAddress,'\'')),$contentFile);
 			}
 
+			// Compile import map
+			$Matches = array();
+			preg_match_all('/<\?php echo erLhcoreClassDesign::importMap\(\)(.*?)\?\>/i',$contentFile,$Matches);
+			foreach ($Matches[0] as $key => $Match)
+			{
+			    $contentFile = str_replace($Match,erLhcoreClassDesign::importMap(),$contentFile);
+			}
+
 			// Compile url addresses in logical operations
 			$Matches = array();
 			preg_match_all('/erLhcoreClassDesign::baseurl\((.*?)\)/i',$contentFile,$Matches);

@@ -54,10 +54,12 @@ confLH.dlist = {'op_n':'<?php echo erLhcoreClassModelChatConfig::fetch('listd_op
 confLH.lngUser = '<?php echo erConfigClassLhConfig::getInstance()->getDirLanguage('content_language')?>';
 <?php $geo_location_data = erLhcoreClassModelChatConfig::fetch('geo_location_data')->data_value; ?>
 confLH.gmaps_api_key = "<?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false)) {echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false);} elseif (isset($geo_location_data['gmaps_api_key'])) {echo $geo_location_data['gmaps_api_key'];}?>";
+confLH.static_version = <?php echo (int)erConfigClassLhConfig::getInstance()->getSetting('site', 'static_version', false);?>;
 </script>
 
 <?php if (!isset($Result['anonymous'])) : ?>
-<script src="<?php echo erLhcoreClassDesign::designJS('vendor/jquery/jquery.min.js;vendor/bootstrap/js/bootstrap.min.js;js/modernizr.js;js/lh.min.js;js/lh.cannedmsg.min.js;js/lhc.dropdown.plugin.min.js;js/jquery.hotkeys.min.js;js/fileupload/jquery.fileupload.min.js;js/jquery.zoom.min.js;js/datepicker.min.js;js/lh/dist/common.js;js/lh/dist/bundle.js;js/EventEmitter.min.js;js/events.js;js/notifiations.js;js/color-picker.min.js;js/admin/dist/react.admin.app.js');?>"></script>
+<script src="<?php echo erLhcoreClassDesign::designJS('vendor/jquery/jquery.min.js;vendor/bootstrap/js/bootstrap.min.js;js/modernizr.js;js/lh.min.js;js/lh.cannedmsg.min.js;js/lhc.dropdown.plugin.min.js;js/jquery.hotkeys.min.js;js/fileupload/jquery.fileupload.min.js;js/jquery.zoom.min.js;js/datepicker.min.js;js/lh/dist/common.js;js/lh/dist/bundle.js;js/EventEmitter.min.js;js/events.js;js/notifiations.js;js/color-picker.min.js');?>"></script>
+<script type="module" src="<?php echo erLhcoreClassDesign::designJSStatic('js/admin/dist/react.admin.app.js');?>"></script>
 <?php else : ?>
 
 <?php $detect = new Mobile_Detect(); if ($detect->version('IE') !== false) : ?>

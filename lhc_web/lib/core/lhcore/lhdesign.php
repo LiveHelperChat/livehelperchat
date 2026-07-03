@@ -677,6 +677,32 @@ class erLhcoreClassDesign
         return $css;
     }
 
+    public static function importMap(){
+        $_siteDir = erLhcoreClassSystem::instance()->SiteDir;
+        $_staticVersion = (int)erConfigClassLhConfig::getInstance()->getSetting('site', 'static_version', false);
+        $_imports = [];
+
+        // Svelte build files
+        $_svelteBuildDir = $_siteDir . 'design/defaulttheme/js/svelte/public/build/';
+        $_svelteBuildUrl = self::design('js/svelte/public/build');
+
+        foreach (glob($_svelteBuildDir . '*.js') as $_jsFile) {
+            $_absUrl = $_svelteBuildUrl . '/' . basename($_jsFile);
+            $_imports[$_absUrl] = $_absUrl . '?'. filemtime($_svelteBuildDir) . '_' . $_staticVersion;
+        }
+
+        // Admin dist files (React app chunks)
+        $_distBuildDir = $_siteDir . 'design/defaulttheme/js/admin/dist/';
+        $_distBuildUrl = self::design('js/admin/dist');
+
+        foreach (glob($_distBuildDir . '*.js') as $_jsFile) {
+            $_absUrl = $_distBuildUrl . '/' . basename($_jsFile);
+            $_imports[$_absUrl] = $_absUrl . '?'. filemtime($_distBuildDir) . '_' . $_staticVersion;
+        }
+
+        return '<script type="importmap">' . json_encode(['imports' => $_imports], JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
+    }
+
     private static $moduleTranslations = null;
 }
 

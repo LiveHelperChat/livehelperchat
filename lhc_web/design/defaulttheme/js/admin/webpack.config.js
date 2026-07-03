@@ -4,14 +4,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     entry: './src/index.js',
+    experiments: {
+        outputModule: true,
+    },
     output: {
-        library: 'LHCReactAPPAdmin',
-        libraryTarget: 'umd',
-        libraryExport: 'default',
+        library: { type: 'module' },
         path: path.resolve(__dirname, 'dist'),
         filename: 'react.admin.app.js',
         publicPath: "./",
-        chunkFilename: "[name].[contenthash].js"
+        chunkFilename: "[name].[contenthash].js",
+        chunkFormat: 'module',
     },
     devtool: 'source-map',
     module: {
