@@ -246,10 +246,12 @@ class erLhcoreClassModule{
 
         include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
 
-        if (file_exists('cache/default.log') && (filesize('cache/default.log')/1000) > 200){
-            file_put_contents('cache/default.log', date('M j H:i:s') . ' [Warning] [default] [default] '. print_r($e,true));
+        $requestUrl = isset($_SERVER['REQUEST_URI']) ? ' [URL: ' . $_SERVER['REQUEST_URI'] . ']' : '';
+
+        if (file_exists('cache/default.log') && (filesize('cache/default.log')/1000) > 200) {
+            file_put_contents('cache/default.log', date('M j H:i:s') . ' [Warning] [default] [default]' . $requestUrl . ' '. print_r($e,true));
         } else {
-            file_put_contents('cache/default.log',date('M j H:i:s') . ' [Warning] [default] [default] '. print_r($e,true), FILE_APPEND);
+            file_put_contents('cache/default.log',date('M j H:i:s') . ' [Warning] [default] [default]' . $requestUrl . ' '. print_r($e,true), FILE_APPEND);
         }
 
         self::logException($e);
