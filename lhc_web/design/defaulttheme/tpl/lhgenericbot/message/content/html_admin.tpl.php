@@ -7,7 +7,7 @@
             <?php if (isset($debugData['params_request'])) : ?>
                 <button class="btn btn-xs btn-outline-secondary" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('audit/copycurl')?>/<?php print (is_object($msg) ? $msg->id : $msg['id'])?>'});"  type="button">Copy as CURL</button>
             <?php endif; ?>
-            <pre class="blockquote blockquote-code" id="debug-message-<?php print (is_object($msg) ? $msg->id : $msg['id'])?>" style="resize: vertical; height: 100px; min-height: 100px; "><?php
+            <pre title="Hold Alt to scroll" class="blockquote blockquote-code" id="debug-message-<?php print (is_object($msg) ? $msg->id : $msg['id'])?>" style="resize: vertical; height: 100px; min-height: 100px; "><?php
                 if (isset($debugData['params_request'])) {
                     if (isset($debugData['params_request']['body']) && !is_array($debugData['params_request']['body'])){
                         $bodyJSON = json_decode(str_replace(["\n","\r\n"],"",$debugData['params_request']['body']),true);

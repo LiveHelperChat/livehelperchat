@@ -527,6 +527,11 @@ function lh(){
 
         // Listen for the mouse wheel specifically on the child
         child.addEventListener('wheel', (e) => {
+            // Allow normal child scroll if Alt is held
+            if (e.altKey) {
+                return;
+            }
+
             // Prevent the child from responding to the wheel
             e.preventDefault();
 
