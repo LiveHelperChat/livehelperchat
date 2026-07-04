@@ -150,6 +150,9 @@ class StartChat extends Component {
         var elm = document.getElementById('CSChatMessage');
         if (elm !== null) {
             elm.focus();
+            if (document.activeElement === elm && helperFunctions.hasSessionStorage === true) {
+                helperFunctions.setSessionStorage('_start_chat_message_focused', 1);
+            }
             this.props.setHideMessageField(false);
         }
 

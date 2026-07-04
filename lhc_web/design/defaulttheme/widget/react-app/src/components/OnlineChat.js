@@ -260,8 +260,16 @@ class OnlineChat extends Component {
 
         // We want to focus only if widget is open
         var elm = document.getElementById('CSChatMessage');
-        if (elm !== null && ((this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget') || this.props.chatwidget.get('mode') == 'popup')) {
+        const shouldFocusMessage = elm !== null && ((this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget') || this.props.chatwidget.get('mode') == 'popup');
+        if (shouldFocusMessage === true) {
             elm.focus();
+        }
+
+        if (helperFunctions.getSessionStorage('_start_chat_message_focused') !== null) {
+            helperFunctions.removeSessionStorage('_start_chat_message_focused');
+            if (shouldFocusMessage === true) {
+                this.focusMessage();
+            }
         }
     }
 
