@@ -316,6 +316,9 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_op" value="" />
         </div>
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_op_unread" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Enable unread-message flow for admin messages');?></label>
+        </div>
     </div>
 
     <div role="tabpanel" class="tab-pane form-group" id="text_messages_2">
@@ -330,6 +333,9 @@
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_op_2" value="" />
+        </div>
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_op_2_unread" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Enable unread-message flow for admin messages');?></label>
         </div>
     </div>
 
@@ -346,6 +352,9 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_op_3" value="" />
         </div>
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_op_3_unread" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Enable unread-message flow for admin messages');?></label>
+        </div>
     </div>
 
     <div role="tabpanel" class="tab-pane form-group" id="text_messages_4">
@@ -360,6 +369,9 @@
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_op_4" value="" />
+        </div>
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_op_4_unread" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Enable unread-message flow for admin messages');?></label>
         </div>
     </div>
 
@@ -437,6 +449,9 @@
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_op" value="" />
+        </div>
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_op_unread" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Enable unread-message flow for admin messages');?></label>
         </div>
     </div>
 
@@ -575,6 +590,9 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_img_op" value="" />
         </div>
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_img_op_unread" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Enable unread-message flow for admin messages');?></label>
+        </div>
 
     </div>
 
@@ -655,6 +673,9 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_img_2_op" value="" />
         </div>
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_img_2_op_unread" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Enable unread-message flow for admin messages');?></label>
+        </div>
 
     </div>
     <div role="tabpanel" class="tab-pane form-group" id="img-attachments_3">
@@ -733,6 +754,9 @@
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_img_3_op" value="" />
+        </div>
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_img_3_op_unread" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Enable unread-message flow for admin messages');?></label>
         </div>
 
     </div>
@@ -814,6 +838,9 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_op" value="" />
         </div>
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_op_unread" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Enable unread-message flow for admin messages');?></label>
+        </div>
 
     </div>
 
@@ -894,6 +921,9 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_img_5_op" value="" />
         </div>
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_img_5_op_unread" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Enable unread-message flow for admin messages');?></label>
+        </div>
 
     </div>
 
@@ -973,6 +1003,9 @@
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_img_6_op" value="" />
+        </div>
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_img_6_op_unread" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Enable unread-message flow for admin messages');?></label>
         </div>
 
     </div>

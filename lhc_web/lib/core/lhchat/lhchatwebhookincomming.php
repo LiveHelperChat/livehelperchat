@@ -328,6 +328,7 @@ class erLhcoreClassChatWebhookIncoming {
         $typeMessage = 'unknown';
         $sender = 0;
         $conditionsOperator = '';
+        $operatorConditionKey = '';
 
         if (isset($conditions['msg_cond_attachments']) && $conditions['msg_cond_attachments'] != "") {
             $typeMessage = 'attachments';
@@ -362,6 +363,7 @@ class erLhcoreClassChatWebhookIncoming {
             if ($typeMessage == 'attachments') {
                 $msgBody = $conditions['msg_attachments'];
                 $conditionsOperator = isset($conditions['msg_cond_attachments_op']) ? $conditions['msg_cond_attachments_op'] : "";
+                $operatorConditionKey = 'msg_cond_attachments_op';
             }
         }
 
@@ -400,6 +402,7 @@ class erLhcoreClassChatWebhookIncoming {
                 if ($typeMessage == 'img') {
                     $msgBody = $conditions['msg_img'];
                     $conditionsOperator = isset($conditions['msg_cond_img_op']) ? $conditions['msg_cond_img_op'] : "";
+                    $operatorConditionKey = 'msg_cond_img_op';
                 }
             }
         }
@@ -439,6 +442,7 @@ class erLhcoreClassChatWebhookIncoming {
                 if ($typeMessage == 'img_2') {
                     $msgBody = $conditions['msg_img_2'];
                     $conditionsOperator = isset($conditions['msg_cond_img_2_op']) ? $conditions['msg_cond_img_2_op'] : "";
+                    $operatorConditionKey = 'msg_cond_img_2_op';
                 }
             }
         }
@@ -478,6 +482,7 @@ class erLhcoreClassChatWebhookIncoming {
                 if ($typeMessage == 'img_3') {
                     $msgBody = $conditions['msg_img_3'];
                     $conditionsOperator = isset($conditions['msg_cond_img_3_op']) ? $conditions['msg_cond_img_3_op'] : "";
+                    $operatorConditionKey = 'msg_cond_img_3_op';
                 }
             }
         }
@@ -517,6 +522,7 @@ class erLhcoreClassChatWebhookIncoming {
                 if ($typeMessage == 'img_4') {
                     $msgBody = $conditions['msg_img_4'];
                     $conditionsOperator = isset($conditions['msg_cond_img_4_op']) ? $conditions['msg_cond_img_4_op'] : "";
+                    $operatorConditionKey = 'msg_cond_img_4_op';
                 }
             }
         }
@@ -556,6 +562,7 @@ class erLhcoreClassChatWebhookIncoming {
                 if ($typeMessage == 'img_5') {
                     $msgBody = $conditions['msg_img_5'];
                     $conditionsOperator = isset($conditions['msg_cond_img_5_op']) ? $conditions['msg_cond_img_5_op'] : "";
+                    $operatorConditionKey = 'msg_cond_img_5_op';
                 }
             }
         }
@@ -595,6 +602,7 @@ class erLhcoreClassChatWebhookIncoming {
                 if ($typeMessage == 'img_6') {
                     $msgBody = $conditions['msg_img_6'];
                     $conditionsOperator = isset($conditions['msg_cond_img_6_op']) ? $conditions['msg_cond_img_6_op'] : "";
+                    $operatorConditionKey = 'msg_cond_img_6_op';
                 }
             }
         }
@@ -636,6 +644,7 @@ class erLhcoreClassChatWebhookIncoming {
 
                 if ($typeMessage == 'text') {
                     $conditionsOperator = isset($conditions['msg_cond_op_2']) ? $conditions['msg_cond_op_2'] : "";
+                    $operatorConditionKey = 'msg_cond_op_2';
                 }
             }
         }
@@ -668,6 +677,7 @@ class erLhcoreClassChatWebhookIncoming {
 
                 if ($typeMessage == 'text') {
                     $conditionsOperator = isset($conditions['msg_cond_op_3']) ? $conditions['msg_cond_op_3'] : "";
+                    $operatorConditionKey = 'msg_cond_op_3';
                 }
             }
         }
@@ -700,6 +710,7 @@ class erLhcoreClassChatWebhookIncoming {
 
                 if ($typeMessage == 'text') {
                     $conditionsOperator = isset($conditions['msg_cond_op_4']) ? $conditions['msg_cond_op_4'] : "";
+                    $operatorConditionKey = 'msg_cond_op_4';
                 }
             }
         }
@@ -931,6 +942,7 @@ class erLhcoreClassChatWebhookIncoming {
 
             if ($typeMessage == 'text') {
                 $conditionsOperator = isset($conditions['msg_cond_op']) ? $conditions['msg_cond_op'] : "";
+                $operatorConditionKey = 'msg_cond_op';
             }
         }
 
@@ -973,6 +985,8 @@ class erLhcoreClassChatWebhookIncoming {
                 }
             }
         }
+
+        $enableUnreadOpFlow = ($sender == -2 && $operatorConditionKey != '' && isset($conditions[$operatorConditionKey . '_unread']) && $conditions[$operatorConditionKey . '_unread'] == true);
 
         $chatIdSwitch = self::isValidCondition('chat_id_switch', $conditions, $payloadMessage);
 
@@ -1480,7 +1494,13 @@ class erLhcoreClassChatWebhookIncoming {
                     // Store online visitor record so previous chat workflow works
                     self::assignOnlineVisitor($chat, $eChat);
 
-                    $chat->updateThis(array('update' => array(
+                    if ($enableUnreadOpFlow) {
+                        $chat->has_unread_op_messages = 1;
+                        $chat->unread_op_messages_informed = 0;
+                        $chat->last_op_msg_time = time();
+                    }
+
+                    $chatUpdateFields = array(
                         'country_code',
                         'country_name',
                         'dep_id',
@@ -1503,7 +1523,11 @@ class erLhcoreClassChatWebhookIncoming {
                         'transfer_timeout_ac',
                         'priority',
                         'auto_responder_id'
-                    )));
+                    );
+                    if ($enableUnreadOpFlow) {
+                        $chatUpdateFields = array_merge($chatUpdateFields, ['has_unread_op_messages', 'unread_op_messages_informed', 'last_op_msg_time']);
+                    }
+                    $chat->updateThis(array('update' => $chatUpdateFields));
 
                     if (empty($eChat->payload)) {
                         $eChat->payload = json_encode($payloadAll);
@@ -1992,7 +2016,13 @@ class erLhcoreClassChatWebhookIncoming {
                         'echat' => $eChat
                     ));
 
-                    $chat->updateThis(['update' => [
+                    if ($enableUnreadOpFlow) {
+                        $chat->has_unread_op_messages = 1;
+                        $chat->unread_op_messages_informed = 0;
+                        $chat->last_op_msg_time = time();
+                    }
+
+                    $chatUpdateFields = [
                         'last_msg_id',
                         'last_user_msg_time',
                         'dep_id',
@@ -2000,7 +2030,11 @@ class erLhcoreClassChatWebhookIncoming {
                         'transfer_if_na',
                         'transfer_timeout_ts',
                         'transfer_timeout_ac'
-                    ]]);
+                    ];
+                    if ($enableUnreadOpFlow) {
+                        $chatUpdateFields = array_merge($chatUpdateFields, ['has_unread_op_messages', 'unread_op_messages_informed', 'last_op_msg_time']);
+                    }
+                    $chat->updateThis(['update' => $chatUpdateFields]);
 
                     // Check that payload context message exists
                     $ignore_default = false;
@@ -2191,6 +2225,12 @@ class erLhcoreClassChatWebhookIncoming {
 
                         }
                     }
+                }
+
+                if ($enableUnreadOpFlow) {
+                    $chat->has_unread_op_messages = 1;
+                    $chat->unread_op_messages_informed = 0;
+                    $chat->last_op_msg_time = time();
                 }
 
                 // Save chat
