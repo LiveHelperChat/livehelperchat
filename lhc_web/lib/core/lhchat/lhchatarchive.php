@@ -78,18 +78,37 @@ class erLhcoreClassChatArcive
 
         foreach ($archivedChats as $archiveChatId) {
 
-            if (empty($archivesRanges) || ($archiveId = self::isInRange($archiveChatId, $archivesRanges)) === null) {
-                $stmt = $db->prepare('SELECT id,first_id,last_id FROM lh_chat_archive_range WHERE :chat_id_1 <= last_id && :chat_id_2 >= first_id LIMIT 1');
-                $stmt->bindValue(':chat_id_1', $archiveChatId);
-                $stmt->bindValue(':chat_id_2', $archiveChatId);
-                $stmt->execute();
-                $dataArchive = $stmt->fetch(PDO::FETCH_ASSOC);
+            $archiveId = null;
 
-                if (is_array($dataArchive)) {
+            // Collect all matching ranges from cache first
+            $matchingRanges = self::getMatchingRanges($archiveChatId, $archivesRanges);
+
+            // If no cached ranges match, query the database
+            if (empty($matchingRanges)) {
+                $stmt = $db->prepare('SELECT id, first_id, last_id FROM lh_chat_archive_range WHERE :chat_id <= last_id AND :chat_id >= first_id');
+                $stmt->bindValue(':chat_id', $archiveChatId);
+                $stmt->execute();
+                $matchingRanges = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            }
+
+            // If multiple ranges match (overlap), verify by checking the archive table
+            if (count($matchingRanges) > 1) {
+                foreach ($matchingRanges as $dataArchive) {
+                    if (self::chatExistsInArchive($db, $dataArchive['id'], $archiveChatId)) {
+                        $archiveId = $dataArchive['id'];
+
+                        if (! self::isRangeCached($dataArchive['id'], $archivesRanges)) {
+                            $archivesRanges[] = $dataArchive;
+                        }
+                        break;
+                    }
+                }
+            } elseif (count($matchingRanges) === 1) {
+                $dataArchive = reset($matchingRanges);
+                $archiveId = $dataArchive['id'];
+
+                if (! self::isRangeCached($dataArchive['id'], $archivesRanges)) {
                     $archivesRanges[] = $dataArchive;
-                    $archiveId = $dataArchive['id'];
-                } else {
-                    $archiveId = null;
                 }
             }
 
@@ -112,5 +131,43 @@ class erLhcoreClassChatArcive
         }
 
         return null;
+    }
+
+    /**
+     * Returns all cached ranges that could contain the given chat ID.
+     * When ranges overlap, multiple ranges may match.
+     */
+    private static function getMatchingRanges($chatId, $ranges)
+    {
+        $matched = array();
+        foreach ($ranges as $range) {
+            if ($chatId >= $range['first_id'] && $chatId <= $range['last_id']) {
+                $matched[] = $range;
+            }
+        }
+        return $matched;
+    }
+
+    private static function isRangeCached($rangeId, $ranges)
+    {
+        foreach ($ranges as $r) {
+            if ($r['id'] == $rangeId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Verifies whether a chat actually exists in a specific archive table.
+     * This resolves ambiguity when archive ranges overlap.
+     */
+    private static function chatExistsInArchive($db, $archiveRangeId, $chatId)
+    {
+        $tableName = 'lh_chat_archive_' . (int)$archiveRangeId;
+        $stmt = $db->prepare("SELECT 1 FROM `{$tableName}` WHERE id = :chat_id LIMIT 1");
+        $stmt->bindValue(':chat_id', $chatId, PDO::PARAM_INT);
+        $stmt->execute();
+        return (bool)$stmt->fetchColumn();
     }
 }

@@ -434,7 +434,7 @@ class erLhcoreClassGenericBotActionCommand {
 
                     $messagesGroupFieldAll = $action['content']['payload_arg_val_sum'];
                     $messagesGroupFieldValueScore = isset($action['content']['payload_arg_val_field']) ? (string)$action['content']['payload_arg_val_field'] : '';
-                    $messagesThresholdValue = isset($action['content']['payload_arg_val_trshl']) ? (double)$action['content']['payload_arg_val_trshl'] : 0;
+                    $messagesThresholdValue = isset($action['content']['payload_arg_val_trshl']) ? (float)$action['content']['payload_arg_val_trshl'] : 0;
 
                     $counterTotal = 0;
                     $counterRequired = 0;

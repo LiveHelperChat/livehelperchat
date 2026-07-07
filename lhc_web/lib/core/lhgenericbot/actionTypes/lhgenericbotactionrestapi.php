@@ -1873,7 +1873,7 @@ class erLhcoreClassGenericBotActionRestapi
                         // Sometimes object already exists
                     }
             }
-            curl_close($ch);
+            // curl_close($ch);
         }
 
         if ($logRequest === true) {
