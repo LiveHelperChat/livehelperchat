@@ -521,7 +521,7 @@ function lh(){
         }
     }
 
-    this.addScrollHandler = function(id, chat_id) {
+    this.addScrollHandler = function(id) {
 
         const child = document.getElementById('debug-message-' + id);
 
@@ -536,7 +536,7 @@ function lh(){
             e.preventDefault();
 
             // Manually scroll the parent instead
-            document.getElementById('messagesBlock-' + chat_id).scrollTop += e.deltaY;
+            child.closest('.msgBlock-admin').scrollTop += e.deltaY;
         }, { passive: false });
     }
 

@@ -25,7 +25,7 @@
                 } else {
                     echo htmlspecialchars($metaMessage['content']);
                 }?></pre>
-            <script>lhinst.addScrollHandler(<?php print (is_object($msg) ? $msg->id : $msg['id'])?>,<?php print (is_object($msg) ? $msg->chat_id : $msg['chat_id'])?>);</script>
+            <script>lhinst.addScrollHandler(<?php print (is_object($msg) ? $msg->id : $msg['id'])?>);</script>
             <?php elseif (!empty($metaMessage['ex']) && preg_match('/^[a-z0-9-]+/i', $metaMessage['ex']) && ($pathDynamic = erLhcoreClassDesign::designtpldynamic('lhchat/part/debug_' . $metaMessage['ex'] . '.tpl.php')) && $pathDynamic !== null) : ?>
                 <?php include $pathDynamic;?>
             <?php endif; ?>
