@@ -169,6 +169,102 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
     $timeLog['online_op'] = $ReturnMessages['online_op']['tt'];
 }
 
+if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['departments_stats'],$Params['user_parameters_unordered']['w'])) {
+    /**
+     * Departments stats
+     * */
+    $limitList = is_numeric($Params['user_parameters_unordered']['limitd']) ? (int)$Params['user_parameters_unordered']['limitd'] : 10;
+
+    if (!(is_array($Params['user_parameters_unordered']['hsub']) && in_array('dhdep',$Params['user_parameters_unordered']['hsub']))){
+        $startTimeRequestItem = microtime();
+
+        $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
+
+        $filter['limit'] = $limitList;
+
+        if (is_array($Params['user_parameters_unordered']['departmentd']) && !empty($Params['user_parameters_unordered']['departmentd'])) {
+            erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['departmentd']);
+            $filter['filterin']['id'] = $Params['user_parameters_unordered']['departmentd'];
+        }
+
+        if (is_array($Params['user_parameters_unordered']['ddgroups']) && !empty($Params['user_parameters_unordered']['ddgroups'])) {
+            erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['ddgroups']);
+            $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['ddgroups']);
+            if (!empty($depIds)) {
+                $filter['filterin']['id'] = isset($filter['filterin']['id']) ? array_merge($filter['filterin']['id'],$depIds) : $depIds;
+            }
+        }
+
+        // Add permission check if operator does not have permission to see all departments stats
+        if ($showDepartmentsStatsAll === false) {
+
+            if ( $userData->all_departments == 0 )
+            {
+                $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID(), $userData->cache_version);
+                if (!empty($userDepartaments)) {
+                    if ( isset( $filter['filterin']['id']) ) {
+                        $validDepartments = array_intersect($userDepartaments, $filter['filterin']['id']);
+                        if (!empty($validDepartments)) {
+                            $filter['filterin']['id'] = $validDepartments;
+                        } else {
+                            $filter['filterin']['id'] = array(-1);
+                        }
+                    } else {
+                        $filter['filterin']['id'] = $userDepartaments;
+                    }
+                } else {
+                    $filter['filterin']['id'] = array(-1); // No departments
+                }
+            }
+        }
+
+        $filter['sort'] = 'active_chats_counter DESC';
+
+        $departments = erLhcoreClassModelDepartament::getList($filter);
+
+        // Cache departments for reuse in later queries (e.g. chat prefill department lookups)
+        foreach ($departments as $dep) {
+            $GLOBALS['erLhcoreClassModelDepartament' . $dep->id] = $dep;
+        }
+
+        erLhcoreClassChat::prefillGetAttributes($departments,array('id', 'name', 'pending_chats_counter', 'active_chats_counter', 'bot_chats_counter', 'inop_chats_cnt', 'acop_chats_cnt', 'inactive_chats_cnt', 'max_load','max_load_h','max_load_op','max_load_op_h'), array(), array('remove_all' => true));
+
+        $ReturnMessages['departments_stats'] = array(
+            'list' => array_values($departments),
+            'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
+
+        $timeLog['departments_stats'] = $ReturnMessages['departments_stats']['tt'];
+    }
+
+    if (!(is_array($Params['user_parameters_unordered']['hsub']) && in_array('dhdepg', $Params['user_parameters_unordered']['hsub']))) {
+
+        $startTimeRequestItem = microtime();
+
+        // Departments groups stats
+        $limitList = is_numeric($Params['user_parameters_unordered']['limitd']) ? (int)$Params['user_parameters_unordered']['limitd'] : 10;
+
+        $filter = array();
+        $filter['limit'] = $limitList;
+
+        if (is_array($Params['user_parameters_unordered']['ddgroups']) && !empty($Params['user_parameters_unordered']['ddgroups'])) {
+            erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['ddgroups']);
+            $filter['filterin']['id'] = $Params['user_parameters_unordered']['ddgroups'];
+        }
+
+        $filter['sort'] = 'achats_cnt DESC';
+
+        $departmentsGroups = erLhcoreClassModelDepartamentGroup::getList($filter);
+        erLhcoreClassChat::prefillGetAttributes($departmentsGroups,array('id', 'name', 'achats_cnt', 'pchats_cnt', 'bchats_cnt', 'inopchats_cnt', 'acopchats_cnt','inachats_cnt', 'max_load', 'max_load_h', 'max_load_op', 'max_load_op_h'), array(), array('remove_all' => true));
+
+        $ReturnMessages['depgroups_stats'] = array(
+            'list' => array_values($departmentsGroups),
+            'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
+
+        $timeLog['depgroups_stats'] = $ReturnMessages['depgroups_stats']['tt'];
+    }
+
+}
+
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['subject_chats'],$Params['user_parameters_unordered']['w']) && $currentUser->hasAccessTo('lhchat', 'subject_chats') == true) {
 
     $startTimeRequestItem = microtime();
@@ -251,96 +347,6 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
     $timeLog['subject_chats'] = $ReturnMessages['subject_chats']['tt'];
 }
 
-if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['departments_stats'],$Params['user_parameters_unordered']['w'])) {
-    /**
-     * Departments stats
-     * */
-    $limitList = is_numeric($Params['user_parameters_unordered']['limitd']) ? (int)$Params['user_parameters_unordered']['limitd'] : 10;
-
-    if (!(is_array($Params['user_parameters_unordered']['hsub']) && in_array('dhdep',$Params['user_parameters_unordered']['hsub']))){
-        $startTimeRequestItem = microtime();
-
-        $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
-
-        $filter['limit'] = $limitList;
-
-        if (is_array($Params['user_parameters_unordered']['departmentd']) && !empty($Params['user_parameters_unordered']['departmentd'])) {
-            erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['departmentd']);
-            $filter['filterin']['id'] = $Params['user_parameters_unordered']['departmentd'];
-        }
-
-        if (is_array($Params['user_parameters_unordered']['ddgroups']) && !empty($Params['user_parameters_unordered']['ddgroups'])) {
-            erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['ddgroups']);
-            $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['ddgroups']);
-            if (!empty($depIds)) {
-                $filter['filterin']['id'] = isset($filter['filterin']['id']) ? array_merge($filter['filterin']['id'],$depIds) : $depIds;
-            }
-        }
-
-        // Add permission check if operator does not have permission to see all departments stats
-        if ($showDepartmentsStatsAll === false) {
-
-            if ( $userData->all_departments == 0 )
-            {
-                $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID(), $userData->cache_version);
-                if (!empty($userDepartaments)) {
-                    if ( isset( $filter['filterin']['id']) ) {
-                        $validDepartments = array_intersect($userDepartaments, $filter['filterin']['id']);
-                        if (!empty($validDepartments)) {
-                            $filter['filterin']['id'] = $validDepartments;
-                        } else {
-                            $filter['filterin']['id'] = array(-1);
-                        }
-                    } else {
-                        $filter['filterin']['id'] = $userDepartaments;
-                    }
-                } else {
-                    $filter['filterin']['id'] = array(-1); // No departments
-                }
-            }
-        }
-
-        $filter['sort'] = 'active_chats_counter DESC';
-
-        $departments = erLhcoreClassModelDepartament::getList($filter);
-
-        erLhcoreClassChat::prefillGetAttributes($departments,array('id', 'name', 'pending_chats_counter', 'active_chats_counter', 'bot_chats_counter', 'inop_chats_cnt', 'acop_chats_cnt', 'inactive_chats_cnt', 'max_load','max_load_h','max_load_op','max_load_op_h'), array(), array('remove_all' => true));
-
-        $ReturnMessages['departments_stats'] = array(
-            'list' => array_values($departments),
-            'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
-
-        $timeLog['departments_stats'] = $ReturnMessages['departments_stats']['tt'];
-    }
-
-    if (!(is_array($Params['user_parameters_unordered']['hsub']) && in_array('dhdepg', $Params['user_parameters_unordered']['hsub']))) {
-
-        $startTimeRequestItem = microtime();
-
-        // Departments groups stats
-        $limitList = is_numeric($Params['user_parameters_unordered']['limitd']) ? (int)$Params['user_parameters_unordered']['limitd'] : 10;
-
-        $filter = array();
-        $filter['limit'] = $limitList;
-
-        if (is_array($Params['user_parameters_unordered']['ddgroups']) && !empty($Params['user_parameters_unordered']['ddgroups'])) {
-            erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['ddgroups']);
-            $filter['filterin']['id'] = $Params['user_parameters_unordered']['ddgroups'];
-        }
-
-        $filter['sort'] = 'achats_cnt DESC';
-
-        $departmentsGroups = erLhcoreClassModelDepartamentGroup::getList($filter);
-        erLhcoreClassChat::prefillGetAttributes($departmentsGroups,array('id', 'name', 'achats_cnt', 'pchats_cnt', 'bchats_cnt', 'inopchats_cnt', 'acopchats_cnt','inachats_cnt', 'max_load', 'max_load_h', 'max_load_op', 'max_load_op_h'), array(), array('remove_all' => true));
-
-        $ReturnMessages['depgroups_stats'] = array(
-            'list' => array_values($departmentsGroups),
-            'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
-
-        $timeLog['depgroups_stats'] = $ReturnMessages['depgroups_stats']['tt'];
-    }
-
-}
 
 $chatsForced = array();
 
