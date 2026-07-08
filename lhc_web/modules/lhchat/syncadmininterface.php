@@ -87,6 +87,39 @@ $mapsWidgets = [
     'op_performance' => 32
 ];
 
+$startTimeRequestItem = microtime();
+// Transfered chats
+$transferchatsUser = erLhcoreClassTransfer::getTransferChats();
+
+// How many chat's there is for operator assigned. Operators Chats
+$operatorsCount = 0;
+
+// What operators has send a messages
+$operatorsSend = array();
+
+if (!empty($transferchatsUser)) {    
+    foreach ($transferchatsUser as & $transf) {
+
+        if ($transf['status'] == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
+            $operatorsCount++;
+            $operatorsSend[] = (int)$transf['transfer_user_id'];
+        }
+
+    	$transf['time_front'] = date(erLhcoreClassModule::$dateDateHourFormat,$transf['time']);
+    }
+}
+
+// Transfered chats to departments
+$transferchatsDep = erLhcoreClassTransfer::getTransferChats(array('department_transfers' => true));
+if (!empty($transferchatsDep)) {
+	foreach ($transferchatsDep as & $transf){
+		$transf['time_front'] = date(erLhcoreClassModule::$dateDateHourFormat,$transf['time']);
+	}
+}
+
+$ReturnMessages['transfer_chats'] = array('list' => array_values($transferchatsUser),'last_id_identifier' => 'transfer_chat','tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
+$ReturnMessages['transfer_dep_chats'] = array('list' => array_values($transferchatsDep),'last_id_identifier' => 'transfer_chat_dep','tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
+
 if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
     $startTimeRequestItem = microtime();
     $filter = array();
@@ -797,38 +830,6 @@ if ($pendingTabEnabled == true) {
 
     $timeLog['pending_chats'] = $ReturnMessages['pending_chats']['tt'];
 }
-$startTimeRequestItem = microtime();
-// Transfered chats
-$transferchatsUser = erLhcoreClassTransfer::getTransferChats();
-
-// How many chat's there is for operator assigned. Operators Chats
-$operatorsCount = 0;
-
-// What operators has send a messages
-$operatorsSend = array();
-
-if (!empty($transferchatsUser)) {    
-    foreach ($transferchatsUser as & $transf) {
-
-        if ($transf['status'] == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
-            $operatorsCount++;
-            $operatorsSend[] = (int)$transf['transfer_user_id'];
-        }
-
-    	$transf['time_front'] = date(erLhcoreClassModule::$dateDateHourFormat,$transf['time']);
-    }
-}
-
-// Transfered chats to departments
-$transferchatsDep = erLhcoreClassTransfer::getTransferChats(array('department_transfers' => true));
-if (!empty($transferchatsDep)) {
-	foreach ($transferchatsDep as & $transf){
-		$transf['time_front'] = date(erLhcoreClassModule::$dateDateHourFormat,$transf['time']);
-	}
-}
-
-$ReturnMessages['transfer_chats'] = array('list' => array_values($transferchatsUser),'last_id_identifier' => 'transfer_chat','tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
-$ReturnMessages['transfer_dep_chats'] = array('list' => array_values($transferchatsDep),'last_id_identifier' => 'transfer_chat_dep','tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
 
 if ($unreadTabEnabled == true && is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['unread_chats'],$Params['user_parameters_unordered']['w'])) {
     $startTimeRequestItem = microtime();
