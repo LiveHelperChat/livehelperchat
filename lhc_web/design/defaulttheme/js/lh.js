@@ -536,7 +536,9 @@ function lh(){
             e.preventDefault();
 
             // Manually scroll the parent instead
-            child.closest('.msgBlock-admin').scrollTop += e.deltaY;
+            const parent = child.closest('.msgBlock-admin,.msgBlock-preview');
+            if (parent) parent.scrollTop += e.deltaY;
+
         }, { passive: false });
     }
 
