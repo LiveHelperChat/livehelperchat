@@ -87,6 +87,88 @@ $mapsWidgets = [
     'op_performance' => 32
 ];
 
+if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
+    $startTimeRequestItem = microtime();
+    $filter = array();
+    
+    $depIds = array();
+    
+    if (is_array($Params['user_parameters_unordered']['odpgroups']) && !empty($Params['user_parameters_unordered']['odpgroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['odpgroups']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['odpgroups']);
+    }
+    
+    if (is_array($Params['user_parameters_unordered']['operatord']) && !empty($Params['user_parameters_unordered']['operatord'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['operatord']);
+        $depIds = array_merge($depIds, $Params['user_parameters_unordered']['operatord']);
+    }
+    
+    
+    if (!empty($depIds)) {
+        // replace in array $depIds -1 value with -2
+        $depIds = array_map(function($val) { return $val == -1 ? -2 : $val; }, $depIds);
+        $filter['customfilter'][] = '(dep_id = 0 OR dep_id IN ('.implode(",", $depIds).'))';
+    }
+
+    $validSort = array(
+        'onn_dsc' => 'name DESC',
+        'onn_asc' => 'name ASC',
+        'onl_dsc' => 'hide_online DESC, hide_online_ts DESC, name ASC',
+        'onl_asc' => 'hide_online ASC, name ASC',
+        'ac_dsc' => 'active_chats DESC, name ASC',
+        'ac_asc' => 'active_chats ASC, name ASC',
+        'rac_asc' => '((active_chats + pending_chats) - inactive_chats) ASC, name ASC',
+        'rac_dsc' => '((active_chats + pending_chats) - inactive_chats) DESC, name ASC',
+    );
+
+    if (isset($Params['user_parameters_unordered']['onop']) && key_exists($Params['user_parameters_unordered']['onop'], $validSort)) {
+        $filter['sort'] = $validSort[$Params['user_parameters_unordered']['onop']];
+    }
+
+    if (is_array($Params['user_parameters_unordered']['oopu']) && !empty($Params['user_parameters_unordered']['oopu'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['oopu']);
+        $filter['filterin']['user_id'] = $Params['user_parameters_unordered']['oopu'];
+    }
+
+    if (is_array($Params['user_parameters_unordered']['oopugroups']) && !empty($Params['user_parameters_unordered']['oopugroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['oopugroups']);
+        $userIds = erLhcoreClassChat::getUserIDByGroup($Params['user_parameters_unordered']['oopugroups']);
+        if (!empty($userIds)) {
+            $filter['filterin']['user_id'] = isset($filter['filterin']['user_id']) ? array_merge($filter['filterin']['user_id'],$userIds) : $userIds;
+        }
+    }
+
+    if ((int)$Params['user_parameters_unordered']['operatord_mslf'] === 1) {
+        $filter['filter']['user_id'] = $currentUser->getUserID();
+    }
+    
+    if (!empty($Params['user_parameters_unordered']['on_opf'])) {
+        $filter['filter']['hide_online'] = 0;
+    }
+
+	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser,$canListOnlineUsersAll,$filter,is_numeric($Params['user_parameters_unordered']['limito']) ? (int)$Params['user_parameters_unordered']['limito'] : 10,$onlineTimeout, ['dashboard' => true]);
+	
+	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('offline_since_s','free_slots','live_chats', 'last_accepted_ago','lastactivity_ago','lac_ago_s','max_chats','offline_since','ro','dep_id','user_id','id','name_official','pending_chats','inactive_chats','active_chats','departments_names','hide_online','avatar'),array(),array('filter_function' => true, 'remove_all' => true));
+
+	$currentOp = isset($onlineOperators[$userData->id]) ? $onlineOperators[$userData->id] : null;
+
+    $operatorsCountOnline = 0;
+
+	foreach ($onlineOperators as $onlineOp) {
+	    if ($userData->id == $onlineOp->user_id) {
+            $currentOp = $onlineOp;
+        }
+
+        if ($onlineOp->hide_online == 0 && $onlineOp->ro == 0 && $onlineOp->dep_id > -1) {
+            $operatorsCountOnline++;
+        }
+    }
+
+	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators), 'op_on' => $operatorsCountOnline, 'op_cc' => $operatorsCount, 'op_sn' => $operatorsSend, 'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
+
+    $timeLog['online_op'] = $ReturnMessages['online_op']['tt'];
+}
+
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['subject_chats'],$Params['user_parameters_unordered']['w']) && $currentUser->hasAccessTo('lhchat', 'subject_chats') == true) {
 
     $startTimeRequestItem = microtime();
@@ -741,88 +823,6 @@ if (!empty($transferchatsDep)) {
 
 $ReturnMessages['transfer_chats'] = array('list' => array_values($transferchatsUser),'last_id_identifier' => 'transfer_chat','tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
 $ReturnMessages['transfer_dep_chats'] = array('list' => array_values($transferchatsDep),'last_id_identifier' => 'transfer_chat_dep','tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
-
-if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
-    $startTimeRequestItem = microtime();
-    $filter = array();
-    
-    $depIds = array();
-    
-    if (is_array($Params['user_parameters_unordered']['odpgroups']) && !empty($Params['user_parameters_unordered']['odpgroups'])) {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['odpgroups']);
-        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['odpgroups']);
-    }
-    
-    if (is_array($Params['user_parameters_unordered']['operatord']) && !empty($Params['user_parameters_unordered']['operatord'])) {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['operatord']);
-        $depIds = array_merge($depIds, $Params['user_parameters_unordered']['operatord']);
-    }
-    
-    
-    if (!empty($depIds)) {
-        // replace in array $depIds -1 value with -2
-        $depIds = array_map(function($val) { return $val == -1 ? -2 : $val; }, $depIds);
-        $filter['customfilter'][] = '(dep_id = 0 OR dep_id IN ('.implode(",", $depIds).'))';
-    }
-
-    $validSort = array(
-        'onn_dsc' => 'name DESC',
-        'onn_asc' => 'name ASC',
-        'onl_dsc' => 'hide_online DESC, hide_online_ts DESC, name ASC',
-        'onl_asc' => 'hide_online ASC, name ASC',
-        'ac_dsc' => 'active_chats DESC, name ASC',
-        'ac_asc' => 'active_chats ASC, name ASC',
-        'rac_asc' => '((active_chats + pending_chats) - inactive_chats) ASC, name ASC',
-        'rac_dsc' => '((active_chats + pending_chats) - inactive_chats) DESC, name ASC',
-    );
-
-    if (isset($Params['user_parameters_unordered']['onop']) && key_exists($Params['user_parameters_unordered']['onop'], $validSort)) {
-        $filter['sort'] = $validSort[$Params['user_parameters_unordered']['onop']];
-    }
-
-    if (is_array($Params['user_parameters_unordered']['oopu']) && !empty($Params['user_parameters_unordered']['oopu'])) {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['oopu']);
-        $filter['filterin']['user_id'] = $Params['user_parameters_unordered']['oopu'];
-    }
-
-    if (is_array($Params['user_parameters_unordered']['oopugroups']) && !empty($Params['user_parameters_unordered']['oopugroups'])) {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['oopugroups']);
-        $userIds = erLhcoreClassChat::getUserIDByGroup($Params['user_parameters_unordered']['oopugroups']);
-        if (!empty($userIds)) {
-            $filter['filterin']['user_id'] = isset($filter['filterin']['user_id']) ? array_merge($filter['filterin']['user_id'],$userIds) : $userIds;
-        }
-    }
-
-    if ((int)$Params['user_parameters_unordered']['operatord_mslf'] === 1) {
-        $filter['filter']['user_id'] = $currentUser->getUserID();
-    }
-    
-    if (!empty($Params['user_parameters_unordered']['on_opf'])) {
-        $filter['filter']['hide_online'] = 0;
-    }
-
-	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser,$canListOnlineUsersAll,$filter,is_numeric($Params['user_parameters_unordered']['limito']) ? (int)$Params['user_parameters_unordered']['limito'] : 10,$onlineTimeout, ['dashboard' => true]);
-	
-	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('offline_since_s','free_slots','live_chats', 'last_accepted_ago','lastactivity_ago','lac_ago_s','max_chats','offline_since','ro','dep_id','user_id','id','name_official','pending_chats','inactive_chats','active_chats','departments_names','hide_online','avatar'),array(),array('filter_function' => true, 'remove_all' => true));
-
-	$currentOp = isset($onlineOperators[$userData->id]) ? $onlineOperators[$userData->id] : null;
-
-    $operatorsCountOnline = 0;
-
-	foreach ($onlineOperators as $onlineOp) {
-	    if ($userData->id == $onlineOp->user_id) {
-            $currentOp = $onlineOp;
-        }
-
-        if ($onlineOp->hide_online == 0 && $onlineOp->ro == 0 && $onlineOp->dep_id > -1) {
-            $operatorsCountOnline++;
-        }
-    }
-
-	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators), 'op_on' => $operatorsCountOnline, 'op_cc' => $operatorsCount, 'op_sn' => $operatorsSend, 'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
-
-    $timeLog['online_op'] = $ReturnMessages['online_op']['tt'];
-}
 
 if ($unreadTabEnabled == true && is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['unread_chats'],$Params['user_parameters_unordered']['w'])) {
     $startTimeRequestItem = microtime();

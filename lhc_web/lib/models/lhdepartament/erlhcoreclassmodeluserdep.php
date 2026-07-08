@@ -181,7 +181,7 @@ class erLhcoreClassModelUserDep
             }
         };
 
-        if (isset($paramsExecution['dashboard']) && $paramsExecution['dashboard'] === true){
+        if (isset($paramsExecution['dashboard']) && $paramsExecution['dashboard'] === true) {
             $filter['customfilter'][] = '(last_activity > ' . (int)(time() - $onlineTimeout) . ')';
         } else {
             $filter['customfilter'][] = '(last_activity > ' . (int)(time() - $onlineTimeout) . ' OR `lh_userdep`.`always_on` = 1)';
@@ -226,6 +226,33 @@ class erLhcoreClassModelUserDep
             $userDepartaments[] = 0;
             foreach ($list as & $listItem) {
                 $listItem->dep_id_filter = $userDepartaments;
+            }
+        }
+
+        if (isset($paramsExecution['dashboard']) && $paramsExecution['dashboard'] === true) {
+            $userIds = [];
+            foreach ($list as $item) {
+                $userIds[] = $item->user_id;
+            }
+
+            if (!empty($userIds)) {
+                $users = \erLhcoreClassModelUser::getList([
+                    'filterin' => ['id' => array_unique($userIds)],
+                    'limit' => false,
+                ]);
+
+                $usersById = [];
+                foreach ($users as $user) {
+                    $usersById[$user->id] = $user;
+                }
+
+                foreach ($list as $item) {
+                    if (isset($usersById[$item->user_id])) {
+                        $item->user = $usersById[$item->user_id];
+                        // Store for any next request cache
+                        $GLOBALS['erLhcoreClassModelUser' . $item->user_id] = $item->user;
+                    }
+                }
             }
         }
 
