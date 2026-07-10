@@ -24,6 +24,10 @@ class erLhAbstractModelFormCollected
             'identifier' => $this->identifier,
             'custom_fields' => $this->custom_fields,
             'chat_id' => $this->chat_id,
+            'user_id' => $this->user_id,
+            'attr_int_1' => $this->attr_int_1,
+            'attr_int_2' => $this->attr_int_2,
+            'attr_int_3' => $this->attr_int_3,
         );
 
         return $stateArray;
@@ -55,6 +59,17 @@ class erLhAbstractModelFormCollected
             case 'form':
                 return $this->form = erLhAbstractModelForm::fetch($this->form_id);
 
+            case 'user':
+       		   $this->user = false;
+       		   if ($this->user_id > 0) {
+       		   		try {
+       		   			$this->user = erLhcoreClassModelUser::fetch($this->user_id,true);
+       		   		} catch (Exception $e) {
+       		   			$this->user = false;
+       		   		}
+       		   }
+       		   return $this->user;
+
             case 'form_content':
                 return $this->getFormattedContent();
             default:
@@ -66,12 +81,13 @@ class erLhAbstractModelFormCollected
     {
         $dataCollected = array();
         foreach ($this->content_array as $nameAttr => $contentArray) {
+            $nameLiteral = $contentArray['definition']['name_literal'] ?? 'n/a';
             if (isset($contentArray['definition']['type']) && $contentArray['definition']['type'] == 'file') {
-                $dataCollected[] = $contentArray['definition']['name_literal'] . " - " . erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('user/login') . '/(r)/' . rawurlencode(base64_encode('form/download/' . $this->id . '/' . $nameAttr));
+                $dataCollected[] = $nameLiteral . " - " . erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('user/login') . '/(r)/' . rawurlencode(base64_encode('form/download/' . $this->id . '/' . $nameAttr));
             } elseif (isset($contentArray['definition']['type']) && $contentArray['definition']['type'] == 'checkbox') {
-                $dataCollected[] = $contentArray['definition']['name_literal'] . " - " . ($contentArray['value'] == 1 ? 'Y' : 'N');
+                $dataCollected[] = $nameLiteral . " - " . ($contentArray['value'] == 1 ? 'Y' : 'N');
             } else {
-                $dataCollected[] = $contentArray['definition']['name_literal'] . " - " . $contentArray['value'];
+                $dataCollected[] = $nameLiteral . " - " . $contentArray['value'];
             }
         }
 
@@ -85,7 +101,19 @@ class erLhAbstractModelFormCollected
         $attrCollected = array();
 
         foreach ($attrs as $attr) {
-            $attrCollected[] = $this->content_array[$attr]['value'];
+            if (strpos($attr, 'prefix__') === 0) {
+                if (!empty($attrCollected)) {
+                    $lastIdx = count($attrCollected) - 1;
+                    $attrCollected[$lastIdx] = substr($attr, 8) . $attrCollected[$lastIdx];
+                }
+            } elseif (strpos($attr, 'suffix__') === 0) {
+                if (!empty($attrCollected)) {
+                    $lastIdx = count($attrCollected) - 1;
+                    $attrCollected[$lastIdx] .= substr($attr, 8);
+                }
+            } elseif (isset($this->content_array[$attr]['value'])) {
+                $attrCollected[] = $this->content_array[$attr]['value'];
+            }
         }
 
         return implode(', ', $attrCollected);
@@ -116,6 +144,11 @@ class erLhAbstractModelFormCollected
     public $identifier = '';
     public $custom_fields = '';
     public $chat_id = 0;
+    // Operator who filled a form
+    public $user_id = 0;
+    public $attr_int_1 = 0;
+    public $attr_int_2 = 0;
+    public $attr_int_3 = 0;
 
 }
 

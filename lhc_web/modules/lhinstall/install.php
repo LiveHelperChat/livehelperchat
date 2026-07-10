@@ -1285,10 +1285,11 @@ try {
         	   `recipient` varchar(250) NOT NULL,
         	   `active` int(11) NOT NULL,
         	   `name_attr` varchar(250) NOT NULL,
-        	   `intro_attr` varchar(250) NOT NULL,
+        	   `intro_attr` varchar(400) NOT NULL,
         	   `xls_columns` text NOT NULL,
         	   `pagelayout` varchar(200) NOT NULL,
         	   `post_content` text NOT NULL,
+        	   `form_type` tinyint(1) NOT NULL DEFAULT 0,
         	   PRIMARY KEY (`id`)
         	   ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
@@ -1301,8 +1302,13 @@ try {
         	   	  `chat_id` bigint(20) NOT NULL,
 				  `content` longtext NOT NULL,
 				  `custom_fields` longtext NOT NULL,
+				  `user_id` bigint(20) NOT NULL DEFAULT 0,
+				  `attr_int_1` int(11) NOT NULL DEFAULT 0,
+				  `attr_int_2` int(11) NOT NULL DEFAULT 0,
+				  `attr_int_3` int(11) NOT NULL DEFAULT 0,
 				  PRIMARY KEY (`id`),
-				  KEY `form_id` (`form_id`)
+				  KEY `form_id_chat_id` (`form_id`,`chat_id`),
+                  KEY `chat_id` (`chat_id`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_chatbox` (

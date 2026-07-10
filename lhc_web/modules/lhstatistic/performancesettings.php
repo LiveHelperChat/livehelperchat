@@ -13,6 +13,11 @@ if ($Params['user_parameters']['scope'] === 'op') {
         'tup' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Thumbs Up'),
         'tdown' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Thumbs Down')
     );
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.performance_columns', array(
+        'columns' => &$defaultColumns,
+        'translations' => &$columnTranslations,
+        'scope' => 'op',
+    ));
     $tpl->set('scope','op');
 } else {
     $identifier = 'statistic_performance';
@@ -26,6 +31,11 @@ if ($Params['user_parameters']['scope'] === 'op') {
         'tup' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Thumbs up'),
         'tdown' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Thumbs down')
     );
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.performance_columns', array(
+        'columns' => &$defaultColumns,
+        'translations' => &$columnTranslations,
+        'scope' => 'dep',
+    ));
 }
 
 $defaultColumnOrder = array_flip($defaultColumns);

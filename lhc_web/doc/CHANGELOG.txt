@@ -1,3 +1,25 @@
+4.87v
+
+1. Notable changes since 4.86v
+   - Performance and caching: improved dashboard online-operator retrieval with better user-data fetching and caching; prefill departments cache for faster lookups; ensure static cache version is respected across the application even without extensions; optimized chat archive range fetching with cached range checks before database queries, plus methods for matching ranges and verifying chat existence in archives with proper overlap handling.
+   - Performance statistics: added total offline time tracking to agent statistics widgets with new help modal explaining offline time; updated translations, tooltip descriptions, and column spans in the agent statistics table for improved clarity; enhanced operator performance access checks to include write permissions.
+   - Webhooks and events: added support for unread-message flow in webhook conditions with checkboxes enabling unread-message handling for admin messages; updated backend logic across message types and enhanced chat update logic to reflect unread-message states for operators; dropped redundant `chat_id` dependency.
+   - Mail conversation: enhanced Mail Conversation API and search functionality; added proper API error handling.
+   - Bot: refactored bot condition evaluation to streamline logic in action buttons and text triggers; updated type casting for threshold values in bot action commands.
+   - ChatML export: significantly improved ChatML export logic and configuration; fixed properties in exported ChatML; resolved edge cases and format inconsistencies; export script improvements.
+   - REST API: added support for REST file captions with configurable skip extensions (#2394).
+   - Template and variable system: added support for `{item:path}` syntax enabling nested attribute extraction in output formatting; host values now support replaceable variables; fixed item replacement logic for proper handling of non-string values in templates.
+   - Debug and diagnostics: improved debug invitation logic with detailed checks for message-seen status, timeout handling, and reshown conditions; enhanced debug message view UX, API scroll behavior, spacing, and col-span variables; logs now include exception URLs; added logging for changed user groups.
+   - Widget and online visitors: dedicated online visitors page now always shows visitors even when the widget is minimized.
+   - Bug fixes: fixed #2391 and #2395; updated checkbox labels for clarity; trimmed whitespace from messages before saving for data consistency; updated message retrieval limits across components for better performance and consistency; avoided throwing SQL errors in edge cases.
+
+2. Summary
+   - This release strengthens performance through improved caching strategies (departments, archive ranges, static cache, operator data) and extends performance statistics with offline-time tracking.
+   - Webhook conditions gain unread-message-flow support, bot condition evaluation is streamlined, and the ChatML export pipeline receives a comprehensive overhaul.
+   - Template variables now support nested `{item:path}` extraction, debug/invitation diagnostics are enhanced, and several stability issues are resolved.
+
+execute doc/update_db/update_353.sql for update
+
 4.86v
 
 1. Notable changes since 4.85v

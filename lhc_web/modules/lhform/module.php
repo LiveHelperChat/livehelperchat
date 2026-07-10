@@ -69,4 +69,6 @@ $ViewList['formwidget'] = array(
 $FunctionList = array();
 $FunctionList['manage_fm'] = array('explain'   => 'Allow user to manage form module');
 $FunctionList['delete_fm'] = array('explain'   => 'Allow user to delete forms');
+$FunctionList['delete_collected'] = array('explain'   => 'Allow user to delete collected item');
 $FunctionList['generate_js'] = array('explain' => 'Allow user to generate page embed js');
+$FunctionList['fill_private'] = array('explain' => 'Allow user fill a private form');

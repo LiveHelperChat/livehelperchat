@@ -29,6 +29,13 @@ if ($item->type == \LiveHelperChat\Models\Statistic\Performance::OPERATOR) {
     );
 }
 
+$performanceColumns = array_keys($columnTitles);
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.performance_columns', array(
+    'columns' => &$performanceColumns,
+    'translations' => &$columnTitles,
+    'scope' => $item->type == \LiveHelperChat\Models\Statistic\Performance::OPERATOR ? 'op' : 'dep',
+));
+
 $dataArray = $item->data_array;
 
 if ($item->type == \LiveHelperChat\Models\Statistic\Performance::OPERATOR) {

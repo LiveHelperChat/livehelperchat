@@ -25,7 +25,8 @@ class erLhAbstractModelForm {
 			'xls_columns' 	=> $this->xls_columns,
 			'pagelayout' 	=> $this->pagelayout,
 			'post_content' 	=> $this->post_content,
-			'configuration' => $this->configuration
+			'configuration' => $this->configuration,
+			'form_type'     => $this->form_type
 		);
 
 		return $stateArray;
@@ -76,7 +77,12 @@ class erLhAbstractModelForm {
 
 	public function getModuleTranslations()
 	{
-	    $metaData = array('path' => array('url' => erLhcoreClassDesign::baseurl('form/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Form')),'permission_delete' => array('module' => 'lhform','function' => 'delete_fm'), 'permission' => array('module' => 'lhform','function' => 'manage_fm'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Forms list'));
+	    $metaData = array(
+			'path' => array(
+				'url' => erLhcoreClassDesign::baseurl('form/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Form')),
+				'permission_delete' => array('module' => 'lhform','function' => 'delete_fm'), 'permission' => array('module' => 'lhform','function' => 'manage_fm'),
+				'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Forms list')
+			);
 	    
 	    /**
 	     * Get's executed before permissions check. It can redirect to frontpage throw permission exception etc
@@ -147,6 +153,9 @@ class erLhAbstractModelForm {
         $this->configuration = json_encode($this->configuration_array);
     }
 
+    const FORM_TYPE_PUBLIC = 0;
+    const FORM_TYPE_INTERNAL = 1;
+
    	public $id = null;
 	public $name = '';
 	public $content = '';
@@ -158,6 +167,7 @@ class erLhAbstractModelForm {
 	public $pagelayout = '';
 	public $post_content = '';
 	public $configuration = '';
+	public $form_type = self::FORM_TYPE_PUBLIC;
 
 	public $hide_add = false;
 

@@ -373,8 +373,12 @@ if (empty($filterParams['filter'])) {
 }
 
 try {
+
+    $filterCount = $filterParams['filter'];
+    unset($filterCount['sort']);
+
     $pages = new lhPaginator();
-    $pages->items_total = ($hnmSortWarning ?? false) ? 0 : (is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelChat::getCount($filterParams['filter']));
+    $pages->items_total = ($hnmSortWarning ?? false) ? 0 : (is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelChat::getCount($filterCount));
     $pages->translationContext = 'chat/pendingchats';
     $pages->serverURL = erLhcoreClassDesign::baseurl('chat/list').$append;
     if ($filterParams['input']->ipp > 0) {

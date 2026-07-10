@@ -221,7 +221,9 @@
 </form>
 
 <?php if (!empty($agentStatistic)) : ?>
+
 <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/part/agentstatistic/table_header_collspans.tpl.php'));?>
+<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/part/agentstatistic/table_header_collspans_append_multiinclude.tpl.php'));?>
 
 <table class="table statistic-table" cellpadding="0" cellspacing="0" width="100%">
 	<tr>

@@ -14,6 +14,30 @@ if ($form->active == 0) {
 	exit;
 }
 
+if (isset($_GET['chat_id']) && is_numeric($_GET['chat_id']) && ((($chat = erLhcoreClassModelChat::fetch($_GET['chat_id'])) instanceof erLhcoreClassModelChat && isset($_GET['hash']) && $chat->hash == $_GET['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) || ($form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL && erLhcoreClassUser::instance()->hasAccessTo('lhform', 'fill_private')))) {
+    $tpl->setArray(array(
+        'hash' => (isset($_GET['hash']) ? $_GET['hash'] : ''),
+        'chat_id' => $_GET['chat_id'],
+    ));
+} if (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) && ((($chat = erLhcoreClassModelChat::fetch($_POST['chat_id'])) instanceof erLhcoreClassModelChat && isset($_POST['hash']) && $chat->hash == $_POST['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) || ($form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL && erLhcoreClassUser::instance()->hasAccessTo('lhform', 'fill_private')))) {
+    $tpl->setArray(array(
+        'hash' => (isset($_POST['hash']) ? $_POST['hash'] : ''),
+        'chat_id' => $_POST['chat_id'],
+    ));
+}
+
+if (isset($form->configuration_array['one_fillment_per_chat']) && $form->configuration_array['one_fillment_per_chat'] == true && isset($chat) && $chat instanceof erLhcoreClassModelChat) {
+    $existingCollected = erLhAbstractModelFormCollected::findOne(array(
+        'filter' => array('form_id' => $form->id, 'chat_id' => $chat->id),
+        'sort' => 'id DESC'
+    ));
+
+    if ($existingCollected instanceof erLhAbstractModelFormCollected) {
+        erLhcoreClassFormRenderer::setCollectedInformation($existingCollected->content_array);
+        erLhcoreClassFormRenderer::setCollectedObject($existingCollected);
+    }
+}
+
 $tpl->set('content',$form->content_rendered);
 
 if (erLhcoreClassFormRenderer::isCollected()) {
@@ -49,18 +73,6 @@ if (isset($_GET['jsvar']) && is_array($_GET['jsvar']) && !empty($_GET['jsvar']))
     $tpl->set('jsVars',$_GET['jsvar']);
 } elseif (isset($_POST['jsvar'])) {
     $tpl->set('jsVars',$_POST['jsvar']);
-}
-
-if (isset($_GET['chat_id']) && is_numeric($_GET['chat_id']) && isset($_GET['hash']) && ($chat = erLhcoreClassModelChat::fetch($_GET['chat_id'])) instanceof erLhcoreClassModelChat && $chat->hash == $_GET['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
-    $tpl->setArray(array(
-        'hash' => $_GET['hash'],
-        'chat_id' => $_GET['chat_id'],
-    ));
-} if (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) && isset($_POST['hash']) && ($chat = erLhcoreClassModelChat::fetch($_POST['chat_id'])) instanceof erLhcoreClassModelChat && $chat->hash == $_POST['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
-    $tpl->setArray(array(
-        'hash' => $_POST['hash'],
-        'chat_id' => $_POST['chat_id'],
-    ));
 }
 
 $Result['content'] = $tpl->fetch();

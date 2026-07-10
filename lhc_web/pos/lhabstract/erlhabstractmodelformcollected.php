@@ -7,42 +7,28 @@ $def->class = "erLhAbstractModelFormCollected";
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition('ezcPersistentNativeGenerator');
 
-$def->properties['form_id'] = new ezcPersistentObjectProperty();
-$def->properties['form_id']->columnName   = 'form_id';
-$def->properties['form_id']->propertyName = 'form_id';
-$def->properties['form_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+$propertiesMap = array(
+    'form_id'       => ezcPersistentObjectProperty::PHP_TYPE_STRING,
+    'ctime'         => ezcPersistentObjectProperty::PHP_TYPE_INT,
+    'ip'            => ezcPersistentObjectProperty::PHP_TYPE_STRING,
+    'content'       => ezcPersistentObjectProperty::PHP_TYPE_STRING,
+    'identifier'    => ezcPersistentObjectProperty::PHP_TYPE_STRING,
+    'custom_fields' => ezcPersistentObjectProperty::PHP_TYPE_STRING,
+    'chat_id'       => ezcPersistentObjectProperty::PHP_TYPE_INT,
+    'user_id'       => ezcPersistentObjectProperty::PHP_TYPE_INT,
+    'attr_int_1'    => ezcPersistentObjectProperty::PHP_TYPE_INT,
+    'attr_int_2'    => ezcPersistentObjectProperty::PHP_TYPE_INT,
+    'attr_int_3'    => ezcPersistentObjectProperty::PHP_TYPE_INT,
+);
 
-$def->properties['ctime'] = new ezcPersistentObjectProperty();
-$def->properties['ctime']->columnName   = 'ctime';
-$def->properties['ctime']->propertyName = 'ctime';
-$def->properties['ctime']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['ip'] = new ezcPersistentObjectProperty();
-$def->properties['ip']->columnName   = 'ip';
-$def->properties['ip']->propertyName = 'ip';
-$def->properties['ip']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['content'] = new ezcPersistentObjectProperty();
-$def->properties['content']->columnName   = 'content';
-$def->properties['content']->propertyName = 'content';
-$def->properties['content']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['identifier'] = new ezcPersistentObjectProperty();
-$def->properties['identifier']->columnName   = 'identifier';
-$def->properties['identifier']->propertyName = 'identifier';
-$def->properties['identifier']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['custom_fields'] = new ezcPersistentObjectProperty();
-$def->properties['custom_fields']->columnName   = 'custom_fields';
-$def->properties['custom_fields']->propertyName = 'custom_fields';
-$def->properties['custom_fields']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['chat_id'] = new ezcPersistentObjectProperty();
-$def->properties['chat_id']->columnName   = 'chat_id';
-$def->properties['chat_id']->propertyName = 'chat_id';
-$def->properties['chat_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+foreach ($propertiesMap as $propertyName => $propertyType) {
+    $def->properties[$propertyName] = new ezcPersistentObjectProperty();
+    $def->properties[$propertyName]->columnName   = $propertyName;
+    $def->properties[$propertyName]->propertyName = $propertyName;
+    $def->properties[$propertyName]->propertyType = $propertyType;
+}
 
 return $def;
 

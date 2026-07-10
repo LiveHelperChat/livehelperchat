@@ -40,6 +40,10 @@ class PerformanceWidgets
         $storedPerformanceConfig = $params['stored_performance_config'] ?? [];
 
         $defaultPerformanceColumns = ['toff', 'ton', 'ca', 'frt', 'aart', 'tup', 'tdown'];
+        \erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.performance_columns', [
+            'columns' => &$defaultPerformanceColumns,
+            'scope' => 'op',
+        ]);
         $defaultPerformanceColumnOrder = array_flip($defaultPerformanceColumns);
 
         $performanceColumns = array_values(array_intersect(
@@ -154,6 +158,12 @@ class PerformanceWidgets
         }
         unset($rowPerformance);
 
+        \erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.performance_rows', [
+            'rows' => &$depPerformanceRows,
+            'columns' => $performanceColumns,
+            'scope' => 'op',
+        ]);
+
         $performanceUpdateInterval = isset($storedPerformanceConfig['update_interval'])
             && in_array((int)$storedPerformanceConfig['update_interval'], self::VALID_UPDATE_INTERVALS)
             ? (int)$storedPerformanceConfig['update_interval']
@@ -196,6 +206,10 @@ class PerformanceWidgets
         $storedPerformanceConfig = $params['stored_performance_config'] ?? [];
 
         $defaultPerformanceColumns = ['cr', 'ca', 'wt', 'frt', 'aart', 'tup', 'tdown'];
+        \erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.performance_columns', [
+            'columns' => &$defaultPerformanceColumns,
+            'scope' => 'dep',
+        ]);
         $defaultPerformanceColumnOrder = array_flip($defaultPerformanceColumns);
 
         $performanceColumns = array_values(array_intersect(
@@ -281,6 +295,12 @@ class PerformanceWidgets
             }
         }
         unset($rowPerformance);
+
+        \erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.performance_rows', [
+            'rows' => &$depPerformanceRows,
+            'columns' => $performanceColumns,
+            'scope' => 'dep',
+        ]);
 
         $performanceUpdateInterval = isset($storedPerformanceConfig['update_interval'])
             && in_array((int)$storedPerformanceConfig['update_interval'], self::VALID_UPDATE_INTERVALS)

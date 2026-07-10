@@ -7,15 +7,17 @@ $form = erLhAbstractModelForm::fetch((int)$Params['user_parameters']['form_id'])
 if (is_numeric($Params['user_parameters_unordered']['id']) && $Params['user_parameters_unordered']['action'] == 'delete'){
 
 	// Delete selected canned message
-	try {
-		if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
-			die('Invalid CSRF Token');
-			exit;
+	if ($currentUser->hasAccessTo('lhform', 'delete_collected')) {
+		try {
+			if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+				die('Invalid CSRF Token');
+				exit;
+			}
+			$collected = erLhAbstractModelFormCollected::fetch((int)$Params['user_parameters_unordered']['id']);
+			$collected->removeThis();
+		} catch (Exception $e) {
+			// Do nothing
 		}
-		$collected = erLhAbstractModelFormCollected::fetch((int)$Params['user_parameters_unordered']['id']);
-		$collected->removeThis();
-	} catch (Exception $e) {
-		// Do nothing
 	}
 
 	erLhcoreClassModule::redirect('form/collected','/'.$form->id);

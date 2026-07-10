@@ -15,6 +15,7 @@
     <td>
         <?php echo htmlspecialchars($agentStatistic_avg['totalHoursOffline_front'])?>
     </td>
+    <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/part/agentstatistic/table_average_after_offline_multiinclude.tpl.php'));?>
     <td>
         <?php echo htmlspecialchars($agentStatistic_avg['aveNumber'])?>, <span class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','As participant')?>"><?php echo htmlspecialchars($agentStatistic_avg['aveNumberParticipant'])?></span>
     </td>

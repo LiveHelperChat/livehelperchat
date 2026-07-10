@@ -410,7 +410,11 @@ if (empty($filterWithoutSort)) {
 
 try {
     $pages = new lhPaginator();
-    $pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelMailconvConversation::getCount($filterParams['filter']);
+
+    $filterCount = $filterParams['filter'];
+    unset($filterCount['sort']);
+
+    $pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelMailconvConversation::getCount($filterCount);
     $pages->translationContext = 'chat/activechats';
     $pages->serverURL = erLhcoreClassDesign::baseurl('mailconv/conversations') . $append;
     if ($filterParams['input']->ipp > 0) {

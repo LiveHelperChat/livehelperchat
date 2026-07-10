@@ -2323,6 +2323,9 @@ class erLhcoreClassChatStatistic {
         $offlineStats = self::getOfflineStatsOperators($filterOffline);
         unset($filterOffline);
 
+        $statusExtensionsStats = [];
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_extensions', ['status_extension' => & $statusExtensionsStats, 'filter' => $filterExtension]);
+
         if ($statusWorkflow === false) {    
             foreach ($userList as $user) {
                 $userInfo = erLhcoreClassModelUser::fetch($user->id,true);
@@ -2466,6 +2469,8 @@ class erLhcoreClassChatStatistic {
                     'totalHoursOffline' => isset($offlineStats[$user->id]['toff']) ? $offlineStats[$user->id]['toff'] : 0,
                     'totalHoursOffline_front' => isset($offlineStats[$user->id]['toff']) ? erLhcoreClassChat::formatSeconds($offlineStats[$user->id]['toff']) : 'n/a'
                 );
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_extensions_item',['status_extension' => $statusExtensionsStats, 'item' => & $itemState]);
 
                 erLhcoreClassMailconvStatistic::getAgentStatistic($itemState, $filter, $user, $filterParams);
 

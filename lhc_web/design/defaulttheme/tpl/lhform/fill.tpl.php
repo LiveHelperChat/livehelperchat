@@ -1,4 +1,4 @@
-<?php if (!isset($embed_mode)) : ?>
+<?php if (!isset($embed_mode) && (!isset($form->configuration_array['hide_form_name']) || $form->configuration_array['hide_form_name'] == false)) : ?>
 <h1><?php echo htmlspecialchars($form->name)?></h1>
 <?php endif; ?>
 

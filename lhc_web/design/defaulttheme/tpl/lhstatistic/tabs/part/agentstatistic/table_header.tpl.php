@@ -11,6 +11,7 @@
 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hours on chat (sum of chat duration)');?></th>
 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Time online (sum of time spend online)');?></th>
 <th><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/time_offline'});" class="material-icons text-muted">help</a><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Time offline (sum of time spend offline)');?></th>
+<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/part/agentstatistic/table_header_after_offline_multiinclude.tpl.php'));?>
 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','AVG number of chats per hour');?></th>
 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Average pick-up time');?></th>
 <th><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/chat_duration'});" class="material-icons text-muted">help</a><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Average chat length');?></th>

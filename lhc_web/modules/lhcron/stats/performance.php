@@ -180,6 +180,14 @@ class PerformanceStats {
                         }
                     }
 
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.performance_aggregate', array(
+                        'result' => &$result,
+                        'configuration' => $configuration,
+                        'filter' => $filter,
+                        'user_list' => $userList ?? array(),
+                        'scope' => 'dep',
+                    ));
+
                     $depPerformanceRows = array();
                     $crByDep = array();
 
@@ -451,6 +459,14 @@ class PerformanceStats {
                                 break;
                         }
                     }
+
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.performance_aggregate', array(
+                        'result' => &$result,
+                        'configuration' => $configuration,
+                        'filter' => $filter,
+                        'user_list' => $userList,
+                        'scope' => 'op',
+                    ));
 
                     $userPerformanceRows = array();
                     $caByUser = array();

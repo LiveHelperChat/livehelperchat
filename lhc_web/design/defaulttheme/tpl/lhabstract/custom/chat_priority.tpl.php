@@ -29,14 +29,14 @@
                 <div class="form-group">
                     <label><?php echo $fields['role_destination']['trans'];?></label>
                     <?php echo erLhcoreClassAbstract::renderInput('role_destination', $fields['role_destination'], $object)?>
-
                     <datalist id="brand-role-list">
-                    <?php foreach (\LiveHelperChat\Models\Brand\BrandMember::getList(['group' => 'role']) as $brand) : ?>
+                    <?php foreach (\LiveHelperChat\Models\Brand\BrandMember::getList([
+                        'select_columns' => ['role'], 
+                        'ignore_fields' => ['all_columns'],
+                        'group' => ['role','id']]) as $brand) : ?>
                         <option value="<?php echo $brand->role?>">
                     <?php endforeach; ?>
                     </datalist>
-
-
                 </div>
             </div>
             <div class="col-2 text-center fw-bold">

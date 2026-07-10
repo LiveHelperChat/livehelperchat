@@ -62,6 +62,13 @@ class erLhcoreClassFormRenderer {
             self::collectCustomFields();
     	}
 
+        // Support {args.form.*} and {args.form_collected.*} variable substitution
+        $translationArgs = array('form' => $form);
+        if (self::$collectedObject !== false) {
+            $translationArgs['form_collected'] = self::$collectedObject;
+        }
+        $contentForm = erLhcoreClassGenericBotWorkflow::translateMessage($contentForm, array('args' => $translationArgs));
+
     	return $contentForm;    	
     }
 
@@ -300,8 +307,9 @@ class erLhcoreClassFormRenderer {
     		}
     	}
     	    	
-    	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />" . $errorInline;
+    	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';
+        $readonly = (isset($params['as_admin']) && $params['as_admin'] == true) ? ' readonly ' : '';
+    	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} {$readonly} value=\"".htmlspecialchars($value)."\" />" . $errorInline;
     }
 
     public static function extractValue($params)
@@ -355,13 +363,16 @@ class erLhcoreClassFormRenderer {
     		}
     	}
 
+        if (isset($params['keep_hidden'])) {
+            $params['as_admin'] = false;
+        }
         $returnAppend = $return = "";
-        if (isset($params['as_admin']) && $params['as_admin'] == true) {
+        if (isset($params['as_admin']) && $params['as_admin'] == true && isset($params['name_literal'])) {
             $return = "<div class='form-group'><label class='fw-bold'>" . htmlspecialchars($params['name_literal']) . "</label>";
             $returnAppend = "</div>";
         }
 
-    	return $return . "<input class=\"form-control form-control-sm\" type=\"". ((isset($params['as_admin']) && $params['as_admin'] == true) ? "text" : "hidden") ."\" name=\"{$params['name']}\" {$additionalAttributes} value=\"".htmlspecialchars($value)."\" />" . $returnAppend;
+    	return $return . "<input class=\"form-control form-control-sm\" type=\"". ((isset($params['as_admin']) && $params['as_admin'] == true) ? "text" : "hidden") ."\" id=\"id_{$params['name']}\" name=\"{$params['name']}\" {$additionalAttributes} " . ((isset($params['as_admin']) && $params['as_admin'] == true) ? ' readonly ' : '') . "value=\"".htmlspecialchars($value)."\" />" . $returnAppend;
     }
         
     public static function renderInputTypeEmail($params) {    	
@@ -405,7 +416,8 @@ class erLhcoreClassFormRenderer {
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />" . $errorInline;
+        $readonly = (isset($params['as_admin']) && $params['as_admin'] == true) ? ' readonly ' : '';
+    	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} {$readonly} value=\"".htmlspecialchars($value)."\" />" . $errorInline;
     }
 
     public static function renderInputTypeNumber($params) {    	
@@ -445,7 +457,8 @@ class erLhcoreClassFormRenderer {
     	}
 
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"number\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />" . $errorInline;
+        $readonly = (isset($params['as_admin']) && $params['as_admin'] == true) ? ' readonly ' : '';
+    	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"number\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} {$readonly} value=\"".htmlspecialchars($value)."\" />" . $errorInline;
     }
 
     public static function renderInputTypeDate($params) {    	
@@ -505,7 +518,8 @@ class erLhcoreClassFormRenderer {
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"date\" name=\"{$params['name']}\" id=\"id_{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($valueFrontEnd)."\" />" . $errorInline;
+        $readonly = (isset($params['as_admin']) && $params['as_admin'] == true) ? ' readonly ' : '';
+    	return "<input class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" type=\"date\" name=\"{$params['name']}\" id=\"id_{$params['name']}\" {$additionalAttributes} {$placeholder} {$readonly} value=\"".htmlspecialchars($valueFrontEnd)."\" />" . $errorInline;
     }
 
     public static function renderInputTypeTranslate($params)
@@ -539,7 +553,7 @@ class erLhcoreClassFormRenderer {
     		if (isset(self::$collectedInfo[$params['name']]['value'])){
     			$value = self::$collectedInfo[$params['name']]['value'];
     		} else {
-    			$value = (isset($params['default']) ? $params['default'] : '');
+    			$value = (isset($params['value']) ? $params['value'] : (isset($params['default']) ? $params['default'] : ''));
     		}
     	}
     	
@@ -547,16 +561,25 @@ class erLhcoreClassFormRenderer {
     	if (isset($params['from']) && isset($params['till'])){
     		for ($i = $params['from']; $i <= $params['till']; $i++) {
     			$isSelected= $value == $i ? 'selected="selected"' : '';
-    			$options[] = "<option =\"".htmlspecialchars($i)."\" {$isSelected}>".htmlspecialchars($i).'</option>';
+    			$options[] = "<option value=\"".htmlspecialchars($i)."\" {$isSelected}>".htmlspecialchars($i).'</option>';
     		}
     	} else {    	
 	    	foreach (explode('#',$params['options']) as $option) {
-	    		$isSelected= $value == $option ? 'selected="selected"' : '';
-	    		$options[] = "<option =\"".htmlspecialchars($option)."\" {$isSelected}>".htmlspecialchars($option).'</option>';
+	    		$optionParts = explode('___', $option);
+	    		$optionValue = $optionParts[0];
+	    		$optionName = isset($optionParts[1]) ? $optionParts[1] : $optionParts[0];
+	    		$isSelected= $value == $optionValue ? 'selected="selected"' : '';
+	    		$options[] = "<option value=\"".htmlspecialchars($optionValue)."\" {$isSelected}>".htmlspecialchars($optionName).'</option>';
 	    	};
     	}
+    	
+    	$cssClass = 'form-select form-select-sm';
+    	if (isset($params['css_class'])) {
+    		$cssClass .= ' ' . htmlspecialchars($params['css_class']);
+    	}
     	    	
-    	return "<select class=\"form-control form-control-sm\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";
+        $disabled = (isset($params['as_admin']) && $params['as_admin'] == true) ? ' disabled ' : '';
+    	return "<select class=\"{$cssClass}\" {$additionalAttributes} {$disabled} name=\"{$params['name']}\">".implode('', $options)."</select>";
     }
 
     public static function renderInputTypeYear($params) {    	
@@ -594,7 +617,8 @@ class erLhcoreClassFormRenderer {
     		$options[] = "<option =\"".htmlspecialchars($i)."\" {$isSelected}>".htmlspecialchars($i).'</option>';    		
     	}
     		    	
-    	return "<select class=\"form-control form-control-sm\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";
+        $disabled = (isset($params['as_admin']) && $params['as_admin'] == true) ? ' disabled ' : '';
+    	return "<select class=\"form-control form-control-sm\" {$additionalAttributes} {$disabled} name=\"{$params['name']}\">".implode('', $options)."</select>";
     }
     
     public static function renderInputTypeMonth($params) {    	
@@ -632,7 +656,8 @@ class erLhcoreClassFormRenderer {
     		$options[] = "<option =\"".htmlspecialchars($i)."\" {$isSelected}>".htmlspecialchars($i).'</option>';    		
     	}
     		    	
-    	return "<select class=\"form-control form-control-sm\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";
+        $disabled = (isset($params['as_admin']) && $params['as_admin'] == true) ? ' disabled ' : '';
+    	return "<select class=\"form-control form-control-sm\" {$additionalAttributes} {$disabled} name=\"{$params['name']}\">".implode('', $options)."</select>";
     }
 
     public static function renderInputTypeCheckbox($params) {   
@@ -665,7 +690,8 @@ class erLhcoreClassFormRenderer {
     	}
     	
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
-    	return "<input type=\"checkbox\" name=\"{$params['name']}\"{$isChecked} {$additionalAttributes} value=\"on\" />";
+        $disabled = (isset($params['as_admin']) && $params['as_admin'] == true) ? ' disabled ' : '';
+    	return "<input type=\"checkbox\" name=\"{$params['name']}\"{$isChecked} {$additionalAttributes} {$disabled} value=\"on\" />";
     }
     
     public static function renderInputTypeTextarea($params) {    	
@@ -704,14 +730,21 @@ class erLhcoreClassFormRenderer {
     		}
     	}    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';
-    	
-    	return "<textarea class=\"form-control form-control-sm" . ($isInvalid == true ? ' is-invalid' : '') . "\" name=\"{$params['name']}\" {$placeholder}>" . htmlspecialchars($value) . "</textarea>" . $errorInline;
+    	$rows = isset($params['rows']) ? ' rows="'.htmlspecialchars($params['rows']).'" ' : '';
+    	$additionalAttributes = self::renderAdditionalAtrributes($params);
+    	$cssClass = 'form-control form-control-sm';
+    	if (isset($params['css_class'])) {
+    		$cssClass .= ' ' . htmlspecialchars($params['css_class']);
+    	}
+
+        $readonly = (isset($params['as_admin']) && $params['as_admin'] == true) ? ' readonly ' : '';
+    	return "<textarea class=\"{$cssClass}" . ($isInvalid == true ? ' is-invalid' : '') . "\" name=\"{$params['name']}\" {$placeholder}{$rows}{$additionalAttributes} {$readonly}>" . htmlspecialchars($value) . "</textarea>" . $errorInline;
     }
     
     public static function renderAdditionalAtrributes($params) {
     	$additionalAttributes = array();
     	foreach ($params as $type => $value) {
-    		if (strpos($type, 'ng-') !== false) {
+    		if (strpos($type, 'ng-') !== false || strpos($type, 'data-') !== false) {
     			$additionalAttributes[] = $type.'="'.htmlspecialchars($value).'"';
     		}
     	};     	
@@ -760,7 +793,7 @@ class erLhcoreClassFormRenderer {
         $chatAttributes = [];
         $formAttributes = [];
 
-        if (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) && isset($_POST['hash']) && ($chat = erLhcoreClassModelChat::fetch($_POST['chat_id'])) instanceof erLhcoreClassModelChat && $chat->hash == $_POST['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+        if (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) && ($chat = erLhcoreClassModelChat::fetch($_POST['chat_id'])) instanceof erLhcoreClassModelChat && ((isset($_POST['hash']) && $chat->hash == $_POST['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) || ($form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL && erLhcoreClassUser::instance()->hasAccessTo('lhform', 'fill_private')))) {
             // Check does this form only chat modifying form or also information collecting form
             foreach ($collectedInformation as $fieldName => $params) {
                 $chatFormElement = false;
@@ -884,41 +917,53 @@ class erLhcoreClassFormRenderer {
         }
 
         if ($chatForm === false) {
-            $formCollected = new erLhAbstractModelFormCollected();
-            $formCollected->ip = erLhcoreClassIPDetect::getIP();
-            $formCollected->ctime = time();
-            $formCollected->form_id = $form->id;
-            $formCollected->identifier = substr(isset($_POST['identifier']) ? $_POST['identifier'] : (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''),0,250);
-            $formCollected->saveThis();
+            if (self::$collectedObject instanceof erLhAbstractModelFormCollected && self::$collectedObject->form_id == $form->id) {
+                $formCollected = self::$collectedObject;
+                $formCollected->ip = erLhcoreClassIPDetect::getIP();
+                $formCollected->ctime = time();
+                $formCollected->identifier = substr(isset($_POST['identifier']) ? $_POST['identifier'] : (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''),0,250);
+            } else {
+                $formCollected = new erLhAbstractModelFormCollected();
+                $formCollected->ip = erLhcoreClassIPDetect::getIP();
+                $formCollected->ctime = time();
+                $formCollected->form_id = $form->id;
+                $formCollected->identifier = substr(isset($_POST['identifier']) ? $_POST['identifier'] : (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''),0,250);
+                if ($form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL) {
+                    $formCollected->user_id = erLhcoreClassUser::instance()->getUserID();
+                }
+                $formCollected->saveThis();
+            }
         }
 
-        if (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) && isset($_POST['hash']) && ($chat = erLhcoreClassModelChat::fetch($_POST['chat_id'])) instanceof erLhcoreClassModelChat && $chat->hash == $_POST['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+        if (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) && ($chat = erLhcoreClassModelChat::fetch($_POST['chat_id'])) instanceof erLhcoreClassModelChat && ((isset($_POST['hash']) && $chat->hash == $_POST['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) || ($form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL && erLhcoreClassUser::instance()->hasAccessTo('lhform', 'fill_private')))) {
 
             if ($chatForm === false) {
                 $formCollected->chat_id = $chat->id;
             }
 
-            // Store as message to visitor
-            $msg = new erLhcoreClassModelmsg();
+            if ($form->form_type == erLhAbstractModelForm::FORM_TYPE_PUBLIC) {
+                // Store as message to visitor
+                $msg = new erLhcoreClassModelmsg();
 
-            if ($chatForm === false) {
-                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Information collected. [baseurl]form/viewcollected/' . $formCollected->id . '[/baseurl]');
-            } else {
-                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Information collected. Only chat form');
+                if ($chatForm === false) {
+                    $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Information collected. [baseurl]form/viewcollected/' . $formCollected->id . '[/baseurl]');
+                } else {
+                    $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Information collected. Only chat form');
+                }
+
+                $msg->chat_id = $chat->id;
+                $msg->user_id = -1;
+                $msg->time = time();
+                $msg->name_support = $chat->nick;
+                $msg->saveThis();
+
+                // Update last user msg time so auto responder work's correctly
+                $chat->last_op_msg_time = $chat->last_user_msg_time = time();
+                $chat->last_msg_id = $msg->id;
+
+                // All ok, we can make changes
+                $chat->updateThis(array('update' => array('last_msg_id', 'last_op_msg_time', 'last_user_msg_time')));
             }
-
-            $msg->chat_id = $chat->id;
-            $msg->user_id = -1;
-            $msg->time = time();
-            $msg->name_support = $chat->nick;
-            $msg->saveThis();
-
-            // Update last user msg time so auto responder work's correctly
-            $chat->last_op_msg_time = $chat->last_user_msg_time = time();
-            $chat->last_msg_id = $msg->id;
-
-            // All ok, we can make changes
-            $chat->updateThis(array('update' => array('last_msg_id', 'last_op_msg_time', 'last_user_msg_time')));
         }
 
         if ($chatForm === true) {
@@ -944,7 +989,15 @@ class erLhcoreClassFormRenderer {
 	    		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.fill.store_file',array('file_params' => & $params));
     		}
     	}
-    	
+    	unset($params);
+      
+        // Handle form_attr mapping to attr_int_1/2/3
+        foreach ($collectedInformation as $fieldName => $params) {
+            if (isset($params['definition']['form_attr']) && in_array($params['definition']['form_attr'], ['attr_int_1', 'attr_int_2', 'attr_int_3'])) {
+                $formCollected->{$params['definition']['form_attr']} = (int)$params['value'];
+            }
+        }
+      
     	$formCollected->content = json_encode($collectedInformation);
         $formCollected->custom_fields = json_encode($customFields);
     	$formCollected->saveThis();
