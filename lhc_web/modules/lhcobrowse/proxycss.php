@@ -12,7 +12,15 @@ if ($Params['user_parameters_unordered']['cobrowsemode'] == 'onlineuser'){
     $browse = erLhcoreClassCoBrowse::getBrowseInstanceByOnlineUser($ouser);
 } else {
     $chat = erLhcoreClassChat::getSession()->load('erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+    if (!erLhcoreClassChat::hasAccessToRead($chat)) {
+        exit;
+    }
     $browse = erLhcoreClassCoBrowse::getBrowseInstance($chat);
+}
+
+// Require a co-browse session URL to bind the fetch origin
+if (empty($browse->url)) {
+    exit;
 }
 
 $base = trim($_GET['base']);
@@ -25,6 +33,14 @@ $url = parse_url($base);
 
 // Only http/https supported
 if (!in_array($url['scheme'],['http','https']) || (isset($url['port']) && !in_array($url['port'],[80,443]))) {
+    exit;
+}
+
+// Bind to the co-browse session origin
+$browseUrl = parse_url($browse->url);
+$browseOrigin = ($browseUrl['scheme'] ?? '') . '://' . ($browseUrl['host'] ?? '') . (isset($browseUrl['port']) ? ':' . $browseUrl['port'] : '');
+$requestOrigin = $url['scheme'] . '://' . $url['host'] . (isset($url['port']) ? ':' . $url['port'] : '');
+if ($browseOrigin !== $requestOrigin) {
     exit;
 }
 
@@ -52,7 +68,26 @@ if (isset($url['host']) && $url['host'] != '' && strpos($_GET['css'], erLhcoreCl
             exit;
         }
 
+        // CSS URL must belong to the co-browse session origin
+        $cssOrigin = $urlCSS['scheme'] . '://' . $urlCSS['host'] . (isset($urlCSS['port']) ? ':' . $urlCSS['port'] : '');
+        if ($cssOrigin !== $browseOrigin) {
+            exit;
+        }
+
         $urlCSSDownload = $_GET['css'];
+    }
+
+    // Resolve host and reject private/loopback destinations
+    $downloadHost = parse_url($urlCSSDownload, PHP_URL_HOST);
+    if ($downloadHost === null || $downloadHost === '') {
+        exit;
+    }
+    $resolvedIp = gethostbyname($downloadHost);
+    if ($resolvedIp === $downloadHost || !filter_var($resolvedIp, FILTER_VALIDATE_IP)) {
+        exit;
+    }
+    if (!filter_var($resolvedIp, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+        exit;
     }
 
     $ch = curl_init();
