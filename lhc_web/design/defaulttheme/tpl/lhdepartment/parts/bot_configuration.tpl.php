@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-6">
         <div class="form-group">
-            <label>Bot</label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Bot');?></label>
             <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                 'input_name'     => 'bot_id',
                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select bot'),
@@ -14,11 +14,22 @@
     </div>
     <div class="col-6">
         <div class="form-group">
-            <label>Translations group</label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Translations group, primary');?></label>
             <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                 'input_name'     => 'bot_tr_id',
                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select translations'),
                 'selected_id'    => isset($departament->bot_configuration_array['bot_tr_id']) ? $departament->bot_configuration_array['bot_tr_id'] : 0,
+                'css_class'      => 'form-control form-control-sm',
+                'display_name'   => 'name',
+                'list_function'  => 'erLhcoreClassModelGenericBotTrGroup::getList'
+            )); ?>
+        </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Translations group, secondary');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                'input_name'     => 'bot_tr_id_2',
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select translations'),
+                'selected_id'    => isset($departament->bot_configuration_array['bot_tr_id_2']) ? $departament->bot_configuration_array['bot_tr_id_2'] : 0,
                 'css_class'      => 'form-control form-control-sm',
                 'display_name'   => 'name',
                 'list_function'  => 'erLhcoreClassModelGenericBotTrGroup::getList'

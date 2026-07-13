@@ -2680,7 +2680,19 @@ class erLhcoreClassGenericBotWorkflow {
                 if ($department instanceof erLhcoreClassModelDepartament) {
                     $configuration = $department->bot_configuration_array;
                     if (isset($configuration['bot_tr_id']) && $configuration['bot_tr_id'] > 0 && !empty($identifiers)) {
-                        $items = erLhcoreClassModelGenericBotTrItem::getList(array('filterin' => array('identifier' => array_keys($identifiers)),'filter' => array('group_id' => $configuration['bot_tr_id'])));
+
+                        $groupsFilter = array_filter(array_unique(array(
+                            (int) $configuration['bot_tr_id'],
+                            isset($configuration['bot_tr_id_2']) ? (int) $configuration['bot_tr_id_2'] : 0
+                        )));
+
+                        $items = erLhcoreClassModelGenericBotTrItem::getList(array(
+                            'filterin' => array(
+                                'identifier' => array_keys($identifiers),
+                                'group_id' => $groupsFilter
+                            )
+                        ));
+                        
                         foreach ($items as $item) {
                             $item->translateByChat($locale, $params);
                             $identifiers[$item->identifier]['replace'] = $item->translation_front;

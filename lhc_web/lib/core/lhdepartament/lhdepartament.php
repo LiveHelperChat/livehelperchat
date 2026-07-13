@@ -195,6 +195,9 @@ class erLhcoreClassDepartament{
                 'bot_tr_id' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
                 ),
+                'bot_tr_id_2' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+                ),
                 'theme_ind' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1), FILTER_REQUIRE_ARRAY
                 ),
@@ -741,11 +744,16 @@ class erLhcoreClassDepartament{
            $botConfiguration['transfer_min_priority'] = '';
        }
 
-       if ( $form->hasValidData( 'bot_tr_id' ) )
-       {
+       if ( $form->hasValidData( 'bot_tr_id' ) ) {
            $botConfiguration['bot_tr_id'] = $form->bot_tr_id;
-       } else {
-           $botConfiguration['bot_tr_id'] = 0;
+       } elseif (isset($botConfiguration['bot_tr_id'])) {
+           unset($botConfiguration['bot_tr_id']);
+       }
+
+       if ( $form->hasValidData( 'bot_tr_id_2' ) ) {
+           $botConfiguration['bot_tr_id_2'] = $form->bot_tr_id_2;
+       } elseif (isset($botConfiguration['bot_tr_id_2'])) {
+           unset($botConfiguration['bot_tr_id_2']);
        }
 
        if ( $form->hasValidData( 'theme_ind' ) )
