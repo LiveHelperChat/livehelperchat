@@ -15,11 +15,21 @@ if ($form->active == 0) {
 }
 
 if (isset($_GET['chat_id']) && is_numeric($_GET['chat_id']) && ((($chat = erLhcoreClassModelChat::fetch($_GET['chat_id'])) instanceof erLhcoreClassModelChat && isset($_GET['hash']) && $chat->hash == $_GET['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) || ($form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL && erLhcoreClassUser::instance()->hasAccessTo('lhform', 'fill_private')))) {
+    $replace_array = array(
+            '{hash}' => (isset($_GET['hash']) ? $_GET['hash'] : ''),
+            '{chat_id}' => $_GET['chat_id'],
+    );
+    $tpl->set('replace_array',$replace_array);    
     $tpl->setArray(array(
         'hash' => (isset($_GET['hash']) ? $_GET['hash'] : ''),
         'chat_id' => $_GET['chat_id'],
     ));
 } if (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) && ((($chat = erLhcoreClassModelChat::fetch($_POST['chat_id'])) instanceof erLhcoreClassModelChat && isset($_POST['hash']) && $chat->hash == $_POST['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) || ($form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL && erLhcoreClassUser::instance()->hasAccessTo('lhform', 'fill_private')))) {
+    $replace_array = array(
+            '{hash}' => (isset($_POST['hash']) ? $_POST['hash'] : ''),
+            '{chat_id}' => $_POST['chat_id'],
+    );
+    $tpl->set('replace_array',$replace_array);
     $tpl->setArray(array(
         'hash' => (isset($_POST['hash']) ? $_POST['hash'] : ''),
         'chat_id' => $_POST['chat_id'],
@@ -41,8 +51,8 @@ if (isset($form->configuration_array['one_fillment_per_chat']) && $form->configu
 $tpl->set('content',$form->content_rendered);
 
 if (erLhcoreClassFormRenderer::isCollected()) {
-	erLhcoreClassFormRenderer::storeCollectedInformation($form, erLhcoreClassFormRenderer::getCollectedInfo(), erLhcoreClassFormRenderer::getCustomFields());
-}
+   erLhcoreClassFormRenderer::storeCollectedInformation($form, erLhcoreClassFormRenderer::getCollectedInfo(), erLhcoreClassFormRenderer::getCustomFields());
+}   
 
 $tpl->set('form',$form);
 

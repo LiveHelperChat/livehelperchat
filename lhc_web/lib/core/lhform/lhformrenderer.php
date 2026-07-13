@@ -1006,6 +1006,11 @@ class erLhcoreClassFormRenderer {
     	
     	// Inform user about filled form
     	erLhcoreClassChatMail::informFormFilled($formCollected,array('email' => self::$mainEmail));
+
+        $translationArgs = array('form' => $form);
+        $translationArgs['form_collected'] = $formCollected;
+
+        $form->post_content = erLhcoreClassGenericBotWorkflow::translateMessage($form->post_content, array('args' => $translationArgs));
     }
     
 }
