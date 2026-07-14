@@ -8,6 +8,7 @@
             <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/blocking.tpl.php'));?>
             <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/look_and_feel.tpl.php'));?>
             <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/integration.tpl.php'));?>
+            <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/modules_menu/form.tpl.php'));?>
         </div>
         <div class="col-md-6">
             <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/automation.tpl.php'));?>

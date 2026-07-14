@@ -15,7 +15,6 @@ $tpl->set('content',$collected->form->content_rendered_admin);
 $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array();
-$Result['path'][] =  $object_trans['path'];
 $Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/Form','title' => $object_trans['name']);
 $Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('form/collected').'/'.$collected->form->id,'title' => $collected->form);
 $Result['path'][] = array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('form/viewcollected','Collected information'));

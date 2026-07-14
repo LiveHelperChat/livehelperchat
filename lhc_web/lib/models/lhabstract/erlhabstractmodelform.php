@@ -78,8 +78,7 @@ class erLhAbstractModelForm {
 	public function getModuleTranslations()
 	{
 	    $metaData = array(
-			'path' => array(
-				'url' => erLhcoreClassDesign::baseurl('form/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('browseoffer/index','Form')),
+			'path' => array(),
 				'permission_delete' => array('module' => 'lhform','function' => 'delete_fm'), 'permission' => array('module' => 'lhform','function' => 'manage_fm'),
 				'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Forms list')
 			);

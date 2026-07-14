@@ -4,11 +4,6 @@ $Module = array( "name" => "Forms module");
 
 $ViewList = array();
 
-$ViewList['index'] = array(
-		'params' => array(),
-		'functions' => array( 'manage_fm' )
-);
-
 $ViewList['fill'] = array(
 		'params' => array('form_id'),
 		'functions' => array(  )

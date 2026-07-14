@@ -68,7 +68,6 @@ $tpl->set('form',$form);
 $Result['content'] = $tpl->fetch();
 
 $object_trans = $form->getModuleTranslations();
-$Result['path'][] =  $object_trans['path'];
 $Result['path'][] = array('url' => erLhcoreClassDesign::baseurl('abstract/list').'/Form','title' => $object_trans['name']);
 $Result['path'][] = array('title' => (string)$form);
 
