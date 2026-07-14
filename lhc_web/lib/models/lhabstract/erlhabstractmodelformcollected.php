@@ -70,6 +70,17 @@ class erLhAbstractModelFormCollected
        		   }
        		   return $this->user;
 
+            case 'chat':
+                $this->chat = false;
+                if ($this->chat_id > 0) {
+                    try {
+                        $this->chat = erLhcoreClassModelChat::fetch($this->chat_id,true);
+                    } catch (Exception $e) {
+                        $this->chat = false;
+                    }
+                }
+                return $this->chat;
+
             case 'form_content':
                 return $this->getFormattedContent();
             default:

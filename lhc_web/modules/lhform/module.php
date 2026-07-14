@@ -16,7 +16,11 @@ $ViewList['fill'] = array(
 
 $ViewList['collected'] = array(
 		'params' => array('form_id'),
-		'uparams' => array('action','id','csfr'),
+		'uparams' => array('action','id','csfr','department_ids','user_ids','timefrom','timeto','timefrom_hours','timefrom_minutes','timefrom_seconds','timeto_hours','timeto_minutes','timeto_seconds'),
+		'multiple_arguments' => array(
+			'department_ids',
+			'user_ids'
+		),
 		'functions' => array(  'manage_fm' )
 );
 
