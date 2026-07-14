@@ -129,6 +129,14 @@ class PHPExcel_Calculation {
 	 */
 	private $_calculationCacheEnabled = TRUE;
 
+	/**
+	 * Debug log
+	 *
+	 * @access	private
+	 * @var PHPExcel_CalcEngine_Logger
+	 */
+	private $_debugLog;
+
 
 	/**
 	 * List of operators that can be used within formulae
@@ -1933,7 +1941,7 @@ class PHPExcel_Calculation {
 	 * @param string $toWorksheetName
 	 */
 	public function renameCalculationCacheForWorksheet($fromWorksheetName, $toWorksheetName) {
-		if (isset($this->_calculationCache[$fromWorksheetName])) {
+		if ($fromWorksheetName !== null && isset($this->_calculationCache[$fromWorksheetName])) {
 			$this->_calculationCache[$toWorksheetName] = &$this->_calculationCache[$fromWorksheetName];
 			unset($this->_calculationCache[$fromWorksheetName]);
 		}
@@ -2994,7 +3002,7 @@ class PHPExcel_Calculation {
 							$val = (float) $val;
 						} else {
 //							echo 'Casting '.$val.' to integer<br />';
-							$val = (integer) $val;
+							$val = (int) $val;
 						}
 					} elseif (isset(self::$_ExcelConstants[trim(strtoupper($val))])) {
 						$excelConstant = trim(strtoupper($val));

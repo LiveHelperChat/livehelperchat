@@ -2586,8 +2586,11 @@ html {
     z-index: 1;
 }
 
-
 lhc-image{
     min-height: 40px;
     display: inline-block;
+}
+
+.modal-content-fscreen{
+	height: calc(100vh - 3rem); width: calc(80vw - 3rem); display: flex; flex-direction: column;
 }

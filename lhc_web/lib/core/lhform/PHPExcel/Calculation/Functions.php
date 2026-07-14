@@ -527,7 +527,7 @@ class PHPExcel_Calculation_Functions {
 				return $value;
 				break;
 			case 'boolean'	:
-				return (integer) $value;
+				return (int) $value;
 				break;
 			case 'string'	:
 				//	Errors

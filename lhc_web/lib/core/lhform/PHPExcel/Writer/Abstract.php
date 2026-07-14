@@ -86,7 +86,7 @@ abstract class PHPExcel_Writer_Abstract implements PHPExcel_Writer_IWriter
 	 * @return	PHPExcel_Writer_IWriter
 	 */
 	public function setIncludeCharts($pValue = FALSE) {
-		$this->_includeCharts = (boolean) $pValue;
+		$this->_includeCharts = (bool) $pValue;
 		return $this;
 	}
 
@@ -113,7 +113,7 @@ abstract class PHPExcel_Writer_Abstract implements PHPExcel_Writer_IWriter
 	 * @return	PHPExcel_Writer_IWriter
      */
     public function setPreCalculateFormulas($pValue = TRUE) {
-    	$this->_preCalculateFormulas = (boolean) $pValue;
+    	$this->_preCalculateFormulas = (bool) $pValue;
 		return $this;
     }
 

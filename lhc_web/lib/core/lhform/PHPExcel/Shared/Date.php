@@ -133,13 +133,13 @@ class PHPExcel_Shared_Date
 			$utcDays = $dateValue - $my_excelBaseDate;
 			$returnValue = round($utcDays * 86400);
 			if (($returnValue <= PHP_INT_MAX) && ($returnValue >= -PHP_INT_MAX)) {
-				$returnValue = (integer) $returnValue;
+				$returnValue = (int) $returnValue;
 			}
 		} else {
 			$hours = round($dateValue * 24);
 			$mins = round($dateValue * 1440) - round($hours * 60);
 			$secs = round($dateValue * 86400) - round($hours * 3600) - round($mins * 60);
-			$returnValue = (integer) gmmktime($hours, $mins, $secs);
+			$returnValue = (int) gmmktime($hours, $mins, $secs);
 		}
 
 		$timezoneAdjustment = ($adjustToTimezone) ?

@@ -1477,7 +1477,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
      * @param $pValue PHPExcel_Style_Conditional[]
      * @return PHPExcel_Worksheet
      */
-    public function setConditionalStyles($pCoordinate = 'A1', $pValue)
+    public function setConditionalStyles($pCoordinate, $pValue)
     {
         $this->_conditionalStylesCollection[$pCoordinate] = $pValue;
         return $this;
@@ -2392,17 +2392,17 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 
             // Loop through $source
             foreach ($source as $rowData) {
-                $currentColumn = $startColumn;
+                $currentColumn = PHPExcel_Cell::columnIndexFromString($startColumn);
                 foreach($rowData as $cellValue) {
                     if ($strictNullComparison) {
                         if ($cellValue !== $nullValue) {
                             // Set cell value
-                            $this->getCell($currentColumn . $startRow)->setValue($cellValue);
+                            $this->getCell(PHPExcel_Cell::stringFromColumnIndex($currentColumn) . $startRow)->setValue($cellValue);
                         }
                     } else {
                         if ($cellValue != $nullValue) {
                             // Set cell value
-                            $this->getCell($currentColumn . $startRow)->setValue($cellValue);
+                            $this->getCell(PHPExcel_Cell::stringFromColumnIndex($currentColumn) . $startRow)->setValue($cellValue);
                         }
                     }
                     ++$currentColumn;

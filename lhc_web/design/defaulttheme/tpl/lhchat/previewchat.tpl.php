@@ -37,7 +37,7 @@
             </div>
         <?php endif; ?>
 
-      <div class="modal-body pt-1 pe-0 ps-2">
+      <div class="modal-body pe-1 ps-1 pt-1">
 
 <div id="preview-messages-<?php echo $chat->id?>" class="msgBlock-preview mx550 fs13">
     <?php $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id)))); ?>

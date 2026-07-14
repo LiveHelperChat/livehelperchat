@@ -122,7 +122,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
 	 * @param 	PHPExcel_Shared_XMLWriter 	$objWriter 		XML Writer
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	private function _writeTitle(?PHPExcel_Chart_Title $title = null, $objWriter)
+	private function _writeTitle(?PHPExcel_Chart_Title $title, $objWriter)
 	{
 		if (is_null($title)) {
 			return;
@@ -166,7 +166,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
 	 * @param 	PHPExcel_Shared_XMLWriter 	$objWriter 		XML Writer
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	private function _writeLegend(?PHPExcel_Chart_Legend $legend = null, $objWriter)
+	private function _writeLegend(?PHPExcel_Chart_Legend $legend, $objWriter)
 	{
 		if (is_null($legend)) {
 			return;
@@ -220,8 +220,8 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
 	private function _writePlotArea(PHPExcel_Chart_PlotArea $plotArea,
-									?PHPExcel_Chart_Title $xAxisLabel = NULL,
-									?PHPExcel_Chart_Title $yAxisLabel = NULL,
+									?PHPExcel_Chart_Title $xAxisLabel,
+									?PHPExcel_Chart_Title $yAxisLabel,
 									$objWriter,
 									PHPExcel_Worksheet $pSheet)
 	{
@@ -270,7 +270,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
 						//	Line only, Line3D can't be smoothed
 
 						$objWriter->startElement('c:smooth');
-							$objWriter->writeAttribute('val', (integer) $plotGroup->getSmoothLine() );
+							$objWriter->writeAttribute('val', (int) $plotGroup->getSmoothLine() );
 						$objWriter->endElement();
 					} elseif (($chartType === PHPExcel_Chart_DataSeries::TYPE_BARCHART) ||
 						($chartType === PHPExcel_Chart_DataSeries::TYPE_BARCHART_3D)) {
@@ -937,7 +937,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
 	private function _writePlotSeriesValues( $plotSeriesValues,
 											 $objWriter,
 											 $groupType,
-											 $dataType='str',
+											 $dataType,
 											 PHPExcel_Worksheet $pSheet
 										   )
 	{
@@ -1080,7 +1080,7 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
 	 * @param 	PHPExcel_Shared_XMLWriter 	$objWriter 		XML Writer
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	private function _writeLayout(?PHPExcel_Chart_Layout $layout = NULL, $objWriter)
+	private function _writeLayout(?PHPExcel_Chart_Layout $layout, $objWriter)
 	{
 		$objWriter->startElement('c:layout');
 

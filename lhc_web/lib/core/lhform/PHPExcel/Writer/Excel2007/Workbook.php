@@ -300,7 +300,7 @@ class PHPExcel_Writer_Excel2007_Workbook extends PHPExcel_Writer_Excel2007_Write
 	 * @param 	PHPExcel					$pPHPExcel
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	private function _writeNamedRanges(?PHPExcel_Shared_XMLWriter $objWriter = null, PHPExcel $pPHPExcel)
+	private function _writeNamedRanges(?PHPExcel_Shared_XMLWriter $objWriter, PHPExcel $pPHPExcel)
 	{
 		// Loop named ranges
 		$namedRanges = $pPHPExcel->getNamedRanges();
@@ -316,7 +316,7 @@ class PHPExcel_Writer_Excel2007_Workbook extends PHPExcel_Writer_Excel2007_Write
 	 * @param 	PHPExcel_NamedRange			$pNamedRange
 	 * @throws 	PHPExcel_Writer_Exception
 	 */
-	private function _writeDefinedNameForNamedRange(?PHPExcel_Shared_XMLWriter $objWriter = null, PHPExcel_NamedRange $pNamedRange)
+	private function _writeDefinedNameForNamedRange(?PHPExcel_Shared_XMLWriter $objWriter, PHPExcel_NamedRange $pNamedRange)
 	{
 		// definedName for named range
 		$objWriter->startElement('definedName');
