@@ -26,7 +26,7 @@
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Chat Operator');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Department');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Intro');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Time');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Created at');?></th>
     <?php if ($form->form_type == erLhAbstractModelForm::FORM_TYPE_PUBLIC) : ?>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','IP');?></th>
     <?php endif; ?>

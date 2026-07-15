@@ -92,6 +92,9 @@ class erLhAbstractModelFormCollected
     {
         $dataCollected = array();
         foreach ($this->content_array as $nameAttr => $contentArray) {
+            
+            if ($nameAttr === 'lhc_field_changes') continue;
+
             $nameLiteral = $contentArray['definition']['name_literal'] ?? 'n/a';
             if (isset($contentArray['definition']['type']) && $contentArray['definition']['type'] == 'file') {
                 $dataCollected[] = $nameLiteral . " - " . erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('user/login') . '/(r)/' . rawurlencode(base64_encode('form/download/' . $this->id . '/' . $nameAttr));

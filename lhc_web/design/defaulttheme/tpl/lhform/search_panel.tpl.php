@@ -33,6 +33,21 @@
                 )); ?>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Creator operator');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown(array(
+                    'input_name' => 'creator_user_ids[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Choose operator'),
+                    'selected_id' => $input->creator_user_ids,
+                    'css_class' => 'form-control',
+                    'display_name' => 'name_official',
+                    'ajax' => 'users',
+                    'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(), array('sort' => '`name` ASC', 'limit' => 50)),
+                    'list_function' => 'erLhcoreClassModelUser::getUserList'
+                )); ?>
+            </div>
+        </div>
     </div>
 
     <div class="row mb-2">
@@ -109,6 +124,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-12">
+            <label class="col-form-label"><input class="form-check-input" type="checkbox" name="chat_time" <?php $input->chat_time == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search by chat time, not create time')?></label>
         </div>
         <div class="col-md-12 d-flex align-items-end">
             <div class="btn-group me-2">

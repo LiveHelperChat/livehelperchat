@@ -65,7 +65,29 @@ class erLhcoreClassFormRenderer {
         // Support {args.form.*} and {args.form_collected.*} variable substitution
         $translationArgs = array('form' => $form);
         if (self::$collectedObject !== false) {
-            $translationArgs['form_collected'] = self::$collectedObject;
+            $formCollected = clone self::$collectedObject;
+            $contentArray = $formCollected->content_array;
+            if (isset($contentArray['lhc_field_changes'])) {
+                if (isset($contentArray['lhc_field_changes']['field_history']) && is_array($contentArray['lhc_field_changes']['field_history'])) {
+                    foreach ($contentArray['lhc_field_changes']['field_history'] as $field => $history) {
+                        if (isset($history['user_id'])) {
+                            $contentArray['lhc_field_changes']['field_history'][$field]['user'] = erLhcoreClassModelUser::fetch($history['user_id']);
+                        }
+                    }
+                }
+                if (isset($contentArray['lhc_field_changes']['modified_operators']) && is_array($contentArray['lhc_field_changes']['modified_operators'])) {
+                    $modifierNames = [];
+                    foreach ($contentArray['lhc_field_changes']['modified_operators'] as $userId => $modifierData) {
+                        $user = erLhcoreClassModelUser::fetch($userId);
+                        if ($user instanceof erLhcoreClassModelUser) {
+                            $modifierNames[] = $user->name_official;
+                        }
+                    }
+                    $contentArray['lhc_field_changes']['modifiers'] = implode(',', $modifierNames);
+                }
+                $formCollected->content_array = $contentArray;
+            }
+            $translationArgs['form_collected'] = $formCollected;
         }
         $contentForm = erLhcoreClassGenericBotWorkflow::translateMessage($contentForm, array('args' => $translationArgs));
 
@@ -168,7 +190,7 @@ class erLhcoreClassFormRenderer {
     public static function processInput($inputDefinition, $asAdmin = false) {
 	    if (is_array($inputDefinition)) {
             $paramsParsed = $inputDefinition;
-        } else {
+        } elseif (is_string($inputDefinition)) {
             $inputDefinition = str_replace(array('[[',']]'), '', $inputDefinition);
             $paramsInput = explode('||', $inputDefinition);
             $defaultType = array_shift($paramsInput);
@@ -186,10 +208,16 @@ class erLhcoreClassFormRenderer {
 
         $paramsParsed['as_admin'] = $asAdmin;
 
-    	return call_user_func('erLhcoreClassFormRenderer::renderInputType'.ucfirst($paramsParsed['type']),$paramsParsed);
+        $method = 'renderInputType'.ucfirst(isset($paramsParsed['type']) ? $paramsParsed['type'] : '');
+        if (!method_exists('erLhcoreClassFormRenderer', $method)) {
+            return 'INVALID_FIELD';
+        }
+
+    	return call_user_func('erLhcoreClassFormRenderer::'.$method,$paramsParsed);
     }
     
     public static function renderInputTypeRange($params) {
+
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
 
     	if (ezcInputForm::hasPostData()) {
@@ -973,7 +1001,8 @@ class erLhcoreClassFormRenderer {
     	// Finish collect information
     	foreach ($collectedInformation as $fieldName => & $params) {
     	    // Do not save file again if it was chat file
-    		if (!in_array($fieldName, $chatAttributes) && $params['definition']['type'] == 'file' && !(isset($params['definition']['scope']) && $params['definition']['scope'] == 'chat')) {
+
+    		if (!in_array($fieldName, $chatAttributes) && isset($params['definition']['type']) && $params['definition']['type'] == 'file' && !(isset($params['definition']['scope']) && $params['definition']['scope'] == 'chat')) {
     						
     			$dir = 'var/storageform/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$formCollected->id.'/';
     			
@@ -998,6 +1027,60 @@ class erLhcoreClassFormRenderer {
             }
         }
       
+
+        if (isset($form->configuration_array['track_field_changes']) && $form->configuration_array['track_field_changes'] == true && $form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL) {
+            if ($formCollected->user_id != erLhcoreClassUser::instance()->getUserID()) {
+                $currentUserId = erLhcoreClassUser::instance()->getUserID();
+                $currentTime = time();
+
+                // Load previous content to compare against
+                $previousContent = $formCollected->content_array;
+                if (!is_array($previousContent)) {
+                    $previousContent = [];
+                }
+
+                // Preserve existing field changes history from previous saves
+                $fieldChanges = isset($previousContent['lhc_field_changes']) ? $previousContent['lhc_field_changes'] : ['modified_operators' => [], 'field_history' => []];
+                $modifiedFields = [];
+
+                foreach ($collectedInformation as $fieldName => $params) {
+                    if ($fieldName === 'lhc_field_changes') continue;
+                    if (!isset($params['definition']['log_changes']) || $params['definition']['log_changes'] != 'true') continue;
+
+                    $newValue = isset($params['value']) ? $params['value'] : null;
+                    $oldValue = isset($previousContent[$fieldName]['value']) ? $previousContent[$fieldName]['value'] : null;
+
+                    // Compare values; skip comparison for file fields (track by filename instead)
+                    if ($params['definition']['type'] == 'file') {
+                        $newValue = isset($params['filename']) ? $params['filename'] : null;
+                        $oldValue = isset($previousContent[$fieldName]['filename']) ? $previousContent[$fieldName]['filename'] : null;
+                    }
+
+                    if ($newValue !== $oldValue) {
+                        $modifiedFields[] = $fieldName;
+
+                        $fieldChanges['field_history'][$fieldName] = [
+                            'user_id' => $currentUserId,
+                            'modified_at' => $currentTime,
+                            'old_value' => $oldValue,
+                            'new_value' => $newValue
+                        ];
+                    }
+                }
+
+                if (!empty($modifiedFields)) {
+                    $existingFields = isset($fieldChanges['modified_operators'][$currentUserId]['fields']) ? $fieldChanges['modified_operators'][$currentUserId]['fields'] : [];
+                    $fieldChanges['modified_operators'][$currentUserId] = [
+                        'fields' => array_unique(array_merge($existingFields, $modifiedFields)),
+                        'modified_at' => $currentTime
+                    ];
+                }
+
+                $collectedInformation['lhc_field_changes'] = $fieldChanges;
+            }
+        }
+
+
     	$formCollected->content = json_encode($collectedInformation);
         $formCollected->custom_fields = json_encode($customFields);
     	$formCollected->saveThis();

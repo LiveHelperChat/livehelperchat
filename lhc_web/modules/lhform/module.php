@@ -11,10 +11,11 @@ $ViewList['fill'] = array(
 
 $ViewList['collected'] = array(
 		'params' => array('form_id'),
-		'uparams' => array('action','id','csfr','department_ids','user_ids','timefrom','timeto','timefrom_hours','timefrom_minutes','timefrom_seconds','timeto_hours','timeto_minutes','timeto_seconds'),
+		'uparams' => array('creator_user_ids','chat_time','action','id','csfr','department_ids','user_ids','timefrom','timeto','timefrom_hours','timefrom_minutes','timefrom_seconds','timeto_hours','timeto_minutes','timeto_seconds'),
 		'multiple_arguments' => array(
 			'department_ids',
-			'user_ids'
+			'user_ids',
+			'creator_user_ids'
 		),
 		'functions' => array(  'manage_fm' )
 );

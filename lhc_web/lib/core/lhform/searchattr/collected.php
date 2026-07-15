@@ -26,6 +26,18 @@ $fieldsSearch['user_ids'] = array(
     )
 );
 
+$fieldsSearch['creator_user_ids'] = array(
+    'type' => 'text',
+    'trans' => 'Creator',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => '`lh_abstract_form_collected`.`user_id`',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['timefrom'] = array(
     'type' => 'text',
     'trans' => 'Time from',
@@ -49,6 +61,18 @@ $fieldsSearch['timeto'] = array(
     'filter_table_field' => 'ctime',
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
+$fieldsSearch['chat_time'] = array (
+    'type' => 'checkbox',
+    'trans' => 'Search in chat time',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'filter_table_field' => '',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
     )
 );
 

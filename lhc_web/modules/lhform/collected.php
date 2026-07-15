@@ -22,6 +22,20 @@ $userIds = $filterParams['input_form']->user_ids;
 
 $needsJoin = !empty($departmentIds) || !empty($userIds);
 
+if ($filterParams['input_form']->chat_time === true) {
+	$needsJoin = true;
+
+	if (isset($filter['filtergte']['ctime'])) {
+		$filter['filtergte']['`lh_chat`.`time`'] = $filter['filtergte']['ctime'];
+		unset($filter['filtergte']['ctime']);
+	}
+
+	if (isset($filter['filterlte']['ctime'])) {
+		$filter['filterlte']['`lh_chat`.`time`'] = $filter['filterlte']['ctime'];
+		unset($filter['filterlte']['ctime']);
+	}
+}
+
 if ($needsJoin) {
     $filter['leftjoin']['lh_chat'] = array('lh_chat.id', 'lh_abstract_form_collected.chat_id');
 }

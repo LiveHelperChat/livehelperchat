@@ -89,6 +89,16 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
+    'track_field_changes' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Track field changes, field change values will be saved per operator.'),
+        'required' => false,
+        'hidden' => true,
+        'nginit' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     'one_fillment_per_chat' => array(
         'type' => 'checkbox',
         'main_attr' => 'configuration_array',
