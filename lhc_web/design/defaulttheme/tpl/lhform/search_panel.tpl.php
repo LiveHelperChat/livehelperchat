@@ -126,7 +126,7 @@
             </div>
         </div>
         <div class="col-md-12">
-            <label class="col-form-label"><input class="form-check-input" type="checkbox" name="chat_time" <?php $input->chat_time == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search by chat time, not create time')?></label>
+            <label class="col-form-label"><input class="form-check-input" type="checkbox" name="chat_time" <?php $input->chat_time == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search by chat time, not creation time.')?></label>
         </div>
         <div class="col-md-12 d-flex align-items-end">
             <div class="btn-group me-2">

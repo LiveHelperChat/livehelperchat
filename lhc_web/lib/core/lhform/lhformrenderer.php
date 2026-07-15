@@ -1077,6 +1077,44 @@ class erLhcoreClassFormRenderer {
                 }
 
                 $collectedInformation['lhc_field_changes'] = $fieldChanges;
+            } else {
+                // Original author modified — clear field change history only for fields whose value actually changed
+                $previousContent = $formCollected->content_array;
+                if (!is_array($previousContent)) {
+                    $previousContent = [];
+                }
+                $fieldChanges = isset($previousContent['lhc_field_changes']) ? $previousContent['lhc_field_changes'] : ['modified_operators' => [], 'field_history' => []];
+
+                foreach ($collectedInformation as $fieldName => $params) {
+                    if ($fieldName === 'lhc_field_changes') continue;
+                    if (!isset($params['definition']['log_changes']) || $params['definition']['log_changes'] != 'true') continue;
+
+                    $newValue = isset($params['value']) ? $params['value'] : null;
+                    $oldValue = isset($previousContent[$fieldName]['value']) ? $previousContent[$fieldName]['value'] : null;
+
+                    if ($params['definition']['type'] == 'file') {
+                        $newValue = isset($params['filename']) ? $params['filename'] : null;
+                        $oldValue = isset($previousContent[$fieldName]['filename']) ? $previousContent[$fieldName]['filename'] : null;
+                    }
+
+                    // Only clear history if the value actually changed
+                    if ($newValue === $oldValue) continue;
+
+                    if (isset($fieldChanges['field_history'][$fieldName])) {
+                        unset($fieldChanges['field_history'][$fieldName]);
+                    }
+
+                    foreach ($fieldChanges['modified_operators'] as $userId => $modifierData) {
+                        if (isset($modifierData['fields']) && in_array($fieldName, $modifierData['fields'])) {
+                            $fieldChanges['modified_operators'][$userId]['fields'] = array_values(array_diff($modifierData['fields'], [$fieldName]));
+                            if (empty($fieldChanges['modified_operators'][$userId]['fields'])) {
+                                unset($fieldChanges['modified_operators'][$userId]);
+                            }
+                        }
+                    }
+                }
+
+                $collectedInformation['lhc_field_changes'] = $fieldChanges;
             }
         }
 
