@@ -16,6 +16,18 @@ $fieldsSearch['timefrom'] = array (
     )
 );
 
+$fieldsSearch['attr_int_1_multi'] = array (
+    'type' => 'text',
+    'trans' => 'Attr int 1 multi',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => '',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['report'] = array (
     'type' => 'text',
     'trans' => 'Report',
