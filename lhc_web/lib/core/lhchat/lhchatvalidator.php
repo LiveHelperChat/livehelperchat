@@ -736,7 +736,11 @@ class erLhcoreClassChatValidator {
             if (is_array($customAdminfields)) {
 
                 foreach ($customAdminfields as $key => $adminField) {
-                   
+
+                    if (isset($adminField['showcondition']) && $adminField['showcondition'] === 'uempty' && $chat->nick !== 'Visitor' && !empty($chat->nick)) {
+                        continue;
+                    }
+
                     $fieldName = self::extractFieldName($adminField);
 
                     if (

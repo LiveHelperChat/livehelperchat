@@ -639,7 +639,7 @@ if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fie
                     'required' => $adminField['isrequired'] == 'true',
                     'name' => 'value_items_admin_'. $key,
                     'identifier' => 'value_items_admin_' . $key,
-                    'identifier_prefill' => $adminField['fieldidentifier'],
+                    'identifier_prefill' => (isset($adminField['showcondition']) && $adminField['showcondition'] === 'uempty' ? 'Username' : $adminField['fieldidentifier']),
                     'hide_prefilled' => ((isset($adminField['hide_prefilled']) && $adminField['hide_prefilled'] == true) ? true : false),
                     'value' => $adminField['defaultvalue'],
                     'priority' => ((isset($adminField['priority']) && is_numeric($adminField['priority'])) ? (int)$adminField['priority'] : 200)
