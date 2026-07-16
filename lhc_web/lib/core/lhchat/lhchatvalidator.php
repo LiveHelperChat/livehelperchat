@@ -706,6 +706,8 @@ class erLhcoreClassChatValidator {
             }
         }
         
+        $unsetAdminCustomFields = array();
+
         if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fields'] != '') {
             $customAdminfields = json_decode($start_data_fields['custom_fields'],true);
             
@@ -742,6 +744,13 @@ class erLhcoreClassChatValidator {
                     }
 
                     $fieldName = self::extractFieldName($adminField);
+
+                    if (isset($adminField['showcondition']) && $adminField['showcondition'] === 'uempty') {
+                        $unsetAdminCustomFields[] = array(
+                            'identifier' => isset($adminField['fieldidentifier']) ? $adminField['fieldidentifier'] : null,
+                            'key' => $fieldName
+                        );
+                    }
 
                     if (
                         (
@@ -941,6 +950,21 @@ class erLhcoreClassChatValidator {
                 }
 
             }
+        }
+
+        if (!empty($unsetAdminCustomFields) && $chat->nick !== 'Visitor' && !empty($chat->nick)) {
+            $stringParts = array_filter($stringParts, function($item) use ($unsetAdminCustomFields) {
+                foreach ($unsetAdminCustomFields as $adminField) {
+                    if (
+                        (isset($item['identifier']) ? $item['identifier'] : null) === $adminField['identifier'] &&
+                        (isset($item['key']) ? $item['key'] : null) === $adminField['key']
+                    ) {
+                        return false;
+                    }
+                }
+
+                return true;
+            });
         }
 
         if ($department !== false) {
