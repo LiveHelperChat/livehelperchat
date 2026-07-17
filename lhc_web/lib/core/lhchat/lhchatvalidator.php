@@ -705,84 +705,6 @@ class erLhcoreClassChatValidator {
                 $chat->chat_locale = $siteAccessOptions['content_language'];
             }
         }
-        
-        $unsetAdminCustomFields = array();
-
-        if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fields'] != '') {
-            $customAdminfields = json_decode($start_data_fields['custom_fields'],true);
-            
-            $valuesArray = array();
-            
-            // Fill values if exists
-            if ($form->hasValidData( 'value_items_admin' )){
-                $inputForm->value_items_admin = $valuesArray = $form->value_items_admin;
-            }
-
-            // If data comes from payload we process it a different way
-            if (isset($additionalParams['payload_data'])) {
-                foreach ($customAdminfields as $key => $adminField) {
-                    if (isset($additionalParams['payload_data']['value_items_admin_' . $key])) {
-                        $inputForm->value_items_admin[$key] = $valuesArray[$key] = $additionalParams['payload_data']['value_items_admin_' . $key];
-                    }
-                }
-            }
-
-            if ($form->hasValidData( 'via_hidden' )){
-                $inputForm->via_hidden = $form->via_hidden;
-            }
-            
-            if ($form->hasValidData( 'via_encrypted' )) {
-                $inputForm->via_encrypted = $form->via_encrypted;
-            }
-
-            if (is_array($customAdminfields)) {
-
-                foreach ($customAdminfields as $key => $adminField) {
-
-                    if (isset($adminField['showcondition']) && $adminField['showcondition'] === 'uempty' && $chat->nick !== 'Visitor' && !empty($chat->nick)) {
-                        continue;
-                    }
-
-                    $fieldName = self::extractFieldName($adminField);
-
-                    if (isset($adminField['showcondition']) && $adminField['showcondition'] === 'uempty') {
-                        $unsetAdminCustomFields[] = array(
-                            'identifier' => isset($adminField['fieldidentifier']) ? $adminField['fieldidentifier'] : null,
-                            'key' => $fieldName
-                        );
-                    }
-
-                    if (
-                        (
-                            isset($adminField['isrequired']) && ($adminField['isrequired'] == 'true' || $adminField['isrequired'] == 1) && !isset($inputForm->value_items_admin[$key]) && ($adminField['visibility'] == 'all' || $adminField['visibility'] == (isset($additionalParams['offline']) ? 'off' : 'on'))
-                        ) ||
-                        (
-                            isset($inputForm->value_items_admin[$key]) && isset($adminField['isrequired']) && ($adminField['isrequired'] == 'true' || $adminField['isrequired'] == 1) &&
-                            ($adminField['visibility'] == 'all' || $adminField['visibility'] == (isset($additionalParams['offline']) ? 'off' : 'on')) &&
-                            (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')
-                        )
-                    ) {
-                        $Errors[(isset($additionalParams['payload_data']) ? 'value_items_admin_' . $key : 'additional_admin_' . $key)] = trim($fieldName).': '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
-            		}
-
-            		if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
-
-            		    $valueStore = (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '');
-                        $secure = false;
-            		    if (isset($inputForm->via_encrypted[$key]) && $inputForm->via_encrypted[$key] == 't' && $valueStore != '') {
-            		        try {
-            		            $valueStore = self::decryptAdditionalField($valueStore, $chat);
-                                $secure = true;
-            		        } catch (Exception $e) {
-            		            $valueStore = $e->getMessage();
-            		        }
-            		    }
-
-            		    $stringParts[] = array('secure' => $secure, 'h' => (isset($inputForm->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $fieldName, 'value' => $valueStore);
-            		}
-                }
-            }
-        }
 
         $refererALL = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
 
@@ -820,6 +742,8 @@ class erLhcoreClassChatValidator {
         {
             $inputForm->jsvar = $form->jsvar;
         }
+
+        $identifiers = [];
 
         foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
             if (($form->hasValidData( 'jsvar' ) && isset($additionalParams['payload_data']['jsvar'][$jsVar->id]) && $additionalParams['payload_data']['jsvar'][$jsVar->id] !== null && $additionalParams['payload_data']['jsvar'][$jsVar->id] !== '') || ($jsVar->type == 5 && isset($_COOKIE[$jsVar->js_variable]))) {
@@ -944,7 +868,7 @@ class erLhcoreClassChatValidator {
                         $stringParts = array_filter($stringParts, function($item) use ($jsVar) {
                             return !isset($item['identifier']) || $item['identifier'] !== $jsVar->var_identifier;
                         });
-
+                        $identifiers[] = $jsVar->var_identifier;
                         $stringParts[] = array('secure' => $secure, 'h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                     }
                 }
@@ -952,19 +876,74 @@ class erLhcoreClassChatValidator {
             }
         }
 
-        if (!empty($unsetAdminCustomFields) && $chat->nick !== 'Visitor' && !empty($chat->nick)) {
-            $stringParts = array_filter($stringParts, function($item) use ($unsetAdminCustomFields) {
-                foreach ($unsetAdminCustomFields as $adminField) {
-                    if (
-                        (isset($item['identifier']) ? $item['identifier'] : null) === $adminField['identifier'] &&
-                        (isset($item['key']) ? $item['key'] : null) === $adminField['key']
-                    ) {
-                        return false;
+
+        if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fields'] != '') {
+            $customAdminfields = json_decode($start_data_fields['custom_fields'],true);
+            
+            $valuesArray = array();
+            
+            // Fill values if exists
+            if ($form->hasValidData( 'value_items_admin' )){
+                $inputForm->value_items_admin = $valuesArray = $form->value_items_admin;
+            }
+
+            // If data comes from payload we process it a different way
+            if (isset($additionalParams['payload_data'])) {
+                foreach ($customAdminfields as $key => $adminField) {
+                    if (isset($additionalParams['payload_data']['value_items_admin_' . $key])) {
+                        $inputForm->value_items_admin[$key] = $valuesArray[$key] = $additionalParams['payload_data']['value_items_admin_' . $key];
                     }
                 }
+            }
 
-                return true;
-            });
+            if ($form->hasValidData( 'via_hidden' )){
+                $inputForm->via_hidden = $form->via_hidden;
+            }
+            
+            if ($form->hasValidData( 'via_encrypted' )) {
+                $inputForm->via_encrypted = $form->via_encrypted;
+            }
+
+            if (is_array($customAdminfields)) {
+
+                foreach ($customAdminfields as $key => $adminField) {
+
+                    if ((isset($adminField['showcondition']) && $adminField['showcondition'] === 'uempty' && $chat->nick !== 'Visitor' && !empty($chat->nick)) || isset($adminField['fieldidentifier']) && in_array($adminField['fieldidentifier'], $identifiers)) {
+                        continue;
+                    }
+
+                    $fieldName = self::extractFieldName($adminField);
+
+                    if (
+                        (
+                            isset($adminField['isrequired']) && ($adminField['isrequired'] == 'true' || $adminField['isrequired'] == 1) && !isset($inputForm->value_items_admin[$key]) && ($adminField['visibility'] == 'all' || $adminField['visibility'] == (isset($additionalParams['offline']) ? 'off' : 'on'))
+                        ) ||
+                        (
+                            isset($inputForm->value_items_admin[$key]) && isset($adminField['isrequired']) && ($adminField['isrequired'] == 'true' || $adminField['isrequired'] == 1) &&
+                            ($adminField['visibility'] == 'all' || $adminField['visibility'] == (isset($additionalParams['offline']) ? 'off' : 'on')) &&
+                            (!isset($valuesArray[$key]) || trim($valuesArray[$key]) == '')
+                        )
+                    ) {
+                        $Errors[(isset($additionalParams['payload_data']) ? 'value_items_admin_' . $key : 'additional_admin_' . $key)] = trim($fieldName).': '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
+            		}
+
+            		if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
+
+            		    $valueStore = (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '');
+                        $secure = false;
+            		    if (isset($inputForm->via_encrypted[$key]) && $inputForm->via_encrypted[$key] == 't' && $valueStore != '') {
+            		        try {
+            		            $valueStore = self::decryptAdditionalField($valueStore, $chat);
+                                $secure = true;
+            		        } catch (Exception $e) {
+            		            $valueStore = $e->getMessage();
+            		        }
+            		    }
+
+            		    $stringParts[] = array('secure' => $secure, 'h' => (isset($inputForm->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $fieldName, 'value' => $valueStore);
+            		}
+                }
+            }
         }
 
         if ($department !== false) {
