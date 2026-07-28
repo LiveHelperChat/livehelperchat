@@ -48,6 +48,10 @@ if (isset($_POST['UploadFileAction'])) {
             {
                 if(!$header) {
                     $header = $row;
+                    // Strip BOM character from first header element
+                    if (isset($header[0])) {
+                        $header[0] = preg_replace('/^\xEF\xBB\xBF/', '', $header[0]);
+                    }
                 } else {
                     if (count($header) != count($row)) {
                         $row = $row + array_fill(count($row),count($header) - count($row),'');
@@ -96,7 +100,7 @@ if (isset($_POST['UploadFileAction'])) {
 
             $tpl->set('update', $stats);
         } else {
-            $tpl->set('errors', [erTranslationClassLhTranslation::getInstance()->getTranslation('canned/import','Expected columns does not match!')]);
+            $tpl->set('errors', [erTranslationClassLhTranslation::getInstance()->getTranslation('canned/import','Expected columns does not match!') . '<br/>' . erTranslationClassLhTranslation::getInstance()->getTranslation('canned/import','Expected:') . ' ' . json_encode($canned) . '<br/>' . erTranslationClassLhTranslation::getInstance()->getTranslation('canned/import','Actual') . ': ' . json_encode($header)]);
         }
 
     } elseif (!empty($errors)) {
