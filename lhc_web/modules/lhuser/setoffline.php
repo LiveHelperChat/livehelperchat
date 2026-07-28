@@ -13,6 +13,9 @@ try {
     }
 
     $userData = $currentUser->getUserData(true);
+    
+    // Lock the user record to prevent race conditions when updating hide_online
+    $userData->syncAndLock();
 
     if ($Params['user_parameters']['status'] == 'false') {
         $userData->hide_online = 0;
