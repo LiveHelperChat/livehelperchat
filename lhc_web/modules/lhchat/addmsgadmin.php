@@ -2,13 +2,13 @@
 header ( 'content-type: application/json; charset=utf-8' );
 $definition = array(
         'msg' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )
 );
 
 $form = new ezcInputForm( INPUT_POST, $definition );
 
-if (trim($form->msg) != '')
+if ($form->hasValidData('msg') && trim($form->msg) != '')
 {
 	$db = ezcDbInstance::get();
 	$db->beginTransaction();	
