@@ -2,6 +2,10 @@
     <label><?php echo erLhcoreClassAbstract::renderInput('ignore_bot', $fields['ignore_bot'], $object)?> <?php echo $fields['ignore_bot']['trans'];?></label>
 </div>
 
+<div class="form-group ps-3">
+    <label><?php echo erLhcoreClassAbstract::renderInput('trigger_on_bot_skip', $fields['trigger_on_bot_skip'], $object)?> <?php echo $fields['trigger_on_bot_skip']['trans'];?></label>
+</div>
+
 <div class="form-group">
     <label><?php echo erLhcoreClassAbstract::renderInput('bot_offline', $fields['bot_offline'], $object)?> <?php echo $fields['bot_offline']['trans'];?></label>
 </div>
@@ -11,11 +15,12 @@
 </div>
 
 <div class="form-group">
-    <label><?php echo erLhcoreClassAbstract::renderInput('keep_after_close', $fields['keep_after_close'], $object)?> <?php echo $fields['keep_after_close']['trans'];?></label>
+    <label><?php echo erLhcoreClassAbstract::renderInput('append_intro_bot', $fields['append_intro_bot'], $object)?> <?php echo $fields['append_intro_bot']['trans'];?></label>
 </div>
 
+
 <div class="form-group">
-    <label><?php echo erLhcoreClassAbstract::renderInput('append_intro_bot', $fields['append_intro_bot'], $object)?> <?php echo $fields['append_intro_bot']['trans'];?></label>
+    <label><?php echo erLhcoreClassAbstract::renderInput('keep_after_close', $fields['keep_after_close'], $object)?> <?php echo $fields['keep_after_close']['trans'];?></label>
 </div>
 
 <div class="form-group">

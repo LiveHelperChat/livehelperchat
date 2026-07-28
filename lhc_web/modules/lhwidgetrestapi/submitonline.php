@@ -295,6 +295,7 @@ if (empty($Errors)) {
                     // Happens with invitations where there is no message itself
                     if ($msg->msg != '') {
                         erLhcoreClassChat::getSession()->save($msg);
+                        $chat->last_msg_id = $msg->id;
                     }
 
                     if ($ignoreResponder == false && $userInstance->invitation !== false && (!isset($userInstance->invitation->design_data_array['use_default_autoresponder']) || $userInstance->invitation->design_data_array['use_default_autoresponder'] == false)) {
@@ -314,7 +315,10 @@ if (empty($Errors)) {
                             $paramsExecution['trigger_id'] = $invitation->trigger_id;
 
                             // If bot is appended to a widget we should always execute it first.
-                            if (isset($invitation->design_data_array['append_bot']) && $invitation->design_data_array['append_bot'] == 1 && !isset($requestPayload['bpayload']['payload'])) {
+                            if ((
+                                (isset($invitation->design_data_array['append_bot']) && $invitation->design_data_array['append_bot'] == 1) || 
+                                (isset($invitation->design_data_array['trigger_on_bot_skip']) && $invitation->design_data_array['trigger_on_bot_skip'] == 1)
+                            ) && !isset($requestPayload['bpayload']['payload'])) {
                                 $trigger = erLhcoreClassModelGenericBotTrigger::fetch($paramsExecution['trigger_id']);
                                 $paramsExecution['trigger_id_executed'] = $paramsExecution['trigger_id'];
                                 if (is_object($trigger)) {
