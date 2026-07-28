@@ -31,15 +31,15 @@
     </div>
 
     <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('canned/import','First row in CSV is skipped. Columns order');?> - </small>
-        <span class="badge badge-secondary mr-2">email</span>
-        <span class="badge badge-secondary mr-2">mailbox</span>
-        <span class="badge badge-secondary mr-2">name</span>
-        <span class="badge badge-secondary mr-2">attr_str_1</span>
-        <span class="badge badge-secondary mr-2">attr_str_2</span>
-        <span class="badge badge-secondary mr-2">attr_str_3</span>
-        <span class="badge badge-secondary mr-2">attr_str_4</span>
-        <span class="badge badge-secondary mr-2">attr_str_5</span>
-        <span class="badge badge-secondary">attr_str_6</span>
+        <span class="badge bg-secondary mr-2">email</span>
+        <span class="badge bg-secondary mr-2">mailbox</span>
+        <span class="badge bg-secondary mr-2">name</span>
+        <span class="badge bg-secondary mr-2">attr_str_1</span>
+        <span class="badge bg-secondary mr-2">attr_str_2</span>
+        <span class="badge bg-secondary mr-2">attr_str_3</span>
+        <span class="badge bg-secondary mr-2">attr_str_4</span>
+        <span class="badge bg-secondary mr-2">attr_str_5</span>
+        <span class="badge bg-secondary">attr_str_6</span>
     </p>
 
     <div class="form-group">
