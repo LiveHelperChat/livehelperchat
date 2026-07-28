@@ -17,7 +17,7 @@
     $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list', 1);
     $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list', 1);
 
-    $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list', 0) && erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1;
+    $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list', 0) && erLhcoreClassModelChatConfig::fetch('list_unread')->current_value == 1;
 
     $mchatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list', 1);
 

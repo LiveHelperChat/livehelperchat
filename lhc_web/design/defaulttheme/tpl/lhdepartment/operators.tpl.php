@@ -42,15 +42,15 @@ $modalSize = 'xl';
                 }
 
                 if ($only_online === true) {
-                    $paramsGroup['customfilter'][] = '(`hide_online` = 0 AND (`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ' OR `always_on` = 1))';
+                    $paramsGroup['customfilter'][] = '(`hide_online` = 0 AND (`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']) . ' OR `always_on` = 1))';
                 }
 
                 if ($only_logged === true) {
-                    $paramsGroup['customfilter'][] = '(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ')';
+                    $paramsGroup['customfilter'][] = '(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']) . ')';
                 }
 
                 if ($only_offline === true) {
-                    $paramsGroup['customfilter'][] = '(`hide_online` = 1 AND (`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ' OR `always_on` = 1))';
+                    $paramsGroup['customfilter'][] = '(`hide_online` = 1 AND (`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']) . ' OR `always_on` = 1))';
                 }
 
                 ?>

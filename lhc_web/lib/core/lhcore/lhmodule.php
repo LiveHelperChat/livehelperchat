@@ -496,7 +496,9 @@ class erLhcoreClassModule{
     	            {
     	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
     	                $valueReplace = '\''.str_replace("'","\'",(string)$valueConfig).'\'';
-    	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+                        if (erLhcoreClassLazyDatabaseConfiguration::$connectionTime !== null) {
+    	                    $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+                        }
     	            }
     		            
     	            // Compile config settings in php scripts
@@ -506,7 +508,9 @@ class erLhcoreClassModule{
     	            {
     	            	$valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data_value;
     	            	$valueReplace = var_export($valueConfig,true);
-    	            	$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+                        if (erLhcoreClassLazyDatabaseConfiguration::$connectionTime !== null) {
+    	            	    $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+                        }
     	            }
     	            	            
     	            // Compile config settings array
@@ -518,7 +522,9 @@ class erLhcoreClassModule{
     	            	$valueConfig = isset($valueHolder[$Matches[4][$key]]) ? $valueHolder[$Matches[4][$key]] : '';
     	            	$valueReplace = '';
     	            	$valueReplace = '\''.str_replace("'","\'",(string)$valueConfig).'\'';
-    	            	$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+                        if (erLhcoreClassLazyDatabaseConfiguration::$connectionTime !== null) {
+    	            	    $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+                        }
     	            }
 			    }
 			}

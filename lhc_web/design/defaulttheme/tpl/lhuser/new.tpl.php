@@ -165,7 +165,7 @@
         <label><input type="checkbox" name="pendingTabEnabled" value="1" <?php $quick_settings['enable_pending_list'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Pending chats list enabled');?></label><br>
         <label><input type="checkbox" name="activeTabEnabled" value="1" <?php $quick_settings['enable_active_list'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Active chats list enabled');?></label><br>
 
-        <?php if (erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1) : ?>
+        <?php if (erLhcoreClassModelChatConfig::fetch('list_unread')->current_value == 1) : ?>
             <label><input type="checkbox" name="unreadTabEnabled" value="1" <?php $quick_settings['enable_unread_list'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Unread chats list enabled');?></label><br>
         <?php endif; ?>
 

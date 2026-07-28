@@ -486,8 +486,10 @@ class erLhcoreClassTemplate {
 	            preg_match_all('/<\?php echo erLhcoreClassModelChatConfig::fetch\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->current_value(.*?)\?\>/i',$contentFile,$Matches);
 	            foreach ($Matches[1] as $key => $UrlAddress)
 	            {
-	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;             
-	                $contentFile = str_replace($Matches[0][$key],(string)$valueConfig,$contentFile);
+	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
+					if (erLhcoreClassLazyDatabaseConfiguration::$connectionTime !== null) {
+						$contentFile = str_replace($Matches[0][$key],(string)$valueConfig,$contentFile);
+					}
 	            }			
             
 				// Compile config settings in php scripts
@@ -498,7 +500,9 @@ class erLhcoreClassTemplate {
 	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
 	                $valueReplace = '';
 	                $valueReplace = '\''.str_replace("'","\'",(string)$valueConfig).'\'';
-	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+					if (erLhcoreClassLazyDatabaseConfiguration::$connectionTime !== null) {
+	                	$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+					}
 	            }
             	            
 				// Compile config settings in php scripts
@@ -508,7 +512,9 @@ class erLhcoreClassTemplate {
 	            {
 	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data_value;
 	                $valueReplace = var_export($valueConfig,true);
-	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+					if (erLhcoreClassLazyDatabaseConfiguration::$connectionTime !== null) {
+	                	$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+					}
 	            }            
 	            
 				// Compile config settings array
@@ -520,7 +526,9 @@ class erLhcoreClassTemplate {
 	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data[$Matches[4][$key]];
 	                $valueReplace = '';
 	                $valueReplace = '\''.str_replace("'","\'",(string)$valueConfig).'\'';
-	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+					if (erLhcoreClassLazyDatabaseConfiguration::$connectionTime !== null) {
+						$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+					}
 	            }
 			}
             

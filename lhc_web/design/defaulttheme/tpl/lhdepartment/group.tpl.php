@@ -44,7 +44,7 @@
                     'filter' => ['dep_group_id' => $item->id],
                     'ignore_fields' => $filter['ignore_fields'],
                     'group' => 'user_id, id',
-                    'customfilter' => ['(`hide_online` = 0 AND (`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ' OR `always_on` = 1))']
+                    'customfilter' => ['(`hide_online` = 0 AND (`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']) . ' OR `always_on` = 1))']
             ])); ?>
         </td>
         <td>
@@ -52,7 +52,7 @@
                     'filter' => ['dep_group_id' => $item->id, 'hide_online' => 1],
                     'ignore_fields' => $filter['ignore_fields'],
                     'group' => 'user_id, id',
-                    'customfilter' => ['(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ')']
+                    'customfilter' => ['(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']) . ')']
             ])); ?>
         </td>
         <td>
@@ -60,7 +60,7 @@
                     'filter' => ['dep_group_id' => $item->id],
                     'ignore_fields' => $filter['ignore_fields'],
                     'group' => 'user_id, id',
-                    'customfilter' => ['(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ')']
+                    'customfilter' => ['(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']) . ')']
             ]));echo $assignedOperator; ?>
         </td>
         <td nowrap ng-non-bindable>
