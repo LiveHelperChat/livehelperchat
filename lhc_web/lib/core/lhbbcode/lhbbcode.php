@@ -1138,6 +1138,7 @@ class erLhcoreClassBBCode
    }
 
    public static function makeSubmessages($msg, $paramsMessage = array()) {
+       $msg = $msg ?? '';
 
        $replacer = 'IMG_REPLACE';
 

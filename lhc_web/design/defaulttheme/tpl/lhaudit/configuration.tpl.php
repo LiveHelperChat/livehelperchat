@@ -254,6 +254,38 @@ try {
         </ul>
     </div>
 </div>
+
+<h4>Server info</h4>
+<ul>
+    <li>Server address (SERVER_ADDR) - <b><?php echo isset($_SERVER['SERVER_ADDR']) ? htmlspecialchars($_SERVER['SERVER_ADDR']) : '<span class="text-muted">N/A</span>'; ?></b></li>
+    <li>Server name (SERVER_NAME) - <b><?php echo isset($_SERVER['SERVER_NAME']) ? htmlspecialchars($_SERVER['SERVER_NAME']) : '<span class="text-muted">N/A</span>'; ?></b></li>
+    <li>Server port (SERVER_PORT) - <b><?php echo isset($_SERVER['SERVER_PORT']) ? htmlspecialchars($_SERVER['SERVER_PORT']) : '<span class="text-muted">N/A</span>'; ?></b></li>
+    <li>Server software - <b><?php echo isset($_SERVER['SERVER_SOFTWARE']) ? htmlspecialchars($_SERVER['SERVER_SOFTWARE']) : '<span class="text-muted">N/A</span>'; ?></b></li>
+    <li>Server uptime -
+        <b><?php
+            $uptime = '<span class="text-muted">N/A</span>';
+            if (PHP_OS_FAMILY === 'Linux' || PHP_OS_FAMILY === 'BSD') {
+                $uptimeRaw = @file_get_contents('/proc/uptime');
+                if ($uptimeRaw !== false) {
+                    $uptimeSeconds = (int)trim(explode(' ', $uptimeRaw)[0]);
+                    $days = floor($uptimeSeconds / 86400);
+                    $hours = floor(($uptimeSeconds % 86400) / 3600);
+                    $minutes = floor(($uptimeSeconds % 3600) / 60);
+                    $uptime = '';
+                    if ($days > 0) $uptime .= $days . 'd ';
+                    $uptime .= $hours . 'h ' . $minutes . 'm';
+                }
+            } elseif (PHP_OS_FAMILY === 'Windows') {
+                $uptimeRaw = @shell_exec('net statistics workstation 2>nul | find "Statistics since"');
+                if ($uptimeRaw !== false && $uptimeRaw !== null) {
+                    $uptime = htmlspecialchars(trim($uptimeRaw));
+                }
+            }
+            echo $uptime;
+        ?></b>
+    </li>
+</ul>
+
 <pre style="max-width: 1000px; overflow: auto">
 <?php print_r(htmlspecialchars(json_encode($_SERVER, JSON_PRETTY_PRINT)))?>
 </pre>

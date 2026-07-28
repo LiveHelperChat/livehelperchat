@@ -523,10 +523,10 @@ class erLhcoreClassModule{
 			    }
 			}
 
-            $fileCompiled = 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang.'_'.$instance->Language).'.php';
+            $fileCompiled = 'cache/compiledtemplates/'.strtok(basename($file),'.').'_'.md5($file.$instance->WWWDirLang.'_'.$instance->Language).'.php';
 
             // Atomoc template compilation to avoid concurent request compiling and writing to the same file
-            $fileTemp = 'cache/cacheconfig/'.md5(time().microtime().rand(0, 1000).$file.$instance->WWWDirLang.'_'.$instance->Language).'.php';
+            $fileTemp = 'cache/cacheconfig/'.strtok(basename($file),'.').'_'.md5(time().microtime().rand(0, 1000).$file.$instance->WWWDirLang.'_'.$instance->Language).'.php';
             file_put_contents($fileTemp,$contentFile);
 
             // Atomic file write

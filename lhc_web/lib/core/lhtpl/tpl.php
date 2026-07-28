@@ -532,10 +532,10 @@ class erLhcoreClassTemplate {
 
 
 			// Atomoc template compilation to avoid concurent request compiling and writing to the same file
-			$fileName = 'cache/compiledtemplates/'.md5(time().rand(0, 1000).microtime().$file.$instance->WWWDirLang.$instance->Language.$port).'.php';
+			$fileName = 'cache/compiledtemplates/'.strtok(basename($fileRAW),'.').'_'.md5(time().rand(0, 1000).microtime().$file.$instance->WWWDirLang.$instance->Language.$port).'.php';
 			file_put_contents($fileName,erLhcoreClassTemplate::strip_html($contentFile), LOCK_EX);
 
-			$file = 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang.$instance->Language.$port).'.php';
+			$file = 'cache/compiledtemplates/'.strtok(basename($fileRAW),'.').'_'.md5($file.$instance->WWWDirLang.$instance->Language.$port).'.php';
 
 			if (file_exists($fileName)) {
                 rename($fileName,$file);
