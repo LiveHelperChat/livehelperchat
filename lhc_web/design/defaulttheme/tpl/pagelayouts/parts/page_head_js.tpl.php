@@ -59,7 +59,7 @@ confLH.static_version = <?php echo (int)erConfigClassLhConfig::getInstance()->ge
 
 <?php if (!isset($Result['anonymous'])) : ?>
 <script src="<?php echo erLhcoreClassDesign::designJS('vendor/jquery/jquery.min.js;vendor/bootstrap/js/bootstrap.min.js;js/modernizr.js;js/lh.min.js;js/lh.cannedmsg.min.js;js/lhc.dropdown.plugin.min.js;js/jquery.hotkeys.min.js;js/fileupload/jquery.fileupload.min.js;js/jquery.zoom.min.js;js/datepicker.min.js;js/lh/dist/common.js;js/lh/dist/bundle.js;js/EventEmitter.min.js;js/events.js;js/notifiations.js;js/color-picker.min.js');?>"></script>
-<script type="module" src="<?php echo erLhcoreClassDesign::designJSStatic('js/admin/dist/react.admin.app.js');?>"></script>
+<script src="<?php echo erLhcoreClassDesign::designJSStatic('js/admin/dist/react.admin.app.js');?>"></script>
 <?php else : ?>
 
 <?php $detect = new Mobile_Detect(); if ($detect->version('IE') !== false) : ?>
