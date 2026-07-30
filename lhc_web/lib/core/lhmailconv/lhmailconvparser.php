@@ -630,9 +630,11 @@ class erLhcoreClassMailconvParser {
                         }
 
                         // Check is mail blocked only if matched rule is not a blocked one rule is not a blocking one
-                        if ((!(isset($matchingRuleSelected->options_array['block_rule']) && $matchingRuleSelected->options_array['block_rule'] == true)) && erLhcoreClassModelChatBlockedUser::isBlocked(array('email_conv' => $message->from_address))) {
-                            $statsImport[] = 'Skipping e-mail because of block for e-mail - ' . $message->from_address . ' - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
-                            continue;
+                        if (!empty($message->from_address)) {
+                            if ((!(isset($matchingRuleSelected->options_array['block_rule']) && $matchingRuleSelected->options_array['block_rule'] == true)) && erLhcoreClassModelChatBlockedUser::isBlocked(array('email_conv' => $message->from_address))) {
+                                $statsImport[] = 'Skipping e-mail because of block for e-mail - ' . $message->from_address . ' - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                                continue;
+                            }
                         }
 
                         $rfc822RawBody = '';
@@ -1446,8 +1448,10 @@ class erLhcoreClassMailconvParser {
             }
 
             // If it is block rule but e-mail is not blocked. Skip the rule.
-            if (isset($matchingRule->options_array['block_rule']) && $matchingRule->options_array['block_rule'] == true && !erLhcoreClassModelChatBlockedUser::isBlocked(array('email_conv' => $message->from_address))) {
-                $matched = false;
+            if (!empty($message->from_address)) {
+                if (isset($matchingRule->options_array['block_rule']) && $matchingRule->options_array['block_rule'] == true && !erLhcoreClassModelChatBlockedUser::isBlocked(array('email_conv' => $message->from_address))) {
+                    $matched = false;
+                }
             }
 
             if (!empty($matchingRule->from_name)) {
