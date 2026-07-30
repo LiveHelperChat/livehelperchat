@@ -189,7 +189,7 @@ if ($Params['user_parameters_unordered']['scope'] != ''){
 
 $ts = time();
 $tpl->set('captcha',array(
-    'hash' => sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )),
+    'hash' => hash('sha256',erLhcoreClassIPDetect::getFingerprint() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )),
     'ts' => $ts
 ));
 

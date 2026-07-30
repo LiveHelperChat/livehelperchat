@@ -8,7 +8,7 @@ header('Cache-Control: no-store, no-cache, must-revalidate' );
 header('Cache-Control: post-check=0, pre-check=0', false );
 header('Pragma: no-cache' );
 
-$hash = sha1(erLhcoreClassIPDetect::getIP() . $Params['user_parameters']['timets'] . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+$hash =  hash('sha256',erLhcoreClassIPDetect::getFingerprint() . $Params['user_parameters']['timets'] . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 
 if ( (time()-$Params['user_parameters']['timets']) > 600 || (time()-($Params['user_parameters']['timets'] - 600)) < 0) {
 	echo json_encode(array('result' => 'false'));
@@ -19,7 +19,7 @@ if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) 
 	// Start session if required only
 	$currentUser = erLhcoreClassUser::instance();
 	
-	$_SESSION[$_SERVER['REMOTE_ADDR']][$Params['user_parameters']['captcha_name']] = $hash;
+	$_SESSION[erLhcoreClassIPDetect::getIP()][$Params['user_parameters']['captcha_name']] = $hash;
 }
 
 echo json_encode(array('result' => $hash, 'ip' => erLhcoreClassIPDetect::getIP()));

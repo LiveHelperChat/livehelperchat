@@ -266,7 +266,7 @@ class erLhcoreClassChatValidator {
             if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
             	// Start session if required only
             	$currentUser = erLhcoreClassUser::instance();
-            	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
+            	$hashCaptcha = isset($_SESSION[erLhcoreClassIPDetect::getIP()]['form']) ? $_SESSION[erLhcoreClassIPDetect::getIP()]['form'] : null;
         		$nameField = 'captcha_'.$hashCaptcha;
             	$validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
             } else {
@@ -278,7 +278,7 @@ class erLhcoreClassChatValidator {
                     $captchaString = $additionalParams['payload_data']['tscaptcha'];
                 }
 
-    	        $nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$captchaString.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+    	        $nameField = 'captcha_'. hash('sha256', erLhcoreClassIPDetect::getFingerprint() . $captchaString . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 
     	        $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
             }
@@ -332,7 +332,7 @@ class erLhcoreClassChatValidator {
             		$Errors['captcha'] = $baseError . ' Security token is missing.';
             	} elseif ($form->$nameField < time() - 1800) {
             		$Errors['captcha'] = $baseError . ' Security token has expired.';
-            	} elseif ($hashCaptcha != sha1($_SERVER['REMOTE_ADDR'].$form->$nameField.erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))) {
+            	} elseif ($hashCaptcha != hash('sha256', erLhcoreClassIPDetect::getFingerprint() . $form->$nameField . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ))) {
             		$Errors['captcha'] = $baseError . ' Security validation failed.';
             	}
             } else {

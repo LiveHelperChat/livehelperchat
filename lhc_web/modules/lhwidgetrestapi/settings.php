@@ -585,7 +585,7 @@ $outputResponse['v'] = 422;
 
 $cfg = erConfigClassLhConfig::getInstance();
 
-$outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . $cfg->getSetting( 'site', 'secrethash' ));
+$outputResponse['hash'] = hash('sha256',erLhcoreClassIPDetect::getFingerprint() . $ts . $cfg->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
 
 if (is_array($department) && !empty($department)) {

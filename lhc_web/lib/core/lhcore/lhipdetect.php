@@ -22,6 +22,31 @@ class erLhcoreClassIPDetect
         return $_SERVER["REMOTE_ADDR"];
     }
 
+    public static function getFingerprint()
+    {
+        $headers = array(
+            'HTTP_USER_AGENT',
+            'HTTP_ACCEPT_LANGUAGE',
+            'HTTP_ACCEPT_ENCODING',
+            'HTTP_ACCEPT_CHARSET',
+        );
+
+        $parts = array();
+        foreach ($headers as $header) {
+            if (isset($_SERVER[$header]) && $_SERVER[$header] !== '') {
+                $parts[] = $_SERVER[$header];
+            }
+        }
+
+        $fingerprint = '';
+        if (!empty($parts)) {
+            $fingerprint = sha1(implode('|', $parts));
+        }
+
+        return $fingerprint;
+    }
+
+
     public static function getServerAddress()
     {
         if (array_key_exists('SERVER_ADDR', $_SERVER))

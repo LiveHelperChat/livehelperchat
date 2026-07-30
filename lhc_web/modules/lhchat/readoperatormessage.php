@@ -188,11 +188,11 @@ if (isset($_POST['askQuestion']))
     if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) {
     	// Start session if required only
     	$currentUser = erLhcoreClassUser::instance();
-    	$hashCaptcha = isset($_SESSION[$_SERVER['REMOTE_ADDR']]['form']) ? $_SESSION[$_SERVER['REMOTE_ADDR']]['form'] : null;
-    	$nameField = 'captcha_'.$hashCaptcha;
+    	$hashCaptcha = isset($_SESSION[erLhcoreClassIPDetect::getIP()]['form']) ? $_SESSION[erLhcoreClassIPDetect::getIP()]['form'] : null;
+    	$nameField = 'captcha_'. $hashCaptcha;
     } else {
     	// Captcha stuff
-    	$nameField = 'captcha_'.sha1(erLhcoreClassIPDetect::getIP().$_POST['tscaptcha'].erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
+    	$nameField = 'captcha_'. hash('sha256',erLhcoreClassIPDetect::getFingerprint() . $_POST['tscaptcha'] . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
     }
     
     $validationFields[$nameField] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'string' );
