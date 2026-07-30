@@ -10,7 +10,7 @@ header('Pragma: no-cache' );
 
 $hash = sha1(erLhcoreClassIPDetect::getIP() . $Params['user_parameters']['timets'] . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 
-if ( (time()-$Params['user_parameters']['timets']) > 600 || (time()-($Params['user_parameters']['timets'] - 5)) < 0) {
+if ( (time()-$Params['user_parameters']['timets']) > 600 || (time()-($Params['user_parameters']['timets'] - 600)) < 0) {
 	echo json_encode(array('result' => 'false'));
 	exit;
 }

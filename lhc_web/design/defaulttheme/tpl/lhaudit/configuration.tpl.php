@@ -149,6 +149,8 @@
             <span class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you have set your time zone in account. Make sure you set it in default settings file also.');?></span>
         <?php endif; ?>
         ]</b></li>
+        <li>Sever Unix Timestamp: <?php echo time();?></li>
+        <li>User Timestamp: <b><script>document.write(Math.round((new Date()).getTime()/1000));</script></b></li>
 </ul>
 
 <?php if (!class_exists('erLhcoreClassInstance') && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_system')) : ?>

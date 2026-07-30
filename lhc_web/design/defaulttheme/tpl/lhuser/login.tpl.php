@@ -43,7 +43,8 @@
             <input type="submit" class="btn btn-primary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login');?>" name="Login" />
             <a class="btn btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('user/forgotpassword')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Password reminder')?></a>
         </div>
-        <div class="text-muted small fs11"><em><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Your IP');?>: <?php echo htmlspecialchars(erLhcoreClassIPDetect::getIP());?></em></div>
+        <div class="text-muted small fs11"><em><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Your IP');?>: <?php echo htmlspecialchars(erLhcoreClassIPDetect::getIP());?></em>
+        <div class="hide"><br><em>Server: <?php echo time();?> / User: <script>document.write(Math.round((new Date()).getTime()/1000));</script></em></div></div>
     </div>
 
 
