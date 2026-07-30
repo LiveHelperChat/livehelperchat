@@ -22,6 +22,6 @@ if (erLhcoreClassModelChatConfig::fetch('session_captcha')->current_value == 1) 
 	$_SESSION[$_SERVER['REMOTE_ADDR']][$Params['user_parameters']['captcha_name']] = $hash;
 }
 
-echo json_encode(array('result' => $hash));
+echo json_encode(array('result' => $hash, 'ip' => erLhcoreClassIPDetect::getIP()));
 
 exit;
