@@ -94,7 +94,7 @@ $modalSize = 'xl';
                     <td><?php echo $member->inactive_chats?></td>
                     <td class="w-20 <?php if ($department->assign_same_language == 0) : ?>text-muted<?php endif;?>">
                         <div class="abbr-list abbr-list-lang" style="max-width: 150px;" data-bs-toggle="tooltip" data-placement="left" title="<?php $itemLanguages = erLhcoreClassModelSpeechUserLanguage::getList(['filter' => ['user_id' => $member->user_id]]); foreach ($itemLanguages as $lang) : ?><?php echo htmlspecialchars($lang->language . ' ')?><?php endforeach; ?>">
-                            <?php foreach ($itemLanguages as $lang) : ?><span class="badge badge-<?php if ($department->assign_same_language == 1) : ?>success<?php else : ?>secondary<?php endif;?> me-1"><?php echo htmlspecialchars($lang->language)?></span><?php endforeach; ?>
+                            <?php foreach ($itemLanguages as $lang) : ?><span class="badge bg-<?php if ($department->assign_same_language == 1) : ?>success<?php else : ?>secondary<?php endif;?> me-1"><?php echo htmlspecialchars($lang->language)?></span><?php endforeach; ?>
                         </div>
                     </td>
                 </tr>

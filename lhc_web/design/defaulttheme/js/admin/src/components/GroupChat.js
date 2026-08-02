@@ -440,7 +440,7 @@ const GroupChat = props => {
 
                     {state.operators.map((operator, index) => (
                         <button className="btn btn-sm fs12 btn-outline-secondary mb-1 me-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}
-                                            {!operator.jtime && <span className="ms-1 badge badge-info fs11">{t('operator.pending_join')}</span>} <i className="material-icons">{operator.hide_online ? 'flash_off' : 'flash_on'}</i>{operator.last_activity_ago}</button>
+                                            {!operator.jtime && <span className="ms-1 badge bg-info fs11">{t('operator.pending_join')}</span>} <i className="material-icons">{operator.hide_online ? 'flash_off' : 'flash_on'}</i>{operator.last_activity_ago}</button>
                     ))}
 
                 </div>}
@@ -472,7 +472,7 @@ const GroupChat = props => {
                                 <ul className="list-group list-group-flush border-0 mw-100 mx275">
                                     {state.operators.map((operator, index) => (
                                         <li className="list-group-item ps-1 py-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}<span className="float-end fs11">
-                                            {!operator.jtime && <span className="badge badge-info fs11">{t('operator.pending_join')}</span>} {operator.last_activity_ago} <i className="material-icons">{operator.hide_online ? 'flash_off' : 'flash_on'}</i>
+                                            {!operator.jtime && <span className="badge bg-info fs11">{t('operator.pending_join')}</span>} {operator.last_activity_ago} <i className="material-icons">{operator.hide_online ? 'flash_off' : 'flash_on'}</i>
                                         </span>
                                         </li>
                                     ))}

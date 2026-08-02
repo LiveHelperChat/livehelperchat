@@ -2,6 +2,8 @@
 
 class Install
 {
+    private $settings;
+
     function __construct($ini_file)
     {
         openlog("livehelperchat", LOG_PID | LOG_PERROR, LOG_LOCAL0);
@@ -60,13 +62,17 @@ class Install
 
     function step2() {
         $Errors = [];
-        $database = $this->settings['db'];
+        $database = isset($this->settings['db']) ? $this->settings['db'] : null;
+        if (!is_array($database)) {
+            $Errors[] = 'Database configuration not found. Check your settings.ini file.';
+            return $Errors;
+        }
         foreach ($database as $key => $value) {
             if (!filter_var($database[$key], FILTER_UNSAFE_RAW)) {
                 $Errors[] = "Please enter database $key";
             }
         }
-        if (!filter_var($database['database'], FILTER_SANITIZE_STRING))
+        if (!filter_var($database['database']))
         {
             $Errors[] = 'Please enter database name';
         }
@@ -94,6 +100,11 @@ class Install
     function step3() {
 
         $Errors = [];
+
+        if (!isset($this->settings['admin']) || !is_array($this->settings['admin'])) {
+            $Errors[] = 'Admin configuration not found. Check your settings.ini file.';
+            return $Errors;
+        }
 
         $form = (object)$this->settings['admin'];
         if (!filter_var($form->AdminUsername, FILTER_UNSAFE_RAW))
@@ -2993,7 +3004,7 @@ class Install
 
         return substr(decoct($perms), $cut);
     }
-    private function file_is_writable($directories, $preffix = '', &$Errors) {
+    private function file_is_writable($directories, $preffix, &$Errors) {
         foreach ($directories as $directory) {
             $error = false;
             syslog(LOG_DEBUG, "Evaluate $directory if writable");
