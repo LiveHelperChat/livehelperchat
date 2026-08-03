@@ -128,10 +128,25 @@ class ezcDbHandlerMysql extends ezcDbHandler
         } catch (Exception $e) {
             if ($e->errorInfo[1] == 2006 && $this->reconnectedCounter < 5) {
                 $this->reconnectedCounter++;
-                parent::__construct( $this->dbParams, $this->dsn );
-                $this->query('SET NAMES \'utf8mb4\' COLLATE \'utf8mb4_unicode_ci\'');
+                $this->reconnectClean();
             }
         }
+
+        // After a fork (php-resque workers), PDO may report an active
+        // transaction on the inherited connection even though ezc's
+        // $transactionNestingLevel was reset to 0 in the child. Force
+        // a fresh connection to clear the stale PDO state.
+        if ($this->inTransaction()) {
+            $this->reconnectedCounter++;
+            $this->reconnectClean();
+        }
+    }
+
+    private function reconnectClean()
+    {
+        parent::__construct( $this->dbParams, $this->dsn );
+        $this->query('SET NAMES \'utf8mb4\' COLLATE \'utf8mb4_unicode_ci\'');
+        $this->transactionNestingLevel = 0;
     }
     
     /**
