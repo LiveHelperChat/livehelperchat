@@ -53,6 +53,10 @@ try {
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Provided survey does not exists!'));
         }
         
+        if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme) {
+            $theme->translate(['ou' => $chat->online_user]);
+        }
+
         $survey->translate();
 
         if ($survey instanceof erLhAbstractModelSurvey) {

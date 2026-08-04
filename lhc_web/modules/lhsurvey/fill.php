@@ -50,6 +50,10 @@ try {
 
     if ($chat->hash == $hash)
     {
+        if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme) {
+            $theme->translate(['ou' => $chat->online_user]);
+        }
+        
         $survey = erLhAbstractModelSurvey::fetch($Params['user_parameters_unordered']['survey']);
         $surveyItem = erLhAbstractModelSurveyItem::getInstance($chat, $survey);
 
