@@ -524,7 +524,7 @@
                                 <p class="text-muted fs13 fst-italic mb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Controls chat priority queue matching. Chats with specific priority values are assigned only to operators whose priority ranges match. Operators must have matching chat_min_priority / chat_max_priority ranges set in their department assignment.')?></p>
 
                                 <div class="form-group">
-                                    <label><input type="checkbox" class="depend-block-show-control" name="active_prioritized_assignment" value="on" <?php if (isset($departament->bot_configuration_array['active_prioritized_assignment']) && $departament->bot_configuration_array['active_prioritized_assignment'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Activate prioritized assignment');?></label>
+                                    <label><input type="checkbox" class="depend-block-show-control" name="active_prioritized_assignment" value="on" <?php if (isset($departament->bot_configuration_array['active_prioritized_assignment']) && $departament->bot_configuration_array['active_prioritized_assignment'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Enable chat priority queue');?></label>
                                 </div>
 
                                 <div class="hide depend-block-show-active_prioritized_assignment">
@@ -543,16 +543,16 @@
                                     </fieldset>
 
                                     <div class="form-group">
-                                        <label><input type="checkbox" name="only_priority" value="on" <?php if (isset($departament->bot_configuration_array['only_priority']) && $departament->bot_configuration_array['only_priority'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Assign only operators who have opted into the department priority queue');?></label>
-                                        <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','By default, priority chats are assigned to all operators who match the priority queue options. This option restricts assignment to only those operators who have explicitly opted into the department priority queue.');?></i></small></p>
+                                        <label><input type="checkbox" name="only_priority" value="on" <?php if (isset($departament->bot_configuration_array['only_priority']) && $departament->bot_configuration_array['only_priority'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Assign only operators who have opted into the chat priority queue');?></label>
+                                        <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','By default, priority chats are assigned to all operators who match the priority queue options. This option restricts assignment to only those operators who have explicitly opted into the chat priority queue.');?></i></small></p>
                                     </div>
                                     <div class="row">
                                          <div class="col-6">
-                                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum chat priority for it being processed with prioritized assignment workflow. Inclusive.');?></label>
+                                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum chat priority processed by chat priority queue. Inclusive.');?></label>
                                             <input type="number" class="form-control form-control-sm" name="min_chat_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['min_chat_priority']) ? $departament->bot_configuration_array['min_chat_priority'] : '0');?>" />
                                         </div>
                                         <div class="col-6">
-                                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum chat priority for it being processed with prioritized assignment workflow. Inclusive.');?></label>
+                                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum chat priority processed by chat priority queue. Inclusive.');?></label>
                                             <input type="number" class="form-control form-control-sm" name="max_chat_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['max_chat_priority']) ? $departament->bot_configuration_array['max_chat_priority'] : '0');?>" />
                                         </div>
                                     </div>

@@ -15,7 +15,7 @@
     <legend class="fs13 float-none w-auto mb-0 px-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chat priority queue')?></legend>
     <div class="row pb-1">
         <div class="col-12 fs13 text-muted pb-1">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min and Max chat priority for chat being assigned by department priority assignment flow. Inclusive.')?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min and Max chat priority processed by chat priority queue. Inclusive.')?></label>
         </div>
         <div class="col-6">
             <input name="chat_min_priority" value="<?php echo $userDep->chat_min_priority?>" type="text" class="form-control form-control-sm" />
@@ -26,8 +26,8 @@
     </div>
 
     <div class="pt-1">
-        <label><input type="checkbox" name="only_priority" value="on" <?php echo $userDep->only_priority == 1 ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Participate only in department priority assignment queue')?></label>
-        <p class="text-muted fs13 fst-italic mb-0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Agent will not participate in regular auto assignment flow. Only department priority assignment chats will be assigned.')?></p>
+        <label><input type="checkbox" name="only_priority" value="on" <?php echo $userDep->only_priority == 1 ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Opt into chat priority queue')?></label>
+        <p class="text-muted fs13 fst-italic mb-0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Agent will not participate in regular auto assignment flow. Only chat priority queue chats will be assigned.')?></p>
     </div>
 </fieldset>
 
