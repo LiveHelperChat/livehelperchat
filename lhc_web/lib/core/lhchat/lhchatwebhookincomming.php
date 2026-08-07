@@ -2432,6 +2432,7 @@ class erLhcoreClassChatWebhookIncoming {
             // File extension
             $partsExtension = explode('.',strtok($url, '?'));
             $file_extension = array_pop($partsExtension);
+            $upload_name_extension = strtolower(pathinfo($upload_name, PATHINFO_EXTENSION));
 
             if (isset($overrideAttributes['mime_type']) && !empty($overrideAttributes['mime_type']) && ($file_extension_mime = self::getExtensionByMime($overrideAttributes['mime_type'])) !== false) {
                 $file_extension = $file_extension_mime;
@@ -2442,7 +2443,11 @@ class erLhcoreClassChatWebhookIncoming {
 
             // We want to validate is extension valid one from our defined one
             if (self::getExtensionByMime($file_extension, true) === false) {
-                $file_extension = 'bin';
+                if ($upload_name_extension !== '' && self::getExtensionByMime($upload_name_extension, true) !== false) {
+                    $file_extension = $upload_name_extension;
+                } else {
+                    $file_extension = 'bin';
+                }
             }
 
         } else {
@@ -2488,6 +2493,12 @@ class erLhcoreClassChatWebhookIncoming {
                 $extension = self::getExtensionByMime($mimeType);
                 if ($extension !== false) {
                     $fileUpload->extension = $extension;
+                    $mimeTypeByExtension = self::getExtensionByMime($extension, true);
+                    if ($mimeTypeByExtension !== null) {
+                        $mimeType = $mimeTypeByExtension;
+                    }
+                } elseif (($mimeTypeByExtension = self::getExtensionByMime($fileUpload->extension, true)) !== null) {
+                    $mimeType = $mimeTypeByExtension;
                 }
             }
 
