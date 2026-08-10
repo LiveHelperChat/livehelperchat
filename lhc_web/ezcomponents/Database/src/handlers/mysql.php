@@ -124,21 +124,17 @@ class ezcDbHandlerMysql extends ezcDbHandler
     public function reconnect()
     {
         try {
-            @$this->query('SELECT 1');
+            $this->query('SELECT 1')->closeCursor();
         } catch (Exception $e) {
             if ($e->errorInfo[1] == 2006 && $this->reconnectedCounter < 5) {
-                $this->reconnectedCounter++;
-                $this->reconnectClean();
+                try {
+                    $this->reconnectClean();
+                    $this->reconnectedCounter = 0;
+                } catch (Exception $eReconnect) {
+                    $this->reconnectedCounter++;
+                    throw $eReconnect;
+                }
             }
-        }
-
-        // After a fork (php-resque workers), PDO may report an active
-        // transaction on the inherited connection even though ezc's
-        // $transactionNestingLevel was reset to 0 in the child. Force
-        // a fresh connection to clear the stale PDO state.
-        if ($this->inTransaction()) {
-            $this->reconnectedCounter++;
-            $this->reconnectClean();
         }
     }
 

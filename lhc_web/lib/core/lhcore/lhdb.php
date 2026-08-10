@@ -2,7 +2,6 @@
 
 class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInitializer
 {
-     private static $connectionMaster;
      public static $connectionTime = null;
      public static $connectionStartTime = null;
 
@@ -33,7 +32,6 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                      return $db;
                  } else {
                      // Perhaps connection is already done with master?
-                     if (isset(self::$connectionMaster)) return self::$connectionMaster;
                      try {
                         $db = ezcDbFactory::create( "mysql://{$cfg->getSetting( 'db', 'user' )}:{$cfg->getSetting( 'db', 'password' )}@{$cfg->getSetting( 'db', 'host' )}:{$cfg->getSetting( 'db', 'port' )}/{$cfg->getSetting( 'db', 'database' )}" );
                         $db->query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'");
@@ -44,7 +42,6 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                             } catch (Exception $e) {
                              }
                         }
-                        self::$connectionMaster = $db;
                         return $db;
                     } catch (Exception $e) {
                       error_log($e);
@@ -67,7 +64,6 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
              case false: // Default instance
              {
                 try {
-                    if (isset(self::$connectionMaster)) return self::$connectionMaster; // If we do not user slaves and slave request already got connection
                     self::$connectionStartTime = microtime(true);
                     $db = ezcDbFactory::create( "mysql://{$cfg->getSetting( 'db', 'user' )}:{$cfg->getSetting( 'db', 'password' )}@{$cfg->getSetting( 'db', 'host' )}:{$cfg->getSetting( 'db', 'port' )}/{$cfg->getSetting( 'db', 'database' )}" );
                     $db->query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'");
@@ -80,7 +76,6 @@ class erLhcoreClassLazyDatabaseConfiguration implements ezcBaseConfigurationInit
                         }
                     }
                     self::$connectionTime = microtime(true) - self::$connectionStartTime;
-                    self::$connectionMaster = $db;
                     return $db;
                 } catch (Exception $e) {
                 	// Are we installed?
