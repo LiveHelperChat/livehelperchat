@@ -9,6 +9,10 @@ class erLhcoreClassMailconv {
         return self::$persistentSession;
     }
 
+    public static function resetSession()
+    {
+        self::$persistentSession = null;
+    }
 
     public static $messagesAttributes = [
         'udate_front',

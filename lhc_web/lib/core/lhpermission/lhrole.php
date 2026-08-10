@@ -80,6 +80,11 @@ class erLhcoreClassRole{
         }
         return self::$persistentSession;
    }
+
+   public static function resetSession()
+   {
+       self::$persistentSession = null;
+   }
       
    /**
     * Returns something like that

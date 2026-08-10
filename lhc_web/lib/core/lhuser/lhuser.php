@@ -294,9 +294,9 @@ class erLhcoreClassUser{
 
            erLhcoreClassUserDep::updateLastActivityByUser($this->userid, 0);
        }
-       
+
        $this->session->destroy();
-       
+
        @session_regenerate_id(true);
        @session_destroy();
    }
@@ -311,6 +311,11 @@ class erLhcoreClassUser{
             );
         }
         return self::$persistentSession;
+   }
+
+   public static function resetSession()
+   {
+       self::$persistentSession = null;
    }
 
    function getUserData($useCache = false)

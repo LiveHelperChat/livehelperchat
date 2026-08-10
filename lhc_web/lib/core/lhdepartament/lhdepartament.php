@@ -1183,10 +1183,10 @@ class erLhcoreClassDepartament{
         return self::$persistentSession;
    }
 
-    public static function resetSession()
-    {
-        self::$persistentSession = null;
-    }
+   public static function resetSession()
+   {
+       self::$persistentSession = null;
+   }
 
    private static $persistentSession;
 

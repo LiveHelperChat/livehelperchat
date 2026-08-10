@@ -454,6 +454,11 @@ class erLhcoreClassUserDep
         return self::$persistentSession;
     }
 
+    public static function resetSession()
+    {
+        self::$persistentSession = null;
+    }
+
     private static $persistentSession;
 
 }
