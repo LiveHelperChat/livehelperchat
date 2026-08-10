@@ -21,8 +21,12 @@ $objectData = new $objectClass;
 $object_trans = $objectData->getModuleTranslations();
 
 if (isset($object_trans['permission']) && !$currentUser->hasAccessTo($object_trans['permission']['module'],$object_trans['permission']['function'])) {
-    erLhcoreClassModule::redirect();
-    exit;
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/nopermission.tpl.php');
+    $tpl->set('module',['module' => ['functions' => [$object_trans['permission']['function']]]]);
+    $tpl->set('module_name',$object_trans['permission']['module']);
+    $Result['content'] = $tpl->fetch();
+    $Result['pagelayout'] = 'login';
+    return $Result;
 }
 
 $append = '';
