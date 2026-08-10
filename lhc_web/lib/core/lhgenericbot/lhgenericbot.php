@@ -14,6 +14,11 @@ class erLhcoreClassGenericBot {
         return self::$persistentSession;
     }
 
+    public static function resetSession()
+    {
+        self::$persistentSession = null;
+    }
+
     public static function validateBot(& $bot, $additionalParams = array()) {
 
         $definition = array(

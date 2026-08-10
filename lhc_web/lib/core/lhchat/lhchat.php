@@ -1807,6 +1807,11 @@ class erLhcoreClassChat {
         return self::$persistentSession;
    }
 
+   public static function resetSession()
+   {
+       self::$persistentSession = null;
+   }
+
    public static function formatDate($ts) {
 	   	if (date('Ymd') == date('Ymd',$ts)) {
 	   		return date(erLhcoreClassModule::$dateHourFormat,$ts);

@@ -521,6 +521,11 @@ class erLhcoreClassAbstract
         return self::$persistentSession;
     }
 
+    public static function resetSession()
+    {
+        self::$persistentSession = null;
+    }
+
     private static $persistentSession;
     private static $instance = null;
 }
