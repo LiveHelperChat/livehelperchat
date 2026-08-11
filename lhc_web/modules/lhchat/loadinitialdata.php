@@ -117,7 +117,7 @@ if ($activityTimeout == -1) {
 // Perhaps it's set at global level
 $trackActivity = (int)erLhcoreClassModelChatConfig::fetchCache('activity_track_all')->current_value;
 
-if ($trackActivity == 0) {
+if ($trackActivity == 0 || $currentUser->hasAccessTo('lhuser','ignoreactivityglobal')) {
     $trackActivity = (int)erLhcoreClassModelUserSetting::getSetting('trackactivity',0);
 }
 

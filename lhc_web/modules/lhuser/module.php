@@ -269,6 +269,7 @@ $FunctionList['change_name_surname'] = array('explain' => 'Allow user to change 
 $FunctionList['change_password'] = array('explain' => 'Allow user to change their password');
 $FunctionList['pswdsecurity'] = array('explain' => 'Allow user to manage password requirements');
 $FunctionList['largeactivitytimeout'] = array('explain' => 'Allow user to choose a large inactivity timeout');
+$FunctionList['ignoreactivityglobal'] = array('explain' => 'Allow user to personally track or not track activity');
 $FunctionList['clone'] = array('explain' => 'Allow user to clone other user and his settings');
 
 ?>

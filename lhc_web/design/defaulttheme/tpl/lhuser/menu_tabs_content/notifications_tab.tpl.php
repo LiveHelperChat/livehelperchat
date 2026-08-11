@@ -57,8 +57,8 @@
 
                 </div>
                 <div class="col-6">
-                
-                     <?php if ((int)erLhcoreClassModelChatConfig::fetch('activity_track_all')->current_value == 1) : ?>
+
+                     <?php if ((int)erLhcoreClassModelChatConfig::fetch('activity_track_all')->current_value == 1 && !erLhcoreClassUser::instance()->hasAccessTo('lhuser','ignoreactivityglobal')) : ?>
                      <div class="alert alert-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.')?></div>
                      <?php endif; ?>
                      
