@@ -161,7 +161,8 @@ $ViewList['setsettingajaxraw'] = array (
 
 $ViewList['setoffline'] = array (
 		'functions' => array( 'changeonlinestatus' ),
-		'params' => array('status')
+		'params' => array('status'),
+		'uparams' => array('reason')
 );
 
 $ViewList['setalwaysonline'] = array (
@@ -238,7 +239,7 @@ $FunctionList['see_user_assigned_departments_groups'] = array('explain' => 'Allo
 $FunctionList['see_assigned_departments'] = array('explain' => 'Allow user to see departments assigned to them');
 $FunctionList['see_assigned_departments_groups'] = array('explain' => 'Allow user to see departments groups assigned to them');
 $FunctionList['editdepartaments'] = array('explain' => 'Allow user to edit their own responsible departments/departments groups');
-
+$FunctionList['offlinereasons'] = array('explain' => 'Allow user to manage offline reasons');
 
 $FunctionList['userlistonline'] = array('explain' => 'Allow user to see logged operators list, only from their department');
 $FunctionList['userlistonlineall'] = array('explain' => 'Allow user to see logged operators list, not only from their department');

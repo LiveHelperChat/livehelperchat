@@ -36,6 +36,10 @@
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/onlinehours')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Online hours');?></a></li>
 		    <?php endif; ?>
 
+		    <?php if ($currentUser->hasAccessTo('lhuser','offlinereasons')) : ?>
+		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/OfflineReason"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Offline reasons');?></a></li>
+		    <?php endif; ?>
+
 
 		</ul>		     
 	 <?php endif; ?>

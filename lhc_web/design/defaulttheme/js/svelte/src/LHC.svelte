@@ -710,11 +710,13 @@
                 list.lhcMessageConnection = data.message_connection;
             }
             list.alwaysOnline = data.a_on;
+            list.offlineReasonId = data.ori || 0;
             list.additionalColumns = data.col;
             list.widgetsActive = data.widgets;
             list.bot_st = data.bot_st;
             list.excludeIcons = data.exc_ic;
             list.notifIcons = data.not_ic;
+            list.offlineReasons = data.offline_reasons || [];
             return list;
         });
 

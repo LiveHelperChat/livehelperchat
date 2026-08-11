@@ -10,6 +10,7 @@
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Start activity');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Last activity');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Duration');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Offline reason');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Chats served');?></th>
 </tr>
 </thead>
@@ -36,6 +37,7 @@
         <td><?php echo htmlspecialchars($item->time_front)?>&nbsp;<?php if ($item->type == erLhcoreClassModelUserOnlineSession::ONLINE) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went online');?><?php endif; ?></td>
         <td><?php echo htmlspecialchars($item->lactivity_front)?>&nbsp;<?php if ($item->type == erLhcoreClassModelUserOnlineSession::OFFLINE) :?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went offline');?><?php endif; ?></td>
         <td><?php echo $item->duration_front?></td>
+        <td><?php echo htmlspecialchars($item->offline_reason_name)?></td>
         <td>
             <?php if ( $item->chatsOnline > 0) : ?>
             <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $item->user_id?>/(timeto_seconds)/<?php echo date('s',$item->lactivity)?>/(timeto_minutes)/<?php echo date('i',$item->lactivity)?>/(timeto_hours)/<?php echo date('H',$item->lactivity)?>/(timeto)/<?php echo date('Y-m-d',$item->lactivity)?>/(timefrom)/<?php echo date('Y-m-d',$item->time)?>/(timefrom_hours)/<?php echo date('H',$item->time)?>/(timefrom_minutes)/<?php echo date('i',$item->time)?>/(timefrom_seconds)/<?php echo date('s',$item->time)?>" target="_blank"><span class="material-icons">open_in_new</span> <?php echo $item->chatsOnline?></a>

@@ -20,7 +20,8 @@ class erLhcoreClassModelUserOnlineSession
             'time' => $this->time,
             'lactivity' => $this->lactivity,
             'duration' => $this->duration,
-            'type' => $this->type
+            'type' => $this->type,
+            'offline_reason_id' => $this->offline_reason_id
         );
     }
     
@@ -59,7 +60,20 @@ class erLhcoreClassModelUserOnlineSession
             
             case 'user_name':
        			return $this->user_name = (string)$this->user;
-       		break;	
+       		break;
+
+            case 'offline_reason_name':
+                $this->offline_reason_name = '';
+                if ($this->offline_reason_id > 0) {
+                    try {
+                        $reason = \LiveHelperChat\Models\LHCAbstract\OfflineReason::fetch($this->offline_reason_id);
+                        $this->offline_reason_name = (string)$reason;
+                    } catch (Exception $e) {
+                        $this->offline_reason_name = '';
+                    }
+                }
+                return $this->offline_reason_name;
+            break;	
             
             default:
                 ;
@@ -127,6 +141,7 @@ class erLhcoreClassModelUserOnlineSession
     public $lactivity = null;
     public $duration = null;
     public $type = self::ACTIVITY;
+    public $offline_reason_id = 0;
 
     public $chatsOnline = 0;
 

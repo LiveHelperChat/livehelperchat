@@ -248,6 +248,7 @@ $response = array(
     'ho' => $userData->hide_online == 1,
     'a_on' => ($userData->always_on == 1),
     'im' => ($userData->invisible_mode == 1),
+    'ori' => (int)$userData->offline_reason_id,
     'user_groups' => array_values(erLhcoreClassModelGroup::getList($groupListParams)),
     'track_activity' => $trackActivity,
     'cgdel' => $chatgDel,
@@ -265,7 +266,10 @@ $response = array(
     'bot_st' => array(
         'msg_nm' =>  (int)erLhcoreClassModelUserSetting::getSetting('bot_msg_nm',3),
         'bot_notifications' => (int)erLhcoreClassModelUserSetting::getSetting('bot_notifications',0)
-    )
+    ),
+    'offline_reasons' => array_values(array_map(function($r) {
+        return ['id' => $r->id, 'name' => $r->name, 'icon' => $r->icon, 'desc' => $r->description];
+    }, \LiveHelperChat\Models\LHCAbstract\OfflineReason::getList(['sort' => 'pos DESC, name ASC', 'limit' => false])))
 );
 
 $noticeOptions = erLhcoreClassModelChatConfig::fetch('notice_message');

@@ -27,6 +27,8 @@ export const lhcList = writable({
     additionalColumns: [],
     excludeIcons: [],
     notifIcons: [],
+    offlineReasons: [],
+    offlineReasonId: 0,
     departmentd: [],
     departmentd_dpgroups: [],
     departmentdNames: [],

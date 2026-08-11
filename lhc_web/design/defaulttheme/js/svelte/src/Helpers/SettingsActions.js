@@ -20,7 +20,15 @@ export async function updateSettings(params) {
     const data = await responseTrack.json();
 
     if (data.error === false) {
-        params['store'].update((list) => {list[params['attr']] = !list[params['attr']]; return list;});
+        params['store'].update((list) => {
+            list[params['attr']] = params.hasOwnProperty('setVal') ? params['setVal'] : !list[params['attr']];
+            if (params['setAttrs']) {
+                for (const [key, val] of Object.entries(params['setAttrs'])) {
+                    list[key] = val;
+                }
+            }
+            return list;
+        });
     } else if (typeof data.message !== 'undefined') {
         alert(data.message);
     } else if (typeof data.msg !== 'undefined') {

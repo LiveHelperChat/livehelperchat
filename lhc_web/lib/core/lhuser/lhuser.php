@@ -347,7 +347,7 @@ class erLhcoreClassUser{
        return $this->userid;
    }
 
-   function updateLastVisit($lda = 0, $action = 0, $user_id = 0)
+   function updateLastVisit($lda = 0, $action = 0, $user_id = 0, $offline_reason_id = 0)
    {
        $statusUpdate = ['update_required' => false, 'updated' => (isset($_SESSION['lhc_online_session']) ? $_SESSION['lhc_online_session'] : 0)];
 
@@ -382,17 +382,25 @@ class erLhcoreClassUser{
                      }
 
                      if (is_numeric($id) && $id > 0) {
-                         $stmt = $db->prepare('UPDATE `lh_users_online_session` SET `lactivity` = :lactivity, `duration` = :lactivity_two - `time`, `type` = '.($action > 0 ? (int)$action : '`type`').' WHERE `id` = :id');
+                         $offlineReasonSet = ($action === 2 && $offline_reason_id > 0) ? ', `offline_reason_id` = :offline_reason_id' : '';
+                         $stmt = $db->prepare('UPDATE `lh_users_online_session` SET `lactivity` = :lactivity, `duration` = :lactivity_two - `time`, `type` = '.($action > 0 ? (int)$action : '`type`').$offlineReasonSet.' WHERE `id` = :id');
                          $stmt->bindValue(':id',$id,PDO::PARAM_INT);
                          $stmt->bindValue(':lactivity_two',time(),PDO::PARAM_INT);
                          $stmt->bindValue(':lactivity',time(),PDO::PARAM_INT);
+                         if ($action === 2 && $offline_reason_id > 0) {
+                             $stmt->bindValue(':offline_reason_id',$offline_reason_id,PDO::PARAM_INT);
+                         }
                          $stmt->execute();
                      } else if ($action !== 2) {
-                         $stmt = $db->prepare('INSERT INTO `lh_users_online_session` SET `time` = :time, `type` = :type, `lactivity` = :lactivity, `duration` = 0, `user_id` = :user_id');
+                         $offlineReasonCol = ($offline_reason_id > 0) ? ', `offline_reason_id` = :offline_reason_id' : '';
+                         $stmt = $db->prepare('INSERT INTO `lh_users_online_session` SET `time` = :time, `type` = :type, `lactivity` = :lactivity, `duration` = 0, `user_id` = :user_id'.$offlineReasonCol);
                          $stmt->bindValue(':lactivity',time(),PDO::PARAM_INT);
                          $stmt->bindValue(':time',time(),PDO::PARAM_INT);
                          $stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
                          $stmt->bindValue(':type',$action,PDO::PARAM_INT);
+                         if ($offline_reason_id > 0) {
+                             $stmt->bindValue(':offline_reason_id',$offline_reason_id,PDO::PARAM_INT);
+                         }
                          $stmt->execute();
                      }
                  }

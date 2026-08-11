@@ -51,6 +51,7 @@ class erLhcoreClassModelUser {
             'cache_version' => $this->cache_version,
             'llogin' => $this->llogin,
             'force_logout' => $this->force_logout,
+            'offline_reason_id' => $this->offline_reason_id
         );
    }
 
@@ -259,6 +260,7 @@ class erLhcoreClassModelUser {
     public $cache_version = 0;
     public $llogin = 0;
     public $force_logout = 0;
+    public $offline_reason_id = 0;
 
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;

@@ -395,6 +395,7 @@ try {
         	       `duration` int(11) NOT NULL, 
         	       `lactivity` int(11) NOT NULL, 
         	       `type` tinyint(1) NOT NULL DEFAULT '0',
+                   `offline_reason_id` int(11) unsigned NOT NULL DEFAULT 0,
         	       PRIMARY KEY (`id`), 
         	       KEY `user_id_lactivity` (`user_id`, `lactivity`), 
                    KEY `user_id_time` (`user_id`, `time`),
@@ -662,6 +663,7 @@ try {
 
                 $db->query("CREATE TABLE `lh_abstract_content_chunk` (`id` bigint(20) NOT NULL AUTO_INCREMENT, `name` varchar(250) NOT NULL, `in_active` tinyint(1) NOT NULL DEFAULT 0, `identifier` varchar(50) NOT NULL, `content` longtext NOT NULL, PRIMARY KEY (`id`), KEY `identifier` (`identifier`, `in_active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                 $db->query("CREATE TABLE `lh_abstract_content_chunk_dep` (`id` bigint(20) NOT NULL AUTO_INCREMENT, `chunk_id` bigint(20) NOT NULL, `dep_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `chunk_id` (`chunk_id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                $db->query("CREATE TABLE `lh_abstract_offline_reason` (`id` int(11) unsigned NOT NULL AUTO_INCREMENT, `name` varchar(250) NOT NULL, `description` text NOT NULL, `icon` varchar(250) NOT NULL, `pos` int(11) unsigned NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_cobrowse` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -2126,6 +2128,7 @@ try {
                   `attr_int_2` int(11) NOT NULL,
                   `attr_int_3` int(11) NOT NULL,
                   `force_logout` tinyint(1) unsigned NOT NULL DEFAULT '0',
+                  `offline_reason_id` int(11) unsigned NOT NULL DEFAULT '0',
                   `llogin` bigint(20) unsigned NOT NULL DEFAULT '0',
                   `always_on` tinyint(1) NOT NULL DEFAULT '0',
                   `exclude_autoasign_mails` tinyint(1) NOT NULL DEFAULT '0',
