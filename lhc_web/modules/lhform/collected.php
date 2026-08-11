@@ -50,7 +50,63 @@ if (is_numeric($Params['user_parameters_unordered']['id']) && $Params['user_para
 				exit;
 			}
 			$collected = erLhAbstractModelFormCollected::fetch((int)$Params['user_parameters_unordered']['id']);
+
+			// Clear related chat attributes set by form definition
+			if ($collected->chat_id > 0) {
+			    $chat = erLhcoreClassModelChat::fetch($collected->chat_id);
+			    if ($chat instanceof erLhcoreClassModelChat) {
+			        $contentCollected = json_decode($collected->content, true);
+			        if (is_array($contentCollected)) {
+			            $chatUpdates = [];
+			            $chatVariables = $chat->chat_variables_array;
+			            $chatVariablesChanged = false;
+			            $additionalData = $chat->additional_data_array;
+			            $additionalDataChanged = false;
+
+			            foreach ($contentCollected as $params) {
+			                if (isset($params['definition']['chat_attr'])) {
+			                    $path = explode('.', $params['definition']['chat_attr']);
+			                    if ($path[0] == 'chat' && isset($path[1])) {
+			                        $chat->{$path[1]} = '';
+			                        $chatUpdates[] = $path[1];
+			                    } elseif ($path[0] == 'chat_variable' && isset($path[1])) {
+			                        unset($chatVariables[$path[1]]);
+			                        $chatVariablesChanged = true;
+			                    }
+			                } elseif (isset($params['definition']['chat_additional']) && $params['definition']['chat_additional'] != '') {
+			                    $paramsAdditions = json_decode($params['definition']['chat_additional'], true);
+			                    if (isset($paramsAdditions['identifier'])) {
+			                        foreach ($additionalData as $index => $dataAdditional) {
+			                            if (isset($dataAdditional['identifier']) && $dataAdditional['identifier'] == $paramsAdditions['identifier']) {
+			                                unset($additionalData[$index]);
+			                                $additionalDataChanged = true;
+			                            }
+			                        }
+			                    }
+			                }
+			            }
+
+			            if ($chatVariablesChanged) {
+			                $chat->chat_variables_array = $chatVariables;
+			                $chat->chat_variables = json_encode($chatVariables);
+			                $chatUpdates[] = 'chat_variables';
+			            }
+
+			            if ($additionalDataChanged) {
+			                $chat->additional_data_array = array_values($additionalData);
+			                $chat->additional_data = json_encode(array_values($additionalData));
+			                $chatUpdates[] = 'additional_data';
+			            }
+
+			            if (!empty($chatUpdates)) {
+			                $chat->updateThis(['update' => $chatUpdates]);
+			            }
+			        }
+			    }
+			}
+
 			$collected->removeThis();
+
 		} catch (Exception $e) {
 			// Do nothing
 		}
