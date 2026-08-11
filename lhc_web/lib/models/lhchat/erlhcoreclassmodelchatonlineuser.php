@@ -472,6 +472,26 @@ class erLhcoreClassModelChatOnlineUser
             throw new \Exception('Only HTTP/HTTPS and are supported!');
         }
 
+        // Resolve hostname and reject private/loopback destinations
+        if (isset($paramsExecution['deny_local']) && $paramsExecution['deny_local'] === true) {
+            $host = $urlParts['host'] ?? '';
+            
+            if ($host === '' || $host === 'localhost') {
+                throw new \Exception('Blocked: private destination');
+            }
+
+            $resolvedIp = gethostbyname($host);
+
+            if ($resolvedIp === $host || !filter_var($resolvedIp, FILTER_VALIDATE_IP)) {
+                throw new \Exception('Blocked: unresolvable host');
+            }
+
+            if (!filter_var($resolvedIp, FILTER_VALIDATE_IP,
+                    FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+                throw new \Exception('Blocked: private/reserved IP');
+            }
+        }
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -480,7 +500,11 @@ class erLhcoreClassModelChatOnlineUser
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_USERAGENT, 'curl/7.29.0');
-        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces warning...
+
+        if (isset($paramsExecution['deny_local']) && $paramsExecution['deny_local'] === true) {
+            @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces warning...
+        }
+        
         if (!empty($headers)) {
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         }

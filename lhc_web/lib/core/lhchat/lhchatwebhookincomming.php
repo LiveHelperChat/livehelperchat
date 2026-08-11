@@ -2423,7 +2423,10 @@ class erLhcoreClassChatWebhookIncoming {
 
         if (!is_array($url)) {
 
-            $mediaContent = erLhcoreClassModelChatOnlineUser::executeRequest(str_replace(' ','%20',trim($url)), $headers, ['timeout' => 60]);
+            $mediaContent = erLhcoreClassModelChatOnlineUser::executeRequest(str_replace(' ','%20',trim($url)), $headers, [
+                'deny_local' => true, 
+                'timeout' => 60
+            ]);
 
             // File name
             $partsFilename = explode('/',strtok($url, '?'));

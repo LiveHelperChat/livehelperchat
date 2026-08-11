@@ -39,6 +39,13 @@ if ($Params['user_parameters_unordered']['mode'] == '' || $Params['user_paramete
         $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
     }
 
+    if (!is_object($chat) || !erLhcoreClassChat::hasAccessToRead($chat) || !erLhcoreClassChat::hasAccessToWrite($chat)) {
+        $tpl = erLhcoreClassTemplate::getInstance('lhkernel/error_modal.tpl.php');
+        $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat', 'No permission to access this chat.'));
+        print $tpl->fetch();
+        exit;
+    }
+    
     $tpl = erLhcoreClassTemplate::getInstance('lhchat/transfer/transferchatrefilter.tpl.php');
     $tpl->set('departments_filter', array(
         'filter' => $filter,
@@ -69,6 +76,13 @@ if ($Params['user_parameters_unordered']['mode'] == '' || $Params['user_paramete
         $chat = erLhcoreClassModelMailconvConversation::fetch($Params['user_parameters']['chat_id']);
     } else {
         $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
+    }
+
+    if (!is_object($chat) || !erLhcoreClassChat::hasAccessToRead($chat) || !erLhcoreClassChat::hasAccessToWrite($chat)) {
+        $tpl = erLhcoreClassTemplate::getInstance('lhkernel/error_modal.tpl.php');
+        $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat', 'No permission to access this chat.'));
+        print $tpl->fetch();
+        exit;
     }
 
     $tpl = erLhcoreClassTemplate::getInstance('lhchat/transfer/transferchatrefilteruser.tpl.php');
