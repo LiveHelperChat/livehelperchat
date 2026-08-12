@@ -500,10 +500,7 @@ class erLhcoreClassModelChatOnlineUser
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_USERAGENT, 'curl/7.29.0');
-
-        if (isset($paramsExecution['deny_local']) && $paramsExecution['deny_local'] === true) {
-            @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces warning...
-        }
+        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, isset($paramsExecution['deny_local']) && $paramsExecution['deny_local'] === true); // Some hostings produces warning...
         
         if (!empty($headers)) {
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
