@@ -1,21 +1,13 @@
 4.88v
 
 1. Notable changes since 4.87v
-
    - Offline reasons: introduced configurable offline reasons with the new `lh_abstract_offline_reason` model and CRUD interface; operators can select a reason (e.g. "Lunch", "Meeting") with an icon when setting themselves offline, persisted on `lh_users` and `lh_users_online_session`; offline reasons are displayed in online-hours statistics and user-box menus with a redesigned status control layout; a new `offlinereasons` permission controls access to this feature.
-   
    - Forms module overhaul: added comprehensive search and filtering for collected forms, including department filter, chat operator filter, date range, creator filter, and chat-time search; introduced field change tracking for internal forms — when an operator edits a previously submitted form, field history (old/new values and modifier) is logged; added translation support and improved template variable management for forms; refactored module navigation with proper permission checks and removed deprecated index page; enhanced embed code generation with access control; clearing chat attributes when deleting collected form data now properly reverts associated chat variables and additional data entries.
-
    - Bot enhancements: added secondary translations group support for bots, allowing an optional second translations group in bot configuration with proper validation and item retrieval from both groups; added "Trigger on bot skip" option to proactive invitations, executing triggers when a visitor skips the bot; fixed missing `last_msg_id` update after sending invitation messages.
-
    - Security hardening: refactored CAPTCHA to use browser fingerprinting (combining multiple HTTP headers) and SHA-256 hashing for improved security across chat validation, FAQ, voting, and widget modules; added more detailed CAPTCHA error messages; added `ignoreactivityglobal` permission allowing individual users to opt out of activity tracking; replaced redirect with proper permission-denied page for abstract list views; added `from_address` emptiness check to prevent mailbox sync failures on null sender addresses.
-
    - Performance and stability: improved MySQL reconnect logic by removing stale connection caching and properly resetting reconnect counters; guarded compiled config caching behind database connection checks to prevent warmup/CLI failures; wrapped `setinactive.php` in a transaction with row locking and added `syncAndLock()` to `setoffline.php` to prevent race conditions on online status updates; added `resetSession()` methods across persistent session helpers for clearing cached ezcPersistentSession instances; added server info panel showing address, name, port, software, and uptime in audit configuration.
-
    - Admin custom fields: refactored processing to prevent duplicate field values by moving admin fields after JS variable processing and tracking processed identifiers; admin custom fields with `uempty` show condition are now hidden from returning visitors who already have a non-default nickname set; added support for original author re-modifying fields.
-
    - UI and UX: updated Bootstrap badge classes from v4 to v5 (`badge-*` to `bg-*`) across GroupChat, operators template, and mailing import templates; improved assignment configuration UX; translated theme before survey rendering in `fill` and `fillwidget` modules; adjusted naming for less confusion; added server and user timestamps to audit config and login pages.
-
    - Miscellaneous: fixed #2400; added support for BOM UTF format files; added avatar caching; added search attribute support for extensions; fixed installer config validation with clearer error messages; refactored `addmsgadmin.php` input validation to handle missing input gracefully; handled edge database reconnect cases; fixed CAPTCHA time drift validation; ensured dynamic property support.
 
 2. Summary
