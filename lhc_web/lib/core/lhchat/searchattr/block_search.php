@@ -38,6 +38,18 @@ $fieldsSearch['nick'] = array (
     )
 );
 
+$fieldsSearch['btype'] = array (
+    'type' => 'text',
+    'trans' => 'Block type',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'btype',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+    )
+);
+
 $fieldSortAttr = array (
     'field'      => false,
     'default'    => false,

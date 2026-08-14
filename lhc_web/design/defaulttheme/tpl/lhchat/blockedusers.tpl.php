@@ -23,6 +23,21 @@
                 <div class="col">
                     <input type="text" class="form-control form-control-sm" name="block_id" value="<?php echo htmlspecialchars($input->block_id)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block ID');?>" />
                 </div>
+                <div class="col">
+                    <?php $btypeSelected = (isset($input->btype) && $input->btype !== '') ? (int)$input->btype : null;?>
+                    <select class="form-control form-control-sm" name="btype">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','All block types');?></option>
+                        <option value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_IP?>"<?php if ($btypeSelected === erLhcoreClassModelChatBlockedUser::BLOCK_IP) : ?> selected="selected"<?php endif; ?>>IP</option>
+                        <option value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_NICK?>"<?php if ($btypeSelected === erLhcoreClassModelChatBlockedUser::BLOCK_NICK) : ?> selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Nick');?></option>
+                        <option value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_NICK_DEP?>"<?php if ($btypeSelected === erLhcoreClassModelChatBlockedUser::BLOCK_NICK_DEP) : ?> selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Nick and Department');?></option>
+                        <option value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK?>"<?php if ($btypeSelected === erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK) : ?> selected="selected"<?php endif; ?>>IP + <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Nick');?></option>
+                        <option value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK_DEP?>"<?php if ($btypeSelected === erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK_DEP) : ?> selected="selected"<?php endif; ?>>IP + <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Nick and Department');?></option>
+                        <option value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_EMAIL?>"<?php if ($btypeSelected === erLhcoreClassModelChatBlockedUser::BLOCK_EMAIL) : ?> selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','E-mail');?></option>
+                        <option value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_COUNTRY?>"<?php if ($btypeSelected === erLhcoreClassModelChatBlockedUser::BLOCK_COUNTRY) : ?> selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Country');?></option>
+                        <option value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_ONLINE_USER?>"<?php if ($btypeSelected === erLhcoreClassModelChatBlockedUser::BLOCK_ONLINE_USER) : ?> selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Online user');?></option>
+                        <option value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_EMAIL_CONV?>"<?php if ($btypeSelected === erLhcoreClassModelChatBlockedUser::BLOCK_EMAIL_CONV) : ?> selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Sender E-mail');?></option>
+                    </select>
+                </div>
                 <div class="col-2">
                     <input type="submit" class="btn btn-sm btn-secondary w-100" name="doSearch" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Search');?>" />
                 </div>
