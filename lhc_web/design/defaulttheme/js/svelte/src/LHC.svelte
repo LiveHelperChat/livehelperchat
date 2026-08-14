@@ -255,6 +255,15 @@
         });
     });
 
+    ee.addListener('svelteResetFilters',function () {
+        if (localStorage) {
+            try {
+                localStorage.clear();
+            } catch(e) {}
+        }
+        window.location = WWW_DIR_JAVASCRIPT + 'front/settings/(action)/reset/(csfr)/' + confLH.csrf_token;
+    });
+
     let widgetsItems = [];
     widgetsItems.push('actived');
     widgetsItems.push('departmentd');
