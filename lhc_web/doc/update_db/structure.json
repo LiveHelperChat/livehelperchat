@@ -11231,7 +11231,7 @@
         "identifier": "autoclose_activity_timeout",
         "value": "0",
         "type": "0",
-        "explain": "Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n > 0 time in minutes",
+        "explain": "Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n > 0 time in minutes. Optional second argument: ,1 - close only when visitor sent the last message, ,2 - close only when operator sent the last message",
         "hidden": "0"
       },
       {

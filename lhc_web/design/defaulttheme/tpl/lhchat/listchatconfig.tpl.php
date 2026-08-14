@@ -260,10 +260,11 @@
     		    <hr>		    
     		    <?php $attribute = 'autoclose_timeout'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+				<p class="text-info fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Closes active chats where the last visitor message is older than the set time, and pending chats that only have the initial visitor message and were not accepted within the set time.')?></p>
 
                 <?php $attribute = 'autoclose_activity_timeout'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-                <p class="text-info fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Closes chat if more than a defined amount of time has passed since the last visitor/operator message.')?></p>
+                <p class="text-info fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Closes active chats where the last message (visitor or operator) is older than the set time. Without a second argument, chats with no message sent are also closed once the set time has passed since the chat started. Optionally append ,1 to close only when the visitor sent the last message, or ,2 to close only when the operator sent the last message.')?></p>
 
                 <?php $attribute = 'autoclose_abandon_pending'; $appendAttributeIdentifier = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>

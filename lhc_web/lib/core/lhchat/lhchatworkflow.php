@@ -549,14 +549,27 @@ class erLhcoreClassChatWorkflow {
             }
         }
 
-        $timeout = (int)erLhcoreClassModelChatConfig::fetch('autoclose_activity_timeout')->current_value;
+        $timeoutParts = explode(',', str_replace(' ', '', erLhcoreClassModelChatConfig::fetch('autoclose_activity_timeout')->current_value));
+        $timeout = (int)$timeoutParts[0];
         if ($timeout > 0) {
+            $mode = isset($timeoutParts[1]) ? (int)$timeoutParts[1] : 0;
             $delay = time()-($timeout*60);
-            foreach (erLhcoreClassChat::getList(array('limit' => 500, 'customfilter' => array('((
-            (last_user_msg_time = 0 AND last_op_msg_time = 0 AND time < ' . $delay . ') OR 
-            (last_user_msg_time > 0 AND last_user_msg_time >= last_op_msg_time AND last_user_msg_time < ' . $delay . ') OR 
-            (last_op_msg_time > 0 AND last_op_msg_time >= last_user_msg_time AND last_op_msg_time < ' . $delay . ') 
-            ) AND (GREATEST(`pnd_time`,`time`) + `wait_time`) < '.$delay.')'), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)))) as $chat) {
+
+            if ($mode == 1) {
+                // Close only when the last message was sent by the visitor
+                $customFilter = '(last_user_msg_time > 0 AND last_user_msg_time >= last_op_msg_time AND last_user_msg_time < ' . $delay . ' AND (GREATEST(`pnd_time`,`time`) + `wait_time`) < ' . $delay . ')';
+            } elseif ($mode == 2) {
+                // Close only when the last message was sent by the operator
+                $customFilter = '(last_op_msg_time > 0 AND last_op_msg_time >= last_user_msg_time AND last_op_msg_time < ' . $delay . ' AND (GREATEST(`pnd_time`,`time`) + `wait_time`) < ' . $delay . ')';
+            } else {
+                $customFilter = '((
+                (last_user_msg_time = 0 AND last_op_msg_time = 0 AND time < ' . $delay . ') OR 
+                (last_user_msg_time > 0 AND last_user_msg_time >= last_op_msg_time AND last_user_msg_time < ' . $delay . ') OR 
+                (last_op_msg_time > 0 AND last_op_msg_time >= last_user_msg_time AND last_op_msg_time < ' . $delay . ') 
+                ) AND (GREATEST(`pnd_time`,`time`) + `wait_time`) < ' . $delay . ')';
+            }
+
+            foreach (erLhcoreClassChat::getList(array('limit' => 500, 'customfilter' => array($customFilter), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)))) as $chat) {
                 try {
                     $db->beginTransaction();
                     $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
