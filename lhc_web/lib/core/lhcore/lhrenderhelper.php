@@ -234,6 +234,7 @@ class erLhcoreClassRenderHelper {
         $items = call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array());
         $ngModel = isset($params['ng-model']) ? ' ng-model="'.$params['ng-model'].'" ' : '';
         $ngModel .= isset($params['ng-change']) ? ' ng-change="'.$params['ng-change'].'" ' : '';
+        $ngModel .= isset($params['on_change']) ? ' onchange="'.$params['on_change'].'" ' : '';
 
         if (isset($params['show_optional']) && $params['show_optional'] == true) {
             $template .= '<li data-stoppropagation="true" class="search-option-item fw-bold"><label><input class="me-1" '. (((is_numeric($params['selected_id']) && 0 == $params['selected_id']) || (is_array($params['selected_id']) && in_array(0,$params['selected_id']))) ? 'checked="checked"' : '') .$ngModel.' type="'.$type.'" name="'.$selector.$params['input_name'] .'" value="0">Any</label></li>';
