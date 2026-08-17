@@ -100,7 +100,8 @@ const MailChat = props => {
         lmsop: 0,
         lgsync: 0,
         fetching_messages: false,
-        expand_messages: false
+        expand_messages: false,
+        expand_all: false
     });
 
     const rememberChat = (chatId) => {
@@ -433,9 +434,14 @@ const MailChat = props => {
             <div className="row">
                 <div className={"chat-main-left-column " + (props.mode == 'preview' ? 'col-12' : 'col-7')}>
 
-                    {props.mode !== 'preview' && <h1 className="pb-2">
+                    {props.mode !== 'preview' && <h1>
                         <i className="material-icons">{state.conv.start_type == 1 ? 'call_made' : 'call_received'}</i>{state.conv.undelivered && <i title="Undelivered e-mail" className="text-danger material-icons">sms_failed</i>}{state.conv.subject}
                     </h1>}
+
+                    {state.messages.length >= 2 && <div>
+                        {state.expand_all == false && <button type="button" className="btn btn-xs btn-link text-muted text-decoration-none float-end" onClick={() => dispatch({type: 'update',value: {'expand_messages': true, 'expand_all': true}})}><i className="material-icons">unfold_more</i>{t('mail.expand_all')}</button>}
+                        {state.expand_all == true && <button type="button" className="btn btn-xs btn-link text-muted text-decoration-none float-end" onClick={() => dispatch({type: 'update',value: {'expand_messages': false, 'expand_all': false}})}><i className="material-icons">unfold_less</i>{t('mail.collapse_all')}</button>}
+                    </div>}
 
                     <div>
                         {state.messages.map((message, index) => {
@@ -454,6 +460,7 @@ const MailChat = props => {
                                                             addLabel={(e) => addLabel(message)}
                                                             updateMessages={(e) => loadMainData()}
                                                             keyword={props.keyword}
+                                                            expandAll={state.expand_all}
                                                             loadMessageBody={(data) => loadMessageBody(message, data)}/></React.Fragment>;
                             }
                         })}

@@ -1,5 +1,5 @@
 import parse, { domToReact } from 'html-react-parser';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MailChatQuote from "./MailChatQuote";
 import MailChatReply from "./MailChatReply";
 import MailChatImage from "./MailChatImage";
@@ -7,7 +7,7 @@ import MailChatAttachment from "./MailChatAttachment";
 import {useTranslation} from 'react-i18next';
 import axios from "axios";
 
-const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions, fetchMessages, fetchingMessages, verifyOwner, setConversationStatus, updateMessages, loadMessageBody, keyword}) => {
+const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions, fetchMessages, fetchingMessages, verifyOwner, setConversationStatus, updateMessages, loadMessageBody, keyword, expandAll}) => {
 
     const [expandingBody, setExpandingBody] = useState(false);
     const [expandHeader, setExpandHeader] = useState(false);
@@ -16,6 +16,10 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
     const [replyMode, setReplyMode] = useState(false);
     const [forwardMode, setForwardMode] = useState(false);
     const [expandDeliveryInformation, setExpandDeliveryInformation] = useState(false);
+
+    useEffect(() => {
+        loadAndExpand(expandAll);
+    }, [expandAll]);
 
     const formatStringToCamelCase = str => {
         const splitted = str.split("-");
