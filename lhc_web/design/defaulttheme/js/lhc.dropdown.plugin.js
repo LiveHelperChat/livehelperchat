@@ -76,7 +76,7 @@ $.fn.makeDropdown = function(paramsDropdown) {
                 _thisItem.find('.btn-department-dropdown').text($(this).parent().text());
                 selectedItems.find('.delete-item').parent().remove();
                 var escapedName = $('<div>').text($(this).parent().text().trim()).html();
-                selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' + $(this).val() + '"><input type="hidden" value="' + $(this).val() + '" name="'+_thisItem.find('.btn-block-department-filter > input').attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" /><i class="material-icons chat-unread">delete</i>' + escapedName + "</a></div>");
+                selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' + $(this).val() + '"><input type="hidden" value="' + $(this).val() + '" '+ (limitMax === 1 ? 'id="id_' + _thisItem.find('.btn-block-department-filter > input').attr('data-scope') + '"' : '') +' name="'+_thisItem.find('.btn-block-department-filter > input').attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" /><i class="material-icons chat-unread">delete</i>' + escapedName + "</a></div>");
             }
         })
         _thisItem.on('click', '.dropdown-select-all', function() {
