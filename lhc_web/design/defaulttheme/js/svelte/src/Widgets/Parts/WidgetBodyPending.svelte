@@ -28,6 +28,7 @@
     export let permissions = [];
     export let custom_icons = [];
     export let custom_sort_icons = [];
+    export let hide_columns = [];
     export let column_2_width = "20%";
     export let column_1_width = "40%";
     export let column_3_width = "20%";
@@ -74,6 +75,7 @@
     {#if type === 'online_op'}
     <tr>
         {#each $lhcList[type].cl as column, columnIndex}
+            {#if hide_columns.indexOf(column) === -1}
             <th width={column == 'last_assignment' ? '5%' : (column == 'capacity' ? '15%' : (column == 'department' ? '20%' : (column == 'name' ? '36%' : 'none')))}>
                 {#if column === 'name'}
                     <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList,sort_identifier,'onn_dsc','onn_asc',true)} title={$t("widget.sort_by_online_name")}>
@@ -81,7 +83,7 @@
                         {#if !hide_ac_stats}<i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'onn_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'onn_asc'} class="material-icons">{$lhcList.toggleWidgetData[sort_identifier] == 'onn_dsc' || $lhcList.toggleWidgetData[sort_identifier] != 'onn_asc' ? 'trending_up' : 'trending_down'}</i>{/if}
                     </a>
 
-                    {#if $lhcList[type].cl.indexOf('status') === -1}
+                    {#if $lhcList[type].cl.indexOf('status') === -1 || hide_columns.indexOf('status') !== -1}
                     <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList,sort_identifier,'onl_dsc','onl_asc',true)} title={$t("widget.sort_by_online_status")}>
                         <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'onl_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'onl_asc'} class="material-icons chat-active">flash_on</i>
                         {#if !hide_ac_stats}
@@ -133,6 +135,7 @@
                 {/if}
 
             </th>
+            {/if}
         {/each}
     </tr>
     {:else}
@@ -474,6 +477,7 @@
         {#each $lhcList[type].list as chat (chat.id)}
             <tr>
                 {#each $lhcList[type].cl as column}
+                    {#if hide_columns.indexOf(column) === -1}
                     <td class:align-middle={column !== 'name'} class:text-danger={column === 'capacity' && chat.max_chats && chat.max_chats > 0 && chat.free_slots <= 0} class:text-success={column === 'capacity' && chat.max_chats && chat.max_chats > 0 && chat.free_slots >= 1}>
                         {#if column === 'name'}
                             <div class="abbr-list">
@@ -498,7 +502,7 @@
 
                                 {#if chat.avatar && !hide_op_avatar}<img class="rounded-circle" src={chat.avatar} alt="" width="20" />{/if}
                                 {#if chat.user_id != $lhcList.current_user_id && permissions.indexOf('lhgroupchat_use') !== -1}<a href="#" on:click={(e) => lhcServices.startChatOperator(chat.user_id)} title={$t("widget.start_chat")}><i class="material-icons me-0">chat</i></a>{/if}
-                                {#if $lhcList[type].cl.indexOf('status') === -1}
+                                {#if $lhcList[type].cl.indexOf('status') === -1 || hide_columns.indexOf('status') !== -1}
                                     {#if chat.offline_since_s}<i class="material-icons me-0" style:color={chat.offline_since_s.c ? chat.offline_since_s.c : null} title={$t("widget.went_offline_ago",{'ago': chat.offline_since})}>{"clock_loader_"+chat.offline_since_s.i}</i>{/if}
                                     {#if permissions.indexOf('lhuser_setopstatus') !== -1}
                                         <i class="material-icons me-0 action-image" class:text-success={chat.hide_online != 1} class:text-danger={chat.hide_online == 1} on:click={(e) => lhcServices.openModal('user/setopstatus/'+chat.user_id)} title={$t("widget.change_op_status")}>{chat.hide_online == 1 ? 'flash_off' : 'flash_on'}</i>
@@ -531,6 +535,7 @@
                             <div class="abbr-list">{chat[column] || '-'}</div>
                         {/if}
                     </td>
+                    {/if}
                 {/each}
             </tr>
         {/each}
